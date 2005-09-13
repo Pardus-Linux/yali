@@ -1,0 +1,12 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import yali
+
+def main():
+    runner = yali.default_runner()
+    runner.run()
+
+
+if __name__ == "__main__":
+    main()
