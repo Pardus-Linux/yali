@@ -45,7 +45,7 @@ class Widget(QMainWindow):
     # @param num(int): screen number
     # @param widget(QWidget): screen widget.
     def addScreen(self, stage, num, widget):
-        self.contentWidget(stage, num, widget)
+        self.contentWidget.addScreen(stage, num, widget)
 
     ##
     # Go to the next screen.
