@@ -18,7 +18,7 @@ class Widget(QListView):
         self._stages = Stages()
 
 # do we need to show stage number? Currently we don't
-#        self.addColumn(QString.null) # stage num
+#        self.addColumn(QString.null) # image
         self.addColumn(QString.null) # stage name
         self.header().hide()
 
@@ -27,7 +27,11 @@ class Widget(QListView):
         self.setFrameStyle(self.WinPanel |self.Plain)
         
         #TESTING
-        self.setFixedHeight(70)
+#        self.setFixedHeight(70)
+        f = self.font()
+        f.setBold(True)
+        self.setFont(f)
+
 
     ##
     # add a new stage
@@ -52,13 +56,23 @@ class Widget(QListView):
 
         self._stages.setCurrent(num)
 
-        # FIXME: define a way to show the current stage.
-        # An icon on the left or colorizing are both OK.
-        i = self._stages.getItem(num)
-#         self.setCurrentItem(i)
-#         i.setText("Test test")
-#         i.repaint()
-        pass
+        self.__update()
+
+
+    ##
+    # update the view. mark current item...
+    def __update(self):
+        c = self._stages.getCurrent()
+
+        for i in self._stages.getAllItems():
+            if i == c:
+                i.setPixmap(0, QPixmap("pics/right_arrow.png"))
+            else:
+                i.setPixmap(0, QPixmap("pics/dot.png"))
+#        self.setCurrentItem(i)
+#        i.setText(0, "Test test")
+#        i.repaint()
+
 
 ##
 # Stage item
@@ -68,8 +82,9 @@ class StageItem(QListViewItem):
 
     def __init__(self, parent, num, text, *args):
         apply(QLabel.__init__, (self, parent, text) + args)
-
+        
         self._num = num
+
     
     ##
     # get the stage number

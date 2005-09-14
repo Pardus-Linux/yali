@@ -66,6 +66,7 @@ class Runner:
         # TESTING:
         # But for testing purposes a 800x600 window can be OK.
         self._window.resize(800, 600)
+#        self._window.resize(1024, 768)
 
         self._app.exec_loop()
 

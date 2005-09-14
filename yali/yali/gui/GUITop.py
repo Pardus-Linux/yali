@@ -15,22 +15,15 @@ class Widget(QWidget):
 
         self.stageWidget = GUIStage.Widget(self)
 
-        top = QHBoxLayout(self)
-        top.setMargin(10)
-        top.addStretch(1)
-        top.addWidget(self.stageWidget)
-
-        # TESTING
-        self.setFixedHeight(110)
-#         f = self.font()
-#         f.setBold(True)
-#         f.setPointSize(30)
-#         self.setFont(f)
-#         self.setText("Pardus 1.0")
-#         # END TEST
-
+        self._layout = QHBoxLayout(self)
+        self._layout.addStretch(1)
+        self._layout.addWidget(self.stageWidget)
+        
     def addStage(self, num, text):
         self.stageWidget.addStage(num, text)
+
+    def setCurrentStage(self, num):
+        self.stageWidget.setCurrent(num)
 
 
     ##
@@ -40,9 +33,12 @@ class Widget(QWidget):
         # to scale properly.
         img_w = self.img.width()
         img_h = self.img.height()
-        width = self.width()
+        width = size.width()
         height = img_h * width / img_w
         self.setFixedHeight(height)
+
+        # FIXME: calculate a proper margin for widget height
+        self._layout.setMargin(height/6)
 
         # and scale image after all...
         img = self.img.smoothScale(self.size())

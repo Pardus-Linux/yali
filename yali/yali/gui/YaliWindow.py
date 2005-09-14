@@ -32,6 +32,8 @@ class Widget(QMainWindow):
 
         self.connect(self, PYSIGNAL("sizeChanged"),
                      self.topWidget.slotResize)
+        self.connect(self, PYSIGNAL("sizeChanged"),
+                     self.helpWidget.slotResize)
 
         #TESTING:
         self.setPaletteBackgroundPixmap(QPixmap("pics/back_tile.png"))
@@ -93,10 +95,12 @@ class Widget(QMainWindow):
         self.contentWidget.next()
 
         screen = self.contentWidget.currentScreen()
-        self.helpWidget.showHelp(screen)
+#        self.helpWidget.showHelp(screen)
+        #TESTING:
+        self.topWidget.setCurrentStage(2)
 
-        stage = self.contentWidget.currentStage()
-        self.stageWidget.setStage(stage)
+#        stage = self.contentWidget.currentStage()
+#        self.stageWidget.setStage(stage)
 
     ##
     # Go to the previous screen.
@@ -104,10 +108,10 @@ class Widget(QMainWindow):
         self.contentWidget.prev()
 
         screen = self.contentWidget.currentScreen()
-        self.helpWidget.showHelp(screen)
+#        self.helpWidget.showHelp(screen)
 
-        stage = self.contentWidget.currentStage()
-        self.stageWidget.setStage(stage)
+#        stage = self.contentWidget.currentStage()
+#        self.stageWidget.setStage(stage)
 
 
     ##

@@ -12,15 +12,8 @@ class Widget(QWidget):
         img = QLabel(self)
         img.setPixmap(QPixmap("pics/welcome.png"))
         
+        hbox = QHBoxLayout(self)
+        hbox.addStretch(1)
+        hbox.addWidget(img)
+        hbox.addStretch(1)
 
-        top = QHBoxLayout(self)
-        top.setMargin(10)
-        top.addStretch(1)
-        top.addWidget(img)
-
-#    def paintEvent(self, e):
-        # FIXME: We should also change the widget's height regarding
-        # the original image to scale properly.
-        # DON'T use paintEvet. Instead grab the resized signal from YaliWindow
-#        img = self.img.smoothScale(self.size())
-#        self.setPaletteBackgroundPixmap(QPixmap(img))

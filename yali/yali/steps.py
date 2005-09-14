@@ -55,6 +55,9 @@ class Steps:
     def getItem(self, num):
         return self._steps[num]
 
+    def getAllItems(self):
+        return self._steps.values()
+
 
 ##
 # Stages of installation.
