@@ -39,24 +39,25 @@ class Widget(QMainWindow):
         main.setSpacing(10)
         main.setMargin(0)
 
-        top = QHBoxLayout(self)
+        top = QHBoxLayout()
         top.setSpacing(10)
         top.addWidget(self.labelWidget)
         top.addWidget(self.stageWidget)
 
-        center = QHBoxLayout(self)
+        center = QHBoxLayout()
 #        center = setSpacing(10)
         center.addWidget(self.contentWidget)
         
-        centerRight = QVBoxLayout(self)
+        centerRight = QVBoxLayout()
         centerRight.setSpacing(10)
         centerRight.addWidget(self.helpWidget)
 
-        buttons = QHBoxLayout(self)
+        buttons = QHBoxLayout()
         buttons.setSpacing(10)
         buttons.addWidget(self.backButton)
         buttons.addWidget(self.forwardButton)
-
+        
+        centerRight.addStretch(1)
         centerRight.addLayout(buttons)
         center.addLayout(centerRight)
 
