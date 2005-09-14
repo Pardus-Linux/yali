@@ -22,13 +22,47 @@ class Widget(QMainWindow):
         self.forwardButton = GUINavButton.forwardButton(self)
         self.backButton = GUINavButton.backButton(self)
 
-        # Place the widgets using layouts and so, handle other events
-        # and yada, yada, yada...
+        # Place the widgets using layouts and yada, yada, yada...
+        self.__setUpWidgets()
 
         self.connect(self.forwardButton, PYSIGNAL("clicked"),
                      self.slotNextScreen)
         self.connect(self.backButton, PYSIGNAL("clicked"),
                      self.slotPrevScreen)
+
+    ##
+    # set up the main window layout...
+    def __setUpWidgets(self):
+#        l = self.layout()
+
+        main = QVBoxLayout(self)
+        main.setSpacing(10)
+        main.setMargin(0)
+
+        top = QHBoxLayout(self)
+        top.setSpacing(10)
+        top.addWidget(self.labelWidget)
+        top.addWidget(self.stageWidget)
+
+        center = QHBoxLayout(self)
+#        center = setSpacing(10)
+        center.addWidget(self.contentWidget)
+        
+        centerRight = QVBoxLayout(self)
+        centerRight.setSpacing(10)
+        centerRight.addWidget(self.helpWidget)
+
+        buttons = QHBoxLayout(self)
+        buttons.setSpacing(10)
+        buttons.addWidget(self.backButton)
+        buttons.addWidget(self.forwardButton)
+
+        centerRight.addLayout(buttons)
+        center.addLayout(centerRight)
+
+        main.addLayout(top)
+        main.addLayout(center)
+
 
     ##
     # Add a new stage. stageWidget will handle the inner details

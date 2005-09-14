@@ -13,7 +13,7 @@ class Widget(QListView):
     _color_inactive = "#999999"
 
     def __init__(self, *args):
-        apply(QLabel.__init__, (self,) + args)
+        apply(QListView.__init__, (self,) + args)
 
         self._stages = Stages()
 
@@ -22,6 +22,8 @@ class Widget(QListView):
         self.addColumn(QString.null) # stage name
         self.header().hide()
 
+        self.setSizePolicy( QSizePolicy(QSizePolicy.Preferred,
+                                        QSizePolicy.Preferred))
 
     ##
     # add a new stage
@@ -31,14 +33,15 @@ class Widget(QListView):
         self._stages.addStage(num, text)
         # add a listview item...
         i = StageItem(self, num, text)
-        
 
+        # FIXME: use an update() function
+        self.setColumnWidth( 0, self.columnWidth( 0 ) + 10 );
 
     ##
     # set the current stage
     # @param num(int): stage number to be the current.
     def setCurrent(self, num):
-        if num = self._stages.getCurrentIndex():
+        if num == self._stages.getCurrentIndex():
             return
 
         self._stages.setCurrent(num)

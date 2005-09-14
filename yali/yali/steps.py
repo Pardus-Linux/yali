@@ -21,7 +21,7 @@ class Steps:
     # @param step(ANY): step data.
     def addStep(self, index, step):
         
-        if self._steps[index]:
+        if self._steps.has_key(index):
             e = "index %d is present." % index
             #should find a way to get debug status.
             #I know optparser is my friend :)
