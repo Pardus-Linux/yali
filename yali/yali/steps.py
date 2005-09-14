@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# There are two different steps one must pass during the
+# In GUI there are two different steps one must pass during the
 # installation: stages and screens. User will only interact with
 # screens and will see and and indicator showing the stages.
 # Basicly installer will fulfill the process passing three main
@@ -8,6 +8,7 @@
 # 'basic setup'. Each stage can have different number of screens
 # though...
 
+from yali.exception import YaliError, YaliException
 
 class Steps:
 
@@ -58,49 +59,8 @@ class Steps:
     def getAllItems(self):
         return self._steps.values()
 
+    def getAllIndexes(self):
+        return self._steps.keys()
 
-##
-# Stages of installation.
-class Stages(Steps):
-
-    def __init__(self):
-        Steps.__init__(self)
-
-    ##
-    # add new a stage
-    # @param index(int): index number.
-    # @param data(ANY): stage data, posibbly text
-    def addStage(self, index, data):
-        self.addStep(index, data)
-
-    ##
-    # Sets the current stage and logs.
-    # @param index(int): stage index to be the current.
-    def setCurrent(self, index):
-        Steps.setCurrent(self, index)
-        # We definetely need a logger :)
-        #yali.logger.log("Changed stage to %s." % self._steps.getCurrent())
-
-
-
-##
-# Screens...
-class Screens(Steps):
-
-    def __init__(self):
-        Steps.__init__(self)
-
-    ##
-    # add new a screen
-    # @param index(int): index number.
-    # @param data(ANY): screen data. Can be a QWidget for GUI implementation.
-    def addScreen(self, index, data):
-        self.addStep(index, data)
-
-    ##
-    # Sets the current screen and logs.
-    # @param index(int): screen index to be the current.
-    def setCurrent(self, index):
-        Steps.setCurrent(self, index)
-        # FIXME: is it feasible to write the widget object in GUI mode???
-        #yali.logger.log("Changed screen to %s." % self._steps.getCurrent())
+    def hasIndex(self, num):
+        return self._steps.has_key(num)
