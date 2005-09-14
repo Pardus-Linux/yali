@@ -15,6 +15,9 @@ class Widget(QTextView):
 
         self.setFrameStyle(self.StyledPanel | self.Sunken)
 
+        #TESTING:
+        self.setFixedWidth(200)
+
     ##
     # Set help text from a file
     # @param help_file (string) file containing the help text.

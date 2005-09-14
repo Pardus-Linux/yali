@@ -32,8 +32,18 @@ class Widget(QWidget):
     def addStage(self, num, text):
         self.stageWidget.addStage(num, text)
 
-    def paintEvent(self, e):
-        # FIXME: We should also change the widget's height regarding
-        # the original image to scale properly.
+
+    ##
+    # resize the widget (and background image)
+    def slotResize(self, obj, size):
+        # We change the widget's height regarding the original image
+        # to scale properly.
+        img_w = self.img.width()
+        img_h = self.img.height()
+        width = self.width()
+        height = img_h * width / img_w
+        self.setFixedHeight(height)
+
+        # and scale image after all...
         img = self.img.smoothScale(self.size())
         self.setPaletteBackgroundPixmap(QPixmap(img))

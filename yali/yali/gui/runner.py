@@ -8,7 +8,7 @@ import YaliWindow
 # screens
 # FIXME
 # I haven't forget the localization part, just left it for later.
-# import Welcome
+import Welcome
 # import Partitioning
 # import InstallSystem
 # import SetupUsers
@@ -30,8 +30,9 @@ class Runner:
             {'num': 3, 'text': "Basic setup"}
             ]
 
-#         screens = [
-#             {'stage': 1, 'module': Welcome},
+        screens = [
+             {'stage': 1, 'module': Welcome}
+             ]
 #             {'stage': 1, 'module': Partitioning},
 #             {'stage': 2, 'module': InstallSystem},
 #             {'stage': 3, 'module': SetupUsers},
@@ -44,10 +45,10 @@ class Runner:
         for stage in stages:
             w.addStage(stage['num'], stage['text'])
 
-#         num = 0
-#         for screen in screens:
-#             num += 1
-#             w.addScreen(screen['stage'], num, screen['module'].Widget())
+        num = 0
+        for screen in screens:
+            num += 1
+            w.addScreen(screen['stage'], num, screen['module'].Widget())
 
         self._window = w
 
@@ -61,8 +62,8 @@ class Runner:
 
         self._window.show()
         # We want it to be a full-screen window.
-        #self._window.resize(app.desktop().size())
-        # FIXME:
+#        self._window.resize(self._app.desktop().size())
+        # TESTING:
         # But for testing purposes a 800x600 window can be OK.
         self._window.resize(800, 600)
 

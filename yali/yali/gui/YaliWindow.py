@@ -30,6 +30,9 @@ class Widget(QMainWindow):
         self.connect(self.backButton, PYSIGNAL("clicked"),
                      self.slotPrevScreen)
 
+        self.connect(self, PYSIGNAL("sizeChanged"),
+                     self.topWidget.slotResize)
+
         #TESTING:
         self.setPaletteBackgroundPixmap(QPixmap("pics/back_tile.png"))
 
@@ -39,17 +42,19 @@ class Widget(QMainWindow):
 #        l = self.layout()
 
         main = QVBoxLayout(self)
-        main.setSpacing(10)
-        main.setMargin(20)
+        main.setSpacing(0)
+        main.setMargin(0)
 
         main.addWidget(self.topWidget)
 
         center = QHBoxLayout()
         center.setSpacing(20)
+        center.setMargin(20)
         center.addWidget(self.contentWidget)
         
         centerRight = QVBoxLayout()
         centerRight.setSpacing(10)
+        centerRight.setMargin(0)
         centerRight.addWidget(self.helpWidget)
 
         buttons = QHBoxLayout()
@@ -103,3 +108,10 @@ class Widget(QMainWindow):
 
         stage = self.contentWidget.currentStage()
         self.stageWidget.setStage(stage)
+
+
+    ##
+    # resizeEvent notifies others..
+    # @param e(QResizeEvent): Qt resize event
+    def resizeEvent(self, e):
+        self.emit(PYSIGNAL("sizeChanged"), (self, e.size()))

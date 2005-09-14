@@ -32,6 +32,10 @@ class Widget(QWidgetStack):
         # FIXME: provide a way to define stage. possibly in Screens...
         self._screens.addScreen(num, w)
 
+
+    def currentScreen(self):
+        return self._screens.getCurrentIndex()
+
     ##
     # go to the next screen.
     def next(self):
