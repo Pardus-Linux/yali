@@ -49,50 +49,55 @@ class Steps:
     def getCurrentIndex(self):
         return self._current
 
+    ##
+    # Get item by index number
+    # @param num(int): index number
+    def getItem(self, num):
+        return self._steps[num]
 
 
 ##
-# Stages of installation. Uses Steps with delegation.
-class Stages:
+# Stages of installation.
+class Stages(Steps):
 
     def __init__(self):
-        self._steps = Steps()
+        Steps.__init__(self)
 
     ##
     # add new a stage
     # @param index(int): index number.
-    # @param name(string): stage name.
-    def addStage(self, index, name):
-        self._steps.addStep(index, name)
+    # @param data(ANY): stage data, posibbly text
+    def addStage(self, index, data):
+        self.addStep(index, data)
 
     ##
     # Sets the current stage and logs.
     # @param index(int): stage index to be the current.
     def setCurrent(self, index):
-        self._steps.setCurrent(index)
+        Steps.setCurrent(self, index)
         # We definetely need a logger :)
         #yali.logger.log("Changed stage to %s." % self._steps.getCurrent())
 
 
 
 ##
-# Screens... Uses Steps with delegation as well.
-class Screens:
+# Screens...
+class Screens(Steps):
 
     def __init__(self):
-        self._steps = Steps()
+        Steps.__init__(self)
 
     ##
     # add new a screen
     # @param index(int): index number.
     # @param data(ANY): screen data. Can be a QWidget for GUI implementation.
     def addScreen(self, index, data):
-        self._steps.addStep(index, data)
+        self.addStep(index, data)
 
     ##
     # Sets the current screen and logs.
     # @param index(int): screen index to be the current.
     def setCurrent(self, index):
-        self._steps.setCurrent(index)
+        Steps.setCurrent(self, index)
         # FIXME: is it feasible to write the widget object in GUI mode???
         #yali.logger.log("Changed screen to %s." % self._steps.getCurrent())

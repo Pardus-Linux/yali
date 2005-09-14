@@ -22,19 +22,24 @@ class Widget(QListView):
         self.addColumn(QString.null) # stage name
         self.header().hide()
 
-        self.setSizePolicy( QSizePolicy(QSizePolicy.Preferred,
-                                        QSizePolicy.Preferred))
+        self.setSizePolicy( QSizePolicy(QSizePolicy.Minimum,
+                                        QSizePolicy.Minimum))
+        
+        #TESTING
+        self.setFixedHeight(70)
 
     ##
     # add a new stage
     # @param num(int): stage number
     # @param text(string): stage text
     def addStage(self, num, text):
-        self._stages.addStage(num, text)
         # add a listview item...
         i = StageItem(self, num, text)
 
+        self._stages.addStage(num, i)
+
         # FIXME: use an update() function
+        self.setCurrent(self._stages.getCurrentIndex())
         self.setColumnWidth( 0, self.columnWidth( 0 ) + 10 );
 
     ##
@@ -48,6 +53,10 @@ class Widget(QListView):
 
         # FIXME: define a way to show the current stage.
         # An icon on the left or colorizing are both OK.
+        i = self._stages.getItem(num)
+#         self.setCurrentItem(i)
+#         i.setText("Test test")
+#         i.repaint()
         pass
 
 ##

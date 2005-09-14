@@ -10,11 +10,10 @@ class Widget(QTextView):
     def __init__(self, *args):
         apply(QTextView.__init__, (self,) + args)
 
-        sp = QSizePolicy(QSizePolicy.Maximum,
-                         QSizePolicy.Preferred)
-        self.setSizePolicy(sp)
+        self.setSizePolicy( QSizePolicy(QSizePolicy.Preferred,
+                                        QSizePolicy.Expanding))
 
-        self.setFrameStyle(self.NoFrame | self.Raised)
+        self.setFrameStyle(self.StyledPanel | self.Sunken)
 
     ##
     # Set help text from a file

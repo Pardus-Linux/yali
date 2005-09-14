@@ -15,7 +15,13 @@ class Widget(QWidgetStack):
 
         self._screens = Screens()
 
+        self.setSizePolicy(QSizePolicy(QSizePolicy.Expanding,
+                                       QSizePolicy.Expanding))
+
         self.setFrameStyle(self.StyledPanel | self.Sunken)
+
+        #TESTING:
+        self.setPaletteBackgroundColor(QColor(255,255,255))
 
     ##
     # add a new screen.
