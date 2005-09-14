@@ -24,6 +24,7 @@ class Widget(QListView):
 
         self.setSizePolicy( QSizePolicy(QSizePolicy.Minimum,
                                         QSizePolicy.Minimum))
+        self.setFrameStyle(self.WinPanel |self.Plain)
         
         #TESTING
         self.setFixedHeight(70)

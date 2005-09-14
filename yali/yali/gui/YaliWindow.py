@@ -2,8 +2,9 @@
 
 from qt import *
 
-import GUIProductLabel
-import GUIStage
+#import GUIProductLabel
+#import GUIStage
+import GUITop
 import GUIContentStack
 import GUIHelp
 import GUINavButton
@@ -15,8 +16,9 @@ class Widget(QMainWindow):
     def __init__(self, *args):
         apply(QMainWindow.__init__, (self,) + args)
 
-        self.labelWidget = GUIProductLabel.Widget(self)
-        self.stageWidget = GUIStage.Widget(self)
+#        self.labelWidget = GUIProductLabel.Widget(self)
+        self.topWidget = GUITop.Widget(self)
+#        self.stageWidget = GUIStage.Widget(self)
         self.contentWidget = GUIContentStack.Widget(self)
         self.helpWidget = GUIHelp.Widget(self)
         self.forwardButton = GUINavButton.forwardButton(self)
@@ -39,11 +41,12 @@ class Widget(QMainWindow):
         main.setSpacing(10)
         main.setMargin(20)
 
-        top = QHBoxLayout()
+        main.addWidget(self.topWidget)
+#        top = QHBoxLayout()
 #        top.setSpacing(10)
-        top.addWidget(self.labelWidget)
-        top.addStretch(1)
-        top.addWidget(self.stageWidget)
+#        top.addWidget(self.labelWidget)
+#        top.addStretch(1)
+#        top.addWidget(self.stageWidget)
 
         center = QHBoxLayout()
         center.setSpacing(20)
@@ -62,7 +65,7 @@ class Widget(QMainWindow):
         centerRight.addLayout(buttons)
         center.addLayout(centerRight)
 
-        main.addLayout(top)
+#        main.addLayout(top)
         main.addLayout(center)
 
 
@@ -72,7 +75,8 @@ class Widget(QMainWindow):
     # @param num(int): stage number
     # @param text(string): stage text
     def addStage(self, num, text):
-        self.stageWidget.addStage(num, text)
+        # FIXME: wtf? we should use stagewidget not topWidget here...
+        self.topWidget.addStage(num, text)
 
     ##
     # Add a new screen. contentWidget will handle the inner details
