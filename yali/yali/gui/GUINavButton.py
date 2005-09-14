@@ -4,33 +4,36 @@ from qt import *
 
 def forwardButton(parent):
     w = NavButton(parent)
-    w.setIcon("forward.png")
-    # TESTING:
-    w.setText("Forward")
+    w.setIcon("button_forward.png")
     return w
 
 def backButton(parent):
     w = NavButton(parent)
-    w.setIcon("back.png")
-    # TESTING:
-    w.setText("Back")
+    w.setIcon("button_back.png")
     return w
 
 
-# TESTING with QPushButton
-
-class NavButton(QPushButton):
+class NavButton(QWidget):
 
     def __init__(self, *args):
-        apply(QPushButton.__init__, (self,) + args)
+        apply(QWidget.__init__, (self,) + args)
+    
+        l = QVBoxLayout(self)
+        self.label = QLabel(self)
+        l.addWidget(self.label)
 
         # FIXME:
         # build the widget layout... or should be use QPushButton?
+        # don't use fixed sizes
+        # find a way to paint button background.
+        self.setFixedSize(64, 64)
+        self.setPaletteBackgroundPixmap(QPixmap())
 
     def setIcon(self, icon_name):
-        icon_path = "path/to/icons" + icon_name
+        # FIXME: don't hard-code paths!!!
+        icon_path = "pics/" + icon_name
         pix = QPixmap(icon_path)
-#        self._icon.setPixmap(pix)
+        self.label.setPixmap(pix)
 
     def mouseReleaseEvent(self, e):
         self.emit(PYSIGNAL("clicked"), ())

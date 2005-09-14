@@ -2,7 +2,6 @@
 
 from qt import *
 
-#import GUIProductLabel
 #import GUIStage
 import GUITop
 import GUIContentStack
@@ -16,7 +15,6 @@ class Widget(QMainWindow):
     def __init__(self, *args):
         apply(QMainWindow.__init__, (self,) + args)
 
-#        self.labelWidget = GUIProductLabel.Widget(self)
         self.topWidget = GUITop.Widget(self)
 #        self.stageWidget = GUIStage.Widget(self)
         self.contentWidget = GUIContentStack.Widget(self)
@@ -32,6 +30,9 @@ class Widget(QMainWindow):
         self.connect(self.backButton, PYSIGNAL("clicked"),
                      self.slotPrevScreen)
 
+        #TESTING:
+        self.setPaletteBackgroundPixmap(QPixmap("pics/back_tile.png"))
+
     ##
     # set up the main window layout...
     def __setUpWidgets(self):
@@ -42,11 +43,6 @@ class Widget(QMainWindow):
         main.setMargin(20)
 
         main.addWidget(self.topWidget)
-#        top = QHBoxLayout()
-#        top.setSpacing(10)
-#        top.addWidget(self.labelWidget)
-#        top.addStretch(1)
-#        top.addWidget(self.stageWidget)
 
         center = QHBoxLayout()
         center.setSpacing(20)
@@ -65,7 +61,6 @@ class Widget(QMainWindow):
         centerRight.addLayout(buttons)
         center.addLayout(centerRight)
 
-#        main.addLayout(top)
         main.addLayout(center)
 
 
