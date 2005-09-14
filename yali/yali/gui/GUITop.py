@@ -19,8 +19,8 @@ class Widget(QWidget):
         self._layout.addStretch(1)
         self._layout.addWidget(self.stageWidget)
         
-    def addStage(self, num, text):
-        self.stageWidget.addStage(num, text)
+    def slotAddStage(self, obj, text):
+        self.stageWidget.slotAddStage(obj, text)
 
     def setCurrentStage(self, num):
         self.stageWidget.setCurrent(num)

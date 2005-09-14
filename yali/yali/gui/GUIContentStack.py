@@ -2,46 +2,41 @@
 
 from qt import *
 
-from yali.steps import Screens
+import yali.gui.context as ctx
 
 ##
 # ContentStack widget
 class Widget(QWidgetStack):
 
-    _screens = None
-
     def __init__(self, *args):
         apply(QWidgetStack.__init__, (self,) + args)
-
-        self._screens = Screens()
 
         self.setSizePolicy(QSizePolicy(QSizePolicy.Expanding,
                                        QSizePolicy.Expanding))
 
         self.setFrameStyle(self.StyledPanel | self.Sunken)
 
+        self.connect(ctx.screens, PYSIGNAL("signalAddScreen"),
+                     self.slotAddScreen)
+
+        self.connect(ctx.screens, PYSIGNAL("signalCurrent"),
+                     self.slotScreenChanged)
+
         #TESTING:
         self.setPaletteBackgroundColor(QColor(255,255,255))
 
     ##
     # add a new screen.
+    # @param obj(QObject): object that emits the signal.
     # @param w(QWidget): screen widget
-    def addScreen(self, stage, num, w):
+    def slotAddScreen(self, obj, w ):
         self.addWidget(w)
-
-        # FIXME: provide a way to define stage. possibly in Screens...
-        self._screens.addScreen(num, w)
+        print "new screen", w
 
 
-    def currentScreen(self):
-        return self._screens.getCurrentIndex()
+    def slotScreenChanged(self, obj, index):
+        scr = index - 1
+        self.raiseWidget(scr)
+        print "screenChanged", scr
 
-    ##
-    # go to the next screen.
-    def next(self):
-        pass
-
-    ##
-    # go to the previous screen.
-    def prev(self):
-        pass
+        # FIXME: save the old screen's data in SystemConfiguration

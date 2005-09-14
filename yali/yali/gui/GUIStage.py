@@ -2,91 +2,78 @@
 
 from qt import *
 
-from yali.steps import Stages
+import yali.gui.context as ctx
 
 ##
 # Stage widget
 class Widget(QListView):
 
-    _stages = None
     _color_current = "#000000"
     _color_inactive = "#999999"
 
     def __init__(self, *args):
         apply(QListView.__init__, (self,) + args)
 
-        self._stages = Stages()
-
-# do we need to show stage number? Currently we don't
-#        self.addColumn(QString.null) # image
         self.addColumn(QString.null) # stage name
         self.header().hide()
 
         self.setSizePolicy( QSizePolicy(QSizePolicy.Minimum,
                                         QSizePolicy.Minimum))
         self.setFrameStyle(self.WinPanel |self.Plain)
-        
-        #TESTING
-#        self.setFixedHeight(70)
+
         f = self.font()
         f.setBold(True)
         self.setFont(f)
 
+        self.setSelectionMode(self.NoSelection)
+        self.setFocusPolicy(self.NoFocus)
+        self.setVScrollBarMode(self.AlwaysOff)
+
+        
+        self.connect(ctx.stages, PYSIGNAL("signalAddStage"),
+                     self.slotAddStage)
+
+        self.connect(ctx.stages, PYSIGNAL("signalCurrent"),
+                     self.slotStageChanged)
+
 
     ##
     # add a new stage
-    # @param num(int): stage number
+    # @param obj(QObject): QObject that emits the signal.
     # @param text(string): stage text
-    def addStage(self, num, text):
+    def slotAddStage(self, obj, text):
         # add a listview item...
-        i = StageItem(self, num, text)
+        i = StageItem(self, text)
 
-        self._stages.addStage(num, i)
-
-        # FIXME: use an update() function
-        self.setCurrent(self._stages.getCurrentIndex())
-        self.setColumnWidth( 0, self.columnWidth( 0 ) + 10 );
+        self.setColumnWidth( 0, self.columnWidth( 0 ) + 10 )
 
     ##
-    # set the current stage
+    # set the current stage. Iterate over the listview items and set
+    # the icons.
+    # @param obj(QObject): QObject that emits the signal.
     # @param num(int): stage number to be the current.
-    def setCurrent(self, num):
-        if num == self._stages.getCurrentIndex():
-            return
+    def slotStageChanged(self, obj, num):
 
-        self._stages.setCurrent(num)
+        iterator = QListViewItemIterator(self)
+        current = iterator.current()
+        i = 0
+        while current:
+            # stages start from 1 and ListViewItems start from 0. So
+            # we increase 'i' at first.
+            i += 1 
 
-        self.__update()
-
-
-    ##
-    # update the view. mark current item...
-    def __update(self):
-        c = self._stages.getCurrent()
-
-        for i in self._stages.getAllItems():
-            if i == c:
-                i.setPixmap(0, QPixmap("pics/right_arrow.png"))
+            if i == num:
+                iterator.current().setPixmap(0, QPixmap("pics/right_arrow.png"))
             else:
-                i.setPixmap(0, QPixmap("pics/dot.png"))
-#        self.setCurrentItem(i)
-#        i.setText(0, "Test test")
-#        i.repaint()
+                iterator.current().setPixmap(0, QPixmap("pics/dot.png"))
+
+            iterator += 1
+            current = iterator.current()
 
 
 ##
 # Stage item
 class StageItem(QListViewItem):
 
-    _num = None
-
-    def __init__(self, parent, num, text, *args):
+    def __init__(self, parent, text, *args):
         apply(QLabel.__init__, (self, parent, text) + args)
-        
-        self._num = num
-
-    
-    ##
-    # get the stage number
-    def getNumber(self):
-        return self._num
