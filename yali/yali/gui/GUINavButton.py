@@ -17,6 +17,7 @@ class NavButton(QWidget):
 
     _pix = None
     _pix_over = None
+    _pix_pressed = None
 
     def __init__(self, *args):
         apply(QWidget.__init__, (self,) + args)
@@ -45,10 +46,17 @@ class NavButton(QWidget):
         icon_path = "pics/" + "over_" + icon_name
         self._pix_over = QPixmap(icon_path)
 
+        icon_path = "pics/" + "pressed_" + icon_name
+        self._pix_pressed = QPixmap(icon_path)
+
         self.label.setPixmap(self._pix)
 
     def mouseReleaseEvent(self, e):
         self.emit(PYSIGNAL("signalClicked"), ())
+        self.label.setPixmap(self._pix)
+
+    def mousePressEvent(self, e):
+        self.label.setPixmap(self._pix_pressed)
 
     def enterEvent(self, e):
         self.label.setPixmap(self._pix_over)
