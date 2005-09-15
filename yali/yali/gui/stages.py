@@ -19,7 +19,8 @@ class Stages(QObject, Steps):
     # @param text(string): stage text
     def addStage(self, index, text):
         self.addStep(index, text)
-        self.emit(PYSIGNAL("signalAddStage"), (self, text))
+        self.emit(PYSIGNAL("signalAddStage"), (self,
+                                               "%d. %s" % (index, text)))
 
     ##
     # Sets the current stage and logs.
