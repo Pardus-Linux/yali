@@ -16,6 +16,8 @@ class Widget(QTextView):
 
         self.setFrameStyle(self.WinPanel | self.Plain)
 
+        self.setPaletteBackgroundColor(QColor(204,204,204))
+
         self.connect(ctx.screens, PYSIGNAL("signalCurrent"),
                      self.slotScreenChanged)
 

@@ -19,7 +19,9 @@ class Widget(QListView):
 
         self.setSizePolicy( QSizePolicy(QSizePolicy.Minimum,
                                         QSizePolicy.Minimum))
-        self.setFrameStyle(self.WinPanel |self.Plain)
+        self.setFrameStyle(self.NoFrame)
+
+        self.setPaletteBackgroundColor(QColor(255,203,3))
 
         f = self.font()
         f.setBold(True)
@@ -45,7 +47,7 @@ class Widget(QListView):
         # add a listview item...
         i = StageItem(self, text)
 
-        self.setColumnWidth( 0, self.columnWidth( 0 ) + 10 )
+        self.setColumnWidth( 0, self.columnWidth( 0 ) + 20 )
 
     ##
     # set the current stage. Iterate over the listview items and set
