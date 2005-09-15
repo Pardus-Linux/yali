@@ -13,7 +13,8 @@ class Widget(QTextView):
         self.setSizePolicy( QSizePolicy(QSizePolicy.Preferred,
                                         QSizePolicy.Expanding))
 
-        self.setFrameStyle(self.StyledPanel | self.Sunken)
+#        self.setFrameStyle(self.StyledPanel | self.Sunken)
+        self.setFrameStyle(self.WinPanel | self.Plain)
 
     ##
     # Set help text from a file

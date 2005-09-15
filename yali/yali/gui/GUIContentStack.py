@@ -14,7 +14,7 @@ class Widget(QWidgetStack):
         self.setSizePolicy(QSizePolicy(QSizePolicy.Expanding,
                                        QSizePolicy.Expanding))
 
-        self.setFrameStyle(self.StyledPanel | self.Sunken)
+        self.setFrameStyle(self.WinPanel | self.Plain)
 
         self.connect(ctx.screens, PYSIGNAL("signalAddScreen"),
                      self.slotAddScreen)
@@ -31,12 +31,10 @@ class Widget(QWidgetStack):
     # @param w(QWidget): screen widget
     def slotAddScreen(self, obj, w ):
         self.addWidget(w)
-        print "new screen", w
 
 
     def slotScreenChanged(self, obj, index):
         scr = index - 1
         self.raiseWidget(scr)
-        print "screenChanged", scr
 
         # FIXME: save the old screen's data in SystemConfiguration
