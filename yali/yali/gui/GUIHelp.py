@@ -13,7 +13,6 @@ class Widget(QTextView):
         self.setSizePolicy( QSizePolicy(QSizePolicy.Preferred,
                                         QSizePolicy.Expanding))
 
-#        self.setFrameStyle(self.StyledPanel | self.Sunken)
         self.setFrameStyle(self.WinPanel | self.Plain)
 
     ##
@@ -26,5 +25,8 @@ class Widget(QTextView):
     # resize the widget
     def slotResize(self, obj, size):
         w = size.width()
-        # FIXME:  calculate a proper size for widget width
+        h = size.height()
+
+        # FIXME:  calculate a proper size for the widget
         self.setFixedWidth(w/4)
+        self.setFixedHeight(4 * (h/7))
