@@ -53,7 +53,7 @@ class NavButton(QWidget):
 
     def mouseReleaseEvent(self, e):
         self.emit(PYSIGNAL("signalClicked"), ())
-        self.label.setPixmap(self._pix)
+        self.label.setPixmap(self._pix_over)
 
     def mousePressEvent(self, e):
         self.label.setPixmap(self._pix_pressed)
