@@ -2,6 +2,8 @@
 
 from qt import *
 
+from yali.gui.partitionlist import PartitionList
+
 ##
 # Partitioning screen.
 class Widget(QWidget):
@@ -9,11 +11,10 @@ class Widget(QWidget):
     def __init__(self, *args):
         apply(QWidget.__init__, (self,) + args)
         
-        img = QLabel(self)
-        img.setText("Partitioning: Not implemented yet!")
+        partlist = PartitionList(self)
         
         hbox = QHBoxLayout(self)
         hbox.addStretch(1)
-        hbox.addWidget(img)
+        hbox.addWidget(partlist)
         hbox.addStretch(1)
 
