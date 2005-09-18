@@ -5,7 +5,7 @@ from qt import *
 
 import yali.storage
 
-from yali.gui.partitionlist import PartListWidget
+from yali.gui.partlistwidget import PartListWidget
 #from yali.gui.parteditwidget import PartEditWidget
 
 
