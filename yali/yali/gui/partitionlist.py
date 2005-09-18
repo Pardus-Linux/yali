@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'partitionlist.ui'
 #
-# Created: Cum Eyl 16 15:51:30 2005
+# Created: Paz Eyl 18 22:06:28 2005
 #      by: The PyQt User Interface Compiler (pyuic) 3.13
 #
 # WARNING! All changes made in this file will be lost!
@@ -11,16 +11,16 @@
 from qt import *
 
 
-class PartitionList(QWidget):
+class PartListWidget(QWidget):
     def __init__(self,parent = None,name = None,fl = 0):
         QWidget.__init__(self,parent,name,fl)
 
         if not name:
-            self.setName("PartitionList")
+            self.setName("PartListWidget")
 
-        self.setSizePolicy(QSizePolicy(1,5,0,0,self.sizePolicy().hasHeightForWidth()))
+        self.setSizePolicy(QSizePolicy(5,5,0,0,self.sizePolicy().hasHeightForWidth()))
 
-        PartitionListLayout = QGridLayout(self,1,1,11,6,"PartitionListLayout")
+        PartListWidgetLayout = QGridLayout(self,1,1,11,6,"PartListWidgetLayout")
 
         layout3 = QVBoxLayout(None,0,5,"layout3")
 
@@ -29,9 +29,12 @@ class PartitionList(QWidget):
         self.textLabel1 = QLabel(self,"textLabel1")
         layout2.addWidget(self.textLabel1)
 
-        self.listView1 = QListView(self,"listView1")
-        self.listView1.addColumn(self.__tr("Column 1"))
-        layout2.addWidget(self.listView1)
+        self.list = QListView(self,"list")
+        self.list.addColumn(self.__tr("Device"))
+        self.list.addColumn(self.__tr("Type"))
+        self.list.addColumn(self.__tr("Size"))
+        self.list.addColumn(self.__tr("Mount Point"))
+        layout2.addWidget(self.list)
         layout3.addLayout(layout2)
 
         layout1 = QHBoxLayout(None,0,6,"layout1")
@@ -50,7 +53,7 @@ class PartitionList(QWidget):
         layout1.addWidget(self.editButton)
         layout3.addLayout(layout1)
 
-        PartitionListLayout.addLayout(layout3,0,0)
+        PartListWidgetLayout.addLayout(layout3,0,0)
 
         self.languageChange()
 
@@ -61,15 +64,14 @@ class PartitionList(QWidget):
     def languageChange(self):
         self.setCaption(self.__tr("Form1"))
         self.textLabel1.setText(self.__tr("Partitions:"))
-        self.listView1.header().setLabel(0,self.__tr("Column 1"))
-        self.listView1.clear()
-        item = QListViewItem(self.listView1,None)
-        item.setText(0,self.__tr("New Item"))
-
+        self.list.header().setLabel(0,self.__tr("Device"))
+        self.list.header().setLabel(1,self.__tr("Type"))
+        self.list.header().setLabel(2,self.__tr("Size"))
+        self.list.header().setLabel(3,self.__tr("Mount Point"))
         self.createButton.setText(self.__tr("Create"))
         self.deleteButton.setText(self.__tr("Delete"))
         self.editButton.setText(self.__tr("Edit"))
 
 
     def __tr(self,s,c = None):
-        return qApp.translate("PartitionList",s,c)
+        return qApp.translate("PartListWidget",s,c)
