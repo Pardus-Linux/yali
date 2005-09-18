@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'partitionlist.ui'
+# Form implementation generated from reading ui file 'partlistwidget.ui'
 #
-# Created: Paz Eyl 18 22:06:28 2005
+# Created: Pzt Eyl 19 00:02:18 2005
 #      by: The PyQt User Interface Compiler (pyuic) 3.13
 #
 # WARNING! All changes made in this file will be lost!
@@ -31,9 +31,9 @@ class PartListWidget(QWidget):
 
         self.list = QListView(self,"list")
         self.list.addColumn(self.__tr("Device"))
-        self.list.addColumn(self.__tr("Type"))
         self.list.addColumn(self.__tr("Size"))
-        self.list.addColumn(self.__tr("Mount Point"))
+        self.list.addColumn(self.__tr("Partition Type"))
+        self.list.addColumn(self.__tr("Filesystem"))
         layout2.addWidget(self.list)
         layout3.addLayout(layout2)
 
@@ -65,9 +65,9 @@ class PartListWidget(QWidget):
         self.setCaption(self.__tr("Form1"))
         self.textLabel1.setText(self.__tr("Partitions:"))
         self.list.header().setLabel(0,self.__tr("Device"))
-        self.list.header().setLabel(1,self.__tr("Type"))
-        self.list.header().setLabel(2,self.__tr("Size"))
-        self.list.header().setLabel(3,self.__tr("Mount Point"))
+        self.list.header().setLabel(1,self.__tr("Size"))
+        self.list.header().setLabel(2,self.__tr("Partition Type"))
+        self.list.header().setLabel(3,self.__tr("Filesystem"))
         self.createButton.setText(self.__tr("Create"))
         self.deleteButton.setText(self.__tr("Delete"))
         self.editButton.setText(self.__tr("Edit"))

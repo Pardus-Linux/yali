@@ -6,7 +6,7 @@ from qt import *
 import yali.storage
 
 from yali.gui.partlistwidget import PartListWidget
-#from yali.gui.parteditwidget import PartEditWidget
+from yali.gui.parteditwidget import PartEditWidget
 
 
 ##
@@ -27,13 +27,13 @@ class Widget(QWidget):
             self._devs[name] = d
 
         self.partlist = PartitionList(self)
-#        self.partedit = PartEdit(self)
-#        self.partedit.setEnabled(False)
+        self.partedit = PartEdit(self)
+        self.partedit.setEnabled(False)
 
         vbox = QVBoxLayout(self)
         vbox.addWidget(self.partlist)
-#        vbox.addStretch(1)
-#        vbox.addWidget(self.partedit)
+        vbox.addStretch(1)
+        vbox.addWidget(self.partedit)
 
         # fill partlist
         for name in self._devs:
@@ -54,17 +54,20 @@ class PartitionList(PartListWidget):
 
         for part in dev.get_partitions().itervalues():
             name = "Partition %d" % part.get_minor()
-            p = QListViewItem(d, name, part.get_type(), str(part.get_mb()))
+            size = "%d MB" % part.get_mb()
+            part_type = ""
+            fs = part.get_fsType()
+            p = QListViewItem(d, name, size, part_type, fs)
 
         
         self.list.setOpen(d, True)
 
 ##
 # Edit partition widget
-# class PartEdit(PartEditWidget):
+class PartEdit(PartEditWidget):
 
-#     def __init__(self, *args):
-#         apply(PartEdit.__init__, (self,) + args)
+    def __init__(self, *args):
+        apply(PartEditWidget.__init__, (self,) + args)
 
-#     def setPartition(self, partinfo):
-#         pass
+    def setPartition(self, partinfo):
+         pass

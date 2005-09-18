@@ -34,20 +34,20 @@ archinfo = {
 # Class representing a single partition within a Device object
 class Partition:
 
-    def __init__(self, device, part, minor, mb, start, end, type):
+    def __init__(self, device, part, minor, mb, start, end, fs_type):
         self._device = device
         self._parted_part = part
         self._minor = minor
         self._mb = mb
         self._start = start
         self._end = end
-        self._type = type or "unknown"
+        self._fstype = fs_type or "unknown"
 
     def get_minor(self):
         return self._minor
 
-    def get_type(self):
-        return self._type
+    def get_fsType(self):
+        return self._fstype
 
     def get_start(self):
         return self._start
