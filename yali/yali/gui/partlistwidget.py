@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'partlistwidget.ui'
 #
-# Created: Pzt Eyl 19 00:02:18 2005
-#      by: The PyQt User Interface Compiler (pyuic) 3.13
+# Created: Prş Eyl 22 04:16:41 2005
+#      by: The PyQt User Interface Compiler (pyuic) 3.14.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -18,7 +18,7 @@ class PartListWidget(QWidget):
         if not name:
             self.setName("PartListWidget")
 
-        self.setSizePolicy(QSizePolicy(5,5,0,0,self.sizePolicy().hasHeightForWidth()))
+        self.setSizePolicy(QSizePolicy(QSizePolicy.Preferred,QSizePolicy.Preferred,0,0,self.sizePolicy().hasHeightForWidth()))
 
         PartListWidgetLayout = QGridLayout(self,1,1,11,6,"PartListWidgetLayout")
 

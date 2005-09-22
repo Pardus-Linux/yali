@@ -49,8 +49,9 @@ class PartitionList(PartListWidget):
     def addDevice(self, dev):
         name = os.path.basename(dev.get_device())
         devstr = "%s (%s)" % (dev.get_model(), name)
+        total_mb = "%s MB" % dev.get_total_mb()
 
-        d = QListViewItem(self.list, devstr)
+        d = QListViewItem(self.list, devstr, total_mb)
 
         for part in dev.get_partitions().itervalues():
             name = "Partition %d" % part.get_minor()

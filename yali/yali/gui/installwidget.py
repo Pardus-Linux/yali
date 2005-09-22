@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'installwidget.ui'
 #
-# Created: Cum Eyl 16 15:53:18 2005
-#      by: The PyQt User Interface Compiler (pyuic) 3.13
+# Created: Prş Eyl 22 04:22:58 2005
+#      by: The PyQt User Interface Compiler (pyuic) 3.14.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -22,7 +22,7 @@ class InstallWidget(QWidget):
         InstallWidgetLayout = QGridLayout(self,1,1,11,6,"InstallWidgetLayout")
 
         self.pix = QLabel(self,"pix")
-        self.pix.setSizePolicy(QSizePolicy(7,7,0,0,self.pix.sizePolicy().hasHeightForWidth()))
+        self.pix.setSizePolicy(QSizePolicy(QSizePolicy.Expanding,QSizePolicy.Expanding,0,0,self.pix.sizePolicy().hasHeightForWidth()))
 
         InstallWidgetLayout.addWidget(self.pix,0,0)
 

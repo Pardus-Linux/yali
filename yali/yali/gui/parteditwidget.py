@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'parteditwidget.ui'
 #
-# Created: Pzt Eyl 19 00:16:32 2005
-#      by: The PyQt User Interface Compiler (pyuic) 3.13
+# Created: Prş Eyl 22 04:16:24 2005
+#      by: The PyQt User Interface Compiler (pyuic) 3.14.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -18,7 +18,7 @@ class PartEditWidget(QWidget):
         if not name:
             self.setName("PartEditWidget")
 
-        self.setSizePolicy(QSizePolicy(5,5,0,0,self.sizePolicy().hasHeightForWidth()))
+        self.setSizePolicy(QSizePolicy(QSizePolicy.Preferred,QSizePolicy.Preferred,0,0,self.sizePolicy().hasHeightForWidth()))
 
         PartEditWidgetLayout = QGridLayout(self,1,1,11,6,"PartEditWidgetLayout")
         spacer11 = QSpacerItem(20,31,QSizePolicy.Minimum,QSizePolicy.Expanding)
@@ -27,7 +27,7 @@ class PartEditWidget(QWidget):
         layout14 = QHBoxLayout(None,0,6,"layout14")
 
         self.caption = QLabel(self,"caption")
-        self.caption.setSizePolicy(QSizePolicy(5,4,0,0,self.caption.sizePolicy().hasHeightForWidth()))
+        self.caption.setSizePolicy(QSizePolicy(QSizePolicy.Preferred,QSizePolicy.Maximum,0,0,self.caption.sizePolicy().hasHeightForWidth()))
         layout14.addWidget(self.caption)
         spacer8 = QSpacerItem(261,20,QSizePolicy.Expanding,QSizePolicy.Minimum)
         layout14.addItem(spacer8)
