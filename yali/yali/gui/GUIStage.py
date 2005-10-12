@@ -75,9 +75,9 @@ class Widget(QListView):
             i += 1 
 
             if i == num:
-                iterator.current().setPixmap(0, QPixmap("pics/active_bullet.png"))
+                iterator.current().setPixmap(0, QPixmap("/usr/share/yali/pics/active_bullet.png"))
             else:
-                iterator.current().setPixmap(0, QPixmap("pics/inactive_bullet.png"))
+                iterator.current().setPixmap(0, QPixmap("/usr/share/yali/pics/inactive_bullet.png"))
 
             iterator += 1
             current = iterator.current()

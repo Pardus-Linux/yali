@@ -21,7 +21,7 @@ class Widget(QWidget):
         apply(QWidget.__init__, (self,) + args)
         
         img = QLabel(self)
-        img.setPixmap(QPixmap("pics/welcome.png"))
+        img.setPixmap(QPixmap("/usr/share/yali/pics/welcome.png"))
         
         hbox = QHBoxLayout(self)
         hbox.addStretch(1)

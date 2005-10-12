@@ -22,7 +22,7 @@ class Widget(QWidget):
     def __init__(self, *args):
         apply(QWidget.__init__, (self,) + args)
         
-        self.img = QImage("pics/top_image.png")
+        self.img = QImage("/usr/share/yali/pics/top_image.png")
 
         self.stageWidget = GUIStage.Widget(self)
 

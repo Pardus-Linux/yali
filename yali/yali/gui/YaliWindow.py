@@ -48,7 +48,7 @@ class Widget(QMainWindow):
 
 
         #TESTING:
-        self.setPaletteBackgroundPixmap(QPixmap("pics/back_tile.png"))
+        self.setPaletteBackgroundPixmap(QPixmap("/usr/share/yali/pics/back_tile.png"))
 
     ##
     # set up the main window layout...

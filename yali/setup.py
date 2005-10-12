@@ -22,6 +22,24 @@ qt_ui_files = ["yali/gui/installwidget.ui",
                "yali/gui/parteditwidget.ui",
                "yali/gui/partlistwidget.ui"]
 
+gui_pics = ["yali/gui/pics/active_bullet.png",
+            "yali/gui/pics/back_tile.png",
+            "yali/gui/pics/button_back.png",
+            "yali/gui/pics/button_forward.png",
+            "yali/gui/pics/inactive_bullet.png",
+            "yali/gui/pics/over_button_back.png",
+            "yali/gui/pics/over_button_forward.png",
+            "yali/gui/pics/pressed_button_back.png",
+            "yali/gui/pics/pressed_button_forward.png",
+            "yali/gui/pics/top_image.png",
+            "yali/gui/pics/welcome.png"]
+
+gui_helps = ["yali/gui/helps/1.html",
+             "yali/gui/helps/2.html",
+             "yali/gui/helps/3.html",
+             "yali/gui/helps/4.html",
+             "yali/gui/helps/5.html"]
+
 pyqt_configuration = pyqtconfig.Configuration()
 
 
@@ -79,17 +97,19 @@ class YaliClean(clean):
 
 
 setup(name="yali",
-    version= getVersion(),
-    description="YALI (Yet Another Linux Installer)",
-    long_description="Pardus System Installer.",
-    license="GNU GPL2",
-    author="Pardus Developers",
-    author_email="yali@uludag.org.tr",
-    url="http://www.uludag.org.tr/eng/yali/",
-    package_dir = {'': ''},
-    packages = ['yali', 'yali.gui'],
-    scripts = ['yali-bin'],
-    cmdclass = {
+      version= getVersion(),
+      description="YALI (Yet Another Linux Installer)",
+      long_description="Pardus System Installer.",
+      license="GNU GPL2",
+      author="Pardus Developers",
+      author_email="yali@uludag.org.tr",
+      url="http://www.uludag.org.tr/eng/yali/",
+      package_dir = {'': ''},
+      packages = ['yali', 'yali.gui'],
+      data_files = [('/usr/share/yali/pics', gui_pics),
+                    ('/usr/share/yali/helps', gui_helps)],
+      scripts = ['yali-bin'],
+      cmdclass = {
         'build' : YaliBuild,
         'clean' : YaliClean
         }

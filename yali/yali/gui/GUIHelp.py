@@ -41,7 +41,7 @@ class Widget(QTextView):
     def setHelpFile(self, file_index):
 
         # TODO: Do not forget localization!
-        help_file = "yali/gui/screen_help/" + str(file_index) + ".html"
+        help_file = "/usr/share/yali/helps/" + str(file_index) + ".html"
         self.setText(open(help_file).read())
 
     ##
