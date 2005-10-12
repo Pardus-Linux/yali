@@ -13,13 +13,14 @@ import os
 import pyqtconfig
 from distutils.core import setup
 from distutils.command.build import build
+from distutils.command.clean import clean
 from distutils.spawn import find_executable, spawn
 
-YALI_VERSION = "0.1"
+YALI_VERSION = '0.1'
 
-ui_files = ["yali/gui/installwidget.ui",
-            "yali/gui/parteditwidget.ui",
-            "yali/gui/partlistwidget.ui"]
+qt_ui_files = ["yali/gui/installwidget.ui",
+               "yali/gui/parteditwidget.ui",
+               "yali/gui/partlistwidget.ui"]
 
 pyqt_configuration = pyqtconfig.Configuration()
 
@@ -33,15 +34,18 @@ def getRevision():
             if line.startswith("Revision:"):
                 return line.split(":")[1].strip()
     except:
-        return None
+        return ""
 
 def getVersion():
     rev = getRevision()
-    if rev:
-        return "-r".join([YALI_VERSION, rev])
-    else:
-        return YALI_VERSION
+    return "-r".join([YALI_VERSION, rev])    
 
+def py_file_name(ui_file):
+    return os.path.splitext(ui_file)[0] + '.py'
+
+
+##
+# build command
 class YaliBuild(build):
 
     def compile_ui(self, ui_file):
@@ -50,17 +54,28 @@ class YaliBuild(build):
             # Search on the $Path.
             pyuic_exe = find_executable('pyuic')
     
-        py_file = os.path.splitext(ui_file)[0] + ".py"
-
-        cmd = [pyuic_exe, ui_file, "-o", py_file]
+        cmd = [pyuic_exe, ui_file, '-o']
+        cmd.append(py_file_name(ui_file))
         spawn(cmd)
 
     def run(self):
-        for f in ui_files:
+        for f in qt_ui_files:
             self.compile_ui(f)
 
         build.run(self)
 
+##
+# clean command
+class YaliClean(clean):
+
+    def run(self):
+        clean.run(self)
+
+        # clean ui generated .py files
+        for f in qt_ui_files:
+            f = py_file_name(f)
+            if os.path.exists(f):
+                os.unlink(f)
 
 
 setup(name="yali",
@@ -75,6 +90,7 @@ setup(name="yali",
     packages = ['yali', 'yali.gui'],
     scripts = ['yali-bin'],
     cmdclass = {
-        'build' : YaliBuild
+        'build' : YaliBuild,
+        'clean' : YaliClean
         }
     )
