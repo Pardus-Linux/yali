@@ -14,12 +14,12 @@ from qt import *
 
 def forwardButton(parent):
     w = NavButton(parent)
-    w.setIcon("/usr/share/yali/pics/button_forward.png")
+    w.setIcon("button_forward.png")
     return w
 
 def backButton(parent):
     w = NavButton(parent)
-    w.setIcon("/usr/share/yali/pics/button_back.png")
+    w.setIcon("button_back.png")
     return w
 
 
@@ -46,17 +46,17 @@ class NavButton(QWidget):
 
     def setIcon(self, icon_name):
         # FIXME: don't hard-code paths!!!
-        icon_path = icon_name
+        icon_path = "/usr/share/yali/pics/" + icon_name
         self._pix = QPixmap(icon_path)
 
         # set a common mask for same sized images.
         bmap = self._pix.mask()
         self.setMask(bmap)
 
-        icon_path = "pics/" + "over_" + icon_name
+        icon_path = "/usr/share/yali/pics/" + "over_" + icon_name
         self._pix_over = QPixmap(icon_path)
 
-        icon_path = "pics/" + "pressed_" + icon_name
+        icon_path = "/usr/share/yali/pics/" + "pressed_" + icon_name
         self._pix_pressed = QPixmap(icon_path)
 
         self.label.setPixmap(self._pix)
