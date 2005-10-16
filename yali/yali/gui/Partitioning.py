@@ -32,7 +32,7 @@ class Widget(QWidget):
         devs = yali.storage.detect_all()
         for name in devs:
             d = yali.storage.Device(name)
-            d.set_partitions_from_disk()
+            d.open()
 
             name = os.path.basename(name)
             self._devs[name] = d
