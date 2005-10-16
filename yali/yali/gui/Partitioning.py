@@ -37,7 +37,7 @@ class Widget(QWidget):
             name = os.path.basename(name)
             self._devs[name] = d
 
-        self.partlist = PartitionList(self)
+        self.partlist = PartList(self)
         self.partedit = PartEdit(self)
         self.partedit.setEnabled(False)
 
@@ -52,7 +52,7 @@ class Widget(QWidget):
 
 
 
-class PartitionList(PartListWidget):
+class PartList(PartListWidget):
 
     def __init__(self, *args):
         apply(PartListWidget.__init__, (self,) + args)
@@ -62,17 +62,30 @@ class PartitionList(PartListWidget):
         devstr = "%s (%s)" % (dev.get_model(), name)
         total_mb = "%s MB" % dev.get_total_mb()
 
-        d = QListViewItem(self.list, devstr, total_mb)
+        d = PartListItem(self.list, devstr, total_mb)
 
         for part in dev.get_partitions().itervalues():
             name = "Partition %d" % part.get_minor()
             size = "%d MB" % part.get_mb()
             part_type = ""
             fs = part.get_fsType()
-            p = QListViewItem(d, name, size, part_type, fs)
+            p = PartListItem(d, name, size, part_type, fs)
 
         
         self.list.setOpen(d, True)
+
+
+##
+# Partition List Data stores additional information for partitions.
+class PartListItem(QListViewItem):
+
+    _type = None
+
+    def setType(self, t):
+        # device / partition
+        self._type = t
+        
+
 
 ##
 # Edit partition widget
