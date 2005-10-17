@@ -41,6 +41,8 @@ class Widget(QWidget):
         
         self.connect(self.partlist, PYSIGNAL("signalCreate"),
                      self.slotCreatePart)
+        self.connect(self.partlist, PYSIGNAL("signalDelete"),
+                     self.slotDeletePart)
         self.connect(self.partlist, PYSIGNAL("signalEdit"),
                      self.slotEditPart)
 
@@ -63,11 +65,14 @@ class Widget(QWidget):
         for name in self._devs:
             self.partlist.addDevice(self._devs[name])
 
-    def slotCreatePart(self, parent, dev):
-        self.partedit.edit(dev)
+    def slotCreatePart(self, parent, d):
+        self.partedit.edit(d, "create")
 
-    def slotEditPart(self, parent, part):
-        self.partedit.edit(part)
+    def slotEditPart(self, parent, p):
+        self.partedit.edit(p, "edit")
+
+    def slotDeletePart(self, parent, d):
+        self.partedit.edit(d, "delete")
 
 itemTypes = ["device", "partition"]
 
@@ -111,19 +116,24 @@ class PartList(PartListWidget):
         item = self.list.currentItem()
         if isinstance(item.getData(), yali.storage.Device):
             self.createButton.setEnabled(True)
-            self.deleteButton.setEnabled(False)
+            self.deleteButton.setEnabled(True)
             self.editButton.setEnabled(False)
+
+            self.deleteButton.setText("Delete All Partitions")
         else:
             self.createButton.setEnabled(False)
             self.deleteButton.setEnabled(True)
             self.editButton.setEnabled(True)
+
+            self.deleteButton.setText("Delete Selected Partition")
 
     def slotCreateClicked(self):
         item = self.list.currentItem()
         self.emit(PYSIGNAL("signalCreate"), (self, item.getData()) )
 
     def slotDeleteClicked(self):
-        print "delete"
+        item = self.list.currentItem()
+        self.emit(PYSIGNAL("signalDelete"), (self, item.getData()) )
 
     def slotEditClicked(self):
         item = self.list.currentItem()
@@ -149,11 +159,11 @@ class PartListItem(QListViewItem):
 # Edit partition widget
 class PartEdit(PartEditWidget):
 
-    # create / edit
-    _state = None
-    
     _d = None
+    _action = None
 
+    ##
+    # Initialize PartEdit
     def __init__(self, *args):
         apply(PartEditWidget.__init__, (self,) + args)
 
@@ -162,22 +172,28 @@ class PartEdit(PartEditWidget):
 
     ##
     # edit partition/ create partition on device
-    def edit(self, d):
+    def edit(self, d, act):
         self.setEnabled(True)
         self._d = d
-        if isinstance(d, yali.storage.Device):
-            self._state = "create"
-        else:
-            self._state = "edit"
+        self._action = act
 
 
+    ##
+    # Apply button is clicked, make the necessary modifications and
+    # emit a signal.
     def slotApplyClicked(self):
         size = self.size.text().toInt()[0]
 
-        if self._state == "create":
-            self._d.add_partition(0, None, size)
-            self._d.save_partitions()
-            self._d.close()
+        if isinstance(self._d, yali.storage.Device):
+            if self._action == "create":
+                self._d.add_partition(0, None, size)
+                self._d.save_partitions()
+                self._d.close()
+            elif self._action == "delete":
+                print "delete all"
+                self._d.delete_all_partitions()
+                self._d.save_partitions()
+                self._d.close()
         else:
             print "edit partition, resize, fstype or mount point change..."
 

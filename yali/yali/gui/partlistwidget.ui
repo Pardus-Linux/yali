@@ -149,7 +149,7 @@
                                 <bool>false</bool>
                             </property>
                             <property name="text">
-                                <string>Delete</string>
+                                <string>Delete Selected Partition</string>
                             </property>
                         </widget>
                         <spacer>
