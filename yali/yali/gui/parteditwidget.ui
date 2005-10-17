@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>377</width>
-            <height>136</height>
+            <width>411</width>
+            <height>164</height>
         </rect>
     </property>
     <property name="sizePolicy">
@@ -40,7 +40,7 @@
             <property name="sizeHint">
                 <size>
                     <width>20</width>
-                    <height>31</height>
+                    <height>20</height>
                 </size>
             </property>
         </spacer>
@@ -137,6 +137,41 @@
                     </property>
                 </widget>
             </grid>
+        </widget>
+        <widget class="QLayoutWidget" row="3" column="0">
+            <property name="name">
+                <cstring>layout6</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <spacer>
+                    <property name="name">
+                        <cstring>spacer5</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>300</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>applyButton</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Apply</string>
+                    </property>
+                </widget>
+            </hbox>
         </widget>
     </grid>
 </widget>

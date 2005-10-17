@@ -108,7 +108,7 @@ class Device:
 
             elif parted_part.type_name == "free":
                 # FIXME: hadle free space on disk
-#                print "free", self._device, parted_part.num, parted_part.fs_type
+                print "free", self._device, parted_part.num, parted_part.fs_type
                 pass
 
             parted_part = self._parted_disk.next_partition(parted_part)
