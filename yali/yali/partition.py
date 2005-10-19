@@ -10,6 +10,7 @@
 # Please read the COPYING file.
 #
 
+from yali.parteddata import *
 
 ##
 # Class representing a single partition within a Device object
@@ -41,3 +42,17 @@ class Partition:
 
     def get_gb(self):
         return self._mb / 1024.0
+
+
+##
+# Class representing free space within a Device object
+class FreeSpace(Partition):
+
+    def __init__(self, device, part, mb, start, end):
+        Partition.__init__(self, device,
+                           part,
+                           freespace_minor,
+                           mb,
+                           start,
+                           end,
+                           freespace_fstype)

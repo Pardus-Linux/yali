@@ -20,9 +20,9 @@
 import parted
 import os
 
-from parteddata import *
-from partition import Partition
-from exception import YaliError, YaliException
+from yali.parteddata import *
+from yali.partition import Partition, FreeSpace
+from yali.exception import YaliError, YaliException
 
 
 class DeviceError(YaliError):
@@ -106,10 +106,11 @@ class Device:
                                                               parted_part.geom.end,
                                                               fs_type)
 
-            elif parted_part.type_name == "free":
-                # FIXME: hadle free space on disk
-                print "free", self._device, parted_part.num, parted_part.fs_type
-                pass
+            elif parted_part.type_name == freespace_fstype:
+                self._partitions[freespace_minor] = FreeSpace(self, parted_part,
+                                                              part_mb,
+                                                              parted_part.geom.start,
+                                                              parted_part.geom.end)
 
             parted_part = self._parted_disk.next_partition(parted_part)
 

@@ -15,6 +15,7 @@ import os.path
 from qt import *
 
 import yali.storage
+from yali.parteddata import *
 
 from yali.gui.GUIException import *
 from yali.gui.partlistwidget import PartListWidget
@@ -102,7 +103,11 @@ class PartList(PartListWidget):
         d.setData(dev)
 
         for part in dev.get_partitions().itervalues():
-            name = "Partition %d" % part.get_minor()
+            print part.get_start()
+            if part.get_fsType() == freespace_fstype:
+                name = "Free"
+            else:
+                name = "Partition %d" % part.get_minor()
             size = "%d MB" % part.get_mb()
             part_type = ""
             fs = part.get_fsType()

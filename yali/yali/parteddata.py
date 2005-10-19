@@ -37,3 +37,8 @@ filesystems = {
     'reiserfs': parted.file_system_type_get('reiserfs'),
     'xfs': parted.file_system_type_get('xfs')
     }
+
+
+# magic minor number for representing free space
+freespace_minor = -1
+freespace_fstype = "free"
