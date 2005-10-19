@@ -12,6 +12,7 @@
 
 from yali.parteddata import *
 
+
 ##
 # Class representing a single partition within a Device object
 class Partition:

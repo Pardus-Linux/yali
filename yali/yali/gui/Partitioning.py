@@ -82,6 +82,9 @@ class PartList(PartListWidget):
     def __init__(self, *args):
         apply(PartListWidget.__init__, (self,) + args)
 
+        # disable sorting
+        self.list.setSorting(-1)
+
         self.connect(self.list, SIGNAL("selectionChanged()"),
                      self.slotItemSelected)
         self.connect(self.createButton, SIGNAL("clicked()"),
@@ -102,8 +105,7 @@ class PartList(PartListWidget):
         d = PartListItem(self.list, devstr, total_mb)
         d.setData(dev)
 
-        for part in dev.get_partitions().itervalues():
-            print part.get_start()
+        for part in dev.get_ordered_partition_list():
             if part.get_fsType() == freespace_fstype:
                 name = "Free"
             else:
@@ -195,7 +197,6 @@ class PartEdit(PartEditWidget):
                 self._d.save_partitions()
                 self._d.close()
             elif self._action == "delete":
-                print "delete all"
                 self._d.delete_all_partitions()
                 self._d.save_partitions()
                 self._d.close()

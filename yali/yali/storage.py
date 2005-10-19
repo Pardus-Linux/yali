@@ -127,6 +127,22 @@ class Device:
     def get_partitions(self):
         return self._partitions
 
+    def get_ordered_partition_list(self):
+
+        def comp(x, y):
+            """sort partitions using get_start()"""
+            x = x.get_start()
+            y = y.get_start()
+
+            if x > y: return -1
+            elif x == y: return 0
+            else: return 1
+
+        l = self.get_partitions().values()
+        l.sort(comp)
+        return l
+
+
     ###############################
     # Partition mangling routines #
     ###############################
