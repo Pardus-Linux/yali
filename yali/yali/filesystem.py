@@ -17,6 +17,9 @@ import os
 
 from yali.exception import *
 
+
+filesystems = []
+
 ##
 # abstract file system class
 class FileSystem:
@@ -53,8 +56,8 @@ class Ext3FileSystem(FileSystem):
         self.name = self._name
         
 
-    def format(self, device, partition):
-        device_path = device.get_device() + partition.get_minor()
+    def format(self, partition):
+        device_path = partition.get_device_name() + partition.get_minor()
 
         cmd = "/sbin/mke2fs.ext3 %s" %(device_path)
 
@@ -63,6 +66,7 @@ class Ext3FileSystem(FileSystem):
         if p.close():
             raise YaliException, "ext3 format failed: %s" % device_path
 
+filesystems.append(Ext3FileSystem())
 
 ##
 # linux-swap
@@ -75,8 +79,8 @@ class SwapFileSystem(FileSystem):
         self.name = self._name
         
 
-    def format(self, device, partition):
-        device_path = device.get_device() + partition.get_minor()
+    def format(self, partition):
+        device_path = partition.get_device_name() + partition.get_minor()
 
         cmd = "/sbin/mkswap %s" %(device_path)
 
@@ -85,3 +89,4 @@ class SwapFileSystem(FileSystem):
         if p.close():
             raise YaliException, "swap format failed: %s" % device_path
 
+filesystems.append(SwapFileSystem())

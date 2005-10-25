@@ -26,6 +26,12 @@ class Partition:
         self._end = end
         self._fstype = fs_type or "unknown"
 
+    def get_device(self):
+        return self._device
+
+    def get_device_name(self):
+        return self._device.get_device()
+
     def get_minor(self):
         return self._minor
 
