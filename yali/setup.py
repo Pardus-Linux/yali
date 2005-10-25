@@ -20,6 +20,7 @@ YALI_VERSION = '0.1'
 
 qt_ui_files = ["yali/gui/installwidget.ui",
                "yali/gui/parteditwidget.ui",
+               "yali/gui/parteditbuttons.ui",
                "yali/gui/partlistwidget.ui"]
 
 gui_pics = ["yali/gui/pics/active_bullet.png",

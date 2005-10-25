@@ -19,6 +19,7 @@ from yali.parteddata import *
 
 from yali.gui.GUIException import *
 from yali.gui.partlistwidget import PartListWidget
+from yali.gui.parteditbuttons import PartEditButtons
 from yali.gui.parteditwidget import PartEditWidget
 
 
@@ -33,7 +34,7 @@ class Widget(QWidget):
 
         self.partlist = PartList(self)
         self.partedit = PartEdit(self)
-        self.partedit.setEnabled(False)
+        self.partedit.hide()
 
         vbox = QVBoxLayout(self)
         vbox.addWidget(self.partlist)
@@ -50,7 +51,7 @@ class Widget(QWidget):
         self.fillPartList()
 
         self.connect(self.partedit, PYSIGNAL("signalApplied"),
-                     self.fillPartList)
+                     self.slotApplyClicked)
 
     def fillPartList(self):
         
@@ -66,14 +67,21 @@ class Widget(QWidget):
         for name in self._devs:
             self.partlist.addDevice(self._devs[name])
 
+    def slotApplyClicked(self):
+        self.partlist.createButton.setEnabled(False)
+        self.partlist.deleteButton.setEnabled(False)
+        self.partlist.editButton.setEnabled(False)
+        
+        self.fillPartList()
+
     def slotCreatePart(self, parent, d):
-        self.partedit.edit(d, "create")
+        self.partedit.setup_iface(d, "create")
 
     def slotEditPart(self, parent, p):
-        self.partedit.edit(p, "edit")
+        self.partedit.setup_iface(p, "edit")
 
     def slotDeletePart(self, parent, d):
-        self.partedit.edit(d, "delete")
+        self.partedit.setup_iface(d, "delete")
 
 itemTypes = ["device", "partition"]
 
@@ -151,10 +159,10 @@ class PartList(PartListWidget):
 # Partition List Data stores additional information for partitions.
 class PartListItem(QListViewItem):
 
+    # storage.Device or partition.Partition
     _data = None
 
     def setData(self, d):
-        # device / partition
         self._data = d
 
     def getData(self):
@@ -164,7 +172,7 @@ class PartListItem(QListViewItem):
 
 ##
 # Edit partition widget
-class PartEdit(PartEditWidget):
+class PartEdit(QWidget):
 
     _d = None
     _action = None
@@ -172,36 +180,89 @@ class PartEdit(PartEditWidget):
     ##
     # Initialize PartEdit
     def __init__(self, *args):
-        apply(PartEditWidget.__init__, (self,) + args)
+        apply(QWidget.__init__, (self,) + args)
 
-        self.connect(self.applyButton, SIGNAL("clicked()"),
+        self.vbox = QVBoxLayout(self)
+
+        self.edit = PartEditWidget(self)
+        self.vbox.addWidget(self.edit)
+
+        self.warning = QLabel(self)
+        # FIXME: aligning doesn't work!
+        self.vbox.addWidget(self.warning, 0, self.vbox.AlignVCenter)
+
+        self.buttons = PartEditButtons(self)
+        self.vbox.addWidget(self.buttons)
+
+        self.connect(self.buttons.applyButton, SIGNAL("clicked()"),
                      self.slotApplyClicked)
+        self.connect(self.buttons.cancelButton, SIGNAL("clicked()"),
+                     self.slotCancelClicked)
 
     ##
-    # edit partition/ create partition on device
-    def edit(self, d, act):
-        self.setEnabled(True)
+    # set up widget for use.
+    def setup_iface(self, d, act):
         self._d = d
-        self._action = act
+
+        self.warning.hide()
+        self.edit.hide()
+        self.show()
+
+
+        if isinstance(self._d, yali.storage.Device):
+            if act == "create":
+                self._action = "device_create"
+                self.edit.show()
+            elif act == "delete":
+                self._action = "device_delete_all_parts"
+                self.warning.setText(
+                    "You are going to delete all partitions on device '%s'"
+                    %(self._d.get_model()))
+                self.warning.show()
+
+        elif isinstance(self._d, yali.partition.Partition):
+            if act == "delete":
+                self._action = "partition_delete"
+                self.warning.setText(
+                    "Deleting single partition is not implemented yet!")
+                self.warning.show()
+            if act == "edit":
+                self._action = "partition_edit"
+                # use self.edit here...
+                self.warning.setText(
+                    "Editing single partition is not implemented yet!")
+                self.warning.show()
 
 
     ##
     # Apply button is clicked, make the necessary modifications and
     # emit a signal.
     def slotApplyClicked(self):
-        size = self.size.text().toInt()[0]
 
-        if isinstance(self._d, yali.storage.Device):
-            if self._action == "create":
-                self._d.add_partition(0, None, size)
-                self._d.save_partitions()
-                self._d.close()
-            elif self._action == "delete":
-                self._d.delete_all_partitions()
-                self._d.save_partitions()
-                self._d.close()
+        if self._action == "device_create":
+            size = self.edit.size.text().toInt()[0]
+
+            self._d.add_partition(0, None, size)
+            self._d.save_partitions()
+            self._d.close()
+        elif self._action == "device_delete_all_parts":
+            self._d.delete_all_partitions()
+            self._d.save_partitions()
+            self._d.close()
+
+        elif self._action == "partition_delete":
+            print "delete_part.."
+        elif self._action == "partition_edit":
+            print "edit_part"
         else:
-            print "edit partition, resize, fstype or mount point change..."
+            raise GUIError, "unknown action called (%s)" %(self._action)
 
-        self.setEnabled(False)
+        self.hide()
         self.emit(PYSIGNAL("signalApplied"), ())
+
+    
+    ##
+    # Cancel button clicked.
+    def slotCancelClicked(self):
+        self.hide()
+        

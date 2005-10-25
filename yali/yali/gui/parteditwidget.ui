@@ -8,17 +8,9 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>411</width>
-            <height>164</height>
+            <width>412</width>
+            <height>141</height>
         </rect>
-    </property>
-    <property name="sizePolicy">
-        <sizepolicy>
-            <hsizetype>5</hsizetype>
-            <vsizetype>5</vsizetype>
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-        </sizepolicy>
     </property>
     <property name="caption">
         <string>Form1</string>
@@ -27,7 +19,7 @@
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
-        <spacer row="2" column="0">
+        <spacer row="3" column="1">
             <property name="name">
                 <cstring>spacer11</cstring>
             </property>
@@ -40,11 +32,35 @@
             <property name="sizeHint">
                 <size>
                     <width>20</width>
-                    <height>20</height>
+                    <height>43</height>
                 </size>
             </property>
         </spacer>
-        <widget class="QLayoutWidget" row="0" column="0">
+        <widget class="QCheckBox" row="1" column="2">
+            <property name="name">
+                <cstring>format</cstring>
+            </property>
+            <property name="text">
+                <string>format partition</string>
+            </property>
+        </widget>
+        <widget class="QLabel" row="1" column="0">
+            <property name="name">
+                <cstring>textLabel3</cstring>
+            </property>
+            <property name="sizePolicy">
+                <sizepolicy>
+                    <hsizetype>4</hsizetype>
+                    <vsizetype>1</vsizetype>
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                </sizepolicy>
+            </property>
+            <property name="text">
+                <string>Partition Type:</string>
+            </property>
+        </widget>
+        <widget class="QLayoutWidget" row="0" column="0" rowspan="1" colspan="3">
             <property name="name">
                 <cstring>layout14</cstring>
             </property>
@@ -87,91 +103,46 @@
                 </spacer>
             </hbox>
         </widget>
-        <widget class="QLayoutWidget" row="1" column="0">
+        <widget class="QSpinBox" row="2" column="1">
             <property name="name">
-                <cstring>layout19</cstring>
+                <cstring>size</cstring>
             </property>
-            <grid>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QLabel" row="0" column="0">
-                    <property name="name">
-                        <cstring>textLabel3</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Partition Type:</string>
-                    </property>
-                </widget>
-                <widget class="QComboBox" row="0" column="1">
-                    <item>
-                        <property name="text">
-                            <string>Install Root</string>
-                        </property>
-                    </item>
-                    <item>
-                        <property name="text">
-                            <string>Users' Files</string>
-                        </property>
-                    </item>
-                    <item>
-                        <property name="text">
-                            <string>Swap</string>
-                        </property>
-                    </item>
-                    <property name="name">
-                        <cstring>mount_point</cstring>
-                    </property>
-                </widget>
-                <widget class="QLineEdit" row="1" column="1">
-                    <property name="name">
-                        <cstring>size</cstring>
-                    </property>
-                </widget>
-                <widget class="QLabel" row="1" column="0">
-                    <property name="name">
-                        <cstring>textLabel1</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Size (MB):</string>
-                    </property>
-                </widget>
-            </grid>
         </widget>
-        <widget class="QLayoutWidget" row="3" column="0">
-            <property name="name">
-                <cstring>layout6</cstring>
-            </property>
-            <hbox>
-                <property name="name">
-                    <cstring>unnamed</cstring>
+        <widget class="QComboBox" row="1" column="1">
+            <item>
+                <property name="text">
+                    <string>Install Root</string>
                 </property>
-                <spacer>
-                    <property name="name">
-                        <cstring>spacer5</cstring>
-                    </property>
-                    <property name="orientation">
-                        <enum>Horizontal</enum>
-                    </property>
-                    <property name="sizeType">
-                        <enum>Expanding</enum>
-                    </property>
-                    <property name="sizeHint">
-                        <size>
-                            <width>300</width>
-                            <height>20</height>
-                        </size>
-                    </property>
-                </spacer>
-                <widget class="QPushButton">
-                    <property name="name">
-                        <cstring>applyButton</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Apply</string>
-                    </property>
-                </widget>
-            </hbox>
+            </item>
+            <item>
+                <property name="text">
+                    <string>Users' Files</string>
+                </property>
+            </item>
+            <item>
+                <property name="text">
+                    <string>Swap</string>
+                </property>
+            </item>
+            <property name="name">
+                <cstring>mount_point</cstring>
+            </property>
+        </widget>
+        <widget class="QLabel" row="2" column="0">
+            <property name="name">
+                <cstring>textLabel1</cstring>
+            </property>
+            <property name="sizePolicy">
+                <sizepolicy>
+                    <hsizetype>4</hsizetype>
+                    <vsizetype>5</vsizetype>
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                </sizepolicy>
+            </property>
+            <property name="text">
+                <string>Size (MB):</string>
+            </property>
         </widget>
     </grid>
 </widget>
