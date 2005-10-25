@@ -54,8 +54,10 @@ class Widget(QWidget):
 
         self.connect(self.partedit, PYSIGNAL("signalApplied"),
                      self.slotApplyClicked)
-        self.connect(self.partedit, PYSIGNAL("signalPartRequest"),
-                     self.partlist.showPartitionRequests)
+# We don't need to handle this signal now. self.partlist.addDevice
+# calls show partition requests.
+#        self.connect(self.partedit, PYSIGNAL("signalPartRequest"),
+#                     self.partlist.showPartitionRequests)
 
     def fillPartList(self):
         
@@ -130,6 +132,7 @@ class PartList(PartListWidget):
 
         
         self.list.setOpen(d, True)
+        self.showPartitionRequests()
 
     def slotItemSelected(self):
         item = self.list.currentItem()
@@ -167,7 +170,7 @@ class PartList(PartListWidget):
             d = current.getData()
             if not isinstance(d, yali.storage.Device):
                 if d.get_path() == part.get_path():
-                    return current
+                     return current
             iterator += 1
             current = iterator.current()
 
@@ -176,11 +179,9 @@ class PartList(PartListWidget):
     ##
     # handle and show requests on listview
     def showPartitionRequests(self):
-        print len(partition_requests)
         for req in partition_requests:
             part = req.get_partition()
             item = self.__getItemFromPart(part)
-            print item.text(0)
 
             if isinstance(req, FormatRequest):
                 fs = req.get_fs()
@@ -188,7 +189,6 @@ class PartList(PartListWidget):
                 item.setText(2, part_type_name)
                 item.setText(3, fs)
                 item.setText(4, "YES")
-                print fs, "YES", part_type_name
 
 
             elif isinstance(req, MountRequest):
@@ -196,7 +196,6 @@ class PartList(PartListWidget):
                 part_type_name = req.get_part_type_name()
                 item.setText(2, part_type_name)
                 item.setText(3, fs)
-                print fs, part_type_name
 
 
 
