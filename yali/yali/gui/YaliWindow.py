@@ -47,7 +47,6 @@ class Widget(QMainWindow):
                      self.helpWidget.slotResize)
 
 
-        #TESTING:
         self.setPaletteBackgroundPixmap(QPixmap("/usr/share/yali/pics/back_tile.png"))
 
     ##
