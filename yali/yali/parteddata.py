@@ -39,6 +39,12 @@ filesystems = {
     }
 
 
+partition_types = {0: ["Intall Root", "ext3", "/"],
+                   1: ["Users's Files", "ext3", "/home"],
+                   2: ["Swap", "swap", None]
+                   }
+
+
 # magic minor number for representing free space
 freespace_minor = -1
 freespace_fstype = "free"

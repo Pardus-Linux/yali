@@ -23,7 +23,7 @@ from yali.gui.parteditbuttons import PartEditButtons
 from yali.gui.parteditwidget import PartEditWidget
 from yali.partrequest import *
 
-partition_requests = []
+partition_requests = RequestList()
 
 ##
 # Partitioning screen.
@@ -158,13 +158,42 @@ class PartList(PartListWidget):
         item = self.list.currentItem()
         self.emit(PYSIGNAL("signalEdit"), (self, item.getData()) )
 
+
+    def __getItemFromPart(self, part):
+        iterator = QListViewItemIterator(self.list)
+        current = iterator.current()
+
+        while current:
+            d = current.getData()
+            if d == part:
+                return current
+            iterator += 1
+            current = iterator.current()
+
     ##
     # handle and show requests on listview
     def showPartitionRequests(self):
+        print len(partition_requests)
         for req in partition_requests:
             part = req.get_partition()
-            print part.get_path()
+            item = self.__getItemFromPart(part)
+            print item.text(0)
 
+            if isinstance(req, FormatRequest):
+                fs = req.get_fs()
+                part_type_name = req.get_part_type_name()
+                item.setText(2, part_type_name)
+                item.setText(3, fs)
+                item.setText(4, "YES")
+                print fs, "YES", part_type_name
+
+
+            elif isinstance(req, MountRequest):
+                fs = req.get_fs()
+                part_type_name = req.get_part_type_name()
+                item.setText(2, part_type_name)
+                item.setText(3, fs)
+                print fs, part_type_name
 
 
 
@@ -182,11 +211,6 @@ class PartListItem(QListViewItem):
         return self._data
         
 
-
-partition_types = {0: ["ext3", "/"],     # Install Root
-                   1: ["ext3", "/home"], # Users' Files
-                   2: ["swap", None]  # Swap
-                   }
 
 ##
 # Edit partition widget
@@ -274,14 +298,14 @@ class PartEdit(QWidget):
         elif self._action == "partition_edit":
             edit = self.edit
 
-            t = partition_types[edit.part_type.currentItem()]
-            fs = t[0]
-            mountpoint = t[1]
-            partition_requests.append(MountRequest(self._d, fs, mountpoint))
+            part_type = edit.part_type.currentItem()
+            partition_requests.append(MountRequest(self._d, part_type))
             
             format = edit.format.isChecked()
             if format:
-                partition_requests.append(FormatRequest(self._d, fs))
+                partition_requests.append(FormatRequest(self._d, part_type))
+            else: #remove previous format requests for partition (if there are any)
+                partition_requests.remove_request(self._d, "format")
 
             # partition requests added signal it for gui to show.
             self.emit(PYSIGNAL("signalPartRequest"), ())

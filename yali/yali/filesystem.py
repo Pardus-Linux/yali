@@ -18,7 +18,7 @@ import os
 from yali.exception import *
 
 
-filesystems = []
+filesystem_types = []
 
 ##
 # abstract file system class
@@ -64,7 +64,7 @@ class Ext3FileSystem(FileSystem):
         if p.close():
             raise YaliException, "ext3 format failed: %s" % device_path
 
-filesystems.append(Ext3FileSystem())
+filesystem_types.append(Ext3FileSystem())
 
 ##
 # linux-swap
@@ -85,4 +85,4 @@ class SwapFileSystem(FileSystem):
         if p.close():
             raise YaliException, "swap format failed: %s" % device_path
 
-filesystems.append(SwapFileSystem())
+filesystem_types.append(SwapFileSystem())
