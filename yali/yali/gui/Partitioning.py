@@ -89,7 +89,6 @@ class Widget(QWidget):
     def slotDeletePart(self, parent, d):
         self.partedit.setup_iface(d, "delete")
 
-itemTypes = ["device", "partition"]
 
 class PartList(PartListWidget):
 

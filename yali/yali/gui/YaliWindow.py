@@ -88,10 +88,6 @@ class Widget(QMainWindow):
     def slotNextScreen(self):
         ctx.screens.next()
 
-#FIXME: do this in GUIHelp connecting the screens.signalCurrent
-#        self.helpWidget.showHelp(screen)
-
-
     ##
     # Go to the previous screen.
     def slotPrevScreen(self):
