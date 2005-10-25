@@ -165,10 +165,13 @@ class PartList(PartListWidget):
 
         while current:
             d = current.getData()
-            if d == part:
-                return current
+            if not isinstance(d, yali.storage.Device):
+                if d.get_path() == part.get_path():
+                    return current
             iterator += 1
             current = iterator.current()
+
+        return None
 
     ##
     # handle and show requests on listview
