@@ -32,6 +32,9 @@ class Partition:
     def get_device_name(self):
         return self._device.get_device()
 
+    def get_path(self):
+        return "%s%d" %(self.get_device_name(), self.get_minor())
+
     def get_minor(self):
         return self._minor
 

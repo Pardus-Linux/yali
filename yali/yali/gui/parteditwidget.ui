@@ -46,7 +46,7 @@
         </widget>
         <widget class="QLabel" row="1" column="0">
             <property name="name">
-                <cstring>textLabel3</cstring>
+                <cstring>type_label</cstring>
             </property>
             <property name="sizePolicy">
                 <sizepolicy>
@@ -125,7 +125,7 @@
                 </property>
             </item>
             <property name="name">
-                <cstring>mount_point</cstring>
+                <cstring>part_type</cstring>
             </property>
         </widget>
         <widget class="QLabel" row="2" column="0">

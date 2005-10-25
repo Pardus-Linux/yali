@@ -21,7 +21,9 @@ from yali.gui.GUIException import *
 from yali.gui.partlistwidget import PartListWidget
 from yali.gui.parteditbuttons import PartEditButtons
 from yali.gui.parteditwidget import PartEditWidget
+from yali.partrequest import *
 
+partition_requests = []
 
 ##
 # Partitioning screen.
@@ -52,6 +54,8 @@ class Widget(QWidget):
 
         self.connect(self.partedit, PYSIGNAL("signalApplied"),
                      self.slotApplyClicked)
+        self.connect(self.partedit, PYSIGNAL("signalPartRequest"),
+                     self.partlist.showPartitionRequests)
 
     def fillPartList(self):
         
@@ -154,6 +158,15 @@ class PartList(PartListWidget):
         item = self.list.currentItem()
         self.emit(PYSIGNAL("signalEdit"), (self, item.getData()) )
 
+    ##
+    # handle and show requests on listview
+    def showPartitionRequests(self):
+        for req in partition_requests:
+            part = req.get_partition()
+            print part.get_path()
+
+
+
 
 ##
 # Partition List Data stores additional information for partitions.
@@ -170,6 +183,11 @@ class PartListItem(QListViewItem):
         
 
 
+partition_types = {0: ["ext3", "/"],     # Install Root
+                   1: ["ext3", "/home"], # Users' Files
+                   2: ["swap", None]  # Swap
+                   }
+
 ##
 # Edit partition widget
 class PartEdit(QWidget):
@@ -184,7 +202,7 @@ class PartEdit(QWidget):
 
         self.vbox = QVBoxLayout(self)
 
-        self.edit = PartEditWidget(self)
+        self.edit = PartEditWidgetImpl(self)
         self.vbox.addWidget(self.edit)
 
         self.warning = QLabel(self)
@@ -204,6 +222,7 @@ class PartEdit(QWidget):
     def setup_iface(self, d, act):
         self._d = d
 
+        # Hacky: show only one widget for an action.
         self.warning.hide()
         self.edit.hide()
         self.show()
@@ -212,6 +231,7 @@ class PartEdit(QWidget):
         if isinstance(self._d, yali.storage.Device):
             if act == "create":
                 self._action = "device_create"
+                self.edit.setState(act)
                 self.edit.show()
             elif act == "delete":
                 self._action = "device_delete_all_parts"
@@ -228,10 +248,9 @@ class PartEdit(QWidget):
                 self.warning.show()
             if act == "edit":
                 self._action = "partition_edit"
-                # use self.edit here...
-                self.warning.setText(
-                    "Editing single partition is not implemented yet!")
-                self.warning.show()
+                self.edit.setState(act, self._d)
+                self.edit.show()
+
 
 
     ##
@@ -253,7 +272,20 @@ class PartEdit(QWidget):
         elif self._action == "partition_delete":
             print "delete_part.."
         elif self._action == "partition_edit":
-            print "edit_part"
+            edit = self.edit
+
+            t = partition_types[edit.part_type.currentItem()]
+            fs = t[0]
+            mountpoint = t[1]
+            partition_requests.append(MountRequest(self._d, fs, mountpoint))
+            
+            format = edit.format.isChecked()
+            if format:
+                partition_requests.append(FormatRequest(self._d, fs))
+
+            # partition requests added signal it for gui to show.
+            self.emit(PYSIGNAL("signalPartRequest"), ())
+
         else:
             raise GUIError, "unknown action called (%s)" %(self._action)
 
@@ -265,4 +297,26 @@ class PartEdit(QWidget):
     # Cancel button clicked.
     def slotCancelClicked(self):
         self.hide()
-        
+
+  
+class PartEditWidgetImpl(PartEditWidget):
+
+    _state = None
+
+    def setState(self, state, partition=None):
+        self._state = state
+
+        if self._state == "edit":
+            self.caption.setText("Edit Partition %s" % partition.get_minor())
+            self.size.hide()
+
+            self.type_label.show()
+            self.part_type.show()
+            self.format.show()
+        elif self._state == "create":
+            self.caption.setText("Create New Partition")
+            self.type_label.hide()
+            self.part_type.hide()
+            self.format.hide()
+
+            self.size.show()

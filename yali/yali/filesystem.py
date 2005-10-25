@@ -33,7 +33,7 @@ class FileSystem:
 
     def readSupportedFilesystems(self):
         f = open("/proc/filesystems", 'r')
-        for line in f.readline():
+        for line in f.readlines():
             line = line.split()
             if line[0] == "nodev":
                 self._filesystems.append(line[1])
@@ -52,14 +52,12 @@ class Ext3FileSystem(FileSystem):
     _name = "ext3"
 
     def __init__(self):
-        super(Ext3FileSystem, self).__init__(self)
+        FileSystem.__init__(self)
         self.name = self._name
         
 
     def format(self, partition):
-        device_path = partition.get_device_name() + partition.get_minor()
-
-        cmd = "/sbin/mke2fs.ext3 %s" %(device_path)
+        cmd = "/sbin/mke2fs.ext3 %s" %(partition.get_path())
 
         p = os.popen(cmd)
         o = p.readlines()
@@ -75,14 +73,12 @@ class SwapFileSystem(FileSystem):
     _name = "swap"
 
     def __init__(self):
-        super(SwapFileSystem, self).__init__(self)
+        FileSystem.__init__(self)
         self.name = self._name
         
 
     def format(self, partition):
-        device_path = partition.get_device_name() + partition.get_minor()
-
-        cmd = "/sbin/mkswap %s" %(device_path)
+        cmd = "/sbin/mkswap %s" %(partition.get_path())
 
         p = os.popen(cmd)
         o = p.readlines()

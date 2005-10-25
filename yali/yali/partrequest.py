@@ -20,12 +20,41 @@ def get_fs_obj(fs):
         if i.name == fs:
             return i
 
-class FormatRequest:
+class PartRequest:
+    _part = None
+
+    def __init__(self, partition):
+        self._part = partition
+
+    def get_partition(self):
+        return self._part
+
+class FormatRequest(PartRequest):
     
     def __init__(self, partition, filesystem):
-        self._part = partition
+        PartRequest.__init__(self, partition)
         self._fs = filesystem
 
     def apply_request(self):
         fsobj = get_fs_obj(self._fs)
         fs.format(self._part)
+
+    def get_fs(self):
+        return self._fs
+
+class MountRequest(PartRequest):
+    def __init__(self, partition, filesystem, mountpoint, options=None):
+        PartRequest.__init__(self, partition)
+        self._fs = filesystem
+        self._mp = mountpoint
+        self._options = options
+
+    def apply_request(self):
+        raise YaliException, "Not Implemented yet!"
+
+    def get_fs(self):
+        return self._fs
+
+    def get_mountpoint(self):
+        return self._mp
+
