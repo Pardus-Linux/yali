@@ -41,7 +41,7 @@ filesystems = {
 
 partition_types = {0: ["Intall Root", "ext3", "/"],
                    1: ["Users's Files", "ext3", "/home"],
-                   2: ["Swap", "swap", None]
+                   2: ["Swap", "linux-swap", None]
                    }
 
 

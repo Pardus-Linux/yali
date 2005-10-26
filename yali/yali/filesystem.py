@@ -18,19 +18,34 @@ import os
 from yali.exception import *
 
 
-filesystem_types = []
+filesystem_types = {}
+
+def registerFSType(f):
+    filesystem_types[f.name()] = f
 
 ##
 # abstract file system class
 class FileSystem:
 
+    _name = None
     _filesystems = []
+    _implemented = False
 
     def __init__(self):
-        self.name = None
-
         self.readSupportedFilesystems()
 
+    ##
+    # set file system name.
+    def setName(self, name):
+        self._name = name
+
+    ##
+    # get file system name
+    def name(self):
+        return self._name
+
+    ##
+    # check the supported file systems by kernel
     def readSupportedFilesystems(self):
         f = open("/proc/filesystems", 'r')
         for line in f.readlines():
@@ -40,49 +55,81 @@ class FileSystem:
             else:
                 self._filesystems.append(line[0])
 
-    def format(self, device, partition):
-        raise YaliError, "format() is not implemented!"
+    ##
+    # chek if file system is supported by kernel
+    def isSupported(self):
+        if self.name() in self._filesystems:
+            return True
+        return False
 
+    ##
+    # necessary checks before formatting
+    def preFormat(self):
+        e = ""
+        if not self.isSupported():
+            e = "%s file system is not supported by kernel." %(self.name())
+
+        if not self.isImplemented():
+            e = "%s file system is not fully implemented." %(self.name())
+        
+        if e:
+            raise YaliException, e
+
+    ##
+    # empty funtion for implementors.
+    def format(self, partition):
+        pass
+
+    ##
+    # set if file system is implemented
+    def setImplemented(self, bool):
+        self._implemented = bool
+
+    ##
+    # check if filesystem is implemented
+    def isImplemented(self):
+        return self._implemented
 
 
 ##
 # ext3 file system
 class Ext3FileSystem(FileSystem):
     
-    _name = "ext3"
-
     def __init__(self):
         FileSystem.__init__(self)
-        self.name = self._name
-        
+        self.setName("ext3")
+        self.setImplemented(True)
 
     def format(self, partition):
+        self.preFormat()
+
         cmd = "/sbin/mke2fs.ext3 %s" %(partition.get_path())
 
         p = os.popen(cmd)
         o = p.readlines()
         if p.close():
-            raise YaliException, "ext3 format failed: %s" % device_path
+            raise YaliException, "ext3 format failed: %s" % partition.get_pat()
 
-filesystem_types.append(Ext3FileSystem())
+registerFSType(Ext3FileSystem())
+
 
 ##
 # linux-swap
 class SwapFileSystem(FileSystem):
 
-    _name = "swap"
-
     def __init__(self):
         FileSystem.__init__(self)
-        self.name = self._name
-        
+        self.setName = "linux-swap"
+        self.setImplemented(True)
 
     def format(self, partition):
+        self.preFormat()
+
         cmd = "/sbin/mkswap %s" %(partition.get_path())
 
         p = os.popen(cmd)
         o = p.readlines()
         if p.close():
-            raise YaliException, "swap format failed: %s" % device_path
+            raise YaliException, "swap format failed: %s" % partition.get_path()
 
-filesystem_types.append(SwapFileSystem())
+registerFSType(SwapFileSystem())

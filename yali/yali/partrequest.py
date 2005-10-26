@@ -16,10 +16,9 @@ from yali.exception import *
 from yali.parteddata import *
 from yali.filesystem import filesystem_types
 
-def get_fs_obj(fs):
-    for i in filesystem_types:
-        if i.name == fs:
-            return i
+def get_fs_obj(fsname):
+    return filesystem_types[fsname]
+
 
 ##
 # requests object holds the list of requests
@@ -77,6 +76,7 @@ class FormatRequest(PartRequest):
         self._fs = partition_types[part_type][1]
 
     def apply_request(self):
+        print self._fs
         fsobj = get_fs_obj(self._fs)
         fsobj.format(self._part)
 
