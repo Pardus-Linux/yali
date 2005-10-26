@@ -177,8 +177,8 @@ class Device:
         return newp
 
 
-#     def delete_partition(self, ....):
-#         pass
+    def delete_partition(self, part):
+        self._parted_disk.delete_partition(part._parted_part)
 
     def delete_all_partitions(self):
         self._parted_disk.delete_all()

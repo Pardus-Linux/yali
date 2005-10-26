@@ -28,3 +28,6 @@ class Widget(QWidget):
         hbox.addWidget(img)
         hbox.addStretch(1)
 
+    # Nothing to do on welcome screen
+    def execute(self):
+        pass

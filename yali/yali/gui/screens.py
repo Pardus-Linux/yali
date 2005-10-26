@@ -34,6 +34,11 @@ class Screens(QObject, Steps):
 
 
     def next(self):
+
+        # we are finished with the current screen. Call the widget's
+        # execute() function to do it's work.
+        self.getCurrent().getWidget().execute()
+
         nxt = self.getCurrentIndex() + 1
         if self.hasIndex(nxt):
             self.__setCurrent(nxt)

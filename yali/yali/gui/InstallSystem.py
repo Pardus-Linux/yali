@@ -23,3 +23,6 @@ class Widget(InstallWidget):
         
         pass
 
+
+    def execute(self):
+        pass

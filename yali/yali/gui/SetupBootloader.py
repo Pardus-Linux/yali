@@ -28,3 +28,5 @@ class Widget(QWidget):
         hbox.addWidget(img)
         hbox.addStretch(1)
 
+    def execute(self):
+        pass

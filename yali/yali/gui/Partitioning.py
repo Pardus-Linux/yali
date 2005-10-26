@@ -55,9 +55,23 @@ class Widget(QWidget):
         self.connect(self.partedit, PYSIGNAL("signalApplied"),
                      self.slotApplyClicked)
 # We don't need to handle this signal now. self.partlist.addDevice
-# calls show partition requests.
+# (called from fillPartList) calls show partition requests.
 #        self.connect(self.partedit, PYSIGNAL("signalPartRequest"),
 #                     self.partlist.showPartitionRequests)
+
+
+    ##
+    # do the work and run requested actions on partitions.
+    def execute(self):
+        print len(partition_requests)
+        for req in partition_requests:
+            req.apply_request()
+            print req._type
+
+        # now remove all.
+        for req in partition_requests:
+            partition_requests.remove(req)
+        
 
     def fillPartList(self):
         
@@ -178,6 +192,7 @@ class PartList(PartListWidget):
     ##
     # handle and show requests on listview
     def showPartitionRequests(self):
+        print len(partition_requests)
         for req in partition_requests:
             part = req.get_partition()
             item = self.__getItemFromPart(part)
@@ -269,7 +284,8 @@ class PartEdit(QWidget):
             if act == "delete":
                 self._action = "partition_delete"
                 self.warning.setText(
-                    "Deleting single partition is not implemented yet!")
+                    "You are goint to delete partition '%s' on device '%s'!"
+                    % (self._d.get_minor(), self._d.get_device().get_model()))
                 self.warning.show()
             if act == "edit":
                 self._action = "partition_edit"
@@ -295,7 +311,10 @@ class PartEdit(QWidget):
             self._d.close()
 
         elif self._action == "partition_delete":
-            print "delete_part.."
+            dev = self._d.get_device()
+            dev.delete_partition(self._d)
+            dev.save_partitions()
+            dev.close()
         elif self._action == "partition_edit":
             edit = self.edit
 

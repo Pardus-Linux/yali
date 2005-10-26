@@ -78,7 +78,7 @@ class FormatRequest(PartRequest):
 
     def apply_request(self):
         fsobj = get_fs_obj(self._fs)
-        fs.format(self._part)
+        fsobj.format(self._part)
 
     def get_fs(self):
         return self._fs
@@ -99,7 +99,8 @@ class MountRequest(PartRequest):
         self._options = options
 
     def apply_request(self):
-        raise YaliException, "Not Implemented yet!"
+        #raise YaliException, "Not Implemented yet!"
+        pass
 
     def get_fs(self):
         return self._fs
