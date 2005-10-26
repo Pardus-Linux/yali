@@ -24,89 +24,138 @@ def get_fs_obj(fsname):
 # requests object holds the list of requests
 class RequestList(list):
 
-    def append(self, req):
+    ##
+    # iterator function searches for the a request by partition and
+    # type
+    def searchRequest(self, partition, request_type=None):
         i = self.__iter__()
         try:
             cur = i.next()
             while True:
-                # don't hold more than one same type of requests for a
-                # partition
-                if cur._part.get_path() == req._part.get_path() and \
-                        cur._type == req._type:
-                    list.remove(self, cur)
-                cur = i.next()
-        except StopIteration:
-            # end of list
-            list.append(self, req)
 
+                if cur.partition().get_path() == partition.get_path():
+                    # partitions match!
 
-    def remove_request(self, part, req_type):
-        i = self.__iter__()
-        try:
-            cur = i.next()
-            while True:
-                if cur._part.get_path() == part.get_path() and \
-                        cur._type == req_type:
-                    list.remove(self, cur)
+                    if not request_type:
+                        # FOUND (without checking a type)
+                        yield cur
+                
+                    else:
+                        if cur.requestType() == request_type:
+                            # FOUND
+                            yield cur
+
                 cur = i.next()
         except StopIteration:
             # end of list
             pass
+
+    def append(self, req):
+
+        self.removeRequest(req.partition(), req.requestType())
+        list.append(self, req)
+
+
+    def removeRequest(self, partition, request_type):
+        found = [x for x in self.searchRequest(partition, request_type)]
+        # this should give (at most) one result
+        # cause we are storing one request for a (part, reqType) pair
+        assert(len(found) <= 1)
+
+        for f in found:
+            list.remove(self, f)
         
 
-
+##
+# Abstract Partition request class
 class PartRequest:
-    _part = None
+    _partition = None
+    _request_type = ""
 
-    def __init__(self, partition):
-        self._part = partition
+    ##
+    # empty initializeer
+    def __init__(self):
+        pass
 
-    def get_partition(self):
-        return self._part
+    ##
+    # apply the request to the partition
+    def applyRequest(self):
+        pass
 
+    ##
+    # set the partition to apply request
+    def setPartition(self, partition):
+        self._partition = partition
 
+    def partition(self):
+        return self._partition
 
+    ##
+    # set the type of the request
+    def setRequestType(self, t):
+        self._request_type = t
+
+    ##
+    # get the type of the request
+    def requestType(self):
+        return self._request_type
+
+##
+# format partition request
 class FormatRequest(PartRequest):
 
-    _type = "format"
+    _part_type_name = ""
+    _fs = ""
 
     def __init__(self, partition, part_type):
-        PartRequest.__init__(self, partition)
+        PartRequest.__init__(self)
+
+        self.setPartition(partition)
+        self.setRequestType("format")
+
         self._part_type_name = partition_types[part_type][0]
         self._fs = partition_types[part_type][1]
 
-    def apply_request(self):
-        print self._fs
+    def applyRequest(self):
         fsobj = get_fs_obj(self._fs)
         fsobj.format(self._part)
 
-    def get_fs(self):
+    def fs(self):
         return self._fs
 
-    def get_part_type_name(self):
+    def part_type_name(self):
         return self._part_type_name
 
 
+##
+# mount partition request
 class MountRequest(PartRequest):
 
-    _type = "mount"
+    _part_type_name = ""
+    _fs = ""
+    _mountpoint = ""
+    _options = ""
 
     def __init__(self, partition, part_type, options=None):
-        PartRequest.__init__(self, partition)
+        PartRequest.__init__(self)
+
+        self.setPartition(partition)
+        self.setRequestType("mount")
+
         self._part_type_name = partition_types[part_type][0]
         self._fs = partition_types[part_type][1]
         self._mountpoint = partition_types[part_type][2]
         self._options = options
 
-    def apply_request(self):
+    def applyRequest(self):
         #raise YaliException, "Not Implemented yet!"
         pass
 
-    def get_fs(self):
+    def fs(self):
         return self._fs
 
-    def get_mountpoint(self):
+    def mountpoint(self):
         return self._mountpoint
 
-    def get_part_type_name(self):
+    def part_type_name(self):
         return self._part_type_name

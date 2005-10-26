@@ -65,8 +65,7 @@ class Widget(QWidget):
     def execute(self):
         print len(partition_requests)
         for req in partition_requests:
-            req.apply_request()
-            print req._type
+            req.applyRequest()
 
         # now remove all.
         for req in partition_requests:
@@ -194,20 +193,22 @@ class PartList(PartListWidget):
     def showPartitionRequests(self):
         print len(partition_requests)
         for req in partition_requests:
-            part = req.get_partition()
+            part = req.partition()
             item = self.__getItemFromPart(part)
 
             if isinstance(req, FormatRequest):
-                fs = req.get_fs()
-                part_type_name = req.get_part_type_name()
+                fs = req.fs()
+                part_type_name = req.part_type_name()
+
                 item.setText(2, part_type_name)
                 item.setText(3, fs)
                 item.setText(4, "YES")
 
 
             elif isinstance(req, MountRequest):
-                fs = req.get_fs()
-                part_type_name = req.get_part_type_name()
+                fs = req.fs()
+                part_type_name = req.part_type_name()
+
                 item.setText(2, part_type_name)
                 item.setText(3, fs)
 
@@ -325,7 +326,7 @@ class PartEdit(QWidget):
             if format:
                 partition_requests.append(FormatRequest(self._d, part_type))
             else: #remove previous format requests for partition (if there are any)
-                partition_requests.remove_request(self._d, "format")
+                partition_requests.removeRequest(self._d, "format")
 
             # partition requests added signal it for gui to show.
             self.emit(PYSIGNAL("signalPartRequest"), ())
