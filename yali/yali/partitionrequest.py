@@ -85,8 +85,6 @@ class RequestList(list):
 
         list.append(self, req)
 
-        print self
-
     ##
     # remove request matching (partition, request type) pair
     # @param p: Partition

@@ -295,15 +295,21 @@ class PartEdit(QWidget):
 
             i = edit.part_type.currentItem()
             t = part_types[i]
-            ctx.partrequests.append(request.MountRequest(self._d, t))
+
+            try:
+                ctx.partrequests.append(request.MountRequest(self._d, t))
             
-            if edit.format.isChecked():
-                ctx.partrequests.append(request.FormatRequest(self._d, t))
-            else:
-                # remove previous format requests for partition (if
-                # there are any)
-                ctx.partrequests.removeRequest(self._d,
-                                               request.formatRequestType)
+                if edit.format.isChecked():
+                    ctx.partrequests.append(request.FormatRequest(self._d, t))
+                else:
+                    # remove previous format requests for partition (if
+                    # there are any)
+                    ctx.partrequests.removeRequest(self._d,
+                                                   request.formatRequestType)
+            except request.RequestException, e:
+                # FIXME: show this on GUI
+                print e
+
         else:
             raise GUIError, "unknown action called (%s)" %(self._action)
 

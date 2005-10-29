@@ -55,6 +55,10 @@ class FileSystem:
             else:
                 self._filesystems.append(line[0])
 
+        # append linux-swap manually
+        self._filesystems.append("linux-swap")
+        
+
     ##
     # chek if file system is supported by kernel
     def isSupported(self):
@@ -64,7 +68,7 @@ class FileSystem:
 
     ##
     # necessary checks before formatting
-    def preFormat(self):
+    def preFormat(self, partition):
         e = ""
         if not self.isSupported():
             e = "%s file system is not supported by kernel." %(self.name())
@@ -75,10 +79,8 @@ class FileSystem:
         if e:
             raise YaliException, e
 
-    ##
-    # empty funtion for implementors.
-    def format(self, partition):
-        pass
+        #FIXME: use logging system
+        print "format %s: %s" %(partition.getPath(), self.name())
 
     ##
     # set if file system is implemented
@@ -102,7 +104,7 @@ class Ext3FileSystem(FileSystem):
         self.setImplemented(True)
 
     def format(self, partition):
-        self.preFormat()
+        self.preFormat(partition)
 
         cmd = "/sbin/mke2fs.ext3 %s" %(partition.getPath())
 
@@ -123,7 +125,7 @@ class SwapFileSystem(FileSystem):
         self.setImplemented(True)
 
     def format(self, partition):
-        self.preFormat()
+        self.preFormat(partition)
 
         cmd = "/sbin/mkswap %s" %(partition.getPath())
 
