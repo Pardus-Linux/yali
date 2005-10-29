@@ -37,97 +37,90 @@ class Device:
     # @param device: Device node (e.g. /dev/hda, /dev/sda)
     # @param arch: Architecture that we're partition for (defaults to 'x86')
     def __init__(self, device, arch="x86"):
-        self._arch = arch
-        self._device = device
-        self._parted_dev = parted.PedDevice.get(self._device)
-        self._parted_disk = None
-        self._disklabel = None
+
+        self._arch = ""
+        self._path = ""
+        self._device = None
+        self._model = ""
+        self._disk = None
         self._partitions = {}
-        self._total_mb = 0
-        self._sector_bytes = 0
-        self._total_bytes = 0
-        self._total_sectors = 0
-        self._cylinder_bytes = 0
-        self._sectors_in_cylinder = 0
-        self._geometry = {'cylinders': 0, 'heads': 0, 'sectors': 0, 'sectorsize': 512}
+        self._disklabel = ""
+        self._length = 0       # total sectors
+        self._sector_size = 0
+
+        dev = parted.PedDevice.get(device)
+
+        self._model = dev.model
+        self._length = dev.length
+        self._sector_size = dev.sector_size
         
-        self.set_disk_geometry_from_disk()
-
-
-    ##
-    # Sets disk geometry info from disk.
-    # This function is used internally by __init__()
-    def set_disk_geometry_from_disk(self):
-
-        self._total_bytes = self._parted_dev.length * self._parted_dev.sector_size
-
-        self._geometry['heads'] = self._parted_dev.heads
-        self._geometry['sectors'] = self._parted_dev.sectors
-        self._geometry['cylinders'] = self._parted_dev.cylinders
-
-        self._sector_bytes = self._parted_dev.sector_size
-
-        self._cylinder_bytes = self._geometry['heads'] * self._geometry['sectors'] * self._sector_bytes
-
-        self._total_sectors = self._parted_dev.length
-
-        self._sectors_in_cylinder = self._geometry['heads'] * self._geometry['sectors']
-
-        self._total_mb = long(self._total_bytes / MEGABYTE)
-
-
-    ##
-    # Open Device, and set partitions from disk...
-    def open(self):
-
         try:
-            self._parted_disk = parted.PedDisk.new(self._parted_dev)
+            self._disk = parted.PedDisk.new(dev)
         except:
             label = archinfo[self._arch]["disklabel"]
-            self._parted_disk = self._parted_dev.disk_new_fresh(parted.disk_type_get(label))
+            disk_type = parted.disk_type_get(label)
+            self._disk = self._dev.disk_new_fresh(disk_type)
 
-        self._disklabel = self._parted_disk.type.name
+        self._disklabel = self._disk.type.name
 
+        self._path = device
+        self._arch = arch
+        self._dev = dev
 
-        # Device is opened. Now loop over partition list...
-        parted_part = self._parted_disk.next_partition()
-        while parted_part:
-            part_mb = long((parted_part.geom.end - parted_part.geom.start + 1) * self._sector_bytes / MEGABYTE)
+        self.update()
 
-            if parted_part.num >= 1:
-                fs_type = ""
-                if parted_part.fs_type: fs_type = parted_part.fs_type.name
-                elif parted_part.type == parted.PARTITION_EXTENDED: fs_type = "extended"
+    ##
+    # clear and re-fill partitions dict.
+    def update(self):
+        self._partitions.clear()
 
-                self._partitions[parted_part.num] = Partition(self, parted_part,
-                                                              parted_part.num,
-                                                              part_mb,
-                                                              parted_part.geom.start,
-                                                              parted_part.geom.end,
-                                                              fs_type)
+        part = self._disk.next_partition()
+        while part:
+            self.__addToPartitionsDict(part)
+            part = self._disk.next_partition(part)
 
-            elif parted_part.type_name == freespace_fstype:
-                self._partitions[freespace_minor] = FreeSpace(self, parted_part,
-                                                              part_mb,
-                                                              parted_part.geom.start,
-                                                              parted_part.geom.end)
+    ##
+    # get device capacity in bytes
+    # returns: long
+    def getTotalBytes(self):
+        return long(self._length * self._sector_size)
 
-            parted_part = self._parted_disk.next_partition(parted_part)
+    ##
+    # get device capacity in MBs
+    # returns: long
+    def getTotalMB(self):
+        return long(self.getTotalBytes() / MEGABYTE)
 
+    ##
+    # get device path (e.g. /dev/hda)
+    # returns: string
+    def getPath(self):
+        return self._path
 
-    def get_device(self):
-        return self._device
+    ##
+    # get device model
+    # returns: string
+    def getModel(self):
+        return self._model
 
-    def get_model(self):
-        return self._parted_dev.model
+    ##
+    # get partitions from disk
+    # returns: [Partition]
+    def getPartitions(self):
+        return self._partitions.values()
 
-    def get_total_mb(self):
-        return self._total_mb
+    ##
+    # get a partition by number
+    # @param num: partition number
+    #
+    # returns: Partition
+    def getPartition(self, num):
+        return self.getPartitions()[num]
 
-    def get_partitions(self):
-        return self._partitions
-
-    def get_ordered_partition_list(self):
+    ##
+    # get the partition list in an order
+    # returns: [Partition]
+    def getOrderedPartitionList(self):
 
         def comp(x, y):
             """sort partitions using get_start()"""
@@ -138,7 +131,7 @@ class Device:
             elif x == y: return 0
             else: return 1
 
-        l = self.get_partitions().values()
+        l = self.getPartitions()
         l.sort(comp)
         return l
 
@@ -149,46 +142,85 @@ class Device:
 
     ##
     # Add (create) a new partition to the device
-    def add_partition(self, type, fs_type, size_mb):
+    def addPartition(self, type, fs_type, size_mb):
 
-        size = size_mb * MEGABYTE / self._geometry["sectorsize"]
+        size = size_mb * MEGABYTE / self._sector_size
         if fs_type: # get pedFileSystemType
             fs_type = filesystems[fs_type]
 
-        parted_part = self._parted_disk.next_partition ()
+        part = self._disk.next_partition()
         status = 0
-        while parted_part:
-            if (parted_part.type == parted.PARTITION_FREESPACE
-                and parted_part.geom.length >= size):
-                newp = self._parted_disk.partition_new (type, fs_type,
-                                                       parted_part.geom.start,
-                                                       parted_part.geom.start + size)
-                constraint = self._parted_disk.dev.constraint_any ()
+        while part:
+            geom = part.geom
+            if (part.type == parted.PARTITION_FREESPACE
+                and geom.length >= size):
+
+                constraint = self._disk.dev.constraint_any()
+                newp = self._disk.partition_new (type, fs_type,
+                                                 geom.start,
+                                                 geom.start + size)
+
                 try:
-                    self._parted_disk.add_partition (newp, constraint)
+                    self._disk.add_partition (newp, constraint)
                     status = 1
                     break
                 except parted.error, e:
                     raise DeviceError, e
-            parted_part = self._parted_disk.next_partition (parted_part)
+            part = self._disk.next_partition(part)
         if not status:
             raise DeviceError, ("Not enough free space on %s to create "
-                                "new partition" % self._device)
-        return newp
+                                "new partition" % self.getPath())
+        
+        return self.__addToPartitionsDict(newp)
 
+    ##
+    # internal function
+    # add partition to the partitions dictionary
+    # @param part: pyparted partition type
+    #
+    # returns: Partition
+    def __addToPartitionsDict(self, part):
 
-    def delete_partition(self, part):
-        self._parted_disk.delete_partition(part._parted_part)
+        geom = part.geom
+        part_mb = long(
+            (geom.end - geom.start + 1) * self._sector_size / MEGABYTE)
 
-    def delete_all_partitions(self):
-        self._parted_disk.delete_all()
+        if part.num >= 1:
+            fs_type = ""
+            if part.fs_type:
+                fs_type = part.fs_type.name
+            elif part.type == parted.PARTITION_EXTENDED:
+                fs_type = "extended"
 
-    def save_partitions(self):
-        self._parted_disk.commit()
+            self._partitions[part.num] = Partition(self, part,
+                                                   part.num,
+                                                   part_mb,
+                                                   geom.start,
+                                                   geom.end,
+                                                   fs_type)
+        elif part.type_name == freespace_fstype:
+            self._partitions[freespace_minor] = FreeSpace(self, part,
+                                                          part_mb,
+                                                          part.geom.start,
+                                                          part.geom.end)
+        return part
+
+    ##
+    # delete a partition
+    # @param part: Partition
+    def deletePartition(self, part):
+        self._disk.delete_partition(part._parted_part)
+
+    def deleteAllPartitions(self):
+        self._disk.delete_all()
+
+    def commit(self):
+        self._disk.commit()
+        self.update()
 
     def close(self):
         # pyparted will do it for us.
-        del self._parted_disk
+        del self._disk
 
 
 
@@ -243,5 +275,3 @@ def detect_all():
                         devices.append(record[2])
 
     return devices
-
-
