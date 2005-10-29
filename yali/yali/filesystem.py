@@ -19,11 +19,6 @@ import parted
 from yali.exception import *
 
 
-filesystems = {}
-
-def registerFSType(f):
-    filesystems[f.name()] = f
-
 ##
 # abstract file system class
 class FileSystem:
@@ -116,8 +111,6 @@ class Ext3FileSystem(FileSystem):
         if p.close():
             raise YaliException, "ext3 format failed: %s" % partition.getPath()
 
-registerFSType(Ext3FileSystem())
-
 
 ##
 # linux-swap
@@ -139,4 +132,3 @@ class SwapFileSystem(FileSystem):
         if p.close():
             raise YaliException, "swap format failed: %s" % partition.getPath()
 
-registerFSType(SwapFileSystem())

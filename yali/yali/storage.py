@@ -193,7 +193,7 @@ class Device:
                 and geom.length >= size):
 
                 constraint = self._disk.dev.constraint_any()
-                newp = self._disk.partition_new (type, fs_type,
+                newp = self._disk.partition_new (type, fs,
                                                  geom.start,
                                                  geom.start + size)
 

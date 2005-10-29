@@ -13,11 +13,11 @@
 
 import yali.gui.stages
 import yali.gui.screens
-from yali.partrequest import RequestList
+import yali.partitionrequest as request
 
 
 stages = yali.gui.stages.Stages()
 screens = yali.gui.screens.Screens()
 
 # partition requests
-part_requests = RequestList()
+partrequests = request.RequestList()

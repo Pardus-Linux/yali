@@ -15,8 +15,9 @@ import os.path
 from qt import *
 
 import yali.storage
+import yali.partitionrequest as request
+import yali.partitiontype as parttype
 from yali.parteddata import *
-from yali.partrequest import FormatRequest, MountRequest
 
 import yali.gui.context as ctx
 from yali.gui.GUIException import *
@@ -24,6 +25,11 @@ from yali.gui.partlistwidget import PartListWidget
 from yali.gui.parteditbuttons import PartEditButtons
 from yali.gui.parteditwidget import PartEditWidget
 
+
+# partition types in order they are presented in gui.
+part_types = {0: parttype.RootPartitionType(),
+              1: parttype.HomePartitionType(),
+              2: parttype.SwapPartitionType()}
 
 ##
 # Partitioning screen.
@@ -57,8 +63,7 @@ class Widget(QWidget):
     ##
     # do the work and run requested actions on partitions.
     def execute(self):
-
-        for req in ctx.part_requests:
+        for req in ctx.partrequests:
             req.applyRequest()
 
 
@@ -94,11 +99,10 @@ class PartList(PartListWidget):
         self.showPartitionRequests()
 
     def addDevice(self, dev):
-        devstr = "%s (%s)" % (dev.getModel(), dev.getName())
-        size = dev.getSizeStr()
-
         # add the device to the list
-        d = PartListItem(self.list, devstr, size)
+        devstr = "%s (%s)" % (dev.getModel(), dev.getName())
+        d = PartListItem(self.list, devstr,
+                         dev.getSizeStr())
         d.setData(dev)
 
         # add partitions on device
@@ -107,10 +111,10 @@ class PartList(PartListWidget):
                 name = "Free"
             else:
                 name = "Partition %d" % part.getMinor()
-            size = part.getSizeStr()
-            part_type = ""
-            fs = part.getFSType()
-            p = PartListItem(d, name, size, part_type, fs)
+            p = PartListItem(d, name,
+                             part.getSizeStr(),
+                             "", # install partition type
+                             part.getFSType())
             p.setData(part)
 
         self.list.setOpen(d, True)
@@ -164,26 +168,17 @@ class PartList(PartListWidget):
     ##
     # handle and show requests on listview
     def showPartitionRequests(self):
-        for req in ctx.part_requests:
-            part = req.partition()
-            item = self.__getItemFromPart(part)
+        for req in ctx.partrequests:
+            item = self.__getItemFromPart(req.partition())
 
-            if isinstance(req, FormatRequest):
-                fs = req.fs()
-                part_type_name = req.part_type_name()
-
-                item.setText(2, part_type_name)
-                item.setText(3, fs)
+            t = req.requestType()
+            ptype = req.partitionType()
+            if t == request.formatRequestType:
+                item.setText(3, ptype.filesystem.name())
                 item.setText(4, "YES")
 
-
-            elif isinstance(req, MountRequest):
-                fs = req.fs()
-                part_type_name = req.part_type_name()
-
-                item.setText(2, part_type_name)
-                item.setText(3, fs)
-
+            elif t == request.mountRequestType:
+                item.setText(2, ptype.name)
 
 
 ##
@@ -298,25 +293,23 @@ class PartEdit(QWidget):
         elif self._action == "partition_edit":
             edit = self.edit
 
-            part_type = edit.part_type.currentItem()
-            ctx.part_requests.append(MountRequest(self._d, part_type))
+            i = edit.part_type.currentItem()
+            t = part_types[i]
+            ctx.partrequests.append(request.MountRequest(self._d, t))
             
-            format = edit.format.isChecked()
-            if format:
-                ctx.part_requests.append(FormatRequest(self._d, part_type))
-            else: #remove previous format requests for partition (if there are any)
-                ctx.part_requests.removeRequest(self._d, "format")
-
-            # partition requests added signal it for gui to show.
-            self.emit(PYSIGNAL("signalPartRequest"), ())
-
+            if edit.format.isChecked():
+                ctx.partrequests.append(request.FormatRequest(self._d, t))
+            else:
+                # remove previous format requests for partition (if
+                # there are any)
+                ctx.partrequests.removeRequest(self._d,
+                                               request.formatRequestType)
         else:
             raise GUIError, "unknown action called (%s)" %(self._action)
 
         self.hide()
         self.emit(PYSIGNAL("signalApplied"), ())
 
-    
     ##
     # Cancel button clicked.
     def slotCancelClicked(self):
