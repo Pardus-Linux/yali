@@ -62,6 +62,7 @@ class Device:
         self._disklabel = ""
         self._length = 0       # total sectors
         self._sector_size = 0
+        self._parted_type = deviceType
 
         dev = parted.PedDevice.get(device_path)
 
@@ -83,6 +84,9 @@ class Device:
         self._dev = dev
 
         self.update()
+
+    def getType(self):
+        return self._parted_type
 
     ##
     # clear and re-fill partitions dict.
@@ -235,11 +239,11 @@ class Device:
                                                    geom.start,
                                                    geom.end,
                                                    fs_type)
-        elif part.type_name == freespace_fstype:
-            self._partitions[freespace_minor] = FreeSpace(self, part,
-                                                          part_mb,
-                                                          part.geom.start,
-                                                          part.geom.end)
+        elif part.type_name == "free":
+            self._partitions[-1] = FreeSpace(self, part,
+                                             part_mb,
+                                             part.geom.start,
+                                             part.geom.end)
         return part
 
     ##

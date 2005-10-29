@@ -12,7 +12,7 @@
 
 import os
 
-from yali.parteddata import *
+import yali.parteddata as parteddata
 
 ##
 # Class representing a single partition within a Device object
@@ -26,6 +26,10 @@ class Partition:
         self._start = start
         self._end = end
         self._fstype = fs_type or "unknown"
+        self._parted_type = parteddata.partitionType
+
+    def getType(self):
+        return self._parted_type
 
     ##
     # get parted partition
@@ -68,7 +72,7 @@ class Partition:
         return self._mb
 
     def getGB(self):
-        return self.getMB() / KILOBYTE
+        return self.getMB() / parteddata.KILOBYTE
 
     def getSizeStr(self):
         gb = self.getGB()
@@ -92,8 +96,11 @@ class FreeSpace(Partition):
     def __init__(self, device, part, mb, start, end):
         Partition.__init__(self, device,
                            part,
-                           freespace_minor,
+                           -1,
                            mb,
                            start,
                            end,
-                           freespace_fstype)
+                           "free space")
+
+        self._parted_type = parteddata.freeSpaceType
+

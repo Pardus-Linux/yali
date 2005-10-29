@@ -31,10 +31,5 @@ archinfo = {
     }
 
 
-# magic minor number for representing free space
-freespace_minor = -1
-freespace_fstype = "free"
-
-
-
+deviceType, partitionType, freeSpaceType = range(3)
 

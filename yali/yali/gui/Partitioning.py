@@ -17,7 +17,7 @@ from qt import *
 import yali.storage
 import yali.partitionrequest as request
 import yali.partitiontype as parttype
-from yali.parteddata import *
+import yali.parteddata as parteddata
 
 import yali.gui.context as ctx
 from yali.gui.GUIException import *
@@ -107,7 +107,7 @@ class PartList(PartListWidget):
 
         # add partitions on device
         for part in dev.getOrderedPartitionList():
-            if part.getFSType() == freespace_fstype:
+            if part.getType() == parteddata.freeSpaceType:
                 name = "Free"
             else:
                 name = "Partition %d" % part.getMinor()
@@ -121,18 +121,27 @@ class PartList(PartListWidget):
 
     def slotItemSelected(self):
         item = self.list.currentItem()
-        if isinstance(item.getData(), yali.storage.Device):
+        t = item.getData().getType()
+
+        if t == parteddata.deviceType:
             self.createButton.setEnabled(True)
             self.deleteButton.setEnabled(True)
             self.editButton.setEnabled(False)
 
             self.deleteButton.setText("Delete All Partitions")
-        else:
+
+        elif t == parteddata.partitionType:
             self.createButton.setEnabled(False)
             self.deleteButton.setEnabled(True)
             self.editButton.setEnabled(True)
 
             self.deleteButton.setText("Delete Selected Partition")
+
+        elif t == parteddata.freeSpaceType:
+            self.createButton.setEnabled(True)
+            self.deleteButton.setEnabled(False)
+            self.editButton.setEnabled(False)
+            
 
     def slotCreateClicked(self):
         item = self.list.currentItem()
@@ -157,7 +166,7 @@ class PartList(PartListWidget):
 
         while current:
             d = current.getData()
-            if isinstance(d, yali.storage.Partition):
+            if d.getType() == parteddata.partitionType:
                 if d == part:
                      return current
             iterator += 1
@@ -246,7 +255,7 @@ class PartEdit(QWidget):
         self.show()
 
 
-        if isinstance(self._d, yali.storage.Device):
+        if self._d.getType() == parteddata.deviceType:
             if act == "create":
                 self._action = "device_create"
                 self.edit.setState(act)
@@ -258,7 +267,7 @@ class PartEdit(QWidget):
                     %(self._d.getModel()))
                 self.warning.show()
 
-        elif isinstance(self._d, yali.partition.Partition):
+        elif self._d.getType() ==  parteddata.partitionType:
             if act == "delete":
                 self._action = "partition_delete"
                 self.warning.setText(
