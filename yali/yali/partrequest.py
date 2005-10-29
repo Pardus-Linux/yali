@@ -14,10 +14,10 @@
 
 from yali.exception import *
 from yali.parteddata import *
-from yali.filesystem import filesystem_types
+from yali.filesystem import filesystems
 
 def get_fs_obj(fsname):
-    return filesystem_types[fsname]
+    return filesystems[fsname]
 
 
 ##

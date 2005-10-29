@@ -31,15 +31,6 @@ archinfo = {
     }
 
 
-filesystems = {
-    'linux-swap': parted.file_system_type_get('linux-swap'),
-    'ext3': parted.file_system_type_get('ext3'),
-    'ext2': parted.file_system_type_get('ext2'),
-    'reiserfs': parted.file_system_type_get('reiserfs'),
-    'xfs': parted.file_system_type_get('xfs')
-    }
-
-
 partition_types = {0: ["Intall Root", "ext3", "/"],
                    1: ["Users's Files", "ext3", "/home"],
                    2: ["Swap", "linux-swap", None]

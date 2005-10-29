@@ -49,7 +49,7 @@ class Device:
 
     ##
     # Init Device
-    # @param device_path: Device node (e.g. /dev/hda, /dev/sda)
+    # @param device_path: Device node (eg. /dev/hda, /dev/sda)
     # @param arch: Architecture that we're partition for (defaults to 'x86')
     def __init__(self, device_path, arch="x86"):
 
@@ -120,13 +120,13 @@ class Device:
             return "%s MB" % self.getTotalMB()
 
     ##
-    # get device path (e.g. /dev/hda)
+    # get device path (eg. /dev/hda)
     # returns: string
     def getPath(self):
         return self._path
 
     ##
-    # get device name (e.g. hda)
+    # get device name (eg. hda)
     # returns: string
     def getName(self):
         return os.path.basename(self.getPath())
@@ -176,11 +176,14 @@ class Device:
 
     ##
     # Add (create) a new partition to the device
-    def addPartition(self, type, fs_type, size_mb):
+    # @param type: parted partition type (eg. parted.PARTITION_PRIMARY)
+    # @param fs_type: filesystem.FileSystem
+    # @param size_mb: size of the partition in MBs.
+    def addPartition(self, type, fs, size_mb):
 
         size = size_mb * MEGABYTE / self._sector_size
-        if fs_type: # get pedFileSystemType
-            fs_type = filesystems[fs_type]
+        if fs:
+            fs = fs.getFSType()
 
         part = self._disk.next_partition()
         status = 0

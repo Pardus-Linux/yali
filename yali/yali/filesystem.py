@@ -14,14 +14,15 @@
 # also define actions, like format...
 
 import os
+import parted
 
 from yali.exception import *
 
 
-filesystem_types = {}
+filesystems = {}
 
 def registerFSType(f):
-    filesystem_types[f.name()] = f
+    filesystems[f.name()] = f
 
 ##
 # abstract file system class
@@ -30,19 +31,23 @@ class FileSystem:
     _name = None
     _filesystems = []
     _implemented = False
+    _fs_type = None  # parted fs type
 
     def __init__(self):
         self.readSupportedFilesystems()
 
-    ##
-    # set file system name.
-    def setName(self, name):
-        self._name = name
+        self._fs_type = parted.file_system_type_get(self._name)
+
 
     ##
     # get file system name
     def name(self):
         return self._name
+
+    ##
+    # get parted filesystem type.
+    def getFSType(self):
+        return self._fs_type
 
     ##
     # check the supported file systems by kernel
@@ -94,10 +99,11 @@ class FileSystem:
 ##
 # ext3 file system
 class Ext3FileSystem(FileSystem):
+
+    _name = "ext3"
     
     def __init__(self):
         FileSystem.__init__(self)
-        self.setName("ext3")
         self.setImplemented(True)
 
     def format(self, partition):
@@ -117,9 +123,10 @@ registerFSType(Ext3FileSystem())
 # linux-swap
 class SwapFileSystem(FileSystem):
 
+    _name = "linux-swap"
+
     def __init__(self):
         FileSystem.__init__(self)
-        self.setName = "linux-swap"
         self.setImplemented(True)
 
     def format(self, partition):
