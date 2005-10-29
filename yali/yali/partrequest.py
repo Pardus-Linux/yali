@@ -32,8 +32,7 @@ class RequestList(list):
         try:
             cur = i.next()
             while True:
-
-                if cur.partition().get_path() == partition.get_path():
+                if cur.partition() == partition:
                     # partitions match!
 
                     if not request_type:
@@ -69,18 +68,23 @@ class RequestList(list):
 ##
 # Abstract Partition request class
 class PartRequest:
-    _partition = None
-    _request_type = ""
 
     ##
     # empty initializeer
     def __init__(self):
-        pass
+        self._partition = None
+        self._request_type = ""
+        self._isapplied = False
 
     ##
     # apply the request to the partition
     def applyRequest(self):
-        pass
+        self._isapplied = True
+
+    ##
+    # is the request applied on partition?
+    def isApplied(self):
+        return self._isapplied
 
     ##
     # set the partition to apply request
@@ -118,7 +122,9 @@ class FormatRequest(PartRequest):
 
     def applyRequest(self):
         fsobj = get_fs_obj(self._fs)
-        fsobj.format(self._part)
+        fsobj.format(self.partition())
+
+        PartRequest.applyRequest(self)
 
     def fs(self):
         return self._fs
@@ -149,7 +155,7 @@ class MountRequest(PartRequest):
 
     def applyRequest(self):
         #raise YaliException, "Not Implemented yet!"
-        pass
+        PartRequest.applyRequest(self)
 
     def fs(self):
         return self._fs

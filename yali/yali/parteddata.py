@@ -12,8 +12,9 @@
 
 import parted
 
-MEGABYTE = 1024 * 1024
-GIGABYTE = MEGABYTE * 1024
+KILOBYTE = 1024
+MEGABYTE = KILOBYTE * KILOBYTE
+GIGABYTE = MEGABYTE * KILOBYTE
 
 archinfo = {
     'x86': {'fixedparts': [],

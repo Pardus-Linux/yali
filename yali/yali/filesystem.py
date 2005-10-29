@@ -103,12 +103,12 @@ class Ext3FileSystem(FileSystem):
     def format(self, partition):
         self.preFormat()
 
-        cmd = "/sbin/mke2fs.ext3 %s" %(partition.get_path())
+        cmd = "/sbin/mke2fs.ext3 %s" %(partition.getPath())
 
         p = os.popen(cmd)
         o = p.readlines()
         if p.close():
-            raise YaliException, "ext3 format failed: %s" % partition.get_pat()
+            raise YaliException, "ext3 format failed: %s" % partition.getPath()
 
 registerFSType(Ext3FileSystem())
 
@@ -125,11 +125,11 @@ class SwapFileSystem(FileSystem):
     def format(self, partition):
         self.preFormat()
 
-        cmd = "/sbin/mkswap %s" %(partition.get_path())
+        cmd = "/sbin/mkswap %s" %(partition.getPath())
 
         p = os.popen(cmd)
         o = p.readlines()
         if p.close():
-            raise YaliException, "swap format failed: %s" % partition.get_path()
+            raise YaliException, "swap format failed: %s" % partition.getPath()
 
 registerFSType(SwapFileSystem())

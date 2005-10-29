@@ -10,48 +10,79 @@
 # Please read the COPYING file.
 #
 
-from yali.parteddata import *
+import os
 
+from yali.parteddata import *
 
 ##
 # Class representing a single partition within a Device object
 class Partition:
 
-    def __init__(self, device, part, minor, mb, start, end, fs_type):
+    def __init__(self, device, parted_part, minor, mb, start, end, fs_type):
         self._device = device
-        self._parted_part = part
+        self._partition = parted_part
         self._minor = minor
         self._mb = mb
         self._start = start
         self._end = end
         self._fstype = fs_type or "unknown"
 
-    def get_device(self):
+    ##
+    # get parted partition
+    def getPartition(self):
+        return self._partition
+
+    ##
+    # get parted device
+    def getDevice(self):
         return self._device
 
-    def get_device_name(self):
-        return self._device.get_device()
+    ##
+    # device path (eg. /dev/sda)
+    def getDevicePath(self):
+        return self._device.getPath()
 
-    def get_path(self):
-        return "%s%d" %(self.get_device_name(), self.get_minor())
+    ##
+    # partition path (eg. /dev/sda1)
+    def getPath(self):
+        return "%s%d" %(self.getDevicePath(), self.getMinor())
 
-    def get_minor(self):
+    ##
+    # partition name (eg. sda1)
+    def getName(self):
+        return os.path.basename(self.getPath())
+
+    def getMinor(self):
         return self._minor
 
-    def get_fsType(self):
+    def getFSType(self):
         return self._fstype
 
-    def get_start(self):
+    def getStart(self):
         return self._start
 
-    def get_end(self):
+    def getEnd(self):
         return self._end
 
-    def get_mb(self):
+    def getMB(self):
         return self._mb
 
-    def get_gb(self):
-        return self._mb / 1024.0
+    def getGB(self):
+        return self.getMB() / KILOBYTE
+
+    def getSizeStr(self):
+        gb = self.getGB()
+        if gb > 1:
+            return "%s GB" % gb
+        else:
+            return "%s MB" % self.getMB()
+
+    ##
+    # is equal? compare the partiton path
+    # @param: Partition
+    # returns: Boolean
+    def __eq__(self, rhs):
+        return self.getPath() == rhs.getPath()
 
 
 ##

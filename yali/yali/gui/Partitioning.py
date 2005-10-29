@@ -16,23 +16,24 @@ from qt import *
 
 import yali.storage
 from yali.parteddata import *
+from yali.partrequest import FormatRequest, MountRequest
 
+import yali.gui.context as ctx
 from yali.gui.GUIException import *
 from yali.gui.partlistwidget import PartListWidget
 from yali.gui.parteditbuttons import PartEditButtons
 from yali.gui.parteditwidget import PartEditWidget
-from yali.partrequest import *
 
-partition_requests = RequestList()
 
 ##
 # Partitioning screen.
 class Widget(QWidget):
 
-    _devs = {}
-
     def __init__(self, *args):
         apply(QWidget.__init__, (self,) + args)
+        
+        # initialize all storage devices
+        yali.storage.init_devices()
 
         self.partlist = PartList(self)
         self.partedit = PartEdit(self)
@@ -44,63 +45,21 @@ class Widget(QWidget):
         vbox.addWidget(self.partedit)
         
         self.connect(self.partlist, PYSIGNAL("signalCreate"),
-                     self.slotCreatePart)
+                     self.partedit.slotCreatePart)
         self.connect(self.partlist, PYSIGNAL("signalDelete"),
-                     self.slotDeletePart)
+                     self.partedit.slotDeletePart)
         self.connect(self.partlist, PYSIGNAL("signalEdit"),
-                     self.slotEditPart)
-
-        self.fillPartList()
+                     self.partedit.slotEditPart)
 
         self.connect(self.partedit, PYSIGNAL("signalApplied"),
-                     self.slotApplyClicked)
-# We don't need to handle this signal now. self.partlist.addDevice
-# (called from fillPartList) calls show partition requests.
-#        self.connect(self.partedit, PYSIGNAL("signalPartRequest"),
-#                     self.partlist.showPartitionRequests)
-
+                     self.partlist.update)
 
     ##
     # do the work and run requested actions on partitions.
     def execute(self):
-        print len(partition_requests)
-        for req in partition_requests:
+
+        for req in ctx.part_requests:
             req.applyRequest()
-
-        # now remove all.
-        for req in partition_requests:
-            partition_requests.remove(req)
-        
-
-    def fillPartList(self):
-        
-        devs = yali.storage.detect_all()
-        for name in devs:
-            d = yali.storage.Device(name)
-            d.open()
-
-            name = os.path.basename(name)
-            self._devs[name] = d
-
-        self.partlist.clear()
-        for name in self._devs:
-            self.partlist.addDevice(self._devs[name])
-
-    def slotApplyClicked(self):
-        self.partlist.createButton.setEnabled(False)
-        self.partlist.deleteButton.setEnabled(False)
-        self.partlist.editButton.setEnabled(False)
-        
-        self.fillPartList()
-
-    def slotCreatePart(self, parent, d):
-        self.partedit.setup_iface(d, "create")
-
-    def slotEditPart(self, parent, p):
-        self.partedit.setup_iface(p, "edit")
-
-    def slotDeletePart(self, parent, d):
-        self.partedit.setup_iface(d, "delete")
 
 
 class PartList(PartListWidget):
@@ -120,31 +79,41 @@ class PartList(PartListWidget):
         self.connect(self.editButton, SIGNAL("clicked()"),
                      self.slotEditClicked)
 
-    def clear(self):
+        self.update()
+
+    def update(self):
         self.list.clear()
 
-    def addDevice(self, dev):
-        name = os.path.basename(dev.get_device())
-        devstr = "%s (%s)" % (dev.get_model(), name)
-        total_mb = "%s MB" % dev.get_total_mb()
+        for dev in yali.storage.devices:
+            self.addDevice(dev)
 
-        d = PartListItem(self.list, devstr, total_mb)
+        self.createButton.setEnabled(False)
+        self.deleteButton.setEnabled(False)
+        self.editButton.setEnabled(False)
+
+        self.showPartitionRequests()
+
+    def addDevice(self, dev):
+        devstr = "%s (%s)" % (dev.getModel(), dev.getName())
+        size = dev.getSizeStr()
+
+        # add the device to the list
+        d = PartListItem(self.list, devstr, size)
         d.setData(dev)
 
-        for part in dev.get_ordered_partition_list():
-            if part.get_fsType() == freespace_fstype:
+        # add partitions on device
+        for part in dev.getOrderedPartitionList():
+            if part.getFSType() == freespace_fstype:
                 name = "Free"
             else:
-                name = "Partition %d" % part.get_minor()
-            size = "%d MB" % part.get_mb()
+                name = "Partition %d" % part.getMinor()
+            size = part.getSizeStr()
             part_type = ""
-            fs = part.get_fsType()
+            fs = part.getFSType()
             p = PartListItem(d, name, size, part_type, fs)
             p.setData(part)
 
-        
         self.list.setOpen(d, True)
-        self.showPartitionRequests()
 
     def slotItemSelected(self):
         item = self.list.currentItem()
@@ -174,14 +143,18 @@ class PartList(PartListWidget):
         self.emit(PYSIGNAL("signalEdit"), (self, item.getData()) )
 
 
+    ##
+    # iterate over listview and look for a partition
+    # @param part: Partition
+    # returns: QListViewItem
     def __getItemFromPart(self, part):
         iterator = QListViewItemIterator(self.list)
         current = iterator.current()
 
         while current:
             d = current.getData()
-            if not isinstance(d, yali.storage.Device):
-                if d.get_path() == part.get_path():
+            if isinstance(d, yali.storage.Partition):
+                if d == part:
                      return current
             iterator += 1
             current = iterator.current()
@@ -191,8 +164,7 @@ class PartList(PartListWidget):
     ##
     # handle and show requests on listview
     def showPartitionRequests(self):
-        print len(partition_requests)
-        for req in partition_requests:
+        for req in ctx.part_requests:
             part = req.partition()
             item = self.__getItemFromPart(part)
 
@@ -258,6 +230,16 @@ class PartEdit(QWidget):
         self.connect(self.buttons.cancelButton, SIGNAL("clicked()"),
                      self.slotCancelClicked)
 
+
+    def slotCreatePart(self, parent, d):
+        self.setup_iface(d, "create")
+
+    def slotEditPart(self, parent, p):
+        self.setup_iface(p, "edit")
+
+    def slotDeletePart(self, parent, d):
+        self.setup_iface(d, "delete")
+
     ##
     # set up widget for use.
     def setup_iface(self, d, act):
@@ -278,7 +260,7 @@ class PartEdit(QWidget):
                 self._action = "device_delete_all_parts"
                 self.warning.setText(
                     "You are going to delete all partitions on device '%s'"
-                    %(self._d.get_model()))
+                    %(self._d.getModel()))
                 self.warning.show()
 
         elif isinstance(self._d, yali.partition.Partition):
@@ -286,7 +268,7 @@ class PartEdit(QWidget):
                 self._action = "partition_delete"
                 self.warning.setText(
                     "You are goint to delete partition '%s' on device '%s'!"
-                    % (self._d.get_minor(), self._d.get_device().get_model()))
+                    % (self._d.getMinor(), self._d.getDevice().getModel()))
                 self.warning.show()
             if act == "edit":
                 self._action = "partition_edit"
@@ -303,30 +285,27 @@ class PartEdit(QWidget):
         if self._action == "device_create":
             size = self.edit.size.text().toInt()[0]
 
-            self._d.add_partition(0, None, size)
-            self._d.save_partitions()
-            self._d.close()
+            self._d.addPartition(0, None, size)
+            self._d.commit()
         elif self._action == "device_delete_all_parts":
-            self._d.delete_all_partitions()
-            self._d.save_partitions()
-            self._d.close()
+            self._d.deleteAllPartitions()
+            self._d.commit()
 
         elif self._action == "partition_delete":
-            dev = self._d.get_device()
-            dev.delete_partition(self._d)
-            dev.save_partitions()
-            dev.close()
+            dev = self._d.getDevice()
+            dev.deletePartition(self._d)
+            dev.commit()
         elif self._action == "partition_edit":
             edit = self.edit
 
             part_type = edit.part_type.currentItem()
-            partition_requests.append(MountRequest(self._d, part_type))
+            ctx.part_requests.append(MountRequest(self._d, part_type))
             
             format = edit.format.isChecked()
             if format:
-                partition_requests.append(FormatRequest(self._d, part_type))
+                ctx.part_requests.append(FormatRequest(self._d, part_type))
             else: #remove previous format requests for partition (if there are any)
-                partition_requests.removeRequest(self._d, "format")
+                ctx.part_requests.removeRequest(self._d, "format")
 
             # partition requests added signal it for gui to show.
             self.emit(PYSIGNAL("signalPartRequest"), ())
@@ -352,7 +331,7 @@ class PartEditWidgetImpl(PartEditWidget):
         self._state = state
 
         if self._state == "edit":
-            self.caption.setText("Edit Partition %s" % partition.get_minor())
+            self.caption.setText("Edit Partition %s" % partition.getMinor())
             self.size.hide()
 
             self.type_label.show()

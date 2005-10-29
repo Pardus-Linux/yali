@@ -28,15 +28,30 @@ from yali.exception import YaliError, YaliException
 class DeviceError(YaliError):
     pass
 
+
+# all storage devices
+devices = []
+
+##
+# initialize all devices and fill devices list
+def init_devices():
+    global devices
+
+    devs = detect_all()
+    for dev_path in devs:
+        d = Device(dev_path)
+        devices.append(d)
+
+
 ##
 # Class representing a partitionable storage
 class Device:
 
     ##
     # Init Device
-    # @param device: Device node (e.g. /dev/hda, /dev/sda)
+    # @param device_path: Device node (e.g. /dev/hda, /dev/sda)
     # @param arch: Architecture that we're partition for (defaults to 'x86')
-    def __init__(self, device, arch="x86"):
+    def __init__(self, device_path, arch="x86"):
 
         self._arch = ""
         self._path = ""
@@ -48,7 +63,7 @@ class Device:
         self._length = 0       # total sectors
         self._sector_size = 0
 
-        dev = parted.PedDevice.get(device)
+        dev = parted.PedDevice.get(device_path)
 
         self._model = dev.model
         self._length = dev.length
@@ -63,7 +78,7 @@ class Device:
 
         self._disklabel = self._disk.type.name
 
-        self._path = device
+        self._path = device_path
         self._arch = arch
         self._dev = dev
 
@@ -91,11 +106,30 @@ class Device:
     def getTotalMB(self):
         return long(self.getTotalBytes() / MEGABYTE)
 
+    def getTotalGB(self):
+        return long(self.getTotalBytes() / GIGABYTE)
+
+    ##
+    # get device capacity string
+    # returns: string
+    def getSizeStr(self):
+        bytes = self.getTotalBytes()
+        if bytes > GIGABYTE:
+            return "%s GB" % self.getTotalGB()
+        else:
+            return "%s MB" % self.getTotalMB()
+
     ##
     # get device path (e.g. /dev/hda)
     # returns: string
     def getPath(self):
         return self._path
+
+    ##
+    # get device name (e.g. hda)
+    # returns: string
+    def getName(self):
+        return os.path.basename(self.getPath())
 
     ##
     # get device model
@@ -124,8 +158,8 @@ class Device:
 
         def comp(x, y):
             """sort partitions using get_start()"""
-            x = x.get_start()
-            y = y.get_start()
+            x = x.getStart()
+            y = y.getStart()
 
             if x > y: return -1
             elif x == y: return 0
@@ -209,7 +243,7 @@ class Device:
     # delete a partition
     # @param part: Partition
     def deletePartition(self, part):
-        self._disk.delete_partition(part._parted_part)
+        self._disk.delete_partition(part.getPartition())
 
     def deleteAllPartitions(self):
         self._disk.delete_all()
@@ -221,6 +255,7 @@ class Device:
     def close(self):
         # pyparted will do it for us.
         del self._disk
+
 
 
 
