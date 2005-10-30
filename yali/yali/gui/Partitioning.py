@@ -52,10 +52,15 @@ class Widget(QWidget):
         
         self.connect(self.partlist, PYSIGNAL("signalCreate"),
                      self.partedit.slotCreatePart)
+
         self.connect(self.partlist, PYSIGNAL("signalDelete"),
                      self.partedit.slotDeletePart)
+
         self.connect(self.partlist, PYSIGNAL("signalEdit"),
                      self.partedit.slotEditPart)
+
+        self.connect(self.partlist, PYSIGNAL("signalSelectionChanged"),
+                     self.partedit.slotCancelClicked)
 
         self.connect(self.partedit, PYSIGNAL("signalApplied"),
                      self.partlist.update)
@@ -143,6 +148,8 @@ class PartList(PartListWidget):
             self.editButton.setEnabled(False)
             
 
+        self.emit(PYSIGNAL("signalSelectionChanged"), ())
+
     def slotCreateClicked(self):
         item = self.list.currentItem()
         self.emit(PYSIGNAL("signalCreate"), (self, item.getData()) )
@@ -205,12 +212,16 @@ class PartListItem(QListViewItem):
         
 
 
+
+
+editState, createState, deleteState = range(3)
+  
 ##
 # Edit partition widget
 class PartEdit(QWidget):
 
     _d = None
-    _action = None
+    _state = None
 
     ##
     # Initialize PartEdit
@@ -236,91 +247,127 @@ class PartEdit(QWidget):
 
 
     def slotCreatePart(self, parent, d):
-        self.setup_iface(d, "create")
+        self._d = d
+        self.setState(createState)
 
-    def slotEditPart(self, parent, p):
-        self.setup_iface(p, "edit")
+    def slotEditPart(self, parent, d):
+        self._d = d
+        self.setState(editState)
 
     def slotDeletePart(self, parent, d):
-        self.setup_iface(d, "delete")
+        self._d = d
+        self.setState(deleteState)
 
     ##
     # set up widget for use.
-    def setup_iface(self, d, act):
-        self._d = d
+    def setState(self, state):
 
         # Hacky: show only one widget for an action.
         self.warning.hide()
         self.edit.hide()
         self.show()
 
+        t = self._d.getType()
 
-        if self._d.getType() == parteddata.deviceType:
-            if act == "create":
-                self._action = "device_create"
-                self.edit.setState(act)
+        if t == parteddata.deviceType:
+            if state == createState:
+                self.edit.setState(state)
                 self.edit.show()
-            elif act == "delete":
-                self._action = "device_delete_all_parts"
+
+            elif state == deleteState:
                 self.warning.setText(
                     "You are going to delete all partitions on device '%s'"
                     %(self._d.getModel()))
                 self.warning.show()
 
-        elif self._d.getType() ==  parteddata.partitionType:
-            if act == "delete":
-                self._action = "partition_delete"
+        elif t ==  parteddata.partitionType:
+            if state == deleteState:
                 self.warning.setText(
                     "You are goint to delete partition '%s' on device '%s'!"
                     % (self._d.getMinor(), self._d.getDevice().getModel()))
                 self.warning.show()
-            if act == "edit":
-                self._action = "partition_edit"
-                self.edit.setState(act, self._d)
+
+            elif state == editState:
+                self.edit.setState(state, self._d)
                 self.edit.show()
 
+        elif t == parteddata.freeSpaceType:
+            if state == createState:
+                self.edit.setState(state)
+                self.edit.show()
+
+
+        self._state = state
 
 
     ##
     # Apply button is clicked, make the necessary modifications and
     # emit a signal.
     def slotApplyClicked(self):
+        state = self._state
+        t = self._d.getType()
 
-        if self._action == "device_create":
+        def create_new_partition(device):
             size = self.edit.size.text().toInt()[0]
+                
+            # FIXME: set partition type (storage.setPartitionType)
+            p = device.addPartition(0, None, size)
+            device.commit()
+            partition = device.getPartition(p.num)
+            print partition, "lolo"
 
-            self._d.addPartition(0, None, size)
-            self._d.commit()
-        elif self._action == "device_delete_all_parts":
-            self._d.deleteAllPartitions()
-            self._d.commit()
+            edit_requests(partition)
 
-        elif self._action == "partition_delete":
-            dev = self._d.getDevice()
-            dev.deletePartition(self._d)
-            dev.commit()
-        elif self._action == "partition_edit":
+        def edit_requests(partition):
             edit = self.edit
 
             i = edit.part_type.currentItem()
             t = part_types[i]
 
+            print partition, "yaya"
             try:
-                ctx.partrequests.append(request.MountRequest(self._d, t))
+                ctx.partrequests.append(
+                    request.MountRequest(partition, t))
             
                 if edit.format.isChecked():
-                    ctx.partrequests.append(request.FormatRequest(self._d, t))
+                    ctx.partrequests.append(
+                        request.FormatRequest(partition, t))
                 else:
                     # remove previous format requests for partition (if
                     # there are any)
-                    ctx.partrequests.removeRequest(self._d,
-                                                   request.formatRequestType)
+                    ctx.partrequests.removeRequest(
+                        partition, request.formatRequestType)
             except request.RequestException, e:
                 # FIXME: show this on GUI
                 print e
 
+
+        if t == parteddata.deviceType:
+            if state == createState:
+                device = self._d
+                create_new_partition(device)
+
+            elif state == deleteState:
+                self._d.deleteAllPartitions()
+                self._d.commit()
+
+        elif t ==  parteddata.partitionType:
+            if state == deleteState:
+                device = self._d.getDevice()
+                device.deletePartition(self._d)
+                device.commit()
+            elif state == editState:
+                partition = self._d
+                edit_requests(partition)
+
+        elif t == parteddata.freeSpaceType:
+            if state == createState:
+                device = self._d.getDevice()
+                create_new_partition(device)
+
         else:
             raise GUIError, "unknown action called (%s)" %(self._action)
+
 
         self.hide()
         self.emit(PYSIGNAL("signalApplied"), ())
@@ -330,25 +377,18 @@ class PartEdit(QWidget):
     def slotCancelClicked(self):
         self.hide()
 
-  
-class PartEditWidgetImpl(PartEditWidget):
 
-    _state = None
+class PartEditWidgetImpl(PartEditWidget):
 
     def setState(self, state, partition=None):
         self._state = state
 
-        if self._state == "edit":
+        if self._state == editState:
             self.caption.setText("Edit Partition %s" % partition.getMinor())
             self.size.hide()
+            self.size_label.hide()
 
-            self.type_label.show()
-            self.part_type.show()
-            self.format.show()
-        elif self._state == "create":
+        elif self._state == createState:
             self.caption.setText("Create New Partition")
-            self.type_label.hide()
-            self.part_type.hide()
-            self.format.hide()
-
             self.size.show()
+            self.size_label.show()

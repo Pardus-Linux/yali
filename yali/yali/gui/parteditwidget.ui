@@ -139,7 +139,7 @@
         </widget>
         <widget class="QLabel" row="2" column="0">
             <property name="name">
-                <cstring>textLabel1</cstring>
+                <cstring>size_label</cstring>
             </property>
             <property name="sizePolicy">
                 <sizepolicy>

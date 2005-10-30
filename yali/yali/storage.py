@@ -153,7 +153,7 @@ class Device:
     #
     # returns: Partition
     def getPartition(self, num):
-        return self.getPartitions()[num]
+        return self._partitions[num]
 
     ##
     # get the partition list in an order
