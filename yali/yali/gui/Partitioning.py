@@ -68,6 +68,8 @@ class Widget(QWidget):
     ##
     # do the work and run requested actions on partitions.
     def execute(self):
+        # FIXME: check necessities (a root part and a swap?)
+        
         for req in ctx.partrequests:
             req.applyRequest()
 
