@@ -47,7 +47,7 @@ class Widget(QMainWindow):
                      self.helpWidget.slotResize)
 
 
-        self.setPaletteBackgroundPixmap(QPixmap("/usr/share/yali/pics/back_tile.png"))
+        self.setPaletteBackgroundPixmap(ctx.iconfactory.newPixmap("back_tile"))
 
     ##
     # set up the main window layout...

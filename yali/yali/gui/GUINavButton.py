@@ -11,15 +11,16 @@
 #
 
 from qt import *
+import yali.gui.context as ctx
 
 def forwardButton(parent):
     w = NavButton(parent)
-    w.setIcon("button_forward.png")
+    w.setIcon("button_forward")
     return w
 
 def backButton(parent):
     w = NavButton(parent)
-    w.setIcon("button_back.png")
+    w.setIcon("button_back")
     return w
 
 
@@ -45,19 +46,16 @@ class NavButton(QWidget):
         self.setFixedSize(64, 64)
 
     def setIcon(self, icon_name):
-        # FIXME: don't hard-code paths!!!
-        icon_path = "/usr/share/yali/pics/" + icon_name
-        self._pix = QPixmap(icon_path)
+        ifactory = ctx.iconfactory
+        self._pix = ifactory.newPixmap(icon_name)
 
         # set a common mask for same sized images.
         bmap = self._pix.mask()
         self.setMask(bmap)
 
-        icon_path = "/usr/share/yali/pics/" + "over_" + icon_name
-        self._pix_over = QPixmap(icon_path)
+        self._pix_over = ifactory.newPixmap("over_" + icon_name)
 
-        icon_path = "/usr/share/yali/pics/" + "pressed_" + icon_name
-        self._pix_pressed = QPixmap(icon_path)
+        self._pix_pressed = ifactory.newPixmap("pressed_" + icon_name)
 
         self.label.setPixmap(self._pix)
 

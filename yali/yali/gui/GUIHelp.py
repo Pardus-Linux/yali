@@ -55,6 +55,6 @@ class Widget(QTextView):
         w = size.width()
         h = size.height()
 
-        # FIXME:  calculate a proper size for the widget
+        # calculate a proper size for the widget
         self.setFixedWidth(w/4)
         self.setFixedHeight(4 * (h/7))

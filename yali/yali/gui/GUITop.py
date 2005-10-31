@@ -13,6 +13,7 @@
 
 from qt import *
 
+import yali.gui.context as ctx
 import GUIStage
 
 ##
@@ -22,7 +23,7 @@ class Widget(QWidget):
     def __init__(self, *args):
         apply(QWidget.__init__, (self,) + args)
         
-        self.img = QImage("/usr/share/yali/pics/top_image.png")
+        self.img = ctx.iconfactory.newImage("top_image")
 
         self.stageWidget = GUIStage.Widget(self)
 

@@ -14,10 +14,13 @@
 import yali.gui.stages
 import yali.gui.screens
 import yali.partitionrequest as request
-
+import yali.gui.iconfactory
 
 stages = yali.gui.stages.Stages()
 screens = yali.gui.screens.Screens()
 
 # partition requests
 partrequests = request.RequestList()
+
+# icon factory
+iconfactory = yali.gui.iconfactory.IconFactory()

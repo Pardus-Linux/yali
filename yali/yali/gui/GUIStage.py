@@ -74,10 +74,11 @@ class Widget(QListView):
             # we increase 'i' at first.
             i += 1 
 
+            ifactory = ctx.iconfactory
             if i == num:
-                iterator.current().setPixmap(0, QPixmap("/usr/share/yali/pics/active_bullet.png"))
+                iterator.current().setPixmap(0, ifactory.newPixmap("active_bullet"))
             else:
-                iterator.current().setPixmap(0, QPixmap("/usr/share/yali/pics/inactive_bullet.png"))
+                iterator.current().setPixmap(0, ifactory.newPixmap("inactive_bullet"))
 
             iterator += 1
             current = iterator.current()

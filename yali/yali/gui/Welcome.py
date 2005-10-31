@@ -13,6 +13,8 @@
 
 from qt import *
 
+import yali.gui.context as ctx
+
 ##
 # Welcome screen is the first screen to be shown.
 class Widget(QWidget):
@@ -21,7 +23,7 @@ class Widget(QWidget):
         apply(QWidget.__init__, (self,) + args)
         
         img = QLabel(self)
-        img.setPixmap(QPixmap("/usr/share/yali/pics/welcome.png"))
+        img.setPixmap(ctx.iconfactory.newPixmap("welcome"))
         
         hbox = QHBoxLayout(self)
         hbox.addStretch(1)
