@@ -10,7 +10,7 @@
 # Please read the COPYING file.
 #
 
-import os
+from os import join
 
 import yali.partitionrequest
 import yali.constants
@@ -23,9 +23,9 @@ import yali.gui.iconfactory
 consts = yali.constants.Constants()
 
 # bind some constant values
-consts.pics_dir = os.path.join(consts.data_dir, "pics")
-consts.helps_dir = os.path.join(consts.data_dir, "helps")
-
+# There are more values defined in yali/constants.py!
+consts.pics_dir = join(consts.data_dir, "pics")
+consts.helps_dir = join(consts.data_dir, "helps")
 
 stages = yali.gui.stages.Stages()
 screens = yali.gui.screens.Screens()

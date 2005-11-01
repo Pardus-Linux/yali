@@ -39,6 +39,13 @@ class Constants:
         # directories
         self.__c.data_dir = "/usr/share/yali"
 
+        self.__c.mnt_dir = "/mnt"
+        # new system will be installed directly into this target directory
+        self.__c.target_dir = join(consts.mnt_dir, "target")
+        # packages (and maybe others) will be in this source directory
+        self.__c.source_dir = join(consts.mnt_dir, "source")
+
+
     def __getattr__(self, attr):
         return getattr(self.__c, attr)
 
