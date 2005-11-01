@@ -34,7 +34,6 @@ class Widget(QWidgetStack):
         self.connect(ctx.screens, PYSIGNAL("signalCurrent"),
                      self.slotScreenChanged)
 
-        #TESTING:
         self.setPaletteBackgroundColor(QColor(255,255,255))
 
     ##

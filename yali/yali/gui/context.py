@@ -24,3 +24,8 @@ partrequests = request.RequestList()
 
 # icon factory
 iconfactory = yali.gui.iconfactory.IconFactory()
+
+
+# current language
+# FIXME: default language will be Turkish after localization support
+lang = "en"

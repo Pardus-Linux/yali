@@ -11,6 +11,7 @@
 #
 
 
+from os.path import join
 
 from qt import *
 
@@ -40,8 +41,8 @@ class Widget(QTextView):
     # @param help_file (string) file containing the help text.
     def setHelpFile(self, file_index):
 
-        # TODO: Do not forget localization!
-        help_file = "/usr/share/yali/helps/" + str(file_index) + ".html"
+        file_name = "%d.html" %(file_index)
+        help_file = join("/usr/share/yali/helps/", ctx.lang, file_name)
         self.setText(open(help_file).read())
 
     ##

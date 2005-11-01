@@ -10,6 +10,7 @@
 # Please read the COPYING file.
 
 import os
+import glob
 import pyqtconfig
 from distutils.core import setup
 from distutils.command.build import build
@@ -35,11 +36,11 @@ gui_pics = ["yali/gui/pics/active_bullet.png",
             "yali/gui/pics/top_image.png",
             "yali/gui/pics/welcome.png"]
 
-gui_helps = ["yali/gui/helps/1.html",
-             "yali/gui/helps/2.html",
-             "yali/gui/helps/3.html",
-             "yali/gui/helps/4.html",
-             "yali/gui/helps/5.html"]
+
+def help_files(lang):
+    p = os.path.join("yali/gui/helps", lang)
+    return glob.glob(p + "/*.html")
+
 
 pyqt_configuration = pyqtconfig.Configuration()
 
@@ -108,7 +109,7 @@ setup(name="yali",
       package_dir = {'': ''},
       packages = ['yali', 'yali.gui'],
       data_files = [('/usr/share/yali/pics', gui_pics),
-                    ('/usr/share/yali/helps', gui_helps)],
+                    ('/usr/share/yali/helps/en', help_files("en"))],
       scripts = ['yali-bin'],
       cmdclass = {
         'build' : YaliBuild,
