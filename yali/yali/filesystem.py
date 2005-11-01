@@ -17,7 +17,10 @@ import os
 import parted
 
 from yali.exception import *
+import yali.sysutils as sysutils
 
+class FSError(YaliError):
+    pass
 
 ##
 # abstract file system class
@@ -106,7 +109,16 @@ class Ext3FileSystem(FileSystem):
     def format(self, partition):
         self.preFormat(partition)
 
-        cmd = "/sbin/mke2fs.ext3 %s" %(partition.getPath())
+        cmd_path = sysutils.find_executable("mke2fs.ext3")
+        if not cmd_path:
+            cmd_path = sysutils.find_executable("mkfs.ext3")
+
+        
+        if not cmd_path:
+            e = "Command not found to format %s filesystem" %(self.name())
+            raise FSError, e
+
+        cmd = "%s %s" %(cmd_path, partition.getPath())
 
         p = os.popen(cmd)
         o = p.readlines()
@@ -127,7 +139,12 @@ class SwapFileSystem(FileSystem):
     def format(self, partition):
         self.preFormat(partition)
 
-        cmd = "/sbin/mkswap %s" %(partition.getPath())
+        cmd_path = sysutils.find_executable("mkswap")
+        cmd = "%s %s" %(cmd_path, partition.getPath())
+
+        if not cmd_path:
+            e = "Command not found to format %s filesystem" %(self.name())
+            raise FSError, e
 
         p = os.popen(cmd)
         o = p.readlines()
