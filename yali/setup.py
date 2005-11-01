@@ -12,7 +12,7 @@
 import os
 import glob
 import pyqtconfig
-from distutils.core import setup
+from distutils.core import setup, Extension
 from distutils.command.build import build
 from distutils.command.clean import clean
 from distutils.spawn import find_executable, spawn
@@ -89,6 +89,11 @@ class YaliClean(clean):
                 os.unlink(f)
 
 
+mountmodule = Extension('mount',
+                        sources = ['extensions/mount.c'],
+                        extra_compile_args = ['-Wall'])
+
+
 setup(name="yali",
       version= getVersion(),
       description="YALI (Yet Another Linux Installer)",
@@ -102,6 +107,7 @@ setup(name="yali",
       data_files = [('/usr/share/yali/pics', gui_pics()),
                     ('/usr/share/yali/helps/en', help_files("en"))],
       scripts = ['yali-bin'],
+      ext_modules = [mountmodule],
       cmdclass = {
         'build' : YaliBuild,
         'clean' : YaliClean
