@@ -21,8 +21,8 @@ class IconError(GUIError):
 
 class IconFactory:
 
-    def __init__(self):
-        self._dir = "/usr/share/yali/pics"
+    def __init__(self, base_dir):
+        self._dir = base_dir
         self._icon_name = None
 
     def __icon_path(self):

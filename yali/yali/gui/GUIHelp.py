@@ -42,7 +42,7 @@ class Widget(QTextView):
     def setHelpFile(self, file_index):
 
         file_name = "%d.html" %(file_index)
-        help_file = join("/usr/share/yali/helps/", ctx.lang, file_name)
+        help_file = join(ctx.consts.helps_dir, ctx.lang, file_name)
         self.setText(open(help_file).read())
 
     ##

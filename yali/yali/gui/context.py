@@ -10,22 +10,33 @@
 # Please read the COPYING file.
 #
 
+import os
 
+import yali.partitionrequest
+import yali.constants
 import yali.gui.stages
 import yali.gui.screens
-import yali.partitionrequest as request
 import yali.gui.iconfactory
+
+
+# gui constants
+consts = yali.constants.Constants()
+
+# bind some constant values
+consts.pics_dir = os.path.join(consts.data_dir, "pics")
+consts.helps_dir = os.path.join(consts.data_dir, "helps")
+
 
 stages = yali.gui.stages.Stages()
 screens = yali.gui.screens.Screens()
 
 # partition requests
-partrequests = request.RequestList()
+partrequests = yali.partitionrequest.RequestList()
 
 # icon factory
-iconfactory = yali.gui.iconfactory.IconFactory()
-
+iconfactory = yali.gui.iconfactory.IconFactory(consts.pics_dir)
 
 # current language
 # FIXME: default language will be Turkish after localization support
 lang = "en"
+

@@ -316,7 +316,6 @@ class PartEdit(QWidget):
             p = device.addPartition(0, None, size)
             device.commit()
             partition = device.getPartition(p.num)
-            print partition, "lolo"
 
             edit_requests(partition)
 
@@ -326,7 +325,6 @@ class PartEdit(QWidget):
             i = edit.part_type.currentItem()
             t = part_types[i]
 
-            print partition, "yaya"
             try:
                 ctx.partrequests.append(
                     request.MountRequest(partition, t))
