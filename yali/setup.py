@@ -24,18 +24,9 @@ qt_ui_files = ["yali/gui/installwidget.ui",
                "yali/gui/parteditbuttons.ui",
                "yali/gui/partlistwidget.ui"]
 
-gui_pics = ["yali/gui/pics/active_bullet.png",
-            "yali/gui/pics/back_tile.png",
-            "yali/gui/pics/button_back.png",
-            "yali/gui/pics/button_forward.png",
-            "yali/gui/pics/inactive_bullet.png",
-            "yali/gui/pics/over_button_back.png",
-            "yali/gui/pics/over_button_forward.png",
-            "yali/gui/pics/pressed_button_back.png",
-            "yali/gui/pics/pressed_button_forward.png",
-            "yali/gui/pics/top_image.png",
-            "yali/gui/pics/welcome.png"]
-
+def gui_pics():
+    p = "yali/gui/pics"
+    return glob.glob(p + "/*.png")
 
 def help_files(lang):
     p = os.path.join("yali/gui/helps", lang)
@@ -108,7 +99,7 @@ setup(name="yali",
       url="http://www.uludag.org.tr/eng/yali/",
       package_dir = {'': ''},
       packages = ['yali', 'yali.gui'],
-      data_files = [('/usr/share/yali/pics', gui_pics),
+      data_files = [('/usr/share/yali/pics', gui_pics()),
                     ('/usr/share/yali/helps/en', help_files("en"))],
       scripts = ['yali-bin'],
       cmdclass = {
