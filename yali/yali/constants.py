@@ -13,6 +13,7 @@
 # YALI constants module defines a class with constant members. An
 # object from this class can only bind values one to it's members.
 
+from os.path import join
 
 class _constant:
     "Constant members implementation"
@@ -41,9 +42,9 @@ class Constants:
 
         self.__c.mnt_dir = "/mnt"
         # new system will be installed directly into this target directory
-        self.__c.target_dir = join(consts.mnt_dir, "target")
+        self.__c.target_dir = join(self.__c.mnt_dir, "target")
         # packages (and maybe others) will be in this source directory
-        self.__c.source_dir = join(consts.mnt_dir, "source")
+        self.__c.source_dir = join(self.__c.mnt_dir, "source")
 
 
     def __getattr__(self, attr):
@@ -54,3 +55,6 @@ class Constants:
 
     def __delattr__(self, attr):
         delattr(self.__c, attr)
+
+
+consts = Constants()

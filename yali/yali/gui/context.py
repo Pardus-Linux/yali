@@ -10,7 +10,7 @@
 # Please read the COPYING file.
 #
 
-from os import join
+from os.path import join
 
 import yali.partitionrequest
 import yali.constants
@@ -20,7 +20,7 @@ import yali.gui.iconfactory
 
 
 # gui constants
-consts = yali.constants.Constants()
+consts = yali.constants.consts
 
 # bind some constant values
 # There are more values defined in yali/constants.py!

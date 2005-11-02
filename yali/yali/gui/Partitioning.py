@@ -71,7 +71,19 @@ class Widget(QWidget):
         # FIXME: check necessities (a root part and a swap?)
         
         for req in ctx.partrequests:
-            req.applyRequest()
+            if req.requestType() == request.formatRequestType:
+                req.applyRequest()
+
+        # first mount root (/)
+        rootreq = ctx.partrequests.searchPartTypeAndReqType(part_types[0],
+                                                            request.mountRequestType).next()
+        rootreq.applyRequest()
+
+        for req in ctx.partrequests:
+            if req.requestType() == request.mountRequestType and \
+                req != rootreq:
+                req.applyRequest()
+
 
 
 class PartList(PartListWidget):

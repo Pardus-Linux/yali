@@ -12,9 +12,10 @@
 
 # partitionrequest.py defines requests (format, mount) on the partitions.
 
+import os
+import mount
 from yali.exception import *
-from yali.parteddata import *
-
+from yali.constants import consts
 
 class RequestException(YaliException):
     pass
@@ -191,6 +192,28 @@ class MountRequest(PartRequest):
         self._options = options
 
     def applyRequest(self):
-        #raise YaliException, "Not Implemented yet!"
+
+        pt = self.partitionType()
+
+        if not pt.mountpoint: # do nothing
+            return
+
+        source = self.partition().getPath()
+        target = consts.target_dir + pt.mountpoint
+        filesystem = pt.filesystem.name()
+
+        if not os.path.isdir(target):
+            os.mkdir(target)
+
+        mount.mount(source, target, filesystem)
+        
+        mtab_entry = "%s %s %s rw 0 0\n" % (source,
+                                            target,
+                                            filesystem)
+        open("/etc/mtab", "a").write(mtab_entry)
+        #FIXME: use logging system
+        print mtab_entry
+
+        
         PartRequest.applyRequest(self)
 
