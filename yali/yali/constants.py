@@ -47,6 +47,14 @@ class Constants:
         self.__c.source_dir = join(self.__c.mnt_dir, "source")
 
 
+        # pisi repository
+#        self.__c.repo_name = "pardus-1.0-cd"
+#        self.__c.repo_uri = join(self.__c.source_dir, "packages/pisi-index.xml")
+        # TESTING:
+        self.__c.repo_name = "pardus-devel-yali"
+        self.__c.repo_uri = "http://paketler.uludag.org.tr/pardus-devel/pisi-index.xml"
+
+
     def __getattr__(self, attr):
         return getattr(self.__c, attr)
 
