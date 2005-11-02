@@ -56,6 +56,9 @@ class Screens(QObject, Steps):
         Steps.setCurrent(self, index)
         self.emit(PYSIGNAL("signalCurrent"), (self, index))
 
+        # trigger screen
+        self.getCurrent().getWidget().shown()
+
         # FIXME: is it feasible to write the widget object in GUI mode???
         #yali.logger.log("Changed screen to %s." % self._steps.getCurrent())
 

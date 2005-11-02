@@ -77,9 +77,9 @@ class Partition:
     def getSizeStr(self):
         gb = self.getGB()
         if gb > 1:
-            return "%s GB" % gb
+            return "%0.2f GB" % gb
         else:
-            return "%s MB" % self.getMB()
+            return "%0.2f MB" % self.getMB()
 
     ##
     # is equal? compare the partiton path

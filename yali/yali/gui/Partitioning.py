@@ -21,6 +21,7 @@ import yali.parteddata as parteddata
 
 import yali.gui.context as ctx
 from yali.gui.GUIException import *
+from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.partlistwidget import PartListWidget
 from yali.gui.parteditbuttons import PartEditButtons
 from yali.gui.parteditwidget import PartEditWidget
@@ -33,7 +34,7 @@ part_types = {0: parttype.RootPartitionType(),
 
 ##
 # Partitioning screen.
-class Widget(QWidget):
+class Widget(QWidget, ScreenWidget):
 
     def __init__(self, *args):
         apply(QWidget.__init__, (self,) + args)

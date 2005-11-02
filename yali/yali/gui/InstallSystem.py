@@ -10,24 +10,34 @@
 # Please read the COPYING file.
 #
 
+import threading
+from os.path import join
 from qt import *
 
 import yali.pisiiface
 from yali.gui.installwidget import InstallWidget
+from yali.gui.ScreenWidget import ScreenWidget
+import yali.gui.context as ctx
 
 
 ##
 # Partitioning screen.
-class Widget(InstallWidget):
+class Widget(InstallWidget, ScreenWidget):
 
     def __init__(self, *args):
         apply(InstallWidget.__init__, (self,) + args)
+
+    def shown(self):
+        PkgInstaller().start()
         
-    def execute(self):
+
+
+class PkgInstaller(threading.Thread):
+
+    def run(self):
         # TESTING
         yali.pisiiface.initialize()
-        pkg_list = ["bash"]
+        packages_file = join(ctx.consts.data_dir, "packages.list")
+        pkg_list = [x[:-1] for x in open(packages_file).readlines()]
         yali.pisiiface.install(pkg_list)
         yali.pisiiface.finalize()
-
-        pass

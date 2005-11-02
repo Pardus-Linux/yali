@@ -119,9 +119,9 @@ class Device:
     def getSizeStr(self):
         bytes = self.getTotalBytes()
         if bytes > GIGABYTE:
-            return "%s GB" % self.getTotalGB()
+            return "%d GB" % self.getTotalGB()
         else:
-            return "%s MB" % self.getTotalMB()
+            return "%dMB" % self.getTotalMB()
 
     ##
     # get device path (eg. /dev/hda)
@@ -185,7 +185,7 @@ class Device:
     # @param size_mb: size of the partition in MBs.
     def addPartition(self, type, fs, size_mb):
 
-        size = size_mb * MEGABYTE / self._sector_size
+        size = int(size_mb * MEGABYTE / self._sector_size)
         if fs:
             fs = fs.getFSType()
 
