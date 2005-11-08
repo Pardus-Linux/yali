@@ -109,16 +109,16 @@ class Ext3FileSystem(FileSystem):
     def format(self, partition):
         self.preFormat(partition)
 
-        cmd_path = sysutils.find_executable("mke2fs.ext3")
+        cmd_path = sysutils.find_executable("mke2fs")
         if not cmd_path:
-            cmd_path = sysutils.find_executable("mkfs.ext3")
+            cmd_path = sysutils.find_executable("mke2fs")
 
         
         if not cmd_path:
             e = "Command not found to format %s filesystem" %(self.name())
             raise FSError, e
 
-        cmd = "%s %s" %(cmd_path, partition.getPath())
+        cmd = "%s -j %s" %(cmd_path, partition.getPath())
 
         p = os.popen(cmd)
         o = p.readlines()

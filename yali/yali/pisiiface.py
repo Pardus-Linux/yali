@@ -19,13 +19,15 @@ import pisi.config
 
 from yali.constants import consts
 
-def initialize():
+
+def initialize(ui):
 
     options = pisi.config.Options()
     options.destdir = consts.target_dir
     options.yes_all = True
+    options.bypass_ldconfig = True
 
-    pisi.api.init(options = options, comar = False, database = True)
+    pisi.api.init(options = options, comar = False, database = True, ui = ui)
 
     pisi.api.add_repo(consts.repo_name, consts.repo_uri)
 
@@ -37,3 +39,4 @@ def finalize():
 
 def install(pkg_name_list):
     pisi.api.install(pkg_name_list)
+
