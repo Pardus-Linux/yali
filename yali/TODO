@@ -1,0 +1,61 @@
+
+
+YALI TODO List
+==============
+
+A list of tasks to accomplish, organized into priority sections
+
+Legend:
+
+- Todo
+? Not determined if/how we have to do
+/ In progress
++ Accomplished
+
+1. Alpha
+ / basic GUI
+   + gui structure
+   + welcome screen
+   + partitioning screen
+   / installation screen
+   - basic setup ( rootpw, users, grub-install )
+   - goodbye screen
+
+ + partitioning
+   + parted interface
+   + partition requests
+     + format
+     + mount
+   + filesystems
+     + ext3
+     + linux-swap
+   + partition types ( for YALI installation: installroot, swap, vs. )
+     
+ / installation
+   / pisi interface
+
+ - users
+   - root password
+   - users management (add user)
+ 
+ - boot loader
+
+
+2. Beta
+ - GUI
+   - auto partitioning
+   - try statemachine for screens/stages
+
+ - partitioning
+   - resize
+
+ - tests
+
+
+3. Release
+
+
+4. Post Release
+ - install profile
+   - implement installation profiles (normal, laptop, vs...)
+   - kickstart
