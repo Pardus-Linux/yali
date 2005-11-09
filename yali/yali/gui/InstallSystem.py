@@ -30,37 +30,42 @@ class Widget(InstallWidget, ScreenWidget):
         apply(InstallWidget.__init__, (self,) + args)
 
     def shown(self):
-        PkgInstaller().start()
+        PkgInstaller().start(self)
         
+    def slotNotify(self, parent, event, pn):
+        if event == pisi.ui.installed:
+            self.info.setText("Installed: %s" % pn )
+            # FIXME: use logging
+            print "Installed: %s" % pn
 
 
 class PkgInstaller(threading.Thread):
 
+    def start(self, widget):
+        self._widget = widget
+        threading.Thread.start(self)
+
     def run(self):
         # TESTING
-        ui = PisiUI()
+        ui = PisiUI(notify_widget = self._widget)
         yali.pisiiface.initialize(ui)
         packages_file = join(ctx.consts.data_dir, "packages.list")
         pkg_list = [x[:-1] for x in open(packages_file).readlines()]
         yali.pisiiface.install(pkg_list)
         yali.pisiiface.finalize()
 
+        # TODO: signal finished!
+
 
 class PisiUI(QObject, pisi.ui.UI):
 
-    def __init__(self, *args):
+    def __init__(self, notify_widget, *args):
         pisi.ui.UI.__init__(self)
         apply(QObject.__init__, (self,) + args)
 
+        self.connect(self, PYSIGNAL("signalNotify"),
+                     notify_widget.slotNotify)
 
     def notify(self, event, **keywords):
+        self.emit(PYSIGNAL("signalNotify"), (self, event, keywords['package'].name))
 
-        # FIXME: signal all!
-        if event == pisi.ui.installed:
-            msg = 'Installed %s' % keywords['package'].name
-        elif event == pisi.ui.removed:
-            msg = 'Removed %s' % keywords['package'].name
-        elif event == pisi.ui.upgraded:
-            msg = 'Upgraded %s' % keywords['package'].name
-
-        print msg, "  --  YALI"
