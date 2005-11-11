@@ -86,7 +86,6 @@ class Widget(QWidget, ScreenWidget):
                 req.applyRequest()
 
 
-
 class PartList(PartListWidget):
 
     def __init__(self, *args):

@@ -27,14 +27,17 @@ class RootPartitionType(PartitionType):
     name = "Install Root"
     filesystem = yali.filesystem.Ext3FileSystem()
     mountpoint = "/"
+    mountoptions = "noatime"
 
 class HomePartitionType(PartitionType):
     name = "Users's Files"
     filesystem = yali.filesystem.Ext3FileSystem()
     mountpoint = "/home"
+    mountoptions = "noatime"
 
 class SwapPartitionType(PartitionType):
     name = "Swap"
     filesystem = yali.filesystem.SwapFileSystem()
     mountpoint = None
+    mountoptions = "sw"
 

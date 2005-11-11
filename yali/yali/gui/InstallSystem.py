@@ -17,6 +17,8 @@ from qt import *
 import pisi.ui
 
 import yali.pisiiface
+import yali.fstab
+import yali.partitionrequest as request
 from yali.gui.installwidget import InstallWidget
 from yali.gui.ScreenWidget import ScreenWidget
 import yali.gui.context as ctx
@@ -31,12 +33,38 @@ class Widget(InstallWidget, ScreenWidget):
 
     def shown(self):
         PkgInstaller().start(self)
+
+        # TODO: start slide show
         
     def slotNotify(self, parent, event, pn):
         if event == pisi.ui.installed:
             self.info.setText("Installed: %s" % pn )
             # FIXME: use logging
             print "Installed: %s" % pn
+
+    def execute(self):
+
+        # fill fstab
+        fstab = yali.fstab.Fstab()
+        for req in ctx.partrequests:
+            if req.requestType() == request.mountRequestType:
+                p = req.partition()
+                pt = req.partitionType()
+
+                path = p.getPath()
+                fs = pt.filesystem.name()
+                mountpoint = pt.mountpoint
+                opts = pt.mountoptions
+
+                e = yali.fstab.FstabEntry(path, mountpoint, fs, opts)
+                fstab.insert(e)
+
+        fstab.close()
+        # TODO: stop slide show
+
+    def finished(self):
+        # trigger next screen
+        ctx.screens.next()
 
 
 class PkgInstaller(threading.Thread):
@@ -49,13 +77,11 @@ class PkgInstaller(threading.Thread):
         # TESTING
         ui = PisiUI(notify_widget = self._widget)
         yali.pisiiface.initialize(ui)
-        packages_file = join(ctx.consts.data_dir, "packages.list")
-        pkg_list = [x[:-1] for x in open(packages_file).readlines()]
-        yali.pisiiface.install(pkg_list)
+
+        yali.pisiiface.install_all()
         yali.pisiiface.finalize()
 
-        # TODO: signal finished!
-
+        self._widget.finished()
 
 class PisiUI(QObject, pisi.ui.UI):
 

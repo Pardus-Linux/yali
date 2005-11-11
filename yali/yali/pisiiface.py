@@ -40,3 +40,9 @@ def finalize():
 def install(pkg_name_list):
     pisi.api.install(pkg_name_list)
 
+def install_all():
+    from pisi import packagedb
+    
+    pkg_db = packagedb.get_db(consts.repo_name)
+    l = pkg_db.list_packages()
+    install(l)
