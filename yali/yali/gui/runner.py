@@ -51,7 +51,7 @@ class Runner:
              ]
 
         self._app = QApplication(sys.argv)
-        w = YaliWindow.Widget()
+        self._window = YaliWindow.Widget()
 
         for stg in _all_stages:
             ctx.stages.addStage(stg['num'], stg['text'])
@@ -62,8 +62,6 @@ class Runner:
         for scr in _all_screens:
             num += 1
             ctx.screens.addScreen(num, scr['stage'], scr['module'].Widget())
-
-        self._window = w
 
         self._app.connect(self._app, SIGNAL("lastWindowClosed()"),
                           self._app, SLOT("quit()"))
@@ -78,11 +76,8 @@ class Runner:
 
         self._window.show()
         # We want it to be a full-screen window.
-#        self._window.resize(self._app.desktop().size())
-        # TESTING:
-        # But for testing purposes a 800x600 window can be OK.
-        self._window.resize(800, 600)
-#        self._window.resize(1024, 768)
+        self._window.resize(self._app.desktop().size())
+        self._window.move(0,0)
 
         self._app.exec_loop()
 
