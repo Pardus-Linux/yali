@@ -19,10 +19,10 @@ from distutils.spawn import find_executable, spawn
 
 YALI_VERSION = '0.1'
 
-qt_ui_files = ["yali/gui/installwidget.ui",
-               "yali/gui/parteditwidget.ui",
-               "yali/gui/parteditbuttons.ui",
-               "yali/gui/partlistwidget.ui"]
+
+def qt_ui_files():
+    p = "yali/gui/*.ui"
+    return glob.glob(p)
 
 def gui_pics():
     p = "yali/gui/pics"
@@ -70,7 +70,7 @@ class YaliBuild(build):
         spawn(cmd)
 
     def run(self):
-        for f in qt_ui_files:
+        for f in qt_ui_files():
             self.compile_ui(f)
 
         build.run(self)
@@ -83,7 +83,7 @@ class YaliClean(clean):
         clean.run(self)
 
         # clean ui generated .py files
-        for f in qt_ui_files:
+        for f in qt_ui_files():
             f = py_file_name(f)
             if os.path.exists(f):
                 os.unlink(f)

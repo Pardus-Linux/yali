@@ -31,10 +31,13 @@ class Widget(BootLoaderWidget, ScreenWidget):
 
     def execute(self):
 
-        t = parttype.RootPartitionType()
-        rootreq = ctx.partrequests.searchPartTypeAndReqType(t,
-                                                            request.mountRequestType).next()
-        root = basename(rootreq.partition().getPath())
+        if self.install_bootloader:
+            t = parttype.RootPartitionType()
+            rootreq = ctx.partrequests.searchPartTypeAndReqType(t,
+                                  request.mountRequestType).next()
+            root = basename(rootreq.partition().getPath())
 
-        yali.bootloader.write_grub_conf(root)
-        #yali.bootloader.install_grub(root)
+            yali.bootloader.write_grub_conf(root)
+
+            #yali.bootloader.install_grub(root)
+            print "didn't install grub!"

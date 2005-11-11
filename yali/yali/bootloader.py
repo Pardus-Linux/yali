@@ -10,19 +10,18 @@
 # Please read the COPYING file.
 #
 
-from os import system
-from os.path import join
+import os
 
 from yali.constants import consts
 
 grub_conf_tmp = """
 default 0
 timeout 5
-splashimage = %(grub_root)s/boot/grub/splash.xpm.gz
+splashimage = (%(grub_root)s)/boot/grub/splash.xpm.gz
 
 title=2.6.12-2 [ %(pardus_version)s ]
-root %(grub_root)s
-kernel %(grub_root)s/boot/pardus-kernel-2.6.12-2 ro root=%(root)s
+root (%(grub_root)s)
+kernel (%(grub_root)s)/boot/pardus-kernel-2.6.12-2 ro root=%(root)s
 
 """
 
@@ -44,7 +43,11 @@ def get_grub_style(d):
 
 def write_grub_conf(root):
 
-    grub_conf_file = join(consts.target_dir, "boot/grub/grub.conf")
+    d = os.path.join(consts.target_dir, "boot/grub")
+    grub_conf_file = os.path.join(d, "grub.conf")
+
+    if not os.path.exists(d):
+        os.makedirs(d)
 
     grub_conf = grub_conf_tmp % {"root": root,
                                  "grub_root": get_grub_style(root),
@@ -59,4 +62,5 @@ def install_grub(root):
 
     open("/tmp/grub-shell", "w").write(grub_shell)
 
-    system("grub-install --grub-shell=/tmp/grub-shell")
+    # FIXME: check command...
+    os.system("grub-install --grub-shell=/tmp/grub-shell")
