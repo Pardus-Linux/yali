@@ -43,16 +43,13 @@ class Constants:
         self.__c.mnt_dir = "/mnt"
         # new system will be installed directly into this target directory
         self.__c.target_dir = join(self.__c.mnt_dir, "target")
-        # packages (and maybe others) will be in this source directory
-        self.__c.source_dir = join(self.__c.mnt_dir, "source")
+        # packages (and maybe others) will be in this source (cdrom) directory
+        self.__c.source_dir = join(self.__c.mnt_dir, "cdrom")
 
 
         # pisi repository
-#        self.__c.repo_name = "pardus-1.0-cd"
-#        self.__c.repo_uri = join(self.__c.source_dir, "packages/pisi-index.xml")
-        # TESTING:
-        self.__c.repo_name = "pardus-devel-yali"
-        self.__c.repo_uri = "http://paketler.uludag.org.tr/pardus-devel/pisi-index.xml"
+        self.__c.repo_name = "pardus-1.0-cd"
+        self.__c.repo_uri = join(self.__c.source_dir, "repo/pisi-index.xml")
 
 
     def __getattr__(self, attr):

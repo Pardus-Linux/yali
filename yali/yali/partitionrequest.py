@@ -205,6 +205,9 @@ class MountRequest(PartRequest):
         if not os.path.isdir(target):
             os.mkdir(target)
 
+        # first umount!
+        mount.umount(target)
+
         mount.mount(source, target, filesystem)
         
         mtab_entry = "%s %s %s rw 0 0\n" % (source,

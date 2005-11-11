@@ -16,27 +16,50 @@ PyDoc_STRVAR(mount__doc__,
 "\n"
 "method implements the mount(2) system call in Linux\n");
 
+PyObject*
 mount_mount(PyObject *self, PyObject *args)
 {
 
   int ok;
-  char *src, *tgt, *fstype;
+  const char *src, *tgt, *fstype;
 
+  /* FIXME: get mount flags! */
   if (!PyArg_ParseTuple(args, "sss", &src, &tgt, &fstype))
   {
       Py_INCREF(Py_None);
       return Py_None;
   }
 
-  /* FIXME: No mount flags! */
-  ok = mount(src, tgt, fstype, NULL, NULL);
+  ok = mount(src, tgt, fstype, MS_NOATIME, NULL);
 
   return PyInt_FromLong( (long) ok );
 }
 
+PyDoc_STRVAR(umount__doc__,
+"umount(target)\n"
+"\n"
+"method implements the umount(2) system call in Linux\n");
+
+PyObject*
+mount_umount(PyObject *self, PyObject *args)
+{
+  int ok;
+  const char *tgt;
+
+  if (!PyArg_ParseTuple(args, "s", &tgt))
+  {
+      Py_INCREF(Py_None);
+      return Py_None;
+  }
+
+  ok = umount(tgt);
+
+  return PyInt_FromLong( (long) ok );
+}
 
 static PyMethodDef mount_methods[] = {
     {"mount",  (PyCFunction)mount_mount,  METH_VARARGS,  mount__doc__},
+    {"umount",  (PyCFunction)mount_umount,  METH_VARARGS,  umount__doc__},
     {NULL, NULL}
 };
 
