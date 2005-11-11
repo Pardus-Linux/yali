@@ -13,7 +13,7 @@
 from os import system
 from os.path import join
 
-from yali.constants import const
+from yali.constants import consts
 
 grub_conf_tmp = """
 default 0
@@ -44,10 +44,10 @@ def get_grub_style(d):
 
 def write_grub_conf(root):
 
-    grub_conf_file = join(constants.target_dir, "boot/grub/grub.conf")
+    grub_conf_file = join(consts.target_dir, "boot/grub/grub.conf")
 
     grub_conf = grub_conf_tmp % {"root": root,
-                                 "grub_root": get_grub_style(root)
+                                 "grub_root": get_grub_style(root),
                                  "pardus_version": consts.pardus_version}
 
     open(grub_conf_file, "w").write(grub_conf)
