@@ -330,7 +330,10 @@ class PartEdit(QWidget):
             device.commit()
             partition = device.getPartition(p.num)
 
-            edit_requests(partition)
+            if not edit_requests(partition):
+                return False
+
+            return True
 
         def edit_requests(partition):
             edit = self.edit
@@ -351,14 +354,18 @@ class PartEdit(QWidget):
                     ctx.partrequests.removeRequest(
                         partition, request.formatRequestType)
             except request.RequestException, e:
-                # FIXME: show this on GUI
-                print e
+                self.warning.setText("%s" % e)
+                self.warning.show()
+                return False
+
+            return True
 
 
         if t == parteddata.deviceType:
             if state == createState:
                 device = self._d
-                create_new_partition(device)
+                if not create_new_partition(device):
+                    return False
 
             elif state == deleteState:
                 self._d.deleteAllPartitions()
@@ -371,12 +378,14 @@ class PartEdit(QWidget):
                 device.commit()
             elif state == editState:
                 partition = self._d
-                edit_requests(partition)
+                if not edit_requests(partition):
+                    return
 
         elif t == parteddata.freeSpaceType:
             if state == createState:
                 device = self._d.getDevice()
-                create_new_partition(device)
+                if not create_new_partition(device):
+                    return False
 
         else:
             raise GUIError, "unknown action called (%s)" %(self._action)
