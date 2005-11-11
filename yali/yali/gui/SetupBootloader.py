@@ -10,22 +10,31 @@
 # Please read the COPYING file.
 #
 
-
+from os.path import basename
 from qt import *
 
+import yali.bootloader
+import yali.partitionrequest as request
+import yali.partitiontype as parttype
+from yali.gui.bootloaderwidget import BootLoaderWidget
 from yali.gui.ScreenWidget import ScreenWidget
+import yali.gui.context as ctx
+
+
 ##
-# Partitioning screen.
-class Widget(QWidget, ScreenWidget):
+# BootLoader screen.
+class Widget(BootLoaderWidget, ScreenWidget):
 
     def __init__(self, *args):
-        apply(QWidget.__init__, (self,) + args)
+        apply(BootLoaderWidget.__init__, (self,) + args)
         
-        img = QLabel(self)
-        img.setText("SetupBootloader: Not implemented yet!")
-        
-        hbox = QHBoxLayout(self)
-        hbox.addStretch(1)
-        hbox.addWidget(img)
-        hbox.addStretch(1)
 
+    def execute(self):
+
+        t = parttype.RootPartitionType()
+        rootreq = ctx.partrequests.searchPartTypeAndReqType(t,
+                                                            request.mountRequestType).next()
+        root = basename(rootreq.partition().getPath())
+
+        yali.bootloader.write_grub_conf(root)
+        #yali.bootloader.install_grub(root)

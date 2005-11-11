@@ -37,6 +37,9 @@ class Constants:
     __c = _constant()
 
     def __init__(self):
+
+        self.__c.pardus_version = "Pardus 1.0 Alpha"
+
         # directories
         self.__c.data_dir = "/usr/share/yali"
 
