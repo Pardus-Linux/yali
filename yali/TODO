@@ -18,8 +18,9 @@ Legend:
    + welcome screen
    + partitioning screen
    / installation screen
-   - basic setup ( rootpw, users, grub-install )
-   - goodbye screen
+   - basic setup: rootpw, users
+   + basic setup: grub-install
+   + goodbye screen
 
  + partitioning
    + parted interface
@@ -31,14 +32,14 @@ Legend:
      + linux-swap
    + partition types ( for YALI installation: installroot, swap, vs. )
      
- / installation
-   / pisi interface
+ + installation
+   + pisi interface
 
  - users
    - root password
    - users management (add user)
  
- - boot loader
+ + boot loader
 
 
 2. Beta
