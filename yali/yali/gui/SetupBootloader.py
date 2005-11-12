@@ -37,7 +37,6 @@ class Widget(BootLoaderWidget, ScreenWidget):
                                   request.mountRequestType).next()
             root = basename(rootreq.partition().getPath())
 
+            # TODO: use logging!
             yali.bootloader.write_grub_conf(root)
-
-            #yali.bootloader.install_grub(root)
-            print "didn't install grub!"
+            yali.bootloader.install_grub(root)
