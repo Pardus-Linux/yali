@@ -44,6 +44,7 @@ Legend:
 
 2. Beta
  - GUI
+   - find a way to show exceptions on GUI
    - auto partitioning
    - try statemachine for screens/stages
 
@@ -55,6 +56,8 @@ Legend:
  - tests
 
  - logging system
+
+ - exception handling
 
 3. Release
 
