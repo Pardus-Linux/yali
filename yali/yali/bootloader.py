@@ -23,7 +23,7 @@ splashimage = (%(grub_root)s)/boot/grub/splash.xpm.gz
 
 title=2.6.12-2 [ %(pardus_version)s ]
 root (%(grub_root)s)
-kernel (%(grub_root)s)/boot/pardus-kernel-2.6.12-2 ro root=%(root)s
+kernel (%(grub_root)s)/boot/pardus-kernel-2.6.12-2 ro root=/dev/%(root)s
 
 """
 
@@ -57,7 +57,7 @@ def write_grub_conf(root, dev):
     #write an empty grub.conf, for grub to create a device map.
     open(grub_conf, "w").close()
     # create device map
-    cmd = "/sbin/grub --batch --device-map=%s < %s > /dev/null 2>&1" %(
+    cmd = "/sbin/grub --batch --no-floppy --device-map=%s < %s" %(
         device_map, grub_conf)
     os.system(cmd)
 
@@ -66,10 +66,10 @@ def write_grub_conf(root, dev):
     minor = str(int(root[-1]) - 1)
     grub_root = ",".join([grub_dev, minor])
 
-    x = grub_conf_tmp % {"root": root,
+    s = grub_conf_tmp % {"root": root,
                          "grub_root": grub_root,
                          "pardus_version": consts.pardus_version}
-    open(grub_conf, "w").write(x)
+    open(grub_conf, "w").write(s)
 
 
 def install_files():
