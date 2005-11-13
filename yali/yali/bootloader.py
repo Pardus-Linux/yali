@@ -12,6 +12,7 @@
 
 import os
 import glob
+import shutil
 
 from yali.constants import consts
 
