@@ -11,6 +11,7 @@
 #
 
 import os
+import glob
 
 from yali.constants import consts
 
@@ -26,34 +27,48 @@ kernel (%(grub_root)s)/boot/pardus-kernel-2.6.12-2 ro root=%(root)s
 """
 
 grub_shell_tmp = """
-root %(grub_root)
-setup (hd0)
+root (%(grub_root)s)
+setup (%(grub_dev)s)
 """
 
+device_map = os.path.join(consts.target_dir, "boot/grub/device.map")
 
-def get_grub_style(d):
-    h = {}
-    for i in range(4):
-        h[chr(97+i)] = str(i)
-    p = d[0:2]
-    p = p + h.get(d[2])
-    p = p + "," + str(int(d[3]) - 1)
-    return p
+def _find_grub_dev(dev):
+    global device_map
+
+    for l in open(device_map).readlines():
+        if l.find(dev) >= 0:
+            l = l.split()
+            d = l[0]
+            # remove paranthesis
+            return d[1:-1]
 
 
-def write_grub_conf(root):
+def write_grub_conf(root, dev):
+    global device_map
+
+    grub_conf = os.path.join(consts.target_dir, "boot/grub/grub.conf")
 
     d = os.path.join(consts.target_dir, "boot/grub")
-    grub_conf_file = os.path.join(d, "grub.conf")
-
     if not os.path.exists(d):
         os.makedirs(d)
 
-    grub_conf = grub_conf_tmp % {"root": root,
-                                 "grub_root": get_grub_style(root),
-                                 "pardus_version": consts.pardus_version}
+    #write an empty grub.conf, for grub to create a device map.
+    open(grub_conf, "w").close()
+    # create device map
+    cmd = "/sbin/grub --batch --device-map=%s < %s > /dev/null 2>&1" %(
+        device_map, grub_conf)
+    os.system(cmd)
 
-    open(grub_conf_file, "w").write(grub_conf)
+
+    grub_dev = _find_grub_dev(dev)
+    minor = str(int(root[-1]) - 1)
+    grub_root = ",".join([grub_dev, minor])
+
+    x = grub_conf_tmp % {"root": root,
+                         "grub_root": grub_root,
+                         "pardus_version": consts.pardus_version}
+    open(grub_conf, "w").write(x)
 
 
 def install_files():
@@ -65,21 +80,24 @@ def install_files():
 
     for x in fnlist:
         if os.path.isfile(x):
+            print x
             fname = os.path.basename(x)
             newpath = os.path.join(consts.target_dir, "boot/grub", fname)
             shutil.copyfile(x, newpath)
 
 
-def install_grub(root):
+def install_grub(root, dev):
 
-    d = os.path.join(consts.target_dir, "boot/grub/device.map")
-    c = os.path.join(consts.target_dir, "boot/grub/grub.conf")
-    cmd = "/sbin/grub --batch --device-map=%s < %s > /dev/null 2>&1" %(d,c)
-    os.system(cmd)
+    grub_dev = _find_grub_dev(dev)
+    minor = str(int(root[-1]) - 1)
+    grub_root = ",".join([grub_dev, minor])
 
-    grub_shell = grub_shell_tmp % {"grub_root": get_grub_style(root)}
+    grub_shell = grub_shell_tmp % {"grub_root": grub_root,
+                                   "grub_dev": grub_dev}
 
     open("/tmp/grub-shell", "w").write(grub_shell)
 
     # FIXME: check command...
-    os.system("grub-install --grub-shell=/tmp/grub-shell")
+    cmd = "/sbin/grub --batch < /tmp/grub-shell"
+    print cmd
+    os.system(cmd)

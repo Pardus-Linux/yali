@@ -35,10 +35,13 @@ class Widget(BootLoaderWidget, ScreenWidget):
         rootreq = ctx.partrequests.searchPartTypeAndReqType(t,
                                                             request.mountRequestType).next()
         root = basename(rootreq.partition().getPath())
+        dev = basename(rootreq.partition().getDevicePath())
         
         # TODO: use logging!
-        yali.bootloader.write_grub_conf(root)
+        yali.bootloader.write_grub_conf(root, dev)
         yali.bootloader.install_files()
 
-        if self.install_bootloader:
-            yali.bootloader.install_grub(root)
+        print self.install_bootloader.isChecked()
+        if self.install_bootloader.isChecked():
+            print "installing"
+            yali.bootloader.install_grub(root, dev)
