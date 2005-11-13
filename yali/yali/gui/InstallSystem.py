@@ -36,11 +36,12 @@ class Widget(InstallWidget, ScreenWidget):
 
         # TODO: start slide show
         
-    def slotNotify(self, parent, event, pn):
-        if event == pisi.ui.installed:
-            self.info.setText("Installed: %s" % pn )
-            # FIXME: use logging
-            print "Installed: %s" % pn
+    def slotNotify(self, parent, event, p):
+
+        # FIXME: use logging
+        if event == pisi.ui.installing:
+            self.info.setText("Installing: %s (%s)" % (
+                    p.name, p.summary))
 
     def execute(self):
 
@@ -93,5 +94,5 @@ class PisiUI(QObject, pisi.ui.UI):
                      notify_widget.slotNotify)
 
     def notify(self, event, **keywords):
-        self.emit(PYSIGNAL("signalNotify"), (self, event, keywords['package'].name))
+        self.emit(PYSIGNAL("signalNotify"), (self, event, keywords['package']))
 
