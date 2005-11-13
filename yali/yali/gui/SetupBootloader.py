@@ -31,12 +31,14 @@ class Widget(BootLoaderWidget, ScreenWidget):
 
     def execute(self):
 
-        if self.install_bootloader:
-            t = parttype.RootPartitionType()
-            rootreq = ctx.partrequests.searchPartTypeAndReqType(t,
-                                  request.mountRequestType).next()
-            root = basename(rootreq.partition().getPath())
+        t = parttype.RootPartitionType()
+        rootreq = ctx.partrequests.searchPartTypeAndReqType(t,
+                                                            request.mountRequestType).next()
+        root = basename(rootreq.partition().getPath())
+        
+        # TODO: use logging!
+        yali.bootloader.write_grub_conf(root)
+        yali.bootloader.install_files()
 
-            # TODO: use logging!
-            yali.bootloader.write_grub_conf(root)
+        if self.install_bootloader:
             yali.bootloader.install_grub(root)

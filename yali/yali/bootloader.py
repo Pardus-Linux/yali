@@ -56,7 +56,26 @@ def write_grub_conf(root):
     open(grub_conf_file, "w").write(grub_conf)
 
 
+def install_files():
+    src = os.path.join(consts.target_dir, "lib/grub")
+    src2 = os.path.join(consts.target_dir, "usr/lib/grub")
+    fnlist = glob.glob(src + "/*/*")
+    fnlist2 = glob.glob(src2 + "/*/*")
+    for x in fnlist2: fnlist.append(x)
+
+    for x in fnlist:
+        if os.path.isfile(x):
+            fname = os.path.basename(x)
+            newpath = os.path.join(consts.target_dir, "boot/grub", fname)
+            shutil.copyfile(x, newpath)
+
+
 def install_grub(root):
+
+    d = os.path.join(consts.target_dir, "boot/grub/device.map")
+    c = os.path.join(consts.target_dir, "boot/grub/grub.conf")
+    cmd = "/sbin/grub --batch --device-map=%s < %s > /dev/null 2>&1" %(d,c)
+    os.system(cmd)
 
     grub_shell = grub_shell_tmp % {"grub_root": get_grub_style(root)}
 
