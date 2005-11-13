@@ -62,9 +62,10 @@ def write_grub_conf(root, dev):
     os.system(cmd)
 
 
-    grub_dev = _find_grub_dev(dev)
+# TODO: support installing grub to diffrent devices's MBR.
+#    grub_dev = _find_grub_dev(dev)
     minor = str(int(root[-1]) - 1)
-    grub_root = ",".join([grub_dev, minor])
+    grub_root = ",".join(["hd0", minor])
 
     s = grub_conf_tmp % {"root": root,
                          "grub_root": grub_root,
