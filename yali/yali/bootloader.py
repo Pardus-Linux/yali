@@ -86,6 +86,9 @@ def install_files():
             newpath = os.path.join(consts.target_dir, "boot/grub", fname)
             shutil.copyfile(x, newpath)
 
+    m = os.path.join(consts.target_dir, "boot/grub/menu.lst")
+    os.symlink("grub.conf", m)
+
 
 def install_grub(root, dev):
 
