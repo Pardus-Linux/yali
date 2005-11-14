@@ -66,6 +66,11 @@ class Widget(QWidget, ScreenWidget):
         self.connect(self.partedit, PYSIGNAL("signalApplied"),
                      self.partlist.update)
 
+    def shown(self):
+        ctx.screens.prevEnabled()
+
+        self.partlist.update()
+
     ##
     # do the work and run requested actions on partitions.
     def execute(self):
@@ -103,7 +108,6 @@ class PartList(PartListWidget):
         self.connect(self.editButton, SIGNAL("clicked()"),
                      self.slotEditClicked)
 
-        self.update()
 
     def update(self):
         self.list.clear()
@@ -116,6 +120,7 @@ class PartList(PartListWidget):
         self.editButton.setEnabled(False)
 
         self.showPartitionRequests()
+        self.checkRootPartRequest()
 
     def addDevice(self, dev):
         # add the device to the list
@@ -209,6 +214,14 @@ class PartList(PartListWidget):
 
             elif t == request.mountRequestType:
                 item.setText(2, ptype.name)
+
+    def checkRootPartRequest(self):
+        ctx.screens.nextDisabled()
+
+        for req in ctx.partrequests:
+            if req.partitionType() == part_types[0]:
+                # root partition type. can enable next
+                ctx.screens.nextEnabled()
 
 
 ##

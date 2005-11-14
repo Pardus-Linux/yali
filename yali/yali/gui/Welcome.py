@@ -31,3 +31,8 @@ class Widget(QWidget, ScreenWidget):
         hbox.addWidget(img)
         hbox.addStretch(1)
 
+        ctx.screens.prevDisabled()
+
+    def shown(self):
+        ctx.screens.prevDisabled()
+        ctx.screens.nextEnabled()

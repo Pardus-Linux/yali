@@ -13,22 +13,18 @@
 from qt import *
 import yali.gui.context as ctx
 
-def forwardButton(parent):
+def nextButton(parent):
     w = NavButton(parent)
     w.setIcon("button_forward")
     return w
 
-def backButton(parent):
+def prevButton(parent):
     w = NavButton(parent)
     w.setIcon("button_back")
     return w
 
 
 class NavButton(QWidget):
-
-    _pix = None
-    _pix_over = None
-    _pix_pressed = None
 
     def __init__(self, *args):
         apply(QWidget.__init__, (self,) + args)
@@ -45,6 +41,14 @@ class NavButton(QWidget):
         # find a way to paint button background.
         self.setFixedSize(64, 64)
 
+        self._pix = None
+        self._pix_over = None
+        self._pix_pressed = None
+        self._pix_disabled = None
+        self._enabled = True
+
+
+
     def setIcon(self, icon_name):
         ifactory = ctx.iconfactory
         self._pix = ifactory.newPixmap(icon_name)
@@ -57,17 +61,40 @@ class NavButton(QWidget):
 
         self._pix_pressed = ifactory.newPixmap("pressed_" + icon_name)
 
+        self._pix_disabled = ifactory.newPixmap("disabled_" + icon_name)
+
         self.label.setPixmap(self._pix)
+
+    def setEnabled(self, b = True):
+        self._enabled = b
+
+        if self._enabled:
+            self.label.setPixmap(self._pix)
+        else:
+            self.label.setPixmap(self._pix_disabled)
+            
 
     def mouseReleaseEvent(self, e):
-        self.emit(PYSIGNAL("signalClicked"), ())
-        self.label.setPixmap(self._pix_over)
+        if self._enabled:
+            self.emit(PYSIGNAL("signalClicked"), ())
+            self.label.setPixmap(self._pix_over)
+        else:
+            self.label.setPixmap(self._pix_disabled)
 
     def mousePressEvent(self, e):
-        self.label.setPixmap(self._pix_pressed)
+        if self._enabled:
+            self.label.setPixmap(self._pix_pressed)
+        else:
+            self.label.setPixmap(self._pix_disabled)
 
     def enterEvent(self, e):
-        self.label.setPixmap(self._pix_over)
+        if self._enabled:
+            self.label.setPixmap(self._pix_over)
+        else:
+            self.label.setPixmap(self._pix_disabled)
 
     def leaveEvent(self, e):
-        self.label.setPixmap(self._pix)
+        if self._enabled:
+            self.label.setPixmap(self._pix)
+        else:
+            self.label.setPixmap(self._pix_disabled)

@@ -49,6 +49,18 @@ class Screens(QObject, Steps):
             self.__setCurrent(prev)
         
 
+    def nextDisabled(self):
+        self.emit(PYSIGNAL("nextButtonDisabled"), ())
+
+    def prevDisabled(self):
+        self.emit(PYSIGNAL("prevButtonDisabled"), ())
+
+    def nextEnabled(self):
+        self.emit(PYSIGNAL("nextButtonEnabled"), ())
+
+    def prevEnabled(self):
+        self.emit(PYSIGNAL("prevButtonEnabled"), ())
+
     ##
     # Sets the current screen and logs.
     # @param index(int): screen index to be the current.

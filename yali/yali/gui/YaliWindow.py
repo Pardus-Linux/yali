@@ -30,21 +30,30 @@ class Widget(QMainWindow):
         self.topWidget = GUITop.Widget(self)
         self.contentWidget = GUIContentStack.Widget(self)
         self.helpWidget = GUIHelp.Widget(self)
-        self.forwardButton = GUINavButton.forwardButton(self)
-        self.backButton = GUINavButton.backButton(self)
+        self.nextButton = GUINavButton.nextButton(self)
+        self.prevButton = GUINavButton.prevButton(self)
 
         # Place the widgets using layouts and yada, yada, yada...
         self.__setUpWidgets()
 
-        self.connect(self.forwardButton, PYSIGNAL("signalClicked"),
+        self.connect(self.nextButton, PYSIGNAL("signalClicked"),
                      self.slotNextScreen)
-        self.connect(self.backButton, PYSIGNAL("signalClicked"),
+        self.connect(self.prevButton, PYSIGNAL("signalClicked"),
                      self.slotPrevScreen)
 
         self.connect(self, PYSIGNAL("signalWindowSize"),
                      self.topWidget.slotResize)
         self.connect(self, PYSIGNAL("signalWindowSize"),
                      self.helpWidget.slotResize)
+
+        self.connect(ctx.screens, PYSIGNAL("nextButtonDisabled"),
+                     self.slotNextDisabled)
+        self.connect(ctx.screens, PYSIGNAL("prevButtonDisabled"),
+                     self.slotPrevDisabled)
+        self.connect(ctx.screens, PYSIGNAL("nextButtonEnabled"),
+                     self.slotNextEnabled)
+        self.connect(ctx.screens, PYSIGNAL("prevButtonEnabled"),
+                     self.slotPrevEnabled)
 
 
         self.setPaletteBackgroundPixmap(ctx.iconfactory.newPixmap("back_tile"))
@@ -72,8 +81,8 @@ class Widget(QMainWindow):
 
         buttons = QHBoxLayout()
         buttons.setSpacing(20)
-        buttons.addWidget(self.backButton)
-        buttons.addWidget(self.forwardButton)
+        buttons.addWidget(self.prevButton)
+        buttons.addWidget(self.nextButton)
         
         centerRight.addStretch(1)
         centerRight.addLayout(buttons)
@@ -91,6 +100,25 @@ class Widget(QMainWindow):
     # Go to the previous screen.
     def slotPrevScreen(self):
         ctx.screens.previous()
+
+
+    # Enable/Disable buttons
+
+    def slotNextDisabled(self):
+        self.nextButton.setEnabled(False)
+        print "next disabled"
+
+    def slotPrevDisabled(self):
+        self.prevButton.setEnabled(False)
+        print "prev disabled"
+
+    def slotNextEnabled(self):
+        self.nextButton.setEnabled(True)
+        print "next enabled"
+
+    def slotPrevEnabled(self):
+        self.prevButton.setEnabled(True)
+        print "prev enabled"
 
 
     ##
