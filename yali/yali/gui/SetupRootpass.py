@@ -15,7 +15,9 @@ from qt import *
 
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.rootpasswidget import RootPassWidget
+import yali.users
 import yali.gui.context as ctx
+
 
 ##
 # Root password widget
@@ -35,8 +37,8 @@ class Widget(RootPassWidget, ScreenWidget):
         ctx.screens.prevDisabled()
 
     def execute(self):
-        pass
-        # write password to system...
+        user = yali.users.User("root")
+        user.changePasswd(self.pass1.text().ascii())
 
     def slotTextChanged(self):
 
