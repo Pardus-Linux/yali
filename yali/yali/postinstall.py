@@ -55,7 +55,7 @@ def initbaselayout():
 
     def chgrp(f, group):
         f = os.path.join(consts.target_dir, f)
-        gid = grp.getgrnam(group)
+        gid = int(grp.getgrnam(group)[2])
         os.chown(f, 0, gid)
 
     # create /etc/hosts
@@ -70,10 +70,10 @@ def initbaselayout():
     # create empty log file
     touch("var/log/lastlog")
 
-    touch("var/run/utmp")
+    touch("var/run/utmp", 0664)
     chgrp("var/run/utmp", "utmp")
 
-    touch("var/log/wtmp")
+    touch("var/log/wtmp", 0664)
     chgrp("var/log/wtmp", "utmp")
 
     

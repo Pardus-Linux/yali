@@ -17,6 +17,7 @@ from qt import *
 import pisi.ui
 
 import yali.pisiiface
+import yali.postinstall
 import yali.fstab
 import yali.partitionrequest as request
 from yali.gui.installwidget import InstallWidget
@@ -42,7 +43,7 @@ class Widget(InstallWidget, ScreenWidget):
 
         # FIXME: use logging
         if event == pisi.ui.installing:
-            self.info.setText("Installing: %s (%s)" % (
+            self.info.setText(u"Installing: %s (%s)" % (
                     p.name, p.summary))
 
     def execute(self):
@@ -63,6 +64,11 @@ class Widget(InstallWidget, ScreenWidget):
                 fstab.insert(e)
 
         fstab.close()
+
+        # run postinstall
+        yali.postinstall.run_all()
+
+
         # TODO: stop slide show
 
     def finished(self):
