@@ -66,7 +66,7 @@
                         <cstring>install_bootloader</cstring>
                     </property>
                     <property name="text">
-                        <string>Yes Install Grub</string>
+                        <string>Yes, Install Boot Loader</string>
                     </property>
                     <property name="checked">
                         <bool>true</bool>
@@ -102,11 +102,13 @@
                 <number>100</number>
             </property>
             <property name="text">
-                <string>&lt;b&gt;Write Grub (boot loader) to MBR?&lt;/b&gt;
+                <string>&lt;b&gt;Write boot loader (GRUB) to your hard disk's master boot record?&lt;/b&gt;
 
 &lt;p&gt;You need this to boot your Pardus system.&lt;/p&gt;
 
-&lt;p&gt;Or else, you will have to configure your other operating system's (if you have one installed) loader to start your newly installed Pardus system.&lt;/p&gt;</string>
+&lt;p&gt;If you don't install a boot loader, you will have to configure your 
+other operating system's loader  (if you have one installed) to start 
+your newly installed Pardus.&lt;/p&gt;</string>
             </property>
             <property name="alignment">
                 <set>WordBreak|AlignVCenter</set>
