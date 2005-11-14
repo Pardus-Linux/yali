@@ -49,11 +49,12 @@ class Widget(QWidget, ScreenWidget):
 
     def execute(self):
 
-        ctx.screens.nextDisable()
-        ctx.screens.prevDisable()
+        ctx.screens.nextDisabled()
+        ctx.screens.prevDisabled()
 
         self.info.show()
         self.info.setAlignment(QLabel.AlignCenter)
 
         cmd = yali.sysutils.find_executable("reboot")
+        print cmd
         os.system(cmd)
