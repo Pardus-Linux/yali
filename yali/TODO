@@ -19,7 +19,6 @@ Legend:
    + partitioning screen
    / installation screen
    + basic setup: rootpw
-   - basic setup: users
    + basic setup: grub-install
    + goodbye screen
 
@@ -36,9 +35,8 @@ Legend:
  + installation
    + pisi interface
 
- / users
+ + users
    + root password
-   - users management (add user)
  
  + boot loader
 
@@ -48,6 +46,11 @@ Legend:
    - find a way to show exceptions on GUI
    - auto partitioning
    - try statemachine for screens/stages
+   - basic setup: users
+
+ / users
+   - users management (add user)
+
 
  - localization
 
