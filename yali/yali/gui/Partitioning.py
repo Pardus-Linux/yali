@@ -334,7 +334,24 @@ class PartEdit(QWidget):
         state = self._state
         t = self._d.getType()
 
+        def check_part_requests():
+            i = self.edit.part_type.currentItem()
+            t = part_types[i]
+            try:
+                r = ctx.partrequests.searchPartTypeAndReqType(t,
+                                     request.mountRequestType).next()
+                self.warning.setText("You have allready have this partition type")
+                self.warning.show()
+                return False
+            except StopIteration:
+                # we're O.K.!
+                return True
+
+
         def create_new_partition(device):
+            if not check_part_requests():
+                return False
+
             size = self.edit.size.text().toInt()[0]
                 
             # FIXME: set partition type (storage.setPartitionType)
@@ -348,6 +365,9 @@ class PartEdit(QWidget):
             return True
 
         def edit_requests(partition):
+            if not check_part_requests():
+                return False
+
             edit = self.edit
 
             i = edit.part_type.currentItem()
