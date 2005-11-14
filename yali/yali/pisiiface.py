@@ -26,6 +26,8 @@ def initialize(ui):
     options.destdir = consts.target_dir
     options.yes_all = True
     options.bypass_ldconfig = True
+    # giving "comar = false" isn't enough for pisi 
+    options.ignore_comar = False
 
     pisi.api.init(options = options, comar = False, database = True, ui = ui)
 
