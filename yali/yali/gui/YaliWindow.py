@@ -106,19 +106,15 @@ class Widget(QMainWindow):
 
     def slotNextDisabled(self):
         self.nextButton.setEnabled(False)
-        print "next disabled"
 
     def slotPrevDisabled(self):
         self.prevButton.setEnabled(False)
-        print "prev disabled"
 
     def slotNextEnabled(self):
         self.nextButton.setEnabled(True)
-        print "next enabled"
 
     def slotPrevEnabled(self):
         self.prevButton.setEnabled(True)
-        print "prev enabled"
 
 
     ##
