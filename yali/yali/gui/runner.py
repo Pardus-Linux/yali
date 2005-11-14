@@ -80,9 +80,10 @@ class Runner:
 
         self._window.show()
         # We want it to be a full-screen window.
-#        self._window.resize(self._app.desktop().size())
-#        self._window.move(0,0)
-        self._window.resize(800,600)
+        self._window.resize(self._app.desktop().size())
+        self._window.move(0,0)
+# For testing
+#        self._window.resize(800,600)
 
         self._app.exec_loop()
 
