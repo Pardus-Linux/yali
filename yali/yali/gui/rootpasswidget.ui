@@ -24,7 +24,7 @@
                 <cstring>pass_error</cstring>
             </property>
             <property name="text">
-                <string>&lt;font size="+2" color="#ff0000"&gt;Passwords does not match!&lt;/font&gt;</string>
+                <string>&lt;font size="+2" color="#ff0000"&gt;Passwords do not match!&lt;/font&gt;</string>
             </property>
             <property name="scaledContents">
                 <bool>false</bool>
@@ -137,10 +137,10 @@
                         <cstring>textLabel1</cstring>
                     </property>
                     <property name="text">
-                        <string>System administrator user (root) handles important system 
-maintanence tasks. Please give password for this special user 
-and do not forget this password. Note that you shouldn't write 
-this password elsewhere for privacy reasons.</string>
+                        <string>&lt;p align="left"&gt;System administrator user (root) handles important system &lt;br&gt;
+maintanence tasks. Please give password for this special user &lt;br&gt;
+and do not forget this password. Note that you shouldn't write &lt;br&gt;
+this password elsewhere for privacy reasons.&lt;/p&gt;</string>
                     </property>
                     <property name="alignment">
                         <set>WordBreak|AlignCenter</set>
@@ -210,7 +210,7 @@ this password elsewhere for privacy reasons.</string>
                                 <cstring>textLabel3</cstring>
                             </property>
                             <property name="text">
-                                <string>root password:</string>
+                                <string>System administrator password:</string>
                             </property>
                         </widget>
                         <spacer row="0" column="3">
@@ -269,7 +269,7 @@ this password elsewhere for privacy reasons.</string>
                                 <cstring>textLabel3_2</cstring>
                             </property>
                             <property name="text">
-                                <string>root password (again):</string>
+                                <string>System administrator password (again):</string>
                             </property>
                         </widget>
                     </grid>
