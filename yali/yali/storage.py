@@ -172,6 +172,16 @@ class Device:
         l.sort(comp)
         return l
 
+    def getFreeMB(self):
+        parts = self.getPartitions()
+        
+        size = 0
+        for p in parts:
+            if isinstance(p, FreeSpace):
+                size += p.getMB()
+
+        return size
+
 
     ###############################
     # Partition mangling routines #

@@ -298,6 +298,7 @@ class PartEdit(QWidget):
 
         if t == parteddata.deviceType:
             if state == createState:
+                self.edit.size.setMaxValue(self._d.getFreeMB())
                 self.edit.setState(state)
                 self.edit.show()
 
@@ -320,6 +321,8 @@ class PartEdit(QWidget):
 
         elif t == parteddata.freeSpaceType:
             if state == createState:
+                # get free space
+                self.edit.size.setMaxValue(self._d.getMB())
                 self.edit.setState(state)
                 self.edit.show()
 
