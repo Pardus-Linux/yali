@@ -34,22 +34,29 @@ class Widget(RootPassWidget, ScreenWidget):
     def shown(self):
         ctx.screens.prevDisabled()
 
-        # TODO: check password
-        ctx.screens.nextEnabled()
-
     def execute(self):
         pass
         # write password to system...
 
     def slotTextChanged(self):
-        
+
         p1 = self.pass1.text()
         p2 = self.pass2.text()
 
+        if not p1:
+            ctx.screens.nextDisabled()
+            return
+
         if p2 != p1:
             self.pass_error.show()
+            self.pass_error.setAlignment(QLabel.AlignCenter)
+            ctx.screens.nextDisabled()
             # TODO: disable next button!
         else:
+            # Sould we also check password length?
             self.pass_error.hide()
+            ctx.screens.nextEnabled()
 
-        self.pass_error.setAlignment(QLabel.AlignCenter)
+
+
+        
