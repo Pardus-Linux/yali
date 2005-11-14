@@ -42,6 +42,9 @@
             <property name="text">
                 <string>Installing Package: </string>
             </property>
+            <property name="alignment">
+                <set>WordBreak|AlignVCenter</set>
+            </property>
         </widget>
     </grid>
 </widget>

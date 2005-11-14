@@ -23,6 +23,7 @@ import YaliWindow
 import Welcome
 import Partitioning
 import InstallSystem
+import SetupRootpass
 import SetupUsers
 import SetupBootloader
 import Goodbye
@@ -47,6 +48,7 @@ class Runner:
              {'stage': 1, 'module': Welcome},
              {'stage': 1, 'module': Partitioning},
              {'stage': 2, 'module': InstallSystem},
+             {'stage': 3, 'module': SetupRootpass},
              {'stage': 3, 'module': SetupUsers},
              {'stage': 3, 'module': SetupBootloader},
              {'stage': 3, 'module': Goodbye}
