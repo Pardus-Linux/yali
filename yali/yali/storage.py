@@ -70,6 +70,7 @@ class Device:
         self._length = dev.length
         self._sector_size = dev.sector_size
         
+        self._dev = dev
         try:
             self._disk = parted.PedDisk.new(dev)
         except:
@@ -80,7 +81,6 @@ class Device:
         self._disklabel = self._disk.type.name
 
         self._path = device_path
-        self._dev = dev
 
         self.update()
 
