@@ -18,7 +18,8 @@ Legend:
    + welcome screen
    + partitioning screen
    / installation screen
-   - basic setup: rootpw, users
+   + basic setup: rootpw
+   - basic setup: users
    + basic setup: grub-install
    + goodbye screen
 
@@ -35,8 +36,8 @@ Legend:
  + installation
    + pisi interface
 
- - users
-   - root password
+ / users
+   + root password
    - users management (add user)
  
  + boot loader
