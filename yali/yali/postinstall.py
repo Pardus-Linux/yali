@@ -41,8 +41,20 @@ def create_devices():
 def initbaselayout():
     
     # setup default runlevel symlinks
-    # NOT READY!
-
+    for level in ["boot", "default", "nonetwork", "single"]:
+        try:
+            os.makedirs("%s/etc/runlevels/%s" % (consts.target_dir, level))
+        except OSError:
+            pass
+                     
+        f = "%s/usr/share/baselayout/rc-lists/%s" %(consts.target_dir, level)
+        for script in open(f).readlines():
+            if os.access("%s/etc/init.d/%s" % (
+                    consts.target_dir, script.strip()), os.F_OK):
+                os.symlink("/etc/init.d/%s" % script.strip(),
+                           "%s/etc/runlevels/%s/%s" % (consts.target_dir,
+                                                       level,
+                                                       script.strip()))
 
     def cp(s, d):
         src = os.path.join(consts.target_dir, s)
