@@ -27,12 +27,33 @@ class Widget(QWidget, ScreenWidget):
         
         img = QLabel(self)
         img.setPixmap(ctx.iconfactory.newPixmap("goodbye"))
-        
-        hbox = QHBoxLayout(self)
+
+        self.info = QLabel(self)
+        self.info.setText(
+            '<b><font size="+2" color="red">Rebooting system. Please wait!</font></b>')
+        self.info.hide()
+        self.info.setAlignment(QLabel.AlignCenter)
+
+
+        vbox = QVBoxLayout(self)
+        vbox.addStretch(1)
+
+        hbox = QHBoxLayout(vbox)
         hbox.addStretch(1)
         hbox.addWidget(img)
         hbox.addStretch(1)
 
+        vbox.addStretch(1)
+        vbox.addWidget(self.info)
+
+
     def execute(self):
+
+        ctx.screens.nextDisable()
+        ctx.screens.prevDisable()
+
+        self.info.show()
+        self.info.setAlignment(QLabel.AlignCenter)
+
         cmd = yali.sysutils.find_executable("reboot")
         os.system(cmd)
