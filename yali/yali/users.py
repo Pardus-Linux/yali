@@ -28,6 +28,7 @@ class User:
         self.passwd = ''
 
         self.shadow_path = os.path.join(consts.target_dir, "etc/shadow")
+        self.passwd_path = os.path.join(consts.target_dir, "etc/passwd")
 
 
     def changePasswd(self, passwd):
@@ -49,8 +50,14 @@ class User:
     def delUser(self):
         pass
 
-    def getAvailableUid(target_dir):
-        pass
+    def getAvailableUid(self):
+        j = map(lambda x: int(x[2]), [line.split(':') for line in open(self.passwd_path, 'r').readlines()])
+        j.sort()
+
+        for i in range(1000 + len(j), 1000, -1):
+            if [int(x)+1 for x in j if i != int(x) if i == int(x) + 1]:
+                return i
+        return i-1
 
 
 if __name__ == '__main__':
