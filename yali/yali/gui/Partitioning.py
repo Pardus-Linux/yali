@@ -74,7 +74,13 @@ class Widget(QWidget, ScreenWidget):
     ##
     # do the work and run requested actions on partitions.
     def execute(self):
-        
+
+        # inform user...
+        self.partlist.showPartitionRequests(formatting=True)
+        # process events and show partitioning information!
+        ctx.screens.processEvents()
+
+
         for req in ctx.partrequests:
             if req.requestType() == request.formatRequestType:
                 req.applyRequest()
@@ -201,7 +207,7 @@ class PartList(PartListWidget):
 
     ##
     # handle and show requests on listview
-    def showPartitionRequests(self):
+    def showPartitionRequests(self, formatting=False):
         for req in ctx.partrequests:
             item = self.__getItemFromPart(req.partition())
 
@@ -209,7 +215,10 @@ class PartList(PartListWidget):
             ptype = req.partitionType()
             if t == request.formatRequestType:
                 item.setText(3, ptype.filesystem.name())
-                item.setText(4, "YES")
+                if formatting:
+                    item.setText(4, 'Formatting!')
+                else:
+                    item.setText(4, "YES")
 
             elif t == request.mountRequestType:
                 item.setText(2, ptype.name)

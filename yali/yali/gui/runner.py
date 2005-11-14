@@ -73,6 +73,9 @@ class Runner:
         self._app.connect(ctx.screens, PYSIGNAL("signalCurrent"),
                           ctx.stages.slotScreenChanged)
 
+        self._app.connect(ctx.screens, PYSIGNAL("signalProcessEvents"),
+                          self._app.processEvents)
+
 
     ##
     # Fire up the interface.

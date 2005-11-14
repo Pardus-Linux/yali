@@ -61,6 +61,12 @@ class Screens(QObject, Steps):
     def prevEnabled(self):
         self.emit(PYSIGNAL("prevButtonEnabled"), ())
 
+
+    ##
+    # process events
+    def processEvents(self):
+        self.emit(PYSIGNAL("signalProcessEvents"), ())
+
     ##
     # Sets the current screen and logs.
     # @param index(int): screen index to be the current.
