@@ -28,6 +28,10 @@ def gui_pics():
     p = "yali/gui/pics"
     return glob.glob(p + "/*.png")
 
+def gui_slidepics():
+    p = "yali/gui/slideshow/*.png"
+    return glob.glob(p)
+
 def help_files(lang):
     p = os.path.join("yali/gui/helps", lang)
     return glob.glob(p + "/*.html")
@@ -105,6 +109,7 @@ setup(name="yali",
       packages = ['yali', 'yali.gui'],
       package_dir = {'': ''},
       data_files = [('/usr/share/yali/pics', gui_pics()),
+                    ('/usr/share/yali/slideshow', gui_slidepics()),
                     ('/usr/share/yali/helps/en', help_files("en"))],
       scripts = ['yali-bin'],
       ext_modules = [mountmodule],

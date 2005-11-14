@@ -51,7 +51,7 @@ class Constants:
 
 
         # pisi repository
-        self.__c.repo_name = "pardus-1.0-cd"
+        self.__c.repo_name = "pardus-devel-cd"
         self.__c.repo_uri = join(self.__c.source_dir, "repo/pisi-index.xml")
 
 

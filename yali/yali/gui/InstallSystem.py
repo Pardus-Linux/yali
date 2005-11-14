@@ -10,6 +10,7 @@
 # Please read the COPYING file.
 #
 
+import glob
 import threading
 from os.path import join
 from qt import *
@@ -25,6 +26,21 @@ from yali.gui.ScreenWidget import ScreenWidget
 import yali.gui.context as ctx
 
 
+def iter_slide_pics():
+    # load all pics
+    pics = []
+    g = glob.glob(ctx.consts.slidepics_dir + "/*.png")
+    g.sort()
+    print g
+    for p in g:
+        pics.append(QPixmap(p))
+
+    while True:
+        for pic in pics:
+            yield pic
+
+
+
 ##
 # Partitioning screen.
 class Widget(InstallWidget, ScreenWidget):
@@ -32,12 +48,24 @@ class Widget(InstallWidget, ScreenWidget):
     def __init__(self, *args):
         apply(InstallWidget.__init__, (self,) + args)
 
+        self.timer = QTimer(self)
+        self.connect(self.timer, SIGNAL("timeout()"),
+                     self.slotChangePix)
+
+        self.iter_pics = iter_slide_pics()
+
+        # show first pic
+        self.slotChangePix()
+
     def shown(self):
         PkgInstaller().start(self)
 
         ctx.screens.prevDisabled()
         ctx.screens.nextDisabled()
-        # TODO: start slide show
+
+        # start 1 minute timer
+        self.timer.start(10000)
+
         
     def slotNotify(self, parent, event, p):
 
@@ -46,8 +74,11 @@ class Widget(InstallWidget, ScreenWidget):
             self.info.setText(u"Installing: %s (%s)" % (
                     p.name, p.summary))
 
-    def execute(self):
+    def slotChangePix(self):
+        self.pix.setPixmap(self.iter_pics.next())
 
+    def execute(self):
+        
         # fill fstab
         fstab = yali.fstab.Fstab()
         for req in ctx.partrequests:
@@ -69,7 +100,8 @@ class Widget(InstallWidget, ScreenWidget):
         yali.postinstall.run_all()
 
 
-        # TODO: stop slide show
+        # stop slide show
+        self.timer.stop()
 
     def finished(self):
         # trigger next screen
