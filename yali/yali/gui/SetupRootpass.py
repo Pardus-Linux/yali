@@ -15,6 +15,7 @@ from qt import *
 
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.rootpasswidget import RootPassWidget
+import yali.gui.context as ctx
 
 ##
 # Root password widget
@@ -29,6 +30,12 @@ class Widget(RootPassWidget, ScreenWidget):
                      self.slotTextChanged)
         self.connect(self.pass2, SIGNAL("textChanged(const QString &)"),
                      self.slotTextChanged)
+
+    def shown(self):
+        ctx.screens.prevDisabled()
+
+        # TODO: check password
+        ctx.screens.nextEnabled()
 
     def execute(self):
         pass

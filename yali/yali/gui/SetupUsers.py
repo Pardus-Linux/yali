@@ -14,7 +14,7 @@
 from qt import *
 
 from yali.gui.ScreenWidget import ScreenWidget
-
+import yali.gui.context as ctx
 
 ##
 # Partitioning screen.
@@ -31,3 +31,7 @@ class Widget(QWidget, ScreenWidget):
         hbox.addWidget(img)
         hbox.addStretch(1)
 
+    def shown(self):
+        ctx.screens.nextEnabled()
+        ctx.screens.prevEnabled()
+        

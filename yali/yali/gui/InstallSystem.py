@@ -34,6 +34,8 @@ class Widget(InstallWidget, ScreenWidget):
     def shown(self):
         PkgInstaller().start(self)
 
+        ctx.screens.prevDisabled()
+        ctx.screens.nextDisabled()
         # TODO: start slide show
         
     def slotNotify(self, parent, event, p):
