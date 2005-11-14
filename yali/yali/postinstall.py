@@ -11,11 +11,17 @@
 #
 
 import os
+import shutil
+import grp
 
 from yali.constants import consts
 
 # necessary things after a full install
 
+
+def run_all():
+    create_devices()
+    initbaselayout()
 
 def create_devices():
 
@@ -32,4 +38,45 @@ def create_devices():
         os.popen("mknod %s c 4 1" % target)
 
 
+def initbaselayout():
+    
+    # setup default runlevel symlinks
+    # NOT READY!
 
+
+    def cp(s, d):
+        src = os.path.join(consts.target_dir, s)
+        dst = os.path.join(consts.target_dir, d)
+        shutil.copyfile(src, dst)
+
+    def touch(f, m=0644):
+        f = os.path.join(consts.target_dir, f)
+        open(f, "w", m).close()
+
+    def chgrp(f, group):
+        f = os.path.join(consts.target_dir, f)
+        gid = grp.getgrnam(group)
+        os.chown(f, 0, gid)
+
+    # create /etc/hosts
+    cp("usr/share/baselayout/hosts", "etc/hosts")
+
+    # /etc/passwd, /etc/shadow, /etc/group
+    cp("usr/share/baselayout/passwd", "etc/passwd")
+    cp("usr/share/baselayout/shadow", "etc/shadow")
+    cp("usr/share/baselayout/group", "etc/group")
+
+
+    # create empty log file
+    touch("var/log/lastlog")
+
+    touch("var/run/utmp")
+    chgrp("var/run/utmp", "utmp")
+
+    touch("var/log/wtmp")
+    chgrp("var/log/wtmp", "utmp")
+
+    
+    # depscan -> firstrun
+    # modules-update -> firstrun
+    # enable shadow groups -> firstrun
