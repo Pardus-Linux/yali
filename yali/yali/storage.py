@@ -53,7 +53,7 @@ class Device:
     # @param arch: Architecture that we're partition for (defaults to 'x86')
     def __init__(self, device_path, arch="x86"):
 
-        self._arch = ""
+        self._arch = arch
         self._path = ""
         self._device = None
         self._model = ""
@@ -80,7 +80,6 @@ class Device:
         self._disklabel = self._disk.type.name
 
         self._path = device_path
-        self._arch = arch
         self._dev = dev
 
         self.update()
