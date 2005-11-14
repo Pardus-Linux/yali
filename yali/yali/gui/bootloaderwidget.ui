@@ -102,7 +102,7 @@
                 <number>100</number>
             </property>
             <property name="text">
-                <string>&lt;b&gt;Write boot loader (GRUB) to your hard disk's master boot record?&lt;/b&gt;
+                <string>&lt;b&gt;Do you want to write boot loader (GRUB) to your hard disk's master boot record?&lt;/b&gt;
 
 &lt;p&gt;You need this to boot your Pardus system.&lt;/p&gt;
 
