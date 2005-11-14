@@ -31,7 +31,6 @@ def iter_slide_pics():
     pics = []
     g = glob.glob(ctx.consts.slidepics_dir + "/*.png")
     g.sort()
-    print g
     for p in g:
         pics.append(QPixmap(p))
 
