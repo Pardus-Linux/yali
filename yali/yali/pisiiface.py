@@ -27,7 +27,7 @@ def initialize(ui):
     options.yes_all = True
     options.bypass_ldconfig = True
     # giving "comar = false" isn't enough for pisi 
-    options.ignore_comar = False
+    options.ignore_comar = True
 
     pisi.api.init(options = options, comar = False, database = True, ui = ui)
 
