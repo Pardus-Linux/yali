@@ -58,7 +58,7 @@ class Widget(WelcomeWidget, ScreenWidget):
             ctx.screens.nextDisabled()
             self.rebootButton.show()
 
-    def slotReboot():
+    def slotReboot(self):
         reboot.fastreboot()
 
     def shown(self):
