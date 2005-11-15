@@ -280,6 +280,10 @@ class PartEdit(QWidget):
         self.connect(self.buttons.cancelButton, SIGNAL("clicked()"),
                      self.slotCancelClicked)
 
+        # use available
+        self.connect(self.edit.use_available, SIGNAL("toggled(bool)"),
+                     self.slotUseAvailable)
+
 
     def slotCreatePart(self, parent, d):
         self._d = d
@@ -292,6 +296,20 @@ class PartEdit(QWidget):
     def slotDeletePart(self, parent, d):
         self._d = d
         self.setState(deleteState)
+
+    def slotUseAvailable(self, b):
+        if b:
+            s = 0
+            t = self._d.getType()
+            if t == parteddata.deviceType:
+                s = self._d.getFreeMB()
+            else:
+                s = self._d.getMB()
+
+            self.edit.size.setValue(s)
+            self.edit.size.setEnabled(False)
+        else:
+            self.edit.size.setEnabled(True)
 
     ##
     # set up widget for use.
