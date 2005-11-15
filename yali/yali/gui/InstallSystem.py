@@ -62,8 +62,8 @@ class Widget(InstallWidget, ScreenWidget):
         ctx.screens.prevDisabled()
         ctx.screens.nextDisabled()
 
-        # start 1 minute timer
-        self.timer.start(10000)
+        # start 2 minute timer
+        self.timer.start(2000 * 60)
 
         
     def slotNotify(self, parent, event, p):
