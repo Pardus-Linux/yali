@@ -27,6 +27,8 @@ reboot_fastreboot(PyObject *self)
     }
 
   sync();
+  sync();
+  sync();
   reboot(RB_AUTOBOOT);
 }
 
