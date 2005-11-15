@@ -26,7 +26,6 @@ class User:
         self.username = username
         self.groups = []
         self.realname = ''
-        self.home_dir = ''
         self.passwd = ''
         self.uid = -1
 
