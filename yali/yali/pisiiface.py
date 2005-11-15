@@ -31,10 +31,15 @@ def initialize(ui):
 
     pisi.api.init(options = options, comar = False, database = True, ui = ui)
 
-    pisi.api.add_repo(consts.repo_name, consts.repo_uri)
+    self.add_repo(consts.repo_name, consts.repo_uri)
 
     pisi.api.update_repo(consts.repo_name)
 
+def add_repo(name, uri):
+    pisi.api.add_repo(name, uri)
+
+def remove_repo(name):
+    pisi.api.remove_repo(name)
 
 def finalize():
     pisi.api.finalize()
