@@ -346,18 +346,6 @@ class PartEdit(QWidget):
         t = self._d.getType()
 
         def check_part_requests():
-            i = self.edit.part_type.currentItem()
-            t = part_types[i]
-
-            if t == part_types[0]:
-                size = self.edit.size.text().toInt()[0]
-                min = ctx.consts.min_root_size
-                if size < min:
-                    self.warning.setText(
-                        "'Install Root' size must be larger than %s MB." %min)
-                    self.warning.show()
-                    return False
-
             try:
                 r = ctx.partrequests.searchPartTypeAndReqType(t,
                                      request.mountRequestType).next()
@@ -373,6 +361,20 @@ class PartEdit(QWidget):
             if not check_part_requests():
                 return False
 
+
+            i = self.edit.part_type.currentItem()
+            t = part_types[i]
+
+            if t == part_types[0]:
+                size = self.edit.size.text().toInt()[0]
+                min = ctx.consts.min_root_size
+                if size < min:
+                    self.warning.setText(
+                        "'Install Root' size must be larger than %s MB." %min)
+                    self.warning.show()
+                    return False
+
+
             size = self.edit.size.text().toInt()[0]
                 
             # FIXME: set partition type (storage.setPartitionType)
@@ -386,13 +388,19 @@ class PartEdit(QWidget):
             return True
 
         def edit_requests(partition):
-            if not check_part_requests():
-                return False
-
             edit = self.edit
 
             i = edit.part_type.currentItem()
             t = part_types[i]
+
+            # FIXME: find a more generic way.
+            if t == part_types[0]:
+                size = partition.getMB()
+                if size < ctx.consts.min_root_size:
+                    self.warning.setText(
+                        "'Install Root' size must be larger than %s MB." %min)
+                    self.warning.show()
+                    return False
 
             try:
                 ctx.partrequests.append(
@@ -423,7 +431,6 @@ class PartEdit(QWidget):
             elif state == deleteState:
                 # delete requests
                 for p in self._d.getPartitions():
-                    print p
                     ctx.partrequests.removeRequest(p, request.mountRequestType)
                     ctx.partrequests.removeRequest(p, request.formatRequestType)
 
