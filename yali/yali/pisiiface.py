@@ -31,7 +31,7 @@ def initialize(ui):
 
     pisi.api.init(options = options, comar = False, database = True, ui = ui)
 
-    self.add_repo(consts.repo_name, consts.repo_uri)
+    add_repo(consts.repo_name, consts.repo_uri)
 
     pisi.api.update_repo(consts.repo_name)
 
