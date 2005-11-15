@@ -52,7 +52,7 @@ mount_umount(PyObject *self, PyObject *args)
       return Py_None;
   }
 
-  ok = umount(tgt);
+  ok = umount2(tgt, MNT_FORCE);
 
   return PyInt_FromLong( (long) ok );
 }
