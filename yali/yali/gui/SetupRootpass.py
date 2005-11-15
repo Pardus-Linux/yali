@@ -53,7 +53,6 @@ class Widget(RootPassWidget, ScreenWidget):
             self.pass_error.show()
             self.pass_error.setAlignment(QLabel.AlignCenter)
             ctx.screens.nextDisabled()
-            # TODO: disable next button!
         else:
             # Sould we also check password length?
             self.pass_error.hide()

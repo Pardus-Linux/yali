@@ -82,7 +82,7 @@ class Widget(InstallWidget, ScreenWidget):
 
         # FIXME: use logging
         if event == pisi.ui.installing:
-            self.info.setText(u"Installing: %s (%s)" % (
+            self.info.setText(u"Installing: %s<br>%s" % (
                     p.name, p.summary))
 
             self.cur += 1

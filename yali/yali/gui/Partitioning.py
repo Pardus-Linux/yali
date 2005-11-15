@@ -500,9 +500,11 @@ class PartEditWidgetImpl(PartEditWidget):
         if self._state == editState:
             self.caption.setText("Edit Partition %s" % partition.getMinor())
             self.size.hide()
+            self.use_available.hide()
             self.size_label.hide()
 
         elif self._state == createState:
             self.caption.setText("Create New Partition")
             self.size.show()
+            self.use_available.show()
             self.size_label.show()
