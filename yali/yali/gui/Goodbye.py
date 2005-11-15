@@ -14,6 +14,9 @@
 import os
 from qt import *
 
+import mount
+import reboot
+
 import yali.sysutils
 from yali.gui.ScreenWidget import ScreenWidget
 import yali.gui.context as ctx
@@ -55,6 +58,12 @@ class Widget(QWidget, ScreenWidget):
         self.info.show()
         self.info.setAlignment(QLabel.AlignCenter)
 
-        cmd = yali.sysutils.find_executable("reboot")
-        print cmd
-        os.system(cmd)
+#        cmd = yali.sysutils.find_executable("reboot")
+#        print cmd
+#        os.system(cmd)
+        try:
+            mount.umount(ctx.consts.target_dir + "/home")
+        except:
+            pass
+        mount.umount(ctx.consts.target_dir)
+        reboot.fastreboot()

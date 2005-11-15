@@ -96,6 +96,9 @@ class YaliClean(clean):
 mountmodule = Extension('mount',
                         sources = ['extensions/mount.c'],
                         extra_compile_args = ['-Wall'])
+rebootmodule = Extension('reboot',
+                         sources = ['extensions/reboot.c'],
+                         extra_compile_args = ['-Wall'])
 
 
 setup(name="yali",
@@ -112,7 +115,7 @@ setup(name="yali",
                     ('/usr/share/yali/slideshow', gui_slidepics()),
                     ('/usr/share/yali/helps/en', help_files("en"))],
       scripts = ['yali-bin'],
-      ext_modules = [mountmodule],
+      ext_modules = [mountmodule, rebootmodule],
       cmdclass = {
         'build' : YaliBuild,
         'clean' : YaliClean
