@@ -346,6 +346,9 @@ class PartEdit(QWidget):
         t = self._d.getType()
 
         def check_part_requests():
+            i = self.edit.part_type.currentItem()
+            t = part_types[i]
+
             try:
                 r = ctx.partrequests.searchPartTypeAndReqType(t,
                                      request.mountRequestType).next()
