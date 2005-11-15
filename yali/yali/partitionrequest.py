@@ -85,6 +85,7 @@ class RequestList(list):
 
 
         list.append(self, req)
+        print "add request", req
 
     ##
     # remove request matching (partition, request type) pair
@@ -98,6 +99,7 @@ class RequestList(list):
 
         for f in found:
             list.remove(self, f)
+            print "remove request", f
         
 
 ##

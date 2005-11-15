@@ -319,7 +319,7 @@ class PartEdit(QWidget):
         elif t ==  parteddata.partitionType:
             if state == deleteState:
                 self.warning.setText(
-                    "You are goint to delete partition '%s' on device '%s'!"
+                    "You are going to delete partition '%s' on device '%s'!"
                     % (self._d.getMinor(), self._d.getDevice().getModel()))
                 self.warning.show()
 
@@ -421,6 +421,12 @@ class PartEdit(QWidget):
                     return False
 
             elif state == deleteState:
+                # delete requests
+                for p in self._d.getPartitions():
+                    print p
+                    ctx.partrequests.removeRequest(p, request.mountRequestType)
+                    ctx.partrequests.removeRequest(p, request.formatRequestType)
+
                 self._d.deleteAllPartitions()
                 self._d.commit()
 
@@ -429,6 +435,11 @@ class PartEdit(QWidget):
                 device = self._d.getDevice()
                 device.deletePartition(self._d)
                 device.commit()
+
+                # delete requests
+                ctx.partrequests.removeRequest(self._d, request.mountRequestType)
+                ctx.partrequests.removeRequest(self._d, request.formatRequestType)
+
             elif state == editState:
                 partition = self._d
                 if not edit_requests(partition):
