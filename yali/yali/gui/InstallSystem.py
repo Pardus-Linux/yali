@@ -56,7 +56,19 @@ class Widget(InstallWidget, ScreenWidget):
         # show first pic
         self.slotChangePix()
 
+        self.total = 0
+        self.cur = 0
+
     def shown(self):
+        # initialize pisi
+        ui = PisiUI(notify_widget = self)
+        yali.pisiiface.initialize(ui)
+
+        # show progress
+        self.total = yali.pisiiface.get_available_len()
+        self.progress.setTotalSteps(self.total)
+
+        # start installer thread
         PkgInstaller().start(self)
 
         ctx.screens.prevDisabled()
@@ -72,6 +84,9 @@ class Widget(InstallWidget, ScreenWidget):
         if event == pisi.ui.installing:
             self.info.setText(u"Installing: %s (%s)" % (
                     p.name, p.summary))
+
+            self.cur += 1
+            self.progress.setProgress(self.cur)
 
     def slotChangePix(self):
         self.pix.setPixmap(self.iter_pics.next())
@@ -124,10 +139,6 @@ class PkgInstaller(threading.Thread):
         threading.Thread.start(self)
 
     def run(self):
-        # TESTING
-        ui = PisiUI(notify_widget = self._widget)
-        yali.pisiiface.initialize(ui)
-
         yali.pisiiface.install_all()
 
         self._widget.finished()

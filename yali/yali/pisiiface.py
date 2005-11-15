@@ -50,8 +50,15 @@ def install(pkg_name_list):
     pisi.api.install(pkg_name_list)
 
 def install_all():
+    install(get_available())
+
+def get_available():
     from pisi import packagedb
     
     pkg_db = packagedb.get_db(consts.repo_name)
     l = pkg_db.list_packages()
-    install(l)
+
+    return l
+
+def get_available_len():
+    return len(get_available())

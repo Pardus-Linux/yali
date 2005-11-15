@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>583</width>
-            <height>254</height>
+            <width>414</width>
+            <height>328</height>
         </rect>
     </property>
     <property name="caption">
@@ -19,23 +19,7 @@
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
-        <widget class="QLabel" row="0" column="1">
-            <property name="name">
-                <cstring>pix</cstring>
-            </property>
-            <property name="sizePolicy">
-                <sizepolicy>
-                    <hsizetype>7</hsizetype>
-                    <vsizetype>7</vsizetype>
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                </sizepolicy>
-            </property>
-            <property name="text">
-                <string>pix</string>
-            </property>
-        </widget>
-        <widget class="QLabel" row="1" column="0" rowspan="1" colspan="3">
+        <widget class="QLabel" row="2" column="0" rowspan="1" colspan="3">
             <property name="name">
                 <cstring>info</cstring>
             </property>
@@ -86,6 +70,27 @@
                 </size>
             </property>
         </spacer>
+        <widget class="QProgressBar" row="1" column="0" rowspan="1" colspan="3">
+            <property name="name">
+                <cstring>progress</cstring>
+            </property>
+        </widget>
+        <widget class="QLabel" row="0" column="1">
+            <property name="name">
+                <cstring>pix</cstring>
+            </property>
+            <property name="sizePolicy">
+                <sizepolicy>
+                    <hsizetype>7</hsizetype>
+                    <vsizetype>7</vsizetype>
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                </sizepolicy>
+            </property>
+            <property name="text">
+                <string>pix</string>
+            </property>
+        </widget>
     </grid>
 </widget>
 <layoutdefaults spacing="6" margin="11"/>
