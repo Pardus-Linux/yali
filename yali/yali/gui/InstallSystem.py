@@ -103,12 +103,15 @@ class Widget(InstallWidget, ScreenWidget):
         self.timer.stop()
 
     def finished(self):
+        # Remove cd repository and install add real
         repo_name = ctx.consts.repo_name # install repo on CD
         devel_repo_name = ctx.consts.devel_repo_name
         devel_repo_uri = ctx.consts.devel_repo_uri
 
         yali.pisiiface.remove_repo(repo_name)
         yali.pisiiface.add_repo(devel_repo_name, devel_repo_uri)
+
+        yali.pisiiface.finalize()
 
         # trigger next screen
         ctx.screens.next()
@@ -126,7 +129,6 @@ class PkgInstaller(threading.Thread):
         yali.pisiiface.initialize(ui)
 
         yali.pisiiface.install_all()
-        yali.pisiiface.finalize()
 
         self._widget.finished()
 

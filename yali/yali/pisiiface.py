@@ -36,9 +36,11 @@ def initialize(ui):
     pisi.api.update_repo(consts.repo_name)
 
 def add_repo(name, uri):
+    print "add",name,uri
     pisi.api.add_repo(name, uri)
 
 def remove_repo(name):
+    print "remove", name
     pisi.api.remove_repo(name)
 
 def finalize():
