@@ -59,6 +59,10 @@ class Constants:
         self.__c.devel_repo_name = "pardus-devel"
         self.__c.devel_repo_uri = "http://paketler.uludag.org.tr/pardus-devel/pisi-index.xml"
 
+
+        # min root partition size
+        self.__c.min_root_size = 2500
+
     def __getattr__(self, attr):
         return getattr(self.__c, attr)
 

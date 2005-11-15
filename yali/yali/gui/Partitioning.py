@@ -348,6 +348,16 @@ class PartEdit(QWidget):
         def check_part_requests():
             i = self.edit.part_type.currentItem()
             t = part_types[i]
+
+            if t == part_types[0]:
+                size = self.edit.size.text().toInt()[0]
+                min = ctx.consts.min_root_size
+                if size < min:
+                    self.warning.setText(
+                        "'Install Root' size must be larger than %s MB." %min)
+                    self.warning.show()
+                    return False
+
             try:
                 r = ctx.partrequests.searchPartTypeAndReqType(t,
                                      request.mountRequestType).next()
