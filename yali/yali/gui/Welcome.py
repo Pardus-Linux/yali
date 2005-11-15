@@ -13,26 +13,55 @@
 
 from qt import *
 
+import reboot
 from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui.welcomewidget import WelcomeWidget
 import yali.gui.context as ctx
 
 ##
 # Welcome screen is the first screen to be shown.
-class Widget(QWidget, ScreenWidget):
+class Widget(WelcomeWidget, ScreenWidget):
 
     def __init__(self, *args):
-        apply(QWidget.__init__, (self,) + args)
+        apply(WelcomeWidget.__init__, (self,) + args)
         
-        img = QLabel(self)
-        img.setPixmap(ctx.iconfactory.newPixmap("welcome"))
+        self.rebootButton.hide()
+        self.pix.setPixmap(ctx.iconfactory.newPixmap("welcome"))
         
-        hbox = QHBoxLayout(self)
-        hbox.addStretch(1)
-        hbox.addWidget(img)
-        hbox.addStretch(1)
+
+        self.connect(self.not_accept, SIGNAL("toggled(bool)"),
+                     self.slotNotAcceptToggled)
+
+        self.connect(self.accept, SIGNAL("toggled(bool)"),
+                     self.slotAcceptToggled)
+
+        self.connect(self.rebootButton, SIGNAL("clicked()"),
+                     self.slotReboot)
 
         ctx.screens.prevDisabled()
+        ctx.screens.nextDisabled()
+
+
+    def slotAcceptToggled(self, b):
+        if b:
+            self.__enable_next(True)
+
+    def slotNotAcceptToggled(self, b):
+        if b:
+            self.__enable_next(False)
+    
+    def __enable_next(self, b):
+        if b:
+            ctx.screens.nextEnabled()
+            self.rebootButton.hide()
+        else:
+            ctx.screens.nextDisabled()
+            self.rebootButton.show()
+
+    def slotReboot():
+        reboot.fastreboot()
 
     def shown(self):
         ctx.screens.prevDisabled()
         ctx.screens.nextEnabled()
+

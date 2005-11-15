@@ -35,8 +35,8 @@ class Widget(QWidget, ScreenWidget):
         self.info.setText(
             '<b><font size="+2" color="red">Rebooting system. Please wait!</font></b>')
         self.info.hide()
-        self.info.setAlignment(QLabel.AlignCenter)
-
+        self.info.setAlignment(QLabel.AlignCenter|QLabel.AlignTop)
+        self.info.setMinimumSize(QSize(0,50))
 
         vbox = QVBoxLayout(self)
         vbox.addStretch(1)
