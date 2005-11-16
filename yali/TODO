@@ -55,6 +55,7 @@ Legend:
 
  - partitioning
    - resize
+   - support extended partitions
 
  - tests
 
