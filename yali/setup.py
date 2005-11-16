@@ -10,11 +10,14 @@
 # Please read the COPYING file.
 
 import os
+import re
 import glob
+import shutil
 import pyqtconfig
 from distutils.core import setup, Extension
 from distutils.command.build import build
 from distutils.command.clean import clean
+from distutils.command.install import install
 from distutils.spawn import find_executable, spawn
 
 YALI_VERSION = '0.1'
@@ -63,6 +66,23 @@ def py_file_name(ui_file):
 # build command
 class YaliBuild(build):
 
+    def add_gettext_support(self, ui_file):
+        # hacky, too hacky. but works...
+
+        py_file = py_file_name(ui_file)
+        # lines in reverse order
+        lines =  ["_ = __trans.ugettext",
+                 "__trans = gettext.translation('yali', fallback=True)\n",
+                 "import gettext\n"]
+        f = open(py_file, "r").readlines()
+        for l in lines:
+            f.insert(1, l)
+        x = open(py_file, "w")
+        for l in f:
+            l = l.replace("self.__tr", "_")
+            x.write(l)
+        
+
     def compile_ui(self, ui_file):
         pyuic_exe = find_executable('pyuic', pyqt_configuration.default_bin_dir)
         if not pyuic_exe:
@@ -76,6 +96,7 @@ class YaliBuild(build):
     def run(self):
         for f in qt_ui_files():
             self.compile_ui(f)
+            self.add_gettext_support(f)
 
         build.run(self)
 
@@ -91,6 +112,25 @@ class YaliClean(clean):
             f = py_file_name(f)
             if os.path.exists(f):
                 os.unlink(f)
+
+i18n_domain = "yali"
+i18n_languages = "tr"
+
+class I18nInstall(install):
+    def run(self):
+        install.run(self)
+        for lang in i18n_languages.split(' '):
+            print "Installing '%s' translations..." % lang
+            os.popen("msgfmt po/%s.po -o po/%s.mo" % (lang, lang))
+            if not self.root:
+                self.root = "/"
+            destpath = os.path.join(self.root, "usr/share/locale/%s/LC_MESSAGES" % lang)
+            try:
+                os.makedirs(destpath)
+            except:
+                pass
+            shutil.copy("po/%s.mo" % lang, os.path.join(destpath, "%s.mo" % i18n_domain))
+
 
 
 mountmodule = Extension('mount',
@@ -118,6 +158,7 @@ setup(name="yali",
       ext_modules = [mountmodule, rebootmodule],
       cmdclass = {
         'build' : YaliBuild,
-        'clean' : YaliClean
+        'clean' : YaliClean,
+        'install': I18nInstall
         }
     )

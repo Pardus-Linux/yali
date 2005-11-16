@@ -99,10 +99,10 @@
                 <cstring>format</cstring>
             </property>
             <property name="text">
-                <string>&amp;Yes, format this partition</string>
+                <string>Yes, format this partition</string>
             </property>
             <property name="accel">
-                <string>Alt+Y</string>
+                <string></string>
             </property>
         </widget>
         <widget class="QLabel" row="1" column="0">

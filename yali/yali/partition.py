@@ -12,6 +12,10 @@
 
 import os
 
+import gettext
+__trans = gettext.translation('yali', fallback=True)
+_ = __trans.ugettext
+
 import yali.parteddata as parteddata
 
 ##
@@ -25,7 +29,7 @@ class Partition:
         self._mb = mb
         self._start = start
         self._end = end
-        self._fstype = fs_type or "unknown"
+        self._fstype = fs_type or _("unknown")
         self._parted_type = parteddata.partitionType
 
     def getType(self):

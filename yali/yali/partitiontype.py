@@ -14,6 +14,11 @@
 
 import os
 
+import gettext
+__trans = gettext.translation('yali', fallback=True)
+_ = __trans.ugettext
+
+
 import yali.filesystem
 
 class PartitionType:
@@ -24,19 +29,19 @@ class PartitionType:
         return self.filesystem == rhs.filesystem
 
 class RootPartitionType(PartitionType):
-    name = "Install Root"
+    name = _("Install Root")
     filesystem = yali.filesystem.Ext3FileSystem()
     mountpoint = "/"
     mountoptions = "noatime"
 
 class HomePartitionType(PartitionType):
-    name = "Users's Files"
+    name = _("Users's Files")
     filesystem = yali.filesystem.Ext3FileSystem()
     mountpoint = "/home"
     mountoptions = "noatime"
 
 class SwapPartitionType(PartitionType):
-    name = "Swap"
+    name = _("Swap")
     filesystem = yali.filesystem.SwapFileSystem()
     mountpoint = None
     mountoptions = "sw"

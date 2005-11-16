@@ -14,6 +14,10 @@
 import sys
 from qt import *
 
+import gettext
+__trans = gettext.translation('yali', fallback=True)
+_ = __trans.ugettext
+
 
 import yali.gui.context as ctx
 
@@ -39,9 +43,9 @@ class Runner:
     def __init__(self):
 
         _all_stages = [
-            {'num': 1, 'text': "Prepare for install"},
-            {'num': 2, 'text': "Install system"},
-            {'num': 3, 'text': "Basic setup"}
+            {'num': 1, 'text': _("Prepare for install")},
+            {'num': 2, 'text': _("Install system")},
+            {'num': 3, 'text': _("Basic setup")}
             ]
 
         _all_screens = [

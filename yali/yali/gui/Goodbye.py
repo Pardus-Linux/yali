@@ -14,6 +14,10 @@
 import os
 from qt import *
 
+import gettext
+__trans = gettext.translation('yali', fallback=True)
+_ = __trans.ugettext
+
 import mount
 import reboot
 
@@ -33,7 +37,7 @@ class Widget(QWidget, ScreenWidget):
 
         self.info = QLabel(self)
         self.info.setText(
-            '<b><font size="+2" color="red">Rebooting system. Please wait!</font></b>')
+            _('<b><font size="+2" color="red">Rebooting system. Please wait!</font></b>'))
         self.info.hide()
         self.info.setAlignment(QLabel.AlignCenter|QLabel.AlignTop)
         self.info.setMinimumSize(QSize(0,50))

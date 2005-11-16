@@ -15,6 +15,11 @@ import threading
 from os.path import join
 from qt import *
 
+import gettext
+__trans = gettext.translation('yali', fallback=True)
+_ = __trans.ugettext
+
+
 import pisi.ui
 
 import yali.pisiiface
@@ -82,7 +87,7 @@ class Widget(InstallWidget, ScreenWidget):
 
         # FIXME: use logging
         if event == pisi.ui.installing:
-            self.info.setText(u"Installing: %s<br>%s" % (
+            self.info.setText(_("Installing: %s<br>%s") % (
                     p.name, p.summary))
 
             self.cur += 1

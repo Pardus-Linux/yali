@@ -120,7 +120,7 @@ class Device:
         if bytes > GIGABYTE:
             return "%d GB" % self.getTotalGB()
         else:
-            return "%dMB" % self.getTotalMB()
+            return "%d MB" % self.getTotalMB()
 
     ##
     # get device path (eg. /dev/hda)

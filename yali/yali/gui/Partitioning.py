@@ -14,6 +14,10 @@
 import os.path
 from qt import *
 
+import gettext
+__trans = gettext.translation('yali', fallback=True)
+_ = __trans.ugettext
+
 import yali.storage
 import yali.partitionrequest as request
 import yali.partitiontype as parttype
@@ -137,9 +141,9 @@ class PartList(PartListWidget):
         # add partitions on device
         for part in dev.getOrderedPartitionList():
             if part.getType() == parteddata.freeSpaceType:
-                name = "Free"
+                name = _("Free")
             else:
-                name = "Partition %d" % part.getMinor()
+                name = _("Partition %d") % part.getMinor()
             p = PartListItem(d, name,
                              part.getSizeStr(),
                              "", # install partition type
@@ -157,14 +161,14 @@ class PartList(PartListWidget):
             self.deleteButton.setEnabled(True)
             self.editButton.setEnabled(False)
 
-            self.deleteButton.setText("Delete All Partitions")
+            self.deleteButton.setText(_("Delete All Partitions"))
 
         elif t == parteddata.partitionType:
             self.createButton.setEnabled(False)
             self.deleteButton.setEnabled(True)
             self.editButton.setEnabled(True)
 
-            self.deleteButton.setText("Delete Selected Partition")
+            self.deleteButton.setText(_("Delete Selected Partition"))
 
         elif t == parteddata.freeSpaceType:
             self.createButton.setEnabled(True)
@@ -216,9 +220,9 @@ class PartList(PartListWidget):
             if t == request.formatRequestType:
                 item.setText(3, ptype.filesystem.name())
                 if formatting:
-                    item.setText(4, 'Formatting!')
+                    item.setText(4, _("Formatting!"))
                 else:
-                    item.setText(4, "YES")
+                    item.setText(4, _("YES"))
 
             elif t == request.mountRequestType:
                 item.setText(2, ptype.name)
@@ -330,14 +334,14 @@ class PartEdit(QWidget):
 
             elif state == deleteState:
                 self.warning.setText(
-                    "You are going to delete all partitions on device '%s'"
+                    _("You are going to delete all partitions on device '%s'")
                     %(self._d.getModel()))
                 self.warning.show()
 
         elif t ==  parteddata.partitionType:
             if state == deleteState:
                 self.warning.setText(
-                    "You are going to delete partition '%s' on device '%s'!"
+                    _("You are going to delete partition '%s' on device '%s'!")
                     % (self._d.getMinor(), self._d.getDevice().getModel()))
                 self.warning.show()
 
@@ -370,7 +374,7 @@ class PartEdit(QWidget):
             try:
                 r = ctx.partrequests.searchPartTypeAndReqType(t,
                                      request.mountRequestType).next()
-                self.warning.setText("You have allready have this partition type")
+                self.warning.setText(_("You have allready have this partition type"))
                 self.warning.show()
                 return False
             except StopIteration:
@@ -391,7 +395,7 @@ class PartEdit(QWidget):
                 min = ctx.consts.min_root_size
                 if size < min:
                     self.warning.setText(
-                        "'Install Root' size must be larger than %s MB." %min)
+                        _("'Install Root' size must be larger than %s MB.") %min)
                     self.warning.show()
                     return False
 
@@ -419,7 +423,7 @@ class PartEdit(QWidget):
                 size = partition.getMB()
                 if size < ctx.consts.min_root_size:
                     self.warning.setText(
-                        "'Install Root' size must be larger than %s MB." %min)
+                        _("'Install Root' size must be larger than %s MB.") %min)
                     self.warning.show()
                     return False
 
@@ -498,13 +502,13 @@ class PartEditWidgetImpl(PartEditWidget):
         self._state = state
 
         if self._state == editState:
-            self.caption.setText("Edit Partition %s" % partition.getMinor())
+            self.caption.setText(_("Edit Partition %s") % partition.getMinor())
             self.size.hide()
             self.use_available.hide()
             self.size_label.hide()
 
         elif self._state == createState:
-            self.caption.setText("Create New Partition")
+            self.caption.setText(_("Create New Partition"))
             self.size.show()
             self.use_available.show()
             self.size_label.show()

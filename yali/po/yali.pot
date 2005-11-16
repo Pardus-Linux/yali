@@ -1,0 +1,293 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-11-16 21:48+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: yali/gui/bootloaderwidget.py:56 yali/gui/parteditbuttons.py:46
+#: yali/gui/parteditwidget.py:84 yali/gui/partlistwidget.py:71
+#: yali/gui/rootpasswidget.py:89 yali/gui/setupuserswidget.py:121
+#: yali/gui/welcomewidget.py:88
+msgid "Form1"
+msgstr ""
+
+#: yali/gui/bootloaderwidget.py:57
+msgid "Yes, Install Boot Loader"
+msgstr ""
+
+#: yali/gui/bootloaderwidget.py:58
+msgid ""
+"<b>Do you want to write boot loader (GRUB) to your hard disk's master boot "
+"record?</b>\n"
+"\n"
+"<p>You need this to boot your Pardus system.</p>\n"
+"\n"
+"<p>If you don't install a boot loader, you will have to configure your \n"
+"other operating system's loader  (if you have one installed) to start \n"
+"your newly installed Pardus.</p>"
+msgstr ""
+
+#: yali/gui/Goodbye.py:40
+msgid ""
+"<b><font size=\"+2\" color=\"red\">Rebooting system. Please wait!</font></b>"
+msgstr ""
+
+#: yali/gui/InstallSystem.py:90
+#, python-format
+msgid "Installing: %s<br>%s"
+msgstr ""
+
+#: yali/gui/installwidget.py:52
+msgid "Form3"
+msgstr ""
+
+#: yali/gui/installwidget.py:53
+msgid "Installing Package: "
+msgstr ""
+
+#: yali/gui/installwidget.py:54 yali/gui/welcomewidget.py:89
+msgid "pix"
+msgstr ""
+
+#: yali/gui/parteditbuttons.py:47
+msgid "Cancel"
+msgstr ""
+
+#: yali/gui/parteditbuttons.py:48
+msgid "Apply"
+msgstr ""
+
+#: yali/gui/parteditwidget.py:85
+msgid "Edit Partition:"
+msgstr ""
+
+#: yali/gui/parteditwidget.py:86
+msgid "Size (MB):"
+msgstr ""
+
+#: yali/gui/parteditwidget.py:87
+msgid "Formatting:"
+msgstr ""
+
+#: yali/gui/parteditwidget.py:88
+msgid "Yes, format this partition"
+msgstr ""
+
+#: yali/gui/parteditwidget.py:90
+msgid "Function of the partition:"
+msgstr ""
+
+#: yali/gui/parteditwidget.py:92
+msgid "Install Linux here"
+msgstr ""
+
+#: yali/gui/parteditwidget.py:93
+msgid "Install user's files here"
+msgstr ""
+
+#: yali/gui/parteditwidget.py:94
+msgid "Make this partition swap"
+msgstr ""
+
+#: yali/gui/parteditwidget.py:95
+msgid "use available free space"
+msgstr ""
+
+#: yali/gui/Partitioning.py:144
+msgid "Free"
+msgstr ""
+
+#: yali/gui/Partitioning.py:146
+#, python-format
+msgid "Partition %d"
+msgstr ""
+
+#: yali/gui/Partitioning.py:164
+msgid "Delete All Partitions"
+msgstr ""
+
+#: yali/gui/Partitioning.py:171 yali/gui/partlistwidget.py:79
+msgid "Delete Selected Partition"
+msgstr ""
+
+#: yali/gui/Partitioning.py:223
+msgid "Formatting!"
+msgstr ""
+
+#: yali/gui/Partitioning.py:225
+msgid "YES"
+msgstr ""
+
+#: yali/gui/Partitioning.py:337
+#, python-format
+msgid "You are going to delete all partitions on device '%s'"
+msgstr ""
+
+#: yali/gui/Partitioning.py:344
+#, python-format
+msgid "You are going to delete partition '%s' on device '%s'!"
+msgstr ""
+
+#: yali/gui/Partitioning.py:377
+msgid "You have allready have this partition type"
+msgstr ""
+
+#: yali/gui/Partitioning.py:398 yali/gui/Partitioning.py:426
+#, python-format
+msgid "'Install Root' size must be larger than %s MB."
+msgstr ""
+
+#: yali/gui/Partitioning.py:505
+#, python-format
+msgid "Edit Partition %s"
+msgstr ""
+
+#: yali/gui/Partitioning.py:511
+msgid "Create New Partition"
+msgstr ""
+
+#: yali/gui/partlistwidget.py:35 yali/gui/partlistwidget.py:73
+msgid "Device"
+msgstr ""
+
+#: yali/gui/partlistwidget.py:36 yali/gui/partlistwidget.py:74
+msgid "Size"
+msgstr ""
+
+#: yali/gui/partlistwidget.py:37 yali/gui/partlistwidget.py:75
+msgid "Partition Type"
+msgstr ""
+
+#: yali/gui/partlistwidget.py:38 yali/gui/partlistwidget.py:76
+msgid "Filesystem"
+msgstr ""
+
+#: yali/gui/partlistwidget.py:39 yali/gui/partlistwidget.py:77
+msgid "Format?"
+msgstr ""
+
+#: yali/gui/partlistwidget.py:72
+msgid "Partitions:"
+msgstr ""
+
+#: yali/gui/partlistwidget.py:78
+msgid "Create"
+msgstr ""
+
+#: yali/gui/partlistwidget.py:80
+msgid "Edit"
+msgstr ""
+
+#: yali/gui/rootpasswidget.py:90
+msgid "<font size=\"+2\" color=\"#ff0000\">Passwords do not match!</font>"
+msgstr ""
+
+#: yali/gui/rootpasswidget.py:91
+msgid ""
+"<p align=\"left\">System administrator user (root) handles important system "
+"<br>\n"
+"maintanence tasks. Please give password for this special user <br>\n"
+"and do not forget this password. Note that you shouldn't write <br>\n"
+"this password elsewhere for privacy reasons.</p>"
+msgstr ""
+
+#: yali/gui/rootpasswidget.py:96
+msgid "System administrator password:"
+msgstr ""
+
+#: yali/gui/rootpasswidget.py:98
+msgid "System administrator password (again):"
+msgstr ""
+
+#: yali/gui/runner.py:46
+msgid "Prepare for install"
+msgstr ""
+
+#: yali/gui/runner.py:47
+msgid "Install system"
+msgstr ""
+
+#: yali/gui/runner.py:48
+msgid "Basic setup"
+msgstr ""
+
+#: yali/gui/setupuserswidget.py:122
+msgid "Delete Selected User"
+msgstr ""
+
+#: yali/gui/setupuserswidget.py:123
+msgid "Users:"
+msgstr ""
+
+#: yali/gui/setupuserswidget.py:124
+msgid "New User"
+msgstr ""
+
+#: yali/gui/setupuserswidget.py:125
+msgid "User Name:"
+msgstr ""
+
+#: yali/gui/setupuserswidget.py:126
+msgid "Password (again):"
+msgstr ""
+
+#: yali/gui/setupuserswidget.py:127
+msgid "Password:"
+msgstr ""
+
+#: yali/gui/setupuserswidget.py:128
+msgid "Create User"
+msgstr ""
+
+#: yali/gui/setupuserswidget.py:129
+msgid "<font color=\"#ff0000\">Passwords do not match!</font>"
+msgstr ""
+
+#: yali/gui/welcomewidget.py:90
+msgid ""
+"<b>This is an ALPHA release of Pardus.</b>\n"
+"So expect bugs and use at your own risk.\n"
+"If you accept the risks inherent in such a release (ie. crashes, data loss, "
+"etc.),\n"
+"select 'Accept'."
+msgstr ""
+
+#: yali/gui/welcomewidget.py:95
+msgid "Accept!"
+msgstr ""
+
+#: yali/gui/welcomewidget.py:96
+msgid "Don't Accept!"
+msgstr ""
+
+#: yali/gui/welcomewidget.py:97
+msgid "Reboot System!"
+msgstr ""
+
+#: yali/partition.py:32
+msgid "unknown"
+msgstr ""
+
+#: yali/partitiontype.py:32
+msgid "Install Root"
+msgstr ""
+
+#: yali/partitiontype.py:38
+msgid "Users's Files"
+msgstr ""
+
+#: yali/partitiontype.py:44
+msgid "Swap"
+msgstr ""
