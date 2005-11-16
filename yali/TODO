@@ -46,11 +46,10 @@ Legend:
    - find a way to show exceptions on GUI
    - auto partitioning
    - try statemachine for screens/stages
-   - basic setup: users
+   + basic setup: users
 
- / users
-   - users management (add user)
-
+ + users
+   + users management (add user)
 
  - localization
 
@@ -62,6 +61,8 @@ Legend:
  - logging system
 
  - exception handling
+
+ - run ÇOMAR in chroot and make it handle postinstall operations
 
 3. Release
 
