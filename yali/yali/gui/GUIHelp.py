@@ -11,8 +11,8 @@
 #
 
 
-from os.path import join
-
+from os.path import join, exists
+import locale
 from qt import *
 
 import yali.gui.context as ctx
@@ -41,9 +41,19 @@ class Widget(QTextView):
     # @param help_file (string) file containing the help text.
     def setHelpFile(self, file_index):
 
+        # get first two chars of locale (tr_TR.UTF-8 -> tr)
+        lang = locale.getlocale()[0][:2]
+        print lang
+        if not lang:
+            lang = ctx.lang
+
+        print lang
+
         file_name = "%d.html" %(file_index)
-        help_file = join(ctx.consts.helps_dir, ctx.lang, file_name)
-        self.setText(open(help_file).read())
+        help_file = join(ctx.consts.helps_dir, lang, file_name)
+        if not exists(help_file):
+            help_file = join(ctx.consts.helps_dir, ctx.lang, file_name)
+        self.setText(unicode(open(help_file).read()))
 
     ##
     # Screen is changed, show the corresponding help file
