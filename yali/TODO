@@ -51,7 +51,10 @@ Legend:
  + users
    + users management (add user)
 
- - localization
+ + localization
+   + program files
+   + gui
+   + help files
 
  - partitioning
    - resize
