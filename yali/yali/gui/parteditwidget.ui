@@ -8,258 +8,191 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>453</width>
-            <height>190</height>
+            <width>408</width>
+            <height>171</height>
         </rect>
     </property>
     <property name="caption">
         <string>Form1</string>
     </property>
-    <widget class="QLayoutWidget">
+    <grid>
         <property name="name">
-            <cstring>layout14</cstring>
+            <cstring>unnamed</cstring>
         </property>
-        <property name="geometry">
-            <rect>
-                <x>11</x>
-                <y>11</y>
-                <width>348</width>
-                <height>22</height>
-            </rect>
-        </property>
-        <hbox>
+        <widget class="QLayoutWidget" row="0" column="0" rowspan="1" colspan="2">
             <property name="name">
-                <cstring>unnamed</cstring>
+                <cstring>layout14</cstring>
             </property>
-            <widget class="QLabel">
+            <hbox>
                 <property name="name">
-                    <cstring>caption</cstring>
+                    <cstring>unnamed</cstring>
                 </property>
-                <property name="sizePolicy">
-                    <sizepolicy>
-                        <hsizetype>5</hsizetype>
-                        <vsizetype>4</vsizetype>
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                    </sizepolicy>
-                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>caption</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>5</hsizetype>
+                            <vsizetype>4</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="text">
+                        <string>Edit Partition:</string>
+                    </property>
+                </widget>
+                <spacer>
+                    <property name="name">
+                        <cstring>spacer8</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>261</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+            </hbox>
+        </widget>
+        <widget class="QLabel" row="2" column="0">
+            <property name="name">
+                <cstring>size_label</cstring>
+            </property>
+            <property name="sizePolicy">
+                <sizepolicy>
+                    <hsizetype>4</hsizetype>
+                    <vsizetype>5</vsizetype>
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                </sizepolicy>
+            </property>
+            <property name="text">
+                <string>Size (MB):</string>
+            </property>
+        </widget>
+        <widget class="QLabel" row="1" column="0">
+            <property name="name">
+                <cstring>type_label</cstring>
+            </property>
+            <property name="sizePolicy">
+                <sizepolicy>
+                    <hsizetype>4</hsizetype>
+                    <vsizetype>1</vsizetype>
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                </sizepolicy>
+            </property>
+            <property name="text">
+                <string>Function of the partition:</string>
+            </property>
+        </widget>
+        <spacer row="1" column="2">
+            <property name="name">
+                <cstring>spacer4</cstring>
+            </property>
+            <property name="orientation">
+                <enum>Horizontal</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Expanding</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>77</width>
+                    <height>20</height>
+                </size>
+            </property>
+        </spacer>
+        <widget class="QSpinBox" row="2" column="1">
+            <property name="name">
+                <cstring>size</cstring>
+            </property>
+            <property name="sizePolicy">
+                <sizepolicy>
+                    <hsizetype>1</hsizetype>
+                    <vsizetype>0</vsizetype>
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                </sizepolicy>
+            </property>
+            <property name="maxValue">
+                <number>512000</number>
+            </property>
+            <property name="minValue">
+                <number>0</number>
+            </property>
+            <property name="lineStep">
+                <number>20</number>
+            </property>
+        </widget>
+        <spacer row="5" column="1">
+            <property name="name">
+                <cstring>spacer4_3</cstring>
+            </property>
+            <property name="orientation">
+                <enum>Vertical</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Expanding</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>20</width>
+                    <height>20</height>
+                </size>
+            </property>
+        </spacer>
+        <widget class="QComboBox" row="1" column="1">
+            <item>
                 <property name="text">
-                    <string>Edit Partition:</string>
+                    <string>Install Linux (mandatory)</string>
                 </property>
-            </widget>
-            <spacer>
-                <property name="name">
-                    <cstring>spacer8</cstring>
+            </item>
+            <item>
+                <property name="text">
+                    <string>Set as swap (mandatory)</string>
                 </property>
-                <property name="orientation">
-                    <enum>Horizontal</enum>
+            </item>
+            <item>
+                <property name="text">
+                    <string>Use for user's files (optional)</string>
                 </property>
-                <property name="sizeType">
-                    <enum>Expanding</enum>
-                </property>
-                <property name="sizeHint">
-                    <size>
-                        <width>261</width>
-                        <height>20</height>
-                    </size>
-                </property>
-            </spacer>
-        </hbox>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>size_label</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>11</x>
-                <y>68</y>
-                <width>62</width>
-                <height>23</height>
-            </rect>
-        </property>
-        <property name="sizePolicy">
-            <sizepolicy>
-                <hsizetype>4</hsizetype>
-                <vsizetype>5</vsizetype>
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-            </sizepolicy>
-        </property>
-        <property name="text">
-            <string>Size (MB):</string>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>type_label</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>11</x>
-                <y>39</y>
-                <width>143</width>
-                <height>23</height>
-            </rect>
-        </property>
-        <property name="sizePolicy">
-            <sizepolicy>
-                <hsizetype>4</hsizetype>
-                <vsizetype>1</vsizetype>
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-            </sizepolicy>
-        </property>
-        <property name="text">
-            <string>Function of the partition:</string>
-        </property>
-    </widget>
-    <spacer>
-        <property name="name">
-            <cstring>spacer4</cstring>
-        </property>
-        <property name="orientation">
-            <enum>Horizontal</enum>
-        </property>
-        <property name="sizeType">
-            <enum>Expanding</enum>
-        </property>
-        <property name="sizeHint">
-            <size>
-                <width>21</width>
-                <height>20</height>
-            </size>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>365</x>
-                <y>40</y>
-                <width>77</width>
-                <height>20</height>
-            </rect>
-        </property>
-    </spacer>
-    <widget class="QSpinBox">
-        <property name="name">
-            <cstring>size</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>160</x>
-                <y>68</y>
-                <width>97</width>
-                <height>23</height>
-            </rect>
-        </property>
-        <property name="sizePolicy">
-            <sizepolicy>
-                <hsizetype>1</hsizetype>
-                <vsizetype>0</vsizetype>
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-            </sizepolicy>
-        </property>
-        <property name="maxValue">
-            <number>512000</number>
-        </property>
-        <property name="minValue">
-            <number>0</number>
-        </property>
-        <property name="lineStep">
-            <number>20</number>
-        </property>
-    </widget>
-    <widget class="QCheckBox">
-        <property name="name">
-            <cstring>format</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>160</x>
-                <y>97</y>
-                <width>199</width>
-                <height>21</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>&amp;Format this partition</string>
-        </property>
-        <property name="accel">
-            <string>Alt+F</string>
-        </property>
-    </widget>
-    <widget class="QCheckBox">
-        <property name="name">
-            <cstring>use_available</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>160</x>
-                <y>130</y>
-                <width>163</width>
-                <height>21</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>&amp;Use available free space</string>
-        </property>
-        <property name="accel">
-            <string>Alt+U</string>
-        </property>
-    </widget>
-    <spacer>
-        <property name="name">
-            <cstring>spacer4_3</cstring>
-        </property>
-        <property name="orientation">
-            <enum>Vertical</enum>
-        </property>
-        <property name="sizeType">
-            <enum>Expanding</enum>
-        </property>
-        <property name="sizeHint">
-            <size>
-                <width>20</width>
-                <height>20</height>
-            </size>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>220</x>
-                <y>160</y>
-                <width>20</width>
-                <height>20</height>
-            </rect>
-        </property>
-    </spacer>
-    <widget class="QComboBox">
-        <item>
-            <property name="text">
-                <string>Install Linux (mandatory)</string>
+            </item>
+            <property name="name">
+                <cstring>part_type</cstring>
             </property>
-        </item>
-        <item>
-            <property name="text">
-                <string>Set as swap (mandatory)</string>
+        </widget>
+        <widget class="QCheckBox" row="3" column="1">
+            <property name="name">
+                <cstring>format</cstring>
             </property>
-        </item>
-        <item>
             <property name="text">
-                <string>Use for user's files (optional)</string>
+                <string>Format this partition</string>
             </property>
-        </item>
-        <property name="name">
-            <cstring>part_type</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>160</x>
-                <y>39</y>
-                <width>199</width>
-                <height>23</height>
-            </rect>
-        </property>
-    </widget>
+            <property name="accel">
+                <string></string>
+            </property>
+        </widget>
+        <widget class="QCheckBox" row="4" column="1">
+            <property name="name">
+                <cstring>use_available</cstring>
+            </property>
+            <property name="text">
+                <string>Use available free space</string>
+            </property>
+            <property name="accel">
+                <string></string>
+            </property>
+        </widget>
+    </grid>
 </widget>
 <layoutdefaults spacing="6" margin="11"/>
 </UI>
