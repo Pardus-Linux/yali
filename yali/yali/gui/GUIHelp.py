@@ -43,11 +43,8 @@ class Widget(QTextView):
 
         # get first two chars of locale (tr_TR.UTF-8 -> tr)
         lang = locale.getlocale()[0][:2]
-        print lang
         if not lang:
             lang = ctx.lang
-
-        print lang
 
         file_name = "%d.html" %(file_index)
         help_file = join(ctx.consts.helps_dir, lang, file_name)
