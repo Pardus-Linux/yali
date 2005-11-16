@@ -45,11 +45,11 @@ class Widget(RootPassWidget, ScreenWidget):
         p1 = self.pass1.text()
         p2 = self.pass2.text()
 
-        if not p1:
+        if not p1 and not p2:
             ctx.screens.nextDisabled()
             return
 
-        if p2 != p1:
+        if p2 != p1 and p2:
             self.pass_error.show()
             self.pass_error.setAlignment(QLabel.AlignCenter)
             ctx.screens.nextDisabled()

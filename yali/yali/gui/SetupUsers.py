@@ -55,7 +55,7 @@ class Widget(SetupUsersWidget, ScreenWidget):
         p1 = self.pass1.text()
         p2 = self.pass2.text()
 
-        if p2 != p1:
+        if p2 != p1 and p2:
             self.pass_error.show()
             self.pass_error.setAlignment(QLabel.AlignCenter)
             return self.createButton.setEnabled(False)
