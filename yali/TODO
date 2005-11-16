@@ -45,7 +45,6 @@ Legend:
  - GUI
    - find a way to show exceptions on GUI
    - auto partitioning
-   - try statemachine for screens/stages
    + basic setup: users
 
  + users
@@ -70,8 +69,14 @@ Legend:
 
 3. Release
 
+ - show release notes (toggle with help)
+
+
 
 4. Post Release
  - install profile
    - implement installation profiles (normal, laptop, vs...)
    - kickstart
+
+ - GUI
+   - try statemachine for screens/stages
