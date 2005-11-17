@@ -25,6 +25,7 @@ import YaliWindow
 # screens
 # FIXME: I haven't forget the localization part, just left it for later.
 import Welcome
+import AutoPartitioning
 import Partitioning
 import InstallSystem
 import SetupRootpass
@@ -50,6 +51,7 @@ class Runner:
 
         _all_screens = [
              {'stage': 1, 'module': Welcome},
+             {'stage': 1, 'module': AutoPartitioning},
              {'stage': 1, 'module': Partitioning},
              {'stage': 2, 'module': InstallSystem},
              {'stage': 3, 'module': SetupRootpass},

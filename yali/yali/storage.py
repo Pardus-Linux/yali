@@ -34,8 +34,11 @@ devices = []
 
 ##
 # initialize all devices and fill devices list
-def init_devices():
+def init_devices(force = False):
     global devices
+
+    if devices and not force:
+        return
 
     devs = detect_all()
     for dev_path in devs:

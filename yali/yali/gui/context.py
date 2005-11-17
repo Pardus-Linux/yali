@@ -41,3 +41,6 @@ iconfactory = yali.gui.iconfactory.IconFactory(consts.pics_dir)
 # FIXME: default language will be Turkish after localization support
 lang = "en"
 
+
+# auto partitioning
+use_autopart = False
