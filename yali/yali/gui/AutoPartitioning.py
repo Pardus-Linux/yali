@@ -74,9 +74,12 @@ about disk partitioning.
         self.connect(self.device_list, SIGNAL("selectionChanged(QListBoxItem*)"),
                      self.slotDeviceChanged)
 
+        self.enable_next = False
 
     def shown(self):
-        if not self.accept_auto.isEnabled():
+        if self.enable_next:
+            ctx.screens.nextEnabled()
+        else:
             ctx.screens.nextDisabled()
         ctx.screens.prevEnabled()
 
@@ -122,6 +125,7 @@ about disk partitioning.
             self.accept_auto.setEnabled(True)
 
     def slotButtonsToggled(self, b):
+        self.enable_next = True
         ctx.screens.nextEnabled()
 
 
