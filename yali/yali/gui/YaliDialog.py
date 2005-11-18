@@ -45,21 +45,23 @@ class Title(QLabel):
             self.mainwidget.move(newpos)
 
 
-class Dialog(QMainWindow):
+class Dialog(QDialog):
     def __init__(self, t, w, parent):
-        QMainWindow.__init__(self, parent)
+        QDialog.__init__(self, parent)
 
+        l = QHBoxLayout(self)
         frame = QFrame(self)
         frame.setFrameStyle(frame.PopupPanel|frame.Plain)
-        self.setCentralWidget(frame)
+        l.addWidget(frame)
+        
         layout = QGridLayout(frame, 1, 1, 1, 1)
-        self.setMinimumSize(400, 300)
         w.reparent(frame, 0, QPoint(0,0), True)
 
         title = Title('<font size="+1"><b>%s</b></font>' % t, frame)
         layout.addWidget(title, 0, 0)
         layout.addWidget(w, 1, 0)
         
+        self.exec_loop()
 
     
 
