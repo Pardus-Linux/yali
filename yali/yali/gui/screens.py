@@ -41,12 +41,12 @@ class Screens(QObject, Steps):
 
         nxt = self.getCurrentIndex() + 1
         if self.hasIndex(nxt):
-            self.__setCurrent(nxt)
+            self.setCurrent(nxt)
 
     def previous(self):
         prev = self.getCurrentIndex() - 1
         if self.hasIndex(prev):
-            self.__setCurrent(prev)
+            self.setCurrent(prev)
         
 
     def nextDisabled(self):
@@ -70,7 +70,7 @@ class Screens(QObject, Steps):
     ##
     # Sets the current screen and logs.
     # @param index(int): screen index to be the current.
-    def __setCurrent(self, index):
+    def setCurrent(self, index):
         Steps.setCurrent(self, index)
         self.emit(PYSIGNAL("signalCurrent"), (self, index))
 

@@ -13,6 +13,11 @@
 from os.path import basename
 from qt import *
 
+import gettext
+__trans = gettext.translation('yali', fallback=True)
+_ = __trans.ugettext
+
+
 import yali.bootloader
 import yali.partitionrequest as request
 import yali.partitiontype as parttype
@@ -24,6 +29,29 @@ import yali.gui.context as ctx
 ##
 # BootLoader screen.
 class Widget(BootLoaderWidget, ScreenWidget):
+
+    help = _('''
+<font size="+2">Boot loader setup</font>
+
+<font size="+1">
+<p>
+Linux makes use of GRUB boot loader, which
+can boot the operating system of your taste
+during the start up. 
+</p>
+<p>
+If you have more than one operating system,
+you can choose which operating system to 
+boot also.
+</p>
+
+<p>
+Please refer to Pardus Installing and Using 
+Guide for more information about GRUB boot 
+loader.
+</p>
+</font>
+''')
 
     def __init__(self, *args):
         apply(BootLoaderWidget.__init__, (self,) + args)

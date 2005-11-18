@@ -29,6 +29,24 @@ import yali.gui.context as ctx
 # Goodbye screen
 class Widget(QWidget, ScreenWidget):
 
+    help = _('''
+<font size="+2">Congratulations</font>
+
+
+<font size="+1">
+<p><b>Voila! You made it!</b></p>
+<p>
+You have successfully installed Pardus, a very easy to use desktop system on
+your machine. Now you can start playing with your system and stay productive
+all the time.
+</p>
+<P>
+Click on the Next button to proceed. One note: You remember your password,
+don't you?
+</p>
+</font>
+''')
+
     def __init__(self, *args):
         apply(QWidget.__init__, (self,) + args)
         

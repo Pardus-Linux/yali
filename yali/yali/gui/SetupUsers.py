@@ -13,6 +13,11 @@
 
 from qt import *
 
+import gettext
+__trans = gettext.translation('yali', fallback=True)
+_ = __trans.ugettext
+
+
 import yali.users
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.setupuserswidget import SetupUsersWidget
@@ -21,6 +26,26 @@ import yali.gui.context as ctx
 ##
 # Partitioning screen.
 class Widget(SetupUsersWidget, ScreenWidget):
+
+    help = _('''
+<font size="+2">User setup</font>
+
+<font size="+1">
+<p>
+Other than the system administrator user,
+you can create a user account for your 
+daily needs, i.e reading your e-mail, surfing
+on the web and searching for daily recipe
+offerings. Usual password assignment
+rules also apply here: This password should 
+be unique and private. Choose a password 
+difficult to guess, but easy to remember. 
+</p>
+<p>
+Click Next button to proceed.
+</p>
+</font>
+''')
 
     def __init__(self, *args):
         apply(SetupUsersWidget.__init__, (self,) + args)

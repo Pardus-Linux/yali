@@ -37,10 +37,5 @@ partrequests = yali.partitionrequest.RequestList()
 # icon factory
 iconfactory = yali.gui.iconfactory.IconFactory(consts.pics_dir)
 
-# current language
-# FIXME: default language will be Turkish after localization support
-lang = "en"
-
-
 # auto partitioning
 use_autopart = False

@@ -49,6 +49,29 @@ def iter_slide_pics():
 # Partitioning screen.
 class Widget(InstallWidget, ScreenWidget):
 
+    help = _('''
+<font size="+2">Installation started</font>
+
+<font size="+1">
+
+<p>
+Pardus is now being installed on your hard disk. 
+</p>
+
+<p>
+The duration of this operation depends on the 
+capability and power of your system. Meanwhile,
+you can enjoy some visual elements showing 
+the distinctive properties of Pardus, your 
+new operating system.
+</p>
+
+<p>
+Have fun!
+</p>
+</font>
+''')
+
     def __init__(self, *args):
         apply(InstallWidget.__init__, (self,) + args)
 

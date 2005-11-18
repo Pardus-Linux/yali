@@ -40,6 +40,30 @@ part_types = {0: parttype.RootPartitionType(),
 # Partitioning screen.
 class Widget(QWidget, ScreenWidget):
 
+    help = _('''
+<font size="+2">Partitioning your hard disk</font>
+
+<font size="+1">
+<p>
+Pardus can be installed on a variety of hardware. You can install Pardus
+on an empty disk or hard disk partition. <b>An installation will automatically
+destroy the previously saved information on selected partitions. </b>
+</p>
+<p>
+In order to use Pardus, you must create one Linux filesystem (for the 
+basic files and folders) and a swap space (for improved performance). 
+We advise you to allocate at least 4 GBs of hard disk area and 
+swap space (between 500 Mb - 2 GB, according to your needs) for 
+convenience. A Linux partition size less than 2.5 GB is not allowed.
+</p>
+<p>
+Please refer to Pardus Installing and Using Guide for more information
+about disk partitioning.
+</p>
+</font>
+''')
+
+
     def __init__(self, *args):
         apply(QWidget.__init__, (self,) + args)
         

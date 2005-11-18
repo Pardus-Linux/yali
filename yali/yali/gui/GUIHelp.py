@@ -34,28 +34,11 @@ class Widget(QTextView):
         self.connect(ctx.screens, PYSIGNAL("signalCurrent"),
                      self.slotScreenChanged)
 
-        self.setHelpFile(1)
 
     ##
-    # Set help text from a file
-    # @param help_file (string) file containing the help text.
-    def setHelpFile(self, file_index):
-
-        # get first two chars of locale (tr_TR.UTF-8 -> tr)
-        lang = locale.getlocale()[0][:2]
-        if not lang:
-            lang = ctx.lang
-
-        file_name = "%d.html" %(file_index)
-        help_file = join(ctx.consts.helps_dir, lang, file_name)
-        if not exists(help_file):
-            help_file = join(ctx.consts.helps_dir, ctx.lang, file_name)
-        self.setText(unicode(open(help_file).read()))
-
-    ##
-    # Screen is changed, show the corresponding help file
-    def slotScreenChanged(self, obj, index):
-        self.setHelpFile(index)
+    # Screen is changed, show the corresponding help text
+    def slotScreenChanged(self):
+        self.setText(ctx.screens.getCurrent().getWidget().help)
 
     ##
     # resize the widget

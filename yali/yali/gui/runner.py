@@ -63,15 +63,16 @@ class Runner:
         self._app = QApplication(sys.argv)
         self._window = YaliWindow.Widget()
 
+        # add stages
         for stg in _all_stages:
             ctx.stages.addStage(stg['num'], stg['text'])
-        # set the current stage to 1 at startup...
-        ctx.stages.setCurrent(1)
 
+        # add screens
         num = 0
         for scr in _all_screens:
             num += 1
             ctx.screens.addScreen(num, scr['stage'], scr['module'].Widget())
+
 
         self._app.connect(self._app, SIGNAL("lastWindowClosed()"),
                           self._app, SLOT("quit()"))
@@ -81,6 +82,11 @@ class Runner:
 
         self._app.connect(ctx.screens, PYSIGNAL("signalProcessEvents"),
                           self._app.processEvents)
+
+
+        # set the current screen and stage to 1 at startup...
+        ctx.stages.setCurrent(1)
+        ctx.screens.setCurrent(1)
 
 
     ##
