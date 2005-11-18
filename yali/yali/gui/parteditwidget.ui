@@ -158,7 +158,7 @@
             </item>
             <item>
                 <property name="text">
-                    <string>Set as swap (mandatory)</string>
+                    <string>Set as swap (recomended)</string>
                 </property>
             </item>
             <item>

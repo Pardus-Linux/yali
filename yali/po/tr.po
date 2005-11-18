@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-18 06:11+0200\n"
-"PO-Revision-Date: 2005-11-18 06:12+0200\n"
+"POT-Creation-Date: 2005-11-18 06:21+0200\n"
+"PO-Revision-Date: 2005-11-18 06:21+0200\n"
 "Last-Translator: Barış Metin <baris@uludag.org.tr>\n"
 "Language-Team:  <tr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -248,8 +248,8 @@ msgid "Install Linux (mandatory)"
 msgstr "Sistemi buraya kur (zorunlu)"
 
 #: yali/gui/parteditwidget.py:83
-msgid "Set as swap (mandatory)"
-msgstr "Swap olarak tanımla (zorunlu)"
+msgid "Set as swap (recomended)"
+msgstr "Swap olarak tanımla (tavsiye edilir)"
 
 #: yali/gui/parteditwidget.py:84
 msgid "Use for user's files (optional)"
