@@ -70,9 +70,6 @@ Have a fruitful experience with Pardus!
         self.connect(self.rebootButton, SIGNAL("clicked()"),
                      self.slotReboot)
 
-        ctx.screens.prevDisabled()
-        ctx.screens.nextDisabled()
-
 
     def slotAcceptToggled(self, b):
         if b:
@@ -95,5 +92,8 @@ Have a fruitful experience with Pardus!
 
     def shown(self):
         ctx.screens.prevDisabled()
-        ctx.screens.nextEnabled()
+        if self.accept.isChecked():
+            ctx.screens.nextEnabled()
+        else:
+            ctx.screens.nextDisabled()
 
