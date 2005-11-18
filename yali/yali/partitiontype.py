@@ -22,6 +22,7 @@ _ = __trans.ugettext
 
 import yali.filesystem
 
+
 class PartitionType:
     ##
     # is equal
@@ -50,3 +51,7 @@ class SwapPartitionType(PartitionType):
     mountoptions = "sw"
     parted_type = parted.PARTITION_SWAP
 
+
+root = RootPartitionType()
+home = HomePartitionType()
+swap = SwapPartitionType()

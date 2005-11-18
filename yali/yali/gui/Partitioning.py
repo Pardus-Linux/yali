@@ -30,11 +30,6 @@ from yali.gui.parteditbuttons import PartEditButtons
 from yali.gui.parteditwidget import PartEditWidget
 
 
-# partition types in order they are presented in gui.
-part_types = {0: parttype.RootPartitionType(),
-              1: parttype.SwapPartitionType(),
-              2: parttype.HomePartitionType()}
-
 ##
 # Partitioning screen.
 class Widget(QWidget, ScreenWidget):
@@ -242,7 +237,7 @@ class PartList(PartListWidget):
         ctx.screens.nextDisabled()
 
         for req in ctx.partrequests:
-            if req.partitionType() == part_types[0]:
+            if req.partitionType() == parttype.root:
                 # root partition type. can enable next
                 ctx.screens.nextEnabled()
 
@@ -377,30 +372,33 @@ class PartEdit(QWidget):
         state = self._state
         t = self._d.getType()
 
-        def check_part_requests():
-            i = self.edit.part_type.currentItem()
-            t = part_types[i]
+        # get partition type from checked
+        def get_part_type():
+            if self.edit.root.isChecked():
+                return parttype.root
+            elif self.edit.home.isChecked():
+                return parttype.home
+            elif self.edit.swap.isChecked():
+                return parttype.swap
 
-            try:
-                r = ctx.partrequests.searchPartTypeAndReqType(t,
-                                     request.mountRequestType).next()
-                self.warning.setText(_("You have allready have this partition type"))
-                self.warning.show()
-                return False
-            except StopIteration:
-                # we're O.K.!
-                return True
-
+        # disable requested partition types in gui
+        def disable_selected_part_types():
+            self.edit.root.setEnabled(True)
+            self.edit.home.setEnabled(True)
+            self.edit.swap.setEnabled(True)
+            for r in ctx.partrequests.searchReqType(request.mountRequestType):
+                pt = r.partitionType()
+                if pt == parttype.root:
+                    self.edit.root.setEnabled(False)
+                elif pt == parttype.home:
+                    self.edit.home.setEnabled(False)
+                elif pt == parttype.swap:
+                    self.edit.swap.setEnabled(False)
 
         def create_new_partition(device):
-            if not check_part_requests():
-                return False
+            t = get_part_type()
 
-
-            i = self.edit.part_type.currentItem()
-            t = part_types[i]
-
-            if t == part_types[0]:
+            if t == parttype.root:
                 size = self.edit.size.text().toInt()[0]
                 min = ctx.consts.min_root_size
                 if size < min:
@@ -411,8 +409,9 @@ class PartEdit(QWidget):
 
 
             size = self.edit.size.text().toInt()[0]
-                
-            p = device.addPartition(t.parted_type, t.filesystem, size)
+
+            # FIXME: type doesn't work!
+            p = device.addPartition(0, t.filesystem, size)
             device.commit()
             partition = device.getPartition(p.num)
 
@@ -422,13 +421,9 @@ class PartEdit(QWidget):
             return True
 
         def edit_requests(partition):
-            edit = self.edit
+            t = get_part_type()
 
-            i = edit.part_type.currentItem()
-            t = part_types[i]
-
-            # FIXME: find a more generic way.
-            if t == part_types[0]:
+            if t == parttype.root:
                 size = partition.getMB()
                 if size < ctx.consts.min_root_size:
                     self.warning.setText(
@@ -441,7 +436,7 @@ class PartEdit(QWidget):
                 ctx.partrequests.append(
                     request.MountRequest(partition, t))
             
-                if edit.format.isChecked():
+                if self.edit.format.isChecked():
                     ctx.partrequests.append(
                         request.FormatRequest(partition, t))
                 else:
@@ -497,6 +492,8 @@ class PartEdit(QWidget):
             raise GUIError, "unknown action called (%s)" %(self._action)
 
 
+
+        disable_selected_part_types()
         self.hide()
         self.emit(PYSIGNAL("signalApplied"), ())
 
@@ -512,13 +509,11 @@ class PartEditWidgetImpl(PartEditWidget):
         self._state = state
 
         if self._state == editState:
-            self.caption.setText(_("Edit Partition %s") % partition.getMinor())
             self.size.hide()
             self.use_available.hide()
             self.size_label.hide()
 
         elif self._state == createState:
-            self.caption.setText(_("Create New Partition"))
             self.size.show()
             self.use_available.show()
             self.size_label.show()
