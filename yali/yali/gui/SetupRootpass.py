@@ -71,19 +71,15 @@ Click Next button to proceed.
         p1 = self.pass1.text()
         p2 = self.pass2.text()
 
-        if not p1 and not p2:
-            ctx.screens.nextDisabled()
-            return
-
-        if p2 != p1 and p2:
-            self.pass_error.show()
-            self.pass_error.setAlignment(QLabel.AlignCenter)
-            ctx.screens.nextDisabled()
-        else:
+        if p1 == p2 and p1:
             # Sould we also check password length?
             self.pass_error.hide()
             ctx.screens.nextEnabled()
+        else:
+            ctx.screens.nextDisabled()
+            if p2:
+                self.pass_error.show()
+                self.pass_error.setAlignment(QLabel.AlignCenter)
 
 
 
-        
