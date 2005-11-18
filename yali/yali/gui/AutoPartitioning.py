@@ -31,7 +31,7 @@ import yali.gui.context as ctx
 class Widget(AutoPartWidget, ScreenWidget):
 
     help = _('''
-<font size="+2">Partitioning your hard disk</font>
+<font size="+2">Automatic Partitioning</font>
 
 <font size="+1">
 <p>
@@ -40,11 +40,9 @@ on an empty disk or hard disk partition. <b>An installation will automatically
 destroy the previously saved information on selected partitions. </b>
 </p>
 <p>
-In order to use Pardus, you must create one Linux filesystem (for the 
-basic files and folders) and a swap space (for improved performance). 
-We advise you to allocate at least 4 GBs of hard disk area and 
-swap space (between 500 Mb - 2 GB, according to your needs) for 
-convenience. A Linux partition size less than 2.5 GB is not allowed.
+Automatic partitioning use your entire disk for Pardus installation. From 
+this screen you can select to automatically partition one of you disks, or
+you can skip this screen and try manual partitioning.
 </p>
 <p>
 Please refer to Pardus Installing and Using Guide for more information
