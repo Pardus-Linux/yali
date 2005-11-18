@@ -19,9 +19,11 @@ class Title(QLabel):
         QLabel.__init__(self, *args)
 
         self.setAlignment(QLabel.AlignCenter)
+        self.setSizePolicy(QSizePolicy(QSizePolicy.Preferred,QSizePolicy.Maximum,0,0,self.sizePolicy().hasHeightForWidth()))
+        self.setPaletteBackgroundColor(QColor(255,203,3))
 
         self.move = 0
-        self.mainwidget = self.parent()
+        self.mainwidget = self.parent().parent()
 
     def mousePressEvent(self, event):
         self.move = 1
@@ -47,12 +49,14 @@ class Dialog(QMainWindow):
     def __init__(self, t, w, parent):
         QMainWindow.__init__(self, parent)
 
-        layout = QGridLayout(self, 1, 1, 1, 1)
+        frame = QFrame(self)
+        frame.setFrameStyle(frame.PopupPanel|frame.Plain)
+        self.setCentralWidget(frame)
+        layout = QGridLayout(frame, 1, 1, 1, 1)
         self.setMinimumSize(400, 300)
-        w.reparent(self, 0, QPoint(0,0), True)
+        w.reparent(frame, 0, QPoint(0,0), True)
 
-        title = Title('<font size="+1"><b>%s</b></font>' % t, self)
-        title.setSizePolicy(QSizePolicy(QSizePolicy.Preferred,QSizePolicy.Maximum,0,0,title.sizePolicy().hasHeightForWidth()))
+        title = Title('<font size="+1"><b>%s</b></font>' % t, frame)
         layout.addWidget(title, 0, 0)
         layout.addWidget(w, 1, 0)
         
