@@ -13,6 +13,11 @@
 
 from qt import *
 
+import gettext
+__trans = gettext.translation('yali', fallback=True)
+_ = __trans.ugettext
+
+
 import yali.gui.context as ctx
 
 import GUITop
@@ -32,6 +37,7 @@ class Widget(QMainWindow):
         self.helpWidget = GUIHelp.Widget(self)
         self.nextButton = GUINavButton.nextButton(self)
         self.prevButton = GUINavButton.prevButton(self)
+        self.relNotes = QPushButton(_("Release Notes"), self)
 
         # Place the widgets using layouts and yada, yada, yada...
         self.__setUpWidgets()
@@ -56,6 +62,10 @@ class Widget(QMainWindow):
                      self.slotPrevEnabled)
 
 
+        self.connect(self.relNotes, SIGNAL("clicked()"),
+                     self.showReleaseNotes)
+
+
         self.setPaletteBackgroundPixmap(ctx.iconfactory.newPixmap("back_tile"))
 
     ##
@@ -78,6 +88,8 @@ class Widget(QMainWindow):
         centerRight.setSpacing(10)
         centerRight.setMargin(0)
         centerRight.addWidget(self.helpWidget)
+
+        centerRight.addWidget(self.relNotes)
 
         buttons = QHBoxLayout()
         buttons.setSpacing(20)
@@ -115,6 +127,15 @@ class Widget(QMainWindow):
 
     def slotPrevEnabled(self):
         self.prevButton.setEnabled(True)
+
+
+    def showReleaseNotes(self):
+        # make a release notes dialog
+        # TEST
+        from yali.gui.YaliDialog import Dialog
+        l = QLabel("release notes ............", self)
+        d = Dialog(_("Release Notes"), l, self)
+        d.show()
 
 
     ##
