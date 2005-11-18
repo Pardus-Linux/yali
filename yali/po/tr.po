@@ -209,7 +209,7 @@ msgstr ""
 #: yali/gui/InstallSystem.py:113
 #, python-format
 msgid "Installing: %s<br>%s"
-msgstr "Paket Yükleniyor: %s<br>%s"
+msgstr "Paket Kuruluyor: %s<br>%s"
 
 #: yali/gui/installwidget.py:52
 msgid "Form3"
@@ -217,7 +217,7 @@ msgstr "Form3"
 
 #: yali/gui/installwidget.py:53
 msgid "Installing Package: "
-msgstr "Paket Yükleniyor: "
+msgstr "Paket Kuruluyor: "
 
 #: yali/gui/installwidget.py:54 yali/gui/welcomewidget.py:89
 msgid "pix"
