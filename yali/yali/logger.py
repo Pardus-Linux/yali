@@ -10,5 +10,33 @@
 # Please read the COPYING file.
 #
 
-# Logger module which can log/write various information to different
+# Log module which can log/write various information to different
 # places (log file, tty...)
+
+
+class Logger:
+
+    def __init__(self, target_list):
+        
+        self._targets = []
+        for t in target_list:
+            self._targets.append(open(t, "a"))
+
+    def write(self, s):
+        if not self._targets:
+            return
+
+        for t in self._targets:
+            t.write(s)
+            t.flush()
+
+    def close():
+        if not self._targets:
+            return
+
+        for t in self._targets:
+            t.close()
+
+
+# default logger
+logger = Logger([consts.log_file, "/dev/tty10"])
