@@ -107,20 +107,8 @@ about disk partitioning.
         # process events and show partitioning information!
         ctx.screens.processEvents()
 
-
-        for req in ctx.partrequests:
-            if req.requestType() == request.formatRequestType:
-                req.applyRequest()
-
-        # first mount root (/)
-        rootreq = ctx.partrequests.searchPartTypeAndReqType(part_types[0],
-                                                            request.mountRequestType).next()
-        rootreq.applyRequest()
-
-        for req in ctx.partrequests:
-            if req.requestType() == request.mountRequestType and \
-                req != rootreq:
-                req.applyRequest()
+        # apply all partition requests
+        ctx.partrequests.applyAll()
 
 
 class PartList(PartListWidget):

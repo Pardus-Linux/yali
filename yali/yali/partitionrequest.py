@@ -16,6 +16,7 @@ import os
 import mount
 from yali.exception import *
 from yali.constants import consts
+import yali.partitiontype as parttype
 
 class RequestException(YaliException):
     pass
@@ -28,6 +29,29 @@ formatRequestType, mountRequestType = range(2)
 ##
 # requests object holds the list of requests
 class RequestList(list):
+
+    ##
+    # apply all requests
+    def applyAll(self):
+        
+        # first apply format requests
+        for r in self.searchReqType(formatRequestType):
+            r.applyRequest()
+
+        # then mount request
+        # but mount root (/) first
+        pt = parttype.RootPartitionType()
+        rootreq = [x for x in self.searchPartTypeAndReqType(pt, mountRequestType)]
+        # this should give (at most) one result
+        # cause we are storing one request for a partitionType()
+        assert(len(rootreq) <= 1)
+        rootreq = rootreq[0]
+        rootreq.applyRequest()
+
+        # mount others
+        for r in self.searchReqType(mountRequestType):
+            if r != rootreq:
+                r.applyRequest()
 
     ##
     # iterator function searches for a request 
@@ -48,6 +72,25 @@ class RequestList(list):
             # end of list
             pass
     
+    ##
+    # iterator function searches for a request 
+    #  by request type
+    # @param t: request Type (eg. formatRequestType)
+    def searchReqType(self, rt):
+        i = self.__iter__()
+        try:
+            cur = i.next()
+            while True:
+                if cur.requestType() == rt:
+                    # FOUND
+                    yield cur
+
+                cur = i.next()
+        except StopIteration:
+            # end of list
+            pass
+
+
     ##
     # iterator function searches by
     # partition type and request type

@@ -104,20 +104,11 @@ about disk partitioning.
             ctx.partrequests.append(
                 request.FormatRequest(p, t))
 
-        def applyRequests():
-            for req in ctx.partrequests:
-                if req.requestType() == request.formatRequestType:
-                    req.applyRequest()
-
-            for req in ctx.partrequests:
-                if req.requestType() == request.mountRequestType:
-                    req.applyRequest()
-
 
         if self.accept_auto.isChecked():
             ctx.use_autopart = True
             autopartDevice()
-            applyRequests()
+            ctx.partrequests.applyAll()
 
             # skip next screen()
             ctx.screens.next()
