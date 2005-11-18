@@ -40,7 +40,7 @@ class RequestList(list):
 
         # then mount request
         # but mount root (/) first
-        pt = parttype.RootPartitionType()
+        pt = parttype.root
         rootreq = [x for x in self.searchPartTypeAndReqType(pt, mountRequestType)]
         # this should give (at most) one result
         # cause we are storing one request for a partitionType()

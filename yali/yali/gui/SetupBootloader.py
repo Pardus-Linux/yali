@@ -59,8 +59,7 @@ loader.
 
     def execute(self):
 
-        t = parttype.RootPartitionType()
-        rootreq = ctx.partrequests.searchPartTypeAndReqType(t,
+        rootreq = ctx.partrequests.searchPartTypeAndReqType(parttype.root,
                                                             request.mountRequestType).next()
         root = basename(rootreq.partition().getPath())
         dev = basename(rootreq.partition().getDevicePath())

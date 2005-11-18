@@ -91,8 +91,6 @@ about disk partitioning.
             # FIXME: also add a swap partition!
             # Or will we?
 
-            t = parttype.RootPartitionType()
-
             # fist delete partitions on device
             dev.deleteAllPartitions()
             dev.commit()
@@ -103,9 +101,9 @@ about disk partitioning.
             dev.commit()
 
             ctx.partrequests.append(
-                request.MountRequest(p, t))
+                request.MountRequest(p, parttype.root))
             ctx.partrequests.append(
-                request.FormatRequest(p, t))
+                request.FormatRequest(p, parttype.root))
 
 
         if self.accept_auto.isChecked():
