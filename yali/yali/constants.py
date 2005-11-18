@@ -40,6 +40,8 @@ class Constants:
 
         self.__c.pardus_version = "Pardus 1.0 Alpha"
 
+        self.__c.log_file = "/tmp/install.log"
+
         # directories
         self.__c.data_dir = "/usr/share/yali"
 

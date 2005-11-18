@@ -12,6 +12,7 @@
 
 from os.path import join
 
+from yali.log import logger
 import yali.partitionrequest
 import yali.constants
 import yali.gui.stages
@@ -39,3 +40,4 @@ iconfactory = yali.gui.iconfactory.IconFactory(consts.pics_dir)
 
 # auto partitioning
 use_autopart = False
+

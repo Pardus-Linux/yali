@@ -13,6 +13,7 @@
 # Log module which can log/write various information to different
 # places (log file, tty...)
 
+from yali.constants import consts
 
 class Logger:
 
