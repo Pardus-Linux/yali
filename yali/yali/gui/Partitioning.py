@@ -11,7 +11,6 @@
 #
 
 
-import os.path
 from qt import *
 
 import gettext
@@ -33,8 +32,8 @@ from yali.gui.parteditwidget import PartEditWidget
 
 # partition types in order they are presented in gui.
 part_types = {0: parttype.RootPartitionType(),
-              1: parttype.HomePartitionType(),
-              2: parttype.SwapPartitionType()}
+              1: parttype.SwapPartitionType(),
+              2: parttype.HomePartitionType()}
 
 ##
 # Partitioning screen.
@@ -297,8 +296,7 @@ class PartEdit(QWidget):
         self.vbox.addWidget(self.edit)
 
         self.warning = QLabel(self)
-        # FIXME: aligning doesn't work!
-        self.vbox.addWidget(self.warning, 0, self.vbox.AlignVCenter)
+        self.vbox.addWidget(self.warning, 0, self.vbox.AlignCenter)
 
         self.buttons = PartEditButtons(self)
         self.vbox.addWidget(self.buttons)
@@ -426,8 +424,7 @@ class PartEdit(QWidget):
 
             size = self.edit.size.text().toInt()[0]
                 
-            # FIXME: set partition type (storage.setPartitionType)
-            p = device.addPartition(0, None, size)
+            p = device.addPartition(t.parted_type, t.filesystem, size)
             device.commit()
             partition = device.getPartition(p.num)
 
@@ -447,7 +444,8 @@ class PartEdit(QWidget):
                 size = partition.getMB()
                 if size < ctx.consts.min_root_size:
                     self.warning.setText(
-                        _("'Install Root' size must be larger than %s MB.") %min)
+                        _("'Install Root' size must be larger than %s MB.") % (
+                            ctx.consts.min_root_size))
                     self.warning.show()
                     return False
 

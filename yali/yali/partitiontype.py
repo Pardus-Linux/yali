@@ -13,6 +13,7 @@
 # partition types that will be used in installation process
 
 import os
+import parted
 
 import gettext
 __trans = gettext.translation('yali', fallback=True)
@@ -33,16 +34,19 @@ class RootPartitionType(PartitionType):
     filesystem = yali.filesystem.Ext3FileSystem()
     mountpoint = "/"
     mountoptions = "noatime"
+    parted_type = 0
 
 class HomePartitionType(PartitionType):
     name = _("Users's Files")
     filesystem = yali.filesystem.Ext3FileSystem()
     mountpoint = "/home"
     mountoptions = "noatime"
+    parted_type = 0
 
 class SwapPartitionType(PartitionType):
     name = _("Swap")
     filesystem = yali.filesystem.SwapFileSystem()
     mountpoint = None
     mountoptions = "sw"
+    parted_type = parted.PARTITION_SWAP
 
