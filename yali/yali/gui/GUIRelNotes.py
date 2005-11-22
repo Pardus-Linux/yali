@@ -26,7 +26,7 @@ class Widget(QTextView):
         self.setSizePolicy( QSizePolicy(QSizePolicy.Preferred,
                                         QSizePolicy.Expanding))
 
-        self.setFrameStyle(self.WinPanel | self.Plain)
+#        self.setFrameStyle(self.WinPanel | self.Plain)
 
         self.setPaletteBackgroundColor(QColor(204,204,204))
 
