@@ -20,6 +20,7 @@ _ = __trans.ugettext
 import yali.gui.context as ctx
 import yali.partitiontype as parttype
 import yali.parteddata as parteddata
+import yali.partitionrequest as request
 
 from yali.gui.parteditbuttons import PartEditButtons
 from yali.gui.parteditwidget import PartEditWidget
@@ -61,18 +62,6 @@ class PartEdit(QWidget):
                      self.slotUseAvailable)
 
 
-    def slotCreatePart(self, parent, d):
-        self._d = d
-        self.setState(createState)
-
-    def slotEditPart(self, parent, d):
-        self._d = d
-        self.setState(editState)
-
-    def slotDeletePart(self, parent, d):
-        self._d = d
-        self.setState(deleteState)
-
     def slotUseAvailable(self, b):
         if b:
             s = 0
@@ -89,7 +78,8 @@ class PartEdit(QWidget):
 
     ##
     # set up widget for use.
-    def setState(self, state):
+    def setState(self, state, dev):
+        self._d = dev
 
         # Hacky: show only one widget for an action.
         self.warning.hide()

@@ -21,9 +21,11 @@ _ = __trans.ugettext
 import yali.storage
 
 import yali.gui.context as ctx
+from yali.gui.YaliDialog import Dialog
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.PartListImpl import PartList
-from yali.gui.PartEditImpl import PartEdit
+from yali.gui.PartEditImpl import PartEdit, \
+    editState, createState, deleteState
 
 
 ##
@@ -61,28 +63,23 @@ about disk partitioning.
         yali.storage.init_devices()
 
         self.partlist = PartList(self)
-        self.partedit = PartEdit(self)
-        self.partedit.hide()
+ 
 
         vbox = QVBoxLayout(self)
         vbox.addWidget(self.partlist)
-        vbox.addStretch(1)
-        vbox.addWidget(self.partedit)
         
         self.connect(self.partlist, PYSIGNAL("signalCreate"),
-                     self.partedit.slotCreatePart)
+                     self.slotCreatePart)
 
         self.connect(self.partlist, PYSIGNAL("signalDelete"),
-                     self.partedit.slotDeletePart)
+                     self.slotDeletePart)
 
         self.connect(self.partlist, PYSIGNAL("signalEdit"),
-                     self.partedit.slotEditPart)
+                     self.slotEditPart)
 
-        self.connect(self.partlist, PYSIGNAL("signalSelectionChanged"),
-                     self.partedit.slotCancelClicked)
 
-        self.connect(self.partedit, PYSIGNAL("signalApplied"),
-                     self.partlist.update)
+#        self.connect(self.partedit, PYSIGNAL("signalApplied"),
+#                     self.partlist.update)
 
     def shown(self):
         ctx.screens.prevEnabled()
@@ -100,3 +97,22 @@ about disk partitioning.
 
         # apply all partition requests
         ctx.partrequests.applyAll()
+
+
+    def slotCreatePart(self, parent, d):
+        partedit = PartEdit(self)
+        partedit.setState(createState, d)
+        d = Dialog(_("Create Partition"), partedit, self)
+        d.exec_loop()
+
+    def slotDeletePart(self, parent, d):
+        partedit = PartEdit(self)
+        partedit.setState(deleteState, d)
+        d = Dialog(_("Delete Partition"), partedit, self)
+        d.exec_loop()
+
+    def slotEditPart(self, parent, d):
+        partedit = PartEdit(self)
+        partedit.setState(editState, d)
+        d = Dialog(_("Edit Partition"), partedit, self)
+        d.exec_loop()
