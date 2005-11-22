@@ -10,7 +10,7 @@
 # Please read the COPYING file.
 #
 
-
+from os.path import join
 from qt import *
 
 import gettext
@@ -19,11 +19,13 @@ _ = __trans.ugettext
 
 
 import yali.gui.context as ctx
+from yali.gui.YaliDialog import Dialog
 
 import GUITop
 import GUIContentStack
 import GUIHelp
 import GUINavButton
+import GUIRelNotes
 
 ##
 # Widget for YaliWindow (you can call it MainWindow too ;).
@@ -131,11 +133,10 @@ class Widget(QMainWindow):
 
     def showReleaseNotes(self):
         # make a release notes dialog
-        # TEST
-        from yali.gui.YaliDialog import Dialog
-        l = QLabel("release notes ............", self)
-        d = Dialog(_("Release Notes"), l, self)
-        d.show()
+        r = GUIRelNotes.Widget(self)
+        d = Dialog(_("Release Notes"), r, self)
+        d.resize(500,400)
+        d.exec_loop()
 
 
     ##

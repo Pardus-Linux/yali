@@ -13,6 +13,8 @@
 
 from qt import *
 
+import yali.gui.context as ctx
+
 
 class Title(QLabel):
     def __init__(self, *args):
@@ -45,6 +47,21 @@ class Title(QLabel):
             self.mainwidget.move(newpos)
 
 
+class CloseButton(QLabel):
+    def __init__(self, *args):
+        QLabel.__init__(self, *args)
+
+#        self.setPaletteBackgroundColor(QColor(255,203,3))
+        self.setPixmap(ctx.iconfactory.newPixmap("cross"))
+        
+        self.setSizePolicy(QSizePolicy(QSizePolicy.Maximum,
+                                       QSizePolicy.Maximum))
+
+
+    def mousePressEvent(self, e):
+        self.emit(PYSIGNAL("signalClicked"), ())
+
+
 class Dialog(QDialog):
     def __init__(self, t, w, parent):
         QDialog.__init__(self, parent)
@@ -57,11 +74,19 @@ class Dialog(QDialog):
         layout = QGridLayout(frame, 1, 1, 1, 1)
         w.reparent(frame, 0, QPoint(0,0), True)
 
+        hbox = QHBoxLayout(frame)
         title = Title('<font size="+1"><b>%s</b></font>' % t, frame)
-        layout.addWidget(title, 0, 0)
+        close = CloseButton(frame)
+        hbox.addWidget(title)
+        hbox.addWidget(close)
+
+        layout.addLayout(hbox, 0, 0)
         layout.addWidget(w, 1, 0)
-        
-        self.exec_loop()
+
+        self.connect(close, PYSIGNAL("signalClicked"),
+                     self.reject)
+
+
 
     
 
