@@ -7,15 +7,14 @@ sys.path.append("..")
 import yali.storage
 
 def main():
-    devs = yali.storage.detect_all()
+    yali.storage.init_devices()
 
-    for dev in devs:
-        d = yali.storage.Device(dev)
-        d.open()
+    for d in yali.storage.devices:
 
-        print d.get_device(), ":", d.get_model()
-        for part in d.get_partitions().itervalues():
-            print "\t", part.get_minor(), part.get_fsType(), part.get_mb()
+        print d.getPath(), ":", d.getModel()
+        for part in d.getPartitions():
+            print "\t", part.getMinor(), part.getFSType(), part.getMB()
+
 
 if __name__ == "__main__":
     main()
