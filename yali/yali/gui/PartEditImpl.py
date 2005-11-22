@@ -257,7 +257,7 @@ class PartEdit(QWidget):
     ##
     # Cancel button clicked.
     def slotCancelClicked(self):
-        self.hide()
+        self.emit(PYSIGNAL("signalCanceled"), ())
 
 
 class PartEditWidgetImpl(PartEditWidget):

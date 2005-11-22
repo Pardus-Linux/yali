@@ -63,7 +63,8 @@ about disk partitioning.
         yali.storage.init_devices()
 
         self.partlist = PartList(self)
- 
+        self.partedit = PartEdit(self)
+        self.dialog = None
 
         vbox = QVBoxLayout(self)
         vbox.addWidget(self.partlist)
@@ -78,8 +79,11 @@ about disk partitioning.
                      self.slotEditPart)
 
 
-#        self.connect(self.partedit, PYSIGNAL("signalApplied"),
-#                     self.partlist.update)
+        self.connect(self.partedit, PYSIGNAL("signalApplied"),
+                     self.slotApplied)
+        self.connect(self.partedit, PYSIGNAL("signalCanceled"),
+                     self.slotCanceled)
+
 
     def shown(self):
         ctx.screens.prevEnabled()
@@ -100,19 +104,25 @@ about disk partitioning.
 
 
     def slotCreatePart(self, parent, d):
-        partedit = PartEdit(self)
-        partedit.setState(createState, d)
-        d = Dialog(_("Create Partition"), partedit, self)
-        d.exec_loop()
+        self.partedit.setState(createState, d)
+        self.dialog = Dialog(_("Create Partition"), self.partedit, self)
+        self.dialog.exec_loop()
 
     def slotDeletePart(self, parent, d):
-        partedit = PartEdit(self)
-        partedit.setState(deleteState, d)
-        d = Dialog(_("Delete Partition"), partedit, self)
-        d.exec_loop()
+        self.partedit.setState(deleteState, d)
+        self.dialog = Dialog(_("Delete Partition"), self.partedit, self)
+        self.dialog.exec_loop()
 
     def slotEditPart(self, parent, d):
-        partedit = PartEdit(self)
-        partedit.setState(editState, d)
-        d = Dialog(_("Edit Partition"), partedit, self)
-        d.exec_loop()
+        self.partedit.setState(editState, d)
+        self.dialog = Dialog(_("Edit Partition"), self.partedit, self)
+        self.dialog.exec_loop()
+
+    def slotApplied(self):
+        self.dialog.done(0)
+        del self.dialog
+        self.partlist.update()
+
+    def slotCanceled(self):
+        self.dialog.reject()
+        del self.dialog
