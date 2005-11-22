@@ -47,9 +47,11 @@ Legend:
    + auto partitioning
    + basic setup: users
    - select where to install Grub
+   + implement modal dialog (YaliDialog)
+   + use dialog in Partitioning screen
 
  + users
-   + users management (add user)
+   + user management (add user)
 
  + localization
    + program files
@@ -73,7 +75,7 @@ Legend:
 
 3. Release (1.0)
 
- - show release notes (toggle with help)
+ + show release notes
 
 
 
