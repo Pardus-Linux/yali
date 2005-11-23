@@ -75,7 +75,7 @@ class PartList(PartListWidget):
             p = PartListItem(d, name,
                              part.getSizeStr(),
                              "", # install partition type
-                             part.getFSType())
+                             part.getFSName())
             p.setData(part)
 
         self.list.setOpen(d, True)

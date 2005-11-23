@@ -72,7 +72,7 @@ loader.
         # Windows partitions...
         for d in yali.storage.devices:
             for p in d.getPartitions():
-                fs = p.getFSType()
+                fs = p.getFSName()
                 if fs in ("ntfs", "fat32"):
                     dev = basename(p.getDevicePath())
                     root = basename(p.getPath())

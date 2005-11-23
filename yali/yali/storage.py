@@ -239,18 +239,18 @@ class Device:
             (geom.end - geom.start + 1) * self._sector_size / MEGABYTE)
 
         if part.num >= 1:
-            fs_type = ""
+            fs_name = ""
             if part.fs_type:
-                fs_type = part.fs_type.name
+                fs_name = part.fs_type.name
             elif part.type == parted.PARTITION_EXTENDED:
-                fs_type = "extended"
+                fs_name = "extended"
 
             self._partitions[part.num] = Partition(self, part,
                                                    part.num,
                                                    part_mb,
                                                    geom.start,
                                                    geom.end,
-                                                   fs_type)
+                                                   fs_name)
         elif part.type_name == "free":
             self._partitions[-1] = FreeSpace(self, part,
                                              part_mb,

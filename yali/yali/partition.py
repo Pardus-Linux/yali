@@ -22,14 +22,14 @@ import yali.parteddata as parteddata
 # Class representing a single partition within a Device object
 class Partition:
 
-    def __init__(self, device, parted_part, minor, mb, start, end, fs_type):
+    def __init__(self, device, parted_part, minor, mb, start, end, fs_name):
         self._device = device
         self._partition = parted_part
         self._minor = minor
         self._mb = mb
         self._start = start
         self._end = end
-        self._fstype = fs_type or _("unknown")
+        self._fsname = fs_name or _("unknown")
         self._parted_type = parteddata.partitionType
 
     def getType(self):
@@ -63,8 +63,8 @@ class Partition:
     def getMinor(self):
         return self._minor
 
-    def getFSType(self):
-        return self._fstype
+    def getFSName(self):
+        return self._fsname
 
     def getStart(self):
         return self._start
@@ -104,7 +104,7 @@ class FreeSpace(Partition):
                            mb,
                            start,
                            end,
-                           "free space")
+                           _("free space"))
 
         self._parted_type = parteddata.freeSpaceType
 

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-23 11:02+0200\n"
-"PO-Revision-Date: 2005-11-22 13:33+0200\n"
+"POT-Creation-Date: 2005-11-23 15:35+0200\n"
+"PO-Revision-Date: 2005-11-23 15:36+0200\n"
 "Last-Translator: Barış Metin <baris@uludag.org.tr>\n"
 "Language-Team:  <tr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -696,6 +696,10 @@ msgstr "Windows Disk Bölümü"
 #: yali/partition.py:32
 msgid "unknown"
 msgstr "bilinmeyen"
+
+#: yali/partition.py:107
+msgid "free space"
+msgstr "boş alan"
 
 #: yali/partitiontype.py:34
 msgid "Install Root"
