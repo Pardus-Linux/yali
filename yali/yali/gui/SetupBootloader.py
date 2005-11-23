@@ -62,11 +62,11 @@ loader.
 
         rootreq = ctx.partrequests.searchPartTypeAndReqType(parttype.root,
                                                             request.mountRequestType).next()
-        root = basename(rootreq.partition().getPath())
-        dev = basename(rootreq.partition().getDevicePath())
+        install_root = basename(rootreq.partition().getPath())
+        install_dev = basename(rootreq.partition().getDevicePath())
         
         # TODO: use logging!
-        yali.bootloader.write_grub_conf(root, dev)
+        yali.bootloader.write_grub_conf(install_root, install_dev)
         yali.bootloader.install_files()
 
         # Windows partitions...
@@ -81,4 +81,4 @@ loader.
         print self.install_bootloader.isChecked()
         if self.install_bootloader.isChecked():
             print "installing"
-            yali.bootloader.install_grub(root, dev)
+            yali.bootloader.install_grub(install_root, install_dev)
