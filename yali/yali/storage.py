@@ -245,6 +245,14 @@ class Device:
         
         return self.__addToPartitionsDict(newp)
 
+
+    ##
+    # add a partition starting from a given geom...
+    def addPartitionFromStart(self, type, fs, start, size_mb):
+        size = int(size_mb * MEGABYTE / self._sector_size)
+        self.addPartitionStartEnd(type, fs, start, start + size)
+
+
     ##
     # internal function
     # add partition to the partitions dictionary
