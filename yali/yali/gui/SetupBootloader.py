@@ -18,6 +18,7 @@ __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 
+import yali.storage
 import yali.bootloader
 import yali.partitionrequest as request
 import yali.partitiontype as parttype
@@ -67,6 +68,15 @@ loader.
         # TODO: use logging!
         yali.bootloader.write_grub_conf(root, dev)
         yali.bootloader.install_files()
+
+        # Windows partitions...
+        for d in yali.storage.devices:
+            for p in d.getPartitions():
+                fs = p.getFSType()
+                if fs in ("ntfs", "fat32"):
+                    dev = basename(p.getDevicePath())
+                    root = basename(p.getPath())
+                    yali.bootloader.grub_conf_append_win(root, dev, fs)
 
         print self.install_bootloader.isChecked()
         if self.install_bootloader.isChecked():

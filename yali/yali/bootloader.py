@@ -14,6 +14,11 @@ import os
 import glob
 import shutil
 
+import gettext
+__trans = gettext.translation('yali', fallback=True)
+_ = __trans.ugettext
+
+
 from yali.constants import consts
 
 grub_conf_tmp = """
@@ -27,12 +32,21 @@ kernel (%(grub_root)s)/boot/pardus-kernel-2.6.12-2 ro root=/dev/%(root)s
 
 """
 
+win_part_tmp = """
+title= %(title)s (%(fs)s) - %(root)s
+rootnoverify (%(grub_root)s)
+makeactive
+chainloader +1
+
+"""
+
 grub_shell_tmp = """
 root (%(grub_root)s)
 setup (%(grub_dev)s)
 """
 
 device_map = os.path.join(consts.target_dir, "boot/grub/device.map")
+grub_conf = os.path.join(consts.target_dir, "boot/grub/grub.conf")
 
 def _find_grub_dev(dev):
     global device_map
@@ -47,8 +61,7 @@ def _find_grub_dev(dev):
 
 def write_grub_conf(root, dev):
     global device_map
-
-    grub_conf = os.path.join(consts.target_dir, "boot/grub/grub.conf")
+    global grub_conf
 
     d = os.path.join(consts.target_dir, "boot/grub")
     if not os.path.exists(d):
@@ -71,6 +84,20 @@ def write_grub_conf(root, dev):
                          "grub_root": grub_root,
                          "pardus_version": consts.pardus_version}
     open(grub_conf, "w").write(s)
+
+
+def grub_conf_append_win(root, dev, fs):
+    global grub_conf
+
+    grub_dev = _find_grub_dev(dev)
+    minor = str(int(root[-1]) - 1)
+    grub_root = ",".join([grub_dev, minor])
+
+    s = win_part_tmp % {"title": _("Windows Partition"),
+                        "grub_root": grub_root,
+                        "root": root,
+                        "fs": fs}
+    open(grub_conf, "a").write(s)
 
 
 def install_files():
