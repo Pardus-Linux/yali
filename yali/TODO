@@ -70,8 +70,8 @@ Legend:
 
  - run ÇOMAR in chroot and make it handle postinstall operations
 
- - bootloader
-   - find other (installed) operating systems and add to grub.conf
+ + bootloader
+   + find Windows partitions and add to grub.conf
 
 3. Release (1.0)
 
