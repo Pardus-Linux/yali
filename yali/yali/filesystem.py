@@ -22,6 +22,22 @@ import yali.sysutils as sysutils
 class FSError(YaliError):
     pass
 
+
+
+def get_filesystem(name):
+
+    # Hardcoding available filesystems like this is TOO
+    # dirty... should revisit this module (and others using this)
+    # later on.
+    if name == "ext3":
+        return Ext3FileSystem()
+    elif name == "swap" or name == "linux-swap":
+        return SwapFileSystem()
+    elif name == "ntfs":
+        return NTFSFileSystem()
+
+    return None
+
 ##
 # abstract file system class
 class FileSystem:
@@ -155,3 +171,12 @@ class SwapFileSystem(FileSystem):
         if p.close():
             raise YaliException, "swap format failed: %s" % partition.getPath()
 
+
+##
+# ntfs
+class NTFSFileSystem(FileSystem):
+
+    _name = "ntfs"
+
+    def __init__(self):
+        FileSystem.__init__(self)

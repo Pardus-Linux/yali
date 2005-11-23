@@ -23,6 +23,7 @@ import os
 from yali.parteddata import *
 from yali.partition import Partition, FreeSpace
 from yali.exception import YaliError, YaliException
+import yali.filesystem
 
 
 class DeviceError(YaliError):
@@ -193,36 +194,54 @@ class Device:
     ##
     # Add (create) a new partition to the device
     # @param type: parted partition type (eg. parted.PARTITION_PRIMARY)
-    # @param fs_type: filesystem.FileSystem
+    # @param fs: filesystem.FileSystem or file system name (like "ext3")
     # @param size_mb: size of the partition in MBs.
     def addPartition(self, type, fs, size_mb):
 
         size = int(size_mb * MEGABYTE / self._sector_size)
-        if fs:
-            fs = fs.getFSType()
 
         part = self._disk.next_partition()
-        status = 0
         while part:
             geom = part.geom
+
             if (part.type == parted.PARTITION_FREESPACE
                 and geom.length >= size):
 
-                constraint = self._disk.dev.constraint_any()
-                newp = self._disk.partition_new (type, fs,
+                return self.addPartitionStartEnd(type,
+                                                 fs,
                                                  geom.start,
                                                  geom.start + size)
 
-                try:
-                    self._disk.add_partition (newp, constraint)
-                    status = 1
-                    break
-                except parted.error, e:
-                    raise DeviceError, e
             part = self._disk.next_partition(part)
-        if not status:
-            raise DeviceError, ("Not enough free space on %s to create "
-                                "new partition" % self.getPath())
+
+        raise DeviceError, ("Not enough free space on %s to create "
+                            "new partition" % self.getPath())
+        
+    ##
+    # Add (create) a new partition to the device from start to end.
+    #
+    # @param type: parted partition type (eg. parted.PARTITION_PRIMARY)
+    # @param fs: filesystem.FileSystem or file system name (string like "ext3")
+    # @param start: start geom..
+    # @param end: end geom
+    def addPartitionStartEnd(self, type, fs, start, end):
+
+        if isinstance(fs, str):
+            # a string... get the corresponding FileSystem object
+            fs = yali.filesystem.get_filesystem(fs)
+
+        if isinstance(fs, yali.filesystem.FileSystem):
+            fs = fs.getFSType()
+        else:
+            fs = None
+
+        constraint = self._disk.dev.constraint_any()
+        newp = self._disk.partition_new (type, fs, start, end)
+
+        try:
+            self._disk.add_partition (newp, constraint)
+        except parted.error, e:
+            raise DeviceError, e
         
         return self.__addToPartitionsDict(newp)
 
