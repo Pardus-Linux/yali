@@ -67,6 +67,9 @@ Click Next button to proceed.
                      self.slotDeleteUser)
 
 
+        self.connect(self.userList, SIGNAL("doubleClicked(QListBoxItem*)"),
+                     self.slotEditUser)
+
     def shown(self):
         ctx.screens.prevEnabled()
 
@@ -89,7 +92,7 @@ Click Next button to proceed.
             self.pass_error.setText("")
 
 
-        if self.username.text() and self.pass1.text():
+        if self.username.text() and p1 and p2:
             self.createButton.setEnabled(True)
         else:
             self.createButton.setEnabled(False)
@@ -97,14 +100,22 @@ Click Next button to proceed.
     def slotCreateUser(self):
         u = yali.users.User()
         u.username = self.username.text().ascii()
-        u.realname = self.realname.text().ascii()
+        u.realname = unicode(self.realname.text().utf8().data())
         u.passwd = self.pass1.text().ascii()
         u.groups = ["users", "audio", "video", "haldaemon", "plugdev", "wheel"]
 
+
+        try:
+            self.userList.removeItem(self.edititemindex)
+            del self.edititemindex
+        except:
+            # nothing wrong. just adding a new user...
+            pass
         i = UserItem(self.userList, user = u)
 
         # clear all
         self.username.clear()
+        self.realname.clear()
         self.pass1.clear()
         self.pass2.clear()
 
@@ -115,11 +126,20 @@ Click Next button to proceed.
         self.userList.removeItem(self.userList.currentItem())
         self.checkUsers()
 
+    def slotEditUser(self, item):
+        u = item.getUser()
+
+        self.username.setText(u.username)
+        self.realname.setText(u.realname)
+
+        self.edititemindex = self.userList.currentItem()
+
     def checkUsers(self):
         if self.userList.count():
             ctx.screens.nextEnabled()
         else:
             ctx.screens.nextDisabled()
+
 
 
 class UserItem(QListBoxText):

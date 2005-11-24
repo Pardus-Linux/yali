@@ -297,6 +297,7 @@
 </widget>
 <tabstops>
     <tabstop>username</tabstop>
+    <tabstop>realname</tabstop>
     <tabstop>pass1</tabstop>
     <tabstop>pass2</tabstop>
     <tabstop>createButton</tabstop>
