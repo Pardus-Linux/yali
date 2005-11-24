@@ -21,13 +21,14 @@ import yali.gui.context as ctx
 import yali.partitiontype as parttype
 import yali.parteddata as parteddata
 import yali.partitionrequest as request
+import yali.filesystem as filesystem
 
 from yali.gui.parteditbuttons import PartEditButtons
 from yali.gui.parteditwidget import PartEditWidget
 
 
 
-editState, createState, deleteState = range(3)
+editState, createState, deleteState, resizeState = range(4)
   
 ##
 # Edit partition widget
@@ -108,6 +109,17 @@ class PartEdit(QWidget):
                 self.warning.show()
 
             elif state == editState:
+                self.edit.setState(state, self._d)
+                self.edit.show()
+
+            elif state == resizeState:
+                fs = filesystem.get_filesystem(self._d.getFSName())
+                min_size = fs.minResizeMB(self._d)
+                max_size = self._d.getMB()
+
+                self.edit.size.setMinValue(min_size)
+                self.edit.size.setMaxValue(max_size)
+
                 self.edit.setState(state, self._d)
                 self.edit.show()
 
@@ -239,6 +251,14 @@ class PartEdit(QWidget):
                 if not edit_requests(partition):
                     return
 
+            elif state == resizeState:
+                partition = self._d
+                device = partition.getDevice()
+                fs = filesystem.get_filesystem(partition.getFSName())
+                
+                size_mb = self.edit.size.text().toInt()[0]
+                device.resizePartition(fs, size_mb, partition)
+
         elif t == parteddata.freeSpaceType:
             if state == createState:
                 device = self._d.getDevice()
@@ -263,14 +283,26 @@ class PartEdit(QWidget):
 class PartEditWidgetImpl(PartEditWidget):
 
     def setState(self, state, partition=None):
-        self._state = state
 
-        if self._state == editState:
+        if state == editState:
+            self.buttonGroup.show()
+            self.format.hide()
+
             self.size.hide()
             self.use_available.hide()
             self.size_label.hide()
 
-        elif self._state == createState:
+        elif state == resizeState:
+            self.size.show()
+            self.size_label.show()
+
+            self.buttonGroup.hide()
+            self.use_available.hide()
+            self.format.hide()
+
+        elif state == createState:
+            self.buttonGroup.show()
             self.size.show()
             self.use_available.show()
             self.size_label.show()
+            self.format.show()

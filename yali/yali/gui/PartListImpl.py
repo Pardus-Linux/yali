@@ -19,6 +19,7 @@ _ = __trans.ugettext
 
 
 import yali.storage
+import yali.filesystem as filesystem
 import yali.partitionrequest as request
 import yali.partitiontype as parttype
 import yali.parteddata as parteddata
@@ -44,6 +45,8 @@ class PartList(PartListWidget):
                      self.slotDeleteClicked)
         self.connect(self.editButton, SIGNAL("clicked()"),
                      self.slotEditClicked)
+        self.connect(self.resizeButton, SIGNAL("clicked()"),
+                     self.slotResizeClicked)
 
 
     def update(self):
@@ -82,16 +85,26 @@ class PartList(PartListWidget):
 
     def slotItemSelected(self):
         item = self.list.currentItem()
-        t = item.getData().getType()
+        d = item.getData()
+        t = d.getType()
 
         if t == parteddata.deviceType:
             self.createButton.setEnabled(True)
             self.deleteButton.setEnabled(True)
-            self.editButton.setEnabled(False)
+            self.resizeButton.setEnabled(False)
+            self.editButton.setEn.abled(False)
 
             self.deleteButton.setText(_("Delete All Partitions"))
 
         elif t == parteddata.partitionType:
+
+            # check if partition is resizeable
+            fs = filesystem.get_filesystem(d.getFSName())
+            if fs.isResizeable():
+                self.resizeButton.setEnabled(True)
+            else:
+                self.resizeButton.setEnabled(False)
+
             self.createButton.setEnabled(False)
             self.deleteButton.setEnabled(True)
             self.editButton.setEnabled(True)
@@ -101,6 +114,7 @@ class PartList(PartListWidget):
         elif t == parteddata.freeSpaceType:
             self.createButton.setEnabled(True)
             self.deleteButton.setEnabled(False)
+            self.resizeButton.setEnabled(False)
             self.editButton.setEnabled(False)
             
 
@@ -113,6 +127,10 @@ class PartList(PartListWidget):
     def slotDeleteClicked(self):
         item = self.list.currentItem()
         self.emit(PYSIGNAL("signalDelete"), (self, item.getData()) )
+
+    def slotResizeClicked(self):
+        item = self.list.currentItem()
+        self.emit(PYSIGNAL("signalResize"), (self, item.getData()) )
 
     def slotEditClicked(self):
         item = self.list.currentItem()

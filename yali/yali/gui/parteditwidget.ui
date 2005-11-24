@@ -117,7 +117,7 @@
         </widget>
         <widget class="QButtonGroup" row="1" column="0">
             <property name="name">
-                <cstring>buttonGroup1</cstring>
+                <cstring>buttonGroup</cstring>
             </property>
             <property name="frameShape">
                 <enum>GroupBoxPanel</enum>

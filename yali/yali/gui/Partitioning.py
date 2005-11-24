@@ -25,7 +25,7 @@ from yali.gui.YaliDialog import Dialog
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.PartListImpl import PartList
 from yali.gui.PartEditImpl import PartEdit, \
-    editState, createState, deleteState
+    editState, createState, deleteState, resizeState
 
 
 ##
@@ -78,9 +78,13 @@ about disk partitioning.
         self.connect(self.partlist, PYSIGNAL("signalEdit"),
                      self.slotEditPart)
 
+        self.connect(self.partlist, PYSIGNAL("signalResize"),
+                     self.slotResizePart)
+
 
         self.connect(self.partedit, PYSIGNAL("signalApplied"),
                      self.slotApplied)
+
         self.connect(self.partedit, PYSIGNAL("signalCanceled"),
                      self.slotCanceled)
 
@@ -117,6 +121,12 @@ about disk partitioning.
         self.partedit.setState(editState, d)
         self.dialog = Dialog(_("Edit Partition"), self.partedit, self)
         self.dialog.exec_loop()
+
+    def slotResizePart(self, parent, d):
+        self.partedit.setState(resizeState, d)
+        self.dialog = Dialog(_("Resize Partition"), self.partedit, self)
+        self.dialog.exec_loop()
+
 
     def slotApplied(self):
         self.dialog.done(0)
