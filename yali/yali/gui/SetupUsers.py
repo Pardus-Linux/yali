@@ -98,7 +98,7 @@ Click Next button to proceed.
         u = yali.users.User()
         u.username = self.username.text().ascii()
         u.passwd = self.pass1.text().ascii()
-        u.groups = ["users", "audio", "video", "haldaemon", "wheel"]
+        u.groups = ["users", "audio", "video", "haldaemon", "plugdev", "wheel"]
 
         i = UserItem(self.userList, user = u)
 
