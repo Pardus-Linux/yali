@@ -52,7 +52,7 @@ Click Next button to proceed.
     def __init__(self, *args):
         apply(RootPassWidget.__init__, (self,) + args)
         
-        self.pass_error.hide()
+        self.pass_error.setText("")
 
         self.connect(self.pass1, SIGNAL("textChanged(const QString &)"),
                      self.slotTextChanged)
@@ -73,12 +73,13 @@ Click Next button to proceed.
 
         if p1 == p2 and p1:
             # Sould we also check password length?
-            self.pass_error.hide()
+            self.pass_error.setText("")
             ctx.screens.nextEnabled()
         else:
             ctx.screens.nextDisabled()
             if p2:
-                self.pass_error.show()
+                self.pass_error.setText(
+                    _('<font color="#ff0000">Passwords do not match!</font>'))
                 self.pass_error.setAlignment(QLabel.AlignCenter)
 
 

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-23 15:35+0200\n"
-"PO-Revision-Date: 2005-11-23 15:36+0200\n"
+"POT-Creation-Date: 2005-11-24 06:46+0200\n"
+"PO-Revision-Date: 2005-11-24 06:47+0200\n"
 "Last-Translator: Barış Metin <baris@uludag.org.tr>\n"
 "Language-Team:  <tr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -395,10 +395,6 @@ msgstr "Oluştur"
 msgid "Edit"
 msgstr "Düzenle"
 
-#: yali/gui/rootpasswidget.py:90
-msgid "<font size=\"+2\" color=\"#ff0000\">Passwords do not match!</font>"
-msgstr "<font size=\"+2\" color=\"#ff0000\">Parolalar aynı değil!</font>"
-
 #: yali/gui/rootpasswidget.py:91
 msgid ""
 "<p align=\"left\">System administrator user (root) handles important system "
@@ -523,6 +519,10 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
+#: yali/gui/SetupRootpass.py:82 yali/gui/SetupUsers.py:85
+msgid "<font color=\"#ff0000\">Passwords do not match!</font>"
+msgstr "<font color=\"#ff0000\">Parolalar aynı değil!</font>"
+
 #: yali/gui/SetupUsers.py:30
 msgid ""
 "\n"
@@ -596,10 +596,6 @@ msgstr "Parola:"
 #: yali/gui/setupuserswidget.py:128
 msgid "Create User"
 msgstr "Kullanıcı Ekle"
-
-#: yali/gui/setupuserswidget.py:129
-msgid "<font color=\"#ff0000\">Passwords do not match!</font>"
-msgstr "<font color=\"#ff0000\">Parolalar aynı değil!</font>"
 
 #: yali/gui/Welcome.py:30
 msgid ""
@@ -712,6 +708,9 @@ msgstr "Kullanıcı Dosyaları"
 #: yali/partitiontype.py:48
 msgid "Swap"
 msgstr "Swap"
+
+#~ msgid "<font size=\"+2\" color=\"#ff0000\">Passwords do not match!</font>"
+#~ msgstr "<font size=\"+2\" color=\"#ff0000\">Parolalar aynı değil!</font>"
 
 #~ msgid "Function of the partition:"
 #~ msgstr "Disk bölümünün tipi:"

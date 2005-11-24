@@ -50,7 +50,7 @@ Click Next button to proceed.
     def __init__(self, *args):
         apply(SetupUsersWidget.__init__, (self,) + args)
 
-        self.pass_error.hide()
+        self.pass_error.setText("")
         self.createButton.setEnabled(False)
 
         self.connect(self.pass1, SIGNAL("textChanged(const QString &)"),
@@ -81,11 +81,12 @@ Click Next button to proceed.
         p2 = self.pass2.text()
 
         if p2 != p1 and p2:
-            self.pass_error.show()
+            self.pass_error.setText(
+                _('<font color="#ff0000">Passwords do not match!</font>'))
             self.pass_error.setAlignment(QLabel.AlignCenter)
             return self.createButton.setEnabled(False)
         else:
-            self.pass_error.hide()
+            self.pass_error.setText("")
 
 
         if self.username.text() and self.pass1.text():

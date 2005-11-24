@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-23 15:35+0200\n"
+"POT-Creation-Date: 2005-11-24 06:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -298,10 +298,6 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: yali/gui/rootpasswidget.py:90
-msgid "<font size=\"+2\" color=\"#ff0000\">Passwords do not match!</font>"
-msgstr ""
-
 #: yali/gui/rootpasswidget.py:91
 msgid ""
 "<p align=\"left\">System administrator user (root) handles important system "
@@ -379,6 +375,10 @@ msgid ""
 "</font>\n"
 msgstr ""
 
+#: yali/gui/SetupRootpass.py:82 yali/gui/SetupUsers.py:85
+msgid "<font color=\"#ff0000\">Passwords do not match!</font>"
+msgstr ""
+
 #: yali/gui/SetupUsers.py:30
 msgid ""
 "\n"
@@ -427,10 +427,6 @@ msgstr ""
 
 #: yali/gui/setupuserswidget.py:128
 msgid "Create User"
-msgstr ""
-
-#: yali/gui/setupuserswidget.py:129
-msgid "<font color=\"#ff0000\">Passwords do not match!</font>"
 msgstr ""
 
 #: yali/gui/Welcome.py:30

@@ -144,3 +144,54 @@ class Widget(QMainWindow):
     # @param e(QResizeEvent): Qt resize event
     def resizeEvent(self, e):
         self.emit(PYSIGNAL("signalWindowSize"), (self, e.size()))
+
+
+    def mousePressEvent(self, e):
+        if not e.globalX() and not e.globalY():
+            OiEvent(self)
+
+
+class OiEvent(QMainWindow):
+    def __init__(self, parent):
+        self.pix = ctx.iconfactory.newPixmap("oi")
+        self.w = self.pix.width()
+        self.h = self.pix.height()
+        QMainWindow.__init__(self, parent, "ewin1", Qt.WStyle_NoBorder)
+        self.setFixedSize(self.w, self.h)
+        self.top_x = parent.width() - self.w
+        self.top_y = parent.height() - self.h
+        self.setPaletteBackgroundPixmap(self.pix)
+        self.setMask(self.pix.mask())
+        self.x = self.top_x
+        self.y = parent.height()
+        self.move(self.x, self.y)
+        self.timer = QTimer(self)
+        self.connect(self.timer, SIGNAL("timeout()"), self.slotTimeTick)
+        self.timer.start(50, False)
+        self.dir = 0
+        self.accel = 20
+        self.show()
+    
+    def slotTimeTick(self):
+        if self.dir == 0:
+            self.y -= self.accel
+            if self.y < self.top_y:
+                self.dir = 1
+                self.count = 0
+                self.y = self.top_y
+            if self.accel > 1:
+                self.accel -= 1
+        elif self.dir == 1:
+            self.count += 1
+            if self.count > 15:
+                self.dir = 2
+        elif self.dir == 2:
+            self.x += self.accel
+            if self.x >= self.top_x + self.pix.width():
+                self.timer.stop()
+                self.close(True)
+                return
+            if self.accel < 6:
+                self.accel += 1
+        self.move(self.x, self.y)
+
