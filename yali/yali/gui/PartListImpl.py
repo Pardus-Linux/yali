@@ -92,7 +92,7 @@ class PartList(PartListWidget):
             self.createButton.setEnabled(True)
             self.deleteButton.setEnabled(True)
             self.resizeButton.setEnabled(False)
-            self.editButton.setEn.abled(False)
+            self.editButton.setEnabled(False)
 
             self.deleteButton.setText(_("Delete All Partitions"))
 
