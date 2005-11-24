@@ -63,6 +63,8 @@ Legend:
    - ext3 resize
    - support extended partitions
 
+ - implement swap as file.
+ 
  - tests
 
  - logging system
