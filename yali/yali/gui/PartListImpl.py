@@ -99,11 +99,12 @@ class PartList(PartListWidget):
         elif t == parteddata.partitionType:
 
             # check if partition is resizeable
-            fs = filesystem.get_filesystem(d.getFSName())
-            if fs.isResizeable():
-                self.resizeButton.setEnabled(True)
-            else:
-                self.resizeButton.setEnabled(False)
+            fs = filesystem.get_filesystem(d.getFSName())            
+            resizeable = False
+            if fs:
+                if fs.isResizeable():
+                    resizeable = True
+            self.resizeButton.setEnabled(resizeable)
 
             self.createButton.setEnabled(False)
             self.deleteButton.setEnabled(True)
