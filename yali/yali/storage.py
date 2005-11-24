@@ -294,6 +294,33 @@ class Device:
     def deleteAllPartitions(self):
         self._disk.delete_all()
 
+    def resizePartition(self, fs, size_mb, part):
+
+        # maximum cylinder size currently is less than 140 MB hence
+        # this extra size should be always enough.
+        #
+        # see: http://mlf.linux.rulez.org/mlf/ezaz/ntfsresize.html
+        size_mb += 140
+
+        if isinstance(fs, str):
+            # a string... get the corresponding FileSystem object
+            fs = yali.filesystem.get_filesystem(fs)
+
+        if not isinstance(fs, yali.filesystem.FileSystem):
+            raise DeviceError, "filesystem is None, can't resize"
+
+        print dir(fs)
+        if not fs.resize(size_mb, part):
+            raise DeviceError, "fs.resize ERROR"
+
+        start = part.getPartition().geom.start
+        fs_name = part.getFSName()
+        self.deletePartition(part)
+        self.commit()
+        # FIXME: TYPE is 0
+        self.addPartitionFromStart(0, fs_name, start, size_mb)
+        self.commit()
+
     def commit(self):
         self._disk.commit()
         self.update()

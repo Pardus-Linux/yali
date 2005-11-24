@@ -18,6 +18,7 @@ import parted
 
 from yali.exception import *
 import yali.sysutils as sysutils
+import yali.parteddata as parteddata
 
 class FSError(YaliError):
     pass
@@ -45,6 +46,7 @@ class FileSystem:
     _name = None
     _filesystems = []
     _implemented = False
+    _resizeable = False
     _fs_type = None  # parted fs type
 
     def __init__(self):
@@ -110,6 +112,17 @@ class FileSystem:
     # check if filesystem is implemented
     def isImplemented(self):
         return self._implemented
+
+
+    ##
+    # set if filesystem is resizeable
+    def setResizeable(self, bool):
+        self._resizeable = bool
+
+    ##
+    # check if filesystem is resizeable
+    def isResizeable(self):
+        return self._resizeable
 
 
 ##
@@ -180,3 +193,36 @@ class NTFSFileSystem(FileSystem):
 
     def __init__(self):
         FileSystem.__init__(self)
+
+        self.setResizeable(True)
+
+
+    def resize(self, size_mb, partition):
+
+        if size_mb < self.minResizeMB(partition):
+            return False
+
+        s = "/usr/sbin/ntfsresize -f -s %dM %s" %(size_mb,
+                                                  partition.getPath())
+        try:
+            p = os.popen(s, "w")
+            p.write("y\n")
+            p.close()
+        except:
+            return False
+
+        return True
+
+
+    def minResizeMB(self, partition):
+
+        s = "/usr/sbin/ntfsresize -f -i %s" % partition.getPath()
+        lines = os.popen(s).readlines()
+        
+        MB = parteddata.MEGABYTE
+        min = 0
+        for l in lines:
+            if l.startswith("You might resize"):
+                min = int(l.split()[4]) / MB
+
+        return min
