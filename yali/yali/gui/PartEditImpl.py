@@ -286,7 +286,7 @@ class PartEditWidgetImpl(PartEditWidget):
 
         if state == editState:
             self.buttonGroup.show()
-            self.format.hide()
+            self.format.show()
 
             self.size.hide()
             self.use_available.hide()
