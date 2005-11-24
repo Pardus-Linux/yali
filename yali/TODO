@@ -58,8 +58,9 @@ Legend:
    + gui
    + help files
 
- - partitioning
-   - resize
+ / partitioning
+   + ntfs resize
+   - ext3 resize
    - support extended partitions
 
  - tests
