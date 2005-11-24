@@ -50,6 +50,7 @@ Click Next button to proceed.
     def __init__(self, *args):
         apply(SetupUsersWidget.__init__, (self,) + args)
 
+        self.pix.setPixmap(ctx.iconfactory.newPixmap("users"))
         self.pass_error.setText("")
         self.createButton.setEnabled(False)
 

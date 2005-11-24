@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>505</width>
-            <height>321</height>
+            <width>501</width>
+            <height>459</height>
         </rect>
     </property>
     <property name="caption">
@@ -169,23 +169,6 @@
                 </size>
             </property>
         </spacer>
-        <spacer row="3" column="1">
-            <property name="name">
-                <cstring>spacer10</cstring>
-            </property>
-            <property name="orientation">
-                <enum>Vertical</enum>
-            </property>
-            <property name="sizeType">
-                <enum>Fixed</enum>
-            </property>
-            <property name="sizeHint">
-                <size>
-                    <width>20</width>
-                    <height>31</height>
-                </size>
-            </property>
-        </spacer>
         <widget class="QLabel" row="2" column="1">
             <property name="name">
                 <cstring>pass_error</cstring>
@@ -229,7 +212,7 @@
                         <cstring>username</cstring>
                     </property>
                 </widget>
-                <widget class="QLineEdit" row="3" column="1">
+                <widget class="QLineEdit" row="3" column="1" rowspan="2" colspan="1">
                     <property name="name">
                         <cstring>pass2</cstring>
                     </property>
@@ -237,7 +220,7 @@
                         <enum>Password</enum>
                     </property>
                 </widget>
-                <widget class="QLabel" row="3" column="0">
+                <widget class="QLabel" row="3" column="0" rowspan="2" colspan="1">
                     <property name="name">
                         <cstring>textLabel1</cstring>
                     </property>
@@ -274,23 +257,17 @@
                         <cstring>realname</cstring>
                     </property>
                 </widget>
-                <spacer row="1" column="2" rowspan="3" colspan="1">
+                <widget class="QLabel" row="1" column="2" rowspan="3" colspan="1">
                     <property name="name">
-                        <cstring>spacer8</cstring>
+                        <cstring>pix</cstring>
                     </property>
-                    <property name="orientation">
-                        <enum>Vertical</enum>
+                    <property name="text">
+                        <string></string>
                     </property>
-                    <property name="sizeType">
-                        <enum>Expanding</enum>
+                    <property name="alignment">
+                        <set>AlignCenter</set>
                     </property>
-                    <property name="sizeHint">
-                        <size>
-                            <width>20</width>
-                            <height>70</height>
-                        </size>
-                    </property>
-                </spacer>
+                </widget>
             </grid>
         </widget>
     </grid>

@@ -52,6 +52,7 @@ Click Next button to proceed.
     def __init__(self, *args):
         apply(RootPassWidget.__init__, (self,) + args)
         
+        self.pix.setPixmap(ctx.iconfactory.newPixmap("admin"))
         self.pass_error.setText("")
 
         self.connect(self.pass1, SIGNAL("textChanged(const QString &)"),

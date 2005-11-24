@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>596</width>
-            <height>456</height>
+            <width>581</width>
+            <height>409</height>
         </rect>
     </property>
     <property name="caption">
@@ -19,7 +19,24 @@
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
-        <widget class="QLabel" row="3" column="1">
+        <spacer row="0" column="0">
+            <property name="name">
+                <cstring>spacer9_3</cstring>
+            </property>
+            <property name="orientation">
+                <enum>Vertical</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Expanding</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>20</width>
+                    <height>20</height>
+                </size>
+            </property>
+        </spacer>
+        <widget class="QLabel" row="3" column="0">
             <property name="name">
                 <cstring>pass_error</cstring>
             </property>
@@ -36,75 +53,7 @@
                 <number>0</number>
             </property>
         </widget>
-        <spacer row="3" column="2">
-            <property name="name">
-                <cstring>spacer11</cstring>
-            </property>
-            <property name="orientation">
-                <enum>Horizontal</enum>
-            </property>
-            <property name="sizeType">
-                <enum>Expanding</enum>
-            </property>
-            <property name="sizeHint">
-                <size>
-                    <width>21</width>
-                    <height>20</height>
-                </size>
-            </property>
-        </spacer>
-        <spacer row="3" column="0">
-            <property name="name">
-                <cstring>spacer11_2</cstring>
-            </property>
-            <property name="orientation">
-                <enum>Horizontal</enum>
-            </property>
-            <property name="sizeType">
-                <enum>Expanding</enum>
-            </property>
-            <property name="sizeHint">
-                <size>
-                    <width>21</width>
-                    <height>20</height>
-                </size>
-            </property>
-        </spacer>
-        <spacer row="4" column="1">
-            <property name="name">
-                <cstring>spacer9_2</cstring>
-            </property>
-            <property name="orientation">
-                <enum>Vertical</enum>
-            </property>
-            <property name="sizeType">
-                <enum>Expanding</enum>
-            </property>
-            <property name="sizeHint">
-                <size>
-                    <width>20</width>
-                    <height>21</height>
-                </size>
-            </property>
-        </spacer>
-        <spacer row="0" column="1">
-            <property name="name">
-                <cstring>spacer9_3</cstring>
-            </property>
-            <property name="orientation">
-                <enum>Vertical</enum>
-            </property>
-            <property name="sizeType">
-                <enum>Expanding</enum>
-            </property>
-            <property name="sizeHint">
-                <size>
-                    <width>20</width>
-                    <height>16</height>
-                </size>
-            </property>
-        </spacer>
-        <spacer row="2" column="1">
+        <spacer row="2" column="0">
             <property name="name">
                 <cstring>spacer9</cstring>
             </property>
@@ -117,120 +66,63 @@
             <property name="sizeHint">
                 <size>
                     <width>20</width>
-                    <height>40</height>
+                    <height>20</height>
                 </size>
             </property>
         </spacer>
-        <widget class="QLayoutWidget" row="1" column="0" rowspan="1" colspan="3">
+        <spacer row="4" column="0">
             <property name="name">
-                <cstring>layout5</cstring>
+                <cstring>spacer9_2</cstring>
             </property>
-            <vbox>
+            <property name="orientation">
+                <enum>Vertical</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Expanding</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>20</width>
+                    <height>20</height>
+                </size>
+            </property>
+        </spacer>
+        <widget class="QLayoutWidget" row="1" column="0">
+            <property name="name">
+                <cstring>layout13</cstring>
+            </property>
+            <grid>
                 <property name="name">
                     <cstring>unnamed</cstring>
                 </property>
-                <property name="spacing">
-                    <number>25</number>
-                </property>
-                <widget class="QLabel">
+                <widget class="QLabel" row="0" column="1">
                     <property name="name">
-                        <cstring>textLabel1</cstring>
+                        <cstring>pix</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>0</hsizetype>
+                            <vsizetype>5</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
                     </property>
                     <property name="text">
-                        <string>&lt;p align="left"&gt;System administrator user (root) handles important system &lt;br&gt;
-maintanence tasks. Please give password for this special user &lt;br&gt;
-and do not forget this password. Note that you shouldn't write &lt;br&gt;
-this password elsewhere for privacy reasons.&lt;/p&gt;</string>
+                        <string></string>
                     </property>
                     <property name="alignment">
-                        <set>WordBreak|AlignCenter</set>
+                        <set>AlignCenter</set>
                     </property>
                 </widget>
-                <widget class="QLayoutWidget">
+                <widget class="QLayoutWidget" row="2" column="1" rowspan="1" colspan="2">
                     <property name="name">
-                        <cstring>layout4</cstring>
+                        <cstring>layout11</cstring>
                     </property>
                     <grid>
                         <property name="name">
                             <cstring>unnamed</cstring>
                         </property>
-                        <widget class="QLineEdit" row="0" column="2">
-                            <property name="name">
-                                <cstring>pass1</cstring>
-                            </property>
-                            <property name="maximumSize">
-                                <size>
-                                    <width>200</width>
-                                    <height>32767</height>
-                                </size>
-                            </property>
-                            <property name="echoMode">
-                                <enum>Password</enum>
-                            </property>
-                            <property name="inputMask">
-                                <string></string>
-                            </property>
-                        </widget>
-                        <spacer row="0" column="0">
-                            <property name="name">
-                                <cstring>spacer6</cstring>
-                            </property>
-                            <property name="orientation">
-                                <enum>Horizontal</enum>
-                            </property>
-                            <property name="sizeType">
-                                <enum>Expanding</enum>
-                            </property>
-                            <property name="sizeHint">
-                                <size>
-                                    <width>31</width>
-                                    <height>20</height>
-                                </size>
-                            </property>
-                        </spacer>
-                        <spacer row="1" column="3">
-                            <property name="name">
-                                <cstring>spacer9_4</cstring>
-                            </property>
-                            <property name="orientation">
-                                <enum>Horizontal</enum>
-                            </property>
-                            <property name="sizeType">
-                                <enum>Expanding</enum>
-                            </property>
-                            <property name="sizeHint">
-                                <size>
-                                    <width>21</width>
-                                    <height>20</height>
-                                </size>
-                            </property>
-                        </spacer>
-                        <widget class="QLabel" row="0" column="1">
-                            <property name="name">
-                                <cstring>textLabel3</cstring>
-                            </property>
-                            <property name="text">
-                                <string>System administrator password:</string>
-                            </property>
-                        </widget>
-                        <spacer row="0" column="3">
-                            <property name="name">
-                                <cstring>spacer8</cstring>
-                            </property>
-                            <property name="orientation">
-                                <enum>Horizontal</enum>
-                            </property>
-                            <property name="sizeType">
-                                <enum>Expanding</enum>
-                            </property>
-                            <property name="sizeHint">
-                                <size>
-                                    <width>31</width>
-                                    <height>20</height>
-                                </size>
-                            </property>
-                        </spacer>
-                        <widget class="QLineEdit" row="1" column="2">
+                        <widget class="QLineEdit" row="1" column="1">
                             <property name="name">
                                 <cstring>pass2</cstring>
                             </property>
@@ -247,24 +139,15 @@ this password elsewhere for privacy reasons.&lt;/p&gt;</string>
                                 <string></string>
                             </property>
                         </widget>
-                        <spacer row="1" column="0">
+                        <widget class="QLabel" row="0" column="0">
                             <property name="name">
-                                <cstring>spacer7</cstring>
+                                <cstring>textLabel3</cstring>
                             </property>
-                            <property name="orientation">
-                                <enum>Horizontal</enum>
+                            <property name="text">
+                                <string>System administrator password:</string>
                             </property>
-                            <property name="sizeType">
-                                <enum>Expanding</enum>
-                            </property>
-                            <property name="sizeHint">
-                                <size>
-                                    <width>51</width>
-                                    <height>20</height>
-                                </size>
-                            </property>
-                        </spacer>
-                        <widget class="QLabel" row="1" column="1">
+                        </widget>
+                        <widget class="QLabel" row="1" column="0">
                             <property name="name">
                                 <cstring>textLabel3_2</cstring>
                             </property>
@@ -272,9 +155,105 @@ this password elsewhere for privacy reasons.&lt;/p&gt;</string>
                                 <string>System administrator password (again):</string>
                             </property>
                         </widget>
+                        <widget class="QLineEdit" row="0" column="1">
+                            <property name="name">
+                                <cstring>pass1</cstring>
+                            </property>
+                            <property name="maximumSize">
+                                <size>
+                                    <width>200</width>
+                                    <height>32767</height>
+                                </size>
+                            </property>
+                            <property name="echoMode">
+                                <enum>Password</enum>
+                            </property>
+                            <property name="inputMask">
+                                <string></string>
+                            </property>
+                        </widget>
                     </grid>
                 </widget>
-            </vbox>
+                <widget class="QLabel" row="0" column="2">
+                    <property name="name">
+                        <cstring>textLabel1</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>0</hsizetype>
+                            <vsizetype>5</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                        <size>
+                            <width>370</width>
+                            <height>0</height>
+                        </size>
+                    </property>
+                    <property name="text">
+                        <string>&lt;p align="left"&gt;System administrator user (root) handles important system &lt;br&gt;
+maintanence tasks. Please give password for this special user &lt;br&gt;
+and do not forget this password. Note that you shouldn't write &lt;br&gt;
+this password elsewhere for privacy reasons.&lt;/p&gt;</string>
+                    </property>
+                    <property name="alignment">
+                        <set>WordBreak|AlignVCenter|AlignLeft</set>
+                    </property>
+                </widget>
+                <spacer row="1" column="2">
+                    <property name="name">
+                        <cstring>spacer9_5</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Vertical</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Fixed</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>20</width>
+                            <height>16</height>
+                        </size>
+                    </property>
+                </spacer>
+                <spacer row="0" column="3">
+                    <property name="name">
+                        <cstring>spacer29</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>21</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+                <spacer row="0" column="0">
+                    <property name="name">
+                        <cstring>spacer28</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>21</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+            </grid>
         </widget>
     </grid>
 </widget>
