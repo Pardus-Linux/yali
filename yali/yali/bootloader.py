@@ -27,7 +27,7 @@ default 0
 timeout 5
 splashimage = (%(grub_root)s)/boot/grub/splash.xpm.gz
 
-title=2.6.12-2 [ %(pardus_version)s ]
+title=  %(pardus_version)s
 root (%(grub_root)s)
 kernel (%(grub_root)s)/boot/kernel-2.6.14.2-6 ro root=/dev/%(root)s
 
