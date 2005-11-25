@@ -100,7 +100,7 @@ class Runner:
 # For testing
 #        self._window.resize(800,600)
 
-        self._window.setActiveWindow()
+#        self._window.setActiveWindow()
         self._app.exec_loop()
 
 
