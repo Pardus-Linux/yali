@@ -257,5 +257,9 @@ this password elsewhere for privacy reasons.&lt;/p&gt;</string>
         </widget>
     </grid>
 </widget>
+<tabstops>
+    <tabstop>pass1</tabstop>
+    <tabstop>pass2</tabstop>
+</tabstops>
 <layoutdefaults spacing="6" margin="11"/>
 </UI>
