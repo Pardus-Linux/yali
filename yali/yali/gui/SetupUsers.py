@@ -101,7 +101,8 @@ Click Next button to proceed.
     def slotCreateUser(self):
         u = yali.users.User()
         u.username = self.username.text().ascii()
-        u.realname = unicode(self.realname.text().utf8().data())
+        # ignore last character. see bug #887
+        u.realname = unicode(self.realname.text().utf8().data())[:-1]
         u.passwd = self.pass1.text().ascii()
         u.groups = ["users", "audio", "video", "haldaemon", "plugdev", "wheel"]
 
