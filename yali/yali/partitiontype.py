@@ -35,14 +35,16 @@ class RootPartitionType(PartitionType):
     filesystem = yali.filesystem.Ext3FileSystem()
     mountpoint = "/"
     mountoptions = "noatime"
-    parted_type = 0
+    parted_type = parted.PARTITION_PRIMARY
+    parted_flags = [ parted.PARTITION_BOOT ]
 
 class HomePartitionType(PartitionType):
     name = _("Users's Files")
     filesystem = yali.filesystem.Ext3FileSystem()
     mountpoint = "/home"
     mountoptions = "noatime"
-    parted_type = 0
+    parted_type = parted.PARTITION_PRIMARY
+    parted_flags = []
 
 class SwapPartitionType(PartitionType):
     name = _("Swap")
@@ -50,6 +52,7 @@ class SwapPartitionType(PartitionType):
     mountpoint = None
     mountoptions = "sw"
     parted_type = parted.PARTITION_SWAP
+    parted_flags = []
 
 
 root = RootPartitionType()

@@ -179,8 +179,8 @@ class PartEdit(QWidget):
 
             size = self.edit.size.text().toInt()[0]
 
-            # FIXME: type doesn't work!
-            p = device.addPartition(0, t.filesystem, size)
+            # create a new partition with the data provided from PartitionPype
+            p = device.addPartition(t.parted_type, t.filesystem, size, t.parted_flags)
             device.commit()
             partition = device.getPartition(p.num)
 

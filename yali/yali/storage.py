@@ -196,7 +196,7 @@ class Device:
     # @param type: parted partition type (eg. parted.PARTITION_PRIMARY)
     # @param fs: filesystem.FileSystem or file system name (like "ext3")
     # @param size_mb: size of the partition in MBs.
-    def addPartition(self, type, fs, size_mb):
+    def addPartition(self, type, fs, size_mb, flags = []):
 
         size = int(size_mb * MEGABYTE / self._sector_size)
 
@@ -210,7 +210,8 @@ class Device:
                 return self.addPartitionStartEnd(type,
                                                  fs,
                                                  geom.start,
-                                                 geom.start + size)
+                                                 geom.start + size,
+                                                 flags)
 
             part = self._disk.next_partition(part)
 
@@ -224,7 +225,7 @@ class Device:
     # @param fs: filesystem.FileSystem or file system name (string like "ext3")
     # @param start: start geom..
     # @param end: end geom
-    def addPartitionStartEnd(self, type, fs, start, end):
+    def addPartitionStartEnd(self, type, fs, start, end, flags = []):
 
         if isinstance(fs, str):
             # a string... get the corresponding FileSystem object
@@ -237,6 +238,9 @@ class Device:
 
         constraint = self._disk.dev.constraint_any()
         newp = self._disk.partition_new (type, fs, start, end)
+        for flag in flags:
+            newp.set_flag(flag, 1)
+            
 
         try:
             self._disk.add_partition (newp, constraint)
