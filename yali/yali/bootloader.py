@@ -21,7 +21,6 @@ _ = __trans.ugettext
 
 from yali.constants import consts
 
-# FIXME: don't hardcode kernel path
 grub_conf_tmp = """
 default 0
 timeout 5
@@ -29,7 +28,7 @@ splashimage = (%(grub_root)s)/boot/grub/splash.xpm.gz
 
 title=  %(pardus_version)s
 root (%(grub_root)s)
-kernel (%(grub_root)s)/boot/kernel-2.6.14.2-6 ro root=/dev/%(root)s
+kernel (%(grub_root)s)/boot/%(boot_kernel)s ro root=/dev/%(root)s
 
 """
 
@@ -64,9 +63,9 @@ def write_grub_conf(root, dev):
     global device_map
     global grub_conf
 
-    d = os.path.join(consts.target_dir, "boot/grub")
-    if not os.path.exists(d):
-        os.makedirs(d)
+    grub_dir = os.path.join(consts.target_dir, "boot/grub")
+    if not os.path.exists(grub_dir):
+        os.makedirs(grub_dir)
 
     #write an empty grub.conf, for grub to create a device map.
     open(grub_conf, "w").close()
@@ -81,9 +80,17 @@ def write_grub_conf(root, dev):
     minor = str(int(root[-1]) - 1)
     grub_root = ",".join(["hd0", minor])
 
+
+    def find_boot_kernel():
+        d = os.path.join(consts.target_dir, "boot")
+        k = glob.glob(d + "/kernel-*")
+        return os.path.basename(k[0])
+        
+
     s = grub_conf_tmp % {"root": root,
                          "grub_root": grub_root,
-                         "pardus_version": consts.pardus_version}
+                         "pardus_version": consts.pardus_version,
+                         "boot_kernel": find_boot_kernel()}
     open(grub_conf, "w").write(s)
 
 
