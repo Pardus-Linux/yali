@@ -34,6 +34,7 @@ class User:
         self.group_path  = os.path.join(consts.target_dir, "etc/group")
 
     def changePasswd(self, passwd):
+        self.passwd = passwd
         shadow_content = open(self.shadow_path, 'r').readlines()
         shadow_file = open(self.shadow_path, 'w')
 
