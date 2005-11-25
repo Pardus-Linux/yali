@@ -21,6 +21,7 @@ _ = __trans.ugettext
 
 from yali.constants import consts
 
+# FIXME: don't hardcode kernel path
 grub_conf_tmp = """
 default 0
 timeout 5
@@ -28,7 +29,7 @@ splashimage = (%(grub_root)s)/boot/grub/splash.xpm.gz
 
 title=2.6.12-2 [ %(pardus_version)s ]
 root (%(grub_root)s)
-kernel (%(grub_root)s)/boot/pardus-kernel-2.6.12-2 ro root=/dev/%(root)s
+kernel (%(grub_root)s)/boot/kernel-2.6.14.2-6 ro root=/dev/%(root)s
 
 """
 
