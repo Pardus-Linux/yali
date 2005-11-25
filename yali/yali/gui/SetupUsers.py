@@ -73,6 +73,7 @@ Click Next button to proceed.
 
     def shown(self):
         ctx.screens.prevEnabled()
+        self.checkUsers()
 
     def execute(self):
         for i in range(self.userList.count()):
