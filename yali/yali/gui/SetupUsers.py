@@ -133,6 +133,8 @@ Click Next button to proceed.
 
         self.username.setText(u.username)
         self.realname.setText(u.realname)
+        self.pass1.setText(u.passwd)
+        self.pass2.setText(u.passwd)
 
         self.edititemindex = self.userList.currentItem()
 
