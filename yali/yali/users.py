@@ -17,6 +17,7 @@ import glob
 import md5
 import os
 
+from string import ascii_letters
 from yali.constants import consts
 
 
@@ -91,6 +92,14 @@ class User:
               map(lambda x: x[0], [line.split(':') for line in open(self.passwd_path, 'r').readlines()])):
             return True
         return False
+
+    def usernameIsValid(self):
+        allowed_chars = ascii_letters + '.' + '_'
+        return len(self.username) == len(filter(lambda u: [x for x in allowed_chars if x == u], self.username))
+
+    def realnameIsValid(self):
+        not_allowed_chars = '\n' + ':'
+        return '' == filter(lambda r: [x for x in not_allowed_chars if x == r], self.realname)
 
     def __appendGroups(self):
         group_content = open(self.group_path, 'r').readlines()
