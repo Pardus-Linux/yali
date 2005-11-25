@@ -288,6 +288,8 @@ class PartEditWidgetImpl(PartEditWidget):
             self.buttonGroup.show()
             self.format.show()
 
+            self.format.setChecked(True)
+
             self.size.hide()
             self.use_available.hide()
             self.size_label.hide()
@@ -295,6 +297,8 @@ class PartEditWidgetImpl(PartEditWidget):
         elif state == resizeState:
             self.size.show()
             self.size_label.show()
+
+            self.size.setValue(self.size.minValue())
 
             self.buttonGroup.hide()
             self.use_available.hide()
@@ -306,3 +310,7 @@ class PartEditWidgetImpl(PartEditWidget):
             self.use_available.show()
             self.size_label.show()
             self.format.show()
+
+            self.size.setValue(0)
+            self.format.setChecked(True)
+            self.use_available.setChecked(False)
