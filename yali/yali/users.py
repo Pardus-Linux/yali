@@ -86,6 +86,12 @@ class User:
                 return i
         return i-1
 
+    def isUserExist(self):
+        if filter(lambda x: x == self.username, \
+              map(lambda x: x[0], [line.split(':') for line in open(self.passwd_path, 'r').readlines()])):
+            return True
+        return False
+
     def __appendGroups(self):
         group_content = open(self.group_path, 'r').readlines()
         group_file = open(self.group_path, 'w')
