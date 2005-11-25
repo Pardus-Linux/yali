@@ -70,8 +70,10 @@ class NavButton(QWidget):
 
         if self._enabled:
             self.label.setPixmap(self._pix)
+            self.setCursor(QCursor(13))
         else:
             self.label.setPixmap(self._pix_disabled)
+            self.setCursor(QCursor(0))
             
 
     def mouseReleaseEvent(self, e):
