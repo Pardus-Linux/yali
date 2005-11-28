@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-24 06:46+0200\n"
-"PO-Revision-Date: 2005-11-24 06:47+0200\n"
+"POT-Creation-Date: 2005-11-28 09:29+0200\n"
+"PO-Revision-Date: 2005-11-28 09:30+0200\n"
 "Last-Translator: Barış Metin <baris@uludag.org.tr>\n"
 "Language-Team:  <tr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -64,8 +64,8 @@ msgstr ""
 
 #: yali/gui/autopartwidget.py:80 yali/gui/bootloaderwidget.py:56
 #: yali/gui/parteditbuttons.py:46 yali/gui/parteditwidget.py:81
-#: yali/gui/partlistwidget.py:71 yali/gui/rootpasswidget.py:89
-#: yali/gui/setupuserswidget.py:121 yali/gui/welcomewidget.py:88
+#: yali/gui/partlistwidget.py:75 yali/gui/rootpasswidget.py:95
+#: yali/gui/setupuserswidget.py:127 yali/gui/welcomewidget.py:88
 msgid "Form1"
 msgstr "Form1"
 
@@ -231,17 +231,17 @@ msgstr "İptal"
 msgid "Apply"
 msgstr "Uygula"
 
-#: yali/gui/PartEditImpl.py:99
+#: yali/gui/PartEditImpl.py:100
 #, python-format
 msgid "You are going to delete all partitions on device '%s'"
 msgstr "'%s' aygıtı üzerindeki tüm disk bölümlerini silmek üzeresiniz!"
 
-#: yali/gui/PartEditImpl.py:106
+#: yali/gui/PartEditImpl.py:107
 #, python-format
 msgid "You are going to delete partition '%s' on device '%s'!"
 msgstr "'%s' disk bölümünü '%s' aygıtından silmek üzeresiniz!"
 
-#: yali/gui/PartEditImpl.py:163 yali/gui/PartEditImpl.py:187
+#: yali/gui/PartEditImpl.py:175 yali/gui/PartEditImpl.py:199
 #, python-format
 msgid "'Install Root' size must be larger than %s MB."
 msgstr "'Sistem Kurulumu' bölümünü en az %s MB olmalı."
@@ -290,7 +290,7 @@ msgid ""
 "In order to use Pardus, you must create one Linux filesystem (for the \n"
 "basic files and folders) and a swap space (for improved performance). \n"
 "We advise you to allocate at least 4 GBs of hard disk area and \n"
-"swap space (between 500 Mb - 2 GB, according to your needs) for \n"
+"swap space (between 500 MB - 2 GB, according to your needs) for \n"
 "convenience. A Linux partition size less than 2.5 GB is not allowed.\n"
 "</p>\n"
 "<p>\n"
@@ -317,7 +317,7 @@ msgstr ""
 "Pardus'u kurabilmek için, üzerinde Linux'un temel dosya \n"
 "ve dizinleri tutan (en az 4 GB boyunda) bir disk bölümü ile, \n"
 "sistemin performanslı çalışmasını sağlayan bir takas alanı \n"
-"(500 Mb - 2 GB arası) bulunmalıdır. Linux'un kurulacağı \n"
+"(500 MB - 2 GB arası) bulunmalıdır. Linux'un kurulacağı \n"
 "disk alanı 2.5 GB'tan daha az olamaz. \n"
 "</p> \n"
 "<p> \n"
@@ -326,76 +326,92 @@ msgstr ""
 "</p> \n"
 "</font>\n"
 
-#: yali/gui/Partitioning.py:108
+#: yali/gui/Partitioning.py:112
 msgid "Create Partition"
 msgstr "Disk Bölümü Oluştur"
 
-#: yali/gui/Partitioning.py:113
+#: yali/gui/Partitioning.py:117
 msgid "Delete Partition"
 msgstr "Disk Bölümünü Sil"
 
-#: yali/gui/Partitioning.py:118
+#: yali/gui/Partitioning.py:122
 msgid "Edit Partition"
 msgstr "Disk Bölümünü Düzenle"
 
-#: yali/gui/PartListImpl.py:72
+#: yali/gui/Partitioning.py:127
+msgid "Resize Partition"
+msgstr "Bölümü Yeniden Boyutlandır"
+
+#: yali/gui/PartListImpl.py:75
 msgid "Free"
 msgstr "Boş"
 
-#: yali/gui/PartListImpl.py:74
+#: yali/gui/PartListImpl.py:77
 #, python-format
 msgid "Partition %d"
 msgstr "Disk bölümü %d"
 
-#: yali/gui/PartListImpl.py:92
+#: yali/gui/PartListImpl.py:97
 msgid "Delete All Partitions"
 msgstr "Tüm Disk Bölümlerini Sil"
 
-#: yali/gui/PartListImpl.py:99 yali/gui/partlistwidget.py:79
+#: yali/gui/PartListImpl.py:113 yali/gui/partlistwidget.py:77
 msgid "Delete Selected Partition"
 msgstr "Seçili Disk Bölümünü Sil"
 
-#: yali/gui/PartListImpl.py:151
+#: yali/gui/PartListImpl.py:170
 msgid "Formatting!"
 msgstr "Biçimlendiriliyor!"
 
-#: yali/gui/PartListImpl.py:153
+#: yali/gui/PartListImpl.py:172
 msgid "YES"
 msgstr "EVET"
 
-#: yali/gui/partlistwidget.py:35 yali/gui/partlistwidget.py:73
+#: yali/gui/partlistwidget.py:47 yali/gui/partlistwidget.py:79
 msgid "Device"
 msgstr "Aygıt"
 
-#: yali/gui/partlistwidget.py:36 yali/gui/partlistwidget.py:74
+#: yali/gui/partlistwidget.py:48 yali/gui/partlistwidget.py:80
 msgid "Size"
 msgstr "Boyut"
 
-#: yali/gui/partlistwidget.py:37 yali/gui/partlistwidget.py:75
+#: yali/gui/partlistwidget.py:49 yali/gui/partlistwidget.py:81
 msgid "Partition Type"
 msgstr "Disk Bölümü Tipi"
 
-#: yali/gui/partlistwidget.py:38 yali/gui/partlistwidget.py:76
+#: yali/gui/partlistwidget.py:50 yali/gui/partlistwidget.py:82
 msgid "Filesystem"
 msgstr "Dosya Sistemi"
 
-#: yali/gui/partlistwidget.py:39 yali/gui/partlistwidget.py:77
+#: yali/gui/partlistwidget.py:51 yali/gui/partlistwidget.py:83
 msgid "Format?"
 msgstr "Biçimlendir?"
 
-#: yali/gui/partlistwidget.py:72
-msgid "Partitions:"
-msgstr "Disk Bölümleri:"
-
-#: yali/gui/partlistwidget.py:78
+#: yali/gui/partlistwidget.py:76
 msgid "Create"
 msgstr "Oluştur"
 
-#: yali/gui/partlistwidget.py:80
+#: yali/gui/partlistwidget.py:78
+msgid "Partitions:"
+msgstr "Disk Bölümleri:"
+
+#: yali/gui/partlistwidget.py:84
 msgid "Edit"
 msgstr "Düzenle"
 
-#: yali/gui/rootpasswidget.py:91
+#: yali/gui/partlistwidget.py:85
+msgid "Resize"
+msgstr "Yeniden Boyutlandır"
+
+#: yali/gui/rootpasswidget.py:99
+msgid "System administrator password:"
+msgstr "Sistem yöneticisi parolası:"
+
+#: yali/gui/rootpasswidget.py:100
+msgid "System administrator password (again):"
+msgstr "Sistem yöneticisi parolası (tekrar):"
+
+#: yali/gui/rootpasswidget.py:102
 msgid ""
 "<p align=\"left\">System administrator user (root) handles important system "
 "<br>\n"
@@ -407,14 +423,6 @@ msgstr ""
 "yürütür. Lütfen bu özel kullanıcı için bir parola tanımlayın <br>\n"
 "ve bu parolayı unutmayın. Gizlilik nedenlerinden dolayı <br>\n"
 "bu parolayı hiç bir yere yazmamanız önerilir.</p>"
-
-#: yali/gui/rootpasswidget.py:96
-msgid "System administrator password:"
-msgstr "Sistem yöneticisi parolası:"
-
-#: yali/gui/rootpasswidget.py:98
-msgid "System administrator password (again):"
-msgstr "Sistem yöneticisi parolası (tekrar):"
 
 #: yali/gui/runner.py:47
 msgid "Prepare for install"
@@ -519,7 +527,7 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/SetupRootpass.py:82 yali/gui/SetupUsers.py:85
+#: yali/gui/SetupRootpass.py:83 yali/gui/SetupUsers.py:90
 msgid "<font color=\"#ff0000\">Passwords do not match!</font>"
 msgstr "<font color=\"#ff0000\">Parolalar aynı değil!</font>"
 
@@ -569,33 +577,37 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/setupuserswidget.py:122
+#: yali/gui/setupuserswidget.py:128
 msgid "Delete Selected User"
 msgstr "Seçili Kullanıcıyı Sil"
 
-#: yali/gui/setupuserswidget.py:123
+#: yali/gui/setupuserswidget.py:129
 msgid "Users:"
 msgstr "Kullanıcılar:"
 
-#: yali/gui/setupuserswidget.py:124
+#: yali/gui/setupuserswidget.py:131
 msgid "New User"
 msgstr "Yeni Kullanıcı"
 
-#: yali/gui/setupuserswidget.py:125
+#: yali/gui/setupuserswidget.py:132
 msgid "User Name:"
 msgstr "Kullanıcı Adı:"
 
-#: yali/gui/setupuserswidget.py:126
+#: yali/gui/setupuserswidget.py:133
+msgid "Create User"
+msgstr "Kullanıcı Ekle"
+
+#: yali/gui/setupuserswidget.py:134
 msgid "Password (again):"
 msgstr "Parola (tekrar):"
 
-#: yali/gui/setupuserswidget.py:127
+#: yali/gui/setupuserswidget.py:135
 msgid "Password:"
 msgstr "Parola:"
 
-#: yali/gui/setupuserswidget.py:128
-msgid "Create User"
-msgstr "Kullanıcı Ekle"
+#: yali/gui/setupuserswidget.py:136
+msgid "Real Name:"
+msgstr "Gerçek İsim:"
 
 #: yali/gui/Welcome.py:30
 msgid ""
@@ -685,7 +697,7 @@ msgstr "Sistemi Yeniden Başlat!"
 msgid "Release Notes"
 msgstr "Sürüm Notları"
 
-#: yali/bootloader.py:96
+#: yali/bootloader.py:104
 msgid "Windows Partition"
 msgstr "Windows Disk Bölümü"
 
@@ -701,11 +713,11 @@ msgstr "boş alan"
 msgid "Install Root"
 msgstr "Sistem Kurulumu"
 
-#: yali/partitiontype.py:41
+#: yali/partitiontype.py:42
 msgid "Users's Files"
 msgstr "Kullanıcı Dosyaları"
 
-#: yali/partitiontype.py:48
+#: yali/partitiontype.py:50
 msgid "Swap"
 msgstr "Swap"
 

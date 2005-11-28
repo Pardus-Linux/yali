@@ -45,7 +45,7 @@ destroy the previously saved information on selected partitions. </b>
 In order to use Pardus, you must create one Linux filesystem (for the 
 basic files and folders) and a swap space (for improved performance). 
 We advise you to allocate at least 4 GBs of hard disk area and 
-swap space (between 500 Mb - 2 GB, according to your needs) for 
+swap space (between 500 MB - 2 GB, according to your needs) for 
 convenience. A Linux partition size less than 2.5 GB is not allowed.
 </p>
 <p>
