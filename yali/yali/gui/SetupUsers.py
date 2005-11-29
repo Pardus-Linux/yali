@@ -108,6 +108,20 @@ Click Next button to proceed.
         u.groups = ["users", "audio", "video", "haldaemon", "plugdev", "wheel"]
 
 
+        # check user validity
+        if u.exists():
+            self.pass_error.setText(
+                _('<font color="#ff0000">Username exists, choose another one!</font>'))
+            return
+        elif not u.usernameIsValid():
+            self.pass_error.setText(
+                _('<font color="#ff0000">Username contains invalid characters!</font>'))
+            return
+        elif not u.realnameIsValid():
+            self.pass_error.setText(
+                _('<font color="#ff0000">Realname contains invalid characters!</font>'))
+            return
+
         try:
             self.userList.removeItem(self.edititemindex)
             del self.edititemindex
