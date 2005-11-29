@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-28 09:29+0200\n"
+"POT-Creation-Date: 2005-11-29 16:33+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: yali/gui/AutoPartitioning.py:33
+#: yali/gui/AutoPartitioning.py:34
 msgid ""
 "\n"
 "<font size=\"+2\">Automatic Partitioning</font>\n"
@@ -496,7 +496,7 @@ msgid "Release Notes"
 msgstr ""
 
 #: yali/bootloader.py:104
-msgid "Windows Partition"
+msgid "Windows"
 msgstr ""
 
 #: yali/partition.py:32

@@ -101,7 +101,7 @@ def grub_conf_append_win(root, dev, fs):
     minor = str(int(root[-1]) - 1)
     grub_root = ",".join([grub_dev, minor])
 
-    s = win_part_tmp % {"title": _("Windows Partition"),
+    s = win_part_tmp % {"title": _("Windows"),
                         "grub_root": grub_root,
                         "root": root,
                         "fs": fs}

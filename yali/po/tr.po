@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-28 09:29+0200\n"
-"PO-Revision-Date: 2005-11-28 09:30+0200\n"
+"POT-Creation-Date: 2005-11-29 16:33+0200\n"
+"PO-Revision-Date: 2005-11-29 16:34+0200\n"
 "Last-Translator: Barış Metin <baris@uludag.org.tr>\n"
 "Language-Team:  <tr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11\n"
 
-#: yali/gui/AutoPartitioning.py:33
+#: yali/gui/AutoPartitioning.py:34
 msgid ""
 "\n"
 "<font size=\"+2\">Automatic Partitioning</font>\n"
@@ -698,8 +698,8 @@ msgid "Release Notes"
 msgstr "Sürüm Notları"
 
 #: yali/bootloader.py:104
-msgid "Windows Partition"
-msgstr "Windows Disk Bölümü"
+msgid "Windows"
+msgstr "Windows"
 
 #: yali/partition.py:32
 msgid "unknown"
@@ -720,6 +720,9 @@ msgstr "Kullanıcı Dosyaları"
 #: yali/partitiontype.py:50
 msgid "Swap"
 msgstr "Swap"
+
+#~ msgid "Windows Partition"
+#~ msgstr "Windows Disk Bölümü"
 
 #~ msgid "<font size=\"+2\" color=\"#ff0000\">Passwords do not match!</font>"
 #~ msgstr "<font size=\"+2\" color=\"#ff0000\">Parolalar aynı değil!</font>"
