@@ -47,7 +47,10 @@ class Screens(QObject, Steps):
         prev = self.getCurrentIndex() - 1
         if self.hasIndex(prev):
             self.setCurrent(prev)
-        
+
+    def goToScreen(self, num):
+        if self.hasIndex(num):
+            self.setCurrent(num)
 
     def nextDisabled(self):
         self.emit(PYSIGNAL("nextButtonDisabled"), ())

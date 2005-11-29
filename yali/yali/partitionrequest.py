@@ -50,7 +50,7 @@ class RequestList(list):
 
         # mount others
         for r in self.searchReqType(mountRequestType):
-            if r.requestType() != rootreq:
+            if r.partitionType() != rootreq.partitionType():
                 r.applyRequest()
 
     ##

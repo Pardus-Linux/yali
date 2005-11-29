@@ -11,6 +11,7 @@
 #
 
 
+import time
 from qt import *
 
 import gettext
@@ -109,10 +110,13 @@ about disk partitioning.
         if self.accept_auto.isChecked():
             ctx.use_autopart = True
             autopartDevice()
+            # need to wait for devices to be created
+            time.sleep(1)
             ctx.partrequests.applyAll()
 
             # skip next screen()
-            ctx.screens.next()
+            num = ctx.screens.getCurrentIndex() + 1
+            ctx.screens.goToScreen(num)
         
 
 
