@@ -223,6 +223,6 @@ class NTFSFileSystem(FileSystem):
         min = 0
         for l in lines:
             if l.startswith("You might resize"):
-                min = int(l.split()[4]) / MB
+                min = int(l.split()[4]) / MB + 140
 
         return min
