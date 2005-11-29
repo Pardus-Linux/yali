@@ -62,7 +62,8 @@ about disk partitioning.
 
         # fill device list
         for dev in yali.storage.devices:
-            DeviceItem(self.device_list, dev)
+            if dev.getTotalMB() >= ctx.consts.min_root_size:
+                DeviceItem(self.device_list, dev)
 
         # don't enable auto partitioning if no device is selected
         self.accept_auto.setEnabled(False)
