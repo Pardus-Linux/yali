@@ -29,7 +29,7 @@ splashimage = (%(grub_root)s)/boot/grub/splash.xpm.gz
 title=  %(pardus_version)s
 root (%(grub_root)s)
 kernel (%(grub_root)s)/boot/%(boot_kernel)s ro root=/dev/%(root)s
-
+initrd=(%(grub_root)s)/boot/initrd-%(boot_kernel)s 
 """
 
 win_part_tmp = """
