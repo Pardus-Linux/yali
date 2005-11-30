@@ -71,7 +71,7 @@ Legend:
 
  - exception handling
 
- - run ÇOMAR in chroot and make it handle postinstall operations
+ + run ÇOMAR in chroot and make it handle postinstall operations
 
  + bootloader
    + find Windows partitions and add to grub.conf
