@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-29 16:33+0200\n"
-"PO-Revision-Date: 2005-11-29 16:34+0200\n"
+"POT-Creation-Date: 2005-12-01 00:42+0200\n"
+"PO-Revision-Date: 2005-11-29 00:43+0200\n"
 "Last-Translator: Barış Metin <baris@uludag.org.tr>\n"
 "Language-Team:  <tr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -84,7 +84,7 @@ msgid ""
 "<p>Below, you can select an hard disk for automatic partitioning.\n"
 "Selected disk will be used for Pardus installation.</p>\n"
 "\n"
-"<p><font color=\"#ff0000\"><b>Warning:</b>\n"
+"<p><font color=\"#ff0000\"><b><u>WARNING:</u></b>\n"
 "Automatic partitioning will use your entire disk for Pardus installation.\n"
 "All data on the selected disk will be lost!</font></p>"
 msgstr ""
@@ -94,7 +94,7 @@ msgstr ""
 "bölümlendirme için seçebilirsiniz. Seçilen disk Pardus kurulumu için "
 "kullanılacak.</p>\n"
 "\n"
-"<p><font color=\"#ff0000\"><b>Uyarı:</b>\n"
+"<p><font color=\"#ff0000\"><b><u>Uyarı:</u></b>\n"
 "Otomatik bölümlendirme bütün diskinizi Pardus kurulumu için kullanacak. \n"
 "Seçili disk üzerindeki tüm verileriniz silinecektir!</font></p>"
 
@@ -107,7 +107,7 @@ msgid ""
 "<b>Do you want to write boot loader (GRUB) to your hard disk's master boot "
 "record?</b>\n"
 "\n"
-"<p>You need this to boot your Pardus system.</p>\n"
+"<p>You need a boot loader to boot your Pardus system.</p>\n"
 "\n"
 "<p>If you don't install a boot loader, you will have to configure your \n"
 "other operating system's loader  (if you have one installed) to start \n"
@@ -206,10 +206,14 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/InstallSystem.py:113
+#: yali/gui/InstallSystem.py:119
 #, python-format
 msgid "Installing: %s<br>%s"
 msgstr "Paket Kuruluyor: %s<br>%s"
+
+#: yali/gui/InstallSystem.py:149
+msgid "Configuring packages for your system!"
+msgstr "Kurulan paketler sisteminiz için yapılandırılıyor!"
 
 #: yali/gui/installwidget.py:52
 msgid "Form3"
@@ -577,6 +581,18 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
+#: yali/gui/SetupUsers.py:114
+msgid "<font color=\"#ff0000\">Username exists, choose another one!</font>"
+msgstr "<font color=\"#ff0000\">Bu kullanıcı adı var, başka bir tane seçin!</font>"
+
+#: yali/gui/SetupUsers.py:118
+msgid "<font color=\"#ff0000\">Username contains invalid characters!</font>"
+msgstr "<font color=\"#ff0000\">Kullanıcı adı geçersiz karakterler içeriyor!</font>"
+
+#: yali/gui/SetupUsers.py:122
+msgid "<font color=\"#ff0000\">Realname contains invalid characters!</font>"
+msgstr "<font color=\"#ff0000\">Gerçek İsim bölümü geçersiz karakterler içeriyor!</font>"
+
 #: yali/gui/setupuserswidget.py:128
 msgid "Delete Selected User"
 msgstr "Seçili Kullanıcıyı Sil"
@@ -669,13 +685,13 @@ msgstr ""
 
 #: yali/gui/welcomewidget.py:90
 msgid ""
-"<b>This is an ALPHA release of Pardus.</b>\n"
+"<b>This is a beta release of Pardus.</b>\n"
 "So expect bugs and use at your own risk.\n"
 "If you accept the risks inherent in such a release (ie. crashes, data loss, "
 "etc.),\n"
 "select 'Accept'."
 msgstr ""
-"<b>Bu Pardus'un ALPHA sürümüdür.</b>\n"
+"<b>Bu Pardus'un BETA sürümüdür.</b>\n"
 "Bu yüzden hatalar olabileceğini kabul etmeniz gerekiyor.\n"
 "Eğer böyle bir sürümü kurmaktaki riskleri (örn. veri kaybı, çökmeler, vb.) "
 "kabul ediyorsanız,\n"
@@ -697,7 +713,7 @@ msgstr "Sistemi Yeniden Başlat!"
 msgid "Release Notes"
 msgstr "Sürüm Notları"
 
-#: yali/bootloader.py:104
+#: yali/bootloader.py:111
 msgid "Windows"
 msgstr "Windows"
 

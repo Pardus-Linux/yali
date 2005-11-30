@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-29 16:33+0200\n"
+"POT-Creation-Date: 2005-12-01 00:42+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,7 +62,7 @@ msgid ""
 "<p>Below, you can select an hard disk for automatic partitioning.\n"
 "Selected disk will be used for Pardus installation.</p>\n"
 "\n"
-"<p><font color=\"#ff0000\"><b>Warning:</b>\n"
+"<p><font color=\"#ff0000\"><b><u>WARNING:</u></b>\n"
 "Automatic partitioning will use your entire disk for Pardus installation.\n"
 "All data on the selected disk will be lost!</font></p>"
 msgstr ""
@@ -76,7 +76,7 @@ msgid ""
 "<b>Do you want to write boot loader (GRUB) to your hard disk's master boot "
 "record?</b>\n"
 "\n"
-"<p>You need this to boot your Pardus system.</p>\n"
+"<p>You need a boot loader to boot your Pardus system.</p>\n"
 "\n"
 "<p>If you don't install a boot loader, you will have to configure your \n"
 "other operating system's loader  (if you have one installed) to start \n"
@@ -135,9 +135,13 @@ msgid ""
 "</font>\n"
 msgstr ""
 
-#: yali/gui/InstallSystem.py:113
+#: yali/gui/InstallSystem.py:119
 #, python-format
 msgid "Installing: %s<br>%s"
+msgstr ""
+
+#: yali/gui/InstallSystem.py:149
+msgid "Configuring packages for your system!"
 msgstr ""
 
 #: yali/gui/installwidget.py:52
@@ -409,6 +413,18 @@ msgid ""
 "</font>\n"
 msgstr ""
 
+#: yali/gui/SetupUsers.py:114
+msgid "<font color=\"#ff0000\">Username exists, choose another one!</font>"
+msgstr ""
+
+#: yali/gui/SetupUsers.py:118
+msgid "<font color=\"#ff0000\">Username contains invalid characters!</font>"
+msgstr ""
+
+#: yali/gui/SetupUsers.py:122
+msgid "<font color=\"#ff0000\">Realname contains invalid characters!</font>"
+msgstr ""
+
 #: yali/gui/setupuserswidget.py:128
 msgid "Delete Selected User"
 msgstr ""
@@ -472,7 +488,7 @@ msgstr ""
 
 #: yali/gui/welcomewidget.py:90
 msgid ""
-"<b>This is an ALPHA release of Pardus.</b>\n"
+"<b>This is a beta release of Pardus.</b>\n"
 "So expect bugs and use at your own risk.\n"
 "If you accept the risks inherent in such a release (ie. crashes, data loss, "
 "etc.),\n"
@@ -495,7 +511,7 @@ msgstr ""
 msgid "Release Notes"
 msgstr ""
 
-#: yali/bootloader.py:104
+#: yali/bootloader.py:111
 msgid "Windows"
 msgstr ""
 

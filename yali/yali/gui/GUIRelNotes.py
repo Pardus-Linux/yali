@@ -12,6 +12,7 @@
 
 
 from os.path import join, exists
+import codecs
 from qt import *
 
 import yali.gui.context as ctx
@@ -30,6 +31,6 @@ class Widget(QTextView):
 
         self.setPaletteBackgroundColor(QColor(204,204,204))
 
-        # FIXME: localize release notes
-        rel_path = join(ctx.consts.source_dir, "releasenotes.html")
-        self.setText(open(rel_path).read())
+        rel_file = "releasenotes-" + ctx.consts.lang + ".html"
+        rel_path = join(ctx.consts.source_dir, rel_file)
+        self.setText(codecs.open(rel_path, "r", "UTF-8").read())
