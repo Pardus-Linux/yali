@@ -100,7 +100,7 @@
                 <cstring>disclamer</cstring>
             </property>
             <property name="text">
-                <string>&lt;b&gt;This is an ALPHA release of Pardus.&lt;/b&gt;
+                <string>&lt;b&gt;This is a beta release of Pardus.&lt;/b&gt;
 So expect bugs and use at your own risk.
 If you accept the risks inherent in such a release (ie. crashes, data loss, etc.),
 select 'Accept'.</string>
