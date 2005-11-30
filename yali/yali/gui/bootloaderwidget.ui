@@ -8,7 +8,7 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>490</width>
+            <width>527</width>
             <height>404</height>
         </rect>
     </property>
@@ -104,7 +104,7 @@
             <property name="text">
                 <string>&lt;b&gt;Do you want to write boot loader (GRUB) to your hard disk's master boot record?&lt;/b&gt;
 
-&lt;p&gt;You need this to boot your Pardus system.&lt;/p&gt;
+&lt;p&gt;You need a boot loader to boot your Pardus system.&lt;/p&gt;
 
 &lt;p&gt;If you don't install a boot loader, you will have to configure your 
 other operating system's loader  (if you have one installed) to start 
