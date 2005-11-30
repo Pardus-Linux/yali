@@ -30,9 +30,9 @@ class User:
         self.passwd = ''
         self.uid = -1
 
-        self.shadow_path = os.path.join(consts.target_dir, "etc/shadow")
-        self.passwd_path = os.path.join(consts.target_dir, "etc/passwd")
-        self.group_path  = os.path.join(consts.target_dir, "etc/group")
+        self.shadow_path = os.path.join(consts.target_dir, 'etc/shadow')
+        self.passwd_path = os.path.join(consts.target_dir, 'etc/passwd')
+        self.group_path  = os.path.join(consts.target_dir, 'etc/group')
 
     def changePasswd(self, passwd):
         self.passwd = passwd
@@ -64,11 +64,8 @@ class User:
         user_home_dir = os.path.join(consts.target_dir, 'home', self.username)
         
         if not os.path.exists(user_home_dir):
-            os.makedirs(user_home_dir, mode=511)
+            shutil.copytree(os.path.join(consts.target_dir, 'etc/skel'), user_home_dir)
 
-        for f in glob.glob(os.path.join(consts.target_dir, 'etc/skel/.*')):
-            shutil.copy(f, user_home_dir)
-        
         os.chown(user_home_dir, self.uid, 100)
         for root, dirs, files in os.walk(user_home_dir):
             for file in files:
