@@ -13,6 +13,7 @@
 # YALI constants module defines a class with constant members. An
 # object from this class can only bind values one to it's members.
 
+import locale
 from os.path import join
 
 class _constant:
@@ -76,3 +77,4 @@ class Constants:
 
 
 consts = Constants()
+consts.lang = locale.getlocale()[0][:2]

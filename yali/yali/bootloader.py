@@ -28,8 +28,8 @@ splashimage = (%(grub_root)s)/boot/grub/splash.xpm.gz
 
 title=  %(pardus_version)s
 root (%(grub_root)s)
-kernel (%(grub_root)s)/boot/%(boot_kernel)s ro root=/dev/%(root)s video=vesafb:1024x768-32@60,nomtrr,ywrap splash=silent,theme:pardus CONSOLE=/dev/tty1
-initrd=(%(grub_root)s)/boot/initrd-%(boot_kernel)s 
+kernel (%(grub_root)s)/boot/%(boot_kernel)s ro root=/dev/%(root)s lang=%(language)s video=vesafb:1024x768-32@60,nomtrr,ywrap splash=silent,theme:pardus CONSOLE=/dev/tty1
+initrd=(%(grub_root)s)/boot/%(initrd)s 
 """
 
 win_part_tmp = """
@@ -85,12 +85,19 @@ def write_grub_conf(root, dev):
         d = os.path.join(consts.target_dir, "boot")
         k = glob.glob(d + "/kernel-*")
         return os.path.basename(k[0])
-        
+    
+    def find_initrd_name(bk):
+        ver = bk[len("kernel-"):]
+        return "initrd-%s" % ver
 
+    boot_kernel = find_boot_kernel()
+    initrd_name = find_initrd_name(boot_kernel)
     s = grub_conf_tmp % {"root": root,
                          "grub_root": grub_root,
+                         "language": consts.lang,
                          "pardus_version": consts.pardus_version,
-                         "boot_kernel": find_boot_kernel()}
+                         "boot_kernel": boot_kernel,
+                         "initrd": initrd_name}
     open(grub_conf, "w").write(s)
 
 
@@ -123,7 +130,8 @@ def install_files():
             shutil.copyfile(x, newpath)
 
     m = os.path.join(consts.target_dir, "boot/grub/menu.lst")
-    os.symlink("grub.conf", m)
+    if not os.path.exists(m):
+        os.symlink("grub.conf", m)
 
 
 def install_grub(root, dev):
