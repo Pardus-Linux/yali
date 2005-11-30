@@ -28,7 +28,7 @@ splashimage = (%(grub_root)s)/boot/grub/splash.xpm.gz
 
 title=  %(pardus_version)s
 root (%(grub_root)s)
-kernel (%(grub_root)s)/boot/%(boot_kernel)s ro root=/dev/%(root)s lang=%(language)s video=vesafb:1024x768-32@60,nomtrr,ywrap splash=silent,theme:pardus CONSOLE=/dev/tty1
+kernel (%(grub_root)s)/boot/%(boot_kernel)s ro root=/dev/%(root)s lang=%(language)s video=vesafb:1024x768-32@60,nomtrr,ywrap splash=silent,fadein,theme:pardus CONSOLE=/dev/tty1
 initrd=(%(grub_root)s)/boot/%(initrd)s 
 """
 
