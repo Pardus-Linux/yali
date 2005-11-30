@@ -14,6 +14,8 @@
 
 import os
 
+from yali.constants import consts
+
 def find_executable(exec_name):
     # preppend /bin, /sbin explicitly to handle system configuration
     # errors
@@ -29,3 +31,14 @@ def find_executable(exec_name):
     return None
 
     
+##
+# run comar daemon in chroot
+def chroot_comar():
+    pid = os.fork()
+    if pid == 0: # in child
+        os.chroot(consts.target_dir)
+
+        os.system("/sbin/ldconfig")
+
+        comar_path = "/usr/bin/comar"
+        os.execv(comar_path, [])

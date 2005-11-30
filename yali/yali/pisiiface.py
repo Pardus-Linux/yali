@@ -13,31 +13,35 @@
 
 # PiSİ module for YALI
 
+import os
+
 import pisi
 import pisi.api
 import pisi.config
 
+import yali.postinstall
 from yali.constants import consts
 
 
-def initialize(ui):
+def initialize(ui, with_comar=False):
 
     options = pisi.config.Options()
     options.destdir = consts.target_dir
     options.yes_all = True
     options.bypass_ldconfig = True
     # giving "comar = false" isn't enough for pisi 
-    options.ignore_comar = True
+    if not with_comar:
+        options.ignore_comar = True
 
-    pisi.api.init(options = options, comar = False, database = True, ui = ui)
-
-    add_repo(consts.repo_name, consts.repo_uri)
-
-    pisi.api.update_repo(consts.repo_name)
+    pisi.api.init(options = options, comar = with_comar, database = True, ui = ui)
 
 def add_repo(name, uri):
     print "add",name,uri
     pisi.api.add_repo(name, uri)
+
+def update_repo(name):
+    print "update repo", name
+    pisi.api.update_repo(consts.repo_name)
 
 def remove_repo(name):
     print "remove", name
@@ -62,3 +66,17 @@ def get_available():
 
 def get_available_len():
     return len(get_available())
+
+def configure_pending():
+    print "configure pending postinstall"
+
+    # dirty hack for COMAR to find scripts.
+    os.symlink("/",
+               consts.target_dir + consts.target_dir)
+
+    # run baselayout's postinstall first
+    yali.postinstall.initbaselayout()
+
+    pisi.api.configure_pending()
+
+    os.unlink(consts.target_dir + consts.target_dir)

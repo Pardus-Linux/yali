@@ -19,25 +19,6 @@ from yali.constants import consts
 # necessary things after a full install
 
 
-def run_all():
-    create_devices()
-    initbaselayout()
-
-def create_devices():
-
-    target = os.path.join(consts.target_dir, "dev/null")
-    if not os.path.exists(target):
-        os.popen("mknod --mode=666 %s c 1 3" % target)
-
-    target = os.path.join(consts.target_dir, "dev/console")
-    if not os.path.exists(target):
-        os.popen("mknod %s c 5 1" % target)
-
-    target = os.path.join(consts.target_dir, "dev/null")
-    if not os.path.exists(target):
-        os.popen("mknod %s c 4 1" % target)
-
-
 def initbaselayout():
     
     # setup default runlevel symlinks

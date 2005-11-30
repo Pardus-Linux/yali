@@ -23,8 +23,8 @@ _ = __trans.ugettext
 import pisi.ui
 
 import yali.pisiiface
-import yali.postinstall
 import yali.fstab
+import yali.sysutils
 import yali.partitionrequest as request
 from yali.gui.installwidget import InstallWidget
 from yali.gui.ScreenWidget import ScreenWidget
@@ -90,7 +90,13 @@ Have fun!
     def shown(self):
         # initialize pisi
         ui = PisiUI(notify_widget = self)
+
         yali.pisiiface.initialize(ui)
+
+        repo_name = ctx.consts.repo_name
+        repo_uri = ctx.consts.repo_uri
+        yali.pisiiface.add_repo(repo_name, repo_uri)
+        yali.pisiiface.update_repo(repo_name)
 
         # show progress
         self.total = yali.pisiiface.get_available_len()
@@ -138,9 +144,13 @@ Have fun!
 
         fstab.close()
 
-        # run postinstall
-        yali.postinstall.run_all()
-
+        # Configure Pending...
+        yali.sysutils.chroot_comar() # run comar in chroot
+        self.info.setText(_("Configuring packages for your system!"))
+        # re-initialize pisi with comar this time.
+        yali.pisiiface.initialize(ui=None, with_comar=True)
+        yali.pisiiface.configure_pending()
+        yali.pisiiface.finalize()
 
         # stop slide show
         self.timer.stop()

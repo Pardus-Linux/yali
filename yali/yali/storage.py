@@ -73,7 +73,7 @@ class Device:
         self._model = dev.model
         self._length = dev.length
         self._sector_size = dev.sector_size
-        
+
         self._dev = dev
         try:
             self._disk = parted.PedDisk.new(dev)
