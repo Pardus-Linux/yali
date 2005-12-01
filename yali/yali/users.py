@@ -52,8 +52,6 @@ class User:
         self.realname = ''
         self.passwd = ''
         self.uid = -1
-        self.gid = 100
-        self.home_dir = ''
 
         self.shadow_path = os.path.join(consts.target_dir, 'etc/shadow')
         self.passwd_path = os.path.join(consts.target_dir, 'etc/passwd')
@@ -85,32 +83,23 @@ class User:
                                             {'username': self.username, \
                                              'shadowedpasswd': self.__getShadowed()})
 
-        self.makeHome()
+        
+        user_home_dir = os.path.join(consts.target_dir, 'home', self.username)
+        
+        if not os.path.exists(user_home_dir):
+            shutil.copytree(os.path.join(consts.target_dir, 'etc/skel'), user_home_dir)
+
+        shutil.copy(head_images.next(), os.path.join(user_home_dir, '.face.icon'))
+        os.chmod(os.path.join(user_home_dir, '.face.icon'), 0644)
+
+        os.chown(user_home_dir, self.uid, 100)
+        for root, dirs, files in os.walk(user_home_dir):
+            for file in files:
+                os.chown(os.path.join(root, file), self.uid, 100)
+            for dir in dirs:
+                os.chown(os.path.join(root, dir), self.uid, 100)
 
         self.__appendGroups()
-
-    def makeHome(self):
-        if self.username == "root":
-            self.home_dir = os.path.join(consts.target_dir, self.username)
-        else:
-            self.home_dir = os.path.join(consts.target_dir, 'home', self.username)
-            
-        if not os.path.exists(self.home_dir):
-            shutil.copytree(os.path.join(consts.target_dir, 'etc/skel'), self.home_dir)
-        
-        shutil.copy(head_images.next(), os.path.join(self.home_dir, '.face.icon'))
-
-        if self.username == "root":
-            self.uid, self.gid = 0, 0
-            os.chmod(self.home_dir, 0700)
-
-        os.chown(self.home_dir, self.uid, self.gid)
-            
-        for root, dirs, files in os.walk(self.home_dir):
-            for file in files:
-                os.chown(os.path.join(root, file), self.uid, self.gid)
-            for dir in dirs:
-                os.chown(os.path.join(root, dir), self.uid, self.gid)
 
     def getAvailableUid(self):
         j = map(lambda x: int(x[2]), [line.split(':') for line in open(self.passwd_path, 'r').readlines()])
