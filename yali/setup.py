@@ -35,6 +35,10 @@ def gui_slidepics():
     p = "yali/gui/slideshow/*.png"
     return glob.glob(p)
 
+def pardususer_pics():
+    p = "yali/pardususer_pics/*.png"
+    return glob.glob(p)
+
 def help_files(lang):
     p = os.path.join("yali/gui/helps", lang)
     return glob.glob(p + "/*.html")
@@ -154,6 +158,7 @@ setup(name="yali",
       package_dir = {'': ''},
       data_files = [('/usr/share/yali/pics', gui_pics()),
                     ('/usr/share/yali/slideshow', gui_slidepics()),
+                    ('/usr/share/yali/pardususer', pardususer_pics()),
                     ('/usr/share/yali/helps/en', help_files("en")),
                     ('/usr/share/yali/helps/tr', help_files("tr"))],
       scripts = ['yali-bin'],
