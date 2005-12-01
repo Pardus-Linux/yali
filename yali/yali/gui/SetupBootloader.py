@@ -67,7 +67,6 @@ loader.
         
         # TODO: use logging!
         yali.bootloader.write_grub_conf(install_root, install_dev)
-        yali.bootloader.install_files()
 
         # Windows partitions...
         for d in yali.storage.devices:

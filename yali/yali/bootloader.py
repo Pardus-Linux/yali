@@ -115,25 +115,6 @@ def grub_conf_append_win(root, dev, fs):
     open(grub_conf, "a").write(s)
 
 
-def install_files():
-    src = os.path.join(consts.target_dir, "lib/grub")
-    src2 = os.path.join(consts.target_dir, "usr/lib/grub")
-    fnlist = glob.glob(src + "/*/*")
-    fnlist2 = glob.glob(src2 + "/*/*")
-    for x in fnlist2: fnlist.append(x)
-
-    for x in fnlist:
-        if os.path.isfile(x):
-            print x
-            fname = os.path.basename(x)
-            newpath = os.path.join(consts.target_dir, "boot/grub", fname)
-            shutil.copyfile(x, newpath)
-
-    m = os.path.join(consts.target_dir, "boot/grub/menu.lst")
-    if not os.path.exists(m):
-        os.symlink("grub.conf", m)
-
-
 def install_grub(root, dev):
 
     grub_dev = _find_grub_dev(dev)
