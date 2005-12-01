@@ -51,12 +51,8 @@ class CloseButton(QLabel):
     def __init__(self, *args):
         QLabel.__init__(self, *args)
 
-#        self.setPaletteBackgroundColor(QColor(255,203,3))
         self.setPixmap(ctx.iconfactory.newPixmap("cross"))
-        
-        self.setSizePolicy(QSizePolicy(QSizePolicy.Maximum,
-                                       QSizePolicy.Maximum))
-
+        self.setFixedWidth(18)
 
     def mousePressEvent(self, e):
         self.emit(PYSIGNAL("signalClicked"), ())
@@ -68,11 +64,14 @@ class Dialog(QDialog):
 
         l = QHBoxLayout(self)
         frame = QFrame(self)
+        default_color = frame.paletteBackgroundColor()
+        frame.setPaletteBackgroundColor(QColor(255,203,3))
         frame.setFrameStyle(frame.PopupPanel|frame.Plain)
         l.addWidget(frame)
         
         layout = QGridLayout(frame, 1, 1, 1, 1)
         w.reparent(frame, 0, QPoint(0,0), True)
+        w.setPaletteBackgroundColor(default_color)
 
         hbox = QHBoxLayout(frame)
         title = Title('<font size="+1"><b>%s</b></font>' % t, frame)
