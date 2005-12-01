@@ -39,7 +39,7 @@ class RootPartitionType(PartitionType):
     parted_flags = [ parted.PARTITION_BOOT ]
 
 class HomePartitionType(PartitionType):
-    name = _("Users's Files")
+    name = _("Users' Files")
     filesystem = yali.filesystem.Ext3FileSystem()
     mountpoint = "/home"
     mountoptions = "noatime"
