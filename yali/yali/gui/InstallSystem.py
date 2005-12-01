@@ -12,6 +12,7 @@
 
 import glob
 import threading
+import os
 from os.path import join
 from qt import *
 
@@ -151,6 +152,9 @@ Have fun!
         yali.pisiiface.initialize(ui=None, with_comar=True)
         yali.pisiiface.configure_pending()
         yali.pisiiface.finalize()
+
+        # FIXME: move to sysutils
+        os.system("chroot /mnt/target /usr/bin/update-environ.py")
 
         # stop slide show
         self.timer.stop()
