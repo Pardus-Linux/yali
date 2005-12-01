@@ -21,6 +21,28 @@ from string import ascii_letters
 from yali.constants import consts
 
 
+def iter_head_images():
+    left, right, images = [], [], []
+
+    g = glob.glob(ctx.consts.users_faces_dir + "/*.png")
+    
+    for e in g: left.append(e)
+    
+    for n in range(0, 5):
+        right = []
+        for i in range(0, len(g)/2):
+            right.append(left.pop(random.randrange(len(g) - i)))
+        left += right
+    
+    for p in left:
+        images.append(QPixmap(p))
+
+    while True:
+        for image in images:
+            yield image
+
+head_images = iter_head_images()
+
 class User:
 
     def __init__(self, username = ''):
@@ -65,6 +87,8 @@ class User:
         
         if not os.path.exists(user_home_dir):
             shutil.copytree(os.path.join(consts.target_dir, 'etc/skel'), user_home_dir)
+
+        shutil.copy(head_images.next(), os.path.join(user_home_dir, '.face.icon'))
 
         os.chown(user_home_dir, self.uid, 100)
         for root, dirs, files in os.walk(user_home_dir):
