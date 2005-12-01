@@ -34,13 +34,14 @@ def find_executable(exec_name):
 ##
 # run comar daemon in chroot
 def chroot_comar():
+
+    # FIXME: use mount module (needs options support)
+    tgt = os.path.join(consts.target_dir, "dev")
+    os.system("mount --bind /dev %s" % tgt)
+
     pid = os.fork()
     if pid == 0: # in child
         os.chroot(consts.target_dir)
-
-        # FIXME: use mount module (needs options support)
-        tgt = os.path.join(consts.target_dir, "dev")
-        os.system("mount --bind /dev %s" % tgt)
         os.system("/sbin/ldconfig")
 
         comar_path = "/usr/bin/comar"
