@@ -53,6 +53,10 @@ class Constants:
         self.__c.source_dir = join(self.__c.mnt_dir, "cdrom")
 
 
+        # user faces
+        self.__c.user_faces = join(self.__c.data_dir, "user_faces")
+
+
         # pisi repository
         self.__c.repo_name = "pardus-devel-cd"
         self.__c.repo_uri = join(self.__c.source_dir, "repo/pisi-index.xml")
