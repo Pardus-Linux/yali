@@ -22,7 +22,6 @@ class Title(QLabel):
 
         self.setAlignment(QLabel.AlignCenter)
         self.setSizePolicy(QSizePolicy(QSizePolicy.Preferred,QSizePolicy.Maximum,0,0,self.sizePolicy().hasHeightForWidth()))
-        self.setPaletteBackgroundColor(QColor(255,203,3))
 
         self.move = 0
         self.mainwidget = self.parent().parent()
