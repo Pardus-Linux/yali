@@ -54,7 +54,7 @@ class Constants:
 
 
         # user faces
-        self.__c.user_faces = join(self.__c.data_dir, "user_faces")
+        self.__c.user_faces_dir = join(self.__c.data_dir, "user_faces")
 
 
         # pisi repository
