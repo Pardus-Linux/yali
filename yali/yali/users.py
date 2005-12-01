@@ -24,18 +24,18 @@ from yali.constants import consts
 def iter_head_images():
     left, right, images = [], [], []
 
-    g = glob.glob(ctx.consts.users_faces_dir + "/*.png")
+    g = glob.glob(consts.user_faces_dir + "/*.png")
     
     for e in g: left.append(e)
     
-    for n in range(0, 5):
+    for n in range(0, 10):
         right = []
         for i in range(0, len(g)/2):
             right.append(left.pop(random.randrange(len(g) - i)))
         left += right
     
     for p in left:
-        images.append(QPixmap(p))
+        images.append(p)
 
     while True:
         for image in images:
