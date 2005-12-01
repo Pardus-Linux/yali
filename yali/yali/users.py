@@ -90,6 +90,7 @@ class User:
             shutil.copytree(os.path.join(consts.target_dir, 'etc/skel'), user_home_dir)
 
         shutil.copy(head_images.next(), os.path.join(user_home_dir, '.face.icon'))
+        os.chmod(os.path.join(user_home_dir, '.face.icon'), 0644)
 
         os.chown(user_home_dir, self.uid, 100)
         for root, dirs, files in os.walk(user_home_dir):
