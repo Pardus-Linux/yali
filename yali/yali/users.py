@@ -28,11 +28,12 @@ def iter_head_images():
     
     for e in g: left.append(e)
     
-    for n in range(0, 10):
+    for n in range(0, 5):
         right = []
-        for i in range(0, len(g)/2):
+        for i in range(0, len(g)/2 + 1):
             right.append(left.pop(random.randrange(len(g) - i)))
-        left += right
+        left.reverse()
+        left = right + left
     
     for p in left:
         images.append(p)
