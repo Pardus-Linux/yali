@@ -14,7 +14,9 @@
 # PiSİ module for YALI
 
 import os
+import time
 
+import comar
 import pisi
 import pisi.api
 import pisi.config
@@ -30,7 +32,17 @@ def initialize(ui, with_comar=False):
     options.yes_all = True
     options.bypass_ldconfig = True
     # giving "comar = false" isn't enough for pisi 
-    if not with_comar:
+    if with_comar:
+        # wait for chroot_comar to initialize
+        # generally we don't need this but I think this is safer
+        for i in range(10):
+            try:
+                comar.Link()
+                break
+            except:
+                time.sleep(1)
+                print "wait comar for 1 second..."
+    else:
         options.ignore_comar = True
 
     pisi.api.init(options = options, comar = with_comar, database = True, ui = ui)
