@@ -42,11 +42,9 @@ Legend:
 
 
 2. Beta (1.0)
- - GUI
-   - find a way to show exceptions on GUI
+ + GUI
    + auto partitioning
    + basic setup: users
-   - select where to install Grub
    + implement modal dialog (YaliDialog)
    + use dialog in Partitioning screen
 
@@ -58,23 +56,33 @@ Legend:
    + gui
    + help files
 
- / partitioning
+ + partitioning
    + ntfs resize
+
+ + run ÇOMAR in chroot and make it handle postinstall operations
+
+ + bootloader
+   + find Windows partitions and add to grub.conf
+
+
+3. RC1 (1.0)
+
+ - GUI
+   - find a way to show exceptions on GUI
+   - select where to install Grub
+
+ - partitioning
    - ext3 resize
    - support extended partitions
 
- - implement swap as file.
- 
  - tests
 
  - logging system
 
  - exception handling
 
- + run ÇOMAR in chroot and make it handle postinstall operations
+ - implement swap as file.
 
- + bootloader
-   + find Windows partitions and add to grub.conf
 
 3. Release (1.0)
 
