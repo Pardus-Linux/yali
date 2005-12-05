@@ -77,7 +77,7 @@ def write_grub_conf(root, dev):
 
 # TODO: support installing grub to diffrent devices's MBR.
 #    grub_dev = _find_grub_dev(dev)
-    minor = str(int(root[-1]) - 1)
+    minor = str(int(filter(lambda u: u.isdigit(), root)) -1)
     grub_root = ",".join(["hd0", minor])
 
 
@@ -105,7 +105,7 @@ def grub_conf_append_win(root, dev, fs):
     global grub_conf
 
     grub_dev = _find_grub_dev(dev)
-    minor = str(int(root[-1]) - 1)
+    minor = str(int(filter(lambda u: u.isdigit(), root)) -1)
     grub_root = ",".join([grub_dev, minor])
 
     s = win_part_tmp % {"title": _("Windows"),
@@ -118,7 +118,7 @@ def grub_conf_append_win(root, dev, fs):
 def install_grub(root, dev):
 
     grub_dev = _find_grub_dev(dev)
-    minor = str(int(root[-1]) - 1)
+    minor = str(int(filter(lambda u: u.isdigit(), root)) -1)
     grub_root = ",".join([grub_dev, minor])
 
     grub_shell = grub_shell_tmp % {"grub_root": grub_root,
