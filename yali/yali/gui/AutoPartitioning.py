@@ -56,7 +56,10 @@ about disk partitioning.
         apply(AutoPartWidget.__init__, (self,) + args)
         
         self.device = None
-        
+        self.enable_next = False
+        self.enable_auto = False
+
+
         # initialize all storage devices
         yali.storage.init_devices()
 
@@ -64,26 +67,22 @@ about disk partitioning.
         for dev in yali.storage.devices:
             if dev.getTotalMB() >= ctx.consts.min_root_size:
                 DeviceItem(self.device_list, dev)
+        # select the first disk by default
+        self.device_list.setSelected(0, True)
 
-        # don't enable auto partitioning if no device is selected
-        self.accept_auto.setEnabled(False)
 
-        self.connect(self.accept_auto, SIGNAL("toggled(bool)"),
-                     self.slotButtonsToggled)
-        self.connect(self.manual, SIGNAL("toggled(bool)"),
-                     self.slotButtonsToggled)
+        self.connect(self.accept_auto, SIGNAL("clicked()"),
+                     self.slotSelectAuto)
+        self.connect(self.manual, SIGNAL("clicked()"),
+                     self.slotSelectManual)
 
         self.connect(self.device_list, SIGNAL("selectionChanged(QListBoxItem*)"),
                      self.slotDeviceChanged)
 
-        self.enable_next = False
-
     def shown(self):
-        if self.enable_next:
-            ctx.screens.nextEnabled()
-        else:
-            ctx.screens.nextDisabled()
         ctx.screens.prevEnabled()
+
+        self.updateUI()
 
     def execute(self):
 
@@ -124,12 +123,26 @@ about disk partitioning.
     def slotDeviceChanged(self, i):
         self.device = i.getDevice()
 
-        if not self.accept_auto.isEnabled():
-            self.accept_auto.setEnabled(True)
-
-    def slotButtonsToggled(self, b):
+    def slotSelectAuto(self):
         self.enable_next = True
-        ctx.screens.nextEnabled()
+        self.enable_auto = True
+        self.updateUI()
+
+    def slotSelectManual(self):
+        self.enable_next = True
+        self.enable_auto = False
+        self.updateUI()
+
+    def updateUI(self):
+        if self.enable_auto:
+           self.device_list.setEnabled(True)
+        else:
+           self.device_list.setEnabled(False)
+        
+        if self.enable_next:
+            ctx.screens.nextEnabled()
+        else:
+            ctx.screens.nextDisabled()
 
 
 class DeviceItem(QListBoxText):
