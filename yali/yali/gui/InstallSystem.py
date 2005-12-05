@@ -122,6 +122,11 @@ Have fun!
 
             self.cur += 1
             self.progress.setProgress(self.cur)
+        elif event == pisi.ui.configuring:
+            self.info.setText(_("Configuring package: %s" % p.name))
+            
+            self.cur += 1
+            self.progress.setProgress(self.cur)
 
     def slotChangePix(self):
         self.pix.setPixmap(self.iter_pics.next())
@@ -145,11 +150,17 @@ Have fun!
 
         fstab.close()
 
-        # Configure Pending...
+        # Configure Pending...       
         yali.sysutils.chroot_comar() # run comar in chroot
         self.info.setText(_("Configuring packages for your system!"))
         # re-initialize pisi with comar this time.
         yali.pisiiface.initialize(ui=None, with_comar=True)
+        # show progress
+        self.cur = 0
+        self.progress.setProgress(self.cur)
+        self.total = yali.pisiiface.get_pending_len()
+        self.progress.setTotalSteps(self.total)
+        # run all pending...
         yali.pisiiface.configure_pending()
         yali.pisiiface.finalize()
 

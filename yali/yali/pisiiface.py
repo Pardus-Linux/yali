@@ -79,6 +79,16 @@ def get_available():
 def get_available_len():
     return len(get_available())
 
+def get_pending():
+    from pisi.context import ctx
+
+    l = ctx.installdb.list_pending()
+    return l
+
+def get_pending_len():
+    return len(get_pending())
+    
+
 def configure_pending():
     print "configure pending postinstall"
 
