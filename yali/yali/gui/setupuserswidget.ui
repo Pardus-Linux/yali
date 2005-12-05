@@ -176,6 +176,9 @@
             <property name="text">
                 <string></string>
             </property>
+            <property name="textFormat">
+                <enum>RichText</enum>
+            </property>
             <property name="alignment">
                 <set>WordBreak|AlignCenter</set>
             </property>

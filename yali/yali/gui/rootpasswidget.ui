@@ -43,6 +43,9 @@
             <property name="text">
                 <string></string>
             </property>
+            <property name="textFormat">
+                <enum>RichText</enum>
+            </property>
             <property name="scaledContents">
                 <bool>false</bool>
             </property>
