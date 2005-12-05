@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>460</width>
-            <height>429</height>
+            <width>575</width>
+            <height>439</height>
         </rect>
     </property>
     <property name="caption">
@@ -53,87 +53,6 @@
                 </size>
             </property>
         </spacer>
-        <spacer row="4" column="2">
-            <property name="name">
-                <cstring>spacer12</cstring>
-            </property>
-            <property name="orientation">
-                <enum>Vertical</enum>
-            </property>
-            <property name="sizeType">
-                <enum>Expanding</enum>
-            </property>
-            <property name="sizeHint">
-                <size>
-                    <width>20</width>
-                    <height>50</height>
-                </size>
-            </property>
-        </spacer>
-        <widget class="QLayoutWidget" row="3" column="1" rowspan="1" colspan="3">
-            <property name="name">
-                <cstring>layout2</cstring>
-            </property>
-            <grid>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <spacer row="1" column="0">
-                    <property name="name">
-                        <cstring>spacer13</cstring>
-                    </property>
-                    <property name="orientation">
-                        <enum>Horizontal</enum>
-                    </property>
-                    <property name="sizeType">
-                        <enum>Expanding</enum>
-                    </property>
-                    <property name="sizeHint">
-                        <size>
-                            <width>41</width>
-                            <height>20</height>
-                        </size>
-                    </property>
-                </spacer>
-                <widget class="QButtonGroup" row="1" column="1">
-                    <property name="name">
-                        <cstring>buttonGroup</cstring>
-                    </property>
-                    <property name="frameShape">
-                        <enum>NoFrame</enum>
-                    </property>
-                    <property name="title">
-                        <string></string>
-                    </property>
-                    <grid>
-                        <property name="name">
-                            <cstring>unnamed</cstring>
-                        </property>
-                        <widget class="QRadioButton" row="1" column="0">
-                            <property name="name">
-                                <cstring>manual</cstring>
-                            </property>
-                            <property name="text">
-                                <string>No, I'll partition my disk manually.</string>
-                            </property>
-                        </widget>
-                        <widget class="QRadioButton" row="0" column="0">
-                            <property name="name">
-                                <cstring>accept_auto</cstring>
-                            </property>
-                            <property name="text">
-                                <string>Yes, automatically partition and format selected disk!</string>
-                            </property>
-                        </widget>
-                    </grid>
-                </widget>
-                <widget class="QListBox" row="0" column="0" rowspan="1" colspan="2">
-                    <property name="name">
-                        <cstring>device_list</cstring>
-                    </property>
-                </widget>
-            </grid>
-        </widget>
         <spacer row="2" column="2">
             <property name="name">
                 <cstring>spacer1</cstring>
@@ -164,7 +83,7 @@
             <property name="sizeHint">
                 <size>
                     <width>20</width>
-                    <height>30</height>
+                    <height>16</height>
                 </size>
             </property>
         </spacer>
@@ -219,6 +138,84 @@ All data on the selected disk will be lost!&lt;/font&gt;&lt;/p&gt;</string>
             <property name="alignment">
                 <set>WordBreak|AlignTop</set>
             </property>
+        </widget>
+        <spacer row="5" column="2">
+            <property name="name">
+                <cstring>spacer12</cstring>
+            </property>
+            <property name="orientation">
+                <enum>Vertical</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Expanding</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>20</width>
+                    <height>16</height>
+                </size>
+            </property>
+        </spacer>
+        <widget class="QLabel" row="4" column="0" rowspan="1" colspan="5">
+            <property name="name">
+                <cstring>info</cstring>
+            </property>
+            <property name="text">
+                <string>&amp;nbsp;</string>
+            </property>
+            <property name="textFormat">
+                <enum>RichText</enum>
+            </property>
+            <property name="alignment">
+                <set>WordBreak|AlignCenter</set>
+            </property>
+        </widget>
+        <widget class="QLayoutWidget" row="3" column="1" rowspan="1" colspan="3">
+            <property name="name">
+                <cstring>layout7</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QListBox">
+                    <property name="name">
+                        <cstring>device_list</cstring>
+                    </property>
+                </widget>
+                <widget class="QButtonGroup">
+                    <property name="name">
+                        <cstring>buttonGroup</cstring>
+                    </property>
+                    <property name="frameShape">
+                        <enum>NoFrame</enum>
+                    </property>
+                    <property name="title">
+                        <string></string>
+                    </property>
+                    <grid>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QRadioButton" row="1" column="0">
+                            <property name="name">
+                                <cstring>manual</cstring>
+                            </property>
+                            <property name="text">
+                                <string>No, I'll partition my disk manually.</string>
+                            </property>
+                        </widget>
+                        <widget class="QRadioButton" row="0" column="0">
+                            <property name="name">
+                                <cstring>accept_auto</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Yes, automatically partition and format selected disk!</string>
+                            </property>
+                        </widget>
+                    </grid>
+                </widget>
+            </vbox>
         </widget>
     </grid>
 </widget>
