@@ -80,7 +80,7 @@ def get_available_len():
     return len(get_available())
 
 def get_pending():
-    from pisi.context import ctx
+    import pisi.context as ctx
 
     l = ctx.installdb.list_pending()
     return l
