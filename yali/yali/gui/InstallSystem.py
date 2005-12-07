@@ -154,7 +154,8 @@ Have fun!
         yali.sysutils.chroot_comar() # run comar in chroot
         self.info.setText(_("Configuring packages for your system!"))
         # re-initialize pisi with comar this time.
-        yali.pisiiface.initialize(ui=None, with_comar=True)
+        ui = PisiUI(notify_widget = self)
+        yali.pisiiface.initialize(ui=ui, with_comar=True)
         # show progress
         self.cur = 0
         self.progress.setProgress(self.cur)
