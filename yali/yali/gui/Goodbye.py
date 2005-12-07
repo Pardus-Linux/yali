@@ -74,8 +74,8 @@ don't you?
 
     def execute(self):
 
-        ctx.screens.nextDisabled()
-        ctx.screens.prevDisabled()
+        ctx.screens.disableNext()
+        ctx.screens.disablePrev()
 
         self.info.show()
         self.info.setAlignment(QLabel.AlignCenter)

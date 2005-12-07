@@ -80,7 +80,7 @@ about disk partitioning.
                      self.slotDeviceChanged)
 
     def shown(self):
-        ctx.screens.prevEnabled()
+        ctx.screens.enablePrev()
 
         self.updateUI()
 
@@ -143,9 +143,9 @@ about disk partitioning.
            self.device_list.setEnabled(False)
         
         if self.enable_next:
-            ctx.screens.nextEnabled()
+            ctx.screens.enableNext()
         else:
-            ctx.screens.nextDisabled()
+            ctx.screens.disableNext()
 
 
 class DeviceItem(QListBoxText):

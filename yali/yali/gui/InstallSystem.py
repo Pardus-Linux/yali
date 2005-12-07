@@ -106,8 +106,8 @@ Have fun!
         # start installer thread
         PkgInstaller().start(self)
 
-        ctx.screens.prevDisabled()
-        ctx.screens.nextDisabled()
+        ctx.screens.disableNext()
+        ctx.screens.disablePrev()
 
         # start 30 seconds
         self.timer.start(1000 * 30)

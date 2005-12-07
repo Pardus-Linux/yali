@@ -81,19 +81,19 @@ Have a fruitful experience with Pardus!
     
     def __enable_next(self, b):
         if b:
-            ctx.screens.nextEnabled()
+            ctx.screens.enableNext()
             self.rebootButton.hide()
         else:
-            ctx.screens.nextDisabled()
+            ctx.screens.disableNext()
             self.rebootButton.show()
 
     def slotReboot(self):
         reboot.fastreboot()
 
     def shown(self):
-        ctx.screens.prevDisabled()
+        ctx.screens.disablePrev()
         if self.accept.isChecked():
-            ctx.screens.nextEnabled()
+            ctx.screens.enableNext()
         else:
-            ctx.screens.nextDisabled()
+            ctx.screens.disableNext()
 

@@ -71,8 +71,11 @@ Click Next button to proceed.
         self.connect(self.userList, SIGNAL("doubleClicked(QListBoxItem*)"),
                      self.slotEditUser)
 
+        self.connect(self.pass2, SIGNAL("returnPressed()"),
+                     self.slotReturnPressed)
+
     def shown(self):
-        ctx.screens.prevEnabled()
+        ctx.screens.enablePrev()
         self.checkUsers()
 
     def execute(self):
@@ -155,10 +158,12 @@ Click Next button to proceed.
 
     def checkUsers(self):
         if self.userList.count():
-            ctx.screens.nextEnabled()
+            ctx.screens.enableNext()
         else:
-            ctx.screens.nextDisabled()
+            ctx.screens.disableNext()
 
+    def slotReturnPressed(self):
+        self.slotCreateUser()
 
 
 class UserItem(QListBoxText):

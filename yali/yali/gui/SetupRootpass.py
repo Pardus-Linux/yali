@@ -60,8 +60,11 @@ Click Next button to proceed.
         self.connect(self.pass2, SIGNAL("textChanged(const QString &)"),
                      self.slotTextChanged)
 
+        self.connect(self.pass2, SIGNAL("returnPressed()"),
+                     self.slotReturnPressed)
+
     def shown(self):
-        ctx.screens.prevDisabled()
+        ctx.screens.disablePrev()
 
     def execute(self):
         user = yali.users.User("root")
@@ -75,13 +78,15 @@ Click Next button to proceed.
         if p1 == p2 and p1:
             # Sould we also check password length?
             self.pass_error.setText("")
-            ctx.screens.nextEnabled()
+            ctx.screens.enableNext()
         else:
-            ctx.screens.nextDisabled()
+            ctx.screens.disableNext()
             if p2:
                 self.pass_error.setText(
                     _('<font color="#ff0000">Passwords do not match!</font>'))
                 self.pass_error.setAlignment(QLabel.AlignCenter)
 
-
+    def slotReturnPressed(self):
+        if ctx.screens.isNextEnabled():
+            ctx.screens.next()
 

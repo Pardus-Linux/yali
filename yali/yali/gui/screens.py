@@ -22,6 +22,9 @@ class Screens(QObject, Steps):
         Steps.__init__(self)
         apply(QObject.__init__, (self,) + args)
 
+        self.next_enabled = False
+        self.prev_enabled = False
+
     ##
     # add new a screen
     # @param stage(int): stage number that the screen belongs to.
@@ -52,18 +55,27 @@ class Screens(QObject, Steps):
         if self.hasIndex(num):
             self.setCurrent(num)
 
-    def nextDisabled(self):
+    def disableNext(self):
+        self.next_enabled = False
         self.emit(PYSIGNAL("nextButtonDisabled"), ())
 
-    def prevDisabled(self):
+    def disablePrev(self):
+        self.prev_enabled = False
         self.emit(PYSIGNAL("prevButtonDisabled"), ())
 
-    def nextEnabled(self):
+    def enableNext(self):
+        self.next_enabled = True
         self.emit(PYSIGNAL("nextButtonEnabled"), ())
 
-    def prevEnabled(self):
+    def enablePrev(self):
+        self.prev_enabled = True
         self.emit(PYSIGNAL("prevButtonEnabled"), ())
 
+    def isNextEnabled(self):
+        return self.next_enabled
+
+    def isPrevEnabled(self):
+        return self.prev_enabled
 
     ##
     # process events

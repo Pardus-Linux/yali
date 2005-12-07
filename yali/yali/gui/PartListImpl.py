@@ -175,12 +175,12 @@ class PartList(PartListWidget):
                 item.setText(2, ptype.name)
 
     def checkRootPartRequest(self):
-        ctx.screens.nextDisabled()
+        ctx.screens.disableNext()
 
         for req in ctx.partrequests:
             if req.partitionType() == parttype.root:
                 # root partition type. can enable next
-                ctx.screens.nextEnabled()
+                ctx.screens.enableNext()
 
 
 ##
