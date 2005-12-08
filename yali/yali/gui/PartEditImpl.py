@@ -109,7 +109,7 @@ class PartEdit(QWidget):
                 self.warning.show()
 
             elif state == editState:
-                self.edit.setState(state, self._d)
+                self.edit.setState(state)
                 self.edit.show()
 
             elif state == resizeState:
@@ -120,7 +120,7 @@ class PartEdit(QWidget):
                 self.edit.size.setMinValue(min_size)
                 self.edit.size.setMaxValue(max_size)
 
-                self.edit.setState(state, self._d)
+                self.edit.setState(state)
                 self.edit.show()
 
         elif t == parteddata.freeSpaceType:
@@ -302,7 +302,27 @@ class PartEdit(QWidget):
 
 class PartEditWidgetImpl(PartEditWidget):
 
-    def setState(self, state, partition=None):
+    def __init__(self, *args):
+        apply(PartEditWidget.__init__, (self,) + args)
+
+        self.connect(self.root, SIGNAL("toggled(bool)"),
+                     self.slotRootToggled)
+
+    def slotRootToggled(self, b):
+        # allways format root partition!
+        if b:
+            self.format.setChecked(True)
+            self.format.setEnabled(False)
+        else:
+            self.format.setEnabled(True)
+
+
+    def setState(self, state):
+
+        # unset buttons
+        self.root.setOn(False)
+        self.home.setOn(False)
+        self.swap.setOn(False)
 
         if state == editState:
             self.buttonGroup.show()
