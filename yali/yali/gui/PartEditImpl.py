@@ -201,6 +201,26 @@ class PartEdit(QWidget):
                     self.warning.show()
                     return False
 
+            # if state is edit and formatting is selected delete
+            # and create patition with the correct filesystem.
+            #
+            # FIXME: I know this is dull, but will provide more
+            # granulated storage.py module later on for fixing
+            # these kind of operations.
+            if state == editState and self.edit.format.isChecked():
+                size = partition.getMB()
+                device = partition.getDevice()
+                device.deletePartition(partition)
+                device.commit()
+
+                p = device.addPartition(t.parted_type,
+                                        t.filesystem,
+                                        size,
+                                        t.parted_flags)
+                device.commit()
+                partition = device.getPartition(p.num)
+                
+
             try:
                 ctx.partrequests.append(
                     request.MountRequest(partition, t))
