@@ -736,7 +736,7 @@ msgstr "Kullanıcı Dosyaları"
 
 #: yali/partitiontype.py:50
 msgid "Swap"
-msgstr "Swap"
+msgstr "Takas"
 
 #~ msgid "Windows Partition"
 #~ msgstr "Windows Disk Bölümü"
