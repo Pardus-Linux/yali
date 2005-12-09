@@ -113,9 +113,9 @@ class NavButton(QWidget):
         self.leaveEvent(e)
 
     def keyPressEvent(self, e):
-        if e.key() == self.Key_Return:
+        if e.key() == self.Key_Return or e.key() == self.Key_Space:
             self.mousePressEvent(e)
 
     def keyReleaseEvent(self, e):
-        if e.key() == self.Key_Return:
+        if e.key() == self.Key_Return or e.key() == self.Key_Space:
             self.mouseReleaseEvent(e)
