@@ -41,6 +41,8 @@ class NavButton(QWidget):
         # find a way to paint button background.
         self.setFixedSize(64, 64)
 
+        self.setFocusPolicy(self.TabFocus)
+
         self._pix = None
         self._pix_over = None
         self._pix_pressed = None
@@ -100,3 +102,20 @@ class NavButton(QWidget):
             self.label.setPixmap(self._pix)
         else:
             self.label.setPixmap(self._pix_disabled)
+
+
+    # handle keyboard focus/press events
+
+    def focusInEvent(self, e):
+        self.enterEvent(e)
+
+    def focusOutEvent(self, e):
+        self.leaveEvent(e)
+
+    def keyPressEvent(self, e):
+        if e.key() == self.Key_Return:
+            self.mousePressEvent(e)
+
+    def keyReleaseEvent(self, e):
+        if e.key() == self.Key_Return:
+            self.mouseReleaseEvent(e)
