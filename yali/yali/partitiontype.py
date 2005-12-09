@@ -32,11 +32,18 @@ class PartitionType:
 
 class RootPartitionType(PartitionType):
     name = _("Install Root")
-    filesystem = yali.filesystem.Ext3FileSystem()
     mountpoint = "/"
     mountoptions = "noatime"
     parted_type = parted.PARTITION_PRIMARY
     parted_flags = [ parted.PARTITION_BOOT ]
+
+    def __init__(self):
+        # check cmdline for reiserfs support
+        cmdline = open("/proc/cmdline", "r").read()
+        if cmdline.find("enable_reiserfs") >= 0:
+            self.filesystem = yali.filesystem.ReiserFileSystem()
+        else:
+            self.filesystem = yali.filesystem.Ext3FileSystem()
 
 class HomePartitionType(PartitionType):
     name = _("Users' Files")

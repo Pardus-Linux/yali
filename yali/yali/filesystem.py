@@ -156,6 +156,33 @@ class Ext3FileSystem(FileSystem):
 
 
 ##
+# reiserfs
+class ReiserFileSystem(FileSystem):
+
+    _name = "reiserfs"
+    
+    def __init__(self):
+        FileSystem.__init__(self)
+        self.setImplemented(True)
+
+    def format(self, partition):
+        self.preFormat(partition)
+
+        cmd_path = sysutils.find_executable("mkreiserfs")
+        
+        if not cmd_path:
+            e = "Command not found to format %s filesystem" %(self.name())
+            raise FSError, e
+
+        cmd = "%s  %s" %(cmd_path, partition.getPath())
+
+        p = os.popen(cmd, "w")
+        p.write("y\n")
+        if p.close():
+            raise YaliException, "reiserfs format failed: %s" % partition.getPath()
+
+
+##
 # linux-swap
 class SwapFileSystem(FileSystem):
 
