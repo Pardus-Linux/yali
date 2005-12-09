@@ -28,7 +28,7 @@ splashimage = (%(grub_root)s)/boot/grub/splash.xpm.gz
 
 title=  %(pardus_version)s
 root (%(grub_root)s)
-kernel (%(grub_root)s)/boot/%(boot_kernel)s ro root=/dev/%(root)s lang=%(language)s video=vesafb:1024x768-32@60,nomtrr,ywrap splash=silent,fadein,theme:pardus CONSOLE=/dev/tty1
+kernel (%(grub_root)s)/boot/%(boot_kernel)s %(boot_parameters)s
 initrd=(%(grub_root)s)/boot/%(initrd)s 
 """
 
@@ -90,13 +90,26 @@ def write_grub_conf(root, dev):
         ver = bk[len("kernel-"):]
         return "initrd-%s" % ver
 
+    def boot_parameters_from_cmdline(root):
+        s = ""
+        for i in  open("/proc/cmdline", "r").read().split():
+            if i.startswith("root="):
+                i = "root=/dev/%s" % root
+            elif i.startswith("cdroot") or i.startswith("init="):
+                continue
+
+            s = " ".join((s,i))
+
+        return s
+
     boot_kernel = find_boot_kernel()
     initrd_name = find_initrd_name(boot_kernel)
+    boot_parameters =  boot_parameters_from_cmdline(root)
     s = grub_conf_tmp % {"root": root,
                          "grub_root": grub_root,
-                         "language": consts.lang,
                          "pardus_version": consts.pardus_version,
                          "boot_kernel": boot_kernel,
+                         "boot_parameters": boot_parameters,
                          "initrd": initrd_name}
     open(grub_conf, "w").write(s)
 
@@ -130,3 +143,4 @@ def install_grub(root, dev):
     cmd = "/sbin/grub --batch < /tmp/grub-shell"
     print cmd
     os.system(cmd)
+
