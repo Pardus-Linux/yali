@@ -19,13 +19,11 @@ _ = __trans.ugettext
 
 
 import yali.gui.context as ctx
-from yali.gui.YaliDialog import Dialog
 
 import GUITop
 import GUIContentStack
 import GUIHelp
-import GUINavButton
-import GUIRelNotes
+import GUIBottom
 
 ##
 # Widget for YaliWindow (you can call it MainWindow too ;).
@@ -37,17 +35,12 @@ class Widget(QMainWindow):
         self.topWidget = GUITop.Widget(self)
         self.contentWidget = GUIContentStack.Widget(self)
         self.helpWidget = GUIHelp.Widget(self)
-        self.nextButton = GUINavButton.nextButton(self)
-        self.prevButton = GUINavButton.prevButton(self)
-        self.relNotes = QPushButton(_("Release Notes"), self)
+        self.bottomWidget = GUIBottom.Widget(self)
+
 
         # Place the widgets using layouts and yada, yada, yada...
         self.__setUpWidgets()
 
-        self.connect(self.nextButton, PYSIGNAL("signalClicked"),
-                     self.slotNextScreen)
-        self.connect(self.prevButton, PYSIGNAL("signalClicked"),
-                     self.slotPrevScreen)
 
         self.connect(self, PYSIGNAL("signalWindowSize"),
                      self.topWidget.slotResize)
@@ -62,10 +55,6 @@ class Widget(QMainWindow):
                      self.slotNextEnabled)
         self.connect(ctx.screens, PYSIGNAL("prevButtonEnabled"),
                      self.slotPrevEnabled)
-
-
-        self.connect(self.relNotes, SIGNAL("clicked()"),
-                     self.showReleaseNotes)
 
         self.setPaletteBackgroundColor(ctx.consts.bg_color)
         self.setPaletteForegroundColor(ctx.consts.fg_color)
@@ -91,52 +80,27 @@ class Widget(QMainWindow):
         centerRight.setMargin(0)
         centerRight.addWidget(self.helpWidget)
 
-        centerRight.addWidget(self.relNotes)
-
-        buttons = QHBoxLayout()
-        buttons.setSpacing(20)
-        buttons.addWidget(self.prevButton)
-        buttons.addWidget(self.nextButton)
-        
         centerRight.addStretch(1)
-        centerRight.addLayout(buttons)
         center.addLayout(centerRight)
 
         main.addLayout(center)
-
-
-    ##
-    # Go to the next screen.
-    def slotNextScreen(self):
-        ctx.screens.next()
-
-    ##
-    # Go to the previous screen.
-    def slotPrevScreen(self):
-        ctx.screens.previous()
+        
+        main.addWidget(self.bottomWidget)
 
 
     # Enable/Disable buttons
 
     def slotNextDisabled(self):
-        self.nextButton.setEnabled(False)
+        self.bottomWidget.nextButton.setEnabled(False)
 
     def slotPrevDisabled(self):
-        self.prevButton.setEnabled(False)
+        self.bottomWidget.prevButton.setEnabled(False)
 
     def slotNextEnabled(self):
-        self.nextButton.setEnabled(True)
+        self.bottomWidget.nextButton.setEnabled(True)
 
     def slotPrevEnabled(self):
-        self.prevButton.setEnabled(True)
-
-
-    def showReleaseNotes(self):
-        # make a release notes dialog
-        r = GUIRelNotes.Widget(self)
-        d = Dialog(_("Release Notes"), r, self)
-        d.resize(500,400)
-        d.exec_loop()
+        self.bottomWidget.prevButton.setEnabled(True)
 
 
     ##
