@@ -62,6 +62,10 @@ class Widget(QWidget):
     def slotScreenChanged(self):
         self.tv.setText(ctx.screens.getCurrent().getWidget().help)
 
+        # show at start
+        self.tv.moveCursor(self.tv.MoveHome, False)
+        self.tv.ensureCursorVisible()
+
     ##
     # resize the widget
     def slotResize(self, obj, size):
