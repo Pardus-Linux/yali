@@ -28,8 +28,8 @@ class Widget(QWidget):
         self.stageWidget = GUIStage.Widget(self)
 
         self._layout = QHBoxLayout(self)
-        self._layout.addStretch(1)
         self._layout.addWidget(self.stageWidget)
+        self._layout.addStretch(1)
         
     def slotAddStage(self, obj, text):
         self.stageWidget.slotAddStage(obj, text)

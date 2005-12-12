@@ -34,6 +34,10 @@ class PartList(PartListWidget):
     def __init__(self, *args):
         apply(PartListWidget.__init__, (self,) + args)
 
+        self.list.setPaletteBackgroundColor(ctx.consts.bg_color)
+        self.list.setPaletteForegroundColor(ctx.consts.fg_color)
+
+
         # disable sorting
         self.list.setSorting(-1)
 

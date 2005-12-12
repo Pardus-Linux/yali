@@ -11,6 +11,7 @@
 #
 
 from os.path import join
+from qt import *
 
 from yali.log import logger
 import yali.partitionrequest
@@ -41,3 +42,6 @@ iconfactory = yali.gui.iconfactory.IconFactory(consts.pics_dir)
 # auto partitioning
 use_autopart = False
 
+# colors
+consts.bg_color = QColor(36,68,80)
+consts.fg_color = QColor(255,255,255)

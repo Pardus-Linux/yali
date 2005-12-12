@@ -26,15 +26,13 @@ class Widget(QWidgetStack):
         self.setSizePolicy(QSizePolicy(QSizePolicy.Expanding,
                                        QSizePolicy.Expanding))
 
-        self.setFrameStyle(self.WinPanel | self.Plain)
+        self.setFrameStyle(self.NoFrame)
 
         self.connect(ctx.screens, PYSIGNAL("signalAddScreen"),
                      self.slotAddScreen)
 
         self.connect(ctx.screens, PYSIGNAL("signalCurrent"),
                      self.slotScreenChanged)
-
-        self.setPaletteBackgroundColor(QColor(255,255,255))
 
     ##
     # add a new screen.

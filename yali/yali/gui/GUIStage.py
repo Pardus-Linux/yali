@@ -27,11 +27,17 @@ class Widget(QListView):
         self.addColumn(QString.null) # stage name
         self.header().hide()
 
+        self.tw = self.width()
+        self.th = self.height()
+        self.tx = self.x()
+        self.ty = self.y()
+        self.fixBackground()
+
         self.setSizePolicy( QSizePolicy(QSizePolicy.Minimum,
                                         QSizePolicy.Minimum))
         self.setFrameStyle(self.NoFrame)
 
-        self.setPaletteBackgroundColor(QColor(255,203,3))
+        self.setPaletteForegroundColor(ctx.consts.fg_color)
 
         f = self.font()
         f.setBold(True)
@@ -47,6 +53,21 @@ class Widget(QListView):
 
         self.connect(ctx.stages, PYSIGNAL("signalCurrent"),
                      self.slotStageChanged)
+
+    def fixBackground(self):
+        self.pix = QPixmap(self.tw, self.th)
+        self.pix.fill(self.parent(), self.tx, self.ty)
+        self.setPaletteBackgroundPixmap(self.pix)
+
+    def resizeEvent(self, event):
+        self.tw = event.size().width()
+        self.th = event.size().height()
+        self.fixBackground()
+
+    def moveEvent(self, event):
+        self.tx = event.pos().x()
+        self.ty = event.pos().y()
+        self.fixBackground()
 
 
     ##

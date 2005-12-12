@@ -27,9 +27,8 @@ class Widget(QTextView):
         self.setSizePolicy( QSizePolicy(QSizePolicy.Preferred,
                                         QSizePolicy.Expanding))
 
-#        self.setFrameStyle(self.WinPanel | self.Plain)
 
-        self.setPaletteBackgroundColor(QColor(204,204,204))
+        self.setPaletteBackgroundColor(ctx.consts.bg_color)
 
         rel_file = "releasenotes-" + ctx.consts.lang + ".html"
         rel_path = join(ctx.consts.source_dir, rel_file)

@@ -63,14 +63,14 @@ class Dialog(QDialog):
 
         l = QHBoxLayout(self)
         frame = QFrame(self)
-        default_color = frame.paletteBackgroundColor()
-        frame.setPaletteBackgroundColor(QColor(255,203,3))
+        frame.setPaletteBackgroundColor(QColor(227,89,10))
         frame.setFrameStyle(frame.PopupPanel|frame.Plain)
         l.addWidget(frame)
         
         layout = QGridLayout(frame, 1, 1, 1, 1)
         w.reparent(frame, 0, QPoint(0,0), True)
-        w.setPaletteBackgroundColor(default_color)
+        w.setPaletteBackgroundColor(QColor(79,79,79))
+        w.setPaletteForegroundColor(ctx.consts.fg_color)
 
         hbox = QHBoxLayout(frame)
         title = Title('<font size="+1"><b>%s</b></font>' % t, frame)

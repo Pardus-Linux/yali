@@ -39,7 +39,7 @@ class NavButton(QWidget):
         # build the widget layout... or should be use QPushButton?
         # don't use fixed sizes
         # find a way to paint button background.
-        self.setFixedSize(64, 64)
+        self.setFixedSize(50, 28)
 
         self.setFocusPolicy(self.TabFocus)
 
@@ -48,8 +48,6 @@ class NavButton(QWidget):
         self._pix_pressed = None
         self._pix_disabled = None
         self._enabled = True
-
-
 
     def setIcon(self, icon_name):
         ifactory = ctx.iconfactory

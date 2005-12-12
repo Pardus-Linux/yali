@@ -67,8 +67,8 @@ class Widget(QMainWindow):
         self.connect(self.relNotes, SIGNAL("clicked()"),
                      self.showReleaseNotes)
 
-
-        self.setPaletteBackgroundPixmap(ctx.iconfactory.newPixmap("back_tile"))
+        self.setPaletteBackgroundColor(ctx.consts.bg_color)
+        self.setPaletteForegroundColor(ctx.consts.fg_color)
 
     ##
     # set up the main window layout...
