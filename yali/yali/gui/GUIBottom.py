@@ -39,7 +39,10 @@ class Widget(QWidget):
         self._layout.setSpacing(20)
         self._layout.setMargin(20)
 
-        self.relNotes = QPushButton(_("Release Notes"), self)
+
+        self.relNotes = GUINavButton.NavButton(self)
+        self.relNotes.setIcon("relnotes_button")
+        self.relNotes.setText(_("Release Notes"))
         self._layout.addWidget(self.relNotes)
         self._layout.addStretch(1)
 
@@ -55,7 +58,7 @@ class Widget(QWidget):
         buttons.addItem(self.buttonSpacer)
 
         
-        self.connect(self.relNotes, SIGNAL("clicked()"),
+        self.connect(self.relNotes, PYSIGNAL("signalClicked"),
                      self.showReleaseNotes)
 
         self.connect(self.nextButton, PYSIGNAL("signalClicked"),

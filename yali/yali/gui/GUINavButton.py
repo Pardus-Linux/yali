@@ -38,10 +38,6 @@ class NavButton(QWidget):
     def __init__(self, *args):
         apply(QWidget.__init__, (self,) + args)
     
-        l = QVBoxLayout(self)
-        self.label = QLabel(self)
-        l.addWidget(self.label)
-
         self.setCursor(QCursor(13))
 
         self.setFocusPolicy(self.TabFocus)
@@ -51,6 +47,7 @@ class NavButton(QWidget):
         self._pix_pressed = None
         self._pix_disabled = None
         self._enabled = True
+        self._text = None
 
     def setIcon(self, icon_name):
         ifactory = ctx.iconfactory
@@ -68,45 +65,70 @@ class NavButton(QWidget):
 
         self._pix_pressed = ifactory.newPixmap("pressed_" + icon_name)
 
-        self._pix_disabled = ifactory.newPixmap("disabled_" + icon_name)
+        try:
+            self._pix_disabled = ifactory.newPixmap("disabled_" + icon_name)
+        except:
+            # if disabled button is not present this means we don't need it!
+            self._pix_disabled = ifactory.newPixmap(icon_name)
 
-        self.label.setPixmap(self._pix)
+        self.setPixmap(self._pix)
+
+
+    def setText(self, text):
+        self._text = text
+
+        self.setPaletteForegroundColor(ctx.consts.fg_color)
+#        f = QFont( "Bitstream Vera Sans", 12, QFont.Bold );
+        f = self.font()
+        f.setBold(True)
+        self.setFont(f)
+
+
+    def setPixmap(self, pix):
+        self.setPaletteBackgroundPixmap(pix)
+
+
+    def paintEvent(self, e):
+        QWidget.paintEvent(self, e)
+        if self._text:
+            self.drawText(10, 18, self._text)
+
 
     def setEnabled(self, b = True):
         self._enabled = b
 
         if self._enabled:
-            self.label.setPixmap(self._pix)
+            self.setPixmap(self._pix)
             self.setCursor(QCursor(13))
         else:
-            self.label.setPixmap(self._pix_disabled)
+            self.setPixmap(self._pix_disabled)
             self.setCursor(QCursor(0))
             
 
     def mouseReleaseEvent(self, e):
         if self._enabled:
             self.emit(PYSIGNAL("signalClicked"), ())
-            self.label.setPixmap(self._pix_over)
+            self.setPixmap(self._pix_over)
         else:
-            self.label.setPixmap(self._pix_disabled)
+            self.setPixmap(self._pix_disabled)
 
     def mousePressEvent(self, e):
         if self._enabled:
-            self.label.setPixmap(self._pix_pressed)
+            self.setPixmap(self._pix_pressed)
         else:
-            self.label.setPixmap(self._pix_disabled)
+            self.setPixmap(self._pix_disabled)
 
     def enterEvent(self, e):
         if self._enabled:
-            self.label.setPixmap(self._pix_over)
+            self.setPixmap(self._pix_over)
         else:
-            self.label.setPixmap(self._pix_disabled)
+            self.setPixmap(self._pix_disabled)
 
     def leaveEvent(self, e):
         if self._enabled:
-            self.label.setPixmap(self._pix)
+            self.setPixmap(self._pix)
         else:
-            self.label.setPixmap(self._pix_disabled)
+            self.setPixmap(self._pix_disabled)
 
 
     # handle keyboard focus/press events
