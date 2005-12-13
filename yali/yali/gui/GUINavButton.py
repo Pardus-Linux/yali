@@ -35,12 +35,6 @@ class NavButton(QWidget):
 
         self.setCursor(QCursor(13))
 
-        # FIXME:
-        # build the widget layout... or should be use QPushButton?
-        # don't use fixed sizes
-        # find a way to paint button background.
-        self.setFixedSize(50, 28)
-
         self.setFocusPolicy(self.TabFocus)
 
         self._pix = None
@@ -52,6 +46,10 @@ class NavButton(QWidget):
     def setIcon(self, icon_name):
         ifactory = ctx.iconfactory
         self._pix = ifactory.newPixmap(icon_name)
+
+        # fixed size is O.K.
+        self.setFixedSize(self._pix.size())
+
 
         # set a common mask for same sized images.
         bmap = self._pix.mask()

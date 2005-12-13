@@ -16,6 +16,7 @@ import locale
 from qt import *
 
 import yali.gui.context as ctx
+import GUINavButton
 
 ##
 # Help widget
@@ -39,22 +40,29 @@ class Widget(QWidget):
         self.tv.setPaletteForegroundColor(ctx.consts.fg_color)
 
 
-        # up/down buttons
-        self.up = QPushButton(self)
-        self.up.setPixmap(ctx.iconfactory.newPixmap("scroll_up"))
-        self.down = QPushButton(self)
-        self.down.setPixmap(ctx.iconfactory.newPixmap("scroll_down"))
+        up_layout = QHBoxLayout(l)
+        self.up = GUINavButton.NavButton(self)
+        self.up.setIcon("help_button_up")
+        up_layout.addStretch(1)
+        up_layout.addWidget(self.up)
+        up_layout.addStretch(1)
 
-        l.addWidget(self.up)
         l.addWidget(self.tv)
-        l.addWidget(self.down)
+
+        down_layout = QHBoxLayout(l)
+        self.down = GUINavButton.NavButton(self)
+        self.down.setIcon("help_button_down")
+        down_layout.addStretch(1)
+        down_layout.addWidget(self.down)
+        down_layout.addStretch(1)
+
 
         self.connect(ctx.screens, PYSIGNAL("signalCurrent"),
                      self.slotScreenChanged)
 
-        self.connect(self.up, SIGNAL("clicked()"),
+        self.connect(self.up, PYSIGNAL("signalClicked"),
                      self.slotUP)
-        self.connect(self.down, SIGNAL("clicked()"),
+        self.connect(self.down, PYSIGNAL("signalClicked"),
                      self.slotDOWN)
 
 
