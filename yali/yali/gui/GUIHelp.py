@@ -41,7 +41,7 @@ class Widget(QWidget):
 
 
         up_layout = QHBoxLayout(l)
-        self.up = GUINavButton.NavButton(self)
+        self.up = GUINavButton.YaliButton(self)
         self.up.setIcon("help_button_up")
         up_layout.addStretch(1)
         up_layout.addWidget(self.up)
@@ -50,7 +50,7 @@ class Widget(QWidget):
         l.addWidget(self.tv)
 
         down_layout = QHBoxLayout(l)
-        self.down = GUINavButton.NavButton(self)
+        self.down = GUINavButton.YaliButton(self)
         self.down.setIcon("help_button_down")
         down_layout.addStretch(1)
         down_layout.addWidget(self.down)

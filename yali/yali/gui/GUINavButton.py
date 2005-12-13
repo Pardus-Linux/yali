@@ -21,7 +21,7 @@ import yali.gui.context as ctx
 
 
 def __button(parent, icon):
-    b = NavButton(parent)
+    b = YaliButton(parent)
     b.setIcon(icon)
     return b
 
@@ -33,7 +33,7 @@ def prevButton(parent):
 
 
 
-class NavButton(QWidget):
+class YaliButton(QWidget):
 
     def __init__(self, *args):
         apply(QWidget.__init__, (self,) + args)

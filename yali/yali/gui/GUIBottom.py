@@ -40,7 +40,7 @@ class Widget(QWidget):
         self._layout.setMargin(20)
 
 
-        self.relNotes = GUINavButton.NavButton(self)
+        self.relNotes = GUINavButton.YaliButton(self)
         self.relNotes.setIcon("relnotes_button")
         self.relNotes.setText(_("Release Notes"))
         self._layout.addWidget(self.relNotes)
