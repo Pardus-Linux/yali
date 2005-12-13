@@ -11,17 +11,26 @@
 #
 
 from qt import *
+
+import gettext
+__trans = gettext.translation('yali', fallback=True)
+_ = __trans.ugettext
+
+
 import yali.gui.context as ctx
 
+
+def __button(parent, icon):
+    b = NavButton(parent)
+    b.setIcon(icon)
+    return b
+
 def nextButton(parent):
-    w = NavButton(parent)
-    w.setIcon("button_forward")
-    return w
+    return __button(parent, "button_forward")
 
 def prevButton(parent):
-    w = NavButton(parent)
-    w.setIcon("button_back")
-    return w
+    return __button(parent, "button_back")
+
 
 
 class NavButton(QWidget):
