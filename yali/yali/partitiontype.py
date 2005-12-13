@@ -30,12 +30,9 @@ class PartitionType:
     def __eq__(self, rhs):
         return self.filesystem == rhs.filesystem
 
-class RootPartitionType(PartitionType):
-    name = _("Install Root")
-    mountpoint = "/"
-    mountoptions = "noatime"
-    parted_type = parted.PARTITION_PRIMARY
-    parted_flags = [ parted.PARTITION_BOOT ]
+##
+# not an intuitive name but need group home and root :(
+class __PartitionType(PartitionType):
 
     def __init__(self):
         # check cmdline for reiserfs support
@@ -45,13 +42,22 @@ class RootPartitionType(PartitionType):
         else:
             self.filesystem = yali.filesystem.Ext3FileSystem()
 
-class HomePartitionType(PartitionType):
+
+class RootPartitionType(__PartitionType):
+    name = _("Install Root")
+    mountpoint = "/"
+    mountoptions = "noatime"
+    parted_type = parted.PARTITION_PRIMARY
+    parted_flags = [ parted.PARTITION_BOOT ]
+
+
+class HomePartitionType(__PartitionType):
     name = _("Users' Files")
-    filesystem = yali.filesystem.Ext3FileSystem()
     mountpoint = "/home"
     mountoptions = "noatime"
     parted_type = parted.PARTITION_PRIMARY
     parted_flags = []
+
 
 class SwapPartitionType(PartitionType):
     name = _("Swap")
