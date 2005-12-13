@@ -25,6 +25,7 @@ class Widget(QWidget):
         apply(QWidget.__init__, (self,) + args)
 
         l = QVBoxLayout(self)
+        l.setSpacing(10)
 
         self.tv = QTextView(self)
 

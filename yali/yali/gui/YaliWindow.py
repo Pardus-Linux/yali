@@ -65,26 +65,18 @@ class Widget(QMainWindow):
 #        l = self.layout()
 
         main = QVBoxLayout(self)
-        main.setSpacing(0)
-        main.setMargin(0)
 
         main.addWidget(self.topWidget)
 
         center = QHBoxLayout()
-        center.setSpacing(20)
-        center.setMargin(20)
+        left_spacer = QSpacerItem(20,20, QSizePolicy.Fixed, QSizePolicy.Fixed)
+        center.addItem(left_spacer)
         center.addWidget(self.contentWidget)
-        
-        centerRight = QVBoxLayout()
-        centerRight.setSpacing(10)
-        centerRight.setMargin(0)
-        centerRight.addWidget(self.helpWidget)
-
-        centerRight.addStretch(1)
-        center.addLayout(centerRight)
+        center.addWidget(self.helpWidget)
+        right_spacer = QSpacerItem(20,20, QSizePolicy.Fixed, QSizePolicy.Fixed)
+        center.addItem(right_spacer)
 
         main.addLayout(center)
-        
         main.addWidget(self.bottomWidget)
 
 
