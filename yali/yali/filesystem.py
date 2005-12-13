@@ -140,7 +140,7 @@ class Ext3FileSystem(FileSystem):
 
         cmd_path = sysutils.find_executable("mke2fs")
         if not cmd_path:
-            cmd_path = sysutils.find_executable("mke2fs")
+            cmd_path = sysutils.find_executable("mkfs.ext3")
 
         
         if not cmd_path:
