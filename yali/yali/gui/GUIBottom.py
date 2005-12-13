@@ -37,7 +37,7 @@ class Widget(QWidget):
 
         self._layout = QHBoxLayout(self)
         self._layout.setSpacing(20)
-        self._layout.setMargin(20)
+        self._layout.setMargin(10)
 
 
         self.relNotes = GUINavButton.YaliButton(self)

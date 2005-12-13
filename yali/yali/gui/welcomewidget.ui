@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>568</width>
-            <height>370</height>
+            <width>515</width>
+            <height>309</height>
         </rect>
     </property>
     <property name="caption">
@@ -162,7 +162,7 @@ select 'Accept'.</string>
         </spacer>
         <widget class="QLayoutWidget" row="4" column="1">
             <property name="name">
-                <cstring>layout3</cstring>
+                <cstring>layout4</cstring>
             </property>
             <vbox>
                 <property name="name">
@@ -208,7 +208,7 @@ select 'Accept'.</string>
                 </widget>
                 <widget class="QLayoutWidget">
                     <property name="name">
-                        <cstring>layout2</cstring>
+                        <cstring>layout3</cstring>
                     </property>
                     <hbox>
                         <property name="name">
@@ -226,7 +226,7 @@ select 'Accept'.</string>
                             </property>
                             <property name="sizeHint">
                                 <size>
-                                    <width>31</width>
+                                    <width>20</width>
                                     <height>20</height>
                                 </size>
                             </property>
@@ -241,6 +241,23 @@ select 'Accept'.</string>
                         </widget>
                         <spacer>
                             <property name="name">
+                                <cstring>spacer10</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Vertical</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Fixed</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>1</width>
+                                    <height>25</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <spacer>
+                            <property name="name">
                                 <cstring>spacer14</cstring>
                             </property>
                             <property name="orientation">
@@ -251,7 +268,7 @@ select 'Accept'.</string>
                             </property>
                             <property name="sizeHint">
                                 <size>
-                                    <width>31</width>
+                                    <width>33</width>
                                     <height>20</height>
                                 </size>
                             </property>
