@@ -78,7 +78,6 @@ class YaliButton(QWidget):
         self._text = text
 
         self.setPaletteForegroundColor(ctx.consts.fg_color)
-#        f = QFont( "Bitstream Vera Sans", 12, QFont.Bold );
         f = self.font()
         f.setBold(True)
         self.setFont(f)

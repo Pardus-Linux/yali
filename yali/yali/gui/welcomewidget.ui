@@ -252,7 +252,7 @@ select 'Accept'.</string>
                             <property name="sizeHint">
                                 <size>
                                     <width>1</width>
-                                    <height>25</height>
+                                    <height>28</height>
                                 </size>
                             </property>
                         </spacer>
