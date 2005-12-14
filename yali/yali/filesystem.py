@@ -36,6 +36,8 @@ def get_filesystem(name):
         return SwapFileSystem()
     elif name == "ntfs":
         return NTFSFileSystem()
+    elif name == "reiserfs":
+        return ReiserFileSystem()
 
     return None
 
