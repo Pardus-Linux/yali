@@ -102,7 +102,12 @@ class PartEdit(QWidget):
                 self.warning.show()
 
         elif t ==  parteddata.partitionType:
-            if state == deleteState:
+            if state == createState and self._d.isExtended():
+                self.edit.size.setMaxValue(self._d.getFreeMB())
+                self.edit.setState(state)
+                self.edit.show()
+
+            elif state == deleteState:
                 self.warning.setText(
                     _("You are going to delete partition '%s' on device '%s'!")
                     % (self._d.getMinor(), self._d.getDevice().getModel()))
@@ -164,7 +169,7 @@ class PartEdit(QWidget):
                 elif pt == parttype.swap:
                     self.edit.swap.setEnabled(False)
 
-        def create_new_partition(device):
+        def create_new_partition(device, type = parteddata.PARTITION_PRIMARY):
             t = get_part_type()
 
             if t == parttype.root:
@@ -179,8 +184,8 @@ class PartEdit(QWidget):
 
             size = self.edit.size.text().toInt()[0]
 
-            # create a new partition with the data provided from PartitionPype
-            p = device.addPartition(t.parted_type, t.filesystem, size, t.parted_flags)
+
+            p = device.addPartition(type, t.filesystem, size, t.parted_flags)
             device.commit()
             partition = device.getPartition(p.num)
 
@@ -257,7 +262,12 @@ class PartEdit(QWidget):
                 self._d.commit()
 
         elif t ==  parteddata.partitionType:
-            if state == deleteState:
+            if state == createState and self._d.isExtended():
+                device = self._d.getDevice()
+                if not create_new_partition(device, parteddata.PARTITION_LOGICAL):
+                    return False
+
+            elif state == deleteState:
                 device = self._d.getDevice()
                 device.deletePartition(self._d)
                 device.commit()

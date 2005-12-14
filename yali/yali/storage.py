@@ -98,6 +98,7 @@ class Device:
 
         part = self._disk.next_partition()
         while part:
+#            print self.getModel(), part.num, part.geom.length
             self.__addToPartitionsDict(part)
             part = self._disk.next_partition(part)
 
@@ -223,14 +224,29 @@ class Device:
         while part:
             geom = part.geom
 
-            if (part.type == parted.PARTITION_FREESPACE
-                and geom.length >= size):
+            # creating a primary partition
+            if part.type == parted.PARTITION_FREESPACE \
+                    and geom.length >= size \
+                    and type == parted.PARTITION_PRIMARY:
 
                 return self.addPartitionStartEnd(type,
                                                  fs,
                                                  geom.start,
                                                  geom.start + size,
                                                  flags)
+
+            # Creating a logical partition
+            # free space in extended partitions has the type num 5
+            elif part.type == 5 \
+                    and geom.length >= size \
+                    and type == parted.PARTITION_LOGICAL:
+                
+                return self.addPartitionStartEnd(type,
+                                                 fs,
+                                                 geom.start,
+                                                 geom.start + size,
+                                                 flags)
+
 
             part = self._disk.next_partition(part)
 
@@ -302,6 +318,7 @@ class Device:
                                                    geom.start,
                                                    geom.end,
                                                    fs_name)
+
         elif part.type_name == "free":
             self._partitions[-1] = FreeSpace(self, part,
                                              part_mb,

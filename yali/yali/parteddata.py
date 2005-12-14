@@ -31,5 +31,9 @@ archinfo = {
     }
 
 
+PARTITION_PRIMARY = parted.PARTITION_PRIMARY
+PARTITION_EXTENDED = parted.PARTITION_EXTENDED
+PARTITION_LOGICAL = parted.PARTITION_LOGICAL
+
 deviceType, partitionType, freeSpaceType = range(3)
 

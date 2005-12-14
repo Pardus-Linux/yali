@@ -45,6 +45,27 @@ class Partition:
         return self._partition.type == parted.PARTITION_EXTENDED
 
 
+    ##
+    # get freespace on extended partition
+    def getFreeBytes(self):
+        if not self.isExtended():
+            return 0
+
+        total_bytes = self.getBytes()
+
+        d = self.getDevice()
+        size = 0
+        for p in d.getPartitions():
+            if p.isLogical():
+                size += p.getBytes()
+
+        return total_bytes - size
+
+
+    def getFreeMB(self):
+        return long(self.getFreeBytes() / parteddata.MEGABYTE)
+
+
     def getType(self):
         return self._parted_type
 
@@ -86,6 +107,10 @@ class Partition:
     def getEnd(self):
         return self._end
 
+    def getBytes(self):
+        return long(self.getPartition().geom.length *
+                    self.getDevice()._sector_size)
+
     def getMB(self):
         return self._mb
 
@@ -111,9 +136,9 @@ class Partition:
 # Class representing free space within a Device object
 class FreeSpace(Partition):
 
-    def __init__(self, device, part, mb, start, end):
+    def __init__(self, device, parted_part, mb, start, end):
         Partition.__init__(self, device,
-                           part,
+                           parted_part,
                            -1,
                            mb,
                            start,
@@ -121,4 +146,5 @@ class FreeSpace(Partition):
                            _("free space"))
 
         self._parted_type = parteddata.freeSpaceType
+
 

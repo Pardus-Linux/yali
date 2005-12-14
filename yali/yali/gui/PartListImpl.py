@@ -83,6 +83,14 @@ class PartList(PartListWidget):
                              ext.getSizeStr())
             e.setData(ext)
 
+            freespace = ext.getFreeMB()
+            if freespace:
+                f = PartListItem(e,
+                                 _("Free"),
+                                 str(freespace))
+                # freespace's data is extended partition. we'll use it later on...
+                f.setData(ext)
+
 
         # add partitions on device
         for part in dev.getOrderedPartitionList():
@@ -136,8 +144,14 @@ class PartList(PartListWidget):
                     resizeable = True
             self.resizeButton.setEnabled(resizeable)
 
-            self.createButton.setEnabled(False)
+            if d.isExtended():
+                if d.getFreeMB() > 0:
+                    self.createButton.setEnabled(True)
+            else:
+                self.createButton.setEnabled(False)
+
             self.deleteButton.setEnabled(True)
+
             if not d.isExtended(): # don't edit extended partititons
                 self.editButton.setEnabled(True)
 
