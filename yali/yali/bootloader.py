@@ -28,7 +28,7 @@ splashimage = (%(grub_root)s)/boot/grub/splash.xpm.gz
 
 title=  %(pardus_version)s
 root (%(grub_root)s)
-kernel (%(grub_root)s)/boot/%(boot_kernel)s %(boot_parameters)s
+kernel (%(grub_root)s)/boot/%(boot_kernel)s %(boot_parameters)s quiet
 initrd=(%(grub_root)s)/boot/%(initrd)s 
 """
 
