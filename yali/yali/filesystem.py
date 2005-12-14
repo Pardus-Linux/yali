@@ -164,7 +164,7 @@ class Ext3FileSystem(FileSystem):
             e = "Command not found to get information about %s" %(partition)
             raise FSError, e 
 
-        lines = os.popen("%s -h %s" % (cmd_path, partition)).readlines()
+        lines = os.popen("%s -h %s" % (cmd_path, partition.getPath())).readlines()
 
         total_blocks = long(filter(lambda line: line.startswith('Block count'), lines)[0].split(':')[1].strip('\n').strip(' '))
         free_blocks  = long(filter(lambda line: line.startswith('Free blocks'), lines)[0].split(':')[1].strip('\n').strip(' '))
@@ -173,7 +173,7 @@ class Ext3FileSystem(FileSystem):
         return (((total_blocks - free_blocks) * block_size) / parteddata.MEGABYTE) + 150
 
     def resize(self, size_mb, partition):
-        if size_mb < minResizeMB(partition):
+        if size_mb < self.minResizeMB(partition):
             return False
 
         cmd_path = sysutils.find_executable("resize2fs")
@@ -182,7 +182,7 @@ class Ext3FileSystem(FileSystem):
             e = "Command not found to format %s filesystem" %(self.name())
             raise FSError, e 
         
-        cmd = "%s %s %sM" % (cmd_path, partition, str(size_mb)) 
+        cmd = "%s %s %sM" % (cmd_path, partition.getPath(), str(size_mb)) 
         
         try:
             p = os.popen(cmd)
