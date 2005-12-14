@@ -163,9 +163,18 @@ class Device:
     # check if the device has an extended partition
     # returns: True/False
     def hasExtendedPartition(self):
+        if self.getExtendedPartition():
+            return True
+
+        return False
+
+    ##
+    # get the extended partition on device (if it has one)
+    def getExtendedPartition(self):
         for p in self.getPartitions():
             if p._partition.type == parted.PARTITION_EXTENDED:
-                return True
+                return p
+
         return False
 
     ##
@@ -227,6 +236,14 @@ class Device:
 
         raise DeviceError, ("Not enough free space on %s to create "
                             "new partition" % self.getPath())
+
+
+    ##
+    # add a partition starting from a given geom...
+    def addPartitionFromStart(self, type, fs, start, size_mb):
+        size = int(size_mb * MEGABYTE / self._sector_size)
+        self.addPartitionStartEnd(type, fs, start, start + size)
+
         
     ##
     # Add (create) a new partition to the device from start to end.
@@ -258,13 +275,6 @@ class Device:
             raise DeviceError, e
         
         return self.__addToPartitionsDict(newp)
-
-
-    ##
-    # add a partition starting from a given geom...
-    def addPartitionFromStart(self, type, fs, start, size_mb):
-        size = int(size_mb * MEGABYTE / self._sector_size)
-        self.addPartitionStartEnd(type, fs, start, start + size)
 
 
     ##

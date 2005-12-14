@@ -67,25 +67,51 @@ class PartList(PartListWidget):
         self.checkRootPartRequest()
 
     def addDevice(self, dev):
+
         # add the device to the list
         devstr = "%s (%s)" % (dev.getModel(), dev.getName())
         d = PartListItem(self.list, devstr,
                          dev.getSizeStr())
         d.setData(dev)
 
+
+        # than add extended partition to reparent logical ones
+        if dev.hasExtendedPartition():
+            ext = dev.getExtendedPartition()
+            e = PartListItem(d,
+                             _("Extended"),
+                             ext.getSizeStr())
+            e.setData(ext)
+
+
         # add partitions on device
         for part in dev.getOrderedPartitionList():
-            if part.getType() == parteddata.freeSpaceType:
+            parent_item = d
+
+            if part.isExtended():
+                continue
+
+            elif part.getType() == parteddata.freeSpaceType:
                 name = _("Free")
+
             else:
                 name = _("Partition %d") % part.getMinor()
-            p = PartListItem(d, name,
+                if part.isLogical():
+                    parent_item = e
+
+            p = PartListItem(parent_item,
+                             name,
                              part.getSizeStr(),
                              "", # install partition type
                              part.getFSName())
             p.setData(part)
 
         self.list.setOpen(d, True)
+        try:
+            self.list.setOpen(e, True)
+        except:
+            # no extended partition...
+            pass
 
     def slotItemSelected(self):
         item = self.list.currentItem()
@@ -112,7 +138,8 @@ class PartList(PartListWidget):
 
             self.createButton.setEnabled(False)
             self.deleteButton.setEnabled(True)
-            self.editButton.setEnabled(True)
+            if not d.isExtended(): # don't edit extended partititons
+                self.editButton.setEnabled(True)
 
             self.deleteButton.setText(_("Delete Selected Partition"))
 
@@ -177,6 +204,7 @@ class PartList(PartListWidget):
 
             elif t == request.mountRequestType:
                 item.setText(2, ptype.name)
+
 
     def checkRootPartRequest(self):
         ctx.screens.disableNext()
