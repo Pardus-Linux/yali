@@ -72,8 +72,9 @@ Legend:
    - select where to install Grub
 
  - partitioning
-   - ext3 resize
-   - support extended partitions
+   + ext3 resize
+   + support extended partitions
+   - fat32 resize
 
  - tests
 
