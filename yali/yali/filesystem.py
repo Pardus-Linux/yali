@@ -136,6 +136,7 @@ class Ext3FileSystem(FileSystem):
     def __init__(self):
         FileSystem.__init__(self)
         self.setImplemented(True)
+        self.setResizeable(True)
 
     def format(self, partition):
         self.preFormat(partition)
@@ -156,6 +157,41 @@ class Ext3FileSystem(FileSystem):
         if p.close():
             raise YaliException, "ext3 format failed: %s" % partition.getPath()
 
+    def minResizeMB(self, partition):
+        cmd_path = sysutils.find_executable("dumpe2fs")
+
+        if not cmd_path:
+            e = "Command not found to get information about %s" %(partition)
+            raise FSError, e 
+
+        lines = os.popen("%s -h %s" % (cmd_path, partition)).readlines()
+
+        total_blocks = long(filter(lambda line: line.startswith('Block count'), lines)[0].split(':')[1].strip('\n').strip(' '))
+        free_blocks  = long(filter(lambda line: line.startswith('Free blocks'), lines)[0].split(':')[1].strip('\n').strip(' '))
+        block_size   = long(filter(lambda line: line.startswith('Block size'), lines)[0].split(':')[1].strip('\n').strip(' '))
+
+        return (((total_blocks - free_blocks) * block_size) / parteddata.MEGABYTE) + 150
+
+    def resize(self, size_mb, partition):
+        if size_mb < minResizeMB(partition):
+            return False
+
+        cmd_path = sysutils.find_executable("resize2fs")
+
+        if not cmd_path:
+            e = "Command not found to format %s filesystem" %(self.name())
+            raise FSError, e 
+        
+        cmd = "%s %s %sM" % (cmd_path, partition, str(size_mb)) 
+        
+        try:
+            p = os.popen(cmd)
+            p.close()
+        except:
+            return False
+
+        return True
+       
 
 ##
 # reiserfs
