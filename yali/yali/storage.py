@@ -158,6 +158,16 @@ class Device:
     def getPartition(self, num):
         return self._partitions[num]
 
+
+    ##
+    # check if the device has an extended partition
+    # returns: True/False
+    def hasExtendedPartition(self):
+        for p in self.getPartitions():
+            if p._partition.type == parted.PARTITION_EXTENDED:
+                return True
+        return False
+
     ##
     # get the partition list in an order
     # returns: [Partition]

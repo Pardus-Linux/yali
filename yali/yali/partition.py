@@ -16,6 +16,7 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
+import parted
 import yali.parteddata as parteddata
 
 ##
@@ -32,8 +33,21 @@ class Partition:
         self._fsname = fs_name or _("unknown")
         self._parted_type = parteddata.partitionType
 
+
+    ##
+    # check if partition is logical
+    def isLogical(self):
+        return self._partition.type == parted.PARTITION_LOGICAL
+
+    ##
+    # check if partition is extended
+    def isExtended(self):
+        return self._partition.type == parted.PARTITION_EXTENDED
+
+
     def getType(self):
         return self._parted_type
+
 
     ##
     # get parted partition
