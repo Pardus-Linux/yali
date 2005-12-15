@@ -60,6 +60,7 @@ def swap_as_file(filepath, mb_size):
         for cmd in [create_swap_file, mk_swap]:
             p = os.popen(cmd)
             p.close()
+        os.chmod(filepath, 0600)
     except:
         return False
 
