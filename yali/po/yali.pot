@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-14 19:37+0200\n"
+"POT-Creation-Date: 2005-12-15 04:07+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -182,12 +182,12 @@ msgstr ""
 msgid "You are going to delete all partitions on device '%s'"
 msgstr ""
 
-#: yali/gui/PartEditImpl.py:107
+#: yali/gui/PartEditImpl.py:112
 #, python-format
 msgid "You are going to delete partition '%s' on device '%s'!"
 msgstr ""
 
-#: yali/gui/PartEditImpl.py:175 yali/gui/PartEditImpl.py:199
+#: yali/gui/PartEditImpl.py:180 yali/gui/PartEditImpl.py:204
 #, python-format
 msgid "'Install Root' size must be larger than %s MB."
 msgstr ""
@@ -262,28 +262,32 @@ msgstr ""
 msgid "Resize Partition"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:79
+#: yali/gui/PartListImpl.py:82
+msgid "Extended"
+msgstr ""
+
+#: yali/gui/PartListImpl.py:89 yali/gui/PartListImpl.py:103
 msgid "Free"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:81
+#: yali/gui/PartListImpl.py:106
 #, python-format
 msgid "Partition %d"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:101
+#: yali/gui/PartListImpl.py:135
 msgid "Delete All Partitions"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:117 yali/gui/partlistwidget.py:77
+#: yali/gui/PartListImpl.py:158 yali/gui/partlistwidget.py:77
 msgid "Delete Selected Partition"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:174
+#: yali/gui/PartListImpl.py:215
 msgid "Formatting!"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:176
+#: yali/gui/PartListImpl.py:217
 msgid "YES"
 msgstr ""
 
@@ -524,11 +528,11 @@ msgstr ""
 msgid "Windows"
 msgstr ""
 
-#: yali/partition.py:32
+#: yali/partition.py:33
 msgid "unknown"
 msgstr ""
 
-#: yali/partition.py:107
+#: yali/partition.py:146
 msgid "free space"
 msgstr ""
 

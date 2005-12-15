@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-14 19:37+0200\n"
-"PO-Revision-Date: 2005-12-14 19:37+0200\n"
+"POT-Creation-Date: 2005-12-15 04:07+0200\n"
+"PO-Revision-Date: 2005-12-15 04:07+0200\n"
 "Last-Translator: Barış Metin <baris@uludag.org.tr>\n"
 "Language-Team:  <tr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -256,12 +256,12 @@ msgstr "Uygula"
 msgid "You are going to delete all partitions on device '%s'"
 msgstr "'%s' aygıtı üzerindeki tüm disk bölümlerini silmek üzeresiniz!"
 
-#: yali/gui/PartEditImpl.py:107
+#: yali/gui/PartEditImpl.py:112
 #, python-format
 msgid "You are going to delete partition '%s' on device '%s'!"
 msgstr "'%s' disk bölümünü '%s' aygıtından silmek üzeresiniz!"
 
-#: yali/gui/PartEditImpl.py:175 yali/gui/PartEditImpl.py:199
+#: yali/gui/PartEditImpl.py:180 yali/gui/PartEditImpl.py:204
 #, python-format
 msgid "'Install Root' size must be larger than %s MB."
 msgstr "'Sistem Dosyaları' bölümü en az %s MB olmalı."
@@ -362,28 +362,32 @@ msgstr "Disk Bölümünü Düzenle"
 msgid "Resize Partition"
 msgstr "Bölümü Yeniden Boyutlandır"
 
-#: yali/gui/PartListImpl.py:79
+#: yali/gui/PartListImpl.py:82
+msgid "Extended"
+msgstr "Uzatılmış"
+
+#: yali/gui/PartListImpl.py:89 yali/gui/PartListImpl.py:103
 msgid "Free"
 msgstr "Boş"
 
-#: yali/gui/PartListImpl.py:81
+#: yali/gui/PartListImpl.py:106
 #, python-format
 msgid "Partition %d"
 msgstr "Disk bölümü %d"
 
-#: yali/gui/PartListImpl.py:101
+#: yali/gui/PartListImpl.py:135
 msgid "Delete All Partitions"
 msgstr "Tüm Disk Bölümlerini Sil"
 
-#: yali/gui/PartListImpl.py:117 yali/gui/partlistwidget.py:77
+#: yali/gui/PartListImpl.py:158 yali/gui/partlistwidget.py:77
 msgid "Delete Selected Partition"
 msgstr "Seçili Disk Bölümünü Sil"
 
-#: yali/gui/PartListImpl.py:174
+#: yali/gui/PartListImpl.py:215
 msgid "Formatting!"
 msgstr "Biçimlendiriliyor!"
 
-#: yali/gui/PartListImpl.py:176
+#: yali/gui/PartListImpl.py:217
 msgid "YES"
 msgstr "EVET"
 
@@ -734,11 +738,11 @@ msgstr "Sistemi Yeniden Başlat!"
 msgid "Windows"
 msgstr "Windows"
 
-#: yali/partition.py:32
+#: yali/partition.py:33
 msgid "unknown"
 msgstr "bilinmeyen"
 
-#: yali/partition.py:107
+#: yali/partition.py:146
 msgid "free space"
 msgstr "boş alan"
 
