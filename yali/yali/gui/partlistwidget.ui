@@ -158,6 +158,9 @@
                     <property name="name">
                         <cstring>list</cstring>
                     </property>
+                    <property name="resizeMode">
+                        <enum>LastColumn</enum>
+                    </property>
                 </widget>
             </vbox>
         </widget>
