@@ -84,8 +84,11 @@ don't you?
 #        print cmd
 #        os.system(cmd)
         try:
+            #FIXME: this is a dirty and temporary workaround.. will be removed.
+            os.chmod(ctx.consts.target_dir + "/var/tmp", 01777)
             mount.umount(ctx.consts.target_dir + "/home")
         except:
             pass
+
         mount.umount(ctx.consts.target_dir)
         reboot.fastreboot()
