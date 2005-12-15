@@ -68,7 +68,7 @@ Legend:
 3. RC1 (1.0)
 
  - GUI
-   - find a way to show exceptions on GUI
+   + find a way to show exceptions on GUI
    - select where to install Grub
 
  - partitioning
@@ -76,11 +76,9 @@ Legend:
    + support extended partitions
    - fat32 resize
 
- - tests
-
  - logging system
 
- - exception handling
+ + exception handling
 
  - implement swap as file.
 
