@@ -87,7 +87,7 @@ class User:
         user_home_dir = os.path.join(consts.target_dir, 'home', self.username)
         
         if not os.path.exists(user_home_dir):
-            shutil.copytree(os.path.join(consts.target_dir, 'etc/skel'), user_home_dir)
+            os.system('cp -r %s %s' % (os.path.join(consts.target_dir, 'etc/skel'), user_home_dir))
 
         shutil.copy(head_images.next(), os.path.join(user_home_dir, '.face.icon'))
         os.chmod(os.path.join(user_home_dir, '.face.icon'), 0644)
