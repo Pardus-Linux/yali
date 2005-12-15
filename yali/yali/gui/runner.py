@@ -113,9 +113,9 @@ def showException(ex_type, tb):
     title = "Unhandled Exception!"
     
     if ex_type == yali.exception_fatal:
-        w = ExceptionWidget(tb)
-    else:
         w = ErrorWidget(tb)
+    else:
+        w = ExceptionWidget(tb)
     d = Dialog(title, w, None)
     d.resize(500,400)
     d.exec_loop()
