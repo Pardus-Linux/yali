@@ -64,6 +64,7 @@ about disk partitioning.
 
         self.partlist = PartList(self)
         self.partedit = PartEdit(self)
+        self.partedit.hide()
         self.dialog = None
 
         vbox = QVBoxLayout(self)

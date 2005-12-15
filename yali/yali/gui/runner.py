@@ -68,7 +68,7 @@ class Runner:
         self._window = YaliWindow.Widget()
 
         # default style and font
-        self._app.setStyle("Polymer")
+        self._app.setStyle("Windows")
         f = QFont( "Bitstream Vera Sans", 10);
         self._window.setFont(f)
 
