@@ -21,6 +21,8 @@ _ = __trans.ugettext
 import yali.storage
 
 import yali.gui.context as ctx
+import yali.partitionrequest as request
+import yali.partitiontype as parttype
 from yali.gui.YaliDialog import Dialog
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.PartListImpl import PartList
@@ -103,6 +105,24 @@ about disk partitioning.
         self.partlist.showPartitionRequests(formatting=True)
         # process events and show partitioning information!
         ctx.screens.processEvents()
+
+        
+        ##
+        # check swap partition, if not present use swap file
+        rt = request.mountRequestType
+        pt = parttype.swap
+        found_swap_part = [x for x in ctx.partrequests.searchPartTypeAndReqType(pt, rt)]
+        # this should give (at most) one result
+        # cause we are storing one request for a partitionType()
+        assert(len(found_swap_part) <= 1)
+
+
+        if not found_swap_part:
+            print "no swap partition defined using swap as file..."
+            # find root partition
+            for r in ctx.partrequests.searchReqType(request.mountRequestType):
+                ctx.partrequests.append(
+                    request.SwapFileRequest(r.partition(), r.partitionType()))
 
         # apply all partition requests
         ctx.partrequests.applyAll()

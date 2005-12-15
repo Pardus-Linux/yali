@@ -52,6 +52,10 @@ class Constants:
         # packages (and maybe others) will be in this source (cdrom) directory
         self.__c.source_dir = join(self.__c.mnt_dir, "cdrom")
 
+        # swap file path
+        self.__c.swap_file_name = ".swap"
+        self.__c.swap_file_path = join(self.__c.target_dir, 
+                                       self.__c.swap_file_name)
 
         # user faces
         self.__c.user_faces_dir = join(self.__c.data_dir, "user_faces")

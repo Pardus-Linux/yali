@@ -47,6 +47,7 @@ def chroot_comar():
         comar_path = "/usr/bin/comar"
         os.execv(comar_path, [])
 
+
 def swap_as_file(filepath, mb_size):
     dd, mkswap = find_executable('dd'), find_executable('mkswap')
    

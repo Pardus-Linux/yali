@@ -136,7 +136,8 @@ Have fun!
         # fill fstab
         fstab = yali.fstab.Fstab()
         for req in ctx.partrequests:
-            if req.requestType() == request.mountRequestType:
+            req_type = req.requestType()
+            if req_type == request.mountRequestType:
                 p = req.partition()
                 pt = req.partitionType()
 
@@ -145,6 +146,13 @@ Have fun!
                 mountpoint = pt.mountpoint
                 opts = pt.mountoptions
 
+                e = yali.fstab.FstabEntry(path, mountpoint, fs, opts)
+                fstab.insert(e)
+            elif req_type == request.swapFileRequestType:
+                path = "/" + ctx.consts.swap_file_name
+                mountpoint = "none"
+                fs = "swap"
+                opts = "sw"
                 e = yali.fstab.FstabEntry(path, mountpoint, fs, opts)
                 fstab.insert(e)
 

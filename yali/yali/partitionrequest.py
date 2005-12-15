@@ -17,13 +17,14 @@ import mount
 from yali.exception import *
 from yali.constants import consts
 import yali.partitiontype as parttype
+import yali.sysutils
 
 class RequestException(YaliException):
     pass
 
 
 # poor man's enum ;)
-formatRequestType, mountRequestType = range(2)
+formatRequestType, mountRequestType, swapFileRequestType = range(3)
 
 
 ##
@@ -52,6 +53,11 @@ class RequestList(list):
         for r in self.searchReqType(mountRequestType):
             if r.partitionType() != rootreq.partitionType():
                 r.applyRequest()
+
+        # apply swap requests if any...
+        for r in self.searchReqType(swapFileRequestType):
+            r.applyRequest()
+
 
     ##
     # iterator function searches for a request 
@@ -261,3 +267,24 @@ class MountRequest(PartRequest):
 
         
         PartRequest.applyRequest(self)
+
+
+##
+# swap file request
+class SwapFileRequest(PartRequest):
+
+    def __init__(self, partition, part_type):
+        PartRequest.__init__(self)
+
+        self.setPartition(partition)
+        self.setPartitionType(part_type)
+        self.setRequestType(swapFileRequestType)
+
+
+    def applyRequest(self):
+
+        # FIXME: creating a fixed sized swap file is no good.
+        yali.sysutils.swap_as_file(consts.swap_file_path, 512)
+        
+        PartRequest.applyRequest(self)
+
