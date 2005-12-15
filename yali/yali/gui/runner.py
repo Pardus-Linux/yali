@@ -67,6 +67,12 @@ class Runner:
         self._app = QApplication(sys.argv)
         self._window = YaliWindow.Widget()
 
+        # default style and font
+        self._app.setStyle("Polymer")
+        f = QFont( "Bitstream Vera Sans", 10);
+        self._window.setFont(f)
+
+
         # add stages
         for stg in _all_stages:
             ctx.stages.addStage(stg['num'], stg['text'])

@@ -32,11 +32,6 @@ class Widget(QMainWindow):
     def __init__(self, *args):
         apply(QMainWindow.__init__, (self,) + args)
 
-        # the default font!
-        f = QFont( "Bitstream Vera Sans", 10);
-        self.setFont(f)
-
-
         self.topWidget = GUITop.Widget(self)
         self.contentWidget = GUIContentStack.Widget(self)
         self.helpWidget = GUIHelp.Widget(self)
