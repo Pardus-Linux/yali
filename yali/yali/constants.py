@@ -39,7 +39,7 @@ class Constants:
 
     def __init__(self):
 
-        self.__c.pardus_version = "Pardus 1.0 Beta"
+        self.__c.pardus_version = "Pardus 1.0 RC"
 
         self.__c.log_file = "/tmp/install.log"
 
