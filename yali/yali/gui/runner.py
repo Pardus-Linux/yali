@@ -18,6 +18,8 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
+import mount
+import reboot
 
 import yali
 import yali.gui.context as ctx
@@ -111,9 +113,9 @@ def showException(ex_type, tb):
     title = "Unhandled Exception!"
     
     if ex_type == yali.exception_fatal:
-        w = ErrorWidget(tb)
-    else:
         w = ExceptionWidget(tb)
+    else:
+        w = ErrorWidget(tb)
     d = Dialog(title, w, None)
     d.resize(500,400)
     d.exec_loop()
@@ -130,7 +132,7 @@ class ExceptionWidget(QWidget):
         traceback.setText(tb_text)
 
         l = QVBoxLayout(self)
-        l.setSpacing(20)
+        l.setSpacing(10)
         l.addWidget(info)
         l.addWidget(traceback)
 
@@ -144,7 +146,27 @@ class ErrorWidget(QWidget):
         traceback = QTextView(self)
         traceback.setText(tb_text)
 
+        reboot_button = QPushButton(self)
+        reboot_button.setText(_("Reboot System!"))
+
         l = QVBoxLayout(self)
-        l.setSpacing(20)
+        l.setSpacing(10)
         l.addWidget(info)
         l.addWidget(traceback)
+
+        b = QHBoxLayout(l)
+        b.setMargin(5)
+        b.addStretch(1)
+        b.addWidget(reboot_button)
+
+        self.connect(reboot_button, SIGNAL("clicked()"),
+                     self.slotReboot)
+
+    def slotReboot(self):
+        
+        try:
+            mount.umount(ctx.consts.target_dir + "/home")
+        except:
+            pass
+        mount.umount(ctx.consts.target_dir)
+        reboot.fastreboot()
