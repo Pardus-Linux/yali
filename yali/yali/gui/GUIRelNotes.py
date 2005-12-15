@@ -15,7 +15,14 @@ from os.path import join, exists
 import codecs
 from qt import *
 
+import gettext
+__trans = gettext.translation('yali', fallback=True)
+_ = __trans.ugettext
+
+
 import yali.gui.context as ctx
+from yali.gui.GUIException import *
+
 
 ##
 # Help widget
@@ -32,4 +39,11 @@ class Widget(QTextView):
 
         rel_file = "releasenotes-" + ctx.consts.lang + ".html"
         rel_path = join(ctx.consts.source_dir, rel_file)
-        self.setText(codecs.open(rel_path, "r", "UTF-8").read())
+
+        if not exists(rel_path):
+            raise GUIException, _("Can't open Release Notes file!")
+
+        try:
+            self.setText(codecs.open(rel_path, "r", "UTF-8").read())
+        except Exception, e:
+            raise GUIException, e

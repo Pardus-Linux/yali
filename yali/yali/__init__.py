@@ -17,6 +17,11 @@ import exceptions
 import traceback
 import cStringIO
 
+import gettext
+__trans = gettext.translation('yali', fallback=True)
+_ = __trans.ugettext
+
+
 from yali.exception import *
 
 
@@ -28,30 +33,38 @@ def default_runner():
     return yali.gui.runner.Runner()
 
 
+
+exception_normal, exception_fatal, exception_unknown = range(3)
+
 def exception_handler(exception, value, tb):
 
 #    sys.excepthook = sys.__excepthook__
 
     sio = cStringIO.StringIO()
-    traceback.print_tb(tb, None, sio)
 
-    v = '\n\n'
+    v = ''
     for e in value.args:
         v += str(e) + '\n'
     sio.write(v)
 
+    sio.write('\n\n')
+    sio.write(_("Backtrace:"))
+    sio.write('\n')
+    traceback.print_tb(tb, None, sio)
+
+
+    exception_type = exception_unknown
 
     if isinstance(value, YaliError):
         # show Error dialog
-        print "error"
+        exception_type = exception_fatal
+
     elif isinstance(value, YaliException):
         # show Exception dialog
-        print "exception"
-    else:
-        # show known exception dialog
-        print "unknown"
+        exception_type = exception_normal
+
 
     sio.seek(0)
 
     import yali.gui.runner
-    yali.gui.runner.showException(sio.read())
+    yali.gui.runner.showException(exception_type, sio.read())

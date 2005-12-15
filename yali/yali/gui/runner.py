@@ -19,6 +19,7 @@ __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 
+import yali
 import yali.gui.context as ctx
 from yali.gui.YaliDialog import Dialog
 
@@ -106,9 +107,13 @@ class Runner:
 
 
 
-def showException(tb):
+def showException(ex_type, tb):
     title = "Unhandled Exception!"
-    w = ExceptionWidget(tb)
+    
+    if ex_type == yali.exception_fatal:
+        w = ErrorWidget(tb)
+    else:
+        w = ExceptionWidget(tb)
     d = Dialog(title, w, None)
     d.resize(500,400)
     d.exec_loop()
@@ -121,6 +126,21 @@ class ExceptionWidget(QWidget):
 
         info = QLabel(self)
         info.setText("Unhandled exception occured!")
+        traceback = QTextView(self)
+        traceback.setText(tb_text)
+
+        l = QVBoxLayout(self)
+        l.setSpacing(20)
+        l.addWidget(info)
+        l.addWidget(traceback)
+
+
+class ErrorWidget(QWidget):
+    def __init__(self, tb_text, *args):
+        apply(QWidget.__init__, (self,) + args)        
+
+        info = QLabel(self)
+        info.setText(_("An error occured!"))
         traceback = QTextView(self)
         traceback.setText(tb_text)
 
