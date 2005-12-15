@@ -105,6 +105,8 @@ about disk partitioning.
                 request.MountRequest(p, parttype.root))
             ctx.partrequests.append(
                 request.FormatRequest(p, parttype.root))
+            ctx.partrequests.append(
+                request.SwapFileRequest(p, parttype.root))
 
 
         if self.accept_auto.isChecked():
