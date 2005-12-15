@@ -60,7 +60,7 @@ def getRevision():
 
 def getVersion():
     rev = getRevision()
-    return "-r".join([YALI_VERSION, rev])    
+    return "-r".join([YALI_VERSION, rev])
 
 def py_file_name(ui_file):
     return os.path.splitext(ui_file)[0] + '.py'
