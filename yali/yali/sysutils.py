@@ -46,3 +46,20 @@ def chroot_comar():
 
         comar_path = "/usr/bin/comar"
         os.execv(comar_path, [])
+
+def swap_as_file(filepath, mb_size):
+    dd, mkswap = find_executable('dd'), find_executable('mkswap')
+   
+    if (not dd) or (not mkswap): return False
+   
+    create_swap_file = "%s if=/dev/zero of=%s bs=1024 count=%d" % (dd, filepath, (int(mb_size)*1024))
+    mk_swap          = "%s %s" % (mkswap, filepath)
+
+    try:
+        for cmd in [create_swap_file, mk_swap]:
+            p = os.popen(cmd)
+            p.close()
+    except:
+        return False
+
+    return True
