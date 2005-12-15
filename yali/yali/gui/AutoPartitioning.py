@@ -131,6 +131,7 @@ about disk partitioning.
     def slotSelectAuto(self):
         self.enable_next = True
         self.enable_auto = True
+        self.device = self.device_list.selectedItem().getDevice()
         self.updateUI()
 
     def slotSelectManual(self):
