@@ -38,6 +38,8 @@ def chroot_comar():
     # FIXME: use mount module (needs options support)
     tgt = os.path.join(consts.target_dir, "dev")
     os.system("mount --bind /dev %s" % tgt)
+    tgt == os.path.join(consts.target_dir, "proc")
+    os.system("mount --bind /proc %s" % tgt)
 
     pid = os.fork()
     if pid == 0: # in child
