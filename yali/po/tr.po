@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-15 04:07+0200\n"
+"POT-Creation-Date: 2005-12-16 15:13+0200\n"
 "PO-Revision-Date: 2005-12-15 04:07+0200\n"
 "Last-Translator: Barış Metin <baris@uludag.org.tr>\n"
 "Language-Team:  <tr@li.org>\n"
@@ -64,7 +64,7 @@ msgstr ""
 
 #: yali/gui/autopartwidget.py:82 yali/gui/bootloaderwidget.py:56
 #: yali/gui/parteditbuttons.py:46 yali/gui/parteditwidget.py:81
-#: yali/gui/partlistwidget.py:75 yali/gui/rootpasswidget.py:96
+#: yali/gui/partlistwidget.py:76 yali/gui/rootpasswidget.py:96
 #: yali/gui/setupuserswidget.py:128 yali/gui/welcomewidget.py:90
 msgid "Form1"
 msgstr "Form1"
@@ -172,6 +172,10 @@ msgstr ""
 msgid "Release Notes"
 msgstr "Sürüm Notları"
 
+#: yali/gui/GUIRelNotes.py:44
+msgid "Can't open Release Notes file!"
+msgstr "Sürüm Notları dosyası açılamıyor!"
+
 #: yali/gui/InstallSystem.py:53
 msgid ""
 "\n"
@@ -225,7 +229,7 @@ msgstr "Kurulan Paket: %s<br>%s"
 msgid "Configuring package: %s"
 msgstr "Yapılandırılan paket: %s"
 
-#: yali/gui/InstallSystem.py:155
+#: yali/gui/InstallSystem.py:163
 msgid "Configuring packages for your system!"
 msgstr ""
 "Kurulan paketler sisteminiz için yapılandırılıyor!\n"
@@ -294,7 +298,7 @@ msgstr "Kullanıcı dosyaları (isteğe bağlı)"
 msgid "Swap space (optional)"
 msgstr "Takas alanı bölümü (isteğe bağlı)"
 
-#: yali/gui/Partitioning.py:35
+#: yali/gui/Partitioning.py:37
 msgid ""
 "\n"
 "<font size=\"+2\">Partitioning your hard disk</font>\n"
@@ -346,19 +350,19 @@ msgstr ""
 "</p> \n"
 "</font>\n"
 
-#: yali/gui/Partitioning.py:112
+#: yali/gui/Partitioning.py:133
 msgid "Create Partition"
 msgstr "Disk Bölümü Oluştur"
 
-#: yali/gui/Partitioning.py:117
+#: yali/gui/Partitioning.py:138
 msgid "Delete Partition"
 msgstr "Disk Bölümünü Sil"
 
-#: yali/gui/Partitioning.py:122
+#: yali/gui/Partitioning.py:143
 msgid "Edit Partition"
 msgstr "Disk Bölümünü Düzenle"
 
-#: yali/gui/Partitioning.py:127
+#: yali/gui/Partitioning.py:148
 msgid "Resize Partition"
 msgstr "Bölümü Yeniden Boyutlandır"
 
@@ -379,7 +383,7 @@ msgstr "Disk bölümü %d"
 msgid "Delete All Partitions"
 msgstr "Tüm Disk Bölümlerini Sil"
 
-#: yali/gui/PartListImpl.py:158 yali/gui/partlistwidget.py:77
+#: yali/gui/PartListImpl.py:158 yali/gui/partlistwidget.py:78
 msgid "Delete Selected Partition"
 msgstr "Seçili Disk Bölümünü Sil"
 
@@ -391,39 +395,39 @@ msgstr "Biçimlendiriliyor!"
 msgid "YES"
 msgstr "EVET"
 
-#: yali/gui/partlistwidget.py:47 yali/gui/partlistwidget.py:79
+#: yali/gui/partlistwidget.py:47 yali/gui/partlistwidget.py:80
 msgid "Device"
 msgstr "Aygıt"
 
-#: yali/gui/partlistwidget.py:48 yali/gui/partlistwidget.py:80
+#: yali/gui/partlistwidget.py:48 yali/gui/partlistwidget.py:81
 msgid "Size"
 msgstr "Boyut"
 
-#: yali/gui/partlistwidget.py:49 yali/gui/partlistwidget.py:81
+#: yali/gui/partlistwidget.py:49 yali/gui/partlistwidget.py:82
 msgid "Partition Type"
 msgstr "Disk Bölümü Tipi"
 
-#: yali/gui/partlistwidget.py:50 yali/gui/partlistwidget.py:82
+#: yali/gui/partlistwidget.py:50 yali/gui/partlistwidget.py:83
 msgid "Filesystem"
 msgstr "Dosya Sistemi"
 
-#: yali/gui/partlistwidget.py:51 yali/gui/partlistwidget.py:83
+#: yali/gui/partlistwidget.py:51 yali/gui/partlistwidget.py:84
 msgid "Format?"
 msgstr "Biçimlendir?"
 
-#: yali/gui/partlistwidget.py:76
+#: yali/gui/partlistwidget.py:77
 msgid "Create"
 msgstr "Oluştur"
 
-#: yali/gui/partlistwidget.py:78
+#: yali/gui/partlistwidget.py:79
 msgid "Partitions:"
 msgstr "Disk Bölümleri:"
 
-#: yali/gui/partlistwidget.py:84
+#: yali/gui/partlistwidget.py:85
 msgid "Edit"
 msgstr "Düzenle"
 
-#: yali/gui/partlistwidget.py:85
+#: yali/gui/partlistwidget.py:86
 msgid "Resize"
 msgstr "Yeniden Boyutlandır"
 
@@ -448,17 +452,25 @@ msgstr ""
 "ve bu parolayı unutmayın. Gizlilik nedenlerinden dolayı <br>\n"
 "bu parolayı hiç bir yere yazmamanız önerilir.</p>"
 
-#: yali/gui/runner.py:47
+#: yali/gui/runner.py:51
 msgid "Prepare for install"
 msgstr "Kurulum için hazırlık"
 
-#: yali/gui/runner.py:48
+#: yali/gui/runner.py:52
 msgid "Install system"
 msgstr "Sistem kurulumu"
 
-#: yali/gui/runner.py:49
+#: yali/gui/runner.py:53
 msgid "Basic setup"
 msgstr "Basit yapılandırma"
+
+#: yali/gui/runner.py:151
+msgid "An error occured!"
+msgstr "Bir hata oluştu!"
+
+#: yali/gui/runner.py:156 yali/gui/welcomewidget.py:99
+msgid "Reboot System!"
+msgstr "Sistemi Yeniden Başlat!"
 
 #: yali/gui/SetupBootloader.py:34
 msgid ""
@@ -710,13 +722,13 @@ msgstr ""
 
 #: yali/gui/welcomewidget.py:92
 msgid ""
-"<b>This is a beta release of Pardus.</b>\n"
+"<b>This is a RC release of Pardus.</b>\n"
 "So expect bugs and use at your own risk.\n"
 "If you accept the risks inherent in such a release (ie. crashes, data loss, "
 "etc.),\n"
 "select 'Accept'."
 msgstr ""
-"<b>Bu Pardus'un BETA sürümüdür.</b>\n"
+"<b>Bu Pardus'un RC deneme sürümüdür.</b>\n"
 "Bu yüzden hatalar olabileceğini kabul etmeniz gerekiyor.\n"
 "Eğer böyle bir sürümü kurmaktaki riskleri (örn. veri kaybı, çökmeler, vb.) "
 "kabul ediyorsanız,\n"
@@ -730,13 +742,13 @@ msgstr "Kabul Ediyorum!"
 msgid "Don't Accept!"
 msgstr "Hayır, Kabul Etmiyorum!"
 
-#: yali/gui/welcomewidget.py:99
-msgid "Reboot System!"
-msgstr "Sistemi Yeniden Başlat!"
-
 #: yali/bootloader.py:124
 msgid "Windows"
 msgstr "Windows"
+
+#: yali/__init__.py:51
+msgid "Backtrace:"
+msgstr "Geri İz:"
 
 #: yali/partition.py:33
 msgid "unknown"

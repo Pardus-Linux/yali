@@ -10,5 +10,5 @@
 # Please read the COPYING file.
 #
 
-__version__ = "0.1"
+__version__ = "1.0_beta2"
 

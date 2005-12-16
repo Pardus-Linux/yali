@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-15 04:07+0200\n"
+"POT-Creation-Date: 2005-12-16 15:13+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,7 +42,7 @@ msgstr ""
 
 #: yali/gui/autopartwidget.py:82 yali/gui/bootloaderwidget.py:56
 #: yali/gui/parteditbuttons.py:46 yali/gui/parteditwidget.py:81
-#: yali/gui/partlistwidget.py:75 yali/gui/rootpasswidget.py:96
+#: yali/gui/partlistwidget.py:76 yali/gui/rootpasswidget.py:96
 #: yali/gui/setupuserswidget.py:128 yali/gui/welcomewidget.py:90
 msgid "Form1"
 msgstr ""
@@ -118,6 +118,10 @@ msgstr ""
 msgid "Release Notes"
 msgstr ""
 
+#: yali/gui/GUIRelNotes.py:44
+msgid "Can't open Release Notes file!"
+msgstr ""
+
 #: yali/gui/InstallSystem.py:53
 msgid ""
 "\n"
@@ -153,7 +157,7 @@ msgstr ""
 msgid "Configuring package: %s"
 msgstr ""
 
-#: yali/gui/InstallSystem.py:155
+#: yali/gui/InstallSystem.py:163
 msgid "Configuring packages for your system!"
 msgstr ""
 
@@ -220,7 +224,7 @@ msgstr ""
 msgid "Swap space (optional)"
 msgstr ""
 
-#: yali/gui/Partitioning.py:35
+#: yali/gui/Partitioning.py:37
 msgid ""
 "\n"
 "<font size=\"+2\">Partitioning your hard disk</font>\n"
@@ -246,19 +250,19 @@ msgid ""
 "</font>\n"
 msgstr ""
 
-#: yali/gui/Partitioning.py:112
+#: yali/gui/Partitioning.py:133
 msgid "Create Partition"
 msgstr ""
 
-#: yali/gui/Partitioning.py:117
+#: yali/gui/Partitioning.py:138
 msgid "Delete Partition"
 msgstr ""
 
-#: yali/gui/Partitioning.py:122
+#: yali/gui/Partitioning.py:143
 msgid "Edit Partition"
 msgstr ""
 
-#: yali/gui/Partitioning.py:127
+#: yali/gui/Partitioning.py:148
 msgid "Resize Partition"
 msgstr ""
 
@@ -279,7 +283,7 @@ msgstr ""
 msgid "Delete All Partitions"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:158 yali/gui/partlistwidget.py:77
+#: yali/gui/PartListImpl.py:158 yali/gui/partlistwidget.py:78
 msgid "Delete Selected Partition"
 msgstr ""
 
@@ -291,39 +295,39 @@ msgstr ""
 msgid "YES"
 msgstr ""
 
-#: yali/gui/partlistwidget.py:47 yali/gui/partlistwidget.py:79
+#: yali/gui/partlistwidget.py:47 yali/gui/partlistwidget.py:80
 msgid "Device"
 msgstr ""
 
-#: yali/gui/partlistwidget.py:48 yali/gui/partlistwidget.py:80
+#: yali/gui/partlistwidget.py:48 yali/gui/partlistwidget.py:81
 msgid "Size"
 msgstr ""
 
-#: yali/gui/partlistwidget.py:49 yali/gui/partlistwidget.py:81
+#: yali/gui/partlistwidget.py:49 yali/gui/partlistwidget.py:82
 msgid "Partition Type"
 msgstr ""
 
-#: yali/gui/partlistwidget.py:50 yali/gui/partlistwidget.py:82
+#: yali/gui/partlistwidget.py:50 yali/gui/partlistwidget.py:83
 msgid "Filesystem"
 msgstr ""
 
-#: yali/gui/partlistwidget.py:51 yali/gui/partlistwidget.py:83
+#: yali/gui/partlistwidget.py:51 yali/gui/partlistwidget.py:84
 msgid "Format?"
 msgstr ""
 
-#: yali/gui/partlistwidget.py:76
+#: yali/gui/partlistwidget.py:77
 msgid "Create"
 msgstr ""
 
-#: yali/gui/partlistwidget.py:78
+#: yali/gui/partlistwidget.py:79
 msgid "Partitions:"
 msgstr ""
 
-#: yali/gui/partlistwidget.py:84
+#: yali/gui/partlistwidget.py:85
 msgid "Edit"
 msgstr ""
 
-#: yali/gui/partlistwidget.py:85
+#: yali/gui/partlistwidget.py:86
 msgid "Resize"
 msgstr ""
 
@@ -344,16 +348,24 @@ msgid ""
 "this password elsewhere for privacy reasons.</p>"
 msgstr ""
 
-#: yali/gui/runner.py:47
+#: yali/gui/runner.py:51
 msgid "Prepare for install"
 msgstr ""
 
-#: yali/gui/runner.py:48
+#: yali/gui/runner.py:52
 msgid "Install system"
 msgstr ""
 
-#: yali/gui/runner.py:49
+#: yali/gui/runner.py:53
 msgid "Basic setup"
+msgstr ""
+
+#: yali/gui/runner.py:151
+msgid "An error occured!"
+msgstr ""
+
+#: yali/gui/runner.py:156 yali/gui/welcomewidget.py:99
+msgid "Reboot System!"
 msgstr ""
 
 #: yali/gui/SetupBootloader.py:34
@@ -505,7 +517,7 @@ msgstr ""
 
 #: yali/gui/welcomewidget.py:92
 msgid ""
-"<b>This is a beta release of Pardus.</b>\n"
+"<b>This is a RC release of Pardus.</b>\n"
 "So expect bugs and use at your own risk.\n"
 "If you accept the risks inherent in such a release (ie. crashes, data loss, "
 "etc.),\n"
@@ -520,12 +532,12 @@ msgstr ""
 msgid "Don't Accept!"
 msgstr ""
 
-#: yali/gui/welcomewidget.py:99
-msgid "Reboot System!"
-msgstr ""
-
 #: yali/bootloader.py:124
 msgid "Windows"
+msgstr ""
+
+#: yali/__init__.py:51
+msgid "Backtrace:"
 msgstr ""
 
 #: yali/partition.py:33
