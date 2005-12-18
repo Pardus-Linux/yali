@@ -37,6 +37,14 @@ class Widget(QTextView):
 
         self.setPaletteBackgroundColor(ctx.consts.bg_color)
 
+        # don't show links in diffrent color.
+        self.setLinkUnderline(False)
+        palette = self.palette()
+        active_colors = palette.active()
+        active_colors.setColor(active_colors.Link, ctx.consts.fg_color)
+        palette.setActive(active_colors)
+        self.setPalette(palette)
+
         rel_file = "releasenotes-" + ctx.consts.lang + ".html"
         rel_path = join(ctx.consts.source_dir, rel_file)
 
