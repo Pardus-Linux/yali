@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-16 15:13+0200\n"
+"POT-Creation-Date: 2005-12-19 16:12+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,9 +41,10 @@ msgid ""
 msgstr ""
 
 #: yali/gui/autopartwidget.py:82 yali/gui/bootloaderwidget.py:56
-#: yali/gui/parteditbuttons.py:46 yali/gui/parteditwidget.py:81
-#: yali/gui/partlistwidget.py:76 yali/gui/rootpasswidget.py:96
-#: yali/gui/setupuserswidget.py:128 yali/gui/welcomewidget.py:90
+#: yali/gui/keyboardwidget.py:55 yali/gui/parteditbuttons.py:46
+#: yali/gui/parteditwidget.py:81 yali/gui/partlistwidget.py:76
+#: yali/gui/rootpasswidget.py:96 yali/gui/setupuserswidget.py:128
+#: yali/gui/welcomewidget.py:90
 msgid "Form1"
 msgstr ""
 
@@ -118,7 +119,7 @@ msgstr ""
 msgid "Release Notes"
 msgstr ""
 
-#: yali/gui/GUIRelNotes.py:44
+#: yali/gui/GUIRelNotes.py:52
 msgid "Can't open Release Notes file!"
 msgstr ""
 
@@ -169,8 +170,26 @@ msgstr ""
 msgid "Installing Package: "
 msgstr ""
 
-#: yali/gui/installwidget.py:54 yali/gui/welcomewidget.py:91
+#: yali/gui/installwidget.py:54 yali/gui/keyboardwidget.py:56
+#: yali/gui/welcomewidget.py:91
 msgid "pix"
+msgstr ""
+
+#: yali/gui/Keyboard.py:30
+msgid ""
+"\n"
+"<font size=\"+2\">Keyboard Setup</font>\n"
+"\n"
+"<font size=\"+1\">\n"
+"<p>\n"
+"Depending on your hardware or choice select a keyboard layout from the "
+"list.\n"
+"</p>\n"
+"</font>\n"
+msgstr ""
+
+#: yali/gui/keyboardwidget.py:57
+msgid "Select the keyboard layout of your choice."
 msgstr ""
 
 #: yali/gui/parteditbuttons.py:47
@@ -279,19 +298,19 @@ msgstr ""
 msgid "Partition %d"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:135
+#: yali/gui/PartListImpl.py:136
 msgid "Delete All Partitions"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:158 yali/gui/partlistwidget.py:78
+#: yali/gui/PartListImpl.py:162 yali/gui/partlistwidget.py:78
 msgid "Delete Selected Partition"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:215
+#: yali/gui/PartListImpl.py:220
 msgid "Formatting!"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:217
+#: yali/gui/PartListImpl.py:222
 msgid "YES"
 msgstr ""
 
@@ -360,11 +379,11 @@ msgstr ""
 msgid "Basic setup"
 msgstr ""
 
-#: yali/gui/runner.py:151
+#: yali/gui/runner.py:152
 msgid "An error occured!"
 msgstr ""
 
-#: yali/gui/runner.py:156 yali/gui/welcomewidget.py:99
+#: yali/gui/runner.py:157 yali/gui/welcomewidget.py:99
 msgid "Reboot System!"
 msgstr ""
 
@@ -536,8 +555,20 @@ msgstr ""
 msgid "Windows"
 msgstr ""
 
-#: yali/__init__.py:51
+#: yali/__init__.py:52
 msgid "Backtrace:"
+msgstr ""
+
+#: yali/keyboard.py:23
+msgid "Turkish Q"
+msgstr ""
+
+#: yali/keyboard.py:28
+msgid "Turkish F"
+msgstr ""
+
+#: yali/keyboard.py:33
+msgid "Englis US"
 msgstr ""
 
 #: yali/partition.py:33

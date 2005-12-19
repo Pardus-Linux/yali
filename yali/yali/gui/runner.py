@@ -27,8 +27,8 @@ from yali.gui.YaliDialog import Dialog
 
 import YaliWindow
 # screens
-# FIXME: I haven't forget the localization part, just left it for later.
 import Welcome
+import Keyboard
 import AutoPartitioning
 import Partitioning
 import InstallSystem
@@ -55,6 +55,7 @@ class Runner:
 
         _all_screens = [
              {'stage': 1, 'module': Welcome},
+             {'stage': 1, 'module': Keyboard},
              {'stage': 1, 'module': AutoPartitioning},
              {'stage': 1, 'module': Partitioning},
              {'stage': 2, 'module': InstallSystem},
