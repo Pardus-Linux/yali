@@ -214,11 +214,16 @@ class PartEdit(QWidget):
             # these kind of operations.
             if state == editState and self.edit.format.isChecked():
                 size = partition.getMB()
+                
+                if partition.isLogical():
+                    parted_type = parteddata.PARTITION_LOGICAL
+                else:
+                    parted_type = parteddata.PARTITION_PRIMARY
                 device = partition.getDevice()
                 device.deletePartition(partition)
                 device.commit()
 
-                p = device.addPartition(t.parted_type,
+                p = device.addPartition(parted_type,
                                         t.filesystem,
                                         size,
                                         t.parted_flags)

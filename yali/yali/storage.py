@@ -225,28 +225,14 @@ class Device:
             geom = part.geom
 
             # creating a primary partition
-            if part.type == parted.PARTITION_FREESPACE \
-                    and geom.length >= size \
-                    and type == parted.PARTITION_PRIMARY:
+            if part.type & parted.PARTITION_FREESPACE \
+                    and geom.length >= size:
 
                 return self.addPartitionStartEnd(type,
                                                  fs,
                                                  geom.start,
                                                  geom.start + size,
                                                  flags)
-
-            # Creating a logical partition
-            # free space in extended partitions has the type num 5
-            elif part.type == 5 \
-                    and geom.length >= size \
-                    and type == parted.PARTITION_LOGICAL:
-                
-                return self.addPartitionStartEnd(type,
-                                                 fs,
-                                                 geom.start,
-                                                 geom.start + size,
-                                                 flags)
-
 
             part = self._disk.next_partition(part)
 
