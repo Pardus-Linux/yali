@@ -127,7 +127,8 @@ class PartList(PartListWidget):
         t = d.getType()
 
         if t == parteddata.deviceType:
-            self.createButton.setEnabled(True)
+            if d.getFreeMB() > 0 and d.primaryAvailable():
+                self.createButton.setEnabled(True)
             self.deleteButton.setEnabled(True)
             self.resizeButton.setEnabled(False)
             self.editButton.setEnabled(False)
@@ -144,13 +145,16 @@ class PartList(PartListWidget):
                     resizeable = True
             self.resizeButton.setEnabled(resizeable)
 
+
             if d.isExtended():
                 if d.getFreeMB() > 0:
                     self.createButton.setEnabled(True)
             else:
                 self.createButton.setEnabled(False)
 
+
             self.deleteButton.setEnabled(True)
+
 
             if not d.isExtended(): # don't edit extended partititons
                 self.editButton.setEnabled(True)
@@ -158,7 +162,8 @@ class PartList(PartListWidget):
             self.deleteButton.setText(_("Delete Selected Partition"))
 
         elif t == parteddata.freeSpaceType:
-            self.createButton.setEnabled(True)
+            if d.getDevice().primaryAvailable():
+                self.createButton.setEnabled(True)
             self.deleteButton.setEnabled(False)
             self.resizeButton.setEnabled(False)
             self.editButton.setEnabled(False)

@@ -88,8 +88,6 @@ class Device:
 
         self.update()
 
-    def getType(self):
-        return self._parted_type
 
     ##
     # clear and re-fill partitions dict.
@@ -101,6 +99,19 @@ class Device:
 #            print self.getModel(), part.num, part.geom.length
             self.__addToPartitionsDict(part)
             part = self._disk.next_partition(part)
+
+    ##
+    # do we have room for another primary partition?
+    def primaryAvailable(self):
+        primary = len(self.getPrimaryPartitions())
+        if self.hasExtendedPartition(): primary += 1
+        if primary == 4:
+            return False
+        return True
+
+
+    def getType(self):
+        return self._parted_type
 
     ##
     # get device capacity in bytes
@@ -176,7 +187,18 @@ class Device:
             if p._partition.type == parted.PARTITION_EXTENDED:
                 return p
 
-        return False
+        return None
+
+    ##
+    # get primary partitions on device
+    # @returns: [Partition]
+    def getPrimaryPartitions(self):
+        l = []
+        for p in self.getPartitions():
+            if p._partition.type == parted.PARTITION_PRIMARY:
+                l.append(p)
+        return l
+
 
     ##
     # get the partition list in an order
@@ -295,7 +317,7 @@ class Device:
             fs_name = ""
             if part.fs_type:
                 fs_name = part.fs_type.name
-            elif part.type == parted.PARTITION_EXTENDED:
+            elif part.type & parted.PARTITION_EXTENDED:
                 fs_name = "extended"
 
             self._partitions[part.num] = Partition(self, part,

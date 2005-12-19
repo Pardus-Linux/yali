@@ -46,6 +46,7 @@ def exception_handler(exception, value, tb):
     for e in value.args:
         v += str(e) + '\n'
     sio.write(v)
+    sio.write(str(exception))
 
     sio.write('\n\n')
     sio.write(_("Backtrace:"))

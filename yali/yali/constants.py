@@ -85,4 +85,8 @@ class Constants:
 
 
 consts = Constants()
-consts.lang = locale.getlocale()[0][:2]
+try:
+    consts.lang = locale.getlocale()[0][:2]
+except:
+    # default lang to en_US
+    consts.lang = "en"
