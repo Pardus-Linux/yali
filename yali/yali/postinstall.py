@@ -74,3 +74,9 @@ def initbaselayout():
     # depscan -> firstrun
     # modules-update -> firstrun
     # enable shadow groups -> firstrun
+
+
+    # FIXME: not here...
+    # copy keyboard file to target system
+    dst = os.path.join(consts.target_dir, "etc/conf.d/keymaps")
+    shutil.copyfile("/etc/conf.d/keymaps", dst)
