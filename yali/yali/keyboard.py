@@ -36,9 +36,10 @@ keyboards = {
     }
 
 
-def load_key(keymap):
-
+def set_keymap(keymap):
     os.system("setxkbmap -layout %s" % keymap)
+
+def write_keymap(keymap):
 
     lines = []
     for l in open("/etc/conf.d/keymaps", "r").readlines():

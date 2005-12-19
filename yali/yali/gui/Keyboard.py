@@ -42,10 +42,23 @@ Depending on your hardware or choice select a keyboard layout from the list.
         
         self.pix.setPixmap(ctx.iconfactory.newPixmap("keyboards"))
 
+        self.keyboard_list.setPaletteBackgroundColor(ctx.consts.bg_color)
+        self.keyboard_list.setPaletteForegroundColor(ctx.consts.fg_color)
+
+        f = self.keyboard_list.font()
+        f.setBold(True)
+        self.keyboard_list.setFont(f)
+
+
         for k in yali.keyboard.keyboards:
             KeyboardItem(self.keyboard_list, yali.keyboard.keyboards[k])
 
         self.keyboard_list.setSelected(0, True)
+
+
+        self.connect(self.keyboard_list, SIGNAL("selectionChanged(QListBoxItem*)"),
+                     self.slotLayoutChanged)
+
 
     def shown(self):
         ctx.screens.enablePrev()
@@ -53,8 +66,11 @@ Depending on your hardware or choice select a keyboard layout from the list.
 
     def execute(self):
         keydata = self.keyboard_list.selectedItem().getData()
+        yali.keyboard.write_keymap(keydata["keymap"])
 
-        yali.keyboard.load_key(keydata["keymap"])
+    def slotLayoutChanged(self, i):
+        keydata = i.getData()
+        yali.keyboard.set_keymap(keydata["keymap"])
 
 
 class KeyboardItem(QListBoxText):
