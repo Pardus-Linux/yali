@@ -67,4 +67,4 @@ def exception_handler(exception, value, tb):
     sio.seek(0)
 
     import yali.gui.runner
-    yali.gui.runner.showException(exception_type, sio.read())
+    yali.gui.runner.showException(exception_type, unicode(sio.read()))
