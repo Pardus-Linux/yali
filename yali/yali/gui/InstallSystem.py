@@ -123,7 +123,7 @@ Have fun!
             self.cur += 1
             self.progress.setProgress(self.cur)
         elif event == pisi.ui.configuring:
-            self.info.setText(_("Configuring package: %s" % p.name))
+            self.info.setText(_("Configuring package: %s") % p.name)
             
             self.cur += 1
             self.progress.setProgress(self.cur)
