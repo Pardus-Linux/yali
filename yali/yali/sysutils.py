@@ -47,7 +47,7 @@ def chroot_comar():
         os.system("/sbin/ldconfig")
 
         comar_path = "/usr/bin/comar"
-        os.execv(comar_path, [])
+        os.execv(comar_path, ["/usr/bin/comar", "--debug", "perf"])
 
 
 def swap_as_file(filepath, mb_size):
