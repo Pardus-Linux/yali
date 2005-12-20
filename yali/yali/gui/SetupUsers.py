@@ -90,7 +90,7 @@ Click Next button to proceed.
 
         if p2 != p1 and p2:
             self.pass_error.setText(
-                _('<font color="#ff0000">Passwords do not match!</font>'))
+                _('<font color="#FF6D19">Passwords do not match!</font>'))
             self.pass_error.setAlignment(QLabel.AlignCenter)
             return self.createButton.setEnabled(False)
         else:
@@ -114,15 +114,15 @@ Click Next button to proceed.
         # check user validity
         if u.exists():
             self.pass_error.setText(
-                _('<font color="#ff0000">Username exists, choose another one!</font>'))
+                _('<font color="#FF6D19">Username exists, choose another one!</font>'))
             return
         elif not u.usernameIsValid():
             self.pass_error.setText(
-                _('<font color="#ff0000">Username contains invalid characters!</font>'))
+                _('<font color="#FF6D19">Username contains invalid characters!</font>'))
             return
         elif not u.realnameIsValid():
             self.pass_error.setText(
-                _('<font color="#ff0000">Realname contains invalid characters!</font>'))
+                _('<font color="#FF6D19">Realname contains invalid characters!</font>'))
             return
 
         try:

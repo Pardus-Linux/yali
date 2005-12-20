@@ -83,7 +83,7 @@ Click Next button to proceed.
             ctx.screens.disableNext()
             if p2:
                 self.pass_error.setText(
-                    _('<font color="#ff0000">Passwords do not match!</font>'))
+                    _('<font color="#FF6D19">Passwords do not match!</font>'))
                 self.pass_error.setAlignment(QLabel.AlignCenter)
 
     def slotReturnPressed(self):

@@ -111,7 +111,7 @@ about disk partitioning.
 
         if self.accept_auto.isChecked():
             # inform user
-            self.info.setText('<font color="red">Preparing your disk for installation!</font>')
+            self.info.setText('<font color="#FF6D19">Preparing your disk for installation!</font>')
             
             ctx.use_autopart = True
             autopartDevice()

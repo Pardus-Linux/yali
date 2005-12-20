@@ -131,7 +131,7 @@
 &lt;p&gt;Below, you can select an hard disk for automatic partitioning.
 Selected disk will be used for Pardus installation.&lt;/p&gt;
 
-&lt;p&gt;&lt;font color="#ff0000"&gt;&lt;b&gt;&lt;u&gt;WARNING:&lt;/u&gt;&lt;/b&gt;
+&lt;p&gt;&lt;font color="#FF6D19"&gt;&lt;b&gt;&lt;u&gt;WARNING:&lt;/u&gt;&lt;/b&gt;
 Automatic partitioning will use your entire disk for Pardus installation.
 All data on the selected disk will be lost!&lt;/font&gt;&lt;/p&gt;</string>
             </property>

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-20 18:32+0200\n"
+"POT-Creation-Date: 2005-12-20 18:45+0200\n"
 "PO-Revision-Date: 2005-12-20 18:33+0200\n"
 "Last-Translator: Barış Metin <baris@uludag.org.tr>\n"
 "Language-Team:  <tr@li.org>\n"
@@ -77,7 +77,7 @@ msgid ""
 "<p>Below, you can select an hard disk for automatic partitioning.\n"
 "Selected disk will be used for Pardus installation.</p>\n"
 "\n"
-"<p><font color=\"#ff0000\"><b><u>WARNING:</u></b>\n"
+"<p><font color=\"#FF6D19\"><b><u>WARNING:</u></b>\n"
 "Automatic partitioning will use your entire disk for Pardus installation.\n"
 "All data on the selected disk will be lost!</font></p>"
 msgstr ""
@@ -87,7 +87,7 @@ msgstr ""
 "bölümlendirme için seçebilirsiniz. Seçilen disk Pardus kurulumu için "
 "kullanılacak.</p>\n"
 "\n"
-"<p><font color=\"#ff0000\"><b><u>Uyarı:</u></b>\n"
+"<p><font color=\"#FF6D19\"><b><u>Uyarı:</u></b>\n"
 "Otomatik bölümlendirme bütün diskinizi Pardus kurulumu için kullanacak. \n"
 "Seçili disk üzerindeki tüm verileriniz silinecektir!</font></p>"
 
@@ -164,9 +164,10 @@ msgstr ""
 
 #: yali/gui/Goodbye.py:58
 msgid ""
-"<b><font size=\"+2\" color=\"red\">Rebooting system. Please wait!</font></b>"
+"<b><font size=\"+2\" color=\"#FF6D19\">Rebooting system. Please wait!</"
+"font></b>"
 msgstr ""
-"<b><font size=\"+2\" color=\"red\">Sistem yeniden başlatılıyor. Lütfen "
+"<b><font size=\"+2\" color=\"#FF6D19\">Sistem yeniden başlatılıyor. Lütfen "
 "bekleyin!</font></b>"
 
 #: yali/gui/GUIBottom.py:45 yali/gui/GUIBottom.py:81
@@ -594,8 +595,8 @@ msgstr ""
 "</font>\n"
 
 #: yali/gui/SetupRootpass.py:86 yali/gui/SetupUsers.py:93
-msgid "<font color=\"#ff0000\">Passwords do not match!</font>"
-msgstr "<font color=\"#ff0000\">Parolalar aynı değil!</font>"
+msgid "<font color=\"#FF6D19\">Passwords do not match!</font>"
+msgstr "<font color=\"#FF6D19\">Parolalar aynı değil!</font>"
 
 #: yali/gui/SetupUsers.py:30
 msgid ""
@@ -644,20 +645,20 @@ msgstr ""
 "</font>\n"
 
 #: yali/gui/SetupUsers.py:117
-msgid "<font color=\"#ff0000\">Username exists, choose another one!</font>"
+msgid "<font color=\"#FF6D19\">Username exists, choose another one!</font>"
 msgstr ""
-"<font color=\"#ff0000\">Bu kullanıcı adı zaten var, başka bir tane seçin!</"
+"<font color=\"#FF6D19\">Bu kullanıcı adı zaten var, başka bir tane seçin!</"
 "font>"
 
 #: yali/gui/SetupUsers.py:121
-msgid "<font color=\"#ff0000\">Username contains invalid characters!</font>"
+msgid "<font color=\"#FF6D19\">Username contains invalid characters!</font>"
 msgstr ""
-"<font color=\"#ff0000\">Kullanıcı adı geçersiz karakterler içeriyor!</font>"
+"<font color=\"#FF6D19\">Kullanıcı adı geçersiz karakterler içeriyor!</font>"
 
 #: yali/gui/SetupUsers.py:125
-msgid "<font color=\"#ff0000\">Realname contains invalid characters!</font>"
+msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
 msgstr ""
-"<font color=\"#ff0000\">Gerçek İsim bölümü geçersiz karakterler içeriyor!</"
+"<font color=\"#FF6D19\">Gerçek İsim bölümü geçersiz karakterler içeriyor!</"
 "font>"
 
 #: yali/gui/setupuserswidget.py:129

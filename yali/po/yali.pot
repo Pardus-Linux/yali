@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-20 18:32+0200\n"
+"POT-Creation-Date: 2005-12-20 18:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,7 +55,7 @@ msgid ""
 "<p>Below, you can select an hard disk for automatic partitioning.\n"
 "Selected disk will be used for Pardus installation.</p>\n"
 "\n"
-"<p><font color=\"#ff0000\"><b><u>WARNING:</u></b>\n"
+"<p><font color=\"#FF6D19\"><b><u>WARNING:</u></b>\n"
 "Automatic partitioning will use your entire disk for Pardus installation.\n"
 "All data on the selected disk will be lost!</font></p>"
 msgstr ""
@@ -112,7 +112,8 @@ msgstr ""
 
 #: yali/gui/Goodbye.py:58
 msgid ""
-"<b><font size=\"+2\" color=\"red\">Rebooting system. Please wait!</font></b>"
+"<b><font size=\"+2\" color=\"#FF6D19\">Rebooting system. Please wait!</"
+"font></b>"
 msgstr ""
 
 #: yali/gui/GUIBottom.py:45 yali/gui/GUIBottom.py:81
@@ -440,7 +441,7 @@ msgid ""
 msgstr ""
 
 #: yali/gui/SetupRootpass.py:86 yali/gui/SetupUsers.py:93
-msgid "<font color=\"#ff0000\">Passwords do not match!</font>"
+msgid "<font color=\"#FF6D19\">Passwords do not match!</font>"
 msgstr ""
 
 #: yali/gui/SetupUsers.py:30
@@ -466,15 +467,15 @@ msgid ""
 msgstr ""
 
 #: yali/gui/SetupUsers.py:117
-msgid "<font color=\"#ff0000\">Username exists, choose another one!</font>"
+msgid "<font color=\"#FF6D19\">Username exists, choose another one!</font>"
 msgstr ""
 
 #: yali/gui/SetupUsers.py:121
-msgid "<font color=\"#ff0000\">Username contains invalid characters!</font>"
+msgid "<font color=\"#FF6D19\">Username contains invalid characters!</font>"
 msgstr ""
 
 #: yali/gui/SetupUsers.py:125
-msgid "<font color=\"#ff0000\">Realname contains invalid characters!</font>"
+msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
 msgstr ""
 
 #: yali/gui/setupuserswidget.py:129
