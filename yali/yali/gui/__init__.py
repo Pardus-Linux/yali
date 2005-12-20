@@ -10,5 +10,8 @@
 # Please read the COPYING file.
 #
 
-__version__ = "1.0_beta2"
+import yali
+__version__ = yali.__version__
+
+
 

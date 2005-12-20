@@ -10,7 +10,8 @@
 # Please read the COPYING file.
 #
 
-__version__ = "1.0_beta2"
+__version__ = "1.0_rc1"
+
 
 import sys
 import exceptions
