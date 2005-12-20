@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-19 16:12+0200\n"
-"PO-Revision-Date: 2005-12-19 16:13+0200\n"
+"POT-Creation-Date: 2005-12-20 18:32+0200\n"
+"PO-Revision-Date: 2005-12-20 18:33+0200\n"
 "Last-Translator: Barış Metin <baris@uludag.org.tr>\n"
 "Language-Team:  <tr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -63,7 +63,7 @@ msgstr ""
 "</font>\n"
 
 #: yali/gui/autopartwidget.py:82 yali/gui/bootloaderwidget.py:56
-#: yali/gui/keyboardwidget.py:55 yali/gui/parteditbuttons.py:46
+#: yali/gui/keyboardwidget.py:66 yali/gui/parteditbuttons.py:46
 #: yali/gui/parteditwidget.py:81 yali/gui/partlistwidget.py:76
 #: yali/gui/rootpasswidget.py:96 yali/gui/setupuserswidget.py:128
 #: yali/gui/welcomewidget.py:90
@@ -244,7 +244,7 @@ msgstr "Form3"
 msgid "Installing Package: "
 msgstr "Kurulan Paket: "
 
-#: yali/gui/installwidget.py:54 yali/gui/keyboardwidget.py:56
+#: yali/gui/installwidget.py:54 yali/gui/keyboardwidget.py:67
 #: yali/gui/welcomewidget.py:91
 msgid "pix"
 msgstr "pix"
@@ -266,13 +266,16 @@ msgstr ""
 "\n"
 "<font size=\"+1\">\n"
 "<p>\n"
-"Klavyenizin türüne göre bir klavye haritasını listeden seçebilirsiniz."
-"</p>\n"
+"Klavyenizin türüne göre bir klavye haritasını listeden seçebilirsiniz.</p>\n"
 "</font>\n"
 
-#: yali/gui/keyboardwidget.py:57
+#: yali/gui/keyboardwidget.py:68
 msgid "Select the keyboard layout of your choice."
 msgstr "Bir klavye haritası seçin."
+
+#: yali/gui/keyboardwidget.py:69
+msgid "Test selected keyboard:"
+msgstr "Klavyeyi test et: "
 
 #: yali/gui/parteditbuttons.py:47
 msgid "Cancel"
