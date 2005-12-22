@@ -108,7 +108,7 @@ Click Next button to proceed.
         # ignore last character. see bug #887
         u.realname = unicode(self.realname.text().utf8().data())[:-1]
         u.passwd = self.pass1.text().ascii()
-        u.groups = ["users", "audio", "video", "haldaemon", "plugdev", "wheel", "dialout", "uucp"]
+        u.groups = ["users", "audio", "video", "haldaemon", "plugdev", "wheel", "dialout", "uucp", "scanner"]
 
 
         # check user validity
