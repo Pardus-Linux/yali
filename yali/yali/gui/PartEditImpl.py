@@ -155,6 +155,12 @@ class PartEdit(QWidget):
             elif self.edit.swap.isChecked():
                 return parttype.swap
 
+            else:
+                self.warning.setText(
+                    _("You must select a partition type from the list below."))
+                self.warning.show()
+                return None
+
         # disable requested partition types in gui
         def disable_selected_part_types():
             self.edit.root.setEnabled(True)
@@ -171,6 +177,8 @@ class PartEdit(QWidget):
 
         def create_new_partition(device, type = parteddata.PARTITION_PRIMARY):
             t = get_part_type()
+            if not t:
+                return False
 
             if t == parttype.root:
                 size = self.edit.size.text().toInt()[0]
@@ -196,6 +204,8 @@ class PartEdit(QWidget):
 
         def edit_requests(partition):
             t = get_part_type()
+            if not t:
+                return False
 
             if t == parttype.root:
                 size = partition.getMB()
