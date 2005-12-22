@@ -88,16 +88,14 @@ class User:
         
         if not os.path.exists(user_home_dir):
             os.system('cp -r %s %s' % (os.path.join(consts.target_dir, 'etc/skel'), user_home_dir))
+        else:
+            for file in glob.glob("/etc/skel/.*"):
+                os.system("cp -fdr %s %s" % (file, user_home_dir))
 
         shutil.copy(head_images.next(), os.path.join(user_home_dir, '.face.icon'))
         os.chmod(os.path.join(user_home_dir, '.face.icon'), 0644)
 
-        os.chown(user_home_dir, self.uid, 100)
-        for root, dirs, files in os.walk(user_home_dir):
-            for file in files:
-                os.chown(os.path.join(root, file), self.uid, 100)
-            for dir in dirs:
-                os.chown(os.path.join(root, dir), self.uid, 100)
+        os.system('chown -R %s:%d %s ' % (self.uid, 100, user_home_dir))
 
         self.__appendGroups()
 
