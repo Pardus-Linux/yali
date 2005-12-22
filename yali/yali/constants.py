@@ -72,7 +72,7 @@ class Constants:
 
 
         # min root partition size
-        self.__c.min_root_size = 2500
+        self.__c.min_root_size = 3500
 
     def __getattr__(self, attr):
         return getattr(self.__c, attr)

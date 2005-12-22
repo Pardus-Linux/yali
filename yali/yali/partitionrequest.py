@@ -14,6 +14,7 @@
 
 import os
 import mount
+
 from yali.exception import *
 from yali.constants import consts
 import yali.partitiontype as parttype
@@ -283,8 +284,11 @@ class SwapFileRequest(PartRequest):
 
     def applyRequest(self):
 
-        # FIXME: creating a fixed sized swap file is no good.
-        yali.sysutils.swap_as_file(consts.swap_file_path, 512)
+        # see #832
+        if yali.sysutils.mem_total() > 512:
+            yali.sysutils.swap_as_file(consts.swap_file_path, 300)
+        else:
+            yali.sysutils.swap_as_file(consts.swap_file_path, 600)
         
         PartRequest.applyRequest(self)
 

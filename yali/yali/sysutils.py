@@ -67,3 +67,14 @@ def swap_as_file(filepath, mb_size):
         return False
 
     return True
+
+
+##
+# total memory size
+def mem_total():
+    m = open("/proc/meminfo")
+    for l in m:
+        if l.startswith("MemTotal"):
+            return int(l.split()[1]) / 1024
+            
+    return None
