@@ -101,11 +101,18 @@ about disk partitioning.
     # do the work and run requested actions on partitions.
     def execute(self):
 
+        # FIXME: show confirmation dialog
+
+
+        # commit events
+        self.partlist.devices_commit()
+
         # inform user...
         self.partlist.showPartitionRequests(formatting=True)
         # process events and show partitioning information!
         ctx.screens.processEvents()
-
+        ctx.screens.processEvents()
+        
         
         ##
         # check swap partition, if not present use swap file
@@ -120,7 +127,9 @@ about disk partitioning.
         if not found_swap_part:
             print "no swap partition defined using swap as file..."
             # find root partition
-            for r in ctx.partrequests.searchReqType(request.mountRequestType):
+            rt = request.mountRequestType
+            pt = parttype.root
+            for r in ctx.partrequests.searchPartTypeAndReqType(pt, rt):
                 ctx.partrequests.append(
                     request.SwapFileRequest(r.partition(), r.partitionType()))
 

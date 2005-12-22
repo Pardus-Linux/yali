@@ -26,6 +26,7 @@ import yali.parteddata as parteddata
 
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.autopartwidget import AutoPartWidget
+from yali.gui.YaliDialog import Dialog
 import yali.gui.context as ctx
 
 
@@ -112,6 +113,10 @@ about disk partitioning.
         if self.accept_auto.isChecked():
             # inform user
             self.info.setText('<font color="#FF6D19">Preparing your disk for installation!</font>')
+            ctx.screens.processEvents()
+
+            # FIXME: show confirmation dialog
+
             
             ctx.use_autopart = True
             autopartDevice()

@@ -11,6 +11,7 @@
 #
 
 
+import time
 from qt import *
 
 import gettext
@@ -66,30 +67,53 @@ class PartList(PartListWidget):
         self.showPartitionRequests()
         self.checkRootPartRequest()
 
+
+    def devices_commit(self):
+        for dev in yali.storage.devices:
+            dev.commit()
+
+        # wait for udev to create device nodes
+        time.sleep(2)
+
     def addDevice(self, dev):
 
         # add the device to the list
         devstr = "%s (%s)" % (dev.getModel(), dev.getName())
+        freespace = dev.getFreeMB()
+        if freespace:
+            size_str = dev.getSizeStr() + "  " + _("(%sMB free)") % freespace
+        else:
+            size_str = dev.getSizeStr()
+
         d = PartListItem(self.list, devstr,
-                         dev.getSizeStr())
+                         size_str)
         d.setData(dev)
 
 
         # than add extended partition to reparent logical ones
         if dev.hasExtendedPartition():
             ext = dev.getExtendedPartition()
+            free_ext = ext.getFreeMB()
+            if free_ext:
+                size_str = ext.getSizeStr() + "  " + _("(%sMB free)") % free_ext
+            else:
+                size_str = ext.getSizeStr()
+
             e = PartListItem(d,
                              _("Extended"),
-                             ext.getSizeStr())
+                             size_str)
             e.setData(ext)
 
-            freespace = ext.getFreeMB()
-            if freespace:
-                f = PartListItem(e,
-                                 _("Free"),
-                                 str(freespace))
-                # freespace's data is extended partition. we'll use it later on...
-                f.setData(ext)
+#
+# Don't show free space as a new item on GUI #
+#
+#            freespace = ext.getFreeMB()
+#            if freespace:
+#                f = PartListItem(e,
+#                                 _("Free"),
+#                                 str(freespace))
+#                # freespace's data is extended partition. we'll use it later on...
+#                f.setData(ext)
 
 
         # add partitions on device
@@ -100,7 +124,9 @@ class PartList(PartListWidget):
                 continue
 
             elif part.getType() == parteddata.freeSpaceType:
-                name = _("Free")
+                # Don't show free space as a new item on GUI #
+                #name = _("Free")
+                continue
 
             else:
                 name = _("Partition %d") % part.getMinor()
@@ -129,6 +155,8 @@ class PartList(PartListWidget):
         if t == parteddata.deviceType:
             if d.getFreeMB() > 0 and d.primaryAvailable():
                 self.createButton.setEnabled(True)
+            else:
+                self.createButton.setEnabled(False)
             self.deleteButton.setEnabled(True)
             self.resizeButton.setEnabled(False)
             self.editButton.setEnabled(False)

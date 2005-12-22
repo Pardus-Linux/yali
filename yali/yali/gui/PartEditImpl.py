@@ -186,7 +186,7 @@ class PartEdit(QWidget):
 
 
             p = device.addPartition(type, t.filesystem, size, t.parted_flags)
-            device.commit()
+#            device.commit()
             partition = device.getPartition(p.num)
 
             if not edit_requests(partition):
@@ -221,13 +221,13 @@ class PartEdit(QWidget):
                     parted_type = parteddata.PARTITION_PRIMARY
                 device = partition.getDevice()
                 device.deletePartition(partition)
-                device.commit()
+#                device.commit()
 
                 p = device.addPartition(parted_type,
                                         t.filesystem,
                                         size,
                                         t.parted_flags)
-                device.commit()
+#                device.commit()
                 partition = device.getPartition(p.num)
                 
 
@@ -264,7 +264,7 @@ class PartEdit(QWidget):
                     ctx.partrequests.removeRequest(p, request.formatRequestType)
 
                 self._d.deleteAllPartitions()
-                self._d.commit()
+#                self._d.commit()
 
         elif t ==  parteddata.partitionType:
             if state == createState and self._d.isExtended():
@@ -275,7 +275,7 @@ class PartEdit(QWidget):
             elif state == deleteState:
                 device = self._d.getDevice()
                 device.deletePartition(self._d)
-                device.commit()
+#                device.commit()
 
                 # delete requests
                 ctx.partrequests.removeRequest(self._d, request.mountRequestType)

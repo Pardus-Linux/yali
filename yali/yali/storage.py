@@ -221,12 +221,23 @@ class Device:
     def getFreeMB(self):
         parts = self.getPartitions()
         
-        size = 0
+        size_total = self.getTotalMB()
+        size_parts = 0
+#         size = 0
+#         for p in parts:
+#             if isinstance(p, FreeSpace):
+#                 size += p.getMB()
         for p in parts:
-            if isinstance(p, FreeSpace):
-                size += p.getMB()
+            # don't count logical parts
+            if not p.isLogical():
+                size_parts += p.getMB()
 
-        return size
+        size = size_total - size_parts
+        if size > 1:
+            return size
+        else:
+            return 0
+        
 
 
     ###############################
@@ -327,11 +338,12 @@ class Device:
                                                    geom.end,
                                                    fs_name)
 
-        elif part.type_name == "free":
-            self._partitions[-1] = FreeSpace(self, part,
-                                             part_mb,
-                                             part.geom.start,
-                                             part.geom.end)
+# Don't use FreeSpace!
+#         elif part.type & parted.PARTITION_FREESPACE:
+#             self._partitions[-1] = FreeSpace(self, part,
+#                                              part_mb,
+#                                              part.geom.start,
+#                                              part.geom.end)
         return part
 
     ##
@@ -339,9 +351,11 @@ class Device:
     # @param part: Partition
     def deletePartition(self, part):
         self._disk.delete_partition(part.getPartition())
+        self.update()
 
     def deleteAllPartitions(self):
         self._disk.delete_all()
+        self.update()
 
     def resizePartition(self, fs, size_mb, part):
 
