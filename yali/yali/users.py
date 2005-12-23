@@ -95,7 +95,7 @@ class User:
         shutil.copy(head_images.next(), os.path.join(user_home_dir, '.face.icon'))
         os.chmod(os.path.join(user_home_dir, '.face.icon'), 0644)
 
-        os.system('chown -R %s:%d %s ' % (self.uid, 100, user_home_dir))
+        os.system('chown -R %d:%d %s ' % (self.uid, 100, user_home_dir))
 
         self.__appendGroups()
 
