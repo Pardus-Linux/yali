@@ -73,9 +73,9 @@ loader.
             for p in d.getPartitions():
                 fs = p.getFSName()
                 if fs in ("ntfs", "fat32"):
-                    dev = basename(p.getDevicePath())
+                    win_dev = basename(p.getDevicePath())
                     root = basename(p.getPath())
-                    yali.bootloader.grub_conf_append_win(root, dev, fs)
+                    yali.bootloader.grub_conf_append_win(root, win_dev, install_dev, fs)
 
         print self.install_bootloader.isChecked()
         if self.install_bootloader.isChecked():

@@ -40,7 +40,18 @@ chainloader +1
 
 """
 
+win_part_tmp_multiple_disks = """
+title= %(title)s (%(fs)s) - %(root)s
+map (hd0) (hd1)
+map (hd1) (hd0)
+rootnoverify (%(grub_root)s)
+makeactive
+chainloader +1
+
+"""
+
 grub_shell_tmp = """
+device (hd0) %(grubs_disk)s
 root (%(grub_root)s)
 setup (%(grub_dev)s)
 """
@@ -114,18 +125,26 @@ def write_grub_conf(root, dev):
     open(grub_conf, "w").write(s)
 
 
-def grub_conf_append_win(root, dev, fs):
+def grub_conf_append_win(root, win_dev, install_dev, fs):
     global grub_conf
 
-    grub_dev = _find_grub_dev(dev)
+    grub_dev = _find_grub_dev(win_dev)
     minor = str(int(filter(lambda u: u.isdigit(), root)) -1)
     grub_root = ",".join([grub_dev, minor])
 
-    s = win_part_tmp % {"title": _("Windows"),
-                        "grub_root": grub_root,
-                        "root": root,
-                        "fs": fs}
+    if win_dev == install_dev:
+        s = win_part_tmp % {"title": _("Windows"),
+                            "grub_root": grub_root,
+                            "root": root,
+                            "fs": fs}
+    else:
+        s = win_part_tmp_multiple_disks % {"title": _("Windows"),
+                                           "grub_root": grub_root,
+                                           "root": root,
+                                           "fs": fs}
+
     open(grub_conf, "a").write(s)
+    
 
 
 def install_grub(root, dev):
@@ -134,7 +153,8 @@ def install_grub(root, dev):
     minor = str(int(filter(lambda u: u.isdigit(), root)) -1)
     grub_root = ",".join([grub_dev, minor])
 
-    grub_shell = grub_shell_tmp % {"grub_root": grub_root,
+    grub_shell = grub_shell_tmp % {"grubs_disk": '/dev/' + dev,
+                                   "grub_root": grub_root,
                                    "grub_dev": grub_dev}
 
     open("/tmp/grub-shell", "w").write(grub_shell)
