@@ -13,6 +13,11 @@
 
 from qt import *
 
+import gettext
+__trans = gettext.translation('yali', fallback=True)
+_ = __trans.ugettext
+
+
 import yali.gui.context as ctx
 
 
@@ -88,4 +93,23 @@ class Dialog(QDialog):
 
 
     
+class WarningDialog(Dialog):
+
+    def __init__(self, w, parent):
+
+        self.warning_widget = w
+
+
+        Dialog.__init__(self, _("Warning"), self.warning_widget, parent)
+
+        self.connect(self.warning_widget, PYSIGNAL("signalOK"),
+                     self.slotOK)
+        self.connect(self.warning_widget, PYSIGNAL("signalCancel"),
+                     self.slotCancel)
+
+    def slotOK(self):
+        self.done(1)
+
+    def slotCancel(self):
+        self.done(0)
 

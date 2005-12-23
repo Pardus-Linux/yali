@@ -23,7 +23,7 @@ import yali.storage
 import yali.gui.context as ctx
 import yali.partitionrequest as request
 import yali.partitiontype as parttype
-from yali.gui.YaliDialog import Dialog
+from yali.gui.YaliDialog import Dialog, WarningDialog
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.PartListImpl import PartList
 from yali.gui.PartEditImpl import PartEdit, \
@@ -101,7 +101,11 @@ about disk partitioning.
     # do the work and run requested actions on partitions.
     def execute(self):
 
-        # FIXME: show confirmation dialog
+        # show confirmation dialog
+        w = WarningWidget(self)
+        self.dialog = WarningDialog(w, self)
+        if not self.dialog.exec_loop():
+            return False
 
 
         # commit events
@@ -136,6 +140,8 @@ about disk partitioning.
         # apply all partition requests
         ctx.partrequests.applyAll()
 
+        return True
+
 
     def slotCreatePart(self, parent, d):
         self.partedit.setState(createState, d)
@@ -166,3 +172,54 @@ about disk partitioning.
     def slotCanceled(self):
         self.dialog.reject()
         del self.dialog
+
+
+
+
+
+class WarningWidget(QWidget):
+
+    def __init__(self, *args):
+        QWidget.__init__(self, *args)
+
+        l = QVBoxLayout(self)
+        l.setSpacing(20)
+        l.setMargin(10)
+
+        warning = QLabel(self)
+#        warning.setTextFormat(warning.RichText)
+        warning.setText(_('''<font size="+1">
+<b>
+<p>This action will start installing Pardus on
+your system formatting the selected partition.</p>
+</b>
+</font>
+'''))
+
+        self.cancel = QPushButton(self)
+        self.cancel.setText(_("Cancel"))
+
+        self.ok = QPushButton(self)
+        self.ok.setText(_("O.K. Go Ahead"))
+
+        buttons = QHBoxLayout(self)
+        buttons.setSpacing(10)
+        buttons.addStretch(1)
+        buttons.addWidget(self.cancel)
+        buttons.addWidget(self.ok)
+
+        l.addWidget(warning)
+        l.addLayout(buttons)
+
+
+        self.connect(self.ok, SIGNAL("clicked()"),
+                     self.slotOK)
+        self.connect(self.cancel, SIGNAL("clicked()"),
+                     self.slotCancel)
+
+    def slotOK(self):
+        self.emit(PYSIGNAL("signalOK"), ())
+
+    def slotCancel(self):
+        self.emit(PYSIGNAL("signalCancel"), ())
+

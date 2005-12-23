@@ -70,6 +70,8 @@ Click Next button to proceed.
         user = yali.users.User("root")
         user.changePasswd(self.pass1.text().ascii())
 
+        return True
+
     def slotTextChanged(self):
 
         p1 = self.pass1.text()

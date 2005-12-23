@@ -19,4 +19,4 @@ class ScreenWidget:
         pass
 
     def execute(self):
-        pass
+        return True

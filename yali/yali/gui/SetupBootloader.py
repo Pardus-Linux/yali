@@ -80,3 +80,6 @@ loader.
         print self.install_bootloader.isChecked()
         if self.install_bootloader.isChecked():
             yali.bootloader.install_grub(install_root, install_dev)
+
+
+        return True

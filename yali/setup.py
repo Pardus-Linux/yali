@@ -20,7 +20,9 @@ from distutils.command.clean import clean
 from distutils.command.install import install
 from distutils.spawn import find_executable, spawn
 
-YALI_VERSION = '0.1'
+import yali
+
+YALI_VERSION = yali.__version__
 
 
 def qt_ui_files():

@@ -26,7 +26,7 @@ import yali.parteddata as parteddata
 
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.autopartwidget import AutoPartWidget
-from yali.gui.YaliDialog import Dialog
+from yali.gui.YaliDialog import WarningDialog
 import yali.gui.context as ctx
 
 
@@ -79,6 +79,7 @@ about disk partitioning.
 
         self.connect(self.device_list, SIGNAL("selectionChanged(QListBoxItem*)"),
                      self.slotDeviceChanged)
+        
 
     def shown(self):
         ctx.screens.enablePrev()
@@ -108,11 +109,17 @@ about disk partitioning.
 
 
         if self.accept_auto.isChecked():
-            # inform user
-            self.info.setText('<font color="#FF6D19">Preparing your disk for installation!</font>')
-            ctx.screens.processEvents()
 
-            # FIXME: show confirmation dialog
+            # show confirmation dialog
+            w = WarningWidget(self)
+            self.dialog = WarningDialog(w, self)
+            if not self.dialog.exec_loop():
+                return False
+
+
+            # inform user
+            self.info.setText(_('<font color="#FF6D19">Preparing your disk for installation!</font>'))
+            ctx.screens.processEvents()
 
             
             ctx.use_autopart = True
@@ -124,8 +131,9 @@ about disk partitioning.
             # skip next screen()
             num = ctx.screens.getCurrentIndex() + 1
             ctx.screens.goToScreen(num)
-        
 
+
+        return True
 
     def slotDeviceChanged(self, i):
         self.device = i.getDevice()
@@ -162,4 +170,58 @@ class DeviceItem(QListBoxText):
     
     def getDevice(self):
         return self._dev
+
+
+
+
+
+
+class WarningWidget(QWidget):
+
+    def __init__(self, *args):
+        QWidget.__init__(self, *args)
+
+        l = QVBoxLayout(self)
+        l.setSpacing(20)
+        l.setMargin(10)
+
+        warning = QLabel(self)
+#        warning.setTextFormat(warning.RichText)
+        warning.setText(_('''<font size="+1">
+<b>
+<p>This action will use your entire disk for Pardus installation and
+all your present data on the selected disk will be lost.</p>
+
+<p>After being sure you had your backup this is generally a safe
+and easy way to install Pardus.</p>
+</b>
+</font>
+'''))
+
+        self.cancel = QPushButton(self)
+        self.cancel.setText(_("Cancel"))
+
+        self.ok = QPushButton(self)
+        self.ok.setText(_("O.K. Go Ahead"))
+
+        buttons = QHBoxLayout(self)
+        buttons.setSpacing(10)
+        buttons.addStretch(1)
+        buttons.addWidget(self.cancel)
+        buttons.addWidget(self.ok)
+
+        l.addWidget(warning)
+        l.addLayout(buttons)
+
+
+        self.connect(self.ok, SIGNAL("clicked()"),
+                     self.slotOK)
+        self.connect(self.cancel, SIGNAL("clicked()"),
+                     self.slotCancel)
+
+    def slotOK(self):
+        self.emit(PYSIGNAL("signalOK"), ())
+
+    def slotCancel(self):
+        self.emit(PYSIGNAL("signalCancel"), ())
 

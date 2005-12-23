@@ -40,7 +40,8 @@ class Screens(QObject, Steps):
 
         # we are finished with the current screen. Call the widget's
         # execute() function to do it's work.
-        self.getCurrent().getWidget().execute()
+        if not self.getCurrent().getWidget().execute():
+            return
 
         nxt = self.getCurrentIndex() + 1
         if self.hasIndex(nxt):

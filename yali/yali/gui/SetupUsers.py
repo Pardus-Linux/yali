@@ -83,6 +83,8 @@ Click Next button to proceed.
             u = self.userList.item(i).getUser()
             u.addUser()
 
+        return True
+
     def slotTextChanged(self):
 
         p1 = self.pass1.text()

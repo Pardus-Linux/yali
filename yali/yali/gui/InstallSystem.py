@@ -179,6 +179,8 @@ Have fun!
         # stop slide show
         self.timer.stop()
 
+        return True
+
     def finished(self):
         # Remove cd repository and install add real
         repo_name = ctx.consts.repo_name # install repo on CD
