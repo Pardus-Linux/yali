@@ -43,6 +43,7 @@ class Widget(QTextView):
         active_colors = palette.active()
         active_colors.setColor(active_colors.Link, ctx.consts.fg_color)
         palette.setActive(active_colors)
+        palette.setInactive(active_colors)
         self.setPalette(palette)
 
         rel_file = "releasenotes-" + ctx.consts.lang + ".html"
