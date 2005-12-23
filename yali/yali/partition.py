@@ -18,6 +18,8 @@ _ = __trans.ugettext
 
 import parted
 import yali.parteddata as parteddata
+import yali.filesystem
+
 
 ##
 # Class representing a single partition within a Device object
@@ -33,6 +35,18 @@ class Partition:
         self._fsname = fs_name or _("unknown")
         self._parted_type = parteddata.partitionType
 
+
+    def setFileSystemType(self, fs_type):
+        if isinstance(fs_type, yali.filesystem.FileSystem):
+            fs_type = fs_type.getFSType()
+        print fs_type
+        self._partition.set_system(fs_type)
+
+
+    def setPartedFlags(self, flags):
+        for flag in flags:
+            if self._partition.is_flag_available(flag):
+                self._partition.set_flag(flag, 1)
 
     ##
     # check if partition is logical
