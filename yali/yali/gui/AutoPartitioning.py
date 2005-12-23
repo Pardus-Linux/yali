@@ -90,9 +90,6 @@ about disk partitioning.
         def autopartDevice():
             dev = self.device
 
-            # FIXME: also add a swap partition!
-            # Or will we?
-
             # fist delete partitions on device
             dev.deleteAllPartitions()
             dev.commit()
