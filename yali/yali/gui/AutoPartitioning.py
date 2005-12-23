@@ -95,8 +95,10 @@ about disk partitioning.
             dev.deleteAllPartitions()
             dev.commit()
 
-            # FIXME: set partition type (storage.setPartitionType)
-            p = dev.addPartition(0, None, dev.getFreeMB())
+            p = dev.addPartition(parttype.root.parted_type,
+                                 parttype.root.filesystem,
+                                 dev.getFreeMB(),
+                                 parttype.root.parted_flags)
             p = dev.getPartition(p.num) # get partition.Partition
             dev.commit()
 
