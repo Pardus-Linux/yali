@@ -59,27 +59,29 @@ loader.
         
 
     def execute(self):
+        loader = bootloader.BootLoader()
 
         rootreq = ctx.partrequests.searchPartTypeAndReqType(parttype.root,
                                                             request.mountRequestType).next()
-        install_root = basename(rootreq.partition().getPath())
-        install_dev = basename(rootreq.partition().getDevicePath())
+
+        loader.install_dev = basename(rootreq.partition().getDevicePath())
+        loader.install_root = basename(rootreq.partition().getPath())
         
         # TODO: use logging!
-        yali.bootloader.write_grub_conf(install_root, install_dev)
+        loader.write_grub_conf()
 
         # Windows partitions...
         for d in yali.storage.devices:
             for p in d.getPartitions():
                 fs = p.getFSName()
                 if fs in ("ntfs", "fat32"):
-                    win_dev = basename(p.getDevicePath())
-                    root = basename(p.getPath())
-                    yali.bootloader.grub_conf_append_win(root, win_dev, install_dev, fs)
+                    loader.win_fs = fs
+                    loader.win_dev = basename(p.getDevicePath())
+                    loader.win_root = basename(p.getPath())
+                    loader.grub_conf_append_win()
 
         print self.install_bootloader.isChecked()
         if self.install_bootloader.isChecked():
-            yali.bootloader.install_grub(install_root, install_dev)
-
+            loader.install_grub()
 
         return True
