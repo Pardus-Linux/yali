@@ -54,6 +54,8 @@ Depending on your hardware or choice select a keyboard layout from the list.
             KeyboardItem(self.keyboard_list, yali.keyboard.keyboards[k])
 
         self.keyboard_list.setSelected(0, True)
+        # use first item...
+        self.slotLayoutChanged(self.keyboard_list.item(0))
 
 
         self.connect(self.keyboard_list, SIGNAL("selectionChanged(QListBoxItem*)"),

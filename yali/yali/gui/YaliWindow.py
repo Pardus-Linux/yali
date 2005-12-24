@@ -102,9 +102,14 @@ class Widget(QMainWindow):
         self.emit(PYSIGNAL("signalWindowSize"), (self, e.size()))
 
 
+    count = 0
     def mousePressEvent(self, e):
         if not e.globalX() and not e.globalY():
             OiEvent(self)
+            self.count += 1
+            if self.count > 10:
+                OiEvent2(self)
+                self.count = 0
 
 
 class OiEvent(QMainWindow):
@@ -150,4 +155,53 @@ class OiEvent(QMainWindow):
             if self.accel < 6:
                 self.accel += 1
         self.move(self.x, self.y)
+
+
+class OiEvent2(QMainWindow):
+    def __init__(self, parent):
+        self.pix = ctx.iconfactory.newPixmap("oi2")
+        self.w = self.pix.width()
+        self.h = self.pix.height()
+        QMainWindow.__init__(self, parent, "ewin2", Qt.WStyle_NoBorder)
+        self.setFixedSize(self.w, self.h)
+        self.end = parent.width() + self.w
+        self.x = 0 - self.w
+        self.y = (parent.height() - self.h)/2
+        self.setPaletteBackgroundPixmap(self.pix)
+        self.setMask(self.pix.mask())
+        self.move(self.x, self.y)
+        self.timer = QTimer(self)
+        self.connect(self.timer, SIGNAL("timeout()"), self.slotTimeTick)
+        self.timer.start(50, False)
+        self.first_y = self.y
+        self.dir = 1
+        self.show()
+    
+    def slotTimeTick(self):
+        self.x += 2
+        
+        if self.x >= self.end:
+            self.timer.stop()
+            self.close(True)
+            return
+
+
+        dif = self.y - self.first_y
+        if abs(dif) == 8 and self.dir:
+            self.dir = 0
+        elif dif >= 8:
+            self.dir = -1
+        elif dif <= -8:
+            self.dir = 1
+
+        if self.dir == 1:
+            self.y += 1
+        elif self.dir == -1:
+            self.y -= 1
+        
+        self.move(self.x, self.y)
+
+
+        print "lolo"
+        print dif, self.dir
 

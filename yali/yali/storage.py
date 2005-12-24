@@ -222,7 +222,7 @@ class Device:
         parts = self.getPartitions()
         
         size_total = self.getTotalMB()
-        size_parts = 0
+        size_parts = 1
 #         size = 0
 #         for p in parts:
 #             if isinstance(p, FreeSpace):
