@@ -61,12 +61,12 @@ class BootLoader:
     def __init__(self):
         self.device_map = os.path.join(consts.target_dir, "boot/grub/device.map")
         self.grub_conf = os.path.join(consts.target_dir, "boot/grub/grub.conf")
-        self.install_root = ''
-        self.install_dev = ''
+        self.install_root = ""
+        self.install_dev = ""
 
-        self.win_dev = ''
-        self.win_root = ''
-        self.win_fs = ''
+        self.win_dev = ""
+        self.win_root = ""
+        self.win_fs = ""
 
     def _find_grub_dev(self, dev):
         for l in open(self.device_map).readlines():
@@ -105,15 +105,14 @@ class BootLoader:
             return "initrd-%s" % ver
     
         def boot_parameters_from_cmdline(root):
-            s = ""
-            for i in  open("/proc/cmdline", "r").read().split():
+            s = []
+            for i in [x for x in open("/proc/cmdline", "r").read().split() if not x.startswith("cdroot") if not x.startswith("init=")]:
                 if i.startswith("root="):
-                    i = "root=/dev/%s" % root
-                elif i.startswith("cdroot") or i.startswith("init="):
-                    continue
-                s = " ".join((s,i))
-            return s
-    
+                     s.append("root=/dev/%s" % (root))
+                else:
+                     s.append(i)
+            return " ".join(s).strip()
+ 
         boot_kernel = find_boot_kernel()
         initrd_name = find_initrd_name(boot_kernel)
         boot_parameters =  boot_parameters_from_cmdline(self.install_root)
@@ -152,7 +151,7 @@ class BootLoader:
         minor = str(int(filter(lambda u: u.isdigit(), self.install_root)) -1)
         grub_root = ",".join([grub_dev, minor])
     
-        grub_shell = grub_shell_tmp % {"grubs_disk": '/dev/' + self.install_dev,
+        grub_shell = grub_shell_tmp % {"grubs_disk": "/dev/" + self.install_dev,
                                        "grub_root": grub_root,
                                        "grub_dev": grub_dev}
     
