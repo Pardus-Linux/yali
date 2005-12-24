@@ -78,6 +78,15 @@ msgid ""
 "</b>\n"
 "</font>\n"
 msgstr ""
+"<font size=\"+1\">\n"
+"<b>\n"
+"<p>Bu işlem tüm sabit diskinizi Pardus kurulumu için kullanacak \n"
+"ve seçilen sabit disk üzerindeki tüm verileriniz silinecektir.</p>\n"
+"\n"
+"<p>Yedeklerinizi aldıktan sonra Pardus güvenli bir şekilde \n"
+"bilgisayarınıza kurulacaktır.</p>\n"
+"</b>\n"
+"</font>\n"
 
 #: yali/gui/AutoPartitioning.py:204 yali/gui/parteditbuttons.py:47
 #: yali/gui/Partitioning.py:200
@@ -432,6 +441,12 @@ msgid ""
 "</b>\n"
 "</font>\n"
 msgstr ""
+"<font size=\"+1\">\n"
+"<b>\n"
+"<p>Bu işlem seçilen sabit disk bölümünü biçimlendirerek\n"
+"Pardus'u bilgisayarınıza kuracaktır.</p>\n"
+"</b>\n"
+"</font>\n"
 
 #: yali/gui/PartListImpl.py:84 yali/gui/PartListImpl.py:98
 #, python-format
@@ -812,7 +827,7 @@ msgstr "Hayır, Kabul Etmiyorum!"
 
 #: yali/gui/YaliDialog.py:103
 msgid "Warning"
-msgstr ""
+msgstr "Uyarı"
 
 #: yali/bootloader.py:136 yali/bootloader.py:141
 msgid "Windows"
