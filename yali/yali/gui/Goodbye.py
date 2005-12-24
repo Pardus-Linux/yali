@@ -23,6 +23,7 @@ import reboot
 
 import yali.sysutils
 from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui.YaliDialog import WarningDialog
 import yali.gui.context as ctx
 
 ##
@@ -80,15 +81,61 @@ don't you?
         self.info.show()
         self.info.setAlignment(QLabel.AlignCenter)
 
-#        cmd = yali.sysutils.find_executable("reboot")
-#        print cmd
-#        os.system(cmd)
+        #FIXME: this is a dirty and temporary workaround.. will be removed.
+#        os.chmod(ctx.consts.target_dir + "/var/tmp", 01777)
+
+        # remove cd...
+        w = RebootWidget(self)
+        self.dialog = WarningDialog(w, self)
+        self.dialog.exec_loop()
+
         try:
-            #FIXME: this is a dirty and temporary workaround.. will be removed.
-            os.chmod(ctx.consts.target_dir + "/var/tmp", 01777)
             mount.umount(ctx.consts.target_dir + "/home")
         except:
             pass
 
         mount.umount(ctx.consts.target_dir)
         reboot.fastreboot()
+
+
+
+class RebootWidget(QWidget):
+
+    def __init__(self, *args):
+        QWidget.__init__(self, *args)
+
+        l = QVBoxLayout(self)
+        l.setSpacing(20)
+        l.setMargin(10)
+
+        warning = QLabel(self)
+        warning.setText(_('''<font size="+1">
+<b>
+<p>Please remove Pardus CD from your drive and pres Reboot button.</p>
+</b>
+</font>
+'''))
+
+        self.reboot = QPushButton(self)
+        self.reboot.setText(_("Reboot"))
+
+        buttons = QHBoxLayout(self)
+        buttons.setSpacing(10)
+        buttons.addStretch(1)
+        buttons.addWidget(self.reboot)
+
+        l.addWidget(warning)
+        l.addLayout(buttons)
+
+
+        # dummy way to remove CD. But eject does it all for us :)
+        os.system("eject")
+
+        self.connect(self.reboot, SIGNAL("clicked()"),
+                     self.slotReboot)
+
+    def slotReboot(self):
+        self.emit(PYSIGNAL("signalOK"), ())
+
+
+
