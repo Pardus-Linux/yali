@@ -283,6 +283,14 @@ class PartEdit(QWidget):
                 fs = filesystem.get_filesystem(partition.getFSName())
                 
                 size_mb = self.edit.size.text().toInt()[0]
+
+                # check resize for NTFS before performing action.
+                if fs.name() == "ntfs":
+                    if not fs.check_resize(size_mb, partition):
+                        self.warning.setText(_("ntfsresize check failed! Won't proceed action!"))
+                        self.warning.show()
+                        return False
+
                 device.resizePartition(fs, size_mb, partition)
 
         elif t == parteddata.freeSpaceType:
