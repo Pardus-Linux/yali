@@ -33,6 +33,7 @@ class DeviceError(YaliError):
 # all storage devices
 devices = []
 
+
 ##
 # initialize all devices and fill devices list
 def init_devices(force = False):
@@ -45,6 +46,15 @@ def init_devices(force = False):
     for dev_path in devs:
         d = Device(dev_path)
         devices.append(d)
+
+def clear_devices():
+    global devices
+
+    if not devices:
+        return
+
+    for dev in devices:
+        devices.remove(dev)
 
 
 ##

@@ -53,6 +53,8 @@ class PartList(PartListWidget):
         self.connect(self.resizeButton, SIGNAL("clicked()"),
                      self.slotResizeClicked)
 
+        self.connect(self.resetButton, SIGNAL("clicked()"),
+                     self.resetChanges)
 
         self.connect(self.list, SIGNAL("doubleClicked(QListViewItem*, const QPoint&, int)"),
                      self.slotListDoubleClicked)
@@ -69,6 +71,11 @@ class PartList(PartListWidget):
 
         self.showPartitionRequests()
         self.checkRootPartRequest()
+
+    def resetChanges(self):
+        yali.storage.clear_devices()
+        yali.storage.init_devices()
+        self.update()
 
 
     def devices_commit(self):

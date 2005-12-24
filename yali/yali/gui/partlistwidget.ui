@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>418</width>
-            <height>223</height>
+            <width>600</width>
+            <height>246</height>
         </rect>
     </property>
     <property name="sizePolicy">
@@ -27,7 +27,7 @@
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
-        <widget class="QPushButton" row="1" column="0">
+        <widget class="QPushButton" row="0" column="0">
             <property name="name">
                 <cstring>createButton</cstring>
             </property>
@@ -35,10 +35,10 @@
                 <bool>false</bool>
             </property>
             <property name="text">
-                <string>Create</string>
+                <string>Create New Partition</string>
             </property>
         </widget>
-        <spacer row="1" column="1">
+        <spacer row="0" column="1">
             <property name="name">
                 <cstring>spacer1</cstring>
             </property>
@@ -50,14 +50,14 @@
             </property>
             <property name="sizeHint">
                 <size>
-                    <width>84</width>
+                    <width>16</width>
                     <height>20</height>
                 </size>
             </property>
         </spacer>
-        <spacer row="1" column="3">
+        <spacer row="0" column="5">
             <property name="name">
-                <cstring>spacer2</cstring>
+                <cstring>spacer3</cstring>
             </property>
             <property name="orientation">
                 <enum>Horizontal</enum>
@@ -67,12 +67,12 @@
             </property>
             <property name="sizeHint">
                 <size>
-                    <width>84</width>
+                    <width>16</width>
                     <height>20</height>
                 </size>
             </property>
         </spacer>
-        <widget class="QPushButton" row="1" column="2">
+        <widget class="QPushButton" row="0" column="6" rowspan="1" colspan="2">
             <property name="name">
                 <cstring>deleteButton</cstring>
             </property>
@@ -83,7 +83,7 @@
                 <string>Delete Selected Partition</string>
             </property>
         </widget>
-        <widget class="QLayoutWidget" row="0" column="0" rowspan="1" colspan="7">
+        <widget class="QLayoutWidget" row="1" column="0" rowspan="1" colspan="8">
             <property name="name">
                 <cstring>layout2</cstring>
             </property>
@@ -169,18 +169,49 @@
                 </widget>
             </vbox>
         </widget>
-        <widget class="QPushButton" row="1" column="6">
+        <widget class="QPushButton" row="2" column="7">
             <property name="name">
-                <cstring>editButton</cstring>
-            </property>
-            <property name="enabled">
-                <bool>false</bool>
+                <cstring>resetButton</cstring>
             </property>
             <property name="text">
-                <string>Edit</string>
+                <string>Reset All Changes</string>
             </property>
         </widget>
-        <widget class="QPushButton" row="1" column="4">
+        <spacer row="2" column="0" rowspan="1" colspan="7">
+            <property name="name">
+                <cstring>spacer8</cstring>
+            </property>
+            <property name="orientation">
+                <enum>Horizontal</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Expanding</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>370</width>
+                    <height>20</height>
+                </size>
+            </property>
+        </spacer>
+        <spacer row="0" column="3">
+            <property name="name">
+                <cstring>spacer2</cstring>
+            </property>
+            <property name="orientation">
+                <enum>Horizontal</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Expanding</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>16</width>
+                    <height>20</height>
+                </size>
+            </property>
+        </spacer>
+        <widget class="QPushButton" row="0" column="4">
             <property name="name">
                 <cstring>resizeButton</cstring>
             </property>
@@ -191,23 +222,17 @@
                 <string>Resize</string>
             </property>
         </widget>
-        <spacer row="1" column="5">
+        <widget class="QPushButton" row="0" column="2">
             <property name="name">
-                <cstring>spacer3</cstring>
+                <cstring>editButton</cstring>
             </property>
-            <property name="orientation">
-                <enum>Horizontal</enum>
+            <property name="enabled">
+                <bool>false</bool>
             </property>
-            <property name="sizeType">
-                <enum>Expanding</enum>
+            <property name="text">
+                <string>Edit</string>
             </property>
-            <property name="sizeHint">
-                <size>
-                    <width>84</width>
-                    <height>20</height>
-                </size>
-            </property>
-        </spacer>
+        </widget>
     </grid>
 </widget>
 <layoutdefaults spacing="6" margin="11"/>
