@@ -384,9 +384,9 @@ class Device:
             ptype = PARTITION_PRIMARY
 
         self.deletePartition(part)
-        self.commit()
+#        self.commit()
         self.addPartitionFromStart(ptype, fs_name, start, size_mb)
-        self.commit()
+#        self.commit()
 
     def commit(self):
         self._disk.commit()
