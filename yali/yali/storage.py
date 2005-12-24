@@ -378,10 +378,14 @@ class Device:
 
         start = part.getPartition().geom.start
         fs_name = part.getFSName()
+        if part.isLogical():
+            ptype = PARTITION_LOGICAL
+        else:
+            ptype = PARTITION_PRIMARY
+
         self.deletePartition(part)
         self.commit()
-        # FIXME: TYPE is 0
-        self.addPartitionFromStart(0, fs_name, start, size_mb)
+        self.addPartitionFromStart(ptype, fs_name, start, size_mb)
         self.commit()
 
     def commit(self):
