@@ -103,7 +103,7 @@ loader.
         rootreq = ctx.partrequests.searchPartTypeAndReqType(parttype.root,
                                                             request.mountRequestType).next()
 
-        loader.install_dev = self.device.getPath()
+        loader.install_dev = basename(self.device.getPath())
         loader.install_root = basename(rootreq.partition().getPath())
         
         # TODO: use logging!
