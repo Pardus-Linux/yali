@@ -46,7 +46,7 @@ def chroot_comar():
         os.chroot(consts.target_dir)
         os.system("/sbin/ldconfig")
 
-        os.eviron["PATH"]="/bin:/sbin:/usr/bin:/usr/sbin"
+        os.environ["PATH"]="/bin:/sbin:/usr/bin:/usr/sbin"
         comar_path = "/usr/bin/comar"
         os.execve(comar_path, ["/usr/bin/comar", "--debug", "perf"], os.environ)
 
