@@ -77,11 +77,17 @@ class PartList(PartListWidget):
 
     def addDevice(self, dev):
 
+        def sizeStr(mb):
+            if mb > 1024:
+                return _("%0.1f GB free") % long(mb/1024.0)
+            else:
+                return _("%d MB free") % mb
+
         # add the device to the list
         devstr = "%s (%s)" % (dev.getModel(), dev.getName())
         freespace = dev.getFreeMB()
         if freespace:
-            size_str = dev.getSizeStr() + "  " + _("(%sMB free)") % freespace
+            size_str = dev.getSizeStr() + "  (%s)" % sizeStr(freespace)
         else:
             size_str = dev.getSizeStr()
 
@@ -95,7 +101,7 @@ class PartList(PartListWidget):
             ext = dev.getExtendedPartition()
             free_ext = ext.getFreeMB()
             if free_ext:
-                size_str = ext.getSizeStr() + "  " + _("(%sMB free)") % free_ext
+                size_str = ext.getSizeStr() + "  (%s)" % sizeStr(free_ext)
             else:
                 size_str = ext.getSizeStr()
 
