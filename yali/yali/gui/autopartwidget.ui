@@ -182,6 +182,9 @@ All data on the selected disk will be lost!&lt;/font&gt;&lt;/p&gt;</string>
                     <property name="name">
                         <cstring>device_list</cstring>
                     </property>
+                    <property name="frameShadow">
+                        <enum>Plain</enum>
+                    </property>
                 </widget>
                 <widget class="QButtonGroup">
                     <property name="name">

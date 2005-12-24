@@ -60,6 +60,10 @@ about disk partitioning.
         self.enable_next = False
         self.enable_auto = False
 
+        
+        self.device_list.setPaletteBackgroundColor(ctx.consts.bg_color)
+        self.device_list.setPaletteForegroundColor(ctx.consts.fg_color)
+
 
         # initialize all storage devices
         yali.storage.init_devices()

@@ -57,6 +57,45 @@ loader.
     def __init__(self, *args):
         apply(BootLoaderWidget.__init__, (self,) + args)
         
+        self.device = None
+
+
+        self.device_list.setPaletteBackgroundColor(ctx.consts.bg_color)
+        self.device_list.setPaletteForegroundColor(ctx.consts.fg_color)
+
+
+        # initialize all storage devices
+        yali.storage.init_devices()
+
+        if len(yali.storage.devices) > 1:
+
+            # fill device list
+            for dev in yali.storage.devices:
+                DeviceItem(self.device_list, dev)
+            # select the first disk by default
+            self.device_list.setSelected(0, True)
+        else:
+            # don't show device list if we have just one disk
+            self.device_list.hide()
+            self.select_disk_label.hide()
+            self.device = yali.storage.devices[0]
+
+
+        self.connect(self.install_bootloader, SIGNAL("toggled(bool)"),
+                     self.slotInstallLoader)
+        self.connect(self.device_list, SIGNAL("selectionChanged(QListBoxItem*)"),
+                     self.slotDeviceChanged)
+
+
+    def slotInstallLoader(self, b):
+        if b:
+            self.device_list.setEnabled(True)
+        else:
+            self.device_list.setEnabled(False)
+
+    def slotDeviceChanged(self, i):
+        self.device = i.getDevice()
+
 
     def execute(self):
         loader = yali.bootloader.BootLoader()
@@ -64,7 +103,7 @@ loader.
         rootreq = ctx.partrequests.searchPartTypeAndReqType(parttype.root,
                                                             request.mountRequestType).next()
 
-        loader.install_dev = basename(rootreq.partition().getDevicePath())
+        loader.install_dev = self.device.getDevicePath()
         loader.install_root = basename(rootreq.partition().getPath())
         
         # TODO: use logging!
@@ -85,3 +124,16 @@ loader.
             loader.install_grub()
 
         return True
+
+
+
+class DeviceItem(QListBoxText):
+
+    def __init__(self, parent, dev):
+        text = "%s (%s)" %(dev.getModel(), dev.getSizeStr())
+        apply(QListBoxText.__init__, (self,parent,text))
+        self._dev = dev
+    
+    def getDevice(self):
+        return self._dev
+
