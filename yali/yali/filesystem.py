@@ -261,16 +261,25 @@ class NTFSFileSystem(FileSystem):
 
         self.setResizeable(True)
 
+    def check_resize(self, size_mb, partition):
+        #don't do anything, just check
+        cmd = "/usr/sbin/ntfsresize -n -f -s %dM %s" %(size_mb, partition.getPath())
+
+        p = os.popen(cmd)
+        if p.close():
+            return False
+        return True
+
 
     def resize(self, size_mb, partition):
 
         if size_mb < self.minResizeMB(partition):
             return False
 
-        s = "/usr/sbin/ntfsresize -f -s %dM %s" %(size_mb,
-                                                  partition.getPath())
+        cmd = "/usr/sbin/ntfsresize -f -s %dM %s" %(size_mb, partition.getPath())
+
         try:
-            p = os.popen(s, "w")
+            p = os.popen(cmd, "w")
             p.write("y\n")
             p.close()
         except:
@@ -281,8 +290,8 @@ class NTFSFileSystem(FileSystem):
 
     def minResizeMB(self, partition):
 
-        s = "/usr/sbin/ntfsresize -f -i %s" % partition.getPath()
-        lines = os.popen(s).readlines()
+        cmd = "/usr/sbin/ntfsresize -f -i %s" % partition.getPath()
+        lines = os.popen(cmd).readlines()
         
         MB = parteddata.MEGABYTE
         min = 0
