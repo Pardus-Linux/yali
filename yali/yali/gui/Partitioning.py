@@ -55,7 +55,7 @@ user files.
 </p>
 <p>
 You need to format a Linux partition, if it's used for the first time.
-You can enable \'Use available disk space\' option, if the hard disk's 
+You can enable \'Use available free space\' option, if the hard disk's 
 remaining space is to be used automatically.
 </p>
 <p>
