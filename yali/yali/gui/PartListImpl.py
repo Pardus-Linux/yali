@@ -54,6 +54,9 @@ class PartList(PartListWidget):
                      self.slotResizeClicked)
 
 
+        self.connect(self.list, SIGNAL("doubleClicked(QListViewItem*, const QPoint&, int)"),
+                     self.slotListDoubleClicked)
+
     def update(self):
         self.list.clear()
 
@@ -220,6 +223,13 @@ class PartList(PartListWidget):
     def slotEditClicked(self):
         item = self.list.currentItem()
         self.emit(PYSIGNAL("signalEdit"), (self, item.getData()) )
+
+
+    def slotListDoubleClicked(self, item, point, c):
+        t = item.getData().getType()
+
+        if t == parteddata.partitionType:
+            self.slotEditClicked()
 
 
     ##
