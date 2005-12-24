@@ -59,7 +59,7 @@ loader.
         
 
     def execute(self):
-        loader = bootloader.BootLoader()
+        loader = yali.bootloader.BootLoader()
 
         rootreq = ctx.partrequests.searchPartTypeAndReqType(parttype.root,
                                                             request.mountRequestType).next()
