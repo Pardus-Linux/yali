@@ -202,6 +202,4 @@ class OiEvent2(QMainWindow):
         self.move(self.x, self.y)
 
 
-        print "lolo"
-        print dif, self.dir
 
