@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-24 18:47+0200\n"
+"POT-Creation-Date: 2005-12-24 22:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,7 +68,7 @@ msgstr ""
 
 #: yali/gui/autopartwidget.py:83 yali/gui/bootloaderwidget.py:71
 #: yali/gui/keyboardwidget.py:66 yali/gui/parteditbuttons.py:46
-#: yali/gui/parteditwidget.py:81 yali/gui/partlistwidget.py:79
+#: yali/gui/parteditwidget.py:81 yali/gui/partlistwidget.py:85
 #: yali/gui/rootpasswidget.py:96 yali/gui/setupuserswidget.py:128
 #: yali/gui/welcomewidget.py:90
 msgid "Form1"
@@ -118,7 +118,7 @@ msgstr ""
 msgid "Select the disk you to install bootloader:"
 msgstr ""
 
-#: yali/gui/Goodbye.py:32
+#: yali/gui/Goodbye.py:33
 msgid ""
 "\n"
 "<font size=\"+2\">Congratulations</font>\n"
@@ -140,10 +140,23 @@ msgid ""
 "</font>\n"
 msgstr ""
 
-#: yali/gui/Goodbye.py:58
+#: yali/gui/Goodbye.py:59
 msgid ""
 "<b><font size=\"+2\" color=\"#FF6D19\">Rebooting system. Please wait!</"
 "font></b>"
+msgstr ""
+
+#: yali/gui/Goodbye.py:112
+msgid ""
+"<font size=\"+1\">\n"
+"<b>\n"
+"<p>Please remove Pardus CD from your drive and pres Reboot button.</p>\n"
+"</b>\n"
+"</font>\n"
+msgstr ""
+
+#: yali/gui/Goodbye.py:120
+msgid "Reboot"
 msgstr ""
 
 #: yali/gui/GUIBottom.py:45 yali/gui/GUIBottom.py:81
@@ -302,7 +315,7 @@ msgid ""
 "</p>\n"
 "<p>\n"
 "You need to format a Linux partition, if it's used for the first time.\n"
-"You can enable 'Use available disk space' option, if the hard disk's \n"
+"You can enable 'Use available free space' option, if the hard disk's \n"
 "remaining space is to be used automatically.\n"
 "</p>\n"
 "<p>\n"
@@ -344,75 +357,79 @@ msgid ""
 "</font>\n"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:82
+#: yali/gui/PartListImpl.py:92
 #, python-format
 msgid "%0.1f GB free"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:84
+#: yali/gui/PartListImpl.py:94
 #, python-format
 msgid "%d MB free"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:109
+#: yali/gui/PartListImpl.py:119
 msgid "Extended"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:138
+#: yali/gui/PartListImpl.py:148
 #, python-format
 msgid "Partition %d"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:170
+#: yali/gui/PartListImpl.py:180
 msgid "Delete All Partitions"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:196 yali/gui/partlistwidget.py:81
+#: yali/gui/PartListImpl.py:206 yali/gui/partlistwidget.py:87
 msgid "Delete Selected Partition"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:254
+#: yali/gui/PartListImpl.py:271
 msgid "Formatting!"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:256
+#: yali/gui/PartListImpl.py:273
 msgid "YES"
 msgstr ""
 
-#: yali/gui/partlistwidget.py:47 yali/gui/partlistwidget.py:83
+#: yali/gui/partlistwidget.py:47 yali/gui/partlistwidget.py:89
 msgid "Device"
 msgstr ""
 
-#: yali/gui/partlistwidget.py:48 yali/gui/partlistwidget.py:84
+#: yali/gui/partlistwidget.py:48 yali/gui/partlistwidget.py:90
 msgid "Size"
 msgstr ""
 
-#: yali/gui/partlistwidget.py:49 yali/gui/partlistwidget.py:85
+#: yali/gui/partlistwidget.py:49 yali/gui/partlistwidget.py:91
 msgid "Partition Type"
 msgstr ""
 
-#: yali/gui/partlistwidget.py:50 yali/gui/partlistwidget.py:86
+#: yali/gui/partlistwidget.py:50 yali/gui/partlistwidget.py:92
 msgid "Filesystem"
 msgstr ""
 
-#: yali/gui/partlistwidget.py:51 yali/gui/partlistwidget.py:87
+#: yali/gui/partlistwidget.py:51 yali/gui/partlistwidget.py:93
 msgid "Format?"
 msgstr ""
 
-#: yali/gui/partlistwidget.py:80
-msgid "Create"
-msgstr ""
-
-#: yali/gui/partlistwidget.py:82
-msgid "Partitions:"
+#: yali/gui/partlistwidget.py:86
+msgid "Create New Partition"
 msgstr ""
 
 #: yali/gui/partlistwidget.py:88
-msgid "Edit"
+msgid "Partitions:"
 msgstr ""
 
-#: yali/gui/partlistwidget.py:89
+#: yali/gui/partlistwidget.py:94
+msgid "Reset All Changes"
+msgstr ""
+
+#: yali/gui/partlistwidget.py:95
 msgid "Resize"
+msgstr ""
+
+#: yali/gui/partlistwidget.py:96
+msgid "Edit"
 msgstr ""
 
 #: yali/gui/rootpasswidget.py:100
