@@ -161,7 +161,7 @@ msgstr "Evet, Sistem Yükleyicisini Kur"
 
 #: yali/gui/bootloaderwidget.py:80
 msgid "Select the disk you to install bootloader:"
-msgstr ""
+msgstr "Sistem yükleyicisinin kurulacağı diski seçin:"
 
 #: yali/gui/Goodbye.py:32
 msgid ""
@@ -369,7 +369,6 @@ msgid "Swap space (optional)"
 msgstr "Takas alanı bölümü (isteğe bağlı)"
 
 #: yali/gui/Partitioning.py:37
-#, fuzzy
 msgid ""
 "\n"
 "<font size=\"+2\">Partitioning your hard disk</font>\n"
@@ -429,6 +428,18 @@ msgstr ""
 "(500 MB - 2 GB arası) bulunmalıdır. Linux'un kurulacağı \n"
 "disk alanı 2.5 GB'tan daha az olamaz. \n"
 "</p> \n"
+"<p>\n"
+"Eğer bir sabit disk bölümünü Linux için kullanacaksanız, bu bölümü \n"
+"biçimlendirmeniz gerekir. Bu işlem, sabit disk bölümü üzerindeki tüm \n"
+"verileri silecektir. Eğer sabit disk üzerinde kalan bölümleri de \n"
+"kullanmak istiyorsanız, 'Boş alanın tümünü kullan' seçeneğini tıklayın.\n"
+"</p>\n"
+"<p>\n"
+"Disk bölümlendirme tablosu, diskin adını, boyutunu, bölüm türünü \n" 
+"ve dosya sistemi bilgisini gösterir. Eğer bir disk bölümü kurulum sırasında \n"
+"biçimlendirilecek ise, karşılık gelen 'Biçimlendir' sütunu da uygun şekilde \n"
+"etkin hale getirilecektir.\n"
+"</p>\n"
 "<p> \n"
 "Daha fazla bilgi için Pardus Kurulum ve Kullanım Kılavuzu'na \n"
 "başvurabilirsiniz. \n"
@@ -470,12 +481,11 @@ msgstr ""
 #: yali/gui/PartListImpl.py:82
 #, python-format
 msgid "%0.1f GB free"
-msgstr ""
+msgstr "%0.1f GB boş"
 
 #: yali/gui/PartListImpl.py:84
-#, fuzzy, python-format
 msgid "%d MB free"
-msgstr "(%sMB boş)"
+msgstr "%d MB boş"
 
 #: yali/gui/PartListImpl.py:109
 msgid "Extended"
