@@ -127,8 +127,6 @@ class BootLoader:
         minor = str(int(filter(lambda u: u.isdigit(), self.win_root)) -1)
         grub_root = ",".join([grub_dev, minor])
 
-        print "DEBUG: append_win_win_dev: '%s'" % self.win_dev
-        print "DEBUG: append_win_install_dev: '%s'" % self.install_dev
 
         if self.win_dev == self.install_dev:
             s = win_part_tmp % {"title": _("Windows"),
