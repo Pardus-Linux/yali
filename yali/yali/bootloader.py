@@ -59,8 +59,8 @@ setup (%(grub_dev)s)
 
 class BootLoader:
     def __init__(self):
-        self.device_map = os.path.join('/', "boot/grub/device.map")
-        self.grub_conf = os.path.join('/', "boot/grub/grub.conf")
+        self.device_map = os.path.join(consts.target_dir, "boot/grub/device.map")
+        self.grub_conf = os.path.join(consts.target_dir, "boot/grub/grub.conf")
         self.install_root = ''
         self.install_dev = ''
 
@@ -77,7 +77,7 @@ class BootLoader:
                 return d[1:-1]
 
     def write_grub_conf(self):
-        grub_dir = os.path.join('/', "boot/grub")
+        grub_dir = os.path.join(consts.target_dir, "boot/grub")
         if not os.path.exists(grub_dir):
             os.makedirs(grub_dir)
     
@@ -96,7 +96,7 @@ class BootLoader:
         grub_root = ",".join(["hd0", minor])
 
         def find_boot_kernel():
-            d = os.path.join('/', "boot")
+            d = os.path.join(consts.target_dir, "boot")
             k = glob.glob(d + "/kernel-*")
             return os.path.basename(k[0])
         
