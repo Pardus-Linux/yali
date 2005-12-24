@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-12-24 22:14+0200\n"
-"PO-Revision-Date: 2005-12-20 18:33+0200\n"
+"PO-Revision-Date: 2005-12-24 22:33+0200\n"
 "Last-Translator: Barış Metin <baris@uludag.org.tr>\n"
 "Language-Team:  <tr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -210,7 +210,6 @@ msgstr ""
 "bekleyin!</font></b>"
 
 #: yali/gui/Goodbye.py:112
-#, fuzzy
 msgid ""
 "<font size=\"+1\">\n"
 "<b>\n"
@@ -220,13 +219,11 @@ msgid ""
 msgstr ""
 "<font size=\"+1\">\n"
 "<b>\n"
-"<p>Bu işlem seçilen sabit disk bölümünü biçimlendirerek\n"
-"Pardus'u bilgisayarınıza kuracaktır.</p>\n"
+"<p>Lütfen Pardus CD'sini çıkartın ve 'Sistemi Yeniden Başlat' düğmesine basın.</p>\n"
 "</b>\n"
 "</font>\n"
 
 #: yali/gui/Goodbye.py:120
-#, fuzzy
 msgid "Reboot"
 msgstr "Sistemi Yeniden Başlat!"
 
@@ -558,7 +555,6 @@ msgid "Format?"
 msgstr "Biçimlendir?"
 
 #: yali/gui/partlistwidget.py:86
-#, fuzzy
 msgid "Create New Partition"
 msgstr "Disk Bölümü Oluştur"
 
@@ -568,7 +564,7 @@ msgstr "Disk Bölümleri:"
 
 #: yali/gui/partlistwidget.py:94
 msgid "Reset All Changes"
-msgstr ""
+msgstr "Tüm Değişiklikleri Geri Al"
 
 #: yali/gui/partlistwidget.py:95
 msgid "Resize"
