@@ -236,8 +236,12 @@ class PartList(PartListWidget):
 
 
     def slotListDoubleClicked(self, item, point, c):
-        d = item.getData()
-        t = d.getType()
+        try:
+            d = item.getData()
+            t = d.getType()
+        except:
+            # invalid selection
+            return
 
         if t == parteddata.partitionType:
             if not d.isExtended():
