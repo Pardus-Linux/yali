@@ -74,10 +74,17 @@ don't you?
         vbox.addWidget(self.info)
 
 
+    def shown(self):
+        ctx.screens.disablePrev()
+#        print yali.users.pending_users
+#        for i in yali.users.pending_users:
+#            print i
+        self.processPendingActions()
+
+
     def execute(self):
 
         ctx.screens.disableNext()
-        ctx.screens.disablePrev()
 
         self.info.show()
         self.info.setAlignment(QLabel.AlignCenter)
@@ -91,7 +98,6 @@ don't you?
         self.dialog.exec_loop()
 
 
-        self.processPendingActions()
         try:
             mount.umount(ctx.consts.target_dir + "/home")
         except:
