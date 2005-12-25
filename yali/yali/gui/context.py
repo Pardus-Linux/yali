@@ -14,7 +14,7 @@ from os.path import join
 from qt import *
 
 from yali.log import logger
-import yali.partitionrequest
+import yali.partitionrequest as request
 import yali.constants
 import yali.gui.stages
 import yali.gui.screens
@@ -34,7 +34,7 @@ stages = yali.gui.stages.Stages()
 screens = yali.gui.screens.Screens()
 
 # partition requests
-partrequests = yali.partitionrequest.RequestList()
+partrequests = request.RequestList()
 
 # icon factory
 iconfactory = yali.gui.iconfactory.IconFactory(consts.pics_dir)

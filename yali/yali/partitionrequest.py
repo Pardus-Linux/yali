@@ -78,6 +78,7 @@ class RequestList(list):
         except StopIteration:
             # end of list
             pass
+
     
     ##
     # iterator function searches for a request 
@@ -115,6 +116,9 @@ class RequestList(list):
             # end of list
             pass
 
+
+    ##
+    # add/append a request
     def append(self, req):
 
         self.removeRequest(req.partition(), req.requestType())
@@ -135,7 +139,8 @@ class RequestList(list):
 
 
         list.append(self, req)
-        print "add request", req
+#        print "add request", req
+
 
     ##
     # remove request matching (partition, request type) pair
@@ -148,9 +153,36 @@ class RequestList(list):
         assert(len(found) <= 1)
 
         for f in found:
-            list.remove(self, f)
-            print "remove request", f
+            self.remove(f)
+
+
+    ##
+    # remove a request
+    def remove(self, i):
+        list.remove(self, i)
+#        print "remove request", i
         
+
+    ##
+    # clear all requests
+    def clear_all(self):
+        def clear():
+            i = self.__iter__()
+            try:
+                while True:
+                    cur = i.next()
+                    self.remove(cur)
+            except StopIteration:
+                # end of list
+                pass
+
+        # the code above doesn't removes all. so bruteforce it...
+        while True:
+            if len(self):
+                clear()
+            else:
+                return
+
 
 ##
 # Abstract Partition request class
@@ -264,7 +296,7 @@ class MountRequest(PartRequest):
                                             filesystem)
         open("/etc/mtab", "a").write(mtab_entry)
         #FIXME: use logging system
-        print mtab_entry
+#        print mtab_entry
 
         
         PartRequest.applyRequest(self)

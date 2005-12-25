@@ -35,7 +35,7 @@ def initialize(ui, with_comar=False):
     if with_comar:
         # wait for chroot_comar to initialize
         # generally we don't need this but I think this is safer
-        for i in range(10):
+        for i in range(20):
             try:
                 comar.Link()
                 break

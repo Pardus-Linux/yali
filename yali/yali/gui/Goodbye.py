@@ -22,6 +22,7 @@ import mount
 import reboot
 
 import yali.sysutils
+import yali.users
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.YaliDialog import WarningDialog
 import yali.gui.context as ctx
@@ -89,6 +90,8 @@ don't you?
         self.dialog = WarningDialog(w, self)
         self.dialog.exec_loop()
 
+
+        self.processPendingActions()
         try:
             mount.umount(ctx.consts.target_dir + "/home")
         except:
@@ -97,6 +100,11 @@ don't you?
         mount.umount(ctx.consts.target_dir)
         reboot.fastreboot()
 
+
+    # process pending actions defined in other screens.
+    def processPendingActions(self):
+        for u in yali.users.pending_users:
+            u.addUser()
 
 
 class RebootWidget(QWidget):

@@ -21,6 +21,12 @@ from string import ascii_letters
 from yali.constants import consts
 
 
+# a set of User instances waiting...
+# we'll add these users at the in the last step of the installation.
+pending_users = set()
+
+
+
 def iter_head_images():
     left, right, images = [], [], []
 

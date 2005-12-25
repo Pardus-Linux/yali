@@ -39,7 +39,7 @@ class Partition:
     def setFileSystemType(self, fs_type):
         if isinstance(fs_type, yali.filesystem.FileSystem):
             fs_type = fs_type.getFSType()
-        print fs_type
+
         self._partition.set_system(fs_type)
 
 

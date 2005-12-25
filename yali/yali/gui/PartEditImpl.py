@@ -161,19 +161,6 @@ class PartEdit(QWidget):
                 self.warning.show()
                 return None
 
-        # disable requested partition types in gui
-        def disable_selected_part_types():
-            self.edit.root.setEnabled(True)
-            self.edit.home.setEnabled(True)
-            self.edit.swap.setEnabled(True)
-            for r in ctx.partrequests.searchReqType(request.mountRequestType):
-                pt = r.partitionType()
-                if pt == parttype.root:
-                    self.edit.root.setEnabled(False)
-                elif pt == parttype.home:
-                    self.edit.home.setEnabled(False)
-                elif pt == parttype.swap:
-                    self.edit.swap.setEnabled(False)
 
         def create_new_partition(device, type = parteddata.PARTITION_PRIMARY):
             t = get_part_type()
@@ -304,7 +291,6 @@ class PartEdit(QWidget):
 
 
 
-        disable_selected_part_types()
         self.hide()
         self.emit(PYSIGNAL("signalApplied"), ())
 
@@ -337,6 +323,19 @@ class PartEditWidgetImpl(PartEditWidget):
         self.root.setOn(False)
         self.home.setOn(False)
         self.swap.setOn(False)
+        # disable requested partition types in gui
+        self.root.setEnabled(True)
+        self.home.setEnabled(True)
+        self.swap.setEnabled(True)
+        for r in ctx.partrequests.searchReqType(request.mountRequestType):
+            pt = r.partitionType()
+            if pt == parttype.root:
+                self.root.setEnabled(False)
+            elif pt == parttype.home:
+                self.home.setEnabled(False)
+            elif pt == parttype.swap:
+                self.swap.setEnabled(False)
+
 
         if state == editState:
             self.buttonGroup.show()

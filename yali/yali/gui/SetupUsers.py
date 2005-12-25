@@ -81,7 +81,7 @@ Click Next button to proceed.
     def execute(self):
         for i in range(self.userList.count()):
             u = self.userList.item(i).getUser()
-            u.addUser()
+            yali.users.pending_users.add(u)
 
         return True
 

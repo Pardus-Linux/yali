@@ -75,6 +75,9 @@ class PartList(PartListWidget):
     def resetChanges(self):
         yali.storage.clear_devices()
         yali.storage.init_devices()
+
+        ctx.partrequests.clear_all()
+
         self.update()
 
 
@@ -233,10 +236,12 @@ class PartList(PartListWidget):
 
 
     def slotListDoubleClicked(self, item, point, c):
-        t = item.getData().getType()
+        d = item.getData()
+        t = d.getType()
 
         if t == parteddata.partitionType:
-            self.slotEditClicked()
+            if not d.isExtended():
+                self.slotEditClicked()
 
 
     ##
