@@ -204,46 +204,9 @@ this password elsewhere for privacy reasons.&lt;/p&gt;</string>
                 </spacer>
             </grid>
         </widget>
-        <widget class="QLabel" row="2" column="0" rowspan="1" colspan="3">
-            <property name="name">
-                <cstring>pass_error</cstring>
-            </property>
-            <property name="text">
-                <string></string>
-            </property>
-            <property name="textFormat">
-                <enum>RichText</enum>
-            </property>
-            <property name="scaledContents">
-                <bool>false</bool>
-            </property>
-            <property name="alignment">
-                <set>AlignCenter</set>
-            </property>
-            <property name="indent">
-                <number>0</number>
-            </property>
-        </widget>
         <spacer row="3" column="1">
             <property name="name">
                 <cstring>spacer9_2</cstring>
-            </property>
-            <property name="orientation">
-                <enum>Vertical</enum>
-            </property>
-            <property name="sizeType">
-                <enum>Expanding</enum>
-            </property>
-            <property name="sizeHint">
-                <size>
-                    <width>20</width>
-                    <height>30</height>
-                </size>
-            </property>
-        </spacer>
-        <spacer row="5" column="1">
-            <property name="name">
-                <cstring>spacer9_2_2</cstring>
             </property>
             <property name="orientation">
                 <enum>Vertical</enum>
@@ -324,6 +287,63 @@ this password elsewhere for privacy reasons.&lt;/p&gt;</string>
                 </size>
             </property>
         </spacer>
+        <spacer row="6" column="1">
+            <property name="name">
+                <cstring>spacer9_2_2</cstring>
+            </property>
+            <property name="orientation">
+                <enum>Vertical</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Expanding</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>20</width>
+                    <height>20</height>
+                </size>
+            </property>
+        </spacer>
+        <widget class="QLabel" row="5" column="0" rowspan="1" colspan="3">
+            <property name="name">
+                <cstring>host_error</cstring>
+            </property>
+            <property name="text">
+                <string></string>
+            </property>
+            <property name="textFormat">
+                <enum>RichText</enum>
+            </property>
+            <property name="scaledContents">
+                <bool>false</bool>
+            </property>
+            <property name="alignment">
+                <set>AlignCenter</set>
+            </property>
+            <property name="indent">
+                <number>0</number>
+            </property>
+        </widget>
+        <widget class="QLabel" row="2" column="0" rowspan="1" colspan="3">
+            <property name="name">
+                <cstring>pass_error</cstring>
+            </property>
+            <property name="text">
+                <string></string>
+            </property>
+            <property name="textFormat">
+                <enum>RichText</enum>
+            </property>
+            <property name="scaledContents">
+                <bool>false</bool>
+            </property>
+            <property name="alignment">
+                <set>AlignCenter</set>
+            </property>
+            <property name="indent">
+                <number>0</number>
+            </property>
+        </widget>
     </grid>
 </widget>
 <tabstops>

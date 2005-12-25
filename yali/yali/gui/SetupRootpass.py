@@ -21,6 +21,7 @@ _ = __trans.ugettext
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.rootpasswidget import RootPassWidget
 import yali.users
+import yali.sysutils
 import yali.gui.context as ctx
 
 
@@ -29,7 +30,7 @@ import yali.gui.context as ctx
 class Widget(RootPassWidget, ScreenWidget):
 
     help = _('''
-<font size="+2">System administrator password</font>
+<font size="+2">System administrator password and hostname</font>
 
 <font size="+1">
 
@@ -43,6 +44,11 @@ The password may include upper and lower case characters, numbers and
 punctuation marks. Do not use Turkish characters or accents, as they
 may impose some problems.
 </p>
+
+<p>
+And also set the name that the computer will be identified to the network it belongs. The hostname should be descriptive enough to describe the computer.  
+</p>
+
 <p>
 Click Next button to proceed.
 </p>
@@ -52,8 +58,12 @@ Click Next button to proceed.
     def __init__(self, *args):
         apply(RootPassWidget.__init__, (self,) + args)
         
+        self.host_valid = True
+        self.pass_valid = True
+
         self.pix.setPixmap(ctx.iconfactory.newPixmap("admin"))
         self.pass_error.setText("")
+        self.host_error.setText("")
 
         self.connect(self.pass1, SIGNAL("textChanged(const QString &)"),
                      self.slotTextChanged)
@@ -63,12 +73,18 @@ Click Next button to proceed.
         self.connect(self.pass2, SIGNAL("returnPressed()"),
                      self.slotReturnPressed)
 
+        self.connect(self.hostname, SIGNAL("textChanged(const QString &)"),
+                     self.slotHostnameChanged)
+
+
     def shown(self):
         ctx.screens.disablePrev()
 
     def execute(self):
         user = yali.users.User("root")
         user.changePasswd(self.pass1.text().ascii())
+
+        yali.sysutils.add_hostname(self.hostname.text().ascii())
 
         return True
 
@@ -80,13 +96,37 @@ Click Next button to proceed.
         if p1 == p2 and p1:
             # Sould we also check password length?
             self.pass_error.setText("")
-            ctx.screens.enableNext()
+            self.pass_valid = True
         else:
-            ctx.screens.disableNext()
+            self.pass_valid = False
             if p2:
                 self.pass_error.setText(
                     _('<font color="#FF6D19">Passwords do not match!</font>'))
                 self.pass_error.setAlignment(QLabel.AlignCenter)
+
+
+        self.setNext()
+
+    ##
+    # check hostname validity
+    def slotHostnameChanged(self, string):
+        self.host_valid = yali.sysutils.text_is_valid(string.ascii())
+
+        if not self.host_valid:
+            self.host_error.setText(
+                _('<font color="#FF6D19">Hostname contains invalid characters!</font>'))
+        else:
+            self.host_error.setText("")
+
+        self.setNext()
+
+
+    def setNext(self):
+        if self.host_valid and self.pass_valid:
+            ctx.screens.enableNext()
+        else:
+            ctx.screens.disableNext()
+
 
     def slotReturnPressed(self):
         if ctx.screens.isNextEnabled():

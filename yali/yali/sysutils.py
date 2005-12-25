@@ -13,6 +13,7 @@
 # sysutils module provides basic system utilities
 
 import os
+from string import ascii_letters
 
 from yali.constants import consts
 
@@ -84,6 +85,12 @@ def mem_total():
             return int(l.split()[1]) / 1024
             
     return None
+
+
+
+def text_is_valid(text):
+    allowed_chars = ascii_letters + '.' + '_'
+    return len(text) == len(filter(lambda u: [x for x in allowed_chars if x == u], text))
 
 def add_hostname(hostname = 'pardus'):
     hostname_file = os.path.join(consts.target_dir, 'etc/conf.d/hostname')
