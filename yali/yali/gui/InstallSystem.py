@@ -195,6 +195,23 @@ Have fun!
         # trigger next screen
         ctx.screens.next()
 
+    def installError(self, e):
+        #self.info.setText(str(e))
+        import yali
+        import yali.gui.runner
+
+        err_str = _('''An error during the installation of packages occured.
+
+This is possibly a broken Pardus CD or CD-ROM drive.
+
+Error:
+%s
+''') % str(e)
+
+
+        yali.gui.runner.showException(yali.exception_fatal, err_str)
+        
+
 
 class PkgInstaller(threading.Thread):
 
@@ -203,7 +220,10 @@ class PkgInstaller(threading.Thread):
         threading.Thread.start(self)
 
     def run(self):
-        yali.pisiiface.install_all()
+        try:
+            yali.pisiiface.install_all()
+        except Exception, e:
+            self._widget.installError(e)
 
         self._widget.finished()
 
