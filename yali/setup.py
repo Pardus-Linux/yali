@@ -15,6 +15,8 @@ import glob
 import shutil
 import pyqtconfig
 from distutils.core import setup, Extension
+from distutils.sysconfig import get_python_lib
+from distutils.cmd import Command
 from distutils.command.build import build
 from distutils.command.clean import clean
 from distutils.command.install import install
@@ -119,6 +121,30 @@ class YaliClean(clean):
             if os.path.exists(f):
                 os.unlink(f)
 
+##
+# uninstall command
+class YaliUninstall(Command):
+    user_options = [ ]
+
+    def initialize_options(self):
+        pass
+
+    def finalize_options(self):
+        pass
+
+    def run(self):
+        yali_dir = os.path.join(get_python_lib(), "yali")
+        if os.path.exists(yali_dir):
+            print "removing: ", yali_dir
+            shutil.rmtree(yali_dir)
+
+        data_dir = "/usr/share/yali"
+        if os.path.exists(data_dir):
+            print "removing: ", data_dir
+            shutil.rmtree(data_dir)
+
+
+
 i18n_domain = "yali"
 i18n_languages = "tr"
 
@@ -168,6 +194,7 @@ setup(name="yali",
       cmdclass = {
         'build' : YaliBuild,
         'clean' : YaliClean,
-        'install': I18nInstall
+        'install': I18nInstall,
+        'uninstall': YaliUninstall
         }
     )
