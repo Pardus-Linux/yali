@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-25 06:13+0200\n"
-"PO-Revision-Date: 2005-12-25 06:15+0200\n"
+"POT-Creation-Date: 2005-12-25 23:11+0200\n"
+"PO-Revision-Date: 2005-12-25 23:15+0200\n"
 "Last-Translator: Barış Metin <baris@uludag.org.tr>\n"
 "Language-Team:  <tr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -101,7 +101,7 @@ msgstr "Tamam. Devam Et"
 #: yali/gui/autopartwidget.py:83 yali/gui/bootloaderwidget.py:71
 #: yali/gui/keyboardwidget.py:66 yali/gui/parteditbuttons.py:46
 #: yali/gui/parteditwidget.py:81 yali/gui/partlistwidget.py:85
-#: yali/gui/rootpasswidget.py:96 yali/gui/setupuserswidget.py:128
+#: yali/gui/rootpasswidget.py:119 yali/gui/setupuserswidget.py:128
 #: yali/gui/welcomewidget.py:90
 msgid "Form1"
 msgstr "Form1"
@@ -210,7 +210,7 @@ msgstr ""
 "<b><font size=\"+2\" color=\"#FF6D19\">Sistem yeniden başlatılıyor. Lütfen "
 "bekleyin!</font></b>"
 
-#: yali/gui/Goodbye.py:120
+#: yali/gui/Goodbye.py:126
 msgid ""
 "<font size=\"+1\">\n"
 "<b>\n"
@@ -225,7 +225,7 @@ msgstr ""
 "</b>\n"
 "</font>\n"
 
-#: yali/gui/Goodbye.py:128
+#: yali/gui/Goodbye.py:134
 msgid "Reboot"
 msgstr "Sistemi Yeniden Başlat!"
 
@@ -308,8 +308,7 @@ msgid ""
 msgstr ""
 "Paketlerin kurulumu sırasında bir hata oluştu.\n"
 "\n"
-"Bu bozuk bir Pardus CD'si veya CD-ROM okuyucudan "
-"kaynaklanıyor olabilir.\n"
+"Bu bozuk bir Pardus CD'si veya CD-ROM okuyucudan kaynaklanıyor olabilir.\n"
 "\n"
 "Hata:\n"
 "%s\n"
@@ -359,30 +358,29 @@ msgstr "Klavyeyi test et: "
 msgid "Apply"
 msgstr "Uygula"
 
-#: yali/gui/PartEditImpl.py:100
+#: yali/gui/PartEditImpl.py:101
 #, python-format
 msgid "You are going to delete all partitions on device '%s'"
 msgstr "'%s' aygıtı üzerindeki tüm disk bölümlerini silmek üzeresiniz!"
 
-#: yali/gui/PartEditImpl.py:112
+#: yali/gui/PartEditImpl.py:113
 #, python-format
 msgid "You are going to delete partition '%s' on device '%s'!"
 msgstr "'%s' disk bölümünü '%s' aygıtından silmek üzeresiniz!"
 
-#: yali/gui/PartEditImpl.py:160
+#: yali/gui/PartEditImpl.py:161
 msgid "You must select a partition type from the list below."
 msgstr "Yukarıdaki listeden bir disk bölümü tipi seçmelisiniz."
 
-#: yali/gui/PartEditImpl.py:175 yali/gui/PartEditImpl.py:201
+#: yali/gui/PartEditImpl.py:176 yali/gui/PartEditImpl.py:202
 #, python-format
 msgid "'Install Root' size must be larger than %s MB."
 msgstr "'Sistem Dosyaları' bölümü en az %s MB olmalı."
 
-#: yali/gui/PartEditImpl.py:277
+#: yali/gui/PartEditImpl.py:278
 msgid "ntfsresize check failed! Won't proceed action!"
 msgstr ""
-"NTFS yeniden boyutlandırma kontrolü başarısız! "
-"İşlem gerçekleştirilmeyecek!"
+"NTFS yeniden boyutlandırma kontrolü başarısız! İşlem gerçekleştirilmeyecek!"
 
 #: yali/gui/parteditwidget.py:82
 msgid "Size (MB):"
@@ -551,11 +549,11 @@ msgstr "Tüm Disk Bölümlerini Sil"
 msgid "Delete Selected Partition"
 msgstr "Seçili Disk Bölümünü Sil"
 
-#: yali/gui/PartListImpl.py:276
+#: yali/gui/PartListImpl.py:280
 msgid "Formatting!"
 msgstr "Biçimlendiriliyor!"
 
-#: yali/gui/PartListImpl.py:278
+#: yali/gui/PartListImpl.py:282
 msgid "YES"
 msgstr "EVET"
 
@@ -599,15 +597,15 @@ msgstr "Yeniden Boyutlandır"
 msgid "Edit"
 msgstr "Düzenle"
 
-#: yali/gui/rootpasswidget.py:100
+#: yali/gui/rootpasswidget.py:122
 msgid "System administrator password:"
 msgstr "Sistem yöneticisi parolası:"
 
-#: yali/gui/rootpasswidget.py:101
+#: yali/gui/rootpasswidget.py:123
 msgid "System administrator password (again):"
 msgstr "Sistem yöneticisi parolası (tekrar):"
 
-#: yali/gui/rootpasswidget.py:103
+#: yali/gui/rootpasswidget.py:125
 msgid ""
 "<p align=\"left\">System administrator user (root) handles important system "
 "<br>\n"
@@ -619,6 +617,14 @@ msgstr ""
 "yürütür. Lütfen bu özel kullanıcı için bir parola tanımlayın <br>\n"
 "ve bu parolayı unutmayın. Gizlilik nedenlerinden dolayı <br>\n"
 "bu parolayı hiç bir yere yazmamanız önerilir.</p>"
+
+#: yali/gui/rootpasswidget.py:129
+msgid "Hostname:"
+msgstr "Makine Adı:"
+
+#: yali/gui/rootpasswidget.py:130
+msgid "pardus"
+msgstr "pardus"
 
 #: yali/gui/runner.py:51
 msgid "Prepare for install"
@@ -688,10 +694,10 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/SetupRootpass.py:31
+#: yali/gui/SetupRootpass.py:32
 msgid ""
 "\n"
-"<font size=\"+2\">System administrator password</font>\n"
+"<font size=\"+2\">System administrator password and hostname</font>\n"
 "\n"
 "<font size=\"+1\">\n"
 "\n"
@@ -705,13 +711,20 @@ msgid ""
 "punctuation marks. Do not use Turkish characters or accents, as they\n"
 "may impose some problems.\n"
 "</p>\n"
+"\n"
+"<p>\n"
+"And also set the name that the computer will be identified to the network it "
+"belongs. The hostname should be descriptive enough to describe the "
+"computer.  \n"
+"</p>\n"
+"\n"
 "<p>\n"
 "Click Next button to proceed.\n"
 "</p>\n"
 "</font>\n"
 msgstr ""
 "\n"
-"<font size=\"+2\">Sistem yöneticisi parolası</font>\n"
+"<font size=\"+2\">Sistem yöneticisi parolası ve makine adı</font>\n"
 "\n"
 "<font size=\"+1\">\n"
 "<p>Lütfen sisteminizi yönetmek için özel bir parola tanımlayın. Bu \n"
@@ -726,14 +739,25 @@ msgstr ""
 "sistemlerle uyumluluk sağlaması için parolalarınızda Türkçe \n"
 "karakter kullanmayın.\n"
 "</p>\n"
+"\n"
+"<p>\n"
+"Aynı zamanda aşağıdaki metin kutusundan bilgisayarınızın ağda tanımlanacağı "
+"bir makine adı tanımlayabilirsiniz. Makine adı bilgisayarınızı tanıtacak "
+"kadar açıklayıcı olarak seçilmelidir. \n"
+"</p>\n"
 "<p>\n"
 "Devam etmek için İleri düğmesine tıklayın.\n"
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/SetupRootpass.py:88 yali/gui/SetupUsers.py:95
+#: yali/gui/SetupRootpass.py:104 yali/gui/SetupUsers.py:95
 msgid "<font color=\"#FF6D19\">Passwords do not match!</font>"
 msgstr "<font color=\"#FF6D19\">Parolalar aynı değil!</font>"
+
+#: yali/gui/SetupRootpass.py:117
+msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Makine adı geçersiz karakterler içeriyor!</font>"
 
 #: yali/gui/SetupUsers.py:30
 msgid ""

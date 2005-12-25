@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-25 06:13+0200\n"
+"POT-Creation-Date: 2005-12-25 23:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,7 +69,7 @@ msgstr ""
 #: yali/gui/autopartwidget.py:83 yali/gui/bootloaderwidget.py:71
 #: yali/gui/keyboardwidget.py:66 yali/gui/parteditbuttons.py:46
 #: yali/gui/parteditwidget.py:81 yali/gui/partlistwidget.py:85
-#: yali/gui/rootpasswidget.py:96 yali/gui/setupuserswidget.py:128
+#: yali/gui/rootpasswidget.py:119 yali/gui/setupuserswidget.py:128
 #: yali/gui/welcomewidget.py:90
 msgid "Form1"
 msgstr ""
@@ -146,7 +146,7 @@ msgid ""
 "font></b>"
 msgstr ""
 
-#: yali/gui/Goodbye.py:120
+#: yali/gui/Goodbye.py:126
 msgid ""
 "<font size=\"+1\">\n"
 "<b>\n"
@@ -155,7 +155,7 @@ msgid ""
 "</font>\n"
 msgstr ""
 
-#: yali/gui/Goodbye.py:128
+#: yali/gui/Goodbye.py:134
 msgid "Reboot"
 msgstr ""
 
@@ -255,26 +255,26 @@ msgstr ""
 msgid "Apply"
 msgstr ""
 
-#: yali/gui/PartEditImpl.py:100
+#: yali/gui/PartEditImpl.py:101
 #, python-format
 msgid "You are going to delete all partitions on device '%s'"
 msgstr ""
 
-#: yali/gui/PartEditImpl.py:112
+#: yali/gui/PartEditImpl.py:113
 #, python-format
 msgid "You are going to delete partition '%s' on device '%s'!"
 msgstr ""
 
-#: yali/gui/PartEditImpl.py:160
+#: yali/gui/PartEditImpl.py:161
 msgid "You must select a partition type from the list below."
 msgstr ""
 
-#: yali/gui/PartEditImpl.py:175 yali/gui/PartEditImpl.py:201
+#: yali/gui/PartEditImpl.py:176 yali/gui/PartEditImpl.py:202
 #, python-format
 msgid "'Install Root' size must be larger than %s MB."
 msgstr ""
 
-#: yali/gui/PartEditImpl.py:277
+#: yali/gui/PartEditImpl.py:278
 msgid "ntfsresize check failed! Won't proceed action!"
 msgstr ""
 
@@ -399,11 +399,11 @@ msgstr ""
 msgid "Delete Selected Partition"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:276
+#: yali/gui/PartListImpl.py:280
 msgid "Formatting!"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:278
+#: yali/gui/PartListImpl.py:282
 msgid "YES"
 msgstr ""
 
@@ -447,21 +447,29 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: yali/gui/rootpasswidget.py:100
+#: yali/gui/rootpasswidget.py:122
 msgid "System administrator password:"
 msgstr ""
 
-#: yali/gui/rootpasswidget.py:101
+#: yali/gui/rootpasswidget.py:123
 msgid "System administrator password (again):"
 msgstr ""
 
-#: yali/gui/rootpasswidget.py:103
+#: yali/gui/rootpasswidget.py:125
 msgid ""
 "<p align=\"left\">System administrator user (root) handles important system "
 "<br>\n"
 "maintanence tasks. Please give password for this special user <br>\n"
 "and do not forget this password. Note that you shouldn't write <br>\n"
 "this password elsewhere for privacy reasons.</p>"
+msgstr ""
+
+#: yali/gui/rootpasswidget.py:129
+msgid "Hostname:"
+msgstr ""
+
+#: yali/gui/rootpasswidget.py:130
+msgid "pardus"
 msgstr ""
 
 #: yali/gui/runner.py:51
@@ -509,10 +517,10 @@ msgid ""
 "</font>\n"
 msgstr ""
 
-#: yali/gui/SetupRootpass.py:31
+#: yali/gui/SetupRootpass.py:32
 msgid ""
 "\n"
-"<font size=\"+2\">System administrator password</font>\n"
+"<font size=\"+2\">System administrator password and hostname</font>\n"
 "\n"
 "<font size=\"+1\">\n"
 "\n"
@@ -526,14 +534,25 @@ msgid ""
 "punctuation marks. Do not use Turkish characters or accents, as they\n"
 "may impose some problems.\n"
 "</p>\n"
+"\n"
+"<p>\n"
+"And also set the name that the computer will be identified to the network it "
+"belongs. The hostname should be descriptive enough to describe the "
+"computer.  \n"
+"</p>\n"
+"\n"
 "<p>\n"
 "Click Next button to proceed.\n"
 "</p>\n"
 "</font>\n"
 msgstr ""
 
-#: yali/gui/SetupRootpass.py:88 yali/gui/SetupUsers.py:95
+#: yali/gui/SetupRootpass.py:104 yali/gui/SetupUsers.py:95
 msgid "<font color=\"#FF6D19\">Passwords do not match!</font>"
+msgstr ""
+
+#: yali/gui/SetupRootpass.py:117
+msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
 msgstr ""
 
 #: yali/gui/SetupUsers.py:30
