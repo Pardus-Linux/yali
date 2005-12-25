@@ -121,7 +121,7 @@ class User:
         return False
 
     def usernameIsValid(self):
-        allowed_chars = ascii_letters + '.' + '_'
+        allowed_chars = ascii_letters + '_'
         return len(self.username) == len(filter(lambda u: [x for x in allowed_chars if x == u], self.username))
 
     def realnameIsValid(self):
