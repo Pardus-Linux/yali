@@ -23,6 +23,7 @@ import yali.parteddata as parteddata
 import yali.partitionrequest as request
 import yali.filesystem as filesystem
 
+from yali.gui.GUIException import *
 from yali.gui.parteditbuttons import PartEditButtons
 from yali.gui.parteditwidget import PartEditWidget
 
@@ -104,7 +105,7 @@ class PartEdit(QWidget):
         elif t ==  parteddata.partitionType:
             if state == createState and self._d.isExtended():
                 self.edit.size.setMaxValue(self._d.getFreeMB())
-                self.edit.setState(state)
+                self.edit.setState(state, partition=sef._d)
                 self.edit.show()
 
             elif state == deleteState:
@@ -114,7 +115,7 @@ class PartEdit(QWidget):
                 self.warning.show()
 
             elif state == editState:
-                self.edit.setState(state)
+                self.edit.setState(state, partition=self._d)
                 self.edit.show()
 
             elif state == resizeState:
@@ -125,7 +126,7 @@ class PartEdit(QWidget):
                 self.edit.size.setMinValue(min_size)
                 self.edit.size.setMaxValue(max_size)
 
-                self.edit.setState(state)
+                self.edit.setState(state, partition=self._d)
                 self.edit.show()
 
         elif t == parteddata.freeSpaceType:
@@ -317,27 +318,46 @@ class PartEditWidgetImpl(PartEditWidget):
             self.format.setEnabled(True)
 
 
-    def setState(self, state):
-
-        # unset buttons
-        self.root.setOn(False)
-        self.home.setOn(False)
-        self.swap.setOn(False)
-        # disable requested partition types in gui
-        self.root.setEnabled(True)
-        self.home.setEnabled(True)
-        self.swap.setEnabled(True)
-        for r in ctx.partrequests.searchReqType(request.mountRequestType):
-            pt = r.partitionType()
-            if pt == parttype.root:
-                self.root.setEnabled(False)
-            elif pt == parttype.home:
-                self.home.setEnabled(False)
-            elif pt == parttype.swap:
-                self.swap.setEnabled(False)
-
+    def setState(self, state, partition=None):
 
         if state == editState:
+
+            # editState is for partitions only
+            if not partition:
+                raise YaliException, "partition is None"
+
+            # unset buttons
+            self.root.setOn(False)
+            self.home.setOn(False)
+            self.swap.setOn(False)
+
+            # disable requested partition types in gui
+            self.root.setEnabled(True)
+            self.home.setEnabled(True)
+            self.swap.setEnabled(True)
+            for r in ctx.partrequests.searchReqType(request.mountRequestType):
+                pt = r.partitionType()
+                part = r.partition()
+
+                if pt == parttype.root:
+                    if part == partition:
+                        self.root.setOn(True)
+                    else:
+                        self.root.setEnabled(False)
+
+                elif pt == parttype.home:
+                    if part == partition:
+                        self.home.setOn(True)
+                    else:
+                        self.home.setEnabled(False)
+
+                elif pt == parttype.swap:
+                    if part == partition:
+                        self.swap.setOn(True)
+                    else:
+                        self.swap.setEnabled(False)
+
+
             self.buttonGroup.show()
             self.format.show()
 
