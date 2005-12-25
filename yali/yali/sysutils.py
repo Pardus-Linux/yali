@@ -79,3 +79,25 @@ def mem_total():
             return int(l.split()[1]) / 1024
             
     return None
+
+def add_hostname(hostname = 'pardus'):
+    hostname_file = os.path.join(consts.target_dir, 'etc/conf.d/hostname')
+    hosts_file = os.path.join(consts.target_dir, 'etc/hosts')
+
+    getCont, getFp = lambda x: open(x).readlines(), lambda x: open(x, 'w')
+
+    hostname_contents, hosts_contents = getCont(hostname_file), getCont(hosts_file)
+    hostname_fp, hosts_fp = getFp(hostname_file), getFp(hosts_file)
+
+    for line in hostname_contents:
+        if line.startswith('HOSTNAME'):
+            line = 'HOSTNAME="%s"\n' % hostname
+        hostname_fp.write(line)
+    hostname_fp.close()
+
+    for line in hosts_contents:
+        if line.startswith('127.0.0.1'):
+            line = '127.0.0.1\t\tlocalhost %s\n' % hostname
+        hosts_fp.write(line)
+    hosts_fp.close()
+
