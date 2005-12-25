@@ -381,7 +381,7 @@ msgstr "'Sistem Dosyaları' bölümü en az %s MB olmalı."
 #: yali/gui/PartEditImpl.py:277
 msgid "ntfsresize check failed! Won't proceed action!"
 msgstr ""
-"NTFS yeniden boyutlandırma kontorlü başarısız! "
+"NTFS yeniden boyutlandırma kontrolü başarısız! "
 "İşlem gerçekleştirilmeyecek!"
 
 #: yali/gui/parteditwidget.py:82
