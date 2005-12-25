@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-24 22:14+0200\n"
+"POT-Creation-Date: 2005-12-25 06:13+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -118,7 +118,7 @@ msgstr ""
 msgid "Select the disk you to install bootloader:"
 msgstr ""
 
-#: yali/gui/Goodbye.py:33
+#: yali/gui/Goodbye.py:34
 msgid ""
 "\n"
 "<font size=\"+2\">Congratulations</font>\n"
@@ -140,13 +140,13 @@ msgid ""
 "</font>\n"
 msgstr ""
 
-#: yali/gui/Goodbye.py:59
+#: yali/gui/Goodbye.py:60
 msgid ""
 "<b><font size=\"+2\" color=\"#FF6D19\">Rebooting system. Please wait!</"
 "font></b>"
 msgstr ""
 
-#: yali/gui/Goodbye.py:112
+#: yali/gui/Goodbye.py:120
 msgid ""
 "<font size=\"+1\">\n"
 "<b>\n"
@@ -155,7 +155,7 @@ msgid ""
 "</font>\n"
 msgstr ""
 
-#: yali/gui/Goodbye.py:120
+#: yali/gui/Goodbye.py:128
 msgid "Reboot"
 msgstr ""
 
@@ -204,6 +204,17 @@ msgstr ""
 
 #: yali/gui/InstallSystem.py:163
 msgid "Configuring packages for your system!"
+msgstr ""
+
+#: yali/gui/InstallSystem.py:203
+#, python-format
+msgid ""
+"An error during the installation of packages occured.\n"
+"\n"
+"This is possibly a broken Pardus CD or CD-ROM drive.\n"
+"\n"
+"Error:\n"
+"%s\n"
 msgstr ""
 
 #: yali/gui/installwidget.py:52
@@ -258,9 +269,13 @@ msgstr ""
 msgid "You must select a partition type from the list below."
 msgstr ""
 
-#: yali/gui/PartEditImpl.py:188 yali/gui/PartEditImpl.py:214
+#: yali/gui/PartEditImpl.py:175 yali/gui/PartEditImpl.py:201
 #, python-format
 msgid "'Install Root' size must be larger than %s MB."
+msgstr ""
+
+#: yali/gui/PartEditImpl.py:277
+msgid "ntfsresize check failed! Won't proceed action!"
 msgstr ""
 
 #: yali/gui/parteditwidget.py:82
@@ -357,38 +372,38 @@ msgid ""
 "</font>\n"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:92
+#: yali/gui/PartListImpl.py:95
 #, python-format
 msgid "%0.1f GB free"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:94
+#: yali/gui/PartListImpl.py:97
 #, python-format
 msgid "%d MB free"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:119
+#: yali/gui/PartListImpl.py:122
 msgid "Extended"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:148
+#: yali/gui/PartListImpl.py:151
 #, python-format
 msgid "Partition %d"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:180
+#: yali/gui/PartListImpl.py:183
 msgid "Delete All Partitions"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:206 yali/gui/partlistwidget.py:87
+#: yali/gui/PartListImpl.py:209 yali/gui/partlistwidget.py:87
 msgid "Delete Selected Partition"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:271
+#: yali/gui/PartListImpl.py:276
 msgid "Formatting!"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:273
+#: yali/gui/PartListImpl.py:278
 msgid "YES"
 msgstr ""
 
@@ -637,7 +652,7 @@ msgstr ""
 msgid "Warning"
 msgstr ""
 
-#: yali/bootloader.py:135 yali/bootloader.py:140
+#: yali/bootloader.py:132 yali/bootloader.py:137
 msgid "Windows"
 msgstr ""
 
@@ -665,14 +680,14 @@ msgstr ""
 msgid "free space"
 msgstr ""
 
-#: yali/partitiontype.py:47
+#: yali/partitiontype.py:49
 msgid "Install Root"
 msgstr ""
 
-#: yali/partitiontype.py:55
+#: yali/partitiontype.py:57
 msgid "Users' Files"
 msgstr ""
 
-#: yali/partitiontype.py:63
+#: yali/partitiontype.py:65
 msgid "Swap"
 msgstr ""

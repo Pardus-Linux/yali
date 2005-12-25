@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-24 22:14+0200\n"
-"PO-Revision-Date: 2005-12-24 22:33+0200\n"
+"POT-Creation-Date: 2005-12-25 06:13+0200\n"
+"PO-Revision-Date: 2005-12-25 06:15+0200\n"
 "Last-Translator: Barış Metin <baris@uludag.org.tr>\n"
 "Language-Team:  <tr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -83,7 +83,8 @@ msgstr ""
 "<p>Bu işlem tüm sabit diskinizi Pardus kurulumu için kullanacak \n"
 "ve seçilen sabit disk üzerindeki tüm verileriniz silinecektir.</p>\n"
 "\n"
-"<p>Yedeklerinizi aldıktan sonra Pardus güvenli bir şekilde \n"
+"<p>Lütfen, mevcut dosyalarınızın yedeğini aldıktan sonra, 'Tamam' \n"
+"düğmesine tıklayın.Daha sonra, Pardus güvenli bir şekilde \n"
 "bilgisayarınıza kurulacaktır.</p>\n"
 "</b>\n"
 "</font>\n"
@@ -163,7 +164,7 @@ msgstr "Evet, Sistem Yükleyicisini Kur"
 msgid "Select the disk you to install bootloader:"
 msgstr "Sistem yükleyicisinin kurulacağı diski seçin:"
 
-#: yali/gui/Goodbye.py:33
+#: yali/gui/Goodbye.py:34
 msgid ""
 "\n"
 "<font size=\"+2\">Congratulations</font>\n"
@@ -201,7 +202,7 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/Goodbye.py:59
+#: yali/gui/Goodbye.py:60
 msgid ""
 "<b><font size=\"+2\" color=\"#FF6D19\">Rebooting system. Please wait!</"
 "font></b>"
@@ -209,7 +210,7 @@ msgstr ""
 "<b><font size=\"+2\" color=\"#FF6D19\">Sistem yeniden başlatılıyor. Lütfen "
 "bekleyin!</font></b>"
 
-#: yali/gui/Goodbye.py:112
+#: yali/gui/Goodbye.py:120
 msgid ""
 "<font size=\"+1\">\n"
 "<b>\n"
@@ -219,11 +220,12 @@ msgid ""
 msgstr ""
 "<font size=\"+1\">\n"
 "<b>\n"
-"<p>Lütfen Pardus CD'sini çıkartın ve 'Sistemi Yeniden Başlat' düğmesine basın.</p>\n"
+"<p>Lütfen Pardus CD'sini çıkartın ve 'Sistemi Yeniden Başlat' düğmesine "
+"basın.</p>\n"
 "</b>\n"
 "</font>\n"
 
-#: yali/gui/Goodbye.py:120
+#: yali/gui/Goodbye.py:128
 msgid "Reboot"
 msgstr "Sistemi Yeniden Başlat!"
 
@@ -294,6 +296,24 @@ msgstr ""
 "Kurulan paketler sisteminiz için yapılandırılıyor!\n"
 "Bu işlemin tamamlanması için lütfen bekleyiniz."
 
+#: yali/gui/InstallSystem.py:203
+#, python-format
+msgid ""
+"An error during the installation of packages occured.\n"
+"\n"
+"This is possibly a broken Pardus CD or CD-ROM drive.\n"
+"\n"
+"Error:\n"
+"%s\n"
+msgstr ""
+"Paketlerin kurulumu sırasında bir hata oluştu.\n"
+"\n"
+"Bu bozuk bir Pardus CD'si veya CD-ROM okuyucudan "
+"kaynaklanıyor olabilir.\n"
+"\n"
+"Hata:\n"
+"%s\n"
+
 #: yali/gui/installwidget.py:52
 msgid "Form3"
 msgstr "Form3"
@@ -353,10 +373,16 @@ msgstr "'%s' disk bölümünü '%s' aygıtından silmek üzeresiniz!"
 msgid "You must select a partition type from the list below."
 msgstr "Yukarıdaki listeden bir disk bölümü tipi seçmelisiniz."
 
-#: yali/gui/PartEditImpl.py:188 yali/gui/PartEditImpl.py:214
+#: yali/gui/PartEditImpl.py:175 yali/gui/PartEditImpl.py:201
 #, python-format
 msgid "'Install Root' size must be larger than %s MB."
 msgstr "'Sistem Dosyaları' bölümü en az %s MB olmalı."
+
+#: yali/gui/PartEditImpl.py:277
+msgid "ntfsresize check failed! Won't proceed action!"
+msgstr ""
+"NTFS yeniden boyutlandırma kontorlü başarısız!<br>"
+"İşlem gerçekleştirilmeyecek!"
 
 #: yali/gui/parteditwidget.py:82
 msgid "Size (MB):"
@@ -456,7 +482,8 @@ msgstr ""
 "<p>\n"
 "Disk bölümlendirme tablosu, diskin adını, boyutunu, bölüm türünü \n"
 "ve dosya sistemi bilgisini gösterir. Eğer bir disk bölümü kurulum \n"
-"sırasında biçimlendirilecek ise, karşılık gelen 'Biçimlendir' sütunu da uygun \n"
+"sırasında biçimlendirilecek ise, karşılık gelen 'Biçimlendir' sütunu da "
+"uygun \n"
 "şekilde etkin hale getirilecektir.\n"
 "</p>\n"
 "<p> \n"
@@ -497,38 +524,38 @@ msgstr ""
 "</b>\n"
 "</font>\n"
 
-#: yali/gui/PartListImpl.py:92
+#: yali/gui/PartListImpl.py:95
 #, python-format
 msgid "%0.1f GB free"
 msgstr "%0.1f GB boş"
 
-#: yali/gui/PartListImpl.py:94
+#: yali/gui/PartListImpl.py:97
 #, python-format
 msgid "%d MB free"
 msgstr "%d MB boş"
 
-#: yali/gui/PartListImpl.py:119
+#: yali/gui/PartListImpl.py:122
 msgid "Extended"
 msgstr "Uzatılmış"
 
-#: yali/gui/PartListImpl.py:148
+#: yali/gui/PartListImpl.py:151
 #, python-format
 msgid "Partition %d"
 msgstr "Disk bölümü %d"
 
-#: yali/gui/PartListImpl.py:180
+#: yali/gui/PartListImpl.py:183
 msgid "Delete All Partitions"
 msgstr "Tüm Disk Bölümlerini Sil"
 
-#: yali/gui/PartListImpl.py:206 yali/gui/partlistwidget.py:87
+#: yali/gui/PartListImpl.py:209 yali/gui/partlistwidget.py:87
 msgid "Delete Selected Partition"
 msgstr "Seçili Disk Bölümünü Sil"
 
-#: yali/gui/PartListImpl.py:271
+#: yali/gui/PartListImpl.py:276
 msgid "Formatting!"
 msgstr "Biçimlendiriliyor!"
 
-#: yali/gui/PartListImpl.py:273
+#: yali/gui/PartListImpl.py:278
 msgid "YES"
 msgstr "EVET"
 
@@ -887,7 +914,7 @@ msgstr "Hayır, Kabul Etmiyorum!"
 msgid "Warning"
 msgstr "Uyarı"
 
-#: yali/bootloader.py:135 yali/bootloader.py:140
+#: yali/bootloader.py:132 yali/bootloader.py:137
 msgid "Windows"
 msgstr "Windows"
 
@@ -915,15 +942,15 @@ msgstr "bilinmeyen"
 msgid "free space"
 msgstr "boş alan"
 
-#: yali/partitiontype.py:47
+#: yali/partitiontype.py:49
 msgid "Install Root"
 msgstr "Sistem Kurulumu"
 
-#: yali/partitiontype.py:55
+#: yali/partitiontype.py:57
 msgid "Users' Files"
 msgstr "Kullanıcı Dosyaları"
 
-#: yali/partitiontype.py:63
+#: yali/partitiontype.py:65
 msgid "Swap"
 msgstr "Takas"
 
