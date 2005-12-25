@@ -67,20 +67,19 @@ Legend:
 
 3. RC1 (1.0)
 
- - GUI
+ + GUI
    + find a way to show exceptions on GUI
-   - select where to install Grub
+   + select where to install Grub
 
- - partitioning
+ + partitioning
    + ext3 resize
    + support extended partitions
-   - fat32 resize
 
  - logging system
 
  + exception handling
 
- - implement swap as file.
+ + implement swap as file.
 
 
 3. Release (1.0)
@@ -96,3 +95,9 @@ Legend:
 
  - GUI
    - try statemachine for screens/stages
+
+ - partitioning
+   - fat32 resize
+
+ - bootloader
+   - only add valid operating system partitions to list (#1455)
