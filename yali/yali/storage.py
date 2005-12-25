@@ -53,8 +53,16 @@ def clear_devices():
     if not devices:
         return
 
-    for dev in devices:
-        devices.remove(dev)
+    def clear():
+        for dev in devices:
+            devices.remove(dev)
+
+    # clear doesn't remove it all. so bruteforce it
+    while True:
+        if len(devices):
+            clear()
+        else:
+            return
 
 
 ##
