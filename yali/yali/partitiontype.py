@@ -39,6 +39,8 @@ class __PartitionType(PartitionType):
         cmdline = open("/proc/cmdline", "r").read()
         if cmdline.find("enable_reiserfs") >= 0:
             self.filesystem = yali.filesystem.ReiserFileSystem()
+        elif cmdline.find("enable_xfs") >= 0:
+            self.filesystem = yali.filesystem.XFSFileSystem()
         else:
             self.filesystem = yali.filesystem.Ext3FileSystem()
 

@@ -38,6 +38,8 @@ def get_filesystem(name):
         return NTFSFileSystem()
     elif name == "reiserfs":
         return ReiserFileSystem()
+    elif name == "xfs":
+        return XFSFileSystem()
 
     return None
 
@@ -218,6 +220,34 @@ class ReiserFileSystem(FileSystem):
         p.write("y\n")
         if p.close():
             raise YaliException, "reiserfs format failed: %s" % partition.getPath()
+
+
+
+##
+# xfs
+class XFSFileSystem(FileSystem):
+
+    _name = "xfs"
+    
+    def __init__(self):
+        FileSystem.__init__(self)
+        self.setImplemented(True)
+
+    def format(self, partition):
+        self.preFormat(partition)
+
+        cmd_path = sysutils.find_executable("mkfs.xfs")
+        
+        if not cmd_path:
+            e = "Command not found to format %s filesystem" %(self.name())
+            raise FSError, e
+
+        cmd = "%s -f %s" %(cmd_path, partition.getPath())
+
+        p = os.popen(cmd)
+        if p.close():
+            raise YaliException, "%s format failed: %s" % (self.name(), partition.getPath())
+
 
 
 ##
