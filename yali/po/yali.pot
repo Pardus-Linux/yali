@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-25 23:11+0200\n"
+"POT-Creation-Date: 2005-12-26 17:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,7 +70,7 @@ msgstr ""
 #: yali/gui/keyboardwidget.py:66 yali/gui/parteditbuttons.py:46
 #: yali/gui/parteditwidget.py:81 yali/gui/partlistwidget.py:85
 #: yali/gui/rootpasswidget.py:119 yali/gui/setupuserswidget.py:128
-#: yali/gui/welcomewidget.py:90
+#: yali/gui/welcomewidget.py:91
 msgid "Form1"
 msgstr ""
 
@@ -163,6 +163,10 @@ msgstr ""
 msgid "Release Notes"
 msgstr ""
 
+#: yali/gui/GUIGPL.py:53
+msgid "Can't open License file!"
+msgstr ""
+
 #: yali/gui/GUIRelNotes.py:53
 msgid "Can't open Release Notes file!"
 msgstr ""
@@ -192,21 +196,21 @@ msgid ""
 "</font>\n"
 msgstr ""
 
-#: yali/gui/InstallSystem.py:120
+#: yali/gui/InstallSystem.py:108 yali/gui/InstallSystem.py:134
 #, python-format
 msgid "Installing: %s<br>%s"
 msgstr ""
 
-#: yali/gui/InstallSystem.py:126
+#: yali/gui/InstallSystem.py:115 yali/gui/InstallSystem.py:140
 #, python-format
 msgid "Configuring package: %s"
 msgstr ""
 
-#: yali/gui/InstallSystem.py:163
+#: yali/gui/InstallSystem.py:196
 msgid "Configuring packages for your system!"
 msgstr ""
 
-#: yali/gui/InstallSystem.py:203
+#: yali/gui/InstallSystem.py:243
 #, python-format
 msgid ""
 "An error during the installation of packages occured.\n"
@@ -226,7 +230,7 @@ msgid "Installing Package: "
 msgstr ""
 
 #: yali/gui/installwidget.py:54 yali/gui/keyboardwidget.py:67
-#: yali/gui/welcomewidget.py:91
+#: yali/gui/welcomewidget.py:92
 msgid "pix"
 msgstr ""
 
@@ -372,38 +376,38 @@ msgid ""
 "</font>\n"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:95
+#: yali/gui/PartListImpl.py:96
 #, python-format
 msgid "%0.1f GB free"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:97
+#: yali/gui/PartListImpl.py:98
 #, python-format
 msgid "%d MB free"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:122
+#: yali/gui/PartListImpl.py:123
 msgid "Extended"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:151
+#: yali/gui/PartListImpl.py:152
 #, python-format
 msgid "Partition %d"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:183
+#: yali/gui/PartListImpl.py:184
 msgid "Delete All Partitions"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:209 yali/gui/partlistwidget.py:87
+#: yali/gui/PartListImpl.py:210 yali/gui/partlistwidget.py:87
 msgid "Delete Selected Partition"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:280
+#: yali/gui/PartListImpl.py:281
 msgid "Formatting!"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:282
+#: yali/gui/PartListImpl.py:283
 msgid "YES"
 msgstr ""
 
@@ -488,7 +492,7 @@ msgstr ""
 msgid "An error occured!"
 msgstr ""
 
-#: yali/gui/runner.py:157 yali/gui/welcomewidget.py:99
+#: yali/gui/runner.py:157 yali/gui/welcomewidget.py:96
 msgid "Reboot System!"
 msgstr ""
 
@@ -551,7 +555,7 @@ msgstr ""
 msgid "<font color=\"#FF6D19\">Passwords do not match!</font>"
 msgstr ""
 
-#: yali/gui/SetupRootpass.py:117
+#: yali/gui/SetupRootpass.py:123
 msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
 msgstr ""
 
@@ -621,7 +625,7 @@ msgstr ""
 msgid "Real Name:"
 msgstr ""
 
-#: yali/gui/Welcome.py:30
+#: yali/gui/Welcome.py:32
 msgid ""
 "\n"
 "<font size=\"+2\">Welcome!</font>\n"
@@ -650,20 +654,22 @@ msgid ""
 "</font>\n"
 msgstr ""
 
-#: yali/gui/welcomewidget.py:92
+#: yali/gui/welcomewidget.py:93
 msgid ""
-"<b>This is a RC release of Pardus.</b>\n"
-"So expect bugs and use at your own risk.\n"
-"If you accept the risks inherent in such a release (ie. crashes, data loss, "
-"etc.),\n"
-"select 'Accept'."
+"<b>Pardus 1.0</b> is licensed under GNU GPL. You should accept it's license\n"
+"before installing it on your computer. Read GPL and select Accept to "
+"continue installing."
 msgstr ""
 
-#: yali/gui/welcomewidget.py:97
-msgid "Accept!"
+#: yali/gui/welcomewidget.py:95
+msgid "Read GPL"
 msgstr ""
 
 #: yali/gui/welcomewidget.py:98
+msgid "Accept!"
+msgstr ""
+
+#: yali/gui/welcomewidget.py:99
 msgid "Don't Accept!"
 msgstr ""
 
@@ -695,7 +701,7 @@ msgstr ""
 msgid "unknown"
 msgstr ""
 
-#: yali/partition.py:160
+#: yali/partition.py:162
 msgid "free space"
 msgstr ""
 

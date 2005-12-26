@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-25 23:11+0200\n"
-"PO-Revision-Date: 2005-12-25 23:15+0200\n"
+"POT-Creation-Date: 2005-12-26 17:53+0200\n"
+"PO-Revision-Date: 2005-12-26 17:55+0200\n"
 "Last-Translator: Barış Metin <baris@uludag.org.tr>\n"
 "Language-Team:  <tr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -102,7 +102,7 @@ msgstr "Tamam. Devam Et"
 #: yali/gui/keyboardwidget.py:66 yali/gui/parteditbuttons.py:46
 #: yali/gui/parteditwidget.py:81 yali/gui/partlistwidget.py:85
 #: yali/gui/rootpasswidget.py:119 yali/gui/setupuserswidget.py:128
-#: yali/gui/welcomewidget.py:90
+#: yali/gui/welcomewidget.py:91
 msgid "Form1"
 msgstr "Form1"
 
@@ -233,6 +233,10 @@ msgstr "Sistemi Yeniden Başlat!"
 msgid "Release Notes"
 msgstr "Sürüm Notları"
 
+#: yali/gui/GUIGPL.py:53
+msgid "Can't open License file!"
+msgstr "Lisans dosyası açılamıyor!"
+
 #: yali/gui/GUIRelNotes.py:53
 msgid "Can't open Release Notes file!"
 msgstr "Sürüm Notları dosyası açılamıyor!"
@@ -280,23 +284,23 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/InstallSystem.py:120
+#: yali/gui/InstallSystem.py:108 yali/gui/InstallSystem.py:134
 #, python-format
 msgid "Installing: %s<br>%s"
 msgstr "Kurulan Paket: %s<br>%s"
 
-#: yali/gui/InstallSystem.py:126
+#: yali/gui/InstallSystem.py:115 yali/gui/InstallSystem.py:140
 #, python-format
 msgid "Configuring package: %s"
 msgstr "Yapılandırılan paket: %s"
 
-#: yali/gui/InstallSystem.py:163
+#: yali/gui/InstallSystem.py:196
 msgid "Configuring packages for your system!"
 msgstr ""
 "Kurulan paketler sisteminiz için yapılandırılıyor!\n"
 "Bu işlemin tamamlanması için lütfen bekleyiniz."
 
-#: yali/gui/InstallSystem.py:203
+#: yali/gui/InstallSystem.py:243
 #, python-format
 msgid ""
 "An error during the installation of packages occured.\n"
@@ -322,7 +326,7 @@ msgid "Installing Package: "
 msgstr "Kurulan Paket: "
 
 #: yali/gui/installwidget.py:54 yali/gui/keyboardwidget.py:67
-#: yali/gui/welcomewidget.py:91
+#: yali/gui/welcomewidget.py:92
 msgid "pix"
 msgstr "pix"
 
@@ -522,38 +526,38 @@ msgstr ""
 "</b>\n"
 "</font>\n"
 
-#: yali/gui/PartListImpl.py:95
+#: yali/gui/PartListImpl.py:96
 #, python-format
 msgid "%0.1f GB free"
 msgstr "%0.1f GB boş"
 
-#: yali/gui/PartListImpl.py:97
+#: yali/gui/PartListImpl.py:98
 #, python-format
 msgid "%d MB free"
 msgstr "%d MB boş"
 
-#: yali/gui/PartListImpl.py:122
+#: yali/gui/PartListImpl.py:123
 msgid "Extended"
 msgstr "Uzatılmış"
 
-#: yali/gui/PartListImpl.py:151
+#: yali/gui/PartListImpl.py:152
 #, python-format
 msgid "Partition %d"
 msgstr "Disk bölümü %d"
 
-#: yali/gui/PartListImpl.py:183
+#: yali/gui/PartListImpl.py:184
 msgid "Delete All Partitions"
 msgstr "Tüm Disk Bölümlerini Sil"
 
-#: yali/gui/PartListImpl.py:209 yali/gui/partlistwidget.py:87
+#: yali/gui/PartListImpl.py:210 yali/gui/partlistwidget.py:87
 msgid "Delete Selected Partition"
 msgstr "Seçili Disk Bölümünü Sil"
 
-#: yali/gui/PartListImpl.py:280
+#: yali/gui/PartListImpl.py:281
 msgid "Formatting!"
 msgstr "Biçimlendiriliyor!"
 
-#: yali/gui/PartListImpl.py:282
+#: yali/gui/PartListImpl.py:283
 msgid "YES"
 msgstr "EVET"
 
@@ -642,7 +646,7 @@ msgstr "Basit yapılandırma"
 msgid "An error occured!"
 msgstr "Bir hata oluştu!"
 
-#: yali/gui/runner.py:157 yali/gui/welcomewidget.py:99
+#: yali/gui/runner.py:157 yali/gui/welcomewidget.py:96
 msgid "Reboot System!"
 msgstr "Sistemi Yeniden Başlat!"
 
@@ -754,7 +758,7 @@ msgstr ""
 msgid "<font color=\"#FF6D19\">Passwords do not match!</font>"
 msgstr "<font color=\"#FF6D19\">Parolalar aynı değil!</font>"
 
-#: yali/gui/SetupRootpass.py:117
+#: yali/gui/SetupRootpass.py:123
 msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
 msgstr ""
 "<font color=\"#FF6D19\">Makine adı geçersiz karakterler içeriyor!</font>"
@@ -854,7 +858,7 @@ msgstr "Parola:"
 msgid "Real Name:"
 msgstr "Gerçek İsim:"
 
-#: yali/gui/Welcome.py:30
+#: yali/gui/Welcome.py:32
 msgid ""
 "\n"
 "<font size=\"+2\">Welcome!</font>\n"
@@ -912,25 +916,25 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/welcomewidget.py:92
+#: yali/gui/welcomewidget.py:93
 msgid ""
-"<b>This is a RC release of Pardus.</b>\n"
-"So expect bugs and use at your own risk.\n"
-"If you accept the risks inherent in such a release (ie. crashes, data loss, "
-"etc.),\n"
-"select 'Accept'."
+"<b>Pardus 1.0</b> is licensed under GNU GPL. You should accept it's license\n"
+"before installing it on your computer. Read GPL and select Accept to "
+"continue installing."
 msgstr ""
-"<b>Bu Pardus'un RC deneme sürümüdür.</b>\n"
-"Bu yüzden hatalar olabileceğini kabul etmeniz gerekiyor.\n"
-"Eğer böyle bir sürümü kurmaktaki riskleri (örn. veri kaybı, çökmeler, vb.) "
-"kabul ediyorsanız,\n"
-"'Kabul Ediyorum'u seçin."
+"<b>Pardus 1.0</b> GNU GPL ile dağıtılmaktadır. Kuruluma başlamadan önce lisans\n"
+"metnini okumanız gerekir. 'GPL Metnini Oku' tuşuna basarak lisansı "
+"okuyabilirsiniz. 'Kabul Ediyorum!'u seçerek kuruluma başlayabilirsiniz."
 
-#: yali/gui/welcomewidget.py:97
+#: yali/gui/welcomewidget.py:95
+msgid "Read GPL"
+msgstr "GPL Metnini Oku"
+
+#: yali/gui/welcomewidget.py:98
 msgid "Accept!"
 msgstr "Kabul Ediyorum!"
 
-#: yali/gui/welcomewidget.py:98
+#: yali/gui/welcomewidget.py:99
 msgid "Don't Accept!"
 msgstr "Hayır, Kabul Etmiyorum!"
 
@@ -962,7 +966,7 @@ msgstr "İngilizce (US)"
 msgid "unknown"
 msgstr "bilinmeyen"
 
-#: yali/partition.py:160
+#: yali/partition.py:162
 msgid "free space"
 msgstr "boş alan"
 
@@ -977,6 +981,19 @@ msgstr "Kullanıcı Dosyaları"
 #: yali/partitiontype.py:65
 msgid "Swap"
 msgstr "Takas"
+
+#~ msgid ""
+#~ "<b>This is a RC release of Pardus.</b>\n"
+#~ "So expect bugs and use at your own risk.\n"
+#~ "If you accept the risks inherent in such a release (ie. crashes, data "
+#~ "loss, etc.),\n"
+#~ "select 'Accept'."
+#~ msgstr ""
+#~ "<b>Bu Pardus'un RC deneme sürümüdür.</b>\n"
+#~ "Bu yüzden hatalar olabileceğini kabul etmeniz gerekiyor.\n"
+#~ "Eğer böyle bir sürümü kurmaktaki riskleri (örn. veri kaybı, çökmeler, "
+#~ "vb.) kabul ediyorsanız,\n"
+#~ "'Kabul Ediyorum'u seçin."
 
 #~ msgid "Create"
 #~ msgstr "Oluştur"
