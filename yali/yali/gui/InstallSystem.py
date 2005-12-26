@@ -245,5 +245,7 @@ class PisiUI(QObject, pisi.ui.UI):
                      notify_widget.slotNotify)
 
     def notify(self, event, **keywords):
-        self.emit(PYSIGNAL("signalNotify"), (self, event, keywords['package']))
+        if event == pisi.ui.installing or event == pisi.ui.configuring:
+            self.emit(PYSIGNAL("signalNotify"),
+                      (self, event, keywords['package']))
 
