@@ -132,7 +132,6 @@ Click Next button to proceed.
             ctx.screens.enableNext()
         else:
             ctx.screens.disableNext()
-            print "dis"
 
 
     def slotReturnPressed(self):
