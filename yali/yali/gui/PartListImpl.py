@@ -68,6 +68,7 @@ class PartList(PartListWidget):
         self.createButton.setEnabled(False)
         self.deleteButton.setEnabled(False)
         self.editButton.setEnabled(False)
+        self.resizeButton.setEnabled(False)
 
         self.showPartitionRequests()
         self.checkRootPartRequest()
