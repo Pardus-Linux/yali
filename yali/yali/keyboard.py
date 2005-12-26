@@ -43,8 +43,8 @@ def write_keymap(keymap):
 
     lines = []
     for l in open("/etc/conf.d/keymaps", "r").readlines():
-        if l.strip().startswith("KEYMAP="):
-            l = "KEYMAP=%s\n" % keymap
+        if l.strip().startswith('KEYMAP='):
+            l = 'KEYMAP="%s"\n' % keymap
         lines.append(l)
 
     open("/etc/conf.d/keymaps", "w").writelines(lines)
