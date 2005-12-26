@@ -70,6 +70,8 @@ Depending on your hardware or choice select a keyboard layout from the list.
         keydata = self.keyboard_list.selectedItem().getData()
         yali.keyboard.write_keymap(keydata["keymap"])
 
+        ctx.keydata = keydata
+
         return True
 
     def slotLayoutChanged(self, i):

@@ -26,6 +26,7 @@ import pisi.ui
 import yali.pisiiface
 import yali.fstab
 import yali.sysutils
+import yali.localedata
 import yali.partitionrequest as request
 from yali.gui.installwidget import InstallWidget
 from yali.gui.ScreenWidget import ScreenWidget
@@ -178,6 +179,13 @@ Have fun!
 
         # stop slide show
         self.timer.stop()
+
+
+        # FIXME: I don't know if this is the right way to do
+        # this. maybe postinstall can be used too.
+        yali.localedata.write_locale_from_cmdline()
+        yali.localedata.write_font_from_cmdline(ctx.keydata)
+
 
         return True
 

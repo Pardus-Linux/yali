@@ -45,3 +45,7 @@ use_autopart = False
 # colors
 consts.bg_color = QColor(36,68,80)
 consts.fg_color = QColor(255,255,255)
+
+
+# keydata
+keydata = None
