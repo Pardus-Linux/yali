@@ -68,7 +68,9 @@ class Partition:
         total_bytes = self.getBytes()
 
         d = self.getDevice()
-        size = 0
+        # 8: magic number that all, even windows, use.
+        # (OK not really ;)
+        size = 8 * parteddata.MEGABYTE
         for p in d.getPartitions():
             if p.isLogical():
                 size += p.getBytes()
