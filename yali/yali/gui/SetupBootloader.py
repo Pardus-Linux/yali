@@ -74,6 +74,8 @@ loader.
                 DeviceItem(self.device_list, dev)
             # select the first disk by default
             self.device_list.setSelected(0, True)
+            # be sure first is selected device
+            self.device = self.device_list.item(0).getDevice()
         else:
             # don't show device list if we have just one disk
             self.device_list.hide()
