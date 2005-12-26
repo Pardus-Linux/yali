@@ -320,44 +320,44 @@ class PartEditWidgetImpl(PartEditWidget):
 
     def setState(self, state, partition=None):
 
-        if state == editState:
 
-            # editState is for partitions only
-            if not partition:
-                raise YaliException, "partition is None"
+        # unset buttons
+        self.root.setOn(False)
+        self.home.setOn(False)
+        self.swap.setOn(False)
 
-            # unset buttons
-            self.root.setOn(False)
-            self.home.setOn(False)
-            self.swap.setOn(False)
+        # disable requested partition types in gui
+        self.root.setEnabled(True)
+        self.home.setEnabled(True)
+        self.swap.setEnabled(True)
 
-            # disable requested partition types in gui
-            self.root.setEnabled(True)
-            self.home.setEnabled(True)
-            self.swap.setEnabled(True)
-            for r in ctx.partrequests.searchReqType(request.mountRequestType):
-                pt = r.partitionType()
-                part = r.partition()
+        for r in ctx.partrequests.searchReqType(request.mountRequestType):
+            pt = r.partitionType()
+            part = r.partition()
 
-                if pt == parttype.root:
-                    if part == partition:
+#            print part.getPath(), pt
+            if pt == parttype.root:
+                if partition and part == partition:
                         self.root.setOn(True)
-                    else:
-                        self.root.setEnabled(False)
+                else:
+                    self.root.setEnabled(False)
 
-                elif pt == parttype.home:
-                    if part == partition:
+            elif pt == parttype.home:
+                if partition and part == partition:
                         self.home.setOn(True)
-                    else:
-                        self.home.setEnabled(False)
+                else:
+                    self.home.setEnabled(False)
 
-                elif pt == parttype.swap:
-                    if part == partition:
+            elif pt == parttype.swap:
+                if partition and part == partition:
                         self.swap.setOn(True)
-                    else:
-                        self.swap.setEnabled(False)
+                else:
+                    self.swap.setEnabled(False)
 
 
+
+
+        if state == editState:
             self.buttonGroup.show()
             self.format.show()
 
