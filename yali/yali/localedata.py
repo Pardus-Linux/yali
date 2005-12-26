@@ -20,7 +20,7 @@ from yali.constants import consts
 localedata = {
     "tr" : {
         "locale": "tr_TR.UTF-8",
-        "cosolefont" : "iso09.16",
+        "consolefont" : "iso09.16",
         "consoletranslation" : "8859-9"
         },
     
