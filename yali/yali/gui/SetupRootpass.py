@@ -110,6 +110,12 @@ Click Next button to proceed.
     ##
     # check hostname validity
     def slotHostnameChanged(self, string):
+
+        if not string.ascii():
+            self.host_valid = False
+            self.setNext()
+            return
+
         self.host_valid = yali.sysutils.text_is_valid(string.ascii())
 
         if not self.host_valid:
@@ -126,6 +132,7 @@ Click Next button to proceed.
             ctx.screens.enableNext()
         else:
             ctx.screens.disableNext()
+            print "dis"
 
 
     def slotReturnPressed(self):
