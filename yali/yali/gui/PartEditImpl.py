@@ -105,7 +105,7 @@ class PartEdit(QWidget):
         elif t ==  parteddata.partitionType:
             if state == createState and self._d.isExtended():
                 self.edit.size.setMaxValue(self._d.getFreeMB())
-                self.edit.setState(state, partition=sef._d)
+                self.edit.setState(state, partition=self._d)
                 self.edit.show()
 
             elif state == deleteState:
