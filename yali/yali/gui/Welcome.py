@@ -22,6 +22,8 @@ import reboot
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.welcomewidget import WelcomeWidget
 import yali.gui.context as ctx
+from yali.gui.YaliDialog import Dialog
+import GUIGPL
 
 ##
 # Welcome screen is the first screen to be shown.
@@ -57,7 +59,7 @@ Have a fruitful experience with Pardus!
     def __init__(self, *args):
         apply(WelcomeWidget.__init__, (self,) + args)
         
-        self.rebootButton.hide()
+        self.rebootButton.setEnabled(False)
         self.pix.setPixmap(ctx.iconfactory.newPixmap("welcome"))
         
 
@@ -69,6 +71,9 @@ Have a fruitful experience with Pardus!
 
         self.connect(self.rebootButton, SIGNAL("clicked()"),
                      self.slotReboot)
+
+        self.connect(self.gplButton, SIGNAL("clicked()"),
+                     self.showGPL)
 
 
     def slotAcceptToggled(self, b):
@@ -82,13 +87,26 @@ Have a fruitful experience with Pardus!
     def __enable_next(self, b):
         if b:
             ctx.screens.enableNext()
-            self.rebootButton.hide()
+            self.rebootButton.setEnabled(False)
         else:
             ctx.screens.disableNext()
-            self.rebootButton.show()
+            self.rebootButton.setEnabled(True)
+
+
+    def showGPL(self):
+        # make a release notes dialog
+        r = GUIGPL.Widget(self)
+        d = Dialog("GPL", r, self)
+        d.resize(500,400)
+        d.exec_loop()
+
+
 
     def slotReboot(self):
         reboot.fastreboot()
+
+
+
 
     def shown(self):
         ctx.screens.disablePrev()
