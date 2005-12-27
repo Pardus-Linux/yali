@@ -14,6 +14,7 @@
 
 import os
 from string import ascii_letters
+from string import digits
 
 from yali.constants import consts
 
@@ -89,7 +90,7 @@ def mem_total():
 
 
 def text_is_valid(text):
-    allowed_chars = ascii_letters + '.' + '_' + '-'
+    allowed_chars = ascii_letters + digits + '.' + '_' + '-'
     return len(text) == len(filter(lambda u: [x for x in allowed_chars if x == u], text))
 
 def add_hostname(hostname = 'pardus'):
