@@ -223,12 +223,12 @@ Have fun!
 
     def finished(self):
         # Remove cd repository and install add real
-        repo_name = ctx.consts.repo_name # install repo on CD
-        devel_repo_name = ctx.consts.devel_repo_name
-        devel_repo_uri = ctx.consts.devel_repo_uri
+        cd_repo_name = ctx.consts.cd_repo_name # install repo on CD
+        pardus_repo_name = ctx.consts.pardus_repo_name
+        pardus_repo_uri = ctx.consts.pardus_repo_uri
 
-        yali.pisiiface.remove_repo(repo_name)
-        yali.pisiiface.add_repo(devel_repo_name, devel_repo_uri)
+        yali.pisiiface.remove_repo(cd_repo_name)
+        yali.pisiiface.add_repo(pardus_repo_name, pardus_repo_uri)
 
         yali.pisiiface.finalize()
 
@@ -265,10 +265,10 @@ class PkgInstaller(QThread):
 
         yali.pisiiface.initialize(ui)
 
-        repo_name = ctx.consts.repo_name
-        repo_uri = ctx.consts.repo_uri
-        yali.pisiiface.add_repo(repo_name, repo_uri)
-        yali.pisiiface.update_repo(repo_name)
+        cd_repo_name = ctx.consts.cd_repo_name
+        cd_repo_uri = ctx.consts.cd_repo_uri
+        yali.pisiiface.add_repo(cd_repo_name, cd_repo_uri)
+        yali.pisiiface.update_repo(cd_repo_name)
 
         # show progress
         total = yali.pisiiface.get_available_len()

@@ -53,7 +53,7 @@ def add_repo(name, uri):
 
 def update_repo(name):
     print "update repo", name
-    pisi.api.update_repo(consts.repo_name)
+    pisi.api.update_repo(consts.cd_repo_name)
 
 def remove_repo(name):
     print "remove", name
@@ -71,7 +71,7 @@ def install_all():
 def get_available():
     from pisi import packagedb
     
-    pkg_db = packagedb.get_db(consts.repo_name)
+    pkg_db = packagedb.get_db(consts.cd_repo_name)
     l = pkg_db.list_packages()
 
     return l

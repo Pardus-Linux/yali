@@ -62,13 +62,12 @@ class Constants:
 
 
         # pisi repository
-        self.__c.repo_name = "pardus-devel-cd"
-        self.__c.repo_uri = join(self.__c.source_dir, "repo/pisi-index.xml")
+        self.__c.cd_repo_name = "pardus-cd"
+        self.__c.cd_repo_uri = join(self.__c.source_dir, "repo/pisi-index.xml")
 
-        # before release
-        # pardus-devel repository
-        self.__c.devel_repo_name = "pardus-devel"
-        self.__c.devel_repo_uri = "http://paketler.uludag.org.tr/pardus-devel/pisi-index.xml"
+        # pardus repository
+        self.__c.pardus_repo_name = "pardus-1.0"
+        self.__c.pardus_repo_uri = "http://paketler.uludag.org.tr/pardus-1.0/pisi-index.xml"
 
 
         # min root partition size
