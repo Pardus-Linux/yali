@@ -13,7 +13,7 @@ def main():
 
         print d.getPath(), ":", d.getModel()
         for part in d.getPartitions():
-            print "\t", part.getMinor(), part.getFSType(), part.getMB()
+            print "\t", part.getMinor(), part.getFSName(), part.getMB()
 
 
 if __name__ == "__main__":
