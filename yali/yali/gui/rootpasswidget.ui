@@ -142,10 +142,7 @@
                         </size>
                     </property>
                     <property name="text">
-                        <string>&lt;p align="left"&gt;System administrator user (root) handles important system &lt;br&gt;
-maintanence tasks. Please give password for this special user &lt;br&gt;
-and do not forget this password. Note that you shouldn't write &lt;br&gt;
-this password elsewhere for privacy reasons.&lt;/p&gt;</string>
+                        <string>&lt;p align="left"&gt;System administrator user (root) handles important system maintanence tasks. Please give password for this special user and do not forget this password. Note that you shouldn't write this password elsewhere for privacy reasons.&lt;/p&gt;</string>
                     </property>
                     <property name="alignment">
                         <set>WordBreak|AlignVCenter|AlignLeft</set>
