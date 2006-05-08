@@ -52,6 +52,9 @@ class Constants:
         # packages (and maybe others) will be in this source (cdrom) directory
         self.__c.source_dir = join(self.__c.mnt_dir, "cdrom")
 
+        # comar socket path
+        self.__c.comar_socket_file = self.__c.target_dir + "/var/run/comar.socket"
+
         # swap file path
         self.__c.swap_file_name = ".swap"
         self.__c.swap_file_path = join(self.__c.target_dir, 
@@ -66,8 +69,8 @@ class Constants:
         self.__c.cd_repo_uri = join(self.__c.source_dir, "repo/pisi-index.xml")
 
         # pardus repository
-        self.__c.pardus_repo_name = "pardus-1.0"
-        self.__c.pardus_repo_uri = "http://paketler.uludag.org.tr/pardus-1.0/pisi-index.xml"
+        self.__c.pardus_repo_name = "pardus-1"
+        self.__c.pardus_repo_uri = "http://paketler.uludag.org.tr/pardus-1/pisi-index.xml.bz2"
 
 
         # min root partition size
