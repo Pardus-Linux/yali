@@ -21,22 +21,6 @@ from yali.constants import consts
 
 def initbaselayout():
     
-    # setup default runlevel symlinks
-    for level in ["boot", "default", "nonetwork", "single"]:
-        try:
-            os.makedirs("%s/etc/runlevels/%s" % (consts.target_dir, level))
-        except OSError:
-            pass
-                     
-        f = "%s/usr/share/baselayout/rc-lists/%s" %(consts.target_dir, level)
-        for script in open(f).readlines():
-            if os.access("%s/etc/init.d/%s" % (
-                    consts.target_dir, script.strip()), os.F_OK):
-                os.symlink("/etc/init.d/%s" % script.strip(),
-                           "%s/etc/runlevels/%s/%s" % (consts.target_dir,
-                                                       level,
-                                                       script.strip()))
-
     def cp(s, d):
         src = os.path.join(consts.target_dir, s)
         dst = os.path.join(consts.target_dir, d)
@@ -70,13 +54,7 @@ def initbaselayout():
     touch("var/log/wtmp", 0664)
     chgrp("var/log/wtmp", "utmp")
 
-    
-    # depscan -> firstrun
-    # modules-update -> firstrun
-    # enable shadow groups -> firstrun
 
-
-    # FIXME: not here...
-    # copy keyboard file to target system
-    dst = os.path.join(consts.target_dir, "etc/conf.d/keymaps")
-    shutil.copyfile("/etc/conf.d/keymaps", dst)
+    # copy xorg.conf.
+    dst = os.path.join(consts.target_dir, "etc/X11/xorg.conf")
+    shutil.copyfile("/etc/X11/xorg.conf", dst)
