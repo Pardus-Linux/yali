@@ -19,6 +19,7 @@
 
 import parted
 import os
+import glob
 
 from yali.parteddata import *
 from yali.partition import Partition, FreeSpace
@@ -448,27 +449,19 @@ def detect_all():
 
     devices = []
     # Scan sysfs for the device types.
-    for dev_type in ["ide", "scsi"]:
-        sysfs_devs_path = "/sys/bus/" + dev_type + "/devices/"
+    for dev_type in ["hd*", "sd*"]:
+        sysfs_devs = glob.glob("/sys/block/" + dev_type)
+        for sysfs_dev in sysfs_devs:
+            dev_file = sysfs_dev + "/dev"
+            major, minor = open(dev_file).read().split(":")
+            major = int(major)
+            minor = int(minor)
 
-        if os.path.exists(sysfs_devs_path):
-            # walk trough sysfs devices list.
-            for sysfs_dev in os.listdir(sysfs_devs_path):
-                drive_name = open(sysfs_devs_path + sysfs_dev + "/drivename").read().split("\n")[0]
-                
-                dev_file = sysfs_devs_path + sysfs_dev + "/block:" + drive_name + "/dev"
-                if not os.path.exists(dev_file):
-                    continue
-
-                major, minor = open(dev_file).read().split(":")
-                major = int(major)
-                minor = int(minor)
-
-                # Find a device listed in /proc/partitions
-                # that has the same minor and major as our
-                # current block device.
-                for record in partitions:
-                    if major == record[0] and minor == record[1]:
-                        devices.append(record[2])
+            # Find a device listed in /proc/partitions
+            # that has the same minor and major as our
+            # current block device.
+            for record in partitions:
+                if major == record[0] and minor == record[1]:
+                    devices.append(record[2])
 
     return devices
