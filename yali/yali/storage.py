@@ -454,8 +454,9 @@ def detect_all():
         if os.path.exists(sysfs_devs_path):
             # walk trough sysfs devices list.
             for sysfs_dev in os.listdir(sysfs_devs_path):
-                dev_file = sysfs_devs_path + sysfs_dev + "/block/dev"
+                drive_name = open(sysfs_devs_path + sysfs_dev + "/drivename").read().split("\n")[0]
                 
+                dev_file = sysfs_devs_path + sysfs_dev + "/block:" + drive_name + "/dev"
                 if not os.path.exists(dev_file):
                     continue
 

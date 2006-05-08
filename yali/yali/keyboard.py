@@ -42,9 +42,9 @@ def set_keymap(keymap):
 def write_keymap(keymap):
 
     lines = []
-    for l in open("/etc/conf.d/keymaps", "r").readlines():
-        if l.strip().startswith('KEYMAP='):
-            l = 'KEYMAP="%s"\n' % keymap
+    for l in open("/etc/conf.d/mudur", "r").readlines():
+        if l.strip().startswith('keymap=') or l.strip().startswith('#keymap='):
+            l = 'keymap="%s"\n' % keymap
         lines.append(l)
 
-    open("/etc/conf.d/keymaps", "w").writelines(lines)
+    open("/etc/conf.d/mudur", "w").writelines(lines)
