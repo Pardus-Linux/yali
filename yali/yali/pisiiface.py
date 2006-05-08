@@ -37,15 +37,18 @@ def initialize(ui, with_comar=False):
         # generally we don't need this but I think this is safer
         for i in range(20):
             try:
-                comar.Link()
+                comar.Link(sockname=consts.comar_socket_file)
                 break
             except:
                 time.sleep(1)
                 print "wait comar for 1 second..."
+
+        pisi.api.init(options = options, comar = with_comar, database = True, ui = ui,
+                      comar_sockname=consts.comar_socket_file)
     else:
         options.ignore_comar = True
 
-    pisi.api.init(options = options, comar = with_comar, database = True, ui = ui)
+        pisi.api.init(options = options, comar = with_comar, database = True, ui = ui)
 
 def add_repo(name, uri):
     print "add",name,uri
@@ -69,10 +72,8 @@ def install_all():
     install(get_available())
 
 def get_available():
-    from pisi import packagedb
-    
-    pkg_db = packagedb.get_db(consts.cd_repo_name)
-    l = pkg_db.list_packages()
+    import pisi.context as ctx
+    l = ctx.packagedb.list_packages()
 
     return l
 
