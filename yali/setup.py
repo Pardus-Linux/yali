@@ -63,8 +63,11 @@ def getRevision():
         return ""
 
 def getVersion():
-    rev = getRevision()
-    return "-r".join([YALI_VERSION, rev])
+#    rev = getRevision()
+#    return "-r".join([YALI_VERSION, rev])
+    # don't use svn revision...
+    return YALI_VERSION
+    
 
 def py_file_name(ui_file):
     return os.path.splitext(ui_file)[0] + '.py'
