@@ -31,7 +31,7 @@ class Logger:
             t.write(s)
             t.flush()
 
-    def close():
+    def close(self):
         if not self._targets:
             return
 
