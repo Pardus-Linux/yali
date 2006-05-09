@@ -12,7 +12,6 @@
 
 # partition types that will be used in installation process
 
-import os
 import parted
 
 import gettext
