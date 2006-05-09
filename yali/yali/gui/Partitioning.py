@@ -24,6 +24,7 @@ import yali.gui.context as ctx
 import yali.partitionrequest as request
 import yali.partitiontype as parttype
 from yali.gui.YaliDialog import Dialog, WarningDialog
+from yali.gui.GUIException import *
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.PartListImpl import PartList
 from yali.gui.PartEditImpl import PartEdit, \
@@ -76,7 +77,8 @@ about disk partitioning.
         apply(QWidget.__init__, (self,) + args)
         
         # initialize all storage devices
-        yali.storage.init_devices()
+        if not yali.storage.init_devices():
+            raise GUIException, _("Can't find a storage device!")
 
         self.partlist = PartList(self)
         self.partedit = PartEdit(self)

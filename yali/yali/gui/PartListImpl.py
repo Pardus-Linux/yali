@@ -27,6 +27,7 @@ import yali.parteddata as parteddata
 
 import yali.gui.context as ctx
 from yali.gui.partlistwidget import PartListWidget
+from yali.gui.GUIException import *
 
 
 
@@ -75,7 +76,8 @@ class PartList(PartListWidget):
 
     def resetChanges(self):
         yali.storage.clear_devices()
-        yali.storage.init_devices()
+        if not yali.storage.init_devices():
+            raise GUIException, _("Can't find a storage device!")
 
         ctx.partrequests.clear_all()
 

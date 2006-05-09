@@ -24,6 +24,7 @@ import yali.partitionrequest as request
 import yali.partitiontype as parttype
 from yali.gui.bootloaderwidget import BootLoaderWidget
 from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui.GUIException import *
 import yali.gui.context as ctx
 
 
@@ -65,7 +66,8 @@ loader.
 
 
         # initialize all storage devices
-        yali.storage.init_devices()
+        if not yali.storage.init_devices():
+            raise GUIException, _("Can't find a storage device!")
 
         if len(yali.storage.devices) > 1:
 

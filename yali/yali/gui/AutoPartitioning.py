@@ -27,6 +27,7 @@ import yali.parteddata as parteddata
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.autopartwidget import AutoPartWidget
 from yali.gui.YaliDialog import WarningDialog
+from yali.gui.GUIException import *
 import yali.gui.context as ctx
 
 
@@ -64,9 +65,9 @@ about disk partitioning.
         self.device_list.setPaletteBackgroundColor(ctx.consts.bg_color)
         self.device_list.setPaletteForegroundColor(ctx.consts.fg_color)
 
-
         # initialize all storage devices
-        yali.storage.init_devices()
+        if not yali.storage.init_devices():
+            raise GUIException, _("Can't find a storage device!")
 
         # fill device list
         for dev in yali.storage.devices:
