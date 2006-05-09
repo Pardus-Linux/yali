@@ -41,12 +41,17 @@ def init_devices(force = False):
     global devices
 
     if devices and not force:
-        return
+        return True
 
     devs = detect_all()
     for dev_path in devs:
         d = Device(dev_path)
         devices.append(d)
+
+    if devices:
+        return True
+
+    return False
 
 def clear_devices():
     global devices
@@ -427,10 +432,10 @@ def detect_all():
 
     # Check for sysfs. Only works for >2.6 kernels.
     if not os.path.exists("/sys/bus"):
-        raise BolError, "sysfs not found!"
+        raise DeviceError, "sysfs not found!"
     # Check for /proc/partitions
     if not os.path.exists("/proc/partitions"):
-        raise BolError, "/proc/partitions not found!"
+        raise DeviceError, "/proc/partitions not found!"
 
     partitions = []
     for line in open("/proc/partitions"):
@@ -447,7 +452,7 @@ def detect_all():
 
         partitions.append((major, minor, device))
 
-    devices = []
+    _devices = []
     # Scan sysfs for the device types.
     for dev_type in ["hd*", "sd*"]:
         sysfs_devs = glob.glob("/sys/block/" + dev_type)
@@ -462,6 +467,6 @@ def detect_all():
             # current block device.
             for record in partitions:
                 if major == record[0] and minor == record[1]:
-                    devices.append(record[2])
+                    _devices.append(record[2])
 
-    return devices
+    return _devices
