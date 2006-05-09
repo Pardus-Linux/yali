@@ -11,4 +11,11 @@ def main():
 
 if __name__ == "__main__":
     locale.setlocale(locale.LC_ALL, "")
+
+    try:
+        import psyco
+        psyco.full()
+    except ImportError:
+        pass
+
     main()
