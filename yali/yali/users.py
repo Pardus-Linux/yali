@@ -22,7 +22,7 @@ from yali.constants import consts
 
 
 # a set of User instances waiting...
-# we'll add these users at the in the last step of the installation.
+# we'll add these users at the last step of the installation.
 pending_users = set()
 
 
@@ -95,8 +95,8 @@ class User:
         if not os.path.exists(user_home_dir):
             os.system('cp -r %s %s' % (os.path.join(consts.target_dir, 'etc/skel'), user_home_dir))
         else:
-            for file in glob.glob("/etc/skel/.*"):
-                os.system("cp -fdr %s %s" % (file, user_home_dir))
+            for f in glob.glob("/etc/skel/.*"):
+                os.system("cp -fdr %s %s" % (f, user_home_dir))
 
         shutil.copy(head_images.next(), os.path.join(user_home_dir, '.face.icon'))
         os.chmod(os.path.join(user_home_dir, '.face.icon'), 0644)
