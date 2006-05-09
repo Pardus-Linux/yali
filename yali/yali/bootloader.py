@@ -12,7 +12,6 @@
 
 import os
 import glob
-import shutil
 
 import gettext
 __trans = gettext.translation('yali', fallback=True)
