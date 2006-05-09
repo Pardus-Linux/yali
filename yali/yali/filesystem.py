@@ -324,9 +324,9 @@ class NTFSFileSystem(FileSystem):
         lines = os.popen(cmd).readlines()
         
         MB = parteddata.MEGABYTE
-        min = 0
+        _min = 0
         for l in lines:
             if l.startswith("You might resize"):
-                min = int(l.split()[4]) / MB + 140
+                _min = int(l.split()[4]) / MB + 140
 
-        return min
+        return _min
