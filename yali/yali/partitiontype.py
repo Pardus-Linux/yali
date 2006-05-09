@@ -23,6 +23,9 @@ import yali.filesystem
 
 
 class PartitionType:
+
+    filesystem = None
+
     ##
     # is equal
     # @param rhs: PartitionType
