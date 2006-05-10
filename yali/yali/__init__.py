@@ -10,7 +10,7 @@
 # Please read the COPYING file.
 #
 
-__version__ = "1.1_alpha1"
+__version__ = "1.1_alpha2"
 
 
 import sys
