@@ -216,7 +216,7 @@ Have fun!
         # FIXME: I don't know if this is the right way to do
         # this. maybe postinstall can be used too.
         yali.localedata.write_locale_from_cmdline()
-        yali.localedata.write_font_from_cmdline(ctx.keydata)
+#        yali.localedata.write_font_from_cmdline(ctx.keydata)
 
 
         return True

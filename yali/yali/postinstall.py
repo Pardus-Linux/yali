@@ -59,5 +59,8 @@ def initbaselayout():
     src = "/etc/X11/xorg.conf"
     dst = os.path.join(consts.target_dir, "etc/X11/xorg.conf")
     if os.path.exists(src):
-        os.makedirs(os.path.dirname(dst))
+        try:
+            os.makedirs(os.path.dirname(dst))
+        except OSError:
+            pass
         shutil.copyfile(src, dst)

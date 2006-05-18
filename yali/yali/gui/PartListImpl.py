@@ -39,6 +39,8 @@ class PartList(PartListWidget):
         self.list.setPaletteBackgroundColor(ctx.consts.bg_color)
         self.list.setPaletteForegroundColor(ctx.consts.fg_color)
 
+        # first run for update()/addDevice()
+        self.firstRun = True
 
         # disable sorting
         self.list.setSorting(-1)
@@ -162,12 +164,23 @@ class PartList(PartListWidget):
                              part.getFSName())
             p.setData(part)
 
+            # use the first found "linux-swap" partition as swap in
+            # the firstRun...
+            if part.getFSName() == "linux-swap" and self.firstRun:
+                ctx.partrequests.append(
+                    request.MountRequest(part, parttype.swap))
+
+                ctx.partrequests.append(
+                    request.FormatRequest(part, parttype.swap))
+
         self.list.setOpen(d, True)
         try:
             self.list.setOpen(e, True)
         except:
             # no extended partition...
             pass
+
+        self.firstRun = False
 
     def slotItemSelected(self):
         item = self.list.currentItem()

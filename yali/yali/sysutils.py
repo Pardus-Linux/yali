@@ -94,7 +94,7 @@ def text_is_valid(text):
     return len(text) == len(filter(lambda u: [x for x in allowed_chars if x == u], text))
 
 def add_hostname(hostname = 'pardus'):
-    hostname_file = os.path.join(consts.target_dir, 'etc/conf.d/hostname')
+    hostname_file = os.path.join(consts.target_dir, 'etc/env.d/01hostname')
     hosts_file = os.path.join(consts.target_dir, 'etc/hosts')
 
     getCont, getFp = lambda x: open(x).readlines(), lambda x: open(x, 'w')
