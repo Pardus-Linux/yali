@@ -171,7 +171,9 @@ about disk partitioning.
 class DeviceItem(QListBoxText):
 
     def __init__(self, parent, dev):
-        text = "%s (%s)" %(dev.getModel(), dev.getSizeStr())
+        text = "%s - %s (%s)" %(dev.getModel(),
+                                dev.getName(),
+                                dev.getSizeStr())
         apply(QListBoxText.__init__, (self,parent,text))
         self._dev = dev
     
