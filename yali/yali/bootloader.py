@@ -25,7 +25,7 @@ default 0
 timeout 10
 splashimage = (%(grub_root)s)/boot/grub/splash.xpm.gz
 
-title=  %(pardus_version)s
+title %(pardus_version)s
 root (%(grub_root)s)
 kernel (%(grub_root)s)/boot/%(boot_kernel)s %(boot_parameters)s
 initrd=(%(grub_root)s)/boot/%(initrd)s 
@@ -33,7 +33,7 @@ initrd=(%(grub_root)s)/boot/%(initrd)s
 """
 
 win_part_tmp = """
-title= %(title)s (%(fs)s) - %(root)s
+title %(title)s (%(fs)s) - %(root)s
 rootnoverify (%(grub_root)s)
 makeactive
 chainloader +1
@@ -41,7 +41,7 @@ chainloader +1
 """
 
 win_part_tmp_multiple_disks = """
-title= %(title)s (%(fs)s) - %(root)s
+title %(title)s (%(fs)s) - %(root)s
 map (hd0) (hd1)
 map (hd1) (hd0)
 rootnoverify (%(grub_root)s)
