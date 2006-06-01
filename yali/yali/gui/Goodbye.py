@@ -143,7 +143,7 @@ class RebootWidget(QWidget):
 
 
         # dummy way to remove CD. But eject does it all for us :)
-        os.system("eject")
+        os.system("eject %s" % ctx.consts.source_dir)
 
         self.connect(self.reboot, SIGNAL("clicked()"),
                      self.slotReboot)
