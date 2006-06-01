@@ -24,6 +24,44 @@ import GUIRelNotes
 import GUINavButton
 
 
+class RelButton(QWidget):
+    
+    def __init__(self, *args):
+        apply(QWidget.__init__, (self,) + args)
+
+        self._layout = QHBoxLayout(self)
+        self._layout.setSpacing(5)
+
+        self.button = GUINavButton.YaliButton(self)
+        self._layout.addWidget(self.button)
+
+        self.label = QLabel(self)
+        self._layout.addWidget(self.label)
+
+        self.connect(self.button, PYSIGNAL("signalClicked"),
+                     PYSIGNAL("signalClicked"))
+
+    def setText(self, text):
+        self.label.setText(text)
+
+    def setIcon(self, icon):
+        self.button.setIcon(icon)
+        self.setFixedHeight(self.button.height())
+        
+
+    def mouseReleaseEvent(self, e):
+        self.button.mouseReleaseEvent(e)
+
+    def mousePressEvent(self, e):
+        self.button.mousePressEvent(e)
+
+    def enterEvent(self, e):
+        self.button.enterEvent(e)
+
+    def leaveEvent(self, e):
+        self.button.leaveEvent(e)
+
+
 ##
 # Top widget
 class Widget(QWidget):
@@ -40,7 +78,7 @@ class Widget(QWidget):
         self._layout.setMargin(10)
 
 
-        self.relNotes = GUINavButton.YaliButton(self)
+        self.relNotes = RelButton(self)
         self.relNotes.setIcon("relnotes_button")
         self.relNotes.setText(_("Release Notes"))
         self._layout.addWidget(self.relNotes)
