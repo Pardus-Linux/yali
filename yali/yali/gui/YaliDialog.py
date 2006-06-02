@@ -75,7 +75,7 @@ class Dialog(QDialog):
         layout = QGridLayout(frame, 1, 1, 1, 1)
         layout.setMargin(4)
         w.reparent(frame, 0, QPoint(0,0), True)
-        w.setPaletteBackgroundColor(QColor(79,79,79))
+        w.setPaletteBackgroundColor(ctx.consts.bg_color)
         w.setPaletteForegroundColor(ctx.consts.fg_color)
 
         hbox = QHBoxLayout(frame)
