@@ -45,6 +45,8 @@ class Widget(QMainWindow):
         self.connect(self, PYSIGNAL("signalWindowSize"),
                      self.topWidget.slotResize)
         self.connect(self, PYSIGNAL("signalWindowSize"),
+                     self.bottomWidget.slotResize)
+        self.connect(self, PYSIGNAL("signalWindowSize"),
                      self.helpWidget.slotResize)
 
         self.connect(ctx.screens, PYSIGNAL("nextButtonDisabled"),

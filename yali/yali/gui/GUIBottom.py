@@ -38,6 +38,12 @@ class RelButton(QWidget):
         self.label = QLabel(self)
         self._layout.addWidget(self.label)
 
+        self.tw = self.width()
+        self.th = self.height()
+        self.tx = self.x()
+        self.ty = self.y()
+        self.fixBackground()
+
         self.connect(self.button, PYSIGNAL("signalClicked"),
                      PYSIGNAL("signalClicked"))
 
@@ -48,6 +54,20 @@ class RelButton(QWidget):
         self.button.setIcon(icon)
         self.setFixedHeight(self.button.height())
         
+    def fixBackground(self):
+        self.pix = QPixmap(self.tw, self.th)
+        self.pix.fill(self.parent(), self.tx, self.ty)
+        self.setPaletteBackgroundPixmap(self.pix)
+
+    def resizeEvent(self, event):
+        self.tw = event.size().width()
+        self.th = event.size().height()
+        self.fixBackground()
+
+    def moveEvent(self, event):
+        self.tx = event.pos().x()
+        self.ty = event.pos().y()
+        self.fixBackground()
 
     def mouseReleaseEvent(self, e):
         self.button.mouseReleaseEvent(e)
@@ -69,9 +89,7 @@ class Widget(QWidget):
     def __init__(self, *args):
         apply(QWidget.__init__, (self,) + args)
         
-        pix = ctx.iconfactory.newPixmap("bottom_image")
-        self.setPaletteBackgroundPixmap(pix)
-        self.setFixedHeight(pix.height())
+        self.img = ctx.iconfactory.newImage("bottom_image")
 
         self._layout = QHBoxLayout(self)
         self._layout.setSpacing(20)
@@ -111,6 +129,17 @@ class Widget(QWidget):
         w = self.parent().width()/8 - self.prevButton.width() - 10
 
         self.buttonSpacer.changeSize(w, 20, QSizePolicy.Fixed, QSizePolicy.Fixed)
+
+
+    def slotResize(self, obj, size):
+        img_w = self.img.width()
+        img_h = self.img.height()
+        width = size.width()
+        height = img_h * width / img_w
+        self.setFixedHeight(height)
+
+        img = self.img.smoothScale(self.size())
+        self.setPaletteBackgroundPixmap(QPixmap(img))
 
 
     def showReleaseNotes(self):
