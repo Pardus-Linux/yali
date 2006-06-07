@@ -97,20 +97,36 @@ def add_hostname(hostname = 'pardus'):
     hostname_file = os.path.join(consts.target_dir, 'etc/env.d/01hostname')
     hosts_file = os.path.join(consts.target_dir, 'etc/hosts')
 
-    getCont, getFp = lambda x: open(x).readlines(), lambda x: open(x, 'w')
 
-    hostname_contents, hosts_contents = getCont(hostname_file), getCont(hosts_file)
+    def getCont(x):
+        return open(x).readlines()
+    def getFp(x):
+        return open(x, "w")
+
     hostname_fp, hosts_fp = getFp(hostname_file), getFp(hosts_file)
+    hostname_contents = ""
+    hosts_contents = ""
+    if os.path.exists(hostname_file):
+        hostname_contents = getCont(hostname_file)
+    if os.path.exists(hosts_file):
+        hosts_contents = getCont(hosts_file)
 
-    for line in hostname_contents:
-        if line.startswith('HOSTNAME'):
-            line = 'HOSTNAME="%s"\n' % hostname
-        hostname_fp.write(line)
-    hostname_fp.close()
+    if hostname_contents:
+        for line in hostname_contents:
+            if line.startswith('HOSTNAME'):
+                line = 'HOSTNAME="%s"\n' % hostname
+            hostname_fp.write(line)
+        hostname_fp.close()
+    else:
+        hostname_fp.write('HOSTNAME="%s"\n' % hostname)
 
-    for line in hosts_contents:
-        if line.startswith('127.0.0.1'):
-            line = '127.0.0.1\t\tlocalhost %s\n' % hostname
-        hosts_fp.write(line)
-    hosts_fp.close()
+    if hosts_contents:
+        for line in hosts_contents:
+            if line.startswith('127.0.0.1'):
+                line = '127.0.0.1\t\tlocalhost %s\n' % hostname
+            hosts_fp.write(line)
+        hosts_fp.close()
+    else:
+        hosts_fp.write('127.0.0.1\t\tlocalhost %s\n' % hostname)
+
 
