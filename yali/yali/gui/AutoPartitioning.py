@@ -157,11 +157,6 @@ about disk partitioning.
         self.updateUI()
 
     def updateUI(self):
-        if self.enable_auto:
-           self.device_list.setEnabled(True)
-        else:
-           self.device_list.setEnabled(False)
-        
         if self.enable_next:
             ctx.screens.enableNext()
         else:
