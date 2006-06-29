@@ -59,8 +59,6 @@ about disk partitioning.
         
         self.device = None
         self.enable_next = False
-        self.enable_auto = False
-
         
         self.device_list.setPaletteBackgroundColor(ctx.consts.bg_color)
         self.device_list.setPaletteForegroundColor(ctx.consts.fg_color)
@@ -147,13 +145,11 @@ about disk partitioning.
 
     def slotSelectAuto(self):
         self.enable_next = True
-        self.enable_auto = True
         self.device = self.device_list.selectedItem().getDevice()
         self.updateUI()
 
     def slotSelectManual(self):
         self.enable_next = True
-        self.enable_auto = False
         self.updateUI()
 
     def updateUI(self):
