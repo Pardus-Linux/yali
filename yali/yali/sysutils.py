@@ -13,6 +13,7 @@
 # sysutils module provides basic system utilities
 
 import os
+import mount
 from string import ascii_letters
 from string import digits
 
@@ -129,4 +130,21 @@ def add_hostname(hostname = 'pardus'):
     else:
         hosts_fp.write('127.0.0.1\t\tlocalhost %s\n' % hostname)
 
+
+def is_windows_boot(partition_path, file_system):
+    m_dir = "/tmp/pcheck"
+    if not os.path.isdir(m_dir):
+        os.makedirs(m_dir)
+
+    try:
+        mount.mount(partition_path, m_dir, file_system)
+    except:
+        return False
+
+    if os.path.exists(os.path.join(m_dir, 'boot.ini')):
+        mount.umount(m_dir)
+        return True
+    else:
+        mount.umount(m_dir)
+        return False
 

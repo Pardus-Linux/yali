@@ -22,6 +22,7 @@ import yali.storage
 import yali.bootloader
 import yali.partitionrequest as request
 import yali.partitiontype as parttype
+from yali.sysutils import is_windows_boot
 from yali.gui.bootloaderwidget import BootLoaderWidget
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.GUIException import *
@@ -118,10 +119,13 @@ loader.
             for p in d.getPartitions():
                 fs = p.getFSName()
                 if fs in ("ntfs", "fat32"):
-                    loader.win_fs = fs
-                    loader.win_dev = basename(p.getDevicePath())
-                    loader.win_root = basename(p.getPath())
-                    loader.grub_conf_append_win()
+                    if is_windows_boot(p.getPath(), fs):
+                        loader.win_fs = fs
+                        loader.win_dev = basename(p.getDevicePath())
+                        loader.win_root = basename(p.getPath())
+                        loader.grub_conf_append_win(p.getPath(), fs)
+                        continue
+
 
         print self.install_bootloader.isChecked()
         if self.install_bootloader.isChecked():
