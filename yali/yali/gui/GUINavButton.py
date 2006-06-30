@@ -47,6 +47,7 @@ class YaliButton(QWidget):
         self._pix_pressed = None
         self._pix_disabled = None
         self._enabled = True
+        self._over = False
         self._text = None
 
     def setIcon(self, icon_name):
@@ -96,13 +97,20 @@ class YaliButton(QWidget):
     def setEnabled(self, b = True):
         self._enabled = b
 
+        # our signals are a bit lazy so trigger this a bit late...
+        # bug #1548
+        QTimer.singleShot(50, self.updateUi)
+
+    def updateUi(self):
         if self._enabled:
-            self.setPixmap(self._pix)
             self.setCursor(QCursor(13))
+            if self._over:
+                self.setPixmap(self._pix_over)
+            else:
+                self.setPixmap(self._pix)
         else:
-            self.setPixmap(self._pix_disabled)
             self.setCursor(QCursor(0))
-            
+            self.setPixmap(self._pix_disabled)
 
     def mouseReleaseEvent(self, e):
         if self._enabled:
@@ -118,12 +126,14 @@ class YaliButton(QWidget):
             self.setPixmap(self._pix_disabled)
 
     def enterEvent(self, e):
+        self._over = True
         if self._enabled:
             self.setPixmap(self._pix_over)
         else:
             self.setPixmap(self._pix_disabled)
 
     def leaveEvent(self, e):
+        self._over = False
         if self._enabled:
             self.setPixmap(self._pix)
         else:
