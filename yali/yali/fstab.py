@@ -27,7 +27,7 @@ class FstabEntry:
         self.p = p
     
 standard_entries = [
-    FstabEntry("/dev/fd0", "/media/floopy", "auto", "noauto,user,sync")]
+    FstabEntry("/dev/fd0", "/media/floppy", "auto", "noauto,user,sync")]
     FstabEntry("none", "/proc", "proc", "defaults"),
     FstabEntry("none", "/dev/shm", "tmpfs", "defaults")]
 
