@@ -35,46 +35,8 @@ class _constant:
 
 class Constants:
 
-    __c = _constant()
-
     def __init__(self):
-
-        self.__c.pardus_version = "Pardus 1.1"
-
-        self.__c.log_file = "/tmp/install.log"
-
-        # directories
-        self.__c.data_dir = "/usr/share/yali"
-
-        self.__c.mnt_dir = "/mnt"
-        # new system will be installed directly into this target directory
-        self.__c.target_dir = join(self.__c.mnt_dir, "target")
-        # packages (and maybe others) will be in this source (cdrom) directory
-        self.__c.source_dir = join(self.__c.mnt_dir, "cdrom")
-
-        # comar socket path
-        self.__c.comar_socket_file = self.__c.target_dir + "/var/run/comar.socket"
-
-        # swap file path
-        self.__c.swap_file_name = ".swap"
-        self.__c.swap_file_path = join(self.__c.target_dir, 
-                                       self.__c.swap_file_name)
-
-        # user faces
-        self.__c.user_faces_dir = join(self.__c.data_dir, "user_faces")
-
-
-        # pisi repository
-        self.__c.cd_repo_name = "pardus-cd"
-        self.__c.cd_repo_uri = join(self.__c.source_dir, "repo/pisi-index.xml")
-
-        # pardus repository
-        self.__c.pardus_repo_name = "pardus-1"
-        self.__c.pardus_repo_uri = "http://paketler.uludag.org.tr/pardus-1/pisi-index.xml.bz2"
-
-
-        # min root partition size
-        self.__c.min_root_size = 3500
+        self.__c = _constant()
 
     def __getattr__(self, attr):
         return getattr(self.__c, attr)
@@ -86,7 +48,45 @@ class Constants:
         delattr(self.__c, attr)
 
 
+
 consts = Constants()
+
+consts.pardus_version = "Pardus 1.1"
+
+consts.log_file = "/tmp/install.log"
+
+consts.data_dir = "/usr/share/yali"
+
+consts.mnt_dir = "/mnt"
+
+# new system will be installed directly into this target directory
+consts.target_dir = join(consts.mnt_dir, "target")
+
+# packages (and maybe others) will be in this source (cdrom) directory
+consts.source_dir = join(consts.mnt_dir, "cdrom")
+
+# comar socket path
+consts.comar_socket_file = consts.target_dir + "/var/run/comar.socket"
+
+# swap file path
+consts.swap_file_name = ".swap"
+consts.swap_file_path = join(consts.target_dir, 
+                             consts.swap_file_name)
+
+# user faces (for KDM)
+consts.user_faces_dir = join(consts.data_dir, "user_faces")
+
+# pisi repository
+consts.cd_repo_name = "pardus-cd"
+consts.cd_repo_uri = join(consts.source_dir, "repo/pisi-index.xml")
+
+# pardus repository
+consts.pardus_repo_name = "pardus-1"
+consts.pardus_repo_uri = "http://paketler.uludag.org.tr/pardus-1/pisi-index.xml.bz2"
+
+# min root partition size
+consts.min_root_size = 3500
+
 try:
     consts.lang = locale.getlocale()[0][:2]
 except:
