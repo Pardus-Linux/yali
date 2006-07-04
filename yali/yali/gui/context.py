@@ -13,7 +13,6 @@
 from os.path import join
 from qt import *
 
-from yali.log import logger
 import yali.partitionrequest as request
 import yali.constants
 import yali.gui.stages
