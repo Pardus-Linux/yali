@@ -30,7 +30,6 @@ def initialize(ui, with_comar=False):
     options = pisi.config.Options()
     options.destdir = consts.target_dir
     options.yes_all = True
-    options.bypass_ldconfig = True
     # giving "comar = false" isn't enough for pisi 
     if with_comar:
         # wait for chroot_comar to initialize
