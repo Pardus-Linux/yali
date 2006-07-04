@@ -35,8 +35,8 @@ class _constant:
 
 class Constants:
 
-    def __init__(self):
-        self.__c = _constant()
+
+    __c = _constant()
 
     def __getattr__(self, attr):
         return getattr(self.__c, attr)
