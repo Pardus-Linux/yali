@@ -35,7 +35,6 @@ class _constant:
 
 class Constants:
 
-
     __c = _constant()
 
     def __getattr__(self, attr):
