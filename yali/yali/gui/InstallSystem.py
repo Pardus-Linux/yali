@@ -207,7 +207,7 @@ Have fun!
         yali.pisiiface.finalize()
 
         # FIXME: move to sysutils
-        os.system("chroot /mnt/target /usr/bin/update-environ.py")
+        os.system("chroot /mnt/target /sbin/update-environment")
 
         # stop slide show
         self.timer.stop()
