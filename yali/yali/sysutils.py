@@ -44,19 +44,24 @@ def chroot_comar():
     tgt = os.path.join(consts.target_dir, "proc")
     os.system("mount --bind /proc %s" % tgt)
 
+
+
     pid = os.fork()
     if pid == 0: # in child
         os.chroot(consts.target_dir)
         os.system("/sbin/ldconfig")
 
-        comar_out = open("/tmp/comar.out", "w")
-        comar_err = open("/tmp/comar.err", "w")
-        os.dup2(comar_out.fileno(), 1)
-        os.dup2(comar_err.fileno(), 2)
-
         os.environ["PATH"]="/bin:/sbin:/usr/bin:/usr/sbin"
-        comar_path = "/usr/bin/comar"
-        os.execve(comar_path, ["/usr/bin/comar", "--debug", "perf"], os.environ)
+        os.system("/bin/service comar start")
+
+#         comar_out = open("/tmp/comar.out", "w")
+#         comar_err = open("/tmp/comar.err", "w")
+#         os.dup2(comar_out.fileno(), 1)
+#         os.dup2(comar_err.fileno(), 2)
+
+#         os.environ["PATH"]="/bin:/sbin:/usr/bin:/usr/sbin"
+#         comar_path = "/usr/bin/comar"
+#         os.execve(comar_path, ["/usr/bin/comar", "--debug", "perf"], os.environ)
 
 
 def swap_as_file(filepath, mb_size):
