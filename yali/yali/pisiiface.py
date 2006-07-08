@@ -97,7 +97,7 @@ def configure_pending():
                consts.target_dir + consts.target_dir)
 
     # run baselayout's postinstall first
-    yali.postinstall.initbaselayout()
+    #yali.postinstall.initbaselayout()
 
     pisi.api.configure_pending()
 

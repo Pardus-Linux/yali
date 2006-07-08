@@ -24,6 +24,7 @@ import pisi.ui
 
 import yali.pisiiface
 import yali.fstab
+import yali.postinstall
 import yali.sysutils
 import yali.localedata
 import yali.partitionrequest as request
@@ -192,6 +193,7 @@ Have fun!
         fstab.close()
 
         # Configure Pending...       
+        yali.postinstall.initbaselayout()
         yali.sysutils.chroot_comar() # run comar in chroot
         self.info.setText(_("Configuring packages for your system!"))
         # re-initialize pisi with comar this time.
