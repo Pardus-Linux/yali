@@ -209,9 +209,6 @@ Have fun!
         yali.pisiiface.configure_pending()
         yali.pisiiface.finalize()
 
-        # FIXME: move to sysutils
-        os.system("chroot /mnt/target /sbin/update-environment")
-
         # stop slide show
         self.timer.stop()
 

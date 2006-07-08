@@ -52,6 +52,7 @@ def chroot_comar():
     if pid == 0: # in child
         os.chroot(consts.target_dir)
         os.system("/sbin/ldconfig")
+        os.system("/sbin/update-environment")
 
         os.environ["PATH"]="/bin:/sbin:/usr/bin:/usr/sbin"
         os.execve("/bin/service", ["/bin/service", "comar", "start"], os.environ)
