@@ -43,6 +43,8 @@ def chroot_comar():
     os.system("mount --bind /dev %s" % tgt)
     tgt = os.path.join(consts.target_dir, "proc")
     os.system("mount --bind /proc %s" % tgt)
+    tgt = os.path.join(consts.target_dir, "sys")
+    os.system("mount --bind /sys %s" % tgt)
 
 
 
