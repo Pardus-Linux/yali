@@ -52,7 +52,7 @@ def chroot_comar():
         os.system("/sbin/ldconfig")
 
         os.environ["PATH"]="/bin:/sbin:/usr/bin:/usr/sbin"
-        os.execve(["/bin/service", ["/bin/service", "comar", "start"], os.environ)
+        os.execve("/bin/service", ["/bin/service", "comar", "start"], os.environ)
 
 #         comar_out = open("/tmp/comar.out", "w")
 #         comar_err = open("/tmp/comar.err", "w")
