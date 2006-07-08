@@ -96,9 +96,6 @@ def configure_pending():
     os.symlink("/",
                consts.target_dir + consts.target_dir)
 
-    # run baselayout's postinstall first
-    #yali.postinstall.initbaselayout()
-
     pisi.api.configure_pending()
 
     os.unlink(consts.target_dir + consts.target_dir)

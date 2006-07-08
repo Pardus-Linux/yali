@@ -193,6 +193,7 @@ Have fun!
         fstab.close()
 
         # Configure Pending...       
+        # run baselayout's postinstall first
         yali.postinstall.initbaselayout()
         yali.sysutils.chroot_comar() # run comar in chroot
         self.info.setText(_("Configuring packages for your system!"))
