@@ -28,7 +28,7 @@ splashimage = (%(grub_root)s)/boot/grub/splash.xpm.gz
 title %(pardus_version)s
 root (%(grub_root)s)
 kernel (%(grub_root)s)/boot/%(boot_kernel)s %(boot_parameters)s
-initrd=(%(grub_root)s)/boot/%(initrd)s 
+initrd (%(grub_root)s)/boot/%(initramfs)s 
 
 """
 
@@ -95,9 +95,9 @@ class BootLoader:
             k = glob.glob(d + "/kernel-*")
             return os.path.basename(k[0])
         
-        def find_initrd_name(bk):
+        def find_initramfs_name(bk):
             ver = bk[len("kernel-"):]
-            return "initrd-%s" % ver
+            return "initramfs-%s" % ver
     
         def boot_parameters_from_cmdline(root):
             s = []
@@ -109,14 +109,14 @@ class BootLoader:
             return " ".join(s).strip()
  
         boot_kernel = find_boot_kernel()
-        initrd_name = find_initrd_name(boot_kernel)
+        initramfs_name = find_initramfs_name(boot_kernel)
         boot_parameters =  boot_parameters_from_cmdline(self.install_root)
         s = grub_conf_tmp % {"root": self.install_root,
                              "grub_root": grub_root,
                              "pardus_version": consts.pardus_version,
                              "boot_kernel": boot_kernel,
                              "boot_parameters": boot_parameters,
-                             "initrd": initrd_name}
+                             "initramfs": initramfs_name}
         open(self.grub_conf, "w").write(s)
 
 
