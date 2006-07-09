@@ -123,7 +123,7 @@ loader.
                         loader.win_fs = fs
                         loader.win_dev = basename(p.getDevicePath())
                         loader.win_root = basename(p.getPath())
-                        loader.grub_conf_append_win(p.getPath(), fs)
+                        loader.grub_conf_append_win()
                         continue
 
 
