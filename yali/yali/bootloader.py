@@ -101,11 +101,19 @@ class BootLoader:
     
         def boot_parameters_from_cmdline(root):
             s = []
-            for i in [x for x in open("/proc/cmdline", "r").read().split() if not x.startswith("cdroot") if not x.startswith("init=") if not x.startswith("mudur")]:
+            for i in [x for x in open("/proc/cmdline", "r").read().split() if not x.startswith("cdroot") if not x.startswith("init=")]:
+
                 if i.startswith("root="):
-                     s.append("root=/dev/%s" % (root))
+                    s.append("root=/dev/%s" % (root))
+                elif i.startswith("mudur="):
+                    mudur = "mudur="
+                    for p in i[len("mudur="):].split(','):
+                        if p == "livecd": continue
+                        mudur += p
+                    if not len(mudur) == len("mudur="):
+                        s.append(mudur)
                 else:
-                     s.append(i)
+                    s.append(i)
             return " ".join(s).strip()
  
         boot_kernel = find_boot_kernel()
