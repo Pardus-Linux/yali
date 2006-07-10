@@ -68,7 +68,6 @@ Depending on your hardware or choice select a keyboard layout from the list.
 
     def execute(self):
         keydata = self.keyboard_list.selectedItem().getData()
-        yali.keyboard.write_keymap(keydata["keymap"])
 
         ctx.keydata = keydata
 

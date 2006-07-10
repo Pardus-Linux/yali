@@ -16,6 +16,7 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
+from yali.constants import consts
 
 
 keyboards = {
@@ -39,12 +40,13 @@ keyboards = {
 def set_keymap(keymap):
     os.system("setxkbmap -layout %s" % keymap)
 
-def write_keymap(keymap):
 
+def write_keymap(keymap):
+    mudur_file_path = os.path.join(consts.target_dir, "etc/conf.d/mudur")
     lines = []
-    for l in open("/etc/conf.d/mudur", "r").readlines():
+    for l in open(mudur_file_path, "r").readlines():
         if l.strip().startswith('keymap=') or l.strip().startswith('#keymap='):
             l = 'keymap="%s"\n' % keymap
         lines.append(l)
 
-    open("/etc/conf.d/mudur", "w").writelines(lines)
+    open(mudur_file_path, "w").writelines(lines)

@@ -23,6 +23,7 @@ import reboot
 
 import yali.sysutils
 import yali.users
+import yali.keyboard
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.YaliDialog import WarningDialog
 import yali.gui.context as ctx
@@ -109,8 +110,13 @@ don't you?
 
     # process pending actions defined in other screens.
     def processPendingActions(self):
+        # add users
         for u in yali.users.pending_users:
             u.addUser()
+
+        # write keyboard data
+        yali.keyboard.write_keymap(ctx.keydata["keymap"])
+
 
 
 class RebootWidget(QWidget):
