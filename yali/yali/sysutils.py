@@ -145,7 +145,10 @@ def is_windows_boot(partition_path, file_system):
         os.makedirs(m_dir)
 
     try:
-        mount.mount(partition_path, m_dir, file_system)
+        if file_system == "fat32":
+            mount.mount(partition_path, m_dir, "vfat")
+        else:
+            mount.mount(partition_path, m_dir, file_system)
     except:
         return False
 
