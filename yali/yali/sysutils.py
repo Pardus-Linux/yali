@@ -152,7 +152,9 @@ def is_windows_boot(partition_path, file_system):
     except:
         return False
 
-    if os.path.exists(os.path.join(m_dir, 'boot.ini')):
+    exist = lambda f: os.path.exists(os.path.join(m_dir, f))
+
+    if exist("boot.ini") or exist("command.com"):
         mount.umount(m_dir)
         return True
     else:
