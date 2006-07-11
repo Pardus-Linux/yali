@@ -25,21 +25,26 @@ class FstabEntry:
         self.options = opts
         self.d = d
         self.p = p
-    
+
+fstab_header = """# See the manpage fstab(5) for more information.
+#
+# <fs>      <mountpoint>         <type>    <opts>               <dump/pass>
+
+"""
 standard_entries = [
     FstabEntry("none", "/proc", "proc", "defaults"),
     FstabEntry("none", "/dev/shm", "tmpfs", "defaults")]
 
 class Fstab(file):
     
-    _path = join(consts.target_dir, "etc/fstab")
+    _path = join(consts.target_dir, "/tmp/zit")
 
     def __init__(self):
         file.__init__(self, self._path, "w")
-
+        self.write(fstab_header)
 
     def insert(self, e):
-        l = "%s\t%s\t%s\t%s\t%s %s\n" % (
+        l = "%-11s %-20s %-9s %-20s %s %s\n" % (
             e.device, e.mountpoint, e.filesystem,
             e.options, e.d, e.p)
         self.write(l)
