@@ -36,8 +36,8 @@ standard_entries = [
     FstabEntry("none", "/dev/shm", "tmpfs", "defaults")]
 
 class Fstab(file):
-    
-    _path = join(consts.target_dir, "/tmp/zit")
+
+    _path = join(consts.target_dir, "etc/fstab")
 
     def __init__(self):
         file.__init__(self, self._path, "w")
