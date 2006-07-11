@@ -55,12 +55,14 @@ def initbaselayout():
     chgrp("var/log/wtmp", "utmp")
 
 
+def migrate_xorg_conf(keymap="trq"):
     # copy xorg.conf.
     src = "/etc/X11/xorg.conf"
-    dst = os.path.join(consts.target_dir, "etc/X11/xorg.conf")
     if os.path.exists(src):
-        try:
-            os.makedirs(os.path.dirname(dst))
-        except OSError:
-            pass
-        shutil.copyfile(src, dst)
+        dst = open(os.path.join(consts.target_dir, "etc/X11/xorg.conf"), "w")
+        for l in open(src, "r"):
+            if l.find("XkbLayout") != -1:
+                l = '    Option    "XkbLayout" "%s"\n' %(keymap)
+            dst.write(l)
+        dst.close()
+

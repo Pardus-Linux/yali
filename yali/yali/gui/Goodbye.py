@@ -24,6 +24,7 @@ import reboot
 import yali.sysutils
 import yali.users
 import yali.keyboard
+import yali.postinstall
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.YaliDialog import WarningDialog
 import yali.gui.context as ctx
@@ -116,6 +117,9 @@ don't you?
 
         # write keyboard data
         yali.keyboard.write_keymap(ctx.keydata["keymap"])
+
+        # migrate xorg.conf
+        yali.postinstall.migrate_xorg_conf(ctx.keydata["keymap"])
 
 
 
