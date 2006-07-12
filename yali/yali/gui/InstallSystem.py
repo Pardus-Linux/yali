@@ -275,7 +275,7 @@ class PkgInstaller(QThread):
         # User+2: set total steps
         qevent = QCustomEvent(QEvent.User+2)
         qevent.setData(total)
-        QThread.postEvent(self._widget, qevent)
+        QApplication.postEvent(self._widget, qevent)
 
 
         try:
@@ -284,12 +284,12 @@ class PkgInstaller(QThread):
             # User+10: error
             qevent = QCustomEvent(QEvent.User+10)
             qevent.setData(e)
-            QThread.postEvent(self._widget, qevent)
+            QApplication.postEvent(self._widget, qevent)
 
         
         # User+3: finished
         qevent = QCustomEvent(QEvent.User+3)
-        QThread.postEvent(self._widget, qevent)
+        QApplication.postEvent(self._widget, qevent)
 
 
 class PisiUI(pisi.ui.UI):
@@ -308,7 +308,7 @@ class PisiUI(pisi.ui.UI):
             data = [keywords['package'], event]
             qevent.setData(data)
 #            print "qevent", keywords['package'].name
-            QThread.postEvent(self._notify_widget, qevent)
+            QApplication.postEvent(self._notify_widget, qevent)
 
 
 
