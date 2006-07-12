@@ -100,7 +100,7 @@
                 <cstring>disclamer</cstring>
             </property>
             <property name="text">
-                <string>&lt;b&gt;Pardus 1.0&lt;/b&gt; is licensed under GNU GPL. You should accept it's license
+                <string>&lt;b&gt;Pardus&lt;/b&gt; is licensed under GNU GPL. You should accept it's license
 before installing it on your computer. Read GPL and select Accept to continue installing.</string>
             </property>
             <property name="alignment">
