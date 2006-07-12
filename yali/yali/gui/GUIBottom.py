@@ -25,7 +25,7 @@ import GUINavButton
 
 
 class RelButton(QWidget):
-    
+
     def __init__(self, *args):
         apply(QWidget.__init__, (self,) + args)
 
@@ -53,7 +53,7 @@ class RelButton(QWidget):
     def setIcon(self, icon):
         self.button.setIcon(icon)
         self.setFixedHeight(self.button.height())
-        
+
     def fixBackground(self):
         self.pix = QPixmap(self.tw, self.th)
         self.pix.fill(self.parent(), self.tx, self.ty)
@@ -88,7 +88,7 @@ class Widget(QWidget):
 
     def __init__(self, *args):
         apply(QWidget.__init__, (self,) + args)
-        
+
         self.img = ctx.iconfactory.newImage("bottom_image")
 
         self._layout = QHBoxLayout(self)
@@ -113,7 +113,7 @@ class Widget(QWidget):
         self.buttonSpacer = QSpacerItem(0, 0, QSizePolicy.Fixed, QSizePolicy.Fixed)
         buttons.addItem(self.buttonSpacer)
 
-        
+
         self.connect(self.relNotes, PYSIGNAL("signalClicked"),
                      self.showReleaseNotes)
 
@@ -147,7 +147,7 @@ class Widget(QWidget):
         r = GUIRelNotes.Widget(self)
         d = Dialog(_("Release Notes"), r, self)
         d.resize(500,400)
-        d.exec_loop()
+        d.show()
 
     ##
     # Go to the next screen.
