@@ -268,7 +268,7 @@ class PkgInstaller(QThread):
     def run(self):
         ui = PisiUI(self._widget)
 
-        yali.pisiiface.initialize(ui)
+        yali.pisiiface.initialize(ui, ignore_dependency=True)
 
         cd_repo_name = ctx.consts.cd_repo_name
         cd_repo_uri = ctx.consts.cd_repo_uri

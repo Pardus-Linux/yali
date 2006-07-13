@@ -25,11 +25,12 @@ import yali.postinstall
 from yali.constants import consts
 
 
-def initialize(ui, with_comar=False):
+def initialize(ui, with_comar=False, ingore_dependency=False):
 
     options = pisi.config.Options()
     options.destdir = consts.target_dir
     options.yes_all = True
+    options.ignore_dependency = ignore_dependency # bug: 3043
     # giving "comar = false" isn't enough for pisi 
     if with_comar:
         # wait for chroot_comar to initialize
