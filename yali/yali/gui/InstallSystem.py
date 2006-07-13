@@ -88,6 +88,7 @@ Have fun!
 
         self.total = 0
         self.cur = 0
+        self.hasErrors = False
 
     def shown(self):
         # initialize pisi
@@ -222,6 +223,9 @@ Have fun!
         return True
 
     def finished(self):
+        if self.hasErrors:
+            return
+
         # Remove cd repository and install add real
         cd_repo_name = ctx.consts.cd_repo_name # install repo on CD
         pardus_repo_name = ctx.consts.pardus_repo_name
@@ -240,6 +244,7 @@ Have fun!
         import yali
         import yali.gui.runner
 
+        self.hasErrors = True
         err_str = _('''An error during the installation of packages occured.
 
 This is possibly a broken Pardus CD or CD-ROM drive.
