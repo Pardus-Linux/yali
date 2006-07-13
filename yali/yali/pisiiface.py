@@ -25,7 +25,7 @@ import yali.postinstall
 from yali.constants import consts
 
 
-def initialize(ui, with_comar=False, ingore_dependency=False):
+def initialize(ui, with_comar=False, ignore_dependency=False):
 
     options = pisi.config.Options()
     options.destdir = consts.target_dir
