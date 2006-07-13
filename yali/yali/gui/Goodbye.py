@@ -153,12 +153,7 @@ class RebootWidget(QWidget):
 
 
         # dummy way to remove CD. But eject does it all for us :)
-        # Note: eject uses pumount if exists, else it uses umount.
-        # pumount only works for dirs under /media. So if it fails,
-        # eject fails, too. But the install system that Yali uses,
-        # does not have pumount, so it will use umount without a
-        # problem.
-        os.system("eject %s" % ctx.consts.source_dir)
+        os.system("eject")
 
         self.connect(self.reboot, SIGNAL("clicked()"),
                      self.slotReboot)
