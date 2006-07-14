@@ -38,7 +38,6 @@ class Widget(QWidget, ScreenWidget):
 
 
 <font size="+1">
-<p><b>Voila! You made it!</b></p>
 <p>
 You have successfully installed Pardus, a very easy to use desktop system on
 your machine. Now you can start playing with your system and stay productive
