@@ -41,7 +41,7 @@ easy interface will let you be more productive and efficient.
 </p>
 
 <p>
-This 6-click installation will install Pardus on your hardware,
+This software will install Pardus on your computer,
 without disrupting your previous documents and settings. However,
 we advise you to make a backup before proceeding. 
 </p>
