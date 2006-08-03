@@ -375,7 +375,7 @@ msgstr "'%s' aygıtı üzerindeki tüm disk bölümlerini silmek üzeresiniz!"
 #: yali/gui/PartEditImpl.py:113
 #, python-format
 msgid "You are going to delete partition '%s' on device '%s'!"
-msgstr "'%s' disk bölümünü '%s' aygıtından silmek üzeresiniz!"
+msgstr "'%s' numaralı disk bölümünü '%s' aygıtından silmek üzeresiniz!"
 
 #: yali/gui/PartEditImpl.py:161
 msgid "You must select a partition type from the list below."
