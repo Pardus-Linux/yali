@@ -1,0 +1,916 @@
+# translation of yali.po to Dutch
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Thijs Hulshof <thijs@fedoraproject.org>, 2006.
+# Rinse de Vries <rinsedevries@kde.nl>, 2006.
+# Willem Gielen <w.gielen@gmail.com>, 2006
+msgid ""
+msgstr ""
+"Project-Id-Version: yali\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-05-10 15:52+0300\n"
+"PO-Revision-Date: 2006-08-14 13:52+0200\n"
+"Last-Translator: Rinse de Vries <rinsedevries@kde.nl>\n"
+"Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+
+#: yali/gui/AutoPartitioning.py:36
+msgid ""
+"\n"
+"<font size=\"+2\">Automatic Partitioning</font>\n"
+"\n"
+"<font size=\"+1\">\n"
+"<p>\n"
+"Pardus can be installed on a variety of hardware. You can install Pardus\n"
+"on an empty disk or hard disk partition. <b>An installation will "
+"automatically\n"
+"destroy the previously saved information on selected partitions. </b>\n"
+"</p>\n"
+"<p>\n"
+"Automatic partitioning use your entire disk for Pardus installation. From \n"
+"this screen you can select to automatically partition one of you disks, or\n"
+"you can skip this screen and try manual partitioning.\n"
+"</p>\n"
+"<p>\n"
+"Please refer to Pardus Installing and Using Guide for more information\n"
+"about disk partitioning.\n"
+"</p>\n"
+"</font>\n"
+msgstr ""
+"\n"
+"<font size=\"+2\">Automatisch partitioneren</font>\n"
+"\n"
+"<font size=\"+1\">\n"
+"<p>\n"
+"Pardus kan geïnstalleerd worden op een veelvoud van hardwre. U kunt Pardus installeren op een lege harde schijf of op een lege partitie. <b>Een installatie zal automatisch\n alle gegevens op de geselecteerde partitie verwijderen. </b>\n"
+"</p>\n"
+"<p>\n"
+"Automatische partitionering gebruikt uw hele harde schijf voor de Pardus-installatie. In\n dit scherm kunt u een harde schijf of partitie selecteren om automatisch te partitioneren, of \n u kunt dit scherm overslaan en handmatig partitioneren.\n"
+"</p>\n"
+"<p>\n"
+"Refereer a.u.b. naar de Pardus-installatie- en gebruikshandleiding voor meer informatie\n  over schijfpartitionering.\n"
+"</p>\n"
+"</font>\n"
+
+#: yali/gui/AutoPartitioning.py:70 yali/gui/Partitioning.py:81
+#: yali/gui/PartListImpl.py:80 yali/gui/SetupBootloader.py:70
+msgid "Can't find a storage device!"
+msgstr "Kan geen opslagapparaat vinden!"
+
+#: yali/gui/AutoPartitioning.py:128
+msgid "<font color=\"#FF6D19\">Preparing your disk for installation!</font>"
+msgstr "<font color=\"#FF6D19\">Uw schijf wordt op de installatie voorbereid.</font>"
+
+#: yali/gui/AutoPartitioning.py:197
+msgid ""
+"<font size=\"+1\">\n"
+"<b>\n"
+"<p>This action will use your entire disk for Pardus installation and\n"
+"all your present data on the selected disk will be lost.</p>\n"
+"\n"
+"<p>After being sure you had your backup this is generally a safe\n"
+"and easy way to install Pardus.</p>\n"
+"</b>\n"
+"</font>\n"
+msgstr ""
+"<font size=\"+1\">\n"
+"<b>\n"
+"<p>Deze actie zal uw complete harde schijf gebruiken voor de installatie van Pardus en \n alle gegevens op de harde schijf zullen verloren gaan!</p>\n"
+"\n"
+"<p>Dit is over het algemeen een veilige een eenvoudige manier om Pardus te installeren.\n"
+"Maar maak wel een goede reservekopie van uw gegevens voordat u begint.</p>\n"
+"</b>\n"
+"</font>\n"
+
+#: yali/gui/AutoPartitioning.py:209 yali/gui/parteditbuttons.py:47
+#: yali/gui/Partitioning.py:216
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: yali/gui/AutoPartitioning.py:212 yali/gui/Partitioning.py:219
+msgid "O.K. Go Ahead"
+msgstr "O.K. Ga verder"
+
+#: yali/gui/autopartwidget.py:83 yali/gui/bootloaderwidget.py:71
+#: yali/gui/keyboardwidget.py:66 yali/gui/parteditbuttons.py:46
+#: yali/gui/parteditwidget.py:81 yali/gui/partlistwidget.py:85
+#: yali/gui/rootpasswidget.py:119 yali/gui/setupuserswidget.py:128
+#: yali/gui/welcomewidget.py:91
+msgid "Form1"
+msgstr "Form1"
+
+#: yali/gui/autopartwidget.py:84
+msgid ""
+"<font size=\"+1\"><b>Select the partitioning method:</b></font>\n"
+"\n"
+"<p>Below, you can select an hard disk for automatic partitioning.\n"
+"Selected disk will be used for Pardus installation.</p>\n"
+"\n"
+"<p><font color=\"#FF6D19\"><b><u>WARNING:</u></b>\n"
+"Automatic partitioning will use your entire disk for Pardus installation.\n"
+"All data on the selected disk will be lost!</font></p>"
+msgstr ""
+"<font size=\"+1\"><b>Selecteer de manier van partitioneren:</b></font>\n"
+"\n"
+"<p>Hier onder kunt u een harde schijf selecteren om automatisch te partitioneren.\n"
+"De geselecteerde schijf zal gebruikt worden voor de installatie van Pardus.</p>\n"
+"\n"
+"<p><font color=\"#FF6D19\"><b><u>WAARSCHUWING:</u></b>\n"
+"Automatische partitionering zal uw gehele harde schijf gebruiken voor de Pardus-installatie.\n"
+"Alle gegevens op de schijf zullen verloren gaan!</font></p>"
+
+#: yali/gui/autopartwidget.py:92
+msgid "&nbsp;"
+msgstr "&nbsp;"
+
+#: yali/gui/autopartwidget.py:94
+msgid "No, I'll partition my disk manually."
+msgstr "Nee, ik wil mijn schijf handmatig partitioneren."
+
+#: yali/gui/autopartwidget.py:95
+msgid "Yes, automatically partition and format selected disk!"
+msgstr "Ja, partitioneer automatisch en formatteer de geselecteerde harde schijf!"
+
+#: yali/gui/bootloaderwidget.py:72
+msgid ""
+"<b>Do you want to write boot loader (GRUB) to your hard disk's master boot "
+"record?</b>\n"
+"\n"
+"<p>You need a boot loader to boot your Pardus system.</p>\n"
+"\n"
+"<p>If you don't install a boot loader, you will have to configure your \n"
+"other operating system's loader  (if you have one installed) to start \n"
+"your newly installed Pardus.</p>"
+msgstr ""
+"<b>Wilt u de bootloader (GRUB) wegschrijven naar de master boot record van uw harde schijf?</b>\n"
+"\n"
+"<p>U hebt een bootloader nodig om uw Pardus-systeem te starten.</p>\n"
+"\n"
+"<p>Als u geen bootloader installeert, dan moet u de bootloader van uw andere besturingssysteem configureren om uw nieuw-geïnstalleerde Pardus te kunnen starten.</p>"
+
+#: yali/gui/bootloaderwidget.py:79
+msgid "Yes, Install Boot Loader"
+msgstr "Ja, installeer de bootloader"
+
+#: yali/gui/bootloaderwidget.py:80
+msgid "Select the disk you to install bootloader:"
+msgstr "Selecteer de schijf waarop u de bootloader wilt installeren:"
+
+#: yali/gui/Goodbye.py:34
+msgid ""
+"\n"
+"<font size=\"+2\">Congratulations</font>\n"
+"\n"
+"\n"
+"<font size=\"+1\">\n"
+"<p><b>Voila! You made it!</b></p>\n"
+"<p>\n"
+"You have successfully installed Pardus, a very easy to use desktop system "
+"on\n"
+"your machine. Now you can start playing with your system and stay "
+"productive\n"
+"all the time.\n"
+"</p>\n"
+"<P>\n"
+"Click on the Next button to proceed. One note: You remember your password,\n"
+"don't you?\n"
+"</p>\n"
+"</font>\n"
+msgstr ""
+"\n"
+"<font size=\"+2\">Gefeliciteerd!</font>\n"
+"\n"
+"<font size=\"+1\">\n"
+"<p><b>Voila! Het is u gelukt!</b></p>\n"
+"<p>\n"
+"U heeft succesvol Pardus op uw computer geïnstalleerd,\n"
+"een eenvoudig te gebruiken desktopsysteem "
+"Nu kunt u beginnen te spelen met uw systeem en altijd "
+"productief\n"
+"blijven.\n"
+"</p>\n"
+"<P>\n"
+"Klik op de knop Volgende om verder te gaan. Een opmerking: u weet uw wachtwoord nog, \n"
+"of niet?\n"
+"</p>\n"
+"</font>\n"
+
+#: yali/gui/Goodbye.py:60
+msgid ""
+"<b><font size=\"+2\" color=\"#FF6D19\">Rebooting system. Please wait!</"
+"font></b>"
+msgstr "<b><font size=\"+2\" color=\"#FF6D19\">Systeem wordt herstart. Ogenblik!</font></b>"
+
+#: yali/gui/Goodbye.py:126
+msgid ""
+"<font size=\"+1\">\n"
+"<b>\n"
+"<p>Please remove Pardus CD from your drive and pres Reboot button.</p>\n"
+"</b>\n"
+"</font>\n"
+msgstr ""
+"<font size=\"+1\">\n"
+"<b>\n"
+"<p>Verwijder alstublieft de Pardus-cd uit uw speler en druk op de knop Herstarten</p>\n"
+"</b>\n"
+"</font>\n"
+
+#: yali/gui/Goodbye.py:134
+msgid "Reboot"
+msgstr "Herstarten"
+
+#: yali/gui/GUIBottom.py:45 yali/gui/GUIBottom.py:81
+msgid "Release Notes"
+msgstr "Uitgavenotities"
+
+#: yali/gui/GUIGPL.py:53
+msgid "Can't open License file!"
+msgstr "Kan het licentiebestand niet openen"
+
+#: yali/gui/GUIRelNotes.py:53
+msgid "Can't open Release Notes file!"
+msgstr "Kan de uitgavenotities niet openen"
+
+#: yali/gui/InstallSystem.py:53
+msgid ""
+"\n"
+"<font size=\"+2\">Installation started</font>\n"
+"\n"
+"<font size=\"+1\">\n"
+"\n"
+"<p>\n"
+"Pardus is now being installed on your hard disk. \n"
+"</p>\n"
+"\n"
+"<p>\n"
+"The duration of this operation depends on the \n"
+"capability and power of your system. Meanwhile,\n"
+"you can enjoy some visual elements showing \n"
+"the distinctive properties of Pardus, your \n"
+"new operating system.\n"
+"</p>\n"
+"\n"
+"<p>\n"
+"Have fun!\n"
+"</p>\n"
+"</font>\n"
+msgstr ""
+"\n"
+"<font size=\"+2\">Installatie gestart</font>\n"
+"\n"
+"<font size=\"+1\">\n"
+"<p>\n"
+"Pardus wordt nu geïnstalleerd op uw harde schijf. \n"
+"</p>\n"
+"\n"
+"<p>\n"
+"De duur van deze operatie is afhankelijk van de\n"
+"kracht en snelheid van uw systeem. Ondertussen\n"
+"kunt u genieten van een presentatie die"
+"de onderscheidende eigenschappen \n"
+"van Pardus, uw nieuwe besturingssysteem, illustreert.\n"
+"</p>\n"
+"Veel plezier!\n"
+"</font>\n"
+
+#: yali/gui/InstallSystem.py:108 yali/gui/InstallSystem.py:134
+#, python-format
+msgid "Installing: %s<br>%s"
+msgstr "Installeert: %s<br>%s"
+
+#: yali/gui/InstallSystem.py:115 yali/gui/InstallSystem.py:140
+#, python-format
+msgid "Configuring package: %s"
+msgstr "Configureert pakket: %s"
+
+#: yali/gui/InstallSystem.py:196
+msgid "Configuring packages for your system!"
+msgstr "Configureert pakketen voor uw systeem"
+
+#: yali/gui/InstallSystem.py:243
+#, python-format
+msgid ""
+"An error during the installation of packages occured.\n"
+"\n"
+"This is possibly a broken Pardus CD or CD-ROM drive.\n"
+"\n"
+"Error:\n"
+"%s\n"
+msgstr ""
+"Er deed zich een fout voor tijdens de installatie van pakketten\n"
+"\n"
+"Mogelijk betreft het een defecte cd of cd-rom-speler.\n"
+"\n"
+"Fout:\n"
+"%s\n"
+
+#: yali/gui/installwidget.py:52
+msgid "Form3"
+msgstr "Form3"
+
+#: yali/gui/installwidget.py:53
+msgid "Installing Package: "
+msgstr "Installeert pakket: "
+
+#: yali/gui/installwidget.py:54 yali/gui/keyboardwidget.py:67
+#: yali/gui/welcomewidget.py:92
+msgid "pix"
+msgstr "pix"
+
+#: yali/gui/Keyboard.py:30
+msgid ""
+"\n"
+"<font size=\"+2\">Keyboard Setup</font>\n"
+"\n"
+"<font size=\"+1\">\n"
+"<p>\n"
+"Depending on your hardware or choice select a keyboard layout from the "
+"list.\n"
+"</p>\n"
+"</font>\n"
+msgstr ""
+"\n"
+"<font size=\"+2\">Toetsenbord instellen</font>\n"
+"\n"
+"<font size=\"+1\">\n"
+"<p>\n"
+"Kies in deze lijst de indeling van uw toetsenbord.\n"
+"</p>\n"
+"</font>\n"
+
+#: yali/gui/keyboardwidget.py:68
+msgid "Select the keyboard layout of your choice."
+msgstr "Selecteer een toetenbordindeling."
+
+#: yali/gui/keyboardwidget.py:69
+msgid "Test selected keyboard:"
+msgstr "Geselecteerd toetsenbord testen:"
+
+#: yali/gui/parteditbuttons.py:48
+msgid "Apply"
+msgstr "Toepassen"
+
+#: yali/gui/PartEditImpl.py:101
+#, python-format
+msgid "You are going to delete all partitions on device '%s'"
+msgstr "U staat op het punt alle partities te verwijderen op station '%s'"
+
+#: yali/gui/PartEditImpl.py:113
+#, python-format
+msgid "You are going to delete partition '%s' on device '%s'!"
+msgstr "U staat op het punt  partitie '%s' te verwijderen op station '%s'."
+
+#: yali/gui/PartEditImpl.py:161
+msgid "You must select a partition type from the list below."
+msgstr "Selecteer in onderstaande lijst een type partitionering."
+
+#: yali/gui/PartEditImpl.py:176 yali/gui/PartEditImpl.py:202
+#, python-format
+msgid "'Install Root' size must be larger than %s MB."
+msgstr "De grootte van de hoofdpartitie dient groter te zijn dan %s MB."
+
+#: yali/gui/PartEditImpl.py:278
+msgid "ntfsresize check failed! Won't proceed action!"
+msgstr "ntfsresize-controle mislukt! Ga niet verder!"
+
+#: yali/gui/parteditwidget.py:82
+msgid "Size (MB):"
+msgstr "Grootte (MB):"
+
+#: yali/gui/parteditwidget.py:83
+msgid "Use available free space"
+msgstr "Beschikbare vrije ruimte gebruiken"
+
+#: yali/gui/parteditwidget.py:85
+msgid "Format this partition"
+msgstr "Deze partitie formatteren"
+
+#: yali/gui/parteditwidget.py:87
+msgid " What do you want to store in this partition? "
+msgstr "Wat wilt u op deze partitie opslaan? "
+
+#: yali/gui/parteditwidget.py:88
+msgid "Pardus system files (mandatory)"
+msgstr "Pardus systeembestanden (vereist)"
+
+#: yali/gui/parteditwidget.py:89
+msgid "User files (optional)"
+msgstr "Gebruikersbestanden (optioneel)"
+
+#: yali/gui/parteditwidget.py:90
+msgid "Swap space (optional)"
+msgstr "Swap-ruimte (optioneel)"
+
+#: yali/gui/Partitioning.py:38
+msgid ""
+"\n"
+"<font size=\"+2\">Partitioning your hard disk</font>\n"
+"\n"
+"<font size=\"+1\">\n"
+"<p>\n"
+"Pardus can be installed on a variety of hardware. You can install Pardus\n"
+"on an empty disk or hard disk partition. <b>An installation will "
+"automatically\n"
+"destroy the previously saved information on selected partitions. </b>\n"
+"</p>\n"
+"<p>\n"
+"In order to use Pardus, you must create one Linux filesystem (for the \n"
+"system files), which is mandatory and a swap space \n"
+"(for improved performance), which is optional. \n"
+"We advise you to allocate at least 4 GBs of hard disk area and \n"
+"swap space (between 500 MB - 2 GB, according to your needs) for \n"
+"convenience. A Linux partition size less than 2.5 GB is not allowed.\n"
+"You may also optionally use another disk partition for storing \n"
+"user files.\n"
+"</p>\n"
+"<p>\n"
+"You need to format a Linux partition, if it's used for the first time.\n"
+"You can enable 'Use available free space' option, if the hard disk's \n"
+"remaining space is to be used automatically.\n"
+"</p>\n"
+"<p>\n"
+"The partition table shows the device, size, partition type and\n"
+"filesystem information. If the partition will be formatted during\n"
+"Pardus installation stage, then the corresponding 'Format' \n"
+"column will be enabled.\n"
+"</p>\n"
+"<p>\n"
+"Please refer to Pardus Installing and Using Guide for more information\n"
+"about disk partitioning.\n"
+"</p>\n"
+"</font>\n"
+msgstr ""
+"\n"
+"<font size=\"+2\">Partitioneren van uw harde schijf</font>\n"
+"\n"
+"<font size=\"+1\">\n"
+"<p>\n"
+"Pardus kan geïnstalleerd worden op verschillende hardware. U kunt Pardus installeren op een lege schijf of op een partitie van uw harde schijf. <b>Een installatie zal automatisch\n alle gegevens op geselecteerde partities vernietigen. </b>\n"
+"</p>\n"
+"<p>\n"
+"Om Pardus te gebruiken, moet u een Linux-bestandssysteem maken (voor de \n systeembestanden), wat verplicht is, en een swapruimte \n (voor betere prestaties), wat optioneel is. \n"
+"We adviseren u om tenminste 4 GB ruimte op de harde schijf beschikbaar te maken voor systeembestanden en 500MB tot 2 GB voor de swap. Een Linux-partitie kleiner dan 2.5GB is niet toegestaan.\n"
+"U mag ook, optioneel, een andere partitie gebruiken om de gebruikersbestanden\n op te slaan. \n"
+"</p>\n"
+"<p>\n"
+"U moet een Linux partitie formatteren, als dit de eerste keer is dat u het gebruikt.\n"
+"U kunt de optie 'Beschikbare vrije ruimte gebruiken' activeren als u vrije ruimte op de harde schijf automatisch wilt gebruiken.\n"
+"</p>\n"
+"<p>\n"
+"De partitietabel toont het station, grootte, type partitie en\n informatie over het bestandssysteem. Als een partitie geformatteerd zal worden,\n wordt de corresponderende 'Formatteer'-kolom geactiveerd.\n"
+"</p>\n"
+"<p>\n"
+"Refereer alstublieft naar de Pardus Installatie- en Gebruikershandleiding voor meer informatie\n over het partitioneren van harde schijven.\n"
+"</p>\n"
+"</font>\n"
+
+#: yali/gui/Partitioning.py:164
+msgid "Create Partition"
+msgstr "Partitie aanmaken"
+
+#: yali/gui/Partitioning.py:169
+msgid "Delete Partition"
+msgstr "Partitie verwijderen"
+
+#: yali/gui/Partitioning.py:174
+msgid "Edit Partition"
+msgstr "Partitie bewerken"
+
+#: yali/gui/Partitioning.py:179
+msgid "Resize Partition"
+msgstr "Partitiegrootte aanpassen"
+
+#: yali/gui/Partitioning.py:207
+msgid ""
+"<font size=\"+1\">\n"
+"<b>\n"
+"<p>This action will start installing Pardus on\n"
+"your system formatting the selected partition.</p>\n"
+"</b>\n"
+"</font>\n"
+msgstr ""
+"<font size=\"+1\">\n"
+"<b>\n"
+"<p>Deze actie zal de installatie van Pardus starten en zal de geselecteerde partities formatteren.</p>\n"
+"</b>\n"
+"</font>\n"
+
+#: yali/gui/PartListImpl.py:98
+#, python-format
+msgid "%0.1f GB free"
+msgstr "%0.1f GB beschikbaar"
+
+#: yali/gui/PartListImpl.py:100
+#, python-format
+msgid "%d MB free"
+msgstr "%d MB beschikbaar"
+
+#: yali/gui/PartListImpl.py:125
+msgid "Extended"
+msgstr "Uitgebreid"
+
+#: yali/gui/PartListImpl.py:154
+#, python-format
+msgid "Partition %d"
+msgstr "Partitie %d"
+
+#: yali/gui/PartListImpl.py:186
+msgid "Delete All Partitions"
+msgstr "Alle partities verwijderen"
+
+#: yali/gui/PartListImpl.py:212 yali/gui/partlistwidget.py:87
+msgid "Delete Selected Partition"
+msgstr "Geselecteerde partitie verwijderen"
+
+#: yali/gui/PartListImpl.py:283
+msgid "Formatting!"
+msgstr "Bezig met formatteren"
+
+#: yali/gui/PartListImpl.py:285
+msgid "YES"
+msgstr "JA"
+
+#: yali/gui/partlistwidget.py:47 yali/gui/partlistwidget.py:89
+msgid "Device"
+msgstr "Station"
+
+#: yali/gui/partlistwidget.py:48 yali/gui/partlistwidget.py:90
+msgid "Size"
+msgstr "Grootte"
+
+#: yali/gui/partlistwidget.py:49 yali/gui/partlistwidget.py:91
+msgid "Partition Type"
+msgstr "Partitietype"
+
+#: yali/gui/partlistwidget.py:50 yali/gui/partlistwidget.py:92
+msgid "Filesystem"
+msgstr "Bestandssysteem"
+
+#: yali/gui/partlistwidget.py:51 yali/gui/partlistwidget.py:93
+msgid "Format?"
+msgstr "Formatteren?"
+
+#: yali/gui/partlistwidget.py:86
+msgid "Create New Partition"
+msgstr "Nieuwe partitie aanmaken"
+
+#: yali/gui/partlistwidget.py:88
+msgid "Partitions:"
+msgstr "Partities:"
+
+#: yali/gui/partlistwidget.py:94
+msgid "Reset All Changes"
+msgstr "Alle wijzigingen ongedaan maken"
+
+#: yali/gui/partlistwidget.py:95
+msgid "Resize"
+msgstr "Grootte aanpassen"
+
+#: yali/gui/partlistwidget.py:96
+msgid "Edit"
+msgstr "Bewerken"
+
+#: yali/gui/rootpasswidget.py:122
+msgid "System administrator password:"
+msgstr "Wachtwoord systeembeheerder:"
+
+#: yali/gui/rootpasswidget.py:123
+msgid "System administrator password (again):"
+msgstr "Wachtwoord systeembeheerder (nogmaals):"
+
+#: yali/gui/rootpasswidget.py:125
+msgid ""
+"<p align=\"left\">System administrator user (root) handles important system "
+"maintanence tasks. Please give password for this special user and do not "
+"forget this password. Note that you shouldn't write this password elsewhere "
+"for privacy reasons.</p>"
+msgstr "<p align=\"left\">De systeembeheergebruiker (root) zorgt voor de belangrijke onderhoudstaken op het systeem. Geef een wachtwoord op voor deze speciale gebruiker, en vergeet het wachtwoord niet! Uit veiligheidsoverwegingen wordt het afgeraden het wachtwoord ergens op te schrijven. </p>"
+
+#: yali/gui/rootpasswidget.py:126
+msgid "Hostname:"
+msgstr "Hostnaam:"
+
+#: yali/gui/rootpasswidget.py:127
+msgid "pardus"
+msgstr "pardus"
+
+#: yali/gui/runner.py:51
+msgid "Prepare for install"
+msgstr "Installatie voorbereiden"
+
+#: yali/gui/runner.py:52
+msgid "Install system"
+msgstr "Systeem installeren"
+
+#: yali/gui/runner.py:53
+msgid "Basic setup"
+msgstr "Basisopzet"
+
+#: yali/gui/runner.py:152
+msgid "An error occured!"
+msgstr "Er is een fout opgetreden!"
+
+#: yali/gui/runner.py:157 yali/gui/welcomewidget.py:96
+msgid "Reboot System!"
+msgstr "Systeem herstarten!"
+
+#: yali/gui/SetupBootloader.py:35
+msgid ""
+"\n"
+"<font size=\"+2\">Boot loader setup</font>\n"
+"\n"
+"<font size=\"+1\">\n"
+"<p>\n"
+"Linux makes use of GRUB boot loader, which\n"
+"can boot the operating system of your taste\n"
+"during the start up. \n"
+"</p>\n"
+"<p>\n"
+"If you have more than one operating system,\n"
+"you can choose which operating system to \n"
+"boot also.\n"
+"</p>\n"
+"\n"
+"<p>\n"
+"Please refer to Pardus Installing and Using \n"
+"Guide for more information about GRUB boot \n"
+"loader.\n"
+"</p>\n"
+"</font>\n"
+msgstr ""
+"\n"
+"<font size=\"+2\">Bootloader instellen</font>\n"
+"\n"
+"<font size=\"+1\">\n"
+"<p>\n"
+"Linux maakt gebruik van de bootloader GRUb, waarmee\n u uw favoriete besturingssysteem kunt opstarten.\n"
+"</p>\n"
+"<p>\n"
+"Als u meer dan één besturingssysteem hebt \n kunt u kiezen welk besturingssysteem u wilt starten.\n"
+"</p>\n"
+"\n"
+"<p>\n"
+"Lees de Pardus Installatie- & Gebruikshandleiding voor\n meer informatie over GRUB.\n"
+"</p>\n"
+"</font>\n"
+
+#: yali/gui/SetupRootpass.py:32
+msgid ""
+"\n"
+"<font size=\"+2\">System administrator password and hostname</font>\n"
+"\n"
+"<font size=\"+1\">\n"
+"\n"
+"<p>Please give a password for the system administrator (i.e root) for your\n"
+"system. This password should be unique and private, as it is used to \n"
+"manage your desktop. Choose a password difficult to guess, but easy\n"
+"to remember. \n"
+"</p>\n"
+"<p>\n"
+"The password may include upper and lower case characters, numbers and \n"
+"punctuation marks. Do not use Turkish characters or accents, as they\n"
+"may impose some problems.\n"
+"</p>\n"
+"\n"
+"<p>\n"
+"And also set the name that the computer will be identified to the network it "
+"belongs. The hostname should be descriptive enough to describe the "
+"computer.  \n"
+"</p>\n"
+"\n"
+"<p>\n"
+"Click Next button to proceed.\n"
+"</p>\n"
+"</font>\n"
+msgstr ""
+"\n"
+"<font size=\"+2\">Systembeheerwachtwoord en hostnaam</font>\n"
+"\n"
+"<font size=\"+1\">\n"
+"\n"
+"<p>Geef alstublieft een wachtwoord voor de systeembeheerder ('root'), om uw systeem te onderhouden.\n Het wachtwoord moet uniek en privé zijn, omdat het gebruikt wordt om uw\n systeem te beheren. Kies een wachtwoord dat moeilijk te raden is, maar makkelijk onthouden kan worden.\n"
+"</p>\n"
+"<p>\n"
+"Het wachtwoord mag hoofdletters, kleine letters, cijfers en leestekens bevatten.\n Gebruik geen letters met accenten, omdat ze misschien problemen kunnen veroorzaken.\n"
+"</p>\n"
+"\n"
+"<p>\n"
+"Stel ook de naam in waarmee de computer in het netwerk geïdentificeerd zal worden.De hostnaam zou de computer moeten kunnen beschrijven. \n"
+"</p>\n"
+"\n"
+"<p>\n"
+"Klik op Volgende om verder te gaan.\n"
+"</p>\n"
+"</font>\n"
+
+#: yali/gui/SetupRootpass.py:104 yali/gui/SetupUsers.py:95
+msgid "<font color=\"#FF6D19\">Passwords do not match!</font>"
+msgstr "<font color=\"#FF6D19\">De wachtwoorden komen niet overeen</font>"
+
+#: yali/gui/SetupRootpass.py:123
+msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
+msgstr "<font color=\"#FF6D19\">De hostnaam bevat niet-toegestane tekens</font>"
+
+#: yali/gui/SetupUsers.py:30
+msgid ""
+"\n"
+"<font size=\"+2\">User setup</font>\n"
+"\n"
+"<font size=\"+1\">\n"
+"<p>\n"
+"Other than the system administrator user,\n"
+"you can create a user account for your \n"
+"daily needs, i.e reading your e-mail, surfing\n"
+"on the web and searching for daily recipe\n"
+"offerings. Usual password assignment\n"
+"rules also apply here: This password should \n"
+"be unique and private. Choose a password \n"
+"difficult to guess, but easy to remember. \n"
+"</p>\n"
+"<p>\n"
+"Click Next button to proceed.\n"
+"</p>\n"
+"</font>\n"
+msgstr ""
+"\n"
+"<font size=\"+2\">Gebruiker instellen</font>\n"
+"\n"
+"<font size=\"+1\">\n"
+"<p>\n"
+"Naast de systeembeheerder\n"
+"kunt u een gebruiker aanmaken voor\n"
+"dagelijks gebruik, dus voor het lezen van\n"
+"uw e-mail, surfen op internet, tekstverwerking\n"
+", etc. Hierbij gelden dezelfde regels voor\n"
+"het aanmaken van een wachtwoord.\n"
+"Het wachtwoord dient uniek en privé\n"
+"te zijn. Kies een wachtwoord dat moeilijk\n"
+"te raden is, maar eenvoudig te onthouden.\n"
+"</p>\n"
+"<p>\n"
+"Klik op 'Volgende' om verder te gaan.\n"
+"</p>\n"
+"</font>\n"
+
+#: yali/gui/SetupUsers.py:119
+msgid "<font color=\"#FF6D19\">Username exists, choose another one!</font>"
+msgstr "<font color=\"#FF6D19\">Deze gebruikersnaam bestaat al. Kies een andere.</font>"
+
+#: yali/gui/SetupUsers.py:123
+msgid "<font color=\"#FF6D19\">Username contains invalid characters!</font>"
+msgstr "<font color=\"#FF6D19\">De gebruikersnaam bevat niet-toegestane tekens.</font>"
+
+#: yali/gui/SetupUsers.py:127
+msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
+msgstr "<font color=\"#FF6D19\">De echte naam bevat niet-toegestane tekens.</font>"
+
+#: yali/gui/setupuserswidget.py:129
+msgid "Delete Selected User"
+msgstr "Geselecteerde gebruiker verwijderen"
+
+#: yali/gui/setupuserswidget.py:130
+msgid "Users:"
+msgstr "Gebruikers:"
+
+#: yali/gui/setupuserswidget.py:132
+msgid "New User"
+msgstr "Nieuwe gebruiker:"
+
+#: yali/gui/setupuserswidget.py:133
+msgid "User Name:"
+msgstr "Gebruikersnaam:"
+
+#: yali/gui/setupuserswidget.py:134
+msgid "Create User"
+msgstr "Gebruiker aanmaken"
+
+#: yali/gui/setupuserswidget.py:135
+msgid "Password (again):"
+msgstr "Wachtwoord (nogmaals):"
+
+#: yali/gui/setupuserswidget.py:136
+msgid "Password:"
+msgstr "Wachtwoord:"
+
+#: yali/gui/setupuserswidget.py:137
+msgid "Real Name:"
+msgstr "Echte naam:"
+
+#: yali/gui/Welcome.py:32
+msgid ""
+"\n"
+"<font size=\"+2\">Welcome!</font>\n"
+"\n"
+"<font size=\"+1\">\n"
+"<p>Welcome to Pardus, your new and practical desktop with a handful \n"
+"of applications tailored to your needs. With Pardus, you can \n"
+"connect to internet, read your e-mails online, work with \n"
+"documents, listen to music and play DVDs. Its advanced yet\n"
+"easy interface will let you be more productive and efficient.\n"
+"</p>\n"
+"\n"
+"<p>\n"
+"This 6-click installation will install Pardus on your hardware,\n"
+"without disrupting your previous documents and settings. However,\n"
+"we advise you to make a backup before proceeding. \n"
+"</p>\n"
+"<p>\n"
+"The installer will identify your system's hardware and configure\n"
+"it according to your needs. You will note the arrow keys on the\n"
+"bottom of the screen: Use them to advance to next screen.\n"
+"</p>\n"
+"<p>\n"
+"Have a fruitful experience with Pardus!\n"
+"</p>\n"
+"</font>\n"
+msgstr ""
+"\n"
+"<font size=\"+2\">Welkom!</font>\n"
+"\n"
+"<font size=\"+1\">\n"
+"<p>Welkom bij Pardus, uw nieuwe en handige desktop met een handvol \n toepassingen die gemaakt zijn om aan uw behoeften te voldoen. Met Pardus kunt u verbinden met het internet, uw e-mails lezen, werken met \n"
+"documenten, luisteren naar muziek en dvd's afspelen.De geavanceerde\n maar eenvoudige interface laat je productiever en efficiënter werken.\n"
+"</p>\n"
+"\n"
+"<p>\n"
+"Deze installatie zal in 6 stappen Pardus op uw computer installeren,\n "
+"zonder schade aan te richten aan uw bestaande documenten en instellingen. Toch adviseren we je een reservekopie te maken voordat u verder gaat.\n"
+"</p>\n"
+"<p>\n"
+"De installatie zal de hardware in uw computer herkennen en configureren\n. "
+"Onder aan het scherm staan pijltes:\n gebruik ze om naar het volgende scherm te gaan.\n"
+"</p>\n"
+"<p>\n"
+"Veel plezier met Pardus!\n"
+"</p>\n"
+"</font>\n"
+
+#: yali/gui/welcomewidget.py:93
+msgid ""
+"<b>Pardus 1.0</b> is licensed under GNU GPL. You should accept it's license\n"
+"before installing it on your computer. Read GPL and select Accept to "
+"continue installing."
+msgstr "<b>Pardus 1.0</b> is gelicenseerd onder GNU GPL. U moet deze licentie accepteren\n voordat u Pardus op uw computer installeert. Lees de GPL en selecteer Accepteren om verder te gaan met de installatie."
+
+#: yali/gui/welcomewidget.py:95
+msgid "Read GPL"
+msgstr "Lees de GPL"
+
+#: yali/gui/welcomewidget.py:98
+msgid "Accept!"
+msgstr "Accepteren"
+
+#: yali/gui/welcomewidget.py:99
+msgid "Don't Accept!"
+msgstr "Verwerpen"
+
+#: yali/gui/YaliDialog.py:103
+msgid "Warning"
+msgstr "Waarschuwing"
+
+#: yali/bootloader.py:131 yali/bootloader.py:136
+msgid "Windows"
+msgstr "Vensters"
+
+#: yali/__init__.py:53
+msgid "Backtrace:"
+msgstr "Backtrace:"
+
+#: yali/keyboard.py:23
+msgid "Turkish Q"
+msgstr "Turks Q"
+
+#: yali/keyboard.py:28
+msgid "Turkish F"
+msgstr "Turks F"
+
+#: yali/keyboard.py:33
+msgid "Englis US"
+msgstr "Engels VS"
+
+#: yali/partition.py:35
+msgid "unknown"
+msgstr "onbekend"
+
+#: yali/partition.py:162
+msgid "free space"
+msgstr "vrije ruimte"
+
+#: yali/partitiontype.py:51
+msgid "Install Root"
+msgstr "Hoofdpartitie"
+
+#: yali/partitiontype.py:59
+msgid "Users' Files"
+msgstr "Gebruikersbestanden"
+
+#: yali/partitiontype.py:67
+msgid "Swap"
+msgstr "Swap"
+
+
