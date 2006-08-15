@@ -143,6 +143,10 @@ Click Next button to proceed.
         self.pass1.clear()
         self.pass2.clear()
 
+        # give focus to username widget for a new user. #3280
+        self.username.setFocus()
+        self.username.grabKeyboard()
+
         self.checkUsers()
 
 
