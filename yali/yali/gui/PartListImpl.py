@@ -269,6 +269,9 @@ class PartList(PartListWidget):
     # @param part: Partition
     # returns: QListViewItem
     def __getItemFromPart(self, part):
+        if not part:
+            return -1
+
         iterator = QListViewItemIterator(self.list)
         current = iterator.current()
 
@@ -280,13 +283,19 @@ class PartList(PartListWidget):
             iterator += 1
             current = iterator.current()
 
-        return None
+        return 0
 
     ##
     # handle and show requests on listview
     def showPartitionRequests(self, formatting=False):
         for req in ctx.partrequests:
             item = self.__getItemFromPart(req.partition())
+
+            if item in (0, -1):
+                msg = _("Can't get partition info from partition request!")
+                if item == -1:
+                    msg += _(" req.partition() is None. May be a zombie request!")
+                raise GUIException, msg
 
             t = req.requestType()
             ptype = req.partitionType()
