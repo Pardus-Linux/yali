@@ -149,7 +149,7 @@ class YaliUninstall(Command):
 
 
 i18n_domain = "yali"
-i18n_languages = "tr"
+i18n_languages = "tr nl"
 
 class I18nInstall(install):
     def run(self):
