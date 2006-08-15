@@ -113,8 +113,10 @@ Click Next button to proceed.
         u.groups = ["users", "cdrom", "audio", "lp", "video", "haldaemon", "plugdev", "wheel", "dialout", "uucp", "scanner"]
 
 
+        existsInList = [i for i in range(self.userList.count())
+                        if self.userList.item(i).getUser().username == u.username]
         # check user validity
-        if u.exists():
+        if u.exists() or existsInList:
             self.pass_error.setText(
                 _('<font color="#FF6D19">Username exists, choose another one!</font>'))
             return
