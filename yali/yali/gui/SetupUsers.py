@@ -110,7 +110,7 @@ Click Next button to proceed.
         # ignore last character. see bug #887
         u.realname = unicode(self.realname.text().utf8().data())[:-1]
         u.passwd = self.pass1.text().ascii()
-        u.groups = ["users", "pnp", "audio", "video", "wheel", "dialout", "uucp"]
+        u.groups = ["users", "pnp", "removable", "disk", "audio", "video", "wheel", "dialout", "uucp"]
 
 
         existsInList = [i for i in range(self.userList.count())
