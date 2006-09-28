@@ -33,7 +33,7 @@ keyboards = {
     2 : {
         "name" : _("English US"),
         "keymap" : "us"
-        }
+        },
     3 : {
         "name" : _("Dutch"),
         "keymap" : "nl"
