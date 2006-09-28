@@ -31,8 +31,12 @@ keyboards = {
         },
 
     2 : {
-        "name" : _("Englis US"),
+        "name" : _("English US"),
         "keymap" : "us"
+        }
+    3 : {
+        "name" : _("Dutch"),
+        "keymap" : "nl"
         }
     }
 
