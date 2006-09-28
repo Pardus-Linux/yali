@@ -39,8 +39,10 @@ class PartList(PartListWidget):
         self.list.setPaletteBackgroundColor(ctx.consts.bg_color)
         self.list.setPaletteForegroundColor(ctx.consts.fg_color)
 
-        # first run for update()/addDevice()
-        self.firstRun = True
+        # bug (feature in fact) 1049: we select the first found swap
+        # partition as our swap partition. But if one is selected
+        # don't bother if there are other ones...
+        self.autoSwapSelected = False
 
         # disable sorting
         self.list.setSorting(-1)
@@ -164,14 +166,15 @@ class PartList(PartListWidget):
                              part.getFSName())
             p.setData(part)
 
-            # use the first found "linux-swap" partition as swap in
-            # the firstRun...
-            if part.getFSName() == "linux-swap" and self.firstRun:
+            # use the first found "linux-swap" partition as swap (# 1049)
+            if part.getFSName() == "linux-swap" and not self.autoSwapSelected:
                 ctx.partrequests.append(
                     request.MountRequest(part, parttype.swap))
 
                 ctx.partrequests.append(
                     request.FormatRequest(part, parttype.swap))
+
+                self.autoSwapSelected = True
 
         self.list.setOpen(d, True)
         try:
@@ -179,8 +182,6 @@ class PartList(PartListWidget):
         except:
             # no extended partition...
             pass
-
-        self.firstRun = False
 
     def slotItemSelected(self):
         item = self.list.currentItem()
