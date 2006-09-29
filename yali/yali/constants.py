@@ -50,7 +50,7 @@ class Constants:
 
 consts = Constants()
 
-consts.pardus_version = "Pardus 1.1 Alpha2"
+consts.pardus_version = "Pardus 1.1 Alpha3"
 
 consts.log_file = "/tmp/install.log"
 
