@@ -43,14 +43,6 @@ def user_faces():
     p = "yali/user_faces/*.png"
     return glob.glob(p)
 
-def help_files(lang):
-    p = os.path.join("yali/gui/helps", lang)
-    return glob.glob(p + "/*.html")
-
-
-pyqt_configuration = pyqtconfig.Configuration()
-
-
 def getRevision():
     import os
     try:
@@ -95,6 +87,7 @@ class YaliBuild(build):
         
 
     def compile_ui(self, ui_file):
+        pyqt_configuration = pyqtconfig.Configuration()
         pyuic_exe = find_executable('pyuic', pyqt_configuration.default_bin_dir)
         if not pyuic_exe:
             # Search on the $Path.
@@ -188,9 +181,7 @@ setup(name="yali",
       package_dir = {'': ''},
       data_files = [('/usr/share/yali/pics', gui_pics()),
                     ('/usr/share/yali/slideshow', gui_slidepics()),
-                    ('/usr/share/yali/user_faces', user_faces()),
-                    ('/usr/share/yali/helps/en', help_files("en")),
-                    ('/usr/share/yali/helps/tr', help_files("tr"))],
+                    ('/usr/share/yali/user_faces', user_faces())],
       scripts = ['yali-bin'],
       ext_modules = [mountmodule, rebootmodule],
       cmdclass = {
