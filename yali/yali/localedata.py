@@ -23,9 +23,15 @@ localedata = {
         "consolefont" : "iso09.16",
         "consoletranslation" : "8859-9"
         },
-    
+
     "en" : {
         "locale": "en_US.UTF-8",
+        "consolefont" : "iso01.16",
+        "consoletranslation" : "8859-1"
+        }
+
+    "nl" : {
+        "locale": "nl_NL.UTF-8",
         "consolefont" : "iso01.16",
         "consoletranslation" : "8859-1"
         }
