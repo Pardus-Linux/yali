@@ -38,6 +38,9 @@ def initbaselayout():
     # create /etc/hosts
     cp("usr/share/baselayout/hosts", "etc/hosts")
 
+    # create /etc/ld.so.conf
+    cp("usr/share/baselayout/ld.so.conf", "etc/ld.so.conf")
+
     # /etc/passwd, /etc/shadow, /etc/group
     cp("usr/share/baselayout/passwd", "etc/passwd")
     cp("usr/share/baselayout/shadow", "etc/shadow")
