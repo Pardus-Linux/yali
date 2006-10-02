@@ -58,8 +58,8 @@ def initbaselayout():
     chgrp("var/log/wtmp", "utmp")
 
     # create needed device nodes
-    os.system("/usr/bin/mknod console c 5 1")
-    os.system("/usr/bin/mknod null c 1 3")
+    os.system("/usr/bin/mknod %s/dev/console c 5 1" % consts.target_dir)
+    os.system("/usr/bin/mknod %s/dev/null c 1 3" % consts.target_dir)
 
 def migrate_xorg_conf(keymap="trq"):
     # copy xorg.conf.
