@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-10 15:52+0300\n"
+"POT-Creation-Date: 2006-10-05 15:59+0300\n"
 "PO-Revision-Date: 2006-05-10 15:41+0200\n"
 "Last-Translator: Barış Metin <baris@uludag.org.tr>\n"
 "Language-Team:  <tr@li.org>\n"
@@ -62,16 +62,16 @@ msgstr ""
 "</p> \n"
 "</font>\n"
 
-#: yali/gui/AutoPartitioning.py:70 yali/gui/Partitioning.py:81
-#: yali/gui/PartListImpl.py:80 yali/gui/SetupBootloader.py:70
+#: yali/gui/AutoPartitioning.py:68 yali/gui/Partitioning.py:81
+#: yali/gui/PartListImpl.py:84 yali/gui/SetupBootloader.py:71
 msgid "Can't find a storage device!"
 msgstr "Kurulum için disk bulunamadı!"
 
-#: yali/gui/AutoPartitioning.py:128
+#: yali/gui/AutoPartitioning.py:126
 msgid "<font color=\"#FF6D19\">Preparing your disk for installation!</font>"
 msgstr "<font color=\"#FF6D19\">Diskiniz kurulum için hazırlanıyor!</font>"
 
-#: yali/gui/AutoPartitioning.py:197
+#: yali/gui/AutoPartitioning.py:190
 msgid ""
 "<font size=\"+1\">\n"
 "<b>\n"
@@ -94,12 +94,12 @@ msgstr ""
 "</b>\n"
 "</font>\n"
 
-#: yali/gui/AutoPartitioning.py:209 yali/gui/parteditbuttons.py:47
+#: yali/gui/AutoPartitioning.py:202 yali/gui/parteditbuttons.py:47
 #: yali/gui/Partitioning.py:216
 msgid "Cancel"
 msgstr "İptal"
 
-#: yali/gui/AutoPartitioning.py:212 yali/gui/Partitioning.py:219
+#: yali/gui/AutoPartitioning.py:205 yali/gui/Partitioning.py:219
 msgid "O.K. Go Ahead"
 msgstr "Tamam. Devam Et"
 
@@ -169,14 +169,14 @@ msgstr "Evet, Sistem Yükleyicisini Kur"
 msgid "Select the disk you to install bootloader:"
 msgstr "Sistem yükleyicisinin kurulacağı diski seçin:"
 
-#: yali/gui/Goodbye.py:34
+#: yali/gui/Goodbye.py:36
+#, fuzzy
 msgid ""
 "\n"
 "<font size=\"+2\">Congratulations</font>\n"
 "\n"
 "\n"
 "<font size=\"+1\">\n"
-"<p><b>Voila! You made it!</b></p>\n"
 "<p>\n"
 "You have successfully installed Pardus, a very easy to use desktop system "
 "on\n"
@@ -207,7 +207,7 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/Goodbye.py:60
+#: yali/gui/Goodbye.py:61
 msgid ""
 "<b><font size=\"+2\" color=\"#FF6D19\">Rebooting system. Please wait!</"
 "font></b>"
@@ -215,7 +215,7 @@ msgstr ""
 "<b><font size=\"+2\" color=\"#FF6D19\">Sistem yeniden başlatılıyor. Lütfen "
 "bekleyin!</font></b>"
 
-#: yali/gui/Goodbye.py:126
+#: yali/gui/Goodbye.py:135
 msgid ""
 "<font size=\"+1\">\n"
 "<b>\n"
@@ -230,11 +230,11 @@ msgstr ""
 "</b>\n"
 "</font>\n"
 
-#: yali/gui/Goodbye.py:134
+#: yali/gui/Goodbye.py:143
 msgid "Reboot"
 msgstr "Sistemi Yeniden Başlat!"
 
-#: yali/gui/GUIBottom.py:45 yali/gui/GUIBottom.py:81
+#: yali/gui/GUIBottom.py:101 yali/gui/GUIBottom.py:148
 msgid "Release Notes"
 msgstr "Sürüm Notları"
 
@@ -246,7 +246,7 @@ msgstr "Lisans dosyası açılamıyor!"
 msgid "Can't open Release Notes file!"
 msgstr "Sürüm Notları dosyası açılamıyor!"
 
-#: yali/gui/InstallSystem.py:53
+#: yali/gui/InstallSystem.py:54
 msgid ""
 "\n"
 "<font size=\"+2\">Installation started</font>\n"
@@ -288,23 +288,23 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/InstallSystem.py:108 yali/gui/InstallSystem.py:134
+#: yali/gui/InstallSystem.py:110 yali/gui/InstallSystem.py:136
 #, python-format
 msgid "Installing: %s<br>%s"
 msgstr "Kurulan Paket: %s<br>%s"
 
-#: yali/gui/InstallSystem.py:115 yali/gui/InstallSystem.py:140
+#: yali/gui/InstallSystem.py:117 yali/gui/InstallSystem.py:142
 #, python-format
 msgid "Configuring package: %s"
 msgstr "Yapılandırılan paket: %s"
 
-#: yali/gui/InstallSystem.py:196
+#: yali/gui/InstallSystem.py:200
 msgid "Configuring packages for your system!"
 msgstr ""
 "Kurulan paketler sisteminiz için yapılandırılıyor!\n"
 "Bu işlemin tamamlanması için lütfen bekleyiniz."
 
-#: yali/gui/InstallSystem.py:243
+#: yali/gui/InstallSystem.py:248
 #, python-format
 msgid ""
 "An error during the installation of packages occured.\n"
@@ -380,12 +380,12 @@ msgstr "'%s' numaralı disk bölümünü '%s' aygıtından silmek üzeresiniz!"
 msgid "You must select a partition type from the list below."
 msgstr "Yukarıdaki listeden bir disk bölümü tipi seçmelisiniz."
 
-#: yali/gui/PartEditImpl.py:176 yali/gui/PartEditImpl.py:202
+#: yali/gui/PartEditImpl.py:175 yali/gui/PartEditImpl.py:201
 #, python-format
 msgid "'Install Root' size must be larger than %s MB."
 msgstr "'Sistem Dosyaları' bölümü en az %s MB olmalı."
 
-#: yali/gui/PartEditImpl.py:278
+#: yali/gui/PartEditImpl.py:277
 msgid "ntfsresize check failed! Won't proceed action!"
 msgstr ""
 "NTFS yeniden boyutlandırma kontrolü başarısız! İşlem gerçekleştirilmeyecek!"
@@ -530,38 +530,46 @@ msgstr ""
 "</b>\n"
 "</font>\n"
 
-#: yali/gui/PartListImpl.py:98
+#: yali/gui/PartListImpl.py:102
 #, python-format
 msgid "%0.1f GB free"
 msgstr "%0.1f GB boş"
 
-#: yali/gui/PartListImpl.py:100
+#: yali/gui/PartListImpl.py:104
 #, python-format
 msgid "%d MB free"
 msgstr "%d MB boş"
 
-#: yali/gui/PartListImpl.py:125
+#: yali/gui/PartListImpl.py:129
 msgid "Extended"
 msgstr "Uzatılmış"
 
-#: yali/gui/PartListImpl.py:154
+#: yali/gui/PartListImpl.py:158
 #, python-format
 msgid "Partition %d"
 msgstr "Disk bölümü %d"
 
-#: yali/gui/PartListImpl.py:186
+#: yali/gui/PartListImpl.py:200
 msgid "Delete All Partitions"
 msgstr "Tüm Disk Bölümlerini Sil"
 
-#: yali/gui/PartListImpl.py:212 yali/gui/partlistwidget.py:87
+#: yali/gui/PartListImpl.py:226 yali/gui/partlistwidget.py:87
 msgid "Delete Selected Partition"
 msgstr "Seçili Disk Bölümünü Sil"
 
-#: yali/gui/PartListImpl.py:283
+#: yali/gui/PartListImpl.py:296
+msgid "Can't get partition info from partition request!"
+msgstr ""
+
+#: yali/gui/PartListImpl.py:298
+msgid " req.partition() is None. May be a zombie request!"
+msgstr ""
+
+#: yali/gui/PartListImpl.py:306
 msgid "Formatting!"
 msgstr "Biçimlendiriliyor!"
 
-#: yali/gui/PartListImpl.py:285
+#: yali/gui/PartListImpl.py:308
 msgid "YES"
 msgstr "EVET"
 
@@ -621,9 +629,9 @@ msgid ""
 "for privacy reasons.</p>"
 msgstr ""
 "<p align=\"left\">Sistem yöneticisi (root) tüm sistem bakımı işlerini "
-"yürütür. Lütfen bu özel kullanıcı için bir parola tanımlayın "
-"ve bu parolayı unutmayın. Gizlilik nedenlerinden dolayı "
-"bu parolayı hiç bir yere yazmamanız önerilir.</p>"
+"yürütür. Lütfen bu özel kullanıcı için bir parola tanımlayın ve bu parolayı "
+"unutmayın. Gizlilik nedenlerinden dolayı bu parolayı hiç bir yere yazmamanız "
+"önerilir.</p>"
 
 #: yali/gui/rootpasswidget.py:126
 msgid "Hostname:"
@@ -653,7 +661,7 @@ msgstr "Bir hata oluştu!"
 msgid "Reboot System!"
 msgstr "Sistemi Yeniden Başlat!"
 
-#: yali/gui/SetupBootloader.py:35
+#: yali/gui/SetupBootloader.py:36
 msgid ""
 "\n"
 "<font size=\"+2\">Boot loader setup</font>\n"
@@ -812,18 +820,18 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/SetupUsers.py:119
+#: yali/gui/SetupUsers.py:121
 msgid "<font color=\"#FF6D19\">Username exists, choose another one!</font>"
 msgstr ""
 "<font color=\"#FF6D19\">Bu kullanıcı adı zaten var, başka bir tane seçin!</"
 "font>"
 
-#: yali/gui/SetupUsers.py:123
+#: yali/gui/SetupUsers.py:125
 msgid "<font color=\"#FF6D19\">Username contains invalid characters!</font>"
 msgstr ""
 "<font color=\"#FF6D19\">Kullanıcı adı geçersiz karakterler içeriyor!</font>"
 
-#: yali/gui/SetupUsers.py:127
+#: yali/gui/SetupUsers.py:129
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
 msgstr ""
 "<font color=\"#FF6D19\">Gerçek İsim bölümü geçersiz karakterler içeriyor!</"
@@ -862,6 +870,7 @@ msgid "Real Name:"
 msgstr "Gerçek İsim:"
 
 #: yali/gui/Welcome.py:32
+#, fuzzy
 msgid ""
 "\n"
 "<font size=\"+2\">Welcome!</font>\n"
@@ -875,7 +884,7 @@ msgid ""
 "</p>\n"
 "\n"
 "<p>\n"
-"This 6-click installation will install Pardus on your hardware,\n"
+"This software will install Pardus on your computer,\n"
 "without disrupting your previous documents and settings. However,\n"
 "we advise you to make a backup before proceeding. \n"
 "</p>\n"
@@ -920,8 +929,9 @@ msgstr ""
 "</font>\n"
 
 #: yali/gui/welcomewidget.py:93
+#, fuzzy
 msgid ""
-"<b>Pardus 1.0</b> is licensed under GNU GPL. You should accept it's license\n"
+"<b>Pardus</b> is licensed under GNU GPL. You should accept it's license\n"
 "before installing it on your computer. Read GPL and select Accept to "
 "continue installing."
 msgstr ""
@@ -946,7 +956,7 @@ msgstr "Hayır, Kabul Etmiyorum!"
 msgid "Warning"
 msgstr "Uyarı"
 
-#: yali/bootloader.py:131 yali/bootloader.py:136
+#: yali/bootloader.py:138 yali/bootloader.py:143
 msgid "Windows"
 msgstr "Windows"
 
@@ -954,17 +964,22 @@ msgstr "Windows"
 msgid "Backtrace:"
 msgstr "Geri İz:"
 
-#: yali/keyboard.py:23
+#: yali/keyboard.py:24
 msgid "Turkish Q"
 msgstr "Türkçe Q"
 
-#: yali/keyboard.py:28
+#: yali/keyboard.py:29
 msgid "Turkish F"
 msgstr "Türkçe F"
 
-#: yali/keyboard.py:33
-msgid "Englis US"
+#: yali/keyboard.py:34
+#, fuzzy
+msgid "English US"
 msgstr "İngilizce (US)"
+
+#: yali/keyboard.py:38
+msgid "Dutch"
+msgstr ""
 
 #: yali/partition.py:35
 msgid "unknown"

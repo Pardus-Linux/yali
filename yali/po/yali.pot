@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-10 15:52+0300\n"
+"POT-Creation-Date: 2006-10-05 16:00+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,16 +40,16 @@ msgid ""
 "</font>\n"
 msgstr ""
 
-#: yali/gui/AutoPartitioning.py:70 yali/gui/Partitioning.py:81
-#: yali/gui/PartListImpl.py:80 yali/gui/SetupBootloader.py:70
+#: yali/gui/AutoPartitioning.py:68 yali/gui/Partitioning.py:81
+#: yali/gui/PartListImpl.py:84 yali/gui/SetupBootloader.py:71
 msgid "Can't find a storage device!"
 msgstr ""
 
-#: yali/gui/AutoPartitioning.py:128
+#: yali/gui/AutoPartitioning.py:126
 msgid "<font color=\"#FF6D19\">Preparing your disk for installation!</font>"
 msgstr ""
 
-#: yali/gui/AutoPartitioning.py:197
+#: yali/gui/AutoPartitioning.py:190
 msgid ""
 "<font size=\"+1\">\n"
 "<b>\n"
@@ -62,12 +62,12 @@ msgid ""
 "</font>\n"
 msgstr ""
 
-#: yali/gui/AutoPartitioning.py:209 yali/gui/parteditbuttons.py:47
+#: yali/gui/AutoPartitioning.py:202 yali/gui/parteditbuttons.py:47
 #: yali/gui/Partitioning.py:216
 msgid "Cancel"
 msgstr ""
 
-#: yali/gui/AutoPartitioning.py:212 yali/gui/Partitioning.py:219
+#: yali/gui/AutoPartitioning.py:205 yali/gui/Partitioning.py:219
 msgid "O.K. Go Ahead"
 msgstr ""
 
@@ -123,14 +123,13 @@ msgstr ""
 msgid "Select the disk you to install bootloader:"
 msgstr ""
 
-#: yali/gui/Goodbye.py:34
+#: yali/gui/Goodbye.py:36
 msgid ""
 "\n"
 "<font size=\"+2\">Congratulations</font>\n"
 "\n"
 "\n"
 "<font size=\"+1\">\n"
-"<p><b>Voila! You made it!</b></p>\n"
 "<p>\n"
 "You have successfully installed Pardus, a very easy to use desktop system "
 "on\n"
@@ -145,13 +144,13 @@ msgid ""
 "</font>\n"
 msgstr ""
 
-#: yali/gui/Goodbye.py:60
+#: yali/gui/Goodbye.py:61
 msgid ""
 "<b><font size=\"+2\" color=\"#FF6D19\">Rebooting system. Please wait!</"
 "font></b>"
 msgstr ""
 
-#: yali/gui/Goodbye.py:126
+#: yali/gui/Goodbye.py:135
 msgid ""
 "<font size=\"+1\">\n"
 "<b>\n"
@@ -160,11 +159,11 @@ msgid ""
 "</font>\n"
 msgstr ""
 
-#: yali/gui/Goodbye.py:134
+#: yali/gui/Goodbye.py:143
 msgid "Reboot"
 msgstr ""
 
-#: yali/gui/GUIBottom.py:45 yali/gui/GUIBottom.py:81
+#: yali/gui/GUIBottom.py:101 yali/gui/GUIBottom.py:148
 msgid "Release Notes"
 msgstr ""
 
@@ -176,7 +175,7 @@ msgstr ""
 msgid "Can't open Release Notes file!"
 msgstr ""
 
-#: yali/gui/InstallSystem.py:53
+#: yali/gui/InstallSystem.py:54
 msgid ""
 "\n"
 "<font size=\"+2\">Installation started</font>\n"
@@ -201,21 +200,21 @@ msgid ""
 "</font>\n"
 msgstr ""
 
-#: yali/gui/InstallSystem.py:108 yali/gui/InstallSystem.py:134
+#: yali/gui/InstallSystem.py:110 yali/gui/InstallSystem.py:136
 #, python-format
 msgid "Installing: %s<br>%s"
 msgstr ""
 
-#: yali/gui/InstallSystem.py:115 yali/gui/InstallSystem.py:140
+#: yali/gui/InstallSystem.py:117 yali/gui/InstallSystem.py:142
 #, python-format
 msgid "Configuring package: %s"
 msgstr ""
 
-#: yali/gui/InstallSystem.py:196
+#: yali/gui/InstallSystem.py:200
 msgid "Configuring packages for your system!"
 msgstr ""
 
-#: yali/gui/InstallSystem.py:243
+#: yali/gui/InstallSystem.py:248
 #, python-format
 msgid ""
 "An error during the installation of packages occured.\n"
@@ -278,12 +277,12 @@ msgstr ""
 msgid "You must select a partition type from the list below."
 msgstr ""
 
-#: yali/gui/PartEditImpl.py:176 yali/gui/PartEditImpl.py:202
+#: yali/gui/PartEditImpl.py:175 yali/gui/PartEditImpl.py:201
 #, python-format
 msgid "'Install Root' size must be larger than %s MB."
 msgstr ""
 
-#: yali/gui/PartEditImpl.py:278
+#: yali/gui/PartEditImpl.py:277
 msgid "ntfsresize check failed! Won't proceed action!"
 msgstr ""
 
@@ -381,38 +380,46 @@ msgid ""
 "</font>\n"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:98
+#: yali/gui/PartListImpl.py:102
 #, python-format
 msgid "%0.1f GB free"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:100
+#: yali/gui/PartListImpl.py:104
 #, python-format
 msgid "%d MB free"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:125
+#: yali/gui/PartListImpl.py:129
 msgid "Extended"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:154
+#: yali/gui/PartListImpl.py:158
 #, python-format
 msgid "Partition %d"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:186
+#: yali/gui/PartListImpl.py:200
 msgid "Delete All Partitions"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:212 yali/gui/partlistwidget.py:87
+#: yali/gui/PartListImpl.py:226 yali/gui/partlistwidget.py:87
 msgid "Delete Selected Partition"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:283
+#: yali/gui/PartListImpl.py:296
+msgid "Can't get partition info from partition request!"
+msgstr ""
+
+#: yali/gui/PartListImpl.py:298
+msgid " req.partition() is None. May be a zombie request!"
+msgstr ""
+
+#: yali/gui/PartListImpl.py:306
 msgid "Formatting!"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:285
+#: yali/gui/PartListImpl.py:308
 msgid "YES"
 msgstr ""
 
@@ -500,7 +507,7 @@ msgstr ""
 msgid "Reboot System!"
 msgstr ""
 
-#: yali/gui/SetupBootloader.py:35
+#: yali/gui/SetupBootloader.py:36
 msgid ""
 "\n"
 "<font size=\"+2\">Boot loader setup</font>\n"
@@ -585,15 +592,15 @@ msgid ""
 "</font>\n"
 msgstr ""
 
-#: yali/gui/SetupUsers.py:119
+#: yali/gui/SetupUsers.py:121
 msgid "<font color=\"#FF6D19\">Username exists, choose another one!</font>"
 msgstr ""
 
-#: yali/gui/SetupUsers.py:123
+#: yali/gui/SetupUsers.py:125
 msgid "<font color=\"#FF6D19\">Username contains invalid characters!</font>"
 msgstr ""
 
-#: yali/gui/SetupUsers.py:127
+#: yali/gui/SetupUsers.py:129
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
 msgstr ""
 
@@ -643,7 +650,7 @@ msgid ""
 "</p>\n"
 "\n"
 "<p>\n"
-"This 6-click installation will install Pardus on your hardware,\n"
+"This software will install Pardus on your computer,\n"
 "without disrupting your previous documents and settings. However,\n"
 "we advise you to make a backup before proceeding. \n"
 "</p>\n"
@@ -660,7 +667,7 @@ msgstr ""
 
 #: yali/gui/welcomewidget.py:93
 msgid ""
-"<b>Pardus 1.0</b> is licensed under GNU GPL. You should accept it's license\n"
+"<b>Pardus</b> is licensed under GNU GPL. You should accept it's license\n"
 "before installing it on your computer. Read GPL and select Accept to "
 "continue installing."
 msgstr ""
@@ -681,7 +688,7 @@ msgstr ""
 msgid "Warning"
 msgstr ""
 
-#: yali/bootloader.py:131 yali/bootloader.py:136
+#: yali/bootloader.py:138 yali/bootloader.py:143
 msgid "Windows"
 msgstr ""
 
@@ -689,16 +696,20 @@ msgstr ""
 msgid "Backtrace:"
 msgstr ""
 
-#: yali/keyboard.py:23
+#: yali/keyboard.py:24
 msgid "Turkish Q"
 msgstr ""
 
-#: yali/keyboard.py:28
+#: yali/keyboard.py:29
 msgid "Turkish F"
 msgstr ""
 
-#: yali/keyboard.py:33
-msgid "Englis US"
+#: yali/keyboard.py:34
+msgid "English US"
+msgstr ""
+
+#: yali/keyboard.py:38
+msgid "Dutch"
 msgstr ""
 
 #: yali/partition.py:35
