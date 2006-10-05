@@ -172,7 +172,7 @@ class PartEdit(QWidget):
                 size = self.edit.size.text().toInt()[0]
                 if size <= ctx.consts.min_root_size:
                     self.warning.setText(
-                        _("'Install Root' size must be larger than %s MB.") %min)
+                        _("'Install Root' size must be larger than %s MB.") % ctx.consts.min_root_size)
                     self.warning.show()
                     return False
 
