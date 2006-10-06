@@ -145,7 +145,6 @@ Click Next button to proceed.
 
         # give focus to username widget for a new user. #3280
         self.username.setFocus()
-        self.username.grabKeyboard()
 
         self.checkUsers()
 
