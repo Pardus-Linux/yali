@@ -61,6 +61,9 @@ class PartList(PartListWidget):
         self.connect(self.resetButton, SIGNAL("clicked()"),
                      self.resetChanges)
 
+        self.connect(self.list, SIGNAL("collapsed(QListViewItem*)"),
+                     self.slotListCollapsed)
+
         self.connect(self.list, SIGNAL("doubleClicked(QListViewItem*, const QPoint&, int)"),
                      self.slotListDoubleClicked)
 
@@ -264,6 +267,8 @@ class PartList(PartListWidget):
             if not d.isExtended():
                 self.slotEditClicked()
 
+    def slotListCollapsed(self, item):
+        self.list.setOpen(item, True)
 
     ##
     # iterate over listview and look for a partition
