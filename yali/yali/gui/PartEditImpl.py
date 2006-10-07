@@ -354,6 +354,14 @@ class PartEditWidgetImpl(PartEditWidget):
                     self.swap.setEnabled(False)
 
 
+        # set partition type on if its the only one available
+        # bug #1222
+        if not self.root.isEnabled() and not self.home.isEnabled():
+            self.swap.setOn(True)
+        elif not self.root.isEnabled() and not self.swap.isEnabled():
+            self.home.setOn(True)
+        elif not self.home.isEnabled() and not self.swap.isEnabled():
+            self.root.setOn(True)
 
 
         if state == editState:
