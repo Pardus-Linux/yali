@@ -41,8 +41,7 @@ to remember.
 </p>
 <p>
 The password may include upper and lower case characters, numbers and 
-punctuation marks. Do not use Turkish characters or accents, as they
-may impose some problems.
+punctuation marks. Do not use accented characters here.
 </p>
 
 <p>
