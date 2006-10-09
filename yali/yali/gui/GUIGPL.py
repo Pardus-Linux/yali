@@ -33,8 +33,6 @@ class Widget(QTextView):
 
         self.setSizePolicy( QSizePolicy(QSizePolicy.Preferred,
                                         QSizePolicy.Expanding))
-
-
         self.setPaletteBackgroundColor(ctx.consts.bg_color)
 
         # don't show links in 
@@ -46,13 +44,21 @@ class Widget(QTextView):
         palette.setInactive(active_colors)
         self.setPalette(palette)
 
-        rel_file = "license-" + ctx.consts.lang + ".txt"
-        rel_path = join(ctx.consts.source_dir, rel_file)
-
-        if not exists(rel_path):
-            raise GUIException, _("Can't open License file!")
-
         try:
-            self.setText(codecs.open(rel_path, "r", "UTF-8").read())
+            self.setText(codecs.open(find_license_file(), "r", "UTF-8").read())
         except Exception, e:
             raise GUIException, e
+
+
+    def find_license_file(self, lang):
+        f = join(ctx.consts.source_dir,
+                 "license-" + ctx.consts.lang + ".txt")
+        if not exists(f):
+            # TODO: log that license translation is not present.
+            f = join(ctx.consts.source_dir,
+                     "license-en.txt")
+            
+        if exists(f):
+            return f
+        else:
+            raise GUIException, _("Can't open License file!")
