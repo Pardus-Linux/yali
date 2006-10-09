@@ -100,8 +100,7 @@
                 <cstring>disclamer</cstring>
             </property>
             <property name="text">
-                <string>&lt;b&gt;Pardus&lt;/b&gt; is licensed under GNU GPL. You should accept it's license
-before installing it on your computer. Read GPL and select Accept to continue installing.</string>
+                <string>All software developed by TUBITAK/UEKAE is covered by GNU/GPL. Other software have their corresponding licenses. By installing or using Pardus, you agree to accept them. Do you want to continue?</string>
             </property>
             <property name="alignment">
                 <set>WordBreak|AlignTop</set>
