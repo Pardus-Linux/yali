@@ -119,7 +119,7 @@ class Runner:
 def showException(ex_type, tb):
     title = "Unhandled Exception!"
     
-    if ex_type == yali.exception_fatal:
+    if ex_type in (yali.exception_fatal, yali.exception_pisi):
         w = ErrorWidget(tb)
     else:
         w = ExceptionWidget(tb)
