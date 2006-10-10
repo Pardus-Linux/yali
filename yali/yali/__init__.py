@@ -22,7 +22,7 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-
+import pisi
 from yali.exception import *
 
 
@@ -35,7 +35,8 @@ def default_runner():
 
 
 
-exception_normal, exception_fatal, exception_unknown = range(3)
+exception_normal, exception_fatal, \
+    exception_pisi, exception_unknown = range(4)
 
 def exception_handler(exception, value, tb):
 
@@ -58,11 +59,12 @@ def exception_handler(exception, value, tb):
     exception_type = exception_unknown
 
     if isinstance(value, YaliError):
-        # show Error dialog
         exception_type = exception_fatal
 
+    elif isinstance(value, pisi.Error):
+        exception_type = exception_pisi
+
     elif isinstance(value, YaliException):
-        # show Exception dialog
         exception_type = exception_normal
 
 
