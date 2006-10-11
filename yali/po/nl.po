@@ -954,7 +954,7 @@ msgstr "Waarschuwing"
 
 #: yali/bootloader.py:138 yali/bootloader.py:143
 msgid "Windows"
-msgstr "Vensters"
+msgstr "MS Windows"
 
 #: yali/__init__.py:53
 msgid "Backtrace:"
