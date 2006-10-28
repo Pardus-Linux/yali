@@ -77,7 +77,7 @@ consts.user_faces_dir = join(consts.data_dir, "user_faces")
 
 # pisi repository
 consts.cd_repo_name = "pardus-cd"
-consts.cd_repo_uri = join(consts.source_dir, "repo/pisi-index.xml")
+consts.cd_repo_uri = join(consts.source_dir, "repo/pisi-index.xml.bz2")
 
 # pardus repository
 consts.pardus_repo_name = "pardus-1.1"
