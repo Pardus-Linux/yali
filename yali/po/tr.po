@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-05 15:59+0300\n"
+"POT-Creation-Date: 2006-10-31 22:59+0200\n"
 "PO-Revision-Date: 2006-10-10 16:00+0200\n"
 "Last-Translator: Barış Metin <baris@pardus.org.tr>\n"
 "Language-Team:  <tr@li.org>\n"
@@ -63,7 +63,7 @@ msgstr ""
 "</font>\n"
 
 #: yali/gui/AutoPartitioning.py:68 yali/gui/Partitioning.py:81
-#: yali/gui/PartListImpl.py:84 yali/gui/SetupBootloader.py:71
+#: yali/gui/PartListImpl.py:87 yali/gui/SetupBootloader.py:71
 msgid "Can't find a storage device!"
 msgstr "Kurulum için disk bulunamadı!"
 
@@ -94,80 +94,13 @@ msgstr ""
 "</b>\n"
 "</font>\n"
 
-#: yali/gui/AutoPartitioning.py:202 yali/gui/parteditbuttons.py:47
-#: yali/gui/Partitioning.py:216
+#: yali/gui/AutoPartitioning.py:202 yali/gui/Partitioning.py:216
 msgid "Cancel"
 msgstr "İptal"
 
 #: yali/gui/AutoPartitioning.py:205 yali/gui/Partitioning.py:219
 msgid "O.K. Go Ahead"
 msgstr "Tamam. Devam Et"
-
-#: yali/gui/autopartwidget.py:83 yali/gui/bootloaderwidget.py:71
-#: yali/gui/keyboardwidget.py:66 yali/gui/parteditbuttons.py:46
-#: yali/gui/parteditwidget.py:81 yali/gui/partlistwidget.py:85
-#: yali/gui/rootpasswidget.py:119 yali/gui/setupuserswidget.py:128
-#: yali/gui/welcomewidget.py:91
-msgid "Form1"
-msgstr "Form1"
-
-#: yali/gui/autopartwidget.py:84
-msgid ""
-"<font size=\"+1\"><b>Select the partitioning method:</b></font>\n"
-"\n"
-"<p>Below, you can select an hard disk for automatic partitioning.\n"
-"Selected disk will be used for Pardus installation.</p>\n"
-"\n"
-"<p><font color=\"#FF6D19\"><b><u>WARNING:</u></b>\n"
-"Automatic partitioning will use your entire disk for Pardus installation.\n"
-"All data on the selected disk will be lost!</font></p>"
-msgstr ""
-"<font size=\"+1\"><b>Bölümlendirme yöntemini seçin:</b></font>\n"
-"\n"
-"<p>Aşağıdaki listeden sisteminizde bulunan disklerden birini otomatik \n"
-"bölümlendirme için seçebilirsiniz. Seçilen disk Pardus kurulumu için "
-"kullanılacak.</p>\n"
-"\n"
-"<p><font color=\"#FF6D19\"><b><u>Uyarı:</u></b>\n"
-"Otomatik bölümlendirme bütün diskinizi Pardus kurulumu için kullanacak. \n"
-"Seçili disk üzerindeki tüm verileriniz silinecektir!</font></p>"
-
-#: yali/gui/autopartwidget.py:92
-msgid "&nbsp;"
-msgstr "&nbsp;"
-
-#: yali/gui/autopartwidget.py:94
-msgid "No, I'll partition my disk manually."
-msgstr "Hayır, diskimi kendim bölümlendireceğim."
-
-#: yali/gui/autopartwidget.py:95
-msgid "Yes, automatically partition and format selected disk!"
-msgstr "Evet, seçili diski otomatik olarak bölümlendir ve biçimlendir!"
-
-#: yali/gui/bootloaderwidget.py:72
-msgid ""
-"<b>Do you want to write boot loader (GRUB) to your hard disk's master boot "
-"record?</b>\n"
-"\n"
-"<p>You need a boot loader to boot your Pardus system.</p>\n"
-"\n"
-"<p>If you don't install a boot loader, you will have to configure your \n"
-"other operating system's loader  (if you have one installed) to start \n"
-"your newly installed Pardus.</p>"
-msgstr ""
-"<b>Sistem yükleyicisini (GRUB) sabit diskinize kurmak ister misiniz?</b>\n"
-"\n"
-"<p>Eğer bir sistem yükleyicisi kurmazsanız, (eğer kurulu bir tane varsa) \n"
-"diğer işletim sisteminizin yükleyicisini, kurulmuş olan Pardus'u başlatmak \n"
-"için yapılandırmanız gerekir</p>"
-
-#: yali/gui/bootloaderwidget.py:79
-msgid "Yes, Install Boot Loader"
-msgstr "Evet, Sistem Yükleyicisini Kur"
-
-#: yali/gui/bootloaderwidget.py:80
-msgid "Select the disk you to install bootloader:"
-msgstr "Sistem yükleyicisinin kurulacağı diski seçin:"
 
 #: yali/gui/Goodbye.py:36
 msgid ""
@@ -237,7 +170,7 @@ msgstr "Sistemi Yeniden Başlat!"
 msgid "Release Notes"
 msgstr "Sürüm Notları"
 
-#: yali/gui/GUIGPL.py:53
+#: yali/gui/GUIGPL.py:64
 msgid "Can't open License file!"
 msgstr "Lisans dosyası açılamıyor!"
 
@@ -320,19 +253,6 @@ msgstr ""
 "Hata:\n"
 "%s\n"
 
-#: yali/gui/installwidget.py:52
-msgid "Form3"
-msgstr "Form3"
-
-#: yali/gui/installwidget.py:53
-msgid "Installing Package: "
-msgstr "Kurulan Paket: "
-
-#: yali/gui/installwidget.py:54 yali/gui/keyboardwidget.py:67
-#: yali/gui/welcomewidget.py:92
-msgid "pix"
-msgstr "pix"
-
 #: yali/gui/Keyboard.py:30
 msgid ""
 "\n"
@@ -352,18 +272,6 @@ msgstr ""
 "<p>\n"
 "Klavyenizin türüne göre bir klavye haritasını listeden seçebilirsiniz.</p>\n"
 "</font>\n"
-
-#: yali/gui/keyboardwidget.py:68
-msgid "Select the keyboard layout of your choice."
-msgstr "Bir klavye haritası seçin."
-
-#: yali/gui/keyboardwidget.py:69
-msgid "Test selected keyboard:"
-msgstr "Klavyeyi test et: "
-
-#: yali/gui/parteditbuttons.py:48
-msgid "Apply"
-msgstr "Uygula"
 
 #: yali/gui/PartEditImpl.py:101
 #, python-format
@@ -388,34 +296,6 @@ msgstr "'Sistem Dosyaları' bölümü en az %s MB olmalı."
 msgid "ntfsresize check failed! Won't proceed action!"
 msgstr ""
 "NTFS yeniden boyutlandırma kontrolü başarısız! İşlem gerçekleştirilmeyecek!"
-
-#: yali/gui/parteditwidget.py:82
-msgid "Size (MB):"
-msgstr "Boyut (MB):"
-
-#: yali/gui/parteditwidget.py:83
-msgid "Use available free space"
-msgstr "Boş alanın tümünü kullan"
-
-#: yali/gui/parteditwidget.py:85
-msgid "Format this partition"
-msgstr "Bu disk bölümünü biçimlendir"
-
-#: yali/gui/parteditwidget.py:87
-msgid " What do you want to store in this partition? "
-msgstr " Bu disk bölümü içerisinde ne bulundurmak istiyorsunuz? "
-
-#: yali/gui/parteditwidget.py:88
-msgid "Pardus system files (mandatory)"
-msgstr "Pardus sistem dosyaları (zorunlu)"
-
-#: yali/gui/parteditwidget.py:89
-msgid "User files (optional)"
-msgstr "Kullanıcı dosyaları (isteğe bağlı)"
-
-#: yali/gui/parteditwidget.py:90
-msgid "Swap space (optional)"
-msgstr "Takas alanı bölümü (isteğe bağlı)"
 
 #: yali/gui/Partitioning.py:38
 msgid ""
@@ -529,116 +409,48 @@ msgstr ""
 "</b>\n"
 "</font>\n"
 
-#: yali/gui/PartListImpl.py:102
+#: yali/gui/PartListImpl.py:105
 #, python-format
 msgid "%0.1f GB free"
 msgstr "%0.1f GB boş"
 
-#: yali/gui/PartListImpl.py:104
+#: yali/gui/PartListImpl.py:107
 #, python-format
 msgid "%d MB free"
 msgstr "%d MB boş"
 
-#: yali/gui/PartListImpl.py:129
+#: yali/gui/PartListImpl.py:132
 msgid "Extended"
 msgstr "Uzatılmış"
 
-#: yali/gui/PartListImpl.py:158
+#: yali/gui/PartListImpl.py:161
 #, python-format
 msgid "Partition %d"
 msgstr "Disk bölümü %d"
 
-#: yali/gui/PartListImpl.py:200
+#: yali/gui/PartListImpl.py:203
 msgid "Delete All Partitions"
 msgstr "Tüm Disk Bölümlerini Sil"
 
-#: yali/gui/PartListImpl.py:226 yali/gui/partlistwidget.py:87
+#: yali/gui/PartListImpl.py:229
 msgid "Delete Selected Partition"
 msgstr "Seçili Disk Bölümünü Sil"
 
-#: yali/gui/PartListImpl.py:296
+#: yali/gui/PartListImpl.py:301
 msgid "Can't get partition info from partition request!"
 msgstr "Disk bölümü isteğinden bölüm bilgisi alınamıyor!"
 
-#: yali/gui/PartListImpl.py:298
+#: yali/gui/PartListImpl.py:303
 msgid " req.partition() is None. May be a zombie request!"
 msgstr " req.partition() boş. Zaten öldürülmüş bir istek olabilir!"
 
-#: yali/gui/PartListImpl.py:306
+#: yali/gui/PartListImpl.py:311
 msgid "Formatting!"
 msgstr "Biçimlendiriliyor!"
 
-#: yali/gui/PartListImpl.py:308
+#: yali/gui/PartListImpl.py:313
 msgid "YES"
 msgstr "EVET"
-
-#: yali/gui/partlistwidget.py:47 yali/gui/partlistwidget.py:89
-msgid "Device"
-msgstr "Aygıt"
-
-#: yali/gui/partlistwidget.py:48 yali/gui/partlistwidget.py:90
-msgid "Size"
-msgstr "Boyut"
-
-#: yali/gui/partlistwidget.py:49 yali/gui/partlistwidget.py:91
-msgid "Partition Type"
-msgstr "Disk Bölümü Tipi"
-
-#: yali/gui/partlistwidget.py:50 yali/gui/partlistwidget.py:92
-msgid "Filesystem"
-msgstr "Dosya Sistemi"
-
-#: yali/gui/partlistwidget.py:51 yali/gui/partlistwidget.py:93
-msgid "Format?"
-msgstr "Biçimlendir?"
-
-#: yali/gui/partlistwidget.py:86
-msgid "Create New Partition"
-msgstr "Disk Bölümü Oluştur"
-
-#: yali/gui/partlistwidget.py:88
-msgid "Partitions:"
-msgstr "Disk Bölümleri:"
-
-#: yali/gui/partlistwidget.py:94
-msgid "Reset All Changes"
-msgstr "Tüm Değişiklikleri Geri Al"
-
-#: yali/gui/partlistwidget.py:95
-msgid "Resize"
-msgstr "Yeniden Boyutlandır"
-
-#: yali/gui/partlistwidget.py:96
-msgid "Edit"
-msgstr "Düzenle"
-
-#: yali/gui/rootpasswidget.py:122
-msgid "System administrator password:"
-msgstr "Sistem yöneticisi parolası:"
-
-#: yali/gui/rootpasswidget.py:123
-msgid "System administrator password (again):"
-msgstr "Sistem yöneticisi parolası (tekrar):"
-
-#: yali/gui/rootpasswidget.py:125
-msgid ""
-"<p align=\"left\">System administrator user (root) handles important system "
-"maintanence tasks. Please give password for this special user and do not "
-"forget this password. Note that you shouldn't write this password elsewhere "
-"for privacy reasons.</p>"
-msgstr ""
-"<p align=\"left\">Sistem yöneticisi (root) tüm sistem bakımı işlerini "
-"yürütür. Lütfen bu özel kullanıcı için bir parola tanımlayın ve bu parolayı "
-"unutmayın. Gizlilik nedenlerinden dolayı bu parolayı hiç bir yere yazmamanız "
-"önerilir.</p>"
-
-#: yali/gui/rootpasswidget.py:126
-msgid "Hostname:"
-msgstr "Makine Adı:"
-
-#: yali/gui/rootpasswidget.py:127
-msgid "pardus"
-msgstr "pardus"
 
 #: yali/gui/runner.py:51
 msgid "Prepare for install"
@@ -656,7 +468,7 @@ msgstr "Basit yapılandırma"
 msgid "An error occured!"
 msgstr "Bir hata oluştu!"
 
-#: yali/gui/runner.py:157 yali/gui/welcomewidget.py:96
+#: yali/gui/runner.py:157
 msgid "Reboot System!"
 msgstr "Sistemi Yeniden Başlat!"
 
@@ -722,8 +534,7 @@ msgid ""
 "</p>\n"
 "<p>\n"
 "The password may include upper and lower case characters, numbers and \n"
-"punctuation marks. Do not use Turkish characters or accents, as they\n"
-"may impose some problems.\n"
+"punctuation marks. Do not use accented characters here.\n"
 "</p>\n"
 "\n"
 "<p>\n"
@@ -764,11 +575,11 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/SetupRootpass.py:104 yali/gui/SetupUsers.py:95
+#: yali/gui/SetupRootpass.py:103 yali/gui/SetupUsers.py:95
 msgid "<font color=\"#FF6D19\">Passwords do not match!</font>"
 msgstr "<font color=\"#FF6D19\">Parolalar aynı değil!</font>"
 
-#: yali/gui/SetupRootpass.py:123
+#: yali/gui/SetupRootpass.py:122
 msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
 msgstr ""
 "<font color=\"#FF6D19\">Makine adı geçersiz karakterler içeriyor!</font>"
@@ -836,38 +647,6 @@ msgstr ""
 "<font color=\"#FF6D19\">Gerçek İsim bölümü geçersiz karakterler içeriyor!</"
 "font>"
 
-#: yali/gui/setupuserswidget.py:129
-msgid "Delete Selected User"
-msgstr "Seçili Kullanıcıyı Sil"
-
-#: yali/gui/setupuserswidget.py:130
-msgid "Users:"
-msgstr "Kullanıcılar:"
-
-#: yali/gui/setupuserswidget.py:132
-msgid "New User"
-msgstr "Yeni Kullanıcı"
-
-#: yali/gui/setupuserswidget.py:133
-msgid "User Name:"
-msgstr "Kullanıcı Adı:"
-
-#: yali/gui/setupuserswidget.py:134
-msgid "Create User"
-msgstr "Kullanıcı Ekle"
-
-#: yali/gui/setupuserswidget.py:135
-msgid "Password (again):"
-msgstr "Parola (tekrar):"
-
-#: yali/gui/setupuserswidget.py:136
-msgid "Password:"
-msgstr "Parola:"
-
-#: yali/gui/setupuserswidget.py:137
-msgid "Real Name:"
-msgstr "Gerçek İsim:"
-
 #: yali/gui/Welcome.py:32
 msgid ""
 "\n"
@@ -926,38 +705,15 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/welcomewidget.py:93
-msgid ""
-"<b>Pardus</b> is licensed under GNU GPL. You should accept it's license\n"
-"before installing it on your computer. Read GPL and select Accept to "
-"continue installing."
-msgstr ""
-"<b>Pardus 1.0</b> GNU GPL ile dağıtılmaktadır. Kuruluma başlamadan önce "
-"lisans\n"
-"metnini okumanız gerekir. 'GPL Metnini Oku' tuşuna basarak lisansı "
-"okuyabilirsiniz. 'Kabul Ediyorum!'u seçerek kuruluma başlayabilirsiniz."
-
-#: yali/gui/welcomewidget.py:95
-msgid "Read GPL"
-msgstr "GPL Metnini Oku"
-
-#: yali/gui/welcomewidget.py:98
-msgid "Accept!"
-msgstr "Kabul Ediyorum!"
-
-#: yali/gui/welcomewidget.py:99
-msgid "Don't Accept!"
-msgstr "Hayır, Kabul Etmiyorum!"
-
-#: yali/gui/YaliDialog.py:103
+#: yali/gui/YaliDialog.py:107
 msgid "Warning"
 msgstr "Uyarı"
 
-#: yali/bootloader.py:138 yali/bootloader.py:143
+#: yali/bootloader.py:140 yali/bootloader.py:145
 msgid "Windows"
 msgstr "Windows"
 
-#: yali/__init__.py:53
+#: yali/__init__.py:54
 msgid "Backtrace:"
 msgstr "Geri İz:"
 
@@ -996,6 +752,198 @@ msgstr "Kullanıcı Dosyaları"
 #: yali/partitiontype.py:67
 msgid "Swap"
 msgstr "Takas"
+
+#~ msgid "Form1"
+#~ msgstr "Form1"
+
+#~ msgid ""
+#~ "<font size=\"+1\"><b>Select the partitioning method:</b></font>\n"
+#~ "\n"
+#~ "<p>Below, you can select an hard disk for automatic partitioning.\n"
+#~ "Selected disk will be used for Pardus installation.</p>\n"
+#~ "\n"
+#~ "<p><font color=\"#FF6D19\"><b><u>WARNING:</u></b>\n"
+#~ "Automatic partitioning will use your entire disk for Pardus "
+#~ "installation.\n"
+#~ "All data on the selected disk will be lost!</font></p>"
+#~ msgstr ""
+#~ "<font size=\"+1\"><b>Bölümlendirme yöntemini seçin:</b></font>\n"
+#~ "\n"
+#~ "<p>Aşağıdaki listeden sisteminizde bulunan disklerden birini otomatik \n"
+#~ "bölümlendirme için seçebilirsiniz. Seçilen disk Pardus kurulumu için "
+#~ "kullanılacak.</p>\n"
+#~ "\n"
+#~ "<p><font color=\"#FF6D19\"><b><u>Uyarı:</u></b>\n"
+#~ "Otomatik bölümlendirme bütün diskinizi Pardus kurulumu için kullanacak. \n"
+#~ "Seçili disk üzerindeki tüm verileriniz silinecektir!</font></p>"
+
+#~ msgid "&nbsp;"
+#~ msgstr "&nbsp;"
+
+#~ msgid "No, I'll partition my disk manually."
+#~ msgstr "Hayır, diskimi kendim bölümlendireceğim."
+
+#~ msgid "Yes, automatically partition and format selected disk!"
+#~ msgstr "Evet, seçili diski otomatik olarak bölümlendir ve biçimlendir!"
+
+#~ msgid ""
+#~ "<b>Do you want to write boot loader (GRUB) to your hard disk's master "
+#~ "boot record?</b>\n"
+#~ "\n"
+#~ "<p>You need a boot loader to boot your Pardus system.</p>\n"
+#~ "\n"
+#~ "<p>If you don't install a boot loader, you will have to configure your \n"
+#~ "other operating system's loader  (if you have one installed) to start \n"
+#~ "your newly installed Pardus.</p>"
+#~ msgstr ""
+#~ "<b>Sistem yükleyicisini (GRUB) sabit diskinize kurmak ister misiniz?</b>\n"
+#~ "\n"
+#~ "<p>Eğer bir sistem yükleyicisi kurmazsanız, (eğer kurulu bir tane "
+#~ "varsa) \n"
+#~ "diğer işletim sisteminizin yükleyicisini, kurulmuş olan Pardus'u "
+#~ "başlatmak \n"
+#~ "için yapılandırmanız gerekir</p>"
+
+#~ msgid "Yes, Install Boot Loader"
+#~ msgstr "Evet, Sistem Yükleyicisini Kur"
+
+#~ msgid "Select the disk you to install bootloader:"
+#~ msgstr "Sistem yükleyicisinin kurulacağı diski seçin:"
+
+#~ msgid "Form3"
+#~ msgstr "Form3"
+
+#~ msgid "Installing Package: "
+#~ msgstr "Kurulan Paket: "
+
+#~ msgid "pix"
+#~ msgstr "pix"
+
+#~ msgid "Select the keyboard layout of your choice."
+#~ msgstr "Bir klavye haritası seçin."
+
+#~ msgid "Test selected keyboard:"
+#~ msgstr "Klavyeyi test et: "
+
+#~ msgid "Apply"
+#~ msgstr "Uygula"
+
+#~ msgid "Size (MB):"
+#~ msgstr "Boyut (MB):"
+
+#~ msgid "Use available free space"
+#~ msgstr "Boş alanın tümünü kullan"
+
+#~ msgid "Format this partition"
+#~ msgstr "Bu disk bölümünü biçimlendir"
+
+#~ msgid " What do you want to store in this partition? "
+#~ msgstr " Bu disk bölümü içerisinde ne bulundurmak istiyorsunuz? "
+
+#~ msgid "Pardus system files (mandatory)"
+#~ msgstr "Pardus sistem dosyaları (zorunlu)"
+
+#~ msgid "User files (optional)"
+#~ msgstr "Kullanıcı dosyaları (isteğe bağlı)"
+
+#~ msgid "Swap space (optional)"
+#~ msgstr "Takas alanı bölümü (isteğe bağlı)"
+
+#~ msgid "Device"
+#~ msgstr "Aygıt"
+
+#~ msgid "Size"
+#~ msgstr "Boyut"
+
+#~ msgid "Partition Type"
+#~ msgstr "Disk Bölümü Tipi"
+
+#~ msgid "Filesystem"
+#~ msgstr "Dosya Sistemi"
+
+#~ msgid "Format?"
+#~ msgstr "Biçimlendir?"
+
+#~ msgid "Create New Partition"
+#~ msgstr "Disk Bölümü Oluştur"
+
+#~ msgid "Partitions:"
+#~ msgstr "Disk Bölümleri:"
+
+#~ msgid "Reset All Changes"
+#~ msgstr "Tüm Değişiklikleri Geri Al"
+
+#~ msgid "Resize"
+#~ msgstr "Yeniden Boyutlandır"
+
+#~ msgid "Edit"
+#~ msgstr "Düzenle"
+
+#~ msgid "System administrator password:"
+#~ msgstr "Sistem yöneticisi parolası:"
+
+#~ msgid "System administrator password (again):"
+#~ msgstr "Sistem yöneticisi parolası (tekrar):"
+
+#~ msgid ""
+#~ "<p align=\"left\">System administrator user (root) handles important "
+#~ "system maintanence tasks. Please give password for this special user and "
+#~ "do not forget this password. Note that you shouldn't write this password "
+#~ "elsewhere for privacy reasons.</p>"
+#~ msgstr ""
+#~ "<p align=\"left\">Sistem yöneticisi (root) tüm sistem bakımı işlerini "
+#~ "yürütür. Lütfen bu özel kullanıcı için bir parola tanımlayın ve bu "
+#~ "parolayı unutmayın. Gizlilik nedenlerinden dolayı bu parolayı hiç bir "
+#~ "yere yazmamanız önerilir.</p>"
+
+#~ msgid "Hostname:"
+#~ msgstr "Makine Adı:"
+
+#~ msgid "pardus"
+#~ msgstr "pardus"
+
+#~ msgid "Delete Selected User"
+#~ msgstr "Seçili Kullanıcıyı Sil"
+
+#~ msgid "Users:"
+#~ msgstr "Kullanıcılar:"
+
+#~ msgid "New User"
+#~ msgstr "Yeni Kullanıcı"
+
+#~ msgid "User Name:"
+#~ msgstr "Kullanıcı Adı:"
+
+#~ msgid "Create User"
+#~ msgstr "Kullanıcı Ekle"
+
+#~ msgid "Password (again):"
+#~ msgstr "Parola (tekrar):"
+
+#~ msgid "Password:"
+#~ msgstr "Parola:"
+
+#~ msgid "Real Name:"
+#~ msgstr "Gerçek İsim:"
+
+#~ msgid ""
+#~ "<b>Pardus</b> is licensed under GNU GPL. You should accept it's license\n"
+#~ "before installing it on your computer. Read GPL and select Accept to "
+#~ "continue installing."
+#~ msgstr ""
+#~ "<b>Pardus 1.0</b> GNU GPL ile dağıtılmaktadır. Kuruluma başlamadan önce "
+#~ "lisans\n"
+#~ "metnini okumanız gerekir. 'GPL Metnini Oku' tuşuna basarak lisansı "
+#~ "okuyabilirsiniz. 'Kabul Ediyorum!'u seçerek kuruluma başlayabilirsiniz."
+
+#~ msgid "Read GPL"
+#~ msgstr "GPL Metnini Oku"
+
+#~ msgid "Accept!"
+#~ msgstr "Kabul Ediyorum!"
+
+#~ msgid "Don't Accept!"
+#~ msgstr "Hayır, Kabul Etmiyorum!"
 
 #~ msgid ""
 #~ "<b>This is a RC release of Pardus.</b>\n"

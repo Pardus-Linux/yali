@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: degis_tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-10 15:52+0300\n"
+"POT-Creation-Date: 2006-10-31 22:59+0200\n"
 "PO-Revision-Date: 2006-10-28 16:51+0300\n"
 "Last-Translator: Atilla Aktuna <aktuna@gmail.com>\n"
 "Language-Team: Türkçe <tr@li.org>\n"
@@ -50,26 +50,28 @@ msgstr ""
 "installé sur un disque dur vide ou sur une partition\n"
 "de disque dur. <b>L'installation va effacer automatiquement \n"
 "les informations précédemment sauvées sur les partitions choisies,</b> \n"
-"il vous est proposé de sauver tous vos fichiers avant de travailler.\n "
-"</p> \n"
+"il vous est proposé de sauver tous vos fichiers avant de travailler.\n"
+" </p> \n"
 "<p> \n"
 "Le partitionnement automatique utilisera entièrement votre disque dur \n"
-"pour l'installation de Pardus. À partir de cet écran il est possible de choisir \n"
+"pour l'installation de Pardus. À partir de cet écran il est possible de "
+"choisir \n"
 "un de vos disques pour un partitionnement automatique,\n"
 "ou il est possible de passer cet écran pour un partitionement manuel\n"
 "</p> \n"
 "</font>\n"
 
-#: yali/gui/AutoPartitioning.py:70 yali/gui/Partitioning.py:81
-#: yali/gui/PartListImpl.py:80 yali/gui/SetupBootloader.py:70
+#: yali/gui/AutoPartitioning.py:68 yali/gui/Partitioning.py:81
+#: yali/gui/PartListImpl.py:87 yali/gui/SetupBootloader.py:71
 msgid "Can't find a storage device!"
 msgstr "Disque inexistant pour l'installation!"
 
-#: yali/gui/AutoPartitioning.py:128
+#: yali/gui/AutoPartitioning.py:126
 msgid "<font color=\"#FF6D19\">Preparing your disk for installation!</font>"
-msgstr "<font color=\"#FF6D19\">Préparation de disque dur pour l'installation</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Préparation de disque dur pour l'installation</font>"
 
-#: yali/gui/AutoPartitioning.py:197
+#: yali/gui/AutoPartitioning.py:190
 msgid ""
 "<font size=\"+1\">\n"
 "<b>\n"
@@ -83,98 +85,33 @@ msgid ""
 msgstr ""
 "<font size=\"+1\">\n"
 "<b>\n"
-"<p>Cette opération utilisera entièrement votre disque dur pour l'installation\n"
+"<p>Cette opération utilisera entièrement votre disque dur pour "
+"l'installation\n"
 "de Pardus et tous vos fichiers sur le disque choisi seront effacés. \n"
 "</p>\n"
 "\n"
-"<p> Après les backups, presser d'accord et Pardus va facilement s'installer \n"
+"<p> Après les backups, presser d'accord et Pardus va facilement "
+"s'installer \n"
 "</p>\n"
 "</b>\n"
 "</font>\n"
 
-#: yali/gui/AutoPartitioning.py:209 yali/gui/parteditbuttons.py:47
-#: yali/gui/Partitioning.py:216
+#: yali/gui/AutoPartitioning.py:202 yali/gui/Partitioning.py:216
 msgid "Cancel"
 msgstr "Annuler"
 
-#: yali/gui/AutoPartitioning.py:212 yali/gui/Partitioning.py:219
+#: yali/gui/AutoPartitioning.py:205 yali/gui/Partitioning.py:219
 msgid "O.K. Go Ahead"
 msgstr "D'accord. Continue."
 
-#: yali/gui/autopartwidget.py:83 yali/gui/bootloaderwidget.py:71
-#: yali/gui/keyboardwidget.py:66 yali/gui/parteditbuttons.py:46
-#: yali/gui/parteditwidget.py:81 yali/gui/partlistwidget.py:85
-#: yali/gui/rootpasswidget.py:119 yali/gui/setupuserswidget.py:128
-#: yali/gui/welcomewidget.py:91
-msgid "Form1"
-msgstr "Form1"
-
-#: yali/gui/autopartwidget.py:84
-msgid ""
-"<font size=\"+1\"><b>Select the partitioning method:</b></font>\n"
-"\n"
-"<p>Below, you can select an hard disk for automatic partitioning.\n"
-"Selected disk will be used for Pardus installation.</p>\n"
-"\n"
-"<p><font color=\"#FF6D19\"><b><u>WARNING:</u></b>\n"
-"Automatic partitioning will use your entire disk for Pardus installation.\n"
-"All data on the selected disk will be lost!</font></p>"
-msgstr ""
-"<font size=\"+1\"><b>Sélectionner la méthode de Partionnement</b></font>\n"
-"\n"
-"<p>Il est possible de choisir un de vos disques durs sur la liste \n"
-" pour le partitionnement automatique. Le disque dur sélectionné va etre utilisé\n"
-"pour l'installation de Pardus.</p>\n"
-"<p><font color=\"#FF6D19\"><b><u>ATTENTION:</u></b>\n"
-"Le partitionnement automatique utilisera votre disque entier pour l'installation de Pardus.\n"
-"L'installation effacera automatiquement les informations précédemment\n"
-"sauvées sur les partitions sélectionnées.</font></p>"
-
-#: yali/gui/autopartwidget.py:92
-msgid "&nbsp;"
-msgstr "&nbsp;"
-
-#: yali/gui/autopartwidget.py:94
-msgid "No, I'll partition my disk manually."
-msgstr "Non, je vais partitionner mon disque manuellement."
-
-#: yali/gui/autopartwidget.py:95
-msgid "Yes, automatically partition and format selected disk!"
-msgstr "Oui, partitionnez et formattez automatiquement les disques sélectionnés!"
-
-#: yali/gui/bootloaderwidget.py:72
-msgid ""
-"<b>Do you want to write boot loader (GRUB) to your hard disk's master boot "
-"record?</b>\n"
-"\n"
-"<p>You need a boot loader to boot your Pardus system.</p>\n"
-"\n"
-"<p>If you don't install a boot loader, you will have to configure your \n"
-"other operating system's loader  (if you have one installed) to start \n"
-"your newly installed Pardus.</p>"
-msgstr ""
-"<b>Installer le chargeur de démarrage (GRUB) à votre partie de boot de votre disque dur?</b>\n"
-"\n"
-"<p>Vous avez besoin d'un chargeur de démarrage pour redémarrer votre système de Pardus"
-"<p>Si un chargeur de démarrage n'est pas installé, veuillez configurer l'autre chargeur de système d'opréation."
-"</p>"
-
-#: yali/gui/bootloaderwidget.py:79
-msgid "Yes, Install Boot Loader"
-msgstr "Oui, Installez le chargeur de démarrage"
-
-#: yali/gui/bootloaderwidget.py:80
-msgid "Select the disk you to install bootloader:"
-msgstr "Sélectionner le disque pour installer le chargeur de démarrage"
-
-#: yali/gui/Goodbye.py:34
+#: yali/gui/Goodbye.py:36
+#, fuzzy
 msgid ""
 "\n"
 "<font size=\"+2\">Congratulations</font>\n"
 "\n"
 "\n"
 "<font size=\"+1\">\n"
-"<p><b>Voila! You made it!</b></p>\n"
 "<p>\n"
 "You have successfully installed Pardus, a very easy to use desktop system "
 "on\n"
@@ -203,13 +140,15 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/Goodbye.py:60
+#: yali/gui/Goodbye.py:61
 msgid ""
 "<b><font size=\"+2\" color=\"#FF6D19\">Rebooting system. Please wait!</"
 "font></b>"
-msgstr "<b><font size=\"+2\" color=\"#FF6D19\">Le système redémarre.Veuiilez patienter.</font></b>"
+msgstr ""
+"<b><font size=\"+2\" color=\"#FF6D19\">Le système redémarre.Veuiilez "
+"patienter.</font></b>"
 
-#: yali/gui/Goodbye.py:126
+#: yali/gui/Goodbye.py:135
 msgid ""
 "<font size=\"+1\">\n"
 "<b>\n"
@@ -219,19 +158,20 @@ msgid ""
 msgstr ""
 "<font size=\"+1\">\n"
 "<b>\n"
-"<p>Veuillez retirer le CD de Pardus  et 'cliquez le bouton \"Redémarrer\".</p>\n"
+"<p>Veuillez retirer le CD de Pardus  et 'cliquez le bouton \"Redémarrer\".</"
+"p>\n"
 "</b>\n"
 "</font>\n"
 
-#: yali/gui/Goodbye.py:134
+#: yali/gui/Goodbye.py:143
 msgid "Reboot"
 msgstr "Redémarrer"
 
-#: yali/gui/GUIBottom.py:45 yali/gui/GUIBottom.py:81
+#: yali/gui/GUIBottom.py:101 yali/gui/GUIBottom.py:148
 msgid "Release Notes"
 msgstr "Notes de mise à jour"
 
-#: yali/gui/GUIGPL.py:53
+#: yali/gui/GUIGPL.py:64
 msgid "Can't open License file!"
 msgstr "Le fichier de licence ne s'ouvre pas!"
 
@@ -239,7 +179,7 @@ msgstr "Le fichier de licence ne s'ouvre pas!"
 msgid "Can't open Release Notes file!"
 msgstr "Le fichier de note de mise à jour ne s'ouvre pas"
 
-#: yali/gui/InstallSystem.py:53
+#: yali/gui/InstallSystem.py:54
 msgid ""
 "\n"
 "<font size=\"+2\">Installation started</font>\n"
@@ -282,21 +222,21 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/InstallSystem.py:108 yali/gui/InstallSystem.py:134
+#: yali/gui/InstallSystem.py:110 yali/gui/InstallSystem.py:136
 #, python-format
 msgid "Installing: %s<br>%s"
 msgstr "Installation du paquet: %s<br>%s"
 
-#: yali/gui/InstallSystem.py:115 yali/gui/InstallSystem.py:140
+#: yali/gui/InstallSystem.py:117 yali/gui/InstallSystem.py:142
 #, python-format
 msgid "Configuring package: %s"
 msgstr "Configuration du paquet: %s"
 
-#: yali/gui/InstallSystem.py:196
+#: yali/gui/InstallSystem.py:200
 msgid "Configuring packages for your system!"
 msgstr "Configuration des paquets pour votre système!"
 
-#: yali/gui/InstallSystem.py:243
+#: yali/gui/InstallSystem.py:248
 #, python-format
 msgid ""
 "An error during the installation of packages occured.\n"
@@ -312,19 +252,6 @@ msgstr ""
 "\n"
 "Erreur:\n"
 "%s\n"
-
-#: yali/gui/installwidget.py:52
-msgid "Form3"
-msgstr "Form3"
-
-#: yali/gui/installwidget.py:53
-msgid "Installing Package: "
-msgstr "Installation du paquet: "
-
-#: yali/gui/installwidget.py:54 yali/gui/keyboardwidget.py:67
-#: yali/gui/welcomewidget.py:92
-msgid "pix"
-msgstr "pix"
 
 #: yali/gui/Keyboard.py:30
 msgid ""
@@ -346,68 +273,33 @@ msgstr ""
 "Vous pouvez sélectionner le type de clavier, sur la liste. </p>\n"
 "</font>\n"
 
-#: yali/gui/keyboardwidget.py:68
-msgid "Select the keyboard layout of your choice."
-msgstr "Sélectionnez un clavier "
-
-#: yali/gui/keyboardwidget.py:69
-msgid "Test selected keyboard:"
-msgstr "Testez le clavier "
-
-#: yali/gui/parteditbuttons.py:48
-msgid "Apply"
-msgstr "Appliquer"
-
 #: yali/gui/PartEditImpl.py:101
 #, python-format
 msgid "You are going to delete all partitions on device '%s'"
-msgstr "Vous êtes en train d'éffacer tous les partitionnements sur le périphérique '%s !"
+msgstr ""
+"Vous êtes en train d'éffacer tous les partitionnements sur le périphérique '%"
+"s !"
 
 #: yali/gui/PartEditImpl.py:113
 #, python-format
 msgid "You are going to delete partition '%s' on device '%s'!"
-msgstr "Vous êtes en train d'effacer le partitionnement %s sur le périphérique '%s !"
+msgstr ""
+"Vous êtes en train d'effacer le partitionnement %s sur le périphérique '%s !"
 
 #: yali/gui/PartEditImpl.py:161
 msgid "You must select a partition type from the list below."
 msgstr "Veuillez sélectionner un type de partitionnement sur la liste."
 
-#: yali/gui/PartEditImpl.py:176 yali/gui/PartEditImpl.py:202
+#: yali/gui/PartEditImpl.py:175 yali/gui/PartEditImpl.py:201
 #, python-format
 msgid "'Install Root' size must be larger than %s MB."
-msgstr "La taille de racine d'installatıon (Install Root) doit être supérieure à %s MB"
+msgstr ""
+"La taille de racine d'installatıon (Install Root) doit être supérieure à %s "
+"MB"
 
-#: yali/gui/PartEditImpl.py:278
+#: yali/gui/PartEditImpl.py:277
 msgid "ntfsresize check failed! Won't proceed action!"
 msgstr "Le contrôle de redimensionnement est échoué!"
-
-#: yali/gui/parteditwidget.py:82
-msgid "Size (MB):"
-msgstr "Taille (MB):"
-
-#: yali/gui/parteditwidget.py:83
-msgid "Use available free space"
-msgstr "Utilisez tout l'éspace disponible."
-
-#: yali/gui/parteditwidget.py:85
-msgid "Format this partition"
-msgstr "Formattez ce partionnement"
-
-#: yali/gui/parteditwidget.py:87
-msgid " What do you want to store in this partition? "
-msgstr "Que voulez-vous stocker dans ce partitionnement?"
-
-#: yali/gui/parteditwidget.py:88
-msgid "Pardus system files (mandatory)"
-msgstr "Les fichiers de Pardus (obligatoire)"
-
-#: yali/gui/parteditwidget.py:89
-msgid "User files (optional)"
-msgstr "Les fichiers d'utilisateur (optionel)"
-
-#: yali/gui/parteditwidget.py:90
-msgid "Swap space (optional)"
-msgstr "Espace de SWAP(optionel)"
 
 #: yali/gui/Partitioning.py:38
 msgid ""
@@ -455,28 +347,34 @@ msgstr ""
 "<p>\n"
 "Pardus, travaille avec beaucoup de different peripherique..Si vous en \n"
 "avez un parttionnement vide ou une disque dure vide, vous pouvez \n"
-"pouvez facilement installer Pardus. <b>L'installation détruira automatiquement  \n"
+"pouvez facilement installer Pardus. <b>L'installation détruira "
+"automatiquement  \n"
 "l'information précédemment sauvée sur les partitions choisies</b> \n"
-"pour cela on vous propose de sauver tous vos fichiers que vous utilisez\n "
-"avant de travailler.\n"
+"pour cela on vous propose de sauver tous vos fichiers que vous utilisez\n"
+" avant de travailler.\n"
 "</p> \n"
 "<p> \n"
 "Pour installer Pardus, vous devez créer un système de fichier \n"
 "Linux (obligatoire) et un éspace de swap pour une pérformance \n"
-"amélioré (optionel). Pour cela, on vous conseille un éspace d'au moins 4 GB \n"
+"amélioré (optionel). Pour cela, on vous conseille un éspace d'au moins 4 "
+"GB \n"
 "pour les fichiers de système et un éspace de 500 MB - 2 GB pour \n"
-"l'éspace de swap. Le partitionnement de Linux ne peut pas être moins de 2.5 GB.\n"
-"Vous pouvez optionnellement utiliser une autre parttion pour les fichiers d'utilisateurs.\n"
+"l'éspace de swap. Le partitionnement de Linux ne peut pas être moins de 2.5 "
+"GB.\n"
+"Vous pouvez optionnellement utiliser une autre parttion pour les fichiers "
+"d'utilisateurs.\n"
 "</p> \n"
 "<p>\n"
 "Si c'est la première fois que vous installez Linux, vous devez formatterl\n"
 "la disque dure. L'installation détruira toutes les informations sur  \n"
-"la disque dure.. Si vous voulez utiliser les autres partitions sur la disque "
-" dure, Vous pouvez activer \"utiliser toute l'éspace disponible\"\n"
+"la disque dure.. Si vous voulez utiliser les autres partitions sur la "
+"disque  dure, Vous pouvez activer \"utiliser toute l'éspace disponible\"\n"
 "</p>\n"
 "<p>\n"
-"La table de partitionnement montre,le nom, la taille, le type et l'information\n"
-"sur le système de fichier de la disque dure. Si le partitionnement va formatter \n"
+"La table de partitionnement montre,le nom, la taille, le type et "
+"l'information\n"
+"sur le système de fichier de la disque dure. Si le partitionnement va "
+"formatter \n"
 "pendant l'installation de Pardus, alors la colonne 'Formatter' \n"
 "doit être activer.\n"
 "</p>\n"
@@ -518,107 +416,48 @@ msgstr ""
 "</b>\n"
 "</font>\n"
 
-#: yali/gui/PartListImpl.py:98
+#: yali/gui/PartListImpl.py:105
 #, python-format
 msgid "%0.1f GB free"
 msgstr "%0.1f GB disponible"
 
-#: yali/gui/PartListImpl.py:100
+#: yali/gui/PartListImpl.py:107
 #, python-format
 msgid "%d MB free"
 msgstr "%d MB disponible"
 
-#: yali/gui/PartListImpl.py:125
+#: yali/gui/PartListImpl.py:132
 msgid "Extended"
 msgstr "Etendu"
 
-#: yali/gui/PartListImpl.py:154
+#: yali/gui/PartListImpl.py:161
 #, python-format
 msgid "Partition %d"
 msgstr "Le partitionnement %d"
 
-#: yali/gui/PartListImpl.py:186
+#: yali/gui/PartListImpl.py:203
 msgid "Delete All Partitions"
 msgstr "Supprimer tous les partitionnements"
 
-#: yali/gui/PartListImpl.py:212 yali/gui/partlistwidget.py:87
+#: yali/gui/PartListImpl.py:229
 msgid "Delete Selected Partition"
 msgstr "Supprimer le partitionnement choisi"
 
-#: yali/gui/PartListImpl.py:283
+#: yali/gui/PartListImpl.py:301
+msgid "Can't get partition info from partition request!"
+msgstr ""
+
+#: yali/gui/PartListImpl.py:303
+msgid " req.partition() is None. May be a zombie request!"
+msgstr ""
+
+#: yali/gui/PartListImpl.py:311
 msgid "Formatting!"
 msgstr "En train de formatter!"
 
-#: yali/gui/PartListImpl.py:285
+#: yali/gui/PartListImpl.py:313
 msgid "YES"
 msgstr "OUI"
-
-#: yali/gui/partlistwidget.py:47 yali/gui/partlistwidget.py:89
-msgid "Device"
-msgstr "Le périphérique"
-
-#: yali/gui/partlistwidget.py:48 yali/gui/partlistwidget.py:90
-msgid "Size"
-msgstr "La taille"
-
-#: yali/gui/partlistwidget.py:49 yali/gui/partlistwidget.py:91
-msgid "Partition Type"
-msgstr "Le type du partitionnement"
-
-#: yali/gui/partlistwidget.py:50 yali/gui/partlistwidget.py:92
-msgid "Filesystem"
-msgstr "Le système de fichier"
-
-#: yali/gui/partlistwidget.py:51 yali/gui/partlistwidget.py:93
-msgid "Format?"
-msgstr "Formatter?"
-
-#: yali/gui/partlistwidget.py:86
-msgid "Create New Partition"
-msgstr "Créer un nouveau partitionnement"
-
-#: yali/gui/partlistwidget.py:88
-msgid "Partitions:"
-msgstr "Les partitionnements:"
-
-#: yali/gui/partlistwidget.py:94
-msgid "Reset All Changes"
-msgstr "Réinitialisez tous les changements"
-
-#: yali/gui/partlistwidget.py:95
-msgid "Resize"
-msgstr "Redimensionner"
-
-#: yali/gui/partlistwidget.py:96
-msgid "Edit"
-msgstr "Editer"
-
-#: yali/gui/rootpasswidget.py:122
-msgid "System administrator password:"
-msgstr "Le mot de passe pour l'administrateur du système:"
-
-#: yali/gui/rootpasswidget.py:123
-msgid "System administrator password (again):"
-msgstr "Le mot de passe pour l'administrateur du système (seconde fois):"
-
-#: yali/gui/rootpasswidget.py:125
-msgid ""
-"<p align=\"left\">System administrator user (root) handles important system "
-"maintanence tasks. Please give password for this special user and do not "
-"forget this password. Note that you shouldn't write this password elsewhere "
-"for privacy reasons.</p>"
-msgstr ""
-"<p align=\"left\">L'administateur de système (root) est résponsable de "
-"tous les travaux de maintenance. Sélectionnez un mot de passe pour cet utilisateur "
-"spécial et ne l'oubliez pas pour des raisons de securité,</p>"
-
-#: yali/gui/rootpasswidget.py:126
-msgid "Hostname:"
-msgstr "Nom d'hôte:"
-
-#: yali/gui/rootpasswidget.py:127
-msgid "pardus"
-msgstr "pardus"
 
 #: yali/gui/runner.py:51
 msgid "Prepare for install"
@@ -636,11 +475,11 @@ msgstr "Le paramètrage essentiel"
 msgid "An error occured!"
 msgstr "Erreur"
 
-#: yali/gui/runner.py:157 yali/gui/welcomewidget.py:96
+#: yali/gui/runner.py:157
 msgid "Reboot System!"
 msgstr "Redémarrer le système"
 
-#: yali/gui/SetupBootloader.py:35
+#: yali/gui/SetupBootloader.py:36
 msgid ""
 "\n"
 "<font size=\"+2\">Boot loader setup</font>\n"
@@ -689,6 +528,7 @@ msgstr ""
 "</font>\n"
 
 #: yali/gui/SetupRootpass.py:32
+#, fuzzy
 msgid ""
 "\n"
 "<font size=\"+2\">System administrator password and hostname</font>\n"
@@ -702,8 +542,7 @@ msgid ""
 "</p>\n"
 "<p>\n"
 "The password may include upper and lower case characters, numbers and \n"
-"punctuation marks. Do not use Turkish characters or accents, as they\n"
-"may impose some problems.\n"
+"punctuation marks. Do not use accented characters here.\n"
 "</p>\n"
 "\n"
 "<p>\n"
@@ -718,7 +557,8 @@ msgid ""
 "</font>\n"
 msgstr ""
 "\n"
-"<font size=\"+2\">Mot de passe pour l'administrateur du système et nom d'hôte</font>\n"
+"<font size=\"+2\">Mot de passe pour l'administrateur du système et nom "
+"d'hôte</font>\n"
 "\n"
 "<font size=\"+1\">\n"
 "<p>Veuillez choisir un mot de passe pour administrer le système. Ce \n"
@@ -734,21 +574,23 @@ msgstr ""
 "\n"
 "<p>\n"
 "Vous pouvez définir un nom d'hôte, avec lequel votre ordinateur sera "
-"identifier dans le réseau. Le nom d'hôte devrait être descriptif de façon à"
-"identifier votre ordinateur.\n"
+"identifier dans le réseau. Le nom d'hôte devrait être descriptif de façon "
+"àidentifier votre ordinateur.\n"
 "</p>\n"
 "<p>\n"
 "Pour continuer, cliquez sur le bouton \"Suivant\"\n"
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/SetupRootpass.py:104 yali/gui/SetupUsers.py:95
+#: yali/gui/SetupRootpass.py:103 yali/gui/SetupUsers.py:95
 msgid "<font color=\"#FF6D19\">Passwords do not match!</font>"
 msgstr "<font color=\"#FF6D19\">Mot de passe incorrect!</font>"
 
-#: yali/gui/SetupRootpass.py:123
+#: yali/gui/SetupRootpass.py:122
 msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
-msgstr "<font color=\"#FF6D19\">Le nom d'hôte contient des charactères invalides.</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Le nom d'hôte contient des charactères invalides.</"
+"font>"
 
 #: yali/gui/SetupUsers.py:30
 msgid ""
@@ -789,55 +631,26 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/SetupUsers.py:119
+#: yali/gui/SetupUsers.py:121
 msgid "<font color=\"#FF6D19\">Username exists, choose another one!</font>"
 msgstr ""
-"<font color=\"#FF6D19\">Ce nom d'utilisateur existe déjà, choisissez un autre!</"
-"font>"
+"<font color=\"#FF6D19\">Ce nom d'utilisateur existe déjà, choisissez un "
+"autre!</font>"
 
-#: yali/gui/SetupUsers.py:123
+#: yali/gui/SetupUsers.py:125
 msgid "<font color=\"#FF6D19\">Username contains invalid characters!</font>"
-msgstr "<font color=\"#FF6D19\">Le nom d'utilisateur contient des charactères invalides!</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Le nom d'utilisateur contient des charactères "
+"invalides!</font>"
 
-#: yali/gui/SetupUsers.py:127
+#: yali/gui/SetupUsers.py:129
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
 msgstr ""
 "<font color=\"#FF6D19\">Le nom réel contient des charactères invalides.!</"
 "font>"
 
-#: yali/gui/setupuserswidget.py:129
-msgid "Delete Selected User"
-msgstr "Supprimer l'utilisateur sélectionné"
-
-#: yali/gui/setupuserswidget.py:130
-msgid "Users:"
-msgstr "Les utilisateurs:"
-
-#: yali/gui/setupuserswidget.py:132
-msgid "New User"
-msgstr "nouveau utilisateur"
-
-#: yali/gui/setupuserswidget.py:133
-msgid "User Name:"
-msgstr "Le nom d'utilisateur:"
-
-#: yali/gui/setupuserswidget.py:134
-msgid "Create User"
-msgstr "Créer un utilisateur"
-
-#: yali/gui/setupuserswidget.py:135
-msgid "Password (again):"
-msgstr "Le mot de passe (seconde fois):"
-
-#: yali/gui/setupuserswidget.py:136
-msgid "Password:"
-msgstr "Le mot de passe:"
-
-#: yali/gui/setupuserswidget.py:137
-msgid "Real Name:"
-msgstr "Le nom réel:"
-
 #: yali/gui/Welcome.py:32
+#, fuzzy
 msgid ""
 "\n"
 "<font size=\"+2\">Welcome!</font>\n"
@@ -851,7 +664,7 @@ msgid ""
 "</p>\n"
 "\n"
 "<p>\n"
-"This 6-click installation will install Pardus on your hardware,\n"
+"This software will install Pardus on your computer,\n"
 "without disrupting your previous documents and settings. However,\n"
 "we advise you to make a backup before proceeding. \n"
 "</p>\n"
@@ -881,8 +694,10 @@ msgstr ""
 "Il est conseillé de sauver vos document avant l'installation.\n"
 "</p>\n"
 "<p>\n"
-"Le système d'installation va identifier vos périphériques et va les configurer.\n"
-"Vous pouvez controller les opérations avec les touches de flèches au dessous \n"
+"Le système d'installation va identifier vos périphériques et va les "
+"configurer.\n"
+"Vous pouvez controller les opérations avec les touches de flèches au "
+"dessous \n"
 "de l'écran\n"
 "</p>\n"
 "<p>\n"
@@ -890,52 +705,34 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/welcomewidget.py:93
-msgid ""
-"<b>Pardus 1.0</b> is licensed under GNU GPL. You should accept it's license\n"
-"before installing it on your computer. Read GPL and select Accept to "
-"continue installing."
-msgstr ""
-"<b>Pardus 1.0</b> est libre ; vous pouvez le redistribuer et/ou le modifier conformément aux dispositions de la Licence Publique Générale GNU,.Vous devez lire  "
-"la licence avant d'installation.\n"
-"İl est possible de lire la licence en cliquant sur le bouton \"Lire\". "
-"İl est possible de commencer à l'installation en cliquant \"J'accepte\""
-
-#: yali/gui/welcomewidget.py:95
-msgid "Read GPL"
-msgstr "Lire GPL"
-
-#: yali/gui/welcomewidget.py:98
-msgid "Accept!"
-msgstr "j'accepte"
-
-#: yali/gui/welcomewidget.py:99
-msgid "Don't Accept!"
-msgstr "Non, Je n'accepte pas!"
-
-#: yali/gui/YaliDialog.py:103
+#: yali/gui/YaliDialog.py:107
 msgid "Warning"
 msgstr "Attention"
 
-#: yali/bootloader.py:131 yali/bootloader.py:136
+#: yali/bootloader.py:140 yali/bootloader.py:145
 msgid "Windows"
 msgstr "Les fenêtres"
 
-#: yali/__init__.py:53
+#: yali/__init__.py:54
 msgid "Backtrace:"
 msgstr "Backtrace:"
 
-#: yali/keyboard.py:23
+#: yali/keyboard.py:24
 msgid "Turkish Q"
 msgstr "Le clavier Q Turc"
 
-#: yali/keyboard.py:28
+#: yali/keyboard.py:29
 msgid "Turkish F"
 msgstr "Le clavier F turc"
 
-#: yali/keyboard.py:33
-msgid "Englis US"
+#: yali/keyboard.py:34
+#, fuzzy
+msgid "English US"
 msgstr "Le clavier Anglais (Etats-Unis)"
+
+#: yali/keyboard.py:38
+msgid "Dutch"
+msgstr ""
 
 #: yali/partition.py:35
 msgid "unknown"
@@ -957,3 +754,197 @@ msgstr "Les fichiers d'utilisateurs"
 msgid "Swap"
 msgstr "Swap"
 
+#~ msgid "Form1"
+#~ msgstr "Form1"
+
+#~ msgid ""
+#~ "<font size=\"+1\"><b>Select the partitioning method:</b></font>\n"
+#~ "\n"
+#~ "<p>Below, you can select an hard disk for automatic partitioning.\n"
+#~ "Selected disk will be used for Pardus installation.</p>\n"
+#~ "\n"
+#~ "<p><font color=\"#FF6D19\"><b><u>WARNING:</u></b>\n"
+#~ "Automatic partitioning will use your entire disk for Pardus "
+#~ "installation.\n"
+#~ "All data on the selected disk will be lost!</font></p>"
+#~ msgstr ""
+#~ "<font size=\"+1\"><b>Sélectionner la méthode de Partionnement</b></font>\n"
+#~ "\n"
+#~ "<p>Il est possible de choisir un de vos disques durs sur la liste \n"
+#~ " pour le partitionnement automatique. Le disque dur sélectionné va etre "
+#~ "utilisé\n"
+#~ "pour l'installation de Pardus.</p>\n"
+#~ "<p><font color=\"#FF6D19\"><b><u>ATTENTION:</u></b>\n"
+#~ "Le partitionnement automatique utilisera votre disque entier pour "
+#~ "l'installation de Pardus.\n"
+#~ "L'installation effacera automatiquement les informations précédemment\n"
+#~ "sauvées sur les partitions sélectionnées.</font></p>"
+
+#~ msgid "&nbsp;"
+#~ msgstr "&nbsp;"
+
+#~ msgid "No, I'll partition my disk manually."
+#~ msgstr "Non, je vais partitionner mon disque manuellement."
+
+#~ msgid "Yes, automatically partition and format selected disk!"
+#~ msgstr ""
+#~ "Oui, partitionnez et formattez automatiquement les disques sélectionnés!"
+
+#~ msgid ""
+#~ "<b>Do you want to write boot loader (GRUB) to your hard disk's master "
+#~ "boot record?</b>\n"
+#~ "\n"
+#~ "<p>You need a boot loader to boot your Pardus system.</p>\n"
+#~ "\n"
+#~ "<p>If you don't install a boot loader, you will have to configure your \n"
+#~ "other operating system's loader  (if you have one installed) to start \n"
+#~ "your newly installed Pardus.</p>"
+#~ msgstr ""
+#~ "<b>Installer le chargeur de démarrage (GRUB) à votre partie de boot de "
+#~ "votre disque dur?</b>\n"
+#~ "\n"
+#~ "<p>Vous avez besoin d'un chargeur de démarrage pour redémarrer votre "
+#~ "système de Pardus<p>Si un chargeur de démarrage n'est pas installé, "
+#~ "veuillez configurer l'autre chargeur de système d'opréation.</p>"
+
+#~ msgid "Yes, Install Boot Loader"
+#~ msgstr "Oui, Installez le chargeur de démarrage"
+
+#~ msgid "Select the disk you to install bootloader:"
+#~ msgstr "Sélectionner le disque pour installer le chargeur de démarrage"
+
+#~ msgid "Form3"
+#~ msgstr "Form3"
+
+#~ msgid "Installing Package: "
+#~ msgstr "Installation du paquet: "
+
+#~ msgid "pix"
+#~ msgstr "pix"
+
+#~ msgid "Select the keyboard layout of your choice."
+#~ msgstr "Sélectionnez un clavier "
+
+#~ msgid "Test selected keyboard:"
+#~ msgstr "Testez le clavier "
+
+#~ msgid "Apply"
+#~ msgstr "Appliquer"
+
+#~ msgid "Size (MB):"
+#~ msgstr "Taille (MB):"
+
+#~ msgid "Use available free space"
+#~ msgstr "Utilisez tout l'éspace disponible."
+
+#~ msgid "Format this partition"
+#~ msgstr "Formattez ce partionnement"
+
+#~ msgid " What do you want to store in this partition? "
+#~ msgstr "Que voulez-vous stocker dans ce partitionnement?"
+
+#~ msgid "Pardus system files (mandatory)"
+#~ msgstr "Les fichiers de Pardus (obligatoire)"
+
+#~ msgid "User files (optional)"
+#~ msgstr "Les fichiers d'utilisateur (optionel)"
+
+#~ msgid "Swap space (optional)"
+#~ msgstr "Espace de SWAP(optionel)"
+
+#~ msgid "Device"
+#~ msgstr "Le périphérique"
+
+#~ msgid "Size"
+#~ msgstr "La taille"
+
+#~ msgid "Partition Type"
+#~ msgstr "Le type du partitionnement"
+
+#~ msgid "Filesystem"
+#~ msgstr "Le système de fichier"
+
+#~ msgid "Format?"
+#~ msgstr "Formatter?"
+
+#~ msgid "Create New Partition"
+#~ msgstr "Créer un nouveau partitionnement"
+
+#~ msgid "Partitions:"
+#~ msgstr "Les partitionnements:"
+
+#~ msgid "Reset All Changes"
+#~ msgstr "Réinitialisez tous les changements"
+
+#~ msgid "Resize"
+#~ msgstr "Redimensionner"
+
+#~ msgid "Edit"
+#~ msgstr "Editer"
+
+#~ msgid "System administrator password:"
+#~ msgstr "Le mot de passe pour l'administrateur du système:"
+
+#~ msgid "System administrator password (again):"
+#~ msgstr "Le mot de passe pour l'administrateur du système (seconde fois):"
+
+#~ msgid ""
+#~ "<p align=\"left\">System administrator user (root) handles important "
+#~ "system maintanence tasks. Please give password for this special user and "
+#~ "do not forget this password. Note that you shouldn't write this password "
+#~ "elsewhere for privacy reasons.</p>"
+#~ msgstr ""
+#~ "<p align=\"left\">L'administateur de système (root) est résponsable de "
+#~ "tous les travaux de maintenance. Sélectionnez un mot de passe pour cet "
+#~ "utilisateur spécial et ne l'oubliez pas pour des raisons de securité,</p>"
+
+#~ msgid "Hostname:"
+#~ msgstr "Nom d'hôte:"
+
+#~ msgid "pardus"
+#~ msgstr "pardus"
+
+#~ msgid "Delete Selected User"
+#~ msgstr "Supprimer l'utilisateur sélectionné"
+
+#~ msgid "Users:"
+#~ msgstr "Les utilisateurs:"
+
+#~ msgid "New User"
+#~ msgstr "nouveau utilisateur"
+
+#~ msgid "User Name:"
+#~ msgstr "Le nom d'utilisateur:"
+
+#~ msgid "Create User"
+#~ msgstr "Créer un utilisateur"
+
+#~ msgid "Password (again):"
+#~ msgstr "Le mot de passe (seconde fois):"
+
+#~ msgid "Password:"
+#~ msgstr "Le mot de passe:"
+
+#~ msgid "Real Name:"
+#~ msgstr "Le nom réel:"
+
+#~ msgid ""
+#~ "<b>Pardus 1.0</b> is licensed under GNU GPL. You should accept it's "
+#~ "license\n"
+#~ "before installing it on your computer. Read GPL and select Accept to "
+#~ "continue installing."
+#~ msgstr ""
+#~ "<b>Pardus 1.0</b> est libre ; vous pouvez le redistribuer et/ou le "
+#~ "modifier conformément aux dispositions de la Licence Publique Générale "
+#~ "GNU,.Vous devez lire  la licence avant d'installation.\n"
+#~ "İl est possible de lire la licence en cliquant sur le bouton \"Lire\". İl "
+#~ "est possible de commencer à l'installation en cliquant \"J'accepte\""
+
+#~ msgid "Read GPL"
+#~ msgstr "Lire GPL"
+
+#~ msgid "Accept!"
+#~ msgstr "j'accepte"
+
+#~ msgid "Don't Accept!"
+#~ msgstr "Non, Je n'accepte pas!"

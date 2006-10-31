@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-05 16:00+0300\n"
+"POT-Creation-Date: 2006-10-31 22:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,7 +41,7 @@ msgid ""
 msgstr ""
 
 #: yali/gui/AutoPartitioning.py:68 yali/gui/Partitioning.py:81
-#: yali/gui/PartListImpl.py:84 yali/gui/SetupBootloader.py:71
+#: yali/gui/PartListImpl.py:87 yali/gui/SetupBootloader.py:71
 msgid "Can't find a storage device!"
 msgstr ""
 
@@ -62,65 +62,12 @@ msgid ""
 "</font>\n"
 msgstr ""
 
-#: yali/gui/AutoPartitioning.py:202 yali/gui/parteditbuttons.py:47
-#: yali/gui/Partitioning.py:216
+#: yali/gui/AutoPartitioning.py:202 yali/gui/Partitioning.py:216
 msgid "Cancel"
 msgstr ""
 
 #: yali/gui/AutoPartitioning.py:205 yali/gui/Partitioning.py:219
 msgid "O.K. Go Ahead"
-msgstr ""
-
-#: yali/gui/autopartwidget.py:83 yali/gui/bootloaderwidget.py:71
-#: yali/gui/keyboardwidget.py:66 yali/gui/parteditbuttons.py:46
-#: yali/gui/parteditwidget.py:81 yali/gui/partlistwidget.py:85
-#: yali/gui/rootpasswidget.py:119 yali/gui/setupuserswidget.py:128
-#: yali/gui/welcomewidget.py:91
-msgid "Form1"
-msgstr ""
-
-#: yali/gui/autopartwidget.py:84
-msgid ""
-"<font size=\"+1\"><b>Select the partitioning method:</b></font>\n"
-"\n"
-"<p>Below, you can select an hard disk for automatic partitioning.\n"
-"Selected disk will be used for Pardus installation.</p>\n"
-"\n"
-"<p><font color=\"#FF6D19\"><b><u>WARNING:</u></b>\n"
-"Automatic partitioning will use your entire disk for Pardus installation.\n"
-"All data on the selected disk will be lost!</font></p>"
-msgstr ""
-
-#: yali/gui/autopartwidget.py:92
-msgid "&nbsp;"
-msgstr ""
-
-#: yali/gui/autopartwidget.py:94
-msgid "No, I'll partition my disk manually."
-msgstr ""
-
-#: yali/gui/autopartwidget.py:95
-msgid "Yes, automatically partition and format selected disk!"
-msgstr ""
-
-#: yali/gui/bootloaderwidget.py:72
-msgid ""
-"<b>Do you want to write boot loader (GRUB) to your hard disk's master boot "
-"record?</b>\n"
-"\n"
-"<p>You need a boot loader to boot your Pardus system.</p>\n"
-"\n"
-"<p>If you don't install a boot loader, you will have to configure your \n"
-"other operating system's loader  (if you have one installed) to start \n"
-"your newly installed Pardus.</p>"
-msgstr ""
-
-#: yali/gui/bootloaderwidget.py:79
-msgid "Yes, Install Boot Loader"
-msgstr ""
-
-#: yali/gui/bootloaderwidget.py:80
-msgid "Select the disk you to install bootloader:"
 msgstr ""
 
 #: yali/gui/Goodbye.py:36
@@ -167,7 +114,7 @@ msgstr ""
 msgid "Release Notes"
 msgstr ""
 
-#: yali/gui/GUIGPL.py:53
+#: yali/gui/GUIGPL.py:64
 msgid "Can't open License file!"
 msgstr ""
 
@@ -225,19 +172,6 @@ msgid ""
 "%s\n"
 msgstr ""
 
-#: yali/gui/installwidget.py:52
-msgid "Form3"
-msgstr ""
-
-#: yali/gui/installwidget.py:53
-msgid "Installing Package: "
-msgstr ""
-
-#: yali/gui/installwidget.py:54 yali/gui/keyboardwidget.py:67
-#: yali/gui/welcomewidget.py:92
-msgid "pix"
-msgstr ""
-
 #: yali/gui/Keyboard.py:30
 msgid ""
 "\n"
@@ -249,18 +183,6 @@ msgid ""
 "list.\n"
 "</p>\n"
 "</font>\n"
-msgstr ""
-
-#: yali/gui/keyboardwidget.py:68
-msgid "Select the keyboard layout of your choice."
-msgstr ""
-
-#: yali/gui/keyboardwidget.py:69
-msgid "Test selected keyboard:"
-msgstr ""
-
-#: yali/gui/parteditbuttons.py:48
-msgid "Apply"
 msgstr ""
 
 #: yali/gui/PartEditImpl.py:101
@@ -284,34 +206,6 @@ msgstr ""
 
 #: yali/gui/PartEditImpl.py:277
 msgid "ntfsresize check failed! Won't proceed action!"
-msgstr ""
-
-#: yali/gui/parteditwidget.py:82
-msgid "Size (MB):"
-msgstr ""
-
-#: yali/gui/parteditwidget.py:83
-msgid "Use available free space"
-msgstr ""
-
-#: yali/gui/parteditwidget.py:85
-msgid "Format this partition"
-msgstr ""
-
-#: yali/gui/parteditwidget.py:87
-msgid " What do you want to store in this partition? "
-msgstr ""
-
-#: yali/gui/parteditwidget.py:88
-msgid "Pardus system files (mandatory)"
-msgstr ""
-
-#: yali/gui/parteditwidget.py:89
-msgid "User files (optional)"
-msgstr ""
-
-#: yali/gui/parteditwidget.py:90
-msgid "Swap space (optional)"
 msgstr ""
 
 #: yali/gui/Partitioning.py:38
@@ -380,111 +274,47 @@ msgid ""
 "</font>\n"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:102
+#: yali/gui/PartListImpl.py:105
 #, python-format
 msgid "%0.1f GB free"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:104
+#: yali/gui/PartListImpl.py:107
 #, python-format
 msgid "%d MB free"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:129
+#: yali/gui/PartListImpl.py:132
 msgid "Extended"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:158
+#: yali/gui/PartListImpl.py:161
 #, python-format
 msgid "Partition %d"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:200
+#: yali/gui/PartListImpl.py:203
 msgid "Delete All Partitions"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:226 yali/gui/partlistwidget.py:87
+#: yali/gui/PartListImpl.py:229
 msgid "Delete Selected Partition"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:296
+#: yali/gui/PartListImpl.py:301
 msgid "Can't get partition info from partition request!"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:298
+#: yali/gui/PartListImpl.py:303
 msgid " req.partition() is None. May be a zombie request!"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:306
+#: yali/gui/PartListImpl.py:311
 msgid "Formatting!"
 msgstr ""
 
-#: yali/gui/PartListImpl.py:308
+#: yali/gui/PartListImpl.py:313
 msgid "YES"
-msgstr ""
-
-#: yali/gui/partlistwidget.py:47 yali/gui/partlistwidget.py:89
-msgid "Device"
-msgstr ""
-
-#: yali/gui/partlistwidget.py:48 yali/gui/partlistwidget.py:90
-msgid "Size"
-msgstr ""
-
-#: yali/gui/partlistwidget.py:49 yali/gui/partlistwidget.py:91
-msgid "Partition Type"
-msgstr ""
-
-#: yali/gui/partlistwidget.py:50 yali/gui/partlistwidget.py:92
-msgid "Filesystem"
-msgstr ""
-
-#: yali/gui/partlistwidget.py:51 yali/gui/partlistwidget.py:93
-msgid "Format?"
-msgstr ""
-
-#: yali/gui/partlistwidget.py:86
-msgid "Create New Partition"
-msgstr ""
-
-#: yali/gui/partlistwidget.py:88
-msgid "Partitions:"
-msgstr ""
-
-#: yali/gui/partlistwidget.py:94
-msgid "Reset All Changes"
-msgstr ""
-
-#: yali/gui/partlistwidget.py:95
-msgid "Resize"
-msgstr ""
-
-#: yali/gui/partlistwidget.py:96
-msgid "Edit"
-msgstr ""
-
-#: yali/gui/rootpasswidget.py:122
-msgid "System administrator password:"
-msgstr ""
-
-#: yali/gui/rootpasswidget.py:123
-msgid "System administrator password (again):"
-msgstr ""
-
-#: yali/gui/rootpasswidget.py:125
-msgid ""
-"<p align=\"left\">System administrator user (root) handles important system "
-"maintanence tasks. Please give password for this special user and do not "
-"forget this password. Note that you shouldn't write this password elsewhere "
-"for privacy reasons.</p>"
-msgstr ""
-
-#: yali/gui/rootpasswidget.py:126
-msgid "Hostname:"
-msgstr ""
-
-#: yali/gui/rootpasswidget.py:127
-msgid "pardus"
 msgstr ""
 
 #: yali/gui/runner.py:51
@@ -503,7 +333,7 @@ msgstr ""
 msgid "An error occured!"
 msgstr ""
 
-#: yali/gui/runner.py:157 yali/gui/welcomewidget.py:96
+#: yali/gui/runner.py:157
 msgid "Reboot System!"
 msgstr ""
 
@@ -546,8 +376,7 @@ msgid ""
 "</p>\n"
 "<p>\n"
 "The password may include upper and lower case characters, numbers and \n"
-"punctuation marks. Do not use Turkish characters or accents, as they\n"
-"may impose some problems.\n"
+"punctuation marks. Do not use accented characters here.\n"
 "</p>\n"
 "\n"
 "<p>\n"
@@ -562,11 +391,11 @@ msgid ""
 "</font>\n"
 msgstr ""
 
-#: yali/gui/SetupRootpass.py:104 yali/gui/SetupUsers.py:95
+#: yali/gui/SetupRootpass.py:103 yali/gui/SetupUsers.py:95
 msgid "<font color=\"#FF6D19\">Passwords do not match!</font>"
 msgstr ""
 
-#: yali/gui/SetupRootpass.py:123
+#: yali/gui/SetupRootpass.py:122
 msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
 msgstr ""
 
@@ -604,38 +433,6 @@ msgstr ""
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
 msgstr ""
 
-#: yali/gui/setupuserswidget.py:129
-msgid "Delete Selected User"
-msgstr ""
-
-#: yali/gui/setupuserswidget.py:130
-msgid "Users:"
-msgstr ""
-
-#: yali/gui/setupuserswidget.py:132
-msgid "New User"
-msgstr ""
-
-#: yali/gui/setupuserswidget.py:133
-msgid "User Name:"
-msgstr ""
-
-#: yali/gui/setupuserswidget.py:134
-msgid "Create User"
-msgstr ""
-
-#: yali/gui/setupuserswidget.py:135
-msgid "Password (again):"
-msgstr ""
-
-#: yali/gui/setupuserswidget.py:136
-msgid "Password:"
-msgstr ""
-
-#: yali/gui/setupuserswidget.py:137
-msgid "Real Name:"
-msgstr ""
-
 #: yali/gui/Welcome.py:32
 msgid ""
 "\n"
@@ -665,34 +462,15 @@ msgid ""
 "</font>\n"
 msgstr ""
 
-#: yali/gui/welcomewidget.py:93
-msgid ""
-"<b>Pardus</b> is licensed under GNU GPL. You should accept it's license\n"
-"before installing it on your computer. Read GPL and select Accept to "
-"continue installing."
-msgstr ""
-
-#: yali/gui/welcomewidget.py:95
-msgid "Read GPL"
-msgstr ""
-
-#: yali/gui/welcomewidget.py:98
-msgid "Accept!"
-msgstr ""
-
-#: yali/gui/welcomewidget.py:99
-msgid "Don't Accept!"
-msgstr ""
-
-#: yali/gui/YaliDialog.py:103
+#: yali/gui/YaliDialog.py:107
 msgid "Warning"
 msgstr ""
 
-#: yali/bootloader.py:138 yali/bootloader.py:143
+#: yali/bootloader.py:140 yali/bootloader.py:145
 msgid "Windows"
 msgstr ""
 
-#: yali/__init__.py:53
+#: yali/__init__.py:54
 msgid "Backtrace:"
 msgstr ""
 
