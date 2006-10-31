@@ -127,7 +127,6 @@ loader.
                         continue
 
 
-        print self.install_bootloader.isChecked()
         if self.install_bootloader.isChecked():
             loader.install_grub()
 

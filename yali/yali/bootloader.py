@@ -18,6 +18,7 @@ __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 
+from yali.exception import *
 from yali.constants import consts
 
 grub_conf_tmp = """\
@@ -55,6 +56,7 @@ device (hd0) %(grubs_disk)s
 root (%(grub_root)s)
 setup (%(grub_dev)s)
 """
+
 
 class BootLoader:
     def __init__(self):
@@ -162,6 +164,6 @@ class BootLoader:
     
         # FIXME: check command...
         cmd = "/sbin/grub --batch < /tmp/grub-shell"
-        print cmd
-        os.system(cmd)
+        if os.system(cmd) != 0:
+            raise YaliException, "Command failed: %s" % cmd
 
