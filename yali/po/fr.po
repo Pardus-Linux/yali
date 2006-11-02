@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: degis_tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-31 22:59+0200\n"
+"POT-Creation-Date: 2006-11-02 14:39+0200\n"
 "PO-Revision-Date: 2006-10-28 16:51+0300\n"
 "Last-Translator: Atilla Aktuna <aktuna@gmail.com>\n"
 "Language-Team: Türkçe <tr@li.org>\n"
@@ -73,7 +73,6 @@ msgstr ""
 
 #: yali/gui/AutoPartitioning.py:190
 msgid ""
-"<font size=\"+1\">\n"
 "<b>\n"
 "<p>This action will use your entire disk for Pardus installation and\n"
 "all your present data on the selected disk will be lost.</p>\n"
@@ -81,9 +80,7 @@ msgid ""
 "<p>After being sure you had your backup this is generally a safe\n"
 "and easy way to install Pardus.</p>\n"
 "</b>\n"
-"</font>\n"
 msgstr ""
-"<font size=\"+1\">\n"
 "<b>\n"
 "<p>Cette opération utilisera entièrement votre disque dur pour "
 "l'installation\n"
@@ -94,13 +91,12 @@ msgstr ""
 "s'installer \n"
 "</p>\n"
 "</b>\n"
-"</font>\n"
 
-#: yali/gui/AutoPartitioning.py:202 yali/gui/Partitioning.py:216
+#: yali/gui/AutoPartitioning.py:200 yali/gui/Partitioning.py:211
 msgid "Cancel"
 msgstr "Annuler"
 
-#: yali/gui/AutoPartitioning.py:205 yali/gui/Partitioning.py:219
+#: yali/gui/AutoPartitioning.py:203 yali/gui/Partitioning.py:214
 msgid "O.K. Go Ahead"
 msgstr "D'accord. Continue."
 
@@ -150,20 +146,16 @@ msgstr ""
 
 #: yali/gui/Goodbye.py:135
 msgid ""
-"<font size=\"+1\">\n"
 "<b>\n"
 "<p>Please remove Pardus CD from your drive and pres Reboot button.</p>\n"
 "</b>\n"
-"</font>\n"
 msgstr ""
-"<font size=\"+1\">\n"
 "<b>\n"
 "<p>Veuillez retirer le CD de Pardus  et 'cliquez le bouton \"Redémarrer\".</"
 "p>\n"
 "</b>\n"
-"</font>\n"
 
-#: yali/gui/Goodbye.py:143
+#: yali/gui/Goodbye.py:141
 msgid "Reboot"
 msgstr "Redémarrer"
 
@@ -400,21 +392,17 @@ msgstr "Editer le partitionnement"
 msgid "Resize Partition"
 msgstr "Redimensionner le partitionnement"
 
-#: yali/gui/Partitioning.py:207
+#: yali/gui/Partitioning.py:204
 msgid ""
-"<font size=\"+1\">\n"
 "<b>\n"
 "<p>This action will start installing Pardus on\n"
 "your system formatting the selected partition.</p>\n"
 "</b>\n"
-"</font>\n"
 msgstr ""
-"<font size=\"+1\">\n"
 "<b>\n"
 "<p>Cette opération va commencer l'installation de Pardus sur \n"
 "votre système et va formatter le partitionnement choisi.</p>\n"
 "</b>\n"
-"</font>\n"
 
 #: yali/gui/PartListImpl.py:105
 #, python-format
@@ -705,7 +693,7 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/YaliDialog.py:107
+#: yali/gui/YaliDialog.py:104
 msgid "Warning"
 msgstr "Attention"
 

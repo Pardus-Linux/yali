@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-31 22:59+0200\n"
-"PO-Revision-Date: 2006-10-10 16:00+0200\n"
+"POT-Creation-Date: 2006-11-02 14:39+0200\n"
+"PO-Revision-Date: 2006-11-02 14:42+0200\n"
 "Last-Translator: Barış Metin <baris@pardus.org.tr>\n"
 "Language-Team:  <tr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -73,7 +73,6 @@ msgstr "<font color=\"#FF6D19\">Diskiniz kurulum için hazırlanıyor!</font>"
 
 #: yali/gui/AutoPartitioning.py:190
 msgid ""
-"<font size=\"+1\">\n"
 "<b>\n"
 "<p>This action will use your entire disk for Pardus installation and\n"
 "all your present data on the selected disk will be lost.</p>\n"
@@ -81,9 +80,7 @@ msgid ""
 "<p>After being sure you had your backup this is generally a safe\n"
 "and easy way to install Pardus.</p>\n"
 "</b>\n"
-"</font>\n"
 msgstr ""
-"<font size=\"+1\">\n"
 "<b>\n"
 "<p>Bu işlem tüm sabit diskinizi Pardus kurulumu için kullanacak \n"
 "ve seçilen sabit disk üzerindeki tüm verileriniz silinecektir.</p>\n"
@@ -92,13 +89,12 @@ msgstr ""
 "düğmesine tıklayın.Daha sonra, Pardus güvenli bir şekilde \n"
 "bilgisayarınıza kurulacaktır.</p>\n"
 "</b>\n"
-"</font>\n"
 
-#: yali/gui/AutoPartitioning.py:202 yali/gui/Partitioning.py:216
+#: yali/gui/AutoPartitioning.py:200 yali/gui/Partitioning.py:211
 msgid "Cancel"
 msgstr "İptal"
 
-#: yali/gui/AutoPartitioning.py:205 yali/gui/Partitioning.py:219
+#: yali/gui/AutoPartitioning.py:203 yali/gui/Partitioning.py:214
 msgid "O.K. Go Ahead"
 msgstr "Tamam. Devam Et"
 
@@ -149,20 +145,16 @@ msgstr ""
 
 #: yali/gui/Goodbye.py:135
 msgid ""
-"<font size=\"+1\">\n"
 "<b>\n"
 "<p>Please remove Pardus CD from your drive and pres Reboot button.</p>\n"
 "</b>\n"
-"</font>\n"
 msgstr ""
-"<font size=\"+1\">\n"
 "<b>\n"
 "<p>Lütfen Pardus CD'sini çıkartın ve 'Sistemi Yeniden Başlat' düğmesine "
 "basın.</p>\n"
 "</b>\n"
-"</font>\n"
 
-#: yali/gui/Goodbye.py:143
+#: yali/gui/Goodbye.py:141
 msgid "Reboot"
 msgstr "Sistemi Yeniden Başlat!"
 
@@ -393,21 +385,17 @@ msgstr "Disk Bölümünü Düzenle"
 msgid "Resize Partition"
 msgstr "Bölümü Yeniden Boyutlandır"
 
-#: yali/gui/Partitioning.py:207
+#: yali/gui/Partitioning.py:204
 msgid ""
-"<font size=\"+1\">\n"
 "<b>\n"
 "<p>This action will start installing Pardus on\n"
 "your system formatting the selected partition.</p>\n"
 "</b>\n"
-"</font>\n"
 msgstr ""
-"<font size=\"+1\">\n"
 "<b>\n"
 "<p>Bu işlem seçilen sabit disk bölümünü biçimlendirerek\n"
 "Pardus'u bilgisayarınıza kuracaktır.</p>\n"
 "</b>\n"
-"</font>\n"
 
 #: yali/gui/PartListImpl.py:105
 #, python-format
@@ -705,7 +693,7 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/YaliDialog.py:107
+#: yali/gui/YaliDialog.py:104
 msgid "Warning"
 msgstr "Uyarı"
 

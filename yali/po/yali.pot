@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-31 22:59+0200\n"
+"POT-Creation-Date: 2006-11-02 14:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,7 +51,6 @@ msgstr ""
 
 #: yali/gui/AutoPartitioning.py:190
 msgid ""
-"<font size=\"+1\">\n"
 "<b>\n"
 "<p>This action will use your entire disk for Pardus installation and\n"
 "all your present data on the selected disk will be lost.</p>\n"
@@ -59,14 +58,13 @@ msgid ""
 "<p>After being sure you had your backup this is generally a safe\n"
 "and easy way to install Pardus.</p>\n"
 "</b>\n"
-"</font>\n"
 msgstr ""
 
-#: yali/gui/AutoPartitioning.py:202 yali/gui/Partitioning.py:216
+#: yali/gui/AutoPartitioning.py:200 yali/gui/Partitioning.py:211
 msgid "Cancel"
 msgstr ""
 
-#: yali/gui/AutoPartitioning.py:205 yali/gui/Partitioning.py:219
+#: yali/gui/AutoPartitioning.py:203 yali/gui/Partitioning.py:214
 msgid "O.K. Go Ahead"
 msgstr ""
 
@@ -99,14 +97,12 @@ msgstr ""
 
 #: yali/gui/Goodbye.py:135
 msgid ""
-"<font size=\"+1\">\n"
 "<b>\n"
 "<p>Please remove Pardus CD from your drive and pres Reboot button.</p>\n"
 "</b>\n"
-"</font>\n"
 msgstr ""
 
-#: yali/gui/Goodbye.py:143
+#: yali/gui/Goodbye.py:141
 msgid "Reboot"
 msgstr ""
 
@@ -264,14 +260,12 @@ msgstr ""
 msgid "Resize Partition"
 msgstr ""
 
-#: yali/gui/Partitioning.py:207
+#: yali/gui/Partitioning.py:204
 msgid ""
-"<font size=\"+1\">\n"
 "<b>\n"
 "<p>This action will start installing Pardus on\n"
 "your system formatting the selected partition.</p>\n"
 "</b>\n"
-"</font>\n"
 msgstr ""
 
 #: yali/gui/PartListImpl.py:105
@@ -462,7 +456,7 @@ msgid ""
 "</font>\n"
 msgstr ""
 
-#: yali/gui/YaliDialog.py:107
+#: yali/gui/YaliDialog.py:104
 msgid "Warning"
 msgstr ""
 
