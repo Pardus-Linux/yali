@@ -182,13 +182,10 @@ about disk partitioning.
 
     def slotApplied(self):
         self.dialog.done(0)
-        del self.dialog
         self.partlist.update()
 
     def slotCanceled(self):
         self.dialog.reject()
-        del self.dialog
-
 
 
 
