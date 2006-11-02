@@ -90,9 +90,6 @@ class Dialog(QDialog):
         self.connect(close, PYSIGNAL("signalClicked"),
                      self.reject)
 
-        # make the dialog a little bit taller than the reported.
-        # bug #3254
-        self.setFixedHeight(self.height() + 10)
 
 
 
