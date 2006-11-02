@@ -132,11 +132,9 @@ class RebootWidget(QWidget):
         l.setMargin(10)
 
         warning = QLabel(self)
-        warning.setText(_('''<font size="+1">
-<b>
+        warning.setText(_('''<b>
 <p>Please remove Pardus CD from your drive and pres Reboot button.</p>
 </b>
-</font>
 '''))
 
         self.reboot = QPushButton(self)

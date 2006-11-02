@@ -201,12 +201,10 @@ class WarningWidget(QWidget):
 
         warning = QLabel(self)
 #        warning.setTextFormat(warning.RichText)
-        warning.setText(_('''<font size="+1">
-<b>
+        warning.setText(_('''<b>
 <p>This action will start installing Pardus on
 your system formatting the selected partition.</p>
 </b>
-</font>
 '''))
 
         self.cancel = QPushButton(self)
