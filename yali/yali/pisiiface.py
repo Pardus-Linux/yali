@@ -44,11 +44,12 @@ def initialize(ui, with_comar=False, ignore_dependency=False):
                 print "wait comar for 1 second..."
 
         pisi.api.init(options = options, comar = with_comar, database = True, ui = ui,
-                      comar_sockname=consts.comar_socket_file)
+                      comar_sockname=consts.comar_socket_file, signal_handling = False)
     else:
         options.ignore_comar = True
 
-        pisi.api.init(options = options, comar = with_comar, database = True, ui = ui)
+        pisi.api.init(options = options, comar = with_comar, database = True, ui = ui,
+		      signal_handling = False)
 
 def add_repo(name, uri):
     print "add",name,uri
