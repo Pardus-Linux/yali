@@ -90,6 +90,7 @@ Have fun!
         self.cur = 0
         self.hasErrors = False
 
+
     def shown(self):
         # initialize pisi
 
@@ -103,7 +104,7 @@ Have fun!
         # start 30 seconds
         self.timer.start(1000 * 30)
 
-        
+
     def slotNotify(self, parent, event, p):
         # FIXME: use logging
         if event == pisi.ui.installing:
@@ -113,7 +114,6 @@ Have fun!
             self.cur += 1
             self.progress.setProgress(self.cur)
         elif event == pisi.ui.configuring:
-#            print "lolo configure", p.name
             self.info.setText(_("Configuring package: %s") % p.name)
             
             self.cur += 1
@@ -121,11 +121,7 @@ Have fun!
             ctx.screens.processEvents()
 
 
-
     def customEvent(self, qevent):
-
-#        print "qevent", qevent, qevent.type()
-
         # User+1: pisi events
         if qevent.type() == QEvent.User+1:
 
@@ -149,11 +145,9 @@ Have fun!
             total = qevent.data()
             self.progress.setTotalSteps(total)
 
-
         # User+3: finished
         elif qevent.type() == QEvent.User+3:
             self.finished()
-
 
         # User+10: error
         elif qevent.type() == QEvent.User+10:
@@ -161,13 +155,11 @@ Have fun!
             self.installError(err)
 
 
-
     def slotChangePix(self):
         self.pix.setPixmap(self.iter_pics.next())
 
 
     def execute(self):
-        
         # fill fstab
         fstab = yali.fstab.Fstab()
         for req in ctx.partrequests:
@@ -213,14 +205,13 @@ Have fun!
         # stop slide show
         self.timer.stop()
 
-
         # FIXME: I don't know if this is the right way to do
         # this. maybe postinstall can be used too.
         yali.localedata.write_locale_from_cmdline()
 #        yali.localedata.write_font_from_cmdline(ctx.keydata)
 
-
         return True
+
 
     def finished(self):
         if self.hasErrors:
@@ -239,6 +230,7 @@ Have fun!
         # trigger next screen
         ctx.screens.next()
 
+
     def installError(self, e):
         #self.info.setText(str(e))
         import yali
@@ -252,7 +244,6 @@ This is possibly a broken Pardus CD or CD-ROM drive.
 Error:
 %s
 ''') % str(e)
-
 
         yali.gui.runner.showException(yali.exception_fatal, err_str)
         
@@ -282,7 +273,6 @@ class PkgInstaller(QThread):
         qevent.setData(total)
         QApplication.postEvent(self._widget, qevent)
 
-
         try:
             yali.pisiiface.install_all()
         except Exception, e:
@@ -291,7 +281,6 @@ class PkgInstaller(QThread):
             qevent.setData(e)
             QApplication.postEvent(self._widget, qevent)
 
-        
         # User+3: finished
         qevent = QCustomEvent(QEvent.User+3)
         QApplication.postEvent(self._widget, qevent)
@@ -301,20 +290,20 @@ class PisiUI(pisi.ui.UI):
 
     def __init__(self, notify_widget, *args):
         pisi.ui.UI.__init__(self)
-
         self._notify_widget = notify_widget
 
 
     def notify(self, event, **keywords):
         if event == pisi.ui.installing or event == pisi.ui.configuring:
-            
             # User+1: pisi notify
             qevent = QCustomEvent(QEvent.User+1)
             data = [keywords['package'], event]
             qevent.setData(data)
-#            print "qevent", keywords['package'].name
             QApplication.postEvent(self._notify_widget, qevent)
 
+    
+    def display_progress(self, operation, percent, info, **keywords):
+	pass
 
 
 class PisiUI_NoThread(QObject, pisi.ui.UI):
@@ -322,7 +311,6 @@ class PisiUI_NoThread(QObject, pisi.ui.UI):
     def __init__(self, notify_widget, *args):
         pisi.ui.UI.__init__(self)
         apply(QObject.__init__, (self,) + args)
-
         self.connect(self, PYSIGNAL("signalNotify"),
                      notify_widget.slotNotify)
 
@@ -331,3 +319,5 @@ class PisiUI_NoThread(QObject, pisi.ui.UI):
             self.emit(PYSIGNAL("signalNotify"),
                       (self, event, keywords['package']))
 
+    def display_progress(self, operation, percent, info, **keywords):
+	pass
