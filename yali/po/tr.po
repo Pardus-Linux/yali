@@ -638,7 +638,7 @@ msgstr "Sistem kurulumu"
 
 #: yali/gui/runner.py:53
 msgid "Basic setup"
-msgstr "Basit yapılandırma"
+msgstr "Temel yapılandırma"
 
 #: yali/gui/runner.py:152
 msgid "An error occured!"
