@@ -152,7 +152,8 @@ class Ext3FileSystem(FileSystem):
             e = "Command not found to format %s filesystem" %(self.name())
             raise FSError, e
 
-        cmd = "%s -j %s" %(cmd_path, partition.getPath())
+        # Use hashed b-trees to speed up lookups in large directories
+        cmd = "%s -O dir_index -j %s" %(cmd_path, partition.getPath())
 
         p = os.popen(cmd)
         o = p.readlines()
