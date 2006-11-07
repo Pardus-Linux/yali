@@ -37,7 +37,7 @@ class RequestList(list):
     def applyAll(self):
         
         # first apply format requests
-        for r in self.searchReqType(formatRequestType):
+        for r in self.searchReqTypeIterate(formatRequestType):
             r.applyRequest()
 
         # then mount request
