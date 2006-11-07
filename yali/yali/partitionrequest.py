@@ -324,3 +324,7 @@ class SwapFileRequest(PartRequest):
         
         PartRequest.applyRequest(self)
 
+
+
+# partition requests singleton.
+partrequests = RequestList()
