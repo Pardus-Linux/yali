@@ -43,29 +43,30 @@ class RequestList(list):
         # then mount request
         # but mount root (/) first
         pt = parttype.root
-        rootreq = [x for x in self.searchPartTypeAndReqType(pt, mountRequestType)]
-        # this should give (at most) one result
-        # cause we are storing one request for a partitionType()
-        assert(len(rootreq) <= 1)
-        rootreq = rootreq[0]
+        rootreq = self.searchPartTypeAndReqType(pt, mountRequestType)
+	if not rootreq:
+	    raise RequestException, "Desired partition request not found: root partition request."
         rootreq.applyRequest()
 
         # mount others
-        for r in self.searchReqType(mountRequestType):
+        for r in self.searchReqTypeIterate(mountRequestType):
             if r.partitionType() != rootreq.partitionType():
                 r.applyRequest()
 
         # apply swap requests if any...
-        for r in self.searchReqType(swapFileRequestType):
+        for r in self.searchReqTypeIterate(swapFileRequestType):
             r.applyRequest()
 
 
     ##
-    # iterator function searches for a request 
-    #  by partition and request type
-    # @param p: Partition
+    # iterator function searches for a request by partition and
+    # request type
+    #
+    # @return: generator returns a request type in each turn.
+    #
+    # @param p: Partition (defined in partition.py)
     # @param t: request Type (eg. formatRequestType)
-    def searchPartAndReqType(self, p, rt):
+    def searchPartAndReqTypeIterate(self, p, rt):
         i = self.__iter__()
         try:
             cur = i.next()
@@ -81,10 +82,13 @@ class RequestList(list):
 
     
     ##
-    # iterator function searches for a request 
-    #  by request type
+    # Iterator function searches for a request 
+    # by request type
+    #
+    # @return: generator returns a request type in each turn.
+    #
     # @param t: request Type (eg. formatRequestType)
-    def searchReqType(self, rt):
+    def searchReqTypeIterate(self, rt):
         i = self.__iter__()
         try:
             cur = i.next()
@@ -100,9 +104,13 @@ class RequestList(list):
 
 
     ##
-    # iterator function searches by
-    # partition type and request type
-    def searchPartTypeAndReqType(self, pt, rt):
+    # Iterator function searches by partition type and request type
+    #
+    # @return: generator returns a request type in each turn.
+    #
+    # @param pt: Partition Type (defined in partitiontype.py)
+    # @param rt: Request Type
+    def searchPartTypeAndReqTypeIterate(self, pt, rt):
         i = self.__iter__()
         try:
             cur = i.next()
@@ -118,28 +126,41 @@ class RequestList(list):
 
 
     ##
+    # Search for a given partition type and request type.
+    #
+    # @return: if found returns the PartRequest else None.
+    #
+    # @param pt: Partition Type (defined in partitiontype.py)
+    # @param rt: Request Type
+    def searchPartTypeAndReqType(self, pt, rt):
+	req = [x for x in self.searchPartTypeAndReqTypeIterate(pt, rt)]
+        # this should give (at most) one result
+        # cause we are storing one request for a partitionType()
+        assert(len(req) <= 1)
+
+	if not req:
+	    return None
+	else:
+	    # return the only request found.
+	    return req.pop()
+
+
+    ##
     # add/append a request
     def append(self, req):
-
         self.removeRequest(req.partition(), req.requestType())
-
 
         rt = req.requestType()
         pt = req.partitionType()
-        found = [x for x in self.searchPartTypeAndReqType(pt, rt)]
-        # this should give (at most) one result
-        # cause we are storing one request for a partitionType()
-        assert(len(found) <= 1)
+        found = self.searchPartTypeAndReqType(pt, rt)
 
-        # there is one more request with the same partitionType()
-        # this is not acceptable.
+	# RequestList stores only one request for a requestType() -
+	# partitionType() pair.
         if found:
-            e = "There is a request with the same partitionType()"
+            e = "There is a request with the same partitionType() and requestType()."
             raise RequestException, e
 
-
         list.append(self, req)
-#        print "add request", req
 
 
     ##
@@ -147,7 +168,7 @@ class RequestList(list):
     # @param p: Partition
     # @param t: request Type (eg. formatRequestType)
     def removeRequest(self, p, rt):
-        found = [x for x in self.searchPartAndReqType(p, rt)]
+        found = [x for x in self.searchPartAndReqTypeIterate(p, rt)]
         # this should give (at most) one result
         # cause we are storing one request for a (part, reqType) pair
         assert(len(found) <= 1)
@@ -160,7 +181,6 @@ class RequestList(list):
     # remove a request
     def remove(self, i):
         list.remove(self, i)
-#        print "remove request", i
         
 
     ##

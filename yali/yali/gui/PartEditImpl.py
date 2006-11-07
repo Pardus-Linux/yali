@@ -330,7 +330,7 @@ class PartEditWidgetImpl(PartEditWidget):
         self.home.setEnabled(True)
         self.swap.setEnabled(True)
 
-        for r in ctx.partrequests.searchReqType(request.mountRequestType):
+        for r in ctx.partrequests.searchReqTypeIterate(request.mountRequestType):
             pt = r.partitionType()
             part = r.partition()
 

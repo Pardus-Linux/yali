@@ -138,20 +138,17 @@ about disk partitioning.
         # check swap partition, if not present use swap file
         rt = request.mountRequestType
         pt = parttype.swap
-        found_swap_part = [x for x in ctx.partrequests.searchPartTypeAndReqType(pt, rt)]
-        # this should give (at most) one result
-        # cause we are storing one request for a partitionType()
-        assert(len(found_swap_part) <= 1)
+        swap_part_req = ctx.partrequests.searchPartTypeAndReqType(pt, rt)
 
-
-        if not found_swap_part:
-            print "no swap partition defined using swap as file..."
-            # find root partition
+        if not swap_part:
+            # No swap partition defined using swap as file in root
+            # partition
             rt = request.mountRequestType
             pt = parttype.root
-            for r in ctx.partrequests.searchPartTypeAndReqType(pt, rt):
-                ctx.partrequests.append(
-                    request.SwapFileRequest(r.partition(), r.partitionType()))
+            root_part_req = ctx.partrequests.searchPartTypeAndReqType(pt, rt)
+	    ctx.partrequests.append(
+		request.SwapFileRequest(root_part_req.partition(),
+					root_part_req.partitionType()))
 
         # apply all partition requests
         ctx.partrequests.applyAll()

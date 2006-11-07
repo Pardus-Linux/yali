@@ -105,11 +105,11 @@ loader.
     def execute(self):
         loader = yali.bootloader.BootLoader()
 
-        rootreq = ctx.partrequests.searchPartTypeAndReqType(parttype.root,
-                                                            request.mountRequestType).next()
+        root_part_req = ctx.partrequests.searchPartTypeAndReqType(
+	    parttype.root, request.mountRequestType)
 
         loader.install_dev = basename(self.device.getPath())
-        loader.install_root = basename(rootreq.partition().getPath())
+        loader.install_root = basename(root_part_req.partition().getPath())
         
         # TODO: use logging!
         loader.write_grub_conf()

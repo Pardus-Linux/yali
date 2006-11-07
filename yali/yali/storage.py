@@ -340,7 +340,7 @@ class Device:
 
 
     ##
-    # internal function
+    # (internal function)
     # add partition to the partitions dictionary
     # @param part: pyparted partition type
     #
