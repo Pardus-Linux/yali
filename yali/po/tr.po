@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-11-03 13:30+0200\n"
+"POT-Creation-Date: 2006-11-07 15:57+0200\n"
 "PO-Revision-Date: 2006-11-04 14:15+0200\n"
 "Last-Translator: Ali Erdinç Köroğlu <erdinc@pardus.org.tr>\n"
 "Language-Team:  <tr@li.org>\n"
@@ -92,11 +92,11 @@ msgstr ""
 "</b>\n"
 
 #: yali/gui/AutoPartitioning.py:200 yali/gui/parteditbuttons.py:47
-#: yali/gui/Partitioning.py:211
+#: yali/gui/Partitioning.py:208
 msgid "Cancel"
 msgstr "İptal"
 
-#: yali/gui/AutoPartitioning.py:203 yali/gui/Partitioning.py:214
+#: yali/gui/AutoPartitioning.py:203 yali/gui/Partitioning.py:211
 msgid "O.K. Go Ahead"
 msgstr "Tamam. Devam Et"
 
@@ -379,7 +379,8 @@ msgstr "'Sistem Dosyaları' bölümü en az %s MB olmalı."
 
 #: yali/gui/PartEditImpl.py:277
 msgid "ntfsresize check failed! Won't proceed action!"
-msgstr "NTFS yeniden boyutlandırma kontrolü başarısız! İşlem gerçekleştirilmeyecek!"
+msgstr ""
+"NTFS yeniden boyutlandırma kontrolü başarısız! İşlem gerçekleştirilmeyecek!"
 
 #: yali/gui/parteditwidget.py:82
 msgid "Size (MB):"
@@ -489,23 +490,23 @@ msgstr ""
 "</p> \n"
 "</font>\n"
 
-#: yali/gui/Partitioning.py:164
+#: yali/gui/Partitioning.py:161
 msgid "Create Partition"
 msgstr "Disk Bölümü Oluştur"
 
-#: yali/gui/Partitioning.py:169
+#: yali/gui/Partitioning.py:166
 msgid "Delete Partition"
 msgstr "Disk Bölümünü Sil"
 
-#: yali/gui/Partitioning.py:174
+#: yali/gui/Partitioning.py:171
 msgid "Edit Partition"
 msgstr "Disk Bölümünü Düzenle"
 
-#: yali/gui/Partitioning.py:179
+#: yali/gui/Partitioning.py:176
 msgid "Resize Partition"
 msgstr "Bölümü Yeniden Boyutlandır"
 
-#: yali/gui/Partitioning.py:204
+#: yali/gui/Partitioning.py:201
 msgid ""
 "<b>\n"
 "<p>This action will start installing Pardus on\n"
@@ -757,7 +758,8 @@ msgstr "<font color=\"#FF6D19\">Parolalar aynı değil!</font>"
 
 #: yali/gui/SetupRootpass.py:122
 msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
-msgstr "<font color=\"#FF6D19\">Makine adı geçersiz karakterler içeriyor!</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Makine adı geçersiz karakterler içeriyor!</font>"
 
 #: yali/gui/SetupUsers.py:30
 msgid ""
@@ -813,7 +815,8 @@ msgstr ""
 
 #: yali/gui/SetupUsers.py:125
 msgid "<font color=\"#FF6D19\">Username contains invalid characters!</font>"
-msgstr "<font color=\"#FF6D19\">Kullanıcı adı geçersiz karakterler içeriyor!</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Kullanıcı adı geçersiz karakterler içeriyor!</font>"
 
 #: yali/gui/SetupUsers.py:129
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
@@ -918,8 +921,9 @@ msgid ""
 "you agree to accept them. Do you want to continue?"
 msgstr ""
 "TÜBİTAK/UEKAE tarafından geliştirilen tüm Pardus yazılımlar GNU/GPL ile "
-"lisanlanmıştır. Diğer yazılımlar ise kendi lisanslarına sahiptir. Pardus'u yüklemek için "
-"bu lisansları kabul etmeniz gerekmektedir. Devam etmek istiyor musunuz?"
+"lisanlanmıştır. Diğer yazılımlar ise kendi lisanslarına sahiptir. Pardus'u "
+"yüklemek için bu lisansları kabul etmeniz gerekmektedir. Devam etmek istiyor "
+"musunuz?"
 
 #: yali/gui/welcomewidget.py:94
 msgid "Read GPL"
@@ -937,7 +941,7 @@ msgstr "Hayır, Kabul Etmiyorum!"
 msgid "Warning"
 msgstr "Uyarı"
 
-#: yali/bootloader.py:140 yali/bootloader.py:145
+#: yali/bootloader.py:158 yali/bootloader.py:163
 msgid "Windows"
 msgstr "Windows"
 
@@ -961,6 +965,10 @@ msgstr "İngilizce (US)"
 msgid "Dutch"
 msgstr "Hollandaca"
 
+#: yali/keyboard.py:42
+msgid "German"
+msgstr "Almanca"
+
 #: yali/partition.py:35
 msgid "unknown"
 msgstr "bilinmeyen"
@@ -980,4 +988,3 @@ msgstr "Kullanıcı Dosyaları"
 #: yali/partitiontype.py:67
 msgid "Swap"
 msgstr "Takas"
-

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: degis_tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-11-03 13:30+0200\n"
+"POT-Creation-Date: 2006-11-07 15:57+0200\n"
 "PO-Revision-Date: 2006-10-28 16:51+0300\n"
 "Last-Translator: Atilla Aktuna <aktuna@gmail.com>\n"
 "Language-Team: Türkçe <tr@li.org>\n"
@@ -93,11 +93,11 @@ msgstr ""
 "</b>\n"
 
 #: yali/gui/AutoPartitioning.py:200 yali/gui/parteditbuttons.py:47
-#: yali/gui/Partitioning.py:211
+#: yali/gui/Partitioning.py:208
 msgid "Cancel"
 msgstr "Annuler"
 
-#: yali/gui/AutoPartitioning.py:203 yali/gui/Partitioning.py:214
+#: yali/gui/AutoPartitioning.py:203 yali/gui/Partitioning.py:211
 msgid "O.K. Go Ahead"
 msgstr "D'accord. Continue."
 
@@ -500,23 +500,23 @@ msgstr ""
 "</p> \n"
 "</font>\n"
 
-#: yali/gui/Partitioning.py:164
+#: yali/gui/Partitioning.py:161
 msgid "Create Partition"
 msgstr "Créer le partitionnement"
 
-#: yali/gui/Partitioning.py:169
+#: yali/gui/Partitioning.py:166
 msgid "Delete Partition"
 msgstr "Supprimer le partitionnement"
 
-#: yali/gui/Partitioning.py:174
+#: yali/gui/Partitioning.py:171
 msgid "Edit Partition"
 msgstr "Editer le partitionnement"
 
-#: yali/gui/Partitioning.py:179
+#: yali/gui/Partitioning.py:176
 msgid "Resize Partition"
 msgstr "Redimensionner le partitionnement"
 
-#: yali/gui/Partitioning.py:204
+#: yali/gui/Partitioning.py:201
 msgid ""
 "<b>\n"
 "<p>This action will start installing Pardus on\n"
@@ -939,7 +939,7 @@ msgstr "Non, Je n'accepte pas!"
 msgid "Warning"
 msgstr "Attention"
 
-#: yali/bootloader.py:140 yali/bootloader.py:145
+#: yali/bootloader.py:158 yali/bootloader.py:163
 msgid "Windows"
 msgstr "Les fenêtres"
 
@@ -962,6 +962,10 @@ msgstr "Le clavier Anglais (Etats-Unis)"
 
 #: yali/keyboard.py:38
 msgid "Dutch"
+msgstr ""
+
+#: yali/keyboard.py:42
+msgid "German"
 msgstr ""
 
 #: yali/partition.py:35
