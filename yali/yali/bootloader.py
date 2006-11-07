@@ -20,6 +20,10 @@ _ = __trans.ugettext
 
 from yali.exception import *
 from yali.constants import consts
+import yali.partitiontype as parttype
+import yali.partitionrequest as request
+from yali.partitionrequest import partrequests
+
 
 grub_conf_tmp = """\
 default 0
@@ -101,8 +105,10 @@ class BootLoader:
             ver = bk[len("kernel-"):]
             return "initramfs-%s" % ver
     
-        def boot_parameters_from_cmdline(root):
+        def boot_parameters(root):
             s = []
+
+	    # Get parameters from cmdline.
             for i in [x for x in open("/proc/cmdline", "r").read().split() if not x.startswith("init=") and not x.startswith("xorg=")]:
                 if i.startswith("root="):
                     s.append("root=/dev/%s" % (root))
@@ -115,11 +121,23 @@ class BootLoader:
                         s.append(mudur)
                 else:
                     s.append(i)
+
+	    # a hack for http://bugs.pardus.org.tr/3345
+	    rt = request.mountRequestType
+	    pt = parttype.swap
+	    swap_part_req = partrequests.searchPartTypeAndReqType(pt, rt)
+	    if swap_part_req:
+		s.append("resume=%s" %(swap_part_req.partition().getPath()))
+
+
             return " ".join(s).strip()
+
+	    
+
  
         boot_kernel = find_boot_kernel()
         initramfs_name = find_initramfs_name(boot_kernel)
-        boot_parameters =  boot_parameters_from_cmdline(self.install_root)
+        boot_parameters =  boot_parameters(self.install_root)
         s = grub_conf_tmp % {"root": self.install_root,
                              "grub_root": grub_root,
                              "pardus_version": consts.pardus_version,
