@@ -142,12 +142,15 @@ class YaliUninstall(Command):
 
 
 i18n_domain = "yali"
-i18n_languages = "tr nl fr"
+i18n_languages = ["tr",
+		  "nl",
+		  "fr",
+		  "de"]
 
 class I18nInstall(install):
     def run(self):
         install.run(self)
-        for lang in i18n_languages.split(' '):
+        for lang in i18n_languages:
             print "Installing '%s' translations..." % lang
             os.popen("msgfmt po/%s.po -o po/%s.mo" % (lang, lang))
             if not self.root:

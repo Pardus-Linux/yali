@@ -38,6 +38,10 @@ keyboards = {
         "name" : _("Dutch"),
         "keymap" : "nl"
         }
+    4 : {
+	"name" : _("German"),
+	"keymap" : "de"
+	}
     }
 
 
