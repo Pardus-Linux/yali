@@ -45,12 +45,12 @@ class Widget(QTextView):
         self.setPalette(palette)
 
         try:
-            self.setText(codecs.open(find_license_file(), "r", "UTF-8").read())
+            self.setText(codecs.open(self.find_license_file(), "r", "UTF-8").read())
         except Exception, e:
             raise GUIException, e
 
 
-    def find_license_file(self, lang):
+    def find_license_file(self):
         f = join(ctx.consts.source_dir,
                  "license-" + ctx.consts.lang + ".txt")
         if not exists(f):
