@@ -140,7 +140,7 @@ about disk partitioning.
         pt = parttype.swap
         swap_part_req = ctx.partrequests.searchPartTypeAndReqType(pt, rt)
 
-        if not swap_part:
+        if not swap_part_req:
             # No swap partition defined using swap as file in root
             # partition
             rt = request.mountRequestType
