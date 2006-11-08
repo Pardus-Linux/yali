@@ -93,7 +93,7 @@ class Widget(QWidget):
 
         self._layout = QHBoxLayout(self)
         self._layout.setSpacing(20)
-        self._layout.setMargin(10)
+        self._layout.setMargin(5)
 
 
         self.relNotes = RelButton(self)
@@ -107,7 +107,6 @@ class Widget(QWidget):
         self.prevButton = GUINavButton.prevButton(self)
 
         buttons = QHBoxLayout(self._layout)
-#        buttons.addStretch(1)
         buttons.addWidget(self.prevButton)
         buttons.addWidget(self.nextButton)
         self.buttonSpacer = QSpacerItem(0, 0, QSizePolicy.Fixed, QSizePolicy.Fixed)

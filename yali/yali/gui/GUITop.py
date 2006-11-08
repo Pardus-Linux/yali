@@ -24,15 +24,21 @@ class Widget(QWidget):
         apply(QWidget.__init__, (self,) + args)
         
         self.img = ctx.iconfactory.newImage("top_image")
-
+        self.label = QLabel(self)
         self.stageWidget = GUIStage.Widget(self)
+        
+        self._layout = QVBoxLayout(self)
+        self._layout.addWidget(self.label)
 
-        self._layout = QHBoxLayout(self)
-        self._layout.addWidget(self.stageWidget)
-        self._layout.addStretch(1)
+        hbox = QHBoxLayout(self._layout)
+        hbox.addStretch(1)
+        hbox.addWidget(self.stageWidget)
+        hbox.addStretch(1)
+
         
     def slotAddStage(self, obj, text):
         self.stageWidget.slotAddStage(obj, text)
+
 
     def setCurrentStage(self, num):
         self.stageWidget.setCurrent(num)
@@ -47,11 +53,8 @@ class Widget(QWidget):
         img_h = self.img.height()
         width = size.width()
         height = img_h * width / img_w
-        self.setFixedHeight(height)
-
-        # FIXME: calculate a proper margin for widget height
-        self._layout.setMargin(height/6)
+        self.label.setFixedHeight(height)
 
         # and scale image after all...
-        img = self.img.smoothScale(self.size())
-        self.setPaletteBackgroundPixmap(QPixmap(img))
+        img = self.img.smoothScale(self.label.size())
+        self.label.setPaletteBackgroundPixmap(QPixmap(img))

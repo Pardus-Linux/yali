@@ -16,16 +16,14 @@ import yali.gui.context as ctx
 
 ##
 # Stage widget
-class Widget(QListView):
-
-    _color_current = "#000000"
-    _color_inactive = "#999999"
+class Widget(QWidget):
 
     def __init__(self, *args):
-        apply(QListView.__init__, (self,) + args)
+        apply(QWidget.__init__, (self,) + args)
 
-        self.addColumn(QString.null) # stage name
-        self.header().hide()
+        self.layout = QHBoxLayout(self)
+        self.layout.setSpacing(20)
+        self.stages = []
 
         self.tw = self.width()
         self.th = self.height()
@@ -35,19 +33,15 @@ class Widget(QListView):
 
         self.setSizePolicy( QSizePolicy(QSizePolicy.Minimum,
                                         QSizePolicy.Minimum))
-        self.setFrameStyle(self.NoFrame)
-
         self.setPaletteForegroundColor(ctx.consts.fg_color)
 
         f = self.font()
         f.setBold(True)
         self.setFont(f)
 
-        self.setSelectionMode(self.NoSelection)
         self.setFocusPolicy(self.NoFocus)
-        self.setVScrollBarMode(self.AlwaysOff)
 
-        
+
         self.connect(ctx.stages, PYSIGNAL("signalAddStage"),
                      self.slotAddStage)
 
@@ -69,16 +63,14 @@ class Widget(QListView):
         self.ty = event.pos().y()
         self.fixBackground()
 
-
     ##
     # add a new stage
     # @param obj(QObject): QObject that emits the signal.
     # @param text(string): stage text
     def slotAddStage(self, obj, text):
-        # add a listview item...
-        i = StageItem(self, text)
-
-        self.setColumnWidth( 0, self.columnWidth( 0 ) + 20 )
+        item = StageItem(self, text)
+        self.stages.append(item)
+        self.layout.addWidget(item)
 
     ##
     # set the current stage. Iterate over the listview items and set
@@ -86,28 +78,49 @@ class Widget(QListView):
     # @param obj(QObject): QObject that emits the signal.
     # @param num(int): stage number to be the current.
     def slotStageChanged(self, obj, num):
+        if not self.stages:
+            return
 
-        iterator = QListViewItemIterator(self)
-        current = iterator.current()
-        i = 0
-        while current:
-            # stages start from 1 and ListViewItems start from 0. So
-            # we increase 'i' at first.
-            i += 1 
+        # Stages start from 1 and array items start from 0. So we
+        # decrease 'num'.
+        num -= 1
 
-            ifactory = ctx.iconfactory
-            if i == num:
-                iterator.current().setPixmap(0, ifactory.newPixmap("active_bullet"))
-            else:
-                iterator.current().setPixmap(0, ifactory.newPixmap("inactive_bullet"))
-
-            iterator += 1
-            current = iterator.current()
-
+        # Deactivate all and activate the matched one. Dummy...
+        for s in self.stages:
+            s.setActive(False)
+        self.stages[num].setActive(True)
 
 ##
 # Stage item
-class StageItem(QListViewItem):
+class StageItem(QWidget):
+
+    _color_active = "#000000"
+    _color_inactive = "#999999"
 
     def __init__(self, parent, text, *args):
-        apply(QLabel.__init__, (self, parent, text) + args)
+        apply(QWidget.__init__, (self, parent) + args)
+
+        self.active = False
+        self.text = text
+
+        layout = QHBoxLayout(self)
+        layout.addSpacing(5)
+        self.icon = QLabel(self)
+        layout.addWidget(self.icon)
+        self.label = QLabel(self)
+        layout.addWidget(self.label)
+
+    def setActive(self, active=True):
+        if active:
+            self.icon.setPixmap(ctx.iconfactory.newPixmap("active_bullet"))
+            self.label.setText("<font color=\"%s\">%s</font>" % (
+                    self._color_active, self.text))
+            self.label.setAlignment(QLabel.SingleLine)
+        else:
+            self.icon.setPixmap(ctx.iconfactory.newPixmap("inactive_bullet"))
+            self.label.setText("<font color=\"%s\">%s</font>" % (
+                    self._color_inactive, self.text))
+            self.label.setAlignment(QLabel.SingleLine)
+        self.active = active
+
+        self.setFixedHeight(self.icon.height())
