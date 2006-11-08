@@ -34,10 +34,12 @@ keyboards = {
         "name" : _("English US"),
         "keymap" : "us"
         },
+
     3 : {
         "name" : _("Dutch"),
         "keymap" : "nl"
-        }
+        },
+
     4 : {
 	"name" : _("German"),
 	"keymap" : "de"

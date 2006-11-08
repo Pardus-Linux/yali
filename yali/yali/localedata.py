@@ -34,7 +34,8 @@ localedata = {
         "locale": "nl_NL.UTF-8",
         "consolefont" : "iso01.16",
         "consoletranslation" : "8859-1"
-        }
+        },
+
     "de" : {
 	"locale": "de_DE.UTF-8",
 	"consolefont" : "iso01.16",
