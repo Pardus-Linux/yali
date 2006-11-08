@@ -23,6 +23,8 @@ import reboot
 
 import yali
 import yali.gui.context as ctx
+from yali.asod.weaver import weave_method
+from yali.gui.GuiAspects import disableNavButtonsAspect
 from yali.gui.YaliDialog import Dialog
 
 import YaliWindow
@@ -82,7 +84,11 @@ class Runner:
         num = 0
         for scr in _all_screens:
             num += 1
-            ctx.screens.addScreen(num, scr['stage'], scr['module'].Widget())
+            w = scr['module'].Widget()
+            # disableNavButtonsAspect disabled the navigation buttons
+            # before the method.
+            weave_method(disableNavButtonsAspect, w, "execute")
+            ctx.screens.addScreen(num, scr['stage'], w)
 
 
         self._app.connect(self._app, SIGNAL("lastWindowClosed()"),
