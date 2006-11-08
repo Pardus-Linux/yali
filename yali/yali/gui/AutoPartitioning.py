@@ -119,6 +119,9 @@ about disk partitioning.
             w = WarningWidget(self)
             self.dialog = WarningDialog(w, self)
             if not self.dialog.exec_loop():
+                # disabled by weaver
+                ctx.screens.enablePrev()
+                self.updateUI()
                 return False
 
 
