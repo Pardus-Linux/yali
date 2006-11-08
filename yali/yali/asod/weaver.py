@@ -76,9 +76,20 @@ def weave_method(aspect, obj, met_name):
 
 
 
+def weave_class_method(aspect, klass, met_name):
+    p = PointCut()
+    p.addMethod(klass, met_name)
+    aspect.updatePointCut(p)
+    weave_method(aspect, klass, met_name)
+
+def weave_object_method(aspect, obj, met_name):
+    weave_class_method(aspect, obj, met_name)
+
+
+
 ##
 # weave all methods in class (klass) with an aspect
-def weave_class_methods(aspect, klass):
+def weave_all_class_methods(aspect, klass):
     
     p = PointCut()
     _dict = dict(inspect.getmembers(klass, inspect.ismethod))
@@ -94,6 +105,6 @@ def weave_class_methods(aspect, klass):
 
 ##
 # weave all methods in an object (obj) with an aspect
-def weave_object_methods(aspect, obj):
+def weave_all_object_methods(aspect, obj):
     # it's the same as weaving a class. so apply it...
-    weave_class_methods(aspect, obj)
+    weave_all_class_methods(aspect, obj)
