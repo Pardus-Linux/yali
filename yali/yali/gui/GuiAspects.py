@@ -11,7 +11,7 @@
 #
 
 
-from yali.asod.meta import MetaAspect
+from pyaspects.meta import MetaAspect
 
 import yali.gui.context as ctx
 

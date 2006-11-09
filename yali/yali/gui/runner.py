@@ -23,7 +23,7 @@ import reboot
 
 import yali
 import yali.gui.context as ctx
-from yali.asod.weaver import weave_object_method
+from pyaspects.weaver import weave_object_method
 from yali.gui.GuiAspects import disableNavButtonsAspect
 from yali.gui.YaliDialog import Dialog
 
