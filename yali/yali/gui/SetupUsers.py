@@ -76,7 +76,6 @@ Click Next button to proceed.
                      self.slotReturnPressed)
 
     def shown(self):
-        ctx.screens.enablePrev()
         self.checkUsers()
         self.checkCapsLock()
 

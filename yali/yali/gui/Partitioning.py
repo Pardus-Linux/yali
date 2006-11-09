@@ -109,7 +109,7 @@ about disk partitioning.
 
 
     def shown(self):
-        ctx.screens.enablePrev()
+        ctx.screens.disableNext()
 
         self.partlist.update()
 

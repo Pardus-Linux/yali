@@ -30,3 +30,19 @@ class DisableNavButtonsAspect:
         pass
 
 disableNavButtonsAspect = DisableNavButtonsAspect()
+
+##
+# Enable navigation buttons before method.
+class EnableNavButtonsAspect:
+
+    __metaclass__ = MetaAspect
+    name = "enableNavButtons"
+
+    def before(self, wobj, data, *args, **kwargs):
+        ctx.screens.enableNext()
+        ctx.screens.enablePrev()
+
+    def after(self, wobj, data, *args, **kwargs):
+        pass
+
+enableNavButtonsAspect = EnableNavButtonsAspect()

@@ -24,7 +24,7 @@ import reboot
 import yali
 import yali.gui.context as ctx
 from pyaspects.weaver import weave_object_method
-from yali.gui.GuiAspects import disableNavButtonsAspect
+from yali.gui.GuiAspects import *
 from yali.gui.YaliDialog import Dialog
 
 import YaliWindow
@@ -85,8 +85,10 @@ class Runner:
         for scr in _all_screens:
             num += 1
             w = scr['module'].Widget()
-            # disableNavButtonsAspect disabled the navigation buttons
-            # before the method.
+            # enable navigation buttons before shown
+            weave_object_method(enableNavButtonsAspect, w, "shown")
+
+            # disable navigation buttons before the execute.
             weave_object_method(disableNavButtonsAspect, w, "execute")
             ctx.screens.addScreen(num, scr['stage'], w)
 

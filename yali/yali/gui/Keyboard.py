@@ -62,10 +62,6 @@ Depending on your hardware or choice select a keyboard layout from the list.
                      self.slotLayoutChanged)
 
 
-    def shown(self):
-        ctx.screens.enablePrev()
-        ctx.screens.enableNext()
-
     def execute(self):
         keydata = self.keyboard_list.selectedItem().getData()
 
