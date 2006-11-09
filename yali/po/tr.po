@@ -87,7 +87,7 @@ msgstr ""
 "ve seçilen sabit disk üzerindeki tüm verileriniz silinecektir.</p>\n"
 "\n"
 "<p>Lütfen, mevcut dosyalarınızın yedeğini aldıktan sonra, 'Tamam' \n"
-"düğmesine tıklayın.Daha sonra, Pardus güvenli bir şekilde \n"
+"düğmesine tıklayın. Daha sonra, Pardus güvenli bir şekilde \n"
 "bilgisayarınıza kurulacaktır.</p>\n"
 "</b>\n"
 
