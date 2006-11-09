@@ -94,9 +94,6 @@ class User:
         
         if not os.path.exists(user_home_dir):
             os.system('cp -r %s %s' % (os.path.join(consts.target_dir, 'etc/skel'), user_home_dir))
-        else:
-            for f in glob.glob("/etc/skel/.*"):
-                os.system("cp -fdr %s %s" % (f, user_home_dir))
 
         shutil.copy(head_images.next(), os.path.join(user_home_dir, '.face.icon'))
         os.chmod(os.path.join(user_home_dir, '.face.icon'), 0644)
