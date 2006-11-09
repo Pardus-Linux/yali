@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-11-07 15:57+0200\n"
-"PO-Revision-Date: 2006-11-04 14:15+0200\n"
-"Last-Translator: Ali Erdinç Köroğlu <erdinc@pardus.org.tr>\n"
+"POT-Creation-Date: 2006-11-09 10:24+0200\n"
+"PO-Revision-Date: 2006-11-09 10:25+0200\n"
+"Last-Translator: Barış Metin <baris@pardus.org.tr>\n"
 "Language-Team:  <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -68,11 +68,11 @@ msgstr ""
 msgid "Can't find a storage device!"
 msgstr "Kurulum için disk bulunamadı!"
 
-#: yali/gui/AutoPartitioning.py:126
+#: yali/gui/AutoPartitioning.py:129
 msgid "<font color=\"#FF6D19\">Preparing your disk for installation!</font>"
 msgstr "<font color=\"#FF6D19\">Diskiniz kurulum için hazırlanıyor!</font>"
 
-#: yali/gui/AutoPartitioning.py:190
+#: yali/gui/AutoPartitioning.py:193
 msgid ""
 "<b>\n"
 "<p>This action will use your entire disk for Pardus installation and\n"
@@ -91,19 +91,19 @@ msgstr ""
 "bilgisayarınıza kurulacaktır.</p>\n"
 "</b>\n"
 
-#: yali/gui/AutoPartitioning.py:200 yali/gui/parteditbuttons.py:47
-#: yali/gui/Partitioning.py:208
+#: yali/gui/AutoPartitioning.py:203 yali/gui/parteditbuttons.py:47
+#: yali/gui/Partitioning.py:212
 msgid "Cancel"
 msgstr "İptal"
 
-#: yali/gui/AutoPartitioning.py:203 yali/gui/Partitioning.py:211
+#: yali/gui/AutoPartitioning.py:206 yali/gui/Partitioning.py:215
 msgid "O.K. Go Ahead"
 msgstr "Tamam. Devam Et"
 
 #: yali/gui/autopartwidget.py:83 yali/gui/bootloaderwidget.py:71
 #: yali/gui/keyboardwidget.py:66 yali/gui/parteditbuttons.py:46
 #: yali/gui/parteditwidget.py:81 yali/gui/partlistwidget.py:85
-#: yali/gui/rootpasswidget.py:119 yali/gui/setupuserswidget.py:128
+#: yali/gui/rootpasswidget.py:127 yali/gui/setupuserswidget.py:134
 #: yali/gui/welcomewidget.py:91
 msgid "Form1"
 msgstr "Form1"
@@ -226,7 +226,7 @@ msgstr ""
 msgid "Reboot"
 msgstr "Sistemi Yeniden Başlat!"
 
-#: yali/gui/GUIBottom.py:101 yali/gui/GUIBottom.py:148
+#: yali/gui/GUIBottom.py:101 yali/gui/GUIBottom.py:147
 msgid "Release Notes"
 msgstr "Sürüm Notları"
 
@@ -490,23 +490,23 @@ msgstr ""
 "</p> \n"
 "</font>\n"
 
-#: yali/gui/Partitioning.py:161
+#: yali/gui/Partitioning.py:165
 msgid "Create Partition"
 msgstr "Disk Bölümü Oluştur"
 
-#: yali/gui/Partitioning.py:166
+#: yali/gui/Partitioning.py:170
 msgid "Delete Partition"
 msgstr "Disk Bölümünü Sil"
 
-#: yali/gui/Partitioning.py:171
+#: yali/gui/Partitioning.py:175
 msgid "Edit Partition"
 msgstr "Disk Bölümünü Düzenle"
 
-#: yali/gui/Partitioning.py:176
+#: yali/gui/Partitioning.py:180
 msgid "Resize Partition"
 msgstr "Bölümü Yeniden Boyutlandır"
 
-#: yali/gui/Partitioning.py:201
+#: yali/gui/Partitioning.py:205
 msgid ""
 "<b>\n"
 "<p>This action will start installing Pardus on\n"
@@ -601,15 +601,15 @@ msgstr "Yeniden Boyutlandır"
 msgid "Edit"
 msgstr "Düzenle"
 
-#: yali/gui/rootpasswidget.py:122
+#: yali/gui/rootpasswidget.py:130
 msgid "System administrator password:"
 msgstr "Sistem yöneticisi parolası:"
 
-#: yali/gui/rootpasswidget.py:123
+#: yali/gui/rootpasswidget.py:131
 msgid "System administrator password (again):"
 msgstr "Sistem yöneticisi parolası (tekrar):"
 
-#: yali/gui/rootpasswidget.py:125
+#: yali/gui/rootpasswidget.py:133
 msgid ""
 "<p align=\"left\">System administrator user (root) handles important system "
 "maintanence tasks. Please give password for this special user and do not "
@@ -621,31 +621,31 @@ msgstr ""
 "unutmayın. Gizlilik nedenlerinden dolayı bu parolayı hiç bir yere yazmamanız "
 "önerilir.</p>"
 
-#: yali/gui/rootpasswidget.py:126
+#: yali/gui/rootpasswidget.py:134
 msgid "Hostname:"
 msgstr "Makine Adı:"
 
-#: yali/gui/rootpasswidget.py:127
+#: yali/gui/rootpasswidget.py:135
 msgid "pardus"
 msgstr "pardus"
 
-#: yali/gui/runner.py:51
+#: yali/gui/runner.py:53
 msgid "Prepare for install"
 msgstr "Kurulum için hazırlık"
 
-#: yali/gui/runner.py:52
+#: yali/gui/runner.py:54
 msgid "Install system"
 msgstr "Sistem kurulumu"
 
-#: yali/gui/runner.py:53
+#: yali/gui/runner.py:55
 msgid "Basic setup"
 msgstr "Temel yapılandırma"
 
-#: yali/gui/runner.py:152
+#: yali/gui/runner.py:158
 msgid "An error occured!"
 msgstr "Bir hata oluştu!"
 
-#: yali/gui/runner.py:157 yali/gui/welcomewidget.py:95
+#: yali/gui/runner.py:163 yali/gui/welcomewidget.py:95
 msgid "Reboot System!"
 msgstr "Sistemi Yeniden Başlat!"
 
@@ -697,7 +697,7 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/SetupRootpass.py:32
+#: yali/gui/SetupRootpass.py:33
 msgid ""
 "\n"
 "<font size=\"+2\">System administrator password and hostname</font>\n"
@@ -752,16 +752,20 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/SetupRootpass.py:103 yali/gui/SetupUsers.py:95
+#: yali/gui/SetupRootpass.py:95 yali/gui/SetupUsers.py:93
+msgid "<font color=\"#FF6D19\">Caps Lock is on!</font>"
+msgstr "<font color=\"#FF6D19\">Caps Lock açık!</font>"
+
+#: yali/gui/SetupRootpass.py:115 yali/gui/SetupUsers.py:107
 msgid "<font color=\"#FF6D19\">Passwords do not match!</font>"
 msgstr "<font color=\"#FF6D19\">Parolalar aynı değil!</font>"
 
-#: yali/gui/SetupRootpass.py:122
+#: yali/gui/SetupRootpass.py:134
 msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
 msgstr ""
 "<font color=\"#FF6D19\">Makine adı geçersiz karakterler içeriyor!</font>"
 
-#: yali/gui/SetupUsers.py:30
+#: yali/gui/SetupUsers.py:31
 msgid ""
 "\n"
 "<font size=\"+2\">User setup</font>\n"
@@ -807,54 +811,54 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/SetupUsers.py:121
+#: yali/gui/SetupUsers.py:133
 msgid "<font color=\"#FF6D19\">Username exists, choose another one!</font>"
 msgstr ""
 "<font color=\"#FF6D19\">Bu kullanıcı adı zaten var, başka bir tane seçin!</"
 "font>"
 
-#: yali/gui/SetupUsers.py:125
+#: yali/gui/SetupUsers.py:137
 msgid "<font color=\"#FF6D19\">Username contains invalid characters!</font>"
 msgstr ""
 "<font color=\"#FF6D19\">Kullanıcı adı geçersiz karakterler içeriyor!</font>"
 
-#: yali/gui/SetupUsers.py:129
+#: yali/gui/SetupUsers.py:141
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
 msgstr ""
 "<font color=\"#FF6D19\">Gerçek İsim bölümü geçersiz karakterler içeriyor!</"
 "font>"
 
-#: yali/gui/setupuserswidget.py:129
-msgid "Delete Selected User"
-msgstr "Seçili Kullanıcıyı Sil"
-
-#: yali/gui/setupuserswidget.py:130
-msgid "Users:"
-msgstr "Kullanıcılar:"
-
-#: yali/gui/setupuserswidget.py:132
+#: yali/gui/setupuserswidget.py:135
 msgid "New User"
 msgstr "Yeni Kullanıcı"
 
-#: yali/gui/setupuserswidget.py:133
+#: yali/gui/setupuserswidget.py:136
 msgid "User Name:"
 msgstr "Kullanıcı Adı:"
 
-#: yali/gui/setupuserswidget.py:134
+#: yali/gui/setupuserswidget.py:137
 msgid "Create User"
 msgstr "Kullanıcı Ekle"
 
-#: yali/gui/setupuserswidget.py:135
+#: yali/gui/setupuserswidget.py:138
 msgid "Password (again):"
 msgstr "Parola (tekrar):"
 
-#: yali/gui/setupuserswidget.py:136
+#: yali/gui/setupuserswidget.py:139
 msgid "Password:"
 msgstr "Parola:"
 
-#: yali/gui/setupuserswidget.py:137
+#: yali/gui/setupuserswidget.py:140
 msgid "Real Name:"
 msgstr "Gerçek İsim:"
+
+#: yali/gui/setupuserswidget.py:142
+msgid "Delete Selected User"
+msgstr "Seçili Kullanıcıyı Sil"
+
+#: yali/gui/setupuserswidget.py:143
+msgid "Users:"
+msgstr "Kullanıcılar:"
 
 #: yali/gui/Welcome.py:32
 msgid ""
@@ -961,11 +965,11 @@ msgstr "Türkçe F"
 msgid "English US"
 msgstr "İngilizce (US)"
 
-#: yali/keyboard.py:38
+#: yali/keyboard.py:39
 msgid "Dutch"
 msgstr "Hollandaca"
 
-#: yali/keyboard.py:42
+#: yali/keyboard.py:44
 msgid "German"
 msgstr "Almanca"
 

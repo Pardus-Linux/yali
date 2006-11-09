@@ -10,10 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-11-07 15:57+0200\n"
+"POT-Creation-Date: 2006-11-09 10:24+0200\n"
 "PO-Revision-Date: 2006-11-07 22:50+0200\n"
 "Last-Translator: W.P.M.H.I.A. Gielen <w.gielen@gmail.com>\n"
-"Language-Team: Nederlands <http://liste.pardus.org.tr/pardus-translation-nl/>\n"
+"Language-Team: Nederlands <http://liste.pardus.org.tr/pardus-translation-nl/"
+">\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -72,11 +73,13 @@ msgstr ""
 msgid "Can't find a storage device!"
 msgstr "Kan geen opslagapparaat vinden!"
 
-#: yali/gui/AutoPartitioning.py:126
+#: yali/gui/AutoPartitioning.py:129
 msgid "<font color=\"#FF6D19\">Preparing your disk for installation!</font>"
-msgstr "<font color=\"#FF6D19\">Uw schijf wordt voor de installatie voorbereid.</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Uw schijf wordt voor de installatie voorbereid.</"
+"font>"
 
-#: yali/gui/AutoPartitioning.py:190
+#: yali/gui/AutoPartitioning.py:193
 msgid ""
 "<b>\n"
 "<p>This action will use your entire disk for Pardus installation and\n"
@@ -91,23 +94,24 @@ msgstr ""
 "Pardus en \n"
 " al uw gegevens schijf zullen verloren gaan.</p>\n"
 "\n"
-"<p>Na er zeker van te zijn dat al uw gegevens elders zijn opgeslagen is dit is over het algemeen een veilige een eenvoudige manier om Pardus te "
+"<p>Na er zeker van te zijn dat al uw gegevens elders zijn opgeslagen is dit "
+"is over het algemeen een veilige een eenvoudige manier om Pardus te "
 "installeren.</p>\n"
 "</b>\n"
 
-#: yali/gui/AutoPartitioning.py:200 yali/gui/parteditbuttons.py:47
-#: yali/gui/Partitioning.py:208
+#: yali/gui/AutoPartitioning.py:203 yali/gui/parteditbuttons.py:47
+#: yali/gui/Partitioning.py:212
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: yali/gui/AutoPartitioning.py:203 yali/gui/Partitioning.py:211
+#: yali/gui/AutoPartitioning.py:206 yali/gui/Partitioning.py:215
 msgid "O.K. Go Ahead"
 msgstr "O.K. Ga verder"
 
 #: yali/gui/autopartwidget.py:83 yali/gui/bootloaderwidget.py:71
 #: yali/gui/keyboardwidget.py:66 yali/gui/parteditbuttons.py:46
 #: yali/gui/parteditwidget.py:81 yali/gui/partlistwidget.py:85
-#: yali/gui/rootpasswidget.py:119 yali/gui/setupuserswidget.py:128
+#: yali/gui/rootpasswidget.py:127 yali/gui/setupuserswidget.py:134
 #: yali/gui/welcomewidget.py:91
 msgid "Form1"
 msgstr "Form1"
@@ -145,7 +149,8 @@ msgstr "Nee, ik wil mijn schijf handmatig partitioneren."
 
 #: yali/gui/autopartwidget.py:95
 msgid "Yes, automatically partition and format selected disk!"
-msgstr "Ja, partitioneer automatisch en formatteer de geselecteerde harde schijf!"
+msgstr ""
+"Ja, partitioneer automatisch en formatteer de geselecteerde harde schijf!"
 
 #: yali/gui/bootloaderwidget.py:72
 msgid ""
@@ -163,7 +168,8 @@ msgstr ""
 "\n"
 "<p>U hebt een bootloader nodig om uw Pardus-systeem te starten.</p>\n"
 "\n"
-"<p>Als u geen bootloader installeert, dan zult moet u de bootloader van uw andere \n"
+"<p>Als u geen bootloader installeert, dan zult moet u de bootloader van uw "
+"andere \n"
 "besturingssysteem moeten configureren om Pardus te kunnen starten.</p>"
 
 #: yali/gui/bootloaderwidget.py:79
@@ -201,8 +207,8 @@ msgstr ""
 "<font size=\"+1\">\n"
 "<p>\n"
 "U heeft succesvol Pardus op uw computer geïnstalleerd,\n"
-"een eenvoudig te gebruiken desktopsysteem. U kunt beginnen te experimenten met uw nieuwe systeem en productief "
-"blijven.\n"
+"een eenvoudig te gebruiken desktopsysteem. U kunt beginnen te experimenten "
+"met uw nieuwe systeem en productief blijven.\n"
 "</p>\n"
 "<P>\n"
 "Klik op de knop Volgende om verder te gaan.\n"
@@ -233,7 +239,7 @@ msgstr ""
 msgid "Reboot"
 msgstr "Herstarten"
 
-#: yali/gui/GUIBottom.py:101 yali/gui/GUIBottom.py:148
+#: yali/gui/GUIBottom.py:101 yali/gui/GUIBottom.py:147
 msgid "Release Notes"
 msgstr "Uitgavenotities"
 
@@ -493,23 +499,23 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/Partitioning.py:161
+#: yali/gui/Partitioning.py:165
 msgid "Create Partition"
 msgstr "Partitie aanmaken"
 
-#: yali/gui/Partitioning.py:166
+#: yali/gui/Partitioning.py:170
 msgid "Delete Partition"
 msgstr "Partitie verwijderen"
 
-#: yali/gui/Partitioning.py:171
+#: yali/gui/Partitioning.py:175
 msgid "Edit Partition"
 msgstr "Partitie bewerken"
 
-#: yali/gui/Partitioning.py:176
+#: yali/gui/Partitioning.py:180
 msgid "Resize Partition"
 msgstr "Partitiegrootte aanpassen"
 
-#: yali/gui/Partitioning.py:201
+#: yali/gui/Partitioning.py:205
 msgid ""
 "<b>\n"
 "<p>This action will start installing Pardus on\n"
@@ -604,15 +610,15 @@ msgstr "Grootte aanpassen"
 msgid "Edit"
 msgstr "Bewerken"
 
-#: yali/gui/rootpasswidget.py:122
+#: yali/gui/rootpasswidget.py:130
 msgid "System administrator password:"
 msgstr "Wachtwoord systeembeheerder:"
 
-#: yali/gui/rootpasswidget.py:123
+#: yali/gui/rootpasswidget.py:131
 msgid "System administrator password (again):"
 msgstr "Wachtwoord systeembeheerder (nogmaals):"
 
-#: yali/gui/rootpasswidget.py:125
+#: yali/gui/rootpasswidget.py:133
 msgid ""
 "<p align=\"left\">System administrator user (root) handles important system "
 "maintanence tasks. Please give password for this special user and do not "
@@ -621,34 +627,34 @@ msgid ""
 msgstr ""
 "<p align=\"left\">De systeembeheergebruiker (root) zorgt voor de belangrijke "
 "onderhoudstaken op het systeem. Geef een wachtwoord op voor deze speciale "
-"gebruiker, en vergeet het wachtwoord niet! Uit veiligheids overwegingen wordt "
-"het afgeraden het wachtwoord ergens op te schrijven. </p>"
+"gebruiker, en vergeet het wachtwoord niet! Uit veiligheids overwegingen "
+"wordt het afgeraden het wachtwoord ergens op te schrijven. </p>"
 
-#: yali/gui/rootpasswidget.py:126
+#: yali/gui/rootpasswidget.py:134
 msgid "Hostname:"
 msgstr "Hostnaam:"
 
-#: yali/gui/rootpasswidget.py:127
+#: yali/gui/rootpasswidget.py:135
 msgid "pardus"
 msgstr "pardus"
 
-#: yali/gui/runner.py:51
+#: yali/gui/runner.py:53
 msgid "Prepare for install"
 msgstr "Installatie voorbereiden"
 
-#: yali/gui/runner.py:52
+#: yali/gui/runner.py:54
 msgid "Install system"
 msgstr "Systeem installeren"
 
-#: yali/gui/runner.py:53
+#: yali/gui/runner.py:55
 msgid "Basic setup"
 msgstr "Basisopzet"
 
-#: yali/gui/runner.py:152
+#: yali/gui/runner.py:158
 msgid "An error occured!"
 msgstr "Er is een fout opgetreden!"
 
-#: yali/gui/runner.py:157 yali/gui/welcomewidget.py:95
+#: yali/gui/runner.py:163 yali/gui/welcomewidget.py:95
 msgid "Reboot System!"
 msgstr "Systeem herstarten!"
 
@@ -695,7 +701,7 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/SetupRootpass.py:32
+#: yali/gui/SetupRootpass.py:33
 msgid ""
 "\n"
 "<font size=\"+2\">System administrator password and hostname</font>\n"
@@ -751,15 +757,21 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/SetupRootpass.py:103 yali/gui/SetupUsers.py:95
+#: yali/gui/SetupRootpass.py:95 yali/gui/SetupUsers.py:93
+#, fuzzy
+msgid "<font color=\"#FF6D19\">Caps Lock is on!</font>"
+msgstr "<font color=\"#FF6D19\">De wachtwoorden komen niet overeen</font>"
+
+#: yali/gui/SetupRootpass.py:115 yali/gui/SetupUsers.py:107
 msgid "<font color=\"#FF6D19\">Passwords do not match!</font>"
 msgstr "<font color=\"#FF6D19\">De wachtwoorden komen niet overeen</font>"
 
-#: yali/gui/SetupRootpass.py:122
+#: yali/gui/SetupRootpass.py:134
 msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
-msgstr "<font color=\"#FF6D19\">De hostnaam bevat niet-toegestane tekens</font>"
+msgstr ""
+"<font color=\"#FF6D19\">De hostnaam bevat niet-toegestane tekens</font>"
 
-#: yali/gui/SetupUsers.py:30
+#: yali/gui/SetupUsers.py:31
 msgid ""
 "\n"
 "<font size=\"+2\">User setup</font>\n"
@@ -800,53 +812,54 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/SetupUsers.py:121
+#: yali/gui/SetupUsers.py:133
 msgid "<font color=\"#FF6D19\">Username exists, choose another one!</font>"
 msgstr ""
 "<font color=\"#FF6D19\">Deze gebruikersnaam bestaat al. Kies een andere!</"
 "font>"
 
-#: yali/gui/SetupUsers.py:125
+#: yali/gui/SetupUsers.py:137
 msgid "<font color=\"#FF6D19\">Username contains invalid characters!</font>"
 msgstr ""
 "<font color=\"#FF6D19\">De gebruikersnaam bevat niet-toegestane tekens.</"
 "font>"
 
-#: yali/gui/SetupUsers.py:129
+#: yali/gui/SetupUsers.py:141
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
-msgstr "<font color=\"#FF6D19\">De echte naam bevat niet-toegestane tekens.</font>"
+msgstr ""
+"<font color=\"#FF6D19\">De echte naam bevat niet-toegestane tekens.</font>"
 
-#: yali/gui/setupuserswidget.py:129
-msgid "Delete Selected User"
-msgstr "Geselecteerde gebruiker verwijderen"
-
-#: yali/gui/setupuserswidget.py:130
-msgid "Users:"
-msgstr "Gebruikers:"
-
-#: yali/gui/setupuserswidget.py:132
+#: yali/gui/setupuserswidget.py:135
 msgid "New User"
 msgstr "Nieuwe gebruiker:"
 
-#: yali/gui/setupuserswidget.py:133
+#: yali/gui/setupuserswidget.py:136
 msgid "User Name:"
 msgstr "Gebruikersnaam:"
 
-#: yali/gui/setupuserswidget.py:134
+#: yali/gui/setupuserswidget.py:137
 msgid "Create User"
 msgstr "Gebruiker aanmaken"
 
-#: yali/gui/setupuserswidget.py:135
+#: yali/gui/setupuserswidget.py:138
 msgid "Password (again):"
 msgstr "Wachtwoord (nogmaals):"
 
-#: yali/gui/setupuserswidget.py:136
+#: yali/gui/setupuserswidget.py:139
 msgid "Password:"
 msgstr "Wachtwoord:"
 
-#: yali/gui/setupuserswidget.py:137
+#: yali/gui/setupuserswidget.py:140
 msgid "Real Name:"
 msgstr "Echte naam:"
+
+#: yali/gui/setupuserswidget.py:142
+msgid "Delete Selected User"
+msgstr "Geselecteerde gebruiker verwijderen"
+
+#: yali/gui/setupuserswidget.py:143
+msgid "Users:"
+msgstr "Gebruikers:"
 
 #: yali/gui/Welcome.py:32
 msgid ""
@@ -908,9 +921,9 @@ msgid ""
 "software have their corresponding licenses. By installing or using Pardus, "
 "you agree to accept them. Do you want to continue?"
 msgstr ""
-"Alle software ontwikkeld door TUBITAK/UEKAE valt onder GNU/GPL. Andere "
-"software hebben gelijke licenties. Door installeren of gebruik maken van Pardus, "
-"stemt u toe deze te accepteren. Wilt u doorgaan?"
+"Alle software ontwikkeld door TUBITAK/UEKAE valt onder GNU/GPL. "
+"Andere software hebben gelijke licenties. Door installeren of gebruik maken "
+"van Pardus, stemt u toe deze te accepteren. Wilt u doorgaan?"
 
 #: yali/gui/welcomewidget.py:94
 msgid "Read GPL"
@@ -949,11 +962,11 @@ msgstr "Turks F"
 msgid "English US"
 msgstr "Engels US"
 
-#: yali/keyboard.py:38
+#: yali/keyboard.py:39
 msgid "Dutch"
 msgstr "Nederlands"
 
-#: yali/keyboard.py:42
+#: yali/keyboard.py:44
 msgid "German"
 msgstr "Duits"
 
@@ -976,4 +989,3 @@ msgstr "Gebruikersbestanden"
 #: yali/partitiontype.py:67
 msgid "Swap"
 msgstr "Swap"
-
