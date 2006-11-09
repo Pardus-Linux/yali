@@ -23,6 +23,7 @@ from yali.gui.rootpasswidget import RootPassWidget
 import yali.users
 import yali.sysutils
 import yali.gui.context as ctx
+import xcapslock
 
 
 ##
@@ -78,6 +79,7 @@ Click Next button to proceed.
 
     def shown(self):
         ctx.screens.disablePrev()
+        self.checkCapsLock()
 
     def execute(self):
         user = yali.users.User("root")
@@ -86,6 +88,16 @@ Click Next button to proceed.
         yali.sysutils.add_hostname(self.hostname.text().ascii())
 
         return True
+
+    def checkCapsLock(self):
+        if xcapslock.isOn():
+            self.caps_error.setText(
+                _('<font color="#FF6D19">Caps Lock is on!</font>'))
+        else:
+            self.caps_error.setText("")
+
+    def keyReleaseEvent(self, e):
+        self.checkCapsLock()
 
     def slotTextChanged(self):
 

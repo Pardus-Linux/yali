@@ -22,6 +22,7 @@ import yali.users
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.setupuserswidget import SetupUsersWidget
 import yali.gui.context as ctx
+import xcapslock
 
 ##
 # Partitioning screen.
@@ -77,6 +78,7 @@ Click Next button to proceed.
     def shown(self):
         ctx.screens.enablePrev()
         self.checkUsers()
+        self.checkCapsLock()
 
     def execute(self):
         for i in range(self.userList.count()):
@@ -84,6 +86,16 @@ Click Next button to proceed.
             yali.users.pending_users.add(u)
 
         return True
+
+    def checkCapsLock(self):
+        if xcapslock.isOn():
+            self.caps_error.setText(
+                _('<font color="#FF6D19">Caps Lock is on!</font>'))
+        else:
+            self.caps_error.setText("")
+
+    def keyReleaseEvent(self, e):
+        self.checkCapsLock()
 
     def slotTextChanged(self):
 
