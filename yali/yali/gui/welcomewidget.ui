@@ -165,6 +165,9 @@
                 <property name="name">
                     <cstring>unnamed</cstring>
                 </property>
+                <property name="spacing">
+                    <number>10</number>
+                </property>
                 <widget class="QLayoutWidget" row="1" column="0">
                     <property name="name">
                         <cstring>layout3</cstring>
