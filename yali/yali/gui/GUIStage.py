@@ -92,7 +92,7 @@ class StageItem(QWidget):
             self.label.setText("<font color=\"%s\">%s</font>" % (
                     self._color_active, self.text))
         else:
-            self.icon.setPixmap(pix = ctx.iconfactory.newPixmap("inactive_bullet"))
+            self.icon.setPixmap(ctx.iconfactory.newPixmap("inactive_bullet"))
             self.label.setText("<font color=\"%s\">%s</font>" % (
                     self._color_inactive, self.text))
 
