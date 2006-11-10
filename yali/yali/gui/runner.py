@@ -23,7 +23,8 @@ import reboot
 
 import yali
 import yali.gui.context as ctx
-from pyaspects.weaver import weave_object_method
+from pyaspects.weaver import *
+from pyaspects.debuggeraspect import DebuggerAspect
 from yali.gui.GuiAspects import *
 from yali.gui.YaliDialog import Dialog
 
@@ -82,14 +83,21 @@ class Runner:
 
         # add screens
         num = 0
+        da = DebuggerAspect(open(ctx.consts.log_file, "w"))
         for scr in _all_screens:
-            num += 1
             w = scr['module'].Widget()
+
+            # debug all screens.
+            if ctx.options.debug == True:
+                weave_all_object_methods(da, w)
+
             # enable navigation buttons before shown
             weave_object_method(enableNavButtonsAspect, w, "shown")
 
             # disable navigation buttons before the execute.
             weave_object_method(disableNavButtonsAspect, w, "execute")
+
+            num += 1
             ctx.screens.addScreen(num, scr['stage'], w)
 
 
