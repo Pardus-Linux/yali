@@ -88,14 +88,13 @@ class StageItem(QWidget):
 
     def setActive(self, active=True):
         if active:
-            pix = ctx.iconfactory.newPixmap("active_bullet")
+            self.icon.setPixmap(ctx.iconfactory.newPixmap("active_bullet"))
             self.label.setText("<font color=\"%s\">%s</font>" % (
                     self._color_active, self.text))
         else:
-            pix = ctx.iconfactory.newPixmap("inactive_bullet")
+            self.icon.setPixmap(pix = ctx.iconfactory.newPixmap("inactive_bullet"))
             self.label.setText("<font color=\"%s\">%s</font>" % (
                     self._color_inactive, self.text))
 
-        self.icon.setPixmap(pix)
         self.icon.setAlignment(QLabel.AlignCenter)
         self.label.setAlignment(QLabel.SingleLine | QLabel.AlignCenter)
