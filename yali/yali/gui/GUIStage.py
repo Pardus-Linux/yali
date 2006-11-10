@@ -77,7 +77,6 @@ class StageItem(QWidget):
     def __init__(self, parent, text, *args):
         apply(QWidget.__init__, (self, parent) + args)
 
-        self.active = False
         self.text = text
 
         layout = QHBoxLayout(self)
@@ -89,15 +88,14 @@ class StageItem(QWidget):
 
     def setActive(self, active=True):
         if active:
-            self.icon.setPixmap(ctx.iconfactory.newPixmap("active_bullet"))
+            pix = ctx.iconfactory.newPixmap("active_bullet")
             self.label.setText("<font color=\"%s\">%s</font>" % (
                     self._color_active, self.text))
-            self.label.setAlignment(QLabel.SingleLine)
         else:
-            self.icon.setPixmap(ctx.iconfactory.newPixmap("inactive_bullet"))
+            pix = ctx.iconfactory.newPixmap("inactive_bullet")
             self.label.setText("<font color=\"%s\">%s</font>" % (
                     self._color_inactive, self.text))
-            self.label.setAlignment(QLabel.SingleLine)
-        self.active = active
 
-        self.setFixedHeight(self.icon.height())
+        self.icon.setPixmap(pix)
+        self.icon.setAlignment(QLabel.AlignCenter)
+        self.label.setAlignment(QLabel.SingleLine | QLabel.AlignCenter)
