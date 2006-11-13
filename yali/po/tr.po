@@ -925,7 +925,7 @@ msgid ""
 "you agree to accept them. Do you want to continue?"
 msgstr ""
 "TÜBİTAK/UEKAE tarafından geliştirilen tüm Pardus yazılımlar GNU/GPL ile "
-"lisanlanmıştır. Diğer yazılımlar ise kendi lisanslarına sahiptir. Pardus'u "
+"lisanslanmıştır. Diğer yazılımlar ise kendi lisanslarına sahiptir. Pardus'u "
 "yüklemek için bu lisansları kabul etmeniz gerekmektedir. Devam etmek istiyor "
 "musunuz?"
 
