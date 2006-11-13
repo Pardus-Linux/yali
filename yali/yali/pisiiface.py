@@ -30,7 +30,7 @@ def initialize(ui, with_comar=False, ignore_dependency=False):
     options = pisi.config.Options()
     options.destdir = consts.target_dir
     options.yes_all = True
-    options.ignore_dependency = ignore_dependency # bug: 3043
+    options.ignore_dependency = ignore_dependency # bug: 3043, remove after Beta2
     # giving "comar = false" isn't enough for pisi 
     if with_comar:
         # wait for chroot_comar to initialize
