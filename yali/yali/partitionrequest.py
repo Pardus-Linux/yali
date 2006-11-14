@@ -184,9 +184,9 @@ class RequestList(list):
         
 
     ##
-    # clear all requests
-    def clear_all(self):
-        def clear():
+    # remove all requests
+    def remove_all(self):
+        def _iter_remove():
             i = self.__iter__()
             try:
                 while True:
@@ -199,7 +199,7 @@ class RequestList(list):
         # the code above doesn't removes all. so bruteforce it...
         while True:
             if len(self):
-                clear()
+                _iter_remove()
             else:
                 return
 

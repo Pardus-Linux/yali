@@ -86,7 +86,7 @@ class PartList(PartListWidget):
         if not yali.storage.init_devices():
             raise GUIException, _("Can't find a storage device!")
 
-        ctx.partrequests.clear_all()
+        ctx.partrequests.remove_all()
 
         self.update()
 

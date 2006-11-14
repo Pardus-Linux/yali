@@ -129,7 +129,9 @@ about disk partitioning.
             self.info.setText(_('<font color="#FF6D19">Preparing your disk for installation!</font>'))
             ctx.screens.processEvents()
 
-            
+            # remove all other requests (if there are any).
+            ctx.partrequests.remove_all()
+
             ctx.use_autopart = True
             autopartDevice()
             # need to wait for devices to be created
