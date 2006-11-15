@@ -20,7 +20,7 @@ _ = __trans.ugettext
 
 import yali.keyboard
 from yali.gui.ScreenWidget import ScreenWidget
-from yali.gui.keyboardwidget import KeyboardWidget
+from yali.gui.Ui.keyboardwidget import KeyboardWidget
 import yali.gui.context as ctx
 
 ##

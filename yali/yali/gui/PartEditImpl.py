@@ -24,8 +24,8 @@ import yali.partitionrequest as request
 import yali.filesystem as filesystem
 
 from yali.gui.GUIException import *
-from yali.gui.parteditbuttons import PartEditButtons
-from yali.gui.parteditwidget import PartEditWidget
+from yali.gui.Ui.parteditbuttons import PartEditButtons
+from yali.gui.Ui.parteditwidget import PartEditWidget
 
 
 

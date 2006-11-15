@@ -25,7 +25,7 @@ import yali.partitiontype as parttype
 import yali.parteddata as parteddata
 
 from yali.gui.ScreenWidget import ScreenWidget
-from yali.gui.autopartwidget import AutoPartWidget
+from yali.gui.Ui.autopartwidget import AutoPartWidget
 from yali.gui.YaliDialog import WarningDialog
 from yali.gui.GUIException import *
 import yali.gui.context as ctx

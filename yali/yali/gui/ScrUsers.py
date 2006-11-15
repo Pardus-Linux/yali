@@ -20,7 +20,7 @@ _ = __trans.ugettext
 
 import yali.users
 from yali.gui.ScreenWidget import ScreenWidget
-from yali.gui.setupuserswidget import SetupUsersWidget
+from yali.gui.Ui.setupuserswidget import SetupUsersWidget
 import yali.gui.context as ctx
 import xcapslock
 

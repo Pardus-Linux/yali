@@ -30,15 +30,15 @@ from yali.gui.YaliDialog import Dialog
 
 import YaliWindow
 # screens
-import Welcome
-import Keyboard
-import AutoPartitioning
-import Partitioning
-import InstallSystem
-import SetupRootpass
-import SetupUsers
-import SetupBootloader
-import Goodbye
+import ScrWelcome
+import ScrKeyboard
+import ScrPartitionAuto
+import ScrPartitionManual
+import ScrInstall
+import ScrAdmin
+import ScrUsers
+import ScrBootloader
+import ScrGoodbye
 
 
 ##
@@ -57,15 +57,15 @@ class Runner:
             ]
 
         _all_screens = [
-             {'stage': 1, 'module': Welcome},
-             {'stage': 1, 'module': Keyboard},
-             {'stage': 1, 'module': AutoPartitioning},
-             {'stage': 1, 'module': Partitioning},
-             {'stage': 2, 'module': InstallSystem},
-             {'stage': 3, 'module': SetupRootpass},
-             {'stage': 3, 'module': SetupUsers},
-             {'stage': 3, 'module': SetupBootloader},
-             {'stage': 3, 'module': Goodbye}
+             {'stage': 1, 'module': ScrWelcome},
+             {'stage': 1, 'module': ScrKeyboard},
+             {'stage': 1, 'module': ScrPartitionAuto},
+             {'stage': 1, 'module': ScrPartitionManual},
+             {'stage': 2, 'module': ScrInstall},
+             {'stage': 3, 'module': ScrAdmin},
+             {'stage': 3, 'module': ScrUsers},
+             {'stage': 3, 'module': ScrBootloader},
+             {'stage': 3, 'module': ScrGoodbye}
              ]
 
         self._app = QApplication(sys.argv)

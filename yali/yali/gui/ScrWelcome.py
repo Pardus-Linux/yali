@@ -20,7 +20,7 @@ _ = __trans.ugettext
 
 import reboot
 from yali.gui.ScreenWidget import ScreenWidget
-from yali.gui.welcomewidget import WelcomeWidget
+from yali.gui.Ui.welcomewidget import WelcomeWidget
 import yali.gui.context as ctx
 from yali.gui.YaliDialog import Dialog
 import GUIGPL

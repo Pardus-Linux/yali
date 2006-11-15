@@ -28,7 +28,7 @@ YALI_VERSION = yali.__version__
 
 
 def qt_ui_files():
-    p = "yali/gui/*.ui"
+    p = "yali/gui/Ui/*.ui"
     return glob.glob(p)
 
 def gui_pics():

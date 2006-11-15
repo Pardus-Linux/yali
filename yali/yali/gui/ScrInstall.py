@@ -28,7 +28,7 @@ import yali.postinstall
 import yali.sysutils
 import yali.localedata
 import yali.partitionrequest as request
-from yali.gui.installwidget import InstallWidget
+from yali.gui.Ui.installwidget import InstallWidget
 from yali.gui.ScreenWidget import ScreenWidget
 import yali.gui.context as ctx
 

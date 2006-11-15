@@ -19,7 +19,7 @@ _ = __trans.ugettext
 
 
 from yali.gui.ScreenWidget import ScreenWidget
-from yali.gui.rootpasswidget import RootPassWidget
+from yali.gui.Ui.rootpasswidget import RootPassWidget
 import yali.users
 import yali.sysutils
 import yali.gui.context as ctx

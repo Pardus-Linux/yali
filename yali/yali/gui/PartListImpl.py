@@ -26,7 +26,7 @@ import yali.partitiontype as parttype
 import yali.parteddata as parteddata
 
 import yali.gui.context as ctx
-from yali.gui.partlistwidget import PartListWidget
+from yali.gui.Ui.partlistwidget import PartListWidget
 from yali.gui.GUIException import *
 
 
