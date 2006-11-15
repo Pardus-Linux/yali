@@ -25,6 +25,10 @@ from yali.constants import consts
 # we'll add these users at the last step of the installation.
 pending_users = set()
 
+def reset_pending_users():
+    global pending_users
+    pending_users = set()
+
 
 
 def iter_head_images():

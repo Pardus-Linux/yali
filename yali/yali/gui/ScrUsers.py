@@ -80,6 +80,9 @@ Click Next button to proceed.
         self.checkCapsLock()
 
     def execute(self):
+        # reset and fill pending_users
+        yali.users.reset_pending_users()
+
         for i in range(self.userList.count()):
             u = self.userList.item(i).getUser()
             yali.users.pending_users.add(u)
