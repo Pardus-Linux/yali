@@ -50,7 +50,7 @@ system files), which is mandatory and a swap space
 (for improved performance), which is optional. 
 We advise you to allocate at least 4 GBs of hard disk area and 
 swap space (between 500 MB - 2 GB, according to your needs) for 
-convenience. A Linux partition size less than 2.5 GB is not allowed.
+convenience. A Linux partition size less than 3.5 GB is not allowed.
 You may also optionally use another disk partition for storing 
 user files.
 </p>
