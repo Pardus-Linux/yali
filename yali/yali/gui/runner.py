@@ -81,9 +81,11 @@ class Runner:
         for stg in _all_stages:
             ctx.stages.addStage(stg['num'], stg['text'])
 
+        if ctx.options.debug == True:
+            da = DebuggerAspect(open(ctx.consts.log_file, "w"))
+
         # add screens
         num = 0
-        da = DebuggerAspect(open(ctx.consts.log_file, "w"))
         for scr in _all_screens:
             w = scr['module'].Widget()
 
