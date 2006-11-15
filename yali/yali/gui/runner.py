@@ -25,7 +25,7 @@ import yali
 import yali.gui.context as ctx
 from pyaspects.weaver import *
 from pyaspects.debuggeraspect import DebuggerAspect
-from yali.gui.GuiAspects import *
+from yali.gui.aspects import *
 from yali.gui.YaliDialog import Dialog
 
 import YaliWindow
