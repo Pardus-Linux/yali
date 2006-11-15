@@ -24,6 +24,7 @@ import yali.gui.context as ctx
 import yali.partitionrequest as request
 import yali.partitiontype as parttype
 from yali.gui.YaliDialog import Dialog, WarningDialog
+from yali.gui.InformationWindow import InformationWindow
 from yali.gui.GUIException import *
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.PartListImpl import PartList
@@ -128,6 +129,9 @@ about disk partitioning.
             return False
 
 
+        # show information window...
+        info_window = InformationWindow(self, _("Please wait while formatting!"))
+
         # commit events
         self.partlist.devices_commit()
 
@@ -156,6 +160,8 @@ about disk partitioning.
         # apply all partition requests
         ctx.partrequests.applyAll()
 
+        # close window
+        info_window.close(True)
         return True
 
 
@@ -233,4 +239,5 @@ your system formatting the selected partition.</p>
 
     def slotCancel(self):
         self.emit(PYSIGNAL("signalCancel"), ())
+
 

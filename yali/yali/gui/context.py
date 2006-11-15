@@ -32,6 +32,7 @@ consts.helps_dir = join(consts.data_dir, "helps")
 # colors
 consts.bg_color = QColor(255,255,255)
 consts.fg_color = QColor(0,0,0)
+consts.border_color = QColor(150, 150, 150)
 
 stages = yali.gui.stages.Stages()
 screens = yali.gui.screens.Screens()

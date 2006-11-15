@@ -27,6 +27,7 @@ import yali.parteddata as parteddata
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.autopartwidget import AutoPartWidget
 from yali.gui.YaliDialog import WarningDialog
+from yali.gui.InformationWindow import InformationWindow
 from yali.gui.GUIException import *
 import yali.gui.context as ctx
 
@@ -124,6 +125,8 @@ about disk partitioning.
                 self.updateUI()
                 return False
 
+            # show information window...
+            info_window = InformationWindow(self, _("Please wait while formatting!"))
 
             # inform user
             self.info.setText(_('<font color="#FF6D19">Preparing your disk for installation!</font>'))
@@ -142,6 +145,8 @@ about disk partitioning.
             num = ctx.screens.getCurrentIndex() + 1
             ctx.screens.goToScreen(num)
 
+            # close window
+            info_window.close(True)
 
         return True
 

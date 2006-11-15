@@ -68,12 +68,12 @@ class Dialog(QDialog):
 
         l = QHBoxLayout(self)
         frame = QFrame(self)
-        frame.setPaletteBackgroundColor(QColor(227,89,10))
+        frame.setPaletteBackgroundColor(ctx.consts.border_color)
         frame.setFrameStyle(frame.PopupPanel|frame.Plain)
         l.addWidget(frame)
         
         layout = QGridLayout(frame, 1, 1, 1, 1)
-        layout.setMargin(4)
+        layout.setMargin(2)
         w.reparent(frame, 0, QPoint(0,0), True)
         w.setPaletteBackgroundColor(ctx.consts.bg_color)
         w.setPaletteForegroundColor(ctx.consts.fg_color)
@@ -91,9 +91,6 @@ class Dialog(QDialog):
                      self.reject)
 
 
-
-
-    
 class WarningDialog(Dialog):
 
     def __init__(self, w, parent):
