@@ -36,7 +36,7 @@ def gui_pics():
     return glob.glob(p + "/*.png")
 
 def gui_slidepics():
-    p = "yali/gui/slideshow/*.png"
+    p = "yali/gui/pics/slideshow/*.png"
     return glob.glob(p)
 
 def user_faces():
