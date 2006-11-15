@@ -135,7 +135,6 @@ about disk partitioning.
         self.partlist.showPartitionRequests(formatting=True)
         # process events and show partitioning information!
         ctx.screens.processEvents()
-        ctx.screens.processEvents()
         
         
         ##
