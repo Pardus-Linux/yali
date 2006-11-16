@@ -78,6 +78,7 @@ Click Next button to proceed.
     def shown(self):
         self.checkUsers()
         self.checkCapsLock()
+        self.username.setFocus()
 
     def execute(self):
         # reset and fill pending_users

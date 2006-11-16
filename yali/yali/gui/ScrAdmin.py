@@ -80,6 +80,7 @@ Click Next button to proceed.
     def shown(self):
         ctx.screens.disablePrev()
         self.checkCapsLock()
+        self.pass1.setFocus()
 
     def execute(self):
         user = yali.users.User("root")
