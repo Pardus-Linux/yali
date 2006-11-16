@@ -61,6 +61,10 @@ def initbaselayout():
     os.system("/usr/bin/mknod %s/dev/console c 5 1" % consts.target_dir)
     os.system("/usr/bin/mknod %s/dev/null c 1 3" % consts.target_dir)
 
+
+    # workaround for #4069. remove after Beta2
+    os.chmod("/root", 0700)
+
 def migrate_xorg_conf(keymap="trq"):
     # copy xorg.conf.
     src = "/etc/X11/xorg.conf"
