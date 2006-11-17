@@ -11,40 +11,22 @@
 #
 
 import os
-
 import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
+import yali.localedata
 from yali.constants import consts
 
 
-keyboards = {
-    0 : {
-        "name" : _("Turkish Q"),
-        "keymap" : "trq",
-        },
 
-    1 : {
-        "name" : _("Turkish F"),
-        "keymap" : "trf",
-        },
+def write_locale_from_cmdline():
+    locale_file_path = os.path.join(consts.target_dir, "etc/env.d/03locale")
+    f = open(locale_file_path, "w")
 
-    2 : {
-        "name" : _("English US"),
-        "keymap" : "us"
-        },
+    f.write("LANG=%s\n" % localedata[consts.lang]["locale"])
+    f.write("LC_ALL=%s\n" % localedata[consts.lang]["locale"])
 
-    3 : {
-        "name" : _("Dutch"),
-        "keymap" : "nl"
-        },
-
-    4 : {
-	"name" : _("German"),
-	"keymap" : "de"
-	}
-    }
 
 
 def set_keymap(keymap):

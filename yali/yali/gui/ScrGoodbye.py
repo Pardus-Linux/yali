@@ -23,7 +23,7 @@ import reboot
 
 import yali.sysutils
 import yali.users
-import yali.keyboard
+import yali.localeutils
 import yali.postinstall
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.YaliDialog import WarningDialog
@@ -114,11 +114,11 @@ don't you?
         for u in yali.users.pending_users:
             u.addUser()
 
-        # write keyboard data
-        yali.keyboard.write_keymap(ctx.keydata["keymap"])
+        # write console keyboard data
+        yali.localeutils.write_keymap(ctx.keydata.console)
 
         # migrate xorg.conf
-        yali.postinstall.migrate_xorg_conf(ctx.keydata["keymap"])
+        yali.postinstall.migrate_xorg_conf(ctx.keydata.X)
 
 
 

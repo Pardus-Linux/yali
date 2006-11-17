@@ -26,7 +26,7 @@ import yali.pisiiface
 import yali.fstab
 import yali.postinstall
 import yali.sysutils
-import yali.localedata
+import yali.localeutils
 import yali.partitionrequest as request
 from yali.gui.Ui.installwidget import InstallWidget
 from yali.gui.ScreenWidget import ScreenWidget
@@ -207,8 +207,7 @@ Have fun!
 
         # FIXME: I don't know if this is the right way to do
         # this. maybe postinstall can be used too.
-        yali.localedata.write_locale_from_cmdline()
-#        yali.localedata.write_font_from_cmdline(ctx.keydata)
+        yali.localeutils.write_locale_from_cmdline()
 
         return True
 

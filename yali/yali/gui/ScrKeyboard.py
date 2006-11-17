@@ -18,7 +18,8 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-import yali.keyboard
+import yali.localedata
+import yali.localeutils
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.keyboardwidget import KeyboardWidget
 import yali.gui.context as ctx
@@ -50,12 +51,30 @@ Depending on your hardware or choice select a keyboard layout from the list.
         self.keyboard_list.setFont(f)
 
 
-        for k in yali.keyboard.keyboards:
-            KeyboardItem(self.keyboard_list, yali.keyboard.keyboards[k])
+        # iterate over keyboard list and set default
+        #
+        # TODO: re-visit this module and clean this code. there is way
+        # to much iteration in here.
+        index = 0
+        default = 0
+        for (lang, keymap) in yali.localedata.getLangsWithKeymaps():
+            if isinstance(keymap, list):
+                for k in keymap:
+                    KeyboardItem(self.keyboard_list, k)
 
-        self.keyboard_list.setSelected(0, True)
-        # use first item...
-        self.slotLayoutChanged(self.keyboard_list.item(0))
+                    if ctx.consts.lang == lang and not default:
+                        default = index
+
+                    index += 1
+            else:
+                KeyboardItem(self.keyboard_list, keymap)
+                if ctx.consts.lang == lang and not default:
+                    default = index
+
+            index += 1
+
+        self.keyboard_list.setSelected(default, True)
+        self.slotLayoutChanged(self.keyboard_list.item(default))
 
 
         self.connect(self.keyboard_list, SIGNAL("selectionChanged(QListBoxItem*)"),
@@ -71,13 +90,13 @@ Depending on your hardware or choice select a keyboard layout from the list.
 
     def slotLayoutChanged(self, i):
         keydata = i.getData()
-        yali.keyboard.set_keymap(keydata["keymap"])
+        yali.localeutils.set_keymap(keydata.X)
 
 
 class KeyboardItem(QListBoxText):
 
     def __init__(self, parent, keydata):
-        text = "%s" %(keydata["name"])
+        text = "%s" %(keydata.translation)
         apply(QListBoxText.__init__, (self,parent,text))
         self._keydata = keydata
     
