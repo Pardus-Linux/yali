@@ -24,8 +24,8 @@ def write_locale_from_cmdline():
     locale_file_path = os.path.join(consts.target_dir, "etc/env.d/03locale")
     f = open(locale_file_path, "w")
 
-    f.write("LANG=%s\n" % yali.localedata[consts.lang]["locale"])
-    f.write("LC_ALL=%s\n" % yali.localedata[consts.lang]["locale"])
+    f.write("LANG=%s\n" % yali.localedata.locales[consts.lang]["locale"])
+    f.write("LC_ALL=%s\n" % yali.localedata.locales[consts.lang]["locale"])
 
 
 
