@@ -62,23 +62,6 @@ def initbaselayout():
     os.system("/usr/bin/mknod %s/dev/null c 1 3" % consts.target_dir)
 
 
-    # workaround for #4069. remove after Beta2
-    if not os.path.exists("/root"):
-        os.mkdir("/root")
-    for x in os.listdir("/etc/skel"):
-        src = os.path.join("/etc/skel", x)
-        dst = os.path.join("/root", x)
-        if os.path.exists(dst):
-            continue
-        if os.path.isfile(src):
-            shutil.copyfile(src, dst)
-        elif os.path.isdir(src):
-            shutil.copytree(src, dst)
-    os.chown("/root", 0, 0)
-    os.chmod("/root", 0700)
-    # end workaround
-
-
 def migrate_xorg_conf(keymap="trq"):
     # copy xorg.conf.
     src = "/etc/X11/xorg.conf"
