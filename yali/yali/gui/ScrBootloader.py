@@ -25,6 +25,7 @@ import yali.partitiontype as parttype
 from yali.sysutils import is_windows_boot
 from yali.gui.Ui.bootloaderwidget import BootLoaderWidget
 from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui.InformationWindow import InformationWindow
 from yali.gui.GUIException import *
 import yali.gui.context as ctx
 
@@ -103,6 +104,9 @@ loader.
 
 
     def execute(self):
+        # show information window...
+        info_window = InformationWindow(self, _("Please wait while installing bootloader!"))
+
         loader = yali.bootloader.BootLoader()
 
         root_part_req = ctx.partrequests.searchPartTypeAndReqType(
@@ -129,6 +133,9 @@ loader.
 
         if self.install_bootloader.isChecked():
             loader.install_grub()
+
+        # close window
+        info_window.close(True)
 
         return True
 
