@@ -55,26 +55,22 @@ Depending on your hardware or choice select a keyboard layout from the list.
         #
         # TODO: re-visit this module and clean this code. there is way
         # to much iteration in here.
-        index = 0
-        default = 0
+        defaultitem = None
         for (lang, keymap) in yali.localedata.getLangsWithKeymaps():
             if isinstance(keymap, list):
                 for k in keymap:
-                    KeyboardItem(self.keyboard_list, k)
+                    ki = KeyboardItem(self.keyboard_list, k)
 
-                    if ctx.consts.lang == lang and not default:
-                        default = index
-
-                    index += 1
+                    if ctx.consts.lang == lang and not defaultitem:
+                        defaultitem = ki
             else:
-                KeyboardItem(self.keyboard_list, keymap)
-                if ctx.consts.lang == lang and not default:
-                    default = index
+                ki = KeyboardItem(self.keyboard_list, keymap)
+                if ctx.consts.lang == lang and not defaultitem:
+                    defaultitem = ki
 
-            index += 1
-
-        self.keyboard_list.setSelected(default, True)
-        self.slotLayoutChanged(self.keyboard_list.item(default))
+        self.keyboard_list.sort()
+        self.keyboard_list.setSelected(defaultitem, True)
+        self.slotLayoutChanged(defaultitem)
 
 
         self.connect(self.keyboard_list, SIGNAL("selectionChanged(QListBoxItem*)"),
