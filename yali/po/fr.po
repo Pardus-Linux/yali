@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: degis_tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-11-15 10:35+0200\n"
+"POT-Creation-Date: 2006-11-24 14:19+0200\n"
 "PO-Revision-Date: 2006-10-28 16:51+0300\n"
 "Last-Translator: Atilla Aktuna <aktuna@gmail.com>\n"
 "Language-Team: Türkçe <tr@li.org>\n"
@@ -109,8 +109,8 @@ msgstr "Sélectionnez un clavier "
 msgid "Test selected keyboard:"
 msgstr "Testez le clavier "
 
-#: yali/gui/Ui/parteditbuttons.py:47 yali/gui/ScrPartitionAuto.py:205
-#: yali/gui/ScrPartitionManual.py:212
+#: yali/gui/Ui/parteditbuttons.py:47 yali/gui/ScrPartitionAuto.py:210
+#: yali/gui/ScrPartitionManual.py:217
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -312,8 +312,8 @@ msgstr ""
 msgid "ntfsresize check failed! Won't proceed action!"
 msgstr "Le contrôle de redimensionnement est échoué!"
 
-#: yali/gui/PartListImpl.py:87 yali/gui/ScrBootloader.py:71
-#: yali/gui/ScrPartitionAuto.py:68 yali/gui/ScrPartitionManual.py:81
+#: yali/gui/PartListImpl.py:87 yali/gui/ScrBootloader.py:72
+#: yali/gui/ScrPartitionAuto.py:69 yali/gui/ScrPartitionManual.py:82
 msgid "Can't find a storage device!"
 msgstr "Disque inexistant pour l'installation!"
 
@@ -427,22 +427,22 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/ScrAdmin.py:95 yali/gui/ScrUsers.py:95
+#: yali/gui/ScrAdmin.py:96 yali/gui/ScrUsers.py:96
 #, fuzzy
 msgid "<font color=\"#FF6D19\">Caps Lock is on!</font>"
 msgstr "<font color=\"#FF6D19\">Mot de passe incorrect!</font>"
 
-#: yali/gui/ScrAdmin.py:115 yali/gui/ScrUsers.py:109
+#: yali/gui/ScrAdmin.py:116 yali/gui/ScrUsers.py:110
 msgid "<font color=\"#FF6D19\">Passwords do not match!</font>"
 msgstr "<font color=\"#FF6D19\">Mot de passe incorrect!</font>"
 
-#: yali/gui/ScrAdmin.py:134
+#: yali/gui/ScrAdmin.py:135
 msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
 msgstr ""
 "<font color=\"#FF6D19\">Le nom d'hôte contient des charactères invalides.</"
 "font>"
 
-#: yali/gui/ScrBootloader.py:36
+#: yali/gui/ScrBootloader.py:37
 msgid ""
 "\n"
 "<font size=\"+2\">Boot loader setup</font>\n"
@@ -489,6 +489,11 @@ msgstr ""
 "et  d'utilisation de Pardus.\n"
 "</p>\n"
 "</font>\n"
+
+#: yali/gui/ScrBootloader.py:108
+#, fuzzy
+msgid "Please wait while installing bootloader!"
+msgstr "Sélectionner le disque pour installer le chargeur de démarrage"
 
 #: yali/gui/ScrGoodbye.py:36
 #, fuzzy
@@ -606,7 +611,7 @@ msgstr "Configuration du paquet: %s"
 msgid "Configuring packages for your system!"
 msgstr "Configuration des paquets pour votre système!"
 
-#: yali/gui/ScrInstall.py:240
+#: yali/gui/ScrInstall.py:239
 #, python-format
 msgid ""
 "An error during the installation of packages occured.\n"
@@ -623,7 +628,7 @@ msgstr ""
 "Erreur:\n"
 "%s\n"
 
-#: yali/gui/ScrKeyboard.py:30
+#: yali/gui/ScrKeyboard.py:31
 msgid ""
 "\n"
 "<font size=\"+2\">Keyboard Setup</font>\n"
@@ -643,7 +648,7 @@ msgstr ""
 "Vous pouvez sélectionner le type de clavier, sur la liste. </p>\n"
 "</font>\n"
 
-#: yali/gui/ScrPartitionAuto.py:36
+#: yali/gui/ScrPartitionAuto.py:37
 msgid ""
 "\n"
 "<font size=\"+2\">Automatic Partitioning</font>\n"
@@ -686,12 +691,16 @@ msgstr ""
 "</p> \n"
 "</font>\n"
 
-#: yali/gui/ScrPartitionAuto.py:129
+#: yali/gui/ScrPartitionAuto.py:129 yali/gui/ScrPartitionManual.py:133
+msgid "Please wait while formatting!"
+msgstr ""
+
+#: yali/gui/ScrPartitionAuto.py:132
 msgid "<font color=\"#FF6D19\">Preparing your disk for installation!</font>"
 msgstr ""
 "<font color=\"#FF6D19\">Préparation de disque dur pour l'installation</font>"
 
-#: yali/gui/ScrPartitionAuto.py:195
+#: yali/gui/ScrPartitionAuto.py:200
 msgid ""
 "<b>\n"
 "<p>This action will use your entire disk for Pardus installation and\n"
@@ -712,11 +721,11 @@ msgstr ""
 "</p>\n"
 "</b>\n"
 
-#: yali/gui/ScrPartitionAuto.py:208 yali/gui/ScrPartitionManual.py:215
+#: yali/gui/ScrPartitionAuto.py:213 yali/gui/ScrPartitionManual.py:220
 msgid "O.K. Go Ahead"
 msgstr "D'accord. Continue."
 
-#: yali/gui/ScrPartitionManual.py:38
+#: yali/gui/ScrPartitionManual.py:39
 msgid ""
 "\n"
 "<font size=\"+2\">Partitioning your hard disk</font>\n"
@@ -799,23 +808,23 @@ msgstr ""
 "</p> \n"
 "</font>\n"
 
-#: yali/gui/ScrPartitionManual.py:165
+#: yali/gui/ScrPartitionManual.py:170
 msgid "Create Partition"
 msgstr "Créer le partitionnement"
 
-#: yali/gui/ScrPartitionManual.py:170
+#: yali/gui/ScrPartitionManual.py:175
 msgid "Delete Partition"
 msgstr "Supprimer le partitionnement"
 
-#: yali/gui/ScrPartitionManual.py:175
+#: yali/gui/ScrPartitionManual.py:180
 msgid "Edit Partition"
 msgstr "Editer le partitionnement"
 
-#: yali/gui/ScrPartitionManual.py:180
+#: yali/gui/ScrPartitionManual.py:185
 msgid "Resize Partition"
 msgstr "Redimensionner le partitionnement"
 
-#: yali/gui/ScrPartitionManual.py:205
+#: yali/gui/ScrPartitionManual.py:210
 msgid ""
 "<b>\n"
 "<p>This action will start installing Pardus on\n"
@@ -866,19 +875,19 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/ScrUsers.py:135
+#: yali/gui/ScrUsers.py:136
 msgid "<font color=\"#FF6D19\">Username exists, choose another one!</font>"
 msgstr ""
 "<font color=\"#FF6D19\">Ce nom d'utilisateur existe déjà, choisissez un "
 "autre!</font>"
 
-#: yali/gui/ScrUsers.py:139
+#: yali/gui/ScrUsers.py:140
 msgid "<font color=\"#FF6D19\">Username contains invalid characters!</font>"
 msgstr ""
 "<font color=\"#FF6D19\">Le nom d'utilisateur contient des charactères "
 "invalides!</font>"
 
-#: yali/gui/ScrUsers.py:143
+#: yali/gui/ScrUsers.py:144
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
 msgstr ""
 "<font color=\"#FF6D19\">Le nom réel contient des charactères invalides.!</"
@@ -940,7 +949,7 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/YaliDialog.py:104
+#: yali/gui/YaliDialog.py:101
 msgid "Warning"
 msgstr "Attention"
 
@@ -952,25 +961,150 @@ msgstr "Les fenêtres"
 msgid "Backtrace:"
 msgstr "Backtrace:"
 
-#: yali/keyboard.py:24
-msgid "Turkish Q"
-msgstr "Le clavier Q Turc"
+#: yali/localedata.py:85 yali/localedata.py:86
+msgid "Afrikaans"
+msgstr ""
 
-#: yali/keyboard.py:29
-msgid "Turkish F"
-msgstr "Le clavier F turc"
+#: yali/localedata.py:94 yali/localedata.py:95
+msgid "Arabic"
+msgstr ""
 
-#: yali/keyboard.py:34
-#, fuzzy
-msgid "English US"
-msgstr "Le clavier Anglais (Etats-Unis)"
+#: yali/localedata.py:103 yali/localedata.py:104
+msgid "Bulgarian"
+msgstr ""
 
-#: yali/keyboard.py:39
+#: yali/localedata.py:112 yali/localedata.py:113
+msgid "Catalan"
+msgstr ""
+
+#: yali/localedata.py:121 yali/localedata.py:122
+msgid "Croatian"
+msgstr ""
+
+#: yali/localedata.py:130 yali/localedata.py:131
+msgid "Czech"
+msgstr ""
+
+#: yali/localedata.py:139 yali/localedata.py:140
+msgid "Danish"
+msgstr ""
+
+#: yali/localedata.py:148 yali/localedata.py:149
 msgid "Dutch"
 msgstr ""
 
-#: yali/keyboard.py:44
+#: yali/localedata.py:157 yali/localedata.py:158
+#, fuzzy
+msgid "English"
+msgstr "Le clavier Anglais (Etats-Unis)"
+
+#: yali/localedata.py:166 yali/localedata.py:167
+msgid "Estonian"
+msgstr ""
+
+#: yali/localedata.py:175 yali/localedata.py:176
+msgid "Finnish"
+msgstr ""
+
+#: yali/localedata.py:184 yali/localedata.py:185
+msgid "French"
+msgstr ""
+
+#: yali/localedata.py:193 yali/localedata.py:194
 msgid "German"
+msgstr ""
+
+#: yali/localedata.py:202 yali/localedata.py:203
+msgid "Greek"
+msgstr ""
+
+#: yali/localedata.py:211 yali/localedata.py:212
+msgid "Hungarian"
+msgstr ""
+
+#: yali/localedata.py:220 yali/localedata.py:221
+msgid "Icelandic"
+msgstr ""
+
+#: yali/localedata.py:229 yali/localedata.py:230
+msgid "Italian"
+msgstr ""
+
+#: yali/localedata.py:238 yali/localedata.py:239
+msgid "Japanese"
+msgstr ""
+
+#: yali/localedata.py:247 yali/localedata.py:248
+msgid "Macedonian"
+msgstr ""
+
+#: yali/localedata.py:256 yali/localedata.py:257
+msgid "Malayalam"
+msgstr ""
+
+#: yali/localedata.py:265 yali/localedata.py:266
+msgid "Norwegian"
+msgstr ""
+
+#: yali/localedata.py:274 yali/localedata.py:275
+msgid "Polish"
+msgstr ""
+
+#: yali/localedata.py:283 yali/localedata.py:284
+msgid "Portuguese"
+msgstr ""
+
+#: yali/localedata.py:292 yali/localedata.py:293
+msgid "Brazilian"
+msgstr ""
+
+#: yali/localedata.py:301 yali/localedata.py:302
+msgid "Russian"
+msgstr ""
+
+#: yali/localedata.py:310 yali/localedata.py:311
+msgid "Serbian"
+msgstr ""
+
+#: yali/localedata.py:319 yali/localedata.py:320
+msgid "Slovak"
+msgstr ""
+
+#: yali/localedata.py:328 yali/localedata.py:329
+msgid "Slovenian"
+msgstr ""
+
+#: yali/localedata.py:337 yali/localedata.py:338
+msgid "Spanish"
+msgstr ""
+
+#: yali/localedata.py:346 yali/localedata.py:347
+msgid "Swedish"
+msgstr ""
+
+#: yali/localedata.py:355
+#, fuzzy
+msgid "Turkish"
+msgstr "Le clavier Q Turc"
+
+#: yali/localedata.py:356
+msgid "Turkish Q"
+msgstr "Le clavier Q Turc"
+
+#: yali/localedata.py:357
+msgid "Turkish F"
+msgstr "Le clavier F turc"
+
+#: yali/localedata.py:365 yali/localedata.py:366
+msgid "Ukrainian"
+msgstr ""
+
+#: yali/localedata.py:374 yali/localedata.py:375
+msgid "Vietnamese"
+msgstr ""
+
+#: yali/localedata.py:383 yali/localedata.py:384
+msgid "Welsh"
 msgstr ""
 
 #: yali/partition.py:35
