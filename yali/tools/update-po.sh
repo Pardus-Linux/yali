@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LANGUAGES="tr nl fr de"
+LANGUAGES="tr nl fr de es"
 
 set -x
 

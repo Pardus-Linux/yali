@@ -145,7 +145,8 @@ i18n_domain = "yali"
 i18n_languages = ["tr",
 		  "nl",
 		  "fr",
-		  "de"]
+		  "de",
+          "es"]
 
 class I18nInstall(install):
     def run(self):
