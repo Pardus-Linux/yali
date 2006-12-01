@@ -98,6 +98,15 @@ locales = {
         "consoletranslation" : None
         },
 
+    "be" : {
+        "isSupported" : False,
+        "name" : _("Belgium"),
+        "keymap" : Keymap("be-latin1", "be", _("Belgium")),
+        "locale" : "be_BY.UTF-8",
+        "consolefont" : None,
+        "consoletranslation" : None
+        },
+
     "bg" : {
         "isSupported" : False,
         "name" : _("Bulgarian"),
