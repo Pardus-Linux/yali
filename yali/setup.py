@@ -165,14 +165,8 @@ class I18nInstall(install):
 
 
 
-mountmodule = Extension('mount',
-                        sources = ['extensions/mount.c'],
-                        extra_compile_args = ['-Wall'])
-rebootmodule = Extension('reboot',
-                         sources = ['extensions/reboot.c'],
-                         extra_compile_args = ['-Wall'])
-ejectmodule = Extension('eject',
-                        sources = ['extensions/eject.c'],
+yalisysmodule = Extension('yalisys',
+                        sources = ['extensions/yalisys.c'],
                         extra_compile_args = ['-Wall'])
 xcapslockmodule = Extension('xcapslock',
                             sources = ['extensions/xcapslock.c'],
@@ -194,7 +188,7 @@ setup(name="yali",
                     ('/usr/share/yali/slideshow', gui_slidepics()),
                     ('/usr/share/yali/user_faces', user_faces())],
       scripts = ['yali-bin'],
-      ext_modules = [mountmodule, rebootmodule, ejectmodule, xcapslockmodule],
+      ext_modules = [yalisysmodule, xcapslockmodule],
       cmdclass = {
         'build' : YaliBuild,
         'clean' : YaliClean,

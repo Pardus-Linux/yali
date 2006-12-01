@@ -18,7 +18,7 @@ __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 
-import reboot
+import yalisys
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.welcomewidget import WelcomeWidget
 import yali.gui.context as ctx
@@ -103,7 +103,7 @@ Have a fruitful experience with Pardus!
 
 
     def slotReboot(self):
-        reboot.fastreboot()
+        yalisys.fastreboot()
 
 
 

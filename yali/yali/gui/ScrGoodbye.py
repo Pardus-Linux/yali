@@ -18,8 +18,7 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-import mount
-import reboot
+import yalisys
 
 import yali.sysutils
 import yali.users
@@ -100,12 +99,12 @@ don't you?
 
 
         try:
-            mount.umount(ctx.consts.target_dir + "/home")
+            yalisys.umount(ctx.consts.target_dir + "/home")
         except:
             pass
 
-        mount.umount(ctx.consts.target_dir)
-        reboot.fastreboot()
+        yalisys.umount(ctx.consts.target_dir)
+        yalisys.fastreboot()
 
 
     # process pending actions defined in other screens.
@@ -149,8 +148,7 @@ class RebootWidget(QWidget):
         l.addLayout(buttons)
 
 
-        # dummy way to remove CD. But eject does it all for us :)
-        os.system("eject")
+        yali.sysutils.eject_cdrom()
 
         self.connect(self.reboot, SIGNAL("clicked()"),
                      self.slotReboot)

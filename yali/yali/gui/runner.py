@@ -18,8 +18,7 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-import mount
-import reboot
+import yalisys
 
 import yali
 import yali.gui.context as ctx
@@ -190,8 +189,8 @@ class ErrorWidget(QWidget):
     def slotReboot(self):
         
         try:
-            mount.umount(ctx.consts.target_dir + "/home")
+            yalisys.umount(ctx.consts.target_dir + "/home")
         except:
             pass
-        mount.umount(ctx.consts.target_dir)
-        reboot.fastreboot()
+        yalisys.umount(ctx.consts.target_dir)
+        yalisys.fastreboot()
