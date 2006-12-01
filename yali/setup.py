@@ -171,6 +171,9 @@ mountmodule = Extension('mount',
 rebootmodule = Extension('reboot',
                          sources = ['extensions/reboot.c'],
                          extra_compile_args = ['-Wall'])
+ejectmodule = Extension('eject',
+                        sources = ['extensions/eject.c'],
+                        extra_compile_args = ['-Wall'])
 xcapslockmodule = Extension('xcapslock',
                             sources = ['extensions/xcapslock.c'],
                             libraries = ['X11'],
@@ -191,7 +194,7 @@ setup(name="yali",
                     ('/usr/share/yali/slideshow', gui_slidepics()),
                     ('/usr/share/yali/user_faces', user_faces())],
       scripts = ['yali-bin'],
-      ext_modules = [mountmodule, rebootmodule, xcapslockmodule],
+      ext_modules = [mountmodule, rebootmodule, ejectmodule, xcapslockmodule],
       cmdclass = {
         'build' : YaliBuild,
         'clean' : YaliClean,
