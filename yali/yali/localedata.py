@@ -30,10 +30,10 @@ class MultiKeymap:
         self.keymaps = keymaps
 
     def getAllKeyboards(self):
-        return [m for k.keyboard in self.keymaps]
+        return [k.keyboard for k in self.keymaps]
 
     def getAllTranslations(self):
-        return [t for k.translation in self.keymaps]
+        return [k.translation for k in self.keymaps]
 
     def getTranslation(self, keyboard):
         for keymap in self.keymaps:
