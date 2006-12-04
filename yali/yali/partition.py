@@ -25,7 +25,7 @@ import yali.filesystem
 # Class representing a single partition within a Device object
 class Partition:
 
-    def __init__(self, device, parted_part, minor, mb, start, end, fs_name):
+    def __init__(self, device, parted_part, minor, mb, start, end, fs_name, fs_ready=True):
         self._device = device
         self._partition = parted_part
         self._minor = minor
@@ -34,7 +34,14 @@ class Partition:
         self._end = end
         self._fsname = fs_name or _("unknown")
         self._parted_type = parteddata.partitionType
+        self._fs_ready = fs_ready
 
+
+    def getFormatted(self):
+        return self.isFileSystemReady()
+
+    def isFileSystemReady(self):
+        return self._fs_ready
 
     def setFileSystemType(self, fs_type):
         if isinstance(fs_type, yali.filesystem.FileSystem):

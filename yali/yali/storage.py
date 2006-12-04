@@ -336,7 +336,7 @@ class Device:
         except parted.error, e:
             raise DeviceError, e
         
-        return self.__addToPartitionsDict(newp)
+        return self.__addToPartitionsDict(newp, fs_ready=False)
 
 
     ##
@@ -345,7 +345,7 @@ class Device:
     # @param part: pyparted partition type
     #
     # returns: Partition
-    def __addToPartitionsDict(self, part):
+    def __addToPartitionsDict(self, part, fs_ready=True):
 
         geom = part.geom
         part_mb = long(
@@ -363,7 +363,8 @@ class Device:
                                                    part_mb,
                                                    geom.start,
                                                    geom.end,
-                                                   fs_name)
+                                                   fs_name,
+                                                   fs_ready)
 
 # Don't use FreeSpace!
 #         elif part.type & parted.PARTITION_FREESPACE:

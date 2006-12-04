@@ -208,7 +208,7 @@ class PartList(PartListWidget):
             fs = filesystem.get_filesystem(d.getFSName())            
             resizeable = False
             if fs:
-                if fs.isResizeable():
+                if fs.isResizeable() and d.isFileSystemReady():
                     resizeable = True
             self.resizeButton.setEnabled(resizeable)
 
