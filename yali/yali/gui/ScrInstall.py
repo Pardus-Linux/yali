@@ -200,6 +200,17 @@ Have fun!
         self.progress.setTotalSteps(self.total)
         # run all pending...
         yali.pisiiface.configure_pending()
+
+
+        # Remove cd repository and install add real
+        cd_repo_name = ctx.consts.cd_repo_name # install repo on CD
+        pardus_repo_name = ctx.consts.pardus_repo_name
+        pardus_repo_uri = ctx.consts.pardus_repo_uri
+
+        yali.pisiiface.remove_repo(cd_repo_name)
+        yali.pisiiface.add_repo(pardus_repo_name, pardus_repo_uri)
+
+
         yali.pisiiface.finalize()
 
         # stop slide show
@@ -216,17 +227,9 @@ Have fun!
         if self.hasErrors:
             return
 
-        # Remove cd repository and install add real
-        cd_repo_name = ctx.consts.cd_repo_name # install repo on CD
-        pardus_repo_name = ctx.consts.pardus_repo_name
-        pardus_repo_uri = ctx.consts.pardus_repo_uri
-
-        yali.pisiiface.remove_repo(cd_repo_name)
-        yali.pisiiface.add_repo(pardus_repo_name, pardus_repo_uri)
-
         yali.pisiiface.finalize()
 
-        # trigger next screen
+        # trigger next screen. will activate execute()
         ctx.screens.next()
 
 
