@@ -20,6 +20,7 @@ _ = __trans.ugettext
 
 from yali.exception import *
 from yali.constants import consts
+import yali.sysutils
 import yali.partitiontype as parttype
 import yali.partitionrequest as request
 from yali.partitionrequest import partrequests
@@ -74,8 +75,9 @@ class BootLoader:
         self.win_fs = ""
 
     def _find_grub_dev(self, dev):
+        dev_name = str(filter(lambda u: u.isalpha(), dev))
         for l in open(self.device_map).readlines():
-            if l.find(dev) >= 0:
+            if l.find(dev_name) >= 0:
                 l = l.split()
                 d = l[0]
                 # remove paranthesis
@@ -170,18 +172,9 @@ class BootLoader:
     
     
     def install_grub(self):
-        grub_dev = self._find_grub_dev(self.install_dev)
-        minor = str(int(filter(lambda u: u.isdigit(), self.install_root)) -1)
-        grub_root = ",".join([grub_dev, minor])
-    
-        grub_shell = grub_shell_tmp % {"grubs_disk": "/dev/" + self.install_dev,
-                                       "grub_root": grub_root,
-                                       "grub_dev": grub_dev}
-    
-        open("/tmp/grub-shell", "w").write(grub_shell)
-    
-        # FIXME: check command...
-        cmd = "/sbin/grub --batch < /tmp/grub-shell"
+        cmd = "%s --root-directory=%s %s" % (yali.sysutils.find_executable("grub-install"),
+                                             consts.target_dir,
+                                             os.path.join("/dev", self.install_dev))
         if os.system(cmd) != 0:
             raise YaliException, "Command failed: %s" % cmd
 
