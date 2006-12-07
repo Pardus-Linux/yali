@@ -163,6 +163,9 @@
                             <bold>1</bold>
                         </font>
                     </property>
+                    <property name="frameShadow">
+                        <enum>Plain</enum>
+                    </property>
                     <property name="resizeMode">
                         <enum>AllColumns</enum>
                     </property>
