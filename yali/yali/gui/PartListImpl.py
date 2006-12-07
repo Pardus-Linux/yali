@@ -157,10 +157,9 @@ class PartList(PartListWidget):
                 #name = _("Free")
                 continue
 
-            else:
-                name = _("Partition %d") % part.getMinor()
-                if part.isLogical():
-                    parent_item = e
+            name = _("Partition %d") % part.getMinor()
+            if part.isLogical():
+                parent_item = e
 
             p = PartListItem(parent_item,
                              name,
