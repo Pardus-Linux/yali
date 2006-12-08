@@ -117,8 +117,6 @@ def configure_pending():
     os.unlink(consts.target_dir + consts.target_dir)
 
 
-# check hash generator
-
 def check_package_hash(pkg_name):
     repo_path = os.path.dirname(consts.cd_repo_uri)
 
