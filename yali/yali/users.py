@@ -17,7 +17,7 @@ import glob
 import md5
 import os
 
-from string import ascii_letters
+from string import ascii_letters, digits
 from yali.constants import consts
 
 
@@ -123,8 +123,11 @@ class User:
         return False
 
     def usernameIsValid(self):
-        allowed_chars = ascii_letters + '_'
-        return len(self.username) == len(filter(lambda u: [x for x in allowed_chars if x == u], self.username))
+        valid = ascii_letters + '_' + digits
+        name = self.username
+        if len(name) == 0 or filter(lambda x: not x in valid, name) or not name[0] in ascii_letters:
+            return False
+        return True
 
     def realnameIsValid(self):
         not_allowed_chars = '\n' + ':'
