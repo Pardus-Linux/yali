@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-08 23:11+0200\n"
+"POT-Creation-Date: 2006-12-08 23:30+0200\n"
 "PO-Revision-Date: 2006-12-03 16:25+0200\n"
 "Last-Translator: Willem Gielen <w.gielen@gmail.com>\n"
 "Language-Team: Nederlands <Pardus-translation-nl@pardus.org.tr>\n"
@@ -21,10 +21,10 @@ msgstr ""
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #: yali/gui/Ui/autopartwidget.py:83 yali/gui/Ui/bootloaderwidget.py:78
-#: yali/gui/Ui/keyboardwidget.py:66 yali/gui/Ui/parteditbuttons.py:46
-#: yali/gui/Ui/parteditwidget.py:81 yali/gui/Ui/partlistwidget.py:86
-#: yali/gui/Ui/rootpasswidget.py:127 yali/gui/Ui/setupuserswidget.py:134
-#: yali/gui/Ui/welcomewidget.py:91
+#: yali/gui/Ui/checkcdwidget.py:74 yali/gui/Ui/keyboardwidget.py:66
+#: yali/gui/Ui/parteditbuttons.py:46 yali/gui/Ui/parteditwidget.py:81
+#: yali/gui/Ui/partlistwidget.py:86 yali/gui/Ui/rootpasswidget.py:127
+#: yali/gui/Ui/setupuserswidget.py:134 yali/gui/Ui/welcomewidget.py:91
 msgid "Form1"
 msgstr "Form1"
 
@@ -110,6 +110,22 @@ msgstr "Formateer deze partitie"
 msgid "Don't install bootloader"
 msgstr "Ja, installeer de bootloader"
 
+#: yali/gui/Ui/checkcdwidget.py:75 yali/gui/Ui/installwidget.py:54
+#: yali/gui/Ui/keyboardwidget.py:67 yali/gui/Ui/welcomewidget.py:92
+msgid "pix"
+msgstr "pix"
+
+#: yali/gui/Ui/checkcdwidget.py:76
+msgid ""
+"You can check the integrity of the packages in installation CD. Although "
+"this is an optional step, we encourage you to do it to avoid any errors in "
+"installation."
+msgstr ""
+
+#: yali/gui/Ui/checkcdwidget.py:77
+msgid "Check CD Integrity"
+msgstr ""
+
 #: yali/gui/Ui/installwidget.py:52
 msgid "Form3"
 msgstr "Form3"
@@ -117,11 +133,6 @@ msgstr "Form3"
 #: yali/gui/Ui/installwidget.py:53
 msgid "Installing Package: "
 msgstr "Installeren pakket: "
-
-#: yali/gui/Ui/installwidget.py:54 yali/gui/Ui/keyboardwidget.py:67
-#: yali/gui/Ui/welcomewidget.py:92
-msgid "pix"
-msgstr "pix"
 
 #: yali/gui/Ui/keyboardwidget.py:68
 msgid "Select the keyboard layout of your choice."
