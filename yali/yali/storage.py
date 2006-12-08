@@ -120,12 +120,12 @@ class Device:
 
         part = self._disk.next_partition()
         while part:
-#            print self.getModel(), part.num, part.geom.length
             self.__addToPartitionsDict(part)
             part = self._disk.next_partition(part)
 
     ##
     # do we have room for another primary partition?
+    # @returns: boolean
     def primaryAvailable(self):
         primary = len(self.getPrimaryPartitions())
         if self.hasExtendedPartition(): primary += 1
@@ -139,13 +139,13 @@ class Device:
 
     ##
     # get device capacity in bytes
-    # returns: long
+    # @returns: long
     def getTotalBytes(self):
         return long(self._length * self._sector_size)
 
     ##
     # get device capacity in MBs
-    # returns: long
+    # @returns: long
     def getTotalMB(self):
         return long(self.getTotalBytes() / MEGABYTE)
 
@@ -154,7 +154,7 @@ class Device:
 
     ##
     # get device capacity string
-    # returns: string
+    # @returns: string
     def getSizeStr(self):
         bytes = self.getTotalBytes()
         if bytes > GIGABYTE:
@@ -164,25 +164,25 @@ class Device:
 
     ##
     # get device path (eg. /dev/hda)
-    # returns: string
+    # @returns: string
     def getPath(self):
         return self._path
 
     ##
     # get device name (eg. hda)
-    # returns: string
+    # @returns: string
     def getName(self):
         return os.path.basename(self.getPath())
 
     ##
     # get device model
-    # returns: string
+    # @returns: string
     def getModel(self):
         return self._model
 
     ##
     # get partitions from disk
-    # returns: [Partition]
+    # @returns: [Partition]
     def getPartitions(self):
         return self._partitions.values()
 
@@ -190,14 +190,14 @@ class Device:
     # get a partition by number
     # @param num: partition number
     #
-    # returns: Partition
+    # @returns: Partition
     def getPartition(self, num):
         return self._partitions[num]
 
 
     ##
     # check if the device has an extended partition
-    # returns: True/False
+    # @returns: True/False
     def hasExtendedPartition(self):
         if self.getExtendedPartition():
             return True
@@ -234,7 +234,7 @@ class Device:
 
     ##
     # get the partition list in an order
-    # returns: [Partition]
+    # @returns: [Partition]
     def getOrderedPartitionList(self):
 
         def comp(x, y):
@@ -250,19 +250,16 @@ class Device:
         l.sort(comp)
         return l
 
+    ##
+    # get the total free space (in MB)
+    # @returns: int
     def getFreeMB(self):
-        parts = self.getPartitions()
-        
         size_total = self.getTotalMB()
 
         # 8: magic number that all, even windows, use.
         # (OK not really ;)
         size_parts = 8
-#         size = 0
-#         for p in parts:
-#             if isinstance(p, FreeSpace):
-#                 size += p.getMB()
-        for p in parts:
+        for p in self.getPartitions():
             # don't count logical parts
             if not p.isLogical():
                 size_parts += p.getMB()
@@ -272,7 +269,33 @@ class Device:
             return size
         else:
             return 0
-        
+    
+
+    def getLargestContinuousFreeMB(self):
+        bytes = self.__pedPartitionBytes(self.__getLargestFreePedPartition())
+        return long(bytes / MEGABYTE)
+
+    ##
+    # internal
+    # get the largest, continuous free space (in MB)
+    # @returns: parted.PedPartition
+    def __getLargestFreePedPartition(self):
+        size = 0
+        largest = None
+        pedPart = self._disk.next_partition()
+        while pedPart:
+            if parted.PARTITION_FREESPACE == pedPart.type:
+                p_size = self.__pedPartitionBytes(pedPart)
+                if p_size > size:
+                    size = p_size
+                    largest = pedPart
+            pedPart = self._disk.next_partition(pedPart)
+        return largest
+
+
+    def __pedPartitionBytes(self, ped_part):
+        return long(ped_part.geom.length *
+                    self._sector_size)
 
 
     ###############################
@@ -356,7 +379,7 @@ class Device:
     # add partition to the partitions dictionary
     # @param part: pyparted partition type
     #
-    # returns: Partition
+    # @returns: Partition
     def __addToPartitionsDict(self, part, fs_ready=True):
 
         geom = part.geom
