@@ -9,18 +9,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-11-24 14:19+0200\n"
-"PO-Revision-Date: 2006-11-24 15:17+0200\n"
-"Last-Translator: Ali Işıngör <ali@artistanbulpr.com>\n"
+"POT-Creation-Date: 2006-12-08 23:11+0200\n"
+"PO-Revision-Date: 2006-12-08 23:17+0200\n"
+"Last-Translator: Barış Metin <baris@pardus.org.tr>\n"
 "Language-Team:  <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 
-#: yali/gui/Ui/autopartwidget.py:83 yali/gui/Ui/bootloaderwidget.py:71
+#: yali/gui/Ui/autopartwidget.py:83 yali/gui/Ui/bootloaderwidget.py:78
 #: yali/gui/Ui/keyboardwidget.py:66 yali/gui/Ui/parteditbuttons.py:46
-#: yali/gui/Ui/parteditwidget.py:81 yali/gui/Ui/partlistwidget.py:85
+#: yali/gui/Ui/parteditwidget.py:81 yali/gui/Ui/partlistwidget.py:86
 #: yali/gui/Ui/rootpasswidget.py:127 yali/gui/Ui/setupuserswidget.py:134
 #: yali/gui/Ui/welcomewidget.py:91
 msgid "Form1"
@@ -59,30 +59,43 @@ msgstr "Hayır, diskimi kendim bölümlendireceğim."
 msgid "Yes, automatically partition and format selected disk!"
 msgstr "Evet, seçili diski otomatik olarak bölümlendir ve biçimlendir!"
 
-#: yali/gui/Ui/bootloaderwidget.py:72
+#: yali/gui/Ui/bootloaderwidget.py:79
 msgid ""
 "<b>Do you want to write boot loader (GRUB) to your hard disk's master boot "
 "record?</b>\n"
 "\n"
 "<p>You need a boot loader to boot your Pardus system.</p>\n"
 "\n"
-"<p>If you don't install a boot loader, you will have to configure your \n"
-"other operating system's loader  (if you have one installed) to start \n"
+"<p>If you don't install a boot loader or choose to install to root "
+"partition, you will have to configure your other operating system's loader  "
+"(if you have one installed) to start \n"
 "your newly installed Pardus.</p>"
 msgstr ""
 "<b>Sistem yükleyicisini (GRUB) sabit diskinize kurmak ister misiniz?</b>\n"
 "\n"
-"<p>Eğer bir sistem yükleyicisi kurmazsanız, (eğer kurulu bir tane varsa) \n"
+"<p>Eğer bir sistem yükleyicisi açılış diskinin başına kurmazsanız, (eğer kurulu bir tane varsa) \n"
 "diğer işletim sisteminizin yükleyicisini, kurulmuş olan Pardus'u başlatmak \n"
 "için yapılandırmanız gerekir</p>"
 
-#: yali/gui/Ui/bootloaderwidget.py:79
-msgid "Yes, Install Boot Loader"
-msgstr "Evet, Sistem Yükleyicisini Kur"
+#: yali/gui/Ui/bootloaderwidget.py:85
+msgid "Where do you want to install the bootloader?"
+msgstr "Sistem yükleyicisini nereye kurmak istiyorsunuz?"
 
-#: yali/gui/Ui/bootloaderwidget.py:80
+#: yali/gui/Ui/bootloaderwidget.py:86
 msgid "Select the disk you to install bootloader:"
 msgstr "Sistem yükleyicisinin kurulacağı diski seçin:"
+
+#: yali/gui/Ui/bootloaderwidget.py:87
+msgid "Install to MBR"
+msgstr "Disk'in başına (MBR)"
+
+#: yali/gui/Ui/bootloaderwidget.py:88
+msgid "Install to root partition"
+msgstr "Pardus disk bölümünün başına"
+
+#: yali/gui/Ui/bootloaderwidget.py:89
+msgid "Don't install bootloader"
+msgstr "Sistem yükleyicisini kurma"
 
 #: yali/gui/Ui/installwidget.py:52
 msgid "Form3"
@@ -142,47 +155,47 @@ msgstr "Kullanıcı dosyaları (isteğe bağlı)"
 msgid "Swap space (optional)"
 msgstr "Takas alanı bölümü (isteğe bağlı)"
 
-#: yali/gui/Ui/partlistwidget.py:47 yali/gui/Ui/partlistwidget.py:89
+#: yali/gui/Ui/partlistwidget.py:47 yali/gui/Ui/partlistwidget.py:90
 msgid "Device"
 msgstr "Aygıt"
 
-#: yali/gui/Ui/partlistwidget.py:48 yali/gui/Ui/partlistwidget.py:90
+#: yali/gui/Ui/partlistwidget.py:48 yali/gui/Ui/partlistwidget.py:91
 msgid "Size"
 msgstr "Boyut"
 
-#: yali/gui/Ui/partlistwidget.py:49 yali/gui/Ui/partlistwidget.py:91
+#: yali/gui/Ui/partlistwidget.py:49 yali/gui/Ui/partlistwidget.py:92
 msgid "Partition Type"
 msgstr "Disk Bölümü Tipi"
 
-#: yali/gui/Ui/partlistwidget.py:50 yali/gui/Ui/partlistwidget.py:92
+#: yali/gui/Ui/partlistwidget.py:50 yali/gui/Ui/partlistwidget.py:93
 msgid "Filesystem"
 msgstr "Dosya Sistemi"
 
-#: yali/gui/Ui/partlistwidget.py:51 yali/gui/Ui/partlistwidget.py:93
+#: yali/gui/Ui/partlistwidget.py:51 yali/gui/Ui/partlistwidget.py:94
 msgid "Format?"
 msgstr "Biçimlendir?"
 
-#: yali/gui/Ui/partlistwidget.py:86
+#: yali/gui/Ui/partlistwidget.py:87
 msgid "Create New Partition"
 msgstr "Disk Bölümü Oluştur"
 
-#: yali/gui/Ui/partlistwidget.py:87 yali/gui/PartListImpl.py:229
+#: yali/gui/Ui/partlistwidget.py:88 yali/gui/PartListImpl.py:228
 msgid "Delete Selected Partition"
 msgstr "Seçili Disk Bölümünü Sil"
 
-#: yali/gui/Ui/partlistwidget.py:88
+#: yali/gui/Ui/partlistwidget.py:89
 msgid "Partitions:"
 msgstr "Disk Bölümleri:"
 
-#: yali/gui/Ui/partlistwidget.py:94
+#: yali/gui/Ui/partlistwidget.py:95
 msgid "Reset All Changes"
 msgstr "Tüm Değişiklikleri Geri Al"
 
-#: yali/gui/Ui/partlistwidget.py:95
+#: yali/gui/Ui/partlistwidget.py:96
 msgid "Resize"
 msgstr "Yeniden Boyutlandır"
 
-#: yali/gui/Ui/partlistwidget.py:96
+#: yali/gui/Ui/partlistwidget.py:97
 msgid "Edit"
 msgstr "Düzenle"
 
@@ -261,7 +274,7 @@ msgstr ""
 msgid "Read GPL"
 msgstr "GPL Metnini Oku"
 
-#: yali/gui/Ui/welcomewidget.py:95 yali/gui/runner.py:175
+#: yali/gui/Ui/welcomewidget.py:95 yali/gui/runner.py:176
 msgid "Reboot System!"
 msgstr "Sistemi Yeniden Başlat!"
 
@@ -308,7 +321,7 @@ msgstr "'Sistem Dosyaları' bölümü en az %s MB olmalı."
 msgid "ntfsresize check failed! Won't proceed action!"
 msgstr "NTFS yeniden boyutlandırma kontrolü başarısız! İşlem gerçekleştirilmeyecek!"
 
-#: yali/gui/PartListImpl.py:87 yali/gui/ScrBootloader.py:72
+#: yali/gui/PartListImpl.py:87 yali/gui/ScrBootloader.py:74
 #: yali/gui/ScrPartitionAuto.py:69 yali/gui/ScrPartitionManual.py:82
 msgid "Can't find a storage device!"
 msgstr "Kurulum için disk bulunamadı!"
@@ -327,28 +340,28 @@ msgstr "%d MB boş"
 msgid "Extended"
 msgstr "Uzatılmış"
 
-#: yali/gui/PartListImpl.py:161
+#: yali/gui/PartListImpl.py:160
 #, python-format
 msgid "Partition %d"
 msgstr "Disk bölümü %d"
 
-#: yali/gui/PartListImpl.py:203
+#: yali/gui/PartListImpl.py:202
 msgid "Delete All Partitions"
 msgstr "Tüm Disk Bölümlerini Sil"
 
-#: yali/gui/PartListImpl.py:301
+#: yali/gui/PartListImpl.py:300
 msgid "Can't get partition info from partition request!"
 msgstr "Disk bölümü isteğinden bölüm bilgisi alınamıyor!"
 
-#: yali/gui/PartListImpl.py:303
+#: yali/gui/PartListImpl.py:302
 msgid " req.partition() is None. May be a zombie request!"
 msgstr " req.partition() boş. Zaten öldürülmüş bir istek olabilir!"
 
-#: yali/gui/PartListImpl.py:311
+#: yali/gui/PartListImpl.py:310
 msgid "Formatting!"
 msgstr "Biçimlendiriliyor!"
 
-#: yali/gui/PartListImpl.py:313
+#: yali/gui/PartListImpl.py:312
 msgid "YES"
 msgstr "EVET"
 
@@ -364,7 +377,7 @@ msgstr "Sistem kurulumu"
 msgid "Basic setup"
 msgstr "Temel yapılandırma"
 
-#: yali/gui/runner.py:170
+#: yali/gui/runner.py:171
 msgid "An error occured!"
 msgstr "Bir hata oluştu!"
 
@@ -483,11 +496,58 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/ScrBootloader.py:108
+#: yali/gui/ScrBootloader.py:114
 msgid "Please wait while installing bootloader!"
 msgstr "Lütfen sistem yükleyicisi kurulurken bekleyin."
 
-#: yali/gui/ScrGoodbye.py:36
+#: yali/gui/ScrCheckCD.py:30
+msgid ""
+"\n"
+"<font size=\"+2\">Check CD Integrity!</font>\n"
+"\n"
+"<font size=\"+1\">\n"
+"<p>In this screen, you can check the integrity of the packages in "
+"installation CD.\n"
+"</p>\n"
+"\n"
+msgstr ""
+"\n"
+"<font size=\"+2\">CD Kontrolü!</font>\n"
+"\n"
+"<font size=\"+1\">\n"
+"<p>Bu ekranda, kurulum CD'sindeki paketlerin doğruluğunu kontol "
+"edebilirsiniz.</p>\n"
+"\n"
+
+#: yali/gui/ScrCheckCD.py:50
+msgid "Check Failed"
+msgstr "Kontrol Başarısız"
+
+#: yali/gui/ScrCheckCD.py:77
+msgid ""
+"<font color=\"#257216\">Check succeeded. You can proceed to the next screen."
+"</font>"
+msgstr ""
+"<font color=\"#257216\">Kontrol başarılı. Bir sonraki ekrana geçebilirsiniz."
+"</font>"
+
+#: yali/gui/ScrCheckCD.py:99
+msgid ""
+"<b>\n"
+"<p>Integrity check for packages failed. It seems that installation CD is "
+"broken.</p>\n"
+"</b>\n"
+msgstr ""
+"<b>\n"
+"<p>CD kontrolü başarısız oldu. Bozuk bir kurulum CD'si olabilir. Lütfen yeni "
+"bir kurulum CD'si ile tekrar deneyiniz.</p>\n"
+"</b>\n"
+
+#: yali/gui/ScrCheckCD.py:105 yali/gui/ScrGoodbye.py:140
+msgid "Reboot"
+msgstr "Sistemi Yeniden Başlat!"
+
+#: yali/gui/ScrGoodbye.py:35
 msgid ""
 "\n"
 "<font size=\"+2\">Congratulations</font>\n"
@@ -524,7 +584,7 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/ScrGoodbye.py:61
+#: yali/gui/ScrGoodbye.py:60
 msgid ""
 "<b><font size=\"+2\" color=\"#FF6D19\">Rebooting system. Please wait!</"
 "font></b>"
@@ -532,7 +592,7 @@ msgstr ""
 "<b><font size=\"+2\" color=\"#FF6D19\">Sistem yeniden başlatılıyor. Lütfen "
 "bekleyin!</font></b>"
 
-#: yali/gui/ScrGoodbye.py:135
+#: yali/gui/ScrGoodbye.py:134
 msgid ""
 "<b>\n"
 "<p>Please remove Pardus CD from your drive and pres Reboot button.</p>\n"
@@ -542,10 +602,6 @@ msgstr ""
 "<p>Lütfen Pardus CD'sini çıkartın ve 'Sistemi Yeniden Başlat' düğmesine "
 "basın.</p>\n"
 "</b>\n"
-
-#: yali/gui/ScrGoodbye.py:141
-msgid "Reboot"
-msgstr "Sistemi Yeniden Başlat!"
 
 #: yali/gui/ScrInstall.py:54
 msgid ""
@@ -603,7 +659,7 @@ msgstr ""
 "Kurulan paketler sisteminiz için yapılandırılıyor!\n"
 "Bu işlemin tamamlanması için lütfen bekleyiniz."
 
-#: yali/gui/ScrInstall.py:239
+#: yali/gui/ScrInstall.py:235
 #, python-format
 msgid ""
 "An error during the installation of packages occured.\n"
@@ -949,7 +1005,7 @@ msgstr ""
 msgid "Warning"
 msgstr "Uyarı"
 
-#: yali/bootloader.py:158 yali/bootloader.py:163
+#: yali/bootloader.py:161 yali/bootloader.py:166
 msgid "Windows"
 msgstr "Windows"
 
@@ -966,138 +1022,142 @@ msgid "Arabic"
 msgstr "Arapça"
 
 #: yali/localedata.py:103 yali/localedata.py:104
+msgid "Belgium"
+msgstr "Belçika"
+
+#: yali/localedata.py:112 yali/localedata.py:113
 msgid "Bulgarian"
 msgstr "Bulgarca"
 
-#: yali/localedata.py:112 yali/localedata.py:113
+#: yali/localedata.py:121 yali/localedata.py:122
 msgid "Catalan"
 msgstr "Katalanca"
 
-#: yali/localedata.py:121 yali/localedata.py:122
+#: yali/localedata.py:130 yali/localedata.py:131
 msgid "Croatian"
 msgstr "Hırvatça"
 
-#: yali/localedata.py:130 yali/localedata.py:131
+#: yali/localedata.py:139 yali/localedata.py:140
 msgid "Czech"
 msgstr "Çekce"
 
-#: yali/localedata.py:139 yali/localedata.py:140
+#: yali/localedata.py:148 yali/localedata.py:149
 msgid "Danish"
 msgstr "Danca"
 
-#: yali/localedata.py:148 yali/localedata.py:149
+#: yali/localedata.py:157 yali/localedata.py:158
 msgid "Dutch"
 msgstr "Hollandaca"
 
-#: yali/localedata.py:157 yali/localedata.py:158
+#: yali/localedata.py:166 yali/localedata.py:167
 msgid "English"
 msgstr "İngilizce (US)"
 
-#: yali/localedata.py:166 yali/localedata.py:167
+#: yali/localedata.py:175 yali/localedata.py:176
 msgid "Estonian"
 msgstr "Estonca"
 
-#: yali/localedata.py:175 yali/localedata.py:176
+#: yali/localedata.py:184 yali/localedata.py:185
 msgid "Finnish"
 msgstr "Fince"
 
-#: yali/localedata.py:184 yali/localedata.py:185
+#: yali/localedata.py:193 yali/localedata.py:194
 msgid "French"
 msgstr "Fransızca"
 
-#: yali/localedata.py:193 yali/localedata.py:194
+#: yali/localedata.py:202 yali/localedata.py:203
 msgid "German"
 msgstr "Almanca"
 
-#: yali/localedata.py:202 yali/localedata.py:203
+#: yali/localedata.py:211 yali/localedata.py:212
 msgid "Greek"
 msgstr "Yunanca"
 
-#: yali/localedata.py:211 yali/localedata.py:212
+#: yali/localedata.py:220 yali/localedata.py:221
 msgid "Hungarian"
 msgstr "Macarca"
 
-#: yali/localedata.py:220 yali/localedata.py:221
+#: yali/localedata.py:229 yali/localedata.py:230
 msgid "Icelandic"
 msgstr "İzlandaca"
 
-#: yali/localedata.py:229 yali/localedata.py:230
+#: yali/localedata.py:238 yali/localedata.py:239
 msgid "Italian"
 msgstr "İtalyanca"
 
-#: yali/localedata.py:238 yali/localedata.py:239
+#: yali/localedata.py:247 yali/localedata.py:248
 msgid "Japanese"
 msgstr "Japonca"
 
-#: yali/localedata.py:247 yali/localedata.py:248
+#: yali/localedata.py:256 yali/localedata.py:257
 msgid "Macedonian"
 msgstr "Makedonca"
 
-#: yali/localedata.py:256 yali/localedata.py:257
+#: yali/localedata.py:265 yali/localedata.py:266
 msgid "Malayalam"
 msgstr "Malayalamca"
 
-#: yali/localedata.py:265 yali/localedata.py:266
+#: yali/localedata.py:274 yali/localedata.py:275
 msgid "Norwegian"
 msgstr "Norveççe"
 
-#: yali/localedata.py:274 yali/localedata.py:275
+#: yali/localedata.py:283 yali/localedata.py:284
 msgid "Polish"
 msgstr "Lehce"
 
-#: yali/localedata.py:283 yali/localedata.py:284
+#: yali/localedata.py:292 yali/localedata.py:293
 msgid "Portuguese"
 msgstr "Portekizce"
 
-#: yali/localedata.py:292 yali/localedata.py:293
+#: yali/localedata.py:301 yali/localedata.py:302
 msgid "Brazilian"
 msgstr "Brezilya Portekizcesi"
 
-#: yali/localedata.py:301 yali/localedata.py:302
+#: yali/localedata.py:310 yali/localedata.py:311
 msgid "Russian"
 msgstr "Rusça"
 
-#: yali/localedata.py:310 yali/localedata.py:311
+#: yali/localedata.py:319 yali/localedata.py:320
 msgid "Serbian"
 msgstr "Sırpça"
 
-#: yali/localedata.py:319 yali/localedata.py:320
+#: yali/localedata.py:328 yali/localedata.py:329
 msgid "Slovak"
 msgstr "Slovakça"
 
-#: yali/localedata.py:328 yali/localedata.py:329
+#: yali/localedata.py:337 yali/localedata.py:338
 msgid "Slovenian"
 msgstr "Slovence"
 
-#: yali/localedata.py:337 yali/localedata.py:338
+#: yali/localedata.py:346 yali/localedata.py:347
 msgid "Spanish"
 msgstr "İspanyolca"
 
-#: yali/localedata.py:346 yali/localedata.py:347
+#: yali/localedata.py:355 yali/localedata.py:356
 msgid "Swedish"
 msgstr "İsveççe"
 
-#: yali/localedata.py:355
+#: yali/localedata.py:364
 msgid "Turkish"
 msgstr "Türkçe"
 
-#: yali/localedata.py:356
+#: yali/localedata.py:365
 msgid "Turkish Q"
 msgstr "Türkçe Q"
 
-#: yali/localedata.py:357
+#: yali/localedata.py:366
 msgid "Turkish F"
 msgstr "Türkçe F"
 
-#: yali/localedata.py:365 yali/localedata.py:366
+#: yali/localedata.py:374 yali/localedata.py:375
 msgid "Ukrainian"
 msgstr "Ukraynaca"
 
-#: yali/localedata.py:374 yali/localedata.py:375
+#: yali/localedata.py:383 yali/localedata.py:384
 msgid "Vietnamese"
 msgstr "Vietnamca"
 
-#: yali/localedata.py:383 yali/localedata.py:384
+#: yali/localedata.py:392 yali/localedata.py:393
 msgid "Welsh"
 msgstr "Gallerce"
 
@@ -1105,7 +1165,7 @@ msgstr "Gallerce"
 msgid "unknown"
 msgstr "bilinmeyen"
 
-#: yali/partition.py:162
+#: yali/partition.py:169
 msgid "free space"
 msgstr "boş alan"
 
