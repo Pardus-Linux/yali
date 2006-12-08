@@ -30,6 +30,7 @@ from yali.gui.YaliDialog import Dialog
 import YaliWindow
 # screens
 import ScrWelcome
+import ScrCheckCD
 import ScrKeyboard
 import ScrPartitionAuto
 import ScrPartitionManual
@@ -57,6 +58,7 @@ class Runner:
 
         _all_screens = [
              {'stage': 1, 'module': ScrWelcome},
+             {'stage': 1, 'module': ScrCheckCD},
              {'stage': 1, 'module': ScrKeyboard},
              {'stage': 1, 'module': ScrPartitionAuto},
              {'stage': 1, 'module': ScrPartitionManual},

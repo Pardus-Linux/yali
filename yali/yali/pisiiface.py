@@ -20,6 +20,8 @@ import comar
 import pisi
 import pisi.api
 import pisi.config
+import pisi.util
+import pisi.context as ctx
 
 import yali.postinstall
 from yali.constants import consts
@@ -54,6 +56,20 @@ def add_repo(name, uri):
     print "add",name,uri
     pisi.api.add_repo(name, uri)
 
+def add_cd_repo():
+    cd_repo_name = consts.cd_repo_name
+    cd_repo_uri = consts.cd_repo_uri
+    add_repo(cd_repo_name, cd_repo_uri)
+    update_repo(cd_repo_name)
+
+def switch_to_pardus_repo():
+    cd_repo_name = consts.cd_repo_name 
+    pardus_repo_name = consts.pardus_repo_name
+    pardus_repo_uri = consts.pardus_repo_uri
+
+    yali.pisiiface.remove_repo(cd_repo_name)
+    yali.pisiiface.add_repo(pardus_repo_name, pardus_repo_uri)
+
 def update_repo(name):
     print "update repo", name
     pisi.api.update_repo(consts.cd_repo_name)
@@ -72,7 +88,6 @@ def install_all():
     install(get_available())
 
 def get_available():
-    import pisi.context as ctx
     l = ctx.packagedb.list_packages()
 
     return l
@@ -100,3 +115,22 @@ def configure_pending():
     pisi.api.configure_pending()
 
     os.unlink(consts.target_dir + consts.target_dir)
+
+
+# check hash generator
+
+def check_package_hash(pkg_name):
+    repo_path = os.path.dirname(consts.cd_repo_uri)
+
+    pkg = ctx.packagedb.get_package(pkg_name)
+    file_name = pisi.util.package_name(pkg.name,
+                                       pkg.version,
+                                       pkg.release,
+                                       pkg.build)
+    file_hash = pisi.util.sha1_file(
+        os.path.join(repo_path, file_name))
+
+    if pkg.packageHash == file_hash:
+        return True
+
+    return False

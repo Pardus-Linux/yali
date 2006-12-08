@@ -203,14 +203,7 @@ Have fun!
 
 
         # Remove cd repository and install add real
-        cd_repo_name = ctx.consts.cd_repo_name # install repo on CD
-        pardus_repo_name = ctx.consts.pardus_repo_name
-        pardus_repo_uri = ctx.consts.pardus_repo_uri
-
-        yali.pisiiface.remove_repo(cd_repo_name)
-        yali.pisiiface.add_repo(pardus_repo_name, pardus_repo_uri)
-
-
+        yali.pisiiface.switch_to_pardus_repo()
         yali.pisiiface.finalize()
 
         # stop slide show
@@ -262,11 +255,6 @@ class PkgInstaller(QThread):
         ui = PisiUI(self._widget)
 
         yali.pisiiface.initialize(ui)
-
-        cd_repo_name = ctx.consts.cd_repo_name
-        cd_repo_uri = ctx.consts.cd_repo_uri
-        yali.pisiiface.add_repo(cd_repo_name, cd_repo_uri)
-        yali.pisiiface.update_repo(cd_repo_name)
 
         # show progress
         total = yali.pisiiface.get_available_len()
