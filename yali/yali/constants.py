@@ -50,7 +50,7 @@ class Constants:
 
 consts = Constants()
 
-consts.pardus_version = "Pardus 2007 RC"
+consts.pardus_version = "Pardus 2007"
 
 consts.log_file = "/tmp/install.log"
 
@@ -80,8 +80,8 @@ consts.cd_repo_name = "pardus-cd"
 consts.cd_repo_uri = join(consts.source_dir, "repo/pisi-index.xml.bz2")
 
 # pardus repository
-consts.pardus_repo_name = "pardus-1.1"
-consts.pardus_repo_uri = "http://paketler.pardus.org.tr/pardus-1.1/pisi-index.xml.bz2"
+consts.pardus_repo_name = "pardus-2007"
+consts.pardus_repo_uri = "http://paketler.pardus.org.tr/pardus-2007/pisi-index.xml.bz2"
 
 # min root partition size
 consts.min_root_size = 3500

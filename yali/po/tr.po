@@ -120,7 +120,7 @@ msgstr "Boyut (MB):"
 
 #: yali/gui/Ui/parteditwidget.py:83
 msgid "Use available free space"
-msgstr "Boş alanın tümünü kullan"
+msgstr "Uygun olan tüm boş alanı kullan"
 
 #: yali/gui/Ui/parteditwidget.py:85
 msgid "Format this partition"
