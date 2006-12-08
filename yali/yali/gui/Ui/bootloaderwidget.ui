@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>527</width>
-            <height>367</height>
+            <width>585</width>
+            <height>475</height>
         </rect>
     </property>
     <property name="caption">
@@ -19,102 +19,7 @@
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
-        <spacer row="0" column="1">
-            <property name="name">
-                <cstring>spacer4</cstring>
-            </property>
-            <property name="orientation">
-                <enum>Vertical</enum>
-            </property>
-            <property name="sizeType">
-                <enum>Expanding</enum>
-            </property>
-            <property name="sizeHint">
-                <size>
-                    <width>20</width>
-                    <height>16</height>
-                </size>
-            </property>
-        </spacer>
-        <widget class="QLabel" row="1" column="0" rowspan="1" colspan="3">
-            <property name="name">
-                <cstring>textLabel1</cstring>
-            </property>
-            <property name="lineWidth">
-                <number>1</number>
-            </property>
-            <property name="margin">
-                <number>50</number>
-            </property>
-            <property name="text">
-                <string>&lt;b&gt;Do you want to write boot loader (GRUB) to your hard disk's master boot record?&lt;/b&gt;
-
-&lt;p&gt;You need a boot loader to boot your Pardus system.&lt;/p&gt;
-
-&lt;p&gt;If you don't install a boot loader, you will have to configure your 
-other operating system's loader  (if you have one installed) to start 
-your newly installed Pardus.&lt;/p&gt;</string>
-            </property>
-            <property name="alignment">
-                <set>WordBreak|AlignVCenter</set>
-            </property>
-        </widget>
-        <widget class="QLayoutWidget" row="2" column="0" rowspan="1" colspan="3">
-            <property name="name">
-                <cstring>layout1</cstring>
-            </property>
-            <hbox>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <spacer>
-                    <property name="name">
-                        <cstring>spacer2</cstring>
-                    </property>
-                    <property name="orientation">
-                        <enum>Horizontal</enum>
-                    </property>
-                    <property name="sizeType">
-                        <enum>Expanding</enum>
-                    </property>
-                    <property name="sizeHint">
-                        <size>
-                            <width>31</width>
-                            <height>20</height>
-                        </size>
-                    </property>
-                </spacer>
-                <widget class="QCheckBox">
-                    <property name="name">
-                        <cstring>install_bootloader</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Yes, Install Boot Loader</string>
-                    </property>
-                    <property name="checked">
-                        <bool>true</bool>
-                    </property>
-                </widget>
-                <spacer>
-                    <property name="name">
-                        <cstring>spacer1</cstring>
-                    </property>
-                    <property name="orientation">
-                        <enum>Horizontal</enum>
-                    </property>
-                    <property name="sizeType">
-                        <enum>Expanding</enum>
-                    </property>
-                    <property name="sizeHint">
-                        <size>
-                            <width>21</width>
-                            <height>20</height>
-                        </size>
-                    </property>
-                </spacer>
-            </hbox>
-        </widget>
-        <spacer row="4" column="1">
+        <spacer row="2" column="1">
             <property name="name">
                 <cstring>spacer3</cstring>
             </property>
@@ -131,33 +36,7 @@ your newly installed Pardus.&lt;/p&gt;</string>
                 </size>
             </property>
         </spacer>
-        <widget class="QLayoutWidget" row="3" column="1">
-            <property name="name">
-                <cstring>layout2</cstring>
-            </property>
-            <vbox>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QLabel">
-                    <property name="name">
-                        <cstring>select_disk_label</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Select the disk you to install bootloader:</string>
-                    </property>
-                </widget>
-                <widget class="QListBox">
-                    <property name="name">
-                        <cstring>device_list</cstring>
-                    </property>
-                    <property name="frameShadow">
-                        <enum>Plain</enum>
-                    </property>
-                </widget>
-            </vbox>
-        </widget>
-        <spacer row="3" column="0">
+        <spacer row="1" column="0">
             <property name="name">
                 <cstring>spacer5</cstring>
             </property>
@@ -169,12 +48,12 @@ your newly installed Pardus.&lt;/p&gt;</string>
             </property>
             <property name="sizeHint">
                 <size>
-                    <width>21</width>
+                    <width>40</width>
                     <height>20</height>
                 </size>
             </property>
         </spacer>
-        <spacer row="3" column="2">
+        <spacer row="1" column="2">
             <property name="name">
                 <cstring>spacer5_2</cstring>
             </property>
@@ -186,11 +65,96 @@ your newly installed Pardus.&lt;/p&gt;</string>
             </property>
             <property name="sizeHint">
                 <size>
-                    <width>21</width>
+                    <width>40</width>
                     <height>20</height>
                 </size>
             </property>
         </spacer>
+        <widget class="QLabel" row="0" column="0" rowspan="1" colspan="3">
+            <property name="name">
+                <cstring>textLabel1</cstring>
+            </property>
+            <property name="lineWidth">
+                <number>1</number>
+            </property>
+            <property name="margin">
+                <number>40</number>
+            </property>
+            <property name="text">
+                <string>&lt;b&gt;Do you want to write boot loader (GRUB) to your hard disk's master boot record?&lt;/b&gt;
+
+&lt;p&gt;You need a boot loader to boot your Pardus system.&lt;/p&gt;
+
+&lt;p&gt;If you don't install a boot loader or choose to install to root partition, you will have to configure your other operating system's loader  (if you have one installed) to start 
+your newly installed Pardus.&lt;/p&gt;</string>
+            </property>
+            <property name="alignment">
+                <set>WordBreak|AlignVCenter</set>
+            </property>
+        </widget>
+        <widget class="QButtonGroup" row="1" column="1">
+            <property name="name">
+                <cstring>buttonGroup</cstring>
+            </property>
+            <property name="title">
+                <string>Where do you want to install the bootloader?</string>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLayoutWidget" row="1" column="0">
+                    <property name="name">
+                        <cstring>layout2</cstring>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>select_disk_label</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Select the disk you to install bootloader:</string>
+                            </property>
+                        </widget>
+                        <widget class="QListBox">
+                            <property name="name">
+                                <cstring>device_list</cstring>
+                            </property>
+                            <property name="frameShadow">
+                                <enum>Plain</enum>
+                            </property>
+                        </widget>
+                    </vbox>
+                </widget>
+                <widget class="QRadioButton" row="0" column="0">
+                    <property name="name">
+                        <cstring>installMBR</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Install to MBR</string>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="2" column="0">
+                    <property name="name">
+                        <cstring>installPart</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Install to root partition</string>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="3" column="0">
+                    <property name="name">
+                        <cstring>noInstall</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Don't install bootloader</string>
+                    </property>
+                </widget>
+            </grid>
+        </widget>
     </grid>
 </widget>
 <layoutdefaults spacing="6" margin="11"/>

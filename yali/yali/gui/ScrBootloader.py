@@ -66,6 +66,8 @@ loader.
         self.device_list.setPaletteBackgroundColor(ctx.consts.bg_color)
         self.device_list.setPaletteForegroundColor(ctx.consts.fg_color)
 
+        self.installMBR.setChecked(True)
+
 
         # initialize all storage devices
         if not yali.storage.init_devices():
@@ -87,17 +89,21 @@ loader.
             self.device = yali.storage.devices[0]
 
 
-        self.connect(self.install_bootloader, SIGNAL("toggled(bool)"),
+        self.connect(self.buttonGroup, SIGNAL("clicked(int)"),
                      self.slotInstallLoader)
         self.connect(self.device_list, SIGNAL("selectionChanged(QListBoxItem*)"),
                      self.slotDeviceChanged)
 
 
     def slotInstallLoader(self, b):
-        if b:
+        if self.installMBR.isChecked():
             self.device_list.setEnabled(True)
+            self.device_list.setSelected(0,
+                                         True)
         else:
             self.device_list.setEnabled(False)
+            self.device_list.setSelected(self.device_list.selectedItem(),
+                                         False)
 
     def slotDeviceChanged(self, i):
         self.device = i.getDevice()
@@ -112,7 +118,11 @@ loader.
         root_part_req = ctx.partrequests.searchPartTypeAndReqType(
 	    parttype.root, request.mountRequestType)
 
-        loader.install_dev = basename(self.device.getPath())
+        if self.installPart.isChecked():
+            loader.install_dev = basename(root_part_req.partition().getPath())
+        else:
+            # install to MBR of a device
+            loader.install_dev = basename(self.device.getPath())
         loader.install_root = basename(root_part_req.partition().getPath())
         
         # TODO: use logging!
@@ -131,7 +141,7 @@ loader.
                         continue
 
 
-        if self.install_bootloader.isChecked():
+        if not self.noInstall.isChecked():
             loader.install_grub()
 
         # close window

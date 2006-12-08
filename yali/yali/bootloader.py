@@ -156,7 +156,8 @@ class BootLoader:
         grub_root = ",".join([grub_dev, minor])
 
 
-        if self.win_dev == self.install_dev:
+        dev_str = str(filter(lambda u: u.isalpha(), self.install_dev))
+        if self.win_dev == dev_str:
             s = win_part_tmp % {"title": _("Windows"),
                                 "grub_root": grub_root,
                                 "root": self.win_root,
