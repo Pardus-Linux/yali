@@ -59,8 +59,10 @@ def add_repo(name, uri):
 def add_cd_repo():
     cd_repo_name = consts.cd_repo_name
     cd_repo_uri = consts.cd_repo_uri
-    add_repo(cd_repo_name, cd_repo_uri)
-    update_repo(cd_repo_name)
+
+    if not ctx.repodb.has_repo(cd_repo_name):
+        add_repo(cd_repo_name, cd_repo_uri)
+        update_repo(cd_repo_name)
 
 def switch_to_pardus_repo():
     cd_repo_name = consts.cd_repo_name 
