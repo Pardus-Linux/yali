@@ -204,6 +204,14 @@ class Device:
 
         return False
 
+    def hasBootablePartition(self):
+        flag = parted.PARTITION_BOOT
+        for p in self.getPartitions():
+            ped = p.getPartition()
+            if ped.is_flag_available(flag) and ped.get_flag(flag):
+                return True
+        return False
+
     ##
     # get the extended partition on device (if it has one)
     def getExtendedPartition(self):
@@ -277,8 +285,13 @@ class Device:
     # @param fs: filesystem.FileSystem or file system name (like "ext3")
     # @param size_mb: size of the partition in MBs.
     def addPartition(self, type, fs, size_mb, flags = []):
-
         size = int(size_mb * MEGABYTE / self._sector_size)
+
+        # Don't set bootable flag if there is already a bootable
+        # partition in this disk. See bug #2217
+        if parted.PARTITION_BOOT in flags:
+            if self.hasBootablePartition():
+                flags = list(set(flags) - set([parted.PARTITION_BOOT]))
 
         part = self._disk.next_partition()
         while part:
