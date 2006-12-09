@@ -155,7 +155,9 @@ locales = {
     "nl" : {
         "isSupported" : True,
         "name" : _("Dutch"),
-        "keymap" : Keymap("nl", "nl", _("Dutch")),
+#bug #4271
+#        "keymap" : Keymap("nl", "nl", _("Dutch")),
+        "keymap" : Keymap("us", "us", _("Dutch (US)")),
         "locale" : "nl_NL.UTF-8",
         "consolefont" : "iso01.16",
         "consoletranslation" : "8859-1"
