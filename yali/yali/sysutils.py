@@ -98,7 +98,8 @@ def mem_total():
 
 def eject_cdrom(mount_point=consts.source_dir):
     if not yalisys.eject(mount_point):
-        os.system("eject %s" % mount_point)
+        if os.system("eject -m %s" % mount_point):
+            os.system("eject %s" % mount_point)
 
 
 
