@@ -55,12 +55,12 @@ class Widget(CheckCDWidget, ScreenWidget):
     def slotCheckCD(self):
         ctx.screens.disableNext()
         ctx.screens.disablePrev()
+        self.checkButton.setEnabled(False)
+        self.checkLabel.setText(_('<font color="#FF6D19">Please wait while checking CD.</font>'))
+        ctx.screens.processEvents()
         
         yali.pisiiface.initialize(ui=PisiUI())
         yali.pisiiface.add_cd_repo()
-
-        self.checkButton.setEnabled(False)
-        ctx.screens.processEvents()
 
         pkg_names = yali.pisiiface.get_available()
         self.progressBar.setTotalSteps(len(pkg_names))
