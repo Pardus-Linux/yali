@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yali\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-08 23:30+0200\n"
+"POT-Creation-Date: 2006-12-11 14:34+0200\n"
 "PO-Revision-Date: 2006-12-01 02:29+0100\n"
 "Last-Translator: Mustafa Ölcerman <oelcerman@fussballkreis.org>\n"
 "Language-Team: german <de@li.org>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: yali/gui/Ui/autopartwidget.py:83 yali/gui/Ui/bootloaderwidget.py:78
+#: yali/gui/Ui/autopartwidget.py:83 yali/gui/Ui/bootloaderwidget.py:80
 #: yali/gui/Ui/checkcdwidget.py:74 yali/gui/Ui/keyboardwidget.py:66
 #: yali/gui/Ui/parteditbuttons.py:46 yali/gui/Ui/parteditwidget.py:81
 #: yali/gui/Ui/partlistwidget.py:86 yali/gui/Ui/rootpasswidget.py:127
@@ -59,7 +59,35 @@ msgstr "Nein, ich werde meine Festplatte selbst partitionieren."
 msgid "Yes, automatically partition and format selected disk!"
 msgstr "Ja, Festplatte automatisch partitionieren und formatieren."
 
-#: yali/gui/Ui/bootloaderwidget.py:79
+#: yali/gui/Ui/bootloaderwidget.py:81
+#, fuzzy
+msgid "Where do you want to install the bootloader?"
+msgstr ""
+"Wählen Sie die Festplatte aus, auf die der Boot-Loader installiert werden "
+"soll."
+
+#: yali/gui/Ui/bootloaderwidget.py:82
+msgid "Select the disk you to install bootloader:"
+msgstr ""
+"Wählen Sie die Festplatte aus, auf die der Boot-Loader installiert werden "
+"soll."
+
+#: yali/gui/Ui/bootloaderwidget.py:83
+#, fuzzy
+msgid "Install to MBR"
+msgstr "Root installieren"
+
+#: yali/gui/Ui/bootloaderwidget.py:84
+#, fuzzy
+msgid "Install to root partition"
+msgstr "Diese Partition formatieren"
+
+#: yali/gui/Ui/bootloaderwidget.py:85
+#, fuzzy
+msgid "Don't install bootloader"
+msgstr "Ja, Boot-Loader installieren"
+
+#: yali/gui/Ui/bootloaderwidget.py:86
 #, fuzzy
 msgid ""
 "<b>Do you want to write boot loader (GRUB) to your hard disk's master boot "
@@ -79,34 +107,6 @@ msgstr ""
 "<p>Wenn Sie keinen Boot-Loader installieren möchten, müssen \n"
 "Sie den Boot-Loader von Ihrem anderen Betriebssystem (falls vorhanden) \n"
 "konfigurieren, um Ihr neulich installiertes Pardus zu starten.</p>"
-
-#: yali/gui/Ui/bootloaderwidget.py:85
-#, fuzzy
-msgid "Where do you want to install the bootloader?"
-msgstr ""
-"Wählen Sie die Festplatte aus, auf die der Boot-Loader installiert werden "
-"soll."
-
-#: yali/gui/Ui/bootloaderwidget.py:86
-msgid "Select the disk you to install bootloader:"
-msgstr ""
-"Wählen Sie die Festplatte aus, auf die der Boot-Loader installiert werden "
-"soll."
-
-#: yali/gui/Ui/bootloaderwidget.py:87
-#, fuzzy
-msgid "Install to MBR"
-msgstr "Root installieren"
-
-#: yali/gui/Ui/bootloaderwidget.py:88
-#, fuzzy
-msgid "Install to root partition"
-msgstr "Diese Partition formatieren"
-
-#: yali/gui/Ui/bootloaderwidget.py:89
-#, fuzzy
-msgid "Don't install bootloader"
-msgstr "Ja, Boot-Loader installieren"
 
 #: yali/gui/Ui/checkcdwidget.py:75 yali/gui/Ui/installwidget.py:54
 #: yali/gui/Ui/keyboardwidget.py:67 yali/gui/Ui/welcomewidget.py:92
@@ -202,6 +202,7 @@ msgid "Create New Partition"
 msgstr "Neue Partition anlegen"
 
 #: yali/gui/Ui/partlistwidget.py:88 yali/gui/PartListImpl.py:228
+#: yali/gui/PartListViewAbstract.py:203
 msgid "Delete Selected Partition"
 msgstr "Gewählte Partitionen löschen"
 
@@ -351,42 +352,42 @@ msgstr ""
 msgid "Can't find a storage device!"
 msgstr "Es kann kein Speichergerät gefunden werden!"
 
-#: yali/gui/PartListImpl.py:105
+#: yali/gui/PartListImpl.py:105 yali/gui/PartListViewAbstract.py:41
 #, python-format
 msgid "%0.1f GB free"
 msgstr "%0.1f GB frei"
 
-#: yali/gui/PartListImpl.py:107
+#: yali/gui/PartListImpl.py:107 yali/gui/PartListViewAbstract.py:43
 #, python-format
 msgid "%d MB free"
 msgstr "%d MB frei"
 
-#: yali/gui/PartListImpl.py:132
+#: yali/gui/PartListImpl.py:132 yali/gui/PartListViewAbstract.py:106
 msgid "Extended"
 msgstr "Erweitert"
 
-#: yali/gui/PartListImpl.py:160
+#: yali/gui/PartListImpl.py:160 yali/gui/PartListViewAbstract.py:135
 #, python-format
 msgid "Partition %d"
 msgstr "Partition %d"
 
-#: yali/gui/PartListImpl.py:202
+#: yali/gui/PartListImpl.py:202 yali/gui/PartListViewAbstract.py:177
 msgid "Delete All Partitions"
 msgstr "Alle Partitionierungen löschen"
 
-#: yali/gui/PartListImpl.py:300
+#: yali/gui/PartListImpl.py:300 yali/gui/PartListViewAbstract.py:275
 msgid "Can't get partition info from partition request!"
 msgstr "Es konnten keine Partitionsinformationen eingelesen werden."
 
-#: yali/gui/PartListImpl.py:302
+#: yali/gui/PartListImpl.py:302 yali/gui/PartListViewAbstract.py:277
 msgid " req.partition() is None. May be a zombie request!"
 msgstr " req.partition() ist leer. Evtl. eine Zombie-Anforderung!"
 
-#: yali/gui/PartListImpl.py:310
+#: yali/gui/PartListImpl.py:310 yali/gui/PartListViewAbstract.py:285
 msgid "Formatting!"
 msgstr "Formatierung"
 
-#: yali/gui/PartListImpl.py:312
+#: yali/gui/PartListImpl.py:312 yali/gui/PartListViewAbstract.py:287
 msgid "YES"
 msgstr "JA"
 
@@ -540,6 +541,11 @@ msgstr ""
 #: yali/gui/ScrCheckCD.py:50
 msgid "Check Failed"
 msgstr ""
+
+#: yali/gui/ScrCheckCD.py:59
+#, fuzzy
+msgid "<font color=\"#FF6D19\">Please wait while checking CD.</font>"
+msgstr "<font color=\"#FF6D19\">Die Feststelltaste ist aktiviert!</font>"
 
 #: yali/gui/ScrCheckCD.py:77
 msgid ""
@@ -1063,119 +1069,124 @@ msgstr "Tschechisch"
 msgid "Danish"
 msgstr "Dänisch"
 
-#: yali/localedata.py:157 yali/localedata.py:158
+#: yali/localedata.py:157
 msgid "Dutch"
 msgstr "Niederländisch"
 
-#: yali/localedata.py:166 yali/localedata.py:167
+#: yali/localedata.py:160
+#, fuzzy
+msgid "Dutch (US)"
+msgstr "Niederländisch"
+
+#: yali/localedata.py:168 yali/localedata.py:169
 msgid "English"
 msgstr "Englisch"
 
-#: yali/localedata.py:175 yali/localedata.py:176
+#: yali/localedata.py:177 yali/localedata.py:178
 msgid "Estonian"
 msgstr "Estnisch"
 
-#: yali/localedata.py:184 yali/localedata.py:185
+#: yali/localedata.py:186 yali/localedata.py:187
 msgid "Finnish"
 msgstr "Finnisch"
 
-#: yali/localedata.py:193 yali/localedata.py:194
+#: yali/localedata.py:195 yali/localedata.py:196
 msgid "French"
 msgstr "Französisch"
 
-#: yali/localedata.py:202 yali/localedata.py:203
+#: yali/localedata.py:204 yali/localedata.py:205
 msgid "German"
 msgstr "Deutsch"
 
-#: yali/localedata.py:211 yali/localedata.py:212
+#: yali/localedata.py:213 yali/localedata.py:214
 msgid "Greek"
 msgstr "Griechisch"
 
-#: yali/localedata.py:220 yali/localedata.py:221
+#: yali/localedata.py:222 yali/localedata.py:223
 msgid "Hungarian"
 msgstr "Ungarisch"
 
-#: yali/localedata.py:229 yali/localedata.py:230
+#: yali/localedata.py:231 yali/localedata.py:232
 msgid "Icelandic"
 msgstr "Isländisch"
 
-#: yali/localedata.py:238 yali/localedata.py:239
+#: yali/localedata.py:240 yali/localedata.py:241
 msgid "Italian"
 msgstr "Italienisch"
 
-#: yali/localedata.py:247 yali/localedata.py:248
+#: yali/localedata.py:249 yali/localedata.py:250
 msgid "Japanese"
 msgstr "Japanisch"
 
-#: yali/localedata.py:256 yali/localedata.py:257
+#: yali/localedata.py:258 yali/localedata.py:259
 msgid "Macedonian"
 msgstr "Makedonisch"
 
-#: yali/localedata.py:265 yali/localedata.py:266
+#: yali/localedata.py:267 yali/localedata.py:268
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: yali/localedata.py:274 yali/localedata.py:275
+#: yali/localedata.py:276 yali/localedata.py:277
 msgid "Norwegian"
 msgstr "Norwegisch"
 
-#: yali/localedata.py:283 yali/localedata.py:284
+#: yali/localedata.py:285 yali/localedata.py:286
 msgid "Polish"
 msgstr "Polnisch"
 
-#: yali/localedata.py:292 yali/localedata.py:293
+#: yali/localedata.py:294 yali/localedata.py:295
 msgid "Portuguese"
 msgstr "Portugiesisch"
 
-#: yali/localedata.py:301 yali/localedata.py:302
+#: yali/localedata.py:303 yali/localedata.py:304
 msgid "Brazilian"
 msgstr "Brasilianisch"
 
-#: yali/localedata.py:310 yali/localedata.py:311
+#: yali/localedata.py:312 yali/localedata.py:313
 msgid "Russian"
 msgstr "Russisch"
 
-#: yali/localedata.py:319 yali/localedata.py:320
+#: yali/localedata.py:321 yali/localedata.py:322
 msgid "Serbian"
 msgstr "Serbisch"
 
-#: yali/localedata.py:328 yali/localedata.py:329
+#: yali/localedata.py:330 yali/localedata.py:331
 msgid "Slovak"
 msgstr "Slowakisch"
 
-#: yali/localedata.py:337 yali/localedata.py:338
+#: yali/localedata.py:339 yali/localedata.py:340
 msgid "Slovenian"
 msgstr "Slowenisch"
 
-#: yali/localedata.py:346 yali/localedata.py:347
+#: yali/localedata.py:348 yali/localedata.py:349
 msgid "Spanish"
 msgstr "Spanisch"
 
-#: yali/localedata.py:355 yali/localedata.py:356
+#: yali/localedata.py:357 yali/localedata.py:358
 msgid "Swedish"
 msgstr "Schwedisch"
 
-#: yali/localedata.py:364
+#: yali/localedata.py:366
 msgid "Turkish"
 msgstr "Türkisch"
 
-#: yali/localedata.py:365
+#: yali/localedata.py:367
 msgid "Turkish Q"
 msgstr "Türkisch Q"
 
-#: yali/localedata.py:366
+#: yali/localedata.py:368
 msgid "Turkish F"
 msgstr "Türkisch F"
 
-#: yali/localedata.py:374 yali/localedata.py:375
+#: yali/localedata.py:376 yali/localedata.py:377
 msgid "Ukrainian"
 msgstr "Ukrainisch"
 
-#: yali/localedata.py:383 yali/localedata.py:384
+#: yali/localedata.py:385 yali/localedata.py:386
 msgid "Vietnamese"
 msgstr "Vietnamesisch"
 
-#: yali/localedata.py:392 yali/localedata.py:393
+#: yali/localedata.py:394 yali/localedata.py:395
 msgid "Welsh"
 msgstr "Walisisch"
 
