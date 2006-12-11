@@ -69,8 +69,8 @@ def switch_to_pardus_repo():
     pardus_repo_name = consts.pardus_repo_name
     pardus_repo_uri = consts.pardus_repo_uri
 
-    yali.pisiiface.remove_repo(cd_repo_name)
-    yali.pisiiface.add_repo(pardus_repo_name, pardus_repo_uri)
+    remove_repo(cd_repo_name)
+    add_repo(pardus_repo_name, pardus_repo_uri)
 
 def update_repo(name):
     print "update repo", name
