@@ -97,7 +97,9 @@ class BootLoader:
         os.system(cmd)
 
         minor = str(int(filter(lambda u: u.isdigit(), self.install_root)) -1)
-        grub_root = ",".join(["hd0", minor])
+        # grub_root is the device on which we install.
+        grub_root = ",".join([self._find_grub_dev(self.install_root),
+                              minor])
 
         def find_boot_kernel():
             d = os.path.join(consts.target_dir, "boot")

@@ -188,6 +188,9 @@ Have fun!
         # Configure Pending...       
         # run baselayout's postinstall first
         yali.postinstall.initbaselayout()
+        # postscripts depend on 03locale...
+        yali.localeutils.write_locale_from_cmdline()
+
         yali.sysutils.chroot_comar() # run comar in chroot
         self.info.setText(_("Configuring packages for your system!"))
         # re-initialize pisi with comar this time.
@@ -208,10 +211,6 @@ Have fun!
 
         # stop slide show
         self.timer.stop()
-
-        # FIXME: I don't know if this is the right way to do
-        # this. maybe postinstall can be used too.
-        yali.localeutils.write_locale_from_cmdline()
 
         return True
 
