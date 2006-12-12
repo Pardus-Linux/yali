@@ -141,6 +141,8 @@ class Widget(QWidget):
         img = self.img.smoothScale(self.size())
         self.setPaletteBackgroundPixmap(QPixmap(img))
 
+        # relButton needs a little time to update.
+        QTimer.singleShot(100, self.relNotes.fixBackground)
 
     def showReleaseNotes(self):
         # make a release notes dialog
