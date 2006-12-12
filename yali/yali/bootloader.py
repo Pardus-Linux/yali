@@ -30,6 +30,7 @@ grub_conf_tmp = """\
 default 0
 timeout 10
 splashimage = (%(grub_root)s)/boot/grub/splash.xpm.gz
+background 10333C
 
 title %(pardus_version)s
 root (%(grub_root)s)
