@@ -49,6 +49,7 @@ class RelButton(QWidget):
 
     def setText(self, text):
         self.label.setText(text)
+        self.fixBackground()
 
     def setIcon(self, icon):
         self.button.setIcon(icon)
