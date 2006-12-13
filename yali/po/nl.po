@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-12-11 14:34+0200\n"
-"PO-Revision-Date: 2006-12-13 07:04+0200\n"
+"PO-Revision-Date: 2006-12-13 20:21+0200\n"
 "Last-Translator: Willem Gielen <w.gielen@gmail.com>\n"
 "Language-Team: Nederlands <Pardus-translation-nl@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -114,11 +114,11 @@ msgid ""
 "You can check the integrity of the packages in installation CD. Although "
 "this is an optional step, we encourage you to do it to avoid any errors in "
 "installation."
-msgstr ""
+msgstr "U kunt de integriteit van de pakketten op de installatie CD controleren. Ondanks dat dit een optionele stap is, raden we u aan dit te doen om fouten tijdens de installatie te vermijden."
 
 #: yali/gui/Ui/checkcdwidget.py:77
 msgid "Check CD Integrity"
-msgstr ""
+msgstr "Controleer CD integriteit"
 
 #: yali/gui/Ui/installwidget.py:52
 msgid "Form3"
@@ -525,21 +525,28 @@ msgid ""
 "</p>\n"
 "\n"
 msgstr ""
+"\n"
+"<font size=\"+2\">Controlleer CD integriteit!</font>\n"
+"\n"
+"<font size=\"+1\">\n"
+"<p>In dit scherm kunt u de integriteit van de pakketten op de installatie CD controleren.\n"
+"</p>\n"
 
 #: yali/gui/ScrCheckCD.py:50
 msgid "Check Failed"
-msgstr ""
+msgstr "Controle mislukt"
 
 #: yali/gui/ScrCheckCD.py:59
-#, fuzzy
 msgid "<font color=\"#FF6D19\">Please wait while checking CD.</font>"
-msgstr "<font color=\"#FF6D19\">Caps Lock staat aan!</font>"
+msgstr "<font color=\"#FF6D19\">Ogenblik geduld wanneer de CD gecontrolleerd wordt.</font>"
 
 #: yali/gui/ScrCheckCD.py:77
 msgid ""
 "<font color=\"#257216\">Check succeeded. You can proceed to the next screen."
 "</font>"
 msgstr ""
+"<font color=\"#257216\">Controle succesvol. U kunt doorgaan naar het volgende scherm."
+"</font>"
 
 #: yali/gui/ScrCheckCD.py:99
 msgid ""
@@ -548,6 +555,9 @@ msgid ""
 "broken.</p>\n"
 "</b>\n"
 msgstr ""
+"<b>\n"
+"<p>Integriteit contole voor de pakketten is mislukt. Het lijkt erop dat de installatie CD defect is.</p>\n"
+"</b>\n"
 
 #: yali/gui/ScrCheckCD.py:105 yali/gui/ScrGoodbye.py:140
 msgid "Reboot"
@@ -1021,7 +1031,7 @@ msgstr "Arabisch"
 
 #: yali/localedata.py:103 yali/localedata.py:104
 msgid "Belgium"
-msgstr ""
+msgstr "België"
 
 #: yali/localedata.py:112 yali/localedata.py:113
 msgid "Bulgarian"
@@ -1048,9 +1058,8 @@ msgid "Dutch"
 msgstr "Nederlands"
 
 #: yali/localedata.py:160
-#, fuzzy
 msgid "Dutch (US)"
-msgstr "Nederlands"
+msgstr "Nederlands (US)"
 
 #: yali/localedata.py:168 yali/localedata.py:169
 msgid "English"
