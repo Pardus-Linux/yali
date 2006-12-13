@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-12-11 14:34+0200\n"
-"PO-Revision-Date: 2006-12-03 16:25+0200\n"
+"PO-Revision-Date: 2006-12-13 07:04+0200\n"
 "Last-Translator: Willem Gielen <w.gielen@gmail.com>\n"
 "Language-Team: Nederlands <Pardus-translation-nl@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -61,35 +61,29 @@ msgstr "Nee, ik wil mijn schijf handmatig partitioneren."
 
 #: yali/gui/Ui/autopartwidget.py:95
 msgid "Yes, automatically partition and format selected disk!"
-msgstr ""
-"Ja, automatisch partitioneren en formatteren van de geselecteerde schijf!"
+msgstr "Ja, automatisch partitioneren en formatteren van de geselecteerde schijf!"
 
 #: yali/gui/Ui/bootloaderwidget.py:81
-#, fuzzy
 msgid "Where do you want to install the bootloader?"
-msgstr "Selecteer de schijf waar u de bootloader op wilt installeren:"
+msgstr "Waar wilt u de bootloader installeren?"
 
 #: yali/gui/Ui/bootloaderwidget.py:82
 msgid "Select the disk you to install bootloader:"
 msgstr "Selecteer de schijf waar u de bootloader op wilt installeren:"
 
 #: yali/gui/Ui/bootloaderwidget.py:83
-#, fuzzy
 msgid "Install to MBR"
-msgstr "Installeer root"
+msgstr "Installeer in MBR"
 
 #: yali/gui/Ui/bootloaderwidget.py:84
-#, fuzzy
 msgid "Install to root partition"
-msgstr "Formateer deze partitie"
+msgstr "Installeer in root partitie"
 
 #: yali/gui/Ui/bootloaderwidget.py:85
-#, fuzzy
 msgid "Don't install bootloader"
-msgstr "Ja, installeer de bootloader"
+msgstr "Installeer de bootloader niet"
 
 #: yali/gui/Ui/bootloaderwidget.py:86
-#, fuzzy
 msgid ""
 "<b>Do you want to write boot loader (GRUB) to your hard disk's master boot "
 "record?</b>\n"
@@ -106,9 +100,9 @@ msgstr ""
 "\n"
 "<p>U hebt een bootloader nodig om uw Pardus-systeem op te starten.</p>\n"
 "\n"
-"<p>Als u geen bootloader installeert, zult moet u de bootloader van uw "
-"eventuele andere \n"
-"besturingssysteem moeten configureren om Pardus te kunnen starten.</p>"
+"<p>Als u geen bootloader installeert, of ervoor kiest te installeren in de rootpartitie, dient u de loader (indien geïnstalleerd) van uw "
+"andere \n"
+"besturingssysteem te configureren om uw nieuw geïnstalleerde Pardus te kunnen starten.</p>"
 
 #: yali/gui/Ui/checkcdwidget.py:75 yali/gui/Ui/installwidget.py:54
 #: yali/gui/Ui/keyboardwidget.py:67 yali/gui/Ui/welcomewidget.py:92
@@ -471,8 +465,7 @@ msgstr "<font color=\"#FF6D19\">De wachtwoorden komen niet overeen!</font>"
 
 #: yali/gui/ScrAdmin.py:135
 msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">De hostnaam bevat niet toegestane tekens!</font>"
+msgstr "<font color=\"#FF6D19\">De hostnaam bevat niet toegestane tekens!</font>"
 
 #: yali/gui/ScrBootloader.py:37
 msgid ""
@@ -762,8 +755,7 @@ msgstr "Moment geduld tijdens formateren!"
 
 #: yali/gui/ScrPartitionAuto.py:132
 msgid "<font color=\"#FF6D19\">Preparing your disk for installation!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Uw schijf wordt voorbereidt voor installatie.</font>"
+msgstr "<font color=\"#FF6D19\">Uw schijf wordt voorbereidt voor installatie.</font>"
 
 #: yali/gui/ScrPartitionAuto.py:200
 msgid ""
@@ -951,8 +943,7 @@ msgstr ""
 
 #: yali/gui/ScrUsers.py:144
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Uw echte naam bevat niet toegestane tekens.</font>"
+msgstr "<font color=\"#FF6D19\">Uw echte naam bevat niet toegestane tekens.</font>"
 
 #: yali/gui/ScrWelcome.py:32
 msgid ""
@@ -1192,3 +1183,4 @@ msgstr "Gebruikersbestanden"
 #: yali/partitiontype.py:67
 msgid "Swap"
 msgstr "Swap"
+
