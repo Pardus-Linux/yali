@@ -304,7 +304,7 @@ class MountRequest(PartRequest):
 
         source = self.partition().getPath()
         target = consts.target_dir + pt.mountpoint
-        filesystem = pt.filesystem.name()
+        filesystem = p.getFSName()
 
         if not os.path.isdir(target):
             os.mkdir(target)

@@ -169,7 +169,7 @@ Have fun!
                 pt = req.partitionType()
 
                 path = p.getPath()
-                fs = pt.filesystem.name()
+                fs = p.getFSName()
                 mountpoint = pt.mountpoint
                 opts = pt.mountoptions
 
