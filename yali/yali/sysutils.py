@@ -13,11 +13,11 @@
 # sysutils module provides basic system utilities
 
 import os
-import yalisys
 from string import ascii_letters
 from string import digits
 from pmp.sysutils import find_executable
 
+from yali._sysutils import *
 from yali.constants import consts
 
 ##
@@ -85,7 +85,7 @@ def mem_total():
 
 def eject_cdrom(mount_point=consts.source_dir):
     def _eject():
-        if not yalisys.eject(mount_point):
+        if not eject(mount_point):
             os.system("eject -m %s" % mount_point)
     for i in range(3):
         _eject()
@@ -140,19 +140,19 @@ def is_windows_boot(partition_path, file_system):
 
     try:
         if file_system == "fat32":
-            yalisys.mount(partition_path, m_dir, "vfat")
+            mount(partition_path, m_dir, "vfat")
         else:
-            yalisys.mount(partition_path, m_dir, file_system)
+            mount(partition_path, m_dir, file_system)
     except:
         return False
 
     exist = lambda f: os.path.exists(os.path.join(m_dir, f))
 
     if exist("boot.ini") or exist("command.com"):
-        yalisys.umount(m_dir)
+        umount(m_dir)
         return True
     else:
-        yalisys.umount(m_dir)
+        umount(m_dir)
         return False
 
 

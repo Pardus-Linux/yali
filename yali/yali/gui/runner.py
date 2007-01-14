@@ -18,9 +18,9 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-import yalisys
 
 import yali
+import yali.sysutils
 import yali.gui.context as ctx
 from pyaspects.weaver import *
 from pyaspects.debuggeraspect import DebuggerAspect
@@ -191,8 +191,8 @@ class ErrorWidget(QWidget):
     def slotReboot(self):
         
         try:
-            yalisys.umount(ctx.consts.target_dir + "/home")
+            yali.sysutils.umount(ctx.consts.target_dir + "/home")
         except:
             pass
-        yalisys.umount(ctx.consts.target_dir)
-        yalisys.fastreboot()
+        yali.sysutils.umount(ctx.consts.target_dir)
+        yali.sysutils.fastreboot()

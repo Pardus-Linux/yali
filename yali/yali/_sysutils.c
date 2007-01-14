@@ -24,7 +24,7 @@ PyDoc_STRVAR(mount__doc__,
 "method implements the mount(2) system call in Linux\n");
 
 static PyObject*
-yalisys_mount(PyObject *self, PyObject *args)
+_sysutils_mount(PyObject *self, PyObject *args)
 {
 
   int ok;
@@ -50,7 +50,7 @@ PyDoc_STRVAR(umount__doc__,
 "method implements the umount(2) system call in Linux\n");
 
 static PyObject*
-yalisys_umount(PyObject *self, PyObject *args)
+_sysutils_umount(PyObject *self, PyObject *args)
 {
   int ok;
   const char *tgt;
@@ -74,7 +74,7 @@ PyDoc_STRVAR(eject__doc__,
 "");
 
 static PyObject*
-yalisys_eject(PyObject *self, PyObject *args)
+_sysutils_eject(PyObject *self, PyObject *args)
 {
     int fd;
     const char *mount_point;
@@ -109,7 +109,7 @@ PyDoc_STRVAR(fastreboot__doc__,
 "sync() and reboot() if root user ;)!\n");
 
 void
-yalisys_fastreboot(PyObject *self)
+_sysutils_fastreboot(PyObject *self)
 {
 
   if (getuid() != 0)
@@ -125,20 +125,20 @@ yalisys_fastreboot(PyObject *self)
 
 
 
-static PyMethodDef yalisys_methods[] = {
-    {"mount",  (PyCFunction)yalisys_mount,  METH_VARARGS,  mount__doc__},
-    {"umount",  (PyCFunction)yalisys_umount,  METH_VARARGS,  umount__doc__},
-    {"eject",  (PyCFunction)yalisys_eject,  METH_VARARGS,  eject__doc__},
-    {"fastreboot",  (PyCFunction)yalisys_fastreboot,  METH_NOARGS,  fastreboot__doc__},
+static PyMethodDef _sysutils_methods[] = {
+    {"mount",  (PyCFunction)_sysutils_mount,  METH_VARARGS,  mount__doc__},
+    {"umount",  (PyCFunction)_sysutils_umount,  METH_VARARGS,  umount__doc__},
+    {"eject",  (PyCFunction)_sysutils_eject,  METH_VARARGS,  eject__doc__},
+    {"fastreboot",  (PyCFunction)_sysutils_fastreboot,  METH_NOARGS,  fastreboot__doc__},
     {NULL, NULL}
 };
 
 PyMODINIT_FUNC
-inityalisys(void)
+init_sysutils(void)
 {
     PyObject *m;
 
-    m = Py_InitModule("yalisys", yalisys_methods);
+    m = Py_InitModule("_sysutils", _sysutils_methods);
 
     return;
 }

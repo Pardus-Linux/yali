@@ -13,7 +13,6 @@
 # partitionrequest.py defines requests (format, mount) on the partitions.
 
 import os
-import yalisys
 
 from yali.exception import *
 from yali.constants import consts
@@ -309,7 +308,7 @@ class MountRequest(PartRequest):
         if not os.path.isdir(target):
             os.mkdir(target)
 
-        yalisys.mount(source, target, filesystem)
+        yali.sysutils.mount(source, target, filesystem)
         
         mtab_entry = "%s %s %s rw 0 0\n" % (source,
                                             target,

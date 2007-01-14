@@ -18,8 +18,6 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-import yalisys
-
 import yali.sysutils
 import yali.users
 import yali.localeutils
@@ -99,12 +97,12 @@ don't you?
 
 
         try:
-            yalisys.umount(ctx.consts.target_dir + "/home")
+            yali.sysutils.umount(ctx.consts.target_dir + "/home")
         except:
             pass
 
-        yalisys.umount(ctx.consts.target_dir)
-        yalisys.fastreboot()
+        yali.sysutils.umount(ctx.consts.target_dir)
+        yali.sysutils.fastreboot()
 
 
     # process pending actions defined in other screens.
