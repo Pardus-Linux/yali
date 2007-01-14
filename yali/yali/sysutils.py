@@ -16,24 +16,10 @@ import os
 import yalisys
 from string import ascii_letters
 from string import digits
+from pmp.sysutils import find_executable
 
 from yali.constants import consts
 
-def find_executable(exec_name):
-    # preppend /bin, /sbin explicitly to handle system configuration
-    # errors
-    paths = ["/bin", "/sbin"]
-
-    paths.extend(os.getenv("PATH").split(':'))
-
-    for p in paths:
-        exec_path = os.path.join(p, exec_name)
-        if os.path.exists(exec_path):
-            return exec_path
-
-    return None
-
-    
 ##
 # run comar daemon in chroot
 def chroot_comar():

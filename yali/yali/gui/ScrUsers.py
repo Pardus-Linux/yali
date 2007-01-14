@@ -22,7 +22,7 @@ import yali.users
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.setupuserswidget import SetupUsersWidget
 import yali.gui.context as ctx
-import xcapslock
+import pmp.xorg
 
 ##
 # Partitioning screen.
@@ -91,7 +91,7 @@ Click Next button to proceed.
         return True
 
     def checkCapsLock(self):
-        if xcapslock.isOn():
+        if pmp.xorg.capslock.isOn():
             self.caps_error.setText(
                 _('<font color="#FF6D19">Caps Lock is on!</font>'))
         else:

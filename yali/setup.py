@@ -164,16 +164,6 @@ class I18nInstall(install):
             shutil.copy("po/%s.mo" % lang, os.path.join(destpath, "%s.mo" % i18n_domain))
 
 
-
-yalisysmodule = Extension('yalisys',
-                        sources = ['extensions/yalisys.c'],
-                        extra_compile_args = ['-Wall'])
-xcapslockmodule = Extension('xcapslock',
-                            sources = ['extensions/xcapslock.c'],
-                            libraries = ['X11'],
-                            extra_compile_args = ['-Wall'])
-
-
 setup(name="yali",
       version= getVersion(),
       description="YALI (Yet Another Linux Installer)",
@@ -188,7 +178,9 @@ setup(name="yali",
                     ('/usr/share/yali/slideshow', gui_slidepics()),
                     ('/usr/share/yali/user_faces', user_faces())],
       scripts = ['yali-bin'],
-      ext_modules = [yalisysmodule, xcapslockmodule],
+      ext_modules = [Extension('yalisys',
+                            sources = ['extensions/yalisys.c'],
+                            extra_compile_args = ['-Wall'])],
       cmdclass = {
         'build' : YaliBuild,
         'clean' : YaliClean,
