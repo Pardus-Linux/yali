@@ -23,7 +23,7 @@ from yali.gui.Ui.rootpasswidget import RootPassWidget
 import yali.users
 import yali.sysutils
 import yali.gui.context as ctx
-import pmp.xorg
+import pardus.xorg
 
 
 ##
@@ -91,7 +91,7 @@ Click Next button to proceed.
         return True
 
     def checkCapsLock(self):
-        if pmp.xorg.capslock.isOn():
+        if pardus.xorg.capslock.isOn():
             self.caps_error.setText(
                 _('<font color="#FF6D19">Caps Lock is on!</font>'))
         else:

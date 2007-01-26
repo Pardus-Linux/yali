@@ -15,7 +15,7 @@
 import os
 from string import ascii_letters
 from string import digits
-from pmp.sysutils import find_executable
+from pardus.sysutils import find_executable
 
 from yali._sysutils import *
 from yali.constants import consts
