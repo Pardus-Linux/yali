@@ -299,7 +299,7 @@ locales = {
         },
 
     "br" : {
-        "isSupported" : False,
+        "isSupported" : True,
         "name" : _("Brazilian"),
         "keymap" : Keymap("br-abnt2", "br", _("Brazilian")),
         "locale" : "pt_BR.UTF-8",
