@@ -490,19 +490,19 @@ def detect_all():
 
     _devices = []
     # Scan sysfs for the device types.
-    for dev_type in ["hd*", "sd*"]:
-        sysfs_devs = glob.glob("/sys/block/" + dev_type)
-        for sysfs_dev in sysfs_devs:
-            dev_file = sysfs_dev + "/dev"
-            major, minor = open(dev_file).read().split(":")
-            major = int(major)
-            minor = int(minor)
+    blacklisted_devs = glob.glob("/sys/block/ram*") + glob.glob("/sys/block/loop*")
+    sysfs_devs = set(glob.glob("/sys/block/*")) - set(blacklisted_devs)
+    for sysfs_dev in sysfs_devs:
+        dev_file = sysfs_dev + "/dev"
+        major, minor = open(dev_file).read().split(":")
+        major = int(major)
+        minor = int(minor)
 
-            # Find a device listed in /proc/partitions
-            # that has the same minor and major as our
-            # current block device.
-            for record in partitions:
-                if major == record[0] and minor == record[1]:
-                    _devices.append(record[2])
+        # Find a device listed in /proc/partitions
+        # that has the same minor and major as our
+        # current block device.
+        for record in partitions:
+            if major == record[0] and minor == record[1]:
+                _devices.append(record[2])
 
     return _devices
