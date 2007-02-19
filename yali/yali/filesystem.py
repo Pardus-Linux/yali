@@ -51,6 +51,7 @@ class FileSystem:
     _filesystems = []
     _implemented = False
     _resizeable = False
+    _mountoptions = "defaults"
     _fs_type = None  # parted fs type
 
     def __init__(self):
@@ -63,6 +64,11 @@ class FileSystem:
     # get file system name
     def name(self):
         return self._name
+
+    ##
+    # get default mount options for file system
+    def mountOptions(self):
+        return self._mountoptions
 
     ##
     # get parted filesystem type.
@@ -134,6 +140,7 @@ class FileSystem:
 class Ext3FileSystem(FileSystem):
 
     _name = "ext3"
+    _mountoptions = "defaults,user_xattr"
     
     def __init__(self):
         FileSystem.__init__(self)

@@ -171,7 +171,8 @@ Have fun!
                 path = p.getPath()
                 fs = p.getFSName()
                 mountpoint = pt.mountpoint
-                opts = pt.mountoptions
+                # TODO: consider merging mountoptions in filesystem.py
+                opts = ",".join([pt.filesystem.mountOptions(), pt.mountoptions])
 
                 e = yali.fstab.FstabEntry(path, mountpoint, fs, opts)
                 fstab.insert(e)
