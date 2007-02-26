@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2005, TUBITAK/UEKAE
+* Copyright (c) 2005 - 2007 TUBITAK/UEKAE
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -16,6 +16,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <sys/reboot.h>
+#include <ext2fs/ext2fs.h>
 
 
 PyDoc_STRVAR(mount__doc__,
@@ -124,12 +125,45 @@ _sysutils_fastreboot(PyObject *self)
 }
 
 
+PyDoc_STRVAR(e2fslabel__doc__,
+"e2fslabel()\n"
+"\n"
+"read filesystem label!\n");
+
+/* function taken from anaconda/isys.c */
+static PyObject *
+_sysutils_e2fslabel(PyObject * s, PyObject * args)
+{
+    char * device;
+    ext2_filsys fsys;
+    char buf[50];
+    int rc;
+
+    if (!PyArg_ParseTuple(args, "s", &device)) return NULL;
+
+    rc = ext2fs_open(device, EXT2_FLAG_FORCE, 0, 0, unix_io_manager,
+		     &fsys);
+    if (rc) {
+	Py_INCREF(Py_None);
+	return Py_None;
+    }
+
+    memset(buf, 0, sizeof(buf));
+    strncpy(buf, fsys->super->s_volume_name, 
+	    sizeof(fsys->super->s_volume_name));
+
+    ext2fs_close(fsys);
+
+    return Py_BuildValue("s", buf); 
+}
+
 
 static PyMethodDef _sysutils_methods[] = {
     {"mount",  (PyCFunction)_sysutils_mount,  METH_VARARGS,  mount__doc__},
     {"umount",  (PyCFunction)_sysutils_umount,  METH_VARARGS,  umount__doc__},
     {"eject",  (PyCFunction)_sysutils_eject,  METH_VARARGS,  eject__doc__},
     {"fastreboot",  (PyCFunction)_sysutils_fastreboot,  METH_NOARGS,  fastreboot__doc__},
+    {"e2fslabel", (PyCFunction)_sysutils_e2fslabel, METH_VARARGS, e2fslabel__doc__},
     {NULL, NULL}
 };
 

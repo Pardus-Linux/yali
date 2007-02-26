@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005, TUBITAK/UEKAE
+# Copyright (C) 2005-2007, TUBITAK/UEKAE
+# Copyright 1999-2005 Gentoo Foundation
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -10,12 +11,14 @@
 # Please read the COPYING file.
 #
 
+# First version of storage.py has it's roots in GLI (Gentoo Linux
+# Installer). It has changed overtime, making it somewhat incompatible
+# with it though.
 
-# Storage module will handle the disk/partitioning basics for
-# installation. Basically this module can provide two main interfaces,
-# one for physical storage and one for partitions.
+# Storage module handles disk/partitioning basics for
+# installation. Basically it provides a Device interface to physical
+# storage devices.
 
-# GPL code mostly taken from GLI (Gentoo Linux Installer).
 
 import parted
 import os
