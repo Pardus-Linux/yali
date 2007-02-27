@@ -53,6 +53,7 @@ class RootPartitionType(__PartitionType):
     mountoptions = "noatime"
     parted_type = parted.PARTITION_PRIMARY
     parted_flags = [ parted.PARTITION_BOOT ]
+    label = "PARDUS_ROOT"
 
 
 class HomePartitionType(__PartitionType):
@@ -61,6 +62,7 @@ class HomePartitionType(__PartitionType):
     mountoptions = "noatime"
     parted_type = parted.PARTITION_PRIMARY
     parted_flags = []
+    label = "PARDUS_HOME"
 
 
 class SwapPartitionType(PartitionType):
@@ -70,6 +72,7 @@ class SwapPartitionType(PartitionType):
     mountoptions = "sw"
     parted_type = parted.PARTITION_PRIMARY
     parted_flags = []
+    label = "PARDUS_SWAP"
 
 
 root = RootPartitionType()

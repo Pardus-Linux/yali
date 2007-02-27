@@ -24,7 +24,8 @@ class RequestException(YaliException):
 
 
 # poor man's enum ;)
-formatRequestType, mountRequestType, swapFileRequestType = range(3)
+formatRequestType, mountRequestType, \
+    swapFileRequestType, labelRequestType = range(4)
 
 
 ##
@@ -37,6 +38,10 @@ class RequestList(list):
         
         # first apply format requests
         for r in self.searchReqTypeIterate(formatRequestType):
+            r.applyRequest()
+
+        # label filesystems
+        for r in self.searchReqTypeIterate(labelRequestType):
             r.applyRequest()
 
         # then mount request
@@ -343,6 +348,26 @@ class SwapFileRequest(PartRequest):
         
         PartRequest.applyRequest(self)
 
+
+##
+# partition/filesystem labeling request
+class LabelRequest(PartRequest):
+
+    def __init__(self, partition, part_type):
+        PartRequest.__init__(self)
+
+        self.setPartition(partition)
+        self.setPartitionType(part_type)
+        self.setRequestType(labelRequestType)
+
+    def applyRequest(self):
+
+        pt = self.partitionType()
+        if not pt.label:
+            return
+        pt.filesystem.setLabel(self.partition(), pt.label)
+
+        PartRequest.applyRequest(self)
 
 
 # partition requests singleton.
