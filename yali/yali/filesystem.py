@@ -19,6 +19,7 @@
 
 import os
 import resource
+import string
 import parted
 
 from yali.exception import *

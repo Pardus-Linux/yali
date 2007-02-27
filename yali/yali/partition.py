@@ -124,6 +124,13 @@ class Partition:
     def getFSName(self):
         return self._fsname
 
+    def getFSLabel(self):
+        fs = yali.filesystem.get_filesystem(self.getFSName())
+        try:
+            return fs.getLabel(self)
+        except AttributeError, e:
+            return None
+
     def getStart(self):
         return self._start
 
