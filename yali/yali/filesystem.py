@@ -25,6 +25,7 @@ import parted
 from yali.exception import *
 import yali.sysutils as sysutils
 import yali.parteddata as parteddata
+import yali.storage
 
 class FSError(YaliError):
     pass
@@ -94,6 +95,34 @@ class FileSystem:
     # read filesystem label and return
     def getLabel(self, partition):
         return None
+
+    ##
+    # set label for filesystem
+    def setLabel(self, partition, label):
+        return False
+    
+    ##
+    # check label for existence.
+    def labelExists(self, label):
+        if not yali.storage.devices:
+            yali.storage.init_devices()
+
+        for dev in yali.storage.devices:
+            for part in dev.getPartitions():
+                if label == part.getFSLabel():
+                    return True
+
+        return False
+
+    ##
+    # check if label is available and try to find one if not
+    def availableLabel(self, label):
+        count = 1
+        new_label = label
+        while self.labelExists(new_label):
+            new_label = "%s%d" % (label, count)
+            count += 1
+        return new_label
 
     ##
     # check the supported file systems by kernel
@@ -225,6 +254,7 @@ class Ext3FileSystem(FileSystem):
         return sysutils.e2fslabel(partition.getPath())
 
     def setLabel(self, partition, label):
+        label = self.availableLabel(label)
         cmd_path = sysutils.find_executable("e2label")
         cmd = "%s %s %s" % (cmd_path, partition.getPath(), label)
         try:
@@ -295,8 +325,9 @@ class ReiserFileSystem(FileSystem):
         return label
 
     def setLabel(self, partition, label):
+        label = self.availableLabel(label)
         cmd_path = sysutils.find_executable("reiserfstune")
-        cmd = "%s --label %s %s" % (cmd_path, label, patition.getPath())
+        cmd = "%s --label %s %s" % (cmd_path, label, partition.getPath())
         try:
             p = os.popen(cmd)
             p.close()
@@ -346,8 +377,9 @@ class XFSFileSystem(FileSystem):
         return label
 
     def setLabel(self, partition, label):
+        label = self.availableLabel(label)
         cmd_path = sysutils.find_executable("xfs_db")
-        cmd = "%s -x -c label %s %s" % (cmd_path, label, patition.getPath())
+        cmd = "%s -x -c label %s %s" % (cmd_path, label, partition.getPath())
         try:
             p = os.popen(cmd)
             p.close()
@@ -403,8 +435,9 @@ class SwapFileSystem(FileSystem):
         return label
 
     def setLabel(self, partition, label):
+        label = self.availableLabel(label)
         cmd_path = sysutils.find_executable("mkswap")
-        cmd = "%s -v1 -L label %s %s" % (cmd_path, label, patition.getPath())
+        cmd = "%s -v1 -L %s %s" % (cmd_path, label, partition.getPath())
         try:
             p = os.popen(cmd)
             p.close()
