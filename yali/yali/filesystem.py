@@ -218,11 +218,20 @@ class Ext3FileSystem(FileSystem):
             p.close()
         except:
             return False
-
         return True
        
     def getLabel(self, partition):
         return sysutils.e2fslabel(partition.getPath())
+
+    def setLabel(self, partition, label):
+        cmd_path = sysutils.find_executable("e2label")
+        cmd = "%s %s %s" % (cmd_path, partition.getPath(), label)
+        try:
+            p = os.popen(cmd)
+            p.close()
+        except:
+            return False
+        return True
 
 ##
 # reiserfs
@@ -284,6 +293,16 @@ class ReiserFileSystem(FileSystem):
         os.close(fd)
         return label
 
+    def setLabel(self, partition, label):
+        cmd_path = sysutils.find_executable("reiserfstune")
+        cmd = "%s --label %s %s" % (cmd_path, label, patition.getPath())
+        try:
+            p = os.popen(cmd)
+            p.close()
+        except:
+            return False
+        return True
+        
 
 ##
 # xfs
@@ -324,6 +343,16 @@ class XFSFileSystem(FileSystem):
             label = string.rstrip(buf[108:120],"\0x00")
 
         return label
+
+    def setLabel(self, partition, label):
+        cmd_path = sysutils.find_executable("xfs_db")
+        cmd = "%s -x -c label %s %s" % (cmd_path, label, patition.getPath())
+        try:
+            p = os.popen(cmd)
+            p.close()
+        except:
+            return False
+        return True
 
 
 ##
@@ -371,6 +400,16 @@ class SwapFileSystem(FileSystem):
         if ((len(buf) == pagesize) and (buf[pagesize - 10:] == "SWAPSPACE2")):
             label = string.rstrip(buf[1052:1068], "\0x00")
         return label
+
+    def setLabel(self, partition, label):
+        cmd_path = sysutils.find_executable("mkswap")
+        cmd = "%s -v1 -L label %s %s" % (cmd_path, label, patition.getPath())
+        try:
+            p = os.popen(cmd)
+            p.close()
+        except:
+            return False
+        return True
 
 
 ##
