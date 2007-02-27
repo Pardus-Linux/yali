@@ -168,7 +168,8 @@ Have fun!
                 p = req.partition()
                 pt = req.partitionType()
 
-                path = p.getPath()
+#                path = p.getPath()
+                path = "LABEL=%s" % pt.label
                 fs = p.getFSName()
                 mountpoint = pt.mountpoint
                 # TODO: consider merging mountoptions in filesystem.py

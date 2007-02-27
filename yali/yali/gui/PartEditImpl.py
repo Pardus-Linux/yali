@@ -213,6 +213,9 @@ class PartEdit(QWidget):
                 ctx.partrequests.append(
                     request.MountRequest(partition, t))
             
+                ctx.partrequests.append(
+                    request.LabelRequest(partition, t))
+                
                 if self.edit.format.isChecked():
                     ctx.partrequests.append(
                         request.FormatRequest(partition, t))

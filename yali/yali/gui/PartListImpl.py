@@ -176,6 +176,9 @@ class PartList(PartListWidget):
                 ctx.partrequests.append(
                     request.FormatRequest(part, parttype.swap))
 
+                ctx.partrequests.append(
+                    request.LabelRequest(part, parttype.swap))
+
                 self.autoSwapSelected = True
 
         self.list.setOpen(d, True)
