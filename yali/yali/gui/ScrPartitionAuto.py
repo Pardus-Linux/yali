@@ -110,7 +110,7 @@ about disk partitioning.
                 request.MountRequest(p, parttype.root))
             ctx.partrequests.append(
                 request.FormatRequest(p, parttype.root))
-            ctx.partrequest.append(
+            ctx.partrequests.append(
                 request.LabelRequest(p, parttype.root))
             ctx.partrequests.append(
                 request.SwapFileRequest(p, parttype.root))
