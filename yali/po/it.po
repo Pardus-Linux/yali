@@ -1,19 +1,21 @@
-# SOME DESCRIPTIVE TITLE.
+# translation of it.po to italiano
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# Andrea Decorte <adecorte@gmail.com>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: yali\n"
+"Project-Id-Version: it\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-12-11 14:34+0200\n"
-"PO-Revision-Date: 2006-12-11 14:34+0200\n"
-"Last-Translator: No One <noone@nowhere.com>\n"
-"Language-Team: it <it@li.org>\n"
+"PO-Revision-Date: 2007-03-05 22:54+0200\n"
+"Last-Translator: Andrea Decorte <adecorte@gmail.com>\n"
+"Language-Team: italiano\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #: yali/gui/Ui/autopartwidget.py:83 yali/gui/Ui/bootloaderwidget.py:80
 #: yali/gui/Ui/checkcdwidget.py:74 yali/gui/Ui/keyboardwidget.py:66
@@ -37,11 +39,11 @@ msgstr ""
 
 #: yali/gui/Ui/autopartwidget.py:92
 msgid "&nbsp;"
-msgstr ""
+msgstr "&nbsp;"
 
 #: yali/gui/Ui/autopartwidget.py:94
 msgid "No, I'll partition my disk manually."
-msgstr ""
+msgstr "No, partizionerò manualmente il disco."
 
 #: yali/gui/Ui/autopartwidget.py:95
 msgid "Yes, automatically partition and format selected disk!"
@@ -49,7 +51,7 @@ msgstr ""
 
 #: yali/gui/Ui/bootloaderwidget.py:81
 msgid "Where do you want to install the bootloader?"
-msgstr ""
+msgstr "Dove desideri installare il bootleader?"
 
 #: yali/gui/Ui/bootloaderwidget.py:82
 msgid "Select the disk you to install bootloader:"
@@ -57,15 +59,15 @@ msgstr ""
 
 #: yali/gui/Ui/bootloaderwidget.py:83
 msgid "Install to MBR"
-msgstr ""
+msgstr "Installa nel MBR"
 
 #: yali/gui/Ui/bootloaderwidget.py:84
 msgid "Install to root partition"
-msgstr ""
+msgstr "Installa nella partizione di root"
 
 #: yali/gui/Ui/bootloaderwidget.py:85
 msgid "Don't install bootloader"
-msgstr ""
+msgstr "Non installare il bootloader"
 
 #: yali/gui/Ui/bootloaderwidget.py:86
 msgid ""
@@ -90,117 +92,117 @@ msgid ""
 "You can check the integrity of the packages in installation CD. Although "
 "this is an optional step, we encourage you to do it to avoid any errors in "
 "installation."
-msgstr ""
+msgstr "Puoi verificare l'integrità dei pacchetti nel CD di installazione. Anche se questo passaggio è opzionale, noi ti incoraggiamo a farlo per evitare qualsiasi errore durante l'installazione."
 
 #: yali/gui/Ui/checkcdwidget.py:77
 msgid "Check CD Integrity"
-msgstr ""
+msgstr "Verifica integrità CD"
 
 #: yali/gui/Ui/installwidget.py:52
 msgid "Form3"
-msgstr ""
+msgstr "Form3"
 
 #: yali/gui/Ui/installwidget.py:53
 msgid "Installing Package: "
-msgstr ""
+msgstr "Installazione pacchetto: "
 
 #: yali/gui/Ui/keyboardwidget.py:68
 msgid "Select the keyboard layout of your choice."
-msgstr ""
+msgstr "Scegli il layout della tastiera che desideri."
 
 #: yali/gui/Ui/keyboardwidget.py:69
 msgid "Test selected keyboard:"
-msgstr ""
+msgstr "Prova la tastiera scelta:"
 
 #: yali/gui/Ui/parteditbuttons.py:47 yali/gui/ScrPartitionAuto.py:210
 #: yali/gui/ScrPartitionManual.py:217
 msgid "Cancel"
-msgstr ""
+msgstr "Annulla"
 
 #: yali/gui/Ui/parteditbuttons.py:48
 msgid "Apply"
-msgstr ""
+msgstr "Applica "
 
 #: yali/gui/Ui/parteditwidget.py:82
 msgid "Size (MB):"
-msgstr ""
+msgstr "Dimensioni (MB):"
 
 #: yali/gui/Ui/parteditwidget.py:83
 msgid "Use available free space"
-msgstr ""
+msgstr "Usa lo spazio libero disponibile"
 
 #: yali/gui/Ui/parteditwidget.py:85
 msgid "Format this partition"
-msgstr ""
+msgstr "Formatta questa partizione"
 
 #: yali/gui/Ui/parteditwidget.py:87
 msgid " What do you want to store in this partition? "
-msgstr ""
+msgstr "Cosa desideri memorizzare in questa partizione? "
 
 #: yali/gui/Ui/parteditwidget.py:88
 msgid "Pardus system files (mandatory)"
-msgstr ""
+msgstr "File di sistema di Pardus (obbligatori)"
 
 #: yali/gui/Ui/parteditwidget.py:89
 msgid "User files (optional)"
-msgstr ""
+msgstr "File utente (opzionale)"
 
 #: yali/gui/Ui/parteditwidget.py:90
 msgid "Swap space (optional)"
-msgstr ""
+msgstr "Spazio di swap (opzionale)"
 
 #: yali/gui/Ui/partlistwidget.py:47 yali/gui/Ui/partlistwidget.py:90
 msgid "Device"
-msgstr ""
+msgstr "Disco"
 
 #: yali/gui/Ui/partlistwidget.py:48 yali/gui/Ui/partlistwidget.py:91
 msgid "Size"
-msgstr ""
+msgstr "Dimensioni"
 
 #: yali/gui/Ui/partlistwidget.py:49 yali/gui/Ui/partlistwidget.py:92
 msgid "Partition Type"
-msgstr ""
+msgstr "Tipo di partizione"
 
 #: yali/gui/Ui/partlistwidget.py:50 yali/gui/Ui/partlistwidget.py:93
 msgid "Filesystem"
-msgstr ""
+msgstr "Filesystem"
 
 #: yali/gui/Ui/partlistwidget.py:51 yali/gui/Ui/partlistwidget.py:94
 msgid "Format?"
-msgstr ""
+msgstr "Formattare?"
 
 #: yali/gui/Ui/partlistwidget.py:87
 msgid "Create New Partition"
-msgstr ""
+msgstr "Crea nuova partizione"
 
 #: yali/gui/Ui/partlistwidget.py:88 yali/gui/PartListImpl.py:228
 #: yali/gui/PartListViewAbstract.py:203
 msgid "Delete Selected Partition"
-msgstr ""
+msgstr "Elimina partizione selezionata"
 
 #: yali/gui/Ui/partlistwidget.py:89
 msgid "Partitions:"
-msgstr ""
+msgstr "Partizioni:"
 
 #: yali/gui/Ui/partlistwidget.py:95
 msgid "Reset All Changes"
-msgstr ""
+msgstr "Annulla tutti i cambiamenti"
 
 #: yali/gui/Ui/partlistwidget.py:96
 msgid "Resize"
-msgstr ""
+msgstr "Ridimensiona"
 
 #: yali/gui/Ui/partlistwidget.py:97
 msgid "Edit"
-msgstr ""
+msgstr "Modifica"
 
 #: yali/gui/Ui/rootpasswidget.py:130
 msgid "System administrator password:"
-msgstr ""
+msgstr "Password amministratore di sistema:"
 
 #: yali/gui/Ui/rootpasswidget.py:131
 msgid "System administrator password (again):"
-msgstr ""
+msgstr "Password amministratore di sistema (di nuovo):"
 
 #: yali/gui/Ui/rootpasswidget.py:133
 msgid ""
@@ -208,47 +210,47 @@ msgid ""
 "maintanence tasks. Please give password for this special user and do not "
 "forget this password. Note that you shouldn't write this password elsewhere "
 "for privacy reasons.</p>"
-msgstr ""
+msgstr "<p align=\"left\">L'utente amministratore di sistema (o utente root) gestisce importanti compiti di manutenzione del sistema. Inserisci per favore la password di questo utente speciale e non dimenticarla. Dovresti evitare anche di scrivere questa password per motivi di privacy.</p>"
 
 #: yali/gui/Ui/rootpasswidget.py:134
 msgid "Hostname:"
-msgstr ""
+msgstr "Nome dell'host:"
 
 #: yali/gui/Ui/rootpasswidget.py:135
 msgid "pardus"
-msgstr ""
+msgstr "pardus"
 
 #: yali/gui/Ui/setupuserswidget.py:135
 msgid "New User"
-msgstr ""
+msgstr "Nuovo utente"
 
 #: yali/gui/Ui/setupuserswidget.py:136
 msgid "User Name:"
-msgstr ""
+msgstr "Nome utente:"
 
 #: yali/gui/Ui/setupuserswidget.py:137
 msgid "Create User"
-msgstr ""
+msgstr "Crea ytebte"
 
 #: yali/gui/Ui/setupuserswidget.py:138
 msgid "Password (again):"
-msgstr ""
+msgstr "Password (di nuovo):"
 
 #: yali/gui/Ui/setupuserswidget.py:139
 msgid "Password:"
-msgstr ""
+msgstr "Password:"
 
 #: yali/gui/Ui/setupuserswidget.py:140
 msgid "Real Name:"
-msgstr ""
+msgstr "Nome reale:"
 
 #: yali/gui/Ui/setupuserswidget.py:142
 msgid "Delete Selected User"
-msgstr ""
+msgstr "Elimina l'utente selezionato"
 
 #: yali/gui/Ui/setupuserswidget.py:143
 msgid "Users:"
-msgstr ""
+msgstr "Utenti:"
 
 #: yali/gui/Ui/welcomewidget.py:93
 msgid ""
@@ -259,50 +261,50 @@ msgstr ""
 
 #: yali/gui/Ui/welcomewidget.py:94
 msgid "Read GPL"
-msgstr ""
+msgstr "Leggi licenza GPL"
 
 #: yali/gui/Ui/welcomewidget.py:95 yali/gui/runner.py:176
 msgid "Reboot System!"
-msgstr ""
+msgstr "Riavvia il sistema!"
 
 #: yali/gui/Ui/welcomewidget.py:97
 msgid "Accept!"
-msgstr ""
+msgstr "Accetto!"
 
 #: yali/gui/Ui/welcomewidget.py:98
 msgid "Don't Accept!"
-msgstr ""
+msgstr "Non accetto!"
 
 #: yali/gui/GUIBottom.py:101 yali/gui/GUIBottom.py:147
 msgid "Release Notes"
-msgstr ""
+msgstr "Note di rilascio"
 
 #: yali/gui/GUIGPL.py:64
 msgid "Can't open License file!"
-msgstr ""
+msgstr "Impossibile aprire il file della licenza!"
 
 #: yali/gui/GUIRelNotes.py:53
 msgid "Can't open Release Notes file!"
-msgstr ""
+msgstr "Impossibile aprire il file delle note di rilascio!"
 
 #: yali/gui/PartEditImpl.py:101
 #, python-format
 msgid "You are going to delete all partitions on device '%s'"
-msgstr ""
+msgstr "Stai per eliminare tutte le partizioni presenti sul disco '%s'"
 
 #: yali/gui/PartEditImpl.py:113
 #, python-format
 msgid "You are going to delete partition '%s' on device '%s'!"
-msgstr ""
+msgstr "Stai per eliminare la partizione '%s' sul disco '%s'!"
 
 #: yali/gui/PartEditImpl.py:161
 msgid "You must select a partition type from the list below."
-msgstr ""
+msgstr "Devi scegliere un tipo di partizione dalla lista qui sotto."
 
 #: yali/gui/PartEditImpl.py:175 yali/gui/PartEditImpl.py:201
 #, python-format
 msgid "'Install Root' size must be larger than %s MB."
-msgstr ""
+msgstr "La 'Root di installazione' deve essere di almeno %s MB."
 
 #: yali/gui/PartEditImpl.py:277
 msgid "ntfsresize check failed! Won't proceed action!"
@@ -311,30 +313,30 @@ msgstr ""
 #: yali/gui/PartListImpl.py:87 yali/gui/ScrBootloader.py:74
 #: yali/gui/ScrPartitionAuto.py:69 yali/gui/ScrPartitionManual.py:82
 msgid "Can't find a storage device!"
-msgstr ""
+msgstr "Impossibile trovare un dispositivo di memorizzazione!"
 
 #: yali/gui/PartListImpl.py:105 yali/gui/PartListViewAbstract.py:41
 #, python-format
 msgid "%0.1f GB free"
-msgstr ""
+msgstr "%0.1f GB liberi"
 
 #: yali/gui/PartListImpl.py:107 yali/gui/PartListViewAbstract.py:43
 #, python-format
 msgid "%d MB free"
-msgstr ""
+msgstr "%d MB liberi"
 
 #: yali/gui/PartListImpl.py:132 yali/gui/PartListViewAbstract.py:106
 msgid "Extended"
-msgstr ""
+msgstr "Estesa"
 
 #: yali/gui/PartListImpl.py:160 yali/gui/PartListViewAbstract.py:135
 #, python-format
 msgid "Partition %d"
-msgstr ""
+msgstr "Partizione %d"
 
 #: yali/gui/PartListImpl.py:202 yali/gui/PartListViewAbstract.py:177
 msgid "Delete All Partitions"
-msgstr ""
+msgstr "Elimina tutte le partizioni"
 
 #: yali/gui/PartListImpl.py:300 yali/gui/PartListViewAbstract.py:275
 msgid "Can't get partition info from partition request!"
@@ -350,7 +352,7 @@ msgstr ""
 
 #: yali/gui/PartListImpl.py:312 yali/gui/PartListViewAbstract.py:287
 msgid "YES"
-msgstr ""
+msgstr "SI"
 
 #: yali/gui/runner.py:54
 msgid "Prepare for install"
@@ -366,7 +368,7 @@ msgstr ""
 
 #: yali/gui/runner.py:171
 msgid "An error occured!"
-msgstr ""
+msgstr "C'è stato un errore!"
 
 #: yali/gui/ScrAdmin.py:33
 msgid ""
@@ -399,11 +401,11 @@ msgstr ""
 
 #: yali/gui/ScrAdmin.py:96 yali/gui/ScrUsers.py:96
 msgid "<font color=\"#FF6D19\">Caps Lock is on!</font>"
-msgstr ""
+msgstr "<font color=\"#FF6D19\">Bloc maiusc attivato!</font>"
 
 #: yali/gui/ScrAdmin.py:116 yali/gui/ScrUsers.py:110
 msgid "<font color=\"#FF6D19\">Passwords do not match!</font>"
-msgstr ""
+msgstr "<font color=\"#FF6D19\">Le password non corrispondono!</font>"
 
 #: yali/gui/ScrAdmin.py:135
 msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
@@ -449,20 +451,29 @@ msgid ""
 "</p>\n"
 "\n"
 msgstr ""
+"\n"
+"<font size=\"+2\">Verifica integrità CD!</font>\n"
+"\n"
+"<font size=\"+1\">\n"
+"<p>In questa schermata, puoi verificare l'integrità dei pacchetti presenti sul Cd di installazione.\n"
+"</p>\n"
+"\n"
 
 #: yali/gui/ScrCheckCD.py:50
 msgid "Check Failed"
-msgstr ""
+msgstr "Verifica fallita"
 
 #: yali/gui/ScrCheckCD.py:59
 msgid "<font color=\"#FF6D19\">Please wait while checking CD.</font>"
-msgstr ""
+msgstr "<font color=\"#FF6D19\">Attendi durante la verifica del CD...</font>"
 
 #: yali/gui/ScrCheckCD.py:77
 msgid ""
 "<font color=\"#257216\">Check succeeded. You can proceed to the next screen."
 "</font>"
 msgstr ""
+"<font color=\"#257216\">Verifica eseguita con successo. Puoi proseguire alla schermata successiva."
+"</font>"
 
 #: yali/gui/ScrCheckCD.py:99
 msgid ""
@@ -471,10 +482,13 @@ msgid ""
 "broken.</p>\n"
 "</b>\n"
 msgstr ""
+"<b>\n"
+"<p>Verifica dell'integrità dei pacchetti fallita. Sembra che il CD di installazione abbia dei problemi.</p>\n"
+"</b>\n"
 
 #: yali/gui/ScrCheckCD.py:105 yali/gui/ScrGoodbye.py:140
 msgid "Reboot"
-msgstr ""
+msgstr "Riavvia"
 
 #: yali/gui/ScrGoodbye.py:35
 msgid ""
@@ -502,6 +516,8 @@ msgid ""
 "<b><font size=\"+2\" color=\"#FF6D19\">Rebooting system. Please wait!</"
 "font></b>"
 msgstr ""
+"<b><font size=\"+2\" color=\"#FF6D19\">Riavvio del sistema in corso, attendere prego</"
+"font></b>"
 
 #: yali/gui/ScrGoodbye.py:134
 msgid ""
@@ -509,6 +525,9 @@ msgid ""
 "<p>Please remove Pardus CD from your drive and pres Reboot button.</p>\n"
 "</b>\n"
 msgstr ""
+"<b>\n"
+"<p>Per piacere rimuovi il CD di Pardus dal tuo drive e premi il pulsante Riavvia.</p>\n"
+"</b>\n"
 
 #: yali/gui/ScrInstall.py:54
 msgid ""
@@ -538,16 +557,16 @@ msgstr ""
 #: yali/gui/ScrInstall.py:111 yali/gui/ScrInstall.py:132
 #, python-format
 msgid "Installing: %s<br>%s"
-msgstr ""
+msgstr "Installazione di %s<br>%s"
 
 #: yali/gui/ScrInstall.py:117 yali/gui/ScrInstall.py:138
 #, python-format
 msgid "Configuring package: %s"
-msgstr ""
+msgstr "Configurazione pacchetto %s"
 
 #: yali/gui/ScrInstall.py:192
 msgid "Configuring packages for your system!"
-msgstr ""
+msgstr "Configurazione dei pacchetti per il tuo sistema!"
 
 #: yali/gui/ScrInstall.py:235
 #, python-format
@@ -618,7 +637,7 @@ msgstr ""
 
 #: yali/gui/ScrPartitionAuto.py:213 yali/gui/ScrPartitionManual.py:220
 msgid "O.K. Go Ahead"
-msgstr ""
+msgstr "Va bene, prosegui"
 
 #: yali/gui/ScrPartitionManual.py:39
 msgid ""
@@ -662,19 +681,19 @@ msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:170
 msgid "Create Partition"
-msgstr ""
+msgstr "Crea partizione"
 
 #: yali/gui/ScrPartitionManual.py:175
 msgid "Delete Partition"
-msgstr ""
+msgstr "Elimina partizione"
 
 #: yali/gui/ScrPartitionManual.py:180
 msgid "Edit Partition"
-msgstr ""
+msgstr "Modifica partizione"
 
 #: yali/gui/ScrPartitionManual.py:185
 msgid "Resize Partition"
-msgstr ""
+msgstr "Ridimensiona partizione"
 
 #: yali/gui/ScrPartitionManual.py:210
 msgid ""
@@ -708,15 +727,15 @@ msgstr ""
 
 #: yali/gui/ScrUsers.py:136
 msgid "<font color=\"#FF6D19\">Username exists, choose another one!</font>"
-msgstr ""
+msgstr "<font color=\"#FF6D19\">Questo nome utente esiste già, scegline un altro!</font>"
 
 #: yali/gui/ScrUsers.py:140
 msgid "<font color=\"#FF6D19\">Username contains invalid characters!</font>"
-msgstr ""
+msgstr "<font color=\"#FF6D19\">Il nome utente contiene caratteri non validi!</font>"
 
 #: yali/gui/ScrUsers.py:144
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
-msgstr ""
+msgstr "<font color=\"#FF6D19\">Il nome reale contiene caratteri non validi!</font>"
 
 #: yali/gui/ScrWelcome.py:32
 msgid ""
@@ -749,184 +768,185 @@ msgstr ""
 
 #: yali/gui/YaliDialog.py:101
 msgid "Warning"
-msgstr ""
+msgstr "Avviso"
 
 #: yali/bootloader.py:161 yali/bootloader.py:166
 msgid "Windows"
-msgstr ""
+msgstr "Windows"
 
 #: yali/__init__.py:54
 msgid "Backtrace:"
-msgstr ""
+msgstr "Backtrace:"
 
 #: yali/localedata.py:85 yali/localedata.py:86
 msgid "Afrikaans"
-msgstr ""
+msgstr "Afrikaans"
 
 #: yali/localedata.py:94 yali/localedata.py:95
 msgid "Arabic"
-msgstr ""
+msgstr "Arabo"
 
 #: yali/localedata.py:103 yali/localedata.py:104
 msgid "Belgium"
-msgstr ""
+msgstr "Belgio"
 
 #: yali/localedata.py:112 yali/localedata.py:113
 msgid "Bulgarian"
-msgstr ""
+msgstr "Bulgaro"
 
 #: yali/localedata.py:121 yali/localedata.py:122
 msgid "Catalan"
-msgstr ""
+msgstr "Catalano"
 
 #: yali/localedata.py:130 yali/localedata.py:131
 msgid "Croatian"
-msgstr ""
+msgstr "Croato"
 
 #: yali/localedata.py:139 yali/localedata.py:140
 msgid "Czech"
-msgstr ""
+msgstr "Ceco"
 
 #: yali/localedata.py:148 yali/localedata.py:149
 msgid "Danish"
-msgstr ""
+msgstr "Danese"
 
 #: yali/localedata.py:157
 msgid "Dutch"
-msgstr ""
+msgstr "Olandese"
 
 #: yali/localedata.py:160
 msgid "Dutch (US)"
-msgstr ""
+msgstr "Olandese (US)"
 
 #: yali/localedata.py:168 yali/localedata.py:169
 msgid "English"
-msgstr ""
+msgstr "Inglese"
 
 #: yali/localedata.py:177 yali/localedata.py:178
 msgid "Estonian"
-msgstr ""
+msgstr "Estone"
 
 #: yali/localedata.py:186 yali/localedata.py:187
 msgid "Finnish"
-msgstr ""
+msgstr "Finlandese"
 
 #: yali/localedata.py:195 yali/localedata.py:196
 msgid "French"
-msgstr ""
+msgstr "Francese"
 
 #: yali/localedata.py:204 yali/localedata.py:205
 msgid "German"
-msgstr ""
+msgstr "Tedesco"
 
 #: yali/localedata.py:213 yali/localedata.py:214
 msgid "Greek"
-msgstr ""
+msgstr "Greco"
 
 #: yali/localedata.py:222 yali/localedata.py:223
 msgid "Hungarian"
-msgstr ""
+msgstr "Ungherese"
 
 #: yali/localedata.py:231 yali/localedata.py:232
 msgid "Icelandic"
-msgstr ""
+msgstr "Islandese"
 
 #: yali/localedata.py:240 yali/localedata.py:241
 msgid "Italian"
-msgstr ""
+msgstr "Italiano"
 
 #: yali/localedata.py:249 yali/localedata.py:250
 msgid "Japanese"
-msgstr ""
+msgstr "Giapponese"
 
 #: yali/localedata.py:258 yali/localedata.py:259
 msgid "Macedonian"
-msgstr ""
+msgstr "Macedone"
 
 #: yali/localedata.py:267 yali/localedata.py:268
 msgid "Malayalam"
-msgstr ""
+msgstr "Malayalam"
 
 #: yali/localedata.py:276 yali/localedata.py:277
 msgid "Norwegian"
-msgstr ""
+msgstr "Norvegese"
 
 #: yali/localedata.py:285 yali/localedata.py:286
 msgid "Polish"
-msgstr ""
+msgstr "Polacco"
 
 #: yali/localedata.py:294 yali/localedata.py:295
 msgid "Portuguese"
-msgstr ""
+msgstr "Portoghese"
 
 #: yali/localedata.py:303 yali/localedata.py:304
 msgid "Brazilian"
-msgstr ""
+msgstr "Portoghese brasiliano"
 
 #: yali/localedata.py:312 yali/localedata.py:313
 msgid "Russian"
-msgstr ""
+msgstr "Russo"
 
 #: yali/localedata.py:321 yali/localedata.py:322
 msgid "Serbian"
-msgstr ""
+msgstr "Serbo"
 
 #: yali/localedata.py:330 yali/localedata.py:331
 msgid "Slovak"
-msgstr ""
+msgstr "Slovacco"
 
 #: yali/localedata.py:339 yali/localedata.py:340
 msgid "Slovenian"
-msgstr ""
+msgstr "Sloveno"
 
 #: yali/localedata.py:348 yali/localedata.py:349
 msgid "Spanish"
-msgstr ""
+msgstr "Spagnolo"
 
 #: yali/localedata.py:357 yali/localedata.py:358
 msgid "Swedish"
-msgstr ""
+msgstr "Svedese"
 
 #: yali/localedata.py:366
 msgid "Turkish"
-msgstr ""
+msgstr "Turco"
 
 #: yali/localedata.py:367
 msgid "Turkish Q"
-msgstr ""
+msgstr "Turco Q"
 
 #: yali/localedata.py:368
 msgid "Turkish F"
-msgstr ""
+msgstr "Turco F"
 
 #: yali/localedata.py:376 yali/localedata.py:377
 msgid "Ukrainian"
-msgstr ""
+msgstr "Ucraino"
 
 #: yali/localedata.py:385 yali/localedata.py:386
 msgid "Vietnamese"
-msgstr ""
+msgstr "Vietnamita"
 
 #: yali/localedata.py:394 yali/localedata.py:395
 msgid "Welsh"
-msgstr ""
+msgstr "Gallese"
 
 #: yali/partition.py:35
 msgid "unknown"
-msgstr ""
+msgstr "sconosciuto"
 
 #: yali/partition.py:169
 msgid "free space"
-msgstr ""
+msgstr "spazio libero"
 
 #: yali/partitiontype.py:51
 msgid "Install Root"
-msgstr ""
+msgstr "Root di installazione"
 
 #: yali/partitiontype.py:59
 msgid "Users' Files"
-msgstr ""
+msgstr "File degli utenti"
 
 #: yali/partitiontype.py:67
 msgid "Swap"
-msgstr ""
+msgstr "Swap"
+
