@@ -70,8 +70,12 @@ class PartList(PartListWidget):
     def update(self):
         self.list.clear()
 
-        for dev in yali.storage.devices:
+        # for consistency insert in reverse order.
+        devs = yali.storage.devices
+        devs.reverse()
+        for dev in devs:
             self.addDevice(dev)
+        del devs
 
         self.createButton.setEnabled(False)
         self.deleteButton.setEnabled(False)
