@@ -28,7 +28,7 @@ class FstabEntry:
 
 fstab_header = """# See the manpage fstab(5) for more information.
 #
-# <fs>      <mountpoint>         <type>    <opts>               <dump/pass>
+#   <fs>             <mountpoint>     <type>    <opts>               <dump/pass>
 
 """
 standard_entries = [
@@ -44,7 +44,7 @@ class Fstab(file):
         self.write(fstab_header)
 
     def insert(self, e):
-        l = "%-11s %-20s %-9s %-20s %s %s\n" % (
+        l = "%-20s %-16s %-9s %-20s %s %s\n" % (
             e.device, e.mountpoint, e.filesystem,
             e.options, e.d, e.p)
         self.write(l)
