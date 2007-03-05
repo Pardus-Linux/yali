@@ -243,6 +243,7 @@ class PartEdit(QWidget):
                 for p in self._d.getPartitions():
                     ctx.partrequests.removeRequest(p, request.mountRequestType)
                     ctx.partrequests.removeRequest(p, request.formatRequestType)
+                    ctx.partrequests.removeRequest(p, request.labelRequestType)
 
                 self._d.deleteAllPartitions()
 #                self._d.commit()
@@ -261,6 +262,7 @@ class PartEdit(QWidget):
                 # delete requests
                 ctx.partrequests.removeRequest(self._d, request.mountRequestType)
                 ctx.partrequests.removeRequest(self._d, request.formatRequestType)
+                ctx.partrequests.removeRequest(self._d, request.labelRequestType)
 
             elif state == editState:
                 partition = self._d
