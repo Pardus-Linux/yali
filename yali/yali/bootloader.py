@@ -98,8 +98,11 @@ class BootLoader:
 
         minor = str(int(filter(lambda u: u.isdigit(), self.install_root)) -1)
         # grub_root is the device on which we install.
-        grub_root = ",".join([self._find_grub_dev(self.install_root),
-                              minor])
+        # grub_root = ",".join([self._find_grub_dev(self.install_root),
+        #                      minor])
+        ####
+        # grub_root is always hd0 (http://liste.pardus.org.tr/gelistirici/2007-March/005725.html)
+        grub_root = ",".join(["hd0", minor])
 
         def find_boot_kernel():
             d = os.path.join(consts.target_dir, "boot")
@@ -113,7 +116,7 @@ class BootLoader:
         def boot_parameters(root):
             s = []
 
-	    # Get parameters from cmdline.
+            # Get parameters from cmdline.
             for i in [x for x in open("/proc/cmdline", "r").read().split() if not x.startswith("init=") and not x.startswith("xorg=")]:
                 if i.startswith("root="):
                     s.append("root=/dev/%s" % (root))
@@ -127,17 +130,17 @@ class BootLoader:
                 else:
                     s.append(i)
 
-	    # a hack for http://bugs.pardus.org.tr/3345
-	    rt = request.mountRequestType
-	    pt = parttype.swap
-	    swap_part_req = partrequests.searchPartTypeAndReqType(pt, rt)
-	    if swap_part_req:
-		s.append("resume=%s" %(swap_part_req.partition().getPath()))
+            # a hack for http://bugs.pardus.org.tr/3345
+            rt = request.mountRequestType
+            pt = parttype.swap
+            swap_part_req = partrequests.searchPartTypeAndReqType(pt, rt)
+            if swap_part_req:
+                s.append("resume=%s" %(swap_part_req.partition().getPath()))
 
 
             return " ".join(s).strip()
 
-	    
+            
 
  
         boot_kernel = find_boot_kernel()
