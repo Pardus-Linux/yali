@@ -72,9 +72,9 @@ class FileSystem:
         try:
             fd = os.open(partition.getPath(), os.O_RDONLY)
             return fd
-        except:
-            e = "error opening partition %s: %s" % (partition.getPath(), e)
-            raise YaliException, e
+        except OSError, e:
+            err = "error opening partition %s: %s" % (partition.getPath(), e)
+            raise YaliException, err
 
     ##
     # get file system name
@@ -293,7 +293,7 @@ class ReiserFileSystem(FileSystem):
 
     def getLabel(self, partition):
         label = None
-        fd = self.openPartiton(partiton)
+        fd = self.openPartiton(partition)
 
         # valid block sizes in reiserfs are 512 - 8192, powers of 2
         # we put 4096 first, since it's the default
