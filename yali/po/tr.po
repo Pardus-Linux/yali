@@ -533,8 +533,7 @@ msgstr ""
 "<font size=\"+2\">CD Kontrolü!</font>\n"
 "\n"
 "<font size=\"+1\">\n"
-"<p>Bu ekranda, kurulum CD'sindeki paketlerin doğruluğunu kontol "
-"edebilirsiniz.</p>\n"
+"<p>Bu ekranda, kurulum CD'sindeki paketlerin doğruluğunu denetleyebilirsiniz.</p>"
 "\n"
 
 #: yali/gui/ScrCheckCD.py:50
