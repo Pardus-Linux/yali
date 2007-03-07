@@ -136,7 +136,7 @@ class Runner:
 
 
 def showException(ex_type, tb):
-    title = "Unhandled Exception!"
+    title = _("Error!")
     
     if ex_type in (yali.exception_fatal, yali.exception_pisi):
         w = ErrorWidget(tb)
@@ -168,7 +168,7 @@ class ErrorWidget(QWidget):
         apply(QWidget.__init__, (self,) + args)        
 
         info = QLabel(self)
-        info.setText(_("An error occured!"))
+        info.setText(_("Unhandled error occured!"))
         traceback = QTextView(self)
         traceback.setText(tb_text)
 

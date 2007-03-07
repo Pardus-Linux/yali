@@ -36,25 +36,12 @@ def default_runner():
 
 
 exception_normal, exception_fatal, \
-    exception_pisi, exception_unknown = range(4)
+    exception_pisi, exception_informational, \
+    exception_unknown = range(5)
 
 def exception_handler(exception, value, tb):
 
 #    sys.excepthook = sys.__excepthook__
-
-    sio = cStringIO.StringIO()
-
-    v = ''
-    for e in value.args:
-        v += str(e) + '\n'
-    sio.write(v)
-    sio.write(str(exception))
-
-    sio.write('\n\n')
-    sio.write(_("Backtrace:"))
-    sio.write('\n')
-    traceback.print_tb(tb, None, sio)
-
 
     exception_type = exception_unknown
 
@@ -67,6 +54,23 @@ def exception_handler(exception, value, tb):
     elif isinstance(value, YaliException):
         exception_type = exception_normal
 
+    elif isinstance(value, YaliExceptionInfo):
+        exception_type = exception_informational
+
+
+    sio = cStringIO.StringIO()
+
+    v = ''
+    for e in value.args:
+        v += str(e) + '\n'
+    sio.write(v)
+
+    if exception_type != exception_informational:
+        sio.write(str(exception))
+        sio.write('\n\n')
+        sio.write(_("Backtrace:"))
+        sio.write('\n')
+        traceback.print_tb(tb, None, sio)
 
     sio.seek(0)
 

@@ -75,6 +75,8 @@ about disk partitioning.
         # select the first disk by default
         self.device_list.setSelected(0, True)
 
+        if not self.device_list.count():
+            raise YaliExceptionInfo, _("It seems that you don't have the required disk space (min. %s) for Pardus installation." % ctx.consts.min_root_size)
 
         self.connect(self.accept_auto, SIGNAL("clicked()"),
                      self.slotSelectAuto)

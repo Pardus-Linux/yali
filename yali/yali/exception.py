@@ -15,3 +15,6 @@ class YaliError(Exception):
 
 class YaliException(Exception):
     pass
+
+class YaliExceptionInfo(Exception):
+    pass

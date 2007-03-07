@@ -44,12 +44,17 @@ class RequestList(list):
         for r in self.searchReqTypeIterate(labelRequestType):
             r.applyRequest()
 
+        # we need to trigger udev for our new labels
+        yali.sysutils.run("/sbin/udevtrigger")
+        yali.sysutils.run("/sbin/udevsettle", "--timeout=180")
+
+
         # then mount request
         # but mount root (/) first
         pt = parttype.root
         rootreq = self.searchPartTypeAndReqType(pt, mountRequestType)
-	if not rootreq:
-	    raise RequestException, "Desired partition request not found: root partition request."
+        if not rootreq:
+            raise RequestException, "Desired partition request not found: root partition request."
         rootreq.applyRequest()
 
         # mount others
@@ -137,16 +142,16 @@ class RequestList(list):
     # @param pt: Partition Type (defined in partitiontype.py)
     # @param rt: Request Type
     def searchPartTypeAndReqType(self, pt, rt):
-	req = [x for x in self.searchPartTypeAndReqTypeIterate(pt, rt)]
+        req = [x for x in self.searchPartTypeAndReqTypeIterate(pt, rt)]
         # this should give (at most) one result
         # cause we are storing one request for a partitionType()
         assert(len(req) <= 1)
 
-	if not req:
-	    return None
-	else:
-	    # return the only request found.
-	    return req.pop()
+        if not req:
+            return None
+        else:
+            # return the only request found.
+            return req.pop()
 
 
     ##
@@ -158,8 +163,8 @@ class RequestList(list):
         pt = req.partitionType()
         found = self.searchPartTypeAndReqType(pt, rt)
 
-	# RequestList stores only one request for a requestType() -
-	# partitionType() pair.
+        # RequestList stores only one request for a requestType() -
+        # partitionType() pair.
         if found:
             e = "There is a request with the same partitionType() and requestType()."
             raise RequestException, e
