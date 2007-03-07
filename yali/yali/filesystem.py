@@ -68,7 +68,7 @@ class FileSystem:
 
     ##
     # Open partition
-    def openPartiton(self, partition):
+    def openPartition(self, partition):
         try:
             fd = os.open(partition.getPath(), os.O_RDONLY)
             return fd
@@ -293,7 +293,7 @@ class ReiserFileSystem(FileSystem):
 
     def getLabel(self, partition):
         label = None
-        fd = self.openPartiton(partition)
+        fd = self.openPartition(partition)
 
         # valid block sizes in reiserfs are 512 - 8192, powers of 2
         # we put 4096 first, since it's the default
@@ -363,7 +363,7 @@ class XFSFileSystem(FileSystem):
 
     def getLabel(self, partition):
         label = None
-        fd = self.openPartiton(partition)
+        fd = self.openPartition(partition)
         try:
             buf = os.read(fd, 128)
             os.close(fd)
@@ -420,7 +420,7 @@ class SwapFileSystem(FileSystem):
 
     def getLabel(self, partition):
         label = None
-        fd = self.openPartiton(partition)
+        fd = self.openPartition(partition)
         
         pagesize = resource.getpagesize()
         try:
