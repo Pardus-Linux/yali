@@ -155,11 +155,12 @@ class Partition:
             return "%0.2f MB" % self.getMB()
 
     ##
-    # is equal? compare the partiton path
+    # is equal? compare the partiton start/ends
     # @param: Partition
     # returns: Boolean
     def __eq__(self, rhs):
-        return self.getPath() == rhs.getPath()
+#        return self.getPath() == rhs.getPath()
+        return self.getStart() == rhs.getStart() and self.getEnd() == rhs.getEnd()
 
 
 ##
