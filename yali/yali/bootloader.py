@@ -123,7 +123,7 @@ class BootLoader:
                 elif i.startswith("mudur="):
                     mudur = "mudur="
                     for p in i[len("mudur="):].split(','):
-                        if p == "livecd": continue
+                        if p == "livecd" or p == "livedisk": continue
                         mudur += p
                     if not len(mudur) == len("mudur="):
                         s.append(mudur)
