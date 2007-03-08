@@ -18,8 +18,6 @@ __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 
-import yali.storage
-
 import yali.gui.context as ctx
 import yali.partitionrequest as request
 import yali.partitiontype as parttype
@@ -77,10 +75,6 @@ about disk partitioning.
     def __init__(self, *args):
         apply(QWidget.__init__, (self,) + args)
         
-        # initialize all storage devices
-        if not yali.storage.init_devices():
-            raise GUIException, _("Can't find a storage device!")
-
         self.partlist = PartList(self)
         self.partedit = PartEdit(self)
         self.partedit.hide()
@@ -153,9 +147,9 @@ about disk partitioning.
             rt = request.mountRequestType
             pt = parttype.root
             root_part_req = ctx.partrequests.searchPartTypeAndReqType(pt, rt)
-	    ctx.partrequests.append(
-		request.SwapFileRequest(root_part_req.partition(),
-					root_part_req.partitionType()))
+            ctx.partrequests.append(
+                request.SwapFileRequest(root_part_req.partition(),
+                                        root_part_req.partitionType()))
 
         # apply all partition requests
         ctx.partrequests.applyAll()

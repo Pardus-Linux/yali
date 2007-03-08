@@ -47,6 +47,9 @@ class PartList(PartListWidget):
         # disable sorting
         self.list.setSorting(-1)
 
+        self.devs = []
+        self.initDevices()
+
         self.connect(self.list, SIGNAL("selectionChanged()"),
                      self.slotItemSelected)
         self.connect(self.createButton, SIGNAL("clicked()"),
@@ -70,12 +73,8 @@ class PartList(PartListWidget):
     def update(self):
         self.list.clear()
 
-        # for consistency insert in reverse order.
-        devs = yali.storage.devices
-        devs.reverse()
-        for dev in devs:
+        for dev in self.devs:
             self.addDevice(dev)
-        del devs
 
         self.createButton.setEnabled(False)
         self.deleteButton.setEnabled(False)
@@ -85,13 +84,19 @@ class PartList(PartListWidget):
         self.showPartitionRequests()
         self.checkRootPartRequest()
 
-    def resetChanges(self):
-        yali.storage.clear_devices()
+    def initDevices(self):
+        # initialize all storage devices
         if not yali.storage.init_devices():
             raise GUIException, _("Can't find a storage device!")
 
-        ctx.partrequests.remove_all()
+        # for consistency list devices in reverse order.
+        self.devs = [i for i in yali.storage.devices]
+        self.devs.reverse()
 
+    def resetChanges(self):
+        yali.storage.clear_devices()
+        self.initDevices()
+        ctx.partrequests.remove_all()
         self.update()
 
 
