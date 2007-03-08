@@ -1,4 +1,4 @@
-# translation of fr.po to French
+# translation of fr.po to french
 # translation of tr.po to
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
@@ -11,9 +11,9 @@ msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-12-11 14:34+0200\n"
-"PO-Revision-Date: 2007-03-07 00:40+0200\n"
+"PO-Revision-Date: 2007-03-09 00:26+0200\n"
 "Last-Translator: Amine Chadly <amine.chadly@gmail.com>\n"
-"Language-Team: French <kde-francophone@kde.org>\n"
+"Language-Team: french <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -517,7 +517,7 @@ msgstr ""
 "<font size=\"+2\">Vérifier l'intégriter du CD!</font>\n"
 "\n"
 "<font size=\"+1\">\n"
-"<p>Dans cet écrant, vous pouvez vérifier l'intégrité des paquets "
+"<p>Dans cet écran, vous pouvez vérifier l'intégrité des paquets "
 "du CD d'installation.\n"
 "</p>\n"
 "\n"
@@ -771,13 +771,14 @@ msgstr ""
 "l'installation\n"
 "de Pardus. Toutes les données actuellement sur le disque sélectionné seront perdues.</p>\n"
 "\n"
-"<p>Après vous êtes assuré d'avoir fait une copie de sauvegarde, ceci est généralement\n"
+"<p>Après vous êtes assuré d'avoir fait une copie de sauvegarde\n"
+"de vos données, ceci est généralement\n"
 "une manière simple et sûre d'installer Pardus.</p>\n"
 "</b>\n"
 
 #: yali/gui/ScrPartitionAuto.py:213 yali/gui/ScrPartitionManual.py:220
 msgid "O.K. Go Ahead"
-msgstr "D'accord. Vas-y"
+msgstr "O.K. Continuer"
 
 #: yali/gui/ScrPartitionManual.py:39
 msgid ""
@@ -819,64 +820,60 @@ msgid ""
 "</font>\n"
 msgstr ""
 "\n"
-"<font size=\"+2\">Partitionnement de disque dure</font>\n"
+"<font size=\"+2\">Partitionnement du disque dur</font>\n"
 "\n"
 "<font size=\"+1\">\n"
 "<p>\n"
-"Pardus, travaille avec beaucoup de different peripherique..Si vous en \n"
-"avez un parttionnement vide ou une disque dure vide, vous pouvez \n"
-"pouvez facilement installer Pardus. <b>L'installation détruira "
-"automatiquement  \n"
-"l'information précédemment sauvée sur les partitions choisies</b> \n"
-"pour cela on vous propose de sauver tous vos fichiers que vous utilisez\n"
-" avant de travailler.\n"
+"Pardus peut être installé sur divers matériels. Vous pouvez installer\n"
+"Pardus sur un disque dur vide ou sur une simple partition.<b>Toutes\n"
+"les données présentes dans les partitions sélectionnées seront\n"
+"automatiquement supprimées.</b> \n"
 "</p> \n"
 "<p> \n"
-"Pour installer Pardus, vous devez créer un système de fichier \n"
-"Linux (obligatoire) et un éspace de swap pour une pérformance \n"
-"amélioré (optionel). Pour cela, on vous conseille un éspace d'au moins 4 "
-"GB \n"
-"pour les fichiers de système et un éspace de 500 MB - 2 GB pour \n"
-"l'éspace de swap. Le partitionnement de Linux ne peut pas être moins de 3.5 "
-"GB.\n"
-"Vous pouvez optionnellement utiliser une autre parttion pour les fichiers "
-"d'utilisateurs.\n"
+"Afin de pouvoir utiliser Pardus, vous devez obligatoirement créer un \n"
+"système de fichier Linux (pour les fichiers systèmes) et un espace "
+"d'échange swap optionnel (pour des performances optimales). "
+"Nous vous conseillons d'allouer au moins 4Go d'espace disque pour le\n"
+"système de fichier et le swap (nous vous suggérons de tailler entre \n"
+"500Mo et 2Go en fonction de vos besoins). Aucune partition Linux de \n"
+"moins de 3.5 Go n'est autorisée. Vous pouvez éventuellement utiliser \n"
+"une autre partition du disque pour stocker les fichier utilisateurs.\n"
+"Vous pouvez optionnellement utiliser une autre parttion pour les \n"
+"fichiers utilisateurs.\n"
 "</p> \n"
 "<p>\n"
-"Si c'est la première fois que vous installez Linux, vous devez formatterl\n"
-"la disque dure. L'installation détruira toutes les informations sur  \n"
-"la disque dure.. Si vous voulez utiliser les autres partitions sur la "
-"disque  dure, Vous pouvez activer \"utiliser toute l'éspace disponible\"\n"
+"Vous devez absolument formater une partition Linux s'il s'agit de sa\n"
+"première utilisation. Vous pouvez cocher l'option \n"
+"'Utiliser tout l'espace disponible' si vous voulez allouer automatiquement \n"
+"tout l'espace libre d'un disque dur."
 "</p>\n"
 "<p>\n"
-"La table de partitionnement montre,le nom, la taille, le type et "
-"l'information\n"
-"sur le système de fichier de la disque dure. Si le partitionnement va "
-"formatter \n"
-"pendant l'installation de Pardus, alors la colonne 'Formatter' \n"
-"doit être activer.\n"
+"La table de partitionnement montre le périphérique, la taille, \n"
+"le type de partition ainsi que les propriétés du système de fichier.\n"
+"La colonne correspondante 'Formater' sera cochée si la partition \n"
+"sera formatée au cours du process d'installation de Pardus.\n"
 "</p>\n"
 "<p> \n"
-"Daha fazla bilgi için Pardus Kurulum ve Kullanım Kılavuzu'na \n"
-"başvurabilirsiniz. \n"
+"Pour tout information concernant le partitionnement de disque dur, veuillez \n"
+"consulter le Guide d'Installation et d'Utilisation de Pardus."
 "</p> \n"
 "</font>\n"
 
 #: yali/gui/ScrPartitionManual.py:170
 msgid "Create Partition"
-msgstr "Créer le partitionnement"
+msgstr "Créer la partition"
 
 #: yali/gui/ScrPartitionManual.py:175
 msgid "Delete Partition"
-msgstr "Supprimer le partitionnement"
+msgstr "Supprimer la partition"
 
 #: yali/gui/ScrPartitionManual.py:180
 msgid "Edit Partition"
-msgstr "Editer le partitionnement"
+msgstr "Editer la partition"
 
 #: yali/gui/ScrPartitionManual.py:185
 msgid "Resize Partition"
-msgstr "Redimensionner le partitionnement"
+msgstr "Redimensionner la partition"
 
 #: yali/gui/ScrPartitionManual.py:210
 msgid ""
@@ -886,8 +883,8 @@ msgid ""
 "</b>\n"
 msgstr ""
 "<b>\n"
-"<p>Cette opération va commencer l'installation de Pardus sur \n"
-"votre système et va formatter le partitionnement choisi.</p>\n"
+"<p>Cette opération marque le début de l'installation de Pardus sur \n"
+"votre système et va formatter la partition sélectionnée.</p>\n"
 "</b>\n"
 
 #: yali/gui/ScrUsers.py:31
@@ -912,43 +909,39 @@ msgid ""
 "</font>\n"
 msgstr ""
 "\n"
-"<font size=\"+2\">Mot de passe pour l'utilisateur</font>\n"
+"<font size=\"+2\">Gestion d'utilisateur</font>\n"
 "\n"
 "<font size=\"+1\">\n"
 "<p>\n"
 "İl est possible de définir des utilisateurs \n"
-"différent de l'administrateur.\n"
+"autres que l'administrateur pour vos besoins \n"
+"quotidiens i.e lire des e-mails, naviguer sur \n"
+"le web, chercher les différentes recettes \n"
+"cuisine du jour. Les règles habituelles de choix\n"
+"de mot de passe s'applique ici aussi. Choisissez "
+"un mot de passe difficile à deviner mais facile "
+"à retenir.\n"
 "</p>\n"
-"\n"
-"<p>Veuillez choisir un mot de passe. Ce mot de \n"
-"passe doit être difficile à deviner, mais facile  \n"
-"à mémoriser\n"
 "</p>\n"
-"<p>\n"
 "Pour continuer, cliquez sur le bouton \"Suivant\"\n"
 "</p>\n"
 "</font>\n"
 
 #: yali/gui/ScrUsers.py:136
 msgid "<font color=\"#FF6D19\">Username exists, choose another one!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Ce nom d'utilisateur existe déjà, choisissez un "
-"autre!</font>"
+msgstr "<font color=\"#FF6D19\">Cet utilisateur existe déjà, choisissez en un autre!</font>"
 
 #: yali/gui/ScrUsers.py:140
 msgid "<font color=\"#FF6D19\">Username contains invalid characters!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Le nom d'utilisateur contient des charactères "
-"invalides!</font>"
+msgstr "<font color=\"#FF6D19\">Le nom de l'utilisateur contient des charactères invalides!</font>"
 
 #: yali/gui/ScrUsers.py:144
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
 msgstr ""
-"<font color=\"#FF6D19\">Le nom réel contient des charactères invalides.!</"
+"<font color=\"#FF6D19\">Le nom réel de l'utilisateur contient des charactères invalides.!</"
 "font>"
 
 #: yali/gui/ScrWelcome.py:32
-#, fuzzy
 msgid ""
 "\n"
 "<font size=\"+2\">Welcome!</font>\n"
@@ -977,10 +970,15 @@ msgid ""
 "</font>\n"
 msgstr ""
 "\n"
-"<font size=\"+2\">BIENVENU</font>\n"
+"<font size=\"+2\">Bienvenue</font>\n"
 "\n"
 "<font size=\"+1\">\n"
-"<p> Bienvenu à Pardus nouveau, pratique et qui possède \n"
+"<p> Bienvenue sur Pardus votre nouveau bureau pratique composé \n "
+"de nombreuses applications taillées pour vos besoins. Avec Pardus, vous\n"
+"pouvez vous connecter à internet, lire vos e-mails en ligne,\n"
+"éditer des documents, écouter de la musique, lire des DVDs.\n"
+"Son interface puissante mais simple vous permettra d'être\n"
+"plus productif et efficace nouveau, pratique et qui possède \n"
 "plusieurs logiciels. Vous pouvez utiliser Pardus pour connecter \n"
 "à internet, pour lire vos courriels, pour écouter de la musique, \n"
 "pour travailler avec les documents, etc. Avec l'interface simple de Pardus \n"
@@ -988,18 +986,19 @@ msgstr ""
 "</p>\n"
 "\n"
 "<p>\n"
-"Vous allez installer Pardus à votre ordinateur avec seulement 6 cliques.\n"
-"Il est conseillé de sauver vos document avant l'installation.\n"
+"Ce logiciel va installer Pardus sur votre ordinateur,\n"
+"sans interférer avec vos documents antérieurs ni vos paramétrages.\n"
+"Toutefois nous vous conseillons de faire une copie de sauvegarde\n"
+"avec de poursuivre.\n"
 "</p>\n"
 "<p>\n"
-"Le système d'installation va identifier vos périphériques et va les "
-"configurer.\n"
-"Vous pouvez controller les opérations avec les touches de flèches au "
-"dessous \n"
-"de l'écran\n"
+"Le système d'installation va identifier vos périphériques et les \n"
+"configurer en fonction de vos besoins. Les flèches que vous \n"
+"pouvez remarquer en bas de l'écran vous permettront de \n"
+"passer à l'écran suivant.\n"
 "</p>\n"
 "<p>\n"
-"Bienvenu au monde PARDUS.!\n"
+"Nous vous souhaitons une utilisation fructueuse de Pardus!\n"
 "</p>\n"
 "</font>\n"
 
@@ -1013,161 +1012,159 @@ msgstr "Les fenêtres"
 
 #: yali/__init__.py:54
 msgid "Backtrace:"
-msgstr "Backtrace:"
+msgstr "Pile d'exécution:"
 
 #: yali/localedata.py:85 yali/localedata.py:86
 msgid "Afrikaans"
-msgstr ""
+msgstr "Afrikaans"
 
 #: yali/localedata.py:94 yali/localedata.py:95
 msgid "Arabic"
-msgstr ""
+msgstr "Arabe"
 
 #: yali/localedata.py:103 yali/localedata.py:104
 msgid "Belgium"
-msgstr ""
+msgstr "Belge"
 
 #: yali/localedata.py:112 yali/localedata.py:113
 msgid "Bulgarian"
-msgstr ""
+msgstr "Bulgare"
 
 #: yali/localedata.py:121 yali/localedata.py:122
 msgid "Catalan"
-msgstr ""
+msgstr "Catalan"
 
 #: yali/localedata.py:130 yali/localedata.py:131
 msgid "Croatian"
-msgstr ""
+msgstr "Croate"
 
 #: yali/localedata.py:139 yali/localedata.py:140
 msgid "Czech"
-msgstr ""
+msgstr "Tchèque"
 
 #: yali/localedata.py:148 yali/localedata.py:149
 msgid "Danish"
-msgstr ""
+msgstr "Danois"
 
 #: yali/localedata.py:157
 msgid "Dutch"
-msgstr ""
+msgstr "Hollandais"
 
 #: yali/localedata.py:160
 msgid "Dutch (US)"
-msgstr ""
+msgstr "Hollandais (US)"
 
 #: yali/localedata.py:168 yali/localedata.py:169
-#, fuzzy
 msgid "English"
-msgstr "Le clavier Anglais (Etats-Unis)"
+msgstr "Anglais"
 
 #: yali/localedata.py:177 yali/localedata.py:178
 msgid "Estonian"
-msgstr ""
+msgstr "Estonien"
 
 #: yali/localedata.py:186 yali/localedata.py:187
 msgid "Finnish"
-msgstr ""
+msgstr "Finnois"
 
 #: yali/localedata.py:195 yali/localedata.py:196
 msgid "French"
-msgstr ""
+msgstr "Français"
 
 #: yali/localedata.py:204 yali/localedata.py:205
 msgid "German"
-msgstr ""
+msgstr "Allemand"
 
 #: yali/localedata.py:213 yali/localedata.py:214
 msgid "Greek"
-msgstr ""
+msgstr "Grec"
 
 #: yali/localedata.py:222 yali/localedata.py:223
 msgid "Hungarian"
-msgstr ""
+msgstr "Hongrois"
 
 #: yali/localedata.py:231 yali/localedata.py:232
 msgid "Icelandic"
-msgstr ""
+msgstr "Islandais"
 
 #: yali/localedata.py:240 yali/localedata.py:241
 msgid "Italian"
-msgstr ""
+msgstr "Italien"
 
 #: yali/localedata.py:249 yali/localedata.py:250
 msgid "Japanese"
-msgstr ""
+msgstr "Japonnais"
 
 #: yali/localedata.py:258 yali/localedata.py:259
 msgid "Macedonian"
-msgstr ""
+msgstr "Macédonien"
 
 #: yali/localedata.py:267 yali/localedata.py:268
 msgid "Malayalam"
-msgstr ""
+msgstr "Malayalam"
 
 #: yali/localedata.py:276 yali/localedata.py:277
 msgid "Norwegian"
-msgstr ""
+msgstr "Norvégien"
 
 #: yali/localedata.py:285 yali/localedata.py:286
 msgid "Polish"
-msgstr ""
+msgstr "Polonais"
 
 #: yali/localedata.py:294 yali/localedata.py:295
 msgid "Portuguese"
-msgstr ""
+msgstr "Portugais"
 
 #: yali/localedata.py:303 yali/localedata.py:304
 msgid "Brazilian"
-msgstr ""
+msgstr "Brésilien"
 
 #: yali/localedata.py:312 yali/localedata.py:313
 msgid "Russian"
-msgstr ""
+msgstr "Russe"
 
 #: yali/localedata.py:321 yali/localedata.py:322
 msgid "Serbian"
-msgstr ""
+msgstr "Serbe"
 
 #: yali/localedata.py:330 yali/localedata.py:331
 msgid "Slovak"
-msgstr ""
+msgstr "Slovaque"
 
 #: yali/localedata.py:339 yali/localedata.py:340
 msgid "Slovenian"
-msgstr ""
+msgstr "Slovène"
 
 #: yali/localedata.py:348 yali/localedata.py:349
 msgid "Spanish"
-msgstr ""
+msgstr "Espagnol"
 
 #: yali/localedata.py:357 yali/localedata.py:358
 msgid "Swedish"
-msgstr ""
+msgstr "Suédois"
 
 #: yali/localedata.py:366
-#, fuzzy
 msgid "Turkish"
-msgstr "Le clavier Q Turc"
+msgstr "Turc"
 
 #: yali/localedata.py:367
 msgid "Turkish Q"
-msgstr "Le clavier Q Turc"
+msgstr "Turc Q"
 
 #: yali/localedata.py:368
 msgid "Turkish F"
-msgstr "Le clavier F turc"
+msgstr "Turc F"
 
 #: yali/localedata.py:376 yali/localedata.py:377
 msgid "Ukrainian"
-msgstr ""
+msgstr "Ukrainien"
 
 #: yali/localedata.py:385 yali/localedata.py:386
 msgid "Vietnamese"
-msgstr ""
+msgstr "Vietnamien"
 
 #: yali/localedata.py:394 yali/localedata.py:395
 msgid "Welsh"
-msgstr ""
+msgstr "Gallois"
 
 #: yali/partition.py:35
 msgid "unknown"
@@ -1175,15 +1172,15 @@ msgstr "inconnu"
 
 #: yali/partition.py:169
 msgid "free space"
-msgstr "l'espace disponible"
+msgstr "espace disponible"
 
 #: yali/partitiontype.py:51
 msgid "Install Root"
-msgstr "L'installation de système"
+msgstr "Racine de l'installation"
 
 #: yali/partitiontype.py:59
 msgid "Users' Files"
-msgstr "Les fichiers d'utilisateurs"
+msgstr "fichiers utilisateurs"
 
 #: yali/partitiontype.py:67
 msgid "Swap"
