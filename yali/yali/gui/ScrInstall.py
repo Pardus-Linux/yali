@@ -295,7 +295,7 @@ class PisiUI(pisi.ui.UI):
 
     
     def display_progress(self, operation, percent, info, **keywords):
-	pass
+        pass
 
 
 class PisiUI_NoThread(QObject, pisi.ui.UI):
@@ -312,4 +312,4 @@ class PisiUI_NoThread(QObject, pisi.ui.UI):
                       (self, event, keywords['package']))
 
     def display_progress(self, operation, percent, info, **keywords):
-	pass
+        pass

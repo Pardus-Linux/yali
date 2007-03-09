@@ -44,6 +44,9 @@ class Fstab(file):
         self.write(fstab_header)
 
     def insert(self, e):
+        if e.filesystem == "linux-swap":
+            e.filesystem = "swap"
+            
         l = "%-20s %-16s %-9s %-20s %s %s\n" % (
             e.device, e.mountpoint, e.filesystem,
             e.options, e.d, e.p)
