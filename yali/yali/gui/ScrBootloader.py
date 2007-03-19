@@ -66,7 +66,7 @@ loader.
         self.device_list.setPaletteBackgroundColor(ctx.consts.bg_color)
         self.device_list.setPaletteForegroundColor(ctx.consts.fg_color)
 
-        self.installMBR.setChecked(True)
+        self.installFirstMBR.setChecked(True)
 
 
         # initialize all storage devices
@@ -116,17 +116,18 @@ loader.
         loader = yali.bootloader.BootLoader()
 
         root_part_req = ctx.partrequests.searchPartTypeAndReqType(
-	    parttype.root, request.mountRequestType)
+            parttype.root, request.mountRequestType)
 
         if self.installPart.isChecked():
-            loader.install_dev = basename(root_part_req.partition().getPath())
+            install_dev = basename(root_part_req.partition().getPath())
+        elif self.installMBR.isChecked():
+            install_dev = basename(self.device.getPath())
         else:
-            # install to MBR of a device
-            loader.install_dev = basename(self.device.getPath())
-        loader.install_root = basename(root_part_req.partition().getPath())
+            #install to hd0
+            install_dev = None
+        install_root = basename(root_part_req.partition().getPath())
         
-        # TODO: use logging!
-        loader.write_grub_conf()
+        loader.write_grub_conf(install_root)
 
         # Windows partitions...
         for d in yali.storage.devices:
@@ -134,15 +135,18 @@ loader.
                 fs = p.getFSName()
                 if fs in ("ntfs", "fat32"):
                     if is_windows_boot(p.getPath(), fs):
-                        loader.win_fs = fs
-                        loader.win_dev = basename(p.getDevicePath())
-                        loader.win_root = basename(p.getPath())
-                        loader.grub_conf_append_win()
+                        win_fs = fs
+                        win_dev = basename(p.getDevicePath())
+                        win_root = basename(p.getPath())
+                        loader.grub_conf_append_win(install_dev,
+                                                    win_dev,
+                                                    win_root,
+                                                    win_fs)
                         continue
 
-
+        # finally install it
         if not self.noInstall.isChecked():
-            loader.install_grub()
+            loader.install_grub(install_dev)
 
         # close window
         info_window.close(True)

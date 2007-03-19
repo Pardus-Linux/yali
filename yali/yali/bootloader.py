@@ -62,12 +62,6 @@ class BootLoader:
     def __init__(self):
         self.device_map = os.path.join(consts.target_dir, "boot/grub/device.map")
         self.grub_conf = os.path.join(consts.target_dir, "boot/grub/grub.conf")
-        self.install_root = ""
-        self.install_dev = ""
-
-        self.win_dev = ""
-        self.win_root = ""
-        self.win_fs = ""
 
     def _find_grub_dev(self, dev):
         dev_name = str(filter(lambda u: u.isalpha(), dev))
@@ -78,7 +72,15 @@ class BootLoader:
                 # remove paranthesis
                 return d[1:-1]
 
-    def write_grub_conf(self):
+    def _find_hd0(self):
+        for l in open(self.device_map).readlines():
+            if l.find("hd0") >= 0:
+                l = l.split()
+                # (hd0)   /dev/hda
+                d = l[1]
+                return d
+
+    def write_grub_conf(self, install_root):
         grub_dir = os.path.join(consts.target_dir, "boot/grub")
         if not os.path.exists(grub_dir):
             os.makedirs(grub_dir)
@@ -90,13 +92,9 @@ class BootLoader:
                                 (self.device_map, self.grub_conf)
         os.system(cmd)
 
-        minor = str(int(filter(lambda u: u.isdigit(), self.install_root)) -1)
         # grub_root is the device on which we install.
-        # grub_root = ",".join([self._find_grub_dev(self.install_root),
-        #                      minor])
-        ####
-        # grub_root is always hd0 (http://liste.pardus.org.tr/gelistirici/2007-March/005725.html)
-        grub_root = ",".join(["hd0", minor])
+        minor = str(int(filter(lambda u: u.isdigit(), install_root)) -1)
+        grub_root = ",".join([self._find_grub_dev(install_root), minor])
 
         def find_boot_kernel():
             d = os.path.join(consts.target_dir, "boot")
@@ -139,8 +137,8 @@ class BootLoader:
  
         boot_kernel = find_boot_kernel()
         initramfs_name = find_initramfs_name(boot_kernel)
-        boot_parameters =  boot_parameters(self.install_root)
-        s = grub_conf_tmp % {"root": self.install_root,
+        boot_parameters =  boot_parameters(install_root)
+        s = grub_conf_tmp % {"root": install_root,
                              "grub_root": grub_root,
                              "pardus_version": consts.pardus_version,
                              "boot_kernel": boot_kernel,
@@ -150,32 +148,37 @@ class BootLoader:
 
 
 
-    def grub_conf_append_win(self):
-        grub_dev = self._find_grub_dev(self.win_dev)
-        minor = str(int(filter(lambda u: u.isdigit(), self.win_root)) -1)
+    def grub_conf_append_win(self, install_dev, win_dev, win_root, win_fs):
+        grub_dev = self._find_grub_dev(win_dev)
+        minor = str(int(filter(lambda u: u.isdigit(), win_root)) -1)
         grub_root = ",".join([grub_dev, minor])
 
 
-        dev_str = str(filter(lambda u: u.isalpha(), self.install_dev))
-        if self.win_dev == dev_str:
+        dev_str = str(filter(lambda u: u.isalpha(), install_dev))
+        if win_dev == dev_str:
             s = win_part_tmp % {"title": _("Windows"),
                                 "grub_root": grub_root,
-                                "root": self.win_root,
-                                "fs": self.win_fs}
+                                "root": win_root,
+                                "fs": win_fs}
         else:
             s = win_part_tmp_multiple_disks % {"title": _("Windows"),
                                                "grub_root": grub_root,
-                                               "root": self.win_root,
-                                               "fs": self.win_fs}
+                                               "root": win_root,
+                                               "fs": win_fs}
     
         open(self.grub_conf, "a").write(s)
         
     
     
-    def install_grub(self):
+    def install_grub(self, grub_install_root=None):
+        # grub installation is always hd0 (http://liste.pardus.org.tr/gelistirici/2007-March/005725.html)
+        # if not explicitly defined...
+        if not grub_install_root:
+            grub_install_root = self._find_hd0()
+
         cmd = "%s --root-directory=%s %s" % (yali.sysutils.find_executable("grub-install"),
                                              consts.target_dir,
-                                             os.path.join("/dev", self.install_dev))
+                                             grub_install_root)
         if os.system(cmd) != 0:
             raise YaliException, "Command failed: %s" % cmd
 
