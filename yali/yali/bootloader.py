@@ -88,8 +88,7 @@ class BootLoader:
         #write an empty grub.conf, for grub to create a device map.
         open(self.grub_conf, "w").close()
         # create device map
-        cmd = "/sbin/grub --batch --no-floppy --device-map=%s < %s" % \
-                                (self.device_map, self.grub_conf)
+        cmd = "/sbin/grub --batch --no-floppy --device-map=%s < %s" % (self.device_map, self.grub_conf)
         os.system(cmd)
 
         # grub_root is the device on which we install.
@@ -107,7 +106,6 @@ class BootLoader:
     
         def boot_parameters(root):
             s = []
-
             # Get parameters from cmdline.
             for i in [x for x in open("/proc/cmdline", "r").read().split() if not x.startswith("init=") and not x.startswith("xorg=")]:
                 if i.startswith("root="):
@@ -129,12 +127,8 @@ class BootLoader:
             if swap_part_req:
                 s.append("resume=%s" %(swap_part_req.partition().getPath()))
 
-
             return " ".join(s).strip()
 
-            
-
- 
         boot_kernel = find_boot_kernel()
         initramfs_name = find_initramfs_name(boot_kernel)
         boot_parameters =  boot_parameters(install_root)
@@ -147,12 +141,10 @@ class BootLoader:
         open(self.grub_conf, "w").write(s)
 
 
-
     def grub_conf_append_win(self, install_dev, win_dev, win_root, win_fs):
         grub_dev = self._find_grub_dev(win_dev)
         minor = str(int(filter(lambda u: u.isdigit(), win_root)) -1)
         grub_root = ",".join([grub_dev, minor])
-
 
         dev_str = str(filter(lambda u: u.isalpha(), install_dev))
         if win_dev == dev_str:
@@ -165,11 +157,9 @@ class BootLoader:
                                                "grub_root": grub_root,
                                                "root": win_root,
                                                "fs": win_fs}
-    
         open(self.grub_conf, "a").write(s)
         
-    
-    
+
     def install_grub(self, grub_install_root=None):
         # grub installation is always hd0 (http://liste.pardus.org.tr/gelistirici/2007-March/005725.html)
         # if not explicitly defined...
@@ -181,4 +171,3 @@ class BootLoader:
                                              grub_install_root)
         if os.system(cmd) != 0:
             raise YaliException, "Command failed: %s" % cmd
-
