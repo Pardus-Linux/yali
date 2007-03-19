@@ -16,7 +16,6 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-
 import yali.gui.context as ctx
 import yali.partitiontype as parttype
 import yali.parteddata as parteddata
@@ -26,8 +25,6 @@ import yali.filesystem as filesystem
 from yali.gui.GUIException import *
 from yali.gui.Ui.parteditbuttons import PartEditButtons
 from yali.gui.Ui.parteditwidget import PartEditWidget
-
-
 
 editState, createState, deleteState, resizeState = range(4)
   
@@ -231,7 +228,6 @@ class PartEdit(QWidget):
 
             return True
 
-
         if t == parteddata.deviceType:
             if state == createState:
                 device = self._d
@@ -244,7 +240,6 @@ class PartEdit(QWidget):
                     ctx.partrequests.removeRequest(p, request.mountRequestType)
                     ctx.partrequests.removeRequest(p, request.formatRequestType)
                     ctx.partrequests.removeRequest(p, request.labelRequestType)
-
                 self._d.deleteAllPartitions()
 
         elif t ==  parteddata.partitionType:
@@ -326,37 +321,18 @@ class PartEditWidgetImpl(PartEditWidget):
         self.home.setEnabled(True)
         self.swap.setEnabled(True)
 
-        # just to disable the ones already used
+        # just to (set || disable) the ones already used
         for r in ctx.partrequests.searchReqTypeIterate(request.mountRequestType):
             pt = r.partitionType()
             part = r.partition()
-
-            if pt == parttype.root:
-                if partition and part == partition:
-                        self.root.setOn(True)
-                else:
-                    self.root.setEnabled(False)
-
-            elif pt == parttype.home:
-                if partition and part == partition:
-                        self.home.setOn(True)
-                else:
-                    self.home.setEnabled(False)
-
-            elif pt == parttype.swap:
-                if partition and part == partition:
-                        self.swap.setOn(True)
-                else:
-                    self.swap.setEnabled(False)
-
-        # set partition type on if its the only one available
-        # bug #1222
-        if not self.root.isEnabled() and not self.home.isEnabled():
-            self.swap.setOn(True)
-        elif not self.root.isEnabled() and not self.swap.isEnabled():
-            self.home.setOn(True)
-        elif not self.home.isEnabled() and not self.swap.isEnabled():
-            self.root.setOn(True)
+            for ptype, item in ((parttype.root, self.root),
+                                (parttype.home, self.home),
+                                (parttype.swap, self.swap)):
+                if pt == ptype:
+                    if partition and part == partition:
+                        item.setOn(True)
+                    else:
+                        item.setEnabled(False)
 
         # State specific jobs.
         if state == editState:
@@ -383,6 +359,12 @@ class PartEditWidgetImpl(PartEditWidget):
             self.use_available.show()
             self.size_label.show()
             self.format.show()
+
+            # set the first available partition type on.
+            for i in (self.root, self.home, self.swap):
+                if i.isEnabled():
+                    i.setOn(True)
+                    break
 
             self.size.setValue(0)
             self.format.setChecked(True)
