@@ -57,12 +57,6 @@ chainloader +1
 
 """
 
-grub_shell_tmp = """
-device (hd0) %(grubs_disk)s
-root (%(grub_root)s)
-setup (%(grub_dev)s)
-"""
-
 
 class BootLoader:
     def __init__(self):
