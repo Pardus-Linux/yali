@@ -246,7 +246,6 @@ class PartEdit(QWidget):
                     ctx.partrequests.removeRequest(p, request.labelRequestType)
 
                 self._d.deleteAllPartitions()
-#                self._d.commit()
 
         elif t ==  parteddata.partitionType:
             if state == createState and self._d.isExtended():
@@ -257,8 +256,6 @@ class PartEdit(QWidget):
             elif state == deleteState:
                 device = self._d.getDevice()
                 device.deletePartition(self._d)
-#                device.commit()
-
                 # delete requests
                 ctx.partrequests.removeRequest(self._d, request.mountRequestType)
                 ctx.partrequests.removeRequest(self._d, request.formatRequestType)
@@ -294,8 +291,6 @@ class PartEdit(QWidget):
         else:
             raise GUIError, "unknown action called (%s)" %(self._action)
 
-
-
         self.hide()
         self.emit(PYSIGNAL("signalApplied"), ())
 
@@ -306,7 +301,6 @@ class PartEdit(QWidget):
 
 
 class PartEditWidgetImpl(PartEditWidget):
-
     def __init__(self, *args):
         apply(PartEditWidget.__init__, (self,) + args)
 
@@ -321,25 +315,22 @@ class PartEditWidgetImpl(PartEditWidget):
         else:
             self.format.setEnabled(True)
 
-
     def setState(self, state, partition=None):
-
-
         # unset buttons
         self.root.setOn(False)
         self.home.setOn(False)
         self.swap.setOn(False)
 
-        # disable requested partition types in gui
+        # enable all 
         self.root.setEnabled(True)
         self.home.setEnabled(True)
         self.swap.setEnabled(True)
 
+        # just to disable the ones already used
         for r in ctx.partrequests.searchReqTypeIterate(request.mountRequestType):
             pt = r.partitionType()
             part = r.partition()
 
-#            print part.getPath(), pt
             if pt == parttype.root:
                 if partition and part == partition:
                         self.root.setOn(True)
@@ -358,7 +349,6 @@ class PartEditWidgetImpl(PartEditWidget):
                 else:
                     self.swap.setEnabled(False)
 
-
         # set partition type on if its the only one available
         # bug #1222
         if not self.root.isEnabled() and not self.home.isEnabled():
@@ -368,11 +358,10 @@ class PartEditWidgetImpl(PartEditWidget):
         elif not self.home.isEnabled() and not self.swap.isEnabled():
             self.root.setOn(True)
 
-
+        # State specific jobs.
         if state == editState:
             self.buttonGroup.show()
             self.format.show()
-
             self.format.setChecked(True)
 
             self.size.hide()
@@ -382,7 +371,6 @@ class PartEditWidgetImpl(PartEditWidget):
         elif state == resizeState:
             self.size.show()
             self.size_label.show()
-
             self.size.setValue(self.size.minValue())
 
             self.buttonGroup.hide()
