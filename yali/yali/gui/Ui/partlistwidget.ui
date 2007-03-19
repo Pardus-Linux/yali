@@ -238,5 +238,13 @@
         </widget>
     </grid>
 </widget>
+<tabstops>
+    <tabstop>list</tabstop>
+    <tabstop>createButton</tabstop>
+    <tabstop>editButton</tabstop>
+    <tabstop>resizeButton</tabstop>
+    <tabstop>deleteButton</tabstop>
+    <tabstop>resetButton</tabstop>
+</tabstops>
 <layoutdefaults spacing="6" margin="11"/>
 </UI>

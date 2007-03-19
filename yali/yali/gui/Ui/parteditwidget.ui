@@ -9,7 +9,7 @@
             <x>0</x>
             <y>0</y>
             <width>476</width>
-            <height>176</height>
+            <height>190</height>
         </rect>
     </property>
     <property name="caption">
@@ -157,5 +157,13 @@
         </widget>
     </grid>
 </widget>
+<tabstops>
+    <tabstop>root</tabstop>
+    <tabstop>home</tabstop>
+    <tabstop>swap</tabstop>
+    <tabstop>size</tabstop>
+    <tabstop>use_available</tabstop>
+    <tabstop>format</tabstop>
+</tabstops>
 <layoutdefaults spacing="6" margin="11"/>
 </UI>

@@ -122,6 +122,8 @@ class Widget(QWidget):
         self.connect(self.prevButton, PYSIGNAL("signalClicked"),
                      self.slotPrevScreen)
 
+        self.setTabOrder(self.relNotes, self.nextButton)
+        self.setTabOrder(self.nextButton, self.prevButton)
 
     ##
     # resize the widget

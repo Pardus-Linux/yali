@@ -251,5 +251,11 @@
         </widget>
     </grid>
 </widget>
+<tabstops>
+    <tabstop>accept</tabstop>
+    <tabstop>not_accept</tabstop>
+    <tabstop>gplButton</tabstop>
+    <tabstop>rebootButton</tabstop>
+</tabstops>
 <layoutdefaults spacing="6" margin="11"/>
 </UI>

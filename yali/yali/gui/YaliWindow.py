@@ -61,6 +61,9 @@ class Widget(QMainWindow):
         self.setPaletteBackgroundColor(ctx.consts.bg_color)
         self.setPaletteForegroundColor(ctx.consts.fg_color)
 
+        self.setTabOrder(self.contentWidget, self.helpWidget)
+        self.setTabOrder(self.helpWidget, self.bottomWidget)
+
     ##
     # set up the main window layout...
     def __setUpWidgets(self):
