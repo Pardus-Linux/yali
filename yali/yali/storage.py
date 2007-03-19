@@ -206,9 +206,11 @@ class Device:
     def hasExtendedPartition(self):
         if self.getExtendedPartition():
             return True
-
         return False
 
+    ##
+    # check if the device has a bootable partition
+    # @returns: True/False
     def hasBootablePartition(self):
         flag = parted.PARTITION_BOOT
         for p in self.getPartitions():
@@ -223,7 +225,6 @@ class Device:
         for p in self.getPartitions():
             if p._partition.type == parted.PARTITION_EXTENDED:
                 return p
-
         return None
 
     ##
@@ -318,7 +319,7 @@ class Device:
         # Don't set bootable flag if there is already a bootable
         # partition in this disk. See bug #2217
         if parted.PARTITION_BOOT in flags and self.hasBootablePartition():
-                flags = list(set(flags) - set([parted.PARTITION_BOOT]))
+            flags = list(set(flags) - set([parted.PARTITION_BOOT]))
 
         part = self._disk.next_partition()
         while part:
@@ -390,7 +391,6 @@ class Device:
         geom = part.geom
         part_mb = long(
             (geom.end - geom.start + 1) * self._sector_size / MEGABYTE)
-
         if part.num >= 1:
             fs_name = ""
             if part.fs_type:
