@@ -67,7 +67,7 @@ loader.
         self.device_list.setPaletteForegroundColor(ctx.consts.fg_color)
 
         self.installFirstMBR.setChecked(True)
-
+        self.moreOptionsFrame.hide()
 
         # initialize all storage devices
         if not yali.storage.init_devices():
@@ -93,7 +93,8 @@ loader.
                      self.slotInstallLoader)
         self.connect(self.device_list, SIGNAL("selectionChanged(QListBoxItem*)"),
                      self.slotDeviceChanged)
-
+        self.connect(self.moreOptions, SIGNAL("toggled(bool)"),
+                     self.moreOptionsFrame.setShown)
 
     def slotInstallLoader(self, b):
         if self.installMBR.isChecked():
@@ -107,7 +108,6 @@ loader.
 
     def slotDeviceChanged(self, i):
         self.device = i.getDevice()
-
 
     def execute(self):
         # show information window...

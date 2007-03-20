@@ -36,23 +36,6 @@
                 </size>
             </property>
         </spacer>
-        <spacer row="2" column="0">
-            <property name="name">
-                <cstring>spacer5</cstring>
-            </property>
-            <property name="orientation">
-                <enum>Horizontal</enum>
-            </property>
-            <property name="sizeType">
-                <enum>Expanding</enum>
-            </property>
-            <property name="sizeHint">
-                <size>
-                    <width>40</width>
-                    <height>20</height>
-                </size>
-            </property>
-        </spacer>
         <spacer row="2" column="2">
             <property name="name">
                 <cstring>spacer5_2</cstring>
@@ -83,10 +66,130 @@
             <property name="sizeHint">
                 <size>
                     <width>20</width>
+                    <height>16</height>
+                </size>
+            </property>
+        </spacer>
+        <spacer row="2" column="0">
+            <property name="name">
+                <cstring>spacer5</cstring>
+            </property>
+            <property name="orientation">
+                <enum>Horizontal</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Expanding</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>40</width>
                     <height>20</height>
                 </size>
             </property>
         </spacer>
+        <widget class="QButtonGroup" row="2" column="1">
+            <property name="name">
+                <cstring>buttonGroup</cstring>
+            </property>
+            <property name="sizePolicy">
+                <sizepolicy>
+                    <hsizetype>5</hsizetype>
+                    <vsizetype>4</vsizetype>
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                </sizepolicy>
+            </property>
+            <property name="title">
+                <string>Where do you want to install the bootloader?</string>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QRadioButton" row="0" column="0">
+                    <property name="name">
+                        <cstring>installFirstMBR</cstring>
+                    </property>
+                    <property name="text">
+                        <string>MBR of the first disk (recomended)</string>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="1" column="0">
+                    <property name="name">
+                        <cstring>installPart</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Install to root partition</string>
+                    </property>
+                </widget>
+                <widget class="QCheckBox" row="2" column="0">
+                    <property name="name">
+                        <cstring>moreOptions</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Show More Options</string>
+                    </property>
+                </widget>
+                <widget class="QButtonGroup" row="3" column="0">
+                    <property name="name">
+                        <cstring>moreOptionsFrame</cstring>
+                    </property>
+                    <property name="lineWidth">
+                        <number>0</number>
+                    </property>
+                    <property name="title">
+                        <string></string>
+                    </property>
+                    <grid>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QRadioButton" row="0" column="0">
+                            <property name="name">
+                                <cstring>installMBR</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Install to MBR</string>
+                            </property>
+                        </widget>
+                        <widget class="QLayoutWidget" row="1" column="0">
+                            <property name="name">
+                                <cstring>layout2</cstring>
+                            </property>
+                            <vbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>select_disk_label</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>Select the disk you to install bootloader:</string>
+                                    </property>
+                                </widget>
+                                <widget class="QListBox">
+                                    <property name="name">
+                                        <cstring>device_list</cstring>
+                                    </property>
+                                    <property name="frameShadow">
+                                        <enum>Plain</enum>
+                                    </property>
+                                </widget>
+                            </vbox>
+                        </widget>
+                        <widget class="QRadioButton" row="2" column="0">
+                            <property name="name">
+                                <cstring>noInstall</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Don't install bootloader</string>
+                            </property>
+                        </widget>
+                    </grid>
+                </widget>
+            </grid>
+        </widget>
         <widget class="QLabel" row="1" column="0" rowspan="1" colspan="3">
             <property name="name">
                 <cstring>textLabel1</cstring>
@@ -109,84 +212,14 @@ your newly installed Pardus.&lt;/p&gt;</string>
                 <set>WordBreak|AlignVCenter</set>
             </property>
         </widget>
-        <widget class="QButtonGroup" row="2" column="1">
-            <property name="name">
-                <cstring>buttonGroup</cstring>
-            </property>
-            <property name="title">
-                <string>Where do you want to install the bootloader?</string>
-            </property>
-            <grid>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QRadioButton" row="4" column="0">
-                    <property name="name">
-                        <cstring>noInstall</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Don't install bootloader</string>
-                    </property>
-                </widget>
-                <widget class="QRadioButton" row="3" column="0">
-                    <property name="name">
-                        <cstring>installPart</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Install to root partition</string>
-                    </property>
-                </widget>
-                <widget class="QLayoutWidget" row="2" column="0">
-                    <property name="name">
-                        <cstring>layout2</cstring>
-                    </property>
-                    <vbox>
-                        <property name="name">
-                            <cstring>unnamed</cstring>
-                        </property>
-                        <widget class="QLabel">
-                            <property name="name">
-                                <cstring>select_disk_label</cstring>
-                            </property>
-                            <property name="text">
-                                <string>Select the disk you to install bootloader:</string>
-                            </property>
-                        </widget>
-                        <widget class="QListBox">
-                            <property name="name">
-                                <cstring>device_list</cstring>
-                            </property>
-                            <property name="frameShadow">
-                                <enum>Plain</enum>
-                            </property>
-                        </widget>
-                    </vbox>
-                </widget>
-                <widget class="QRadioButton" row="0" column="0">
-                    <property name="name">
-                        <cstring>installFirstMBR</cstring>
-                    </property>
-                    <property name="text">
-                        <string>MBR of the first disk (recomended)</string>
-                    </property>
-                </widget>
-                <widget class="QRadioButton" row="1" column="0">
-                    <property name="name">
-                        <cstring>installMBR</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Install to MBR</string>
-                    </property>
-                </widget>
-            </grid>
-        </widget>
     </grid>
 </widget>
 <tabstops>
     <tabstop>installFirstMBR</tabstop>
+    <tabstop>installPart</tabstop>
+    <tabstop>moreOptions</tabstop>
     <tabstop>installMBR</tabstop>
     <tabstop>device_list</tabstop>
-    <tabstop>installPart</tabstop>
     <tabstop>noInstall</tabstop>
 </tabstops>
 <layoutdefaults spacing="6" margin="11"/>
