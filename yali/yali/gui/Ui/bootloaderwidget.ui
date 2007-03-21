@@ -122,71 +122,47 @@
                         <string>Install to root partition</string>
                     </property>
                 </widget>
-                <widget class="QCheckBox" row="2" column="0">
+                <widget class="QLayoutWidget" row="3" column="0">
                     <property name="name">
-                        <cstring>moreOptions</cstring>
+                        <cstring>diskList</cstring>
                     </property>
-                    <property name="text">
-                        <string>Show More Options</string>
-                    </property>
-                </widget>
-                <widget class="QButtonGroup" row="3" column="0">
-                    <property name="name">
-                        <cstring>moreOptionsFrame</cstring>
-                    </property>
-                    <property name="lineWidth">
-                        <number>0</number>
-                    </property>
-                    <property name="title">
-                        <string></string>
-                    </property>
-                    <grid>
+                    <vbox>
                         <property name="name">
                             <cstring>unnamed</cstring>
                         </property>
-                        <widget class="QRadioButton" row="0" column="0">
+                        <widget class="QLabel">
                             <property name="name">
-                                <cstring>installMBR</cstring>
+                                <cstring>select_disk_label</cstring>
                             </property>
                             <property name="text">
-                                <string>Install to MBR</string>
+                                <string>Select the disk you to install bootloader:</string>
                             </property>
                         </widget>
-                        <widget class="QLayoutWidget" row="1" column="0">
+                        <widget class="QListBox">
                             <property name="name">
-                                <cstring>layout2</cstring>
+                                <cstring>device_list</cstring>
                             </property>
-                            <vbox>
-                                <property name="name">
-                                    <cstring>unnamed</cstring>
-                                </property>
-                                <widget class="QLabel">
-                                    <property name="name">
-                                        <cstring>select_disk_label</cstring>
-                                    </property>
-                                    <property name="text">
-                                        <string>Select the disk you to install bootloader:</string>
-                                    </property>
-                                </widget>
-                                <widget class="QListBox">
-                                    <property name="name">
-                                        <cstring>device_list</cstring>
-                                    </property>
-                                    <property name="frameShadow">
-                                        <enum>Plain</enum>
-                                    </property>
-                                </widget>
-                            </vbox>
-                        </widget>
-                        <widget class="QRadioButton" row="2" column="0">
-                            <property name="name">
-                                <cstring>noInstall</cstring>
-                            </property>
-                            <property name="text">
-                                <string>Don't install bootloader</string>
+                            <property name="frameShadow">
+                                <enum>Plain</enum>
                             </property>
                         </widget>
-                    </grid>
+                    </vbox>
+                </widget>
+                <widget class="QRadioButton" row="4" column="0">
+                    <property name="name">
+                        <cstring>noInstall</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Don't install bootloader</string>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="2" column="0">
+                    <property name="name">
+                        <cstring>installMBR</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Install to MBR</string>
+                    </property>
                 </widget>
             </grid>
         </widget>
@@ -217,7 +193,6 @@ your newly installed Pardus.&lt;/p&gt;</string>
 <tabstops>
     <tabstop>installFirstMBR</tabstop>
     <tabstop>installPart</tabstop>
-    <tabstop>moreOptions</tabstop>
     <tabstop>installMBR</tabstop>
     <tabstop>device_list</tabstop>
     <tabstop>noInstall</tabstop>

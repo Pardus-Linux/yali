@@ -28,6 +28,7 @@ from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.InformationWindow import InformationWindow
 from yali.gui.GUIException import *
 import yali.gui.context as ctx
+import GUIToggler
 
 
 ##
@@ -61,14 +62,23 @@ loader.
         apply(BootLoaderWidget.__init__, (self,) + args)
         
         self.device = None
-
-
+        self.moreOptions = GUIToggler.YaliToggler(self.buttonGroup)
+        self.moreOptions.setIcon("toggler")
+        self.moreOptions.setText("Show more options")
+        self.moreOptions.setToggled(True)
+        
+        toggleLayout = QHBoxLayout(self.buttonGroup.layout())
+        
+        toggleLayout.addWidget(self.moreOptions)
+        
         self.device_list.setPaletteBackgroundColor(ctx.consts.bg_color)
         self.device_list.setPaletteForegroundColor(ctx.consts.fg_color)
 
         self.installFirstMBR.setChecked(True)
-        self.moreOptionsFrame.hide()
-
+        self.device_list.hide()
+        self.noInstall.hide()
+        self.installMBR.hide()
+        
         # initialize all storage devices
         if not yali.storage.init_devices():
             raise GUIException, _("Can't find a storage device!")
@@ -93,8 +103,18 @@ loader.
                      self.slotInstallLoader)
         self.connect(self.device_list, SIGNAL("selectionChanged(QListBoxItem*)"),
                      self.slotDeviceChanged)
-        self.connect(self.moreOptions, SIGNAL("toggled(bool)"),
-                     self.moreOptionsFrame.setShown)
+        self.connect(self.moreOptions, PYSIGNAL("signalClicked"),
+                     self.slotMoreOptions)
+
+    def slotMoreOptions(self):
+        if self.moreOptions._toggled:
+            self.device_list.show()
+            self.noInstall.show()
+            self.installMBR.show()
+        else:
+            self.device_list.hide()
+            self.noInstall.hide()
+            self.installMBR.hide()
 
     def slotInstallLoader(self, b):
         if self.installMBR.isChecked():
