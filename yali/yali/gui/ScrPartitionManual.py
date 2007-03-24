@@ -46,7 +46,7 @@ destroy the previously saved information on selected partitions. </b>
 <p>
 In order to use Pardus, you must create one Linux filesystem (for the 
 system files), which is mandatory and a swap space 
-(for improved performance), which is optional. This sway space 
+(for improved performance), which is optional. This swap space 
 is used whenever system needs more memory, but the system lacks it.
 We advise you to allocate at least 4 GBs of hard disk area and 
 swap space (between 500 MB - 2 GB, according to your needs) for 
