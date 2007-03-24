@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Klemens Häckel <click3d_at_linuxmail_org>, 2007.
+# klemens <click3d at linuxmail org>, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-03-24 20:30+0200\n"
-"PO-Revision-Date: 2007-02-04 12:50+0200\n"
-"Last-Translator: Klemens Häckel <click3d_at_linuxmail_org>\n"
+"PO-Revision-Date: 2007-03-24 17:02-0400\n"
+"Last-Translator: klemens <click3d at linuxmail org>\n"
 "Language-Team: spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -64,7 +65,7 @@ msgstr "Donde quiere instalar el cargador de arranque?"
 
 #: yali/gui/Ui/bootloaderwidget.py:107
 msgid "MBR of the first disk (recomended)"
-msgstr ""
+msgstr "MBR del primer disco (recomendado)"
 
 #: yali/gui/Ui/bootloaderwidget.py:108
 msgid "Install to root partition"
@@ -72,7 +73,7 @@ msgstr "Instalar en partición root"
 
 #: yali/gui/Ui/bootloaderwidget.py:109
 msgid "Show More Options"
-msgstr ""
+msgstr "Mostrar más Opciones"
 
 #: yali/gui/Ui/bootloaderwidget.py:111
 msgid "Install to MBR"
@@ -404,12 +405,11 @@ msgstr "Configuración básica"
 
 #: yali/gui/runner.py:139
 msgid "Error!"
-msgstr ""
+msgstr "Error!"
 
 #: yali/gui/runner.py:171
-#, fuzzy
 msgid "Unhandled error occured!"
-msgstr "Ocurrió un error !"
+msgstr "Ocurrió un error desconocido !"
 
 #: yali/gui/ScrAdmin.py:33
 msgid ""
@@ -480,8 +480,7 @@ msgstr "<font color=\"#FF6D19\">Contraseñas no coinciden !</font>"
 
 #: yali/gui/ScrAdmin.py:135
 msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Nombre de Host contiene caracteres inválidos !</font>"
+msgstr "<font color=\"#FF6D19\">Nombre de Host contiene caracteres inválidos !</font>"
 
 #: yali/gui/ScrBootloader.py:38
 msgid ""
@@ -557,8 +556,7 @@ msgstr "Verificación fallada"
 
 #: yali/gui/ScrCheckCD.py:59
 msgid "<font color=\"#FF6D19\">Please wait while checking CD.</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Favor espere mientras se verifica el CD.</font>"
+msgstr "<font color=\"#FF6D19\">Favor espere mientras se verifica el CD.</font>"
 
 #: yali/gui/ScrCheckCD.py:77
 msgid ""
@@ -794,7 +792,7 @@ msgstr ""
 msgid ""
 "It seems that you don't have the required disk space (min. %s) for Pardus "
 "installation."
-msgstr ""
+msgstr "Parece que no tiene suficiente espacio en disco (min. %s) para la instalación de Pardus."
 
 #: yali/gui/ScrPartitionAuto.py:133 yali/gui/ScrPartitionManual.py:128
 msgid "Please wait while formatting!"
@@ -828,7 +826,6 @@ msgid "O.K. Go Ahead"
 msgstr "Bien, Hagámoslo"
 
 #: yali/gui/ScrPartitionManual.py:37
-#, fuzzy
 msgid ""
 "\n"
 "<font size=\"+2\">Partitioning your hard disk</font>\n"
@@ -881,18 +878,18 @@ msgstr ""
 "seleccionados.</b>\n"
 "</p>\n"
 "<p>\n"
-"Para usar Pardus, debes crear un sistema de archivos Linux (para \n"
-"los archivos del sistema), y un espacio swap\n"
-"(para mejorar la performance), que es opcional. \n"
+"Para usar Pardus, debe crear una particion tipo Linux (para \n"
+"los archivos del sistema), y opcional un espacio de intercambio swap\n"
+"(para mejorar el rendimiento). \n"
 "Recomendamos reservar un mínimo de 4 GBs de espacio en dico rígido \n"
-"y un espacio swap (entre 500 MB - 2 GB, de acuerdo a tus necesidades). \n"
+"y un espacio swap (entre 500 MB - 2 GB, de acuerdo a las necesidades). \n"
 "No se permite una partición de Linux de menos de 3.5 GB.\n"
-"Opcionalmente se puede utilizar una partición de disco separada para los   \n"
+"Opcionalmente se puede utilizar otra partición de disco para los   \n"
 "archivos de los usuarios.\n"
 "</p>\n"
 "<p>\n"
 "Se debe formatear la partición Linux, si se está usando por primera vez.\n"
-"Puedes habilitar la opción \"Usar espacio libre disponible\" para  \n"
+"Puede habilitar la opción 'Usar espacio libre disponible' para  \n"
 "usar automaticamente el espacio restante del disco.\n"
 "</p>\n"
 "<p>\n"
@@ -978,8 +975,7 @@ msgstr ""
 
 #: yali/gui/ScrUsers.py:137
 msgid "<font color=\"#FF6D19\">Username exists, choose another one!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Nombre de usuario ya existe, elija otro !</font>"
+msgstr "<font color=\"#FF6D19\">Nombre de usuario ya existe, elija otro !</font>"
 
 #: yali/gui/ScrUsers.py:141
 msgid "<font color=\"#FF6D19\">Username contains invalid characters!</font>"
@@ -989,8 +985,7 @@ msgstr ""
 
 #: yali/gui/ScrUsers.py:145
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Nombre real contiene caractéres no válidos !</font>"
+msgstr "<font color=\"#FF6D19\">Nombre real contiene caractéres no válidos !</font>"
 
 # here i changed the sense of the last sentence to: "enjoy the experience with Pardus"
 #: yali/gui/ScrWelcome.py:31
@@ -1234,3 +1229,4 @@ msgstr "Archivos de usuarios"
 #: yali/partitiontype.py:69
 msgid "Swap"
 msgstr "Swap"
+
