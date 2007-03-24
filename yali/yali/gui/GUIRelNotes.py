@@ -46,11 +46,10 @@ class Widget(QTextView):
         palette.setInactive(active_colors)
         self.setPalette(palette)
 
-        rel_file = "releasenotes-" + ctx.consts.lang + ".html"
-        rel_path = join(ctx.consts.source_dir, rel_file)
-
+        rel_path = join(ctx.consts.source_dir,
+                        "releasenotes-" + ctx.consts.lang + ".html")
         if not exists(rel_path):
-            raise GUIException, _("Can't open Release Notes file!")
+            rel_path = join(ctx.consts.source_dir, "releasenotes-en.html")
 
         try:
             self.setText(codecs.open(rel_path, "r", "UTF-8").read())
