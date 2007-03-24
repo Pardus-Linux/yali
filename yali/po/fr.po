@@ -11,9 +11,9 @@ msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-03-24 20:30+0200\n"
-"PO-Revision-Date: 2007-03-09 00:26+0200\n"
+"PO-Revision-Date: 2007-03-24 22:40+0200\n"
 "Last-Translator: Amine Chadly <amine.chadly@gmail.com>\n"
-"Language-Team: french <fr@li.org>\n"
+"Language-Team: french <pardus-translators@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -59,8 +59,7 @@ msgstr "Non, je vais partitionner mon disque manuellement."
 
 #: yali/gui/Ui/autopartwidget.py:95
 msgid "Yes, automatically partition and format selected disk!"
-msgstr ""
-"Oui, partitionner et formatter automatiquement le disque dur sélectionné !"
+msgstr "Oui, partitionner et formatter automatiquement le disque dur sélectionné !"
 
 #: yali/gui/Ui/bootloaderwidget.py:106
 msgid "Where do you want to install the bootloader?"
@@ -68,7 +67,7 @@ msgstr "Où voulez-vous installer le chargeur de démarrage ?"
 
 #: yali/gui/Ui/bootloaderwidget.py:107
 msgid "MBR of the first disk (recomended)"
-msgstr ""
+msgstr "MBR du premier disque (recommandé)"
 
 #: yali/gui/Ui/bootloaderwidget.py:108
 msgid "Install to root partition"
@@ -76,7 +75,7 @@ msgstr "Installer sur la partition racine."
 
 #: yali/gui/Ui/bootloaderwidget.py:109
 msgid "Show More Options"
-msgstr ""
+msgstr "Montrer plus d'options."
 
 #: yali/gui/Ui/bootloaderwidget.py:111
 msgid "Install to MBR"
@@ -409,12 +408,11 @@ msgstr "Paramètrage basique"
 
 #: yali/gui/runner.py:139
 msgid "Error!"
-msgstr ""
+msgstr "Erreur !"
 
 #: yali/gui/runner.py:171
-#, fuzzy
 msgid "Unhandled error occured!"
-msgstr "Erreur!"
+msgstr "Une erreur non gérée s'est produite !"
 
 #: yali/gui/ScrAdmin.py:33
 msgid ""
@@ -477,8 +475,7 @@ msgstr "<font color=\"#FF6D19\">le Verrouillage Majuscules est activé !</font>"
 
 #: yali/gui/ScrAdmin.py:116 yali/gui/ScrUsers.py:110
 msgid "<font color=\"#FF6D19\">Passwords do not match!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Les mots de passe ne sont pas identiques!</font>"
+msgstr "<font color=\"#FF6D19\">Les mots de passe ne sont pas identiques!</font>"
 
 #: yali/gui/ScrAdmin.py:135
 msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
@@ -795,7 +792,7 @@ msgstr ""
 msgid ""
 "It seems that you don't have the required disk space (min. %s) for Pardus "
 "installation."
-msgstr ""
+msgstr "Il semblerait que vous ne disposiez pas de l'espace disque nécessaire (min. %s) pour l'installation de Pardus."
 
 #: yali/gui/ScrPartitionAuto.py:133 yali/gui/ScrPartitionManual.py:128
 msgid "Please wait while formatting!"
@@ -803,8 +800,7 @@ msgstr "Veuillez patienter pendant le formatage!"
 
 #: yali/gui/ScrPartitionAuto.py:136
 msgid "<font color=\"#FF6D19\">Preparing your disk for installation!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Préparation du disque dur pour l'installation</font>"
+msgstr "<font color=\"#FF6D19\">Préparation du disque dur pour l'installation</font>"
 
 #: yali/gui/ScrPartitionAuto.py:204
 msgid ""
@@ -832,7 +828,6 @@ msgid "O.K. Go Ahead"
 msgstr "O.K. Continuer"
 
 #: yali/gui/ScrPartitionManual.py:37
-#, fuzzy
 msgid ""
 "\n"
 "<font size=\"+2\">Partitioning your hard disk</font>\n"
@@ -878,21 +873,21 @@ msgstr ""
 "<font size=\"+1\">\n"
 "<p>\n"
 "Pardus peut être installé sur divers matériels. Vous pouvez installer\n"
-"Pardus sur un disque dur vide ou sur une simple partition.<b>Toutes\n"
+"Pardus sur un disque dur vide ou sur une partition.<b>Toutes\n"
 "les données présentes dans les partitions sélectionnées seront\n"
 "automatiquement supprimées.</b> \n"
 "</p> \n"
 "<p> \n"
 "Afin de pouvoir utiliser Pardus, vous devez obligatoirement créer un \n"
 "système de fichier Linux (pour les fichiers systèmes) et un espace d'échange "
-"swap optionnel (pour des performances optimales). Nous vous conseillons "
-"d'allouer au moins 4Go d'espace disque pour le\n"
-"système de fichier et le swap (nous vous suggérons de tailler entre \n"
-"500Mo et 2Go en fonction de vos besoins). Aucune partition Linux de \n"
-"moins de 3.5 Go n'est autorisée. Vous pouvez éventuellement utiliser \n"
-"une autre partition du disque pour stocker les fichier utilisateurs.\n"
-"Vous pouvez optionnellement utiliser une autre parttion pour les \n"
-"fichiers utilisateurs.\n"
+"swap optionnel (pour des performances optimales). Cet espace fluctuant\n"
+"est utilisé par le système lorsqu'il a besoin de mémoire, mais n'a plus de\n"
+"mémoire physique a sa disposition. Nous vous conseillons d'allouer au \n"
+"moins 4Go d'espace disque pour le système de fichier et le swap (nous \n"
+"vous suggérons de tailler entre 500Mo et 2Go en fonction de vos besoins).\n"
+" Aucune partition Linux de moins de 3.5 Go n'est autorisée. Vous avez\n"
+"également l'option d'utiliser une autre partition du disque pour stocker les \n"
+"fichier utilisateurs. "
 "</p> \n"
 "<p>\n"
 "Vous devez absolument formater une partition Linux s'il s'agit de sa\n"
@@ -903,12 +898,12 @@ msgstr ""
 "La table de partitionnement montre le périphérique, la taille, \n"
 "le type de partition ainsi que les propriétés du système de fichier.\n"
 "La colonne correspondante 'Formater' sera cochée si la partition \n"
-"sera formatée au cours du process d'installation de Pardus.\n"
+"sera formatée au cours du processus d'installation de Pardus.\n"
 "</p>\n"
 "<p> \n"
-"Pour tout information concernant le partitionnement de disque dur, "
-"veuillez \n"
-"consulter le Guide d'Installation et d'Utilisation de Pardus.</p> \n"
+"Pour toute information concernant le partitionnement de disque dur,\n"
+"veuillez consulter à ce propos le Guide d'Installation et d'Utilisation de\n"
+"Pardus.</p> \n"
 "</font>\n"
 
 #: yali/gui/ScrPartitionManual.py:165
@@ -1240,3 +1235,4 @@ msgstr "fichiers utilisateurs"
 #: yali/partitiontype.py:69
 msgid "Swap"
 msgstr "Swap"
+
