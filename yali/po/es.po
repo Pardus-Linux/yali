@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-11 14:34+0200\n"
+"POT-Creation-Date: 2007-03-24 20:30+0200\n"
 "PO-Revision-Date: 2007-02-04 12:50+0200\n"
 "Last-Translator: Klemens Häckel <click3d_at_linuxmail_org>\n"
 "Language-Team: spanish <es@li.org>\n"
@@ -16,11 +16,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 
-#: yali/gui/Ui/autopartwidget.py:83 yali/gui/Ui/bootloaderwidget.py:80
+#: yali/gui/Ui/autopartwidget.py:83 yali/gui/Ui/bootloaderwidget.py:105
 #: yali/gui/Ui/checkcdwidget.py:74 yali/gui/Ui/keyboardwidget.py:66
-#: yali/gui/Ui/parteditbuttons.py:46 yali/gui/Ui/parteditwidget.py:81
-#: yali/gui/Ui/partlistwidget.py:86 yali/gui/Ui/rootpasswidget.py:127
-#: yali/gui/Ui/setupuserswidget.py:134 yali/gui/Ui/welcomewidget.py:91
+#: yali/gui/Ui/parteditbuttons.py:46 yali/gui/Ui/parteditwidget.py:87
+#: yali/gui/Ui/partlistwidget.py:92 yali/gui/Ui/rootpasswidget.py:127
+#: yali/gui/Ui/setupuserswidget.py:134 yali/gui/Ui/welcomewidget.py:95
 msgid "Form1"
 msgstr "Form1"
 
@@ -58,28 +58,36 @@ msgstr "No, voy a particionar manualmente."
 msgid "Yes, automatically partition and format selected disk!"
 msgstr "Si, particionar automaticamente y formatear disco seleccionado !"
 
-#: yali/gui/Ui/bootloaderwidget.py:81
+#: yali/gui/Ui/bootloaderwidget.py:106
 msgid "Where do you want to install the bootloader?"
 msgstr "Donde quiere instalar el cargador de arranque?"
 
-# shouldn't it be in english: "Select the disk (you want) to install the bootloader to:"
-#: yali/gui/Ui/bootloaderwidget.py:82
-msgid "Select the disk you to install bootloader:"
-msgstr "Seleccione el disco al cual instalar el cargador de arranque:"
+#: yali/gui/Ui/bootloaderwidget.py:107
+msgid "MBR of the first disk (recomended)"
+msgstr ""
 
-#: yali/gui/Ui/bootloaderwidget.py:83
-msgid "Install to MBR"
-msgstr "Instalar en MBR"
-
-#: yali/gui/Ui/bootloaderwidget.py:84
+#: yali/gui/Ui/bootloaderwidget.py:108
 msgid "Install to root partition"
 msgstr "Instalar en partición root"
 
-#: yali/gui/Ui/bootloaderwidget.py:85
+#: yali/gui/Ui/bootloaderwidget.py:109
+msgid "Show More Options"
+msgstr ""
+
+#: yali/gui/Ui/bootloaderwidget.py:111
+msgid "Install to MBR"
+msgstr "Instalar en MBR"
+
+# shouldn't it be in english: "Select the disk (you want) to install the bootloader to:"
+#: yali/gui/Ui/bootloaderwidget.py:112
+msgid "Select the disk you to install bootloader:"
+msgstr "Seleccione el disco al cual instalar el cargador de arranque:"
+
+#: yali/gui/Ui/bootloaderwidget.py:113
 msgid "Don't install bootloader"
 msgstr "No Instalar cargador de arranque"
 
-#: yali/gui/Ui/bootloaderwidget.py:86
+#: yali/gui/Ui/bootloaderwidget.py:114
 msgid ""
 "<b>Do you want to write boot loader (GRUB) to your hard disk's master boot "
 "record?</b>\n"
@@ -95,11 +103,13 @@ msgstr ""
 "\n"
 "<p>Necesita un cargador de arranque para bootear Pardus.</p>\n"
 "\n"
-"<p>Si no instala un cargador de arranque o elige la instalación a la partición root,  tendrá que configurar el cargador de sistema ya instalado (si hay) para poder bootear\n"
+"<p>Si no instala un cargador de arranque o elige la instalación a la "
+"partición root,  tendrá que configurar el cargador de sistema ya instalado "
+"(si hay) para poder bootear\n"
 " la nueva instalación de Pardus.</p>"
 
 #: yali/gui/Ui/checkcdwidget.py:75 yali/gui/Ui/installwidget.py:54
-#: yali/gui/Ui/keyboardwidget.py:67 yali/gui/Ui/welcomewidget.py:92
+#: yali/gui/Ui/keyboardwidget.py:67 yali/gui/Ui/welcomewidget.py:96
 msgid "pix"
 msgstr "pix"
 
@@ -108,7 +118,10 @@ msgid ""
 "You can check the integrity of the packages in installation CD. Although "
 "this is an optional step, we encourage you to do it to avoid any errors in "
 "installation."
-msgstr "Puede verificar la integridad de los paquetes en el CD de instalación. Aunque es una operación opcional, lo recomendamos para evitar errores durante la instalación."
+msgstr ""
+"Puede verificar la integridad de los paquetes en el CD de instalación. "
+"Aunque es una operación opcional, lo recomendamos para evitar errores "
+"durante la instalación."
 
 #: yali/gui/Ui/checkcdwidget.py:77
 msgid "Check CD Integrity"
@@ -130,8 +143,8 @@ msgstr "Seleccione la distribución de teclado."
 msgid "Test selected keyboard:"
 msgstr "Probar teclado seleccionado:"
 
-#: yali/gui/Ui/parteditbuttons.py:47 yali/gui/ScrPartitionAuto.py:210
-#: yali/gui/ScrPartitionManual.py:217
+#: yali/gui/Ui/parteditbuttons.py:47 yali/gui/ScrPartitionAuto.py:214
+#: yali/gui/ScrPartitionManual.py:212
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -139,77 +152,76 @@ msgstr "Cancelar"
 msgid "Apply"
 msgstr "Aplicar"
 
-#: yali/gui/Ui/parteditwidget.py:82
+#: yali/gui/Ui/parteditwidget.py:88
 msgid "Size (MB):"
 msgstr "Tamaño (MB):"
 
-#: yali/gui/Ui/parteditwidget.py:83
+#: yali/gui/Ui/parteditwidget.py:89
 msgid "Use available free space"
 msgstr "Usar espacio libre disponible"
 
-#: yali/gui/Ui/parteditwidget.py:85
+#: yali/gui/Ui/parteditwidget.py:91
 msgid "Format this partition"
 msgstr "Formatear esta partición"
 
-#: yali/gui/Ui/parteditwidget.py:87
+#: yali/gui/Ui/parteditwidget.py:93
 msgid " What do you want to store in this partition? "
 msgstr "Que desea almacenar en esta partición ?"
 
-#: yali/gui/Ui/parteditwidget.py:88
+#: yali/gui/Ui/parteditwidget.py:94
 msgid "Pardus system files (mandatory)"
 msgstr "Archivos del Sistema Pardus (mandatorio)"
 
-#: yali/gui/Ui/parteditwidget.py:89
+#: yali/gui/Ui/parteditwidget.py:95
 msgid "User files (optional)"
 msgstr "Archivos de usuarios (opcional)"
 
-#: yali/gui/Ui/parteditwidget.py:90
+#: yali/gui/Ui/parteditwidget.py:96
 msgid "Swap space (optional)"
 msgstr "Espacio de intercambio Swap (opcional)"
 
-#: yali/gui/Ui/partlistwidget.py:47 yali/gui/Ui/partlistwidget.py:90
+#: yali/gui/Ui/partlistwidget.py:47 yali/gui/Ui/partlistwidget.py:96
 msgid "Device"
 msgstr "Dispositivo"
 
-#: yali/gui/Ui/partlistwidget.py:48 yali/gui/Ui/partlistwidget.py:91
+#: yali/gui/Ui/partlistwidget.py:48 yali/gui/Ui/partlistwidget.py:97
 msgid "Size"
 msgstr "Tamaño"
 
-#: yali/gui/Ui/partlistwidget.py:49 yali/gui/Ui/partlistwidget.py:92
+#: yali/gui/Ui/partlistwidget.py:49 yali/gui/Ui/partlistwidget.py:98
 msgid "Partition Type"
 msgstr "Tipo de Partición"
 
-#: yali/gui/Ui/partlistwidget.py:50 yali/gui/Ui/partlistwidget.py:93
+#: yali/gui/Ui/partlistwidget.py:50 yali/gui/Ui/partlistwidget.py:99
 msgid "Filesystem"
 msgstr "Sistema de Archivos"
 
 # translated as "do the process of formating ?"
-#: yali/gui/Ui/partlistwidget.py:51 yali/gui/Ui/partlistwidget.py:94
+#: yali/gui/Ui/partlistwidget.py:51 yali/gui/Ui/partlistwidget.py:100
 msgid "Format?"
 msgstr "Formatear ?"
 
-#: yali/gui/Ui/partlistwidget.py:87
+#: yali/gui/Ui/partlistwidget.py:93
 msgid "Create New Partition"
 msgstr "Crear Nueva Partición"
 
-#: yali/gui/Ui/partlistwidget.py:88 yali/gui/PartListImpl.py:228
-#: yali/gui/PartListViewAbstract.py:203
+#: yali/gui/Ui/partlistwidget.py:94 yali/gui/PartListImpl.py:240
 msgid "Delete Selected Partition"
 msgstr "Eliminar Partición Seleccionada"
 
-#: yali/gui/Ui/partlistwidget.py:89
+#: yali/gui/Ui/partlistwidget.py:95
 msgid "Partitions:"
 msgstr "Particiones:"
 
-#: yali/gui/Ui/partlistwidget.py:95
+#: yali/gui/Ui/partlistwidget.py:101
 msgid "Reset All Changes"
 msgstr "Deshacer todos Cambios"
 
-#: yali/gui/Ui/partlistwidget.py:96
+#: yali/gui/Ui/partlistwidget.py:102
 msgid "Resize"
 msgstr "Redimensionar"
 
-#: yali/gui/Ui/partlistwidget.py:97
+#: yali/gui/Ui/partlistwidget.py:103
 msgid "Edit"
 msgstr "Editar"
 
@@ -273,7 +285,7 @@ msgstr "Eliminar Usuario Seleccionado"
 msgid "Users:"
 msgstr "Usuarios:"
 
-#: yali/gui/Ui/welcomewidget.py:93
+#: yali/gui/Ui/welcomewidget.py:97
 msgid ""
 "All software developed by TUBITAK/UEKAE is covered by GNU/GPL. Other "
 "software have their corresponding licenses. By installing or using Pardus, "
@@ -283,23 +295,23 @@ msgstr ""
 "Otros software tienen sus licencias respectivas. Al instalar o usar Pardus, "
 "está tomando la decisión de aceptarlos. Quiere continuar ?"
 
-#: yali/gui/Ui/welcomewidget.py:94
+#: yali/gui/Ui/welcomewidget.py:98
 msgid "Read GPL"
 msgstr "Leer GPL"
 
-#: yali/gui/Ui/welcomewidget.py:95 yali/gui/runner.py:176
+#: yali/gui/Ui/welcomewidget.py:99 yali/gui/runner.py:176
 msgid "Reboot System!"
 msgstr "Rebootear Sistema !"
 
-#: yali/gui/Ui/welcomewidget.py:97
+#: yali/gui/Ui/welcomewidget.py:101
 msgid "Accept!"
 msgstr "Acepto !"
 
-#: yali/gui/Ui/welcomewidget.py:98
+#: yali/gui/Ui/welcomewidget.py:102
 msgid "Don't Accept!"
 msgstr "No Acepto !"
 
-#: yali/gui/GUIBottom.py:101 yali/gui/GUIBottom.py:147
+#: yali/gui/GUIBottom.py:102 yali/gui/GUIBottom.py:152
 msgid "Release Notes"
 msgstr "Notas de Versión"
 
@@ -311,70 +323,70 @@ msgstr "No puedo abrir archivo de Licencia !"
 msgid "Can't open Release Notes file!"
 msgstr "No puedo abrir archivo de Notas de Versión !"
 
-#: yali/gui/PartEditImpl.py:101
+#: yali/gui/PartEditImpl.py:98
 #, python-format
 msgid "You are going to delete all partitions on device '%s'"
 msgstr "Está a punto de eliminar todas las particiones del dispositivo '%s'"
 
-#: yali/gui/PartEditImpl.py:113
+#: yali/gui/PartEditImpl.py:110
 #, python-format
 msgid "You are going to delete partition '%s' on device '%s'!"
 msgstr "Está a punto de eliminar partición '%s' en dispositivo '%s'!"
 
-#: yali/gui/PartEditImpl.py:161
+#: yali/gui/PartEditImpl.py:158
 msgid "You must select a partition type from the list below."
 msgstr "Debe seleccionar un tipo de partición de la lista abajo."
 
-#: yali/gui/PartEditImpl.py:175 yali/gui/PartEditImpl.py:201
+#: yali/gui/PartEditImpl.py:172 yali/gui/PartEditImpl.py:198
 #, python-format
 msgid "'Install Root' size must be larger than %s MB."
 msgstr "Tamaño 'Install Root' debe ser mayor de %s MB."
 
-#: yali/gui/PartEditImpl.py:277
+#: yali/gui/PartEditImpl.py:274
 msgid "ntfsresize check failed! Won't proceed action!"
 msgstr "ntfsresize check falló ! Acción suspendida !"
 
-#: yali/gui/PartListImpl.py:87 yali/gui/ScrBootloader.py:74
-#: yali/gui/ScrPartitionAuto.py:69 yali/gui/ScrPartitionManual.py:82
+#: yali/gui/PartListImpl.py:90 yali/gui/ScrBootloader.py:84
+#: yali/gui/ScrPartitionAuto.py:69
 msgid "Can't find a storage device!"
 msgstr "No posible encontrar dispositivo de almacenamiento !"
 
-#: yali/gui/PartListImpl.py:105 yali/gui/PartListViewAbstract.py:41
+#: yali/gui/PartListImpl.py:114
 #, python-format
 msgid "%0.1f GB free"
 msgstr "%0.1f GB libre"
 
-#: yali/gui/PartListImpl.py:107 yali/gui/PartListViewAbstract.py:43
+#: yali/gui/PartListImpl.py:116
 #, python-format
 msgid "%d MB free"
 msgstr "%d MB libre"
 
-#: yali/gui/PartListImpl.py:132 yali/gui/PartListViewAbstract.py:106
+#: yali/gui/PartListImpl.py:141
 msgid "Extended"
 msgstr "Extendido"
 
-#: yali/gui/PartListImpl.py:160 yali/gui/PartListViewAbstract.py:135
+#: yali/gui/PartListImpl.py:169
 #, python-format
 msgid "Partition %d"
 msgstr "Partición %d"
 
-#: yali/gui/PartListImpl.py:202 yali/gui/PartListViewAbstract.py:177
+#: yali/gui/PartListImpl.py:214
 msgid "Delete All Partitions"
 msgstr "Eliminar todas las particiones"
 
-#: yali/gui/PartListImpl.py:300 yali/gui/PartListViewAbstract.py:275
+#: yali/gui/PartListImpl.py:312
 msgid "Can't get partition info from partition request!"
 msgstr "No puedo obtener informaciones sobre las particiones !"
 
-#: yali/gui/PartListImpl.py:302 yali/gui/PartListViewAbstract.py:277
+#: yali/gui/PartListImpl.py:314
 msgid " req.partition() is None. May be a zombie request!"
 msgstr "req.partition() es Nulo. Puede ser un zombie request!"
 
-#: yali/gui/PartListImpl.py:310 yali/gui/PartListViewAbstract.py:285
+#: yali/gui/PartListImpl.py:322
 msgid "Formatting!"
 msgstr "Formateando !"
 
-#: yali/gui/PartListImpl.py:312 yali/gui/PartListViewAbstract.py:287
+#: yali/gui/PartListImpl.py:324
 msgid "YES"
 msgstr "Si"
 
@@ -390,8 +402,13 @@ msgstr "Instalar sistema"
 msgid "Basic setup"
 msgstr "Configuración básica"
 
+#: yali/gui/runner.py:139
+msgid "Error!"
+msgstr ""
+
 #: yali/gui/runner.py:171
-msgid "An error occured!"
+#, fuzzy
+msgid "Unhandled error occured!"
 msgstr "Ocurrió un error !"
 
 #: yali/gui/ScrAdmin.py:33
@@ -463,9 +480,10 @@ msgstr "<font color=\"#FF6D19\">Contraseñas no coinciden !</font>"
 
 #: yali/gui/ScrAdmin.py:135
 msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
-msgstr "<font color=\"#FF6D19\">Nombre de Host contiene caracteres inválidos !</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Nombre de Host contiene caracteres inválidos !</font>"
 
-#: yali/gui/ScrBootloader.py:37
+#: yali/gui/ScrBootloader.py:38
 msgid ""
 "\n"
 "<font size=\"+2\">Boot loader setup</font>\n"
@@ -509,7 +527,7 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/ScrBootloader.py:114
+#: yali/gui/ScrBootloader.py:134
 msgid "Please wait while installing bootloader!"
 msgstr "Favor espere mientras se instala el cargador de arranque !"
 
@@ -528,7 +546,8 @@ msgstr ""
 "<font size=\"+2\">Verificar Integridad de CD!</font>\n"
 "\n"
 "<font size=\"+1\">\n"
-"<p>En esta pantalla puede verificar la integridad de los paquetes en el CD de instalación.\n"
+"<p>En esta pantalla puede verificar la integridad de los paquetes en el CD "
+"de instalación.\n"
 "</p>\n"
 "\n"
 
@@ -538,15 +557,16 @@ msgstr "Verificación fallada"
 
 #: yali/gui/ScrCheckCD.py:59
 msgid "<font color=\"#FF6D19\">Please wait while checking CD.</font>"
-msgstr "<font color=\"#FF6D19\">Favor espere mientras se verifica el CD.</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Favor espere mientras se verifica el CD.</font>"
 
 #: yali/gui/ScrCheckCD.py:77
 msgid ""
 "<font color=\"#257216\">Check succeeded. You can proceed to the next screen."
 "</font>"
 msgstr ""
-"<font color=\"#257216\">Verificación terminado con éxito. Puede avanzar a la pantalla siguiente."
-"</font>"
+"<font color=\"#257216\">Verificación terminado con éxito. Puede avanzar a la "
+"pantalla siguiente.</font>"
 
 #: yali/gui/ScrCheckCD.py:99
 msgid ""
@@ -556,14 +576,15 @@ msgid ""
 "</b>\n"
 msgstr ""
 "<b>\n"
-"<p>Verificación de integridad de paquetes falló. Aparentemente el CD de instalación está dañado.</p>\n"
+"<p>Verificación de integridad de paquetes falló. Aparentemente el CD de "
+"instalación está dañado.</p>\n"
 "</b>\n"
 
-#: yali/gui/ScrCheckCD.py:105 yali/gui/ScrGoodbye.py:140
+#: yali/gui/ScrCheckCD.py:105 yali/gui/ScrGoodbye.py:138
 msgid "Reboot"
 msgstr "Reboot"
 
-#: yali/gui/ScrGoodbye.py:35
+#: yali/gui/ScrGoodbye.py:33
 msgid ""
 "\n"
 "<font size=\"+2\">Congratulations</font>\n"
@@ -596,13 +617,13 @@ msgstr ""
 "todo el tiempo.\n"
 "</p>\n"
 "<P>\n"
-"Cliquée el bóton siguiente para avanzar. Una observación: Está recordando "
-"la contraseña,\n"
+"Cliquée el bóton siguiente para avanzar. Una observación: Está recordando la "
+"contraseña,\n"
 "verdad ?\n"
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/ScrGoodbye.py:60
+#: yali/gui/ScrGoodbye.py:58
 msgid ""
 "<b><font size=\"+2\" color=\"#FF6D19\">Rebooting system. Please wait!</"
 "font></b>"
@@ -610,7 +631,7 @@ msgstr ""
 "<b><font size=\"+2\" color=\"#FF6D19\">Rebooteando sistema. Favor espere !</"
 "font></b>"
 
-#: yali/gui/ScrGoodbye.py:134
+#: yali/gui/ScrGoodbye.py:132
 msgid ""
 "<b>\n"
 "<p>Please remove Pardus CD from your drive and pres Reboot button.</p>\n"
@@ -677,11 +698,11 @@ msgstr "Instalando: %s<br>%s"
 msgid "Configuring package: %s"
 msgstr "Configurando paquete: %s"
 
-#: yali/gui/ScrInstall.py:192
+#: yali/gui/ScrInstall.py:197
 msgid "Configuring packages for your system!"
 msgstr "Configurando paquetes para su sistema !"
 
-#: yali/gui/ScrInstall.py:235
+#: yali/gui/ScrInstall.py:236
 #, python-format
 msgid ""
 "An error during the installation of packages occured.\n"
@@ -693,7 +714,8 @@ msgid ""
 msgstr ""
 "Durante la instalación de los paquetes ocurrió un error.\n"
 "\n"
-"Es posible que el CD de Pardus o el lector de CD tiene algún problema o daño.\n"
+"Es posible que el CD de Pardus o el lector de CD tiene algún problema o "
+"daño.\n"
 "\n"
 "Error:\n"
 "%s\n"
@@ -715,8 +737,8 @@ msgstr ""
 "\n"
 "<font size=\"+1\">\n"
 "<p>\n"
-"Dependiendo de su hardware o elección, seleccione una distribución de teclado de la "
-"lista.\n"
+"Dependiendo de su hardware o elección, seleccione una distribución de "
+"teclado de la lista.\n"
 "</p>\n"
 "</font>\n"
 
@@ -748,30 +770,41 @@ msgstr ""
 "\n"
 "<font size=\"+1\">\n"
 "<p>\n"
-"Pardus puede ser instalado en una serie de hardware. Se puede instalar Pardus\n"
-"en un disco vacío o en una partición de un disco. <b>La installación destruirá automaticamente\n"
+"Pardus puede ser instalado en una serie de hardware. Se puede instalar "
+"Pardus\n"
+"en un disco vacío o en una partición de un disco. <b>La installación "
+"destruirá automaticamente\n"
 "todo el contenido de las particiones seleccionadas. </b>\n"
 "</p>\n"
 "<p>\n"
 "Partición automatica usa el disco entero para la instalación de Pardus. En \n"
-"esta pantalla puede elegir para particionar automaticamente uno de sus  discos, o\n"
+"esta pantalla puede elegir para particionar automaticamente uno de sus  "
+"discos, o\n"
 "puede omitir esta pantalla e intentar un particionamiento manual.\n"
 "</p>\n"
 "<p>\n"
-"Favor consulte la guía <i>Pardus Installing and Using Guide</i> por mas informaciones\n"
+"Favor consulte la guía <i>Pardus Installing and Using Guide</i> por mas "
+"informaciones\n"
 "acerca de particionamiento de disco.\n"
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/ScrPartitionAuto.py:129 yali/gui/ScrPartitionManual.py:133
+#: yali/gui/ScrPartitionAuto.py:79
+#, python-format
+msgid ""
+"It seems that you don't have the required disk space (min. %s) for Pardus "
+"installation."
+msgstr ""
+
+#: yali/gui/ScrPartitionAuto.py:133 yali/gui/ScrPartitionManual.py:128
 msgid "Please wait while formatting!"
 msgstr "Favor espere durante el formateo !!"
 
-#: yali/gui/ScrPartitionAuto.py:132
+#: yali/gui/ScrPartitionAuto.py:136
 msgid "<font color=\"#FF6D19\">Preparing your disk for installation!</font>"
 msgstr "<font color=\"#FF6D19\">Prepando el disco para la instalación !</font>"
 
-#: yali/gui/ScrPartitionAuto.py:200
+#: yali/gui/ScrPartitionAuto.py:204
 msgid ""
 "<b>\n"
 "<p>This action will use your entire disk for Pardus installation and\n"
@@ -790,11 +823,12 @@ msgstr ""
 " una manera fácil y segura para la instalación de Pardus.</p>\n"
 "</b>\n"
 
-#: yali/gui/ScrPartitionAuto.py:213 yali/gui/ScrPartitionManual.py:220
+#: yali/gui/ScrPartitionAuto.py:217 yali/gui/ScrPartitionManual.py:215
 msgid "O.K. Go Ahead"
 msgstr "Bien, Hagámoslo"
 
-#: yali/gui/ScrPartitionManual.py:39
+#: yali/gui/ScrPartitionManual.py:37
+#, fuzzy
 msgid ""
 "\n"
 "<font size=\"+2\">Partitioning your hard disk</font>\n"
@@ -809,7 +843,8 @@ msgid ""
 "<p>\n"
 "In order to use Pardus, you must create one Linux filesystem (for the \n"
 "system files), which is mandatory and a swap space \n"
-"(for improved performance), which is optional. \n"
+"(for improved performance), which is optional. This sway space \n"
+"is used whenever system needs more memory, but the system lacks it.\n"
 "We advise you to allocate at least 4 GBs of hard disk area and \n"
 "swap space (between 500 MB - 2 GB, according to your needs) for \n"
 "convenience. A Linux partition size less than 3.5 GB is not allowed.\n"
@@ -873,23 +908,23 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/ScrPartitionManual.py:170
+#: yali/gui/ScrPartitionManual.py:165
 msgid "Create Partition"
 msgstr "Crear Partición"
 
-#: yali/gui/ScrPartitionManual.py:175
+#: yali/gui/ScrPartitionManual.py:170
 msgid "Delete Partition"
 msgstr "Eliminar Partición"
 
-#: yali/gui/ScrPartitionManual.py:180
+#: yali/gui/ScrPartitionManual.py:175
 msgid "Edit Partition"
 msgstr "Editar Partición"
 
-#: yali/gui/ScrPartitionManual.py:185
+#: yali/gui/ScrPartitionManual.py:180
 msgid "Resize Partition"
 msgstr "Redimensionar Partición"
 
-#: yali/gui/ScrPartitionManual.py:210
+#: yali/gui/ScrPartitionManual.py:205
 msgid ""
 "<b>\n"
 "<p>This action will start installing Pardus on\n"
@@ -941,22 +976,24 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/ScrUsers.py:136
+#: yali/gui/ScrUsers.py:137
 msgid "<font color=\"#FF6D19\">Username exists, choose another one!</font>"
-msgstr "<font color=\"#FF6D19\">Nombre de usuario ya existe, elija otro !</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Nombre de usuario ya existe, elija otro !</font>"
 
-#: yali/gui/ScrUsers.py:140
+#: yali/gui/ScrUsers.py:141
 msgid "<font color=\"#FF6D19\">Username contains invalid characters!</font>"
 msgstr ""
 "<font color=\"#FF6D19\">Nombre de usuario contiene caractéres no válidos !</"
 "font>"
 
-#: yali/gui/ScrUsers.py:144
+#: yali/gui/ScrUsers.py:145
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
-msgstr "<font color=\"#FF6D19\">Nombre real contiene caractéres no válidos !</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Nombre real contiene caractéres no válidos !</font>"
 
 # here i changed the sense of the last sentence to: "enjoy the experience with Pardus"
-#: yali/gui/ScrWelcome.py:32
+#: yali/gui/ScrWelcome.py:31
 msgid ""
 "\n"
 "<font size=\"+2\">Welcome!</font>\n"
@@ -1017,11 +1054,11 @@ msgid "Warning"
 msgstr "Alerta"
 
 # you mean the MS product ? if you wanted to say just "pencereler" the translation should be: "Ventanas"
-#: yali/bootloader.py:161 yali/bootloader.py:166
+#: yali/bootloader.py:151 yali/bootloader.py:156
 msgid "Windows"
 msgstr "Windows"
 
-#: yali/__init__.py:54
+#: yali/__init__.py:71
 msgid "Backtrace:"
 msgstr "Backtrace:"
 
@@ -1182,7 +1219,7 @@ msgstr "Galés"
 msgid "unknown"
 msgstr "desconocido"
 
-#: yali/partition.py:169
+#: yali/partition.py:177
 msgid "free space"
 msgstr "espacio libre"
 
@@ -1190,11 +1227,10 @@ msgstr "espacio libre"
 msgid "Install Root"
 msgstr "Instalar Root"
 
-#: yali/partitiontype.py:59
+#: yali/partitiontype.py:60
 msgid "Users' Files"
 msgstr "Archivos de usuarios"
 
-#: yali/partitiontype.py:67
+#: yali/partitiontype.py:69
 msgid "Swap"
 msgstr "Swap"
-
