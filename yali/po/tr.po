@@ -65,7 +65,7 @@ msgstr "Sistem yükleyicisini nereye kurmak istiyorsunuz?"
 
 #: yali/gui/Ui/bootloaderwidget.py:107
 msgid "MBR of the first disk (recomended)"
-msgstr ""
+msgstr "İlk diskin başına (MBR) - önerilen"
 
 #: yali/gui/Ui/bootloaderwidget.py:108
 msgid "Install to root partition"
@@ -73,7 +73,7 @@ msgstr "Pardus disk bölümünün başına"
 
 #: yali/gui/Ui/bootloaderwidget.py:109
 msgid "Show More Options"
-msgstr ""
+msgstr "Daha Fazla Seçenek Göster"
 
 #: yali/gui/Ui/bootloaderwidget.py:111
 msgid "Install to MBR"
@@ -403,10 +403,9 @@ msgstr "Temel yapılandırma"
 
 #: yali/gui/runner.py:139
 msgid "Error!"
-msgstr ""
+msgstr "Hata!"
 
 #: yali/gui/runner.py:171
-#, fuzzy
 msgid "Unhandled error occured!"
 msgstr "Bir hata oluştu!"
 
@@ -814,7 +813,6 @@ msgid "O.K. Go Ahead"
 msgstr "Tamam. Devam Et"
 
 #: yali/gui/ScrPartitionManual.py:37
-#, fuzzy
 msgid ""
 "\n"
 "<font size=\"+2\">Partitioning your hard disk</font>\n"
