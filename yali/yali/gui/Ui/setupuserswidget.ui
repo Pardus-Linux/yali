@@ -9,7 +9,7 @@
             <x>0</x>
             <y>0</y>
             <width>501</width>
-            <height>408</height>
+            <height>363</height>
         </rect>
     </property>
     <property name="caption">
@@ -36,7 +36,7 @@
                 </size>
             </property>
         </spacer>
-        <spacer row="1" column="2">
+        <spacer row="1" column="3">
             <property name="name">
                 <cstring>spacer12</cstring>
             </property>
@@ -70,130 +70,20 @@
                 </size>
             </property>
         </spacer>
-        <widget class="QButtonGroup" row="1" column="1">
+        <widget class="QLabel" row="2" column="1">
             <property name="name">
-                <cstring>buttonGroup1</cstring>
+                <cstring>pass_error</cstring>
             </property>
-            <property name="title">
-                <string>New User</string>
+            <property name="text">
+                <string></string>
             </property>
-            <grid>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QLabel" row="0" column="0">
-                    <property name="name">
-                        <cstring>textLabel1_3</cstring>
-                    </property>
-                    <property name="text">
-                        <string>User Name:</string>
-                    </property>
-                </widget>
-                <widget class="QPushButton" row="0" column="2">
-                    <property name="name">
-                        <cstring>createButton</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Create User</string>
-                    </property>
-                </widget>
-                <widget class="QLineEdit" row="0" column="1">
-                    <property name="name">
-                        <cstring>username</cstring>
-                    </property>
-                </widget>
-                <widget class="QLineEdit" row="3" column="1" rowspan="2" colspan="1">
-                    <property name="name">
-                        <cstring>pass2</cstring>
-                    </property>
-                    <property name="echoMode">
-                        <enum>Password</enum>
-                    </property>
-                </widget>
-                <widget class="QLabel" row="3" column="0" rowspan="2" colspan="1">
-                    <property name="name">
-                        <cstring>textLabel1</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Password (again):</string>
-                    </property>
-                </widget>
-                <widget class="QLabel" row="2" column="0">
-                    <property name="name">
-                        <cstring>textLabel1_2</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Password:</string>
-                    </property>
-                </widget>
-                <widget class="QLineEdit" row="2" column="1">
-                    <property name="name">
-                        <cstring>pass1</cstring>
-                    </property>
-                    <property name="echoMode">
-                        <enum>Password</enum>
-                    </property>
-                </widget>
-                <widget class="QLabel" row="1" column="0">
-                    <property name="name">
-                        <cstring>textLabel1_4</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Real Name:</string>
-                    </property>
-                </widget>
-                <widget class="QLineEdit" row="1" column="1">
-                    <property name="name">
-                        <cstring>realname</cstring>
-                    </property>
-                </widget>
-                <widget class="QLabel" row="1" column="2" rowspan="3" colspan="1">
-                    <property name="name">
-                        <cstring>pix</cstring>
-                    </property>
-                    <property name="text">
-                        <string></string>
-                    </property>
-                    <property name="alignment">
-                        <set>AlignCenter</set>
-                    </property>
-                </widget>
-            </grid>
+            <property name="textFormat">
+                <enum>RichText</enum>
+            </property>
+            <property name="alignment">
+                <set>WordBreak|AlignCenter</set>
+            </property>
         </widget>
-        <spacer row="5" column="1">
-            <property name="name">
-                <cstring>spacer11</cstring>
-            </property>
-            <property name="orientation">
-                <enum>Vertical</enum>
-            </property>
-            <property name="sizeType">
-                <enum>Expanding</enum>
-            </property>
-            <property name="sizeHint">
-                <size>
-                    <width>20</width>
-                    <height>16</height>
-                </size>
-            </property>
-        </spacer>
-        <spacer row="4" column="0">
-            <property name="name">
-                <cstring>spacer14_2</cstring>
-            </property>
-            <property name="orientation">
-                <enum>Horizontal</enum>
-            </property>
-            <property name="sizeType">
-                <enum>Expanding</enum>
-            </property>
-            <property name="sizeHint">
-                <size>
-                    <width>40</width>
-                    <height>20</height>
-                </size>
-            </property>
-        </spacer>
         <widget class="QLayoutWidget" row="4" column="1">
             <property name="name">
                 <cstring>layout5</cstring>
@@ -242,7 +132,24 @@
                 </widget>
             </grid>
         </widget>
-        <spacer row="4" column="2">
+        <spacer row="5" column="1">
+            <property name="name">
+                <cstring>spacer11</cstring>
+            </property>
+            <property name="orientation">
+                <enum>Vertical</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Expanding</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>20</width>
+                    <height>16</height>
+                </size>
+            </property>
+        </spacer>
+        <spacer row="4" column="2" rowspan="1" colspan="2">
             <property name="name">
                 <cstring>spacer14</cstring>
             </property>
@@ -259,20 +166,6 @@
                 </size>
             </property>
         </spacer>
-        <widget class="QLabel" row="2" column="1">
-            <property name="name">
-                <cstring>pass_error</cstring>
-            </property>
-            <property name="text">
-                <string></string>
-            </property>
-            <property name="textFormat">
-                <enum>RichText</enum>
-            </property>
-            <property name="alignment">
-                <set>WordBreak|AlignCenter</set>
-            </property>
-        </widget>
         <widget class="QLabel" row="3" column="1">
             <property name="name">
                 <cstring>caps_error</cstring>
@@ -286,6 +179,121 @@
             <property name="alignment">
                 <set>WordBreak|AlignCenter</set>
             </property>
+        </widget>
+        <spacer row="4" column="0">
+            <property name="name">
+                <cstring>spacer14_2</cstring>
+            </property>
+            <property name="orientation">
+                <enum>Horizontal</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Expanding</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>40</width>
+                    <height>20</height>
+                </size>
+            </property>
+        </spacer>
+        <widget class="QButtonGroup" row="1" column="1" rowspan="1" colspan="2">
+            <property name="name">
+                <cstring>buttonGroup1</cstring>
+            </property>
+            <property name="title">
+                <string>New User</string>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel" row="0" column="0">
+                    <property name="name">
+                        <cstring>textLabel1_3</cstring>
+                    </property>
+                    <property name="text">
+                        <string>User Name:</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" row="0" column="2">
+                    <property name="name">
+                        <cstring>createButton</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Create User</string>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="3" column="0">
+                    <property name="name">
+                        <cstring>textLabel1</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Password (again):</string>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="2" column="0">
+                    <property name="name">
+                        <cstring>textLabel1_2</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Password:</string>
+                    </property>
+                </widget>
+                <widget class="QLineEdit" row="2" column="1">
+                    <property name="name">
+                        <cstring>pass1</cstring>
+                    </property>
+                    <property name="echoMode">
+                        <enum>Password</enum>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="1" column="0">
+                    <property name="name">
+                        <cstring>textLabel1_4</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Real Name:</string>
+                    </property>
+                </widget>
+                <widget class="QLineEdit" row="1" column="1">
+                    <property name="name">
+                        <cstring>realname</cstring>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="1" column="2" rowspan="3" colspan="1">
+                    <property name="name">
+                        <cstring>pix</cstring>
+                    </property>
+                    <property name="text">
+                        <string></string>
+                    </property>
+                    <property name="alignment">
+                        <set>AlignCenter</set>
+                    </property>
+                </widget>
+                <widget class="QLineEdit" row="3" column="1">
+                    <property name="name">
+                        <cstring>pass2</cstring>
+                    </property>
+                    <property name="echoMode">
+                        <enum>Password</enum>
+                    </property>
+                </widget>
+                <widget class="QLineEdit" row="0" column="1">
+                    <property name="name">
+                        <cstring>username</cstring>
+                    </property>
+                </widget>
+                <widget class="QCheckBox" row="4" column="0" rowspan="1" colspan="3">
+                    <property name="name">
+                        <cstring>admin</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Give administrator privileges to this user</string>
+                    </property>
+                </widget>
+            </grid>
         </widget>
     </grid>
 </widget>
