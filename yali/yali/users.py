@@ -100,7 +100,7 @@ class User:
 
         
         user_home_dir = os.path.join(consts.target_dir, 'home', self.username)
-        
+
         if not os.path.exists(user_home_dir):
             os.system('cp -r %s %s' % (os.path.join(consts.target_dir, 'etc/skel'), user_home_dir))
 
@@ -142,7 +142,7 @@ class User:
     def setAutoLogin(self,user,state=True):
         import ConfigParser
         section = 'X-:0-Core'
-        confFile = '/mnt/target/usr/kde/3.5/share/config/kdm/kdmrc'
+        confFile = glob.glob(os.path.join(consts.target_dir, 'usr/kde/*/share/config/kdm/kdmrc'))[0]
         kdmrc = ConfigParser.ConfigParser()
         kdmrc.optionxform = str
         kdmrc.readfp(open(confFile))
