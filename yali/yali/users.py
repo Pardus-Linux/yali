@@ -142,7 +142,7 @@ class User:
     def setAutoLogin(self,user,state=True):
         import ConfigParser
         section = 'X-:0-Core'
-        confFile = '/home/rat/temp/kdmrc'
+        confFile = '/mnt/target/usr/kde/3.5/share/config/kdm/kdmrc'
         kdmrc = ConfigParser.ConfigParser()
         kdmrc.optionxform = str
         kdmrc.readfp(open(confFile))
