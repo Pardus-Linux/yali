@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>501</width>
-            <height>363</height>
+            <width>741</width>
+            <height>667</height>
         </rect>
     </property>
     <property name="caption">
@@ -36,7 +36,7 @@
                 </size>
             </property>
         </spacer>
-        <spacer row="1" column="3">
+        <spacer row="1" column="2">
             <property name="name">
                 <cstring>spacer12</cstring>
             </property>
@@ -105,7 +105,7 @@
                     <property name="sizeHint">
                         <size>
                             <width>20</width>
-                            <height>70</height>
+                            <height>56</height>
                         </size>
                     </property>
                 </spacer>
@@ -149,7 +149,7 @@
                 </size>
             </property>
         </spacer>
-        <spacer row="4" column="2" rowspan="1" colspan="2">
+        <spacer row="4" column="2">
             <property name="name">
                 <cstring>spacer14</cstring>
             </property>
@@ -197,7 +197,7 @@
                 </size>
             </property>
         </spacer>
-        <widget class="QButtonGroup" row="1" column="1" rowspan="1" colspan="2">
+        <widget class="QButtonGroup" row="1" column="1">
             <property name="name">
                 <cstring>buttonGroup1</cstring>
             </property>
@@ -256,22 +256,6 @@
                         <string>Real Name:</string>
                     </property>
                 </widget>
-                <widget class="QLineEdit" row="1" column="1">
-                    <property name="name">
-                        <cstring>realname</cstring>
-                    </property>
-                </widget>
-                <widget class="QLabel" row="1" column="2" rowspan="3" colspan="1">
-                    <property name="name">
-                        <cstring>pix</cstring>
-                    </property>
-                    <property name="text">
-                        <string></string>
-                    </property>
-                    <property name="alignment">
-                        <set>AlignCenter</set>
-                    </property>
-                </widget>
                 <widget class="QLineEdit" row="3" column="1">
                     <property name="name">
                         <cstring>pass2</cstring>
@@ -291,6 +275,30 @@
                     </property>
                     <property name="text">
                         <string>Give administrator privileges to this user</string>
+                    </property>
+                </widget>
+                <widget class="QLineEdit" row="1" column="1">
+                    <property name="name">
+                        <cstring>realname</cstring>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="1" column="2" rowspan="3" colspan="1">
+                    <property name="name">
+                        <cstring>pix</cstring>
+                    </property>
+                    <property name="text">
+                        <string></string>
+                    </property>
+                    <property name="alignment">
+                        <set>AlignCenter</set>
+                    </property>
+                </widget>
+                <widget class="QCheckBox" row="5" column="0" rowspan="1" colspan="3">
+                    <property name="name">
+                        <cstring>autoLogin</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Auto Login with this user</string>
                     </property>
                 </widget>
             </grid>

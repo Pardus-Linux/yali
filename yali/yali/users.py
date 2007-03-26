@@ -63,6 +63,11 @@ class User:
         self.passwd = ''
         self.uid = -1
 
+        # KDE AutoLogin Defaults
+        self.autoLoginDefaults = {"AutoLoginAgain":"false",
+                                  "AutoLoginDelay":"0",
+                                  "AutoLoginLocked":"false"}
+        
         self.shadow_path = os.path.join(consts.target_dir, 'etc/shadow')
         self.passwd_path = os.path.join(consts.target_dir, 'etc/passwd')
         self.group_path  = os.path.join(consts.target_dir, 'etc/group')
@@ -132,6 +137,22 @@ class User:
     def realnameIsValid(self):
         not_allowed_chars = '\n' + ':'
         return '' == filter(lambda r: [x for x in not_allowed_chars if x == r], self.realname)
+
+    # KDE AutoLogin
+    def setAutoLogin(self,user,state=True):
+        import ConfigParser
+        section = 'X-:0-Core'
+        confFile = '/home/rat/temp/kdmrc'
+        kdmrc = ConfigParser.ConfigParser()
+        kdmrc.optionxform = str
+        kdmrc.readfp(open(confFile))
+        for opt in self.autoLoginDefaults.keys():
+            kdmrc.set(section,opt,self.autoLoginDefaults[opt])
+        # Set State
+        kdmrc.set(section,'AutoLoginEnable',str(state).lower())
+        # Set User
+        kdmrc.set(section,'AutoLoginUser',user)
+        kdmrc.write(open(confFile,'w'))
 
     def __appendGroups(self):
         group_content = open(self.group_path, 'r').readlines()

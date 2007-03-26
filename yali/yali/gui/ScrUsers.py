@@ -53,6 +53,10 @@ Click Next button to proceed.
 
         self.pix.setPixmap(ctx.iconfactory.newPixmap("users"))
         self.pass_error.setText("")
+        
+        # KDE AutoLogin
+        self.autoLoginUser = ""
+        
         self.createButton.setEnabled(False)
 
         self.connect(self.pass1, SIGNAL("textChanged(const QString &)"),
@@ -67,7 +71,6 @@ Click Next button to proceed.
 
         self.connect(self.deleteButton, SIGNAL("clicked()"),
                      self.slotDeleteUser)
-
 
         self.connect(self.userList, SIGNAL("doubleClicked(QListBoxItem*)"),
                      self.slotEditUser)
@@ -128,6 +131,13 @@ Click Next button to proceed.
         u.groups = ["users", "pnp", "pnpadmin", "removable", "disk", "audio", "video", "power", "dialout"]
         if self.admin.isOn():
             u.groups.append("wheel")
+        
+        # Set KDE Auto-Login
+        if self.autoLogin.isOn():
+            u.setAutoLogin(u.username)
+            self.autoLoginUser = u.username
+        else:
+            u.setAutoLogin(u.username,False)
 
         existsInList = [i for i in range(self.userList.count())
                         if self.userList.item(i).getUser().username == u.username]
@@ -176,6 +186,8 @@ Click Next button to proceed.
         self.realname.setText(u.realname)
         self.pass1.setText(u.passwd)
         self.pass2.setText(u.passwd)
+        if u.username == self.autoLoginUser:
+            autoLogin.setChecked()
 
         self.edititemindex = self.userList.currentItem()
 
@@ -187,7 +199,6 @@ Click Next button to proceed.
 
     def slotReturnPressed(self):
         self.slotCreateUser()
-
 
 class UserItem(QListBoxText):
 
