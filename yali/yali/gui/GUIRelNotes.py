@@ -37,7 +37,7 @@ class Widget(QTextView):
 
         self.setPaletteBackgroundColor(ctx.consts.bg_color)
 
-        # don't show links in diffrent color.
+        # don't show links in different color.
         self.setLinkUnderline(False)
         palette = self.palette()
         active_colors = palette.active()

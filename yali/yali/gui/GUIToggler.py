@@ -24,66 +24,64 @@ class YaliToggler(QWidget):
         apply(QWidget.__init__, (self,) + args)
 
         self.setFocusPolicy(self.TabFocus)
+        
+        self.layout = QHBoxLayout(self)
 
-        self._pix = None
-        self._pix_toggled = None
+        self.labelPix = QLabel(self)
+        self.layout.addWidget(self.labelPix)
+
+        self.labelText = QLabel(self)
+        self.layout.addWidget(self.labelText)
+        
         self._enabled = True
-        self._text = None
         self._toggled = False
-        self.label = None
         
     def setToggled(self,state):
         self._toggled = state
+        self.toggle()
+
+    def toggle(self):
         if self._toggled:
-            self.setPixmap(self._pix_toggled)
+            self.labelPix.setMask(self.pix_toggled_mask)
+            self.labelPix.setPixmap(self.pix_toggled)
         else:
-            self.setPixmap(self._pix)
+            self.labelPix.setMask(self.pix_mask)
+            self.labelPix.setPixmap(self.pix)
 
     def setIcon(self, icon_name):
         ifactory = ctx.iconfactory
-        self._pix = ifactory.newPixmap(icon_name)
-
+        self.pix = ifactory.newPixmap(icon_name)
+        self.pix_mask = self.pix.mask()
+        self.pix_toggled = ifactory.newPixmap("toggled_" + icon_name)
+        self.pix_toggled_mask = self.pix_toggled.mask()
+        
         # fixed size is O.K.
-        self.setFixedSize(self._pix.size())
+        self.labelPix.setFixedSize(self.pix.size())
 
-        # set a common mask for same sized images.
-        bmap = self._pix.mask()
-        self.setMask(bmap)
-
-        self._pix_toggled = ifactory.newPixmap("toggled_" + icon_name)
-        self.setPixmap(self._pix)
+        self.labelPix.setMask(self.pix_mask)
+        self.labelPix.setPixmap(self.pix)
 
     def setText(self, text):
-        self._text = text
+        self.labelText.setText(text)
         self.setPaletteForegroundColor(ctx.consts.fg_color)
         f = self.font()
-        self.setFont(f)
-
-    def setPixmap(self, pix):
-        bmap = pix.mask()
-        self.setMask(bmap)
-        self.setPaletteBackgroundPixmap(pix)
+        self.labelText.setFont(f)
 
     def paintEvent(self, e):
         QWidget.paintEvent(self, e)
-        if self._text:
-            self.drawText(10, 18, self._text)
 
     def setEnabled(self, b = True):
         self._enabled = b
         # our signals are a bit lazy so trigger this a bit late...
         # bug #1548
-        QTimer.singleShot(50, self.updateUi)
-
-    def updateUi(self):
-        self.setPixmap(self._pix)
+        QTimer.singleShot(50, self.paintEvent)
 
     def mouseReleaseEvent(self, e):
         if self._enabled:
             self.emit(PYSIGNAL("signalClicked"), ())
             if self._toggled:
                 self._toggled = False
-                self.setPixmap(self._pix)
+                self.toggle()
             else:
                 self._toggled = True
-                self.setPixmap(self._pix_toggled)
+                self.toggle()

@@ -66,10 +66,12 @@ loader.
         self.moreOptions.setIcon("toggler")
         self.moreOptions.setText("Show more options")
         self.moreOptions.setToggled(True)
-        
-        toggleLayout = QHBoxLayout(self.buttonGroup.layout())
-        
-        toggleLayout.addWidget(self.moreOptions)
+
+        # This is not correct,
+        # It should be in buttonGroupLayout = QGridLayout(self.buttonGroup.layout()) this grid.
+        # Baris will fix it :)
+        layout = self.buttonGroup.layout()
+        layout.addWidget(self.moreOptions,2,0)
         
         self.device_list.setPaletteBackgroundColor(ctx.consts.bg_color)
         self.device_list.setPaletteForegroundColor(ctx.consts.fg_color)
@@ -84,7 +86,6 @@ loader.
             raise GUIException, _("Can't find a storage device!")
 
         if len(yali.storage.devices) > 1:
-
             # fill device list
             for dev in yali.storage.devices:
                 DeviceItem(self.device_list, dev)
@@ -97,7 +98,6 @@ loader.
             self.device_list.hide()
             self.select_disk_label.hide()
             self.device = yali.storage.devices[0]
-
 
         self.connect(self.buttonGroup, SIGNAL("clicked(int)"),
                      self.slotInstallLoader)
