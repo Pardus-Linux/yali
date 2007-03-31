@@ -1,0 +1,31 @@
+
+Testing YALI for proper localization
+------------------------------------
+
+Follow these steps to test YALI screens after tranlating LANGUAGE.po for YALI and copying the mo file under LC_MESSAGES.
+
+1. Install pardus-python package from repository (should be straightforward).
+
+2. Checkout the latest code of YALI from SVN:
+
+svn co https://svn.pardus.org.tr/uludag/trunk/yali/
+
+3. Go to the top directory (i.e cd yali)
+4. Execute the following:
+
+python tools/show_screen.py [MODULENAME]
+
+where MODULENAME is the name of the YALI screen. It can be one of the following:
+
+ScrAdmin.py
+ScrBootloader.py
+ScrCheckCD.py  
+ScreenWidget.py
+ScrGoodbye.py
+ScrInstall.py
+ScrKeyboard.py
+ScrPartitionAuto.py
+ScrPartitionManual.py
+ScrUsers.py
+ScrWelcome.py
+
