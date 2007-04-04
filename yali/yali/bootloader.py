@@ -158,7 +158,6 @@ class BootLoader:
                                                "root": win_root,
                                                "fs": win_fs}
         open(self.grub_conf, "a").write(s)
-        
 
     def install_grub(self, grub_install_root=None):
         # grub installation is always hd0 (http://liste.pardus.org.tr/gelistirici/2007-March/005725.html)

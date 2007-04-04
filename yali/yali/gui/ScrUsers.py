@@ -53,10 +53,13 @@ Click Next button to proceed.
 
         self.pix.setPixmap(ctx.iconfactory.newPixmap("users"))
         self.pass_error.setText("")
-        
+
         # KDE AutoLogin
         self.autoLoginUser = ""
-        
+
+        # Give Admin Privileges default
+        self.admin.setChecked(True)
+
         self.createButton.setEnabled(False)
 
         self.connect(self.pass1, SIGNAL("textChanged(const QString &)"),
@@ -116,7 +119,6 @@ Click Next button to proceed.
         else:
             self.pass_error.setText("")
 
-
         if self.username.text() and p1 and p2:
             self.createButton.setEnabled(True)
         else:
@@ -131,13 +133,11 @@ Click Next button to proceed.
         u.groups = ["users", "pnp", "pnpadmin", "removable", "disk", "audio", "video", "power", "dialout"]
         if self.admin.isOn():
             u.groups.append("wheel")
-        
+
         # Set KDE Auto-Login
         if self.autoLogin.isOn():
             u.setAutoLogin(u.username)
             self.autoLoginUser = u.username
-        else:
-            u.setAutoLogin(u.username,False)
 
         existsInList = [i for i in range(self.userList.count())
                         if self.userList.item(i).getUser().username == u.username]
@@ -168,6 +168,8 @@ Click Next button to proceed.
         self.realname.clear()
         self.pass1.clear()
         self.pass2.clear()
+        self.autoLogin.setChecked(False)
+        self.admin.setChecked(True)
 
         # give focus to username widget for a new user. #3280
         self.username.setFocus()

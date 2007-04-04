@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# Copyright (C) 2005,2006 TUBITAK/UEKAE
+# Copyright (C) 2005-2007 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -59,7 +59,7 @@ def getVersion():
 #    return "-r".join([YALI_VERSION, rev])
     # don't use svn revision...
     return YALI_VERSION
-    
+
 
 def py_file_name(ui_file):
     return os.path.splitext(ui_file)[0] + '.py'
@@ -84,7 +84,7 @@ class YaliBuild(build):
         for l in f:
             l = l.replace("self.__tr", "_")
             x.write(l)
-        
+
 
     def compile_ui(self, ui_file):
         pyqt_configuration = pyqtconfig.Configuration()
@@ -92,7 +92,7 @@ class YaliBuild(build):
         if not pyuic_exe:
             # Search on the $Path.
             pyuic_exe = find_executable('pyuic')
-    
+
         cmd = [pyuic_exe, ui_file, '-o']
         cmd.append(py_file_name(ui_file))
         spawn(cmd)
@@ -143,9 +143,9 @@ class YaliUninstall(Command):
 
 i18n_domain = "yali"
 i18n_languages = ["tr",
-		  "nl",
-		  "fr",
-		  "de",
+                  "nl",
+                  "fr",
+                  "de",
                   "pt_BR",
                   "es"]
 

@@ -146,7 +146,7 @@ loader.
             #install to hd0
             install_dev = None
         install_root = basename(root_part_req.partition().getPath())
-        
+
         loader.write_grub_conf(install_root)
 
         # Windows partitions...

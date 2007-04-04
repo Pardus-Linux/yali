@@ -31,13 +31,13 @@ Legend:
      + ext3
      + linux-swap
    + partition types ( for YALI installation: installroot, swap, vs. )
-     
+
  + installation
    + pisi interface
 
  + users
    + root password
- 
+
  + boot loader
 
 
@@ -99,5 +99,12 @@ Legend:
  - partitioning
    - fat32 resize
 
- - bootloader
-   - only add valid operating system partitions to list (#1455)
+ + bootloader
+   + only add valid operating system partitions to list (#1455)
+
+
+5. Release (1.1)
+ + users
+   + user privileges (in wheel or not)
+   + automatic login (kde)
+
