@@ -146,6 +146,8 @@ class BootLoader:
         minor = str(int(filter(lambda u: u.isdigit(), win_root)) -1)
         grub_root = ",".join([grub_dev, minor])
 
+        if not install_dev:
+            install_dev = self._find_hd0()
         dev_str = str(filter(lambda u: u.isalpha(), install_dev))
         if win_dev == dev_str:
             s = win_part_tmp % {"title": _("Windows"),
