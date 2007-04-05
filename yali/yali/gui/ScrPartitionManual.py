@@ -75,7 +75,7 @@ about disk partitioning.
 
     def __init__(self, *args):
         apply(QWidget.__init__, (self,) + args)
-        
+
         self.partlist = PartList(self)
         self.partedit = PartEdit(self)
         self.partedit.hide()

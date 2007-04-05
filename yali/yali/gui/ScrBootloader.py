@@ -60,19 +60,21 @@ loader.
 
     def __init__(self, *args):
         apply(BootLoaderWidget.__init__, (self,) + args)
-        
+
         self.device = None
         self.moreOptions = GUIToggler.YaliToggler(self.buttonGroup)
         self.moreOptions.setIcon("toggler")
         self.moreOptions.setText("Show more options")
         self.moreOptions.setToggled(True)
+        self.moreOptions.setPaletteBackgroundColor(ctx.consts.bg_color)
+        self.moreOptions.setPaletteForegroundColor(ctx.consts.fg_color)
 
         # This is not correct,
         # It should be in buttonGroupLayout = QGridLayout(self.buttonGroup.layout()) this grid.
         # Baris will fix it :)
         layout = self.buttonGroup.layout()
         layout.addWidget(self.moreOptions,2,0)
-        
+
         self.device_list.setPaletteBackgroundColor(ctx.consts.bg_color)
         self.device_list.setPaletteForegroundColor(ctx.consts.fg_color)
 
@@ -80,12 +82,13 @@ loader.
         self.device_list.hide()
         self.noInstall.hide()
         self.installMBR.hide()
-        
+
         # initialize all storage devices
         if not yali.storage.init_devices():
             raise GUIException, _("Can't find a storage device!")
 
         if len(yali.storage.devices) > 1:
+            self.device_list_state = True
             # fill device list
             for dev in yali.storage.devices:
                 DeviceItem(self.device_list, dev)
@@ -95,26 +98,34 @@ loader.
             self.device = self.device_list.item(0).getDevice()
         else:
             # don't show device list if we have just one disk
+            self.device_list_state = False
             self.device_list.hide()
             self.select_disk_label.hide()
+
             self.device = yali.storage.devices[0]
 
         self.connect(self.buttonGroup, SIGNAL("clicked(int)"),
                      self.slotInstallLoader)
         self.connect(self.device_list, SIGNAL("selectionChanged(QListBoxItem*)"),
                      self.slotDeviceChanged)
+        self.connect(self.device_list, SIGNAL("clicked()"),
+                     self.slotSelect)
         self.connect(self.moreOptions, PYSIGNAL("signalClicked"),
                      self.slotMoreOptions)
 
     def slotMoreOptions(self):
         if self.moreOptions._toggled:
-            self.device_list.show()
+            if self.device_list_state:
+                self.device_list.show()
+                self.installMBR.show()
             self.noInstall.show()
-            self.installMBR.show()
         else:
             self.device_list.hide()
             self.noInstall.hide()
             self.installMBR.hide()
+
+    def slotSelect(self):
+        self.installMBR.setChecked(True)
 
     def slotInstallLoader(self, b):
         if self.installMBR.isChecked():
