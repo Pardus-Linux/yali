@@ -31,7 +31,7 @@ class Steps:
     # @param index(int): index number used for the ordering of steps.
     # @param step(ANY): step data.
     def addStep(self, index, step):
-        
+
         if self._steps.has_key(index):
             e = "index %d is present." % index
             #should find a way to get debug status.

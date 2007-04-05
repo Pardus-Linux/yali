@@ -20,7 +20,7 @@ from yali.constants import consts
 
 
 def initbaselayout():
-    
+
     def cp(s, d):
         src = os.path.join(consts.target_dir, s)
         dst = os.path.join(consts.target_dir, d)
@@ -65,8 +65,11 @@ def initbaselayout():
 def migrate_xorg_conf(keymap="trq"):
     # copy xorg.conf.
     src = "/etc/X11/xorg.conf"
-    if os.path.exists(src):
-        dst = open(os.path.join(consts.target_dir, "etc/X11/xorg.conf"), "w")
+
+    # check for Xorg Package
+    target_dir = os.path.join(consts.target_dir, "etc/X11")
+    if os.path.exists(src) and os.path.exists(target_dir):
+        dst = open(os.path.join(target_dir,"xorg.conf"), "w")
         for l in open(src, "r"):
             if l.find("XkbLayout") != -1:
                 l = '    Option    "XkbLayout" "%s"\n' %(keymap)

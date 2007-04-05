@@ -29,7 +29,5 @@ class Options(object):
         else:
             return None
 
-
-        
 # Command line options singleton.
 options = Options()

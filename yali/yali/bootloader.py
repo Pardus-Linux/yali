@@ -84,7 +84,7 @@ class BootLoader:
         grub_dir = os.path.join(consts.target_dir, "boot/grub")
         if not os.path.exists(grub_dir):
             os.makedirs(grub_dir)
-    
+
         #write an empty grub.conf, for grub to create a device map.
         open(self.grub_conf, "w").close()
         # create device map
@@ -99,11 +99,11 @@ class BootLoader:
             d = os.path.join(consts.target_dir, "boot")
             k = glob.glob(d + "/kernel-*")
             return os.path.basename(k[0])
-        
+
         def find_initramfs_name(bk):
             ver = bk[len("kernel-"):]
             return "initramfs-%s" % ver
-    
+
         def boot_parameters(root):
             s = []
             # Get parameters from cmdline.

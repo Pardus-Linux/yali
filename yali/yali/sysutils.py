@@ -33,14 +33,11 @@ def chroot_comar():
     tgt = os.path.join(consts.target_dir, "sys")
     os.system("mount --bind /sys %s" % tgt)
 
-
-
     pid = os.fork()
     if pid == 0: # in child
         os.chroot(consts.target_dir)
         os.system("/sbin/ldconfig")
         os.system("/sbin/update-environment")
-
         os.environ["PATH"]="/bin:/sbin:/usr/bin:/usr/sbin"
         os.execve("/bin/service", ["/bin/service", "comar", "start"], os.environ)
 
@@ -56,9 +53,9 @@ def chroot_comar():
 
 def swap_as_file(filepath, mb_size):
     dd, mkswap = find_executable('dd'), find_executable('mkswap')
-   
+
     if (not dd) or (not mkswap): return False
-   
+
     create_swap_file = "%s if=/dev/zero of=%s bs=1024 count=%d" % (dd, filepath, (int(mb_size)*1024))
     mk_swap          = "%s %s" % (mkswap, filepath)
 
@@ -80,9 +77,7 @@ def mem_total():
     for l in m:
         if l.startswith("MemTotal"):
             return int(l.split()[1]) / 1024
-            
     return None
-
 
 def eject_cdrom(mount_point=consts.source_dir):
     def _eject():
@@ -90,8 +85,6 @@ def eject_cdrom(mount_point=consts.source_dir):
             os.system("eject -m %s" % mount_point)
     for i in range(3):
         _eject()
-        
-
 
 def text_is_valid(text):
     allowed_chars = ascii_letters + digits + '.' + '_' + '-'
@@ -100,7 +93,6 @@ def text_is_valid(text):
 def add_hostname(hostname = 'pardus'):
     hostname_file = os.path.join(consts.target_dir, 'etc/env.d/01hostname')
     hosts_file = os.path.join(consts.target_dir, 'etc/hosts')
-
 
     def getCont(x):
         return open(x).readlines()
@@ -133,12 +125,10 @@ def add_hostname(hostname = 'pardus'):
     else:
         hosts_fp.write('127.0.0.1\t\tlocalhost %s\n' % hostname)
 
-
 def is_windows_boot(partition_path, file_system):
     m_dir = "/tmp/pcheck"
     if not os.path.isdir(m_dir):
         os.makedirs(m_dir)
-
     try:
         if file_system == "fat32":
             mount(partition_path, m_dir, "vfat")
@@ -155,5 +145,4 @@ def is_windows_boot(partition_path, file_system):
     else:
         umount(m_dir)
         return False
-
 
