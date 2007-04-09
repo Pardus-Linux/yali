@@ -89,6 +89,17 @@ class RequestList(list):
             # end of list
             pass
 
+    ##
+    # function searches for a request by partition and request type
+    #
+    # @return: [Partition]
+    #
+    # @param p: Partition (defined in partition.py)
+    # @param t: request Type (eg. formatRequestType)        
+    def searchPartAndReqType(self, p, rt):
+        req = [x for x in self.searchPartAndReqTypeIterate(p, rt)]
+        return req
+
     
     ##
     # Iterator function searches for a request 

@@ -216,11 +216,14 @@ class PartList(PartListWidget):
         elif t == parteddata.partitionType:
 
             # check if partition is resizeable
-            fs = filesystem.get_filesystem(d.getFSName())            
+            fs = filesystem.get_filesystem(d.getFSName())
             resizeable = False
             if fs:
                 if fs.isResizeable() and d.isFileSystemReady():
                     resizeable = True
+            # if partition has a format request, don't try to resize it (#5391)
+            if ctx.partrequests.searchPartAndReqType(d, request.formatRequestType):
+                resizeable = False
             self.resizeButton.setEnabled(resizeable)
 
 
