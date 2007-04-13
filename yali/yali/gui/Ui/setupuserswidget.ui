@@ -303,7 +303,7 @@
                         </widget>
                         <widget class="QLabel">
                             <property name="name">
-                                <cstring>textLabel1_5</cstring>
+                                <cstring>autoLoginLabel</cstring>
                             </property>
                             <property name="text">
                                 <string>Auto Login User :</string>

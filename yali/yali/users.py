@@ -139,7 +139,7 @@ class User:
         return '' == filter(lambda r: [x for x in not_allowed_chars if x == r], self.realname)
 
     # KDE AutoLogin
-    def setAutoLogin(self,user,state=True):
+    def setAutoLogin(self,state=True):
         import ConfigParser
         section = 'X-:0-Core'
         confFile = os.path.join(consts.target_dir, 'etc/X11/kdm/kdmrc')
@@ -151,7 +151,7 @@ class User:
         # Set State
         kdmrc.set(section,'AutoLoginEnable',str(state).lower())
         # Set User
-        kdmrc.set(section,'AutoLoginUser',user)
+        kdmrc.set(section,'AutoLoginUser',self.username)
         kdmrc.write(open(confFile,'w'))
 
     def __appendGroups(self):

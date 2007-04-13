@@ -12,6 +12,8 @@
 
 
 from qt import *
+from os import path
+from yali.constants import consts
 
 import gettext
 __trans = gettext.translation('yali', fallback=True)
@@ -53,10 +55,11 @@ Click Next button to proceed.
 
         self.pix.setPixmap(ctx.iconfactory.newPixmap("users"))
         self.pass_error.setText("")
-
+        self.edititemindex = ""
+        
         # KDE AutoLogin
         self.autoLoginUser = ""
-        self.edititemindex = ""
+        self.kdeInstalled = path.exists(path.join(consts.target_dir, 'etc/X11/kdm/kdmrc'))
         
         # Give Admin Privileges default
         self.admin.setChecked(True)
@@ -69,20 +72,25 @@ Click Next button to proceed.
                      self.slotTextChanged)
         self.connect(self.username, SIGNAL("textChanged(const QString &)"),
                      self.slotTextChanged)
-
         self.connect(self.createButton, SIGNAL("clicked()"),
                      self.slotCreateUser)
-
         self.connect(self.deleteButton, SIGNAL("clicked()"),
                      self.slotDeleteUser)
-
         self.connect(self.userList, SIGNAL("doubleClicked(QListBoxItem*)"),
                      self.slotEditUser)
-
         self.connect(self.pass2, SIGNAL("returnPressed()"),
                      self.slotReturnPressed)
+        
+        # we don't need to call it here
+        # when Yali.screen load, it will call shown method ;)
+        # just for tests ;)
         self.checkUsers()
-    
+        
+        # if there is no kde so there is no auto-login
+        if not self.kdeInstalled:
+            self.autoLogin.hide()
+            self.autoLoginLabel.hide()
+
     def shown(self):
         self.checkUsers()
         self.checkCapsLock()
@@ -91,10 +99,14 @@ Click Next button to proceed.
     def execute(self):
         # reset and fill pending_users
         yali.users.reset_pending_users()
-
+        autoUser = str(self.autoLogin.currentText())
         for i in range(self.userList.count()):
             u = self.userList.item(i).getUser()
             yali.users.pending_users.add(u)
+            
+            # Enable auto-login
+            if u.username == autoUser and self.kdeInstalled:
+                u.setAutoLogin()
 
         return True
 
@@ -206,10 +218,13 @@ Click Next button to proceed.
     def checkUsers(self):
         if self.userList.count():
             self.deleteButton.setEnabled(True)
+            if self.kdeInstalled:
+                self.autoLogin.setEnabled(True)
             ctx.screens.enableNext()
         else:
             # there is no user in list, there is nobody to delete
             self.deleteButton.setEnabled(False)
+            self.autoLogin.setEnabled(False)
             ctx.screens.disableNext()
 
     def resetWidgets(self):
