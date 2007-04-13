@@ -56,7 +56,8 @@ Click Next button to proceed.
 
         # KDE AutoLogin
         self.autoLoginUser = ""
-
+        self.edititemindex = ""
+        
         # Give Admin Privileges default
         self.admin.setChecked(True)
 
@@ -80,7 +81,8 @@ Click Next button to proceed.
 
         self.connect(self.pass2, SIGNAL("returnPressed()"),
                      self.slotReturnPressed)
-
+        self.checkUsers()
+    
     def shown(self):
         self.checkUsers()
         self.checkCapsLock()
@@ -134,13 +136,9 @@ Click Next button to proceed.
         if self.admin.isOn():
             u.groups.append("wheel")
 
-        # Set KDE Auto-Login
-        if self.autoLogin.isOn():
-            u.setAutoLogin(u.username)
-            self.autoLoginUser = u.username
-
         existsInList = [i for i in range(self.userList.count())
                         if self.userList.item(i).getUser().username == u.username]
+        
         # check user validity
         if u.exists() or existsInList:
             self.pass_error.setText(
@@ -154,30 +152,39 @@ Click Next button to proceed.
             self.pass_error.setText(
                 _('<font color="#FF6D19">Realname contains invalid characters!</font>'))
             return
-
+        
+        updateItem = None
+        
         try:
             self.userList.removeItem(self.edititemindex)
-            del self.edititemindex
+            self.autoLogin.removeItem(self.edititemindex + 1)
         except:
+            updateItem = self.edititemindex
             # nothing wrong. just adding a new user...
             pass
+        
+        self.edititemindex = ''
+        
         i = UserItem(self.userList, user = u)
-
-        # clear all
-        self.username.clear()
-        self.realname.clear()
-        self.pass1.clear()
-        self.pass2.clear()
-        self.autoLogin.setChecked(False)
-        self.admin.setChecked(True)
+        
+        # add user to auto-login list.
+        self.autoLogin.insertItem(u.username)
+        
+        if updateItem:
+            self.autoLogin.setCurrentItem(self.autoLogin.count())
+        
+        # clear form
+        self.resetWidgets()
 
         # give focus to username widget for a new user. #3280
         self.username.setFocus()
-
         self.checkUsers()
 
-
     def slotDeleteUser(self):
+        if self.userList.currentItem()==self.edititemindex:
+            self.resetWidgets()
+            self.autoLogin.setCurrentItem(0)
+        self.autoLogin.removeItem(self.userList.currentItem() + 1)
         self.userList.removeItem(self.userList.currentItem())
         self.checkUsers()
 
@@ -188,16 +195,30 @@ Click Next button to proceed.
         self.realname.setText(u.realname)
         self.pass1.setText(u.passwd)
         self.pass2.setText(u.passwd)
-        if u.username == self.autoLoginUser:
-            autoLogin.setChecked()
+        
+        if "wheel" in u.groups:
+            self.admin.setChecked(True)
+        else:
+            self.admin.setChecked(False)
 
         self.edititemindex = self.userList.currentItem()
 
     def checkUsers(self):
         if self.userList.count():
+            self.deleteButton.setEnabled(True)
             ctx.screens.enableNext()
         else:
+            # there is no user in list, there is nobody to delete
+            self.deleteButton.setEnabled(False)
             ctx.screens.disableNext()
+
+    def resetWidgets(self):
+        # clear all
+        self.username.clear()
+        self.realname.clear()
+        self.pass1.clear()
+        self.pass2.clear()
+        self.admin.setChecked(False)
 
     def slotReturnPressed(self):
         self.slotCreateUser()
