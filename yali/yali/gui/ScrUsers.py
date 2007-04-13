@@ -57,6 +57,10 @@ Click Next button to proceed.
         self.pass_error.setText("")
         self.edititemindex = ""
         
+        # User Icons
+        self.normalUserIcon = ctx.iconfactory.newPixmap("user_normal")
+        self.superUserIcon = ctx.iconfactory.newPixmap("user_root")
+        
         # KDE AutoLogin
         self.autoLoginUser = ""
         self.kdeInstalled = path.exists(path.join(consts.target_dir, 'etc/X11/kdm/kdmrc'))
@@ -145,8 +149,10 @@ Click Next button to proceed.
         u.realname = unicode(self.realname.text().utf8().data())[:-1]
         u.passwd = self.pass1.text().ascii()
         u.groups = ["users", "pnp", "pnpadmin", "removable", "disk", "audio", "video", "power", "dialout"]
+        pix = self.normalUserIcon
         if self.admin.isOn():
             u.groups.append("wheel")
+            pix = self.superUserIcon
 
         existsInList = [i for i in range(self.userList.count())
                         if self.userList.item(i).getUser().username == u.username]
@@ -177,10 +183,10 @@ Click Next button to proceed.
         
         self.edititemindex = ''
         
-        i = UserItem(self.userList, user = u)
+        i = UserItem(self.userList, pix, user = u)
         
         # add user to auto-login list.
-        self.autoLogin.insertItem(u.username)
+        self.autoLogin.insertItem(pix, u.username)
         
         if updateItem:
             self.autoLogin.setCurrentItem(self.autoLogin.count())
@@ -238,12 +244,12 @@ Click Next button to proceed.
     def slotReturnPressed(self):
         self.slotCreateUser()
 
-class UserItem(QListBoxText):
+class UserItem(QListBoxPixmap):
 
     ##
     # @param user (yali.users.User)
-    def __init__(self, parent, user):
-        apply(QListBoxText.__init__, (self,parent,user.username))
+    def __init__(self, parent, pix, user):
+        apply(QListBoxPixmap.__init__, (self,parent,pix,user.username))
         self._user = user
     
     def getUser(self):
