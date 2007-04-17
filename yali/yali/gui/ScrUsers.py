@@ -129,7 +129,12 @@ Click Next button to proceed.
         p1 = self.pass1.text()
         p2 = self.pass2.text()
 
-        if p2 != p1 and p2:
+        if p1 == self.username.text():
+            self.pass_error.setText(
+                _('<font color="#FF6D19">Don\'t use your user name as a password.</font>'))
+            self.pass_error.setAlignment(QLabel.AlignCenter)
+            return self.createButton.setEnabled(False)
+        elif p2 != p1 and p2:
             self.pass_error.setText(
                 _('<font color="#FF6D19">Passwords do not match!</font>'))
             self.pass_error.setAlignment(QLabel.AlignCenter)
