@@ -191,7 +191,7 @@ Click Next button to proceed.
         i = UserItem(self.userList, pix, user = u)
         
         # add user to auto-login list.
-        self.autoLogin.insertItem(pix, u.username)
+        self.autoLogin.insertItem(u.username)
         
         if updateItem:
             self.autoLogin.setCurrentItem(self.autoLogin.count())
