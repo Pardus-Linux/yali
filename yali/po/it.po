@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: it\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-03-24 20:30+0200\n"
-"PO-Revision-Date: 2007-03-09 20:02+0200\n"
+"PO-Revision-Date: 2007-04-25 14:43+0200\n"
 "Last-Translator: Andrea Decorte <adecorte@gmail.com>\n"
 "Language-Team: Italian <pardus-translation-it@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -61,11 +61,11 @@ msgstr "Sì, partiziona e formatta automaticamente il disco selezionato!"
 
 #: yali/gui/Ui/bootloaderwidget.py:106
 msgid "Where do you want to install the bootloader?"
-msgstr "Dove desideri installare il bootleader?"
+msgstr "Dove desideri installare il bootloader?"
 
 #: yali/gui/Ui/bootloaderwidget.py:107
 msgid "MBR of the first disk (recomended)"
-msgstr ""
+msgstr "MBR del primo disco (raccomandato)"
 
 #: yali/gui/Ui/bootloaderwidget.py:108
 msgid "Install to root partition"
@@ -73,7 +73,7 @@ msgstr "Installa nella partizione di root"
 
 #: yali/gui/Ui/bootloaderwidget.py:109
 msgid "Show More Options"
-msgstr ""
+msgstr "Mostra altre opzioni"
 
 #: yali/gui/Ui/bootloaderwidget.py:111
 msgid "Install to MBR"
@@ -344,8 +344,7 @@ msgstr "La 'Root di installazione' deve essere di almeno %s MB."
 
 #: yali/gui/PartEditImpl.py:274
 msgid "ntfsresize check failed! Won't proceed action!"
-msgstr ""
-"controllo di ntfsresize fallito! Impossibile portare a termine l'azione!"
+msgstr "controllo di ntfsresize fallito! Impossibile portare a termine l'azione!"
 
 #: yali/gui/PartListImpl.py:90 yali/gui/ScrBootloader.py:84
 #: yali/gui/ScrPartitionAuto.py:69
@@ -405,12 +404,11 @@ msgstr "Configurazione di base"
 
 #: yali/gui/runner.py:139
 msgid "Error!"
-msgstr ""
+msgstr "Errore!"
 
 #: yali/gui/runner.py:171
-#, fuzzy
 msgid "Unhandled error occured!"
-msgstr "C'è stato un errore!"
+msgstr "C'è stato un errore non gestito!"
 
 #: yali/gui/ScrAdmin.py:33
 msgid ""
@@ -793,7 +791,7 @@ msgstr ""
 msgid ""
 "It seems that you don't have the required disk space (min. %s) for Pardus "
 "installation."
-msgstr ""
+msgstr "Sembra che tu non disponga dello spazio su disco richiesto (min. %s) per l'installazione di Pardus."
 
 #: yali/gui/ScrPartitionAuto.py:133 yali/gui/ScrPartitionManual.py:128
 msgid "Please wait while formatting!"
@@ -829,7 +827,6 @@ msgid "O.K. Go Ahead"
 msgstr "Va bene, prosegui"
 
 #: yali/gui/ScrPartitionManual.py:37
-#, fuzzy
 msgid ""
 "\n"
 "<font size=\"+2\">Partitioning your hard disk</font>\n"
@@ -884,7 +881,9 @@ msgstr ""
 "Per utilizzare Pardus, devi creare obbligatoriamente un filesystem Linux "
 "filesystem\n"
 " (per i file di sistema), e una partizione di swap (per migliorare\n"
-"le prestazioni), che è opzionale. \n"
+"le prestazioni), che è opzionale. Tale spazio variabile\n"
+"viene utilizzato ogni volta che il sistema richiede più\n"
+"memoria ma quella fisica è esaurita.\n"
 "Ti consigliamo di allocare almeno 4 GB di spazio per i file di sistema\n"
 "e tra i 500 MB e i 2 GB, a seconda delle caratteristiche del tuo computer\n"
 "per lo swap. Non viene permesso l'utilizzo di una partizione di Linux\n"
@@ -987,13 +986,11 @@ msgstr ""
 
 #: yali/gui/ScrUsers.py:141
 msgid "<font color=\"#FF6D19\">Username contains invalid characters!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Il nome utente contiene caratteri non validi!</font>"
+msgstr "<font color=\"#FF6D19\">Il nome utente contiene caratteri non validi!</font>"
 
 #: yali/gui/ScrUsers.py:145
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Il nome reale contiene caratteri non validi!</font>"
+msgstr "<font color=\"#FF6D19\">Il nome reale contiene caratteri non validi!</font>"
 
 #: yali/gui/ScrWelcome.py:31
 msgid ""
@@ -1235,3 +1232,4 @@ msgstr "File degli utenti"
 #: yali/partitiontype.py:69
 msgid "Swap"
 msgstr "Swap"
+
