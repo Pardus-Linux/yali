@@ -116,7 +116,7 @@ class PartList(PartListWidget):
                 return _("%d MB free") % mb
 
         # add the device to the list
-        devstr = "%s (%s)" % (dev.getModel(), dev.getName())
+        devstr = u"%s (%s)" % (dev.getModel(), dev.getName())
         freespace = dev.getFreeMB()
         if freespace:
             size_str = dev.getSizeStr() + "  (%s)" % sizeStr(freespace)
