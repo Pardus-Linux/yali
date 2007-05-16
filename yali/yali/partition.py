@@ -111,7 +111,11 @@ class Partition:
     ##
     # partition path (eg. /dev/sda1)
     def getPath(self):
-        return "%s%d" %(self.getDevicePath(), self.getMinor())
+        if self.getDevicePath().find("cciss") > 0:
+            # HP Smart array controller
+            return "%sp%d" %(self.getDevicePath(), self.getMinor())
+        else:
+            return "%s%d" %(self.getDevicePath(), self.getMinor())
 
     ##
     # partition name (eg. sda1)
