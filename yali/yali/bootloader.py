@@ -63,8 +63,14 @@ class BootLoader:
         self.device_map = os.path.join(consts.target_dir, "boot/grub/device.map")
         self.grub_conf = os.path.join(consts.target_dir, "boot/grub/grub.conf")
 
-    def _find_grub_dev(self, dev):
-        dev_name = str(filter(lambda u: u.isalpha(), dev))
+    def _find_grub_dev(self, dev_path):
+        if dev_path.find("cciss") > 0:
+            # HP Smart array controller (something like /dev/cciss/c0d0p1)
+            dev_name = os.path.basename(dev_path)[:-2]
+        else:
+            dev_name = str(filter(lambda u: u.isalpha(),
+                                  os.path.basename(dev_path)))
+
         for l in open(self.device_map).readlines():
             if l.find(dev_name) >= 0:
                 l = l.split()
@@ -80,7 +86,9 @@ class BootLoader:
                 d = l[1]
                 return d
 
-    def write_grub_conf(self, install_root):
+    def write_grub_conf(self, install_root_path):
+        install_root = os.path.basename(install_root_path)
+
         grub_dir = os.path.join(consts.target_dir, "boot/grub")
         if not os.path.exists(grub_dir):
             os.makedirs(grub_dir)
@@ -93,7 +101,7 @@ class BootLoader:
 
         # grub_root is the device on which we install.
         minor = str(int(filter(lambda u: u.isdigit(), install_root)) -1)
-        grub_root = ",".join([self._find_grub_dev(install_root), minor])
+        grub_root = ",".join([self._find_grub_dev(install_root_path), minor])
 
         def find_boot_kernel():
             d = os.path.join(consts.target_dir, "boot")

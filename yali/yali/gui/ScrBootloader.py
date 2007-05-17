@@ -156,9 +156,8 @@ loader.
         else:
             #install to hd0
             install_dev = None
-        install_root = basename(root_part_req.partition().getPath())
 
-        loader.write_grub_conf(install_root)
+        loader.write_grub_conf(root_part_req.partition().getPath())
 
         # Windows partitions...
         for d in yali.storage.devices:
