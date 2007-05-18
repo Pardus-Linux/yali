@@ -12,13 +12,12 @@
 
 
 from qt import *
-from os import path
+import os
 from yali.constants import consts
 
 import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
-
 
 import yali.users
 from yali.gui.ScreenWidget import ScreenWidget
@@ -56,15 +55,15 @@ Click Next button to proceed.
         self.pix.setPixmap(ctx.iconfactory.newPixmap("users"))
         self.pass_error.setText("")
         self.edititemindex = ""
-        
+
         # User Icons
         self.normalUserIcon = ctx.iconfactory.newPixmap("user_normal")
         self.superUserIcon = ctx.iconfactory.newPixmap("user_root")
-        
+
         # KDE AutoLogin
         self.autoLoginUser = ""
-        self.kdeInstalled = path.exists(path.join(consts.target_dir, 'etc/X11/kdm/kdmrc'))
-        
+        self.kdeInstalled = False
+
         # Give Admin Privileges default
         self.admin.setChecked(True)
 
@@ -84,20 +83,21 @@ Click Next button to proceed.
                      self.slotEditUser)
         self.connect(self.pass2, SIGNAL("returnPressed()"),
                      self.slotReturnPressed)
-        
+
         # we don't need to call it here
         # when Yali.screen load, it will call shown method ;)
         # just for tests ;)
         self.checkUsers()
-        
-        # if there is no kde so there is no auto-login
-        if not self.kdeInstalled:
-            self.autoLogin.hide()
-            self.autoLoginLabel.hide()
+
 
     def shown(self):
         self.checkUsers()
         self.checkCapsLock()
+        self.kdeInstalled = os.path.exists(os.path.join(consts.target_dir, '/etc/X11/kdm/kdmrc'))
+        # if there is no kde so there is no auto-login
+        if not self.kdeInstalled:
+            self.autoLogin.hide()
+            self.autoLoginLabel.hide()
         self.username.setFocus()
 
     def execute(self):
