@@ -139,6 +139,11 @@ Click Next button to proceed.
                 _('<font color="#FF6D19">Passwords do not match!</font>'))
             self.pass_error.setAlignment(QLabel.AlignCenter)
             return self.createButton.setEnabled(False)
+        elif len(p1) == len(p2) and len(p2) < 4:
+            self.pass_error.setText(
+                _('<font color="#FF6D19">Password is too short!</font>'))
+            self.pass_error.setAlignment(QLabel.AlignCenter)
+            return self.createButton.setEnabled(False)
         else:
             self.pass_error.setText("")
 
