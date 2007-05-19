@@ -13,9 +13,15 @@
 
 import locale
 import yali
+import yali.sysutils
+from yali.constants import consts
 
+def try_umount_target():
+    for mpoint in ("/home", "/dev", "/proc", "/sys", ""):
+        yali.sysutils.umount(consts.target_dir + mpoint)
 
 def main():
+    try_umount_target()
     runner = yali.default_runner()
     runner.run()
 
