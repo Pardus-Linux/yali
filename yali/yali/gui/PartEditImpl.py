@@ -167,7 +167,7 @@ class PartEdit(QWidget):
 
             if t == parttype.root:
                 size = self.edit.size.text().toInt()[0]
-                if size <= ctx.consts.min_root_size:
+                if size < ctx.consts.min_root_size:
                     self.warning.setText(
                         _("'Install Root' size must be larger than %s MB.") % ctx.consts.min_root_size)
                     self.warning.show()
@@ -191,7 +191,7 @@ class PartEdit(QWidget):
             if not t:
                 return False
 
-            if t == parttype.root:
+            if t == parttype.root and state == editState:
                 size = partition.getMB()
                 if size < ctx.consts.min_root_size:
                     self.warning.setText(
@@ -209,10 +209,10 @@ class PartEdit(QWidget):
             try:
                 ctx.partrequests.append(
                     request.MountRequest(partition, t))
-            
+
                 ctx.partrequests.append(
                     request.LabelRequest(partition, t))
-                
+
                 if self.edit.format.isChecked():
                     ctx.partrequests.append(
                         request.FormatRequest(partition, t))
@@ -265,7 +265,7 @@ class PartEdit(QWidget):
                 partition = self._d
                 device = partition.getDevice()
                 fs = filesystem.get_filesystem(partition.getFSName())
-                
+
                 size_mb = self.edit.size.text().toInt()[0]
 
                 # check resize for NTFS before performing action.
