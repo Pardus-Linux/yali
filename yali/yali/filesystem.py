@@ -21,6 +21,7 @@ import os
 import resource
 import string
 import parted
+import math
 
 from yali.exception import *
 import yali.sysutils as sysutils
@@ -190,7 +191,7 @@ class Ext3FileSystem(FileSystem):
 
     _name = "ext3"
     _mountoptions = "defaults,user_xattr"
-    
+
     def __init__(self):
         FileSystem.__init__(self)
         self.setImplemented(True)
@@ -203,13 +204,18 @@ class Ext3FileSystem(FileSystem):
         if not cmd_path:
             cmd_path = sysutils.find_executable("mkfs.ext3")
 
-        
+
         if not cmd_path:
             e = "Command not found to format %s filesystem" %(self.name())
             raise FSError, e
 
+        # bug 5616: ~100MB reserved-blocks-percentage
+        reserved_percentage = int(math.ceil(100.0 * 100.0 / partition.getMB()))
+
         # Use hashed b-trees to speed up lookups in large directories
-        cmd = "%s -O dir_index -j %s" %(cmd_path, partition.getPath())
+        cmd = "%s -O dir_index -j -m %d %s" %(cmd_path,
+                                              reserved_percentage,
+                                              partition.getPath())
 
         p = os.popen(cmd)
         o = p.readlines()
