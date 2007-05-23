@@ -178,8 +178,8 @@ class PartList(PartListWidget):
             p.setData(part)
 
             # use the first found "linux-swap" partition as swap (# 1049)
-            if part.getFSName() == "linux-swap" and not self.autoSwapSelected:
-                ctx.partrequests.append(
+            if part.getFSName() == "linux-swap(new)" and not self.autoSwapSelected:
+                ctx.partrequests.append(new)(
                     request.MountRequest(part, parttype.swap))
 
                 ctx.partrequests.append(
