@@ -62,7 +62,7 @@ Click Next button to proceed.
 
         # KDE AutoLogin
         self.autoLoginUser = ""
-        self.kdeInstalled = False
+        self.kdeInstalled = True
 
         # Give Admin Privileges default
         self.admin.setChecked(True)
@@ -93,7 +93,7 @@ Click Next button to proceed.
     def shown(self):
         self.checkUsers()
         self.checkCapsLock()
-        self.kdeInstalled = os.path.exists(os.path.join(consts.target_dir, '/etc/X11/kdm/kdmrc'))
+        # self.kdeInstalled = os.path.exists(os.path.join(consts.target_dir, '/etc/X11/kdm/kdmrc'))
         # if there is no kde so there is no auto-login
         if not self.kdeInstalled:
             self.autoLogin.hide()
