@@ -176,4 +176,3 @@ init_sysutils(void)
 
     return;
 }
-

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005, TUBITAK/UEKAE
+# Copyright (C) 2005-2007, TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -17,7 +17,6 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-
 import yali.storage
 import yali.bootloader
 import yali.partitionrequest as request
@@ -28,8 +27,6 @@ from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.InformationWindow import InformationWindow
 from yali.gui.GUIException import *
 import yali.gui.context as ctx
-import GUIToggler
-
 
 ##
 # BootLoader screen.
@@ -61,27 +58,10 @@ loader.
     def __init__(self, *args):
         apply(BootLoaderWidget.__init__, (self,) + args)
 
-        self.device = None
-        self.moreOptions = GUIToggler.YaliToggler(self.buttonGroup)
-        self.moreOptions.setIcon("toggler")
-        self.moreOptions.setText("Show more options")
-        self.moreOptions.setToggled(True)
-        self.moreOptions.setPaletteBackgroundColor(ctx.consts.bg_color)
-        self.moreOptions.setPaletteForegroundColor(ctx.consts.fg_color)
-
-        # This is not correct,
-        # It should be in buttonGroupLayout = QGridLayout(self.buttonGroup.layout()) this grid.
-        # Baris will fix it :)
-        layout = self.buttonGroup.layout()
-        layout.addWidget(self.moreOptions,2,0)
-
         self.device_list.setPaletteBackgroundColor(ctx.consts.bg_color)
         self.device_list.setPaletteForegroundColor(ctx.consts.fg_color)
 
         self.installFirstMBR.setChecked(True)
-        self.device_list.hide()
-        self.noInstall.hide()
-        self.installMBR.hide()
 
         # initialize all storage devices
         if not yali.storage.init_devices():
@@ -110,19 +90,6 @@ loader.
                      self.slotDeviceChanged)
         self.connect(self.device_list, SIGNAL("clicked()"),
                      self.slotSelect)
-        self.connect(self.moreOptions, PYSIGNAL("signalClicked"),
-                     self.slotMoreOptions)
-
-    def slotMoreOptions(self):
-        if self.moreOptions._toggled:
-            if self.device_list_state:
-                self.device_list.show()
-                self.installMBR.show()
-            self.noInstall.show()
-        else:
-            self.device_list.hide()
-            self.noInstall.hide()
-            self.installMBR.hide()
 
     def slotSelect(self):
         self.installMBR.setChecked(True)
@@ -183,8 +150,6 @@ loader.
 
         return True
 
-
-
 class DeviceItem(QListBoxText):
 
     def __init__(self, parent, dev):
@@ -196,4 +161,3 @@ class DeviceItem(QListBoxText):
 
     def getDevice(self):
         return self._dev
-

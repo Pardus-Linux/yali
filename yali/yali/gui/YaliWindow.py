@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005, TUBITAK/UEKAE
+# Copyright (C) 2005-2007, TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -16,7 +16,6 @@ from qt import *
 import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
-
 
 import yali.gui.context as ctx
 
@@ -37,10 +36,8 @@ class Widget(QMainWindow):
         self.helpWidget = GUIHelp.Widget(self)
         self.bottomWidget = GUIBottom.Widget(self)
 
-
         # Place the widgets using layouts and yada, yada, yada...
         self.__setUpWidgets()
-
 
         self.connect(self, PYSIGNAL("signalWindowSize"),
                      self.topWidget.slotResize)
@@ -48,7 +45,6 @@ class Widget(QMainWindow):
                      self.bottomWidget.slotResize)
         self.connect(self, PYSIGNAL("signalWindowSize"),
                      self.helpWidget.slotResize)
-
         self.connect(ctx.screens, PYSIGNAL("nextButtonDisabled"),
                      self.slotNextDisabled)
         self.connect(ctx.screens, PYSIGNAL("prevButtonDisabled"),
@@ -67,10 +63,8 @@ class Widget(QMainWindow):
     ##
     # set up the main window layout...
     def __setUpWidgets(self):
-#        l = self.layout()
 
         main = QVBoxLayout(self)
-
         main.addWidget(self.topWidget)
 
         center = QHBoxLayout()
@@ -84,9 +78,7 @@ class Widget(QMainWindow):
         main.addLayout(center)
         main.addWidget(self.bottomWidget)
 
-
     # Enable/Disable buttons
-
     def slotNextDisabled(self):
         self.bottomWidget.nextButton.setEnabled(False)
 
@@ -99,13 +91,11 @@ class Widget(QMainWindow):
     def slotPrevEnabled(self):
         self.bottomWidget.prevButton.setEnabled(True)
 
-
     ##
     # resizeEvent notifies others..
     # @param e(QResizeEvent): Qt resize event
     def resizeEvent(self, e):
         self.emit(PYSIGNAL("signalWindowSize"), (self, e.size()))
-
 
     count = 0
     def mousePressEvent(self, e):
@@ -161,7 +151,6 @@ class OiEvent(QMainWindow):
                 self.accel += 1
         self.move(self.x, self.y)
 
-
 class OiEvent2(QMainWindow):
     def __init__(self, parent):
         self.pix = ctx.iconfactory.newPixmap("oi2")
@@ -190,7 +179,6 @@ class OiEvent2(QMainWindow):
             self.close(True)
             return
 
-
         dif = self.y - self.first_y
         if abs(dif) == 8 and self.dir:
             self.dir = 0
@@ -205,6 +193,3 @@ class OiEvent2(QMainWindow):
             self.y -= 1
         
         self.move(self.x, self.y)
-
-
-

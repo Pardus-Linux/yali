@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005, TUBITAK/UEKAE
+# Copyright (C) 2005-2007, TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -9,7 +9,6 @@
 #
 # Please read the COPYING file.
 #
-
 
 # PiSİ module for YALI
 
@@ -25,7 +24,6 @@ import pisi.context as ctx
 
 import yali.postinstall
 from yali.constants import consts
-
 
 def initialize(ui, with_comar=False):
 
@@ -48,9 +46,8 @@ def initialize(ui, with_comar=False):
                       comar_sockname=consts.comar_socket_file, signal_handling = False)
     else:
         options.ignore_comar = True
-
         pisi.api.init(options = options, comar = with_comar, database = True, ui = ui,
-		      signal_handling = False)
+                      signal_handling = False)
 
 def add_repo(name, uri):
     print "add",name,uri

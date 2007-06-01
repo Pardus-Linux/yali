@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005, TUBITAK/UEKAE
+# Copyright (C) 2005-2007, TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -18,7 +18,6 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-
 import yali.storage
 import yali.filesystem as filesystem
 import yali.partitionrequest as request
@@ -28,8 +27,6 @@ import yali.parteddata as parteddata
 import yali.gui.context as ctx
 from yali.gui.Ui.partlistwidget import PartListWidget
 from yali.gui.GUIException import *
-
-
 
 class PartList(PartListWidget):
 
@@ -351,5 +348,3 @@ class PartListItem(QListViewItem):
 
     def getData(self):
         return self._data
-        
-

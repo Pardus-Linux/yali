@@ -12,6 +12,3 @@
 
 import yali
 __version__ = yali.__version__
-
-
-

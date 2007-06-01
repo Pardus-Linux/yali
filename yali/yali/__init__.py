@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005, TUBITAK/UEKAE
+# Copyright (C) 2005-2007, TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -10,8 +10,7 @@
 # Please read the COPYING file.
 #
 
-__version__ = "1.1.2_alpha4"
-
+__version__ = "1.1.3"
 
 import sys
 import exceptions
@@ -25,15 +24,12 @@ _ = __trans.ugettext
 import pisi
 from yali.exception import *
 
-
 def default_runner():
     import yali.gui.runner
 
     sys.excepthook = exception_handler
 
     return yali.gui.runner.Runner()
-
-
 
 exception_normal, exception_fatal, \
     exception_pisi, exception_informational, \

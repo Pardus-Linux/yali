@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005, TUBITAK/UEKAE
+# Copyright (C) 2005-2007, TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -36,4 +36,3 @@ PARTITION_EXTENDED = parted.PARTITION_EXTENDED
 PARTITION_LOGICAL = parted.PARTITION_LOGICAL
 
 deviceType, partitionType, freeSpaceType = range(3)
-

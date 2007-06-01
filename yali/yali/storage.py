@@ -29,14 +29,11 @@ from yali.partition import Partition, FreeSpace
 from yali.exception import YaliError, YaliException
 import yali.filesystem
 
-
 class DeviceError(YaliError):
     pass
 
-
 # all storage devices
 devices = []
-
 
 ##
 # initialize all devices and fill devices list
@@ -303,7 +300,6 @@ class Device:
         return long(ped_part.geom.length *
                     self._sector_size)
 
-
     ###############################
     # Partition mangling routines #
     ###############################
@@ -461,9 +457,6 @@ class Device:
     def close(self):
         # pyparted will do it for us.
         del self._disk
-
-
-
 
 ##
 # Return a list of block devices in system

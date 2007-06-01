@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005, TUBITAK/UEKAE
+# Copyright (C) 2005-2007, TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -37,7 +37,6 @@ class Widget(QWidget):
         self.connect(ctx.stages, PYSIGNAL("signalCurrent"),
                      self.slotStageChanged)
 
-
     ##
     # add a new stage
     # @param obj(QObject): QObject that emits the signal.
@@ -46,7 +45,6 @@ class Widget(QWidget):
         item = StageItem(self, text)
         self.stages.append(item)
         self.layout.addWidget(item)
-
 
     ##
     # set the current stage. Iterate over the listview items and set

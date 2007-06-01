@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005, TUBITAK/UEKAE
+# Copyright (C) 2005-2007, TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -20,7 +20,6 @@ import os
 from string import ascii_letters, digits
 from yali.constants import consts
 
-
 # a set of User instances waiting...
 # we'll add these users at the last step of the installation.
 pending_users = set()
@@ -28,8 +27,6 @@ pending_users = set()
 def reset_pending_users():
     global pending_users
     pending_users = set()
-
-
 
 def iter_head_images():
     left, right, images = [], [], []
@@ -238,7 +235,5 @@ class User:
     
         return rv
 
-
 if __name__ == '__main__':
     pass
-

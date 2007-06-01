@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005, TUBITAK/UEKAE
+# Copyright (C) 2005-2007, TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -10,13 +10,11 @@
 # Please read the COPYING file.
 #
 
-
 from qt import *
 
 import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
-
 
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.rootpasswidget import RootPassWidget
@@ -24,7 +22,6 @@ import yali.users
 import yali.sysutils
 import yali.gui.context as ctx
 import pardus.xorg
-
 
 ##
 # Root password widget
@@ -115,8 +112,6 @@ Click Next button to proceed.
                 self.pass_error.setText(
                     _('<font color="#FF6D19">Passwords do not match!</font>'))
                 self.pass_error.setAlignment(QLabel.AlignCenter)
-
-
         self.setNext()
 
     ##
@@ -135,9 +130,7 @@ Click Next button to proceed.
                 _('<font color="#FF6D19">Hostname contains invalid characters!</font>'))
         else:
             self.host_error.setText("")
-
         self.setNext()
-
 
     def setNext(self):
         if self.host_valid and self.pass_valid:
@@ -145,8 +138,6 @@ Click Next button to proceed.
         else:
             ctx.screens.disableNext()
 
-
     def slotReturnPressed(self):
         if ctx.screens.isNextEnabled():
             ctx.screens.next()
-

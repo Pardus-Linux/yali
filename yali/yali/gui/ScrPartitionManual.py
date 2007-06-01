@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005, TUBITAK/UEKAE
+# Copyright (C) 2005-2007, TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -10,13 +10,11 @@
 # Please read the COPYING file.
 #
 
-
 from qt import *
 
 import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
-
 
 import yali.gui.context as ctx
 import yali.partitionrequest as request
@@ -28,7 +26,6 @@ from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.PartListImpl import PartList
 from yali.gui.PartEditImpl import PartEdit, \
     editState, createState, deleteState, resizeState
-
 
 ##
 # Partitioning screen.
@@ -234,5 +231,3 @@ your system formatting the selected partition.</p>
 
     def slotCancel(self):
         self.emit(PYSIGNAL("signalCancel"), ())
-
-

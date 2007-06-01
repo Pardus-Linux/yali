@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005, TUBITAK/UEKAE
+# Copyright (C) 2005-2007, TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -17,7 +17,6 @@ import grp
 from yali.constants import consts
 
 # necessary things after a full install
-
 
 def initbaselayout():
 
@@ -61,7 +60,6 @@ def initbaselayout():
     os.system("/usr/bin/mknod %s/dev/console c 5 1" % consts.target_dir)
     os.system("/usr/bin/mknod %s/dev/null c 1 3" % consts.target_dir)
 
-
 def migrate_xorg_conf(keymap="trq"):
     # copy xorg.conf.
     src = "/etc/X11/xorg.conf"
@@ -75,4 +73,3 @@ def migrate_xorg_conf(keymap="trq"):
                 l = '    Option    "XkbLayout" "%s"\n' %(keymap)
             dst.write(l)
         dst.close()
-

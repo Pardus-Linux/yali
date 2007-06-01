@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005, TUBITAK/UEKAE
+# Copyright (C) 2005-2007, TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -10,7 +10,6 @@
 # Please read the COPYING file.
 #
 
-
 from os.path import join, exists
 import codecs
 from qt import *
@@ -19,10 +18,8 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-
 import yali.gui.context as ctx
 from yali.gui.GUIException import *
-
 
 ##
 # Help widget
@@ -33,7 +30,6 @@ class Widget(QTextView):
 
         self.setSizePolicy( QSizePolicy(QSizePolicy.Preferred,
                                         QSizePolicy.Expanding))
-
 
         self.setPaletteBackgroundColor(ctx.consts.bg_color)
 

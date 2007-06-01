@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005, TUBITAK/UEKAE
+# Copyright (C) 2005-2007, TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -9,7 +9,6 @@
 #
 # Please read the COPYING file.
 #
-
 
 from qt import *
 import os
@@ -83,12 +82,7 @@ Click Next button to proceed.
                      self.slotEditUser)
         self.connect(self.pass2, SIGNAL("returnPressed()"),
                      self.slotReturnPressed)
-
-        # we don't need to call it here
-        # when Yali.screen load, it will call shown method ;)
-        # just for tests ;)
         self.checkUsers()
-
 
     def shown(self):
         self.checkUsers()
@@ -264,4 +258,3 @@ class UserItem(QListBoxPixmap):
     
     def getUser(self):
         return self._user
-

@@ -16,7 +16,6 @@
 # filesystem.py defines file systems used in YALI. Individual classes
 # also define actions, like format...
 
-
 import os
 import resource
 import string

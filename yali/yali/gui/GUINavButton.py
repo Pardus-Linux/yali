@@ -16,9 +16,7 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-
 import yali.gui.context as ctx
-
 
 def __button(parent, icon):
     b = YaliButton(parent)
@@ -30,8 +28,6 @@ def nextButton(parent):
 
 def prevButton(parent):
     return __button(parent, "button_back")
-
-
 
 class YaliButton(QWidget):
 

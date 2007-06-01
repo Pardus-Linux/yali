@@ -26,7 +26,6 @@ import yali
 
 YALI_VERSION = yali.__version__
 
-
 def qt_ui_files():
     p = "yali/gui/Ui/*.ui"
     return glob.glob(p)
@@ -60,10 +59,8 @@ def getVersion():
     # don't use svn revision...
     return YALI_VERSION
 
-
 def py_file_name(ui_file):
     return os.path.splitext(ui_file)[0] + '.py'
-
 
 ##
 # build command
@@ -84,7 +81,6 @@ class YaliBuild(build):
         for l in f:
             l = l.replace("self.__tr", "_")
             x.write(l)
-
 
     def compile_ui(self, ui_file):
         pyqt_configuration = pyqtconfig.Configuration()
@@ -139,8 +135,6 @@ class YaliUninstall(Command):
             print "removing: ", data_dir
             shutil.rmtree(data_dir)
 
-
-
 i18n_domain = "yali"
 i18n_languages = ["tr",
                   "nl",
@@ -164,15 +158,14 @@ class I18nInstall(install):
                 pass
             shutil.copy("po/%s.mo" % lang, os.path.join(destpath, "%s.mo" % i18n_domain))
 
-
 setup(name="yali",
       version= getVersion(),
       description="YALI (Yet Another Linux Installer)",
       long_description="Pardus System Installer.",
       license="GNU GPL2",
       author="Pardus Developers",
-      author_email="yali@uludag.org.tr",
-      url="http://www.uludag.org.tr/eng/yali/",
+      author_email="yali@pardus.org.tr",
+      url="http://www.pardus.org.tr/eng/yali/",
       packages = ['yali', 'yali.gui', 'yali.gui.Ui'],
       package_dir = {'': ''},
       data_files = [('/usr/share/yali/pics', gui_pics()),

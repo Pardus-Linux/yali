@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005, TUBITAK/UEKAE
+# Copyright (C) 2005-2007, TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -22,11 +22,9 @@ import yali.sysutils
 class RequestException(YaliException):
     pass
 
-
 # poor man's enum ;)
 formatRequestType, mountRequestType, \
     swapFileRequestType, labelRequestType = range(4)
-
 
 ##
 # requests object holds the list of requests

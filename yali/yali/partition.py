@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005, TUBITAK/UEKAE
+# Copyright (C) 2005-2007, TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -166,7 +166,6 @@ class Partition:
 #        return self.getPath() == rhs.getPath()
         return self.getStart() == rhs.getStart() and self.getEnd() == rhs.getEnd()
 
-
 ##
 # Class representing free space within a Device object
 class FreeSpace(Partition):
@@ -181,5 +180,3 @@ class FreeSpace(Partition):
                            _("free space"))
 
         self._parted_type = parteddata.freeSpaceType
-
-

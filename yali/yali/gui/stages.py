@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005, TUBITAK/UEKAE
+# Copyright (C) 2005-2007, TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -11,7 +11,6 @@
 #
 
 from qt import *
-
 from yali.steps import Steps
 
 ##
@@ -21,8 +20,6 @@ class Stages(QObject, Steps):
     def __init__(self, *args):
         Steps.__init__(self)
         apply(QObject.__init__, (self,) + args)
-
-        
 
     ##
     # add new a stage
@@ -48,9 +45,6 @@ class Stages(QObject, Steps):
     def slotScreenChanged(self, obj, index):
         scrData = obj.getCurrent()
         curStage = scrData.getStage()
-
         if self.getCurrentIndex() == curStage or not self.hasIndex(curStage):
             return
-
         self.setCurrent(curStage)
-        
