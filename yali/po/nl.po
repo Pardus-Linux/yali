@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-03-24 20:30+0200\n"
+"POT-Creation-Date: 2007-06-01 13:28+0300\n"
 "PO-Revision-Date: 2007-04-22 15:03+0200\n"
 "Last-Translator: Willem Gielen <w.gielen@gmail.com>\n"
 "Language-Team: Nederlands <Pardus-translation-nl@pardus.org.tr>\n"
@@ -20,11 +20,11 @@ msgstr ""
 "X-Generator: KBabel 1.11.4\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
-#: yali/gui/Ui/autopartwidget.py:83 yali/gui/Ui/bootloaderwidget.py:105
+#: yali/gui/Ui/autopartwidget.py:83 yali/gui/Ui/bootloaderwidget.py:92
 #: yali/gui/Ui/checkcdwidget.py:74 yali/gui/Ui/keyboardwidget.py:66
 #: yali/gui/Ui/parteditbuttons.py:46 yali/gui/Ui/parteditwidget.py:87
 #: yali/gui/Ui/partlistwidget.py:92 yali/gui/Ui/rootpasswidget.py:127
-#: yali/gui/Ui/setupuserswidget.py:134 yali/gui/Ui/welcomewidget.py:95
+#: yali/gui/Ui/setupuserswidget.py:147 yali/gui/Ui/welcomewidget.py:95
 msgid "Form1"
 msgstr "Form1"
 
@@ -61,37 +61,10 @@ msgstr "Nee, ik wil mijn schijf handmatig partitioneren."
 
 #: yali/gui/Ui/autopartwidget.py:95
 msgid "Yes, automatically partition and format selected disk!"
-msgstr "Ja, automatisch partitioneren en formatteren van de geselecteerde schijf!"
+msgstr ""
+"Ja, automatisch partitioneren en formatteren van de geselecteerde schijf!"
 
-#: yali/gui/Ui/bootloaderwidget.py:106
-msgid "Where do you want to install the bootloader?"
-msgstr "Waar wilt u de bootloader installeren?"
-
-#: yali/gui/Ui/bootloaderwidget.py:107
-msgid "MBR of the first disk (recomended)"
-msgstr "MBR van de eerste schijf (aanbevolen)"
-
-#: yali/gui/Ui/bootloaderwidget.py:108
-msgid "Install to root partition"
-msgstr "Installeer in de root partitie"
-
-#: yali/gui/Ui/bootloaderwidget.py:109
-msgid "Show More Options"
-msgstr "Toon meer opties"
-
-#: yali/gui/Ui/bootloaderwidget.py:111
-msgid "Install to MBR"
-msgstr "Installeer in MBR"
-
-#: yali/gui/Ui/bootloaderwidget.py:112
-msgid "Select the disk you to install bootloader:"
-msgstr "Selecteer de schijf waar u de bootloader op wilt installeren:"
-
-#: yali/gui/Ui/bootloaderwidget.py:113
-msgid "Don't install bootloader"
-msgstr "Installeer geen bootloader"
-
-#: yali/gui/Ui/bootloaderwidget.py:114
+#: yali/gui/Ui/bootloaderwidget.py:93
 msgid ""
 "<b>Do you want to write boot loader (GRUB) to your hard disk's master boot "
 "record?</b>\n"
@@ -103,14 +76,39 @@ msgid ""
 "(if you have one installed) to start \n"
 "your newly installed Pardus.</p>"
 msgstr ""
-"<b>Wilt u de bootloader (GRUB) naar de master boot record van uw "
-"harde schijf schrijven?</b>\n"
+"<b>Wilt u de bootloader (GRUB) naar de master boot record van uw harde "
+"schijf schrijven?</b>\n"
 "\n"
 "<p>U heeft een bootloader nodig om uw Pardus-systeem op te starten.</p>\n"
 "\n"
-"<p>Als u geen bootloader installeert, of ervoor kiest deze  in te rootpartitie te installeren, dient u de loader  van uw andere \n"
-"besturingssysteem (indien geïnstalleerd) te configureren om  het nieuw geïnstalleerde Pardus te "
-"kunnen starten.</p>"
+"<p>Als u geen bootloader installeert, of ervoor kiest deze  in te "
+"rootpartitie te installeren, dient u de loader  van uw andere \n"
+"besturingssysteem (indien geïnstalleerd) te configureren om  het nieuw "
+"geïnstalleerde Pardus te kunnen starten.</p>"
+
+#: yali/gui/Ui/bootloaderwidget.py:99
+msgid "Where do you want to install the bootloader?"
+msgstr "Waar wilt u de bootloader installeren?"
+
+#: yali/gui/Ui/bootloaderwidget.py:100
+msgid "MBR of the first disk (recomended)"
+msgstr "MBR van de eerste schijf (aanbevolen)"
+
+#: yali/gui/Ui/bootloaderwidget.py:101
+msgid "Install to root partition"
+msgstr "Installeer in de root partitie"
+
+#: yali/gui/Ui/bootloaderwidget.py:102
+msgid "Install to MBR"
+msgstr "Installeer in MBR"
+
+#: yali/gui/Ui/bootloaderwidget.py:103
+msgid "Select the disk you to install bootloader:"
+msgstr "Selecteer de schijf waar u de bootloader op wilt installeren:"
+
+#: yali/gui/Ui/bootloaderwidget.py:104
+msgid "Don't install bootloader"
+msgstr "Installeer geen bootloader"
 
 #: yali/gui/Ui/checkcdwidget.py:75 yali/gui/Ui/installwidget.py:54
 #: yali/gui/Ui/keyboardwidget.py:67 yali/gui/Ui/welcomewidget.py:96
@@ -124,8 +122,8 @@ msgid ""
 "installation."
 msgstr ""
 "U kunt de integriteit van de pakketten op de installatie CD controleren. "
-"Ondanks dat deze stap optioneel is, raden we het u aan om fouten "
-"tijdens de installatie te vermijden."
+"Ondanks dat deze stap optioneel is, raden we het u aan om fouten tijdens de "
+"installatie te vermijden."
 
 #: yali/gui/Ui/checkcdwidget.py:77
 msgid "Check CD Integrity"
@@ -147,8 +145,8 @@ msgstr "Selecteer uw toetenbordindeling."
 msgid "Test selected keyboard:"
 msgstr "Test geselecteerd toetsenbord:"
 
-#: yali/gui/Ui/parteditbuttons.py:47 yali/gui/ScrPartitionAuto.py:214
-#: yali/gui/ScrPartitionManual.py:212
+#: yali/gui/Ui/parteditbuttons.py:47 yali/gui/ScrPartitionAuto.py:213
+#: yali/gui/ScrPartitionManual.py:209
 msgid "Cancel"
 msgstr "Annuleren"
 
@@ -256,37 +254,49 @@ msgstr "Hostnaam:"
 msgid "pardus"
 msgstr "pardus"
 
-#: yali/gui/Ui/setupuserswidget.py:135
+#: yali/gui/Ui/setupuserswidget.py:150
 msgid "New User"
 msgstr "Nieuwe gebruiker:"
 
-#: yali/gui/Ui/setupuserswidget.py:136
+#: yali/gui/Ui/setupuserswidget.py:151
 msgid "User Name:"
 msgstr "Gebruikersnaam:"
 
-#: yali/gui/Ui/setupuserswidget.py:137
+#: yali/gui/Ui/setupuserswidget.py:152
 msgid "Create User"
 msgstr "Maak gebruiker"
 
-#: yali/gui/Ui/setupuserswidget.py:138
+#: yali/gui/Ui/setupuserswidget.py:153
 msgid "Password (again):"
 msgstr "Wachtwoord (nogmaals):"
 
-#: yali/gui/Ui/setupuserswidget.py:139
+#: yali/gui/Ui/setupuserswidget.py:154
 msgid "Password:"
 msgstr "Wachtwoord:"
 
-#: yali/gui/Ui/setupuserswidget.py:140
+#: yali/gui/Ui/setupuserswidget.py:155
 msgid "Real Name:"
 msgstr "Echte naam:"
 
-#: yali/gui/Ui/setupuserswidget.py:142
+#: yali/gui/Ui/setupuserswidget.py:156
+msgid "Give administrator privileges to this user"
+msgstr ""
+
+#: yali/gui/Ui/setupuserswidget.py:158
+msgid "Users:"
+msgstr "Gebruikers:"
+
+#: yali/gui/Ui/setupuserswidget.py:159
 msgid "Delete Selected User"
 msgstr "Verwijder geselecteerde gebruiker"
 
-#: yali/gui/Ui/setupuserswidget.py:143
-msgid "Users:"
-msgstr "Gebruikers:"
+#: yali/gui/Ui/setupuserswidget.py:160
+msgid "Auto Login User :"
+msgstr ""
+
+#: yali/gui/Ui/setupuserswidget.py:162
+msgid "Auto Login Disabled"
+msgstr ""
 
 #: yali/gui/Ui/welcomewidget.py:97
 msgid ""
@@ -322,10 +332,6 @@ msgstr "Uitgavenotities"
 msgid "Can't open License file!"
 msgstr "Kan het licentiebestand niet openen!"
 
-#: yali/gui/GUIRelNotes.py:53
-msgid "Can't open Release Notes file!"
-msgstr "Kan de uitgavenotities niet openen!"
-
 #: yali/gui/PartEditImpl.py:98
 #, python-format
 msgid "You are going to delete all partitions on device '%s'"
@@ -349,31 +355,31 @@ msgstr "De grootte van de hoofdpartitie dient groter te zijn dan %s MB."
 msgid "ntfsresize check failed! Won't proceed action!"
 msgstr "ntfsresize contrôle mislukt! Ga niet verder!"
 
-#: yali/gui/PartListImpl.py:90 yali/gui/ScrBootloader.py:84
-#: yali/gui/ScrPartitionAuto.py:69
+#: yali/gui/PartListImpl.py:87 yali/gui/ScrBootloader.py:68
+#: yali/gui/ScrPartitionAuto.py:68
 msgid "Can't find a storage device!"
 msgstr "Kan geen opslagapparaat vinden!"
 
-#: yali/gui/PartListImpl.py:114
+#: yali/gui/PartListImpl.py:111
 #, python-format
 msgid "%0.1f GB free"
 msgstr "%0.1f GB beschikbaar"
 
-#: yali/gui/PartListImpl.py:116
+#: yali/gui/PartListImpl.py:113
 #, python-format
 msgid "%d MB free"
 msgstr "%d MB beschikbaar"
 
-#: yali/gui/PartListImpl.py:141
+#: yali/gui/PartListImpl.py:138
 msgid "Extended"
 msgstr "Uitgebreid"
 
-#: yali/gui/PartListImpl.py:169
+#: yali/gui/PartListImpl.py:166
 #, python-format
 msgid "Partition %d"
 msgstr "Partitie %d"
 
-#: yali/gui/PartListImpl.py:214
+#: yali/gui/PartListImpl.py:211
 msgid "Delete All Partitions"
 msgstr "Verwijder alle partities"
 
@@ -413,7 +419,7 @@ msgstr "Fout!"
 msgid "Unhandled error occured!"
 msgstr "Fout opgetreden!"
 
-#: yali/gui/ScrAdmin.py:33
+#: yali/gui/ScrAdmin.py:30
 msgid ""
 "\n"
 "<font size=\"+2\">System administrator password and hostname</font>\n"
@@ -469,19 +475,20 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/ScrAdmin.py:96 yali/gui/ScrUsers.py:96
+#: yali/gui/ScrAdmin.py:93 yali/gui/ScrUsers.py:114
 msgid "<font color=\"#FF6D19\">Caps Lock is on!</font>"
 msgstr "<font color=\"#FF6D19\">Caps Lock staat aan!</font>"
 
-#: yali/gui/ScrAdmin.py:116 yali/gui/ScrUsers.py:110
+#: yali/gui/ScrAdmin.py:113 yali/gui/ScrUsers.py:133
 msgid "<font color=\"#FF6D19\">Passwords do not match!</font>"
 msgstr "<font color=\"#FF6D19\">De wachtwoorden komen niet overeen!</font>"
 
-#: yali/gui/ScrAdmin.py:135
+#: yali/gui/ScrAdmin.py:130
 msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
-msgstr "<font color=\"#FF6D19\">De hostnaam bevat niet toegestane tekens!</font>"
+msgstr ""
+"<font color=\"#FF6D19\">De hostnaam bevat niet toegestane tekens!</font>"
 
-#: yali/gui/ScrBootloader.py:38
+#: yali/gui/ScrBootloader.py:35
 msgid ""
 "\n"
 "<font size=\"+2\">Boot loader setup</font>\n"
@@ -524,11 +531,11 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/ScrBootloader.py:134
+#: yali/gui/ScrBootloader.py:112
 msgid "Please wait while installing bootloader!"
 msgstr "Even geduld, de bootloader wordt geïnstalleerd!"
 
-#: yali/gui/ScrCheckCD.py:30
+#: yali/gui/ScrCheckCD.py:28
 msgid ""
 "\n"
 "<font size=\"+2\">Check CD Integrity!</font>\n"
@@ -547,17 +554,17 @@ msgstr ""
 "controleren.\n"
 "</p>\n"
 
-#: yali/gui/ScrCheckCD.py:50
+#: yali/gui/ScrCheckCD.py:48
 msgid "Check Failed"
 msgstr "Controle mislukt"
 
-#: yali/gui/ScrCheckCD.py:59
+#: yali/gui/ScrCheckCD.py:57
 msgid "<font color=\"#FF6D19\">Please wait while checking CD.</font>"
 msgstr ""
 "<font color=\"#FF6D19\">Ogenblik geduld wanneer de CD gecontrolleerd wordt.</"
 "font>"
 
-#: yali/gui/ScrCheckCD.py:77
+#: yali/gui/ScrCheckCD.py:75
 msgid ""
 "<font color=\"#257216\">Check succeeded. You can proceed to the next screen."
 "</font>"
@@ -565,7 +572,7 @@ msgstr ""
 "<font color=\"#257216\">Controle succesvol. U kunt doorgaan naar het "
 "volgende scherm.</font>"
 
-#: yali/gui/ScrCheckCD.py:99
+#: yali/gui/ScrCheckCD.py:97
 msgid ""
 "<b>\n"
 "<p>Integrity check for packages failed. It seems that installation CD is "
@@ -577,11 +584,11 @@ msgstr ""
 "installatie CD defect is.</p>\n"
 "</b>\n"
 
-#: yali/gui/ScrCheckCD.py:105 yali/gui/ScrGoodbye.py:138
+#: yali/gui/ScrCheckCD.py:103 yali/gui/ScrGoodbye.py:137
 msgid "Reboot"
 msgstr "Herstart"
 
-#: yali/gui/ScrGoodbye.py:33
+#: yali/gui/ScrGoodbye.py:32
 msgid ""
 "\n"
 "<font size=\"+2\">Congratulations</font>\n"
@@ -618,7 +625,7 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/ScrGoodbye.py:58
+#: yali/gui/ScrGoodbye.py:57
 msgid ""
 "<b><font size=\"+2\" color=\"#FF6D19\">Rebooting system. Please wait!</"
 "font></b>"
@@ -626,7 +633,7 @@ msgstr ""
 "<b><font size=\"+2\" color=\"#FF6D19\">Herstarten systeem. moment geduld!</"
 "font></b>"
 
-#: yali/gui/ScrGoodbye.py:132
+#: yali/gui/ScrGoodbye.py:131
 msgid ""
 "<b>\n"
 "<p>Please remove Pardus CD from your drive and pres Reboot button.</p>\n"
@@ -636,7 +643,7 @@ msgstr ""
 "<p>Verwijder de Pardus-CD uit uw speler en druk op de Herstart knop.</p>\n"
 "</b>\n"
 
-#: yali/gui/ScrInstall.py:54
+#: yali/gui/ScrInstall.py:53
 msgid ""
 "\n"
 "<font size=\"+2\">Installation started</font>\n"
@@ -678,21 +685,21 @@ msgstr ""
 "Veel plezier!\n"
 "</font>\n"
 
-#: yali/gui/ScrInstall.py:111 yali/gui/ScrInstall.py:132
+#: yali/gui/ScrInstall.py:110 yali/gui/ScrInstall.py:131
 #, python-format
 msgid "Installing: %s<br>%s"
 msgstr "Installeren: %s<br>%s"
 
-#: yali/gui/ScrInstall.py:117 yali/gui/ScrInstall.py:138
+#: yali/gui/ScrInstall.py:116 yali/gui/ScrInstall.py:137
 #, python-format
 msgid "Configuring package: %s"
 msgstr "Configureren pakket: %s"
 
-#: yali/gui/ScrInstall.py:197
+#: yali/gui/ScrInstall.py:196
 msgid "Configuring packages for your system!"
 msgstr "Configureren pakketten voor uw systeem!"
 
-#: yali/gui/ScrInstall.py:236
+#: yali/gui/ScrInstall.py:235
 #, python-format
 msgid ""
 "An error during the installation of packages occured.\n"
@@ -709,7 +716,7 @@ msgstr ""
 "Fout:\n"
 "%s\n"
 
-#: yali/gui/ScrKeyboard.py:31
+#: yali/gui/ScrKeyboard.py:30
 msgid ""
 "\n"
 "<font size=\"+2\">Keyboard Setup</font>\n"
@@ -730,7 +737,7 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/ScrPartitionAuto.py:37
+#: yali/gui/ScrPartitionAuto.py:36
 msgid ""
 "\n"
 "<font size=\"+2\">Automatic Partitioning</font>\n"
@@ -777,22 +784,24 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/ScrPartitionAuto.py:79
+#: yali/gui/ScrPartitionAuto.py:78
 #, python-format
 msgid ""
 "It seems that you don't have the required disk space (min. %s) for Pardus "
 "installation."
-msgstr "U heeft niet voldoende schijfruimte (min. %s) on Pardus te installeren."
+msgstr ""
+"U heeft niet voldoende schijfruimte (min. %s) on Pardus te installeren."
 
-#: yali/gui/ScrPartitionAuto.py:133 yali/gui/ScrPartitionManual.py:128
+#: yali/gui/ScrPartitionAuto.py:132 yali/gui/ScrPartitionManual.py:125
 msgid "Please wait while formatting!"
 msgstr "Ogenblik geduld tijdens het formatteren!"
 
-#: yali/gui/ScrPartitionAuto.py:136
+#: yali/gui/ScrPartitionAuto.py:135
 msgid "<font color=\"#FF6D19\">Preparing your disk for installation!</font>"
-msgstr "<font color=\"#FF6D19\">Uw schijf wordt voorbereidt voor installatie.</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Uw schijf wordt voorbereidt voor installatie.</font>"
 
-#: yali/gui/ScrPartitionAuto.py:204
+#: yali/gui/ScrPartitionAuto.py:203
 msgid ""
 "<b>\n"
 "<p>This action will use your entire disk for Pardus installation and\n"
@@ -811,11 +820,11 @@ msgstr ""
 "Pardus te installeren.</p>\n"
 "</b>\n"
 
-#: yali/gui/ScrPartitionAuto.py:217 yali/gui/ScrPartitionManual.py:215
+#: yali/gui/ScrPartitionAuto.py:216 yali/gui/ScrPartitionManual.py:212
 msgid "O.K. Go Ahead"
 msgstr "O.K. Ga verder"
 
-#: yali/gui/ScrPartitionManual.py:37
+#: yali/gui/ScrPartitionManual.py:34
 #, fuzzy
 msgid ""
 "\n"
@@ -831,7 +840,7 @@ msgid ""
 "<p>\n"
 "In order to use Pardus, you must create one Linux filesystem (for the \n"
 "system files), which is mandatory and a swap space \n"
-"(for improved performance), which is optional. This sway space \n"
+"(for improved performance), which is optional. This swap space \n"
 "is used whenever system needs more memory, but the system lacks it.\n"
 "We advise you to allocate at least 4 GBs of hard disk area and \n"
 "swap space (between 500 MB - 2 GB, according to your needs) for \n"
@@ -896,23 +905,23 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/ScrPartitionManual.py:165
+#: yali/gui/ScrPartitionManual.py:162
 msgid "Create Partition"
 msgstr "Maak partitie"
 
-#: yali/gui/ScrPartitionManual.py:170
+#: yali/gui/ScrPartitionManual.py:167
 msgid "Delete Partition"
 msgstr "Verwijder partitie"
 
-#: yali/gui/ScrPartitionManual.py:175
+#: yali/gui/ScrPartitionManual.py:172
 msgid "Edit Partition"
 msgstr "Bewerk partitie"
 
-#: yali/gui/ScrPartitionManual.py:180
+#: yali/gui/ScrPartitionManual.py:177
 msgid "Resize Partition"
 msgstr "Aanpassen partitiegrootte"
 
-#: yali/gui/ScrPartitionManual.py:205
+#: yali/gui/ScrPartitionManual.py:202
 msgid ""
 "<b>\n"
 "<p>This action will start installing Pardus on\n"
@@ -966,23 +975,35 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/ScrUsers.py:137
+#: yali/gui/ScrUsers.py:128
+#, fuzzy
+msgid "<font color=\"#FF6D19\">Don't use your user name as a password.</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Uw schijf wordt voorbereidt voor installatie.</font>"
+
+#: yali/gui/ScrUsers.py:138
+#, fuzzy
+msgid "<font color=\"#FF6D19\">Password is too short!</font>"
+msgstr "<font color=\"#FF6D19\">De wachtwoorden komen niet overeen!</font>"
+
+#: yali/gui/ScrUsers.py:167
 msgid "<font color=\"#FF6D19\">Username exists, choose another one!</font>"
 msgstr ""
 "<font color=\"#FF6D19\">Deze gebruikersnaam bestaat al, Kies een andere!</"
 "font>"
 
-#: yali/gui/ScrUsers.py:141
+#: yali/gui/ScrUsers.py:171
 msgid "<font color=\"#FF6D19\">Username contains invalid characters!</font>"
 msgstr ""
 "<font color=\"#FF6D19\">De gebruikersnaam bevat niet toegestane tekens.</"
 "font>"
 
-#: yali/gui/ScrUsers.py:145
+#: yali/gui/ScrUsers.py:175
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
-msgstr "<font color=\"#FF6D19\">Uw echte naam bevat niet toegestane tekens.</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Uw echte naam bevat niet toegestane tekens.</font>"
 
-#: yali/gui/ScrWelcome.py:31
+#: yali/gui/ScrWelcome.py:30
 msgid ""
 "\n"
 "<font size=\"+2\">Welcome!</font>\n"
@@ -1036,15 +1057,15 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/YaliDialog.py:101
+#: yali/gui/YaliDialog.py:95
 msgid "Warning"
 msgstr "Waarschuwing"
 
-#: yali/bootloader.py:151 yali/bootloader.py:156
+#: yali/bootloader.py:163 yali/bootloader.py:168
 msgid "Windows"
 msgstr "Windows"
 
-#: yali/__init__.py:71
+#: yali/__init__.py:67
 msgid "Backtrace:"
 msgstr "Terugloop:"
 
@@ -1204,19 +1225,24 @@ msgstr "Wales"
 msgid "unknown"
 msgstr "onbekend"
 
-#: yali/partition.py:177
+#: yali/partition.py:180
 msgid "free space"
 msgstr "vrije ruimte"
 
-#: yali/partitiontype.py:51
+#: yali/partitiontype.py:49
 msgid "Install Root"
 msgstr "Installeer root"
 
-#: yali/partitiontype.py:60
+#: yali/partitiontype.py:58
 msgid "Users' Files"
 msgstr "Gebruikersbestanden"
 
-#: yali/partitiontype.py:69
+#: yali/partitiontype.py:67
 msgid "Swap"
 msgstr "Swap"
 
+#~ msgid "Show More Options"
+#~ msgstr "Toon meer opties"
+
+#~ msgid "Can't open Release Notes file!"
+#~ msgstr "Kan de uitgavenotities niet openen!"
