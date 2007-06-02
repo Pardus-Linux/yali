@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-06-01 13:28+0300\n"
-"PO-Revision-Date: 2007-04-22 15:03+0200\n"
+"PO-Revision-Date: 2007-06-02 12:41+0200\n"
 "Last-Translator: Willem Gielen <w.gielen@gmail.com>\n"
 "Language-Team: Nederlands <Pardus-translation-nl@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -61,8 +61,7 @@ msgstr "Nee, ik wil mijn schijf handmatig partitioneren."
 
 #: yali/gui/Ui/autopartwidget.py:95
 msgid "Yes, automatically partition and format selected disk!"
-msgstr ""
-"Ja, automatisch partitioneren en formatteren van de geselecteerde schijf!"
+msgstr "Ja, automatisch partitioneren en formatteren van de geselecteerde schijf!"
 
 #: yali/gui/Ui/bootloaderwidget.py:93
 msgid ""
@@ -280,7 +279,7 @@ msgstr "Echte naam:"
 
 #: yali/gui/Ui/setupuserswidget.py:156
 msgid "Give administrator privileges to this user"
-msgstr ""
+msgstr "Geef administror rechten aan deze gebruiker"
 
 #: yali/gui/Ui/setupuserswidget.py:158
 msgid "Users:"
@@ -485,8 +484,7 @@ msgstr "<font color=\"#FF6D19\">De wachtwoorden komen niet overeen!</font>"
 
 #: yali/gui/ScrAdmin.py:130
 msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">De hostnaam bevat niet toegestane tekens!</font>"
+msgstr "<font color=\"#FF6D19\">De hostnaam bevat niet toegestane tekens!</font>"
 
 #: yali/gui/ScrBootloader.py:35
 msgid ""
@@ -789,8 +787,7 @@ msgstr ""
 msgid ""
 "It seems that you don't have the required disk space (min. %s) for Pardus "
 "installation."
-msgstr ""
-"U heeft niet voldoende schijfruimte (min. %s) on Pardus te installeren."
+msgstr "U heeft niet voldoende schijfruimte (min. %s) on Pardus te installeren."
 
 #: yali/gui/ScrPartitionAuto.py:132 yali/gui/ScrPartitionManual.py:125
 msgid "Please wait while formatting!"
@@ -798,8 +795,7 @@ msgstr "Ogenblik geduld tijdens het formatteren!"
 
 #: yali/gui/ScrPartitionAuto.py:135
 msgid "<font color=\"#FF6D19\">Preparing your disk for installation!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Uw schijf wordt voorbereidt voor installatie.</font>"
+msgstr "<font color=\"#FF6D19\">Uw schijf wordt voorbereidt voor installatie.</font>"
 
 #: yali/gui/ScrPartitionAuto.py:203
 msgid ""
@@ -978,8 +974,7 @@ msgstr ""
 #: yali/gui/ScrUsers.py:128
 #, fuzzy
 msgid "<font color=\"#FF6D19\">Don't use your user name as a password.</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Uw schijf wordt voorbereidt voor installatie.</font>"
+msgstr "<font color=\"#FF6D19\">Uw schijf wordt voorbereidt voor installatie.</font>"
 
 #: yali/gui/ScrUsers.py:138
 #, fuzzy
@@ -1000,8 +995,7 @@ msgstr ""
 
 #: yali/gui/ScrUsers.py:175
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Uw echte naam bevat niet toegestane tekens.</font>"
+msgstr "<font color=\"#FF6D19\">Uw echte naam bevat niet toegestane tekens.</font>"
 
 #: yali/gui/ScrWelcome.py:30
 msgid ""
@@ -1241,8 +1235,3 @@ msgstr "Gebruikersbestanden"
 msgid "Swap"
 msgstr "Swap"
 
-#~ msgid "Show More Options"
-#~ msgstr "Toon meer opties"
-
-#~ msgid "Can't open Release Notes file!"
-#~ msgstr "Kan de uitgavenotities niet openen!"
