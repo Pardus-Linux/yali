@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-06-01 13:28+0300\n"
-"PO-Revision-Date: 2007-06-02 12:41+0200\n"
+"PO-Revision-Date: 2007-06-03 20:47+0200\n"
 "Last-Translator: Willem Gielen <w.gielen@gmail.com>\n"
 "Language-Team: Nederlands <Pardus-translation-nl@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -291,11 +291,11 @@ msgstr "Verwijder geselecteerde gebruiker"
 
 #: yali/gui/Ui/setupuserswidget.py:160
 msgid "Auto Login User :"
-msgstr ""
+msgstr "Automatisch inloggen gebruiker:"
 
 #: yali/gui/Ui/setupuserswidget.py:162
 msgid "Auto Login Disabled"
-msgstr ""
+msgstr "Automatisch inloggen uitgeschakeld"
 
 #: yali/gui/Ui/welcomewidget.py:97
 msgid ""
@@ -821,7 +821,6 @@ msgid "O.K. Go Ahead"
 msgstr "O.K. Ga verder"
 
 #: yali/gui/ScrPartitionManual.py:34
-#, fuzzy
 msgid ""
 "\n"
 "<font size=\"+2\">Partitioning your hard disk</font>\n"
@@ -868,11 +867,11 @@ msgstr ""
 "<p>\n"
 "Pardus kan geïnstalleerd worden op verschillende hardware. U kunt Pardus "
 "installeren op een lege schijf of op een partitie van uw harde schijf. "
-"<b>Een installatie zal automatisch\n"
+"<b>Installatie zal automatisch\n"
 " alle gegevens op geselecteerde partities vernietigen. </b>\n"
 "</p>\n"
 "<p>\n"
-"Om Pardus te gebruiken, moet u een Linux-bestandssysteem maken (voor de \n"
+"Om Pardus te gebruiken, dient u een Linux-bestandssysteem maken (voor de \n"
 " systeembestanden), wat verplicht is, en een swapruimte \n"
 " (voor betere prestaties), wat optioneel is. \n"
 "We adviseren u om tenminste 4 GB ruimte op de harde schijf beschikbaar te "
@@ -883,21 +882,20 @@ msgstr ""
 " op te slaan. \n"
 "</p>\n"
 "<p>\n"
-"U moet een Linux partitie formatteren, als dit de eerste keer is dat u het "
-"gebruikt.\n"
+"U dient een Linux partitie eerst te formatteren, als deze voor de eerste keer gebruikt wordt.\n"
 "U kunt de optie 'Beschikbare vrije ruimte gebruiken' activeren als u vrije "
 "ruimte op de harde schijf automatisch wilt gebruiken.\n"
 "</p>\n"
 "<p>\n"
 "De partitietabel toont het station, grootte, type partitie en\n"
-" informatie over het bestandssysteem. Als een partitie geformatteerd zal "
-"worden,\n"
-" wordt de corresponderende 'Formatteer'-kolom geactiveerd.\n"
+" informatie over het bestandssysteem. Indien een partitie geformatteerd zal "
+"worden tijdens,\n"
+"de installatie van Pardus, wordt de corresponderende 'Formatteer'-kolom geactiveerd.\n"
 "</p>\n"
 "<p>\n"
 "Refereer alstublieft naar de Pardus Installatie- en Gebruikershandleiding "
 "voor meer informatie\n"
-" over het partitioneren van harde schijven.\n"
+" over partitioneren van harde schijven.\n"
 "</p>\n"
 "</font>\n"
 
@@ -972,14 +970,12 @@ msgstr ""
 "</font>\n"
 
 #: yali/gui/ScrUsers.py:128
-#, fuzzy
 msgid "<font color=\"#FF6D19\">Don't use your user name as a password.</font>"
-msgstr "<font color=\"#FF6D19\">Uw schijf wordt voorbereidt voor installatie.</font>"
+msgstr "<font color=\"#FF6D19\">Gebruik uw gebruikersnaam niet als wachtwoord.</font>"
 
 #: yali/gui/ScrUsers.py:138
-#, fuzzy
 msgid "<font color=\"#FF6D19\">Password is too short!</font>"
-msgstr "<font color=\"#FF6D19\">De wachtwoorden komen niet overeen!</font>"
+msgstr "<font color=\"#FF6D19\">Wachtwoord is te kort!</font>"
 
 #: yali/gui/ScrUsers.py:167
 msgid "<font color=\"#FF6D19\">Username exists, choose another one!</font>"
