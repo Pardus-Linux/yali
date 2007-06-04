@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-06-01 13:28+0300\n"
-"PO-Revision-Date: 2007-03-24 22:40+0200\n"
+"PO-Revision-Date: 2007-06-05 00:20+0200\n"
 "Last-Translator: Amine Chadly <amine.chadly@gmail.com>\n"
 "Language-Team: french <pardus-translators@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -59,8 +59,7 @@ msgstr "Non, je vais partitionner mon disque manuellement."
 
 #: yali/gui/Ui/autopartwidget.py:95
 msgid "Yes, automatically partition and format selected disk!"
-msgstr ""
-"Oui, partitionner et formatter automatiquement le disque dur sélectionné !"
+msgstr "Oui, partitionner et formatter automatiquement le disque dur sélectionné !"
 
 #: yali/gui/Ui/bootloaderwidget.py:93
 msgid ""
@@ -277,7 +276,7 @@ msgstr "Nom réel:"
 
 #: yali/gui/Ui/setupuserswidget.py:156
 msgid "Give administrator privileges to this user"
-msgstr ""
+msgstr "Donner les privilèges d'administration à cet utilisateur"
 
 #: yali/gui/Ui/setupuserswidget.py:158
 msgid "Users:"
@@ -289,11 +288,11 @@ msgstr "Supprimer l'utilisateur sélectionné"
 
 #: yali/gui/Ui/setupuserswidget.py:160
 msgid "Auto Login User :"
-msgstr ""
+msgstr "Utilisateur de Login Automatique :"
 
 #: yali/gui/Ui/setupuserswidget.py:162
 msgid "Auto Login Disabled"
-msgstr ""
+msgstr "Login Automatique Désactivé"
 
 #: yali/gui/Ui/welcomewidget.py:97
 msgid ""
@@ -480,8 +479,7 @@ msgstr "<font color=\"#FF6D19\">le Verrouillage Majuscules est activé !</font>"
 
 #: yali/gui/ScrAdmin.py:113 yali/gui/ScrUsers.py:133
 msgid "<font color=\"#FF6D19\">Passwords do not match!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Les mots de passe ne sont pas identiques!</font>"
+msgstr "<font color=\"#FF6D19\">Les mots de passe ne sont pas identiques!</font>"
 
 #: yali/gui/ScrAdmin.py:130
 msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
@@ -808,8 +806,7 @@ msgstr "Veuillez patienter pendant le formatage!"
 
 #: yali/gui/ScrPartitionAuto.py:135
 msgid "<font color=\"#FF6D19\">Preparing your disk for installation!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Préparation du disque dur pour l'installation</font>"
+msgstr "<font color=\"#FF6D19\">Préparation du disque dur pour l'installation</font>"
 
 #: yali/gui/ScrPartitionAuto.py:203
 msgid ""
@@ -837,7 +834,6 @@ msgid "O.K. Go Ahead"
 msgstr "O.K. Continuer"
 
 #: yali/gui/ScrPartitionManual.py:34
-#, fuzzy
 msgid ""
 "\n"
 "<font size=\"+2\">Partitioning your hard disk</font>\n"
@@ -882,8 +878,8 @@ msgstr ""
 "\n"
 "<font size=\"+1\">\n"
 "<p>\n"
-"Pardus peut être installé sur divers matériels. Vous pouvez installer\n"
-"Pardus sur un disque dur vide ou sur une partition.<b>Toutes\n"
+"Pardus peut être installé sur des matériels divers. Vous pouvez installer\n"
+"Pardus sur un disque dur vide ou sur une partition. <b>Toutes\n"
 "les données présentes dans les partitions sélectionnées seront\n"
 "automatiquement supprimées.</b> \n"
 "</p> \n"
@@ -984,16 +980,12 @@ msgstr ""
 "</font>\n"
 
 #: yali/gui/ScrUsers.py:128
-#, fuzzy
 msgid "<font color=\"#FF6D19\">Don't use your user name as a password.</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Préparation du disque dur pour l'installation</font>"
+msgstr "<font color=\"#FF6D19\">N'utilisez pas votre nom d'utilisateur comme mot de passe.</font>"
 
 #: yali/gui/ScrUsers.py:138
-#, fuzzy
 msgid "<font color=\"#FF6D19\">Password is too short!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Les mots de passe ne sont pas identiques!</font>"
+msgstr "<font color=\"#FF6D19\">Le mot de passe est trop court !</font>"
 
 #: yali/gui/ScrUsers.py:167
 msgid "<font color=\"#FF6D19\">Username exists, choose another one!</font>"
@@ -1258,8 +1250,3 @@ msgstr "fichiers utilisateurs"
 msgid "Swap"
 msgstr "Swap"
 
-#~ msgid "Show More Options"
-#~ msgstr "Montrer plus d'options."
-
-#~ msgid "Can't open Release Notes file!"
-#~ msgstr "Impossible d'ouvrir le fichier de notes de publication."
