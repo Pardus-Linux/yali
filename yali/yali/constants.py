@@ -48,7 +48,7 @@ class Constants:
 
 consts = Constants()
 
-consts.pardus_version = "Pardus 2007.2 Caracal caracal"
+consts.pardus_version = "Pardus 2007.2 Beta"
 
 consts.log_file = "/tmp/install.log"
 
