@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-06-01 13:28+0300\n"
-"PO-Revision-Date: 2007-04-15 09:09-0400\n"
+"PO-Revision-Date: 2007-06-07 19:18-0400\n"
 "Last-Translator: klemens <click3d at linuxmail org>\n"
 "Language-Team: spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -306,7 +306,7 @@ msgstr "Nombre real:"
 
 #: yali/gui/Ui/setupuserswidget.py:156
 msgid "Give administrator privileges to this user"
-msgstr ""
+msgstr "Conceder derechos administrativo al usuario"
 
 #: yali/gui/Ui/setupuserswidget.py:158
 msgid "Users:"
@@ -318,11 +318,11 @@ msgstr "Eliminar Usuario Seleccionado"
 
 #: yali/gui/Ui/setupuserswidget.py:160
 msgid "Auto Login User :"
-msgstr ""
+msgstr "Iniciar sesión automaticamente con usuario:"
 
 #: yali/gui/Ui/setupuserswidget.py:162
 msgid "Auto Login Disabled"
-msgstr ""
+msgstr "Inicio de sesión automática deshabilitada"
 
 # Desea continuar ?
 #: yali/gui/Ui/welcomewidget.py:97
@@ -622,8 +622,7 @@ msgstr "Verificación fallada"
 
 #: yali/gui/ScrCheckCD.py:57
 msgid "<font color=\"#FF6D19\">Please wait while checking CD.</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Favor esperar mientras se verifica el CD.</font>"
+msgstr "<font color=\"#FF6D19\">Favor esperar mientras se verifica el CD.</font>"
 
 # Verificación terminada con éxito.
 # Puede continuar.
@@ -911,7 +910,6 @@ msgid "O.K. Go Ahead"
 msgstr "Bien, Hagámoslo"
 
 #: yali/gui/ScrPartitionManual.py:34
-#, fuzzy
 msgid ""
 "\n"
 "<font size=\"+2\">Partitioning your hard disk</font>\n"
@@ -956,17 +954,15 @@ msgstr ""
 "\n"
 "<font size=\"+1\">\n"
 "<p>\n"
-"Pardus puede ser instalado en una variedad de hardware. Se puede instalar "
-"Pardus\n"
-"en un disco vacío o una partición de disco.<b>Durante la instalación "
-"automática \n"
-"se destruirán todas las informaciones previas en las particiones "
-"seleccionados.</b>\n"
+"Pardus puede ser instalado en una variedad de hardware. Se puede instalar Pardus\n"
+"en un disco vacío o una partición de disco.<b>Durante la instalación automática \n"
+"se destruirán todas las informaciones previas en las particiones seleccionados.</b>\n"
 "</p>\n"
 "<p>\n"
 "Para usar Pardus, debe crear una particion tipo Linux (para \n"
 "los archivos del sistema), y, opcional, un espacio de intercambio swap\n"
-"(para mejorar el rendimiento). \n"
+"(para mejorar el rendimiento). Este espacio de intercambio es utilizado\n"
+" por el sistema, cuando requiere de más memoria de lo que hay disponible en el sistema. \n"
 "Recomendamos reservar un mínimo de 4 GBs de espacio en disco rígido \n"
 "y un espacio swap (entre 500 MB - 2 GB, de acuerdo a las necesidades). \n"
 "No se permite una partición de Linux de menos de 3.5 GB.\n"
@@ -976,11 +972,11 @@ msgstr ""
 "<p>\n"
 "Se debe formatear la partición Linux para su primer uso.\n"
 "Puede habilitar la opción 'Usar espacio libre disponible' para  \n"
-"usar automáticamente el espacio restante del disco.\n"
+"utilizar automáticamente el espacio restante del disco.\n"
 "</p>\n"
 "<p>\n"
 "La tabla de particiones muestra el dispositivo, tamaño, tipo de partición\n"
-"e información del sistema de archivos. Particiones de disco, que durante "
+"e información sobre el sistema de archivos. Particiones de disco, que durante "
 "la  \n"
 "instalación de Pardus se van a formatear, se marcan  \n"
 "en la columna 'Format'.\n"
@@ -1063,15 +1059,13 @@ msgstr ""
 "</font>\n"
 
 #: yali/gui/ScrUsers.py:128
-#, fuzzy
 msgid "<font color=\"#FF6D19\">Don't use your user name as a password.</font>"
-msgstr "<font color=\"#FF6D19\">Prepando el disco para la instalación !</font>"
+msgstr "<font color=\"#FF6D19\">No use el nombre de usuario como contraseña !</font>"
 
 # Las contraseñas no coinciden!
 #: yali/gui/ScrUsers.py:138
-#, fuzzy
 msgid "<font color=\"#FF6D19\">Password is too short!</font>"
-msgstr "<font color=\"#FF6D19\">Las contraseñas no coinciden!</font>"
+msgstr "<font color=\"#FF6D19\">La contraseña debe ser más larga !</font>"
 
 # El nombre del usuario ya existe, por favor, (escoja/elija/seleccione/escriba) otro
 #: yali/gui/ScrUsers.py:167
@@ -1088,8 +1082,7 @@ msgstr ""
 
 #: yali/gui/ScrUsers.py:175
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Nombre real contiene caractéres no válidos!</font>"
+msgstr "<font color=\"#FF6D19\">Nombre real contiene caractéres no válidos!</font>"
 
 # here i changed the sense of the last sentence to: "enjoy the experience with Pardus"
 # ...adaptadas...
@@ -1353,9 +1346,3 @@ msgstr "Archivos de usuarios"
 msgid "Swap"
 msgstr "Intercambio (swap)"
 
-#~ msgid "Show More Options"
-#~ msgstr "Mostrar más Opciones"
-
-# No se puede abrir el archivo de Notas de Versión !
-#~ msgid "Can't open Release Notes file!"
-#~ msgstr "No se puede abrir el archivo de Notas de Versión!"
