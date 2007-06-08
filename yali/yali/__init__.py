@@ -10,7 +10,7 @@
 # Please read the COPYING file.
 #
 
-__version__ = "1.1.3_alpha1"
+__version__ = "1.1.4"
 
 import sys
 import exceptions

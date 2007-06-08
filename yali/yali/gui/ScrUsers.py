@@ -135,7 +135,7 @@ Click Next button to proceed.
                 _('<font color="#FF6D19">Passwords do not match!</font>'))
             self.pass_error.setAlignment(QLabel.AlignCenter)
             return self.createButton.setEnabled(False)
-        elif len(p1) == len(p2) and len(p2) < 4:
+        elif len(p1) == len(p2) and len(p2) < 4 and not p1=='':
             self.pass_error.setText(
                 _('<font color="#FF6D19">Password is too short!</font>'))
             self.pass_error.setAlignment(QLabel.AlignCenter)
@@ -200,6 +200,9 @@ Click Next button to proceed.
         # clear form
         self.resetWidgets()
 
+        ctx.debugger.log("slotCreateUser :: user '%s (%s)' added/updated" % (u.realname,u.username))
+        ctx.debugger.log("slotCreateUser :: user groups are %s" % str(','.join(u.groups)))
+        
         # give focus to username widget for a new user. #3280
         self.username.setFocus()
         self.checkUsers()
@@ -246,6 +249,7 @@ Click Next button to proceed.
         self.pass1.clear()
         self.pass2.clear()
         self.admin.setChecked(False)
+        self.createButton.setEnabled(False)
 
     def slotReturnPressed(self):
         self.slotCreateUser()

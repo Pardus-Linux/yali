@@ -65,16 +65,15 @@ class Button(QLabel):
         self.setPixmap(ctx.iconfactory.newPixmap(img))
 
 class Dialog(QDialog):
-    def __init__(self, t, w, parent):
+    def __init__(self, t, w, parent,extraButtons = False):
         QDialog.__init__(self, parent)
         
         self.minimized = False
-        self.setMinimumHeight(10)
         self.firstHeight = self.height()
         
         l = QHBoxLayout(self)
         frame = QFrame(self)
-        frame.setMinimumHeight(10)
+        frame.setMinimumHeight(20)
         frame.setPaletteBackgroundColor(ctx.consts.border_color)
         frame.setFrameStyle(frame.PopupPanel|frame.Plain)
         l.addWidget(frame)
@@ -89,9 +88,14 @@ class Dialog(QDialog):
         hbox = QHBoxLayout(frame)
         title = Title('<font size="+1"><b>%s</b></font>' % t, frame)
         close = Button("cross",frame)
-        minimize = Button("minimize",frame)
+        
         hbox.addWidget(title)
-        hbox.addWidget(minimize)
+        
+        if extraButtons:
+            minimize = Button("minimize",frame)
+            hbox.addWidget(minimize)
+            self.connect(minimize, PYSIGNAL("signalClicked"),
+                         self.doMinimize)
         hbox.addWidget(close)
 
         layout.addLayout(hbox, 0, 0)
@@ -99,8 +103,7 @@ class Dialog(QDialog):
 
         self.connect(close, PYSIGNAL("signalClicked"),
                      self.reject)
-        self.connect(minimize, PYSIGNAL("signalClicked"),
-                     self.doMinimize)
+        
         
     def doMinimize(self):
         if self.minimized:

@@ -23,7 +23,7 @@ import yali.sysutils
 import yali.partitiontype as parttype
 import yali.partitionrequest as request
 from yali.partitionrequest import partrequests
-
+import yali.gui.context as ctx
 
 grub_conf_tmp = """\
 default 0
@@ -150,7 +150,6 @@ class BootLoader:
                              "initramfs": initramfs_name}
         open(self.grub_conf, "w").write(s)
 
-
     def grub_conf_append_win(self, install_dev, win_dev, win_root, win_fs):
         grub_dev = self._find_grub_dev(win_dev)
         minor = str(int(filter(lambda u: u.isdigit(), win_root)) -1)
@@ -158,7 +157,9 @@ class BootLoader:
 
         if not install_dev:
             install_dev = self._find_hd0()
-        dev_str = str(filter(lambda u: u.isalpha(), install_dev))
+        
+        dev_str = str(os.path.basename(install_dev))
+        ctx.debugger.log("in bootloader.py :: %s --- vs. --- %s " % (dev_str,win_dev))
         if win_dev == dev_str:
             s = win_part_tmp % {"title": _("Windows"),
                                 "grub_root": grub_root,

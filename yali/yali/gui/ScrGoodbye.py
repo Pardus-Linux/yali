@@ -70,16 +70,11 @@ don't you?
         vbox.addStretch(1)
         vbox.addWidget(self.info)
 
-
     def shown(self):
         from os.path import basename
         ctx.debugger.log("%s loaded" % basename(__file__))
         ctx.screens.disablePrev()
-#        print yali.users.pending_users
-#        for i in yali.users.pending_users:
-#            print i
         self.processPendingActions()
-
 
     def execute(self):
 
@@ -88,14 +83,13 @@ don't you?
         self.info.show()
         self.info.setAlignment(QLabel.AlignCenter)
 
-        #FIXME: this is a dirty and temporary workaround.. will be removed.
-#        os.chmod(ctx.consts.target_dir + "/var/tmp", 01777)
+        if yali.sysutils.checkYaliDebug():
+            open(ctx.consts.log_file,"w").write(ctx.debugger.traceback.plainLogs)
 
         # remove cd...
         w = RebootWidget(self)
         self.dialog = WarningDialog(w, self)
         self.dialog.exec_loop()
-
 
         try:
             yali.sysutils.umount(ctx.consts.target_dir + "/home")
@@ -104,7 +98,6 @@ don't you?
 
         yali.sysutils.umount(ctx.consts.target_dir)
         yali.sysutils.fastreboot()
-
 
     # process pending actions defined in other screens.
     def processPendingActions(self):
@@ -117,8 +110,6 @@ don't you?
 
         # migrate xorg.conf
         yali.postinstall.migrate_xorg_conf(ctx.keydata.X)
-
-
 
 class RebootWidget(QWidget):
 
@@ -145,7 +136,6 @@ class RebootWidget(QWidget):
 
         l.addWidget(warning)
         l.addLayout(buttons)
-
 
         yali.sysutils.eject_cdrom()
 

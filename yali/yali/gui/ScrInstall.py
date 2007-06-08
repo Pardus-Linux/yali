@@ -91,8 +91,10 @@ Have fun!
 
 
     def shown(self):
+        from os.path import basename
+        ctx.debugger.log("%s loaded" % basename(__file__))
         # initialize pisi
-
+        
         # start installer thread
         self.pkg_installer = PkgInstaller(self)
         self.pkg_installer.start()
@@ -103,18 +105,16 @@ Have fun!
         # start 30 seconds
         self.timer.start(1000 * 30)
 
-
     def slotNotify(self, parent, event, p):
-        # FIXME: use logging
         if event == pisi.ui.installing:
             self.info.setText(_("Installing: %s<br>%s") % (
                     p.name, p.summary))
-            
+            ctx.debugger.log("slotNotify :: %s installed" % p.name)
             self.cur += 1
             self.progress.setProgress(self.cur)
         elif event == pisi.ui.configuring:
             self.info.setText(_("Configuring package: %s") % p.name)
-            
+            ctx.debugger.log("slotNotify :: %s configured" % p.name)
             self.cur += 1
             self.progress.setProgress(self.cur)
             ctx.screens.processEvents()
@@ -130,12 +130,12 @@ Have fun!
             if event == pisi.ui.installing:
                 self.info.setText(_("Installing: %s<br>%s") % (
                         p.name, p.summary))
-
+                ctx.debugger.log("customEvent :: %s installed" % p.name)
                 self.cur += 1
                 self.progress.setProgress(self.cur)
             elif event == pisi.ui.configuring:
                 self.info.setText(_("Configuring package: %s") % p.name)
-            
+                ctx.debugger.log("customEvent :: %s configured" % p.name)
                 self.cur += 1
                 self.progress.setProgress(self.cur)
 
@@ -153,10 +153,8 @@ Have fun!
             err = qevent.data()
             self.installError(err)
 
-
     def slotChangePix(self):
         self.pix.setPixmap(self.iter_pics.next())
-
 
     def execute(self):
         # fill fstab
@@ -204,7 +202,7 @@ Have fun!
         self.progress.setTotalSteps(self.total)
         # run all pending...
         yali.pisiiface.configure_pending()
-
+        ctx.debugger.log("execute :: yali.pisiiface.configure_pending() called")
 
         # Remove cd repository and install add real
         yali.pisiiface.switch_to_pardus_repo()
@@ -214,7 +212,6 @@ Have fun!
         self.timer.stop()
 
         return True
-
 
     def finished(self):
         if self.hasErrors:

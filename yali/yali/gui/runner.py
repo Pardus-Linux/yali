@@ -81,7 +81,7 @@ class Runner:
         ctx.debugger = Debugger()
         
         # visual debug mode
-        if ctx.options.debug == True:
+        if ctx.options.debug == True or yali.sysutils.checkYaliDebug():
             ctx.debugger.showWindow()
         
         ctx.debugger.log("Yali Started")

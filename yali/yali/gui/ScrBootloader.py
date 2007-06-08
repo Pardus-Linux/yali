@@ -91,6 +91,10 @@ loader.
         self.connect(self.device_list, SIGNAL("clicked()"),
                      self.slotSelect)
 
+    def shown(self):
+        from os.path import basename
+        ctx.debugger.log("%s loaded" % basename(__file__))
+
     def slotSelect(self):
         self.installMBR.setChecked(True)
 
@@ -130,13 +134,10 @@ loader.
         for d in yali.storage.devices:
             for p in d.getPartitions():
                 fs = p.getFSName()
-                raise YaliException,"install_dev %s,\n\
-                                     win_fs %s\
-                                     win_dev %s\
-                                     win_root %s" % (install_dev,
-                                                     fs,
-                                                     basename(p.getDevicePath()),
-                                                     basename(p.getPath()))
+                #ctx.debugger.log("install_dev %s" % install_dev)
+                #ctx.debugger.log("win_fs %s" % fs)
+                #ctx.debugger.log("win_dev %s" % basename(p.getDevicePath()))
+                #ctx.debugger.log("win_root %s" % basename(p.getPath()))
                 if fs in ("ntfs", "fat32"):
                     if is_windows_boot(p.getPath(), fs):
                         win_fs = fs

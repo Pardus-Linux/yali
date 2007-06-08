@@ -50,6 +50,12 @@ def chroot_comar():
 #         comar_path = "/usr/bin/comar"
 #         os.execve(comar_path, ["/usr/bin/comar", "--debug", "perf"], os.environ)
 
+def checkYaliDebug():
+    for i in [x for x in open("/proc/cmdline", "r").read().split()]:
+        if i.startswith("yali="):
+            if i.split("=")[1].strip()=="debug":
+                return True
+    return False
 
 def swap_as_file(filepath, mb_size):
     dd, mkswap = find_executable('dd'), find_executable('mkswap')

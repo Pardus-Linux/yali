@@ -28,7 +28,7 @@ class Debugger:
         l = QVBoxLayout(self.debugWidget)
         l.addWidget(self.traceback)
         
-        self.window = Dialog(title,self.debugWidget,None)
+        self.window = Dialog(title,self.debugWidget,None,extraButtons=True)
         self.window.resize(500,400)
     
     def showWindow(self):
@@ -41,7 +41,7 @@ class DebugContainer(QTextEdit):
     def __init__(self, parent, showLineNumbers=True):
         QTextEdit.__init__(self, parent)
         
-        f = QFont( "Bitstream Vera Sans Mono", 10);
+        f = QFont( "Bitstream Vera Sans Mono", 11);
         self.setFont(f)
         
         self.showLineNumbers = showLineNumbers
