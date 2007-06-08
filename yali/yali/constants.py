@@ -85,7 +85,7 @@ consts.pardus_repo_uri = "http://paketler.pardus.org.tr/pardus-2007.2/pisi-index
 consts.min_root_size = 3500
 
 try:
-    consts.lang = locale.getlocale()[0][:2]
+    consts.lang = locale.getdefaultlocale()[0][:2]
 except:
     # default lang to en_US
     consts.lang = "en"
