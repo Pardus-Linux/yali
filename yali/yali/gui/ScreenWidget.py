@@ -10,7 +10,6 @@
 # Please read the COPYING file.
 #
 
-
 ##
 # Abstract class for screen widgets
 class ScreenWidget:

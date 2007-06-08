@@ -39,7 +39,6 @@ Depending on your hardware or choice select a keyboard layout from the list.
 
     def __init__(self, *args):
         apply(KeyboardWidget.__init__, (self,) + args)
-        
         self.pix.setPixmap(ctx.iconfactory.newPixmap("keyboards"))
 
         self.keyboard_list.setPaletteBackgroundColor(ctx.consts.bg_color)
@@ -70,11 +69,13 @@ Depending on your hardware or choice select a keyboard layout from the list.
         self.keyboard_list.setSelected(defaultitem, True)
         self.slotLayoutChanged(defaultitem)
 
-
         self.connect(self.keyboard_list, SIGNAL("selectionChanged(QListBoxItem*)"),
                      self.slotLayoutChanged)
 
-
+    def shown(self):
+        from os.path import basename
+        ctx.debugger.log("%s loaded" % basename(__file__))
+    
     def execute(self):
         keydata = self.keyboard_list.selectedItem().getData()
 

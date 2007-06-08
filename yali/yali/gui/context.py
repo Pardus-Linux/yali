@@ -37,6 +37,8 @@ consts.border_color = QColor(150, 150, 150)
 stages = yali.gui.stages.Stages()
 screens = yali.gui.screens.Screens()
 
+debugger = None
+
 # icon factory
 iconfactory = yali.gui.iconfactory.IconFactory(consts.pics_dir)
 

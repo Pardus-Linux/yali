@@ -130,6 +130,13 @@ loader.
         for d in yali.storage.devices:
             for p in d.getPartitions():
                 fs = p.getFSName()
+                raise YaliException,"install_dev %s,\n\
+                                     win_fs %s\
+                                     win_dev %s\
+                                     win_root %s" % (install_dev,
+                                                     fs,
+                                                     basename(p.getDevicePath()),
+                                                     basename(p.getPath()))
                 if fs in ("ntfs", "fat32"):
                     if is_windows_boot(p.getPath(), fs):
                         win_fs = fs

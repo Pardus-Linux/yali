@@ -77,13 +77,15 @@ class Widget(CheckCDWidget, ScreenWidget):
         ctx.screens.enableNext()
         ctx.screens.enablePrev()
 
-
+    def shown(self):
+        from os.path import basename
+        ctx.debugger.log("%s loaded" % basename(__file__))
 
 class PisiUI(pisi.ui.UI):
     def notify(self, event, **keywords):
         pass
     def display_progress(self, operation, percent, info, **keywords):
-	pass
+        pass
 
 class ErrorWidget(QWidget):
     def __init__(self, *args):

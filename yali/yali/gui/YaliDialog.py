@@ -47,38 +47,51 @@ class Title(QLabel):
             newpos.setY(self.w_y + pos.y() - self.start_y)
             self.mainwidget.move(newpos)
 
-
-class CloseButton(QLabel):
-    def __init__(self, *args):
+class Button(QLabel):
+    def __init__(self,buttonImage, *args):
         QLabel.__init__(self, *args)
-
-        self.setPixmap(ctx.iconfactory.newPixmap("cross"))
+        self.pix = buttonImage
+        self.setPixmap(ctx.iconfactory.newPixmap(buttonImage))
         self.setFixedWidth(18)
 
     def mousePressEvent(self, e):
         self.emit(PYSIGNAL("signalClicked"), ())
 
+    def toggleImage(self,alternateButtonImage=None):
+        if alternateButtonImage:
+            img = alternateButtonImage
+        else:
+            img = self.pix
+        self.setPixmap(ctx.iconfactory.newPixmap(img))
 
 class Dialog(QDialog):
     def __init__(self, t, w, parent):
         QDialog.__init__(self, parent)
-
+        
+        self.minimized = False
+        self.setMinimumHeight(10)
+        self.firstHeight = self.height()
+        
         l = QHBoxLayout(self)
         frame = QFrame(self)
+        frame.setMinimumHeight(10)
         frame.setPaletteBackgroundColor(ctx.consts.border_color)
         frame.setFrameStyle(frame.PopupPanel|frame.Plain)
         l.addWidget(frame)
         
         layout = QGridLayout(frame, 1, 1, 1, 1)
         layout.setMargin(2)
+        
         w.reparent(frame, 0, QPoint(0,0), True)
         w.setPaletteBackgroundColor(ctx.consts.bg_color)
         w.setPaletteForegroundColor(ctx.consts.fg_color)
 
         hbox = QHBoxLayout(frame)
         title = Title('<font size="+1"><b>%s</b></font>' % t, frame)
-        close = CloseButton(frame)
+        close = Button("cross",frame)
+        minimize = Button("minimize",frame)
         hbox.addWidget(title)
+        hbox.addWidget(minimize)
         hbox.addWidget(close)
 
         layout.addLayout(hbox, 0, 0)
@@ -86,7 +99,18 @@ class Dialog(QDialog):
 
         self.connect(close, PYSIGNAL("signalClicked"),
                      self.reject)
-
+        self.connect(minimize, PYSIGNAL("signalClicked"),
+                     self.doMinimize)
+        
+    def doMinimize(self):
+        if self.minimized:
+            self.resize(self.width(),self.firstHeight)
+            self.sender().toggleImage()
+            self.minimized=False
+        else:
+            self.resize(self.width(),0)
+            self.sender().toggleImage("minimized")
+            self.minimized=True
 
 class WarningDialog(Dialog):
 

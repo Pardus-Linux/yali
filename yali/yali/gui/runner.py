@@ -26,6 +26,7 @@ from pyaspects.weaver import *
 from pyaspects.debuggeraspect import DebuggerAspect
 from yali.gui.aspects import *
 from yali.gui.YaliDialog import Dialog
+from yali.debugger import Debugger
 
 import YaliWindow
 # screens
@@ -77,7 +78,14 @@ class Runner:
         f = QFont( "Bitstream Vera Sans", 10);
         self._window.setFont(f)
 
-
+        ctx.debugger = Debugger()
+        
+        # visual debug mode
+        if ctx.options.debug == True:
+            ctx.debugger.showWindow()
+        
+        ctx.debugger.log("Yali Started")
+        
         # add stages
         for stg in _all_stages:
             ctx.stages.addStage(stg['num'], stg['text'])
@@ -103,7 +111,6 @@ class Runner:
             num += 1
             ctx.screens.addScreen(num, scr['stage'], w)
 
-
         self._app.connect(self._app, SIGNAL("lastWindowClosed()"),
                           self._app, SLOT("quit()"))
 
@@ -113,27 +120,18 @@ class Runner:
         self._app.connect(ctx.screens, PYSIGNAL("signalProcessEvents"),
                           self._app.processEvents)
 
-
         # set the current screen and stage to 1 at startup...
         ctx.stages.setCurrent(1)
         ctx.screens.setCurrent(1)
 
-
     ##
     # Fire up the interface.
     def run(self):
-
         self._window.show()
         # We want it to be a full-screen window.
         self._window.resize(self._app.desktop().size())
         self._window.move(0,0)
-# For testing
-#        self._window.resize(800,600)
-
-#        self._window.setActiveWindow()
         self._app.exec_loop()
-
-
 
 def showException(ex_type, tb):
     title = _("Error!")
@@ -146,7 +144,6 @@ def showException(ex_type, tb):
     d.resize(500,400)
     d.exec_loop()
 
-    
 
 class ExceptionWidget(QWidget):
     def __init__(self, tb_text, *args):
@@ -161,7 +158,6 @@ class ExceptionWidget(QWidget):
         l.setSpacing(10)
         l.addWidget(info)
         l.addWidget(traceback)
-
 
 class ErrorWidget(QWidget):
     def __init__(self, tb_text, *args):
@@ -189,7 +185,6 @@ class ErrorWidget(QWidget):
                      self.slotReboot)
 
     def slotReboot(self):
-        
         try:
             yali.sysutils.umount(ctx.consts.target_dir + "/home")
         except:

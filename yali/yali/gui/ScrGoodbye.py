@@ -72,6 +72,8 @@ don't you?
 
 
     def shown(self):
+        from os.path import basename
+        ctx.debugger.log("%s loaded" % basename(__file__))
         ctx.screens.disablePrev()
 #        print yali.users.pending_users
 #        for i in yali.users.pending_users:

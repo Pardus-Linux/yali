@@ -85,6 +85,8 @@ Click Next button to proceed.
         self.checkUsers()
 
     def shown(self):
+        from os.path import basename
+        ctx.debugger.log("%s loaded" % basename(__file__))
         self.checkUsers()
         self.checkCapsLock()
         # self.kdeInstalled = os.path.exists(os.path.join(consts.target_dir, '/etc/X11/kdm/kdmrc'))
