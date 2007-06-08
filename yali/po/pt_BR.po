@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt_BR\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-06-01 13:28+0300\n"
+"POT-Creation-Date: 2007-06-08 15:54+0300\n"
 "PO-Revision-Date: 2007-02-19 22:25-0300\n"
 "Last-Translator: Pedro Leite <pedro.leite@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <http://liste.uludag.org.tr/mailman/"
@@ -1054,7 +1054,7 @@ msgstr ""
 msgid "Warning"
 msgstr "Alerta"
 
-#: yali/bootloader.py:163 yali/bootloader.py:168
+#: yali/bootloader.py:164 yali/bootloader.py:169
 msgid "Windows"
 msgstr "Janelas"
 

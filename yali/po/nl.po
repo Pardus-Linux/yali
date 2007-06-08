@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-06-01 13:28+0300\n"
+"POT-Creation-Date: 2007-06-08 15:54+0300\n"
 "PO-Revision-Date: 2007-06-03 20:47+0200\n"
 "Last-Translator: Willem Gielen <w.gielen@gmail.com>\n"
 "Language-Team: Nederlands <Pardus-translation-nl@pardus.org.tr>\n"
@@ -61,7 +61,8 @@ msgstr "Nee, ik wil mijn schijf handmatig partitioneren."
 
 #: yali/gui/Ui/autopartwidget.py:95
 msgid "Yes, automatically partition and format selected disk!"
-msgstr "Ja, automatisch partitioneren en formatteren van de geselecteerde schijf!"
+msgstr ""
+"Ja, automatisch partitioneren en formatteren van de geselecteerde schijf!"
 
 #: yali/gui/Ui/bootloaderwidget.py:93
 msgid ""
@@ -484,7 +485,8 @@ msgstr "<font color=\"#FF6D19\">De wachtwoorden komen niet overeen!</font>"
 
 #: yali/gui/ScrAdmin.py:130
 msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
-msgstr "<font color=\"#FF6D19\">De hostnaam bevat niet toegestane tekens!</font>"
+msgstr ""
+"<font color=\"#FF6D19\">De hostnaam bevat niet toegestane tekens!</font>"
 
 #: yali/gui/ScrBootloader.py:35
 msgid ""
@@ -787,7 +789,8 @@ msgstr ""
 msgid ""
 "It seems that you don't have the required disk space (min. %s) for Pardus "
 "installation."
-msgstr "U heeft niet voldoende schijfruimte (min. %s) on Pardus te installeren."
+msgstr ""
+"U heeft niet voldoende schijfruimte (min. %s) on Pardus te installeren."
 
 #: yali/gui/ScrPartitionAuto.py:132 yali/gui/ScrPartitionManual.py:125
 msgid "Please wait while formatting!"
@@ -795,7 +798,8 @@ msgstr "Ogenblik geduld tijdens het formatteren!"
 
 #: yali/gui/ScrPartitionAuto.py:135
 msgid "<font color=\"#FF6D19\">Preparing your disk for installation!</font>"
-msgstr "<font color=\"#FF6D19\">Uw schijf wordt voorbereidt voor installatie.</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Uw schijf wordt voorbereidt voor installatie.</font>"
 
 #: yali/gui/ScrPartitionAuto.py:203
 msgid ""
@@ -882,7 +886,8 @@ msgstr ""
 " op te slaan. \n"
 "</p>\n"
 "<p>\n"
-"U dient een Linux partitie eerst te formatteren, als deze voor de eerste keer gebruikt wordt.\n"
+"U dient een Linux partitie eerst te formatteren, als deze voor de eerste "
+"keer gebruikt wordt.\n"
 "U kunt de optie 'Beschikbare vrije ruimte gebruiken' activeren als u vrije "
 "ruimte op de harde schijf automatisch wilt gebruiken.\n"
 "</p>\n"
@@ -890,7 +895,8 @@ msgstr ""
 "De partitietabel toont het station, grootte, type partitie en\n"
 " informatie over het bestandssysteem. Indien een partitie geformatteerd zal "
 "worden tijdens,\n"
-"de installatie van Pardus, wordt de corresponderende 'Formatteer'-kolom geactiveerd.\n"
+"de installatie van Pardus, wordt de corresponderende 'Formatteer'-kolom "
+"geactiveerd.\n"
 "</p>\n"
 "<p>\n"
 "Refereer alstublieft naar de Pardus Installatie- en Gebruikershandleiding "
@@ -971,7 +977,8 @@ msgstr ""
 
 #: yali/gui/ScrUsers.py:128
 msgid "<font color=\"#FF6D19\">Don't use your user name as a password.</font>"
-msgstr "<font color=\"#FF6D19\">Gebruik uw gebruikersnaam niet als wachtwoord.</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Gebruik uw gebruikersnaam niet als wachtwoord.</font>"
 
 #: yali/gui/ScrUsers.py:138
 msgid "<font color=\"#FF6D19\">Password is too short!</font>"
@@ -991,7 +998,8 @@ msgstr ""
 
 #: yali/gui/ScrUsers.py:175
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
-msgstr "<font color=\"#FF6D19\">Uw echte naam bevat niet toegestane tekens.</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Uw echte naam bevat niet toegestane tekens.</font>"
 
 #: yali/gui/ScrWelcome.py:30
 msgid ""
@@ -1051,7 +1059,7 @@ msgstr ""
 msgid "Warning"
 msgstr "Waarschuwing"
 
-#: yali/bootloader.py:163 yali/bootloader.py:168
+#: yali/bootloader.py:164 yali/bootloader.py:169
 msgid "Windows"
 msgstr "Windows"
 
@@ -1230,4 +1238,3 @@ msgstr "Gebruikersbestanden"
 #: yali/partitiontype.py:67
 msgid "Swap"
 msgstr "Swap"
-

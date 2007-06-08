@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-06-01 13:28+0300\n"
+"POT-Creation-Date: 2007-06-08 15:54+0300\n"
 "PO-Revision-Date: 2006-12-08 23:32+0200\n"
 "Last-Translator: Barış Metin <baris@pardus.org.tr>\n"
 "Language-Team:  <tr@li.org>\n"
@@ -284,11 +284,11 @@ msgstr "Seçili Kullanıcıyı Sil"
 
 #: yali/gui/Ui/setupuserswidget.py:160
 msgid "Auto Login User :"
-msgstr ""
+msgstr "Otomatik Giriş Kullanıcısı :"
 
 #: yali/gui/Ui/setupuserswidget.py:162
 msgid "Auto Login Disabled"
-msgstr ""
+msgstr "Otomatik Giriş Kapalı"
 
 #: yali/gui/Ui/welcomewidget.py:97
 msgid ""
@@ -978,7 +978,8 @@ msgstr ""
 
 #: yali/gui/ScrUsers.py:128
 msgid "<font color=\"#FF6D19\">Don't use your user name as a password.</font>"
-msgstr "<font color=\"#FF6D19\">Kullanıcı adınızı parola olarak kullanmayın.</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Kullanıcı adınızı parola olarak kullanmayın.</font>"
 
 #: yali/gui/ScrUsers.py:138
 msgid "<font color=\"#FF6D19\">Password is too short!</font>"
@@ -1063,7 +1064,7 @@ msgstr ""
 msgid "Warning"
 msgstr "Uyarı"
 
-#: yali/bootloader.py:163 yali/bootloader.py:168
+#: yali/bootloader.py:164 yali/bootloader.py:169
 msgid "Windows"
 msgstr "Windows"
 

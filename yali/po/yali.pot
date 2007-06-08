@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-06-01 13:42+0300\n"
+"POT-Creation-Date: 2007-06-08 15:54+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -783,7 +783,7 @@ msgstr ""
 msgid "Warning"
 msgstr ""
 
-#: yali/bootloader.py:163 yali/bootloader.py:168
+#: yali/bootloader.py:164 yali/bootloader.py:169
 msgid "Windows"
 msgstr ""
 
