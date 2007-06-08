@@ -59,7 +59,6 @@ Depending on your hardware or choice select a keyboard layout from the list.
             if isinstance(keymap, list):
                 for k in keymap:
                     ki = KeyboardItem(self.keyboard_list, k)
-
                     if ctx.consts.lang == lang and not defaultitem:
                         defaultitem = ki
             else:

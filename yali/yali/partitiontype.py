@@ -68,7 +68,7 @@ class SwapPartitionType(PartitionType):
     filesystem = yali.filesystem.SwapFileSystem()
     mountpoint = None
     mountoptions = "sw"
-    parted_type = parted.PARTITION_PRIMARY
+    parted_type = parted.PARTITION_SWAP
     parted_flags = []
     label = "PARDUS_SWAP"
 
