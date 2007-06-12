@@ -177,6 +177,8 @@ class BootLoader:
         # if not explicitly defined...
         if not grub_install_root:
             grub_install_root = self._find_hd0()
+        if not grub_install_root.startswith("/dev/"):
+            grub_install_root = "/dev/%s" % grub_install_root
 
         cmd = "%s --root-directory=%s %s" % (yali.sysutils.find_executable("grub-install"),
                                              consts.target_dir,
