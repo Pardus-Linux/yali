@@ -272,7 +272,7 @@ msgstr "Gerçek İsim:"
 
 #: yali/gui/Ui/setupuserswidget.py:156
 msgid "Give administrator privileges to this user"
-msgstr ""
+msgstr "Bu kullanıcıya Yönetici Hakları ver"
 
 #: yali/gui/Ui/setupuserswidget.py:158
 msgid "Users:"
