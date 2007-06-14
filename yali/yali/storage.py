@@ -57,21 +57,7 @@ def init_devices(force = False):
 
 def clear_devices():
     global devices
-
-    if not devices:
-        return
-
-    def clear():
-        for dev in devices:
-            devices.remove(dev)
-
-    # clear doesn't remove it all. so bruteforce it
-    while True:
-        if len(devices):
-            clear()
-        else:
-            return
-
+    devices = []
 
 ##
 # Class representing a partitionable storage
@@ -92,6 +78,8 @@ class Device:
         self._disklabel = ""
         self._length = 0       # total sectors
         self._sector_size = 0
+        
+        # deviceType is None WTF?
         self._parted_type = deviceType
 
         dev = parted.PedDevice.get(device_path)
@@ -137,6 +125,7 @@ class Device:
 
 
     def getType(self):
+        # deviceType is None WTF?
         return self._parted_type
 
     ##
