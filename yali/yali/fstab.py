@@ -32,8 +32,9 @@ fstab_header = """# See the manpage fstab(5) for more information.
 
 """
 standard_entries = [
-    FstabEntry("none", "/proc", "proc", "nosuid,noexec"),
-    FstabEntry("none", "/dev/shm", "tmpfs", "nodev,nosuid,noexec")]
+    FstabEntry("proc", "/proc", "proc", "nosuid,noexec"),
+    FstabEntry("sysfs", "/sys", "sysfs", "defaults"),
+    FstabEntry("tmpfs", "/dev/shm", "tmpfs", "nodev,nosuid,noexec")]
 
 class Fstab(file):
 
