@@ -19,6 +19,7 @@ _ = __trans.ugettext
 
 import yali.localedata
 import yali.localeutils
+from yali.gui.YaliDialog import Dialog, WarningDialog, WarningWidget
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.networkwidget import NetworkWidget
 import yali.gui.context as ctx
@@ -32,20 +33,33 @@ class Widget(NetworkWidget, ScreenWidget):
 
 <font size="+1">
 <p>
-Select the location of the machine
+Select the location of the machine or use Manual Configuration.<br>
+You can add printers by using printer section.
 </p>
 </font>
 ''')
 
     def __init__(self, *args):
         apply(NetworkWidget.__init__, (self,) + args)
-
-        self.mainList.setPaletteBackgroundColor(ctx.consts.bg_color)
-        self.mainList.setPaletteForegroundColor(ctx.consts.fg_color)
+        for wig in [self.list_clients,self.list_printers]:
+            wig.setPaletteBackgroundColor(ctx.consts.bg_color)
+            wig.setPaletteBackgroundColor(ctx.consts.bg_color)
 
     def shown(self):
         from os.path import basename
         ctx.debugger.log("%s loaded" % basename(__file__))
 
     def execute(self):
+        # show confirmation dialog
+        w = WarningWidget(self)
+        w.setMessage(_('''<b>
+<p>Do you want to continue ?</p>
+</b>
+'''))
+        
+        self.dialog = WarningDialog(w, self)
+        if not self.dialog.exec_loop():
+            ctx.screens.enablePrev()
+            ctx.screens.enableNext()
+            return False
         return True

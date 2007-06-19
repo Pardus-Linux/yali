@@ -19,7 +19,7 @@ _ = __trans.ugettext
 import yali.gui.context as ctx
 import yali.partitionrequest as request
 import yali.partitiontype as parttype
-from yali.gui.YaliDialog import Dialog, WarningDialog
+from yali.gui.YaliDialog import Dialog, WarningDialog, WarningWidget
 from yali.gui.InformationWindow import InformationWindow
 from yali.gui.GUIException import *
 from yali.gui.ScreenWidget import ScreenWidget
@@ -186,50 +186,3 @@ about disk partitioning.
 
     def slotCanceled(self):
         self.dialog.reject()
-
-
-
-
-class WarningWidget(QWidget):
-
-    def __init__(self, *args):
-        QWidget.__init__(self, *args)
-
-        l = QVBoxLayout(self)
-        l.setSpacing(20)
-        l.setMargin(10)
-
-        warning = QLabel(self)
-#        warning.setTextFormat(warning.RichText)
-        warning.setText(_('''<b>
-<p>This action will start installing Pardus on
-your system formatting the selected partition.</p>
-</b>
-'''))
-
-        self.cancel = QPushButton(self)
-        self.cancel.setText(_("Cancel"))
-
-        self.ok = QPushButton(self)
-        self.ok.setText(_("O.K. Go Ahead"))
-
-        buttons = QHBoxLayout(self)
-        buttons.setSpacing(10)
-        buttons.addStretch(1)
-        buttons.addWidget(self.cancel)
-        buttons.addWidget(self.ok)
-
-        l.addWidget(warning)
-        l.addLayout(buttons)
-
-
-        self.connect(self.ok, SIGNAL("clicked()"),
-                     self.slotOK)
-        self.connect(self.cancel, SIGNAL("clicked()"),
-                     self.slotCancel)
-
-    def slotOK(self):
-        self.emit(PYSIGNAL("signalOK"), ())
-
-    def slotCancel(self):
-        self.emit(PYSIGNAL("signalCancel"), ())

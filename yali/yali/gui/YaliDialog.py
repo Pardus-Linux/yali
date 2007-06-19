@@ -131,3 +131,50 @@ class WarningDialog(Dialog):
 
     def slotCancel(self):
         self.done(0)
+
+class WarningWidget(QWidget):
+
+    def __init__(self, *args):
+        QWidget.__init__(self, *args)
+
+        l = QVBoxLayout(self)
+        l.setSpacing(20)
+        l.setMargin(10)
+
+        self.warning = QLabel(self)
+#        warning.setTextFormat(warning.RichText)
+        self.warning.setText(_('''<b>
+<p>This action will start installing Pardus on
+your system formatting the selected partition.</p>
+</b>
+'''))
+
+        self.cancel = QPushButton(self)
+        self.cancel.setText(_("Cancel"))
+
+        self.ok = QPushButton(self)
+        self.ok.setText(_("O.K. Go Ahead"))
+
+        buttons = QHBoxLayout(self)
+        buttons.setSpacing(10)
+        buttons.addStretch(1)
+        buttons.addWidget(self.cancel)
+        buttons.addWidget(self.ok)
+
+        l.addWidget(self.warning)
+        l.addLayout(buttons)
+
+
+        self.connect(self.ok, SIGNAL("clicked()"),
+                     self.slotOK)
+        self.connect(self.cancel, SIGNAL("clicked()"),
+                     self.slotCancel)
+
+    def setMessage(self,msg):
+        self.warning.setText(msg)
+
+    def slotOK(self):
+        self.emit(PYSIGNAL("signalOK"), ())
+
+    def slotCancel(self):
+        self.emit(PYSIGNAL("signalCancel"), ())

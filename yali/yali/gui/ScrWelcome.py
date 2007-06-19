@@ -58,7 +58,6 @@ Have a fruitful experience with Pardus!
         apply(WelcomeWidget.__init__, (self,) + args)
         self.rebootButton.setEnabled(False)
         self.pix.setPixmap(ctx.iconfactory.newPixmap("welcome"))
-        
 
         self.connect(self.not_accept, SIGNAL("toggled(bool)"),
                      self.slotNotAcceptToggled)
@@ -71,7 +70,6 @@ Have a fruitful experience with Pardus!
 
         self.connect(self.gplButton, SIGNAL("clicked()"),
                      self.showGPL)
-
 
     def slotAcceptToggled(self, b):
         if b:
@@ -89,7 +87,6 @@ Have a fruitful experience with Pardus!
             ctx.screens.disableNext()
             self.rebootButton.setEnabled(True)
 
-
     def showGPL(self):
         # make a release notes dialog
         r = GUIGPL.Widget(self)
@@ -97,13 +94,8 @@ Have a fruitful experience with Pardus!
         d.resize(500,400)
         d.exec_loop()
 
-
-
     def slotReboot(self):
         yali.sysutils.fastreboot()
-
-
-
 
     def shown(self):
         ctx.screens.disablePrev()

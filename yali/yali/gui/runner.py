@@ -40,7 +40,7 @@ import ScrAdmin
 import ScrUsers
 import ScrBootloader
 import ScrGoodbye
-
+import ScrNetwork
 
 ##
 # Runner creates main GUI components for installation...
@@ -61,6 +61,7 @@ class Runner:
              {'stage': 1, 'module': ScrWelcome},
              {'stage': 1, 'module': ScrCheckCD},
              {'stage': 1, 'module': ScrKeyboard},
+            #{'stage': 1, 'module': ScrNetwork},
              {'stage': 1, 'module': ScrPartitionAuto},
              {'stage': 1, 'module': ScrPartitionManual},
              {'stage': 2, 'module': ScrInstall},
