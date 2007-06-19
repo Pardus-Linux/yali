@@ -23,7 +23,7 @@ import yali
 import yali.sysutils
 import yali.gui.context as ctx
 from pyaspects.weaver import *
-from pyaspects.debuggeraspect import DebuggerAspect
+from yali.debugger import DebuggerAspect
 from yali.gui.aspects import *
 from yali.gui.YaliDialog import Dialog
 from yali.debugger import Debugger
@@ -82,6 +82,7 @@ class Runner:
         
         # visual debug mode
         if ctx.options.debug == True or yali.sysutils.checkYaliDebug():
+            da = DebuggerAspect(ctx.debugger)
             ctx.debugger.showWindow()
         
         ctx.debugger.log("Yali Started")
@@ -90,16 +91,13 @@ class Runner:
         for stg in _all_stages:
             ctx.stages.addStage(stg['num'], stg['text'])
 
-        if ctx.options.debug == True:
-            da = DebuggerAspect(open(ctx.consts.log_file, "w"))
-
         # add screens
         num = 0
         for scr in _all_screens:
             w = scr['module'].Widget()
 
-            # debug all screens.
-            if ctx.options.debug == True:
+            if ctx.options.debug == True or yali.sysutils.checkYaliDebug():
+                # debug all screens.
                 weave_all_object_methods(da, w)
 
             # enable navigation buttons before shown

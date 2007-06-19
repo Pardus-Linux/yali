@@ -11,6 +11,7 @@
 #
 
 from qt import *
+from pyaspects.meta import MetaAspect
 
 import gettext
 __trans = gettext.translation('yali', fallback=True)
@@ -57,3 +58,21 @@ class DebugContainer(QTextEdit):
             self.line +=1
         else:
             self.append(QString(log))
+
+class DebuggerAspect:
+    __metaclass__ = MetaAspect
+    name = "DebugAspect"
+
+    def __init__(self, out ):
+        self.out = out
+
+    def before(self, wobj, data, *args, **kwargs):
+        met_name = data['original_method_name']
+        fun_str = "%s (args: %s -- kwargs: %s)" % (met_name, args, kwargs)
+        self.out.log("Entering function: %s\n" % fun_str)
+
+
+    def after(self, wobj, data, *args, **kwargs):
+        met_name = data['original_method_name']
+        fun_str = "%s (args: %s -- kwargs: %s)" % (met_name, args, kwargs)
+        self.out.log("Left function: %s\n" % fun_str)
