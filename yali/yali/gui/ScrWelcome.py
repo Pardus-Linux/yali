@@ -56,7 +56,6 @@ Have a fruitful experience with Pardus!
 
     def __init__(self, *args):
         apply(WelcomeWidget.__init__, (self,) + args)
-        
         self.rebootButton.setEnabled(False)
         self.pix.setPixmap(ctx.iconfactory.newPixmap("welcome"))
         

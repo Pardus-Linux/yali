@@ -75,14 +75,13 @@ class Runner:
 
         # default style and font
         self._app.setStyle("Windows")
-        f = QFont( "Bitstream Vera Sans", 10);
+        f = QFont("Bitstream Vera Sans", 10);
         self._window.setFont(f)
 
         ctx.debugger = Debugger()
         
         # visual debug mode
         if ctx.options.debug == True or yali.sysutils.checkYaliDebug():
-            da = DebuggerAspect(ctx.debugger)
             ctx.debugger.showWindow()
         
         ctx.debugger.log("Yali Started")
@@ -98,7 +97,7 @@ class Runner:
 
             if ctx.options.debug == True or yali.sysutils.checkYaliDebug():
                 # debug all screens.
-                weave_all_object_methods(da, w)
+                weave_all_object_methods(ctx.debugger.aspect, w)
 
             # enable navigation buttons before shown
             weave_object_method(enableNavButtonsAspect, w, "shown")

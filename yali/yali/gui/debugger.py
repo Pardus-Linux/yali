@@ -22,7 +22,6 @@ from yali.gui.YaliDialog import Dialog
 class Debugger:
     def __init__(self,showLineNumbers=True):
         title = _("Debug")
-        
         self.debugWidget = QWidget()
         self.traceback = DebugContainer(self.debugWidget,showLineNumbers)
         
@@ -31,12 +30,13 @@ class Debugger:
         
         self.window = Dialog(title,self.debugWidget,None,extraButtons=True)
         self.window.resize(500,400)
-    
+        self.aspect = DebuggerAspect(self)
+        
     def showWindow(self):
         self.window.show()
         
-    def log(self,log):
-        self.traceback.add(QString(log))
+    def log(self,log,type=1):
+        self.traceback.add(QString(log),type)
 
 class DebugContainer(QTextEdit):
     def __init__(self, parent, showLineNumbers=True):
@@ -51,8 +51,10 @@ class DebugContainer(QTextEdit):
         self.plainLogs = ''
         self.line = 0
         
-    def add(self,log):
+    def add(self,log,type):
         self.plainLogs += "%s\n" % log
+        if type==1:
+            log = "<b>%s</b>" % log
         if self.showLineNumbers:
             self.append(QString("<b>%d :</b> %s" % (self.line,log)))
             self.line +=1
@@ -69,10 +71,10 @@ class DebuggerAspect:
     def before(self, wobj, data, *args, **kwargs):
         met_name = data['original_method_name']
         fun_str = "%s (args: %s -- kwargs: %s)" % (met_name, args, kwargs)
-        self.out.log("Entering function: %s\n" % fun_str)
+        self.out.log("Entering function: %s\n" % fun_str,0)
 
 
     def after(self, wobj, data, *args, **kwargs):
         met_name = data['original_method_name']
         fun_str = "%s (args: %s -- kwargs: %s)" % (met_name, args, kwargs)
-        self.out.log("Left function: %s\n" % fun_str)
+        self.out.log("Left function: %s\n" % fun_str,0)
