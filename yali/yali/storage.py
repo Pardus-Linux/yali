@@ -300,7 +300,7 @@ class Device:
 
         # Don't set bootable flag if there is already a bootable
         # partition in this disk. See bug #2217
-        if parted.PARTITION_BOOT in flags and self.hasBootablePartition():
+        if (parted.PARTITION_BOOT in flags) and self.hasBootablePartition():
             flags = list(set(flags) - set([parted.PARTITION_BOOT]))
 
         part = self._disk.next_partition()

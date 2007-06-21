@@ -203,7 +203,6 @@ class Ext3FileSystem(FileSystem):
         if not cmd_path:
             cmd_path = sysutils.find_executable("mkfs.ext3")
 
-
         if not cmd_path:
             e = "Command not found to format %s filesystem" %(self.name())
             raise FSError, e

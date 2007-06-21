@@ -16,6 +16,7 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
+import parted
 import yali.gui.context as ctx
 import yali.partitiontype as parttype
 import yali.parteddata as parteddata
@@ -173,9 +174,7 @@ class PartEdit(QWidget):
                     self.warning.show()
                     return False
 
-
             size = self.edit.size.text().toInt()[0]
-
 
             p = device.addPartition(type, t.filesystem, size, t.parted_flags)
 #            device.commit()
@@ -188,6 +187,7 @@ class PartEdit(QWidget):
 
         def edit_requests(partition):
             t = get_part_type()
+            __d = self._d.getDevice()
             if not t:
                 return False
 
@@ -202,7 +202,10 @@ class PartEdit(QWidget):
 
             # edit partition. just set the filesystem and flags.
             if state == editState and self.edit.format.isChecked():
-                partition.setPartedFlags(t.parted_flags)
+                flags = t.parted_flags
+                if (parted.PARTITION_BOOT in flags) and __d.hasBootablePartition():
+                    flags = list(set(flags) - set([parted.PARTITION_BOOT]))
+                partition.setPartedFlags(flags)
                 partition.setFileSystemType(t.filesystem)
 #                device.commit()
 

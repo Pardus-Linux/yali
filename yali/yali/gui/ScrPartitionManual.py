@@ -93,7 +93,6 @@ about disk partitioning.
         self.connect(self.partlist, PYSIGNAL("signalResize"),
                      self.slotResizePart)
 
-
         self.connect(self.partedit, PYSIGNAL("signalApplied"),
                      self.slotApplied)
 

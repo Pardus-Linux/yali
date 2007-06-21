@@ -84,9 +84,6 @@ consts.pardus_repo_uri = "http://paketler.pardus.org.tr/pardus-2007.2/pisi-index
 # min root partition size
 consts.min_root_size = 3500
 
-# servers' list
-consts.serverList = join(consts.data_dir, "serverList.csv")
-
 try:
     consts.lang = locale.getdefaultlocale()[0][:2]
 except:
