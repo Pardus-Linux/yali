@@ -85,11 +85,11 @@ def mem_total():
     return None
 
 def eject_cdrom(mount_point=consts.source_dir):
-    def _eject():
-        if not eject(mount_point):
-            os.system("eject -m %s" % mount_point)
     for i in range(3):
-        _eject()
+        try:
+            eject(mount_point)
+        finally:
+            os.system("eject -m %s" % mount_point)
 
 def text_is_valid(text):
     allowed_chars = ascii_letters + digits + '.' + '_' + '-'

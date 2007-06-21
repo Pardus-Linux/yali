@@ -187,7 +187,6 @@ class PartEdit(QWidget):
 
         def edit_requests(partition):
             t = get_part_type()
-            __d = self._d.getDevice()
             if not t:
                 return False
 
@@ -202,6 +201,7 @@ class PartEdit(QWidget):
 
             # edit partition. just set the filesystem and flags.
             if state == editState and self.edit.format.isChecked():
+                __d = self._d.getDevice()
                 flags = t.parted_flags
                 if (parted.PARTITION_BOOT in flags) and __d.hasBootablePartition():
                     flags = list(set(flags) - set([parted.PARTITION_BOOT]))
