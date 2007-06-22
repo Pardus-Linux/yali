@@ -138,6 +138,7 @@ class YaliUninstall(Command):
 i18n_domain = "yali"
 i18n_languages = ["tr",
                   "nl",
+                  "it",
                   "fr",
                   "de",
                   "pt_BR",
