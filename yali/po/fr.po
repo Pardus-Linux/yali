@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-06-08 15:54+0300\n"
-"PO-Revision-Date: 2007-06-05 00:20+0200\n"
+"PO-Revision-Date: 2007-07-09 13:54+0200\n"
 "Last-Translator: Amine Chadly <amine.chadly@gmail.com>\n"
 "Language-Team: french <pardus-translators@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -38,7 +38,7 @@ msgid ""
 "Automatic partitioning will use your entire disk for Pardus installation.\n"
 "All data on the selected disk will be lost!</font></p>"
 msgstr ""
-"<font size=\"+1\"><b>Sélectionner la méthode de Partionnement</b></font>\n"
+"<font size=\"+1\"><b>Sélectionner la méthode de Partitionnement</b></font>\n"
 "\n"
 "<p> Vous pouvez choisir ci-dessous un disque dur pour un partitionnement "
 "automatique.\n"
@@ -59,8 +59,7 @@ msgstr "Non, je vais partitionner mon disque manuellement."
 
 #: yali/gui/Ui/autopartwidget.py:95
 msgid "Yes, automatically partition and format selected disk!"
-msgstr ""
-"Oui, partitionner et formatter automatiquement le disque dur sélectionné !"
+msgstr "Oui, partitionner et formatter automatiquement le disque dur sélectionné !"
 
 #: yali/gui/Ui/bootloaderwidget.py:93
 msgid ""
@@ -85,7 +84,7 @@ msgstr ""
 
 #: yali/gui/Ui/bootloaderwidget.py:99
 msgid "Where do you want to install the bootloader?"
-msgstr "Où voulez-vous installer le chargeur de démarrage ?"
+msgstr "Où voulez vous installer le chargeur de démarrage ?"
 
 #: yali/gui/Ui/bootloaderwidget.py:100
 msgid "MBR of the first disk (recomended)"
@@ -165,7 +164,7 @@ msgstr "Formatter cette partion"
 
 #: yali/gui/Ui/parteditwidget.py:93
 msgid " What do you want to store in this partition? "
-msgstr "Que voulez-vous stocker dans cette partition?"
+msgstr "Que voulez vous stocker dans cette partition?"
 
 #: yali/gui/Ui/parteditwidget.py:94
 msgid "Pardus system files (mandatory)"
@@ -173,11 +172,11 @@ msgstr "Les fichiers systèmes de Pardus (obligatoire)"
 
 #: yali/gui/Ui/parteditwidget.py:95
 msgid "User files (optional)"
-msgstr "Les fichiers utilisateur (optionel)"
+msgstr "Les fichiers utilisateur (optionnel)"
 
 #: yali/gui/Ui/parteditwidget.py:96
 msgid "Swap space (optional)"
-msgstr "Espace de Swap (optionel)"
+msgstr "Espace de Swap (optionnel)"
 
 #: yali/gui/Ui/partlistwidget.py:47 yali/gui/Ui/partlistwidget.py:96
 msgid "Device"
@@ -217,11 +216,11 @@ msgstr "Annuler tous les changements"
 
 #: yali/gui/Ui/partlistwidget.py:102
 msgid "Resize"
-msgstr "Redimensionner"
+msgstr "Re-dimensionner"
 
 #: yali/gui/Ui/partlistwidget.py:103
 msgid "Edit"
-msgstr "Editer"
+msgstr "Éditer"
 
 #: yali/gui/Ui/rootpasswidget.py:130
 msgid "System administrator password:"
@@ -238,14 +237,14 @@ msgid ""
 "forget this password. Note that you shouldn't write this password elsewhere "
 "for privacy reasons.</p>"
 msgstr ""
-"<p align=\"left\">L'administateur du système (root) est responsable "
+"<p align=\"left\">L'administrateur du système (root) est responsable "
 "d'opérations de maintenance du système importantes. Veuillez choisir un mot "
 "de passe pour cet utilisateur spécial et ne pas l'oublier. Pour des raisons "
-"de securité, veuillez ne pas incrire ce mot de passe ailleurs,</p>"
+"de sécurité, veuillez ne pas inscrire ce mot de passe ailleurs,</p>"
 
 #: yali/gui/Ui/rootpasswidget.py:134
 msgid "Hostname:"
-msgstr "eNom d'hôte:"
+msgstr "Nom d'hôte:"
 
 #: yali/gui/Ui/rootpasswidget.py:135
 msgid "pardus"
@@ -302,9 +301,8 @@ msgid ""
 "you agree to accept them. Do you want to continue?"
 msgstr ""
 "La totalité des logiciels développés par TUBITAK/UEKAE est couverte par la "
-"license GNU/GPL. Les autres logiciels ont leurs propres licenses. En "
-"installant ou en utilisant Pardus, vous vous engagez à les accepter. Voulez-"
-"vous continuer ?"
+"licence GNU/GPL. Les autres logiciels ont leurs propres licences. En "
+"installant ou en utilisant Pardus, vous vous engagez à les accepter. Voulez vous continuer ?"
 
 #: yali/gui/Ui/welcomewidget.py:98
 msgid "Read GPL"
@@ -328,7 +326,7 @@ msgstr "Notes de publication"
 
 #: yali/gui/GUIGPL.py:64
 msgid "Can't open License file!"
-msgstr "Impossible d'ouvrir le fichier de license!"
+msgstr "Impossible d'ouvrir le fichier de licence!"
 
 #: yali/gui/PartEditImpl.py:98
 #, python-format
@@ -385,7 +383,7 @@ msgstr "Supprimer toutes les partitions"
 msgid "Can't get partition info from partition request!"
 msgstr ""
 "Impossible de trouver les informations de partition à partir de la requête "
-"de partionnement."
+"de partitionnement."
 
 #: yali/gui/PartListImpl.py:314
 msgid " req.partition() is None. May be a zombie request!"
@@ -409,7 +407,7 @@ msgstr "Installation du système"
 
 #: yali/gui/runner.py:56
 msgid "Basic setup"
-msgstr "Paramètrage basique"
+msgstr "Paramétrage basique"
 
 #: yali/gui/runner.py:139
 msgid "Error!"
@@ -460,14 +458,14 @@ msgstr ""
 "</p>\n"
 "<p>\n"
 "Le mot de passe peut être composé de majuscules, de miniscules, de\n"
-"chiffres et de marqueurs de ponctuation. N'utilisez pas de charactères\n"
+"chiffres et de marqueurs de ponctuation. N'utilisez pas de caractères\n"
 "accentués à ce niveau\n"
 "<p>\n"
 "\n"
 "<p>\n"
 "Choisissez également un nom d'hôte avec lequel votre ordinateur sera "
 "identifié dans le réseau auquel il appartient. Le nom d'hôte doit être "
-"suffisamment descriptif afinde pouvoir identifier votre ordinateur.\n"
+"suffisamment descriptif afin de pouvoir identifier votre ordinateur.\n"
 "</p>\n"
 "<p>\n"
 "Pour continuer, cliquez sur le bouton \"Suivant\"\n"
@@ -480,13 +478,12 @@ msgstr "<font color=\"#FF6D19\">le Verrouillage Majuscules est activé !</font>"
 
 #: yali/gui/ScrAdmin.py:113 yali/gui/ScrUsers.py:133
 msgid "<font color=\"#FF6D19\">Passwords do not match!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Les mots de passe ne sont pas identiques!</font>"
+msgstr "<font color=\"#FF6D19\">Les mots de passe ne sont pas identiques!</font>"
 
 #: yali/gui/ScrAdmin.py:130
 msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
 msgstr ""
-"<font color=\"#FF6D19\">Le nom d'hôte contient des charactères invalides.</"
+"<font color=\"#FF6D19\">Le nom d'hôte contient des caractères invalides.</"
 "font>"
 
 #: yali/gui/ScrBootloader.py:35
@@ -514,7 +511,7 @@ msgid ""
 "</font>\n"
 msgstr ""
 "\n"
-"<font size=\"+2\">Paramètrage du chargeur de démarrage</font>\n"
+"<font size=\"+2\">Paramétrage du chargeur de démarrage</font>\n"
 "\n"
 "<font size=\"+1\">\n"
 "<p>\n"
@@ -551,7 +548,7 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"<font size=\"+2\">Vérifier l'intégriter du CD!</font>\n"
+"<font size=\"+2\">Vérifier l'intégrité du CD!</font>\n"
 "\n"
 "<font size=\"+1\">\n"
 "<p>Dans cet écran, vous pouvez vérifier l'intégrité des paquets du CD "
@@ -687,7 +684,7 @@ msgstr ""
 "Pendant ce temps, vous pouvez apprécier\n"
 "quelques éléments visuels vous présentant\n"
 "les propriétés distinctives de Pardus, \n"
-"votre nouveau système d'expoitation \n"
+"votre nouveau système d'exploitation \n"
 "</p>\n"
 "</font>\n"
 
@@ -784,12 +781,12 @@ msgstr ""
 "pour l'installation de Pardus. À partir de cet écran vous pouvez choisir \n"
 "un de vos disques pour un partitionnement automatique,\n"
 "il vous est également possible de sauter cet écran pour effectuer un "
-"partitionement manuel\n"
+"partitionnement manuel\n"
 "</p> \n"
 "<p>\n"
-"Pour plus d'informations consultez le guide d'installationi et d'utilisation "
+"Pour plus d'informations consultez le guide d'installation et d'utilisation "
 "de Pardus\n"
-"à propos du patitionnement de disque.\n"
+"à propos du partitionnement de disque.\n"
 "</p>\n"
 "</font>\n"
 
@@ -808,8 +805,7 @@ msgstr "Veuillez patienter pendant le formatage!"
 
 #: yali/gui/ScrPartitionAuto.py:135
 msgid "<font color=\"#FF6D19\">Preparing your disk for installation!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Préparation du disque dur pour l'installation</font>"
+msgstr "<font color=\"#FF6D19\">Préparation du disque dur pour l'installation</font>"
 
 #: yali/gui/ScrPartitionAuto.py:203
 msgid ""
@@ -911,7 +907,7 @@ msgstr ""
 "</p>\n"
 "<p> \n"
 "Pour toute information concernant le partitionnement de disque dur,\n"
-"veuillez consulter à ce propos le Guide d'Installation et d'Utilisation de\n"
+"veuillez consulter à ce propos le Guide d'installation et d'Utilisation de\n"
 "Pardus.</p> \n"
 "</font>\n"
 
@@ -925,11 +921,11 @@ msgstr "Supprimer la partition"
 
 #: yali/gui/ScrPartitionManual.py:172
 msgid "Edit Partition"
-msgstr "Editer la partition"
+msgstr "Éditer la partition"
 
 #: yali/gui/ScrPartitionManual.py:177
 msgid "Resize Partition"
-msgstr "Redimensionner la partition"
+msgstr "Re-dimensionner la partition"
 
 #: yali/gui/ScrPartitionManual.py:202
 msgid ""
@@ -1001,14 +997,14 @@ msgstr ""
 #: yali/gui/ScrUsers.py:171
 msgid "<font color=\"#FF6D19\">Username contains invalid characters!</font>"
 msgstr ""
-"<font color=\"#FF6D19\">Le nom de l'utilisateur contient des charactères "
+"<font color=\"#FF6D19\">Le nom de l'utilisateur contient des caractères "
 "invalides!</font>"
 
 #: yali/gui/ScrUsers.py:175
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
 msgstr ""
 "<font color=\"#FF6D19\">Le nom réel de l'utilisateur contient des "
-"charactères invalides.!</font>"
+"caractères invalides.!</font>"
 
 #: yali/gui/ScrWelcome.py:30
 msgid ""
@@ -1051,7 +1047,7 @@ msgstr ""
 "plusieurs logiciels. Vous pouvez utiliser Pardus pour connecter \n"
 "à internet, pour lire vos courriels, pour écouter de la musique, \n"
 "pour travailler avec les documents, etc. Avec l'interface simple de Pardus \n"
-"vous allez être plus productif et éfficace.\n"
+"vous allez être plus productif et efficace.\n"
 "</p>\n"
 "\n"
 "<p>\n"
@@ -1254,3 +1250,4 @@ msgstr "fichiers utilisateurs"
 #: yali/partitiontype.py:67
 msgid "Swap"
 msgstr "Swap"
+
