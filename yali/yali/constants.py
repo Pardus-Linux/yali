@@ -48,7 +48,7 @@ class Constants:
 
 consts = Constants()
 
-consts.pardus_version = "Pardus 2007.2 RC"
+consts.pardus_version = file("/etc/pardus-release").readlines()[0].strip()
 
 consts.log_file = "/tmp/install.log"
 
