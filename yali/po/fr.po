@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-06-08 15:54+0300\n"
-"PO-Revision-Date: 2007-07-09 13:54+0200\n"
+"PO-Revision-Date: 2007-07-09 14:00+0200\n"
 "Last-Translator: Amine Chadly <amine.chadly@gmail.com>\n"
 "Language-Team: french <pardus-translators@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -1073,7 +1073,7 @@ msgstr "Attention"
 
 #: yali/bootloader.py:164 yali/bootloader.py:169
 msgid "Windows"
-msgstr "Les fenêtres"
+msgstr "Windows"
 
 #: yali/__init__.py:67
 msgid "Backtrace:"
