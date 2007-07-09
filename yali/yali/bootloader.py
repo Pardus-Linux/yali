@@ -95,7 +95,7 @@ class BootLoader:
         if not os.path.exists(grub_dir):
             os.makedirs(grub_dir)
 
-        #write an empty grub.conf, for grub to create a device map.
+        # write an empty grub.conf, for grub to create a device map.
         open(self.grub_conf, "w").close()
         # create device map
         cmd = "/sbin/grub --batch --no-floppy --device-map=%s < %s" % (self.device_map, self.grub_conf)
