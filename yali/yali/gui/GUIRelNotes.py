@@ -43,9 +43,9 @@ class Widget(QTextView):
         self.setPalette(palette)
 
         rel_path = join(ctx.consts.source_dir,
-                        "releasenotes-" + ctx.consts.lang + ".html")
+                        "release-notes/releasenotes-" + ctx.consts.lang + ".html")
         if not exists(rel_path):
-            rel_path = join(ctx.consts.source_dir, "releasenotes-en.html")
+            rel_path = join(ctx.consts.source_dir, "release-notes/releasenotes-en.html")
 
         try:
             self.setText(codecs.open(rel_path, "r", "UTF-8").read())
