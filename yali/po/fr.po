@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-07-10 22:46+0300\n"
-"PO-Revision-Date: 2007-07-09 14:00+0200\n"
+"PO-Revision-Date: 2007-07-10 22:57+0200\n"
 "Last-Translator: Amine Chadly <amine.chadly@gmail.com>\n"
 "Language-Team: french <pardus-translators@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -59,8 +59,7 @@ msgstr "Non, je vais partitionner mon disque manuellement."
 
 #: yali/gui/Ui/autopartwidget.py:95
 msgid "Yes, automatically partition and format selected disk!"
-msgstr ""
-"Oui, partitionner et formatter automatiquement le disque dur sélectionné !"
+msgstr "Oui, partitionner et formatter automatiquement le disque dur sélectionné !"
 
 #: yali/gui/Ui/bootloaderwidget.py:96
 msgid ""
@@ -88,18 +87,16 @@ msgid "Where do you want to install the bootloader?"
 msgstr "Où voulez vous installer le chargeur de démarrage ?"
 
 #: yali/gui/Ui/bootloaderwidget.py:103
-#, fuzzy
 msgid "Install to MBR of the Pardus installed disk (recommended)"
-msgstr "MBR du premier disque (recommandé)"
+msgstr "Installer sur le MBR du disque sur lequel Pardus est installé (recommandé)"
 
 #: yali/gui/Ui/bootloaderwidget.py:104
-#, fuzzy
 msgid "Install to Pardus installed partition"
-msgstr "Installer sur la partition racine."
+msgstr "Installer sur la partition où Pardus est installé."
 
 #: yali/gui/Ui/bootloaderwidget.py:105
 msgid "Install to MBR of the selected disk belove"
-msgstr ""
+msgstr "Installer sur le MBR du disque sélectionné ci-dessous"
 
 #: yali/gui/Ui/bootloaderwidget.py:106
 msgid "Select the disk you to install bootloader:"
@@ -146,39 +143,39 @@ msgstr "Tester la disposition du clavier :"
 
 #: yali/gui/Ui/networkwidget.py:121
 msgid "NetworkWidget"
-msgstr ""
+msgstr "WidgetRéseau"
 
 #: yali/gui/Ui/networkwidget.py:122
 msgid "<b>Server List</b>"
-msgstr ""
+msgstr "<b>Liste des serveurs</b>"
 
 #: yali/gui/Ui/networkwidget.py:123
 msgid "Manuel Configuration"
-msgstr ""
+msgstr "Configuration manuelle"
 
 #: yali/gui/Ui/networkwidget.py:124
 msgid "Add"
-msgstr ""
+msgstr "Ajouter"
 
 #: yali/gui/Ui/networkwidget.py:125
 msgid "Machine Name"
-msgstr ""
+msgstr "Nom de machine"
 
 #: yali/gui/Ui/networkwidget.py:126
 msgid "Ip Address"
-msgstr ""
+msgstr "Adresse IP"
 
 #: yali/gui/Ui/networkwidget.py:127
 msgid "Subnet Mask"
-msgstr ""
+msgstr "Masque de sous-réseau"
 
 #: yali/gui/Ui/networkwidget.py:128
 msgid "Default Gateway"
-msgstr ""
+msgstr "Passerelle par défaut"
 
 #: yali/gui/Ui/networkwidget.py:129
 msgid "Printers"
-msgstr ""
+msgstr "Imprimantes"
 
 #: yali/gui/Ui/parteditbuttons.py:47 yali/gui/ScrPartitionAuto.py:215
 #: yali/gui/YaliDialog.py:153
@@ -362,7 +359,7 @@ msgstr "Non, Je n'accepte pas!"
 
 #: yali/gui/debugger.py:24
 msgid "Debug"
-msgstr ""
+msgstr "Debug"
 
 #: yali/gui/GUIBottom.py:102 yali/gui/GUIBottom.py:152
 msgid "Release Notes"
@@ -522,8 +519,7 @@ msgstr "<font color=\"#FF6D19\">le Verrouillage Majuscules est activé !</font>"
 
 #: yali/gui/ScrAdmin.py:115 yali/gui/ScrUsers.py:156
 msgid "<font color=\"#FF6D19\">Passwords do not match!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Les mots de passe ne sont pas identiques!</font>"
+msgstr "<font color=\"#FF6D19\">Les mots de passe ne sont pas identiques!</font>"
 
 #: yali/gui/ScrAdmin.py:132
 msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
@@ -850,8 +846,7 @@ msgstr "Veuillez patienter pendant le formatage!"
 
 #: yali/gui/ScrPartitionAuto.py:137
 msgid "<font color=\"#FF6D19\">Preparing your disk for installation!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Préparation du disque dur pour l'installation</font>"
+msgstr "<font color=\"#FF6D19\">Préparation du disque dur pour l'installation</font>"
 
 #: yali/gui/ScrPartitionAuto.py:205
 msgid ""
@@ -1025,6 +1020,16 @@ msgid ""
 "go to next screen.</p>\n"
 "</b>\n"
 msgstr ""
+"<b>\n"
+"<p>Vous n'avez pas défini d'administrateur !</p>\n"
+"\n"
+"<p>Un utilisateur sans droits d'administration ne peut pas s'occuper des tâches de \n"
+"maintenance système. Nous vous encourageons fortement à définir un utilisateur administrateur.</p>\n"
+"\n"
+"<p>Cliquez sur \"Annuler\" pour définir un utilisateur administrateur  (recommandé) ou \"OK\" "
+"pour \n"
+"passer à l'écran suivant.</p>\n"
+"</b>\n"
 
 #: yali/gui/ScrUsers.py:151
 msgid "<font color=\"#FF6D19\">Don't use your user name as a password.</font>"
@@ -1055,9 +1060,8 @@ msgstr ""
 "invalides.!</font>"
 
 #: yali/gui/ScrUsers.py:258
-#, fuzzy
 msgid "Update User"
-msgstr "Créer un utilisateur"
+msgstr "Mettre à jour l'utilisateur"
 
 #: yali/gui/ScrWelcome.py:30
 msgid ""
@@ -1316,5 +1320,3 @@ msgstr "fichiers utilisateurs"
 msgid "Swap"
 msgstr "Swap"
 
-#~ msgid "Install to MBR"
-#~ msgstr "Installer sur le MBR."
