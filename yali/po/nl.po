@@ -5,15 +5,15 @@
 # Thijs Hulshof <thijs@fedoraproject.org>, 2006.
 # Rinse de Vries <rinsedevries@kde.nl>, 2006.
 # Willem Gielen <w.gielen@gmail.com>, 2006, 2007.
-# W.P.M.H.I.A. Gielen <w.gielen@gmail.com>, 2006.
+# W.P.M.H.I.A. Gielen <w.gielen@gmail.com>, 2006, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-07-10 22:46+0300\n"
-"PO-Revision-Date: 2007-06-17 01:12+0200\n"
-"Last-Translator: Willem Gielen <w.gielen@gmail.com>\n"
-"Language-Team: Nederlands <Pardus-translation-nl@pardus.org.tr>\n"
+"PO-Revision-Date: 2007-07-10 22:35+0200\n"
+"Last-Translator: W.P.M.H.I.A. Gielen <w.gielen@gmail.com>\n"
+"Language-Team: Nederlands <http://liste.pardus.org.tr/pardus-translation-nl/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -61,8 +61,7 @@ msgstr "Nee, ik wil mijn schijf handmatig partitioneren."
 
 #: yali/gui/Ui/autopartwidget.py:95
 msgid "Yes, automatically partition and format selected disk!"
-msgstr ""
-"Ja, automatisch partitioneren en formatteren van de geselecteerde schijf!"
+msgstr "Ja, automatisch partitioneren en formatteren van de geselecteerde schijf!"
 
 #: yali/gui/Ui/bootloaderwidget.py:96
 msgid ""
@@ -91,18 +90,16 @@ msgid "Where do you want to install the bootloader?"
 msgstr "Waar wilt u de bootloader installeren?"
 
 #: yali/gui/Ui/bootloaderwidget.py:103
-#, fuzzy
 msgid "Install to MBR of the Pardus installed disk (recommended)"
-msgstr "MBR van de eerste schijf (aanbevolen)"
+msgstr "Installeer op de MBR van de schijf waar Pardus op staat (aangeraden)"
 
 #: yali/gui/Ui/bootloaderwidget.py:104
-#, fuzzy
 msgid "Install to Pardus installed partition"
-msgstr "Installeer in de root partitie"
+msgstr "Installeer op de partitie waar Pardus op staat"
 
 #: yali/gui/Ui/bootloaderwidget.py:105
 msgid "Install to MBR of the selected disk belove"
-msgstr ""
+msgstr "Installeer op de MBR van de geselecteerde schijf"
 
 #: yali/gui/Ui/bootloaderwidget.py:106
 msgid "Select the disk you to install bootloader:"
@@ -149,39 +146,39 @@ msgstr "Test geselecteerd toetsenbord:"
 
 #: yali/gui/Ui/networkwidget.py:121
 msgid "NetworkWidget"
-msgstr ""
+msgstr "NetwerkWidget"
 
 #: yali/gui/Ui/networkwidget.py:122
 msgid "<b>Server List</b>"
-msgstr ""
+msgstr "<b>Serverlijst</b>"
 
 #: yali/gui/Ui/networkwidget.py:123
 msgid "Manuel Configuration"
-msgstr ""
+msgstr "Handmatige configuratie"
 
 #: yali/gui/Ui/networkwidget.py:124
 msgid "Add"
-msgstr ""
+msgstr "Toevoegen"
 
 #: yali/gui/Ui/networkwidget.py:125
 msgid "Machine Name"
-msgstr ""
+msgstr "Naam machine"
 
 #: yali/gui/Ui/networkwidget.py:126
 msgid "Ip Address"
-msgstr ""
+msgstr "IP adres"
 
 #: yali/gui/Ui/networkwidget.py:127
 msgid "Subnet Mask"
-msgstr ""
+msgstr "Subnet masker"
 
 #: yali/gui/Ui/networkwidget.py:128
 msgid "Default Gateway"
-msgstr ""
+msgstr "Standaard gateway"
 
 #: yali/gui/Ui/networkwidget.py:129
 msgid "Printers"
-msgstr ""
+msgstr "Printers"
 
 #: yali/gui/Ui/parteditbuttons.py:47 yali/gui/ScrPartitionAuto.py:215
 #: yali/gui/YaliDialog.py:153
@@ -364,7 +361,7 @@ msgstr "Verwerpen!"
 
 #: yali/gui/debugger.py:24
 msgid "Debug"
-msgstr ""
+msgstr "Debug"
 
 #: yali/gui/GUIBottom.py:102 yali/gui/GUIBottom.py:152
 msgid "Release Notes"
@@ -527,8 +524,7 @@ msgstr "<font color=\"#FF6D19\">De wachtwoorden komen niet overeen!</font>"
 
 #: yali/gui/ScrAdmin.py:132
 msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">De hostnaam bevat niet toegestane tekens!</font>"
+msgstr "<font color=\"#FF6D19\">De hostnaam bevat niet toegestane tekens!</font>"
 
 #: yali/gui/ScrBootloader.py:35
 msgid ""
@@ -831,8 +827,7 @@ msgstr ""
 msgid ""
 "It seems that you don't have the required disk space (min. %s) for Pardus "
 "installation."
-msgstr ""
-"U heeft niet voldoende schijfruimte (min. %s) on Pardus te installeren."
+msgstr "U heeft niet voldoende schijfruimte (min. %s) on Pardus te installeren."
 
 #: yali/gui/ScrPartitionAuto.py:134 yali/gui/ScrPartitionManual.py:126
 msgid "Please wait while formatting!"
@@ -840,8 +835,7 @@ msgstr "Ogenblik geduld tijdens het formatteren!"
 
 #: yali/gui/ScrPartitionAuto.py:137
 msgid "<font color=\"#FF6D19\">Preparing your disk for installation!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Uw schijf wordt voorbereidt voor installatie.</font>"
+msgstr "<font color=\"#FF6D19\">Uw schijf wordt voorbereidt voor installatie.</font>"
 
 #: yali/gui/ScrPartitionAuto.py:205
 msgid ""
@@ -1017,11 +1011,20 @@ msgid ""
 "go to next screen.</p>\n"
 "</b>\n"
 msgstr ""
+"<b>\n"
+"<p>U heeft geen administrator benoemd!</p>\n"
+"\n"
+"<p>Een gebruiker zonder administratieve rechten kan geen systeemonderhoud doen \n"
+"U wordt ten stelligste aangeraden een administrator te benoemen.</p>\n"
+"\n"
+"<p>Klik \"Annuleer\" om een administrator te benoemen (aangeraden) of \"OK\" \n"
+"om\n"
+"naar het volgende scherm te gaan.</p>\n"
+"</b>\n"
 
 #: yali/gui/ScrUsers.py:151
 msgid "<font color=\"#FF6D19\">Don't use your user name as a password.</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Gebruik uw gebruikersnaam niet als wachtwoord.</font>"
+msgstr "<font color=\"#FF6D19\">Gebruik uw gebruikersnaam niet als wachtwoord.</font>"
 
 #: yali/gui/ScrUsers.py:161
 msgid "<font color=\"#FF6D19\">Password is too short!</font>"
@@ -1041,13 +1044,11 @@ msgstr ""
 
 #: yali/gui/ScrUsers.py:203
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Uw echte naam bevat niet toegestane tekens.</font>"
+msgstr "<font color=\"#FF6D19\">Uw echte naam bevat niet toegestane tekens.</font>"
 
 #: yali/gui/ScrUsers.py:258
-#, fuzzy
 msgid "Update User"
-msgstr "Maak gebruiker"
+msgstr "Update gebruiker"
 
 #: yali/gui/ScrWelcome.py:30
 msgid ""
@@ -1300,5 +1301,3 @@ msgstr "Gebruikersbestanden"
 msgid "Swap"
 msgstr "Swap"
 
-#~ msgid "Install to MBR"
-#~ msgstr "Installeer in MBR"
