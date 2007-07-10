@@ -12,6 +12,7 @@
 
 from qt import *
 from pyaspects.meta import MetaAspect
+import yali.gui.context as ctx
 
 import gettext
 __trans = gettext.translation('yali', fallback=True)
@@ -36,7 +37,8 @@ class Debugger:
         self.window.show()
         
     def log(self,log,type=1):
-        self.traceback.add(QString(log),type)
+        if ctx.debugEnabled:
+            self.traceback.add(QString(log),type)
 
 class DebugContainer(QTextEdit):
     def __init__(self, parent, showLineNumbers=True):

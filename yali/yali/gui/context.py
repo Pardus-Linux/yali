@@ -38,6 +38,7 @@ stages = yali.gui.stages.Stages()
 screens = yali.gui.screens.Screens()
 
 debugger = None
+debugEnabled = False
 
 # icon factory
 iconfactory = yali.gui.iconfactory.IconFactory(consts.pics_dir)

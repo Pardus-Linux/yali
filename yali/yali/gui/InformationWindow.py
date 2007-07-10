@@ -23,10 +23,12 @@ class InformationWindow(QMainWindow):
         frame.setPaletteBackgroundColor(ctx.consts.border_color)
         frame.setFrameStyle(frame.PopupPanel|frame.Plain)
         l.addWidget(frame)
-
+        
+        f = QFont("Bitstream Vera Sans", 12);
         layout = QVBoxLayout(frame)
         layout.setMargin(2)
         label = QLabel(frame)
+        label.setFont(f)
         label.setText(text)
         label.setAlignment(QLabel.SingleLine | QLabel.AlignCenter)
         layout.addWidget(label)
