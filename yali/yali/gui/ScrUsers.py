@@ -21,6 +21,7 @@ _ = __trans.ugettext
 import yali.users
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.setupuserswidget import SetupUsersWidget
+from yali.gui.YaliDialog import Dialog, WarningDialog, WarningWidget
 import yali.gui.context as ctx
 import pardus.xorg
 
@@ -53,7 +54,7 @@ Click Next button to proceed.
 
         self.pix.setPixmap(ctx.iconfactory.newPixmap("users"))
         self.pass_error.setText("")
-        self.edititemindex = ""
+        self.edititemindex = None
 
         # User Icons
         self.normalUserIcon = ctx.iconfactory.newPixmap("user_normal")
@@ -65,6 +66,8 @@ Click Next button to proceed.
 
         # Give Admin Privileges default
         self.admin.setChecked(True)
+        
+        self.isAdminSet = False
 
         self.createButton.setEnabled(False)
 
@@ -97,6 +100,24 @@ Click Next button to proceed.
         self.username.setFocus()
 
     def execute(self):
+        if not self.isAdminSet:
+            # show confirmation dialog
+            w = WarningWidget(self)
+            w.warning.setText(_('''<b>
+<p>You have not defined an administrator!</p>
+
+<p>A user without administrative rights cannot complete system maintenance 
+tasks. You are strongly encouraged to define an administrator user.</p>
+
+<p>Click "Cancel" to define an administrator user (recommended) or "OK" to 
+go to next screen.</p>
+</b>
+'''))
+            self.dialog = WarningDialog(w, self)
+            if not self.dialog.exec_loop():
+                ctx.screens.enablePrev()
+                return False
+        
         # reset and fill pending_users
         yali.users.reset_pending_users()
         autoUser = str(self.autoLogin.currentText())
@@ -159,12 +180,17 @@ Click Next button to proceed.
         if self.admin.isOn():
             u.groups.append("wheel")
             pix = self.superUserIcon
-
+            self.isAdminSet = True
+        elif self.isAdminSet:
+            self.isAdminSet = False
+        
+        self.createButton.setText(_("Create User"))
+        
         existsInList = [i for i in range(self.userList.count())
                         if self.userList.item(i).getUser().username == u.username]
         
         # check user validity
-        if u.exists() or existsInList:
+        if u.exists() or (existsInList and self.edititemindex == None):
             self.pass_error.setText(
                 _('<font color="#FF6D19">Username exists, choose another one!</font>'))
             return
@@ -187,7 +213,7 @@ Click Next button to proceed.
             # nothing wrong. just adding a new user...
             pass
         
-        self.edititemindex = ''
+        self.edititemindex = None
         
         i = UserItem(self.userList, pix, user = u)
         
@@ -229,6 +255,7 @@ Click Next button to proceed.
             self.admin.setChecked(False)
 
         self.edititemindex = self.userList.currentItem()
+        self.createButton.setText(_("Update User"))
 
     def checkUsers(self):
         if self.userList.count():

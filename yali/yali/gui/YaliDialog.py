@@ -142,7 +142,7 @@ class WarningWidget(QWidget):
         l.setMargin(10)
 
         self.warning = QLabel(self)
-#        warning.setTextFormat(warning.RichText)
+
         self.warning.setText(_('''<b>
 <p>This action will start installing Pardus on
 your system formatting the selected partition.</p>

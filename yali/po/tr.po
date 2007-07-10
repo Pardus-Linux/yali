@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-07-10 14:23+0300\n"
+"POT-Creation-Date: 2007-07-10 22:46+0300\n"
 "PO-Revision-Date: 2006-12-08 23:32+0200\n"
 "Last-Translator: Barış Metin <baris@pardus.org.tr>\n"
 "Language-Team:  <tr@li.org>\n"
@@ -290,7 +290,7 @@ msgstr "Yeni Kullanıcı"
 msgid "User Name:"
 msgstr "Kullanıcı Adı:"
 
-#: yali/gui/Ui/setupuserswidget.py:152
+#: yali/gui/Ui/setupuserswidget.py:152 yali/gui/ScrUsers.py:187
 msgid "Create User"
 msgstr "Kullanıcı Ekle"
 
@@ -365,26 +365,26 @@ msgstr "Sürüm Notları"
 msgid "Can't open License file!"
 msgstr "Lisans dosyası açılamıyor!"
 
-#: yali/gui/PartEditImpl.py:99
+#: yali/gui/PartEditImpl.py:102
 #, python-format
 msgid "You are going to delete all partitions on device '%s'"
 msgstr "'%s' aygıtı üzerindeki tüm disk bölümlerini silmek üzeresiniz!"
 
-#: yali/gui/PartEditImpl.py:111
+#: yali/gui/PartEditImpl.py:114
 #, python-format
 msgid "You are going to delete partition '%s' on device '%s'!"
 msgstr "'%s' numaralı disk bölümünü '%s' aygıtından silmek üzeresiniz!"
 
-#: yali/gui/PartEditImpl.py:159
+#: yali/gui/PartEditImpl.py:162
 msgid "You must select a partition type from the list below."
 msgstr "Yukarıdaki listeden bir disk bölümü tipi seçmelisiniz."
 
-#: yali/gui/PartEditImpl.py:173 yali/gui/PartEditImpl.py:197
+#: yali/gui/PartEditImpl.py:176 yali/gui/PartEditImpl.py:200
 #, python-format
 msgid "'Install Root' size must be larger than %s MB."
 msgstr "'Sistem Dosyaları' bölümü en az %s MB olmalı."
 
-#: yali/gui/PartEditImpl.py:277
+#: yali/gui/PartEditImpl.py:280
 msgid "ntfsresize check failed! Won't proceed action!"
 msgstr ""
 "NTFS yeniden boyutlandırma kontrolü başarısız! İşlem gerçekleştirilmeyecek!"
@@ -508,11 +508,11 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/ScrAdmin.py:95 yali/gui/ScrUsers.py:116
+#: yali/gui/ScrAdmin.py:95 yali/gui/ScrUsers.py:137
 msgid "<font color=\"#FF6D19\">Caps Lock is on!</font>"
 msgstr "<font color=\"#FF6D19\">Caps Lock açık!</font>"
 
-#: yali/gui/ScrAdmin.py:115 yali/gui/ScrUsers.py:135
+#: yali/gui/ScrAdmin.py:115 yali/gui/ScrUsers.py:156
 msgid "<font color=\"#FF6D19\">Passwords do not match!</font>"
 msgstr "<font color=\"#FF6D19\">Parolalar aynı değil!</font>"
 
@@ -958,7 +958,7 @@ msgstr "Disk Bölümünü Düzenle"
 msgid "Resize Partition"
 msgstr "Bölümü Yeniden Boyutlandır"
 
-#: yali/gui/ScrUsers.py:31
+#: yali/gui/ScrUsers.py:32
 msgid ""
 "\n"
 "<font size=\"+2\">User setup</font>\n"
@@ -1004,31 +1004,60 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/ScrUsers.py:130
+#: yali/gui/ScrUsers.py:106
+msgid ""
+"<b>\n"
+"<p>You have not defined an administrator!</p>\n"
+"\n"
+"<p>A user without administrative rights cannot complete system maintenance \n"
+"tasks. You are strongly encouraged to define an administrator user.</p>\n"
+"\n"
+"<p>Click \"Cancel\" to define an administrator user (recommended) or \"OK\" "
+"to \n"
+"go to next screen.</p>\n"
+"</b>\n"
+msgstr ""
+"<b>\n"
+"<p>Yönetici hakkına sahip hiç kullanıcı tanımlamadınız!</p>\n"
+"\n"
+"<p>Yönetici haklarına sahip olmayan bir kullanıcı ile sistem yönetim "
+"görevlerini\n"
+"gerçekleştiremezsiniz. Bir tane yönetici haklarına sahip kullanıcı "
+"yaratmanız\n"
+"şiddetletavsiye edilir.</p>\n"
+"<p>Bir yönetici tanımlamak için (önerilen) \"İptal\"'e, devam etmek için "
+"\"Tamam\"'a basın.</p>\n"
+"</b>\n"
+
+#: yali/gui/ScrUsers.py:151
 msgid "<font color=\"#FF6D19\">Don't use your user name as a password.</font>"
 msgstr ""
 "<font color=\"#FF6D19\">Kullanıcı adınızı parola olarak kullanmayın.</font>"
 
-#: yali/gui/ScrUsers.py:140
+#: yali/gui/ScrUsers.py:161
 msgid "<font color=\"#FF6D19\">Password is too short!</font>"
 msgstr "<font color=\"#FF6D19\">Parola çok kısa!</font>"
 
-#: yali/gui/ScrUsers.py:169
+#: yali/gui/ScrUsers.py:195
 msgid "<font color=\"#FF6D19\">Username exists, choose another one!</font>"
 msgstr ""
 "<font color=\"#FF6D19\">Bu kullanıcı adı zaten var, başka bir tane seçin!</"
 "font>"
 
-#: yali/gui/ScrUsers.py:173
+#: yali/gui/ScrUsers.py:199
 msgid "<font color=\"#FF6D19\">Username contains invalid characters!</font>"
 msgstr ""
 "<font color=\"#FF6D19\">Kullanıcı adı geçersiz karakterler içeriyor!</font>"
 
-#: yali/gui/ScrUsers.py:177
+#: yali/gui/ScrUsers.py:203
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
 msgstr ""
 "<font color=\"#FF6D19\">Gerçek İsim bölümü geçersiz karakterler içeriyor!</"
 "font>"
+
+#: yali/gui/ScrUsers.py:258
+msgid "Update User"
+msgstr "Kullanıcıyı Güncelle"
 
 #: yali/gui/ScrWelcome.py:30
 msgid ""

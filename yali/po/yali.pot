@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-07-10 14:23+0300\n"
+"POT-Creation-Date: 2007-07-10 22:46+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -266,7 +266,7 @@ msgstr ""
 msgid "User Name:"
 msgstr ""
 
-#: yali/gui/Ui/setupuserswidget.py:152
+#: yali/gui/Ui/setupuserswidget.py:152 yali/gui/ScrUsers.py:187
 msgid "Create User"
 msgstr ""
 
@@ -337,26 +337,26 @@ msgstr ""
 msgid "Can't open License file!"
 msgstr ""
 
-#: yali/gui/PartEditImpl.py:99
+#: yali/gui/PartEditImpl.py:102
 #, python-format
 msgid "You are going to delete all partitions on device '%s'"
 msgstr ""
 
-#: yali/gui/PartEditImpl.py:111
+#: yali/gui/PartEditImpl.py:114
 #, python-format
 msgid "You are going to delete partition '%s' on device '%s'!"
 msgstr ""
 
-#: yali/gui/PartEditImpl.py:159
+#: yali/gui/PartEditImpl.py:162
 msgid "You must select a partition type from the list below."
 msgstr ""
 
-#: yali/gui/PartEditImpl.py:173 yali/gui/PartEditImpl.py:197
+#: yali/gui/PartEditImpl.py:176 yali/gui/PartEditImpl.py:200
 #, python-format
 msgid "'Install Root' size must be larger than %s MB."
 msgstr ""
 
-#: yali/gui/PartEditImpl.py:277
+#: yali/gui/PartEditImpl.py:280
 msgid "ntfsresize check failed! Won't proceed action!"
 msgstr ""
 
@@ -453,11 +453,11 @@ msgid ""
 "</font>\n"
 msgstr ""
 
-#: yali/gui/ScrAdmin.py:95 yali/gui/ScrUsers.py:116
+#: yali/gui/ScrAdmin.py:95 yali/gui/ScrUsers.py:137
 msgid "<font color=\"#FF6D19\">Caps Lock is on!</font>"
 msgstr ""
 
-#: yali/gui/ScrAdmin.py:115 yali/gui/ScrUsers.py:135
+#: yali/gui/ScrAdmin.py:115 yali/gui/ScrUsers.py:156
 msgid "<font color=\"#FF6D19\">Passwords do not match!</font>"
 msgstr ""
 
@@ -740,7 +740,7 @@ msgstr ""
 msgid "Resize Partition"
 msgstr ""
 
-#: yali/gui/ScrUsers.py:31
+#: yali/gui/ScrUsers.py:32
 msgid ""
 "\n"
 "<font size=\"+2\">User setup</font>\n"
@@ -762,24 +762,42 @@ msgid ""
 "</font>\n"
 msgstr ""
 
-#: yali/gui/ScrUsers.py:130
+#: yali/gui/ScrUsers.py:106
+msgid ""
+"<b>\n"
+"<p>You have not defined an administrator!</p>\n"
+"\n"
+"<p>A user without administrative rights cannot complete system maintenance \n"
+"tasks. You are strongly encouraged to define an administrator user.</p>\n"
+"\n"
+"<p>Click \"Cancel\" to define an administrator user (recommended) or \"OK\" "
+"to \n"
+"go to next screen.</p>\n"
+"</b>\n"
+msgstr ""
+
+#: yali/gui/ScrUsers.py:151
 msgid "<font color=\"#FF6D19\">Don't use your user name as a password.</font>"
 msgstr ""
 
-#: yali/gui/ScrUsers.py:140
+#: yali/gui/ScrUsers.py:161
 msgid "<font color=\"#FF6D19\">Password is too short!</font>"
 msgstr ""
 
-#: yali/gui/ScrUsers.py:169
+#: yali/gui/ScrUsers.py:195
 msgid "<font color=\"#FF6D19\">Username exists, choose another one!</font>"
 msgstr ""
 
-#: yali/gui/ScrUsers.py:173
+#: yali/gui/ScrUsers.py:199
 msgid "<font color=\"#FF6D19\">Username contains invalid characters!</font>"
 msgstr ""
 
-#: yali/gui/ScrUsers.py:177
+#: yali/gui/ScrUsers.py:203
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
+msgstr ""
+
+#: yali/gui/ScrUsers.py:258
+msgid "Update User"
 msgstr ""
 
 #: yali/gui/ScrWelcome.py:30
