@@ -70,7 +70,10 @@ class PartEdit(QWidget):
                 s = self._d.getLargestContinuousFreeMB()
             else:
                 s = self._d.getMB()
-
+            
+            # Fix for VirtualBox.
+            s-=1
+            
             self.edit.size.setValue(s)
             self.edit.size.setEnabled(False)
         else:
