@@ -1,3 +1,4 @@
+# translation of de.po to Deutsch
 # translation of de.po to
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
@@ -9,9 +10,9 @@ msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-07-10 22:46+0300\n"
-"PO-Revision-Date: 2007-06-18 14:29+0300\n"
-"Last-Translator: Mustafa Muhammed Ölcerman <mustafa.oelcerman@fk-koeln.de>\n"
-"Language-Team:  <http://liste.uludag.org.tr/pardus-translation-de/>\n"
+"PO-Revision-Date: 2007-07-10 22:50+0300\n"
+"Last-Translator: Mustafa Muhammed Ölcerman\n"
+"Language-Team: Deutsch <pardus-translation-de@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -88,18 +89,16 @@ msgid "Where do you want to install the bootloader?"
 msgstr "Wohin möchten Sie den Boot-Loader installieren?"
 
 #: yali/gui/Ui/bootloaderwidget.py:103
-#, fuzzy
 msgid "Install to MBR of the Pardus installed disk (recommended)"
-msgstr "MBR der ersten Platte (empfohlen)"
+msgstr "In den MBR der Platte, auf der Pardus installiert ist, installieren (empfohlen)"
 
 #: yali/gui/Ui/bootloaderwidget.py:104
-#, fuzzy
 msgid "Install to Pardus installed partition"
-msgstr "In die Root-Partition installieren"
+msgstr "Auf die Partition, auf der Pardus installiert werden soll, installieren"
 
 #: yali/gui/Ui/bootloaderwidget.py:105
 msgid "Install to MBR of the selected disk belove"
-msgstr ""
+msgstr "In den MBR der gewählten Festplatte installieren"
 
 #: yali/gui/Ui/bootloaderwidget.py:106
 msgid "Select the disk you to install bootloader:"
@@ -152,35 +151,35 @@ msgstr ""
 
 #: yali/gui/Ui/networkwidget.py:122
 msgid "<b>Server List</b>"
-msgstr ""
+msgstr "<b>Server-Liste</b>"
 
 #: yali/gui/Ui/networkwidget.py:123
 msgid "Manuel Configuration"
-msgstr ""
+msgstr "Manuelle Konfiguration"
 
 #: yali/gui/Ui/networkwidget.py:124
 msgid "Add"
-msgstr ""
+msgstr "Hinzufügen"
 
 #: yali/gui/Ui/networkwidget.py:125
 msgid "Machine Name"
-msgstr ""
+msgstr "Computername"
 
 #: yali/gui/Ui/networkwidget.py:126
 msgid "Ip Address"
-msgstr ""
+msgstr "IP-Adresse"
 
 #: yali/gui/Ui/networkwidget.py:127
 msgid "Subnet Mask"
-msgstr ""
+msgstr "Subnetzmaske"
 
 #: yali/gui/Ui/networkwidget.py:128
 msgid "Default Gateway"
-msgstr ""
+msgstr "Standard Gateway"
 
 #: yali/gui/Ui/networkwidget.py:129
 msgid "Printers"
-msgstr ""
+msgstr "Drucker"
 
 #: yali/gui/Ui/parteditbuttons.py:47 yali/gui/ScrPartitionAuto.py:215
 #: yali/gui/YaliDialog.py:153
@@ -530,8 +529,7 @@ msgstr "<font color=\"#FF6D19\">Passwörter stimmen nicht überein!</font>"
 
 #: yali/gui/ScrAdmin.py:132
 msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Der Hostname enthält unzulässige Zeichen!</font>"
+msgstr "<font color=\"#FF6D19\">Der Hostname enthält unzulässige Zeichen!</font>"
 
 #: yali/gui/ScrBootloader.py:35
 msgid ""
@@ -1062,9 +1060,8 @@ msgstr ""
 "font>"
 
 #: yali/gui/ScrUsers.py:258
-#, fuzzy
 msgid "Update User"
-msgstr "Benutzer anlegen"
+msgstr "Benutzer aktualisieren"
 
 #: yali/gui/ScrWelcome.py:30
 msgid ""
@@ -1319,5 +1316,3 @@ msgstr "Persönliche Dateien"
 msgid "Swap"
 msgstr "SWAP"
 
-#~ msgid "Install to MBR"
-#~ msgstr "In den MBR installieren"
