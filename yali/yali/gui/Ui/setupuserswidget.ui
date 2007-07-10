@@ -168,14 +168,6 @@
                         <string>User Name:</string>
                     </property>
                 </widget>
-                <widget class="QPushButton" row="0" column="2">
-                    <property name="name">
-                        <cstring>createButton</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Create User</string>
-                    </property>
-                </widget>
                 <widget class="QLabel" row="3" column="0">
                     <property name="name">
                         <cstring>textLabel1</cstring>
@@ -234,7 +226,15 @@
                         <cstring>realname</cstring>
                     </property>
                 </widget>
-                <widget class="QLabel" row="1" column="2" rowspan="3" colspan="1">
+                <widget class="QPushButton" row="3" column="2">
+                    <property name="name">
+                        <cstring>createButton</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Create User</string>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="0" column="2" rowspan="3" colspan="1">
                     <property name="name">
                         <cstring>pix</cstring>
                     </property>
