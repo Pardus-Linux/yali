@@ -189,6 +189,9 @@ your newly installed Pardus.&lt;/p&gt;</string>
                             <property name="name">
                                 <cstring>device_list</cstring>
                             </property>
+                            <property name="enabled">
+                                <bool>false</bool>
+                            </property>
                             <property name="frameShadow">
                                 <enum>Plain</enum>
                             </property>
@@ -207,6 +210,14 @@ your newly installed Pardus.&lt;/p&gt;</string>
         </widget>
     </grid>
 </widget>
+<connections>
+    <connection>
+        <sender>installMBR</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>device_list</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+</connections>
 <tabstops>
     <tabstop>installFirstMBR</tabstop>
     <tabstop>installPart</tabstop>

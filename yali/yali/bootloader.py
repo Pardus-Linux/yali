@@ -85,7 +85,14 @@ class BootLoader:
                 d = l[1]
                 return d
 
-    def write_grub_conf(self, install_root_path):
+    def write_grub_conf(self, install_root_path,install_dev):
+        if not install_dev.startswith("/dev/"):
+            install_dev = "/dev/%s" % install_dev
+        
+        if install_root_path.startswith(install_dev):
+            _grb = "hd0"
+        else:
+            _grb = "hd1"
         
         # some paths has own directories like (/dev/cciss/c0d0p1)
         # it removes /dev/ and gets the device.
@@ -103,7 +110,7 @@ class BootLoader:
 
         # grub_root is the device on which we install.
         minor = str(int(filter(lambda u: u.isdigit(), install_root)) -1)
-        grub_root = ",".join([self._find_grub_dev(install_root_path), minor])
+        grub_root = ",".join([_grb, minor])
 
         def find_boot_kernel():
             d = os.path.join(consts.target_dir, "boot")
@@ -175,8 +182,7 @@ class BootLoader:
     def install_grub(self, grub_install_root=None):
         # grub installation is always hd0 (http://liste.pardus.org.tr/gelistirici/2007-March/005725.html)
         # if not explicitly defined...
-        if not grub_install_root:
-            grub_install_root = self._find_hd0()
+        
         if not grub_install_root.startswith("/dev/"):
             grub_install_root = "/dev/%s" % grub_install_root
 

@@ -78,6 +78,7 @@ loader.
             self.device = self.device_list.item(0).getDevice()
         else:
             # don't show device list if we have just one disk
+            self.installMBR.hide()
             self.device_list_state = False
             self.device_list.hide()
             self.select_disk_label.hide()
@@ -112,13 +113,16 @@ loader.
         self.device = i.getDevice()
 
     def execute(self):
+        if self.noInstall.isChecked():
+            return True
+        
         # show information window...
         info_window = InformationWindow(self, _("Please wait while installing bootloader!"))
 
         loader = yali.bootloader.BootLoader()
 
-        root_part_req = ctx.partrequests.searchPartTypeAndReqType(
-            parttype.root, request.mountRequestType)
+        root_part_req = ctx.partrequests.searchPartTypeAndReqType(parttype.root,
+                                                                  request.mountRequestType)
 
         if self.installPart.isChecked():
             install_dev = basename(root_part_req.partition().getPath())
@@ -126,9 +130,14 @@ loader.
             install_dev = basename(self.device.getPath())
         else:
             #install to hd0
-            install_dev = None
+            install_dev = str(filter(lambda u: u.isalpha(),basename(root_part_req.partition().getPath())))
 
-        loader.write_grub_conf(root_part_req.partition().getPath())
+        _ins_part = root_part_req.partition().getPath()
+        
+        ctx.debugger.log("Pardus installed to : %s" % _ins_part)
+        ctx.debugger.log("GRUB will be installed to : %s" % install_dev)
+        
+        loader.write_grub_conf(_ins_part,install_dev)
 
         # Windows partitions...
         for d in yali.storage.devices:
@@ -150,8 +159,7 @@ loader.
                         continue
 
         # finally install it
-        if not self.noInstall.isChecked():
-            loader.install_grub(install_dev)
+        loader.install_grub(install_dev)
 
         # close window
         info_window.close(True)
