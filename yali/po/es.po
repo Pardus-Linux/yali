@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-06-08 15:54+0300\n"
+"POT-Creation-Date: 2007-07-10 14:23+0300\n"
 "PO-Revision-Date: 2007-06-07 19:18-0400\n"
 "Last-Translator: klemens <click3d at linuxmail org>\n"
 "Language-Team: spanish <es@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 
-#: yali/gui/Ui/autopartwidget.py:83 yali/gui/Ui/bootloaderwidget.py:92
+#: yali/gui/Ui/autopartwidget.py:83 yali/gui/Ui/bootloaderwidget.py:95
 #: yali/gui/Ui/checkcdwidget.py:74 yali/gui/Ui/keyboardwidget.py:66
 #: yali/gui/Ui/parteditbuttons.py:46 yali/gui/Ui/parteditwidget.py:87
 #: yali/gui/Ui/partlistwidget.py:92 yali/gui/Ui/rootpasswidget.py:127
@@ -72,7 +72,7 @@ msgstr "Si, particionar automáticamente y formatear disco seleccionado!"
 # Si no instala un cargador de arranque o elige la instalación a la
 # partición raíz (/), tendrá que configurar el cargador de sistema ya instalado
 # (si hay) para poder iniciar la nueva instalación de Pardus.
-#: yali/gui/Ui/bootloaderwidget.py:93
+#: yali/gui/Ui/bootloaderwidget.py:96
 msgid ""
 "<b>Do you want to write boot loader (GRUB) to your hard disk's master boot "
 "record?</b>\n"
@@ -94,31 +94,33 @@ msgstr ""
 " la nueva instalación de Pardus.</p>"
 
 # cambiar "quiere" por "desea"
-#: yali/gui/Ui/bootloaderwidget.py:99
+#: yali/gui/Ui/bootloaderwidget.py:102
 msgid "Where do you want to install the bootloader?"
 msgstr "Donde desea instalar el cargador de arranque?"
 
-#: yali/gui/Ui/bootloaderwidget.py:100
-msgid "MBR of the first disk (recomended)"
+#: yali/gui/Ui/bootloaderwidget.py:103
+#, fuzzy
+msgid "Install to MBR of the Pardus installed disk (recommended)"
 msgstr "MBR del primer disco (recomendado)"
 
 # cambiar "root" por "raíz (/)"
-#: yali/gui/Ui/bootloaderwidget.py:101
-msgid "Install to root partition"
+#: yali/gui/Ui/bootloaderwidget.py:104
+#, fuzzy
+msgid "Install to Pardus installed partition"
 msgstr "Instalar en partición raíz (/)"
 
-#: yali/gui/Ui/bootloaderwidget.py:102
-msgid "Install to MBR"
-msgstr "Instalar en MBR"
+#: yali/gui/Ui/bootloaderwidget.py:105
+msgid "Install to MBR of the selected disk belove"
+msgstr ""
 
 # shouldn't it be in english: "Select the disk (you want) to install the bootloader to:"
 # Seleccione el disco donde se instalará el cargador de arranque:
-#: yali/gui/Ui/bootloaderwidget.py:103
+#: yali/gui/Ui/bootloaderwidget.py:106
 msgid "Select the disk you to install bootloader:"
 msgstr "Seleccione el disco donde se instalará el cargador de arranque:"
 
 # No Instalar el cargador de arranque
-#: yali/gui/Ui/bootloaderwidget.py:104
+#: yali/gui/Ui/bootloaderwidget.py:107
 msgid "Don't install bootloader"
 msgstr "No Instalar el cargador de arranque"
 
@@ -158,8 +160,44 @@ msgstr "Seleccione la distribución de su teclado."
 msgid "Test selected keyboard:"
 msgstr "Probar teclado seleccionado:"
 
-#: yali/gui/Ui/parteditbuttons.py:47 yali/gui/ScrPartitionAuto.py:213
-#: yali/gui/ScrPartitionManual.py:209
+#: yali/gui/Ui/networkwidget.py:121
+msgid "NetworkWidget"
+msgstr ""
+
+#: yali/gui/Ui/networkwidget.py:122
+msgid "<b>Server List</b>"
+msgstr ""
+
+#: yali/gui/Ui/networkwidget.py:123
+msgid "Manuel Configuration"
+msgstr ""
+
+#: yali/gui/Ui/networkwidget.py:124
+msgid "Add"
+msgstr ""
+
+#: yali/gui/Ui/networkwidget.py:125
+msgid "Machine Name"
+msgstr ""
+
+#: yali/gui/Ui/networkwidget.py:126
+msgid "Ip Address"
+msgstr ""
+
+#: yali/gui/Ui/networkwidget.py:127
+msgid "Subnet Mask"
+msgstr ""
+
+#: yali/gui/Ui/networkwidget.py:128
+msgid "Default Gateway"
+msgstr ""
+
+#: yali/gui/Ui/networkwidget.py:129
+msgid "Printers"
+msgstr ""
+
+#: yali/gui/Ui/parteditbuttons.py:47 yali/gui/ScrPartitionAuto.py:215
+#: yali/gui/YaliDialog.py:153
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -341,7 +379,7 @@ msgid "Read GPL"
 msgstr "Leer Licencia GPL"
 
 # cambiar "rebootear" por "reiniciar"
-#: yali/gui/Ui/welcomewidget.py:99 yali/gui/runner.py:176
+#: yali/gui/Ui/welcomewidget.py:99 yali/gui/runner.py:168
 msgid "Reboot System!"
 msgstr "Reiniciar Sistema!"
 
@@ -353,6 +391,10 @@ msgstr "Acepto!"
 msgid "Don't Accept!"
 msgstr "No Acepto!"
 
+#: yali/gui/debugger.py:24
+msgid "Debug"
+msgstr ""
+
 #: yali/gui/GUIBottom.py:102 yali/gui/GUIBottom.py:152
 msgid "Release Notes"
 msgstr "Notas de Versión"
@@ -362,30 +404,30 @@ msgstr "Notas de Versión"
 msgid "Can't open License file!"
 msgstr "No se puede abrir el archivo de licencia!"
 
-#: yali/gui/PartEditImpl.py:98
+#: yali/gui/PartEditImpl.py:99
 #, python-format
 msgid "You are going to delete all partitions on device '%s'"
 msgstr "Está a punto de eliminar todas las particiones del dispositivo '%s'"
 
 # Está a punto de eliminar la partición '%s' en dispositivo '%s'!
-#: yali/gui/PartEditImpl.py:110
+#: yali/gui/PartEditImpl.py:111
 #, python-format
 msgid "You are going to delete partition '%s' on device '%s'!"
 msgstr "Está a punto de eliminar la partición '%s' del dispositivo '%s'!"
 
 # Debe seleccionar un tipo de partición de la lista de abajo.
-#: yali/gui/PartEditImpl.py:158
+#: yali/gui/PartEditImpl.py:159
 msgid "You must select a partition type from the list below."
 msgstr "Debe seleccionar un tipo de partición de la lista de abajo."
 
 # El tamaño de la partición raíz debe ser mayor a %s MB.
-#: yali/gui/PartEditImpl.py:172 yali/gui/PartEditImpl.py:198
+#: yali/gui/PartEditImpl.py:173 yali/gui/PartEditImpl.py:197
 #, python-format
 msgid "'Install Root' size must be larger than %s MB."
 msgstr "El tamaño de la partición raíz debe ser mayor a %s MB."
 
 # La verificación de ntfsresize falló ! Acción suspendida !
-#: yali/gui/PartEditImpl.py:274
+#: yali/gui/PartEditImpl.py:277
 msgid "ntfsresize check failed! Won't proceed action!"
 msgstr "La verificación de ntfsresize falló! Acción suspendida !"
 
@@ -452,11 +494,11 @@ msgstr "Instalar sistema"
 msgid "Basic setup"
 msgstr "Configuración básica"
 
-#: yali/gui/runner.py:139
+#: yali/gui/runner.py:133
 msgid "Error!"
 msgstr "Error!"
 
-#: yali/gui/runner.py:171
+#: yali/gui/runner.py:163
 msgid "Unhandled error occured!"
 msgstr "Ocurrió un error desconocido !"
 
@@ -522,17 +564,17 @@ msgstr ""
 # Las Mayúsculas están activadas !
 # o
 # Modo Mayúsculas activado
-#: yali/gui/ScrAdmin.py:93 yali/gui/ScrUsers.py:114
+#: yali/gui/ScrAdmin.py:95 yali/gui/ScrUsers.py:116
 msgid "<font color=\"#FF6D19\">Caps Lock is on!</font>"
 msgstr "<font color=\"#FF6D19\">Las Mayúsculas están activadas !</font>"
 
 # Las contraseñas no coinciden!
-#: yali/gui/ScrAdmin.py:113 yali/gui/ScrUsers.py:133
+#: yali/gui/ScrAdmin.py:115 yali/gui/ScrUsers.py:135
 msgid "<font color=\"#FF6D19\">Passwords do not match!</font>"
 msgstr "<font color=\"#FF6D19\">Las contraseñas no coinciden!</font>"
 
 # El Nombre de la máquina (hostname) contiene caracteres no válidos!
-#: yali/gui/ScrAdmin.py:130
+#: yali/gui/ScrAdmin.py:132
 msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
 msgstr ""
 "<font color=\"#FF6D19\">El Nombre de la máquina (hostname) contiene "
@@ -592,7 +634,7 @@ msgstr ""
 # Favor esperar....
 # o
 # Por favor, espere...
-#: yali/gui/ScrBootloader.py:112
+#: yali/gui/ScrBootloader.py:120
 msgid "Please wait while installing bootloader!"
 msgstr "Por favor, espere mientras se instala el cargador de arranque!"
 
@@ -635,7 +677,7 @@ msgstr ""
 "<font color=\"#257216\">Verificación terminada con éxito. Puede continuar.</"
 "font>"
 
-#: yali/gui/ScrCheckCD.py:97
+#: yali/gui/ScrCheckCD.py:99
 msgid ""
 "<b>\n"
 "<p>Integrity check for packages failed. It seems that installation CD is "
@@ -647,7 +689,7 @@ msgstr ""
 "instalación está dañado.</p>\n"
 "</b>\n"
 
-#: yali/gui/ScrCheckCD.py:103 yali/gui/ScrGoodbye.py:137
+#: yali/gui/ScrCheckCD.py:105 yali/gui/ScrGoodbye.py:139
 msgid "Reboot"
 msgstr "Reboot"
 
@@ -702,7 +744,7 @@ msgstr ""
 "sistema!</font></b>"
 
 # ...y presione el botón Reiniciar
-#: yali/gui/ScrGoodbye.py:131
+#: yali/gui/ScrGoodbye.py:133
 msgid ""
 "<b>\n"
 "<p>Please remove Pardus CD from your drive and pres Reboot button.</p>\n"
@@ -772,12 +814,12 @@ msgstr "Instalando: %s<br>%s"
 msgid "Configuring package: %s"
 msgstr "Configurando paquete: %s"
 
-#: yali/gui/ScrInstall.py:196
+#: yali/gui/ScrInstall.py:194
 msgid "Configuring packages for your system!"
 msgstr "Configurando paquetes para su sistema !"
 
 # cambiar "tiene" por "tenga"
-#: yali/gui/ScrInstall.py:235
+#: yali/gui/ScrInstall.py:232
 #, python-format
 msgid ""
 "An error during the installation of packages occured.\n"
@@ -879,15 +921,15 @@ msgstr ""
 "instalación de Pardus."
 
 # solo un "!"
-#: yali/gui/ScrPartitionAuto.py:132 yali/gui/ScrPartitionManual.py:125
+#: yali/gui/ScrPartitionAuto.py:134 yali/gui/ScrPartitionManual.py:126
 msgid "Please wait while formatting!"
 msgstr "Favor espere durante el formateo !"
 
-#: yali/gui/ScrPartitionAuto.py:135
+#: yali/gui/ScrPartitionAuto.py:137
 msgid "<font color=\"#FF6D19\">Preparing your disk for installation!</font>"
 msgstr "<font color=\"#FF6D19\">Prepando el disco para la instalación !</font>"
 
-#: yali/gui/ScrPartitionAuto.py:203
+#: yali/gui/ScrPartitionAuto.py:205
 msgid ""
 "<b>\n"
 "<p>This action will use your entire disk for Pardus installation and\n"
@@ -906,7 +948,7 @@ msgstr ""
 " una manera fácil y segura para la instalación de Pardus.</p>\n"
 "</b>\n"
 
-#: yali/gui/ScrPartitionAuto.py:216 yali/gui/ScrPartitionManual.py:212
+#: yali/gui/ScrPartitionAuto.py:218 yali/gui/YaliDialog.py:156
 msgid "O.K. Go Ahead"
 msgstr "Bien, Hagámoslo"
 
@@ -992,33 +1034,21 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/ScrPartitionManual.py:162
+#: yali/gui/ScrPartitionManual.py:163
 msgid "Create Partition"
 msgstr "Crear Partición"
 
-#: yali/gui/ScrPartitionManual.py:167
+#: yali/gui/ScrPartitionManual.py:168
 msgid "Delete Partition"
 msgstr "Eliminar Partición"
 
-#: yali/gui/ScrPartitionManual.py:172
+#: yali/gui/ScrPartitionManual.py:173
 msgid "Edit Partition"
 msgstr "Editar Partición"
 
-#: yali/gui/ScrPartitionManual.py:177
+#: yali/gui/ScrPartitionManual.py:178
 msgid "Resize Partition"
 msgstr "Redimensionar Partición"
-
-#: yali/gui/ScrPartitionManual.py:202
-msgid ""
-"<b>\n"
-"<p>This action will start installing Pardus on\n"
-"your system formatting the selected partition.</p>\n"
-"</b>\n"
-msgstr ""
-"<b>\n"
-"<p>Esta acción iniciará la instalación de Pardus en\n"
-"el equipo formateando la partición seleccionada.</p>\n"
-"</b>\n"
 
 # cambiar "i.e" por "ej."
 # ...buscando ofertas del día....
@@ -1063,30 +1093,30 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/ScrUsers.py:128
+#: yali/gui/ScrUsers.py:130
 msgid "<font color=\"#FF6D19\">Don't use your user name as a password.</font>"
 msgstr ""
 "<font color=\"#FF6D19\">No use el nombre de usuario como contraseña !</font>"
 
 # Las contraseñas no coinciden!
-#: yali/gui/ScrUsers.py:138
+#: yali/gui/ScrUsers.py:140
 msgid "<font color=\"#FF6D19\">Password is too short!</font>"
 msgstr "<font color=\"#FF6D19\">La contraseña debe ser más larga !</font>"
 
 # El nombre del usuario ya existe, por favor, (escoja/elija/seleccione/escriba) otro
-#: yali/gui/ScrUsers.py:167
+#: yali/gui/ScrUsers.py:169
 msgid "<font color=\"#FF6D19\">Username exists, choose another one!</font>"
 msgstr ""
 "<font color=\"#FF6D19\">El nombre del usuario ya existe, por favor elija "
 "otro!</font>"
 
-#: yali/gui/ScrUsers.py:171
+#: yali/gui/ScrUsers.py:173
 msgid "<font color=\"#FF6D19\">Username contains invalid characters!</font>"
 msgstr ""
 "<font color=\"#FF6D19\">El nombre de usuario contiene caractéres no válidos!"
 "</font>"
 
-#: yali/gui/ScrUsers.py:175
+#: yali/gui/ScrUsers.py:177
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
 msgstr ""
 "<font color=\"#FF6D19\">Nombre real contiene caractéres no válidos!</font>"
@@ -1149,12 +1179,24 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/YaliDialog.py:95
+#: yali/gui/YaliDialog.py:122
 msgid "Warning"
 msgstr "Alerta"
 
+#: yali/gui/YaliDialog.py:146
+msgid ""
+"<b>\n"
+"<p>This action will start installing Pardus on\n"
+"your system formatting the selected partition.</p>\n"
+"</b>\n"
+msgstr ""
+"<b>\n"
+"<p>Esta acción iniciará la instalación de Pardus en\n"
+"el equipo formateando la partición seleccionada.</p>\n"
+"</b>\n"
+
 # you mean the MS product ? if you wanted to say just "pencereler" the translation should be: "Ventanas"
-#: yali/bootloader.py:164 yali/bootloader.py:169
+#: yali/bootloader.py:171 yali/bootloader.py:176
 msgid "Windows"
 msgstr "Windows"
 
@@ -1352,3 +1394,6 @@ msgstr "Archivos de usuarios"
 #: yali/partitiontype.py:67
 msgid "Swap"
 msgstr "Intercambio (swap)"
+
+#~ msgid "Install to MBR"
+#~ msgstr "Instalar en MBR"

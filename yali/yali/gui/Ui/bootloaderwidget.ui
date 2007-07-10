@@ -150,7 +150,7 @@ your newly installed Pardus.&lt;/p&gt;</string>
                         <cstring>installFirstMBR</cstring>
                     </property>
                     <property name="text">
-                        <string>MBR of the first disk (recomended)</string>
+                        <string>Install to MBR of the Pardus installed disk (recommended)</string>
                     </property>
                 </widget>
                 <widget class="QRadioButton" row="1" column="0">
@@ -158,7 +158,7 @@ your newly installed Pardus.&lt;/p&gt;</string>
                         <cstring>installPart</cstring>
                     </property>
                     <property name="text">
-                        <string>Install to root partition</string>
+                        <string>Install to Pardus installed partition</string>
                     </property>
                 </widget>
                 <widget class="QRadioButton" row="3" column="0">
@@ -166,7 +166,7 @@ your newly installed Pardus.&lt;/p&gt;</string>
                         <cstring>installMBR</cstring>
                     </property>
                     <property name="text">
-                        <string>Install to MBR</string>
+                        <string>Install to MBR of the selected disk belove</string>
                     </property>
                 </widget>
                 <widget class="QLayoutWidget" row="4" column="0">
