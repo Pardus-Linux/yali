@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: it\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-07-11 11:34+0300\n"
-"PO-Revision-Date: 2007-04-25 14:43+0200\n"
+"PO-Revision-Date: 2007-07-11 20:56+0200\n"
 "Last-Translator: Andrea Decorte <adecorte@gmail.com>\n"
 "Language-Team: Italian <pardus-translation-it@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -86,18 +86,16 @@ msgid "Where do you want to install the bootloader?"
 msgstr "Dove desideri installare il bootloader?"
 
 #: yali/gui/Ui/bootloaderwidget.py:103
-#, fuzzy
 msgid "Install to MBR of the Pardus installed disk (recommended)"
-msgstr "MBR del primo disco (raccomandato)"
+msgstr "Installa nell'MBR del disco sul quale è installato Pardus (raccomandato)"
 
 #: yali/gui/Ui/bootloaderwidget.py:104
-#, fuzzy
 msgid "Install to Pardus installed partition"
-msgstr "Installa nella partizione di root"
+msgstr "Installa nella partizione sulla quale è installato Pardus"
 
 #: yali/gui/Ui/bootloaderwidget.py:105
 msgid "Install to MBR of the selected disk belove"
-msgstr ""
+msgstr "Installa nell'MBR del disco selezionato qui sotto"
 
 #: yali/gui/Ui/bootloaderwidget.py:106
 msgid "Select the disk you to install bootloader:"
@@ -144,39 +142,39 @@ msgstr "Prova la tastiera scelta:"
 
 #: yali/gui/Ui/networkwidget.py:121
 msgid "NetworkWidget"
-msgstr ""
+msgstr "Configurazione rete"
 
 #: yali/gui/Ui/networkwidget.py:122
 msgid "<b>Server List</b>"
-msgstr ""
+msgstr "<b>Lista server</b>"
 
 #: yali/gui/Ui/networkwidget.py:123
 msgid "Manuel Configuration"
-msgstr ""
+msgstr "Configurazione manuale"
 
 #: yali/gui/Ui/networkwidget.py:124
 msgid "Add"
-msgstr ""
+msgstr "Aggiungi"
 
 #: yali/gui/Ui/networkwidget.py:125
 msgid "Machine Name"
-msgstr ""
+msgstr "Nome della macchina"
 
 #: yali/gui/Ui/networkwidget.py:126
 msgid "Ip Address"
-msgstr ""
+msgstr "Indirizzo IP"
 
 #: yali/gui/Ui/networkwidget.py:127
 msgid "Subnet Mask"
-msgstr ""
+msgstr "Maschera subnet"
 
 #: yali/gui/Ui/networkwidget.py:128
 msgid "Default Gateway"
-msgstr ""
+msgstr "Gateway predefinito"
 
 #: yali/gui/Ui/networkwidget.py:129
 msgid "Printers"
-msgstr ""
+msgstr "Stampanti"
 
 #: yali/gui/Ui/parteditbuttons.py:47 yali/gui/ScrPartitionAuto.py:215
 #: yali/gui/YaliDialog.py:153
@@ -309,7 +307,7 @@ msgstr "Nome reale:"
 
 #: yali/gui/Ui/setupuserswidget.py:155
 msgid "Give administrator privileges to this user"
-msgstr ""
+msgstr "Concedi i diritti di amministratore a questo utente"
 
 #: yali/gui/Ui/setupuserswidget.py:156 yali/gui/ScrUsers.py:187
 msgid "Create User"
@@ -325,11 +323,11 @@ msgstr "Elimina l'utente selezionato"
 
 #: yali/gui/Ui/setupuserswidget.py:160
 msgid "Auto Login User :"
-msgstr ""
+msgstr "Utente per login automatico :"
 
 #: yali/gui/Ui/setupuserswidget.py:162
 msgid "Auto Login Disabled"
-msgstr ""
+msgstr "Login automatico disattivato"
 
 #: yali/gui/Ui/welcomewidget.py:97
 msgid ""
@@ -359,7 +357,7 @@ msgstr "Non accetto!"
 
 #: yali/gui/debugger.py:25
 msgid "Debug"
-msgstr ""
+msgstr "Debug"
 
 #: yali/gui/GUIBottom.py:102 yali/gui/GUIBottom.py:152
 msgid "Release Notes"
@@ -390,8 +388,7 @@ msgstr "La 'Root di installazione' deve essere di almeno %s MB."
 
 #: yali/gui/PartEditImpl.py:280
 msgid "ntfsresize check failed! Won't proceed action!"
-msgstr ""
-"controllo di ntfsresize fallito! Impossibile portare a termine l'azione!"
+msgstr "controllo di ntfsresize fallito! Impossibile portare a termine l'azione!"
 
 #: yali/gui/PartListImpl.py:87 yali/gui/ScrBootloader.py:68
 #: yali/gui/ScrPartitionAuto.py:68
@@ -876,7 +873,6 @@ msgid "O.K. Go Ahead"
 msgstr "Va bene, prosegui"
 
 #: yali/gui/ScrPartitionManual.py:34
-#, fuzzy
 msgid ""
 "\n"
 "<font size=\"+2\">Partitioning your hard disk</font>\n"
@@ -928,14 +924,13 @@ msgstr ""
 "salvati in precedenza sulle partizioni selezionate.  </b>\n"
 "</p>\n"
 "<p>\n"
-"Per utilizzare Pardus, devi creare obbligatoriamente un filesystem Linux "
-"filesystem\n"
+"Per utilizzare Pardus, devi creare obbligatoriamente un filesystem Linux \n"
 " (per i file di sistema), e una partizione di swap (per migliorare\n"
 "le prestazioni), che è opzionale. Tale spazio variabile\n"
 "viene utilizzato ogni volta che il sistema richiede più\n"
 "memoria ma quella fisica è esaurita.\n"
 "Ti consigliamo di allocare almeno 4 GB di spazio per i file di sistema\n"
-"e tra i 500 MB e i 2 GB, a seconda delle caratteristiche del tuo computer\n"
+"e tra i 500 MB e i 2 GB, a seconda delle caratteristiche del tuo computer,\n"
 "per lo swap. Non viene permesso l'utilizzo di una partizione di Linux\n"
 "di dimensioni inferiori a 3.5 GB.\n"
 "Puoi anche opzionalmente scegliere un'altra partizione del tuo disco dove\n"
@@ -1029,18 +1024,25 @@ msgid ""
 "go to next screen.</p>\n"
 "</b>\n"
 msgstr ""
+"<b>\n"
+"<p>Non hai definito un amministratore!</p>\n"
+"\n"
+"<p>Un utente senza diritti amministrativi non può eseguire compiti di\n"
+"amministrazione del sistema. Sei fortemente incoraggiato a definire un amministratore.</p>\n"
+"\n"
+"<p>Clicca su \"Annulla\" per definire un amministatore (raccomandato) o \"OK\"\n "
+"per andare alla schermata successiva.</p>\n"
+"</b>\n"
 
 #: yali/gui/ScrUsers.py:151
-#, fuzzy
 msgid "<font color=\"#FF6D19\">Don't use your user name as a password.</font>"
 msgstr ""
-"<font color=\"#FF6D19\">Prepazione del tuo disco per l'installazione...</"
+"<font color=\"#FF6D19\">Non utilizzare il tuo nome utente come password.</"
 "font>"
 
 #: yali/gui/ScrUsers.py:161
-#, fuzzy
 msgid "<font color=\"#FF6D19\">Password is too short!</font>"
-msgstr "<font color=\"#FF6D19\">Le password non corrispondono!</font>"
+msgstr "<font color=\"#FF6D19\">La password è troppo breve!</font>"
 
 #: yali/gui/ScrUsers.py:195
 msgid "<font color=\"#FF6D19\">Username exists, choose another one!</font>"
@@ -1050,18 +1052,15 @@ msgstr ""
 
 #: yali/gui/ScrUsers.py:199
 msgid "<font color=\"#FF6D19\">Username contains invalid characters!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Il nome utente contiene caratteri non validi!</font>"
+msgstr "<font color=\"#FF6D19\">Il nome utente contiene caratteri non validi!</font>"
 
 #: yali/gui/ScrUsers.py:203
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Il nome reale contiene caratteri non validi!</font>"
+msgstr "<font color=\"#FF6D19\">Il nome reale contiene caratteri non validi!</font>"
 
 #: yali/gui/ScrUsers.py:258
-#, fuzzy
 msgid "Update User"
-msgstr "Crea utente"
+msgstr "Aggiorna utente"
 
 #: yali/gui/ScrWelcome.py:30
 msgid ""
@@ -1316,11 +1315,3 @@ msgstr "File degli utenti"
 msgid "Swap"
 msgstr "Swap"
 
-#~ msgid "Install to MBR"
-#~ msgstr "Installa nel MBR"
-
-#~ msgid "Show More Options"
-#~ msgstr "Mostra altre opzioni"
-
-#~ msgid "Can't open Release Notes file!"
-#~ msgstr "Impossibile aprire il file delle note di rilascio!"
