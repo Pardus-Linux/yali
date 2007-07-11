@@ -142,7 +142,8 @@ i18n_languages = ["tr",
                   "fr",
                   "de",
                   "pt_BR",
-                  "es"]
+                  "es",
+                  "ca"]
 
 class I18nInstall(install):
     def run(self):
