@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-07-11 11:34+0300\n"
-"PO-Revision-Date: 2007-06-07 19:18-0400\n"
+"PO-Revision-Date: 2007-07-11 19:03-0400\n"
 "Last-Translator: klemens <click3d at linuxmail org>\n"
 "Language-Team: spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -99,19 +99,18 @@ msgid "Where do you want to install the bootloader?"
 msgstr "Donde desea instalar el cargador de arranque?"
 
 #: yali/gui/Ui/bootloaderwidget.py:103
-#, fuzzy
 msgid "Install to MBR of the Pardus installed disk (recommended)"
-msgstr "MBR del primer disco (recomendado)"
+msgstr "Instalar al MBR del disco de la instalación de Pardus (recomendado)"
 
 # cambiar "root" por "raíz (/)"
 #: yali/gui/Ui/bootloaderwidget.py:104
-#, fuzzy
 msgid "Install to Pardus installed partition"
-msgstr "Instalar en partición raíz (/)"
+msgstr "Instalar en partición raíz (/) de Pardus"
 
 #: yali/gui/Ui/bootloaderwidget.py:105
+# when writing the english you seemed very romantic ? ;)
 msgid "Install to MBR of the selected disk belove"
-msgstr ""
+msgstr "Instalar al MBR del disco seleccionado abajo"
 
 # shouldn't it be in english: "Select the disk (you want) to install the bootloader to:"
 # Seleccione el disco donde se instalará el cargador de arranque:
@@ -162,39 +161,39 @@ msgstr "Probar teclado seleccionado:"
 
 #: yali/gui/Ui/networkwidget.py:121
 msgid "NetworkWidget"
-msgstr ""
+msgstr "NetworkWidget"
 
 #: yali/gui/Ui/networkwidget.py:122
 msgid "<b>Server List</b>"
-msgstr ""
+msgstr "<b>Lista de Servidores</b>"
 
 #: yali/gui/Ui/networkwidget.py:123
 msgid "Manuel Configuration"
-msgstr ""
+msgstr "Configuración Manual"
 
 #: yali/gui/Ui/networkwidget.py:124
 msgid "Add"
-msgstr ""
+msgstr "Agregar"
 
 #: yali/gui/Ui/networkwidget.py:125
 msgid "Machine Name"
-msgstr ""
+msgstr "Nombre de la PC"
 
 #: yali/gui/Ui/networkwidget.py:126
 msgid "Ip Address"
-msgstr ""
+msgstr "Dirección IP"
 
 #: yali/gui/Ui/networkwidget.py:127
 msgid "Subnet Mask"
-msgstr ""
+msgstr "Máscara de subred"
 
 #: yali/gui/Ui/networkwidget.py:128
 msgid "Default Gateway"
-msgstr ""
+msgstr "Puerto de enlace por defecto"
 
 #: yali/gui/Ui/networkwidget.py:129
 msgid "Printers"
-msgstr ""
+msgstr "Impresoras"
 
 #: yali/gui/Ui/parteditbuttons.py:47 yali/gui/ScrPartitionAuto.py:215
 #: yali/gui/YaliDialog.py:153
@@ -393,7 +392,7 @@ msgstr "No Acepto!"
 
 #: yali/gui/debugger.py:25
 msgid "Debug"
-msgstr ""
+msgstr "Depurar"
 
 #: yali/gui/GUIBottom.py:102 yali/gui/GUIBottom.py:152
 msgid "Release Notes"
@@ -664,8 +663,7 @@ msgstr "Verificación fallada"
 
 #: yali/gui/ScrCheckCD.py:57
 msgid "<font color=\"#FF6D19\">Please wait while checking CD.</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Favor esperar mientras se verifica el CD.</font>"
+msgstr "<font color=\"#FF6D19\">Favor esperar mientras se verifica el CD.</font>"
 
 # Verificación terminada con éxito.
 # Puede continuar.
@@ -1106,11 +1104,20 @@ msgid ""
 "go to next screen.</p>\n"
 "</b>\n"
 msgstr ""
+"<b>\n"
+"<p>No especificó a un usuario Administrador!</p>\n"
+"\n"
+"<p>Un usuario sin derechos de administración del sistema no puede realizar tareas de mantenimiento \n"
+"del sistema. Por favor define un usuario administrador del sistema.</p>\n"
+"\n"
+"<p>Presione \"Cancelar\" para definir el usuario administrador (recomendado) o \"OK\" "
+" \n"
+"para avanzar a la próxima pantalla.</p>\n"
+"</b>\n"
 
 #: yali/gui/ScrUsers.py:151
 msgid "<font color=\"#FF6D19\">Don't use your user name as a password.</font>"
-msgstr ""
-"<font color=\"#FF6D19\">No use el nombre de usuario como contraseña !</font>"
+msgstr "<font color=\"#FF6D19\">No use el nombre de usuario como contraseña !</font>"
 
 # Las contraseñas no coinciden!
 #: yali/gui/ScrUsers.py:161
@@ -1132,13 +1139,11 @@ msgstr ""
 
 #: yali/gui/ScrUsers.py:203
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Nombre real contiene caractéres no válidos!</font>"
+msgstr "<font color=\"#FF6D19\">Nombre real contiene caractéres no válidos!</font>"
 
 #: yali/gui/ScrUsers.py:258
-#, fuzzy
 msgid "Update User"
-msgstr "Crear Usuario"
+msgstr "Modificar Usuario"
 
 # here i changed the sense of the last sentence to: "enjoy the experience with Pardus"
 # ...adaptadas...
@@ -1414,5 +1419,3 @@ msgstr "Archivos de usuarios"
 msgid "Swap"
 msgstr "Intercambio (swap)"
 
-#~ msgid "Install to MBR"
-#~ msgstr "Instalar en MBR"
