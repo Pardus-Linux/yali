@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yali\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-07-10 22:46+0300\n"
+"POT-Creation-Date: 2007-07-11 11:34+0300\n"
 "PO-Revision-Date: 2007-03-18 14:13+0100\n"
 "Last-Translator: Pau Amaro-Seoane <pau@aei.mpg.de>\n"
 "Language-Team: Catala <pardus-translation-ca@ns1.uludag.org.tr>\n"
@@ -295,25 +295,25 @@ msgstr "Nou usuari:"
 msgid "User Name:"
 msgstr "Nom de l'usuari:"
 
-#: yali/gui/Ui/setupuserswidget.py:152 yali/gui/ScrUsers.py:187
-msgid "Create User"
-msgstr "Crea un usuari"
-
-#: yali/gui/Ui/setupuserswidget.py:153
+#: yali/gui/Ui/setupuserswidget.py:152
 msgid "Password (again):"
 msgstr "Mot de pas (una altra vegada);"
 
-#: yali/gui/Ui/setupuserswidget.py:154
+#: yali/gui/Ui/setupuserswidget.py:153
 msgid "Password:"
 msgstr "Mot de pas:"
 
-#: yali/gui/Ui/setupuserswidget.py:155
+#: yali/gui/Ui/setupuserswidget.py:154
 msgid "Real Name:"
 msgstr "Nom real:"
 
-#: yali/gui/Ui/setupuserswidget.py:156
+#: yali/gui/Ui/setupuserswidget.py:155
 msgid "Give administrator privileges to this user"
 msgstr ""
+
+#: yali/gui/Ui/setupuserswidget.py:156 yali/gui/ScrUsers.py:187
+msgid "Create User"
+msgstr "Crea un usuari"
 
 #: yali/gui/Ui/setupuserswidget.py:158
 msgid "Users:"
@@ -345,7 +345,7 @@ msgstr ""
 msgid "Read GPL"
 msgstr "Llegeix la llicència GPL"
 
-#: yali/gui/Ui/welcomewidget.py:99 yali/gui/runner.py:168
+#: yali/gui/Ui/welcomewidget.py:99 yali/gui/runner.py:169
 msgid "Reboot System!"
 msgstr "Reengega el sistema!"
 
@@ -357,7 +357,7 @@ msgstr "Accepta!"
 msgid "Don't Accept!"
 msgstr "No acceptes!"
 
-#: yali/gui/debugger.py:24
+#: yali/gui/debugger.py:25
 msgid "Debug"
 msgstr ""
 
@@ -448,11 +448,11 @@ msgstr "Instal·lació del sistema"
 msgid "Basic setup"
 msgstr "Arranjament bàsic"
 
-#: yali/gui/runner.py:133
+#: yali/gui/runner.py:134
 msgid "Error!"
 msgstr ""
 
-#: yali/gui/runner.py:163
+#: yali/gui/runner.py:164
 #, fuzzy
 msgid "Unhandled error occured!"
 msgstr "Hi ha hagut un error!"

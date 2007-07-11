@@ -10,10 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-07-10 22:46+0300\n"
+"POT-Creation-Date: 2007-07-11 11:34+0300\n"
 "PO-Revision-Date: 2007-07-10 22:35+0200\n"
 "Last-Translator: W.P.M.H.I.A. Gielen <w.gielen@gmail.com>\n"
-"Language-Team: Nederlands <http://liste.pardus.org.tr/pardus-translation-nl/>\n"
+"Language-Team: Nederlands <http://liste.pardus.org.tr/pardus-translation-nl/"
+">\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -61,7 +62,8 @@ msgstr "Nee, ik wil mijn schijf handmatig partitioneren."
 
 #: yali/gui/Ui/autopartwidget.py:95
 msgid "Yes, automatically partition and format selected disk!"
-msgstr "Ja, automatisch partitioneren en formatteren van de geselecteerde schijf!"
+msgstr ""
+"Ja, automatisch partitioneren en formatteren van de geselecteerde schijf!"
 
 #: yali/gui/Ui/bootloaderwidget.py:96
 msgid ""
@@ -297,25 +299,25 @@ msgstr "Nieuwe gebruiker:"
 msgid "User Name:"
 msgstr "Gebruikersnaam:"
 
-#: yali/gui/Ui/setupuserswidget.py:152 yali/gui/ScrUsers.py:187
-msgid "Create User"
-msgstr "Maak gebruiker"
-
-#: yali/gui/Ui/setupuserswidget.py:153
+#: yali/gui/Ui/setupuserswidget.py:152
 msgid "Password (again):"
 msgstr "Wachtwoord (nogmaals):"
 
-#: yali/gui/Ui/setupuserswidget.py:154
+#: yali/gui/Ui/setupuserswidget.py:153
 msgid "Password:"
 msgstr "Wachtwoord:"
 
-#: yali/gui/Ui/setupuserswidget.py:155
+#: yali/gui/Ui/setupuserswidget.py:154
 msgid "Real Name:"
 msgstr "Echte naam:"
 
-#: yali/gui/Ui/setupuserswidget.py:156
+#: yali/gui/Ui/setupuserswidget.py:155
 msgid "Give administrator privileges to this user"
 msgstr "Geef administror rechten aan deze gebruiker"
+
+#: yali/gui/Ui/setupuserswidget.py:156 yali/gui/ScrUsers.py:187
+msgid "Create User"
+msgstr "Maak gebruiker"
 
 #: yali/gui/Ui/setupuserswidget.py:158
 msgid "Users:"
@@ -347,7 +349,7 @@ msgstr ""
 msgid "Read GPL"
 msgstr "Lees de GPL"
 
-#: yali/gui/Ui/welcomewidget.py:99 yali/gui/runner.py:168
+#: yali/gui/Ui/welcomewidget.py:99 yali/gui/runner.py:169
 msgid "Reboot System!"
 msgstr "Herstart systeem!"
 
@@ -359,7 +361,7 @@ msgstr "Accepteren!"
 msgid "Don't Accept!"
 msgstr "Verwerpen!"
 
-#: yali/gui/debugger.py:24
+#: yali/gui/debugger.py:25
 msgid "Debug"
 msgstr "Debug"
 
@@ -450,11 +452,11 @@ msgstr "Systeem installeren"
 msgid "Basic setup"
 msgstr "Basisopzet"
 
-#: yali/gui/runner.py:133
+#: yali/gui/runner.py:134
 msgid "Error!"
 msgstr "Fout!"
 
-#: yali/gui/runner.py:163
+#: yali/gui/runner.py:164
 msgid "Unhandled error occured!"
 msgstr "Fout opgetreden!"
 
@@ -524,7 +526,8 @@ msgstr "<font color=\"#FF6D19\">De wachtwoorden komen niet overeen!</font>"
 
 #: yali/gui/ScrAdmin.py:132
 msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
-msgstr "<font color=\"#FF6D19\">De hostnaam bevat niet toegestane tekens!</font>"
+msgstr ""
+"<font color=\"#FF6D19\">De hostnaam bevat niet toegestane tekens!</font>"
 
 #: yali/gui/ScrBootloader.py:35
 msgid ""
@@ -827,7 +830,8 @@ msgstr ""
 msgid ""
 "It seems that you don't have the required disk space (min. %s) for Pardus "
 "installation."
-msgstr "U heeft niet voldoende schijfruimte (min. %s) on Pardus te installeren."
+msgstr ""
+"U heeft niet voldoende schijfruimte (min. %s) on Pardus te installeren."
 
 #: yali/gui/ScrPartitionAuto.py:134 yali/gui/ScrPartitionManual.py:126
 msgid "Please wait while formatting!"
@@ -835,7 +839,8 @@ msgstr "Ogenblik geduld tijdens het formatteren!"
 
 #: yali/gui/ScrPartitionAuto.py:137
 msgid "<font color=\"#FF6D19\">Preparing your disk for installation!</font>"
-msgstr "<font color=\"#FF6D19\">Uw schijf wordt voorbereidt voor installatie.</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Uw schijf wordt voorbereidt voor installatie.</font>"
 
 #: yali/gui/ScrPartitionAuto.py:205
 msgid ""
@@ -1014,17 +1019,20 @@ msgstr ""
 "<b>\n"
 "<p>U heeft geen administrator benoemd!</p>\n"
 "\n"
-"<p>Een gebruiker zonder administratieve rechten kan geen systeemonderhoud doen \n"
+"<p>Een gebruiker zonder administratieve rechten kan geen systeemonderhoud "
+"doen \n"
 "U wordt ten stelligste aangeraden een administrator te benoemen.</p>\n"
 "\n"
-"<p>Klik \"Annuleer\" om een administrator te benoemen (aangeraden) of \"OK\" \n"
+"<p>Klik \"Annuleer\" om een administrator te benoemen (aangeraden) of \"OK"
+"\" \n"
 "om\n"
 "naar het volgende scherm te gaan.</p>\n"
 "</b>\n"
 
 #: yali/gui/ScrUsers.py:151
 msgid "<font color=\"#FF6D19\">Don't use your user name as a password.</font>"
-msgstr "<font color=\"#FF6D19\">Gebruik uw gebruikersnaam niet als wachtwoord.</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Gebruik uw gebruikersnaam niet als wachtwoord.</font>"
 
 #: yali/gui/ScrUsers.py:161
 msgid "<font color=\"#FF6D19\">Password is too short!</font>"
@@ -1044,7 +1052,8 @@ msgstr ""
 
 #: yali/gui/ScrUsers.py:203
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
-msgstr "<font color=\"#FF6D19\">Uw echte naam bevat niet toegestane tekens.</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Uw echte naam bevat niet toegestane tekens.</font>"
 
 #: yali/gui/ScrUsers.py:258
 msgid "Update User"
@@ -1300,4 +1309,3 @@ msgstr "Gebruikersbestanden"
 #: yali/partitiontype.py:67
 msgid "Swap"
 msgstr "Swap"
-

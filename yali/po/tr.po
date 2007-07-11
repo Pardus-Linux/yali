@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-07-10 22:46+0300\n"
+"POT-Creation-Date: 2007-07-11 11:34+0300\n"
 "PO-Revision-Date: 2006-12-08 23:32+0200\n"
 "Last-Translator: Barış Metin <baris@pardus.org.tr>\n"
 "Language-Team:  <tr@li.org>\n"
@@ -290,25 +290,25 @@ msgstr "Yeni Kullanıcı"
 msgid "User Name:"
 msgstr "Kullanıcı Adı:"
 
-#: yali/gui/Ui/setupuserswidget.py:152 yali/gui/ScrUsers.py:187
-msgid "Create User"
-msgstr "Kullanıcı Ekle"
-
-#: yali/gui/Ui/setupuserswidget.py:153
+#: yali/gui/Ui/setupuserswidget.py:152
 msgid "Password (again):"
 msgstr "Parola (tekrar):"
 
-#: yali/gui/Ui/setupuserswidget.py:154
+#: yali/gui/Ui/setupuserswidget.py:153
 msgid "Password:"
 msgstr "Parola:"
 
-#: yali/gui/Ui/setupuserswidget.py:155
+#: yali/gui/Ui/setupuserswidget.py:154
 msgid "Real Name:"
 msgstr "Gerçek İsim:"
 
-#: yali/gui/Ui/setupuserswidget.py:156
+#: yali/gui/Ui/setupuserswidget.py:155
 msgid "Give administrator privileges to this user"
 msgstr "Bu kullanıcıya yönetici hakları ver"
+
+#: yali/gui/Ui/setupuserswidget.py:156 yali/gui/ScrUsers.py:187
+msgid "Create User"
+msgstr "Kullanıcı Ekle"
 
 #: yali/gui/Ui/setupuserswidget.py:158
 msgid "Users:"
@@ -341,7 +341,7 @@ msgstr ""
 msgid "Read GPL"
 msgstr "GPL Metnini Oku"
 
-#: yali/gui/Ui/welcomewidget.py:99 yali/gui/runner.py:168
+#: yali/gui/Ui/welcomewidget.py:99 yali/gui/runner.py:169
 msgid "Reboot System!"
 msgstr "Sistemi Yeniden Başlat!"
 
@@ -353,7 +353,7 @@ msgstr "Kabul Ediyorum!"
 msgid "Don't Accept!"
 msgstr "Hayır, Kabul Etmiyorum!"
 
-#: yali/gui/debugger.py:24
+#: yali/gui/debugger.py:25
 msgid "Debug"
 msgstr ""
 
@@ -445,11 +445,11 @@ msgstr "Sistem kurulumu"
 msgid "Basic setup"
 msgstr "Temel yapılandırma"
 
-#: yali/gui/runner.py:133
+#: yali/gui/runner.py:134
 msgid "Error!"
 msgstr "Hata!"
 
-#: yali/gui/runner.py:163
+#: yali/gui/runner.py:164
 msgid "Unhandled error occured!"
 msgstr "Bir hata oluştu!"
 
@@ -1022,7 +1022,7 @@ msgstr ""
 "\n"
 "<p>Yönetici haklarına sahip olmayan bir kullanıcı ile sistem yönetim "
 "görevlerini gerçekleştiremezsiniz. Yönetici haklarına sahip bir kullanıcı "
-"yaratmanız şiddetletavsiye edilir.</p>\n"
+"yaratmanız şiddetle tavsiye edilir.</p>\n"
 "<p>Bir yönetici tanımlamak için (önerilen) \"İptal\"'e, devam etmek için "
 "\"Tamam\"'a basın.</p>\n"
 "</b>\n"

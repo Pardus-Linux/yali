@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-07-10 22:46+0300\n"
+"POT-Creation-Date: 2007-07-11 11:34+0300\n"
 "PO-Revision-Date: 2007-07-10 22:50+0300\n"
 "Last-Translator: Mustafa Muhammed Ölcerman\n"
 "Language-Team: Deutsch <pardus-translation-de@pardus.org.tr>\n"
@@ -90,11 +90,14 @@ msgstr "Wohin möchten Sie den Boot-Loader installieren?"
 
 #: yali/gui/Ui/bootloaderwidget.py:103
 msgid "Install to MBR of the Pardus installed disk (recommended)"
-msgstr "In den MBR der Platte, auf der Pardus installiert ist, installieren (empfohlen)"
+msgstr ""
+"In den MBR der Platte, auf der Pardus installiert ist, installieren "
+"(empfohlen)"
 
 #: yali/gui/Ui/bootloaderwidget.py:104
 msgid "Install to Pardus installed partition"
-msgstr "Auf die Partition, auf der Pardus installiert werden soll, installieren"
+msgstr ""
+"Auf die Partition, auf der Pardus installiert werden soll, installieren"
 
 #: yali/gui/Ui/bootloaderwidget.py:105
 msgid "Install to MBR of the selected disk belove"
@@ -299,25 +302,25 @@ msgstr "Neuer Benutzer"
 msgid "User Name:"
 msgstr "Benutzername:"
 
-#: yali/gui/Ui/setupuserswidget.py:152 yali/gui/ScrUsers.py:187
-msgid "Create User"
-msgstr "Benutzer anlegen"
-
-#: yali/gui/Ui/setupuserswidget.py:153
+#: yali/gui/Ui/setupuserswidget.py:152
 msgid "Password (again):"
 msgstr "Passwort (wiederholen):"
 
-#: yali/gui/Ui/setupuserswidget.py:154
+#: yali/gui/Ui/setupuserswidget.py:153
 msgid "Password:"
 msgstr "Passwort:"
 
-#: yali/gui/Ui/setupuserswidget.py:155
+#: yali/gui/Ui/setupuserswidget.py:154
 msgid "Real Name:"
 msgstr "Vollständiger Name:"
 
-#: yali/gui/Ui/setupuserswidget.py:156
+#: yali/gui/Ui/setupuserswidget.py:155
 msgid "Give administrator privileges to this user"
 msgstr "Diesen Benutzer Administrator-Rechte geben"
+
+#: yali/gui/Ui/setupuserswidget.py:156 yali/gui/ScrUsers.py:187
+msgid "Create User"
+msgstr "Benutzer anlegen"
 
 #: yali/gui/Ui/setupuserswidget.py:158
 msgid "Users:"
@@ -350,7 +353,7 @@ msgstr ""
 msgid "Read GPL"
 msgstr "Die GPL lesen"
 
-#: yali/gui/Ui/welcomewidget.py:99 yali/gui/runner.py:168
+#: yali/gui/Ui/welcomewidget.py:99 yali/gui/runner.py:169
 msgid "Reboot System!"
 msgstr "System neustarten"
 
@@ -362,7 +365,7 @@ msgstr "Ich bin damit einverstanden."
 msgid "Don't Accept!"
 msgstr "Ich bin damit nicht einverstanden."
 
-#: yali/gui/debugger.py:24
+#: yali/gui/debugger.py:25
 msgid "Debug"
 msgstr ""
 
@@ -455,11 +458,11 @@ msgstr "System-Installation"
 msgid "Basic setup"
 msgstr "Grundeinstellungen"
 
-#: yali/gui/runner.py:133
+#: yali/gui/runner.py:134
 msgid "Error!"
 msgstr "Fehler!"
 
-#: yali/gui/runner.py:163
+#: yali/gui/runner.py:164
 msgid "Unhandled error occured!"
 msgstr "Es ist ein ungehandhabtes Fehler aufgetreten!"
 
@@ -529,7 +532,8 @@ msgstr "<font color=\"#FF6D19\">Passwörter stimmen nicht überein!</font>"
 
 #: yali/gui/ScrAdmin.py:132
 msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
-msgstr "<font color=\"#FF6D19\">Der Hostname enthält unzulässige Zeichen!</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Der Hostname enthält unzulässige Zeichen!</font>"
 
 #: yali/gui/ScrBootloader.py:35
 msgid ""
@@ -1315,4 +1319,3 @@ msgstr "Persönliche Dateien"
 #: yali/partitiontype.py:67
 msgid "Swap"
 msgstr "SWAP"
-
