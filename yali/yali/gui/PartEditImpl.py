@@ -87,6 +87,12 @@ class PartEdit(QWidget):
         # Hacky: show only one widget for an action.
         self.warning.hide()
         self.edit.hide()
+
+        state_ = True
+        if self.edit.countOfTypes == 3:
+            state_ = False
+        self.buttons.applyButton.setEnabled(state_)
+
         self.show()
 
         t = self._d.getType()
@@ -156,7 +162,6 @@ class PartEdit(QWidget):
                 return parttype.home
             elif self.edit.swap.isChecked():
                 return parttype.swap
-
             else:
                 self.warning.setText(
                     _("You must select a partition type from the list below."))
@@ -304,7 +309,7 @@ class PartEdit(QWidget):
 class PartEditWidgetImpl(PartEditWidget):
     def __init__(self, *args):
         apply(PartEditWidget.__init__, (self,) + args)
-
+        self.countOfTypes = 0
         self.connect(self.root, SIGNAL("toggled(bool)"),
                      self.slotRootToggled)
 
@@ -337,8 +342,10 @@ class PartEditWidgetImpl(PartEditWidget):
                 if pt == ptype:
                     if partition and part == partition:
                         item.setOn(True)
+                        self.countOfTypes-=1
                     else:
                         item.setEnabled(False)
+                        self.countOfTypes+=1
 
         # State specific jobs.
         if state == editState:
