@@ -120,6 +120,7 @@ go to next screen.</p>
             self.dialog = WarningDialog(w, self)
             if not self.dialog.exec_loop():
                 ctx.screens.enablePrev()
+                ctx.screens.enableNext()
                 return False
 
         # reset and fill pending_users
