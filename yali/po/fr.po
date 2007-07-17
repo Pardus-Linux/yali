@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-07-11 11:34+0300\n"
+"POT-Creation-Date: 2007-07-17 10:59+0300\n"
 "PO-Revision-Date: 2007-07-10 22:57+0200\n"
 "Last-Translator: Amine Chadly <amine.chadly@gmail.com>\n"
 "Language-Team: french <pardus-translators@pardus.org.tr>\n"
@@ -142,42 +142,6 @@ msgstr "Sélectionnez la disposition du clavier de votre choix."
 #: yali/gui/Ui/keyboardwidget.py:69
 msgid "Test selected keyboard:"
 msgstr "Tester la disposition du clavier :"
-
-#: yali/gui/Ui/networkwidget.py:121
-msgid "NetworkWidget"
-msgstr "WidgetRéseau"
-
-#: yali/gui/Ui/networkwidget.py:122
-msgid "<b>Server List</b>"
-msgstr "<b>Liste des serveurs</b>"
-
-#: yali/gui/Ui/networkwidget.py:123
-msgid "Manuel Configuration"
-msgstr "Configuration manuelle"
-
-#: yali/gui/Ui/networkwidget.py:124
-msgid "Add"
-msgstr "Ajouter"
-
-#: yali/gui/Ui/networkwidget.py:125
-msgid "Machine Name"
-msgstr "Nom de machine"
-
-#: yali/gui/Ui/networkwidget.py:126
-msgid "Ip Address"
-msgstr "Adresse IP"
-
-#: yali/gui/Ui/networkwidget.py:127
-msgid "Subnet Mask"
-msgstr "Masque de sous-réseau"
-
-#: yali/gui/Ui/networkwidget.py:128
-msgid "Default Gateway"
-msgstr "Passerelle par défaut"
-
-#: yali/gui/Ui/networkwidget.py:129
-msgid "Printers"
-msgstr "Imprimantes"
 
 #: yali/gui/Ui/parteditbuttons.py:47 yali/gui/ScrPartitionAuto.py:215
 #: yali/gui/YaliDialog.py:153
@@ -1302,9 +1266,14 @@ msgstr "Ukrainien"
 msgid "Vietnamese"
 msgstr "Vietnamien"
 
-#: yali/localedata.py:394 yali/localedata.py:395
+#: yali/localedata.py:394
 msgid "Welsh"
 msgstr "Gallois"
+
+#: yali/localedata.py:395
+#, fuzzy
+msgid "English (GB)"
+msgstr "Anglais"
 
 #: yali/partition.py:35
 msgid "unknown"
@@ -1325,3 +1294,30 @@ msgstr "fichiers utilisateurs"
 #: yali/partitiontype.py:67
 msgid "Swap"
 msgstr "Swap"
+
+#~ msgid "NetworkWidget"
+#~ msgstr "WidgetRéseau"
+
+#~ msgid "<b>Server List</b>"
+#~ msgstr "<b>Liste des serveurs</b>"
+
+#~ msgid "Manuel Configuration"
+#~ msgstr "Configuration manuelle"
+
+#~ msgid "Add"
+#~ msgstr "Ajouter"
+
+#~ msgid "Machine Name"
+#~ msgstr "Nom de machine"
+
+#~ msgid "Ip Address"
+#~ msgstr "Adresse IP"
+
+#~ msgid "Subnet Mask"
+#~ msgstr "Masque de sous-réseau"
+
+#~ msgid "Default Gateway"
+#~ msgstr "Passerelle par défaut"
+
+#~ msgid "Printers"
+#~ msgstr "Imprimantes"

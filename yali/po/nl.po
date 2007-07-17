@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-07-11 11:34+0300\n"
+"POT-Creation-Date: 2007-07-17 10:59+0300\n"
 "PO-Revision-Date: 2007-07-10 22:35+0200\n"
 "Last-Translator: W.P.M.H.I.A. Gielen <w.gielen@gmail.com>\n"
 "Language-Team: Nederlands <http://liste.pardus.org.tr/pardus-translation-nl/"
@@ -145,42 +145,6 @@ msgstr "Selecteer uw toetenbordindeling."
 #: yali/gui/Ui/keyboardwidget.py:69
 msgid "Test selected keyboard:"
 msgstr "Test geselecteerd toetsenbord:"
-
-#: yali/gui/Ui/networkwidget.py:121
-msgid "NetworkWidget"
-msgstr "NetwerkWidget"
-
-#: yali/gui/Ui/networkwidget.py:122
-msgid "<b>Server List</b>"
-msgstr "<b>Serverlijst</b>"
-
-#: yali/gui/Ui/networkwidget.py:123
-msgid "Manuel Configuration"
-msgstr "Handmatige configuratie"
-
-#: yali/gui/Ui/networkwidget.py:124
-msgid "Add"
-msgstr "Toevoegen"
-
-#: yali/gui/Ui/networkwidget.py:125
-msgid "Machine Name"
-msgstr "Naam machine"
-
-#: yali/gui/Ui/networkwidget.py:126
-msgid "Ip Address"
-msgstr "IP adres"
-
-#: yali/gui/Ui/networkwidget.py:127
-msgid "Subnet Mask"
-msgstr "Subnet masker"
-
-#: yali/gui/Ui/networkwidget.py:128
-msgid "Default Gateway"
-msgstr "Standaard gateway"
-
-#: yali/gui/Ui/networkwidget.py:129
-msgid "Printers"
-msgstr "Printers"
 
 #: yali/gui/Ui/parteditbuttons.py:47 yali/gui/ScrPartitionAuto.py:215
 #: yali/gui/YaliDialog.py:153
@@ -1286,9 +1250,14 @@ msgstr "Oekraïens"
 msgid "Vietnamese"
 msgstr "Vietnamees"
 
-#: yali/localedata.py:394 yali/localedata.py:395
+#: yali/localedata.py:394
 msgid "Welsh"
 msgstr "Wales"
+
+#: yali/localedata.py:395
+#, fuzzy
+msgid "English (GB)"
+msgstr "Engels"
 
 #: yali/partition.py:35
 msgid "unknown"
@@ -1309,3 +1278,30 @@ msgstr "Gebruikersbestanden"
 #: yali/partitiontype.py:67
 msgid "Swap"
 msgstr "Swap"
+
+#~ msgid "NetworkWidget"
+#~ msgstr "NetwerkWidget"
+
+#~ msgid "<b>Server List</b>"
+#~ msgstr "<b>Serverlijst</b>"
+
+#~ msgid "Manuel Configuration"
+#~ msgstr "Handmatige configuratie"
+
+#~ msgid "Add"
+#~ msgstr "Toevoegen"
+
+#~ msgid "Machine Name"
+#~ msgstr "Naam machine"
+
+#~ msgid "Ip Address"
+#~ msgstr "IP adres"
+
+#~ msgid "Subnet Mask"
+#~ msgstr "Subnet masker"
+
+#~ msgid "Default Gateway"
+#~ msgstr "Standaard gateway"
+
+#~ msgid "Printers"
+#~ msgstr "Printers"

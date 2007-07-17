@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: it\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-07-11 11:34+0300\n"
+"POT-Creation-Date: 2007-07-17 10:59+0300\n"
 "PO-Revision-Date: 2007-07-11 20:56+0200\n"
 "Last-Translator: Andrea Decorte <adecorte@gmail.com>\n"
 "Language-Team: Italian <pardus-translation-it@pardus.org.tr>\n"
@@ -87,7 +87,8 @@ msgstr "Dove desideri installare il bootloader?"
 
 #: yali/gui/Ui/bootloaderwidget.py:103
 msgid "Install to MBR of the Pardus installed disk (recommended)"
-msgstr "Installa nell'MBR del disco sul quale è installato Pardus (raccomandato)"
+msgstr ""
+"Installa nell'MBR del disco sul quale è installato Pardus (raccomandato)"
 
 #: yali/gui/Ui/bootloaderwidget.py:104
 msgid "Install to Pardus installed partition"
@@ -139,42 +140,6 @@ msgstr "Scegli il layout della tastiera che desideri."
 #: yali/gui/Ui/keyboardwidget.py:69
 msgid "Test selected keyboard:"
 msgstr "Prova la tastiera scelta:"
-
-#: yali/gui/Ui/networkwidget.py:121
-msgid "NetworkWidget"
-msgstr "Configurazione rete"
-
-#: yali/gui/Ui/networkwidget.py:122
-msgid "<b>Server List</b>"
-msgstr "<b>Lista server</b>"
-
-#: yali/gui/Ui/networkwidget.py:123
-msgid "Manuel Configuration"
-msgstr "Configurazione manuale"
-
-#: yali/gui/Ui/networkwidget.py:124
-msgid "Add"
-msgstr "Aggiungi"
-
-#: yali/gui/Ui/networkwidget.py:125
-msgid "Machine Name"
-msgstr "Nome della macchina"
-
-#: yali/gui/Ui/networkwidget.py:126
-msgid "Ip Address"
-msgstr "Indirizzo IP"
-
-#: yali/gui/Ui/networkwidget.py:127
-msgid "Subnet Mask"
-msgstr "Maschera subnet"
-
-#: yali/gui/Ui/networkwidget.py:128
-msgid "Default Gateway"
-msgstr "Gateway predefinito"
-
-#: yali/gui/Ui/networkwidget.py:129
-msgid "Printers"
-msgstr "Stampanti"
 
 #: yali/gui/Ui/parteditbuttons.py:47 yali/gui/ScrPartitionAuto.py:215
 #: yali/gui/YaliDialog.py:153
@@ -388,7 +353,8 @@ msgstr "La 'Root di installazione' deve essere di almeno %s MB."
 
 #: yali/gui/PartEditImpl.py:280
 msgid "ntfsresize check failed! Won't proceed action!"
-msgstr "controllo di ntfsresize fallito! Impossibile portare a termine l'azione!"
+msgstr ""
+"controllo di ntfsresize fallito! Impossibile portare a termine l'azione!"
 
 #: yali/gui/PartListImpl.py:87 yali/gui/ScrBootloader.py:68
 #: yali/gui/ScrPartitionAuto.py:68
@@ -1028,10 +994,12 @@ msgstr ""
 "<p>Non hai definito un amministratore!</p>\n"
 "\n"
 "<p>Un utente senza diritti amministrativi non può eseguire compiti di\n"
-"amministrazione del sistema. Sei fortemente incoraggiato a definire un amministratore.</p>\n"
+"amministrazione del sistema. Sei fortemente incoraggiato a definire un "
+"amministratore.</p>\n"
 "\n"
-"<p>Clicca su \"Annulla\" per definire un amministatore (raccomandato) o \"OK\"\n "
-"per andare alla schermata successiva.</p>\n"
+"<p>Clicca su \"Annulla\" per definire un amministatore (raccomandato) o \"OK"
+"\"\n"
+" per andare alla schermata successiva.</p>\n"
 "</b>\n"
 
 #: yali/gui/ScrUsers.py:151
@@ -1052,11 +1020,13 @@ msgstr ""
 
 #: yali/gui/ScrUsers.py:199
 msgid "<font color=\"#FF6D19\">Username contains invalid characters!</font>"
-msgstr "<font color=\"#FF6D19\">Il nome utente contiene caratteri non validi!</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Il nome utente contiene caratteri non validi!</font>"
 
 #: yali/gui/ScrUsers.py:203
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
-msgstr "<font color=\"#FF6D19\">Il nome reale contiene caratteri non validi!</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Il nome reale contiene caratteri non validi!</font>"
 
 #: yali/gui/ScrUsers.py:258
 msgid "Update User"
@@ -1291,9 +1261,14 @@ msgstr "Ucraino"
 msgid "Vietnamese"
 msgstr "Vietnamita"
 
-#: yali/localedata.py:394 yali/localedata.py:395
+#: yali/localedata.py:394
 msgid "Welsh"
 msgstr "Gallese"
+
+#: yali/localedata.py:395
+#, fuzzy
+msgid "English (GB)"
+msgstr "Inglese"
 
 #: yali/partition.py:35
 msgid "unknown"
@@ -1315,3 +1290,29 @@ msgstr "File degli utenti"
 msgid "Swap"
 msgstr "Swap"
 
+#~ msgid "NetworkWidget"
+#~ msgstr "Configurazione rete"
+
+#~ msgid "<b>Server List</b>"
+#~ msgstr "<b>Lista server</b>"
+
+#~ msgid "Manuel Configuration"
+#~ msgstr "Configurazione manuale"
+
+#~ msgid "Add"
+#~ msgstr "Aggiungi"
+
+#~ msgid "Machine Name"
+#~ msgstr "Nome della macchina"
+
+#~ msgid "Ip Address"
+#~ msgstr "Indirizzo IP"
+
+#~ msgid "Subnet Mask"
+#~ msgstr "Maschera subnet"
+
+#~ msgid "Default Gateway"
+#~ msgstr "Gateway predefinito"
+
+#~ msgid "Printers"
+#~ msgstr "Stampanti"

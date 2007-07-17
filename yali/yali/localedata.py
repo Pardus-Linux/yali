@@ -392,7 +392,7 @@ locales = {
     "cy" : {
         "isSupported" : False,
         "name" : _("Welsh"),
-        "keymap" : Keymap("uk", "gb", _("Welsh")),
+        "keymap" : Keymap("uk", "gb", _("English (GB)")),
         "locale" : "cy_GB.UTF-8",
         "consolefont" : None,
         "consoletranslation" : None

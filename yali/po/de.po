@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-07-11 11:34+0300\n"
+"POT-Creation-Date: 2007-07-17 10:59+0300\n"
 "PO-Revision-Date: 2007-07-10 22:50+0300\n"
 "Last-Translator: Mustafa Muhammed Ölcerman\n"
 "Language-Team: Deutsch <pardus-translation-de@pardus.org.tr>\n"
@@ -147,42 +147,6 @@ msgstr "Wählen Sie die Tastaturbelegung aus."
 #: yali/gui/Ui/keyboardwidget.py:69
 msgid "Test selected keyboard:"
 msgstr "Testen Sie die gewählte Tastatur:"
-
-#: yali/gui/Ui/networkwidget.py:121
-msgid "NetworkWidget"
-msgstr ""
-
-#: yali/gui/Ui/networkwidget.py:122
-msgid "<b>Server List</b>"
-msgstr "<b>Server-Liste</b>"
-
-#: yali/gui/Ui/networkwidget.py:123
-msgid "Manuel Configuration"
-msgstr "Manuelle Konfiguration"
-
-#: yali/gui/Ui/networkwidget.py:124
-msgid "Add"
-msgstr "Hinzufügen"
-
-#: yali/gui/Ui/networkwidget.py:125
-msgid "Machine Name"
-msgstr "Computername"
-
-#: yali/gui/Ui/networkwidget.py:126
-msgid "Ip Address"
-msgstr "IP-Adresse"
-
-#: yali/gui/Ui/networkwidget.py:127
-msgid "Subnet Mask"
-msgstr "Subnetzmaske"
-
-#: yali/gui/Ui/networkwidget.py:128
-msgid "Default Gateway"
-msgstr "Standard Gateway"
-
-#: yali/gui/Ui/networkwidget.py:129
-msgid "Printers"
-msgstr "Drucker"
 
 #: yali/gui/Ui/parteditbuttons.py:47 yali/gui/ScrPartitionAuto.py:215
 #: yali/gui/YaliDialog.py:153
@@ -1296,9 +1260,14 @@ msgstr "Ukrainisch"
 msgid "Vietnamese"
 msgstr "Vietnamesisch"
 
-#: yali/localedata.py:394 yali/localedata.py:395
+#: yali/localedata.py:394
 msgid "Welsh"
 msgstr "Walisisch"
+
+#: yali/localedata.py:395
+#, fuzzy
+msgid "English (GB)"
+msgstr "Englisch"
 
 #: yali/partition.py:35
 msgid "unknown"
@@ -1319,3 +1288,27 @@ msgstr "Persönliche Dateien"
 #: yali/partitiontype.py:67
 msgid "Swap"
 msgstr "SWAP"
+
+#~ msgid "<b>Server List</b>"
+#~ msgstr "<b>Server-Liste</b>"
+
+#~ msgid "Manuel Configuration"
+#~ msgstr "Manuelle Konfiguration"
+
+#~ msgid "Add"
+#~ msgstr "Hinzufügen"
+
+#~ msgid "Machine Name"
+#~ msgstr "Computername"
+
+#~ msgid "Ip Address"
+#~ msgstr "IP-Adresse"
+
+#~ msgid "Subnet Mask"
+#~ msgstr "Subnetzmaske"
+
+#~ msgid "Default Gateway"
+#~ msgstr "Standard Gateway"
+
+#~ msgid "Printers"
+#~ msgstr "Drucker"

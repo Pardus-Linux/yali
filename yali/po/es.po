@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-07-11 11:34+0300\n"
+"POT-Creation-Date: 2007-07-17 11:02+0300\n"
 "PO-Revision-Date: 2007-07-15 19:25-0400\n"
 "Last-Translator: \n"
 "Language-Team:  <es@li.org>\n"
@@ -106,8 +106,8 @@ msgstr "Instalar al MBR del disco de la instalación de Pardus (recomendado)"
 msgid "Install to Pardus installed partition"
 msgstr "Instalar en partición raíz (/) de Pardus"
 
-#: yali/gui/Ui/bootloaderwidget.py:105
 # when writing the english you seemed very romantic ? ;)
+#: yali/gui/Ui/bootloaderwidget.py:105
 msgid "Install to MBR of the selected disk belove"
 msgstr "Instalar al MBR del disco seleccionado abajo"
 
@@ -157,42 +157,6 @@ msgstr "Seleccione la distribución de su teclado."
 #: yali/gui/Ui/keyboardwidget.py:69
 msgid "Test selected keyboard:"
 msgstr "Probar teclado seleccionado:"
-
-#: yali/gui/Ui/networkwidget.py:121
-msgid "NetworkWidget"
-msgstr "NetworkWidget"
-
-#: yali/gui/Ui/networkwidget.py:122
-msgid "<b>Server List</b>"
-msgstr "<b>Lista de Servidores</b>"
-
-#: yali/gui/Ui/networkwidget.py:123
-msgid "Manuel Configuration"
-msgstr "Configuración Manual"
-
-#: yali/gui/Ui/networkwidget.py:124
-msgid "Add"
-msgstr "Agregar"
-
-#: yali/gui/Ui/networkwidget.py:125
-msgid "Machine Name"
-msgstr "Nombre de la PC"
-
-#: yali/gui/Ui/networkwidget.py:126
-msgid "Ip Address"
-msgstr "Dirección IP"
-
-#: yali/gui/Ui/networkwidget.py:127
-msgid "Subnet Mask"
-msgstr "Máscara de subred"
-
-#: yali/gui/Ui/networkwidget.py:128
-msgid "Default Gateway"
-msgstr "Puerto de enlace por defecto"
-
-#: yali/gui/Ui/networkwidget.py:129
-msgid "Printers"
-msgstr "Impresoras"
 
 #: yali/gui/Ui/parteditbuttons.py:47 yali/gui/ScrPartitionAuto.py:215
 #: yali/gui/YaliDialog.py:153
@@ -656,7 +620,9 @@ msgstr "Verificación fallada"
 
 #: yali/gui/ScrCheckCD.py:57
 msgid "<font color=\"#FF6D19\">Please wait while checking CD.</font>"
-msgstr "<font color=\"#FF6D19\">Favor espere mientras se está verificando el CD.</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Favor espere mientras se está verificando el CD.</"
+"font>"
 
 # Verificación terminada con éxito.
 # Puede continuar.
@@ -845,8 +811,8 @@ msgstr ""
 "\n"
 "<font size=\"+1\">\n"
 "<p>\n"
-"Seleccione una distribución de teclado de la lista, según su hardware "
-"o preferencia..\n"
+"Seleccione una distribución de teclado de la lista, según su hardware o "
+"preferencia..\n"
 "</p>\n"
 "</font>\n"
 
@@ -885,8 +851,8 @@ msgstr ""
 "Pardus puede ser instalado en una gran variedad de hardware. Se puede "
 "instalar Pardus\n"
 "en un disco entero vacío o en una partición de un disco.\n"
-"<b>La installación destruirá automáticamente"
-"todo el contenido de las particiones seleccionadas. </b>\n"
+"<b>La installación destruirá automáticamentetodo el contenido de las "
+"particiones seleccionadas. </b>\n"
 "</p>\n"
 "<p>\n"
 "La partición automática usa el disco entero para la instalación de Pardus. \n"
@@ -991,9 +957,8 @@ msgstr ""
 "Pardus puede ser instalado en una variedad de hardware. Se puede instalar "
 "Pardus\n"
 "en un disco vacío o una partición de disco.\n"
-"<b>Durante la instalación automática "
-"se destruirán todas las informaciones previas en las particiones "
-"seleccionados.</b>\n"
+"<b>Durante la instalación automática se destruirán todas las informaciones "
+"previas en las particiones seleccionados.</b>\n"
 "</p>\n"
 "<p>\n"
 "Para usar Pardus, debe crear una particion del tipo Linux (para \n"
@@ -1001,7 +966,8 @@ msgstr ""
 "(para mejorar el rendimiento). Este espacio de intercambio es utilizado\n"
 " por el sistema, cuando requiere de más memoria de lo que hay disponible en "
 "el sistema. \n"
-"Recomendamos para la instalación del sistema un mínimo de 4 GBs de espacio en disco rígido \n"
+"Recomendamos para la instalación del sistema un mínimo de 4 GBs de espacio "
+"en disco rígido \n"
 "y una partición swap (entre 500 MB - 2 GB, de acuerdo a las necesidades). \n"
 "No se permite una partición de Linux de menos de 3.5 GB.\n"
 "Opcionalmente se puede utilizar otra partición de disco para los   \n"
@@ -1098,17 +1064,19 @@ msgstr ""
 "<b>\n"
 "<p>No especificó a un administrador del sistema!</p>\n"
 "\n"
-"<p>Un usuario sin derechos de administración del sistema no puede realizar tareas de mantenimiento \n"
+"<p>Un usuario sin derechos de administración del sistema no puede realizar "
+"tareas de mantenimiento \n"
 "del sistema. Por favor define un usuario administrador del sistema.</p>\n"
 "\n"
-"<p>Presione \"Cancelar\" para definir el usuario administrador (recomendado) o \"OK\" "
-" \n"
+"<p>Presione \"Cancelar\" para definir el usuario administrador (recomendado) "
+"o \"OK\"  \n"
 "para avanzar a la próxima pantalla.</p>\n"
 "</b>\n"
 
 #: yali/gui/ScrUsers.py:151
 msgid "<font color=\"#FF6D19\">Don't use your user name as a password.</font>"
-msgstr "<font color=\"#FF6D19\">No use el nombre de usuario como contraseña !</font>"
+msgstr ""
+"<font color=\"#FF6D19\">No use el nombre de usuario como contraseña !</font>"
 
 #: yali/gui/ScrUsers.py:161
 msgid "<font color=\"#FF6D19\">Password is too short!</font>"
@@ -1128,7 +1096,8 @@ msgstr ""
 
 #: yali/gui/ScrUsers.py:203
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
-msgstr "<font color=\"#FF6D19\">Nombre real contiene caractéres no válidos!</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Nombre real contiene caractéres no válidos!</font>"
 
 #: yali/gui/ScrUsers.py:258
 msgid "Update User"
@@ -1377,9 +1346,14 @@ msgstr "Ucraniano"
 msgid "Vietnamese"
 msgstr "Vietnamita"
 
-#: yali/localedata.py:394 yali/localedata.py:395
+#: yali/localedata.py:394
 msgid "Welsh"
 msgstr "Galés"
+
+#: yali/localedata.py:395
+#, fuzzy
+msgid "English (GB)"
+msgstr "Inglés"
 
 #: yali/partition.py:35
 msgid "unknown"
@@ -1404,3 +1378,29 @@ msgstr "Archivos de los usuarios"
 msgid "Swap"
 msgstr "Intercambio (swap)"
 
+#~ msgid "NetworkWidget"
+#~ msgstr "NetworkWidget"
+
+#~ msgid "<b>Server List</b>"
+#~ msgstr "<b>Lista de Servidores</b>"
+
+#~ msgid "Manuel Configuration"
+#~ msgstr "Configuración Manual"
+
+#~ msgid "Add"
+#~ msgstr "Agregar"
+
+#~ msgid "Machine Name"
+#~ msgstr "Nombre de la PC"
+
+#~ msgid "Ip Address"
+#~ msgstr "Dirección IP"
+
+#~ msgid "Subnet Mask"
+#~ msgstr "Máscara de subred"
+
+#~ msgid "Default Gateway"
+#~ msgstr "Puerto de enlace por defecto"
+
+#~ msgid "Printers"
+#~ msgstr "Impresoras"

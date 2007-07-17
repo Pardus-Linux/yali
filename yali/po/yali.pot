@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-07-11 11:39+0300\n"
+"POT-Creation-Date: 2007-07-17 11:02+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -115,42 +115,6 @@ msgstr ""
 
 #: yali/gui/Ui/keyboardwidget.py:69
 msgid "Test selected keyboard:"
-msgstr ""
-
-#: yali/gui/Ui/networkwidget.py:121
-msgid "NetworkWidget"
-msgstr ""
-
-#: yali/gui/Ui/networkwidget.py:122
-msgid "<b>Server List</b>"
-msgstr ""
-
-#: yali/gui/Ui/networkwidget.py:123
-msgid "Manuel Configuration"
-msgstr ""
-
-#: yali/gui/Ui/networkwidget.py:124
-msgid "Add"
-msgstr ""
-
-#: yali/gui/Ui/networkwidget.py:125
-msgid "Machine Name"
-msgstr ""
-
-#: yali/gui/Ui/networkwidget.py:126
-msgid "Ip Address"
-msgstr ""
-
-#: yali/gui/Ui/networkwidget.py:127
-msgid "Subnet Mask"
-msgstr ""
-
-#: yali/gui/Ui/networkwidget.py:128
-msgid "Default Gateway"
-msgstr ""
-
-#: yali/gui/Ui/networkwidget.py:129
-msgid "Printers"
 msgstr ""
 
 #: yali/gui/Ui/parteditbuttons.py:47 yali/gui/ScrPartitionAuto.py:215
@@ -997,8 +961,12 @@ msgstr ""
 msgid "Vietnamese"
 msgstr ""
 
-#: yali/localedata.py:394 yali/localedata.py:395
+#: yali/localedata.py:394
 msgid "Welsh"
+msgstr ""
+
+#: yali/localedata.py:395
+msgid "English (GB)"
 msgstr ""
 
 #: yali/partition.py:35
