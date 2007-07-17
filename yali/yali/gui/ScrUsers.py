@@ -66,8 +66,6 @@ Click Next button to proceed.
 
         # Give Admin Privileges default
         self.admin.setChecked(True)
-        
-        self.isAdminSet = False
 
         self.createButton.setEnabled(False)
 
@@ -100,7 +98,13 @@ Click Next button to proceed.
         self.username.setFocus()
 
     def execute(self):
-        if not self.isAdminSet:
+        isAdminSet = False
+        for i in range(self.userList.count()):
+            u = self.userList.item(i).getUser()
+            if "wheel" in u.groups:
+                isAdminSet = True
+
+        if not isAdminSet:
             # show confirmation dialog
             w = WarningWidget(self)
             w.warning.setText(_('''<b>
@@ -117,14 +121,14 @@ go to next screen.</p>
             if not self.dialog.exec_loop():
                 ctx.screens.enablePrev()
                 return False
-        
+
         # reset and fill pending_users
         yali.users.reset_pending_users()
         autoUser = str(self.autoLogin.currentText())
         for i in range(self.userList.count()):
             u = self.userList.item(i).getUser()
             yali.users.pending_users.add(u)
-            
+
             # Enable auto-login
             if u.username == autoUser and self.kdeInstalled:
                 u.setAutoLogin()
@@ -180,15 +184,12 @@ go to next screen.</p>
         if self.admin.isOn():
             u.groups.append("wheel")
             pix = self.superUserIcon
-            self.isAdminSet = True
-        elif self.isAdminSet:
-            self.isAdminSet = False
-        
+
         self.createButton.setText(_("Create User"))
-        
+
         existsInList = [i for i in range(self.userList.count())
                         if self.userList.item(i).getUser().username == u.username]
-        
+
         # check user validity
         if u.exists() or (existsInList and self.edititemindex == None):
             self.pass_error.setText(
@@ -202,9 +203,9 @@ go to next screen.</p>
             self.pass_error.setText(
                 _('<font color="#FF6D19">Realname contains invalid characters!</font>'))
             return
-        
+
         updateItem = None
-        
+
         try:
             self.userList.removeItem(self.edititemindex)
             self.autoLogin.removeItem(self.edititemindex + 1)
@@ -212,23 +213,23 @@ go to next screen.</p>
             updateItem = self.edititemindex
             # nothing wrong. just adding a new user...
             pass
-        
+
         self.edititemindex = None
-        
+
         i = UserItem(self.userList, pix, user = u)
-        
+
         # add user to auto-login list.
         self.autoLogin.insertItem(u.username)
-        
+
         if updateItem:
             self.autoLogin.setCurrentItem(self.autoLogin.count())
-        
+
         # clear form
         self.resetWidgets()
 
         ctx.debugger.log("slotCreateUser :: user '%s (%s)' added/updated" % (u.realname,u.username))
         ctx.debugger.log("slotCreateUser :: user groups are %s" % str(','.join(u.groups)))
-        
+
         # give focus to username widget for a new user. #3280
         self.username.setFocus()
         self.checkUsers()
@@ -248,7 +249,7 @@ go to next screen.</p>
         self.realname.setText(u.realname)
         self.pass1.setText(u.passwd)
         self.pass2.setText(u.passwd)
-        
+
         if "wheel" in u.groups:
             self.admin.setChecked(True)
         else:
@@ -288,6 +289,6 @@ class UserItem(QListBoxPixmap):
     def __init__(self, parent, pix, user):
         apply(QListBoxPixmap.__init__, (self,parent,pix,user.username))
         self._user = user
-    
+
     def getUser(self):
         return self._user
