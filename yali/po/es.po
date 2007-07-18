@@ -1,3 +1,4 @@
+# translation of es.po to español
 # translation of es.po to
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
@@ -10,9 +11,9 @@ msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-07-17 11:02+0300\n"
-"PO-Revision-Date: 2007-07-15 19:25-0400\n"
-"Last-Translator: \n"
-"Language-Team:  <es@li.org>\n"
+"PO-Revision-Date: 2007-07-18 19:31-0400\n"
+"Last-Translator: Klemens <click3d_at_linuxmail_org>\n"
+"Language-Team: español <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1075,8 +1076,7 @@ msgstr ""
 
 #: yali/gui/ScrUsers.py:151
 msgid "<font color=\"#FF6D19\">Don't use your user name as a password.</font>"
-msgstr ""
-"<font color=\"#FF6D19\">No use el nombre de usuario como contraseña !</font>"
+msgstr "<font color=\"#FF6D19\">No use el nombre de usuario como contraseña !</font>"
 
 #: yali/gui/ScrUsers.py:161
 msgid "<font color=\"#FF6D19\">Password is too short!</font>"
@@ -1096,8 +1096,7 @@ msgstr ""
 
 #: yali/gui/ScrUsers.py:203
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Nombre real contiene caractéres no válidos!</font>"
+msgstr "<font color=\"#FF6D19\">Nombre real contiene caractéres no válidos!</font>"
 
 #: yali/gui/ScrUsers.py:258
 msgid "Update User"
@@ -1225,6 +1224,7 @@ msgid "Dutch"
 msgstr "Holandés"
 
 # en realidad el original dice holandes, pero HACE (teclado) US ingles
+# in english this should be "English (US)" !!
 #: yali/localedata.py:160
 msgid "Dutch (US)"
 msgstr "Inglés (US)"
@@ -1351,9 +1351,8 @@ msgid "Welsh"
 msgstr "Galés"
 
 #: yali/localedata.py:395
-#, fuzzy
 msgid "English (GB)"
-msgstr "Inglés"
+msgstr "Inglés (GB)"
 
 #: yali/partition.py:35
 msgid "unknown"
@@ -1378,29 +1377,3 @@ msgstr "Archivos de los usuarios"
 msgid "Swap"
 msgstr "Intercambio (swap)"
 
-#~ msgid "NetworkWidget"
-#~ msgstr "NetworkWidget"
-
-#~ msgid "<b>Server List</b>"
-#~ msgstr "<b>Lista de Servidores</b>"
-
-#~ msgid "Manuel Configuration"
-#~ msgstr "Configuración Manual"
-
-#~ msgid "Add"
-#~ msgstr "Agregar"
-
-#~ msgid "Machine Name"
-#~ msgstr "Nombre de la PC"
-
-#~ msgid "Ip Address"
-#~ msgstr "Dirección IP"
-
-#~ msgid "Subnet Mask"
-#~ msgstr "Máscara de subred"
-
-#~ msgid "Default Gateway"
-#~ msgstr "Puerto de enlace por defecto"
-
-#~ msgid "Printers"
-#~ msgstr "Impresoras"
