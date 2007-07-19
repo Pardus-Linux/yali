@@ -313,7 +313,7 @@ class ReiserFileSystem(FileSystem):
                     # this reads reiserfs_super_block_v1.s_magic as defined
                     # in include/reiserfs_fs.h in the reiserfsprogs source
                     m = string.rstrip(buf[52:61], "\0x00")
-                    if m == "ReIsErFs" or m == "ReIsEr2Fs" or m == "ReIsEr3Fs":
+                    if m in ["ReIsErFs", "ReIsEr2Fs", "ReIsEr3Fs"]:
                         # this reads reiserfs_super_block.s_label as
                         # defined in include/reiserfs_fs.h
                         label = string.rstrip(buf[100:116], "\0x00")
