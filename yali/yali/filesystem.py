@@ -220,6 +220,24 @@ class Ext3FileSystem(FileSystem):
         if p.close():
             raise YaliException, "ext3 format failed: %s" % partition.getPath()
 
+        # for Disabling Lengthy Boot-Time Checks
+        self.tune2fs(partition)
+
+    def tune2fs(self, partition):
+        cmd_path = sysutils.find_executable("tune2fs")
+        if not cmd_path:
+            e = "Command not found to tune the filesystem"
+            raise FSError, e
+
+        # Disable mount count and use 6 month interval to fsck'ing disks at boot
+        cmd = "%s -c 0 -i 6m %s" % (cmd_path, partition.getPath())
+
+        p = os.popen(cmd)
+        o = p.readlines()
+        if p.close():
+            raise YaliException, "tune2fs tuning failed: %s" % partition.getPath()
+
+
     def minResizeMB(self, partition):
         cmd_path = sysutils.find_executable("dumpe2fs")
 
