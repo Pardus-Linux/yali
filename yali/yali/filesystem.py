@@ -401,7 +401,7 @@ class XFSFileSystem(FileSystem):
     def setLabel(self, partition, label):
         label = self.availableLabel(label)
         cmd_path = sysutils.find_executable("xfs_db")
-        cmd = "%s -x -c label %s %s" % (cmd_path, label, partition.getPath())
+        cmd = "%s -x -c \"label %s\" %s" % (cmd_path, label, partition.getPath())
         try:
             p = os.popen(cmd)
             p.close()
