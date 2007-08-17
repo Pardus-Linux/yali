@@ -51,21 +51,21 @@ class Runner:
     def __init__(self):
 
         _all_stages = [
-            {'num': 1, 'text': _("Prepare for install")},
-            {'num': 2, 'text': _("Install system")},
-            {'num': 3, 'text': _("Basic setup")}
+            {'num': 1, 'text': _("Basic setup")},
+            {'num': 2, 'text': _("Prepare for install")},
+            {'num': 3, 'text': _("Install system")}
             ]
 
         _all_screens = [
              {'stage': 1, 'module': ScrWelcome},
              {'stage': 1, 'module': ScrCheckCD},
              {'stage': 1, 'module': ScrKeyboard},
-             {'stage': 1, 'module': ScrPartitionAuto},
-             {'stage': 1, 'module': ScrPartitionManual},
-             {'stage': 2, 'module': ScrInstall},
-             {'stage': 3, 'module': ScrAdmin},
-             {'stage': 3, 'module': ScrUsers},
-             {'stage': 3, 'module': ScrBootloader},
+             {'stage': 1, 'module': ScrAdmin},
+             {'stage': 1, 'module': ScrUsers},
+             {'stage': 2, 'module': ScrPartitionAuto},
+             {'stage': 2, 'module': ScrPartitionManual},
+             {'stage': 2, 'module': ScrBootloader},
+             {'stage': 3, 'module': ScrInstall},
              {'stage': 3, 'module': ScrGoodbye}
              ]
 
@@ -77,15 +77,16 @@ class Runner:
         f = QFont("Bitstream Vera Sans", 10);
         self._window.setFont(f)
 
+        # visual debugger
         ctx.debugger = Debugger()
-        
+
         # visual debug mode
         if ctx.options.debug == True or yali.sysutils.checkYaliDebug():
             ctx.debugEnabled = True
             ctx.debugger.showWindow()
-        
+
         ctx.debugger.log("Yali Started")
-        
+
         # add stages
         for stg in _all_stages:
             ctx.stages.addStage(stg['num'], stg['text'])
@@ -132,7 +133,7 @@ class Runner:
 
 def showException(ex_type, tb):
     title = _("Error!")
-    
+
     if ex_type in (yali.exception_fatal, yali.exception_pisi):
         w = ErrorWidget(tb)
     else:
@@ -144,7 +145,7 @@ def showException(ex_type, tb):
 
 class ExceptionWidget(QWidget):
     def __init__(self, tb_text, *args):
-        apply(QWidget.__init__, (self,) + args)        
+        apply(QWidget.__init__, (self,) + args)
 
         info = QLabel(self)
         info.setText("Unhandled exception occured!")
@@ -158,7 +159,7 @@ class ExceptionWidget(QWidget):
 
 class ErrorWidget(QWidget):
     def __init__(self, tb_text, *args):
-        apply(QWidget.__init__, (self,) + args)        
+        apply(QWidget.__init__, (self,) + args)
 
         info = QLabel(self)
         info.setText(_("Unhandled error occured!"))
@@ -188,3 +189,4 @@ class ErrorWidget(QWidget):
             pass
         yali.sysutils.umount(ctx.consts.target_dir)
         yali.sysutils.fastreboot()
+

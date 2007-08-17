@@ -56,10 +56,10 @@ about disk partitioning.
 
     def __init__(self, *args):
         apply(AutoPartWidget.__init__, (self,) + args)
-        
+
         self.device = None
         self.enable_next = False
-        
+
         self.device_list.setPaletteBackgroundColor(ctx.consts.bg_color)
         self.device_list.setPaletteForegroundColor(ctx.consts.fg_color)
 
@@ -84,7 +84,6 @@ about disk partitioning.
 
         self.connect(self.device_list, SIGNAL("selectionChanged(QListBoxItem*)"),
                      self.slotDeviceChanged)
-        
 
     def shown(self):
         from os.path import basename
@@ -98,7 +97,7 @@ about disk partitioning.
         def autopartDevice():
             dev = self.device
 
-            # fist delete partitions on device
+            # first delete partitions on device
             dev.deleteAllPartitions()
             dev.commit()
 
@@ -122,13 +121,13 @@ about disk partitioning.
         if self.accept_auto.isChecked():
 
             # show confirmation dialog
-            w = WarningWidget(self)
-            self.dialog = WarningDialog(w, self)
-            if not self.dialog.exec_loop():
-                # disabled by weaver
-                ctx.screens.enablePrev()
-                self.updateUI()
-                return False
+            #w = WarningWidget(self)
+            #self.dialog = WarningDialog(w, self)
+            #if not self.dialog.exec_loop():
+            #    # disabled by weaver
+            #    ctx.screens.enablePrev()
+            #    self.updateUI()
+            #    return False
 
             # show information window...
             info_window = InformationWindow(self, _("Please wait while formatting!"))

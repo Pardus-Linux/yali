@@ -48,7 +48,6 @@ Depending on your hardware or choice select a keyboard layout from the list.
         f.setBold(True)
         self.keyboard_list.setFont(f)
 
-
         # iterate over keyboard list and set default
         #
         # TODO: re-visit this module and clean this code. there is way
@@ -75,12 +74,10 @@ Depending on your hardware or choice select a keyboard layout from the list.
     def shown(self):
         from os.path import basename
         ctx.debugger.log("%s loaded" % basename(__file__))
-    
+
     def execute(self):
         keydata = self.keyboard_list.selectedItem().getData()
-
-        ctx.keydata = keydata
-
+        ctx.installData.keyData = keydata
         return True
 
     def slotLayoutChanged(self, i):
@@ -94,6 +91,6 @@ class KeyboardItem(QListBoxText):
         text = "%s" %(keydata.translation)
         apply(QListBoxText.__init__, (self,parent,text))
         self._keydata = keydata
-    
+
     def getData(self):
         return self._keydata

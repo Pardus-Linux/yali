@@ -48,6 +48,11 @@ class Screens(QObject, Steps):
             self.setCurrent(nxt)
 
     def previous(self):
+
+        # for partitioning screen we need go back twice
+        if not self.getCurrent().getWidget().backCheck():
+            return
+
         prev = self.getCurrentIndex() - 1
         if self.hasIndex(prev):
             self.setCurrent(prev)

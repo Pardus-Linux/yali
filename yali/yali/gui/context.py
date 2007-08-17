@@ -16,6 +16,7 @@ from qt import *
 import yali.gui.stages
 import yali.gui.screens
 import yali.gui.iconfactory
+import yali.gui.installdata
 
 # singletons from yali.*
 from yali.constants import consts
@@ -39,6 +40,9 @@ screens = yali.gui.screens.Screens()
 
 debugger = None
 debugEnabled = False
+
+# install data
+installData = yali.gui.installdata.InstallData()
 
 # icon factory
 iconfactory = yali.gui.iconfactory.IconFactory(consts.pics_dir)

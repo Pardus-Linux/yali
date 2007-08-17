@@ -62,7 +62,6 @@ Click Next button to proceed.
 
         # KDE AutoLogin
         self.autoLoginUser = ""
-        self.kdeInstalled = True
 
         # Give Admin Privileges default
         self.admin.setChecked(True)
@@ -88,13 +87,12 @@ Click Next button to proceed.
     def shown(self):
         from os.path import basename
         ctx.debugger.log("%s loaded" % basename(__file__))
+
+        ctx.installData.users = []
+        ctx.installData.autoLoginUser = None
+
         self.checkUsers()
         self.checkCapsLock()
-        # self.kdeInstalled = os.path.exists(os.path.join(consts.target_dir, '/etc/X11/kdm/kdmrc'))
-        # if there is no kde so there is no auto-login
-        if not self.kdeInstalled:
-            self.autoLogin.hide()
-            self.autoLoginLabel.hide()
         self.username.setFocus()
 
     def execute(self):
@@ -125,14 +123,18 @@ go to next screen.</p>
 
         # reset and fill pending_users
         yali.users.reset_pending_users()
-        autoUser = str(self.autoLogin.currentText())
+
+        ctx.installData.autoLoginUser = str(self.autoLogin.currentText())
+
         for i in range(self.userList.count()):
             u = self.userList.item(i).getUser()
-            yali.users.pending_users.add(u)
+            ctx.installData.users.append(u)
 
-            # Enable auto-login
-            if u.username == autoUser and self.kdeInstalled:
-                u.setAutoLogin()
+            # yali.users.pending_users.add(u)
+
+            ## Enable auto-login
+            #if u.username == autoUser:
+            #    u.setAutoLogin()
 
         return True
 
@@ -262,8 +264,7 @@ go to next screen.</p>
     def checkUsers(self):
         if self.userList.count():
             self.deleteButton.setEnabled(True)
-            if self.kdeInstalled:
-                self.autoLogin.setEnabled(True)
+            self.autoLogin.setEnabled(True)
             ctx.screens.enableNext()
         else:
             # there is no user in list, there is nobody to delete

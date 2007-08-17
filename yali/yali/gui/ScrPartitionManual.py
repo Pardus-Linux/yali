@@ -80,7 +80,7 @@ about disk partitioning.
 
         vbox = QVBoxLayout(self)
         vbox.addWidget(self.partlist)
-        
+
         self.connect(self.partlist, PYSIGNAL("signalCreate"),
                      self.slotCreatePart)
 
@@ -112,28 +112,28 @@ about disk partitioning.
     def execute(self):
 
         # show confirmation dialog
-        w = WarningWidget(self)
-        self.dialog = WarningDialog(w, self)
-        if not self.dialog.exec_loop():
-            # disabled by weaver.
-            ctx.screens.enablePrev()
-            
-            self.partlist.update()
-            return False
+        # w = WarningWidget(self)
+        #self.dialog = WarningDialog(w, self)
+        #if not self.dialog.exec_loop():
+        #    # disabled by weaver.
+        #    ctx.screens.enablePrev()
+
+        #    self.partlist.update()
+        #    return False
 
 
         # show information window...
-        info_window = InformationWindow(self, _("Please wait while formatting!"))
+        #info_window = InformationWindow(self, _("Please wait while formatting!"))
 
         # commit events
-        self.partlist.devices_commit()
+        #self.partlist.devices_commit()
 
         # inform user...
-        self.partlist.showPartitionRequests(formatting=True)
+        #self.partlist.showPartitionRequests(formatting=True)
         # process events and show partitioning information!
         ctx.screens.processEvents()
-        
-        
+
+        """
         ##
         # check swap partition, if not present use swap file
         rt = request.mountRequestType
@@ -155,6 +155,7 @@ about disk partitioning.
 
         # close window
         info_window.close(True)
+        """
         return True
 
 

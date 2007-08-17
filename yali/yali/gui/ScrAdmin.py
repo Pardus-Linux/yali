@@ -54,7 +54,7 @@ Click Next button to proceed.
 
     def __init__(self, *args):
         apply(RootPassWidget.__init__, (self,) + args)
-        
+
         self.host_valid = True
         self.pass_valid = True
 
@@ -82,10 +82,11 @@ Click Next button to proceed.
         self.pass1.setFocus()
 
     def execute(self):
-        user = yali.users.User("root")
-        user.changePasswd(self.pass1.text().ascii())
-
-        yali.sysutils.add_hostname(self.hostname.text().ascii())
+        ctx.installData.rootPassword = self.pass1.text().ascii()
+        ctx.installData.hostName = self.hostname.text().ascii()
+        #user = yali.users.User("root")
+        #user.changePasswd()
+        #yali.sysutils.add_hostname(self.hostname.text().ascii())
 
         return True
 

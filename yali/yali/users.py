@@ -64,10 +64,11 @@ class User:
         self.autoLoginDefaults = {"AutoLoginAgain":"false",
                                   "AutoLoginDelay":"0",
                                   "AutoLoginLocked":"false"}
-        
+
         self.shadow_path = os.path.join(consts.target_dir, 'etc/shadow')
         self.passwd_path = os.path.join(consts.target_dir, 'etc/passwd')
         self.group_path  = os.path.join(consts.target_dir, 'etc/group')
+        self.fake_passwd_path = '/etc/passwd'
 
     def changePasswd(self, passwd):
         self.passwd = passwd
@@ -120,7 +121,7 @@ class User:
 
     def exists(self):
         if filter(lambda x: x == self.username, \
-              map(lambda x: x[0], [line.split(':') for line in open(self.passwd_path, 'r').readlines()])):
+              map(lambda x: x[0], [line.split(':') for line in open(self.fake_passwd_path, 'r').readlines()])):
             return True
         return False
 

@@ -96,6 +96,12 @@ loader.
         from os.path import basename
         ctx.debugger.log("%s loaded" % basename(__file__))
 
+    def backCheck(self):
+        # we need to go partition auto screen, not manual ;)
+        num = ctx.screens.getCurrentIndex() - 2
+        ctx.screens.goToScreen(num)
+        return False
+
     def slotSelect(self):
         self.installMBR.setChecked(True)
 
@@ -115,54 +121,52 @@ loader.
     def execute(self):
         if self.noInstall.isChecked():
             return True
-        
-        # show information window...
-        info_window = InformationWindow(self, _("Please wait while installing bootloader!"))
 
-        loader = yali.bootloader.BootLoader()
+        # show information window...
+        # info_window = InformationWindow(self, _("Please wait while installing bootloader!"))
+
+        # loader = yali.bootloader.BootLoader()
 
         root_part_req = ctx.partrequests.searchPartTypeAndReqType(parttype.root,
                                                                   request.mountRequestType)
 
+        # install_dev
+
         if self.installPart.isChecked():
-            install_dev = basename(root_part_req.partition().getPath())
+            ctx.installData.bootLoaderDev = basename(root_part_req.partition().getPath())
         elif self.installMBR.isChecked():
-            install_dev = basename(self.device.getPath())
+            ctx.installData.bootLoaderDev = basename(self.device.getPath())
         else:
-            #install to hd0
-            install_dev = str(filter(lambda u: u.isalpha(),basename(root_part_req.partition().getPath())))
+            ctx.installData.bootLoaderDev = str(filter(lambda u: u.isalpha(),
+                                                       basename(root_part_req.partition().getPath())))
 
         _ins_part = root_part_req.partition().getPath()
-        
+
         ctx.debugger.log("Pardus installed to : %s" % _ins_part)
-        ctx.debugger.log("GRUB will be installed to : %s" % install_dev)
-        
-        loader.write_grub_conf(_ins_part,install_dev)
+        ctx.debugger.log("GRUB will be installed to : %s" % ctx.installData.bootLoaderDev)
+
+        # loader.write_grub_conf(_ins_part,install_dev)
 
         # Windows partitions...
-        for d in yali.storage.devices:
-            for p in d.getPartitions():
-                fs = p.getFSName()
-                #ctx.debugger.log("install_dev %s" % install_dev)
-                #ctx.debugger.log("win_fs %s" % fs)
-                #ctx.debugger.log("win_dev %s" % basename(p.getDevicePath()))
-                #ctx.debugger.log("win_root %s" % basename(p.getPath()))
-                if fs in ("ntfs", "fat32"):
-                    if is_windows_boot(p.getPath(), fs):
-                        win_fs = fs
-                        win_dev = basename(p.getDevicePath())
-                        win_root = basename(p.getPath())
-                        loader.grub_conf_append_win(install_dev,
-                                                    win_dev,
-                                                    win_root,
-                                                    win_fs)
-                        continue
+        #for d in yali.storage.devices:
+        #    for p in d.getPartitions():
+        #        fs = p.getFSName()
+        #        if fs in ("ntfs", "fat32"):
+        #            if is_windows_boot(p.getPath(), fs):
+        #                win_fs = fs
+        #                win_dev = basename(p.getDevicePath())
+        #                win_root = basename(p.getPath())
+        #                loader.grub_conf_append_win(install_dev,
+        #                                            win_dev,
+        #                                            win_root,
+        #                                            win_fs)
+        #                continue
 
         # finally install it
-        loader.install_grub(install_dev)
+        # loader.install_grub(install_dev)
 
         # close window
-        info_window.close(True)
+        # info_window.close(True)
 
         return True
 
