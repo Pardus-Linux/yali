@@ -110,52 +110,8 @@ about disk partitioning.
     ##
     # do the work and run requested actions on partitions.
     def execute(self):
-
-        # show confirmation dialog
-        # w = WarningWidget(self)
-        #self.dialog = WarningDialog(w, self)
-        #if not self.dialog.exec_loop():
-        #    # disabled by weaver.
-        #    ctx.screens.enablePrev()
-
-        #    self.partlist.update()
-        #    return False
-
-
-        # show information window...
-        #info_window = InformationWindow(self, _("Please wait while formatting!"))
-
-        # commit events
-        #self.partlist.devices_commit()
-
-        # inform user...
-        #self.partlist.showPartitionRequests(formatting=True)
-        # process events and show partitioning information!
+        ctx.debugger.log("Manual Partitioning selected...")
         ctx.screens.processEvents()
-
-        """
-        ##
-        # check swap partition, if not present use swap file
-        rt = request.mountRequestType
-        pt = parttype.swap
-        swap_part_req = ctx.partrequests.searchPartTypeAndReqType(pt, rt)
-
-        if not swap_part_req:
-            # No swap partition defined using swap as file in root
-            # partition
-            rt = request.mountRequestType
-            pt = parttype.root
-            root_part_req = ctx.partrequests.searchPartTypeAndReqType(pt, rt)
-            ctx.partrequests.append(
-                request.SwapFileRequest(root_part_req.partition(),
-                                        root_part_req.partitionType()))
-
-        # apply all partition requests
-        ctx.partrequests.applyAll()
-
-        # close window
-        info_window.close(True)
-        """
         return True
 
 
@@ -186,3 +142,5 @@ about disk partitioning.
 
     def slotCanceled(self):
         self.dialog.reject()
+
+

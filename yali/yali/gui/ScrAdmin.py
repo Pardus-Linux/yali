@@ -77,7 +77,7 @@ Click Next button to proceed.
     def shown(self):
         from os.path import basename
         ctx.debugger.log("%s loaded" % basename(__file__))
-        ctx.screens.disablePrev()
+        #ctx.screens.disablePrev()
         self.checkCapsLock()
         self.pass1.setFocus()
 

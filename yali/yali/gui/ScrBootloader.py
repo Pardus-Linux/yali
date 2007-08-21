@@ -17,6 +17,7 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
+import time
 import yali.storage
 import yali.bootloader
 import yali.partitionrequest as request
@@ -24,6 +25,7 @@ import yali.partitiontype as parttype
 from yali.sysutils import is_windows_boot
 from yali.gui.Ui.bootloaderwidget import BootLoaderWidget
 from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui.YaliDialog import WarningDialog, WarningWidget
 from yali.gui.InformationWindow import InformationWindow
 from yali.gui.GUIException import *
 import yali.gui.context as ctx
@@ -108,19 +110,100 @@ loader.
     def slotInstallLoader(self, b):
         if self.installMBR.isChecked():
             self.device_list.setEnabled(True)
-            self.device_list.setSelected(0,
-                                         True)
+            self.device_list.setSelected(0,True)
         else:
             self.device_list.setEnabled(False)
-            self.device_list.setSelected(self.device_list.selectedItem(),
-                                         False)
+            self.device_list.setSelected(self.device_list.selectedItem(),False)
 
     def slotDeviceChanged(self, i):
         self.device = i.getDevice()
 
+    def autopartDevice(self):
+        dev = ctx.installData.autoPartDev
+
+        # first delete partitions on device
+        dev.deleteAllPartitions()
+        dev.commit()
+
+        p = dev.addPartition(parttype.root.parted_type,
+                             parttype.root.filesystem,
+                             dev.getFreeMB(),
+                             parttype.root.parted_flags)
+        p = dev.getPartition(p.num) # get partition.Partition
+
+        # create the partition
+        dev.commit()
+
+        # make partition requests
+        ctx.partrequests.append(request.MountRequest(p, parttype.root))
+        ctx.partrequests.append(request.FormatRequest(p, parttype.root))
+        ctx.partrequests.append(request.LabelRequest(p, parttype.root))
+        ctx.partrequests.append(request.SwapFileRequest(p, parttype.root))
+
+    def checkSwap(self):
+        # check swap partition, if not present use swap file
+        rt = request.mountRequestType
+        pt = parttype.swap
+        swap_part_req = ctx.partrequests.searchPartTypeAndReqType(pt, rt)
+
+        if not swap_part_req:
+            # No swap partition defined using swap as file in root
+            # partition
+            rt = request.mountRequestType
+            pt = parttype.root
+            root_part_req = ctx.partrequests.searchPartTypeAndReqType(pt, rt)
+            ctx.partrequests.append(request.SwapFileRequest(root_part_req.partition(),
+                                    root_part_req.partitionType()))
+
+
     def execute(self):
+
+        w = WarningWidget(self)
+
+        # We need different warning messages for Auto and Manual Partitioning
+        if ctx.installData.autoPartDev:
+            # show confirmation dialog
+            w.warning.setText(_('''<b>
+<p>This action will use your entire disk for Pardus installation and
+all your present data on the selected disk will be lost.</p>
+
+<p>After being sure you had your backup this is generally a safe
+and easy way to install Pardus.</p>
+</b>
+'''))
+        self.dialog = WarningDialog(w, self)
+        if not self.dialog.exec_loop():
+            # disabled by weaver
+            ctx.screens.enablePrev()
+            self.updateUI()
+            return False
+
+        info_window = InformationWindow(self, _("Please wait while formatting!"))
+        ctx.screens.processEvents()
+
+        # We should do partitioning operations in here.
+
+        # Auto Partitioning
+        if ctx.installData.autoPartDev:
+            ctx.partrequests.remove_all()
+            ctx.use_autopart = True
+            self.autopartDevice()
+            time.sleep(1)
+            ctx.partrequests.applyAll()
+
+        # Manual Partitioning
+        else:
+            for dev in yali.storage.devices:
+                dev.commit()
+            # wait for udev to create device nodes
+            time.sleep(2)
+            self.checkSwap()
+            ctx.partrequests.applyAll()
+
+        info_window.close()
+
         if self.noInstall.isChecked():
-            return True
+            ctx.installData.bootLoaderDev = None
 
         # show information window...
         # info_window = InformationWindow(self, _("Please wait while installing bootloader!"))
@@ -145,7 +228,7 @@ loader.
         ctx.debugger.log("Pardus installed to : %s" % _ins_part)
         ctx.debugger.log("GRUB will be installed to : %s" % ctx.installData.bootLoaderDev)
 
-        # loader.write_grub_conf(_ins_part,install_dev)
+        # loader.write_grub_conf(_ins_part,ctx.installData.bootLoaderDev)
 
         # Windows partitions...
         #for d in yali.storage.devices:
@@ -181,3 +264,5 @@ class DeviceItem(QListBoxText):
 
     def getDevice(self):
         return self._dev
+
+

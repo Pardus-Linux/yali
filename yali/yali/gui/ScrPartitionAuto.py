@@ -93,64 +93,34 @@ about disk partitioning.
         self.updateUI()
 
     def execute(self):
-
-        def autopartDevice():
-            dev = self.device
-
-            # first delete partitions on device
-            dev.deleteAllPartitions()
-            dev.commit()
-
-            p = dev.addPartition(parttype.root.parted_type,
-                                 parttype.root.filesystem,
-                                 dev.getFreeMB(),
-                                 parttype.root.parted_flags)
-            p = dev.getPartition(p.num) # get partition.Partition
-            dev.commit()
-
-            ctx.partrequests.append(
-                request.MountRequest(p, parttype.root))
-            ctx.partrequests.append(
-                request.FormatRequest(p, parttype.root))
-            ctx.partrequests.append(
-                request.LabelRequest(p, parttype.root))
-            ctx.partrequests.append(
-                request.SwapFileRequest(p, parttype.root))
-
+        ctx.installData.autoPartDev = None
 
         if self.accept_auto.isChecked():
-
-            # show confirmation dialog
-            #w = WarningWidget(self)
-            #self.dialog = WarningDialog(w, self)
-            #if not self.dialog.exec_loop():
-            #    # disabled by weaver
-            #    ctx.screens.enablePrev()
-            #    self.updateUI()
-            #    return False
+            ctx.installData.autoPartDev = self.device
 
             # show information window...
-            info_window = InformationWindow(self, _("Please wait while formatting!"))
+            #info_window = InformationWindow(self, _("Please wait while formatting!"))
 
             # inform user
-            self.info.setText(_('<font color="#FF6D19">Preparing your disk for installation!</font>'))
-            ctx.screens.processEvents()
+            #self.info.setText(_('<font color="#FF6D19">Preparing your disk for installation!</font>'))
+            #ctx.screens.processEvents()
 
             # remove all other requests (if there are any).
-            ctx.partrequests.remove_all()
+            #ctx.partrequests.remove_all()
 
-            ctx.use_autopart = True
-            autopartDevice()
+            #ctx.use_autopart = True
+            #autopartDevice()
             # need to wait for devices to be created
-            time.sleep(1)
-            ctx.partrequests.applyAll()
+            #time.sleep(1)
+            #ctx.partrequests.applyAll()
+
+            ctx.debugger.log("Automatic Partition selected..")
 
             # skip next screen()
             num = ctx.screens.getCurrentIndex() + 1
             ctx.screens.goToScreen(num)
-
             # close window
-            info_window.close(True)
+            #info_window.close(True)
 
         return True
 
@@ -185,54 +155,3 @@ class DeviceItem(QListBoxText):
     def getDevice(self):
         return self._dev
 
-
-
-
-
-
-class WarningWidget(QWidget):
-
-    def __init__(self, *args):
-        QWidget.__init__(self, *args)
-
-        l = QVBoxLayout(self)
-        l.setSpacing(20)
-        l.setMargin(10)
-
-        warning = QLabel(self)
-#        warning.setTextFormat(warning.RichText)
-        warning.setText(_('''<b>
-<p>This action will use your entire disk for Pardus installation and
-all your present data on the selected disk will be lost.</p>
-
-<p>After being sure you had your backup this is generally a safe
-and easy way to install Pardus.</p>
-</b>
-'''))
-
-        self.cancel = QPushButton(self)
-        self.cancel.setText(_("Cancel"))
-
-        self.ok = QPushButton(self)
-        self.ok.setText(_("O.K. Go Ahead"))
-
-        buttons = QHBoxLayout(self)
-        buttons.setSpacing(10)
-        buttons.addStretch(1)
-        buttons.addWidget(self.cancel)
-        buttons.addWidget(self.ok)
-
-        l.addWidget(warning)
-        l.addLayout(buttons)
-
-
-        self.connect(self.ok, SIGNAL("clicked()"),
-                     self.slotOK)
-        self.connect(self.cancel, SIGNAL("clicked()"),
-                     self.slotCancel)
-
-    def slotOK(self):
-        self.emit(PYSIGNAL("signalOK"), ())
-
-    def slotCancel(self):
-        self.emit(PYSIGNAL("signalCancel"), ())
