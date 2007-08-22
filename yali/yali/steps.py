@@ -32,11 +32,7 @@ class Steps:
     def addStep(self, index, step):
 
         if self._steps.has_key(index):
-            e = "index %d is present." % index
-            #should find a way to get debug status.
-            #I know optparser is my friend :)
-#            if DEBUG: e += "\nData: %s" % self._steps[index]
-            raise YaliError, e
+            raise YaliError, "index %d is present." % index
 
         self._steps[index] = step
 

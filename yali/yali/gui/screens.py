@@ -12,6 +12,7 @@
 
 from qt import *
 
+import context as ctx
 from yali.steps import Steps
 
 ##
@@ -98,11 +99,8 @@ class Screens(QObject, Steps):
         # trigger screen
         self.getCurrent().getWidget().shown()
 
-        # FIXME: is it feasible to write the widget object in GUI mode???
-        #yali.logger.log("Changed screen to %s." % self._steps.getCurrent())
+        ctx.debugger.log("Changed screen to %s." % self._current)
 
-
-        
 
 class ScreenData:
     _stage = None

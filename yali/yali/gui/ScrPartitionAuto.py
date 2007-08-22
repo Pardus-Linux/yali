@@ -71,6 +71,7 @@ about disk partitioning.
         for dev in yali.storage.devices:
             if dev.getTotalMB() >= ctx.consts.min_root_size:
                 DeviceItem(self.device_list, dev)
+
         # select the first disk by default
         self.device_list.setSelected(0, True)
 
@@ -97,30 +98,12 @@ about disk partitioning.
 
         if self.accept_auto.isChecked():
             ctx.installData.autoPartDev = self.device
-
-            # show information window...
-            #info_window = InformationWindow(self, _("Please wait while formatting!"))
-
-            # inform user
-            #self.info.setText(_('<font color="#FF6D19">Preparing your disk for installation!</font>'))
-            #ctx.screens.processEvents()
-
-            # remove all other requests (if there are any).
-            #ctx.partrequests.remove_all()
-
-            #ctx.use_autopart = True
-            #autopartDevice()
-            # need to wait for devices to be created
-            #time.sleep(1)
-            #ctx.partrequests.applyAll()
-
             ctx.debugger.log("Automatic Partition selected..")
 
             # skip next screen()
+            # We pass the Manual Partitioning screen
             num = ctx.screens.getCurrentIndex() + 1
             ctx.screens.goToScreen(num)
-            # close window
-            #info_window.close(True)
 
         return True
 

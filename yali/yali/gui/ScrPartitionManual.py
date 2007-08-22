@@ -101,10 +101,8 @@ about disk partitioning.
 
 
     def shown(self):
-        from os.path import basename
         ctx.debugger.log("%s loaded" % basename(__file__))
         ctx.screens.disableNext()
-
         self.partlist.update()
 
     ##
@@ -113,7 +111,6 @@ about disk partitioning.
         ctx.debugger.log("Manual Partitioning selected...")
         ctx.screens.processEvents()
         return True
-
 
     def slotCreatePart(self, parent, d):
         self.partedit.setState(createState, d)
@@ -134,7 +131,6 @@ about disk partitioning.
         self.partedit.setState(resizeState, d)
         self.dialog = Dialog(_("Resize Partition"), self.partedit, self)
         self.dialog.exec_loop()
-
 
     def slotApplied(self):
         self.dialog.done(0)
