@@ -101,6 +101,7 @@ about disk partitioning.
 
 
     def shown(self):
+        from os.path import basename
         ctx.debugger.log("%s loaded" % basename(__file__))
         ctx.screens.disableNext()
         self.partlist.update()
