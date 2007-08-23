@@ -56,7 +56,7 @@ Click Next button to proceed.
         apply(RootPassWidget.__init__, (self,) + args)
 
         self.host_valid = True
-        self.pass_valid = True
+        self.pass_valid = False
 
         self.pix.setPixmap(ctx.iconfactory.newPixmap("admin"))
         self.pass_error.setText("")
@@ -77,6 +77,7 @@ Click Next button to proceed.
     def shown(self):
         from os.path import basename
         ctx.debugger.log("%s loaded" % basename(__file__))
+        self.setNext()
         self.checkCapsLock()
         self.pass1.setFocus()
 
@@ -101,9 +102,14 @@ Click Next button to proceed.
         p2 = self.pass2.text()
 
         if p1 == p2 and p1:
-            # Sould we also check password length?
-            self.pass_error.setText("")
-            self.pass_valid = True
+            if len(p1)<4:
+                self.pass_error.setText(
+                    _('<font color="#FF6D19">Passwords is too short!</font>'))
+                self.pass_error.setAlignment(QLabel.AlignCenter)
+                self.pass_valid = False
+            else:
+                self.pass_error.setText("")
+                self.pass_valid = True
         else:
             self.pass_valid = False
             if p2:
@@ -124,8 +130,7 @@ Click Next button to proceed.
         self.host_valid = yali.sysutils.text_is_valid(string.ascii())
 
         if not self.host_valid:
-            self.host_error.setText(
-                _('<font color="#FF6D19">Hostname contains invalid characters!</font>'))
+            self.host_error.setText(_('<font color="#FF6D19">Hostname contains invalid characters!</font>'))
         else:
             self.host_error.setText("")
         self.setNext()
