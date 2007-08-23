@@ -175,7 +175,6 @@ and easy way to install Pardus.</p>
         if not self.dialog.exec_loop():
             # disabled by weaver
             ctx.screens.enablePrev()
-            self.updateUI()
             return False
 
         info_window = InformationWindow(self, _("Please wait while formatting!"))

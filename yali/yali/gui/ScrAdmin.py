@@ -104,7 +104,7 @@ Click Next button to proceed.
         if p1 == p2 and p1:
             if len(p1)<4:
                 self.pass_error.setText(
-                    _('<font color="#FF6D19">Passwords is too short!</font>'))
+                    _('<font color="#FF6D19">Password is too short!</font>'))
                 self.pass_error.setAlignment(QLabel.AlignCenter)
                 self.pass_valid = False
             else:

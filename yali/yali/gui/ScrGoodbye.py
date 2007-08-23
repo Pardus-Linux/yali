@@ -23,6 +23,8 @@ import yali.localeutils
 import yali.postinstall
 import yali.bootloader
 import yali.storage
+import yali.partitionrequest as partrequest
+import yali.partitiontype as parttype
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.YaliDialog import WarningDialog
 import yali.gui.context as ctx
@@ -136,7 +138,7 @@ don't you?
         ctx.debugger.log("Bootloader is installing...")
         loader = yali.bootloader.BootLoader()
         root_part_req = ctx.partrequests.searchPartTypeAndReqType(parttype.root,
-                                                                  request.mountRequestType)
+                                                                  partrequest.mountRequestType)
         _ins_part = root_part_req.partition().getPath()
         loader.write_grub_conf(_ins_part,ctx.installData.bootLoaderDev)
 
@@ -156,7 +158,7 @@ don't you?
                         continue
 
         # finally install it
-        loader.install_grub(install_dev)
+        loader.install_grub(ctx.installData.bootLoaderDev)
         ctx.debugger.log("Bootloader installed.")
 
 class RebootWidget(QWidget):
