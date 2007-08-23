@@ -79,9 +79,9 @@ don't you?
         ctx.debugger.log("%s loaded" % basename(__file__))
         ctx.screens.disablePrev()
         self.processPendingActions()
+        self.installBootloader()
 
     def execute(self):
-        self.installBootloader()
         ctx.screens.disableNext()
 
         self.info.show()
