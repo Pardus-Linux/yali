@@ -50,14 +50,15 @@ consts = Constants()
 
 consts.pardus_version = file("/etc/pardus-release").readlines()[0].strip()
 
-consts.log_file = "/tmp/install.log"
-
 consts.data_dir = "/usr/share/yali"
 
 consts.mnt_dir = "/mnt"
 
 # new system will be installed directly into this target directory
 consts.target_dir = join(consts.mnt_dir, "target")
+
+# log file for storing after installation
+consts.log_file = join(consts.target_dir,"var/log/yaliInstall.log")
 
 # packages (and maybe others) will be in this source (cdrom) directory
 consts.source_dir = join(consts.mnt_dir, "cdrom")

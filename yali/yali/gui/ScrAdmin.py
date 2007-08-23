@@ -77,17 +77,12 @@ Click Next button to proceed.
     def shown(self):
         from os.path import basename
         ctx.debugger.log("%s loaded" % basename(__file__))
-        #ctx.screens.disablePrev()
         self.checkCapsLock()
         self.pass1.setFocus()
 
     def execute(self):
         ctx.installData.rootPassword = self.pass1.text().ascii()
         ctx.installData.hostName = self.hostname.text().ascii()
-        #user = yali.users.User("root")
-        #user.changePasswd()
-        #yali.sysutils.add_hostname(self.hostname.text().ascii())
-
         return True
 
     def checkCapsLock(self):

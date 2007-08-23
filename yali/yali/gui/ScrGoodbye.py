@@ -83,7 +83,6 @@ don't you?
         self.info.show()
         self.info.setAlignment(QLabel.AlignCenter)
 
-        #open(ctx.consts.log_file,"w").write(ctx.debugger.traceback.plainLogs)
 
         try:
             ctx.debugger.log("Trying to umount %s" % (ctx.consts.target_dir + "/home"))
@@ -93,7 +92,7 @@ don't you?
         except:
             ctx.debugger.log("Umount Failed.")
             pass
-        
+
         ctx.debugger.log("Trying to eject the CD.")
         # remove cd...
         w = RebootWidget(self)
@@ -102,22 +101,34 @@ don't you?
         self.dialog.exec_loop()
 
         ctx.debugger.log("Yali, fastreboot calling..")
+
+        # store log content
+        if ctx.debugEnabled:
+            open(ctx.consts.log_file,"w").write(str(ctx.debugger.traceback.plainLogs))
+
         yali.sysutils.fastreboot()
 
     # process pending actions defined in other screens.
     def processPendingActions(self):
+        # set hostname
+        yali.sysutils.add_hostname(ctx.installData.hostName)
+        ctx.debugger.log("Hostname setted.")
+
         # add users
         for u in yali.users.pending_users:
             ctx.debugger.log("User %s adding to system" % u.username)
             u.addUser()
             ctx.debugger.log("User %s added to system" % u.username)
 
+        user = yali.users.User("root")
+        user.changePasswd(ctx.installData.rootPassword)
+
         # write console keyboard data
-        yali.localeutils.write_keymap(ctx.keydata.console)
+        yali.localeutils.write_keymap(ctx.installData.keyData.console)
         ctx.debugger.log("Keymap stored.")
 
         # migrate xorg.conf
-        yali.postinstall.migrate_xorg_conf(ctx.keydata.X)
+        yali.postinstall.migrate_xorg_conf(ctx.installData.keyData.X)
         ctx.debugger.log("xorg.conf merged.")
 
 class RebootWidget(QWidget):

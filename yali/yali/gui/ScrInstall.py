@@ -94,7 +94,7 @@ Have fun!
         from os.path import basename
         ctx.debugger.log("%s loaded" % basename(__file__))
         # initialize pisi
-        
+
         # start installer thread
         self.pkg_installer = PkgInstaller(self)
         self.pkg_installer.start()
@@ -125,8 +125,7 @@ Have fun!
         if qevent.type() == QEvent.User+1:
 
             p, event = qevent.data()
-        
-            # FIXME: use logging
+
             if event == pisi.ui.installing:
                 self.info.setText(_("Installing: %s<br>%s") % (
                         p.name, p.summary))

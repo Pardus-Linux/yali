@@ -46,7 +46,6 @@ def initbaselayout():
     os.chmod(os.path.join(consts.target_dir, "etc/shadow"), 0600)
     cp("usr/share/baselayout/group", "etc/group")
 
-
     # create empty log file
     touch("var/log/lastlog")
 

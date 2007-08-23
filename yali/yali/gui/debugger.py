@@ -25,17 +25,17 @@ class Debugger:
         title = _("Debug")
         self.debugWidget = QWidget()
         self.traceback = DebugContainer(self.debugWidget,showLineNumbers)
-        
+
         l = QVBoxLayout(self.debugWidget)
         l.addWidget(self.traceback)
-        
+
         self.window = Dialog(title,self.debugWidget,None,extraButtons=True)
         self.window.resize(500,400)
         self.aspect = DebuggerAspect(self)
-        
+
     def showWindow(self):
         self.window.show()
-        
+
     def log(self,log,type=1):
         if ctx.debugEnabled:
             self.traceback.add(QString(log),type)
@@ -43,19 +43,19 @@ class Debugger:
 class DebugContainer(QTextEdit):
     def __init__(self, parent, showLineNumbers=True):
         QTextEdit.__init__(self, parent)
-        
+
         f = QFont( "Bitstream Vera Sans Mono", 11);
         self.setFont(f)
-        
+
         self.showLineNumbers = showLineNumbers
         self.setReadOnly(True)
         self.setOverwriteMode(True)
         self.plainLogs = ''
         self.line = 0
-        
+
     def add(self,log,type):
-        self.plainLogs += "%s\n" % log
         if type==1:
+            self.plainLogs += "%s\n" % log
             log = "<b>%s</b>" % log
         if self.showLineNumbers:
             self.append(QString("<b>%d :</b> %s" % (self.line,log)))
