@@ -21,6 +21,8 @@ import yali.sysutils
 import yali.users
 import yali.localeutils
 import yali.postinstall
+import yali.bootloader
+import yali.storage
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.YaliDialog import WarningDialog
 import yali.gui.context as ctx
@@ -77,12 +79,11 @@ don't you?
         self.processPendingActions()
 
     def execute(self):
-
+        self.installBootloader()
         ctx.screens.disableNext()
 
         self.info.show()
         self.info.setAlignment(QLabel.AlignCenter)
-
 
         try:
             ctx.debugger.log("Trying to umount %s" % (ctx.consts.target_dir + "/home"))
@@ -130,6 +131,33 @@ don't you?
         # migrate xorg.conf
         yali.postinstall.migrate_xorg_conf(ctx.installData.keyData.X)
         ctx.debugger.log("xorg.conf merged.")
+
+    def installBootloader(self):
+        ctx.debugger.log("Bootloader is installing...")
+        loader = yali.bootloader.BootLoader()
+        root_part_req = ctx.partrequests.searchPartTypeAndReqType(parttype.root,
+                                                                  request.mountRequestType)
+        _ins_part = root_part_req.partition().getPath()
+        loader.write_grub_conf(_ins_part,ctx.installData.bootLoaderDev)
+
+        # Check for windows partitions.
+        for d in yali.storage.devices:
+            for p in d.getPartitions():
+                fs = p.getFSName()
+                if fs in ("ntfs", "fat32"):
+                    if is_windows_boot(p.getPath(), fs):
+                        win_fs = fs
+                        win_dev = basename(p.getDevicePath())
+                        win_root = basename(p.getPath())
+                        loader.grub_conf_append_win(ctx.installData.bootLoaderDev,
+                                                    win_dev,
+                                                    win_root,
+                                                    win_fs)
+                        continue
+
+        # finally install it
+        loader.install_grub(install_dev)
+        ctx.debugger.log("Bootloader installed.")
 
 class RebootWidget(QWidget):
 

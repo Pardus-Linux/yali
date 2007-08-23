@@ -88,12 +88,12 @@ class BootLoader:
     def write_grub_conf(self, install_root_path,install_dev):
         if not install_dev.startswith("/dev/"):
             install_dev = "/dev/%s" % install_dev
-        
+
         if install_root_path.startswith(install_dev):
             _grb = "hd0"
         else:
             _grb = "hd1"
-        
+
         # some paths has own directories like (/dev/cciss/c0d0p1)
         # it removes /dev/ and gets the device.
         install_root = install_root_path[5:]
@@ -164,7 +164,7 @@ class BootLoader:
 
         if not install_dev:
             install_dev = self._find_hd0()
-        
+
         dev_str = str(os.path.basename(install_dev))
         ctx.debugger.log("in bootloader.py :: %s --- vs. --- %s " % (dev_str,win_dev))
         if win_dev == dev_str:
@@ -182,7 +182,7 @@ class BootLoader:
     def install_grub(self, grub_install_root=None):
         # grub installation is always hd0 (http://liste.pardus.org.tr/gelistirici/2007-March/005725.html)
         # if not explicitly defined...
-        
+
         if not grub_install_root.startswith("/dev/"):
             grub_install_root = "/dev/%s" % grub_install_root
 

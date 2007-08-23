@@ -96,7 +96,6 @@ class User:
                                             {'username': self.username, \
                                              'shadowedpasswd': self.__getShadowed()})
 
-        
         user_home_dir = os.path.join(consts.target_dir, 'home', self.username)
 
         if not os.path.exists(user_home_dir):
