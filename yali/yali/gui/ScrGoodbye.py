@@ -118,8 +118,6 @@ don't you?
         ctx.debugger.log("Hostname setted.")
 
         # add users
-        #users = yali.users.pending_users
-        #users.reverse()
         for u in yali.users.pending_users:
             ctx.debugger.log("User %s adding to system" % u.username)
             u.addUser()
