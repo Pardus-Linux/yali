@@ -164,7 +164,6 @@ Have fun!
                 p = req.partition()
                 pt = req.partitionType()
 
-#                path = p.getPath()
                 path = "LABEL=%s" % pt.filesystem.getLabel(p)
                 fs = p.getFSName()
                 mountpoint = pt.mountpoint

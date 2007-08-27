@@ -150,9 +150,9 @@ go to next screen.</p>
         p1 = self.pass1.text()
         p2 = self.pass2.text()
 
-        if not p1 == '' and p1 == self.username.text():
+        if not p1 == '' and (p1 == self.username.text() or p1 == self.realname.text()):
             self.pass_error.setText(
-                _('<font color="#FF6D19">Don\'t use your user name as a password.</font>'))
+                _('<font color="#FF6D19">Don\'t use your user name or name as a password.</font>'))
             self.pass_error.setAlignment(QLabel.AlignCenter)
             return self.createButton.setEnabled(False)
         elif p2 != p1 and p2:
