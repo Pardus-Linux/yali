@@ -109,12 +109,12 @@ Have fun!
         if event == pisi.ui.installing:
             self.info.setText(_("Installing: %s<br>%s") % (
                     p.name, p.summary))
-            ctx.debugger.log("slotNotify :: %s installed" % p.name)
+            ctx.debugger.log("slotNotify :: %s installing" % p.name)
             self.cur += 1
             self.progress.setProgress(self.cur)
         elif event == pisi.ui.configuring:
             self.info.setText(_("Configuring package: %s") % p.name)
-            ctx.debugger.log("slotNotify :: %s configured" % p.name)
+            ctx.debugger.log("slotNotify :: %s configuring" % p.name)
             self.cur += 1
             self.progress.setProgress(self.cur)
             ctx.screens.processEvents()

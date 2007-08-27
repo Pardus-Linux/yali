@@ -130,11 +130,12 @@ go to next screen.</p>
             u = self.userList.item(i).getUser()
             ctx.installData.users.append(u)
 
-            yali.users.pending_users.add(u)
-
             # Enable auto-login
             if u.username == ctx.installData.autoLoginUser:
                 u.setAutoLogin()
+
+            yali.users.pending_users.append(u)
+            ctx.debugger.log("USER::%s"%u.username)
 
         return True
 

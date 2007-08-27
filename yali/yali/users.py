@@ -22,26 +22,26 @@ from yali.constants import consts
 
 # a set of User instances waiting...
 # we'll add these users at the last step of the installation.
-pending_users = set()
+pending_users = []
 
 def reset_pending_users():
     global pending_users
-    pending_users = set()
+    pending_users = []
 
 def iter_head_images():
     left, right, images = [], [], []
 
     g = glob.glob(consts.user_faces_dir + "/*.png")
-    
+
     for e in g: left.append(e)
-    
+
     for n in range(0, 5):
         right = []
         for i in range(0, len(g)/2 + 1):
             right.append(left.pop(random.randrange(len(g) - i)))
         left.reverse()
         left = right + left
-    
+
     for p in left:
         images.append(p)
 
@@ -86,7 +86,7 @@ class User:
         passwd_template = "%(username)s:x:%(uid)d:100:%(realname)s:/home/%(username)s:/bin/bash\n"
         shadow_template = "%(username)s:%(shadowedpasswd)s:13094:0:99999:7:::\n"
         self.uid = self.getAvailableUid()
-        
+
         open(self.passwd_path, 'a').write(passwd_template % \
                                             {'username': self.username, \
                                              'uid': self.uid, \
@@ -169,25 +169,25 @@ class User:
         passwd = self.passwd 
         des_salt = list('./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz') 
         salt, magic = str(random.random())[-8:], '$1$'
-    
+
         ctx = md5.new(passwd)
         ctx.update(magic)
         ctx.update(salt)
-    
+
         ctx1 = md5.new(passwd)
         ctx1.update(salt)
         ctx1.update(passwd)
-    
+
         final = ctx1.digest()
-    
+
         for i in range(len(passwd), 0 , -16):
             if i > 16:
                 ctx.update(final)
             else:
                 ctx.update(final[:i])
-    
+
         i = len(passwd)
-    
+
         while i:
             if i & 1:
                 ctx.update('\0')
@@ -195,7 +195,7 @@ class User:
                 ctx.update(passwd[:1])
             i = i >> 1
         final = ctx.digest()
-    
+
         for i in range(1000):
             ctx1 = md5.new()
             if i & 1:
@@ -209,7 +209,7 @@ class User:
             else:
                 ctx1.update(passwd)
             final = ctx1.digest()
-    
+
         def _to64(v, n):
             r = ''
             while (n-1 >= 0):
@@ -217,7 +217,7 @@ class User:
                 v = v >> 6
                 n = n - 1
             return r
-    
+
         rv = magic + salt + '$'
         final = map(ord, final)
         l = (final[0] << 16) + (final[6] << 8) + final[12]
@@ -232,7 +232,7 @@ class User:
         rv = rv + _to64(l, 4)
         l = final[11]
         rv = rv + _to64(l, 2)
-    
+
         return rv
 
 if __name__ == '__main__':
