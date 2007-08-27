@@ -17,6 +17,8 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
+import comar
+import time
 import yali.sysutils
 import yali.users
 import yali.localeutils
@@ -27,6 +29,7 @@ import yali.partitionrequest as partrequest
 import yali.partitiontype as parttype
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.YaliDialog import WarningDialog
+from yali.constants import consts
 import yali.gui.context as ctx
 
 ##
@@ -113,18 +116,35 @@ don't you?
 
     # process pending actions defined in other screens.
     def processPendingActions(self):
-        # set hostname
-        yali.sysutils.add_hostname(ctx.installData.hostName)
-        ctx.debugger.log("Hostname setted.")
+        for i in range(20):
+            try:
+                ctx.debugger.log("trying to start comar..")
+                link = comar.Link(sockname=consts.comar_socket_file)
+                break
+            except comar.CannotConnect:
+                time.sleep(1)
+                ctx.debugger.log("wait comar for 1 second...")
+
+        link.Net.Stack.setHostNames(hostnames=ctx.installData.hostName)
+        reply = link.read_cmd()
+        ctx.debugger.log("Hostname set as %s" % ctx.installData.hostName)
 
         # add users
         for u in yali.users.pending_users:
             ctx.debugger.log("User %s adding to system" % u.username)
-            u.addUser()
-            ctx.debugger.log("User %s added to system" % u.username)
+            link.User.Manager.addUser(name=u.username,
+                                      password=u.passwd,
+                                      realname=u.realname,
+                                      groups=','.join(u.groups))
+            ctx.debugger.log("RESULT :: %s" % str(link.read_cmd()))
 
-        user = yali.users.User("root")
-        user.changePasswd(ctx.installData.rootPassword)
+            # Enable auto-login
+            if u.username == ctx.installData.autoLoginUser:
+                u.setAutoLogin()
+
+        link.User.Manager.setUser(uid=0,
+                                  password=ctx.installData.rootPassword)
+        ctx.debugger.log("RESULT :: %s" % str(link.read_cmd()))
 
         # write console keyboard data
         yali.localeutils.write_keymap(ctx.installData.keyData.console)

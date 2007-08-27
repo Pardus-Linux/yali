@@ -330,9 +330,11 @@
     <tabstop>realname</tabstop>
     <tabstop>pass1</tabstop>
     <tabstop>pass2</tabstop>
+    <tabstop>admin</tabstop>
     <tabstop>createButton</tabstop>
     <tabstop>userList</tabstop>
     <tabstop>deleteButton</tabstop>
+    <tabstop>autoLogin</tabstop>
 </tabstops>
 <layoutdefaults spacing="6" margin="11"/>
 </UI>
