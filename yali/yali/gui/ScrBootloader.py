@@ -204,11 +204,6 @@ and easy way to install Pardus.</p>
         if self.noInstall.isChecked():
             ctx.installData.bootLoaderDev = None
 
-        # show information window...
-        # info_window = InformationWindow(self, _("Please wait while installing bootloader!"))
-
-        # loader = yali.bootloader.BootLoader()
-
         root_part_req = ctx.partrequests.searchPartTypeAndReqType(parttype.root,
                                                                   request.mountRequestType)
 
@@ -226,29 +221,6 @@ and easy way to install Pardus.</p>
 
         ctx.debugger.log("Pardus installed to : %s" % _ins_part)
         ctx.debugger.log("GRUB will be installed to : %s" % ctx.installData.bootLoaderDev)
-
-        # loader.write_grub_conf(_ins_part,ctx.installData.bootLoaderDev)
-
-        # Windows partitions...
-        #for d in yali.storage.devices:
-        #    for p in d.getPartitions():
-        #        fs = p.getFSName()
-        #        if fs in ("ntfs", "fat32"):
-        #            if is_windows_boot(p.getPath(), fs):
-        #                win_fs = fs
-        #                win_dev = basename(p.getDevicePath())
-        #                win_root = basename(p.getPath())
-        #                loader.grub_conf_append_win(install_dev,
-        #                                            win_dev,
-        #                                            win_root,
-        #                                            win_fs)
-        #                continue
-
-        # finally install it
-        # loader.install_grub(install_dev)
-
-        # close window
-        # info_window.close(True)
 
         return True
 
