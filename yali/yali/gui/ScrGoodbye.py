@@ -70,18 +70,17 @@ don't you?
         self.info.setMinimumSize(QSize(0,50))
 
         vbox = QVBoxLayout(self)
-        vbox.addStretch(1)
-        vbox.addWidget(self.steps)
+        #vbox.addStretch(1)
+        #vbox.addWidget(self.steps)
 
-        """
         hbox = QHBoxLayout(vbox)
-        hbox.addStretch(1)
+        #hbox.addStretch(1)
         hbox.addWidget(self.steps)
         hbox.addStretch(1)
 
         vbox.addStretch(1)
         vbox.addWidget(self.info)
-        """
+        #self.processPendingActions()
 
     def shown(self):
         from os.path import basename
@@ -141,7 +140,7 @@ don't you?
         def setHostName():
             global comarLink
             comarLink.Net.Stack.setHostNames(hostnames=ctx.installData.hostName)
-            reply = link.read_cmd()
+            reply = comarLink.read_cmd()
             ctx.debugger.log("Hostname set as %s" % ctx.installData.hostName)
             return True
 
@@ -153,7 +152,7 @@ don't you?
                                                password=u.passwd,
                                                realname=u.realname,
                                                groups=','.join(u.groups))
-                ctx.debugger.log("RESULT :: %s" % str(link.read_cmd()))
+                ctx.debugger.log("RESULT :: %s" % str(comarLink.read_cmd()))
 
                 # Enable auto-login
                 if u.username == ctx.installData.autoLoginUser:
@@ -164,7 +163,7 @@ don't you?
             global comarLink
             comarLink.User.Manager.setUser(uid=0,
                                            password=ctx.installData.rootPassword)
-            ctx.debugger.log("RESULT :: %s" % str(link.read_cmd()))
+            ctx.debugger.log("RESULT :: %s" % str(comarLink.read_cmd()))
             return True
 
         def writeConsoleData():

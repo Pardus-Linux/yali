@@ -61,8 +61,8 @@ class stepItem:
         self.pixmapLabel.setScaledContents(1)
         self.mainLayout.addWidget(self.pixmapLabel)
 
-        self.textLabel = QLabel(parent,self.text)
-        self.textLabel.setText(text)
+        self.textLabel = QLabel(parent)
+        #self.textLabel.setText(text)
         self.mainLayout.addWidget(self.textLabel)
 
     def getLayout(self):
