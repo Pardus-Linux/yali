@@ -29,6 +29,7 @@ import yali.partitionrequest as partrequest
 import yali.partitiontype as parttype
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.YaliDialog import WarningDialog
+from yali.gui.YaliSteps import YaliSteps
 from yali.constants import consts
 import yali.gui.context as ctx
 
@@ -55,9 +56,11 @@ don't you?
 
     def __init__(self, *args):
         apply(QWidget.__init__, (self,) + args)
-        
-        img = QLabel(self)
-        img.setPixmap(ctx.iconfactory.newPixmap("goodbye"))
+
+        #img = QLabel(self)
+        #img.setPixmap(ctx.iconfactory.newPixmap("goodbye"))
+
+        self.steps = YaliSteps(self)
 
         self.info = QLabel(self)
         self.info.setText(
@@ -68,21 +71,24 @@ don't you?
 
         vbox = QVBoxLayout(self)
         vbox.addStretch(1)
+        vbox.addWidget(self.steps)
 
+        """
         hbox = QHBoxLayout(vbox)
         hbox.addStretch(1)
-        hbox.addWidget(img)
+        hbox.addWidget(self.steps)
         hbox.addStretch(1)
 
         vbox.addStretch(1)
         vbox.addWidget(self.info)
+        """
 
     def shown(self):
         from os.path import basename
         ctx.debugger.log("%s loaded" % basename(__file__))
         ctx.screens.disablePrev()
         self.processPendingActions()
-        self.installBootloader()
+        self.steps.slotRunOperations()
 
     def execute(self):
         ctx.screens.disableNext()
@@ -116,43 +122,70 @@ don't you?
 
     # process pending actions defined in other screens.
     def processPendingActions(self):
-        for i in range(20):
-            try:
-                ctx.debugger.log("trying to start comar..")
-                link = comar.Link(sockname=consts.comar_socket_file)
-                break
-            except comar.CannotConnect:
-                time.sleep(1)
-                ctx.debugger.log("wait comar for 1 second...")
+        comarLink = None
 
-        link.Net.Stack.setHostNames(hostnames=ctx.installData.hostName)
-        reply = link.read_cmd()
-        ctx.debugger.log("Hostname set as %s" % ctx.installData.hostName)
+        def connectToComar():
+            global comarLink
+            for i in range(20):
+                try:
+                    ctx.debugger.log("trying to start comar..")
+                    comarLink = comar.Link(sockname=consts.comar_socket_file)
+                    break
+                except comar.CannotConnect:
+                    time.sleep(1)
+                    ctx.debugger.log("wait comar for 1 second...")
+            if comarLink:
+                return True
+            return False
 
-        # add users
-        for u in yali.users.pending_users:
-            ctx.debugger.log("User %s adding to system" % u.username)
-            link.User.Manager.addUser(name=u.username,
-                                      password=u.passwd,
-                                      realname=u.realname,
-                                      groups=','.join(u.groups))
+        def setHostName():
+            global comarLink
+            comarLink.Net.Stack.setHostNames(hostnames=ctx.installData.hostName)
+            reply = link.read_cmd()
+            ctx.debugger.log("Hostname set as %s" % ctx.installData.hostName)
+            return True
+
+        def addUsers():
+            global comarLink
+            for u in yali.users.pending_users:
+                ctx.debugger.log("User %s adding to system" % u.username)
+                comarLink.User.Manager.addUser(name=u.username,
+                                               password=u.passwd,
+                                               realname=u.realname,
+                                               groups=','.join(u.groups))
+                ctx.debugger.log("RESULT :: %s" % str(link.read_cmd()))
+
+                # Enable auto-login
+                if u.username == ctx.installData.autoLoginUser:
+                    u.setAutoLogin()
+            return True
+
+        def setRootPassword():
+            global comarLink
+            comarLink.User.Manager.setUser(uid=0,
+                                           password=ctx.installData.rootPassword)
             ctx.debugger.log("RESULT :: %s" % str(link.read_cmd()))
+            return True
 
-            # Enable auto-login
-            if u.username == ctx.installData.autoLoginUser:
-                u.setAutoLogin()
+        def writeConsoleData():
+            yali.localeutils.write_keymap(ctx.installData.keyData.console)
+            ctx.debugger.log("Keymap stored.")
+            return True
 
-        link.User.Manager.setUser(uid=0,
-                                  password=ctx.installData.rootPassword)
-        ctx.debugger.log("RESULT :: %s" % str(link.read_cmd()))
+        def migrateXorgConf():
+            yali.postinstall.migrate_xorg_conf(ctx.installData.keyData.X)
+            ctx.debugger.log("xorg.conf merged.")
+            return True
 
-        # write console keyboard data
-        yali.localeutils.write_keymap(ctx.installData.keyData.console)
-        ctx.debugger.log("Keymap stored.")
+        steps = [{"text":_("Trying to connect COMAR Daemon..."),"operation":connectToComar},
+                 {"text":_("Setting Hostname..."),"operation":setHostName},
+                 {"text":_("Setting Root Password..."),"operation":setRootPassword},
+                 {"text":_("Adding Users..."),"operation":addUsers},
+                 {"text":_("Writing Console Data..."),"operation":writeConsoleData},
+                 {"text":_("Migrating X.org Configuration..."),"operation":migrateXorgConf},
+                 {"text":_("Installing BootLoader..."),"operation":self.installBootloader}]
 
-        # migrate xorg.conf
-        yali.postinstall.migrate_xorg_conf(ctx.installData.keyData.X)
-        ctx.debugger.log("xorg.conf merged.")
+        self.steps.setOperations(steps)
 
     def installBootloader(self):
         ctx.debugger.log("Bootloader is installing...")
