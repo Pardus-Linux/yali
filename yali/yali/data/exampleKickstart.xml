@@ -8,7 +8,7 @@
 		<user autologin="yes">
 			<username>gokmen</username>
 			<realname>gokmen goksel</realname>
-			<password>123</password>
+			<password>1231111</password>
 			<groups>audio,dialout,disk,pnp,pnpadmin,users,video,wheel</groups>
 		</user>
 		<user>

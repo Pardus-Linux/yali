@@ -41,7 +41,7 @@ def get_kernel_opt(cmdopt):
     return ''
 
 def kickstartExists():
-    if get_kernel_opt(ctx.consts.kickStartParam):
+    if get_kernel_opt(ctx.consts.kickStartParam) or ctx.options.kickStartFile:
         return True
     return False
 
@@ -67,13 +67,18 @@ class Widget(KickerWidget, ScreenWidget):
             self.jumpToNext()
 
         yaliKick = yaliKickStart()
+        print "...",ctx.options.kickStartFile
 
-        kickStartOpt = get_kernel_opt(ctx.consts.kickStartParam).split(",")
-        ctx.debugger.log("KICKSTART-PARAMS:: %s" % ",".join(kickStartOpt))
+        if not ctx.options.kickStartFile:
+            kickStartOpt = get_kernel_opt(ctx.consts.kickStartParam).split(",")
+            ctx.debugger.log("KICKSTART-PARAMS:: %s" % ",".join(kickStartOpt))
+            kickStartFile = kickStartOpt[1]
+        else:
+            kickStartFile = ctx.options.kickStartFile
 
-        if kickStartOpt[0] == "file":
-            ctx.debugger.log("Reading Kickstart from file %s" % kickStartOpt[1])
-            yaliKick.readData(kickStartOpt[1])
+        if kickStartFile:
+            ctx.debugger.log("Reading Kickstart from file %s" % kickStartFile)
+            yaliKick.readData(kickStartFile)
             if yaliKick.checkFileValidity()==True:
                 ctx.debugger.log("File is ok")
                 correctData = yaliKick.getValues()
@@ -82,10 +87,6 @@ class Widget(KickerWidget, ScreenWidget):
                 ctx.debugger.log("This kickstart file is not correct !!")
                 wrongData = yaliKick.getValues()
                 ctx.debugger.log("".join(wrongData))
-
-        elif kickStartOpt[0] == "web":
-            ctx.debugger.log("Web support is not working for now.")
-            self.jumpToNext()
 
         ctx.screens.disablePrev()
         ctx.screens.disableNext()

@@ -285,7 +285,7 @@ class yaliKickStart:
         return self.errorList
 
     def checkFileValidity(self):
-        self.correctData=None
+        self.correctData=yaliReadPiks.yaliKickstartData()
         self.errorList=self.checkAllOptions()
         if(len(self.errorList)==0):
             return True
