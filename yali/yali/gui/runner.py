@@ -40,6 +40,7 @@ import ScrAdmin
 import ScrUsers
 import ScrBootloader
 import ScrGoodbye
+import ScrKickerCheck
 
 ##
 # Runner creates main GUI components for installation...
@@ -57,6 +58,7 @@ class Runner:
             ]
 
         _all_screens = [
+             {'stage': 1, 'module': ScrKickerCheck},
              {'stage': 1, 'module': ScrWelcome},
              {'stage': 1, 'module': ScrCheckCD},
              {'stage': 1, 'module': ScrKeyboard},

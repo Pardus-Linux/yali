@@ -21,6 +21,7 @@ from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.kickerwidget import KickerWidget
 import yali.gui.context as ctx
 from yali.gui.YaliDialog import Dialog
+from yali.kickstart import yaliKickStart
 
 def loadFile(path):
     """Read contents of a file"""
@@ -37,10 +38,10 @@ def get_kernel_opt(cmdopt):
             return cmd
         if cmd.startswith(cmdopt) and cmd[pos] == '=':
             return cmd[pos+1:]
-    return None
+    return ''
 
 def kickstartExists():
-    if get_kernel_opt("yaliKickstart"):
+    if get_kernel_opt(ctx.consts.kickStartParam):
         return True
     return False
 
@@ -56,18 +57,35 @@ class Widget(KickerWidget, ScreenWidget):
     def __init__(self, *args):
         apply(KickerWidget.__init__, (self,) + args)
 
-   def __enable_next(self, b):
-        if b:
-            ctx.screens.enableNext()
-            self.rebootButton.setEnabled(False)
-        else:
-            ctx.screens.disableNext()
-            self.rebootButton.setEnabled(True)
+    def jumpToNext(self):
+        num = ctx.screens.getCurrentIndex() + 1
+        ctx.screens.goToScreen(num)
 
     def shown(self):
         if not kickstartExists():
-            num = ctx.screens.getCurrentIndex() + 1
-            ctx.screens.goToScreen(num)
+            ctx.debugger.log("There is no kickstart jumps to the next screen.")
+            self.jumpToNext()
+
+        yaliKick = yaliKickStart()
+
+        kickStartOpt = get_kernel_opt(ctx.consts.kickStartParam).split(",")
+        ctx.debugger.log("KICKSTART-PARAMS:: %s" % ",".join(kickStartOpt))
+
+        if kickStartOpt[0] == "file":
+            ctx.debugger.log("Reading Kickstart from file %s" % kickStartOpt[1])
+            yaliKick.readData(kickStartOpt[1])
+            if yaliKick.checkFileValidity()==True:
+                ctx.debugger.log("File is ok")
+                correctData = yaliKick.getValues()
+                ctx.debugger.log("Root Pass is : %s" % correctData.rootPassword)
+            else:
+                ctx.debugger.log("This kickstart file is not correct !!")
+                wrongData = yaliKick.getValues()
+                ctx.debugger.log("".join(wrongData))
+
+        elif kickStartOpt[0] == "web":
+            ctx.debugger.log("Web support is not working for now.")
+            self.jumpToNext()
 
         ctx.screens.disablePrev()
         ctx.screens.disableNext()

@@ -290,6 +290,7 @@ class yaliKickStart:
         if(len(self.errorList)==0):
             return True
         return self.errorList
+
     def getValues(self):
         if self.checkFileValidity() == True:
             return self.correctData

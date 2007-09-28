@@ -7,20 +7,28 @@ import sys
 class yaliKickstartData:
     def __init__(self):
         self.language=None
-        self.keyData=None
+        self.keyData=Keymap()
         self.rootPassword=None
         self.hostname=None
         self.users=[]
         self.partitioning=[]
-
-class yaliUser:
+        self.partitioningType=None
+        self.autoLoginUser=None
+        
+class yaliUser:	
     def __init__(self):
         self.autologin=None
         self.username=None
         self.realname=None
         self.password=None
         self.groups=[]
-
+ 
+class Keymap:
+    def __init__(self):
+        self.console = None
+        self.X = None
+        self.translation = None
+   
 class yaliPartition:
     def __init__(self):
         self.partitionType=None
@@ -32,10 +40,9 @@ class yaliPartition:
 
 def read(args):
     doc=piksemel.parse(args)
-
     data=yaliKickstartData()
     data.language=doc.getTagData("language")
-    data.keyData=doc.getTagData("keymap")
+    data.keyData.X=doc.getTagData("keymap")
     data.rootPassword=doc.getTagData("root_password")
     data.hostname=doc.getTagData("hostname")
 
@@ -50,9 +57,9 @@ def read(args):
         if(p.getTagData("groups")!=None):
             info.groups=p.getTagData("groups").split(",")
         data.users.append(info)
-
+    
     partitioning=doc.getTag("partitioning")
-    partitioningType=partitioning.getAttribute("partitioning_type")
+    data.partitioningType=partitioning.getAttribute("partitioning_type")
 
     for q in partitioning.tags():
         partinfo=yaliPartition()
@@ -63,4 +70,5 @@ def read(args):
         partinfo.mountPoint=q.getAttribute("mountpoint")
         partinfo.disk=q.firstChild().data()
         data.partitioning.append(partinfo)
+    return data
 
