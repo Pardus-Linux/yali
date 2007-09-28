@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="iso-8859-9"?>
+<yali xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="yalisema.xsd">
+	<language>tr</language>
+	<keymap>trq</keymap>
+	<root_password>pardusman</root_password>
+	<hostname>pardus-kickstart</hostname>
+	<users>
+		<user autologin="yes">
+			<username>gokmen</username>
+			<realname>gokmen goksel</realname>
+			<password>123</password>
+			<groups>audio,dialout,disk,pnp,pnpadmin,users,video,wheel</groups>
+		</user>
+		<user>
+			<username>zeynep</username>
+			<realname>zeynep sagar</realname>
+			<password>123456</password>
+			<groups>users,wheel,pnp</groups>
+		</user>
+		<!-- Wrong usage; root is unique user name 
+		<user>
+			<username>root</username>
+			<realname>root user</realname>
+			<password>123456</password>
+			<groups>users,wheel,pnp</groups>
+		</user>
+		-->
+	</users>
+	<partitioning partitioning_type="auto">disk0</partitioning>	
+</yali>
+			
+	
