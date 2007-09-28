@@ -97,7 +97,7 @@ class partitionFunctions:
                 return True
         return False
     def checkDiskSyntax(self):
-        return re.match("[h,s]d(\D{1})[1-9]$",self.disk) 
+        return re.match("disk[0-9]p[1-9]$",self.disk) 
     def convertDisk(self):
         list={'a':'p0','b':'p1','c':'s0','d':'s1'}
         self.letter=self.disk[2]
@@ -228,7 +228,8 @@ class yaliKickStart:
             else:
                 PartiFunction=partitionFunctions(self.data.partitioning[0].fsType,self.data.partitioning[0].disk)
                 print self.data.partitioning[0].disk
-                if not PartiFunction.checkDiskSyntax():
+
+                if self.data.partitioning[0].disk!="disk0":
                     error.Disk=True
                     self.errorList.append("Auto Partitioning Error : Wrong Disk Syntax")
                 else:
