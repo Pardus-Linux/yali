@@ -27,7 +27,7 @@
 		-->
 	</users>
     <partitioning partitioning_type="auto">
-        <partition>disk40</partition>
+        <partition>disk4</partition>
     </partitioning>
 </yali>
 			
