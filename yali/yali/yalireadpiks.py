@@ -60,7 +60,7 @@ def read(args):
 
     partitioning=doc.getTag("partitioning")
     data.partitioningType=partitioning.getAttribute("partitioning_type")
-    if(data.partitionigType=="auto"):
+    if(data.partitioningType=="auto"):
         autoPart=yaliPartition()
         autoPart.disk=partitioning.firstChild().data()
         data.partitioning.append(autoPart)
