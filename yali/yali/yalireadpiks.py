@@ -57,18 +57,22 @@ def read(args):
         if(p.getTagData("groups")!=None):
             info.groups=p.getTagData("groups").split(",")
         data.users.append(info)
-    
+
     partitioning=doc.getTag("partitioning")
     data.partitioningType=partitioning.getAttribute("partitioning_type")
-
-    for q in partitioning.tags():
-        partinfo=yaliPartition()
-        partinfo.partitionType=q.getAttribute("partition_type")
-        partinfo.format=q.getAttribute("format")
-        partinfo.ratio=q.getAttribute("ratio")
-        partinfo.fsType=q.getAttribute("fs_type")
-        partinfo.mountPoint=q.getAttribute("mountpoint")
-        partinfo.disk=q.firstChild().data()
-        data.partitioning.append(partinfo)
+    if(data.partitionigType=="auto"):
+        autoPart=yaliPartition()
+        autoPart.disk=partitioning.firstChild().data()
+        data.partitioning.append(autoPart)
+    else:
+        for q in partitioning.tags():
+            partinfo=yaliPartition()
+            partinfo.partitionType=q.getAttribute("partition_type")
+            partinfo.format=q.getAttribute("format")
+            partinfo.ratio=q.getAttribute("ratio")
+            partinfo.fsType=q.getAttribute("fs_type")
+            partinfo.mountPoint=q.getAttribute("mountpoint")
+            partinfo.disk=q.firstChild().data()
+            data.partitioning.append(partinfo)
     return data
 
