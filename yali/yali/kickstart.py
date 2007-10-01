@@ -41,22 +41,26 @@ class userFunctions:
         self.correctData = correctdata
 
     def checkAutologin(self):
+        """It verifies if another autologin user exists"""
         if(self.correctData.autoLoginUser):
             return False
         return True
 
     def checkValidity(self):
+        """It checks username format"""
         if self.username and re.search("[0-9a-zA-Z.?!_-]",self.username):
             return True
         return False
 
     def checkName(self):
+        """It verifies if the username already exists"""
         for usr in self.correctData.users:
             if(usr.username==self.username):
                 return True
         return False
 
     def checkGroups(self):
+        """It checks the groups validity"""
         for element in self.groups:
             for group in yaliKickStart().defaultGroups:
                 if (group==element or element=="wheel"):
@@ -71,12 +75,14 @@ class otherFunctions:
         self.keyX=keyX
 
     def checkKeymapX(self):
+        """It checks keymap validity"""
         for element in getKeymaps():
             if element.X==self.keyX:
                 return True
         return False 
 
     def findKeymap(self):
+        """It attaches console Keymap"""
         for element in getKeymaps():
             if element.X==self.keyX:
                 return element.console
@@ -103,13 +109,6 @@ class partitionFunctions:
         return re.match("disk[0-9]$",self.disk) 
 
 
-    def convertDisk(self):
-        list={'a':'p0','b':'p1','c':'s0','d':'s1'}
-        self.letter=self.disk[2]
-        device=str(list[self.letter]+'p'+str(int(self.disk[3])-1))
-        print device
-        return device
-
 class yaliKickStart:
     def __init__(self):
         self.fileSystems=["swap","ext3","ntfs","reiserf","xfs"]
@@ -135,6 +134,7 @@ class yaliKickStart:
         return False
 
     def checkAllOptions(self):
+        """It checks all data entries and edits them"""
         error=errors()
         otherFunct=otherFunctions(self.data.keyData.X)
 
@@ -283,12 +283,12 @@ class yaliKickStart:
                                 errorPartition.MountPoint=True
                                 self.errorList.append("Mountpoint Error for %s : %s not valid"%(partition.partitionType,partition.mountPoint))
                             if(errorPartition.PartitionType!=True and errorPartition.Disk!=True and errorPartition.FsType!=True and errorPartition.MountPoint!=True):
-                                partition.disk=functPart.convertDisk()
                                 self.correctData.partitioning.append(partition)
 
         return self.errorList
 
     def checkFileValidity(self):
+        """It reads the xml file and checks errors"""
         self.correctData=yaliReadPiks.yaliKickstartData()
         self.errorList=self.checkAllOptions()
         if(len(self.errorList)==0):
