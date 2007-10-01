@@ -26,8 +26,7 @@
 		</user>
 		-->
 	</users>
-    <partitioning partitioning_type="auto">disk1
-    </partitioning>
+    <partitioning partitioning_type="auto">disk1</partitioning>
 </yali>
 			
 	
