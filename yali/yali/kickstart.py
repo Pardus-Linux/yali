@@ -232,8 +232,6 @@ class yaliKickStart:
                 self.errorList.append("Auto Partitioning Error : No partition entry  or too many partition")
             else:
                 PartiFunction=partitionFunctions(self.data.partitioning[0].fsType,self.data.partitioning[0].disk)
-                print self.data.partitioning[0].disk
-
                 if not PartiFunction.checkDiskSyntax2():
                     error.Disk=True
                     self.errorList.append("Auto Partitioning Error : Wrong Disk Syntax")
