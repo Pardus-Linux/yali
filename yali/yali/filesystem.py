@@ -443,7 +443,7 @@ class SwapFileSystem(FileSystem):
     def getLabel(self, partition):
         label = None
         fd = self.openPartition(partition)
-        
+
         pagesize = resource.getpagesize()
         try:
             buf = os.read(fd, pagesize)
