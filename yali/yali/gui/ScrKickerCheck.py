@@ -69,10 +69,11 @@ class Widget(KickerWidget, ScreenWidget):
         yaliKick = yaliKickStart()
         print "...",ctx.options.kickStartFile
 
-        if not ctx.options.kickStartFile:
-            kickStartOpt = get_kernel_opt(ctx.consts.kickStartParam).split(",")
-            ctx.debugger.log("KICKSTART-PARAMS:: %s" % ",".join(kickStartOpt))
-            kickStartFile = kickStartOpt[1]
+        kickStartOpt = get_kernel_opt(ctx.consts.kickStartParam)
+
+        if kickStartOpt:
+            ctx.debugger.log("KICKSTART-PARAMS:: %s" % kickStartOpt)
+            kickStartFile = kickStartOpt.splir(',')[1]
         else:
             kickStartFile = ctx.options.kickStartFile
 
