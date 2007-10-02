@@ -5,7 +5,7 @@
 	<root_password>pardusman</root_password>
 	<hostname>pardus-kickstart</hostname>
 	<users>
-		<user autologin="yes">
+		<user>
 			<username>gokmen</username>
 			<realname>gokmen goksel</realname>
 			<password>1231111</password>
@@ -26,7 +26,7 @@
 		</user>
 		-->
 	</users>
-    <partitioning partitioning_type="auto">disk1</partitioning>
+    <partitioning partitioning_type="auto">disk0</partitioning>
 </yali>
 			
 	

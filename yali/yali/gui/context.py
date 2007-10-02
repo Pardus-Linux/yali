@@ -50,5 +50,8 @@ iconfactory = yali.gui.iconfactory.IconFactory(consts.pics_dir)
 # auto partitioning
 use_autopart = False
 
+# auto installation
+autoInstall = False
+
 # keydata
 keydata = None

@@ -22,6 +22,7 @@ from yali.gui.Ui.kickerwidget import KickerWidget
 import yali.gui.context as ctx
 from yali.gui.YaliDialog import Dialog
 from yali.kickstart import yaliKickStart
+import yali.storage
 
 def loadFile(path):
     """Read contents of a file"""
@@ -62,10 +63,12 @@ class Widget(KickerWidget, ScreenWidget):
         ctx.screens.goToScreen(num)
 
     def shown(self):
+        ctx.kickerReady = False
         if not kickstartExists():
             ctx.debugger.log("There is no kickstart jumps to the next screen.")
             self.jumpToNext()
 
+        ctx.autoInstall = True
         yaliKick = yaliKickStart()
         print "...",ctx.options.kickStartFile
 
@@ -73,7 +76,7 @@ class Widget(KickerWidget, ScreenWidget):
 
         if kickStartOpt:
             ctx.debugger.log("KICKSTART-PARAMS:: %s" % kickStartOpt)
-            kickStartFile = kickStartOpt.splir(',')[1]
+            kickStartFile = kickStartOpt.split(',')[1]
         else:
             kickStartFile = ctx.options.kickStartFile
 
@@ -82,8 +85,39 @@ class Widget(KickerWidget, ScreenWidget):
             yaliKick.readData(kickStartFile)
             if yaliKick.checkFileValidity()==True:
                 ctx.debugger.log("File is ok")
+
+                # find usable storage devices
+                # initialize all storage devices
+                if not yali.storage.init_devices():
+                    raise GUIException, _("Can't find a storage device!")
+
+                devices = []
+                for dev in yali.storage.devices:
+                    if dev.getTotalMB() >= ctx.consts.min_root_size:
+                        devices.append(dev)
+
                 correctData = yaliKick.getValues()
-                ctx.debugger.log("Root Pass is : %s" % correctData.rootPassword)
+                ctx.debugger.log("Given KickStart Values :")
+
+                # single types
+                ctx.installData.keyData = correctData.keyData
+                ctx.installData.rootPassword = correctData.rootPassword
+                ctx.installData.hostName = correctData.hostname
+                ctx.installData.autoLoginUser = correctData.autoLoginUser
+                ctx.installData.autoPartDev = devices[int(correctData.partitioning[0].disk[-1])]
+
+                ctx.debugger.log("HOSTNAME : %s " % ctx.installData.hostName)
+                ctx.debugger.log("KEYDATA  : %s " % ctx.installData.keyData.X)
+
+                # multi types
+                for user in correctData.users:
+                    ctx.installData.users.append(user)
+                    yali.users.pending_users.append(user)
+                    ctx.debugger.log("USER    : %s " % user.username)
+
+                ctx.screens.processEvents()
+                ctx.kickerReady = True
+                ctx.screens.next()
             else:
                 ctx.debugger.log("This kickstart file is not correct !!")
                 wrongData = yaliKick.getValues()

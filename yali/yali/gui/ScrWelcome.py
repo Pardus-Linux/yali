@@ -98,6 +98,9 @@ Have a fruitful experience with Pardus!
         yali.sysutils.fastreboot()
 
     def shown(self):
+        if ctx.kickerReady and ctx.autoInstall:
+            ctx.screens.goToScreen(9)
+
         ctx.screens.disablePrev()
         if self.accept.isChecked():
             ctx.screens.enableNext()

@@ -97,6 +97,8 @@ loader.
     def shown(self):
         from os.path import basename
         ctx.debugger.log("%s loaded" % basename(__file__))
+        if ctx.autoInstall:
+            ctx.screens.next()
 
     def backCheck(self):
         # we need to go partition auto screen, not manual ;)
@@ -171,11 +173,12 @@ all your present data on the selected disk will be lost.</p>
 and easy way to install Pardus.</p>
 </b>
 '''))
-        self.dialog = WarningDialog(w, self)
-        if not self.dialog.exec_loop():
-            # disabled by weaver
-            ctx.screens.enablePrev()
-            return False
+        if not ctx.autoInstall:
+            self.dialog = WarningDialog(w, self)
+            if not self.dialog.exec_loop():
+                # disabled by weaver
+                ctx.screens.enablePrev()
+                return False
 
         info_window = InformationWindow(self, _("Please wait while formatting!"))
         ctx.screens.processEvents()
