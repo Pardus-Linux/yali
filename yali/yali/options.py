@@ -21,8 +21,8 @@ class Options(object):
         parser.add_option("-d", "--debug", dest="debug",
                           action="store_true", default="False",
                           help="enable debug")
-        parser.add_option("-k", "--kickStartFile", dest="kickStartFile",
-                          help="Run with KickStart file", metavar="FILE")
+        parser.add_option("-k", "--kahyaFile", dest="kahyaFile",
+                          help="Run with Kahya file", metavar="FILE")
         self.options, self.args = parser.parse_args()
 
     def __getattr__(self, name):

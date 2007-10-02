@@ -4,7 +4,7 @@
 import piksemel
 import sys
 
-class yaliKickstartData:
+class kahyaData:
     def __init__(self):
         self.language=None
         self.keyData=Keymap()
@@ -40,7 +40,7 @@ class yaliPartition:
 
 def read(args):
     doc=piksemel.parse(args)
-    data=yaliKickstartData()
+    data=kahyaData()
     data.language=doc.getTagData("language")
     data.keyData.X=doc.getTagData("keymap")
     data.rootPassword=doc.getTagData("root_password")
