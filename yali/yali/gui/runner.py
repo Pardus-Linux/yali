@@ -123,6 +123,7 @@ class Runner:
         # set the current screen and stage to 1 at startup...
         ctx.stages.setCurrent(1)
         ctx.screens.setCurrent(1)
+        ctx.screens.next()
 
     ##
     # Fire up the interface.

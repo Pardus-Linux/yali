@@ -62,8 +62,7 @@ class Widget(KickerWidget, ScreenWidget):
         num = ctx.screens.getCurrentIndex() + 1
         ctx.screens.goToScreen(num)
 
-    def shown(self):
-        ctx.kickerReady = False
+    def execute(self):
         if not kickstartExists():
             ctx.debugger.log("There is no kickstart jumps to the next screen.")
             self.jumpToNext()
@@ -114,10 +113,7 @@ class Widget(KickerWidget, ScreenWidget):
                     ctx.installData.users.append(user)
                     yali.users.pending_users.append(user)
                     ctx.debugger.log("USER    : %s " % user.username)
-
-                ctx.screens.processEvents()
-                ctx.kickerReady = True
-                ctx.screens.next()
+                ctx.screens.goToScreen(9)
             else:
                 ctx.debugger.log("This kickstart file is not correct !!")
                 wrongData = yaliKick.getValues()
