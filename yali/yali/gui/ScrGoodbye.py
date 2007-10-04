@@ -27,6 +27,7 @@ import yali.bootloader
 import yali.storage
 import yali.partitionrequest as partrequest
 import yali.partitiontype as parttype
+from yali.sysutils import is_windows_boot
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.YaliDialog import WarningDialog
 from yali.gui.YaliSteps import YaliSteps
