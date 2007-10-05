@@ -236,8 +236,6 @@ Error:
 ''') % str(e)
 
         yali.gui.runner.showException(yali.exception_fatal, err_str)
-        
-
 
 class PkgInstaller(QThread):
 
@@ -278,7 +276,6 @@ class PisiUI(pisi.ui.UI):
         pisi.ui.UI.__init__(self)
         self._notify_widget = notify_widget
 
-
     def notify(self, event, **keywords):
         if event == pisi.ui.installing or event == pisi.ui.configuring:
             # User+1: pisi notify
@@ -287,7 +284,6 @@ class PisiUI(pisi.ui.UI):
             qevent.setData(data)
             QApplication.postEvent(self._notify_widget, qevent)
 
-    
     def display_progress(self, operation, percent, info, **keywords):
         pass
 

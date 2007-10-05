@@ -58,14 +58,10 @@ class Widget(KickerWidget, ScreenWidget):
     def __init__(self, *args):
         apply(KickerWidget.__init__, (self,) + args)
 
-    def jumpToNext(self):
-        num = ctx.screens.getCurrentIndex() + 1
-        ctx.screens.goToScreen(num)
-
     def execute(self):
         if not kahyaExists():
             ctx.debugger.log("There is no kahya jumps to the next screen.")
-            self.jumpToNext()
+            return True
 
         ctx.autoInstall = True
         yaliKahya = kahya()
@@ -114,6 +110,7 @@ class Widget(KickerWidget, ScreenWidget):
                     yali.users.pending_users.append(user)
                     ctx.debugger.log("USER    : %s " % user.username)
                 if not ctx.options.dryRun:
+                    # Bootloader Screen is 9
                     ctx.screens.goToScreen(9)
                 else:
                     ctx.debugger.log("dryRun activated Yali stopped")
