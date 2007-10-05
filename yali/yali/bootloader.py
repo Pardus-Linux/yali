@@ -166,7 +166,6 @@ class BootLoader:
             install_dev = self._find_hd0()
 
         dev_str = str(os.path.basename(install_dev))
-        ctx.debugger.log("in bootloader.py :: %s --- vs. --- %s " % (dev_str,win_dev))
         if win_dev == dev_str:
             s = win_part_tmp % {"title": _("Windows"),
                                 "grub_root": grub_root,

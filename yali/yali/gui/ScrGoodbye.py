@@ -59,8 +59,8 @@ don't you?
     def __init__(self, *args):
         apply(QWidget.__init__, (self,) + args)
 
-        #img = QLabel(self)
-        #img.setPixmap(ctx.iconfactory.newPixmap("goodbye"))
+        img = QLabel(self)
+        img.setPixmap(ctx.iconfactory.newPixmap("goodbye"))
 
         self.steps = YaliSteps(self)
 
@@ -72,17 +72,16 @@ don't you?
         self.info.setMinimumSize(QSize(0,50))
 
         vbox = QVBoxLayout(self)
-        #vbox.addStretch(1)
-        #vbox.addWidget(self.steps)
+        vbox.addStretch(1)
 
         hbox = QHBoxLayout(vbox)
-        #hbox.addStretch(1)
-        hbox.addWidget(self.steps)
+        hbox.addStretch(1)
+        #FIXME Where is the steps layout ??
+        hbox.addWidget(img)
         hbox.addStretch(1)
 
         vbox.addStretch(1)
         vbox.addWidget(self.info)
-        #self.processPendingActions()
 
     def shown(self):
         from os.path import basename
