@@ -23,10 +23,13 @@
 import parted
 import os
 import glob
+import struct
+import binascii
 
 from yali.parteddata import *
 from yali.partition import Partition, FreeSpace
 from yali.exception import YaliError, YaliException
+import yali.sysutils as sysutils
 import yali.filesystem
 
 class DeviceError(YaliError):
@@ -492,7 +495,12 @@ class EDD:
                 bios_num = d[9:]
                 sigs[bios_num] = self.get_edd_sig(bios_num)
         else:
-            raise DeviceError, "Edd module not installed !"
+            cmd_path = sysutils.find_executable("modprobe")
+            cmd = "%s %s" %(cmd_path,"edd")
+            p = os.popen(cmd)
+            o = p.readlines()
+            if p.close():
+                raise YaliException, "Inserting EDD Module failed !"
         return sigs
 
     def list_mbr_signatures(self):
