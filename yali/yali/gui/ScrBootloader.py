@@ -68,7 +68,6 @@ loader.
         if not yali.storage.init_devices():
             raise GUIException, _("Can't find a storage device!")
 
-        self.orderedDiskList = yali.storage.getOrderedDiskList()
 
         if len(yali.storage.devices) > 1:
             self.device_list_state = True
@@ -212,12 +211,12 @@ and easy way to install Pardus.</p>
                                                                   request.mountRequestType)
 
         # install_dev
-
         if self.installPart.isChecked():
             ctx.installData.bootLoaderDev = basename(root_part_req.partition().getPath())
         elif self.installMBR.isChecked():
             ctx.installData.bootLoaderDev = basename(self.device.getPath())
         else:
+            self.orderedDiskList = yali.storage.getOrderedDiskList()
             ctx.installData.bootLoaderDev = basename(self.orderedDiskList[0])
 
         _ins_part = root_part_req.partition().getPath()

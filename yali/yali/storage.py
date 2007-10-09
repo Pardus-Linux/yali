@@ -490,17 +490,16 @@ class EDD:
 
     def list_edd_signatures(self):
         sigs = {}
-        if os.path.exists(self.edd_dir):
-            for d in os.listdir(self.edd_dir):
-                bios_num = d[9:]
-                sigs[bios_num] = self.get_edd_sig(bios_num)
-        else:
+        if not os.path.exists(self.edd_dir):
             cmd_path = sysutils.find_executable("modprobe")
             cmd = "%s %s" %(cmd_path,"edd")
             p = os.popen(cmd)
             o = p.readlines()
             if p.close():
                 raise YaliException, "Inserting EDD Module failed !"
+        for d in os.listdir(self.edd_dir):
+            bios_num = d[9:]
+            sigs[bios_num] = self.get_edd_sig(bios_num)
         return sigs
 
     def list_mbr_signatures(self):
@@ -520,7 +519,6 @@ def getOrderedDiskList():
         edd_sig = edd_list[bios_num]
         sortedList.append(mbr_list[edd_sig])
     return sortedList
-
 
 ##
 # Return a list of block devices in system
