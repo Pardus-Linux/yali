@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-07-17 10:59+0300\n"
+"POT-Creation-Date: 2007-10-09 12:04+0300\n"
 "PO-Revision-Date: 2006-12-08 23:32+0200\n"
 "Last-Translator: Barış Metin <baris@pardus.org.tr>\n"
 "Language-Team:  <tr@li.org>\n"
@@ -20,9 +20,10 @@ msgstr ""
 
 #: yali/gui/Ui/autopartwidget.py:83 yali/gui/Ui/bootloaderwidget.py:95
 #: yali/gui/Ui/checkcdwidget.py:74 yali/gui/Ui/keyboardwidget.py:66
-#: yali/gui/Ui/parteditbuttons.py:46 yali/gui/Ui/parteditwidget.py:87
-#: yali/gui/Ui/partlistwidget.py:92 yali/gui/Ui/rootpasswidget.py:127
-#: yali/gui/Ui/setupuserswidget.py:147 yali/gui/Ui/welcomewidget.py:95
+#: yali/gui/Ui/kickerwidget.py:34 yali/gui/Ui/parteditbuttons.py:46
+#: yali/gui/Ui/parteditwidget.py:87 yali/gui/Ui/partlistwidget.py:92
+#: yali/gui/Ui/rootpasswidget.py:127 yali/gui/Ui/setupuserswidget.py:149
+#: yali/gui/Ui/welcomewidget.py:95
 msgid "Form1"
 msgstr "Form1"
 
@@ -83,15 +84,15 @@ msgid "Where do you want to install the bootloader?"
 msgstr "Sistem yükleyicisini nereye kurmak istiyorsunuz?"
 
 #: yali/gui/Ui/bootloaderwidget.py:103
-msgid "Install to MBR of the Pardus installed disk (recommended)"
-msgstr "Pardus'un kurulu olduğu diskin başına kur (önerilen)"
+msgid "Install to first bootable disk (recommended)"
+msgstr "Açılış diskinin başına kur (önerilen)"
 
 #: yali/gui/Ui/bootloaderwidget.py:104
 msgid "Install to Pardus installed partition"
 msgstr "Pardus'un kurulu olduğu disk bölümünün başına kur"
 
 #: yali/gui/Ui/bootloaderwidget.py:105
-msgid "Install to MBR of the selected disk belove"
+msgid "Install to selected disk belove"
 msgstr "Listeden seçilmiş diskin başına kur"
 
 #: yali/gui/Ui/bootloaderwidget.py:106
@@ -137,8 +138,7 @@ msgstr "Bir klavye haritası seçin."
 msgid "Test selected keyboard:"
 msgstr "Klavyeyi test et: "
 
-#: yali/gui/Ui/parteditbuttons.py:47 yali/gui/ScrPartitionAuto.py:215
-#: yali/gui/YaliDialog.py:153
+#: yali/gui/Ui/parteditbuttons.py:47 yali/gui/YaliDialog.py:153
 msgid "Cancel"
 msgstr "İptal"
 
@@ -246,47 +246,47 @@ msgstr "Makine Adı:"
 msgid "pardus"
 msgstr "pardus"
 
-#: yali/gui/Ui/setupuserswidget.py:150
+#: yali/gui/Ui/setupuserswidget.py:152
 msgid "New User"
 msgstr "Yeni Kullanıcı"
 
-#: yali/gui/Ui/setupuserswidget.py:151
+#: yali/gui/Ui/setupuserswidget.py:153
 msgid "User Name:"
 msgstr "Kullanıcı Adı:"
 
-#: yali/gui/Ui/setupuserswidget.py:152
+#: yali/gui/Ui/setupuserswidget.py:154
 msgid "Password (again):"
 msgstr "Parola (tekrar):"
 
-#: yali/gui/Ui/setupuserswidget.py:153
+#: yali/gui/Ui/setupuserswidget.py:155
 msgid "Password:"
 msgstr "Parola:"
 
-#: yali/gui/Ui/setupuserswidget.py:154
+#: yali/gui/Ui/setupuserswidget.py:156
 msgid "Real Name:"
 msgstr "Gerçek İsim:"
 
-#: yali/gui/Ui/setupuserswidget.py:155
+#: yali/gui/Ui/setupuserswidget.py:157
 msgid "Give administrator privileges to this user"
 msgstr "Bu kullanıcıya yönetici hakları ver"
 
-#: yali/gui/Ui/setupuserswidget.py:156 yali/gui/ScrUsers.py:187
+#: yali/gui/Ui/setupuserswidget.py:158 yali/gui/ScrUsers.py:188
 msgid "Create User"
 msgstr "Kullanıcı Ekle"
 
-#: yali/gui/Ui/setupuserswidget.py:158
+#: yali/gui/Ui/setupuserswidget.py:160
 msgid "Users:"
 msgstr "Kullanıcılar:"
 
-#: yali/gui/Ui/setupuserswidget.py:159
+#: yali/gui/Ui/setupuserswidget.py:161
 msgid "Delete Selected User"
 msgstr "Seçili Kullanıcıyı Sil"
 
-#: yali/gui/Ui/setupuserswidget.py:160
+#: yali/gui/Ui/setupuserswidget.py:162
 msgid "Auto Login User :"
 msgstr "Otomatik Giriş Kullanıcısı :"
 
-#: yali/gui/Ui/setupuserswidget.py:162
+#: yali/gui/Ui/setupuserswidget.py:164
 msgid "Auto Login Disabled"
 msgstr "Otomatik Giriş Kapalı"
 
@@ -305,7 +305,7 @@ msgstr ""
 msgid "Read GPL"
 msgstr "GPL Metnini Oku"
 
-#: yali/gui/Ui/welcomewidget.py:99 yali/gui/runner.py:169
+#: yali/gui/Ui/welcomewidget.py:99 yali/gui/runner.py:173
 msgid "Reboot System!"
 msgstr "Sistemi Yeniden Başlat!"
 
@@ -329,32 +329,32 @@ msgstr "Sürüm Notları"
 msgid "Can't open License file!"
 msgstr "Lisans dosyası açılamıyor!"
 
-#: yali/gui/PartEditImpl.py:102
+#: yali/gui/PartEditImpl.py:108
 #, python-format
 msgid "You are going to delete all partitions on device '%s'"
 msgstr "'%s' aygıtı üzerindeki tüm disk bölümlerini silmek üzeresiniz!"
 
-#: yali/gui/PartEditImpl.py:114
+#: yali/gui/PartEditImpl.py:120
 #, python-format
 msgid "You are going to delete partition '%s' on device '%s'!"
 msgstr "'%s' numaralı disk bölümünü '%s' aygıtından silmek üzeresiniz!"
 
-#: yali/gui/PartEditImpl.py:162
+#: yali/gui/PartEditImpl.py:167
 msgid "You must select a partition type from the list below."
 msgstr "Yukarıdaki listeden bir disk bölümü tipi seçmelisiniz."
 
-#: yali/gui/PartEditImpl.py:176 yali/gui/PartEditImpl.py:200
+#: yali/gui/PartEditImpl.py:181 yali/gui/PartEditImpl.py:205
 #, python-format
 msgid "'Install Root' size must be larger than %s MB."
 msgstr "'Sistem Dosyaları' bölümü en az %s MB olmalı."
 
-#: yali/gui/PartEditImpl.py:280
+#: yali/gui/PartEditImpl.py:285
 msgid "ntfsresize check failed! Won't proceed action!"
 msgstr ""
 "NTFS yeniden boyutlandırma kontrolü başarısız! İşlem gerçekleştirilmeyecek!"
 
-#: yali/gui/PartListImpl.py:87 yali/gui/ScrBootloader.py:68
-#: yali/gui/ScrPartitionAuto.py:68
+#: yali/gui/PartListImpl.py:87 yali/gui/ScrBootloader.py:69
+#: yali/gui/ScrKahyaCheck.py:87 yali/gui/ScrPartitionAuto.py:68
 msgid "Can't find a storage device!"
 msgstr "Kurulum için disk bulunamadı!"
 
@@ -397,23 +397,23 @@ msgstr "Biçimlendiriliyor!"
 msgid "YES"
 msgstr "EVET"
 
-#: yali/gui/runner.py:54
-msgid "Prepare for install"
-msgstr "Kurulum için hazırlık"
-
 #: yali/gui/runner.py:55
-msgid "Install system"
-msgstr "Sistem kurulumu"
-
-#: yali/gui/runner.py:56
 msgid "Basic setup"
 msgstr "Temel yapılandırma"
 
-#: yali/gui/runner.py:134
+#: yali/gui/runner.py:56
+msgid "Prepare for install"
+msgstr "Kurulum için hazırlık"
+
+#: yali/gui/runner.py:57
+msgid "Install system"
+msgstr "Sistem kurulumu"
+
+#: yali/gui/runner.py:138
 msgid "Error!"
 msgstr "Hata!"
 
-#: yali/gui/runner.py:164
+#: yali/gui/runner.py:168
 msgid "Unhandled error occured!"
 msgstr "Bir hata oluştu!"
 
@@ -472,20 +472,24 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/ScrAdmin.py:95 yali/gui/ScrUsers.py:137
+#: yali/gui/ScrAdmin.py:92 yali/gui/ScrUsers.py:141
 msgid "<font color=\"#FF6D19\">Caps Lock is on!</font>"
 msgstr "<font color=\"#FF6D19\">Caps Lock açık!</font>"
 
-#: yali/gui/ScrAdmin.py:115 yali/gui/ScrUsers.py:156
+#: yali/gui/ScrAdmin.py:107 yali/gui/ScrUsers.py:165
+msgid "<font color=\"#FF6D19\">Password is too short!</font>"
+msgstr "<font color=\"#FF6D19\">Parola çok kısa!</font>"
+
+#: yali/gui/ScrAdmin.py:117 yali/gui/ScrUsers.py:160
 msgid "<font color=\"#FF6D19\">Passwords do not match!</font>"
 msgstr "<font color=\"#FF6D19\">Parolalar aynı değil!</font>"
 
-#: yali/gui/ScrAdmin.py:132
+#: yali/gui/ScrAdmin.py:133
 msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
 msgstr ""
 "<font color=\"#FF6D19\">Makine adı geçersiz karakterler içeriyor!</font>"
 
-#: yali/gui/ScrBootloader.py:35
+#: yali/gui/ScrBootloader.py:36
 msgid ""
 "\n"
 "<font size=\"+2\">Boot loader setup</font>\n"
@@ -533,9 +537,28 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/ScrBootloader.py:120
-msgid "Please wait while installing bootloader!"
-msgstr "Lütfen sistem yükleyicisi kurulurken bekleyin."
+#: yali/gui/ScrBootloader.py:168
+msgid ""
+"<b>\n"
+"<p>This action will use your entire disk for Pardus installation and\n"
+"all your present data on the selected disk will be lost.</p>\n"
+"\n"
+"<p>After being sure you had your backup this is generally a safe\n"
+"and easy way to install Pardus.</p>\n"
+"</b>\n"
+msgstr ""
+"<b>\n"
+"<p>Bu işlem tüm sabit diskinizi Pardus kurulumu için kullanacak \n"
+"ve seçilen sabit disk üzerindeki tüm verileriniz silinecektir.</p>\n"
+"\n"
+"<p>Lütfen, mevcut dosyalarınızın yedeğini aldıktan sonra, 'Tamam' \n"
+"düğmesine tıklayın. Daha sonra, Pardus güvenli bir şekilde \n"
+"bilgisayarınıza kurulacaktır.</p>\n"
+"</b>\n"
+
+#: yali/gui/ScrBootloader.py:183
+msgid "Please wait while formatting!"
+msgstr "Lütfen disk biçimlendirilirken bekleyin."
 
 #: yali/gui/ScrCheckCD.py:28
 msgid ""
@@ -583,11 +606,11 @@ msgstr ""
 "bir kurulum CD'si ile tekrar deneyiniz.</p>\n"
 "</b>\n"
 
-#: yali/gui/ScrCheckCD.py:105 yali/gui/ScrGoodbye.py:139
+#: yali/gui/ScrCheckCD.py:105 yali/gui/ScrGoodbye.py:233
 msgid "Reboot"
 msgstr "Sistemi Yeniden Başlat!"
 
-#: yali/gui/ScrGoodbye.py:32
+#: yali/gui/ScrGoodbye.py:42
 msgid ""
 "\n"
 "<font size=\"+2\">Congratulations</font>\n"
@@ -624,7 +647,7 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/ScrGoodbye.py:57
+#: yali/gui/ScrGoodbye.py:69
 msgid ""
 "<b><font size=\"+2\" color=\"#FF6D19\">Rebooting system. Please wait!</"
 "font></b>"
@@ -632,7 +655,35 @@ msgstr ""
 "<b><font size=\"+2\" color=\"#FF6D19\">Sistem yeniden başlatılıyor. Lütfen "
 "bekleyin!</font></b>"
 
-#: yali/gui/ScrGoodbye.py:133
+#: yali/gui/ScrGoodbye.py:180
+msgid "Trying to connect COMAR Daemon..."
+msgstr ""
+
+#: yali/gui/ScrGoodbye.py:181
+msgid "Setting Hostname..."
+msgstr ""
+
+#: yali/gui/ScrGoodbye.py:182
+msgid "Setting Root Password..."
+msgstr ""
+
+#: yali/gui/ScrGoodbye.py:183
+msgid "Adding Users..."
+msgstr ""
+
+#: yali/gui/ScrGoodbye.py:184
+msgid "Writing Console Data..."
+msgstr ""
+
+#: yali/gui/ScrGoodbye.py:185
+msgid "Migrating X.org Configuration..."
+msgstr ""
+
+#: yali/gui/ScrGoodbye.py:186
+msgid "Installing BootLoader..."
+msgstr "Açılış yöneticisi yükleniyor..."
+
+#: yali/gui/ScrGoodbye.py:227
 msgid ""
 "<b>\n"
 "<p>Please remove Pardus CD from your drive and pres Reboot button.</p>\n"
@@ -683,23 +734,23 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/ScrInstall.py:110 yali/gui/ScrInstall.py:131
+#: yali/gui/ScrInstall.py:110 yali/gui/ScrInstall.py:130
 #, python-format
 msgid "Installing: %s<br>%s"
 msgstr "Kurulan Paket: %s<br>%s"
 
-#: yali/gui/ScrInstall.py:116 yali/gui/ScrInstall.py:137
+#: yali/gui/ScrInstall.py:116 yali/gui/ScrInstall.py:136
 #, python-format
 msgid "Configuring package: %s"
 msgstr "Yapılandırılan paket: %s"
 
-#: yali/gui/ScrInstall.py:194
+#: yali/gui/ScrInstall.py:192
 msgid "Configuring packages for your system!"
 msgstr ""
 "Kurulan paketler sisteminiz için yapılandırılıyor!\n"
 "Bu işlemin tamamlanması için lütfen bekleyiniz."
 
-#: yali/gui/ScrInstall.py:232
+#: yali/gui/ScrInstall.py:230
 #, python-format
 msgid ""
 "An error during the installation of packages occured.\n"
@@ -715,6 +766,13 @@ msgstr ""
 "\n"
 "Hata:\n"
 "%s\n"
+
+#: yali/gui/ScrKahyaCheck.py:53
+msgid ""
+"\n"
+"<font size=\"+2\">Kicker Check !</font>\n"
+"<p> Some help messages </p>\n"
+msgstr ""
 
 #: yali/gui/ScrKeyboard.py:30
 msgid ""
@@ -782,43 +840,12 @@ msgstr ""
 "</p> \n"
 "</font>\n"
 
-#: yali/gui/ScrPartitionAuto.py:78
+#: yali/gui/ScrPartitionAuto.py:79
 #, python-format
 msgid ""
 "It seems that you don't have the required disk space (min. %s) for Pardus "
 "installation."
 msgstr ""
-
-#: yali/gui/ScrPartitionAuto.py:134 yali/gui/ScrPartitionManual.py:126
-msgid "Please wait while formatting!"
-msgstr "Lütfen disk biçimlendirilirken bekleyin."
-
-#: yali/gui/ScrPartitionAuto.py:137
-msgid "<font color=\"#FF6D19\">Preparing your disk for installation!</font>"
-msgstr "<font color=\"#FF6D19\">Diskiniz kurulum için hazırlanıyor!</font>"
-
-#: yali/gui/ScrPartitionAuto.py:205
-msgid ""
-"<b>\n"
-"<p>This action will use your entire disk for Pardus installation and\n"
-"all your present data on the selected disk will be lost.</p>\n"
-"\n"
-"<p>After being sure you had your backup this is generally a safe\n"
-"and easy way to install Pardus.</p>\n"
-"</b>\n"
-msgstr ""
-"<b>\n"
-"<p>Bu işlem tüm sabit diskinizi Pardus kurulumu için kullanacak \n"
-"ve seçilen sabit disk üzerindeki tüm verileriniz silinecektir.</p>\n"
-"\n"
-"<p>Lütfen, mevcut dosyalarınızın yedeğini aldıktan sonra, 'Tamam' \n"
-"düğmesine tıklayın. Daha sonra, Pardus güvenli bir şekilde \n"
-"bilgisayarınıza kurulacaktır.</p>\n"
-"</b>\n"
-
-#: yali/gui/ScrPartitionAuto.py:218 yali/gui/YaliDialog.py:156
-msgid "O.K. Go Ahead"
-msgstr "Tamam. Devam Et"
 
 #: yali/gui/ScrPartitionManual.py:34
 msgid ""
@@ -906,19 +933,19 @@ msgstr ""
 "</p> \n"
 "</font>\n"
 
-#: yali/gui/ScrPartitionManual.py:163
+#: yali/gui/ScrPartitionManual.py:118
 msgid "Create Partition"
 msgstr "Disk Bölümü Oluştur"
 
-#: yali/gui/ScrPartitionManual.py:168
+#: yali/gui/ScrPartitionManual.py:123
 msgid "Delete Partition"
 msgstr "Disk Bölümünü Sil"
 
-#: yali/gui/ScrPartitionManual.py:173
+#: yali/gui/ScrPartitionManual.py:128
 msgid "Edit Partition"
 msgstr "Disk Bölümünü Düzenle"
 
-#: yali/gui/ScrPartitionManual.py:178
+#: yali/gui/ScrPartitionManual.py:133
 msgid "Resize Partition"
 msgstr "Bölümü Yeniden Boyutlandır"
 
@@ -968,7 +995,7 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali/gui/ScrUsers.py:106
+#: yali/gui/ScrUsers.py:108
 msgid ""
 "<b>\n"
 "<p>You have not defined an administrator!</p>\n"
@@ -991,33 +1018,31 @@ msgstr ""
 "\"Tamam\"'a basın.</p>\n"
 "</b>\n"
 
-#: yali/gui/ScrUsers.py:151
-msgid "<font color=\"#FF6D19\">Don't use your user name as a password.</font>"
+#: yali/gui/ScrUsers.py:155
+msgid ""
+"<font color=\"#FF6D19\">Don't use your user name or name as a password.</"
+"font>"
 msgstr ""
 "<font color=\"#FF6D19\">Kullanıcı adınızı parola olarak kullanmayın.</font>"
 
-#: yali/gui/ScrUsers.py:161
-msgid "<font color=\"#FF6D19\">Password is too short!</font>"
-msgstr "<font color=\"#FF6D19\">Parola çok kısa!</font>"
-
-#: yali/gui/ScrUsers.py:195
+#: yali/gui/ScrUsers.py:196
 msgid "<font color=\"#FF6D19\">Username exists, choose another one!</font>"
 msgstr ""
 "<font color=\"#FF6D19\">Bu kullanıcı adı zaten var, başka bir tane seçin!</"
 "font>"
 
-#: yali/gui/ScrUsers.py:199
+#: yali/gui/ScrUsers.py:200
 msgid "<font color=\"#FF6D19\">Username contains invalid characters!</font>"
 msgstr ""
 "<font color=\"#FF6D19\">Kullanıcı adı geçersiz karakterler içeriyor!</font>"
 
-#: yali/gui/ScrUsers.py:203
+#: yali/gui/ScrUsers.py:204
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
 msgstr ""
 "<font color=\"#FF6D19\">Gerçek İsim bölümü geçersiz karakterler içeriyor!</"
 "font>"
 
-#: yali/gui/ScrUsers.py:258
+#: yali/gui/ScrUsers.py:259
 msgid "Update User"
 msgstr "Kullanıcıyı Güncelle"
 
@@ -1095,7 +1120,11 @@ msgstr ""
 "Pardus'u bilgisayarınıza kuracaktır.</p>\n"
 "</b>\n"
 
-#: yali/bootloader.py:171 yali/bootloader.py:176
+#: yali/gui/YaliDialog.py:156
+msgid "O.K. Go Ahead"
+msgstr "Tamam. Devam Et"
+
+#: yali/bootloader.py:170 yali/bootloader.py:175
 msgid "Windows"
 msgstr "Windows"
 
@@ -1278,6 +1307,12 @@ msgstr "Kullanıcı Dosyaları"
 #: yali/partitiontype.py:67
 msgid "Swap"
 msgstr "Takas"
+
+#~ msgid "Please wait while installing bootloader!"
+#~ msgstr "Lütfen sistem yükleyicisi kurulurken bekleyin."
+
+#~ msgid "<font color=\"#FF6D19\">Preparing your disk for installation!</font>"
+#~ msgstr "<font color=\"#FF6D19\">Diskiniz kurulum için hazırlanıyor!</font>"
 
 #~ msgid "Install to MBR"
 #~ msgstr "Disk'in başına (MBR)"

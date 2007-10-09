@@ -216,8 +216,12 @@ and easy way to install Pardus.</p>
         elif self.installMBR.isChecked():
             ctx.installData.bootLoaderDev = basename(self.device.getPath())
         else:
-            self.orderedDiskList = yali.storage.getOrderedDiskList()
-            ctx.installData.bootLoaderDev = basename(self.orderedDiskList[0])
+            if len(yali.storage.devices) > 1:
+                self.orderedDiskList = yali.storage.getOrderedDiskList()
+                ctx.installData.bootLoaderDev = basename(self.orderedDiskList[0])
+            else:
+                ctx.installData.bootLoaderDev = str(filter(lambda u: u.isalpha(),
+                                                    basename(root_part_req.partition().getPath())))
 
         _ins_part = root_part_req.partition().getPath()
 
