@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-10-09 12:04+0300\n"
-"PO-Revision-Date: 2007-07-18 19:31-0400\n"
+"PO-Revision-Date: 2007-10-10 19:20-0400\n"
 "Last-Translator: Klemens <click3d_at_linuxmail_org>\n"
 "Language-Team: español <es@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -100,9 +100,9 @@ msgid "Where do you want to install the bootloader?"
 msgstr "Donde desea instalar el cargador de arranque?"
 
 #: yali/gui/Ui/bootloaderwidget.py:103
-#, fuzzy
+# cual sería la mejor forma de expresar booteable
 msgid "Install to first bootable disk (recommended)"
-msgstr "Instalar al MBR del disco de la instalación de Pardus (recomendado)"
+msgstr "Instalar a primer disco apto para arranque (recomendado)"
 
 # cambiar "root" por "raíz (/)"
 #: yali/gui/Ui/bootloaderwidget.py:104
@@ -110,10 +110,10 @@ msgid "Install to Pardus installed partition"
 msgstr "Instalar en partición raíz (/) de Pardus"
 
 # when writing the english you seemed very romantic ? ;)
+# should say "below" in english !! - "belove" sounds funny 
 #: yali/gui/Ui/bootloaderwidget.py:105
-#, fuzzy
 msgid "Install to selected disk belove"
-msgstr "Instalar al MBR del disco seleccionado abajo"
+msgstr "Instalar a disco seleccionado abajo"
 
 # shouldn't it be in english: "Select the disk (you want) to install the bootloader to:"
 # Seleccione el disco donde se instalará el cargador de arranque:
@@ -729,33 +729,32 @@ msgstr ""
 
 #: yali/gui/ScrGoodbye.py:180
 msgid "Trying to connect COMAR Daemon..."
-msgstr ""
+msgstr "Intentando conectar con demonio COMAR..."
 
 #: yali/gui/ScrGoodbye.py:181
 msgid "Setting Hostname..."
-msgstr ""
+msgstr "Estableciendo nombre de host..."
 
 #: yali/gui/ScrGoodbye.py:182
 msgid "Setting Root Password..."
-msgstr ""
+msgstr "Estableciendo contraseña de Root"
 
 #: yali/gui/ScrGoodbye.py:183
 msgid "Adding Users..."
-msgstr ""
+msgstr "Agregando usuarios..."
 
 #: yali/gui/ScrGoodbye.py:184
 msgid "Writing Console Data..."
-msgstr ""
+msgstr "Guardando datos de consola..."
 
 #: yali/gui/ScrGoodbye.py:185
 msgid "Migrating X.org Configuration..."
-msgstr ""
+msgstr "Migrando configuración X.org..."
 
 # No Instalar el cargador de arranque
 #: yali/gui/ScrGoodbye.py:186
-#, fuzzy
 msgid "Installing BootLoader..."
-msgstr "No Instalar el cargador de arranque"
+msgstr "Instalando al cargador de arranque..."
 
 # ...y presione el botón Reiniciar
 #: yali/gui/ScrGoodbye.py:227
@@ -857,6 +856,9 @@ msgid ""
 "<font size=\"+2\">Kicker Check !</font>\n"
 "<p> Some help messages </p>\n"
 msgstr ""
+"\n"
+"<font size=\"+2\">Comprobación de Kicker !</font>\n"
+"<p> Algunos mensajes de ayuda </p>\n"
 
 #: yali/gui/ScrKeyboard.py:30
 msgid ""
@@ -1106,12 +1108,10 @@ msgstr ""
 "</b>\n"
 
 #: yali/gui/ScrUsers.py:155
-#, fuzzy
 msgid ""
 "<font color=\"#FF6D19\">Don't use your user name or name as a password.</"
 "font>"
-msgstr ""
-"<font color=\"#FF6D19\">No use el nombre de usuario como contraseña !</font>"
+msgstr "<font color=\"#FF6D19\">No use el nombre de usuario o su nombre real como contraseña !</font>"
 
 #: yali/gui/ScrUsers.py:196
 msgid "<font color=\"#FF6D19\">Username exists, choose another one!</font>"
@@ -1127,8 +1127,7 @@ msgstr ""
 
 #: yali/gui/ScrUsers.py:204
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Nombre real contiene caractéres no válidos!</font>"
+msgstr "<font color=\"#FF6D19\">Nombre real contiene caractéres no válidos!</font>"
 
 #: yali/gui/ScrUsers.py:259
 msgid "Update User"
@@ -1413,9 +1412,3 @@ msgstr "Archivos de los usuarios"
 msgid "Swap"
 msgstr "Intercambio (swap)"
 
-#~ msgid "Please wait while installing bootloader!"
-#~ msgstr "Por favor, espere mientras se instala el cargador de arranque!"
-
-#~ msgid "<font color=\"#FF6D19\">Preparing your disk for installation!</font>"
-#~ msgstr ""
-#~ "<font color=\"#FF6D19\">Prepando el disco para la instalación !</font>"
