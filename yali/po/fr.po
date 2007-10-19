@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-10-09 12:04+0300\n"
-"PO-Revision-Date: 2007-07-21 16:35+0200\n"
+"PO-Revision-Date: 2007-10-19 22:35+0200\n"
 "Last-Translator: Amine Chadly <amine.chadly@gmail.com>\n"
 "Language-Team: French <pardus-translators@liste.pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -60,8 +60,7 @@ msgstr "Non, je vais partitionner mon disque manuellement."
 
 #: yali/gui/Ui/autopartwidget.py:95
 msgid "Yes, automatically partition and format selected disk!"
-msgstr ""
-"Oui, partitionner et formatter automatiquement le disque dur sélectionné !"
+msgstr "Oui, partitionner et formatter automatiquement le disque dur sélectionné !"
 
 #: yali/gui/Ui/bootloaderwidget.py:96
 msgid ""
@@ -89,19 +88,16 @@ msgid "Where do you want to install the bootloader?"
 msgstr "Où voulez vous installer le chargeur de démarrage ?"
 
 #: yali/gui/Ui/bootloaderwidget.py:103
-#, fuzzy
 msgid "Install to first bootable disk (recommended)"
-msgstr ""
-"Installer sur le MBR du disque sur lequel Pardus est installé (recommandé)"
+msgstr "Installer sur le premier disque dur où l'on peut démarrer (recommandé)"
 
 #: yali/gui/Ui/bootloaderwidget.py:104
 msgid "Install to Pardus installed partition"
 msgstr "Installer sur la partition où Pardus est installé."
 
 #: yali/gui/Ui/bootloaderwidget.py:105
-#, fuzzy
 msgid "Install to selected disk belove"
-msgstr "Installer sur le MBR du disque sélectionné ci-dessous"
+msgstr "Installer sur le disque sélectionné ci-dessous"
 
 #: yali/gui/Ui/bootloaderwidget.py:106
 msgid "Select the disk you to install bootloader:"
@@ -491,8 +487,7 @@ msgstr "<font color=\"#FF6D19\">Le mot de passe est trop court !</font>"
 
 #: yali/gui/ScrAdmin.py:117 yali/gui/ScrUsers.py:160
 msgid "<font color=\"#FF6D19\">Passwords do not match!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Les mots de passe ne sont pas identiques!</font>"
+msgstr "<font color=\"#FF6D19\">Les mots de passe ne sont pas identiques!</font>"
 
 #: yali/gui/ScrAdmin.py:133
 msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
@@ -672,32 +667,31 @@ msgstr ""
 
 #: yali/gui/ScrGoodbye.py:180
 msgid "Trying to connect COMAR Daemon..."
-msgstr ""
+msgstr "Tentative de connexion au Démon COMAR en cours..."
 
 #: yali/gui/ScrGoodbye.py:181
 msgid "Setting Hostname..."
-msgstr ""
+msgstr "Établissement du nom d'hôte..."
 
 #: yali/gui/ScrGoodbye.py:182
 msgid "Setting Root Password..."
-msgstr ""
+msgstr "Établissement du mot de passe Root..."
 
 #: yali/gui/ScrGoodbye.py:183
 msgid "Adding Users..."
-msgstr ""
+msgstr "Ajout des utilisateurs..."
 
 #: yali/gui/ScrGoodbye.py:184
 msgid "Writing Console Data..."
-msgstr ""
+msgstr "Écriture des données de Console..."
 
 #: yali/gui/ScrGoodbye.py:185
 msgid "Migrating X.org Configuration..."
-msgstr ""
+msgstr "Migration de la configuration de X.org..."
 
 #: yali/gui/ScrGoodbye.py:186
-#, fuzzy
 msgid "Installing BootLoader..."
-msgstr "Ne pas installer le chargeur de démarrage."
+msgstr "Installation du chargeur de démarrage..."
 
 #: yali/gui/ScrGoodbye.py:227
 msgid ""
@@ -789,6 +783,9 @@ msgid ""
 "<font size=\"+2\">Kicker Check !</font>\n"
 "<p> Some help messages </p>\n"
 msgstr ""
+"\n"
+"<font size=\"+2\">Vérification Kicker !</font>\n"
+"<p> Quelques messages d'aide </p>\n"
 
 #: yali/gui/ScrKeyboard.py:30
 msgid ""
@@ -1031,12 +1028,11 @@ msgstr ""
 "</b>\n"
 
 #: yali/gui/ScrUsers.py:155
-#, fuzzy
 msgid ""
 "<font color=\"#FF6D19\">Don't use your user name or name as a password.</"
 "font>"
 msgstr ""
-"<font color=\"#FF6D19\">N'utilisez pas votre nom d'utilisateur comme mot de "
+"<font color=\"#FF6D19\">N'utilisez pas votre nom d'utilisateur ou nom propre comme mot de "
 "passe.</font>"
 
 #: yali/gui/ScrUsers.py:196
@@ -1326,10 +1322,3 @@ msgstr "fichiers utilisateurs"
 msgid "Swap"
 msgstr "Swap"
 
-#~ msgid "Please wait while installing bootloader!"
-#~ msgstr "Veuillez patienter pendant l'installation du chargeur de démarrage."
-
-#~ msgid "<font color=\"#FF6D19\">Preparing your disk for installation!</font>"
-#~ msgstr ""
-#~ "<font color=\"#FF6D19\">Préparation du disque dur pour l'installation</"
-#~ "font>"
