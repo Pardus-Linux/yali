@@ -86,12 +86,7 @@ Legend:
 
  + show release notes
 
-
-
 4. Post Release (1.0)
- - install profile
-   - implement installation profiles (normal, laptop, vs...)
-   - kickstart
 
  - GUI
    - try statemachine for screens/stages
@@ -102,9 +97,33 @@ Legend:
  + bootloader
    + only add valid operating system partitions to list (#1455)
 
-
 5. Release (1.1)
+
  + users
    + user privileges (in wheel or not)
    + automatic login (kde)
+
+ + GUI
+   + reorder installation steps, ask questions first and then install (#4639)
+
+6. Release (1.2) - Pardus 2008
+
+ - GUI
+   - add clock/date settings screen
+   - add 'scan devices' button to the partitioning screen
+   ? Renew the user interface
+
+ / kahya (which; KAHya is Yali Automator) (#3956)
+   + load kahya file from given path (from grub)
+   + install the system by using given kahya file
+   - support for multi-profile in kahya file
+   - support for network setup in kahya file
+   - export setup session as kahya file
+   ? load kahya file from network;
+        needs automatic network setup
+
+ ? show progress screen for chown operation in home directory (#5715)
+ - support for different types of partitions (#5844)
+ - add other linux distros to the bootloader (#1450)
+ ? dont install unnecessary language packages (based on installation language) (#6139)
 
