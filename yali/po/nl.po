@@ -11,13 +11,15 @@ msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-10-09 12:04+0300\n"
-"PO-Revision-Date: 2007-07-10 22:50+0300\n"
-"Last-Translator: Mustafa Muhammed Ölcerman\n"
-"Language-Team: Deutsch <pardus-translation-nl@pardus.org.tr>\n"
+"PO-Revision-Date: 2007-07-10 22:35+0200\n"
+"Last-Translator: W.P.M.H.I.A. Gielen <w.gielen@gmail.com>\n"
+"Language-Team: Nederlands <http://liste.pardus.org.tr/pardus-translation-nl/"
+">\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #: yali/gui/Ui/autopartwidget.py:83 yali/gui/Ui/bootloaderwidget.py:95
 #: yali/gui/Ui/checkcdwidget.py:74 yali/gui/Ui/keyboardwidget.py:66
@@ -61,7 +63,8 @@ msgstr "Nee, ik wil mijn schijf handmatig partitioneren."
 
 #: yali/gui/Ui/autopartwidget.py:95
 msgid "Yes, automatically partition and format selected disk!"
-msgstr "Ja, automatisch partitioneren en formatteren van de geselecteerde schijf!"
+msgstr ""
+"Ja, automatisch partitioneren en formatteren van de geselecteerde schijf!"
 
 #: yali/gui/Ui/bootloaderwidget.py:96
 msgid ""
@@ -493,7 +496,8 @@ msgstr "<font color=\"#FF6D19\">De wachtwoorden komen niet overeen!</font>"
 
 #: yali/gui/ScrAdmin.py:133
 msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
-msgstr "<font color=\"#FF6D19\">De hostnaam bevat niet toegestane tekens!</font>"
+msgstr ""
+"<font color=\"#FF6D19\">De hostnaam bevat niet toegestane tekens!</font>"
 
 #: yali/gui/ScrBootloader.py:36
 msgid ""
@@ -852,42 +856,9 @@ msgstr ""
 msgid ""
 "It seems that you don't have the required disk space (min. %s) for Pardus "
 "installation."
-msgstr "U heeft niet voldoende schijfruimte (min. %s) on Pardus te installeren."
-
-<<<<<<< .mine
-#: yali/gui/ScrPartitionAuto.py:134 yali/gui/ScrPartitionManual.py:126
-msgid "Please wait while formatting!"
-msgstr "Ogenblik geduld tijdens het formatteren!"
-
-#: yali/gui/ScrPartitionAuto.py:137
-msgid "<font color=\"#FF6D19\">Preparing your disk for installation!</font>"
-msgstr "<font color=\"#FF6D19\">Uw schijf wordt voorbereidt voor installatie.</font>"
-
-#: yali/gui/ScrPartitionAuto.py:205
-msgid ""
-"<b>\n"
-"<p>This action will use your entire disk for Pardus installation and\n"
-"all your present data on the selected disk will be lost.</p>\n"
-"\n"
-"<p>After being sure you had your backup this is generally a safe\n"
-"and easy way to install Pardus.</p>\n"
-"</b>\n"
 msgstr ""
-"<b>\n"
-"<p>Deze actie zal uw volledige harde schijf gebruiken voor de installatie\n"
-"van Pardus, al uw gegevens schijf zullen verloren gaan.</p>\n"
-"\n"
-"<p>Na u ervan verzekerd te hebben dat al uw gegevens elders opgeslagen\n"
-"zijn,  is dit is over het algemeen een veilige een eenvoudige manier om \n"
-"Pardus te installeren.</p>\n"
-"</b>\n"
+"U heeft niet voldoende schijfruimte (min. %s) on Pardus te installeren."
 
-#: yali/gui/ScrPartitionAuto.py:218 yali/gui/YaliDialog.py:156
-msgid "O.K. Go Ahead"
-msgstr "O.K. Ga verder"
-
-=======
->>>>>>> .r15883
 #: yali/gui/ScrPartitionManual.py:34
 msgid ""
 "\n"
@@ -1057,7 +1028,8 @@ msgstr ""
 msgid ""
 "<font color=\"#FF6D19\">Don't use your user name or name as a password.</"
 "font>"
-msgstr "<font color=\"#FF6D19\">Gebruik uw gebruikersnaam niet als wachtwoord.</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Gebruik uw gebruikersnaam niet als wachtwoord.</font>"
 
 #: yali/gui/ScrUsers.py:196
 msgid "<font color=\"#FF6D19\">Username exists, choose another one!</font>"
@@ -1073,7 +1045,8 @@ msgstr ""
 
 #: yali/gui/ScrUsers.py:204
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
-msgstr "<font color=\"#FF6D19\">Uw echte naam bevat niet toegestane tekens.</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Uw echte naam bevat niet toegestane tekens.</font>"
 
 #: yali/gui/ScrUsers.py:259
 msgid "Update User"
@@ -1315,8 +1288,9 @@ msgid "Welsh"
 msgstr "Wales"
 
 #: yali/localedata.py:395
+#, fuzzy
 msgid "English (GB)"
-msgstr "Engels (GB)"
+msgstr "Engels"
 
 #: yali/partition.py:35
 msgid "unknown"
@@ -1338,35 +1312,34 @@ msgstr "Gebruikersbestanden"
 msgid "Swap"
 msgstr "Swap"
 
-#: yali/partitiontype.py:67
-msgid "Swap"
-msgstr "SWAP"
-
 #~ msgid "Please wait while installing bootloader!"
-#~ msgstr "Ogenblik geduld, de bootlader wordt geinstalleerd!"
+#~ msgstr "Even geduld, de bootloader wordt geïnstalleerd!"
 
 #~ msgid "<font color=\"#FF6D19\">Preparing your disk for installation!</font>"
 #~ msgstr ""
-#~ "<font color=\"#FF6D19\">Ihre Festplatte wird für die Installation "
-#~ "vorbereitet.</font>"
+#~ "<font color=\"#FF6D19\">Uw schijf wordt voorbereidt voor installatie.</"
+#~ "font>"
+
+#~ msgid "NetworkWidget"
+#~ msgstr "NetwerkWidget"
 
 #~ msgid "<b>Server List</b>"
-#~ msgstr "<b>Server-Liste</b>"
+#~ msgstr "<b>Serverlijst</b>"
 
 #~ msgid "Add"
-#~ msgstr "Hinzufügen"
+#~ msgstr "Toevoegen"
 
 #~ msgid "Machine Name"
-#~ msgstr "Computername"
+#~ msgstr "Naam machine"
 
 #~ msgid "Ip Address"
-#~ msgstr "IP-Adresse"
+#~ msgstr "IP adres"
 
 #~ msgid "Subnet Mask"
-#~ msgstr "Subnetzmaske"
+#~ msgstr "Subnet masker"
 
 #~ msgid "Default Gateway"
-#~ msgstr "Standaard Gateway"
+#~ msgstr "Standaard gateway"
 
 #~ msgid "Printers"
 #~ msgstr "Printers"
