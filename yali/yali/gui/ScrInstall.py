@@ -248,7 +248,13 @@ class PkgInstaller(QThread):
         ui = PisiUI(self._widget)
 
         yali.pisiiface.initialize(ui)
-        yali.pisiiface.add_cd_repo()
+
+        # if exists use remote source repo
+        # otherwise use cd as repo
+        if ctx.installData.repoAddr:
+            yali.pisiiface.add_remote_repo(ctx.installData.repoName,ctx.installData.repoAddr)
+        else:
+            yali.pisiiface.add_cd_repo()
 
         # show progress
         total = yali.pisiiface.get_available_len()

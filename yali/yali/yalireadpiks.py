@@ -14,6 +14,8 @@ class kahyaData:
         self.partitioning=[]
         self.partitioningType=None
         self.autoLoginUser=None
+        self.repoName = "remoteRepo"
+        self.repoAddr = None
         
 class yaliUser:	
     def __init__(self):
@@ -45,7 +47,8 @@ def read(args):
     data.keyData.X=doc.getTagData("keymap")
     data.rootPassword=doc.getTagData("root_password")
     data.hostname=doc.getTagData("hostname")
-
+    data.repoName=doc.getTagData("reponame") or data.repoName
+    data.repoAddr=doc.getTagData("repoaddr")
     usrsTag=doc.getTag("users")
 
     for p in usrsTag.tags():

@@ -138,6 +138,11 @@ class kahya:
         error=errors()
         otherFunct=otherFunctions(self.data.keyData.X)
 
+        ###repo selection###
+        if self.data.repoAddr:
+            self.correctData.repoAddr = self.data.repoAddr
+            self.correctData.repoName = self.data.repoName
+
         ###language selection###
         if(locales.has_key(self.data.language)):
             self.correctData.language=self.data.language

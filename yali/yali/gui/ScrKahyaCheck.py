@@ -101,8 +101,16 @@ class Widget(KickerWidget, ScreenWidget):
                 ctx.installData.autoLoginUser = correctData.autoLoginUser
                 ctx.installData.autoPartDev = devices[int(correctData.partitioning[0].disk[-1])]
 
+                # if exists use different source repo
+                ctx.installData.repoAddr = correctData.repoAddr
+                ctx.installData.repoName = correctData.repoName
+
                 ctx.debugger.log("HOSTNAME : %s " % ctx.installData.hostName)
                 ctx.debugger.log("KEYDATA  : %s " % ctx.installData.keyData.X)
+
+                if ctx.installData.repoAddr:
+                    ctx.debugger.log("REPOADDR : %s " % ctx.installData.repoAddr)
+                    ctx.debugger.log("REPONAME : %s " % ctx.installData.repoName)
 
                 # multi types
                 for user in correctData.users:

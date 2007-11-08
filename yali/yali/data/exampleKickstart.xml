@@ -25,7 +25,9 @@
 			<groups>users,wheel,pnp</groups>
 		</user>
 		-->
-	</users>
+    </users>
+    <reponame>pardus-2007.3</reponame>
+    <repoaddr>http://paketler.pardus.org.tr/pardus-remote-install/pisi-index.xml.bz2</repoaddr>
     <partitioning partitioning_type="auto">disk0</partitioning>
 </yali>
 			
