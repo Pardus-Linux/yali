@@ -18,4 +18,4 @@ class InstallData:
     autoLoginUser = None
     autoPartDev = None
     bootLoaderDev = None
-
+    repoAddr = None
