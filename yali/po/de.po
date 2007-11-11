@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-10-09 12:04+0300\n"
-"PO-Revision-Date: 2007-11-11 04:59+0200\n"
+"PO-Revision-Date: 2007-11-11 05:13+0200\n"
 "Last-Translator: Mustafa Ölcerman <mmoelcerman@googlemail.com>\n"
 "Language-Team: Deutsch <pardus-translation-de@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -158,7 +158,7 @@ msgstr "Größe (MB):"
 
 #: yali/gui/Ui/parteditwidget.py:89
 msgid "Use available free space"
-msgstr "Vorhandenen freien Speicherplatz benutzen"
+msgstr "Vorhandenen freien Speicherplatz verwenden"
 
 #: yali/gui/Ui/parteditwidget.py:91
 msgid "Format this partition"
@@ -178,7 +178,7 @@ msgstr "Persönliche Dateien (optional)"
 
 #: yali/gui/Ui/parteditwidget.py:96
 msgid "Swap space (optional)"
-msgstr "SWAP Partition (optional)"
+msgstr "SWAP-Partition (optional)"
 
 #: yali/gui/Ui/partlistwidget.py:47 yali/gui/Ui/partlistwidget.py:96
 msgid "Device"
@@ -206,7 +206,7 @@ msgstr "Neue Partition anlegen"
 
 #: yali/gui/Ui/partlistwidget.py:94 yali/gui/PartListImpl.py:240
 msgid "Delete Selected Partition"
-msgstr "Gewählte Partitionen löschen"
+msgstr "Gewählte Partition löschen"
 
 #: yali/gui/Ui/partlistwidget.py:95
 msgid "Partitions:"
@@ -226,11 +226,11 @@ msgstr "Bearbeiten"
 
 #: yali/gui/Ui/rootpasswidget.py:130
 msgid "System administrator password:"
-msgstr "Systemadministrator Passwort:"
+msgstr "Systemadministrator-Passwort:"
 
 #: yali/gui/Ui/rootpasswidget.py:131
 msgid "System administrator password (again):"
-msgstr "Systemadministrator Passwort (wiederholen):"
+msgstr "Systemadministrator-Passwort (wiederholen):"
 
 #: yali/gui/Ui/rootpasswidget.py:133
 msgid ""
@@ -286,7 +286,7 @@ msgstr "Gewählten Benutzer entfernen"
 
 #: yali/gui/Ui/setupuserswidget.py:162
 msgid "Auto Login User :"
-msgstr "Auto-Login Benutzer:"
+msgstr "Auto-Login-Benutzer:"
 
 #: yali/gui/Ui/setupuserswidget.py:164
 msgid "Auto Login Disabled"
@@ -381,7 +381,7 @@ msgstr "Partition %d"
 
 #: yali/gui/PartListImpl.py:211
 msgid "Delete All Partitions"
-msgstr "Alle Partitionierungen löschen"
+msgstr "Alle Partitionen löschen"
 
 #: yali/gui/PartListImpl.py:312
 msgid "Can't get partition info from partition request!"
@@ -846,7 +846,7 @@ msgstr ""
 "</p>\n"
 "<p>\n"
 "Für mehr Informationen über die Festplatten-Partitionierung, schlagen Sie "
-"bitte im Pardus-Installation- \n"
+"bitte im Pardus-Installations- \n"
 "und Benutzerhandbuch nach.\n"
 "</p>\n"
 "</font>\n"
@@ -858,7 +858,7 @@ msgid ""
 "installation."
 msgstr ""
 "Es scheint als hätten Sie nicht den benötigten Festplattenspeicher (min. %s) "
-"für eine Installation von Pardus."
+"für die Installation von Pardus."
 
 #: yali/gui/ScrPartitionManual.py:34
 msgid ""
@@ -907,7 +907,7 @@ msgstr ""
 "<p>\n"
 "Pardus ist mit vielen Hardwarekomponenten kompatibel. Sie können Pardus "
 "auf \n"
-"eine leere Festplatte oder Partition installieren.<b>Eine Installation wird "
+"eine leere Festplatte oder Partition installieren.<b> Eine Installation wird "
 "automatisch\n"
 "die vorhandenen Informationen auf der gewählten Partition löschen. </b>\n"
 "</p>\n"
@@ -939,7 +939,7 @@ msgstr ""
 "</p>\n"
 "<p>\n"
 "Für mehr Informationen über die Festplatten-Partitionierung, schlagen Sie "
-"bitte im Pardus-Installation-\n"
+"bitte im Pardus-Installations-\n"
 "und Benutzerhandbuch nach.\n"
 "</p>\n"
 "</font>\n"
