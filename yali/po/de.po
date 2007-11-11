@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-10-09 12:04+0300\n"
-"PO-Revision-Date: 2007-11-11 05:13+0200\n"
+"PO-Revision-Date: 2007-11-11 05:22+0200\n"
 "Last-Translator: Mustafa Ölcerman <mmoelcerman@googlemail.com>\n"
 "Language-Team: Deutsch <pardus-translation-de@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -58,7 +58,7 @@ msgstr "&nbsp;"
 
 #: yali/gui/Ui/autopartwidget.py:94
 msgid "No, I'll partition my disk manually."
-msgstr "Nein, ich werde meine Festplatte selbst partitionieren."
+msgstr "Nein, ich werde meine Festplatte manuell partitionieren."
 
 #: yali/gui/Ui/autopartwidget.py:95
 msgid "Yes, automatically partition and format selected disk!"
@@ -79,7 +79,7 @@ msgstr ""
 "<b>Wollen Sie den Boot-Loader (GRUB) in den Master Boot Record von Ihrer "
 "Festplatte installieren?</b>\n"
 "\n"
-"<p>Sie brauchen einen Boot-Loader, um Ihr Pardus-System hochzufahren.</p>\n"
+"<p>Sie brauchen einen Boot-Loader, um Ihr Pardus-System hochfahren zu können.</p>\n"
 "\n"
 "<p>Wenn Sie kein Boot-Loader installieren oder 'in die Root-Partition' nicht wählen, müssen Sie den Boot-Loader von Ihrem anderen Betriebssystem (falls vorhanden) konfigurieren, um Ihr neu installiertes Pardus starten zu können.</p>"
 
@@ -93,7 +93,7 @@ msgstr "Auf die erste bootbare Festplatte installieren (empfohlen)"
 
 #: yali/gui/Ui/bootloaderwidget.py:104
 msgid "Install to Pardus installed partition"
-msgstr "Auf die Partition, auf der Pardus installiert werden soll, installieren"
+msgstr "Auf die Partition, auf der Pardus installiert ist, installieren"
 
 #: yali/gui/Ui/bootloaderwidget.py:105
 msgid "Install to selected disk belove"
@@ -134,7 +134,7 @@ msgstr "Form3"
 
 #: yali/gui/Ui/installwidget.py:53
 msgid "Installing Package: "
-msgstr "Paket wird installiert:"
+msgstr "Folgendes Paket wird installiert:"
 
 #: yali/gui/Ui/keyboardwidget.py:68
 msgid "Select the keyboard layout of your choice."
