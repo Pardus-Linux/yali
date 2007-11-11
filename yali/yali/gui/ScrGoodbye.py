@@ -106,8 +106,12 @@ don't you?
             pass
 
         ctx.debugger.log("Trying to eject the CD.")
+
         # remove cd...
+        yali.sysutils.eject_cdrom()
+
         w = RebootWidget(self)
+
         ctx.debugger.log("Show reboot dialog.")
         self.dialog = WarningDialog(w, self)
         self.dialog.exec_loop()
@@ -240,7 +244,6 @@ class RebootWidget(QWidget):
         l.addWidget(warning)
         l.addLayout(buttons)
 
-        yali.sysutils.eject_cdrom()
 
         self.connect(self.reboot, SIGNAL("clicked()"),
                      self.slotReboot)
