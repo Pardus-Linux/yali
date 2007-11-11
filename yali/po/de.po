@@ -5,13 +5,14 @@
 #
 # Mustafa M. Ölcerman <oelcerman@fussballkreis.org>, 2006.
 # Mustafa Muhammed Ölcerman <mustafa.oelcerman@fk-koeln.de>, 2007.
+# Mustafa Ölcerman <mmoelcerman@googlemail.com>, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-10-09 12:04+0300\n"
-"PO-Revision-Date: 2007-07-10 22:50+0300\n"
-"Last-Translator: Mustafa Muhammed Ölcerman\n"
+"PO-Revision-Date: 2007-11-11 04:59+0200\n"
+"Last-Translator: Mustafa Ölcerman <mmoelcerman@googlemail.com>\n"
 "Language-Team: Deutsch <pardus-translation-de@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,7 +39,7 @@ msgid ""
 "Automatic partitioning will use your entire disk for Pardus installation.\n"
 "All data on the selected disk will be lost!</font></p>"
 msgstr ""
-"<font size=\"+1\"><b>Wählen Sie einen Partitionierung-Vorgang aus:</b></"
+"<font size=\"+1\"><b>Wählen Sie ein Partitionierungs-Vorgang aus:</b></"
 "font>\n"
 "\n"
 "<p>Sie können aus der Liste eine Festplatte für die automatische "
@@ -80,31 +81,23 @@ msgstr ""
 "\n"
 "<p>Sie brauchen einen Boot-Loader, um Ihr Pardus-System hochzufahren.</p>\n"
 "\n"
-"<p>Wenn Sie keinen Boot-Loader installieren möchten oder bei der "
-"Installation in die Root-Partition nicht ausgewählt haben, müssen Sie den "
-"Boot-Loader von Ihrem anderen Betriebssystem (falls vorhanden)konfigurieren, "
-"um Ihr neulich installiertes Pardus zu starten.</p>"
+"<p>Wenn Sie kein Boot-Loader installieren oder 'in die Root-Partition' nicht wählen, müssen Sie den Boot-Loader von Ihrem anderen Betriebssystem (falls vorhanden) konfigurieren, um Ihr neu installiertes Pardus starten zu können.</p>"
 
 #: yali/gui/Ui/bootloaderwidget.py:102
 msgid "Where do you want to install the bootloader?"
 msgstr "Wohin möchten Sie den Boot-Loader installieren?"
 
 #: yali/gui/Ui/bootloaderwidget.py:103
-#, fuzzy
 msgid "Install to first bootable disk (recommended)"
-msgstr ""
-"In den MBR der Platte, auf der Pardus installiert ist, installieren "
-"(empfohlen)"
+msgstr "Auf die erste bootbare Festplatte installieren (empfohlen)"
 
 #: yali/gui/Ui/bootloaderwidget.py:104
 msgid "Install to Pardus installed partition"
-msgstr ""
-"Auf die Partition, auf der Pardus installiert werden soll, installieren"
+msgstr "Auf die Partition, auf der Pardus installiert werden soll, installieren"
 
 #: yali/gui/Ui/bootloaderwidget.py:105
-#, fuzzy
 msgid "Install to selected disk belove"
-msgstr "In den MBR der gewählten Festplatte installieren"
+msgstr "Auf die gewählte Festplatte installieren"
 
 #: yali/gui/Ui/bootloaderwidget.py:106
 msgid "Select the disk you to install bootloader:"
@@ -127,13 +120,13 @@ msgid ""
 "this is an optional step, we encourage you to do it to avoid any errors in "
 "installation."
 msgstr ""
-"Sie können die Integrität der Pakete in der Installations-CD überprüfen."
+"Sie können die Integrität der Pakete auf der Installations-CD überprüfen."
 "Obwohl dieser Vorgang optional ist, empfehlen wir Ihnen diesen Vorgang "
-"durchzuführen, um jegliche Fehler in der Installation zu vermeiden."
+"auszuführen, um jegliche Fehler in der Installation zu vermeiden."
 
 #: yali/gui/Ui/checkcdwidget.py:77
 msgid "Check CD Integrity"
-msgstr "Überprüfung der CD-Integrität"
+msgstr "CD-Integrität überprüfen"
 
 #: yali/gui/Ui/installwidget.py:52
 msgid "Form3"
@@ -145,7 +138,7 @@ msgstr "Paket wird installiert:"
 
 #: yali/gui/Ui/keyboardwidget.py:68
 msgid "Select the keyboard layout of your choice."
-msgstr "Wählen Sie die Tastaturbelegung aus."
+msgstr "Wählen Sie eine Tastaturbelegung aus."
 
 #: yali/gui/Ui/keyboardwidget.py:69
 msgid "Test selected keyboard:"
@@ -245,12 +238,7 @@ msgid ""
 "maintanence tasks. Please give password for this special user and do not "
 "forget this password. Note that you shouldn't write this password elsewhere "
 "for privacy reasons.</p>"
-msgstr ""
-"<p align=\"left\">Mit diesem Benutzerkonto 'root' (Systemadministrator) "
-"können Sie für die System-Wartung wichtige Aufgaben erledigen. Bitte geben "
-"Sie für diesen speziellen Benutzer ein Passwort und vergessen Sie bitte dies "
-"nicht. Beachten Sie, dass Ihr Passwort aus Sicherheitsgründen für den "
-"Dritten nicht zugänglich ist.</p>"
+msgstr "<p align=\"left\">Mit dem Systemadministrator-Konto (root) können Sie Systemwartungen vornehmen. Bitte vergeben Sie diesen speziellen Benutzer ein Passwort und vergessen Sie bitte diesen nicht. Beachten Sie, dass Ihr Passwort aus Sicherheitsgründen für Dritte nicht zugänglich sein darf.</p>"
 
 #: yali/gui/Ui/rootpasswidget.py:134
 msgid "Hostname:"
@@ -312,8 +300,7 @@ msgid ""
 msgstr ""
 "Alle Programme, die von TÜBITAK/UEKAE entwickelt worden sind, sind unter der "
 "GNU/GPL lizenziert. Andere Programme haben ihre eigene Lizenzen. Um Pardus "
-"installieren zu können, müssen sie mit den Lizenzbestimmungen einverstanden "
-"sein. Möchten Sie fortfahren?"
+"installieren zu können, müssen Sie den Lizenzen zustimmen. Möchten Sie fortfahren?"
 
 #: yali/gui/Ui/welcomewidget.py:98
 msgid "Read GPL"
@@ -325,15 +312,15 @@ msgstr "System neustarten"
 
 #: yali/gui/Ui/welcomewidget.py:101
 msgid "Accept!"
-msgstr "Ich bin damit einverstanden."
+msgstr "Ich stimme den Lizenzen zu"
 
 #: yali/gui/Ui/welcomewidget.py:102
 msgid "Don't Accept!"
-msgstr "Ich bin damit nicht einverstanden."
+msgstr "Ich stimme den Lizenzen nicht zu"
 
 #: yali/gui/debugger.py:25
 msgid "Debug"
-msgstr ""
+msgstr "Debuggen"
 
 #: yali/gui/GUIBottom.py:102 yali/gui/GUIBottom.py:152
 msgid "Release Notes"
@@ -430,7 +417,7 @@ msgstr "Fehler!"
 
 #: yali/gui/runner.py:168
 msgid "Unhandled error occured!"
-msgstr "Es ist ein ungehandhabtes Fehler aufgetreten!"
+msgstr "Es ist ein ungehandhabter Fehler aufgetreten!"
 
 #: yali/gui/ScrAdmin.py:30
 msgid ""
@@ -461,30 +448,28 @@ msgid ""
 "</font>\n"
 msgstr ""
 "\n"
-"<font size=\"+2\">Systemadministrator Passwort und Hostname</font>\n"
+"<font size=\"+2\">Systemadministrator-Passwort und Hostname</font>\n"
 "\n"
 "<font size=\"+1\">\n"
 "\n"
-"<p>Bitte geben Sie für das Systemadministrator-Konto (root) ein Passwort "
-"ein.\n"
-" Das Passwort sollte für den Dritten nicht zugänglich sein. \n"
-"Das Passwort sollte schwer zu schätzen & leicht zu behalten sein\n"
+"<p>Bitte vergeben Sie ein Passwort für das Systemadministrator-Konto (root).\n"
+"Das Passwort sollte für Dritte nicht zugänglich sein. \n"
+"Das Passwort sollte schwer zu schätzen & leicht zu behalten sein.\n"
 "\n"
 "</p>\n"
 "<p>\n"
 "Das Passwort kann Groß- & Kleinbuchstaben, sowie Zahlen und \n"
-"Satzzeichen enthalten. Verwenden Sie bitte keine türkischen Umlaute, um \n"
-"mögliche Probleme zu verhindern\n"
+"Satzzeichen enthalten. Verwenden Sie bitte keine deutschen Umlaute.\n"
 "</p>\n"
 "\n"
 "<p>\n"
-"Bitte geben Sie Ihren Rechner einen Namen ,damit es vom zugehörigen Netzwerk "
-"erkannt werden kann. Der Hostname sollte selbstsprechend sein, um Ihren "
-"Computer zu identifizieren. \n"
+"Bitte vergeben Sie Ihrem Rechner ein Namen, damit es vom zugehörigen Netzwerk "
+"erkannt werden kann. Der Hostname sollte anschaulich sein, um Ihren "
+"Rechner identifizieren zu können.\n"
 "</p>\n"
 "\n"
 "<p>\n"
-"Klicken Sie auf Weiter um fortzufahren.\n"
+"Klicken Sie weiter um die Installtion fortzusetzen.\n"
 "</p>\n"
 "</font>\n"
 
@@ -502,8 +487,7 @@ msgstr "<font color=\"#FF6D19\">Passwörter stimmen nicht überein!</font>"
 
 #: yali/gui/ScrAdmin.py:133
 msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Der Hostname enthält unzulässige Zeichen!</font>"
+msgstr "<font color=\"#FF6D19\">Der Hostname enthält unzulässige Zeichen!</font>"
 
 #: yali/gui/ScrBootloader.py:36
 msgid ""
@@ -563,17 +547,16 @@ msgid ""
 msgstr ""
 "<b>\n"
 "<p>Dieser Vorgang wird Ihre gesamte Festplatte für die Pardus-Installation\n"
-"verwenden und Ihre vorhandenen Daten auf der gewählten Partition werden "
-"verloren gehen.</p>\n"
+"verwenden. Ihre vorhandenen Daten auf der gewählten Partition gehen dabei "
+"verloren.</p>\n"
 "\n"
-"<p>Dies ist ein sicheres und einfaches Verfahren um Pardus zu \n"
-"installieren. Klicken Sie bitte auf Weiter, nachdem Sie Ihre vorhandenen "
-"Daten gesichert haben.</p>\n"
+"<p>Hauptsächlich ist dies ein sicherer und einfacher Vorgang um Pardus zu \n"
+"installieren. Es wird empfohlen vorher ein Backup zu erstellen.</p>\n"
 "</b>\n"
 
 #: yali/gui/ScrBootloader.py:183
 msgid "Please wait while formatting!"
-msgstr "Bitte warten Sie, Ihre Festplatte wird formatiert!"
+msgstr "Bitte warten Sie während Ihre Festplatte formatiert wird."
 
 #: yali/gui/ScrCheckCD.py:28
 msgid ""
@@ -587,10 +570,10 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"<font size=\"+2\">CD-Integrität überprüfen!</font>\n"
+"<font size=\"+2\"Überprüfung der CD-Integrität</font>\n"
 "\n"
 "<font size=\"+1\">\n"
-"<p>In diesem Fenster können Sie die Integrität der Pakete in der "
+"<p>In diesem Installatiosschritt können Sie die Integrität der Pakete auf der "
 "Installations-CD überprüfen.\n"
 "</p>\n"
 "\n"
@@ -649,18 +632,18 @@ msgid ""
 "</font>\n"
 msgstr ""
 "\n"
-"<font size=\"+2\">Glückwunsch!</font>\n"
+"<font size=\"+2\">Herzlichen Glückwunsch!</font>\n"
 "\n"
 "\n"
 "<font size=\"+1\">\n"
 "<p>\n"
-"Sie haben Pardus,ein sehr benutzerfreundliches Desktop-System, erfolgreich "
+"Sie haben Pardus, ein sehr benutzerfreundliches Desktop-System, erfolgreich "
 "auf Ihrem Rechner installiert.\n"
 "Nun können Sie mit Ihrem System arbeiten und mit Pardus\n"
 "immer produktiv bleiben.\n"
 "</p>\n"
 "<P>\n"
-"Klicken Sie auf Weiter um die Installation abzuschliessen. Eine Frage noch: "
+"Klicken Sie weiter um die Installation abzuschliessen. Eine Frage noch: "
 "Sie können sich doch noch an Ihr Passwort erinnern,\n"
 "oder ?\n"
 "</p>\n"
@@ -676,33 +659,31 @@ msgstr ""
 
 #: yali/gui/ScrGoodbye.py:180
 msgid "Trying to connect COMAR Daemon..."
-msgstr ""
+msgstr "Verbindungsaufbau zum COMAR-Daemon..."
 
 #: yali/gui/ScrGoodbye.py:181
 msgid "Setting Hostname..."
-msgstr ""
+msgstr "Hostname wird gesetzt..."
 
 #: yali/gui/ScrGoodbye.py:182
 msgid "Setting Root Password..."
-msgstr ""
+msgstr "Root-Passwort wird gesetzt..."
 
 #: yali/gui/ScrGoodbye.py:183
 msgid "Adding Users..."
-msgstr ""
+msgstr "Benutzer werden angelegt..."
 
 #: yali/gui/ScrGoodbye.py:184
 msgid "Writing Console Data..."
-msgstr ""
+msgstr "Konsole-Datei wird beschrieben..."
 
 #: yali/gui/ScrGoodbye.py:185
-#, fuzzy
 msgid "Migrating X.org Configuration..."
-msgstr "Manuelle Konfiguration"
+msgstr "Übergang zur X.org-Konfiguration..."
 
 #: yali/gui/ScrGoodbye.py:186
-#, fuzzy
 msgid "Installing BootLoader..."
-msgstr "Boot-Loader nicht installieren"
+msgstr "Boot-Loader wird installiert..."
 
 #: yali/gui/ScrGoodbye.py:227
 msgid ""
@@ -711,7 +692,7 @@ msgid ""
 "</b>\n"
 msgstr ""
 "<b>\n"
-"<p>Bitte nehmen Sie die Pardus-CD aus Ihrem Laufwerk und klicken Sie auf "
+"<p>Bitte entnehmen Sie die Pardus-CD aus Ihrem Laufwerk und klicken Sie auf "
 "Neustarten.</p>\n"
 "</b>\n"
 
@@ -750,9 +731,9 @@ msgstr ""
 "\n"
 "<p>\n"
 "Die Dauer dieses Vorganges hängt von der Leistung \n"
-"Ihres Rechners ab. Inzwischen können Sie sich über die \n"
-"besonderen Eigenschaften von Pardus, Ihr neues Betriebs\n"
-"system, informieren.\n"
+"Ihres Systems ab. Inzwischen können Sie sich über die \n"
+"besonderen Eigenschaften von Ihrem neuen Betriebssystem\n"
+"Pardus informieren.\n"
 "</p>\n"
 "\n"
 "<p>\n"
@@ -797,6 +778,9 @@ msgid ""
 "<font size=\"+2\">Kicker Check !</font>\n"
 "<p> Some help messages </p>\n"
 msgstr ""
+"\n"
+"<font size=\"+2\">Überprüfung vom Kicker</font>\n"
+"<p> Einige Hilfethemen </p>\n"
 
 #: yali/gui/ScrKeyboard.py:30
 msgid ""
@@ -1002,17 +986,17 @@ msgstr ""
 "\n"
 "<font size=\"+1\">\n"
 "<p>\n"
-"Anders als das Systemadministrator-Konto,\n"
+"Abweichend vom Systemadministrator-Konto,\n"
 "können Sie ein Benutzerkonto für Ihren\n"
 "täglichen Gebrauch, wie z.B. abrufen Ihrer E-Mails und\n"
-"surfen im Internet \n"
-"Die Allgemeinen-Regeln zur Passwortvergabe\n"
-"gelten auch hier: Das Passwort sollte \n"
-"für den Dritten schwer zugänglich sein.\n"
+"surfen im Internet, einrichten.\n"
+"Die Anweisung zur Passwortvergabe\n"
+"gilt auch hier: das Passwort sollte \n"
+"für Dritte schwer zugänglich sein.\n"
 "Das Passwort sollte auch schwer zu schätzen & leicht zu behalten sein. \n"
 "</p>\n"
 "<p>\n"
-"Klicken Sie auf Weiter um fortzufahren.\n"
+"Klicken Sie weiter um die Installtion fortzusetzen.\n"
 "</p>\n"
 "</font>\n"
 
@@ -1029,14 +1013,23 @@ msgid ""
 "go to next screen.</p>\n"
 "</b>\n"
 msgstr ""
+"<b>\n"
+"<p>Sie haben kein Administrator festgelegt!</p>\n"
+"\n"
+"<p>Ein Benutzer ohne administrative Rechte kann keine Systemwartung vornehmen.\n"
+"Es wird dringend empfohlen einen Administrator festzulegen.</p>\n"
+"\n"
+"<p>Klicken Sie \"Cancel\" an um ein Administrator festzulegen(recommended) or \"OK\" "
+"to \n"
+"go to next screen.</p>\n"
+"</b>\n"
 
 #: yali/gui/ScrUsers.py:155
-#, fuzzy
 msgid ""
 "<font color=\"#FF6D19\">Don't use your user name or name as a password.</"
 "font>"
 msgstr ""
-"<font color=\"#FF6D19\">Verwenden Sie Ihren Benutzernamen nicht als Passwort."
+"<font color=\"#FF6D19\">Verwenden Sie Ihren Benutzernamen oder Namen nicht als Passwort."
 "</font>"
 
 #: yali/gui/ScrUsers.py:196
@@ -1091,7 +1084,7 @@ msgstr ""
 "<font size=\"+2\">Willkommen!</font>\n"
 "\n"
 "<font size=\"+1\">\n"
-"<p>Willkommen zu Pardus, Ihr neues und benutzerfreundliches Desktop mit "
+"<p>Willkommen zu Pardus, Ihr neuer und benutzerfreundlicher Desktop mit "
 "vielen \n"
 "nützlichen Anwendungen. Mit Pardus können \n"
 "Sie im Internet surfen, Ihre E-Mails lesen, Dokumente \n"
@@ -1106,10 +1099,10 @@ msgstr ""
 "vorzunehmen. \n"
 "</p>\n"
 "<p>\n"
-"Die Installation wird die Hardwarekompenente Ihres System's  erkennen und "
+"Die Installation wird die Hardwarekompenente Ihres Systems  erkennen und "
 "diese nach Ihren Bedürfnissen konfigurieren.\n"
 "Sie können sich nach den unten am Bildschirm\n"
-"angezeigten Richtungspfeile fortbewegen.\n"
+"angezeigten Richtungspfeilen fortbewegen.\n"
 "</p>\n"
 "<p>\n"
 "Willkommen zur Pardus-Welt!\n"
@@ -1134,7 +1127,7 @@ msgstr ""
 
 #: yali/gui/YaliDialog.py:156
 msgid "O.K. Go Ahead"
-msgstr "Weiter"
+msgstr "O.K., forsetzen"
 
 #: yali/bootloader.py:170 yali/bootloader.py:175
 msgid "Windows"
@@ -1297,9 +1290,8 @@ msgid "Welsh"
 msgstr "Walisisch"
 
 #: yali/localedata.py:395
-#, fuzzy
 msgid "English (GB)"
-msgstr "Englisch"
+msgstr "Englisch (GB)"
 
 #: yali/partition.py:35
 msgid "unknown"
@@ -1321,31 +1313,3 @@ msgstr "Persönliche Dateien"
 msgid "Swap"
 msgstr "SWAP"
 
-#~ msgid "Please wait while installing bootloader!"
-#~ msgstr "Bitte warten Sie, der Boot-Loader wird installiert!"
-
-#~ msgid "<font color=\"#FF6D19\">Preparing your disk for installation!</font>"
-#~ msgstr ""
-#~ "<font color=\"#FF6D19\">Ihre Festplatte wird für die Installation "
-#~ "vorbereitet.</font>"
-
-#~ msgid "<b>Server List</b>"
-#~ msgstr "<b>Server-Liste</b>"
-
-#~ msgid "Add"
-#~ msgstr "Hinzufügen"
-
-#~ msgid "Machine Name"
-#~ msgstr "Computername"
-
-#~ msgid "Ip Address"
-#~ msgstr "IP-Adresse"
-
-#~ msgid "Subnet Mask"
-#~ msgstr "Subnetzmaske"
-
-#~ msgid "Default Gateway"
-#~ msgstr "Standard Gateway"
-
-#~ msgid "Printers"
-#~ msgstr "Drucker"
