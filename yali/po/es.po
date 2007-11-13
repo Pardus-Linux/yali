@@ -762,6 +762,9 @@ msgid ""
 "<p>Press Reboot button to restart your system.</p>\n"
 "</b>\n"
 msgstr ""
+"<b>\n"
+"<p>Presione el botón 'Reiniciar' para reiniciar el sistema.</p>\n"
+"</b>\n"
 
 # Ahora se está instalando Pardus en el disco rígido.
 # ...
