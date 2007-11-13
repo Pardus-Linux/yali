@@ -79,8 +79,8 @@ consts.cd_repo_name = "pardus-cd"
 consts.cd_repo_uri = join(consts.source_dir, "repo/pisi-index.xml.bz2")
 
 # pardus repository
-consts.pardus_repo_name = "pardus-2007.2"
-consts.pardus_repo_uri = "http://paketler.pardus.org.tr/pardus-2007.2/pisi-index.xml.bz2"
+consts.pardus_repo_name = "pardus-2007.3"
+consts.pardus_repo_uri = "http://paketler.pardus.org.tr/pardus-2007.3/pisi-index.xml.bz2"
 
 # min root partition size
 consts.min_root_size = 3500
