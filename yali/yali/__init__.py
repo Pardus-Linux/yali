@@ -10,7 +10,7 @@
 # Please read the COPYING file.
 #
 
-__version__ = "1.1.6.2"
+__version__ = "1.1.6.3"
 
 import sys
 import exceptions
@@ -36,8 +36,6 @@ exception_normal, exception_fatal, \
     exception_unknown = range(5)
 
 def exception_handler(exception, value, tb):
-
-#    sys.excepthook = sys.__excepthook__
 
     exception_type = exception_unknown
 
