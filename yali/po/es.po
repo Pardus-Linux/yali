@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-09 12:04+0300\n"
+"POT-Creation-Date: 2007-11-13 11:43+0200\n"
 "PO-Revision-Date: 2007-10-10 19:20-0400\n"
 "Last-Translator: Klemens <click3d_at_linuxmail_org>\n"
 "Language-Team: español <es@li.org>\n"
@@ -99,8 +99,8 @@ msgstr ""
 msgid "Where do you want to install the bootloader?"
 msgstr "Donde desea instalar el cargador de arranque?"
 
-#: yali/gui/Ui/bootloaderwidget.py:103
 # cual sería la mejor forma de expresar booteable
+#: yali/gui/Ui/bootloaderwidget.py:103
 msgid "Install to first bootable disk (recommended)"
 msgstr "Instalar a primer disco apto para arranque (recomendado)"
 
@@ -673,7 +673,7 @@ msgstr ""
 "instalación está dañado.</p>\n"
 "</b>\n"
 
-#: yali/gui/ScrCheckCD.py:105 yali/gui/ScrGoodbye.py:233
+#: yali/gui/ScrCheckCD.py:105 yali/gui/ScrGoodbye.py:237
 msgid "Reboot"
 msgstr "Reiniciar"
 
@@ -727,46 +727,41 @@ msgstr ""
 "<b><font size=\"+2\" color=\"#FF6D19\">Aguarde mientras se reinicia el "
 "sistema!</font></b>"
 
-#: yali/gui/ScrGoodbye.py:180
+#: yali/gui/ScrGoodbye.py:184
 msgid "Trying to connect COMAR Daemon..."
 msgstr "Intentando conectar con demonio COMAR..."
 
-#: yali/gui/ScrGoodbye.py:181
+#: yali/gui/ScrGoodbye.py:185
 msgid "Setting Hostname..."
 msgstr "Estableciendo nombre de host..."
 
-#: yali/gui/ScrGoodbye.py:182
+#: yali/gui/ScrGoodbye.py:186
 msgid "Setting Root Password..."
 msgstr "Estableciendo contraseña de Root"
 
-#: yali/gui/ScrGoodbye.py:183
+#: yali/gui/ScrGoodbye.py:187
 msgid "Adding Users..."
 msgstr "Agregando usuarios..."
 
-#: yali/gui/ScrGoodbye.py:184
+#: yali/gui/ScrGoodbye.py:188
 msgid "Writing Console Data..."
 msgstr "Guardando datos de consola..."
 
-#: yali/gui/ScrGoodbye.py:185
+#: yali/gui/ScrGoodbye.py:189
 msgid "Migrating X.org Configuration..."
 msgstr "Migrando configuración X.org..."
 
 # No Instalar el cargador de arranque
-#: yali/gui/ScrGoodbye.py:186
+#: yali/gui/ScrGoodbye.py:190
 msgid "Installing BootLoader..."
 msgstr "Instalando al cargador de arranque..."
 
-# ...y presione el botón Reiniciar
-#: yali/gui/ScrGoodbye.py:227
+#: yali/gui/ScrGoodbye.py:231
 msgid ""
 "<b>\n"
-"<p>Please remove Pardus CD from your drive and pres Reboot button.</p>\n"
+"<p>Press Reboot button to restart your system.</p>\n"
 "</b>\n"
 msgstr ""
-"<b>\n"
-"<p>Por favor extraiga el CD de Pardus del lector y presione el botón "
-"Reiniciar.</p>\n"
-"</b>\n"
 
 # Ahora se está instalando Pardus en el disco rígido.
 # ...
@@ -1111,7 +1106,9 @@ msgstr ""
 msgid ""
 "<font color=\"#FF6D19\">Don't use your user name or name as a password.</"
 "font>"
-msgstr "<font color=\"#FF6D19\">No use el nombre de usuario o su nombre real como contraseña !</font>"
+msgstr ""
+"<font color=\"#FF6D19\">No use el nombre de usuario o su nombre real como "
+"contraseña !</font>"
 
 #: yali/gui/ScrUsers.py:196
 msgid "<font color=\"#FF6D19\">Username exists, choose another one!</font>"
@@ -1127,7 +1124,8 @@ msgstr ""
 
 #: yali/gui/ScrUsers.py:204
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
-msgstr "<font color=\"#FF6D19\">Nombre real contiene caractéres no válidos!</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Nombre real contiene caractéres no válidos!</font>"
 
 #: yali/gui/ScrUsers.py:259
 msgid "Update User"
@@ -1412,3 +1410,13 @@ msgstr "Archivos de los usuarios"
 msgid "Swap"
 msgstr "Intercambio (swap)"
 
+# ...y presione el botón Reiniciar
+#~ msgid ""
+#~ "<b>\n"
+#~ "<p>Please remove Pardus CD from your drive and pres Reboot button.</p>\n"
+#~ "</b>\n"
+#~ msgstr ""
+#~ "<b>\n"
+#~ "<p>Por favor extraiga el CD de Pardus del lector y presione el botón "
+#~ "Reiniciar.</p>\n"
+#~ "</b>\n"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-09 12:04+0300\n"
+"POT-Creation-Date: 2007-11-13 11:43+0200\n"
 "PO-Revision-Date: 2007-11-11 05:22+0200\n"
 "Last-Translator: Mustafa Ölcerman <mmoelcerman@googlemail.com>\n"
 "Language-Team: Deutsch <pardus-translation-de@pardus.org.tr>\n"
@@ -79,9 +79,13 @@ msgstr ""
 "<b>Wollen Sie den Boot-Loader (GRUB) in den Master Boot Record von Ihrer "
 "Festplatte installieren?</b>\n"
 "\n"
-"<p>Sie brauchen einen Boot-Loader, um Ihr Pardus-System hochfahren zu können.</p>\n"
+"<p>Sie brauchen einen Boot-Loader, um Ihr Pardus-System hochfahren zu können."
+"</p>\n"
 "\n"
-"<p>Wenn Sie kein Boot-Loader installieren oder 'in die Root-Partition' nicht wählen, müssen Sie den Boot-Loader von Ihrem anderen Betriebssystem (falls vorhanden) konfigurieren, um Ihr neu installiertes Pardus starten zu können.</p>"
+"<p>Wenn Sie kein Boot-Loader installieren oder 'in die Root-Partition' nicht "
+"wählen, müssen Sie den Boot-Loader von Ihrem anderen Betriebssystem (falls "
+"vorhanden) konfigurieren, um Ihr neu installiertes Pardus starten zu können."
+"</p>"
 
 #: yali/gui/Ui/bootloaderwidget.py:102
 msgid "Where do you want to install the bootloader?"
@@ -238,7 +242,11 @@ msgid ""
 "maintanence tasks. Please give password for this special user and do not "
 "forget this password. Note that you shouldn't write this password elsewhere "
 "for privacy reasons.</p>"
-msgstr "<p align=\"left\">Mit dem Systemadministrator-Konto (root) können Sie Systemwartungen vornehmen. Bitte vergeben Sie diesen speziellen Benutzer ein Passwort und vergessen Sie bitte diesen nicht. Beachten Sie, dass Ihr Passwort aus Sicherheitsgründen für Dritte nicht zugänglich sein darf.</p>"
+msgstr ""
+"<p align=\"left\">Mit dem Systemadministrator-Konto (root) können Sie "
+"Systemwartungen vornehmen. Bitte vergeben Sie diesen speziellen Benutzer ein "
+"Passwort und vergessen Sie bitte diesen nicht. Beachten Sie, dass Ihr "
+"Passwort aus Sicherheitsgründen für Dritte nicht zugänglich sein darf.</p>"
 
 #: yali/gui/Ui/rootpasswidget.py:134
 msgid "Hostname:"
@@ -300,7 +308,8 @@ msgid ""
 msgstr ""
 "Alle Programme, die von TÜBITAK/UEKAE entwickelt worden sind, sind unter der "
 "GNU/GPL lizenziert. Andere Programme haben ihre eigene Lizenzen. Um Pardus "
-"installieren zu können, müssen Sie den Lizenzen zustimmen. Möchten Sie fortfahren?"
+"installieren zu können, müssen Sie den Lizenzen zustimmen. Möchten Sie "
+"fortfahren?"
 
 #: yali/gui/Ui/welcomewidget.py:98
 msgid "Read GPL"
@@ -452,7 +461,8 @@ msgstr ""
 "\n"
 "<font size=\"+1\">\n"
 "\n"
-"<p>Bitte vergeben Sie ein Passwort für das Systemadministrator-Konto (root).\n"
+"<p>Bitte vergeben Sie ein Passwort für das Systemadministrator-Konto "
+"(root).\n"
 "Das Passwort sollte für Dritte nicht zugänglich sein. \n"
 "Das Passwort sollte schwer zu schätzen & leicht zu behalten sein.\n"
 "\n"
@@ -463,8 +473,8 @@ msgstr ""
 "</p>\n"
 "\n"
 "<p>\n"
-"Bitte vergeben Sie Ihrem Rechner ein Namen, damit es vom zugehörigen Netzwerk "
-"erkannt werden kann. Der Hostname sollte anschaulich sein, um Ihren "
+"Bitte vergeben Sie Ihrem Rechner ein Namen, damit es vom zugehörigen "
+"Netzwerk erkannt werden kann. Der Hostname sollte anschaulich sein, um Ihren "
 "Rechner identifizieren zu können.\n"
 "</p>\n"
 "\n"
@@ -487,7 +497,8 @@ msgstr "<font color=\"#FF6D19\">Passwörter stimmen nicht überein!</font>"
 
 #: yali/gui/ScrAdmin.py:133
 msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
-msgstr "<font color=\"#FF6D19\">Der Hostname enthält unzulässige Zeichen!</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Der Hostname enthält unzulässige Zeichen!</font>"
 
 #: yali/gui/ScrBootloader.py:36
 msgid ""
@@ -573,8 +584,8 @@ msgstr ""
 "<font size=\"+2\"Überprüfung der CD-Integrität</font>\n"
 "\n"
 "<font size=\"+1\">\n"
-"<p>In diesem Installatiosschritt können Sie die Integrität der Pakete auf der "
-"Installations-CD überprüfen.\n"
+"<p>In diesem Installatiosschritt können Sie die Integrität der Pakete auf "
+"der Installations-CD überprüfen.\n"
 "</p>\n"
 "\n"
 
@@ -607,7 +618,7 @@ msgstr ""
 "scheint defekt zu sein.</p>\n"
 "</b>\n"
 
-#: yali/gui/ScrCheckCD.py:105 yali/gui/ScrGoodbye.py:233
+#: yali/gui/ScrCheckCD.py:105 yali/gui/ScrGoodbye.py:237
 msgid "Reboot"
 msgstr "Neustarten"
 
@@ -643,8 +654,8 @@ msgstr ""
 "immer produktiv bleiben.\n"
 "</p>\n"
 "<P>\n"
-"Klicken Sie weiter um die Installation abzuschliessen. Eine Frage noch: "
-"Sie können sich doch noch an Ihr Passwort erinnern,\n"
+"Klicken Sie weiter um die Installation abzuschliessen. Eine Frage noch: Sie "
+"können sich doch noch an Ihr Passwort erinnern,\n"
 "oder ?\n"
 "</p>\n"
 "</font>\n"
@@ -657,44 +668,40 @@ msgstr ""
 "<b><font size=\"+2\" color=\"#FF6D19\">System wird neu gestartet. Bitte "
 "warten!</font></b>"
 
-#: yali/gui/ScrGoodbye.py:180
+#: yali/gui/ScrGoodbye.py:184
 msgid "Trying to connect COMAR Daemon..."
 msgstr "Verbindungsaufbau zum COMAR-Daemon..."
 
-#: yali/gui/ScrGoodbye.py:181
+#: yali/gui/ScrGoodbye.py:185
 msgid "Setting Hostname..."
 msgstr "Hostname wird gesetzt..."
 
-#: yali/gui/ScrGoodbye.py:182
+#: yali/gui/ScrGoodbye.py:186
 msgid "Setting Root Password..."
 msgstr "Root-Passwort wird gesetzt..."
 
-#: yali/gui/ScrGoodbye.py:183
+#: yali/gui/ScrGoodbye.py:187
 msgid "Adding Users..."
 msgstr "Benutzer werden angelegt..."
 
-#: yali/gui/ScrGoodbye.py:184
+#: yali/gui/ScrGoodbye.py:188
 msgid "Writing Console Data..."
 msgstr "Konsole-Datei wird beschrieben..."
 
-#: yali/gui/ScrGoodbye.py:185
+#: yali/gui/ScrGoodbye.py:189
 msgid "Migrating X.org Configuration..."
 msgstr "Übergang zur X.org-Konfiguration..."
 
-#: yali/gui/ScrGoodbye.py:186
+#: yali/gui/ScrGoodbye.py:190
 msgid "Installing BootLoader..."
 msgstr "Boot-Loader wird installiert..."
 
-#: yali/gui/ScrGoodbye.py:227
+#: yali/gui/ScrGoodbye.py:231
 msgid ""
 "<b>\n"
-"<p>Please remove Pardus CD from your drive and pres Reboot button.</p>\n"
+"<p>Press Reboot button to restart your system.</p>\n"
 "</b>\n"
 msgstr ""
-"<b>\n"
-"<p>Bitte entnehmen Sie die Pardus-CD aus Ihrem Laufwerk und klicken Sie auf "
-"Neustarten.</p>\n"
-"</b>\n"
 
 #: yali/gui/ScrInstall.py:53
 msgid ""
@@ -1016,11 +1023,12 @@ msgstr ""
 "<b>\n"
 "<p>Sie haben kein Administrator festgelegt!</p>\n"
 "\n"
-"<p>Ein Benutzer ohne administrative Rechte kann keine Systemwartung vornehmen.\n"
+"<p>Ein Benutzer ohne administrative Rechte kann keine Systemwartung "
+"vornehmen.\n"
 "Es wird dringend empfohlen einen Administrator festzulegen.</p>\n"
 "\n"
-"<p>Klicken Sie \"Cancel\" an um ein Administrator festzulegen(recommended) or \"OK\" "
-"to \n"
+"<p>Klicken Sie \"Cancel\" an um ein Administrator festzulegen(recommended) "
+"or \"OK\" to \n"
 "go to next screen.</p>\n"
 "</b>\n"
 
@@ -1029,8 +1037,8 @@ msgid ""
 "<font color=\"#FF6D19\">Don't use your user name or name as a password.</"
 "font>"
 msgstr ""
-"<font color=\"#FF6D19\">Verwenden Sie Ihren Benutzernamen oder Namen nicht als Passwort."
-"</font>"
+"<font color=\"#FF6D19\">Verwenden Sie Ihren Benutzernamen oder Namen nicht "
+"als Passwort.</font>"
 
 #: yali/gui/ScrUsers.py:196
 msgid "<font color=\"#FF6D19\">Username exists, choose another one!</font>"
@@ -1313,3 +1321,12 @@ msgstr "Persönliche Dateien"
 msgid "Swap"
 msgstr "SWAP"
 
+#~ msgid ""
+#~ "<b>\n"
+#~ "<p>Please remove Pardus CD from your drive and pres Reboot button.</p>\n"
+#~ "</b>\n"
+#~ msgstr ""
+#~ "<b>\n"
+#~ "<p>Bitte entnehmen Sie die Pardus-CD aus Ihrem Laufwerk und klicken Sie "
+#~ "auf Neustarten.</p>\n"
+#~ "</b>\n"

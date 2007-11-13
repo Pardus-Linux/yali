@@ -104,24 +104,24 @@ don't you?
         except:
             ctx.debugger.log("Umount Failed.")
             pass
-
-        ctx.debugger.log("Trying to eject the CD.")
-
-        # remove cd...
-        yali.sysutils.eject_cdrom()
-
+        
         w = RebootWidget(self)
 
         ctx.debugger.log("Show reboot dialog.")
         self.dialog = WarningDialog(w, self)
         self.dialog.exec_loop()
 
-        ctx.debugger.log("Yali, fastreboot calling..")
+        ctx.debugger.log("Trying to eject the CD.")
+        # remove cd...
+        yali.sysutils.eject_cdrom()
 
+        ctx.debugger.log("Yali, fastreboot calling..")
+        
         # store log content
         if ctx.debugEnabled:
             open(ctx.consts.log_file,"w").write(str(ctx.debugger.traceback.plainLogs))
-
+        
+        time.sleep(4)
         yali.sysutils.fastreboot()
 
     # process pending actions defined in other screens.
@@ -229,7 +229,7 @@ class RebootWidget(QWidget):
 
         warning = QLabel(self)
         warning.setText(_('''<b>
-<p>Please remove Pardus CD from your drive and pres Reboot button.</p>
+<p>Press Reboot button to restart your system.</p>
 </b>
 '''))
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: it\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-09 12:04+0300\n"
+"POT-Creation-Date: 2007-11-13 11:43+0200\n"
 "PO-Revision-Date: 2007-11-12 20:52+0100\n"
 "Last-Translator: Andrea Decorte <adecorte@gmail.com>\n"
 "Language-Team: Italian <pardus-translation-it@pardus.org.tr>\n"
@@ -352,7 +352,8 @@ msgstr "La 'Root di installazione' deve essere di almeno %s MB."
 
 #: yali/gui/PartEditImpl.py:285
 msgid "ntfsresize check failed! Won't proceed action!"
-msgstr "controllo di ntfsresize fallito! Impossibile portare a termine l'azione!"
+msgstr ""
+"controllo di ntfsresize fallito! Impossibile portare a termine l'azione!"
 
 #: yali/gui/PartListImpl.py:87 yali/gui/ScrBootloader.py:69
 #: yali/gui/ScrKahyaCheck.py:87 yali/gui/ScrPartitionAuto.py:68
@@ -609,7 +610,7 @@ msgstr ""
 "installazione abbia dei problemi.</p>\n"
 "</b>\n"
 
-#: yali/gui/ScrCheckCD.py:105 yali/gui/ScrGoodbye.py:233
+#: yali/gui/ScrCheckCD.py:105 yali/gui/ScrGoodbye.py:237
 msgid "Reboot"
 msgstr "Riavvia"
 
@@ -658,44 +659,40 @@ msgstr ""
 "<b><font size=\"+2\" color=\"#FF6D19\">Riavvio del sistema in corso, "
 "attendere prego</font></b>"
 
-#: yali/gui/ScrGoodbye.py:180
+#: yali/gui/ScrGoodbye.py:184
 msgid "Trying to connect COMAR Daemon..."
 msgstr "Tentativo di connessione al demone COMAR..."
 
-#: yali/gui/ScrGoodbye.py:181
+#: yali/gui/ScrGoodbye.py:185
 msgid "Setting Hostname..."
 msgstr "Impostazione nome host..."
 
-#: yali/gui/ScrGoodbye.py:182
+#: yali/gui/ScrGoodbye.py:186
 msgid "Setting Root Password..."
 msgstr "Impostazione della password di root..."
 
-#: yali/gui/ScrGoodbye.py:183
+#: yali/gui/ScrGoodbye.py:187
 msgid "Adding Users..."
 msgstr "Aggiunta utenti..."
 
-#: yali/gui/ScrGoodbye.py:184
+#: yali/gui/ScrGoodbye.py:188
 msgid "Writing Console Data..."
 msgstr "Scrittura dati console..."
 
-#: yali/gui/ScrGoodbye.py:185
+#: yali/gui/ScrGoodbye.py:189
 msgid "Migrating X.org Configuration..."
 msgstr "Migrazione della configurazione di X.org..."
 
-#: yali/gui/ScrGoodbye.py:186
+#: yali/gui/ScrGoodbye.py:190
 msgid "Installing BootLoader..."
 msgstr "Installazione del bootloader..."
 
-#: yali/gui/ScrGoodbye.py:227
+#: yali/gui/ScrGoodbye.py:231
 msgid ""
 "<b>\n"
-"<p>Please remove Pardus CD from your drive and pres Reboot button.</p>\n"
+"<p>Press Reboot button to restart your system.</p>\n"
 "</b>\n"
 msgstr ""
-"<b>\n"
-"<p>Per piacere rimuovi il CD di Pardus dal tuo drive e premi il pulsante "
-"Riavvia.</p>\n"
-"</b>\n"
 
 #: yali/gui/ScrInstall.py:53
 msgid ""
@@ -1033,8 +1030,8 @@ msgid ""
 "<font color=\"#FF6D19\">Don't use your user name or name as a password.</"
 "font>"
 msgstr ""
-"<font color=\"#FF6D19\">Non utilizzare il tuo nome utente o il tuo nome come password.</"
-"font>"
+"<font color=\"#FF6D19\">Non utilizzare il tuo nome utente o il tuo nome come "
+"password.</font>"
 
 #: yali/gui/ScrUsers.py:196
 msgid "<font color=\"#FF6D19\">Username exists, choose another one!</font>"
@@ -1044,11 +1041,13 @@ msgstr ""
 
 #: yali/gui/ScrUsers.py:200
 msgid "<font color=\"#FF6D19\">Username contains invalid characters!</font>"
-msgstr "<font color=\"#FF6D19\">Il nome utente contiene caratteri non validi!</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Il nome utente contiene caratteri non validi!</font>"
 
 #: yali/gui/ScrUsers.py:204
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
-msgstr "<font color=\"#FF6D19\">Il nome reale contiene caratteri non validi!</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Il nome reale contiene caratteri non validi!</font>"
 
 #: yali/gui/ScrUsers.py:259
 msgid "Update User"
@@ -1315,3 +1314,12 @@ msgstr "File degli utenti"
 msgid "Swap"
 msgstr "Swap"
 
+#~ msgid ""
+#~ "<b>\n"
+#~ "<p>Please remove Pardus CD from your drive and pres Reboot button.</p>\n"
+#~ "</b>\n"
+#~ msgstr ""
+#~ "<b>\n"
+#~ "<p>Per piacere rimuovi il CD di Pardus dal tuo drive e premi il pulsante "
+#~ "Riavvia.</p>\n"
+#~ "</b>\n"

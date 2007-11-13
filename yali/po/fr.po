@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-09 12:04+0300\n"
+"POT-Creation-Date: 2007-11-13 11:43+0200\n"
 "PO-Revision-Date: 2007-10-19 22:35+0200\n"
 "Last-Translator: Amine Chadly <amine.chadly@gmail.com>\n"
 "Language-Team: French <pardus-translators@liste.pardus.org.tr>\n"
@@ -60,7 +60,8 @@ msgstr "Non, je vais partitionner mon disque manuellement."
 
 #: yali/gui/Ui/autopartwidget.py:95
 msgid "Yes, automatically partition and format selected disk!"
-msgstr "Oui, partitionner et formatter automatiquement le disque dur sélectionné !"
+msgstr ""
+"Oui, partitionner et formatter automatiquement le disque dur sélectionné !"
 
 #: yali/gui/Ui/bootloaderwidget.py:96
 msgid ""
@@ -487,7 +488,8 @@ msgstr "<font color=\"#FF6D19\">Le mot de passe est trop court !</font>"
 
 #: yali/gui/ScrAdmin.py:117 yali/gui/ScrUsers.py:160
 msgid "<font color=\"#FF6D19\">Passwords do not match!</font>"
-msgstr "<font color=\"#FF6D19\">Les mots de passe ne sont pas identiques!</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Les mots de passe ne sont pas identiques!</font>"
 
 #: yali/gui/ScrAdmin.py:133
 msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
@@ -616,7 +618,7 @@ msgstr ""
 "d'installation soit défectueux.</p>\n"
 "</b>\n"
 
-#: yali/gui/ScrCheckCD.py:105 yali/gui/ScrGoodbye.py:233
+#: yali/gui/ScrCheckCD.py:105 yali/gui/ScrGoodbye.py:237
 msgid "Reboot"
 msgstr "Redémarrer"
 
@@ -665,43 +667,42 @@ msgstr ""
 "<b><font size=\"+2\" color=\"#FF6D19\">Le système redémarre.Veuillez "
 "patienter!</font></b>"
 
-#: yali/gui/ScrGoodbye.py:180
+#: yali/gui/ScrGoodbye.py:184
 msgid "Trying to connect COMAR Daemon..."
 msgstr "Tentative de connexion au Démon COMAR en cours..."
 
-#: yali/gui/ScrGoodbye.py:181
+#: yali/gui/ScrGoodbye.py:185
 msgid "Setting Hostname..."
 msgstr "Établissement du nom d'hôte..."
 
-#: yali/gui/ScrGoodbye.py:182
+#: yali/gui/ScrGoodbye.py:186
 msgid "Setting Root Password..."
 msgstr "Établissement du mot de passe Root..."
 
-#: yali/gui/ScrGoodbye.py:183
+#: yali/gui/ScrGoodbye.py:187
 msgid "Adding Users..."
 msgstr "Ajout des utilisateurs..."
 
-#: yali/gui/ScrGoodbye.py:184
+#: yali/gui/ScrGoodbye.py:188
 msgid "Writing Console Data..."
 msgstr "Écriture des données de Console..."
 
-#: yali/gui/ScrGoodbye.py:185
+#: yali/gui/ScrGoodbye.py:189
 msgid "Migrating X.org Configuration..."
 msgstr "Migration de la configuration de X.org..."
 
-#: yali/gui/ScrGoodbye.py:186
+#: yali/gui/ScrGoodbye.py:190
 msgid "Installing BootLoader..."
 msgstr "Installation du chargeur de démarrage..."
 
-#: yali/gui/ScrGoodbye.py:227
+#: yali/gui/ScrGoodbye.py:231
 msgid ""
 "<b>\n"
-"<p>Please remove Pardus CD from your drive and pres Reboot button.</p>\n"
+"<p>Press Reboot button to restart your system.</p>\n"
 "</b>\n"
 msgstr ""
 "<b>\n"
-"<p>Veuillez retirer le CD de Pardus de votre lecteur et 'cliquez le bouton "
-"\"Redémarrer\".</p>\n"
+"<p>Cliquez le bouton 'Redémarrer' pour redémarrer le système!</p>\n"
 "</b>\n"
 
 #: yali/gui/ScrInstall.py:53
@@ -1032,8 +1033,8 @@ msgid ""
 "<font color=\"#FF6D19\">Don't use your user name or name as a password.</"
 "font>"
 msgstr ""
-"<font color=\"#FF6D19\">N'utilisez pas votre nom d'utilisateur ou nom propre comme mot de "
-"passe.</font>"
+"<font color=\"#FF6D19\">N'utilisez pas votre nom d'utilisateur ou nom propre "
+"comme mot de passe.</font>"
 
 #: yali/gui/ScrUsers.py:196
 msgid "<font color=\"#FF6D19\">Username exists, choose another one!</font>"
@@ -1322,3 +1323,12 @@ msgstr "fichiers utilisateurs"
 msgid "Swap"
 msgstr "Swap"
 
+#~ msgid ""
+#~ "<b>\n"
+#~ "<p>Please remove Pardus CD from your drive and pres Reboot button.</p>\n"
+#~ "</b>\n"
+#~ msgstr ""
+#~ "<b>\n"
+#~ "<p>Veuillez retirer le CD de Pardus de votre lecteur et 'cliquez le "
+#~ "bouton \"Redémarrer\".</p>\n"
+#~ "</b>\n"

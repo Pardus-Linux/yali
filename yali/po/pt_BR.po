@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt_BR\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-09 12:04+0300\n"
+"POT-Creation-Date: 2007-11-13 11:43+0200\n"
 "PO-Revision-Date: 2007-02-19 22:25-0300\n"
 "Last-Translator: Pedro Leite <pedro.leite@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <http://liste.uludag.org.tr/mailman/"
@@ -608,7 +608,7 @@ msgstr ""
 "está corrompido.</p>\n"
 "</b>\n"
 
-#: yali/gui/ScrCheckCD.py:105 yali/gui/ScrGoodbye.py:233
+#: yali/gui/ScrCheckCD.py:105 yali/gui/ScrGoodbye.py:237
 msgid "Reboot"
 msgstr "Reiniciar"
 
@@ -656,45 +656,41 @@ msgstr ""
 "<b><font size=\"+2\" color=\"#FF6D19\">Reiniciando sistema. Por favor espere!"
 "</font></b>"
 
-#: yali/gui/ScrGoodbye.py:180
+#: yali/gui/ScrGoodbye.py:184
 msgid "Trying to connect COMAR Daemon..."
 msgstr ""
 
-#: yali/gui/ScrGoodbye.py:181
+#: yali/gui/ScrGoodbye.py:185
 msgid "Setting Hostname..."
 msgstr ""
 
-#: yali/gui/ScrGoodbye.py:182
+#: yali/gui/ScrGoodbye.py:186
 msgid "Setting Root Password..."
 msgstr ""
 
-#: yali/gui/ScrGoodbye.py:183
+#: yali/gui/ScrGoodbye.py:187
 msgid "Adding Users..."
 msgstr ""
 
-#: yali/gui/ScrGoodbye.py:184
+#: yali/gui/ScrGoodbye.py:188
 msgid "Writing Console Data..."
 msgstr ""
 
-#: yali/gui/ScrGoodbye.py:185
+#: yali/gui/ScrGoodbye.py:189
 msgid "Migrating X.org Configuration..."
 msgstr ""
 
-#: yali/gui/ScrGoodbye.py:186
+#: yali/gui/ScrGoodbye.py:190
 #, fuzzy
 msgid "Installing BootLoader..."
 msgstr "Não instalar carregador de boot"
 
-#: yali/gui/ScrGoodbye.py:227
+#: yali/gui/ScrGoodbye.py:231
 msgid ""
 "<b>\n"
-"<p>Please remove Pardus CD from your drive and pres Reboot button.</p>\n"
+"<p>Press Reboot button to restart your system.</p>\n"
 "</b>\n"
 msgstr ""
-"<b>\n"
-"<p>Por favor, remova o CD do Pardus do drive e aperte o botão Reiniciar.</"
-"p>\n"
-"</b>\n"
 
 #: yali/gui/ScrInstall.py:53
 msgid ""
@@ -1292,6 +1288,16 @@ msgstr "Arquivos do Usuário"
 #: yali/partitiontype.py:67
 msgid "Swap"
 msgstr "Troca"
+
+#~ msgid ""
+#~ "<b>\n"
+#~ "<p>Please remove Pardus CD from your drive and pres Reboot button.</p>\n"
+#~ "</b>\n"
+#~ msgstr ""
+#~ "<b>\n"
+#~ "<p>Por favor, remova o CD do Pardus do drive e aperte o botão Reiniciar.</"
+#~ "p>\n"
+#~ "</b>\n"
 
 #~ msgid "Please wait while installing bootloader!"
 #~ msgstr "Por favor, espere enquanto o carregador de boot é instalado!"
