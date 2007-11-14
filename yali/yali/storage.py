@@ -459,10 +459,7 @@ class EDD:
         for dev_type in ["hd*", "sd*"]:
             sysfs_devs = glob.glob("/sys/block/" + dev_type)
             for sysfs_dev in sysfs_devs:
-                if not int(open(sysfs_dev + "/removable").read().strip()):
-                    devlink = os.readlink(sysfs_dev + "/device")
-                    if not "/usb" in devlink:
-                        devices.append("/dev/" + os.path.basename(sysfs_dev))
+                devices.append("/dev/" + os.path.basename(sysfs_dev))
         devices.sort()
         return devices
 

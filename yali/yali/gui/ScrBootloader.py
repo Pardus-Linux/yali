@@ -204,14 +204,13 @@ and easy way to install Pardus.</p>
 
         info_window.close()
 
-        if self.noInstall.isChecked():
-            ctx.installData.bootLoaderDev = None
-
         root_part_req = ctx.partrequests.searchPartTypeAndReqType(parttype.root,
                                                                   request.mountRequestType)
 
         # install_dev
-        if self.installPart.isChecked():
+        if self.noInstall.isChecked():
+            ctx.installData.bootLoaderDev = None
+        elif self.installPart.isChecked():
             ctx.installData.bootLoaderDev = basename(root_part_req.partition().getPath())
         elif self.installMBR.isChecked():
             ctx.installData.bootLoaderDev = basename(self.device.getPath())
