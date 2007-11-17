@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-11-13 11:43+0200\n"
-"PO-Revision-Date: 2007-11-11 05:22+0200\n"
+"PO-Revision-Date: 2007-11-16 00:57+0200\n"
 "Last-Translator: Mustafa Ölcerman <mmoelcerman@googlemail.com>\n"
 "Language-Team: Deutsch <pardus-translation-de@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -138,7 +138,7 @@ msgstr "Form3"
 
 #: yali/gui/Ui/installwidget.py:53
 msgid "Installing Package: "
-msgstr "Folgendes Paket wird installiert:"
+msgstr "Installation des Pakets:"
 
 #: yali/gui/Ui/keyboardwidget.py:68
 msgid "Select the keyboard layout of your choice."
@@ -497,8 +497,7 @@ msgstr "<font color=\"#FF6D19\">Passwörter stimmen nicht überein!</font>"
 
 #: yali/gui/ScrAdmin.py:133
 msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Der Hostname enthält unzulässige Zeichen!</font>"
+msgstr "<font color=\"#FF6D19\">Der Hostname enthält unzulässige Zeichen!</font>"
 
 #: yali/gui/ScrBootloader.py:36
 msgid ""
@@ -702,6 +701,9 @@ msgid ""
 "<p>Press Reboot button to restart your system.</p>\n"
 "</b>\n"
 msgstr ""
+"<b>\n"
+"<p>Klicken Sie auf Neustarten, um Ihr System neuzustarten.</p>\n"
+"</b>\n"
 
 #: yali/gui/ScrInstall.py:53
 msgid ""
@@ -751,12 +753,12 @@ msgstr ""
 #: yali/gui/ScrInstall.py:110 yali/gui/ScrInstall.py:130
 #, python-format
 msgid "Installing: %s<br>%s"
-msgstr "Installation der: %s<br>%s"
+msgstr "Installation von: %s<br>%s"
 
 #: yali/gui/ScrInstall.py:116 yali/gui/ScrInstall.py:136
 #, python-format
 msgid "Configuring package: %s"
-msgstr "Paket wird konfiguriert: %s"
+msgstr "Konfiguration des Pakets: %s"
 
 #: yali/gui/ScrInstall.py:192
 msgid "Configuring packages for your system!"
@@ -1321,12 +1323,3 @@ msgstr "Persönliche Dateien"
 msgid "Swap"
 msgstr "SWAP"
 
-#~ msgid ""
-#~ "<b>\n"
-#~ "<p>Please remove Pardus CD from your drive and pres Reboot button.</p>\n"
-#~ "</b>\n"
-#~ msgstr ""
-#~ "<b>\n"
-#~ "<p>Bitte entnehmen Sie die Pardus-CD aus Ihrem Laufwerk und klicken Sie "
-#~ "auf Neustarten.</p>\n"
-#~ "</b>\n"
