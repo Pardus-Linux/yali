@@ -124,7 +124,7 @@ class BootLoader:
         def boot_parameters(root):
             s = []
             # Get parameters from cmdline.
-            for i in [x for x in open("/proc/cmdline", "r").read().split() if not x.startswith("init=") and not x.startswith("xorg=")]:
+            for i in [x for x in open("/proc/cmdline", "r").read().split() if not x.startswith("init=") and not x.startswith("xorg=") and not x.startswith("yali=")]:
                 if i.startswith("root="):
                     s.append("root=/dev/%s" % (root))
                 elif i.startswith("mudur="):
