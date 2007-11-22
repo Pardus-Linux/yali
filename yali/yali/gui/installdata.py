@@ -19,3 +19,4 @@ class InstallData:
     autoPartDev = None
     bootLoaderDev = None
     repoAddr = None
+    useYaliFirstBoot = False

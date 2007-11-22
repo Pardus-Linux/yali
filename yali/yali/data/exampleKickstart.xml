@@ -4,6 +4,7 @@
 	<keymap>trq</keymap>
 	<root_password>pardusman</root_password>
 	<hostname>pardus-kickstart</hostname>
+    <!-- <users use_yali_first_boot="true"> -->
 	<users>
 		<user>
 			<username>gokmen</username>

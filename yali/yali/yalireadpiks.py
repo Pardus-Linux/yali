@@ -16,7 +16,8 @@ class kahyaData:
         self.autoLoginUser=None
         self.repoName = "remoteRepo"
         self.repoAddr = None
-        
+        self.useYaliFirstBoot = False
+
 class yaliUser:	
     def __init__(self):
         self.autologin=None
@@ -50,6 +51,7 @@ def read(args):
     data.repoName=doc.getTagData("reponame") or data.repoName
     data.repoAddr=doc.getTagData("repoaddr")
     usrsTag=doc.getTag("users")
+    data.useYaliFirstBoot=usrsTag.getAttribute("use_yali_first_boot") or False
 
     for p in usrsTag.tags():
         info=yaliUser()

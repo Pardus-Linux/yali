@@ -165,10 +165,10 @@ don't you?
             return True
 
         def setRootPassword():
-            global comarLink
-            comarLink.User.Manager.setUser(uid=0,
-                                           password=ctx.installData.rootPassword)
-            ctx.debugger.log("RESULT :: %s" % str(comarLink.read_cmd()))
+            if not ctx.installData.useYaliFirstBoot:
+                global comarLink
+                comarLink.User.Manager.setUser(uid=0,password=ctx.installData.rootPassword)
+                ctx.debugger.log("RESULT :: %s" % str(comarLink.read_cmd()))
             return True
 
         def writeConsoleData():

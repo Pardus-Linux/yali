@@ -175,8 +175,9 @@ class kahya:
 
         ###root password selection###
         if(len(self.data.rootPassword)<4):
-            error.Root=True
-            self.errorList.append("Root Password Error : Password is too short")
+            if not self.data.useYaliFirstBoot:
+                error.Root=True
+                self.errorList.append("Root Password Error : Password is too short")
         else:
             self.correctData.rootPassword=self.data.rootPassword
 
@@ -188,8 +189,9 @@ class kahya:
 
         ###users selections###
         if(len(self.data.users)==0):
-            error.Users=True
-            self.errorList.append("User Error: No user entry")
+            if not self.data.useYaliFirstBoot:
+                error.Users=True
+                self.errorList.append("User Error: No user entry")
         else:
             self.correctData.users=[]
             for user in self.data.users:
@@ -224,7 +226,7 @@ class kahya:
                     correctUser.groups=user.groups
                     self.correctData.users.append(correctUser)
 
-        if (len(self.correctData.users)==0):
+        if (len(self.correctData.users)==0) and not self.data.useYaliFirstBoot:
             error.Users=True
             self.errorList.append("User Error: No user added")
 

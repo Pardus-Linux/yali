@@ -100,6 +100,7 @@ class Widget(KickerWidget, ScreenWidget):
                 ctx.installData.hostName = correctData.hostname
                 ctx.installData.autoLoginUser = correctData.autoLoginUser
                 ctx.installData.autoPartDev = devices[int(correctData.partitioning[0].disk[-1])]
+                ctx.installData.useYaliFirstBoot = correctData.useYaliFirstBoot
 
                 # if exists use different source repo
                 ctx.installData.repoAddr = correctData.repoAddr
