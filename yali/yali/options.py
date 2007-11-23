@@ -21,7 +21,6 @@ class Options(object):
         parser.add_option("-d", "--debug", dest="debug",
                           action="store_true", default="False",
                           help="enable debug")
-
         parser.add_option("-r", "--dryRun", dest="dryRun",
                           action="store_true", default="False",
                           help="only show the result")

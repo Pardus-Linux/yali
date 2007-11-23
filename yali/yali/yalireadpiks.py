@@ -8,7 +8,7 @@ class kahyaData:
     def __init__(self):
         self.language=None
         self.keyData=Keymap()
-        self.rootPassword=None
+        self.rootPassword=''
         self.hostname=None
         self.users=[]
         self.partitioning=[]
@@ -46,7 +46,7 @@ def read(args):
     data=kahyaData()
     data.language=doc.getTagData("language")
     data.keyData.X=doc.getTagData("keymap")
-    data.rootPassword=doc.getTagData("root_password")
+    data.rootPassword=doc.getTagData("root_password") or ''
     data.hostname=doc.getTagData("hostname")
     data.repoName=doc.getTagData("reponame") or data.repoName
     data.repoAddr=doc.getTagData("repoaddr")

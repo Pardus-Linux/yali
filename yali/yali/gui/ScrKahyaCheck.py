@@ -118,11 +118,12 @@ class Widget(KickerWidget, ScreenWidget):
                     ctx.installData.users.append(user)
                     yali.users.pending_users.append(user)
                     ctx.debugger.log("USER    : %s " % user.username)
-                if not ctx.options.dryRun:
+
+                if ctx.options.dryRun == True:
+                    ctx.debugger.log("dryRun activated Yali stopped")
+                else:
                     # Bootloader Screen is 9
                     ctx.screens.goToScreen(9)
-                else:
-                    ctx.debugger.log("dryRun activated Yali stopped")
             else:
                 ctx.debugger.log("This kahya file is not correct !!")
                 wrongData = yaliKahya.getValues()
