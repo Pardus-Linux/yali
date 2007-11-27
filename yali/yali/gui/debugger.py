@@ -38,7 +38,7 @@ class Debugger:
 
     def log(self,log,type=1):
         if ctx.debugEnabled:
-            self.traceback.add(QString(log),type)
+            self.traceback.add(unicode(log),type)
 
 class DebugContainer(QTextEdit):
     def __init__(self, parent, showLineNumbers=True):
@@ -58,10 +58,10 @@ class DebugContainer(QTextEdit):
             self.plainLogs += "%s\n" % log
             log = "<b>%s</b>" % log
         if self.showLineNumbers:
-            self.append(QString("<b>%d :</b> %s" % (self.line,log)))
+            self.append(unicode("<b>%d :</b> %s" % (self.line,log)))
             self.line +=1
         else:
-            self.append(QString(log))
+            self.append(unicode(log))
 
 class DebuggerAspect:
     __metaclass__ = MetaAspect

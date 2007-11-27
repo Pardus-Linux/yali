@@ -104,7 +104,7 @@ don't you?
         except:
             ctx.debugger.log("Umount Failed.")
             pass
-        
+
         w = RebootWidget(self)
 
         ctx.debugger.log("Show reboot dialog.")
@@ -116,11 +116,11 @@ don't you?
         yali.sysutils.eject_cdrom()
 
         ctx.debugger.log("Yali, fastreboot calling..")
-        
+
         # store log content
         if ctx.debugEnabled:
             open(ctx.consts.log_file,"w").write(str(ctx.debugger.traceback.plainLogs))
-        
+
         time.sleep(4)
         yali.sysutils.fastreboot()
 
@@ -181,12 +181,20 @@ don't you?
             ctx.debugger.log("xorg.conf merged.")
             return True
 
+        def setPackages():
+            global comarLink
+            if yali.sysutils.checkYaliParams(param=ctx.consts.firstBootFile):
+                comarLink.System.Service["kdebase"].setState(state="off")
+                comarLink.System.Service["yali"].setState(state="on")
+            return True
+
         steps = [{"text":_("Trying to connect COMAR Daemon..."),"operation":connectToComar},
                  {"text":_("Setting Hostname..."),"operation":setHostName},
                  {"text":_("Setting Root Password..."),"operation":setRootPassword},
                  {"text":_("Adding Users..."),"operation":addUsers},
                  {"text":_("Writing Console Data..."),"operation":writeConsoleData},
                  {"text":_("Migrating X.org Configuration..."),"operation":migrateXorgConf},
+                 {"text":_("Setting misc. package configurations..."),"operation":setPackages},
                  {"text":_("Installing BootLoader..."),"operation":self.installBootloader}]
 
         self.steps.setOperations(steps)

@@ -72,10 +72,9 @@ class stepItem:
         self.textLabel.setText("<b>%s</b>" % self.text)
         qApp.processEvents()
         self.pixmapLabel.setPixmap(self.parent.iconWorking)
-        qApp.processEvents()
         self.status = self.operation()
-        qApp.processEvents()
         self.textLabel.setText(self.text)
+        ctx.debugger.log("Running step : %s" % self.text)
         if self.status:
             self.pixmapLabel.setPixmap(self.parent.iconDone)
         else:
