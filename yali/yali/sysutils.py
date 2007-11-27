@@ -41,19 +41,10 @@ def chroot_comar():
         os.environ["PATH"]="/bin:/sbin:/usr/bin:/usr/sbin"
         os.execve("/bin/service", ["/bin/service", "comar", "start"], os.environ)
 
-#         comar_out = open("/tmp/comar.out", "w")
-#         comar_err = open("/tmp/comar.err", "w")
-#         os.dup2(comar_out.fileno(), 1)
-#         os.dup2(comar_err.fileno(), 2)
-
-#         os.environ["PATH"]="/bin:/sbin:/usr/bin:/usr/sbin"
-#         comar_path = "/usr/bin/comar"
-#         os.execve(comar_path, ["/usr/bin/comar", "--debug", "perf"], os.environ)
-
-def checkYaliDebug():
+def checkYaliParams(param):
     for i in [x for x in open("/proc/cmdline", "r").read().split()]:
         if i.startswith("yali="):
-            if i.split("=")[1].strip()=="debug":
+            if param in i.split("=")[1].split(","):
                 return True
     return False
 

@@ -74,6 +74,10 @@ class Runner:
         self._app = QApplication(sys.argv)
         self._window = YaliWindow.Widget()
 
+        # check for oemInstall
+        if yali.sysutils.checkYaliParams(param=ctx.consts.firstBootParam):
+            ctx.options.kahyaFile = ctx.consts.firstBootFile
+
         # default style and font
         self._app.setStyle("Windows")
         f = QFont("Bitstream Vera Sans", 10);
@@ -83,7 +87,7 @@ class Runner:
         ctx.debugger = Debugger()
 
         # visual debug mode
-        if ctx.options.debug == True or yali.sysutils.checkYaliDebug():
+        if ctx.options.debug == True or yali.sysutils.checkYaliParams(param="debug"):
             ctx.debugEnabled = True
             ctx.debugger.showWindow()
 
@@ -98,7 +102,7 @@ class Runner:
         for scr in _all_screens:
             w = scr['module'].Widget()
 
-            if ctx.options.debug == True or yali.sysutils.checkYaliDebug():
+            if ctx.options.debug == True or yali.sysutils.checkYaliParams(param="debug"):
                 # debug all screens.
                 weave_all_object_methods(ctx.debugger.aspect, w)
 

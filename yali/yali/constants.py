@@ -88,6 +88,10 @@ consts.min_root_size = 3500
 # kahya options
 consts.kahyaParam = "kahya"
 
+# firstBoot options
+consts.firstBootParam = "oeminstall"
+consts.firstBootFile = join(consts.data_dir,"data/firstBoot.xml")
+
 try:
     consts.lang = locale.getdefaultlocale()[0][:2]
 except:
