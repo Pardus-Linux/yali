@@ -184,8 +184,11 @@ don't you?
         def setPackages():
             global comarLink
             if yali.sysutils.checkYaliParams(param=ctx.consts.firstBootFile):
+                ctx.debugger.log("OemInstall selected.")
                 comarLink.System.Service["kdebase"].setState(state="off")
-                comarLink.System.Service["yali"].setState(state="on")
+                ctx.debugger.log("RESULT :: %s" % str(comarLink.read_cmd()))
+                comarLink.System.Service["yali-firstBoot"].setState(state="on")
+                ctx.debugger.log("RESULT :: %s" % str(comarLink.read_cmd()))
             return True
 
         steps = [{"text":_("Trying to connect COMAR Daemon..."),"operation":connectToComar},
