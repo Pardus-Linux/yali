@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yali\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-11-13 11:43+0200\n"
+"POT-Creation-Date: 2007-11-28 09:09+0200\n"
 "PO-Revision-Date: 2007-03-18 14:13+0100\n"
 "Last-Translator: Pau Amaro-Seoane <pau@aei.mpg.de>\n"
 "Language-Team: Catala <pardus-translation-ca@ns1.uludag.org.tr>\n"
@@ -309,7 +309,7 @@ msgstr ""
 msgid "Read GPL"
 msgstr "Llegeix la llicència GPL"
 
-#: yali/gui/Ui/welcomewidget.py:99 yali/gui/runner.py:173
+#: yali/gui/Ui/welcomewidget.py:99 yali/gui/runner.py:177
 msgid "Reboot System!"
 msgstr "Reengega el sistema!"
 
@@ -412,11 +412,11 @@ msgstr "Preparació per a la instal·lació"
 msgid "Install system"
 msgstr "Instal·lació del sistema"
 
-#: yali/gui/runner.py:138
+#: yali/gui/runner.py:142
 msgid "Error!"
 msgstr ""
 
-#: yali/gui/runner.py:168
+#: yali/gui/runner.py:172
 #, fuzzy
 msgid "Unhandled error occured!"
 msgstr "Hi ha hagut un error!"
@@ -610,7 +610,7 @@ msgstr ""
 "dínstal·lació està corrupte.</p>\n"
 "</b>\n"
 
-#: yali/gui/ScrCheckCD.py:105 yali/gui/ScrGoodbye.py:237
+#: yali/gui/ScrCheckCD.py:105 yali/gui/ScrGoodbye.py:248
 msgid "Reboot"
 msgstr "Reengega"
 
@@ -659,36 +659,40 @@ msgstr ""
 "<b><font size=\"+2\" color=\"#FF6D19\">Estic reengegant el sistema. Si et "
 "plau, espera!</font></b>"
 
-#: yali/gui/ScrGoodbye.py:184
+#: yali/gui/ScrGoodbye.py:194
 msgid "Trying to connect COMAR Daemon..."
 msgstr ""
 
-#: yali/gui/ScrGoodbye.py:185
+#: yali/gui/ScrGoodbye.py:195
 msgid "Setting Hostname..."
 msgstr ""
 
-#: yali/gui/ScrGoodbye.py:186
+#: yali/gui/ScrGoodbye.py:196
 msgid "Setting Root Password..."
 msgstr ""
 
-#: yali/gui/ScrGoodbye.py:187
+#: yali/gui/ScrGoodbye.py:197
 msgid "Adding Users..."
 msgstr ""
 
-#: yali/gui/ScrGoodbye.py:188
+#: yali/gui/ScrGoodbye.py:198
 msgid "Writing Console Data..."
 msgstr ""
 
-#: yali/gui/ScrGoodbye.py:189
+#: yali/gui/ScrGoodbye.py:199
 msgid "Migrating X.org Configuration..."
 msgstr ""
 
-#: yali/gui/ScrGoodbye.py:190
+#: yali/gui/ScrGoodbye.py:200
+msgid "Setting misc. package configurations..."
+msgstr ""
+
+#: yali/gui/ScrGoodbye.py:201
 #, fuzzy
 msgid "Installing BootLoader..."
 msgstr "No instal·les el carregador de l'engegada"
 
-#: yali/gui/ScrGoodbye.py:231
+#: yali/gui/ScrGoodbye.py:242
 msgid ""
 "<b>\n"
 "<p>Press Reboot button to restart your system.</p>\n"
@@ -1123,7 +1127,7 @@ msgstr "D'acord. Continua."
 msgid "Windows"
 msgstr "Finestres"
 
-#: yali/__init__.py:67
+#: yali/__init__.py:65
 msgid "Backtrace:"
 msgstr "Traçament d'errors:"
 

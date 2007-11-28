@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-11-13 11:43+0200\n"
+"POT-Creation-Date: 2007-11-28 09:09+0200\n"
 "PO-Revision-Date: 2007-10-19 22:35+0200\n"
 "Last-Translator: Amine Chadly <amine.chadly@gmail.com>\n"
 "Language-Team: French <pardus-translators@liste.pardus.org.tr>\n"
@@ -310,7 +310,7 @@ msgstr ""
 msgid "Read GPL"
 msgstr "Lire la GPL"
 
-#: yali/gui/Ui/welcomewidget.py:99 yali/gui/runner.py:173
+#: yali/gui/Ui/welcomewidget.py:99 yali/gui/runner.py:177
 msgid "Reboot System!"
 msgstr "Redémarrer le système!"
 
@@ -415,11 +415,11 @@ msgstr "Préparation de l'installation"
 msgid "Install system"
 msgstr "Installation du système"
 
-#: yali/gui/runner.py:138
+#: yali/gui/runner.py:142
 msgid "Error!"
 msgstr "Erreur !"
 
-#: yali/gui/runner.py:168
+#: yali/gui/runner.py:172
 msgid "Unhandled error occured!"
 msgstr "Une erreur non gérée s'est produite !"
 
@@ -618,7 +618,7 @@ msgstr ""
 "d'installation soit défectueux.</p>\n"
 "</b>\n"
 
-#: yali/gui/ScrCheckCD.py:105 yali/gui/ScrGoodbye.py:237
+#: yali/gui/ScrCheckCD.py:105 yali/gui/ScrGoodbye.py:248
 msgid "Reboot"
 msgstr "Redémarrer"
 
@@ -667,35 +667,40 @@ msgstr ""
 "<b><font size=\"+2\" color=\"#FF6D19\">Le système redémarre.Veuillez "
 "patienter!</font></b>"
 
-#: yali/gui/ScrGoodbye.py:184
+#: yali/gui/ScrGoodbye.py:194
 msgid "Trying to connect COMAR Daemon..."
 msgstr "Tentative de connexion au Démon COMAR en cours..."
 
-#: yali/gui/ScrGoodbye.py:185
+#: yali/gui/ScrGoodbye.py:195
 msgid "Setting Hostname..."
 msgstr "Établissement du nom d'hôte..."
 
-#: yali/gui/ScrGoodbye.py:186
+#: yali/gui/ScrGoodbye.py:196
 msgid "Setting Root Password..."
 msgstr "Établissement du mot de passe Root..."
 
-#: yali/gui/ScrGoodbye.py:187
+#: yali/gui/ScrGoodbye.py:197
 msgid "Adding Users..."
 msgstr "Ajout des utilisateurs..."
 
-#: yali/gui/ScrGoodbye.py:188
+#: yali/gui/ScrGoodbye.py:198
 msgid "Writing Console Data..."
 msgstr "Écriture des données de Console..."
 
-#: yali/gui/ScrGoodbye.py:189
+#: yali/gui/ScrGoodbye.py:199
 msgid "Migrating X.org Configuration..."
 msgstr "Migration de la configuration de X.org..."
 
-#: yali/gui/ScrGoodbye.py:190
+#: yali/gui/ScrGoodbye.py:200
+#, fuzzy
+msgid "Setting misc. package configurations..."
+msgstr "Migration de la configuration de X.org..."
+
+#: yali/gui/ScrGoodbye.py:201
 msgid "Installing BootLoader..."
 msgstr "Installation du chargeur de démarrage..."
 
-#: yali/gui/ScrGoodbye.py:231
+#: yali/gui/ScrGoodbye.py:242
 msgid ""
 "<b>\n"
 "<p>Press Reboot button to restart your system.</p>\n"
@@ -1143,7 +1148,7 @@ msgstr "O.K. Continuer"
 msgid "Windows"
 msgstr "Windows"
 
-#: yali/__init__.py:67
+#: yali/__init__.py:65
 msgid "Backtrace:"
 msgstr "Pile d'exécution:"
 

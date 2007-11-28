@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-11-13 11:43+0200\n"
+"POT-Creation-Date: 2007-11-28 09:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -277,7 +277,7 @@ msgstr ""
 msgid "Read GPL"
 msgstr ""
 
-#: yali/gui/Ui/welcomewidget.py:99 yali/gui/runner.py:173
+#: yali/gui/Ui/welcomewidget.py:99 yali/gui/runner.py:177
 msgid "Reboot System!"
 msgstr ""
 
@@ -380,11 +380,11 @@ msgstr ""
 msgid "Install system"
 msgstr ""
 
-#: yali/gui/runner.py:138
+#: yali/gui/runner.py:142
 msgid "Error!"
 msgstr ""
 
-#: yali/gui/runner.py:168
+#: yali/gui/runner.py:172
 msgid "Unhandled error occured!"
 msgstr ""
 
@@ -507,7 +507,7 @@ msgid ""
 "</b>\n"
 msgstr ""
 
-#: yali/gui/ScrCheckCD.py:105 yali/gui/ScrGoodbye.py:237
+#: yali/gui/ScrCheckCD.py:105 yali/gui/ScrGoodbye.py:248
 msgid "Reboot"
 msgstr ""
 
@@ -538,35 +538,39 @@ msgid ""
 "font></b>"
 msgstr ""
 
-#: yali/gui/ScrGoodbye.py:184
+#: yali/gui/ScrGoodbye.py:194
 msgid "Trying to connect COMAR Daemon..."
 msgstr ""
 
-#: yali/gui/ScrGoodbye.py:185
+#: yali/gui/ScrGoodbye.py:195
 msgid "Setting Hostname..."
 msgstr ""
 
-#: yali/gui/ScrGoodbye.py:186
+#: yali/gui/ScrGoodbye.py:196
 msgid "Setting Root Password..."
 msgstr ""
 
-#: yali/gui/ScrGoodbye.py:187
+#: yali/gui/ScrGoodbye.py:197
 msgid "Adding Users..."
 msgstr ""
 
-#: yali/gui/ScrGoodbye.py:188
+#: yali/gui/ScrGoodbye.py:198
 msgid "Writing Console Data..."
 msgstr ""
 
-#: yali/gui/ScrGoodbye.py:189
+#: yali/gui/ScrGoodbye.py:199
 msgid "Migrating X.org Configuration..."
 msgstr ""
 
-#: yali/gui/ScrGoodbye.py:190
+#: yali/gui/ScrGoodbye.py:200
+msgid "Setting misc. package configurations..."
+msgstr ""
+
+#: yali/gui/ScrGoodbye.py:201
 msgid "Installing BootLoader..."
 msgstr ""
 
-#: yali/gui/ScrGoodbye.py:231
+#: yali/gui/ScrGoodbye.py:242
 msgid ""
 "<b>\n"
 "<p>Press Reboot button to restart your system.</p>\n"
@@ -838,7 +842,7 @@ msgstr ""
 msgid "Windows"
 msgstr ""
 
-#: yali/__init__.py:67
+#: yali/__init__.py:65
 msgid "Backtrace:"
 msgstr ""
 
