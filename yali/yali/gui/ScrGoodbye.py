@@ -183,7 +183,7 @@ don't you?
 
         def setPackages():
             global comarLink
-            if yali.sysutils.checkYaliParams(param=ctx.consts.firstBootFile):
+            if yali.sysutils.checkYaliParams(param=ctx.consts.firstBootParam):
                 ctx.debugger.log("OemInstall selected.")
                 comarLink.System.Service["kdebase"].setState(state="off")
                 ctx.debugger.log("RESULT :: %s" % str(comarLink.read_cmd()))
