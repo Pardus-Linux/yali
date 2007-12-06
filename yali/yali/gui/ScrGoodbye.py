@@ -177,8 +177,11 @@ don't you?
             return True
 
         def migrateXorgConf():
-            yali.postinstall.migrate_xorg_conf(ctx.installData.keyData.X)
-            ctx.debugger.log("xorg.conf merged.")
+            if not yali.sysutils.checkYaliParams(param=ctx.consts.firstBootParam):
+                yali.postinstall.migrate_xorg_conf(ctx.installData.keyData.X)
+                ctx.debugger.log("xorg.conf merged.")
+            else:
+                ctx.debugger.log("xorg.conf merge skipped its oeminstall.")
             return True
 
         def setPackages():
