@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-11-28 09:09+0200\n"
-"PO-Revision-Date: 2007-10-10 19:20-0400\n"
-"Last-Translator: Klemens <click3d_at_linuxmail_org>\n"
+"PO-Revision-Date: 2007-12-09 22:33-0300\n"
+"Last-Translator: Klemens Häckel <click3d_at_linuxmail_org>\n"
 "Language-Team: español <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -110,7 +110,7 @@ msgid "Install to Pardus installed partition"
 msgstr "Instalar en partición raíz (/) de Pardus"
 
 # when writing the english you seemed very romantic ? ;)
-# should say "below" in english !! - "belove" sounds funny 
+# should say "below" in english !! - "belove" sounds funny
 #: yali/gui/Ui/bootloaderwidget.py:105
 msgid "Install to selected disk belove"
 msgstr "Instalar a disco seleccionado abajo"
@@ -752,9 +752,8 @@ msgid "Migrating X.org Configuration..."
 msgstr "Migrando configuración X.org..."
 
 #: yali/gui/ScrGoodbye.py:200
-#, fuzzy
 msgid "Setting misc. package configurations..."
-msgstr "Migrando configuración X.org..."
+msgstr "Configurando configuraciones misceláneos de paquetes..."
 
 # No Instalar el cargador de arranque
 #: yali/gui/ScrGoodbye.py:201
@@ -1132,8 +1131,7 @@ msgstr ""
 
 #: yali/gui/ScrUsers.py:204
 msgid "<font color=\"#FF6D19\">Realname contains invalid characters!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Nombre real contiene caractéres no válidos!</font>"
+msgstr "<font color=\"#FF6D19\">Nombre real contiene caractéres no válidos!</font>"
 
 #: yali/gui/ScrUsers.py:259
 msgid "Update User"
@@ -1418,13 +1416,3 @@ msgstr "Archivos de los usuarios"
 msgid "Swap"
 msgstr "Intercambio (swap)"
 
-# ...y presione el botón Reiniciar
-#~ msgid ""
-#~ "<b>\n"
-#~ "<p>Please remove Pardus CD from your drive and pres Reboot button.</p>\n"
-#~ "</b>\n"
-#~ msgstr ""
-#~ "<b>\n"
-#~ "<p>Por favor extraiga el CD de Pardus del lector y presione el botón "
-#~ "Reiniciar.</p>\n"
-#~ "</b>\n"
