@@ -219,8 +219,7 @@ and easy way to install Pardus.</p>
                 self.orderedDiskList = yali.storage.getOrderedDiskList()
                 ctx.installData.bootLoaderDev = basename(self.orderedDiskList[0])
             else:
-                ctx.installData.bootLoaderDev = str(filter(lambda u: u.isalpha(),
-                                                    basename(root_part_req.partition().getPath())))
+                ctx.installData.bootLoaderDev = str(basename(root_part_req.partition().getPath()))
 
         _ins_part = root_part_req.partition().getPath()
 

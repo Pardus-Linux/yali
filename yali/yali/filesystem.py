@@ -510,7 +510,7 @@ class NTFSFileSystem(FileSystem):
 
         cmd = "/usr/sbin/ntfsresize -f -i %s" % partition.getPath()
         lines = os.popen(cmd).readlines()
-        
+
         MB = parteddata.MEGABYTE
         _min = 0
         for l in lines:
