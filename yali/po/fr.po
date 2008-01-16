@@ -5,13 +5,13 @@
 #
 # Barış Metin <baris@uludag.org.tr>, 2005.
 # Atilla Aktuna <aktuna@gmail.com>, 2006.
-# Amine Chadly <amine.chadly@gmail.com>, 2007.
+# Amine Chadly <amine.chadly@gmail.com>, 2007, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-11-28 09:09+0200\n"
-"PO-Revision-Date: 2007-10-19 22:35+0200\n"
+"PO-Revision-Date: 2008-01-16 22:04+0100\n"
 "Last-Translator: Amine Chadly <amine.chadly@gmail.com>\n"
 "Language-Team: French <pardus-translators@liste.pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -60,8 +60,7 @@ msgstr "Non, je vais partitionner mon disque manuellement."
 
 #: yali/gui/Ui/autopartwidget.py:95
 msgid "Yes, automatically partition and format selected disk!"
-msgstr ""
-"Oui, partitionner et formatter automatiquement le disque dur sélectionné !"
+msgstr "Oui, partitionner et formatter automatiquement le disque dur sélectionné !"
 
 #: yali/gui/Ui/bootloaderwidget.py:96
 msgid ""
@@ -488,8 +487,7 @@ msgstr "<font color=\"#FF6D19\">Le mot de passe est trop court !</font>"
 
 #: yali/gui/ScrAdmin.py:117 yali/gui/ScrUsers.py:160
 msgid "<font color=\"#FF6D19\">Passwords do not match!</font>"
-msgstr ""
-"<font color=\"#FF6D19\">Les mots de passe ne sont pas identiques!</font>"
+msgstr "<font color=\"#FF6D19\">Les mots de passe ne sont pas identiques!</font>"
 
 #: yali/gui/ScrAdmin.py:133
 msgid "<font color=\"#FF6D19\">Hostname contains invalid characters!</font>"
@@ -692,9 +690,8 @@ msgid "Migrating X.org Configuration..."
 msgstr "Migration de la configuration de X.org..."
 
 #: yali/gui/ScrGoodbye.py:200
-#, fuzzy
 msgid "Setting misc. package configurations..."
-msgstr "Migration de la configuration de X.org..."
+msgstr "Établissement des configurations de paquets divers..."
 
 #: yali/gui/ScrGoodbye.py:201
 msgid "Installing BootLoader..."
@@ -1328,12 +1325,3 @@ msgstr "fichiers utilisateurs"
 msgid "Swap"
 msgstr "Swap"
 
-#~ msgid ""
-#~ "<b>\n"
-#~ "<p>Please remove Pardus CD from your drive and pres Reboot button.</p>\n"
-#~ "</b>\n"
-#~ msgstr ""
-#~ "<b>\n"
-#~ "<p>Veuillez retirer le CD de Pardus de votre lecteur et 'cliquez le "
-#~ "bouton \"Redémarrer\".</p>\n"
-#~ "</b>\n"
