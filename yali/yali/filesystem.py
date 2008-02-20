@@ -39,7 +39,7 @@ def get_filesystem(name):
     # later on.
     if name == "ext3":
         return Ext3FileSystem()
-    elif name == "swap" or name == "linux-swap(new)":
+    elif name == "swap" or name == "linux-swap":
         return SwapFileSystem()
     elif name == "ntfs":
         return NTFSFileSystem()
@@ -414,7 +414,7 @@ class XFSFileSystem(FileSystem):
 # linux-swap
 class SwapFileSystem(FileSystem):
 
-    _name = "linux-swap(new)"
+    _name = "linux-swap"
 
     def __init__(self):
         FileSystem.__init__(self)
