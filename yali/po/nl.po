@@ -5,13 +5,13 @@
 # Thijs Hulshof <thijs@fedoraproject.org>, 2006.
 # Rinse de Vries <rinsedevries@kde.nl>, 2006.
 # Willem Gielen <w.gielen@gmail.com>, 2006, 2007.
-# W.P.M.H.I.A. Gielen <w.gielen@gmail.com>, 2006, 2007.
+# W.P.M.H.I.A. Gielen <w.gielen@gmail.com>, 2006, 2007, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-11-28 09:09+0200\n"
-"PO-Revision-Date: 2007-12-07 06:58+0100\n"
+"PO-Revision-Date: 2008-06-13 21:10+0200\n"
 "Last-Translator: W.P.M.H.I.A. Gielen <w.gielen@gmail.com>\n"
 "Language-Team: Nederlands <http://liste.pardus.org.tr/pardus-translation-nl/>\n"
 "MIME-Version: 1.0\n"
@@ -697,7 +697,7 @@ msgid ""
 "</b>\n"
 msgstr ""
 "<b>\n"
-"<p>Druk op de Reboot knop om uw systeem te herstarten.</p>\n"
+"<p>Druk op de Herstart knop om uw systeem opnieuw op te starten.</p>\n"
 "</b>\n"
 
 #: yali/gui/ScrInstall.py:53
