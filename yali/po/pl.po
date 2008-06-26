@@ -83,25 +83,22 @@ msgid "Where do you want to install the bootloader?"
 msgstr "Gdzie zainstalować menedżer rozruchowy?"
 
 #: yali/gui/Ui/bootloaderwidget.py:103
-#, fuzzy
 msgid "Install to first bootable disk (recommended)"
-msgstr "Zainstaluj w MBR dysku Pardusa (zalecane)"
+msgstr "Zainstaluj na pierwszym bootowalnych dysku (zalecane)"
 
 #: yali/gui/Ui/bootloaderwidget.py:104
 msgid "Install to Pardus installed partition"
 msgstr "Zainstaluj w partycji Pardusa"
 
 #: yali/gui/Ui/bootloaderwidget.py:105
-#, fuzzy
 msgid "Install to selected disk belove"
-msgstr "Zainstaluj w MBR wybranego poniżej dysku"
+msgstr "Zainstaluj na wybrany poniżej dysk"
 
 #: yali/gui/Ui/bootloaderwidget.py:106
 msgid "Select the disk you to install bootloader:"
 msgstr "Wybierz dysk, na którym ma być zainstalowany GRUB:"
 
 #: yali/gui/Ui/bootloaderwidget.py:107
-#, fuzzy
 msgid "Don't install bootloader"
 msgstr "Nie instaluj menedżera rozruchu"
 
@@ -412,7 +409,6 @@ msgid "Error!"
 msgstr "Błąd!"
 
 #: yali/gui/runner.py:172
-#, fuzzy
 msgid "Unhandled error occured!"
 msgstr "Pojawił się błąd!"
 
@@ -652,36 +648,35 @@ msgstr ""
 
 #: yali/gui/ScrGoodbye.py:194
 msgid "Trying to connect COMAR Daemon..."
-msgstr ""
+msgstr "Próbuję połączyć się z demonem COMAR..."
 
 #: yali/gui/ScrGoodbye.py:195
 msgid "Setting Hostname..."
-msgstr ""
+msgstr "Ustawiam hostname..."
 
 #: yali/gui/ScrGoodbye.py:196
 msgid "Setting Root Password..."
-msgstr ""
+msgstr "Ustawiam hasło roota..."
 
 #: yali/gui/ScrGoodbye.py:197
 msgid "Adding Users..."
-msgstr ""
+msgstr "Dodaję użytkownika..."
 
 #: yali/gui/ScrGoodbye.py:198
 msgid "Writing Console Data..."
-msgstr ""
+msgstr "Zapisuję log konsoli..."
 
 #: yali/gui/ScrGoodbye.py:199
 msgid "Migrating X.org Configuration..."
-msgstr ""
+msgstr "Migruję konfigurację X.org"
 
 #: yali/gui/ScrGoodbye.py:200
 msgid "Setting misc. package configurations..."
-msgstr ""
+msgstr "Ustawiam konfigurację dodatkowych pakietów..."
 
 #: yali/gui/ScrGoodbye.py:201
-#, fuzzy
 msgid "Installing BootLoader..."
-msgstr "Nie instaluj menedżera rozruchu"
+msgstr "Instaluję menedżera rozruchu..."
 
 #: yali/gui/ScrGoodbye.py:242
 msgid ""
@@ -689,6 +684,9 @@ msgid ""
 "<p>Press Reboot button to restart your system.</p>\n"
 "</b>\n"
 msgstr ""
+"<b>\n"
+"<p>Kliknij na przycisk restartu by ponownie uruchomiść komputer.</p>\n"
+"</b>\n"
 
 #: yali/gui/ScrInstall.py:53
 msgid ""
@@ -773,6 +771,9 @@ msgid ""
 "<font size=\"+2\">Kicker Check !</font>\n"
 "<p> Some help messages </p>\n"
 msgstr ""
+"\n"
+"<font size=\"+2\">Test Kickera !</font>\n"
+"<p> Jakiś tekst </p>\n"
 
 #: yali/gui/ScrKeyboard.py:30
 msgid ""
@@ -1005,7 +1006,6 @@ msgstr ""
 "</b>\n"
 
 #: yali/gui/ScrUsers.py:155
-#, fuzzy
 msgid ""
 "<font color=\"#FF6D19\">Don't use your user name or name as a password.</"
 "font>"
@@ -1027,9 +1027,8 @@ msgstr ""
 "<font color=\"#FF6D19\">Prawdziwa nazwa zawiera niedozwolone znaki!</font>"
 
 #: yali/gui/ScrUsers.py:259
-#, fuzzy
 msgid "Update User"
-msgstr "Utwórz Użytkownika"
+msgstr "Zaktualizuj Użytkownika"
 
 #: yali/gui/ScrWelcome.py:30
 msgid ""
@@ -1096,6 +1095,10 @@ msgid ""
 "your system formatting the selected partition.</p>\n"
 "</b>\n"
 msgstr ""
+"<b>\n"
+"<p>Ta akcja rozpocznie instalację Pardusa na\n"
+"twoim komputerze formatując wybrane partycje.</p>\n"
+"</b>\n"
 
 #: yali/gui/YaliDialog.py:156
 msgid "O.K. Go Ahead"
