@@ -1,0 +1,689 @@
+2009-06-30 Ozan Çağlayan <ozan@pardus.org.tr>
+         * (yali4/postinstall.py): Dump timezone information into
+         /etc/timezone instead of /etc/mudur/timezone.
+
+2009-06-18 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Add option for install all Language packages
+         * bindYali script fixed
+         * Bug fixed at http://bugs.pardus.org.tr/8936
+         * Show correct name of failed package
+         * Stop slideshow while waiting for an answer from user
+         * Use dict in language package list instead of list
+         * Just ignore free spaces less then minimum partition size
+         * Ignore scannedBefore check for ScrPartitionAuto, scan always when it shown
+
+2009-06-15 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * New release 2.1.9
+
+2009-06-15 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Show human-readable exceptions ...
+         * Fix for raise in user editing mode ..
+         * Fix for TouchPads in left handed mouse...
+         * Bug fixed at http://bugs.pardus.org.tr/7896
+
+2009-06-12 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Fix overriding current layout 
+         * Shiny info dialogs ..
+         * Use Yali's Message Box instead of QMessageBox directly ...
+         * Use i18n, Po update 
+         * Use current theme settings for YaliDialog
+         * Guess username from given Real Name shamelessly stolen from User Manager :) 
+
+2009-06-11 klemens
+         * some spanish language additions (kh)
+
+2009-06-11 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Fix widget color issues
+         * Bug fixed at http://bugs.pardus.org.tr/9906
+         * Comment added to http://bugs.pardus.org.tr/9955
+         * After some file system checks, partition objects are changing,
+         * In this situation we need to recreate partition objects and use the proper one
+         * Write timezone to etc/mudur/timezone 
+
+2009-06-10 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Much better to ask 'Dont ask again' 
+         * Detect clicked mouse button and update mouse button order
+         * Bug fixed at http://bugs.pardus.org.tr/9876
+         * Remove not needed param fs_ready and its methods
+         * Use also PARTITION_RAID for checking FREESPACE 
+         * There is a parted bug, some times it gives parted.PARTITION_RAID(5) for a freespace :(
+
+2009-06-09 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * define TERM env for terminal  
+         * Fix ScrAdmin color issues 
+         * Fix Calendar and Slider styles for colour palette ..
+         * Fix colors of analog clock for new theme, show second hand too 
+         * Install by using keyboard issue fixed ..
+         * Bug fixed at http://bugs.pardus.org.tr/7999
+         * Create QTermWidget at start ..
+         * Add checkbox for enable/disable detecting other operating systems for GRUB menu..
+         * Comment added to http://bugs.pardus.org.tr/9955
+         * if there is just one partition left, we need to select it ..
+
+2009-06-08 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Enable give admin rights to this user check for first time 
+
+2009-06-08 wpmhia
+         * Dutch translations
+
+2009-06-06 klemens
+         * spanish language additions for the new kde4-tools (kh)
+
+2009-06-05 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Add root=LABEL without checking if root= exists in cmdline
+         * Show cmdline content in log
+         * Comment added to http://bugs.pardus.org.tr/9894
+         * Update Po, Turkish translations
+         * Bug fixed at http://bugs.pardus.org.tr/9904
+         * Fix Advanced mode GUI issues 
+         * Check if there is an exception before raise fail dialog
+         * Dont show close button in fail dialog
+
+2009-06-04 semen.cirit
+         * Adding test cases for yali.
+
+2009-06-04 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Add bindYali script .
+         * Add Password Recovery mode for Rescue 
+         * Add advanced mode for user settings screen
+         * Add user id selection feature to advanced mode
+         * TODO updated
+         * Bug fixed at http://bugs.pardus.org.tr/7658
+
+2009-06-03 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Show correct information
+         * Do not ignore primary partitions for resize
+         * Always fill device list in bootloader screen 
+         * Fix for progressbar positions 
+         * remove useless shortcut button 
+         * Show whole progress at once instead of two part ...
+         * Fix layout issues forx 800x600 resolution 
+         * Support for using logical partitions which are resizable or free 
+         * Set minimum partition size to 160Mb 
+         * User edit screen improvements ..
+         * Mark bootable disk in list
+         * Select bootable disk if automatic install selected
+         * Fixes for some CSS issues
+         * Add Cancel button to automatic partitioning device selection screen 
+         * Add Cancel button to automatic partitioning device selection screen 
+         * Start VBox utils
+         * Shortcuts for changing font size
+         * Help shortcut added
+         * ShortCut Help button added
+         * Check device path instead of object hash
+
+2009-06-02 semen
+         * A new todo is added for yali.
+
+2009-06-02 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * User screen improvements
+         * Password Rescue mode for Yali Rescue
+         * Enable reboot button for Welcome Screen
+
+2009-06-01 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Use QtermWidget Python binding, instead of binary one ..
+         * Update YALI sizes when X resized ...
+
+2009-05-30 ozan.caglayan
+         * Add an optional parameter to get_all_with_paths to make it read the installation order from the sort_file generated by pardusman. No behavioral change is introduced by this commit as the new feature is disabled by default.
+
+2009-05-29 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Fix for format check GUI issues .
+         * Add Timestamp to Log file
+         * Make baselayout first for configuring
+
+2009-05-28 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Ignore grub.conf checking for Pardus installed partitions, because it can be removed
+         * Forget the whole order thing, we dont need any
+         * install order because we first unpack packages
+         * and then call configure pending ;) First step
+         * is just unpacking. And it is the fastest way :)
+         * Use all path to pass package hash checking
+         * before install and make baselayout package to
+         * be first.
+         * Answer all questions as YES 
+
+2009-05-28 klemens
+         * several spanish language additions and minor revision (kh)
+
+2009-05-27 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * update package repository address ..
+         * 2009 Theme for Yalı \o/ 
+         * Call udev_settle after each commit ..
+
+2009-05-27 semen
+         * New test cases added.
+
+2009-05-27 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Raise FSCheck Error if just FSCheck fails
+         * Warn user when back clicked
+
+2009-05-27 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Use new COMAR backend instead of Polkit API ..
+
+2009-05-27 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Remove partition request before removing partition itself, check if primary partition avaliable in partition table..
+
+2009-05-27 semen
+         * Adding a new testcase.
+
+2009-05-26 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Do not ask any password for selected user support added . 
+
+2009-05-26 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Use pisi.api instead of comar ..
+
+2009-05-26 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Takeback operation (sync now)
+         * Show connection info
+         * Remove duplicate methods
+         * Updated TODO
+
+2009-05-26 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Much better way for checking if Pardus exists ..
+
+2009-05-26 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Store selected rescue mode 
+
+2009-05-26 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Use package name instead of metadata 
+
+2009-05-26 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Use whole list of packages for install even it fails ..
+
+2009-05-25 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Get history from Pisi History DB ...
+
+2009-05-25 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Show connection list for given guest system network profiles and connect to selected profile ...
+
+2009-05-25 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Mount before starting rescue ..
+
+2009-05-25 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Rescue mode Pisi widgets
+         * Updated TODO
+
+2009-05-22 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * New release 2.1.8
+
+2009-05-22 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * New release 2.1.7, Po update ..
+
+2009-05-22 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Much better NTFS resize process.. 
+
+2009-05-22 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Do not fail when user wants to resize the disk less than minimum possible resize size; just use the minimum one ..
+
+2009-05-22 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * not needed ..
+
+2009-05-22 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Select the first avaliable partition by default 
+
+2009-05-22 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Swap off for all opened swap file or partitions
+
+2009-05-21 klemens
+         * some spanish language additions and adjustments (kh)
+
+2009-05-21 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Add btrfs resize and use dynamic Filesystem list in Manual Partitioning ... We can not use btrfs for now because of the old Parted that we use ...
+
+2009-05-21 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Btrfs support
+
+2009-05-21 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * New release 2.1.6, Po update ..
+
+2009-05-20 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Support to use free space on disk for Auto Resize 
+
+2009-05-15 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * New release 2.1.5
+
+2009-05-15 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * If no label defined try to use filesystem label..
+
+2009-05-15 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Grub rescue mode added
+         * Bug fixed at http://bugs.pardus.org.tr/7169
+
+2009-05-14 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Scan partitions and try to find Pardus installed one
+         * Show usable partitions for rescue
+         * Show error messages as a result of partition scan
+         * One step further in Grub rescue..
+
+2009-05-14 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Fixed keyboard issues beacuse of conf.d/mudur change
+
+2009-05-12 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Use internal name instead of label if device does not exists
+         * Reset all changes before reiniting devices
+         * Bug fixed at http://bugs.pardus.org.tr/9476
+
+2009-05-12 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Fixed grub device order issue
+
+2009-05-12 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * New release 2.1.4
+         * Fixed important partitioning issues
+         * Do not scan partitions more than once for resizing
+         * Force to use ext4 for ext* formatted partitions
+         * Fix swap filesystem selection issue
+
+2009-05-12 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * We dont need a junk of 150 MB .. 2 MB is enough.
+
+2009-05-12 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Enable safety checks of resize2fs
+         * Use quiet for mkfs.extX
+         * Do not add another 140 MB hence to avoid resize problems of NTFS
+
+2009-05-12 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * If selected partition's filesystem is different from the old one we need to commit this change
+         * Fix wrong /home path for umount
+         * Use --no-floppy with grub command
+
+2009-05-11 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Some testcases added to test Yalı ..
+
+2009-05-11 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Some format commands needs a large buffer to get whole stdout
+         * so, we should use popen.communicate and popen.poll to avoid blocking the system
+
+2009-05-11 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Call check functions before starting to resize
+         * Localize resize fail messages
+
+2009-05-08 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Use default FileSystems for Auto Partitioning..
+
+2009-05-08 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * New release 2.1.3
+
+2009-05-08 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Progress bar animation disabled because of a bug of Qt
+
+2009-05-08 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * We should set on swap after label set
+         * We dont need debugger anymore in seperate places
+         * Comment added to http://bugs.pardus.org.tr/9233
+
+2009-05-08 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * User can choose FileSystem for each partition that we support \o/
+
+2009-05-06 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Capture all command outputs into the debugger
+         * Comment added to http://bugs.pardus.org.tr/7568
+
+2009-05-04 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * New Release 2.1.2
+
+2009-05-04 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Sometimes parted.device.commit fails with "device in use" error,
+         * to avoid this retry when commit failed.
+
+2009-05-04 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Net.Stack -> Network.Stack 
+
+2009-05-04 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Switching to oxygen theme.. 
+
+2009-05-04 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Remove duplicate command check methods.
+
+2009-05-04 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Do not call device.commit when disk table is not changed.
+         * Comment added to http://bugs.pardus.org.tr/7530
+
+2009-04-27 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Add log for setting/getting label operations .
+
+2009-04-27 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Refactoring for duplicate functions
+
+2009-04-26 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Comment added to http://bugs.pardus.org.tr/9651
+
+2009-04-24 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Python 2.6 support
+
+2009-04-20 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Ext4 Support added
+
+2009-04-11 fatih
+         * Add script to start YALI in X server
+
+2009-02-19 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Use swap instead of none for mount point
+         * Comment added to http://bugs.pardus.org.tr/9233
+
+2009-01-28 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * New release 2.0.8
+
+2009-01-27 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Do not override selected partitioning method
+         * Use global get_minor method, it causes some problems in grub.conf
+
+2009-01-12 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Check if exists kernel entry before updating foreign grub.conf
+         * Bug fixed at http://bugs.pardus.org.tr/9014
+
+2009-01-02 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * If KDE is not installed dont try to set AutoLogin choices
+
+2009-01-02 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * New bugfix release 2.0.7
+         * If not found a proper grub.conf umount foreign partition correctly
+         * If entry "root" not found in foreign grub.conf skip them
+         * Use correct win device with map definition in grub.conf
+         * Bug fixed at http://bugs.pardus.org.tr/8947
+
+2008-12-26 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * New release 2.0.6
+
+2008-12-24 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Get theme options from cmdline
+
+2008-12-22 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Theme support added to cmd-line options
+         * Oxygen based new theme added
+         * Theme files seperated from UI
+
+2008-12-07 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Copyright dates are updated
+         * Property "help" added to base class ScreenWidget
+         * Unused consts removed
+         * Unused steps module removed
+         * In PartitionAuto screen updateUI method moved to update global method
+         * QRadioButton issues fixed but dirty
+         * Using selected disk in manual partitioning issue fixed (7631)
+         * Button enabling/disabling issues in partitioning screen fixed (8602)
+         * Bug fixed at http://bugs.pardus.org.tr/7631
+         * Bug fixed at http://bugs.pardus.org.tr/8602
+
+2008-12-07 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Fixed enabling auto-resize radio button issue when it is impossible to resize.
+
+2008-12-05 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Make find_grub_dev as global method
+         * Update disk order in foreign grub.conf before append to our grub.conf
+         * Comment added to http://bugs.pardus.org.tr/8782
+
+2008-12-05 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * If swap opened, close it before umount
+
+2008-12-05 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * We cant use classic reboot .. 
+
+2008-12-04 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Finalize_chroot method added to stop dbus and its friends before installing grub
+         * All mounted devices unmounted before grub install
+         * Grub batch used instead of grub-install command
+         * Pisi's FilesDB succesfully closed if still open before umount targets
+         * Bash's reboot command used for reboot after install
+
+2008-12-02 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Comment added to http://bugs.pardus.org.tr/8764
+
+2008-12-01 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Bug fixed at http://bugs.pardus.org.tr/7550
+
+2008-11-10 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Bug fixed at http://bugs.pardus.org.tr/8616
+
+2008-11-10 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Use swap while install
+         * Comment added to http://bugs.pardus.org.tr/7656
+         * Comment added to http://bugs.pardus.org.tr/2898
+
+2008-11-10 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Check number of primary partitions and warn if one try to create a new one.
+         * Fixed by Selim OK
+
+2008-11-10 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Ask for retry when packages are broken is finished.
+         * For YaliException don't show close button on exception window
+
+2008-11-07 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * When Pisi raises install error for given package;
+         * emit ErrorRetry then show Retry Dialog - if answer is Retry
+         * pass the package while another package needs it then retry 
+         * again otherwise show install failed exception then reboot.
+
+2008-10-23 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * New version 2.0.5 Major change is plug-in support ..
+
+2008-10-23 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * use readable warning message when plugin not installed.
+
+2008-10-22 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Also support for summary from plugins ..
+
+2008-10-22 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * install plugins default ..
+
+2008-10-21 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * support for different steps..
+
+2008-10-20 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * plugin stuff..
+
+2008-10-20 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * YALI Plug-in support in basic.
+
+2008-10-15 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Disable widgets while checking disks ..
+
+2008-09-17 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * TODO updated.
+         * Translator's tool improved.
+         * Some of bugs fixed for translator's tool.
+         * Translators README updated.
+
+2008-09-04 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * copying pisi index operations is a base process..
+
+2008-09-04 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Remove after service kde set as on ..
+
+2008-09-04 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Check if its firstboot ..
+
+2008-09-03 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * OemInstall and firstBoot are OK for now.
+
+2008-09-02 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * UI fix for partition choices ..
+
+2008-09-01 ozan.caglayan
+         * Bug fixed at http://bugs.pardus.org.tr/8098
+
+2008-08-29 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Get default timezone for given language ..
+
+2008-08-27 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * New Release 2.0.1 for P2008.1
+         * - Export session as kahya file
+         * - Some GUI Improvements and Bug fixes
+         * Bug fixed at http://bugs.pardus.org.tr/7993
+
+2008-08-05 pinar
+         * Bug fixed at http://bugs.pardus.org.tr/7401
+
+2008-07-25 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Export users and partitioning options as kahya file ..
+
+2008-07-14 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * export install as kahya XML ..
+
+2008-07-07 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Use F12 shortcut for new shiny Graphical Terminal
+         * Update TODO
+         * Thanks to QTermWidget developers !
+
+2008-06-26 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Add pl support ..
+
+2008-06-26 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * if menu.lst is link then return grub.conf ..
+
+2008-06-26 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Also check menu.lst file as default grub config file ..
+
+2008-06-26 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * One can stop CD Checking..
+         * Po Update 
+         * New Background
+         * Show post install operations
+         * Show working image at the end
+         * Some Release stuff
+
+2008-06-26 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Make sure you have backup..
+
+2008-06-25 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Check admins pass ..
+
+2008-06-25 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * GPT Stuff for EFI ..
+
+2008-06-25 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Use pardus.grubutils .. 
+
+2008-06-25 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * disable duplicate entries..
+
+2008-06-24 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Now YALI adds other distros to the installed grub menu :) yay
+         * Change addUser method for new Comar (thnks gokcen)
+         * and the end.
+
+2008-06-24 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Use global object, when you include a qwidget from a qthread it causes seg fault at libQt4.4.0.so borks..
+
+2008-06-23 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Add other distros to the Pardus GRUB .. (not finished.) 
+
+2008-06-21 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Bug fixed at http://bugs.pardus.org.tr/7467
+
+2008-06-20 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Po update
+         * Bug fixed at http://bugs.pardus.org.tr/7464
+
+2008-06-20 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Bug fixed at http://bugs.pardus.org.tr/7491
+
+2008-06-18 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Check by lower .. 
+
+2008-06-18 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Use better bootloader choice
+         * Make chown for already existed users..
+         * Show chown notification ..
+         * Bug fixed at http://bugs.pardus.org.tr/5717
+         * Bug fixed at http://bugs.pardus.org.tr/6564
+
+2008-06-18 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Default bootloader option is INSTALL_SMART..
+
+2008-06-18 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Dont use remote repo as default.
+
+2008-06-17 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Try to find resizable partitions when methodUseAvail selected. 
+
+2008-06-17 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * After 20 sec. bomb will explode. If dont cut the red line.. 
+
+2008-06-17 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Get Resizable First partition will be used by Kahya ..
+
+2008-06-17 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Use udevadm instead of udevtrigger ..
+
+2008-06-17 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Add Bootloader options to summary.
+
+2008-06-16 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Show automatic resize summary.
+
+2008-06-16 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Show resize summary 
+         * Show delete all summary
+         * Show automatic partitioning summary
+
+2008-06-16 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Show Partition changes in SummaryScr
+         * Po update
+
+2008-06-16 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Use new keyboard layout settings in Kahya
+         * Add timezone support to Kahya
+         * Show meaningful summary
+
+2008-06-15 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Fill summary
+         * GPT supports more than 4 primary partitions
+         * Mint Nargile is good enough yay \o/
+
+2008-06-13 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * More colorfull frame.
+         * Comment added to http://bugs.pardus.org.tr/7402
+
+2008-06-13 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Fix for fstab and GRUB's PARDUS_ROOT static label problems
+         * Another footstep for Kahya..
+
+2008-06-12 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Ui update
+         * Show Resizing message ..
+
+2008-06-12 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Apply GRUB options after formatting
+         * Use Summary screen as last screen before install starts
+
+2008-06-11 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Use summary screen ..
+
+2008-06-09 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Set face icon owner.
+
+2008-06-06 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Use random user faces from YALI archive. No pig.
+
+2008-06-06 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Partitioning descriptions added
+
+2008-06-06 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * isWindows check uses old mount code, revert it
+         * Bug fixed at http://bugs.pardus.org.tr/7286
+
+2008-06-06 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Fix for LABEL=None bugs
+         * Comment added to http://bugs.pardus.org.tr/7286
+
+2008-06-06 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * GB Layout added
+         * Bug fixed at http://bugs.pardus.org.tr/7243
+
+2008-06-06 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Po update
+         * Typo.
+         * Bug fixed at http://bugs.pardus.org.tr/7288
+
+2008-06-03 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Umount"home"beforegrub-install
+         * Trygrub-installagainifitfails.
+
+2008-06-03 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Use ordered disk list
+         * Disable device list when install selected device is not active
+
+2008-06-02 Gökmen GÖKSEL <gokmen@pardus.org.tr>
+         * Use mount command instead of mount method defined in _sysutils.c 
+

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# Copyright (C) 2005-2007 TUBITAK/UEKAE
+# Copyright (C) 2005-2008 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -13,7 +13,7 @@ import os
 import re
 import glob
 import shutil
-import pyqtconfig
+from PyQt4 import pyqtconfig
 from distutils.core import setup, Extension
 from distutils.sysconfig import get_python_lib
 from distutils.cmd import Command
@@ -22,28 +22,24 @@ from distutils.command.clean import clean
 from distutils.command.install import install
 from distutils.spawn import find_executable, spawn
 
-import yali
+import yali4
 
-YALI_VERSION = yali.__version__
+YALI_VERSION = yali4.__version__
 
 def qt_ui_files():
-    p = "yali/gui/Ui/*.ui"
+    p = "yali4/gui/Ui/*.ui"
     return glob.glob(p)
 
-def gui_pics():
-    p = "yali/gui/pics"
-    return glob.glob(p + "/*.png")
-
 def gui_slidepics():
-    p = "yali/gui/pics/slideshow/*.png"
+    p = "yali4/gui/pics/slideshow/*.png"
     return glob.glob(p)
 
 def user_faces():
-    p = "yali/user_faces/*.png"
+    p = "yali4/user_faces/*.png"
     return glob.glob(p)
 
 def data_files():
-    p = "yali/data/*.xml"
+    p = "yali4/data/*"
     return glob.glob(p)
 
 def getRevision():
@@ -58,8 +54,6 @@ def getRevision():
         return ""
 
 def getVersion():
-#    rev = getRevision()
-#    return "-r".join([YALI_VERSION, rev])
     # don't use svn revision...
     return YALI_VERSION
 
@@ -71,37 +65,49 @@ def py_file_name(ui_file):
 class YaliBuild(build):
 
     def add_gettext_support(self, ui_file):
-        # hacky, too hacky. but works...
-
+        # hacky, too hacky. but it works...
         py_file = py_file_name(ui_file)
         # lines in reverse order
-        lines =  ["_ = __trans.ugettext",
-                 "__trans = gettext.translation('yali', fallback=True)\n",
-                 "import gettext\n"]
+        lines =  ["\n_ = __trans.ugettext\n",
+                  "\n__trans = gettext.translation('yali4', fallback=True)",
+                  "\nimport gettext"]
         f = open(py_file, "r").readlines()
         for l in lines:
             f.insert(1, l)
         x = open(py_file, "w")
+        keyStart = "QtGui.QApplication.translate"
+        keyEnd = ", None, QtGui.QApplication.UnicodeUTF8)"
+        keyItem = "setItemText"
+        styleKey = "setStyleSheet"
         for l in f:
-            l = l.replace("self.__tr", "_")
+            if not l.find(keyStart)==-1 and l.find(styleKey)==-1:
+                if not l.find(keyItem)==-1:
+                    z = "%s,_(" % l.split(",")[0]
+                    y = "%s,%s,"%(l.split(",")[0],l.split(",")[1])
+                else:
+                    z = "%s(_(" % l.split("(")[0]
+                    y = l.split(",")[0]+', '
+                l = l.replace(y,z)
+            l = l.replace(keyEnd,")")
+            l = l.replace("data_rc","yali4.data_rc")
             x.write(l)
 
     def compile_ui(self, ui_file):
         pyqt_configuration = pyqtconfig.Configuration()
-        pyuic_exe = find_executable('pyuic', pyqt_configuration.default_bin_dir)
+        pyuic_exe = find_executable('pyuic4', pyqt_configuration.default_bin_dir)
         if not pyuic_exe:
             # Search on the $Path.
-            pyuic_exe = find_executable('pyuic')
+            pyuic_exe = find_executable('pyuic4')
 
         cmd = [pyuic_exe, ui_file, '-o']
         cmd.append(py_file_name(ui_file))
-        spawn(cmd)
+        os.system(' '.join(cmd))
 
     def run(self):
         for f in qt_ui_files():
             self.compile_ui(f)
             self.add_gettext_support(f)
-
+        os.system("pyrcc4 yali4/data.qrc -o yali4/data_rc.py")
         build.run(self)
 
 ##
@@ -117,6 +123,11 @@ class YaliClean(clean):
             if os.path.exists(f):
                 os.unlink(f)
 
+        if os.path.exists("yali4/data_rc.py"):
+            os.unlink("yali4/data_rc.py")
+        if os.path.exists("build"):
+            shutil.rmtree("build")
+
 ##
 # uninstall command
 class YaliUninstall(Command):
@@ -129,17 +140,19 @@ class YaliUninstall(Command):
         pass
 
     def run(self):
-        yali_dir = os.path.join(get_python_lib(), "yali")
+        yali_dir = os.path.join(get_python_lib(), "yali4")
         if os.path.exists(yali_dir):
             print "removing: ", yali_dir
             shutil.rmtree(yali_dir)
 
-        data_dir = "/usr/share/yali"
+        data_dir = "/usr/share/yali4"
         if os.path.exists(data_dir):
             print "removing: ", data_dir
             shutil.rmtree(data_dir)
+        os.unlink("/usr/bin/yali4-bin")
+        os.unlink("/usr/bin/bindYali.sh")
 
-i18n_domain = "yali"
+i18n_domain = "yali4"
 i18n_languages = ["tr",
                   "nl",
                   "it",
@@ -147,7 +160,9 @@ i18n_languages = ["tr",
                   "de",
                   "pt_BR",
                   "es",
-                  "ca"]
+                  "pl",
+                  "ca",
+                  "sv"]
 
 class I18nInstall(install):
     def run(self):
@@ -164,7 +179,7 @@ class I18nInstall(install):
                 pass
             shutil.copy("po/%s.mo" % lang, os.path.join(destpath, "%s.mo" % i18n_domain))
 
-setup(name="yali",
+setup(name="yali4",
       version= getVersion(),
       description="YALI (Yet Another Linux Installer)",
       long_description="Pardus System Installer.",
@@ -172,15 +187,14 @@ setup(name="yali",
       author="Pardus Developers",
       author_email="yali@pardus.org.tr",
       url="http://www.pardus.org.tr/eng/yali/",
-      packages = ['yali', 'yali.gui', 'yali.gui.Ui'],
+      packages = ['yali4', 'yali4.gui', 'yali4.gui.Ui', 'yali4.plugins'],
       package_dir = {'': ''},
-      data_files = [('/usr/share/yali/pics', gui_pics()),
-                    ('/usr/share/yali/slideshow', gui_slidepics()),
-                    ('/usr/share/yali/user_faces', user_faces()),
-                    ('/usr/share/yali/data', data_files())],
-      scripts = ['yali-bin'],
-      ext_modules = [Extension('yali._sysutils',
-                               sources = ['yali/_sysutils.c'],
+      data_files = [('/usr/share/yali4/slideshow', gui_slidepics()),
+                    ('/usr/share/yali4/user_faces', user_faces()),
+                    ('/usr/share/yali4/data', data_files())],
+      scripts = ['yali4-bin', 'start-yali4', 'bindYali.sh'],
+      ext_modules = [Extension('yali4._sysutils',
+                               sources = ['yali4/_sysutils.c'],
                                libraries = ["ext2fs"],
                                extra_compile_args = ['-Wall'])],
       cmdclass = {

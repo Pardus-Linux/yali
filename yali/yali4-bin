@@ -1,0 +1,34 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#
+# Copyright (C) 2006-2008, TUBITAK/UEKAE
+#
+# This program is free software; you can redistribute it and/or modify it under
+# the terms of the GNU General Public License as published by the Free
+# Software Foundation; either version 2 of the License, or (at your option)
+# any later version.
+#
+# Please read the COPYING file.
+#
+
+import locale
+import yali4
+import yali4.sysutils
+from os.path import exists
+from yali4.constants import consts
+from yali4.options import options
+
+def try_umount_target():
+    for mpoint in ("/home", "/dev", "/proc", "/sys", ""):
+        yali4.sysutils.umount(consts.target_dir + mpoint)
+
+def main():
+    if not exists("/etc/yali-is-firstboot"):
+        try_umount_target()
+    runner = yali4.default_runner()
+    runner.run()
+
+if __name__ == "__main__":
+    locale.setlocale(locale.LC_ALL, "")
+    main()
+

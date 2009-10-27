@@ -1,7 +1,7 @@
 recursive-include po *
-recursive-include yali/user_faces *
-recursive-include yali/gui/pics *
-recursive-include yali/gui/slideshow *
-recursive-include yali/gui *.ui
-include . AUTHORS COPYING
+recursive-include yali4/user_faces *
+recursive-include yali4/gui/pics *
+recursive-include yali4/gui/slideshow *
+recursive-include yali4/gui *.ui
+include . AUTHORS COPYING README
 

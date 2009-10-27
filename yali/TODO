@@ -1,129 +1,46 @@
 
+ YALI TODO List
+ --------------------------------------------------------
+  - Todo     > Comments, Details        | / In progress
+  ? Not determined if/how we have to do | + Accomplished
+ --------------------------------------------------------
 
-YALI TODO List
-==============
+ General
+ --------------------------------------------------------
+     + Recovery mode #7169
+         + Grub recovery
+         + System recovery with Pisi History
+         + Password recovery
+     + Fix Keyboard shortcuts problems
+     + Improve user settings screen #8714 #7658
+     + Fix warning and info messages for new theme
+     + Use Bios Boot order if available for sorting device list
+     + Add polkit support to user settings screen
+     + Improve Exception dialog
+     + Fix low resolution screen problems
+     + Improve new theme widget states
+     + Dont install not needed Language Packages support
+     + Do not update user home dir if one have same id
+     + Support for installing only system.base packages
+     + Add eject cd-rom support when pisi fails
 
-A list of tasks to accomplish, organized into priority sections
+     - Show a progress bar for Pisi HS Rescue operations
+     - Show a proper (Human Readable) dialog when Fs Check failed
 
-Legend:
+ %30 / Network Install #2095
+         > Needs a network settings screen
+     - Fix GRUB issue about wrong order of sd's
+         > example; hd0:sdb, hd1:sda from bios but system gives opposite, like hd0:sda, hd1:sdb
 
-- Todo
-? Not determined if/how we have to do
-/ In progress
-+ Accomplished
+ Partitioning
+ --------------------------------------------------------
+     + Use ext4 default for ext* partitions
+     + Support to use free space on disk for Auto Resize
+     + Improve NTFS check before resize
+     + Btrfs support
+         > depends new parted
+     + Auto resizing for logical and empty partitions. (It only auto resizing primary partitions now!)
 
-1. Alpha (1.0)
- + basic GUI
-   + gui structure
-   + welcome screen
-   + partitioning screen
-   + installation screen
-   + basic setup: rootpw
-   + basic setup: grub-install
-   + goodbye screen
-
- + partitioning
-   + parted interface
-   + partition requests
-     + format
-     + mount
-   + filesystems
-     + ext3
-     + linux-swap
-   + partition types ( for YALI installation: installroot, swap, vs. )
-
- + installation
-   + pisi interface
-
- + users
-   + root password
-
- + boot loader
-
-
-2. Beta (1.0)
- + GUI
-   + auto partitioning
-   + basic setup: users
-   + implement modal dialog (YaliDialog)
-   + use dialog in Partitioning screen
-
- + users
-   + user management (add user)
-
- + localization
-   + program files
-   + gui
-   + help files
-
- + partitioning
-   + ntfs resize
-
- + run ÇOMAR in chroot and make it handle postinstall operations
-
- + bootloader
-   + find Windows partitions and add to grub.conf
-
-
-3. RC1 (1.0)
-
- + GUI
-   + find a way to show exceptions on GUI
-   + select where to install Grub
-
- + partitioning
-   + ext3 resize
-   + support extended partitions
-
- + logging system
-
- + exception handling
-
- + implement swap as file.
-
-
-3. Release (1.0)
-
- + show release notes
-
-4. Post Release (1.0)
-
- - GUI
-   - try statemachine for screens/stages
-
- - partitioning
-   - fat32 resize
-
- + bootloader
-   + only add valid operating system partitions to list (#1455)
-
-5. Release (1.1)
-
- + users
-   + user privileges (in wheel or not)
-   + automatic login (kde)
-
- + GUI
-   + reorder installation steps, ask questions first and then install (#4639)
-
-6. Release (1.2) - Pardus 2008
-
- - GUI
-   - add clock/date settings screen
-   - add 'scan devices' button to the partitioning screen
-   ? Renew the user interface
-
- / kahya (which; KAHya is Yali Automator) (#3956)
-   + load kahya file from given path (from grub)
-   + install the system by using given kahya file
-   - support for multi-profile in kahya file
-   - support for network setup in kahya file
-   - export setup session as kahya file
-   ? load kahya file from network;
-        needs automatic network setup
-
- ? show progress screen for chown operation in home directory (#5715)
- - support for different types of partitions (#5844)
- - add other linux distros to the bootloader (#1450)
- ? dont install unnecessary language packages (based on installation language) (#6139)
+     - LVM/RAID support
+     ? Fat32 resize
 

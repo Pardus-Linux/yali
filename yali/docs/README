@@ -1,9 +1,2 @@
-Some of YALI Documentation for developers.
-
-Files :
- 
- - yali.xmi -- YALI Class Diagram Umbrello File
-    - FileSystem View includes Class Diagram for partitioning operations
-    - GUI View includes Class Diagram for special YALI Widgets and Screens 
-      (steps, buttons, windows etc.)
+diagram.xmi -- Class view of Yali4 requires new Umbrello for KDE4
 
