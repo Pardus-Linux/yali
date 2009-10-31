@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-16 23:40+0300\n"
-"PO-Revision-Date: 2009-10-22 22:01+0400\n"
+"PO-Revision-Date: 2009-10-31 18:21+0300\n"
 "Last-Translator: \n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "MIME-Version: 1.0\n"
@@ -1212,7 +1212,7 @@ msgstr "Выбор Загрузчика"
 
 #: yali4/gui/ScrBootloader.py:38
 msgid "Configure the system boot..."
-msgstr ""
+msgstr "Настроить загрузку системы"
 
 #: yali4/gui/ScrBootloader.py:40 yali4/gui/ScrRescueGrub.py:35
 msgid ""
@@ -1238,14 +1238,35 @@ msgid ""
 "</p>\n"
 "</font>\n"
 msgstr ""
+"\n"
+"<font size=\"+2\">Установка загрузчика</font>\n"
+"<font size=\"+1\">\n"
+"<p>\n"
+"Pardus 2009 использует загрузчик GRUB для старта операционной системы, "
+"которую "
+"вы выберете.\n"
+"</p>\n"
+"<p>Если у вас на компьютере установлено несколько ОС, вы можете выбрать "
+"одну из них используя GRUB. \n"
+"Установка GRUB в начале загрузочного диска рекомендуется для того, \n"
+"чтобы избежать проблем с загрузкой. Если вы уверены в том, что вы делаете, \n"
+"вы можете поменять настройки загрузчика. \n"
+"</p>\n"
+"<p>\n"
+"Пожалуйста, обратитесь к документации Pardus \n"
+"для получения более подробной информации \n"
+"</p>\n"
+"</font>\n"
 
 #: yali4/gui/ScrCheckCD.py:29
 msgid "Check your media"
-msgstr ""
+msgstr "Проверить ваш диск"
 
 #: yali4/gui/ScrCheckCD.py:30
 msgid "To ignore media corruptions you can check your media integrity..."
 msgstr ""
+"Для того, чтобы избежать проблем с загрузкой, вы можете проверить "
+"целостность данных на вашем носителе"
 
 #: yali4/gui/ScrCheckCD.py:32
 msgid ""
@@ -1257,22 +1278,31 @@ msgid ""
 "making sure for a problem-free installation. If the test fails, try re-"
 "burning the ISO image in a lower (e.g. 12x or less) speed.</p></font>\n"
 msgstr ""
+"\n"
+"<font size=\"+2\">Проверить целостность CD</font>\n"
+"<font size=\"+1\"><p>\n"
+"Вы можете проверить, правильно ли сохранились пакеты, "
+"включенные в CD установки. Выполнение этого теста - это "
+"очень важный шаг для того, чтобы избежать проблем с "
+"установкой. Если тест провалится, попробуйте прожечь "
+"диск на меньшей (например 12x или меньшей) скорости.</p></font>\n"
 
 #: yali4/gui/ScrCheckCD.py:50
 msgid "<font color=\"#FFF\">Please wait while checking CD.</font>"
 msgstr ""
+"<font color=\"#FFF\">Пожалуйста подождите, пока проверяется диск.</font>"
 
 #: yali4/gui/ScrCheckCD.py:51
 msgid "Stop Checking"
-msgstr ""
+msgstr "Остановить Проверку"
 
 #: yali4/gui/ScrDateTime.py:28
 msgid "Set your timezone"
-msgstr ""
+msgstr "Выбрать ваш часовой пояс"
 
 #: yali4/gui/ScrDateTime.py:29
 msgid "You can change your timezone, time or date settings..."
-msgstr ""
+msgstr "Вы можете изменить установки вашего часового пояса, времени или даты "
 
 #: yali4/gui/ScrDateTime.py:31
 msgid ""
@@ -1283,14 +1313,20 @@ msgid ""
 "Your settings will update your hardware clock. Proceed with the installation "
 "after you make your selections.</p></font>\n"
 msgstr ""
+"\n"
+"<font size=\"+2\">Установки Часового Пояса</font>\n"
+"<font size=\"+1\"><p>Здесь вы можете выбрать ваш часовой пояс и "
+"установить дату и время.\n"
+"Ваши установки изменят системные часы. Продолжайте установку"
+"после того, как сделаете настройки.</p></font>\n"
 
 #: yali4/gui/ScrGoodbye.py:43
 msgid "Goodbye from YALI"
-msgstr ""
+msgstr "До свидания из YALI"
 
 #: yali4/gui/ScrGoodbye.py:44
 msgid "Enjoy your fresh Pardus !..."
-msgstr ""
+msgstr "Наслаждайтесь вашей новой системой Pardus!"
 
 #: yali4/gui/ScrGoodbye.py:45
 msgid ""
@@ -1312,26 +1348,44 @@ msgid ""
 "</p>\n"
 "</font>\n"
 msgstr ""
+"\n"
+"<font size=\"+2\">Поздравляем!</font>\n"
+"\n"
+"\n"
+"<font size=\"+1\">\n"
+"<p>\n"
+"Вы успешно установили Pardus - очень легкую в использовании систему\n"
+"на ваш ПК. Сейчас вы можете начать работать в ней "
+"и делать все, что захотите\n"
+"в любое время.\n"
+"</p>\n"
+"<P>\n"
+"Ткните кнопку Дальше для продолжения. Один момент: вы ведь помните\n"
+"ваш пароль, не так ли?\n"
+"</p>\n"
+"</font>\n"
 
 #: yali4/gui/ScrGoodbye.py:71
 msgid "Running post install operations.."
-msgstr ""
+msgstr "Запуск постустановочных операций.."
 
 #: yali4/gui/ScrGoodbye.py:85 yali4/gui/ScrRescueFinish.py:87
 msgid "Press <b>Reboot</b> button to restart your system."
-msgstr ""
+msgstr "Нажмите кнопку <b>Рестарт</b> для перезагрузки вашей системы."
 
 #: yali4/gui/ScrGoodbye.py:87 yali4/gui/ScrRescueFinish.py:89
 msgid "<b>Rebooting system. Please wait!</b>"
-msgstr ""
+msgstr "<b>Перезагрузка системы. Пожалуйста подождите!</b>"
 
 #: yali4/gui/ScrInstall.py:63
 msgid "Installing system..."
-msgstr ""
+msgstr "Установка системы..."
 
 #: yali4/gui/ScrInstall.py:64
 msgid "Installing takes approximately 20 minutes depending on your hardware..."
 msgstr ""
+"Установка занимает приблизительно 20 минут в зависимости от "
+"производительности вашего ПК..."
 
 #: yali4/gui/ScrInstall.py:66
 msgid ""
@@ -1357,41 +1411,62 @@ msgid ""
 "</p>\n"
 "</font>\n"
 msgstr ""
+"\n"
+"<font size=\"+2\">Установка началась</font>\n"
+"\n"
+"<font size=\"+1\">\n"
+"\n"
+"<p>\n"
+"Pardus сейчас устанавливается на ваш диск. \n"
+"</p>\n"
+"\n"
+"<p>\n"
+"Длительность этой операции зависит от\n"
+"производительности вашей системы. Тем временем,\n"
+"вы можете ознакомиться с некоторыми \n"
+"возможностями операционной системы Pardus, \n"
+"вашей новой операционной системы. \n"
+"</p>\n"
+"\n"
+"<p>\n"
+"Наслаждайтесь!\n"
+"</p>\n"
+"</font>\n"
 
 #: yali4/gui/ScrInstall.py:123
 msgid "Packages are being installed.."
-msgstr ""
+msgstr "Пакеты устанавливаются.."
 
 #: yali4/gui/ScrInstall.py:138
 #, python-format
 msgid "Installing: <b>%s</b><br>%s"
-msgstr ""
+msgstr "Устанавливается: <b>%s</b><br>%s"
 
 #: yali4/gui/ScrInstall.py:143
 #, python-format
 msgid "Configuring package: <b>%s</b>"
-msgstr ""
+msgstr "Настраивается пакет: <b>%s</b>"
 
 #: yali4/gui/ScrInstall.py:166 yali4/gui/ScrPartitionManual.py:79
 msgid "Warning"
-msgstr ""
+msgstr "Внимание"
 
 #: yali4/gui/ScrInstall.py:167
 #, python-format
 msgid "Package install failed : <b>%s</b>"
-msgstr ""
+msgstr "Установка пакета не удалась : <b>%s</b>"
 
 #: yali4/gui/ScrInstall.py:168
 msgid "Do you want to retry ?"
-msgstr ""
+msgstr "Хотите попробовать заново?"
 
 #: yali4/gui/ScrInstall.py:189
 msgid "Creating baselayout for your system!"
-msgstr ""
+msgstr "Создание системы загрузки для вашей системы!"
 
 #: yali4/gui/ScrInstall.py:198
 msgid "Configuring packages.."
-msgstr ""
+msgstr "Конфигурирование пакетов.."
 
 #: yali4/gui/ScrInstall.py:221
 #, python-format
@@ -1403,14 +1478,20 @@ msgid ""
 "Error:\n"
 "%s\n"
 msgstr ""
+"Во время установки произошла ошибка.\n"
+"\n"
+"Возможно это проблема с диском или с приводом.\n"
+"\n"
+"Ошибка:\n"
+"%s\n"
 
 #: yali4/gui/ScrKahyaCheck.py:54
 msgid "Kahya is working..."
-msgstr ""
+msgstr "Работает Kahya..."
 
 #: yali4/gui/ScrKahyaCheck.py:55
 msgid "Kahya will automatically install your system..."
-msgstr ""
+msgstr "Kahya автоматически установит вашу систему..."
 
 #: yali4/gui/ScrKahyaCheck.py:56
 msgid ""
@@ -1418,14 +1499,17 @@ msgid ""
 "<font size=\"+2\">Kicker Check !</font>\n"
 "<p> Some help messages </p>\n"
 msgstr ""
+"\n"
+"<font size=\"+2\">Проверка Kicker !</font>\n"
+"<p> Некоторые дополнительные сообщения </p>\n"
 
 #: yali4/gui/ScrKeyboard.py:31
 msgid "Set your keyboard layout"
-msgstr ""
+msgstr "Установите вашу раскладку клавиатуры"
 
 #: yali4/gui/ScrKeyboard.py:32
 msgid "Use your keyboard layout..."
-msgstr ""
+msgstr "Используйте вашу раскладку клавиатуры..."
 
 #: yali4/gui/ScrKeyboard.py:34
 msgid ""
@@ -1439,10 +1523,19 @@ msgid ""
 "</p>\n"
 "</font>\n"
 msgstr ""
+"\n"
+"<font size=\"+2\">Настройка Клавиатуры</font>\n"
+"<font size=\"+1\">\n"
+"<p>\n"
+"Здесь вы можете выбрать тип вашей клавиатуры и язык,"
+"который хотите использовать. Чуть ниже вы можете проверить результат. \n"
+"Продолжите установку после того, как сделает свой выбор.\n"
+"</p>\n"
+"</font>\n"
 
 #: yali4/gui/ScrPartitionAuto.py:37
 msgid "Choose Partitioning"
-msgstr ""
+msgstr "Выберете Разбиение диска"
 
 #: yali4/gui/ScrPartitionAuto.py:38
 msgid "Auto or Manual partitioning..."
