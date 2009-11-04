@@ -11,7 +11,7 @@ for YALI and copying the mo file under LC_MESSAGES.
 
 svn co https://svn.pardus.org.tr/uludag/trunk/yali/
 
-3. Go to the top directory (i.e cd yali4)
+3. Go to the top directory (i.e cd yali)
 
 4. Install YALI with following:
 
