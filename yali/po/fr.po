@@ -361,7 +361,7 @@ msgstr "Mo"
 
 #: yali4/gui/Ui/partedit.py:158
 msgid "Format :"
-msgstr "Format :"
+msgstr "Formatage :"
 
 #: yali4/gui/Ui/partedit.py:159
 msgid "Yes, format this partition"
@@ -859,7 +859,7 @@ msgstr ""
 "Gimp est un logiciel de retouche photo, de traitement d'images et de dessin assisté par "
 "ordinateur. Gimp permet d'éditer tous les formats "
 "images populaires et possède des capacités avancées qui vont satisfaire les "
-"besions des graphistes professionnelles.\n"
+"besoins des graphistes professionnels."
 
 #: yali4/gui/descSlide.py:34
 msgid ""
@@ -2382,7 +2382,7 @@ msgstr "Racine de l'installation"
 
 #: yali4/partitiontype.py:43
 msgid "as Pardus System Files (mandatory)"
-msgstr "comme partition des fichiers du système (obligatoire)"
+msgstr "partition des fichiers du système (obligatoire)"
 
 #: yali4/partitiontype.py:46
 msgid "Users' Files"
@@ -2390,7 +2390,7 @@ msgstr "Fichiers des utilisateurs"
 
 #: yali4/partitiontype.py:53
 msgid "as User Files (optional)"
-msgstr "comme partition des fichiers de l'utilisateur (recommandé)"
+msgstr "partition des fichiers de l'utilisateur (recommandé)"
 
 #: yali4/partitiontype.py:56
 msgid "Swap"
@@ -2398,7 +2398,7 @@ msgstr "Swap"
 
 #: yali4/partitiontype.py:64
 msgid "as Swap Space (optional)"
-msgstr "comme partition de Swap (optionnel)"
+msgstr "partition de Swap (optionnel)"
 
 #: yali4/partitiontype.py:67
 msgid "Archive Partition"
@@ -2406,7 +2406,7 @@ msgstr "Partition de stockage"
 
 #: yali4/partitiontype.py:82
 msgid "as Storage Area"
-msgstr "comme partition de stockage"
+msgstr "partition de stockage"
 
 #: yali4/postinstall.py:180
 #, python-format
