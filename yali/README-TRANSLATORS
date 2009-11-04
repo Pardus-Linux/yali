@@ -9,13 +9,13 @@ for YALI and copying the mo file under LC_MESSAGES.
 
 2. Checkout the latest code of YALI from SVN:
 
-svn co https://svn.pardus.org.tr/uludag/trunk/yali4/
+svn co https://svn.pardus.org.tr/uludag/trunk/yali/
 
 3. Go to the top directory (i.e cd yali4)
 
 4. Install YALI with following:
 
-sudo python setup.py install (in yali4 root)
+sudo python setup.py install (in yali root)
 
 5. Execute the following:
 
