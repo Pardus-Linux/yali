@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-16 23:40+0300\n"
-"PO-Revision-Date: 2009-10-31 18:21+0300\n"
+"PO-Revision-Date: 2009-11-04 17:21+0300\n"
 "Last-Translator: \n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "MIME-Version: 1.0\n"
@@ -1539,7 +1539,7 @@ msgstr "Выберете Разбиение диска"
 
 #: yali4/gui/ScrPartitionAuto.py:38
 msgid "Auto or Manual partitioning..."
-msgstr ""
+msgstr "Автоматическое или ручное создание разделов..."
 
 #: yali4/gui/ScrPartitionAuto.py:40
 msgid ""
@@ -1564,6 +1564,26 @@ msgid ""
 "</p>\n"
 "</font>\n"
 msgstr ""
+"\n"
+"<font size=\"+2\">Автоматическое Создание Разделов</font>\n"
+"<font size=\"+1\">\n"
+"<p>\n"
+"Вы можете установить Pardus если у вас есть место на диске,\n "
+"где не созданы никакие разделы, размером более 4Gb (10Gb рекомендуется).\n"
+"Или вы можете использовать чистый диск, на котором еще не созданы \n"
+"разделы. Область диска или раздел для установки будут автоматически \n"
+"отформатированы. Поэтому рекомендуется создать резервную копию\n"
+"ваших данных для того, что бы избежать в будущем проблем.n"
+"</p>\n"
+"<p>Механизм автоматического создания разделов отформатирует выбранную\n"
+"часть диска и установит Pardus 2009. Если хотите, вы можете создать разделы\n"
+"вручную или указать Pardus 2009 создать новый раздел для установки\n"
+"</p>\n"
+"<p>\n"
+"Пожалуйста, обратитесь к Справочнику по Установке и Настройке Pardus за \n"
+"дополнительной информацией о разбиении диска на разделы.\n"
+"</p>\n"
+"</font>\n"
 
 #: yali4/gui/ScrPartitionAuto.py:79
 #, python-format
@@ -1571,14 +1591,16 @@ msgid ""
 "It seems that you don't have the required disk space (min. %s) for Pardus "
 "installation."
 msgstr ""
+"Кажется, что у вас не достаточно места на диска (мин. %s) для установки "
+"Pardus."
 
 #: yali4/gui/ScrPartitionManual.py:31
 msgid "Manual Partitioning"
-msgstr ""
+msgstr "Ручное Создание Разделов"
 
 #: yali4/gui/ScrPartitionManual.py:32
 msgid "You can easily configure your partitions..."
-msgstr ""
+msgstr "Вы можете легко настроить ваши разделы..."
 
 #: yali4/gui/ScrPartitionManual.py:34
 msgid ""
@@ -1600,18 +1622,35 @@ msgid ""
 "</p>\n"
 "</font>\n"
 msgstr ""
+"\n"
+"<font size=\"+2\">Создание разделов на вашем диске</font>\n"
+"<font size=\"+1\">\n"
+"<p>\n"
+"На этом экране вы можете вручную создать разделы на своем диске.\n"
+"Вы можете выбрать существующие разделы и удалить их или изменить \n"
+"их размер. Вы можете создать новые разделы на свободных участках диска\n"
+"и указать Pardus как их использовать: для системных файлов, ваших данных,\n"
+"своп-разделов или как-то иначе. Изменения, которые вы сделаете, не вступят\n"
+"в силу до начала установки. Поэтому вы можете менять свои изменения, в том\n"
+"случае, если захотите.\n"
+"</p>\n"
+"<p>\n"
+"Пожалуйста, обратитесь к Справочнику по Установке и Настройке Pardus за \n"
+"дополнительной информацией о разбиении диска на разделы.\n"
+"</p>\n"
+"</font>\n"
 
 #: yali4/gui/ScrPartitionManual.py:80
 msgid "All changes that you made will be removed."
-msgstr ""
+msgstr "Все изменения, которые вы сделали, будут отменены."
 
 #: yali4/gui/ScrRescueFinish.py:33 yali4/gui/ScrRescue.py:30
 msgid "Rescue Mode"
-msgstr ""
+msgstr "Режим Восстановления"
 
 #: yali4/gui/ScrRescueFinish.py:34
 msgid "Final step of Rescue operations..."
-msgstr ""
+msgstr "Последний шаг действий по восстановлению..."
 
 #: yali4/gui/ScrRescueFinish.py:35
 msgid ""
@@ -1619,34 +1658,37 @@ msgid ""
 "<font size=\"+2\">Rescue Mode</font>\n"
 "<font size=\"+1\"><p>Click <b>next</b> to reboot !</p></font>\n"
 msgstr ""
+"\n"
+"<font size=\"+2\">Режим Восстановления</font>\n"
+"<font size=\"+1\"><p>Нажмите <b>далее</b> для перезагрузки !</p></font>\n"
 
 #: yali4/gui/ScrRescueFinish.py:64 yali4/installer.py:523
 msgid "Installing BootLoader..."
-msgstr ""
+msgstr "Установка Загрузчика..."
 
 #: yali4/gui/ScrRescueFinish.py:67
 msgid "Taking back Pisi operation..."
-msgstr ""
+msgstr "Отмена операций с Pisi"
 
 #: yali4/gui/ScrRescueFinish.py:70
 msgid "Running rescue operations.."
-msgstr ""
+msgstr "Запуск действий по восстановлению.."
 
 #: yali4/gui/ScrRescueGrub.py:32
 msgid "Rescue Mode for Bootlooader"
-msgstr ""
+msgstr "Режим Восстановления для Загрузчика"
 
 #: yali4/gui/ScrRescueGrub.py:33
 msgid "You can fix your bootloader..."
-msgstr ""
+msgstr "Вы можете восстановить ваш загрузчик..."
 
 #: yali4/gui/ScrRescuePassword.py:42
 msgid "Rescue Mode for Password Recovery"
-msgstr ""
+msgstr "Режим Восстановления для Пароля"
 
 #: yali4/gui/ScrRescuePassword.py:43
 msgid "You can recover your password ..."
-msgstr ""
+msgstr "Вы можете восстановить ваш пароль"
 
 #: yali4/gui/ScrRescuePassword.py:45
 msgid ""
