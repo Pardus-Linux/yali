@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-16 23:40+0300\n"
-"PO-Revision-Date: 18/07/09 15:24\n"
+"PO-Revision-Date: 06/11/09 12:10\n"
 "Last-Translator: Antoon Tolboom <atolboo@gmail.com>\n"
 "Language-Team: Nederlansd <kde-i18n-nl@kde.org>\n"
 "MIME-Version: 1.0\n"
@@ -87,7 +87,7 @@ msgstr ""
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><span style="
-"\" font-size:12pt; font-weight:600;\">Partitie methode</span></p></body></"
+"\" font-size:12pt; font-weight:600;\">Partitiemethode</span></p></body></"
 "html>"
 
 #: yali4/gui/Ui/autopartwidget.py:115
@@ -95,8 +95,8 @@ msgid ""
 "Please choose a partitioning method and then a device to partition."
 "<br>Device list will be updated based on the selected method."
 msgstr ""
-"Kies een partitie methode en daarna een station om te partitioneren. "
-"<br>Stationslijst zal bijgewerkt worden naar gelang de geselecteerde methode."
+"Kies een partitiemethode en daarna een schijf om te partitioneren. "
+"<br>De schijvenlijst zal bijgewerkt worden naar aanleiding van de geselecteerde methode."
 
 #: yali4/gui/Ui/autopartwidget.py:116
 msgid "Automatic"
@@ -154,7 +154,7 @@ msgstr ""
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><span style="
-"\" font-size:12pt; font-weight:600;\">Schijf selectie</span></p></body></"
+"\" font-size:12pt; font-weight:600;\">Schijfselectie</span></p></body></"
 "html>"
 
 #: yali4/gui/Ui/autopartwidget.py:128
@@ -211,7 +211,7 @@ msgid ""
 "possible errors in the installation process."
 msgstr ""
 "U kunt de integriteit van de pakketten op de installatie-CD controleren. "
-"Ondanks dat dit een optionele stap is, raden wij dit aan om mogelijke fouten "
+"Ondanks dat dit een optionele stap is raden wij dit aan om mogelijke fouten "
 "bij de installatie te voorkomen."
 
 #: yali4/gui/Ui/checkcdwidget.py:82 yali4/gui/ScrCheckCD.py:56
@@ -302,11 +302,11 @@ msgstr "Installeren pakket: "
 
 #: yali4/gui/Ui/keyboardwidget.py:60
 msgid "Choose a keyboard layout:"
-msgstr "Kies een toetenbordindeling:"
+msgstr "Selecteer een toetsenbordindeling:"
 
 #: yali4/gui/Ui/keyboardwidget.py:61
 msgid "Test selected layout:"
-msgstr "Test geselecteerde indeling:"
+msgstr "Test de geselecteerde indeling:"
 
 #: yali4/gui/Ui/main.py:181
 msgid "Yali4"
@@ -350,7 +350,7 @@ msgstr "Partitie 1 op FUJISTU - /dev/sda1"
 
 #: yali4/gui/Ui/partedit.py:155
 msgid "Use :"
-msgstr "Gebruik:"
+msgstr "Gebruiken als:"
 
 #: yali4/gui/Ui/partedit.py:156
 msgid "Size :"
@@ -362,7 +362,7 @@ msgstr " MB"
 
 #: yali4/gui/Ui/partedit.py:158
 msgid "Format :"
-msgstr "Formaat:"
+msgstr "Formateren:"
 
 #: yali4/gui/Ui/partedit.py:159
 msgid "Yes, format this partition"
@@ -525,10 +525,10 @@ msgid ""
 "this password. Keep in mind that for privacy reasons, you shouldn't write "
 "this password elsewhere.</p>"
 msgstr ""
-"<p align=\"left\">De systeembeheerder (root) draagt zorg voor belangrijke "
+"<p align=\"left\">De systeembeheerder (root) zorgt voor belangrijke "
 "onderhoudstaken. Geef een wachtwoord voor deze bijzondere gebruiker en "
 "vergeet dat wachtwoord niet. Let op dat u dit wachtwoord uit "
-"veiligheidsoverweging nergens opschrijft.</p>"
+"veiligheidsoverwegingen nergens opschrijft.</p>"
 
 #: yali4/gui/Ui/rootpasswidget.py:172
 msgid "System administrator password:"
@@ -624,7 +624,7 @@ msgid ""
 msgstr ""
 "Alle software, ontwikkeld door TUBITAK/UEKAE, valt onder de GNU/GPL. Andere "
 "software heeft zijn eigen vergelijkbare licentie. Door het installeren van "
-"Pardus stem u met deze toe. Accepteert u deze licenties en wilt u doorgaan?"
+"Pardus stem u in met deze licentie. Accepteert u deze licenties en wilt u doorgaan?"
 
 #: yali4/gui/Ui/welcomewidget.py:92
 msgid "Read GPL"
