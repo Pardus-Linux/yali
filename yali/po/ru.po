@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-16 23:40+0300\n"
-"PO-Revision-Date: 2009-11-04 17:21+0300\n"
+"PO-Revision-Date: 2009-11-16 21:46+0300\n"
 "Last-Translator: \n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "MIME-Version: 1.0\n"
@@ -222,8 +222,8 @@ msgid ""
 "To use PiSi History support, you may need to be online. You can use a "
 "connection profile from the list below."
 msgstr ""
-"Чтобы использовать поддержку PiSi history, вам нужно быть подключенными "
-"к Сети. Вы можете выбрать способ подключения из списка ниже."
+"Чтобы использовать поддержку истории операций PiSi, вам нужно быть "
+"подключенными к Сети. Вы можете выбрать способ подключения из списка ниже."
 
 #: yali4/gui/Ui/connectionlist.py:73
 msgid "Connect"
@@ -487,8 +487,8 @@ msgid ""
 "To use PiSi's history feature, you may need to be online. Select connection "
 "profile."
 msgstr ""
-"Чтобы использовать возможность отслеживать историю PiSi, вам необходимо "
-"быть в Сети. Выберите способ соединения."
+"Чтобы использовать возможность отслеживать историю операций PiSi, "
+"вам необходимо быть в Сети. Выберите способ соединения."
 
 #: yali4/gui/Ui/rescuepisiwidget.py:70
 msgid "Select Connection"
@@ -512,7 +512,7 @@ msgstr "Установить GRUB (проблемы с загрузкой)"
 
 #: yali4/gui/Ui/rescuewidget.py:87
 msgid "PiSi history (undo package operations)"
-msgstr "История PiSi (отмена операций с пакетами)"
+msgstr "История операций PiSi (отмена операций с пакетами)"
 
 #: yali4/gui/Ui/rescuewidget.py:88
 msgid "Change password (lost password)"
@@ -922,8 +922,8 @@ msgid ""
 msgstr ""
 "У нас есть портал поддержки для того, чтобы решить ваши проблемы "
 "с системе. На портале Özgürlükİçin, где содержимое разработано нашими "
-"добровольными помощниками, вы найдете гиды и всю необходимую "
-"помощь. Если у вас будут вопросы наш форум ждет вас. И если вам "
+"добровольными помощниками, вы найдете руководства и всю необходимую "
+"помощь. Если у вас будут вопросы, наш форум ждет вас. И если вам "
 "нужна поддержка, то ваша первая остановка - это www.ozgurlukicin.com"
 
 #: yali4/gui/DiskWidgets.py:87
@@ -1253,7 +1253,7 @@ msgstr ""
 "вы можете поменять настройки загрузчика. \n"
 "</p>\n"
 "<p>\n"
-"Пожалуйста, обратитесь к документации Pardus \n"
+"Пожалуйста, обратитесь к Руководству Пользователя Pardus \n"
 "для получения более подробной информации \n"
 "</p>\n"
 "</font>\n"
@@ -1580,8 +1580,9 @@ msgstr ""
 "вручную или указать Pardus 2009 создать новый раздел для установки\n"
 "</p>\n"
 "<p>\n"
-"Пожалуйста, обратитесь к Справочнику по Установке и Настройке Pardus за \n"
-"дополнительной информацией о разбиении диска на разделы.\n"
+"Пожалуйста, обратитесь к Руководству Пользователя по Установке и Настройке "
+"Pardus\n"
+"за дополнительной информацией о разбиении диска на разделы.\n"
 "</p>\n"
 "</font>\n"
 
@@ -1635,8 +1636,9 @@ msgstr ""
 "случае, если захотите.\n"
 "</p>\n"
 "<p>\n"
-"Пожалуйста, обратитесь к Справочнику по Установке и Настройке Pardus за \n"
-"дополнительной информацией о разбиении диска на разделы.\n"
+"Пожалуйста, обратитесь к Руководству Пользователя по Установке и Настройке "
+"Pardus\n"
+"за дополнительной информацией о разбиении диска на разделы.\n"
 "</p>\n"
 "</font>\n"
 
@@ -1696,47 +1698,50 @@ msgid ""
 "<font size=\"+2\">Password Recovery</font>\n"
 "<font size=\"+1\"></font>\n"
 msgstr ""
+"\n"
+"<font size=\"+2\">Восстановление Пароля</font>\n"
+"<font size=\"+1\"></font>\n"
 
 #: yali4/gui/ScrRescuePassword.py:57 yali4/gui/ScrUsers.py:72
 msgid "Caps Lock is on!"
-msgstr ""
+msgstr "Caps Lock нажата!"
 
 #: yali4/gui/ScrRescuePassword.py:62 yali4/gui/ScrRescuePisi.py:54
 msgid "Starting DBUS..."
-msgstr ""
+msgstr "Стартует DBUS..."
 
 #: yali4/gui/ScrRescuePassword.py:63 yali4/gui/ScrRescuePisi.py:55
 #: yali4/installer.py:512
 msgid "Trying to connect DBUS..."
-msgstr ""
+msgstr "Попытка соединения с DBUS..."
 
 #: yali4/gui/ScrRescuePassword.py:64
 msgid "Getting user list ..."
-msgstr ""
+msgstr "Получение списка пользователей..."
 
 #: yali4/gui/ScrRescuePassword.py:97
 msgid "Password changed"
-msgstr ""
+msgstr "Пароль изменен"
 
 #: yali4/gui/ScrRescuePassword.py:97
 msgid "Info"
-msgstr ""
+msgstr "Информация"
 
 #: yali4/gui/ScrRescuePassword.py:108 yali4/gui/ScrUsers.py:190
 msgid "Don't use your user name or name as a password."
-msgstr ""
+msgstr "Не используйте ваш логин или ваше имя в качестве пароля"
 
 #: yali4/gui/ScrRescuePassword.py:148
 msgid "Super User"
-msgstr ""
+msgstr "Системный Администратор"
 
 #: yali4/gui/ScrRescuePisi.py:40
 msgid "Rescue Mode for Pisi History"
-msgstr ""
+msgstr "Режим Восстановления для Истории Операций Pisi."
 
 #: yali4/gui/ScrRescuePisi.py:41
 msgid "You can take back your system ..."
-msgstr ""
+msgstr "Вы можете восстановить систему..."
 
 #: yali4/gui/ScrRescuePisi.py:43
 msgid ""
@@ -1744,21 +1749,26 @@ msgid ""
 "<font size=\"+2\">Pisi History</font>\n"
 "<font size=\"+1\"></font>\n"
 msgstr ""
+"\n"
+"<font size=\"+2\">История Операций Pisi</font>\n"
+"<font size=\"+1\"></font>\n"
 
 #: yali4/gui/ScrRescuePisi.py:56
 msgid "Getting history ..."
-msgstr ""
+msgstr "Получение истории..."
 
 #: yali4/gui/ScrRescuePisi.py:123
 #, python-format
 msgid "Operation %s : %s - %s"
-msgstr ""
+msgstr "Операция %s : %s - %s"
 
 #: yali4/gui/ScrRescue.py:31
 msgid ""
 "You can reinstall your Grub or you can take back your system by using Pisi "
 "History..."
 msgstr ""
+"Вы можете заново установить Grub или вы можете восстановить вашу систему, "
+"используя Историю Операций Pisi."
 
 #: yali4/gui/ScrRescue.py:33
 msgid ""
@@ -1766,26 +1776,30 @@ msgid ""
 "<font size=\"+2\">Rescue Mode</font>\n"
 "<font size=\"+1\"><p>This is a rescue mode help document.</p></font>\n"
 msgstr ""
+"\n"
+"<font size=\"+2\">Режим Восстановления</font>\n"
+"<font size=\"+1\"><p>Это руководство пользователя по режиму восстановления.<"
+"/p></font>\n"
 
 #: yali4/gui/ScrRescue.py:93
 msgid "Mounting selected partition..."
-msgstr ""
+msgstr "Монтирование выбранного раздела..."
 
 #: yali4/gui/ScrRescue.py:105
 msgid "Yali couldn't find a suitable partition on your system"
-msgstr ""
+msgstr "Yali не может найти подходящий раздел на вашей системе"
 
 #: yali4/gui/ScrRescue.py:122
 msgid "Please select a partition from list"
-msgstr ""
+msgstr "Пожалуйста выберите раздел из списка"
 
 #: yali4/gui/ScrSummary.py:42
 msgid "The last step before install"
-msgstr ""
+msgstr "Последний шаг перед установкой"
 
 #: yali4/gui/ScrSummary.py:43
 msgid "Summary of your installation..."
-msgstr ""
+msgstr "Итог инсталляции..."
 
 #: yali4/gui/ScrSummary.py:45
 msgid ""
@@ -1797,64 +1811,71 @@ msgid ""
 "</p>\n"
 "</font>\n"
 msgstr ""
+"\n"
+"<font size=\"+2\">Итоги Установки</font>\n"
+"<font size=\"+1\">\n"
+"<p>\n"
+"Здесь вы можете увидеть ваши установки перед началом инсталляции.\n"
+"</p>\n"
+"</font>\n"
 
 #: yali4/gui/ScrSummary.py:72
 msgid "<b><p>This action will reboot your system.</p></b>"
-msgstr ""
+msgstr "<b><p>Так вы перезагрузите свою систему.</p></b>"
 
 #: yali4/gui/ScrSummary.py:87
 #, python-format
 msgid "Install starts in: <b>%s seconds</b>"
-msgstr ""
+msgstr "Установка начнется через: <b>%s секунд(ы)</b>"
 
 #: yali4/gui/ScrSummary.py:122
 msgid "Keyboard Settings"
-msgstr ""
+msgstr "Настройки Клавиатуры"
 
 #: yali4/gui/ScrSummary.py:123
 #, python-format
 msgid "Selected keyboard layout is <b>%s</b>"
-msgstr ""
+msgstr "Выбранная раскладка клавиатуры: <b>%s</b>"
 
 #: yali4/gui/ScrSummary.py:127
 msgid "Date/Time Settings"
-msgstr ""
+msgstr "Установки Даты и Времени"
 
 #: yali4/gui/ScrSummary.py:128
 #, python-format
 msgid "Selected TimeZone is <b>%s</b>"
-msgstr ""
+msgstr "Выбранный Часовой Пояс: <b>%s</b>"
 
 #: yali4/gui/ScrSummary.py:133
 msgid "User Settings"
-msgstr ""
+msgstr "Пользовательские Установки"
 
 #: yali4/gui/ScrSummary.py:135
 #, python-format
 msgid "User %s (<b>%s</b>) added."
-msgstr ""
+msgstr "Пользователь %s (<b>%s</b>) добавлен."
 
 #: yali4/gui/ScrSummary.py:137
 #, python-format
 msgid "User %s (<b>%s</b>) added with <u>administrator privileges</u>."
-msgstr ""
+msgstr "Пользователь %s (<b>%s</b>) добавлен с <u>правами администратора</u>."
 
 #: yali4/gui/ScrSummary.py:143
 msgid "Hostname Settings"
-msgstr ""
+msgstr "Установки Имени Компьютера"
 
 #: yali4/gui/ScrSummary.py:144
 #, python-format
 msgid "Hostname is set as <b>%s</b>"
-msgstr ""
+msgstr "Имя Компьютера: <b>%s</b>"
 
 #: yali4/gui/ScrSummary.py:150
 msgid "Partition Settings"
-msgstr ""
+msgstr "Установки Разделов"
 
 #: yali4/gui/ScrSummary.py:152
 msgid "Automatic Partitioning selected."
-msgstr ""
+msgstr "Выбрано Автоматическое Разбиение на разделы."
 
 #: yali4/gui/ScrSummary.py:162
 #, python-format
@@ -1862,10 +1883,13 @@ msgid ""
 "Partition <b>%(partition)s</b> <b>added</b> to device <b>%(device)s</b> with "
 "<b>%(size)s MBs</b> as <b>%(fs)s</b>."
 msgstr ""
+"Раздел <b>%(partition)s</b> <b>добавлен</b> на устройство <b>%(device)s</b> "
+"с размером "
+"<b>%(size)s MBs</b> как <b>%(fs)s</b>."
 
 #: yali4/gui/ScrSummary.py:180
 msgid "Automatic Partitioning (resize method) selected."
-msgstr ""
+msgstr "Автоматическое Изменение размеров разделов выбрано."
 
 #: yali4/gui/ScrSummary.py:196
 #, python-format
@@ -1873,6 +1897,8 @@ msgid ""
 "Partition <b>%(partition)s - %(currentFs)s</b> <b>resized</b> to <b>%"
 "(resizeTo)s MBs</b>, previous size was <b>%(currentSize)s MBs</b>."
 msgstr ""
+"Раздел <b>%(partition)s - %(currentFs)s</b> <b>изменил размер</b> на <b>%"
+"(resizeTo)s MB</b>, предыдущий размер был <b>%(currentSize)s MB</b>."
 
 #: yali4/gui/ScrSummary.py:198
 #, python-format
@@ -1880,28 +1906,31 @@ msgid ""
 "Partition <b>%(newPartition)s</b> <b>added</b> to device <b>%(device)s</b> "
 "with <b>%(size)s MBs</b> as <b>%(fs)s</b>."
 msgstr ""
+"Раздел <b>%(newPartition)s</b> <b>добавлен</b> на устройство <b>%(device)s<"
+"/b> "
+"с размером <b>%(size)s MB</b> как <b>%(fs)s</b>."
 
 #: yali4/gui/ScrSummary.py:199
 #, python-format
 msgid "Partition <b>%(newPartition)s</b> <b>selected</b> as <b>%(type)s</b>."
-msgstr ""
+msgstr "Раздел <b>%(newPartition)s</b> <b>выбран</b> как <b>%(type)s</b>."
 
 #: yali4/gui/ScrSummary.py:214
 msgid "Bootloader Settings"
-msgstr ""
+msgstr "Установки Загрузчика"
 
 #: yali4/gui/ScrSummary.py:215
 #, python-format
 msgid "GRUB will be installed to <b>%s</b>."
-msgstr ""
+msgstr "GRUB будет установлен на <b>%s</b>."
 
 #: yali4/gui/ScrSummary.py:217
 msgid "GRUB will not be installed."
-msgstr ""
+msgstr "GRUB не будет установлен."
 
 #: yali4/gui/ScrSummary.py:241
 msgid "Before Starting"
-msgstr ""
+msgstr "Перед Началом"
 
 #: yali4/gui/ScrSummary.py:242
 msgid ""
@@ -1914,27 +1943,37 @@ msgid ""
 "                                        <b>Note that this operation cannot "
 "be undone.</b></p>"
 msgstr ""
+"<p><b><u>Внимание</u></b>: Изменение размера может повредить "
+"ваш раздел,<br>\n"
+"                                        Восстановление данных невозможно."
+"<br>\n"
+"                                        Убедитесь, что сделали резервную "
+"копию "
+"данного раздела.<br>\n"
+"                                        <b>Учтите, что данная операция не "
+"может "
+"быть отменена.</b></p>"
 
 #: yali4/gui/ScrSummary.py:267 yali4/gui/ScrSummary.py:278
 #: yali4/gui/ScrSummary.py:294
 msgid "Formatting..."
-msgstr ""
+msgstr "Форматирование..."
 
 #: yali4/gui/ScrSummary.py:273 yali4/gui/ScrSummary.py:285
 msgid "Writing disk tables..."
-msgstr ""
+msgstr "Запись дисковых таблиц..."
 
 #: yali4/gui/ScrSummary.py:275
 msgid "Resizing..."
-msgstr ""
+msgstr "Изменение размера..."
 
 #: yali4/gui/ScrUsers.py:32
 msgid "Set Users"
-msgstr ""
+msgstr "Установить Пользователей"
 
 #: yali4/gui/ScrUsers.py:33
 msgid "Create users to use Pardus..."
-msgstr ""
+msgstr "Создать пользователей, которые будут пользоваться Pardus..."
 
 #: yali4/gui/ScrUsers.py:35
 msgid ""
@@ -2401,6 +2440,6 @@ msgstr ""
 #: yali4/storage.py:375
 #, python-format
 msgid "Not enough free space on %s to create new partition"
-msgstr ""
+msgstr "Недостаточно свободного места на %s чтобы создать новый раздел"
 
 
