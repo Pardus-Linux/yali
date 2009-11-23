@@ -29,7 +29,7 @@ from yali4.gui.ScreenWidget import ScreenWidget
 from yali4.gui.Ui.bootloaderwidget import Ui_BootLoaderWidget
 from yali4.gui.GUIException import *
 import yali4.gui.context as ctx
-
+from pardus.sysutils import get_kernel_option
 
 ##
 # BootLoader screen.
@@ -101,10 +101,15 @@ loader.
         self.getBootable().setBootable()
 
     def getBootable(self):
+        opts = get_kernel_option("mudur")
         for i in range(self.ui.device_list.count()):
             item = self.ui.device_list.item(i)
-            if item.getDevice().getPath() == ctx.installData.orderedDiskList[0]:
-                return item
+            if opts.has_key("livedisk"):
+                if item.getDevice().getPath() == ctx.installData.orderedDiskList[1]:
+                    return item
+            else:
+                if item.getDevice().getPath() == ctx.installData.orderedDiskList[0]:
+                    return item
 
     def backCheck(self):
         if ctx.autoInstall:
