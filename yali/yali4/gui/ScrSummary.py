@@ -225,6 +225,17 @@ Here you can see your install options before installation starts.
             content.append(item % grub_str % _path)
         content.append(end)
 
+        if ctx.yali.install_type == YALI_DVDINSTALL:
+            # DVD INSTALL
+            content.append(subject % _("Package Installation Settings"))
+            #installation_str = _("Installation Collection <b>%s</b> installed.")
+            if ctx.installData.autoInstallationMethod == methodInstallAutomatic:
+                content.append("Auto installation collection selected")
+            else:
+                content.append("Manual Installation %s collection selected" % ctx.installData.autoInstallationCollection)
+
+            content.append(end)
+
         content.append("""</ul></body></html>""")
 
         self.ui.content.setHtml(content)
