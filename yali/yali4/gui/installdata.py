@@ -13,6 +13,9 @@
 # Auto Partition Methods
 methodUseAvail, methodEraseAll, methodManual = range(3)
 
+# Auto Installation Methods
+methodInstallAutomatic, methodInstallManual = range(2)
+
 # Boot Loader Options
 B_DONT_INSTALL = 0
 B_INSTALL_PART = 1
@@ -20,11 +23,12 @@ B_INSTALL_MBR  = 2
 B_INSTALL_SMART= 3
 
 YALI_INSTALL, \
+        YALI_DVDINSTALL, \
         YALI_FIRSTBOOT, \
         YALI_OEMINSTALL, \
         YALI_PLUGIN, \
         YALI_PARTITIONER, \
-        YALI_RESCUE = range(6)
+        YALI_RESCUE = range(7)
 
 class InstallData:
     keyData = None
@@ -36,6 +40,8 @@ class InstallData:
     autoPartDev = None
     autoPartPartition = None
     autoPartMethod = methodUseAvail
+    autoInstallationCollection = None
+    autoInstallationMethod = methodInstallAutomatic
     bootLoaderDev = None
     bootLoaderOption = B_INSTALL_SMART
     bootLoaderOptionalDev = None
