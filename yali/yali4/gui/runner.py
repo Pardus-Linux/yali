@@ -57,6 +57,10 @@ class Runner:
         if ctx.options.firstBoot == True or os.path.exists("/etc/yali-is-firstboot"):
             install_type = YALI_FIRSTBOOT
 
+        # check for dvd install
+        if yali4.sysutils.checkYaliParams(param=ctx.consts.dvd_install_param):
+            install_type = YALI_DVDINSTALL
+
         # check for oem install
         if yali4.sysutils.checkYaliParams(param=ctx.consts.oem_install_param):
             install_type = YALI_OEMINSTALL
