@@ -22,8 +22,24 @@ import piksemel
 import yali4.sysutils
 import yali4.postinstall
 from yali4.constants import consts
+import yali4.gui.context as ctx
 
 repodb = pisi.db.repodb.RepoDB()
+
+class PackageCollection(object):
+    def __init__(self, uniqueTag, icon, title, description, default=""):
+        self.default = default
+        self.uniqueTag = uniqueTag
+        self.title = title
+        self.icon =  os.path.join(consts.pisi_collection_dir, icon)
+        self.description = description
+        self.index =  os.path.join(consts.source_dir, "repo/%s-index.xml.bz2" % uniqueTag)
+
+class Description(object):
+    def __init__(self, description, translations={}):
+        self.content = description
+        self.translations = translations
+
 
 def initialize(ui, with_comar = False, nodestDir = False):
     options = pisi.config.Options()
@@ -70,8 +86,8 @@ def addRemoteRepo(name, uri):
         addRepo(name, uri)
         updateRepo(name)
 
-def switchToPardusRepo():
-    removeRepo(consts.cd_repo_name)
+def switchToPardusRepo(repo):
+    removeRepo(repo)
     addRepo(consts.pardus_repo_name, consts.pardus_repo_uri)
 
 def updateRepo(name=consts.cd_repo_name):
@@ -88,6 +104,41 @@ def takeBack(operation):
     os.symlink("/",consts.target_dir + consts.target_dir)
     pisi.api.takeback(operation)
     os.unlink(consts.target_dir + consts.target_dir)
+
+def getCollection():
+    packageCollection = []
+    translations = {}
+
+    piksemelObj = piksemel.parse(consts.pisi_collection_file)
+    for collection in piksemelObj.tags("Collection"):
+        default = collection.getAttribute("default")
+        if not default:
+            default = ""
+
+        name = collection.getTagData("name")
+        icon = collection.getTagData("icon")
+        title = collection.getTagData("title")
+        descriptionTag = collection.getTag("description")
+        content = descriptionTag.getTagData("content")
+        for translation in descriptionTag.tags("translation"):
+            translations[translation.getAttribute("code")] = translation.firstChild().data()
+
+        description = Description(content, translations)
+        packageCollection.append(PackageCollection(name, icon, title, description, default))
+
+    return packageCollection
+
+def getCollectionPackages(collectionIndex):
+    ctx.debugger.log("index_path%s" % collectionIndex)
+    piksemelObj = piksemel.parseString(bz2.decompress(file(collectionIndex).read()))
+    ret = []
+    for package in piksemelObj.tags("Package"):
+        tagData = package.getTagData("PackageURI")
+        ret.append(tagData)
+    return ret
+
+def getXmlObject(path):
+    return piksemel.parseString(bz2.decompress(file(path).read()))
 
 def getPackages(tag, value):
     index_path = os.path.join(consts.source_dir, "repo/pisi-index.xml.bz2")
@@ -134,7 +185,13 @@ def finalize():
 def install(pkg_name_list):
     pisi.api.install(pkg_name_list, reinstall=False)
 
-def getAllPackagesWithPaths(use_sort_file=False):
+#def getAllCollectionPackagesWithPaths(collectionName):
+#    packages = getCollectionPackages(collectionName)
+#    # Get packages with their full paths
+#    repoPackages = glob.glob('%s/repo/*.pisi' % consts.source_dir)
+#    for package in packages:
+
+def getAllPackagesWithPaths(collectionIndex="", use_sort_file=False):
     packages = []
 
     if use_sort_file and os.path.exists("%s/repo/install.order" % consts.source_dir):
@@ -143,19 +200,23 @@ def getAllPackagesWithPaths(use_sort_file=False):
         for package in [l.split(" ")[0] for l in open("%s/repo/install.order" % consts.source_dir, "r").readlines() if l]:
             packages.append(os.path.join(consts.source_dir, "repo", os.path.basename(package)))
 
+    # DVD Collection Get Packages With Paths
+    elif collectionIndex and not use_sort_file:
+        for package in getCollectionPackages(collectionIndex):
+            packages.append("%s/repo/%s" % (consts.source_dir, package))
     else:
         # Get packages with their full paths
         packages = glob.glob('%s/repo/*.pisi' % consts.source_dir)
 
-        # Make baselayout package first
-        baselayout = None
-        for package in packages:
-            if 'baselayout' in package:
-                baselayout = packages.index(package)
-                break
+    # Make baselayout package first
+    baselayout = None
+    for package in packages:
+        if 'baselayout' in package:
+            baselayout = packages.index(package)
+            break
 
-        if baselayout:
-            packages.insert(0, packages.pop(baselayout))
+    if baselayout:
+        packages.insert(0, packages.pop(baselayout))
 
     return packages
 
