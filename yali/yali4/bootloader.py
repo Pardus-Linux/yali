@@ -25,6 +25,7 @@ import yali4.partitiontype as parttype
 import yali4.partitionrequest as request
 from yali4.partitionrequest import partrequests
 import yali4.gui.context as ctx
+from pardus.sysutils import get_kernel_option
 
 grub_conf_tmp = """\
 default 0
@@ -68,6 +69,9 @@ def findGrubDev(dev_path, device_map=None):
     else:
         dev_name = str(filter(lambda u: u.isalpha(),
                               os.path.basename(dev_path)))
+
+    ctx.debugger.log("dev_path:%s" % dev_path)
+    ctx.debugger.log("dev_name:%s" % dev_name)
 
     for l in open(device_map).readlines():
         if l.find(dev_name) >= 0:
@@ -117,12 +121,19 @@ class BootLoader:
         deviceMap = open(self.device_map, "w")
         i = 0
 
-        diskList = ctx.installData.orderedDiskList
+        opts = get_kernel_option("mudur")
+
+        if opts.has_key("livedisk"):
+            diskList = ctx.installData.orderedDiskList[1:]
+        else:
+            diskList = ctx.installData.orderedDiskList
 
         # if install root is equal with grub root
         # force install root to be hd0
         if install_root.startswith(ctx.installData.bootLoaderDev):
             # create device map
+            if opts.has_key("livedisk"):
+                ctx.installData.orderedDiskList = ctx.installData.orderedDiskList[1:]
             for disk in ctx.installData.orderedDiskList:
                 if install_root.startswith(disk[5:]):
                     deviceMap.write("(hd%d)\t%s\n" % (i,disk))
@@ -231,12 +242,20 @@ class BootLoader:
 
         major = findGrubDev(root_path)
         minor = getMinor(root_path)
+        # LiveDisk installation grub detects usb
+        opts = get_kernel_option("mudur")
+        if opts.has_key("livedisk"):
+            major = major.replace(major[2],chr(ord(major[2])+1))
+
         root_path = "(%s,%s)" % (major, minor)
 
         if not grub_install_root.startswith("/dev/"):
             grub_install_root = "/dev/%s" % grub_install_root
 
+        # LiveDisk installation grub detects usb
         major = findGrubDev(grub_install_root)
+        if opts.has_key("livedisk"):
+            major = major.replace(major[2],chr(ord(major[2])+1))
 
         ctx.debugger.log("IG: I have found major as '%s'" % major)
         if ctx.installData.bootLoaderOption == 1:
@@ -256,6 +275,7 @@ quit
         file('/tmp/_grub','w').write(batch_template)
         ctx.debugger.log("IG: Batch content : %s" % batch_template)
         cmd = "%s --no-floppy --batch < /tmp/_grub" % yali4.sysutils.find_executable("grub")
+        #cmd = "%s --batch --no-floppy --device-map=%s < %s" % (yali4.sysutils.find_executable("grub"), self.device_map, self.grub_conf)
 
         ctx.debugger.log("IG: Chrooted jobs are finalizing.. ")
         # before installing the bootloader we have to finish chrooted jobs..
@@ -263,6 +283,7 @@ quit
 
         ctx.debugger.log("IG: Grub install cmd is %s" % cmd)
         if os.system(cmd) > 0:
+            ctx.debugger.log("grub")
             ctx.debugger.log("IG: Command failed %s - trying again.. " % cmd)
             time.sleep(2)
             if os.system(cmd) > 0:
