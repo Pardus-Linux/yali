@@ -243,23 +243,28 @@ class PkgInstaller(QThread):
 
         # if exists use remote source repo
         # otherwise use cd as repo
-        ctx.debugger.log("CD Repo adding..")
         if ctx.installData.repoAddr:
             yali4.pisiiface.addRemoteRepo(ctx.installData.repoName,ctx.installData.repoAddr)
+        elif yali4.sysutils.checkYaliParams(param=ctx.consts.dvd_install_param):
+            yali4.pisiiface.addRepo(ctx.consts.dvd_repo_name, ctx.installData.autoInstallationCollection.index)
+            ctx.debugger.log("DVD Repo adding..")
+            # Get only collection packages with collection Name
+            order = yali4.pisiiface.getAllPackagesWithPaths(collectionIndex=ctx.installData.autoInstallationCollection.index)
         else:
+            ctx.debugger.log("CD Repo adding..")
             yali4.pisiiface.addCdRepo()
+            # Check for just installing system.base packages
+            if yali4.sysutils.checkYaliParams(param=ctx.consts.base_only_param):
+                order = yali4.pisiiface.getBasePackages()
+            else:
+                order = yali4.pisiiface.getAllPackagesWithPaths()
 
-        # Check for just installing system.base packages
-        if yali4.sysutils.checkYaliParams(param=ctx.consts.base_only_param):
-            order = yali4.pisiiface.getBasePackages()
-        else:
-            order = yali4.pisiiface.getAllPackagesWithPaths()
+            # Check for extra languages
+            if not ctx.installData.installAllLangPacks:
+                order = list(set(order) - set(yali4.pisiiface.getNotNeededLanguagePackages()))
+                ctx.debugger.log("Not needed lang packages will not be installing...")
+                ctx.debugger.log(yali4.pisiiface.getNotNeededLanguagePackages())
 
-        # Check for extra languages
-        if not ctx.installData.installAllLangPacks:
-            order = list(set(order) - set(yali4.pisiiface.getNotNeededLanguagePackages()))
-            ctx.debugger.log("Not needed lang packages will not be installing...")
-            ctx.debugger.log(yali4.pisiiface.getNotNeededLanguagePackages())
 
         # show progress
         total = len(order)
@@ -338,7 +343,10 @@ class PkgConfigurator(QThread):
             objectSender(qevent)
 
         # Remove cd repository and install add real
-        yali4.pisiiface.switchToPardusRepo()
+        if yali4.sysutils.checkYaliParams(param=ctx.consts.dvd_install_param):
+            yali4.pisiiface.switchToPardusRepo(ctx.consts.dvd_repo_name)
+        else:
+            yali4.pisiiface.switchToPardusRepo(ctx.consts.cd_repo_name)
 
         qevent = PisiEvent(QEvent.User, EventAllFinished)
         objectSender(qevent)
