@@ -33,6 +33,7 @@ import yali4.gui.context as ctx
 import yali4.localeutils
 import yali4.sysutils
 import yali4.fstab
+from pardus.sysutils import get_kernel_option
 
 # pisi base
 import pisi.ui
@@ -62,6 +63,7 @@ import yali4.gui.ScrUsers
 import yali4.gui.ScrPartitionAuto
 import yali4.gui.ScrPartitionManual
 import yali4.gui.ScrBootloader
+import yali4.gui.ScrInstallationAuto
 import yali4.gui.ScrInstall
 import yali4.gui.ScrSummary
 import yali4.gui.ScrGoodbye
@@ -93,6 +95,23 @@ class Yali:
                                        yali4.gui.ScrSummary,             # 10
                                        yali4.gui.ScrInstall,             # 11
                                        yali4.gui.ScrGoodbye              # 12
+                                      ]
+
+        self._screens[YALI_DVDINSTALL] = [                              # Numbers can be used with -s paramter
+                                       yali4.gui.ScrKahyaCheck,          # 00
+                                       yali4.gui.ScrWelcome,             # 01
+                                       yali4.gui.ScrCheckCD,             # 02
+                                       yali4.gui.ScrKeyboard,            # 03
+                                       yali4.gui.ScrDateTime,            # 04
+                                       yali4.gui.ScrUsers,               # 05
+                                       yali4.gui.ScrAdmin,               # 06
+                                       yali4.gui.ScrPartitionAuto,       # 07
+                                       yali4.gui.ScrPartitionManual,     # 08
+                                       yali4.gui.ScrBootloader,          # 09
+                                       yali4.gui.ScrInstallationAuto,    # 10
+                                       yali4.gui.ScrSummary,             # 11
+                                       yali4.gui.ScrInstall,             # 12
+                                       yali4.gui.ScrGoodbye              # 13
                                       ]
 
         # FirstBoot Installation process
@@ -404,7 +423,11 @@ class Yali:
 
     def guessBootLoaderDevice(self, root_part=None):
         if len(yali4.storage.devices) > 1 or ctx.isEddFailed:
-            ctx.installData.bootLoaderDev = os.path.basename(ctx.installData.orderedDiskList[0])
+            opts = get_kernel_option("mudur")
+            if opts.has_key("livedisk"):
+                ctx.installData.bootLoaderDev = os.path.basename(ctx.installData.orderedDiskList[1])
+            else:
+                ctx.installData.bootLoaderDev = os.path.basename(ctx.installData.orderedDiskList[0])
         else:
             if root_part:
                 pardus_path = root_part
