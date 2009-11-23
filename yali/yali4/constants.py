@@ -111,8 +111,14 @@ consts.rescue_mode_param = "rescue"
 consts.base_only_param = "baseonly"
 
 # pisi index files
+consts.dvd_repo_name = "pardus-dvd"
+consts.dvd_install_param = "dvdinstall"
 consts.pisi_index_file = join(consts.data_dir,"data/pisi-index.xml.bz2")
 consts.pisi_index_file_sum = join(consts.data_dir,"data/pisi-index.xml.bz2.sha1sum")
+
+# pisi collection index file
+consts.pisi_collection_file = join(consts.data_dir, "data/index/collection.xml")
+consts.pisi_collection_dir = join(consts.data_dir, "data/index")
 
 # slideshows
 consts.slidepics_dir = join(consts.data_dir, "slideshow")
