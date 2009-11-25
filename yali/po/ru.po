@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-16 23:40+0300\n"
-"PO-Revision-Date: 2009-11-16 21:46+0300\n"
+"PO-Revision-Date: 2009-11-25 22:39+0300\n"
 "Last-Translator: \n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "MIME-Version: 1.0\n"
@@ -1998,34 +1998,57 @@ msgid ""
 "</p>\n"
 "</font>\n"
 msgstr ""
+"\n"
+"<font size=\"+2\">Пользовательские установки</font>\n"
+"<font size=\"+1\">\n"
+"<p>\n"
+"Pardus 2009 позволяет нескольким пользователям работать на одном компьютере."
+"\n"
+"Вы можете управлять правами пользователей, которых вы создаете. Также вы \n"
+"можете устанавливать ограничения для пользователей на некоторые операции "
+"через User Manager.\n"
+"</p>\n"
+"<p>\n"
+"Для того, чтобы создать нового пользователя, заполнителя поля и нажмите "
+"кнопку \"Создать Пользователя\".\n"
+"Если вы хотите, чтобы пользователь автоматически загружался, выберете его\n"
+"из списка. Если вы хотите удалить пользователя\n"
+"выберете его/ее имя из списка и нажмите \"Удалить Выбранного Пользователя\"."
+"\n"
+"После изменений, продолжайте установку.\n"
+"</p>\n"
+"<p>\n"
+"Нажмите Дальше для продолжения.\n"
+"</p>\n"
+"</font>\n"
 
 #: yali4/gui/ScrUsers.py:154 yali4/gui/ScrUsers.py:329
 msgid "Update User"
-msgstr ""
+msgstr "Обновить Пользователя"
 
 #: yali4/gui/ScrUsers.py:243
 msgid "Username exists, choose another one!"
-msgstr ""
+msgstr "Это имя пользователя уже существует, выберете другое!"
 
 #: yali4/gui/ScrUsers.py:246
 msgid "Username contains invalid characters!"
-msgstr ""
+msgstr "Имя пользователя содержит некорректные символы!"
 
 #: yali4/gui/ScrUsers.py:249
 msgid "Realname contains invalid characters!"
-msgstr ""
+msgstr "Настоящее имя пользователя содержит некорректные символы!"
 
 #: yali4/gui/ScrUsers.py:257
 msgid "User ID used before, choose another one!"
-msgstr ""
+msgstr "ID пользователя уже использовался, выберете другой!"
 
 #: yali4/gui/ScrWelcome.py:30
 msgid "Welcome !! "
-msgstr ""
+msgstr "Добро пожаловать!!"
 
 #: yali4/gui/ScrWelcome.py:31
 msgid "Welcome to the Pardus installer..."
-msgstr ""
+msgstr "Добро пожаловать в установщик Pardus..."
 
 #: yali4/gui/ScrWelcome.py:32
 msgid ""
@@ -2043,26 +2066,39 @@ msgid ""
 "pressing the Next button.</p>\n"
 "</font>\n"
 msgstr ""
+"\n"
+"<font size=\"+2\">Добро пожаловать !</font>\n"
+"<font size=\"+1\"><p>Добро пожаловать в Pardus 2009, который содержит в себе "
+"множество программ, легких в использовании. Вы можете делать все, что вам "
+"нужно, "
+"включая создание документов, доступ в интернет, играть в компьютерные игры, "
+"слушать музыку и многое другое используя Pardus 2009.</p>\n"
+"<p>Это приложение поможет вам с установкой Pardus 2009 на "
+"ваш компьютер. Мы советуем вам сделать резервные копии ваших "
+"данных перед тем, как начинать установку.</p>\n"
+"<p>Вы можете начать установку (и сделать шаг в свободный мир)"
+"нажав кнопку \"Далее\".</p>\n"
+"</font>\n"
 
 #: yali4/gui/YaliDialog.py:127 yali4/gui/YaliDialog.py:154
 msgid "Yes"
-msgstr ""
+msgstr "Да"
 
 #: yali4/gui/YaliDialog.py:128 yali4/gui/YaliDialog.py:155
 msgid "No"
-msgstr ""
+msgstr "Нет"
 
 #: yali4/gui/YaliDialog.py:133
 msgid "Don't ask again"
-msgstr ""
+msgstr "Больше не спрашивать"
 
 #: yali4/gui/YaliDialog.py:138
 msgid "Do you want to continue ?"
-msgstr ""
+msgstr "Вы хотите продолжить?"
 
 #: yali4/gui/YaliDialog.py:153
 msgid "Eject CD"
-msgstr ""
+msgstr "Извлечь CD"
 
 #: yali4/gui/YaliDialog.py:179 yali4/gui/YaliDialog.py:196
 msgid "Ok"
