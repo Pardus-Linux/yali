@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-16 23:40+0300\n"
-"PO-Revision-Date: 2009-11-25 22:39+0300\n"
+"PO-Revision-Date: 2009-12-07 21:58+0300\n"
 "Last-Translator: \n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "MIME-Version: 1.0\n"
@@ -2102,61 +2102,61 @@ msgstr "Извлечь CD"
 
 #: yali4/gui/YaliDialog.py:179 yali4/gui/YaliDialog.py:196
 msgid "Ok"
-msgstr ""
+msgstr "Ок"
 
 #: yali4/gui/YaliDialog.py:180
 msgid "Please insert a new CD and then click Ok"
-msgstr ""
+msgstr "Пожалуйста вставьте новый диск и нажмите Ок"
 
 #: yali4/gui/YaliDialog.py:182
 msgid "Insert New CD"
-msgstr ""
+msgstr "Вставьте новый диск"
 
 #: yali4/gui/YaliDialog.py:194
 msgid "Information"
-msgstr ""
+msgstr "Информация"
 
 #: yali4/gui/YaliWindow.py:72 yali4/gui/YaliWindow.py:161
 msgid "Show Help"
-msgstr ""
+msgstr "Показать помощь"
 
 #: yali4/gui/YaliWindow.py:88 yali4/gui/YaliWindow.py:96 yali4/sysutils.py:172
 msgid "right"
-msgstr ""
+msgstr "правый"
 
 #: yali4/gui/YaliWindow.py:95 yali4/gui/YaliWindow.py:98 yali4/sysutils.py:171
 msgid "left"
-msgstr ""
+msgstr "левый"
 
 #: yali4/gui/YaliWindow.py:99
 msgid "Mouse Settings"
-msgstr ""
+msgstr "Установки Мыши"
 
 #: yali4/gui/YaliWindow.py:100
 #, python-format
 msgid "You just used <b>%s</b> button."
-msgstr ""
+msgstr "Вы только что использовали кнопку <b>%s</b> "
 
 #: yali4/gui/YaliWindow.py:101
 #, python-format
 msgid "Do you want to use <b>%s</b> handed mouse settings ?"
-msgstr ""
+msgstr "Вы хотите использовать <b>%s</b> направленные установки мыши ?"
 
 #: yali4/gui/YaliWindow.py:137
 msgid "Terminal"
-msgstr ""
+msgstr "Терминал"
 
 #: yali4/gui/YaliWindow.py:142
 msgid "Tetris"
-msgstr ""
+msgstr "Тетрис"
 
 #: yali4/gui/YaliWindow.py:164
 msgid "Hide Help"
-msgstr ""
+msgstr "Спрятать Помощь"
 
 #: yali4/bootloader.py:216 yali4/bootloader.py:221
 msgid "Windows"
-msgstr ""
+msgstr "Windows"
 
 #: yali4/filesystem.py:165
 #, python-format
@@ -2165,24 +2165,27 @@ msgid ""
 "them.                                      You should restart the machine "
 "before starting the installation process !"
 msgstr ""
+"FSCheck обнаружил некоторые проблемы на разделе %s и "
+"исправил их.                                      Вам следует перезапустить"
+"свой ПК перед началом процесса установки !"
 
 #: yali4/filesystem.py:168
 #, python-format
 msgid "FSCheck failed on %s"
-msgstr ""
+msgstr "Ошибка FSCheck на %s"
 
 #: yali4/filesystem.py:380 yali4/filesystem.py:471
 msgid "Partition is not ready for resizing. Check it before installation."
-msgstr ""
+msgstr "Раздел не готов для изменения. Проверьте его перед установкой."
 
 #: yali4/filesystem.py:477
 #, python-format
 msgid "Resize failed on %s "
-msgstr ""
+msgstr "Ошибка изменения размера на %s "
 
 #: yali4/__init__.py:61
 msgid "Backtrace:"
-msgstr ""
+msgstr "След:"
 
 #: yali4/installer.py:150
 #, python-format
@@ -2190,14 +2193,17 @@ msgid ""
 "Plugin (%s) not found or error occurred while loading. Switching to normal "
 "installation process."
 msgstr ""
+"Дополнение (%s) не найдено или ошибка произошла во время загрузки. "
+"Переключение "
+"к нормальному режиму установки."
 
 #: yali4/installer.py:156
 msgid "YALI Is Working..."
-msgstr ""
+msgstr "YALI Работает..."
 
 #: yali4/installer.py:172
 msgid "Starting for CD Check"
-msgstr ""
+msgstr "Старт проверки CD"
 
 #: yali4/installer.py:190
 #, python-format
