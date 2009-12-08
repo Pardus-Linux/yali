@@ -42,7 +42,13 @@ def run(cmd, params=None, capture=False, appendToLog=True):
     ctx.debugger.log("RUN : %s" % cmd)
 
     # Create an instance for Popen
-    proc = subprocess.Popen(_cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    try:
+        proc = subprocess.Popen(_cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    except Exception, e:
+        if e.errno == 2:
+            # No such executable
+            ctx.debugger.log("FAILED : '%s' %s" % (cmd, e))
+            return False
 
     # Capture the output
     stdout, stderr = proc.communicate()
