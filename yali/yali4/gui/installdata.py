@@ -16,6 +16,9 @@ methodUseAvail, methodEraseAll, methodManual = range(3)
 # Auto Installation Methods
 methodInstallAutomatic, methodInstallManual = range(2)
 
+# Auto Selected Kernels
+defaultKernel, paeKernel, rtKernel = range(3)
+
 # Boot Loader Options
 B_DONT_INSTALL = 0
 B_INSTALL_PART = 1
@@ -40,6 +43,7 @@ class InstallData:
     autoPartDev = None
     autoPartPartition = None
     autoPartMethod = methodUseAvail
+    autoInstallationKernel = None
     autoInstallationCollection = None
     autoInstallationMethod = methodInstallAutomatic
     bootLoaderDev = None
