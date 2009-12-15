@@ -128,21 +128,30 @@ def getCollection():
 
     return packageCollection
 
-def getCollectionPackages(collectionIndex):
+def getCollectionPackages(collectionIndex, ignoreKernels=False):
     ctx.debugger.log("index_path%s" % collectionIndex)
     piksemelObj = piksemel.parseString(bz2.decompress(file(collectionIndex).read()))
-    ret = []
+    collectionPackages = []
     for package in piksemelObj.tags("Package"):
-        tagData = package.getTagData("PackageURI")
-        ret.append(tagData)
-    return ret
+        if ignoreKernels:
+            partof =  package.getTagData("PartOf")
+            # Get collection packages without all kernel components
+            if partof and partof.startswith("kernel"):
+                continue
+            else:
+                tagData = package.getTagData("PackageURI")
+        else:
+            tagData = package.getTagData("PackageURI")
+        collectionPackages.append(tagData)
+    return collectionPackages
 
 def getXmlObject(path):
     return piksemel.parseString(bz2.decompress(file(path).read()))
 
-def getPackages(tag, value):
-    index_path = os.path.join(consts.source_dir, "repo/pisi-index.xml.bz2")
-    piksemelObj = piksemel.parseString(bz2.decompress(file(index_path).read()))
+def getPackages(tag, value, index):
+    if not index:
+        index = os.path.join(consts.source_dir, "repo/pisi-index.xml.bz2")
+    piksemelObj = piksemel.parseString(bz2.decompress(file(index).read()))
     ret = []
     for package in piksemelObj.tags("Package"):
         tagData = package.getTagData(tag)
@@ -191,7 +200,7 @@ def install(pkg_name_list):
 #    repoPackages = glob.glob('%s/repo/*.pisi' % consts.source_dir)
 #    for package in packages:
 
-def getAllPackagesWithPaths(collectionIndex="", use_sort_file=False):
+def getAllPackagesWithPaths(collectionIndex="", use_sort_file=False, use_selected_kernel) :
     packages = []
 
     if use_sort_file and os.path.exists("%s/repo/install.order" % consts.source_dir):
@@ -202,8 +211,21 @@ def getAllPackagesWithPaths(collectionIndex="", use_sort_file=False):
 
     # DVD Collection Get Packages With Paths
     elif collectionIndex and not use_sort_file:
-        for package in getCollectionPackages(collectionIndex):
-            packages.append("%s/repo/%s" % (consts.source_dir, package))
+        if use_selected_kernel:
+            collectionAllPackages = getCollectionPackages(collectionIndex, ignoreKernels=True)
+            if use_selected_kernel == ctx.installData.defaultKernel:
+                kernelPackages = getPackages("PartOf", "kernel.default", collectionIndex)
+            elif use_selected_kernel == ctx.installData.paeKernel:
+                kernelPackages = getPackages("PartOf", "kernel.pae", collectionIndex)
+            else:
+                kernelPackages = getPackages("PartOf", "kernel.rt", collectionIndex)
+            for package in collectionAllPackages:
+                packages.append("%s/repo/%s" % (consts.source_dir, package))
+            packages.extend(kernelPackages)
+        else:
+            for package in getCollectionPackages(collectionIndex, ignore_kernels=False):
+                packages.append("%s/repo/%s" % (consts.source_dir, package))
+
     else:
         # Get packages with their full paths
         packages = glob.glob('%s/repo/*.pisi' % consts.source_dir)
