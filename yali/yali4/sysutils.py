@@ -123,6 +123,17 @@ def udevSettle(timeout=None):
         arg = "--timeout=%d" % int(timeout)
     run("udevadm settle %s" % arg)
 
+def checkKernelFlags(flag):
+    for line ine open("/proc/cpuinfo", "r").readlines():
+        if line.startswith("flags"):
+            return flag in line
+
+def isLoadedKernelPAE()
+    if os.uname()[2].split("-")[-1].__eq__("pae"):
+        return True
+    else:
+        return False
+
 def checkYaliParams(param):
     for i in [x for x in open("/proc/cmdline", "r").read().split()]:
         if i.startswith("yali4="):
