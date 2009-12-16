@@ -26,6 +26,7 @@ from yali4.gui.GUIException import *
 from yali4.gui.installdata import *
 import yali4.pisiiface
 import yali4.gui.context as ctx
+import yali4.sysutils
 
 ##
 # Installation Choice Widget
@@ -47,7 +48,9 @@ class Widget(QtGui.QWidget, ScreenWidget):
         self.ui.setupUi(self)
 
         self.collections = None
+        self.selectedKernelType = None
         self.selectedCollection = None
+        self.defaultKernelType = None
         self.defaultCollection = None
         self.enable_next = False
         self.isManualInstallation = False
@@ -62,6 +65,8 @@ class Widget(QtGui.QWidget, ScreenWidget):
         self.connect(self.ui.radioManual, SIGNAL("toggled(bool)"),self.slotToggleManual)
         self.connect(self.ui.radioAutomatic, SIGNAL("toggled(bool)"),self.slotToggleAutomatic)
         self.connect(self.ui.radioAutomatic, SIGNAL("clicked()"),self.slotClickedAutomatic)
+        self.connect(self.ui.radioDefaultKernel, SIGNAL("toggled(bool)"),self.slotToggleDefaultKernel)
+        self.connect(self.ui.radioPAEKernel, SIGNAL("toggled(bool)"),self.slotTogglePAEKernel)
         #self.connect(self.ui.collectionList, SIGNAL("currentItemChanged(QListWidgetItem *, QListWidgetItem *)"),self.slotCollectionItemChanged)
 
     def fillCollectionList(self):
@@ -80,6 +85,9 @@ class Widget(QtGui.QWidget, ScreenWidget):
 
         self.ui.collectionList.setCurrentRow(0)
 
+    def getLoadedKernelType(self):
+        pass
+
     def shown(self):
         # scan partitions for resizing
         self.toggleAll()
@@ -93,6 +101,11 @@ class Widget(QtGui.QWidget, ScreenWidget):
         elif len(self.collections) >= 1:
             self.isManualInstallation = True
             self.selectedCollection = self.defaultCollection
+
+        if sysutils.isLoadedKernelPAE() or sysutils.checkKernelFlags("pae"):
+            self.radioPAEKernel.setEnabled(True)
+        else:
+            self.radioPAEKernel.setEnabled(False)
 
         ctx.mainScreen.disableNext()
 
@@ -142,7 +155,6 @@ class Widget(QtGui.QWidget, ScreenWidget):
 
     def slotToggleAutomatic(self, checked):
         if checked:
-            self.collection = self.defaultCollection
             self.ui.collectionList.setEnabled(False)
         else:
             self.ui.collectionList.setEnabled(True)
@@ -157,6 +169,15 @@ class Widget(QtGui.QWidget, ScreenWidget):
             self.ui.collectionList.setEnabled(False)
         #self.ui.radioAutomatic.setChecked(False)
         #self.ui.collectionList.setEnabled(True)
+
+    def slotToggleDefaultKernel(self, checked):
+        if checked:
+            self.defaultKernelType = ctx.installdata.defaultKernel
+
+    def slotTogglePAEKernel(self, checked):
+        if checked:
+            self.defaultKernelType = ctx.installdata.paeKernel
+
 
 #    def setAutoExclusives(self, val=True):
 #        self.ui.collectionList.setEnabled(val)
