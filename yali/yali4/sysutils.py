@@ -124,7 +124,7 @@ def udevSettle(timeout=None):
     run("udevadm settle %s" % arg)
 
 def checkKernelFlags(flag):
-    for line ine open("/proc/cpuinfo", "r").readlines():
+    for line in open("/proc/cpuinfo", "r").readlines():
         if line.startswith("flags"):
             return flag in line
 
