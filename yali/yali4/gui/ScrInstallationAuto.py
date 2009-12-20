@@ -67,6 +67,7 @@ class Widget(QtGui.QWidget, ScreenWidget):
         self.connect(self.ui.radioAutomatic, SIGNAL("clicked()"),self.slotClickedAutomatic)
         self.connect(self.ui.radioDefaultKernel, SIGNAL("toggled(bool)"),self.slotToggleDefaultKernel)
         self.connect(self.ui.radioPAEKernel, SIGNAL("toggled(bool)"),self.slotTogglePAEKernel)
+        self.connect(self.ui.radioRTKernel, SIGNAL("toggled(bool)"),self.slotToggleRTKernel)
         #self.connect(self.ui.collectionList, SIGNAL("currentItemChanged(QListWidgetItem *, QListWidgetItem *)"),self.slotCollectionItemChanged)
 
     def fillCollectionList(self):
@@ -83,15 +84,23 @@ class Widget(QtGui.QWidget, ScreenWidget):
             if collection.default:
                 self.defaultCollection = collection
 
+        ctx.debugger.log("Default Collection : %s" % self.defaultCollection.title)
+
         self.ui.collectionList.setCurrentRow(0)
 
-    def getLoadedKernelType(self):
-        pass
+    def setDefaultKernelType(self):
+        if yali4.sysutils.isLoadedKernelPAE() or yali4.sysutils.checkKernelFlags("pae"):
+            self.defaultKernelType = paeKernel
+            ctx.debugger.log("Kernel Type as PAE")
+        else:
+            self.defaultKernelType = defaultKernel
+            ctx.debugger.log("Kernel Type as Default")
 
     def shown(self):
         # scan partitions for resizing
         self.toggleAll()
         self.fillCollectionList()
+        self.setDefaultKernelType()
         self.toggleAll(True)
 
         if len(self.collections) == 0:
@@ -102,10 +111,12 @@ class Widget(QtGui.QWidget, ScreenWidget):
             self.isManualInstallation = True
             self.selectedCollection = self.defaultCollection
 
-        if sysutils.isLoadedKernelPAE() or sysutils.checkKernelFlags("pae"):
-            self.radioPAEKernel.setEnabled(True)
+        if self.defaultKernelType == paeKernel:
+            self.ui.radioPAEKernel.setEnabled(True)
+            self.ui.radioPAEKernel.setChecked(True)
         else:
-            self.radioPAEKernel.setEnabled(False)
+            self.ui.radioPAEKernel.setEnabled(False)
+            self.ui.radioDefaultKernel.setChecked(True)
 
         ctx.mainScreen.disableNext()
 
@@ -128,7 +139,15 @@ class Widget(QtGui.QWidget, ScreenWidget):
             ctx.installData.autoInstallationCollection = self.selectedCollection
             ctx.debugger.log("Manual Installation selected..")
 
-        ctx.debugger.log("Trying to Install selected Packages from %s Collection" % ctx.installData.autoInstallationCollection.title)
+        if self.ui.radioDefaultKernel.isChecked():
+            ctx.installData.autoInstallationKernel = defaultKernel
+        elif self.ui.radioPAEtKernel.isChecked():
+            ctx.installData.autoInstallationKernel = paeKernel
+        elif self.ui.radioRTKernel.isChecked():
+            ctx.installData.autoInstallationKernel = rtKernel
+
+        ctx.debugger.log("Trying to Install selected Packages from %s Collection with %s Type" % \
+                                (ctx.installData.autoInstallationCollection.title, kernels[ctx.installData.autoInstallationKernel]))
         return True
 
     #def slotCollectionItemChanged(self, current, previous):
@@ -172,12 +191,15 @@ class Widget(QtGui.QWidget, ScreenWidget):
 
     def slotToggleDefaultKernel(self, checked):
         if checked:
-            self.defaultKernelType = ctx.installdata.defaultKernel
+            self.defaultKernelType = defaultKernel
 
     def slotTogglePAEKernel(self, checked):
         if checked:
-            self.defaultKernelType = ctx.installdata.paeKernel
+            self.defaultKernelType = paeKernel
 
+    def slotToggleRTKernel(self, checked):
+        if checked:
+            self.defaultKernelType = rtKernel
 
 #    def setAutoExclusives(self, val=True):
 #        self.ui.collectionList.setEnabled(val)
