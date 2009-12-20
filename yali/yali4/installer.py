@@ -545,7 +545,7 @@ class Yali:
                      {"text":_("Setting misc. package configurations..."),"operation":yali4.postinstall.setPackages},
                      {"text":_("Installing BootLoader..."),"operation":self.installBootloader}]
 
-        if self.install_type in [YALI_INSTALL, YALI_FIRSTBOOT]:
+        if self.install_type in [YALI_INSTALL, YALI_DVDINSTALL, YALI_FIRSTBOOT]:
             rootWidget.steps.setOperations(steps)
         elif self.install_type == YALI_PLUGIN:
             rootWidget.steps.setOperations(self.plugin.config.steps)
