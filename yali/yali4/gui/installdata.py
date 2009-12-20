@@ -19,6 +19,12 @@ methodInstallAutomatic, methodInstallManual = range(2)
 # Auto Selected Kernels
 defaultKernel, paeKernel, rtKernel = range(3)
 
+kernels = {
+        defaultKernel:"kernel.default",
+        paeKernel:"kernel.pae",
+        rtKernel:"kernel.rt"
+        }
+
 # Boot Loader Options
 B_DONT_INSTALL = 0
 B_INSTALL_PART = 1
