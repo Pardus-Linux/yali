@@ -230,9 +230,16 @@ Here you can see your install options before installation starts.
             content.append(subject % _("Package Installation Settings"))
             #installation_str = _("Installation Collection <b>%s</b> installed.")
             if ctx.installData.autoInstallationMethod == methodInstallAutomatic:
-                content.append("Auto installation collection selected")
+                content.append(item % _("Auto installation collection selected."))
             else:
-                content.append("Manual Installation %s collection selected" % ctx.installData.autoInstallationCollection)
+                content.append(item % _("Manual Installation %s collection selected" % ctx.installData.autoInstallationCollection))
+
+            if ctx.installData.autoInstallationKernel == defaultKernel:
+                content.append(item % _("Default Kernel selected"))
+            elif ctx.installData.autoInstallationKernel == paeKernel:
+                content.append(item % _("PAE Kernel selected"))
+            elif ctx.installData.autoInstallationKernel == rtKernel:
+                content.append(item % _("Real Time Kernel selected"))
 
             content.append(end)
 
