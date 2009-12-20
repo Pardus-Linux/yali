@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 #
 # Copyright (C) 2005-2008, TUBITAK/UEKAE
 #
@@ -10,7 +9,7 @@
 # Please read the COPYING file.
 #
 
-# PiSİ module for YALI
+# PiSi module for YALI
 
 import os
 import bz2
@@ -23,6 +22,7 @@ import yali4.sysutils
 import yali4.postinstall
 from yali4.constants import consts
 import yali4.gui.context as ctx
+from yali4.gui.installdata import *
 
 repodb = pisi.db.repodb.RepoDB()
 
@@ -128,12 +128,13 @@ def getCollection():
 
     return packageCollection
 
-def getCollectionPackages(collectionIndex, ignoreKernels=False):
+def getCollectionPackages(collectionIndex, kernels=False):
     ctx.debugger.log("index_path%s" % collectionIndex)
     piksemelObj = piksemel.parseString(bz2.decompress(file(collectionIndex).read()))
     collectionPackages = []
     for package in piksemelObj.tags("Package"):
-        if ignoreKernels:
+        # ignorekernel assignment changes kernel packages adding into package list
+        if kernels:
             partof =  package.getTagData("PartOf")
             # Get collection packages without all kernel components
             if partof and partof.startswith("kernel"):
@@ -148,7 +149,7 @@ def getCollectionPackages(collectionIndex, ignoreKernels=False):
 def getXmlObject(path):
     return piksemel.parseString(bz2.decompress(file(path).read()))
 
-def getPackages(tag, value, index):
+def getPackages(tag=None, value=None, index=None):
     if not index:
         index = os.path.join(consts.source_dir, "repo/pisi-index.xml.bz2")
     piksemelObj = piksemel.parseString(bz2.decompress(file(index).read()))
@@ -158,16 +159,20 @@ def getPackages(tag, value, index):
         if tagData:
             for node in package.tags(tag):
                 data = node.firstChild().data()
-                if (not data.find(':') == -1 and data.startswith(value)) or (data.find(':') == -1 and data == value):
+                #if (not data.find(':') == -1 and data.startswith(value)) or (data.find(':') == -1 and data == value):
+                #Really don't understand why this control clauses used.
+                if data.startswith(value):
                     ret.append("%s,%s" % (package.getTagData("PackageURI"), data))
     return ret
 
 def mergePackagesWithRepoPath(packages):
     return map(lambda x: os.path.join(consts.source_dir, 'repo', x.split(',')[0]), packages)
 
+def getNeededKernel(type, index):
+    return mergePackagesWithRepoPath(filter(lambda x: x.split(',')[1].startswith(kernels[type]), getPackages("PartOf", "kernel", index)))
+
 def getNotNeededLanguagePackages():
-    return mergePackagesWithRepoPath(filter(lambda x: not x.split(',')[1].split(':')[1].startswith((consts.lang, "en")), \
-                                            getPackages("IsA", "locale:")))
+    return mergePackagesWithRepoPath(filter(lambda x: not x.split(',')[1].split(':')[1].startswith((consts.lang, "en")), getPackages("IsA", "locale:")))
 
 def getBasePackages():
     systemBase = getPackages("PartOf", "system.base")
@@ -200,7 +205,7 @@ def install(pkg_name_list):
 #    repoPackages = glob.glob('%s/repo/*.pisi' % consts.source_dir)
 #    for package in packages:
 
-def getAllPackagesWithPaths(collectionIndex="", use_sort_file=False, use_selected_kernel) :
+def getAllPackagesWithPaths(collectionIndex="", use_sort_file=False, ignoreKernels=False) :
     packages = []
 
     if use_sort_file and os.path.exists("%s/repo/install.order" % consts.source_dir):
@@ -211,21 +216,8 @@ def getAllPackagesWithPaths(collectionIndex="", use_sort_file=False, use_selecte
 
     # DVD Collection Get Packages With Paths
     elif collectionIndex and not use_sort_file:
-        if use_selected_kernel:
-            collectionAllPackages = getCollectionPackages(collectionIndex, ignoreKernels=True)
-            if use_selected_kernel == ctx.installData.defaultKernel:
-                kernelPackages = getPackages("PartOf", "kernel.default", collectionIndex)
-            elif use_selected_kernel == ctx.installData.paeKernel:
-                kernelPackages = getPackages("PartOf", "kernel.pae", collectionIndex)
-            else:
-                kernelPackages = getPackages("PartOf", "kernel.rt", collectionIndex)
-            for package in collectionAllPackages:
-                packages.append("%s/repo/%s" % (consts.source_dir, package))
-            packages.extend(kernelPackages)
-        else:
-            for package in getCollectionPackages(collectionIndex, ignore_kernels=False):
-                packages.append("%s/repo/%s" % (consts.source_dir, package))
-
+        # With dvd collection selection different kernel can be selected. If ignoreKernels is True collection package list return without kernel packages
+        packages = mergePackagesWithRepoPath(getCollectionPackages(collectionIndex, kernels=ignoreKernels))
     else:
         # Get packages with their full paths
         packages = glob.glob('%s/repo/*.pisi' % consts.source_dir)
