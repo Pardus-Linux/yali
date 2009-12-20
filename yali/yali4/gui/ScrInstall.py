@@ -249,7 +249,9 @@ class PkgInstaller(QThread):
             yali4.pisiiface.addRepo(ctx.consts.dvd_repo_name, ctx.installData.autoInstallationCollection.index)
             ctx.debugger.log("DVD Repo adding..")
             # Get only collection packages with collection Name
-            order = yali4.pisiiface.getAllPackagesWithPaths(collectionIndex=ctx.installData.autoInstallationCollection.index)
+            order = yali4.pisiiface.getAllPackagesWithPaths(collectionIndex=ctx.installData.autoInstallationCollection.index, ignoreKernels=True)
+            kernelPackages = yali4.pisiiface.getNeededKernel(ctx.installData.autoInstallationKernel, ctx.installData.autoInstallationCollection.index)
+            order.extend(kernelPackages)
         else:
             ctx.debugger.log("CD Repo adding..")
             yali4.pisiiface.addCdRepo()
