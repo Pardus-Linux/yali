@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: sv\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-16 23:40+0300\n"
-"PO-Revision-Date: 2009-07-16 22:47+0200\n"
+"PO-Revision-Date: 2009-12-28 17:19+0100\n"
 "Last-Translator: Patrik Karlsson <patrik@pardus.nu>\n"
 "Language-Team: Swedish <pardus-translators@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -861,7 +861,8 @@ msgid ""
 msgstr ""
 "Gimp är ett avancerat bildbehandlingsprogram. Tillåter skapande och "
 "redigering avvanliga grafik- och bildfilsformat, det har förmågor som "
-"professionellagrafiska konstnärer och formgivare behöver, och en förmåga att "
+"professionella grafiska konstnärer och formgivare behöver, och en förmåga "
+"att "
 "enkelt integrera nya filter med sitt instickssystem."
 
 #: yali4/gui/descSlide.py:34
@@ -2297,7 +2298,7 @@ msgstr "Tjeckiska"
 
 #: yali4/localedata.py:114
 msgid "Welsh"
-msgstr "Walesiska"
+msgstr "Kymriska"
 
 #: yali4/localedata.py:124
 msgid "Arabic"
