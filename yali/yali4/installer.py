@@ -381,7 +381,11 @@ class Yali:
             ctx.debugger.log("UA: newPartSize : %s " % newPartSize)
             ctx.debugger.log("UA: resizing to : %s " % (int(part.getMB()) - newPartSize))
 
-            _np = dev.resizePartition(part._fsname, part.getMB() - newPartSize, part)
+            try:
+                _np = dev.resizePartition(part._fsname, part.getMB() - newPartSize, part)
+            except FSCheckError, message:
+                ctx.debugger.log("FAILED: %s" % unicode(message))
+                InfoDialog(unicode(message), title = _("Filesystem Error"))
 
             self.info.updateMessage(_("Resize Finished ..."))
             ctx.debugger.log("UA: Resize finished.")
