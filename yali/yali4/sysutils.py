@@ -128,7 +128,7 @@ def checkKernelFlags(flag):
         if line.startswith("flags"):
             return flag in line
 
-def isLoadedKernelPAE()
+def isLoadedKernelPAE():
     if os.uname()[2].split("-")[-1].__eq__("pae"):
         return True
     else:
