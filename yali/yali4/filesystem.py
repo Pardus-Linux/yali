@@ -468,7 +468,7 @@ class NTFSFileSystem(FileSystem):
             size_mb = minsize
 
         if not self.resizeSilent(size_mb, partition) or not self.preResize(partition):
-            raise FSCheckError, _("Partition is not ready for resizing. Check it before installation.")
+            raise FSCheckError, _("Opening '%s' as NTFS failed: The NTFS journal file is unclean. Please shutdown Windows properly before using this software! Note, if you have run chkdsk previously then boot Windows again which will automatically initialize the journal correctly" % partition.getPath())
 
         cmd_path = requires("ntfsresize")
         cmd = "%s -P -ff -s %dM %s" % (cmd_path, size_mb, partition.getPath())
