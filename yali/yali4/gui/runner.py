@@ -143,10 +143,12 @@ class Runner:
         QTimer.singleShot(700,self._init_screen)
 
     def _init_screen(self, screen = 0):
-        # We want it to be a full-screen window.
-        self._window.resize(self._app.desktop().size())
-        self._window.setMaximumSize(self._app.desktop().size())
-        self._window.move(0,0)
+        # We want it to be a full-screen window
+        # inside the primary display.
+        scr = self._app.desktop().screenGeometry()
+        self._window.resize(scr.size())
+        self._window.setMaximumSize(scr.size())
+        self._window.move(scr.topLeft())
         self._window.show()
         ctx.yali.info.updateMessage()
 

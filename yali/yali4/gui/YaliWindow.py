@@ -43,10 +43,6 @@ class Widget(QtGui.QWidget):
         self.ui = Ui_YaliMain()
         self.ui.setupUi(self)
 
-        # Use only the primary display
-        desktop = QtGui.qApp.desktop()
-        self.setFixedSize(desktop.screenGeometry(0).size())
-
         self.font = 10
 
         self.screenData = None
