@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-16 23:40+0300\n"
-"PO-Revision-Date: 04/01/10 16:10\n"
+"PO-Revision-Date: 04/01/10 16:19\n"
 "Last-Translator: Antoon Tolboom <atolboo@gmail.com>\n"
 "Language-Team: Nederlands <kde-i18n-nl@kde.org>\n"
 "MIME-Version: 1.0\n"
@@ -2017,7 +2017,7 @@ msgstr "De echte naam bevat niet toegestane tekens!"
 
 #: yali4/gui/ScrUsers.py:257
 msgid "User ID used before, choose another one!"
-msgstr "De gebruiker-id bestaat reeds. Kies een andere!"
+msgstr "Het gebruiker-id bestaat reeds. Kies een andere!"
 
 #: yali4/gui/ScrWelcome.py:30
 msgid "Welcome !! "
