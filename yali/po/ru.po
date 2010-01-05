@@ -1,13 +1,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-# , 2009.
+# , 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-16 23:40+0300\n"
-"PO-Revision-Date: 2009-12-07 21:58+0300\n"
+"PO-Revision-Date: 2010-01-05 14:30+0300\n"
 "Last-Translator: \n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "MIME-Version: 1.0\n"
@@ -2208,111 +2208,115 @@ msgstr "Старт проверки CD"
 #: yali4/installer.py:190
 #, python-format
 msgid "Checking: %s"
-msgstr ""
+msgstr "Проверка: %s"
 
 #: yali4/installer.py:197
 msgid "Check Failed"
-msgstr ""
+msgstr "Ошибка проверки"
 
 #: yali4/installer.py:198
 msgid ""
 "<b><p>Integrity check for packages failed.                                  "
 "It seems that installation CD is broken.</p></b>"
 msgstr ""
+"<b><p>Ошибка проверки целостности пакетов.                                  "
+"Судя по всему, CD поврежден.</p></b>"
 
 #: yali4/installer.py:202
 msgid ""
 "<font color=\"#FFF\"><b>Check succeeded. You can proceed to the next screen."
 "</b></font>"
 msgstr ""
+"<font color=\"#FFF\"><b>Проверка успешна. Можно продолжать."
+"</b></font>"
 
 #: yali4/installer.py:220
 msgid "Setting time settings.."
-msgstr ""
+msgstr "Установка параметров времени.."
 
 #: yali4/installer.py:247
 msgid "Disk analyze started.."
-msgstr ""
+msgstr "Начат анализ диска.."
 
 #: yali4/installer.py:305
 msgid "Writing disk tables ..."
-msgstr ""
+msgstr "Запись таблиц на диск ..."
 
 #: yali4/installer.py:367
 msgid "Resize Finished ..."
-msgstr ""
+msgstr "Изменение Размера Завершено ..."
 
 #: yali4/installer.py:373
 msgid "Creating new partition ..."
-msgstr ""
+msgstr "Создание нового раздела..."
 
 #: yali4/installer.py:392
 msgid "Failed to use partition for automatic installation "
-msgstr ""
+msgstr "Не удалось использовать раздел для автоматической установки"
 
 #: yali4/installer.py:514
 msgid "Setting Hostname..."
-msgstr ""
+msgstr "Установка Имени..."
 
 #: yali4/installer.py:515
 msgid "Setting TimeZone..."
-msgstr ""
+msgstr "Установка Часового Пояса..."
 
 #: yali4/installer.py:516
 msgid "Setting Root Password..."
-msgstr ""
+msgstr "Установка Пароля Суперпользователя...."
 
 #: yali4/installer.py:517
 msgid "Adding Users..."
-msgstr ""
+msgstr "Добавление Пользователей..."
 
 #: yali4/installer.py:518
 msgid "Writing Console Data..."
-msgstr ""
+msgstr "Запись данных в консоль..."
 
 #: yali4/installer.py:519
 msgid "Migrating X.org Configuration..."
-msgstr ""
+msgstr "Установка Данных X.Org"
 
 #: yali4/installer.py:521
 msgid "Copy Pisi index..."
-msgstr ""
+msgstr "Копирование индекса Pisi..."
 
 #: yali4/installer.py:522
 msgid "Setting misc. package configurations..."
-msgstr ""
+msgstr "Установка различных конфигураций ПО..."
 
 #: yali4/localedata.py:20
 msgid "Turkish"
-msgstr ""
+msgstr "Турецкий"
 
 #: yali4/localedata.py:22
 msgid "Turkish F"
-msgstr ""
+msgstr "Турецкий Ф"
 
 #: yali4/localedata.py:22
 msgid "Turkish Q"
-msgstr ""
+msgstr "Турецкий К"
 
 #: yali4/localedata.py:31
 msgid "English"
-msgstr ""
+msgstr "Английский"
 
 #: yali4/localedata.py:42
 msgid "English GB"
-msgstr ""
+msgstr "Классический Английский"
 
 #: yali4/localedata.py:52
 msgid "Greek"
-msgstr ""
+msgstr "Греческий"
 
 #: yali4/localedata.py:62
 msgid "Afrikaans"
-msgstr ""
+msgstr "Африканский"
 
 #: yali4/localedata.py:72
 msgid "Vietnamese"
-msgstr ""
+msgstr "Вьетнамский"
 
 #: yali4/localedata.py:82
 msgid "Catalan"
