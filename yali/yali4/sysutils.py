@@ -273,6 +273,14 @@ def isLinuxBoot(partition_path, file_system):
 
     return result
 
+def liveMediaSystem(path=None):
+    if not path:
+        path  = "/var/run/pardus/livemedia"
+    if os.path.exists(path):
+        return file("/var/run/pardus/livemedia", 'r').read().split('\n')[0]
+    else:
+        return None
+
 def pardusRelease(partition_path, file_system):
     import yali4.gui.context as ctx
     result = False

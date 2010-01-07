@@ -121,9 +121,9 @@ class BootLoader:
         deviceMap = open(self.device_map, "w")
         i = 0
 
-        opts = get_kernel_option("mudur")
-
-        if opts.has_key("livedisk"):
+        #opts = get_kernel_option("mudur")
+        opts = yali4.sysutils.liveMediaSystem()
+        if opts.__eq__("harddisk"):
             diskList = ctx.installData.orderedDiskList[1:]
         else:
             diskList = ctx.installData.orderedDiskList
@@ -132,7 +132,7 @@ class BootLoader:
         # force install root to be hd0
         if install_root.startswith(ctx.installData.bootLoaderDev):
             # create device map
-            if opts.has_key("livedisk"):
+            if opts.__eq__("harddisk"):
                 ctx.installData.orderedDiskList = ctx.installData.orderedDiskList[1:]
             for disk in ctx.installData.orderedDiskList:
                 if install_root.startswith(disk[5:]):
@@ -243,8 +243,9 @@ class BootLoader:
         major = findGrubDev(root_path)
         minor = getMinor(root_path)
         # LiveDisk installation grub detects usb
-        opts = get_kernel_option("mudur")
-        if opts.has_key("livedisk"):
+        #opts = get_kernel_option("mudur")
+        opts = yali4.sysutils.liveMediaSystem()
+        if opts.__eq__("harddisk"):
             major = major.replace(major[2],chr(ord(major[2])+1))
 
         root_path = "(%s,%s)" % (major, minor)
@@ -254,7 +255,7 @@ class BootLoader:
 
         # LiveDisk installation grub detects usb
         major = findGrubDev(grub_install_root)
-        if opts.has_key("livedisk"):
+        if opts.__eq__("harddisk"):
             major = major.replace(major[2],chr(ord(major[2])+1))
 
         ctx.debugger.log("IG: I have found major as '%s'" % major)

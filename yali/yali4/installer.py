@@ -427,8 +427,9 @@ class Yali:
 
     def guessBootLoaderDevice(self, root_part=None):
         if len(yali4.storage.devices) > 1 or ctx.isEddFailed:
-            opts = get_kernel_option("mudur")
-            if opts.has_key("livedisk"):
+            #opts = get_kernel_option("mudur")
+            opts = yali4.sysutils.liveMediaSystem()
+            if opts.__eq__("harddisk"):
                 ctx.installData.bootLoaderDev = os.path.basename(ctx.installData.orderedDiskList[1])
             else:
                 ctx.installData.bootLoaderDev = os.path.basename(ctx.installData.orderedDiskList[0])
