@@ -7,13 +7,13 @@
 # Atilla Aktuna <aktuna@gmail.com>, 2006.
 # Amine Chadly <amine.chadly@gmail.com>, 2007.
 # Ozan Çağlayan <ozan@pardus.org.tr>, 2008.
-# Philippe Svetoslavsky <philsvet@gmail.com>, 2009.
+# Philippe Svetoslavsky <philsvet@gmail.com>, 2009, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-16 23:40+0300\n"
-"PO-Revision-Date: 2009-08-26 20:37+0200\n"
+"PO-Revision-Date: 2010-01-09 14:51+0100\n"
 "Last-Translator: Philippe Svetoslavsky <philsvet@gmail.com>\n"
 "Language-Team: French <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
@@ -111,7 +111,8 @@ msgstr ""
 
 #: yali4/gui/Ui/autopartwidget.py:118
 msgid "Try to use free space or resize current partitions"
-msgstr "Partitionner automatiquement en utilisant l'espace disponible ou en "
+msgstr ""
+"Partitionner automatiquement en utilisant l'espace disponible ou en "
 "redimensionnant les partitions courantes."
 
 #: yali4/gui/Ui/autopartwidget.py:119
@@ -609,8 +610,7 @@ msgid "Begin Install"
 msgstr "Débuter l'installation"
 
 #: yali4/gui/Ui/summarywidget.py:70
-msgid ""
-"If you check this, Yalı will install all language packages in this release"
+msgid "If you check this, Yalı will install all language packages in this release"
 msgstr "Si vous cochez cette case, Yali installera tous les paquets de langue"
 
 #: yali4/gui/Ui/summarywidget.py:71
@@ -752,7 +752,7 @@ msgstr ""
 "l'installation de la distribution. Avec lui, vous pouvez configurer votre "
 "bureau, changer la place du tableau de bord, le fond d'écran, le thème de "
 "bureau et votre connexion à Internet. Kaptan vous permet d'ajouter le dépôt "
-"'Contrib' qui donnec accès à des logiciels supplémentaires. Kaptan peut "
+"'Contrib' qui donne accès à des logiciels supplémentaires. Kaptan peut "
 "également activer la recherche intelligente et propose une visite guidée de "
 "Pardus."
 
@@ -838,11 +838,10 @@ msgid ""
 "and follow RSS feeds. Using Kopete, you can connect to popular networks like "
 "MSN and GTalk, and chat online with your friends."
 msgstr ""
-"Se connecter à ses contacts et amis est facilité par le niveau d'intégration du bureau de Pardus 2009."
-"Avec Kontact, vous envoyez et recevez des courriers électroniques, vous organisez vos rendez-vous,"
-"vous créez votre carnet d'adresses, vous prenez des notes et suivez l'actualité de vos flux RSS."
-"Avec Kopete, vous accédez aux réseaux de messagerie instantanée MSN, GTalk, ICQ, Jabber et à la possibilité "
-"de discuter en ligne avec vos amis."
+"Se connecter à ses contacts et amis est facilité par le niveau d'intégration du bureau de Pardus 2009. Avec Kontact, vous "
+"envoyez et recevez des courriers électroniques, vous organisez vos rendez-vous, vous créez votre carnet d'adresses, vous "
+"prenez des notes et suivez l'actualité de vos flux RSS. Avec Kopete, vous accédez aux réseaux de messagerie instantanée MSN, "
+"GTalk, ICQ, Jabber et à la possibilité de discuter en ligne avec vos amis."
 
 #: yali4/gui/descSlide.py:32
 msgid ""
@@ -858,7 +857,7 @@ msgstr ""
 "de base de données, un outil pour intégrer des formules mathématiques et enfin "
 "un logiciel de dessin pour réaliser vos schémas. Grâce à OpenOffice.org, ouvrez et modifiez "
 "les documents créés avec d'autres suites bureautiques et partagez ces documents avec vos contacts "
-"quelle que soit la suite bureautique qu'il utilisent."
+"quelle que soit la suite bureautique qu'ils utilisent."
 
 #: yali4/gui/descSlide.py:33
 msgid ""
@@ -877,8 +876,7 @@ msgid ""
 "Pardus, along with the preinstalled games, has many games in its "
 "repositories, allowing hours of fun with various kinds of games available "
 "through the package manager."
-msgstr ""
-"Pardus vous propose de nombreux jeux vidéo dans ses dépôts. Des heures de jeu en perspective !"
+msgstr "Pardus vous propose de nombreux jeux vidéo dans ses dépôts. Des heures de jeu en perspective !"
 
 #: yali4/gui/descSlide.py:35
 msgid ""
@@ -893,7 +891,7 @@ msgstr ""
 "Pardus 2009 prend en charge la plupart du matériel informatique. Cartes sonore et "
 "graphique sont auto-détectées au démarrage, ainsi que la carte réseau, avec ou sans fil, "
 "qui sera alors prête à accueillir vos paramètres de connexion à votre fournisseur d'accès "
-"à Internet. De la même façon, l'installation de votre imprimante est automatique. il suffit "
+"à Internet. De la même façon, l'installation de votre imprimante est automatique. Il suffit "
 "de la relier à l'ordinateur pour que Pardus installe son pilote et la configure tout seul."
 
 #: yali4/gui/descSlide.py:36
@@ -961,10 +959,8 @@ msgstr "Une zone est déjà réservée pour ce type de partition."
 
 #: yali4/gui/DiskWidgets.py:349
 #, python-format
-msgid ""
-"Partition <b>%(partition)s</b> will be <b>formatted</b> as <b>%(fsType)s</b>."
-msgstr ""
-"Partition <b>%(partition)s</b> sera <b>formatée</b> comme <b>%(fsType)s</b>."
+msgid "Partition <b>%(partition)s</b> will be <b>formatted</b> as <b>%(fsType)s</b>."
+msgstr "Partition <b>%(partition)s</b> sera <b>formatée</b> comme <b>%(fsType)s</b>."
 
 #: yali4/gui/DiskWidgets.py:364 yali4/gui/ScrSummary.py:163
 #, python-format
@@ -987,8 +983,7 @@ msgstr "Trop de partitions primaires !"
 msgid ""
 "You need to delete one of the primary or extended(if exists) partition from "
 "your disk table !"
-msgstr ""
-"Vous devez supprimer une des partitions primaires ou étendues de votre disque dur !"
+msgstr "Vous devez supprimer une des partitions primaires ou étendues de votre disque dur !"
 
 #: yali4/gui/DiskWidgets.py:418
 msgid "Error !"
@@ -1037,8 +1032,7 @@ msgstr ""
 #: yali4/gui/DiskWidgets.py:595 yali4/gui/ScrSummary.py:161
 #, python-format
 msgid "All partitions on device <b>%(device)s</b> has been deleted."
-msgstr ""
-"Toutes les partitions sur le disque <b>%(device)s</b> sont supprimées. "
+msgstr "Toutes les partitions sur le disque <b>%(device)s</b> sont supprimées. "
 
 #: yali4/gui/GUIAdditional.py:75
 msgid ""
@@ -1181,7 +1175,8 @@ msgstr "<font color=\"#FF6D19\">Les mots de passe ne sont pas identiques !</font
 
 #: yali4/gui/ScrAdmin.py:134
 msgid "Don't use your username as password !"
-msgstr "<font color=\"#FF6D19\">N'utilisez pas votre nom d'utilisateur ou nom propre "
+msgstr ""
+"<font color=\"#FF6D19\">N'utilisez pas votre nom d'utilisateur ou nom propre "
 "comme mot de passe !</font>"
 
 #: yali4/gui/ScrAdmin.py:154
@@ -1264,8 +1259,7 @@ msgstr ""
 
 #: yali4/gui/ScrCheckCD.py:50
 msgid "<font color=\"#FFF\">Please wait while checking CD.</font>"
-msgstr ""
-"<font color=\"#FFF\">Veuillez patienter pendant la vérification du CD.</font>"
+msgstr "<font color=\"#FFF\">Veuillez patienter pendant la vérification du CD.</font>"
 
 #: yali4/gui/ScrCheckCD.py:51
 msgid "Stop Checking"
@@ -1277,8 +1271,7 @@ msgstr "Configurer votre fuseau horaire"
 
 #: yali4/gui/ScrDateTime.py:29
 msgid "You can change your timezone, time or date settings..."
-msgstr ""
-"Vous pouvez changer votre fuseau horaire et modifier la date et l'heure"
+msgstr "Vous pouvez changer votre fuseau horaire et modifier la date et l'heure"
 
 #: yali4/gui/ScrDateTime.py:31
 msgid ""
@@ -1346,7 +1339,6 @@ msgstr "Exécution des opérations post install est en cours.."
 #: yali4/gui/ScrGoodbye.py:85 yali4/gui/ScrRescueFinish.py:87
 msgid "Press <b>Reboot</b> button to restart your system."
 msgstr "Cliquez le bouton <b>Redémarrer</b> pour redémarrer le système."
-
 
 #: yali4/gui/ScrGoodbye.py:87 yali4/gui/ScrRescueFinish.py:89
 msgid "<b>Rebooting system. Please wait!</b>"
@@ -1696,7 +1688,8 @@ msgstr "Info"
 
 #: yali4/gui/ScrRescuePassword.py:108 yali4/gui/ScrUsers.py:190
 msgid "Don't use your user name or name as a password."
-msgstr "<font color=\"#FF6D19\">N'utilisez pas votre nom d'utilisateur ou nom propre "
+msgstr ""
+"<font color=\"#FF6D19\">N'utilisez pas votre nom d'utilisateur ou nom propre "
 "comme mot de passe.</font>"
 
 #: yali4/gui/ScrRescuePassword.py:148
@@ -1737,7 +1730,6 @@ msgid ""
 msgstr ""
 "Vous pouvez réinstaller Grub ou reprendre votre système grâce à l'historique "
 "de Pisi..."
-
 
 #: yali4/gui/ScrRescue.py:33
 msgid ""
