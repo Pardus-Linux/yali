@@ -19,6 +19,10 @@ import shutil
 import sysutils
 import yali4.pisiiface
 
+import yali4.partitiontype as parttype
+import yali4.partitionrequest as request
+from yali4.partitionrequest import partrequests
+
 import gettext
 __trans = gettext.translation('yali4', fallback=True)
 _ = __trans.ugettext
@@ -261,5 +265,32 @@ def setPackages():
             ctx.debugger.log("Dbus error: package doesnt exist !")
             return False
     return True
+
+
+def writeInitramfsConf(parameters=[]):
+    path = os.path.join(consts.target_dir, "etc/initramfs.conf")
+
+    rootPartitionRequest = ctx.partrequests.searchPartTypeAndReqType(parttype.root, request.mountRequestType)
+    rootPartitionLabel = rootPartitionRequest.partition().getTempLabel()
+    parameters.append("root=LABEL=%s" % rootPartitionLabel)
+
+    swapPartitionRequest = partrequests.searchPartTypeAndReqType(parttype.swap, request.mountRequestType)
+
+    if swapPartitionRequest:
+        parameters.append("resume=%s" % swapPartitionRequest.partition().getPath())
+
+    ctx.debugger.log("Configuring initramfs.conf file with parameters:%s" % " ".join(parameters))
+
+    initramfsConf = open(path, 'w')
+    for param in parameters:
+        try:
+            initramfsConf.write("%s\n" % param)
+        except IOError, msg:
+            ctx.debugger.log("Unexpected error: %s" % msg)
+            raise IOError
+        finally:
+            initramfsConf.close()
+
+
 
 
