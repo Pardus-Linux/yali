@@ -245,6 +245,9 @@ class BootLoader:
         # LiveDisk installation grub detects usb
         #opts = get_kernel_option("mudur")
         opts = yali4.sysutils.liveMediaSystem()
+        ctx.debugger.log("IG: I have found mediaSystem '%s'" % opts)
+        ctx.debugger.log("IG: I have found major:'%s' minor:'%s'" % (major, minor))
+
         if opts.__eq__("harddisk"):
             major = major.replace(major[2],chr(ord(major[2])+1))
 
@@ -290,7 +293,14 @@ quit
             if os.system(cmd) > 0:
                 raise YaliException, "Command failed: %s" % cmd
             else:
-                return True
+                if os.system("sync") > 0:
+                    return False
+                else:
+                    return True
             return False
-        return True
+        else:
+            if os.system("sync") > 0:
+                return False
+            else:
+                return True
 
