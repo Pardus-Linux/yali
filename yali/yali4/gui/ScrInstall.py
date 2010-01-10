@@ -30,6 +30,7 @@ import yali4.localeutils
 
 import yali4.gui.context as ctx
 import yali4.partitionrequest as request
+from yali4.constants import consts
 
 from yali4.gui.descSlide import slideDesc
 from yali4.gui.ScreenWidget import ScreenWidget
@@ -191,6 +192,9 @@ Have fun!
 
         # postscripts depend on 03locale...
         yali4.localeutils.writeLocaleFromCmdline()
+
+        #Write InitramfsConf
+        yali4.postinstall.writeInitramfsConf()
 
         # run dbus in chroot
         yali4.sysutils.chrootDbus()
