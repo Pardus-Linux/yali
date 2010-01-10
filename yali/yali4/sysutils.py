@@ -49,23 +49,23 @@ def run(cmd, params=None, capture=False, appendToLog=True):
             # No such executable
             ctx.debugger.log("FAILED : '%s' %s" % (cmd, e))
             return False
+    else:
+        # Capture the output
+        stdout, stderr = proc.communicate()
+        result = proc.poll()
 
-    # Capture the output
-    stdout, stderr = proc.communicate()
-    result = proc.poll()
+        ctx.debugger.log(stderr)
+        if appendToLog:
+            ctx.debugger.log(stdout)
 
-    ctx.debugger.log(stderr)
-    if appendToLog:
-        ctx.debugger.log(stdout)
-
-    # if return code larger then zero, means there is a problem with this command
-    if result > 0:
-        ctx.debugger.log("FAILED : %s" % cmd)
-        return False
-    ctx.debugger.log("SUCCESS : %s" % cmd)
-    if capture:
-        return stdout
-    return True
+        # if return code larger then zero, means there is a problem with this command
+        if result > 0:
+            ctx.debugger.log("FAILED : %s" % cmd)
+            return False
+        ctx.debugger.log("SUCCESS : %s" % cmd)
+        if capture:
+            return stdout
+        return True
 
 def chrootRun(cmd):
     run("chroot %s %s" % (consts.target_dir, cmd))
