@@ -282,15 +282,12 @@ def writeInitramfsConf(parameters=[]):
     ctx.debugger.log("Configuring initramfs.conf file with parameters:%s" % " ".join(parameters))
 
     initramfsConf = open(path, 'w')
+
     for param in parameters:
         try:
             initramfsConf.write("%s\n" % param)
         except IOError, msg:
             ctx.debugger.log("Unexpected error: %s" % msg)
             raise IOError
-        finally:
-            initramfsConf.close()
 
-
-
-
+    initramfsConf.close()
