@@ -236,7 +236,7 @@ class ConnectionWidget(QtGui.QWidget):
 
         for package in connections.keys():
             for connection in connections[package]:
-                ci = ConnectionItem(self.ui.connectionList, str(connection), package)
+                ci = ConnectionItem(self.ui.connectionList, unicode(str(connection)), package)
 
         self.ui.connectionList.setCurrentRow(0)
         self.resize(ctx.mainScreen.size())
