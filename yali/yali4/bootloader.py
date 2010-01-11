@@ -155,6 +155,12 @@ class BootLoader:
         minor = getMinor(install_root)
         grub_root = ",".join([major, minor])
 
+        def find_pardus_release():
+            """Returns Pardus Relase"""
+            releaseConfPath = os.path.join(consts.target_dir, "etc/pardus-release")
+            ctx.debugger.log("DEBUG: Pardus Release %s" % file(releaseConfPath).readlines()[0].strip())
+            return file(releaseConfPath).readlines()[0].strip()
+
         def find_boot_kernel():
             """ Returns the installed kernel version """
             d = os.path.join(consts.target_dir, "boot")
@@ -178,18 +184,20 @@ class BootLoader:
                 return True
 
             s = []
-            s.append("root=LABEL=%s" % (root_label))
+            # Add initramfs.conf config file support on 2009.1. But may be old system didnt have it(Like Pardus 2008)
+            if not os.path.exists(os.path.join(consts.target_dir, "etc/initramfs.conf")):
+                s.append("root=LABEL=%s" % (root_label))
+                # a hack for http://bugs.pardus.org.tr/3345
+                rt = request.mountRequestType
+                pt = parttype.swap
+                swap_part_req = partrequests.searchPartTypeAndReqType(pt, rt)
+                if swap_part_req:
+                    s.append("resume=%s" %(swap_part_req.partition().getPath()))
+
             # Get parameters from cmdline.
             for i in [x for x in open("/proc/cmdline", "r").read().split()]:
                 if is_required(i):
                     s.append(i)
-
-            # a hack for http://bugs.pardus.org.tr/3345
-            rt = request.mountRequestType
-            pt = parttype.swap
-            swap_part_req = partrequests.searchPartTypeAndReqType(pt, rt)
-            if swap_part_req:
-                s.append("resume=%s" %(swap_part_req.partition().getPath()))
 
             return " ".join(s).strip()
 
@@ -199,7 +207,7 @@ class BootLoader:
         boot_parameters =  boot_parameters(install_root_path_label)
         s = grub_conf_tmp % {"root": install_root,
                              "grub_root": grub_root,
-                             "pardus_version": consts.pardus_version,
+                             "pardus_version": find_pardus_release(),
                              "boot_kernel": boot_kernel,
                              "boot_parameters": boot_parameters,
                              "initramfs": initramfs_name}
