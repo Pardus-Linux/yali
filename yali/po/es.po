@@ -8,18 +8,20 @@
 # Christian Faure <christian.faurebouvard@laposte.net>, 2007.
 # Klemens Häckel <click3d at linuxmail dot org>, 2008, 2009.
 # Klemens Häckel <click3d at linuxmail dot com>, 2008, 2009.
+# Klemens Häckel <click3d at linuxmail (dot) org>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-16 23:40+0300\n"
-"PO-Revision-Date: 2009-07-16 19:47-0400\n"
-"Last-Translator: Klemens Häckel <click3d at linuxmail dot org>\n"
-"Language-Team: spanish <es@li.org>\n"
+"PO-Revision-Date: 2010-01-11 21:27-0300\n"
+"Last-Translator: Klemens Häckel <click3d at linuxmail (dot) org>\n"
+"Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Lokalize 0.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: yali4/gui/Ui/autopartquestion.py:78 yali4/gui/Ui/connectionlist.py:70
 #: yali4/gui/Ui/datetimewidget.py:89 yali4/gui/Ui/exception.py:58
@@ -44,7 +46,7 @@ msgstr "X"
 
 #: yali4/gui/Ui/autopartquestion.py:81
 msgid "Automatically choose the partition to resize (recommended)"
-msgstr "Elegir partición a redimensionar automáticamente (recomendado)"
+msgstr "Automáticamente elegir Partición a redimensionar (recomendado)"
 
 #: yali4/gui/Ui/autopartquestion.py:82
 msgid "I will choose the target"
@@ -52,7 +54,7 @@ msgstr "Yo elegiré el destino"
 
 #: yali4/gui/Ui/autopartquestion.py:83
 msgid "Use Selected"
-msgstr "Use Seleccionado"
+msgstr "Usar Seleccionado"
 
 #: yali4/gui/Ui/autopartwidget.py:109 yali4/gui/Ui/bootloaderwidget.py:75
 #: yali4/gui/Ui/checkcdwidget.py:80 yali4/gui/Ui/keyboardwidget.py:59
@@ -114,7 +116,7 @@ msgstr ""
 
 #: yali4/gui/Ui/autopartwidget.py:118
 msgid "Try to use free space or resize current partitions"
-msgstr "Intentará usar el espacio libre o redimensionar particiones existentes"
+msgstr "Intentar usar el espacio libre o redimensionar particiones existentes"
 
 #: yali4/gui/Ui/autopartwidget.py:119
 msgid ""
@@ -187,7 +189,7 @@ msgstr ""
 
 #: yali4/gui/Ui/bootloaderwidget.py:81 yali4/gui/Ui/rescuegrubwidget.py:76
 msgid "Select target to install boot loader"
-msgstr "Seleccione el destino para la instalación del cargador de arranque"
+msgstr "Seleccione el destino para el cargador de arranque"
 
 # cual sería la mejor forma de expresar booteable
 #: yali4/gui/Ui/bootloaderwidget.py:82 yali4/gui/Ui/rescuegrubwidget.py:77
@@ -205,7 +207,7 @@ msgstr "Disco seleccionado abajo"
 
 #: yali4/gui/Ui/bootloaderwidget.py:85
 msgid "Don't install bootloader"
-msgstr "No Instalar el cargador de arranque"
+msgstr "No Instalar cargador de arranque"
 
 #: yali4/gui/Ui/bootloaderwidget.py:86
 msgid "Automatically add other operating systems to the GRUB Menu"
@@ -280,7 +282,7 @@ msgstr ""
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Por favor complete un "
 "reporte de falla en <span style=\" font-weight:600;\">http://bugs.pardus.org."
-"tr/</span> agregando el siguiente trazo inverso.</p></body></html>"
+"tr/</span> adjuntando el siguiente trazo inverso.</p></body></html>"
 
 #: yali4/gui/Ui/exception.py:66
 msgid "Show Backtrace"
@@ -348,7 +350,7 @@ msgstr "Atrás"
 
 #: yali4/gui/Ui/main.py:190
 msgid "Next Screen"
-msgstr "Pantalla siguiente"
+msgstr "Avanzar a la pantalla siguiente"
 
 #: yali4/gui/Ui/main.py:191
 msgid "Next"
@@ -376,7 +378,7 @@ msgstr "Formatear :"
 
 #: yali4/gui/Ui/partedit.py:159
 msgid "Yes, format this partition"
-msgstr "Si, formatear esta partición"
+msgstr "Sí, formatear esta partición"
 
 #: yali4/gui/Ui/partedit.py:160
 msgid "File System :"
@@ -400,7 +402,7 @@ msgstr "Actualizar información de discos"
 
 #: yali4/gui/Ui/partedit.py:165
 msgid "Reset All Changes"
-msgstr "Deshacer todos Cambios"
+msgstr "Deshacer todos los cambios"
 
 # i just say "accept", because the program does the "apply" act later !!
 #: yali4/gui/Ui/partedit.py:166
@@ -1046,20 +1048,20 @@ msgstr "Eliminar todas las particiones"
 # maybe here should add a comment, this refers to / "root" (or system-) partition, i might have configured my pardus distributed over several partitions (home, var, boot, ..)
 #: yali4/gui/DiskWidgets.py:534
 msgid "Pardus will install here"
-msgstr "Aquí se va a instalar la raiz (/) de Pardus"
+msgstr "Instalación de la raiz (/) de Pardus"
 
 #: yali4/gui/DiskWidgets.py:537
 msgid "User files will store here"
-msgstr "Aquí se guardarán los archivos de los usuarios"
+msgstr "Archivos de los usuarios"
 
 # how long may the translated string be ??
 #: yali4/gui/DiskWidgets.py:540
 msgid "Swap will be here"
-msgstr "Aquí estará el espacio de intercambio (Swap)"
+msgstr "Memoria de intercambio (Swap)"
 
 #: yali4/gui/DiskWidgets.py:543
 msgid "Backup or archive files will store here"
-msgstr "Aquí se guardarán archivos de copias de seguridad y otros"
+msgstr "Archivos de copias de seguridad y otros"
 
 #: yali4/gui/DiskWidgets.py:562
 #, python-format
@@ -1781,7 +1783,7 @@ msgstr "Modo de rescate del registro histórico de PISI"
 
 #: yali4/gui/ScrRescuePisi.py:41
 msgid "You can take back your system ..."
-msgstr "Puede volver arrás el estado de su sistema..."
+msgstr "Puede volver atrás el estado de su sistema..."
 
 #: yali4/gui/ScrRescuePisi.py:43
 msgid ""
@@ -1877,7 +1879,7 @@ msgstr "Teclado"
 #: yali4/gui/ScrSummary.py:123
 #, python-format
 msgid "Selected keyboard layout is <b>%s</b>"
-msgstr "Distribución de teclado <b>%s</b>"
+msgstr "Teclado <b>%s</b> seleccionado"
 
 #: yali4/gui/ScrSummary.py:127
 msgid "Date/Time Settings"
@@ -2014,7 +2016,7 @@ msgstr "Creación de Usuarios"
 
 #: yali4/gui/ScrUsers.py:33
 msgid "Create users to use Pardus..."
-msgstr "Crear los usuarios, que usarán Pardus..."
+msgstr "Crear los usuarios de Pardus..."
 
 #: yali4/gui/ScrUsers.py:35
 msgid ""
@@ -2283,7 +2285,7 @@ msgstr ""
 
 #: yali4/installer.py:220
 msgid "Setting time settings.."
-msgstr "Configurando reloj..."
+msgstr "Configurando hora del sistema..."
 
 #: yali4/installer.py:247
 msgid "Disk analyze started.."
@@ -2545,4 +2547,5 @@ msgstr "Preparando directorio home de usuario <b>%s</b>.."
 #, python-format
 msgid "Not enough free space on %s to create new partition"
 msgstr "No hay suficiente espacio libre en %s para crear una partición nueva"
+
 
