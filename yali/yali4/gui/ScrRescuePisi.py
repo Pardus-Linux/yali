@@ -49,17 +49,16 @@ class Widget(QtGui.QWidget, ScreenWidget):
         QtGui.QWidget.__init__(self,None)
         self.ui = Ui_RescuePisiWidget()
         self.ui.setupUi(self)
-
         self.steps = YaliSteps()
         self.steps.setOperations([{"text":_("Starting DBUS..."),"operation":yali4.sysutils.chrootDbus},
                                   {"text":_("Trying to connect DBUS..."),"operation":yali4.postinstall.connectToDBus},
                                   {"text":_("Getting history ..."),"operation":self.fillHistoryList}])
 
         self.connect(self.ui.buttonSelectConnection, SIGNAL("clicked()"), self.showConnections)
+        self.connectionWidget = None
 
     def showConnections(self):
-        connections = ConnectionWidget(self)
-        connections.show()
+        self.connectionWidget.show()
 
     def fillHistoryList(self):
         ui = PisiUI()
@@ -73,13 +72,23 @@ class Widget(QtGui.QWidget, ScreenWidget):
             return False
         return True
 
+    def checkRegisteredConnections(self):
+        self.connectionWidget = ConnectionWidget(self)
+        registeredConnectionsTotal = 0
+        for connection in self.connectionWidget.connections.values():
+            registeredConnectionsTotal+=len(connection)
+
+        return registeredConnectionsTotal
+
     def shown(self):
-        ctx.mainScreen.disableBack()
         self.ui.buttonSelectConnection.setEnabled(False)
         ctx.yali.info.show()
         self.steps.slotRunOperations()
         ctx.yali.info.hide()
-        self.ui.buttonSelectConnection.setEnabled(True)
+        if self.checkRegisteredConnections():
+            self.ui.buttonSelectConnection.setEnabled(True)
+        else:
+            self.ui.labelStatus.setText(_("There is no connection"))
 
     def execute(self):
         ctx.takeBackOperation = self.ui.historyList.currentItem().getInfo()
