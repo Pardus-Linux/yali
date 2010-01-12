@@ -232,36 +232,37 @@ class ConnectionWidget(QtGui.QWidget):
         self.connect(self.ui.buttonCancel, SIGNAL("clicked()"), self.hide)
         self.connect(self.ui.buttonConnect, SIGNAL("clicked()"), self.slotUseSelected)
 
-        connections = getConnectionList()
+        self.connections = getConnectionList()
+        if self.connections:
+            for package in self.connections.keys():
+                for connection in self.connections[package]:
+                    ci = ConnectionItem(self.ui.connectionList, unicode(str(connection)), package)
 
-        for package in connections.keys():
-            for connection in connections[package]:
-                ci = ConnectionItem(self.ui.connectionList, unicode(str(connection)), package)
-
-        self.ui.connectionList.setCurrentRow(0)
-        self.resize(ctx.mainScreen.size())
+            self.ui.connectionList.setCurrentRow(0)
+            self.resize(ctx.mainScreen.size())
 
     def slotUseSelected(self):
         current = self.ui.connectionList.currentItem()
-        ctx.yali.info.updateAndShow(_("Connecting to network <b>%s</b> ...") % current.getConnection())
+        if current:
+            ctx.yali.info.updateAndShow(_("Connecting to network <b>%s</b> ...") % current.getConnection())
 
-        try:
-            ret = current.connect()
-        except:
-            ret = True
-            self.rootWidget.ui.labelStatus.setText(_("Connection failed"))
-            ctx.yali.info.updateAndShow(_("Connection failed"))
+            try:
+                ret = current.connect()
+            except:
+                ret = True
+                self.rootWidget.ui.labelStatus.setText(_("Connection failed"))
+                ctx.yali.info.updateAndShow(_("Connection failed"))
 
-        if not ret:
-            self.rootWidget.ui.labelStatus.setText(_("Connected"))
-            ctx.yali.info.updateAndShow(_("Connected"))
+            if not ret:
+                self.rootWidget.ui.labelStatus.setText(_("Connected"))
+                ctx.yali.info.updateAndShow(_("Connected"))
 
-        self.hide()
-        ctx.mainScreen.processEvents()
-        ctx.yali.info.hide()
+            self.hide()
+            ctx.mainScreen.processEvents()
+            ctx.yali.info.hide()
 
-        if self.needsExecute:
-            self.rootWidget.execute_(True)
+            if self.needsExecute:
+                self.rootWidget.execute_(True)
 
 
 class TextBrowser(QtGui.QTextBrowser):
