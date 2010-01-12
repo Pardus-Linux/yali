@@ -134,6 +134,16 @@ def isLoadedKernelPAE():
     else:
         return False
 
+def checkCmdLineParams(param, value=None):
+    for parameter in [x for x in open("/proc/cmdline", "r").read().split()]:
+        if parameter.startswith(param):
+            if value:
+                if value in parameter.split("=")[1].split(","):
+                    return True
+            else:
+                return True
+    return False
+
 def checkYaliParams(param):
     for i in [x for x in open("/proc/cmdline", "r").read().split()]:
         if i.startswith("yali4="):
@@ -182,7 +192,10 @@ def memTotal():
     return None
 
 def ejectCdrom(mount_point=consts.source_dir):
-    run("eject -m %s" % mount_point)
+    if not checkCmdLineParams("copytoram"):
+        run("eject -m %s" % mount_point)
+    else:
+        reboot()
 
 def setMouse(key="left"):
     struct = {_("left") :"1 2 3",
