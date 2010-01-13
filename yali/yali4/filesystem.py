@@ -468,7 +468,10 @@ class NTFSFileSystem(FileSystem):
             size_mb = minsize
 
         if not self.resizeSilent(size_mb, partition) or not self.preResize(partition):
-            raise FSCheckError, _("Opening '%s' as NTFS failed: The NTFS journal file is unclean. Please shutdown Windows properly before using this software! Note, if you have run chkdsk previously then boot Windows again which will automatically initialize the journal correctly" % partition.getPath())
+            raise FSCheckError, _("The filesystem of '%s' partition is NTFS, and this partition \n " \
+                                  "was not closed properly. Please restart your system and close \n " \
+                                  "this partition properly! After this operation, start Pardus \n " \
+                                  "installation again!" % partition.getPath())
 
         cmd_path = requires("ntfsresize")
         cmd = "%s -P -ff -s %dM %s" % (cmd_path, size_mb, partition.getPath())
