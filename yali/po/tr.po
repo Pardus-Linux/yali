@@ -666,7 +666,7 @@ msgstr ""
 
 #: yali4/gui/ScrGoodbye.py:43
 msgid "Goodbye from YALI"
-msgstr "Hoşçakalın"
+msgstr "Hoşça Kalın"
 
 #: yali4/gui/ScrGoodbye.py:44
 msgid "Enjoy your fresh Pardus !..."
@@ -1427,7 +1427,7 @@ msgstr "Kullanıcı Ekle"
 
 #: yali4/gui/ScrWelcome.py:30
 msgid "Welcome !! "
-msgstr "Hoşgeldiniz !!"
+msgstr "Hoş Geldiniz !!"
 
 #: yali4/gui/ScrWelcome.py:31
 msgid "Welcome to the Pardus installer..."
@@ -1450,7 +1450,7 @@ msgid ""
 "</font>\n"
 msgstr ""
 "\n"
-"<font size=\"+2\">Hoşgeldiniz !</font>\n"
+"<font size=\"+2\">Hoş Geldiniz !</font>\n"
 "<font size=\"+1\"><p>Kullanımı kolay pek çok yazılım bileşeni içeren Pardus "
 "2009'a hoşgeldiniz. Pardus 2009 ile Internet'e bağlanmaktan belgeler "
 "oluşturmaya, oyun oynamaktan müzik dinlemeye kadar ihtiyacınız olan her şeyi "
