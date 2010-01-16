@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-16 23:40+0300\n"
-"PO-Revision-Date: 2010-01-05 14:30+0300\n"
+"PO-Revision-Date: 2010-01-16 13:19+0300\n"
 "Last-Translator: \n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "MIME-Version: 1.0\n"
@@ -2320,131 +2320,131 @@ msgstr "Вьетнамский"
 
 #: yali4/localedata.py:82
 msgid "Catalan"
-msgstr ""
+msgstr "Каталонский"
 
 #: yali4/localedata.py:93
 msgid "Italian"
-msgstr ""
+msgstr "Итальянский"
 
 #: yali4/localedata.py:104
 msgid "Czech"
-msgstr ""
+msgstr "Чешский"
 
 #: yali4/localedata.py:114
 msgid "Welsh"
-msgstr ""
+msgstr "Валлийский"
 
 #: yali4/localedata.py:124
 msgid "Arabic"
-msgstr ""
+msgstr "Арабский"
 
 #: yali4/localedata.py:134
 msgid "Estonian"
-msgstr ""
+msgstr "Эстонский"
 
 #: yali4/localedata.py:144
 msgid "Spanish"
-msgstr ""
+msgstr "Испанский"
 
 #: yali4/localedata.py:155
 msgid "Russian"
-msgstr ""
+msgstr "Русский"
 
 #: yali4/localedata.py:165
 msgid "Dutch"
-msgstr ""
+msgstr "Немецкий"
 
 #: yali4/localedata.py:176
 msgid "Portuguese"
-msgstr ""
+msgstr "Португальский"
 
 #: yali4/localedata.py:187
 msgid "Norwegian"
-msgstr ""
+msgstr "Норвежский"
 
 #: yali4/localedata.py:197
 msgid "Icelandic"
-msgstr ""
+msgstr "Исландский"
 
 #: yali4/localedata.py:207
 msgid "Polish"
-msgstr ""
+msgstr "Польский"
 
 #: yali4/localedata.py:218
 msgid "Belgium"
-msgstr ""
+msgstr "Бельгийский"
 
 #: yali4/localedata.py:228
 msgid "French"
-msgstr ""
+msgstr "Французский"
 
 #: yali4/localedata.py:239
 msgid "Bulgarian"
-msgstr ""
+msgstr "Болгарский"
 
 #: yali4/localedata.py:249
 msgid "Slovenian"
-msgstr ""
+msgstr "Словенский"
 
 #: yali4/localedata.py:259
 msgid "Croatian"
-msgstr ""
+msgstr "Хорватский"
 
 #: yali4/localedata.py:269
 msgid "German"
-msgstr ""
+msgstr "Немецкий"
 
 #: yali4/localedata.py:280
 msgid "Danish"
-msgstr ""
+msgstr "Датский"
 
 #: yali4/localedata.py:290
 msgid "Brazilian"
-msgstr ""
+msgstr "Бразильский"
 
 #: yali4/localedata.py:300
 msgid "Finnish"
-msgstr ""
+msgstr "Финский"
 
 #: yali4/localedata.py:310
 msgid "Hungarian"
-msgstr ""
+msgstr "Венгерский"
 
 #: yali4/localedata.py:320
 msgid "Japanese"
-msgstr ""
+msgstr "Японский"
 
 #: yali4/localedata.py:330
 msgid "Malayalam"
-msgstr ""
+msgstr "Малаялам"
 
 #: yali4/localedata.py:340
 msgid "Swedish"
-msgstr ""
+msgstr "Шведский"
 
 #: yali4/localedata.py:351
 msgid "Macedonian"
-msgstr ""
+msgstr "Македонский"
 
 #: yali4/localedata.py:361
 msgid "Slovak"
-msgstr ""
+msgstr "Словакский"
 
 #: yali4/localedata.py:371
 msgid "Ukrainian"
-msgstr ""
+msgstr "Украинский"
 
 #: yali4/localedata.py:381
 msgid "Serbian"
-msgstr ""
+msgstr "Сербский"
 
 #: yali4/partition.py:34
 msgid "unknown"
-msgstr ""
+msgstr "неизвестный"
 
 #: yali4/partition.py:206
 msgid "free space"
-msgstr ""
+msgstr "свободное место"
 
 #: yali4/partitiontype.py:36
 msgid "Install Root"
