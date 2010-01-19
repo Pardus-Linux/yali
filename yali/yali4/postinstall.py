@@ -257,6 +257,7 @@ def setPackages():
         try:
             obj = bus.get_object("tr.org.pardus.comar", "/package/yali4")
             obj.setState("off", dbus_interface="tr.org.pardus.comar.System.Service")
+            #FIXME: We no longer have kdebase package in 2009!!
             obj = bus.get_object("tr.org.pardus.comar", "/package/kdebase")
             obj.setState("on", dbus_interface="tr.org.pardus.comar.System.Service")
             os.unlink("%s/etc/yali-is-firstboot" % ctx.consts.target_dir)
