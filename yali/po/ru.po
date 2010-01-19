@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-16 23:40+0300\n"
-"PO-Revision-Date: 2010-01-16 13:19+0300\n"
+"PO-Revision-Date: 2010-01-19 21:15+0300\n"
 "Last-Translator: \n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "MIME-Version: 1.0\n"
@@ -2448,40 +2448,40 @@ msgstr "свободное место"
 
 #: yali4/partitiontype.py:36
 msgid "Install Root"
-msgstr ""
+msgstr "Установить Суперпользователя"
 
 #: yali4/partitiontype.py:43
 msgid "as Pardus System Files (mandatory)"
-msgstr ""
+msgstr "как системные файлы Pardus (обязательно)"
 
 #: yali4/partitiontype.py:46
 msgid "Users' Files"
-msgstr ""
+msgstr "Файлы Пользователя"
 
 #: yali4/partitiontype.py:53
 msgid "as User Files (optional)"
-msgstr ""
+msgstr "как Файлы Пользователя (опционально)"
 
 #: yali4/partitiontype.py:56
 msgid "Swap"
-msgstr ""
+msgstr "Своп"
 
 #: yali4/partitiontype.py:64
 msgid "as Swap Space (optional)"
-msgstr ""
+msgstr "как место для Свопа (Виртуальной памяти)"
 
 #: yali4/partitiontype.py:67
 msgid "Archive Partition"
-msgstr ""
+msgstr "Активный Раздел"
 
 #: yali4/partitiontype.py:82
 msgid "as Storage Area"
-msgstr ""
+msgstr "как место хранения"
 
 #: yali4/postinstall.py:180
 #, python-format
 msgid "User <b>%s</b>'s home directory is being prepared.."
-msgstr ""
+msgstr "домашняя директория пользователя <b>%s</b> готовится..."
 
 #: yali4/storage.py:375
 #, python-format
