@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sv\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-10 18:16+0200\n"
+"POT-Creation-Date: 2010-01-24 21:10+0200\n"
 "PO-Revision-Date: 2010-01-10 20:51+0100\n"
 "Last-Translator: Patrik Karlsson <patrik@pardus.nu>\n"
 "Language-Team: Swedish <pardus-translators@pardus.org.tr>\n"
@@ -16,6 +16,664 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Lokalize 0.3\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+
+#: yali4/gui/Ui/autoinstallationlistitemwidget.py:69
+#, fuzzy
+msgid "Set connection state."
+msgstr "Välj anslutning"
+
+#: yali4/gui/Ui/autoinstallationwidget.py:80
+#: yali4/gui/Ui/autopartquestion.py:78 yali4/gui/Ui/connectionlist.py:70
+#: yali4/gui/Ui/datetimewidget.py:89 yali4/gui/Ui/exception.py:57
+#: yali4/gui/Ui/goodbyewidget.py:46 yali4/gui/Ui/partedit.py:153
+#: yali4/gui/Ui/summarywidget.py:67
+msgid "Form"
+msgstr "Form"
+
+#: yali4/gui/Ui/autoinstallationwidget.py:81
+#, fuzzy
+msgid "Choose Installation Method"
+msgstr "Välj installation"
+
+#: yali4/gui/Ui/autoinstallationwidget.py:82
+#, fuzzy
+msgid "Automatic installation"
+msgstr "Automatisk eller manuell installation..."
+
+#: yali4/gui/Ui/autoinstallationwidget.py:83
+#, fuzzy
+msgid "No, I'll select installation metod manually"
+msgstr "Nej, jag partitionerar min disk på egen hand."
+
+#: yali4/gui/Ui/autoinstallationwidget.py:84
+#, fuzzy
+msgid "Defaul Kernel"
+msgstr "Förvald kärna vald"
+
+#: yali4/gui/Ui/autoinstallationwidget.py:85
+#, fuzzy
+msgid "PAE Kernel"
+msgstr "PAE-kärna vald"
+
+#: yali4/gui/Ui/autoinstallationwidget.py:86
+#, fuzzy
+msgid "Real Time Kernel"
+msgstr "Realtidskärna vald"
+
+#: yali4/gui/Ui/autopartquestion.py:79
+msgid ""
+"There appears to be more than one resizeable partition. You can select a "
+"partition from the list below or YALI will select one for you."
+msgstr ""
+"Det verkar som om det finns fler än en partition för storleksändring. Välj "
+"någon partition ur listan eller låt YALI välja åt dig."
+
+#: yali4/gui/Ui/autopartquestion.py:80 yali4/gui/Ui/connectionlist.py:72
+#: yali4/gui/Ui/dialog.py:59
+msgid "X"
+msgstr "X"
+
+#: yali4/gui/Ui/autopartquestion.py:81
+msgid "Automatically choose the partition to resize (recommended)"
+msgstr "Välj automatiskt partition för storleksändring (rekommenderas)"
+
+#: yali4/gui/Ui/autopartquestion.py:82
+msgid "I will choose the target"
+msgstr "Jag väljer mål"
+
+#: yali4/gui/Ui/autopartquestion.py:83
+msgid "Use Selected"
+msgstr "Använd vald"
+
+#: yali4/gui/Ui/autopartwidget.py:109 yali4/gui/Ui/bootloaderwidget.py:75
+#: yali4/gui/Ui/checkcdwidget.py:80 yali4/gui/Ui/keyboardwidget.py:59
+#: yali4/gui/Ui/kickerwidget.py:26 yali4/gui/Ui/rescuegrubwidget.py:75
+#: yali4/gui/Ui/rescuepasswordwidget.py:101
+#: yali4/gui/Ui/rescuepisiwidget.py:66 yali4/gui/Ui/rescuewidget.py:83
+#: yali4/gui/Ui/rootpasswidget.py:170 yali4/gui/Ui/setupuserswidget.py:174
+#: yali4/gui/Ui/welcomewidget.py:90
+msgid "Form1"
+msgstr "Form1"
+
+#: yali4/gui/Ui/autopartwidget.py:110
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Droid Sans'; font-size:10pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><span style="
+"\" font-size:12pt; font-weight:600;\">Partitioning method</span></p></body></"
+"html>"
+msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Droid Sans'; font-size:10pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><span style="
+"\" font-size:12pt; font-weight:600;\">Partitioneringsmetod</span></p></"
+"body></html>"
+
+#: yali4/gui/Ui/autopartwidget.py:115
+msgid ""
+"Please choose a partitioning method and then a device to partition."
+"<br>Device list will be updated based on the selected method."
+msgstr ""
+"Välj först en partitioneringsmetod, sedan en enhet för partitionering. "
+"<br>Enhetslistan kommer att uppdateras för vald metod."
+
+#: yali4/gui/Ui/autopartwidget.py:116
+msgid "Automatic"
+msgstr "Automatisk"
+
+#: yali4/gui/Ui/autopartwidget.py:117
+msgid ""
+"This option will try to find free disk space of suitable size. If no such "
+"disk space exists, it will look for resizable partitions"
+msgstr ""
+"Det här alternativet försöker hitta ett ledigt utrymme med lämplig storlek. "
+"Om det saknas letar den efter partitioner för storleksändring."
+
+#: yali4/gui/Ui/autopartwidget.py:118
+msgid "Try to use free space or resize current partitions"
+msgstr ""
+"Försök att använda ledigt utrymme eller storleksändra befintliga partitioner"
+
+#: yali4/gui/Ui/autopartwidget.py:119
+msgid ""
+"This option will erase the entire disk. All the data on the disk will be "
+"lost."
+msgstr ""
+"Det här alternativet kommer att radera hela disken. All data kommer att "
+"försvinna."
+
+#: yali4/gui/Ui/autopartwidget.py:120
+msgid "Delete all partitions"
+msgstr "Ta bort alla partitioner"
+
+#: yali4/gui/Ui/autopartwidget.py:121
+msgid "This option allows partitioning the disk to your wishes."
+msgstr "Detta alternativ möjliggör partitionering av de hårddiskar du önskar."
+
+#: yali4/gui/Ui/autopartwidget.py:122
+msgid "No, I'll partition my disk manually."
+msgstr "Nej, jag partitionerar min disk på egen hand."
+
+#: yali4/gui/Ui/autopartwidget.py:123
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Droid Sans'; font-size:10pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><span style="
+"\" font-size:12pt; font-weight:600;\">Disk selection</span></p></body></html>"
+msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Droid Sans'; font-size:10pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><span style="
+"\" font-size:12pt; font-weight:600;\">Hårddiskval</span></p></body></html>"
+
+#: yali4/gui/Ui/autopartwidget.py:128
+msgid "&nbsp;"
+msgstr "&nbsp;"
+
+#: yali4/gui/Ui/bootloaderwidget.py:76
+msgid ""
+"<b>Write boot loader (GRUB) to the master boot record?</b>\n"
+"\n"
+"<p>Your system will not boot without a loader.</p>\n"
+"\n"
+"<p>If you don't install a boot loader or choose to install to root "
+"partition, you will have to manually configure already-installed (if any) "
+"loader to be able to boot your new Pardus installation.</p>"
+msgstr ""
+"<b>Installera starthanteraren (GRUB) till huvudstartsektorn?</b>\n"
+"\n"
+"<p>Ditt system kan inte starta utan en starthanterare.</p>\n"
+"\n"
+"<p>Om du inte installerar en starthanterare eller väljer att installera till "
+"huvudpartitionen måste du konfigurera en befintlig starthanterare\n"
+"för att kunna starta ditt nyinstallerade Pardussystem.</p>"
+
+#: yali4/gui/Ui/bootloaderwidget.py:81 yali4/gui/Ui/rescuegrubwidget.py:76
+msgid "Select target to install boot loader"
+msgstr "Välj mål för installation av startladdaren:"
+
+#: yali4/gui/Ui/bootloaderwidget.py:82 yali4/gui/Ui/rescuegrubwidget.py:77
+msgid "First bootable disk (recommended)"
+msgstr "Första startbara disken (rekommenderas)"
+
+#: yali4/gui/Ui/bootloaderwidget.py:83 yali4/gui/Ui/rescuegrubwidget.py:78
+msgid "Pardus installed partition"
+msgstr "Partition med Pardusinstallation"
+
+#: yali4/gui/Ui/bootloaderwidget.py:84 yali4/gui/Ui/rescuegrubwidget.py:79
+msgid "Selected disk below"
+msgstr "Vald enhet nedan"
+
+#: yali4/gui/Ui/bootloaderwidget.py:85
+msgid "Don't install bootloader"
+msgstr "Installera inte starthanterare"
+
+#: yali4/gui/Ui/bootloaderwidget.py:86
+msgid "Automatically add other operating systems to the GRUB Menu"
+msgstr "Lägg automatiskt till andra operativsystem till GRUB-menyn."
+
+#: yali4/gui/Ui/checkcdwidget.py:81
+msgid ""
+"You can check the integrity of the packages in installation CD. Although "
+"this is an optional step, we encourage you to do it in order to avoid any "
+"possible errors in the installation process."
+msgstr ""
+"Du kan kontrollera paketens integritet på cd-skivan. Även om det här är ett "
+"frivilligt steg uppmuntras du att göra det för att undvika problem under "
+"installationen."
+
+#: yali4/gui/Ui/checkcdwidget.py:82 yali4/gui/ScrCheckCD.py:56
+#: yali4/installer.py:222
+msgid "Check CD Integrity"
+msgstr "Kontrollera cd-skivans integritet"
+
+#: yali4/gui/Ui/connectionlist.py:71
+msgid ""
+"To use PiSi History support, you may need to be online. You can use a "
+"connection profile from the list below."
+msgstr ""
+"För att använda PiSis Historikhanterare behöver du vara uppkopplad. Du kan "
+"använda en anslutningsprofil ur listan nedan."
+
+#: yali4/gui/Ui/connectionlist.py:73
+msgid "Connect"
+msgstr "Anslut"
+
+#: yali4/gui/Ui/datetimewidget.py:90
+msgid "The current time"
+msgstr "Aktuell tid"
+
+#: yali4/gui/Ui/datetimewidget.py:91 yali4/gui/Ui/datetimewidget.py:92
+msgid ":"
+msgstr ":"
+
+#: yali4/gui/Ui/datetimewidget.py:93
+msgid "Time Zone"
+msgstr "Tidszon"
+
+#: yali4/gui/Ui/exception.py:59 yali4/__init__.py:69
+msgid "Error"
+msgstr "Fel"
+
+#: yali4/gui/Ui/exception.py:60
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Droid Sans'; font-size:8pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Please fill a bug report "
+"at <span style=\" font-weight:600;\">http://bugs.pardus.org.tr/</span> "
+"attaching the following backtrace.</p></body></html>"
+msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Droid Sans'; font-size:8pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Vänligen fyll i en "
+"felrapport på <span style=\" font-weight:600;\">http://bugs.pardus.org.tr/</"
+"span> och bifoga följande bakåtspårning.</p></body></html>"
+
+#: yali4/gui/Ui/exception.py:65
+msgid "Show Backtrace"
+msgstr "Visa bakåtspårning"
+
+#: yali4/gui/Ui/exception.py:66 yali4/gui/Ui/rescuewidget.py:89
+#: yali4/gui/ScrGoodbye.py:85 yali4/gui/ScrRescueFinish.py:87
+#: yali4/gui/ScrSummary.py:71 yali4/installer.py:712
+msgid "Reboot"
+msgstr "Starta om"
+
+#: yali4/gui/Ui/installwidget.py:71
+msgid "Form3"
+msgstr "Form3"
+
+#: yali4/gui/Ui/installwidget.py:72
+msgid "pix"
+msgstr "pix"
+
+#: yali4/gui/Ui/installwidget.py:73
+msgid "Desc"
+msgstr "Desc"
+
+#: yali4/gui/Ui/installwidget.py:74
+msgid "Installing Package: "
+msgstr "Installerar paket: "
+
+#: yali4/gui/Ui/keyboardwidget.py:60
+msgid "Choose a keyboard layout:"
+msgstr "Välj tangentbordslayout:"
+
+#: yali4/gui/Ui/keyboardwidget.py:61
+msgid "Test selected layout:"
+msgstr "Testa vald tangentbordslayout:"
+
+#: yali4/gui/Ui/main.py:181
+msgid "Yali4"
+msgstr "Yali4"
+
+#: yali4/gui/Ui/main.py:183
+msgid "Screen Name"
+msgstr "Skärmnamn"
+
+#: yali4/gui/Ui/main.py:185
+msgid "Details about the screen"
+msgstr "Detaljer om steget"
+
+#: yali4/gui/Ui/main.py:186 yali4/gui/YaliWindow.py:269
+msgid "Release Notes"
+msgstr "Versionsfakta"
+
+#: yali4/gui/Ui/main.py:187
+msgid "Toggle Help"
+msgstr "Växla hjälp"
+
+#: yali4/gui/Ui/main.py:188
+msgid "Previous Screen"
+msgstr "Föregående steg"
+
+#: yali4/gui/Ui/main.py:189
+msgid "Back"
+msgstr "Bakåt"
+
+#: yali4/gui/Ui/main.py:190
+msgid "Next Screen"
+msgstr "Nästa steg"
+
+#: yali4/gui/Ui/main.py:191
+msgid "Next"
+msgstr "Nästa"
+
+#: yali4/gui/Ui/partedit.py:154
+msgid "Partition 1 on FUJISTU - /dev/sda1"
+msgstr "Partition 1 på FUJISTU - /dev/sda1"
+
+#: yali4/gui/Ui/partedit.py:155
+msgid "Use :"
+msgstr "Används:"
+
+#: yali4/gui/Ui/partedit.py:156
+msgid "Size :"
+msgstr "Storlek:"
+
+#: yali4/gui/Ui/partedit.py:157 yali4/gui/Ui/partresize.py:89
+msgid " MB"
+msgstr " MB"
+
+#: yali4/gui/Ui/partedit.py:158
+msgid "Format :"
+msgstr "Formatera:"
+
+#: yali4/gui/Ui/partedit.py:159
+msgid "Yes, format this partition"
+msgstr "Ja, formatera partitionen"
+
+#: yali4/gui/Ui/partedit.py:160
+msgid "File System :"
+msgstr "Filsystem:"
+
+#: yali4/gui/Ui/partedit.py:161
+msgid "Delete Partition"
+msgstr "Ta bort partition"
+
+#: yali4/gui/Ui/partedit.py:162
+msgid "Resize Partition"
+msgstr "Storleksändra partition"
+
+#: yali4/gui/Ui/partedit.py:163
+msgid "Changes will be applied after Summary Screen."
+msgstr "Ändringar verkställs efter sammanställningssteget."
+
+#: yali4/gui/Ui/partedit.py:164
+msgid "Refresh Disks"
+msgstr "Uppdatera enheter"
+
+#: yali4/gui/Ui/partedit.py:165
+msgid "Reset All Changes"
+msgstr "Återställ ändringar"
+
+#: yali4/gui/Ui/partedit.py:166
+msgid "Apply"
+msgstr "Verkställ"
+
+#: yali4/gui/Ui/partresize.py:82
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:"
+"#ffffff;\">Changes will be applied when you click \"</span><span style=\" "
+"text-decoration: underline; color:#ffffff;\">Resize</span><span style=\" "
+"color:#ffffff;\">\". To cancel the changes, click \"</span><span style=\" "
+"text-decoration: underline; color:#ffffff;\">Cancel</span><span style=\" "
+"color:#ffffff;\">\".</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
+"color:#ffffff;\"></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px; color:#ffffff;\"><span style="
+"\" font-weight:600; text-decoration: underline;\">Warning:</span> A resizing "
+"operation may corrupt the partition, rendering the data on it unreachable. "
+"Make sure that you have backed up the data.<span style=\" font-weight:600;"
+"\"> </span><span style=\" font-weight:600;\">Note that this operation cannot "
+"be undone.</span></p></body></html>"
+msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:"
+"#ffffff;\">Dessa ändringar verkställs när du klickar \"</span><span style=\" "
+"text-decoration: underline; color:#ffffff;\">Ändra storlek</span><span style="
+"\" color:#ffffff;\">\". Om du vill återgå, klicka \"</span><span style=\" "
+"text-decoration: underline; color:#ffffff;\">Avbryt</span><span style=\" "
+"color:#ffffff;\">\".</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
+"color:#ffffff;\"></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px; color:#ffffff;\"><span style="
+"\" font-weight:600; text-decoration: underline;\">Varning:</span> En "
+"storleksändring kan förstöra din partition och göra dina filer oåtkomliga. "
+"Var säker på att du har en säkerhetskopia av denna partition.<span style=\" "
+"font-weight:600;\"> </span><span style=\" font-weight:600;\">Observera att "
+"denna åtgärd inte kan ångras.</span></p></body></html>"
+
+#: yali4/gui/Ui/partresize.py:90 yali4/gui/Ui/setupuserswidget.py:190
+#: yali4/gui/Ui/summarywidget.py:68
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: yali4/gui/Ui/partresize.py:91
+msgid "Resize"
+msgstr "Ändra storlek"
+
+#: yali4/gui/Ui/rescuepasswordwidget.py:102
+msgid "User to change password of:"
+msgstr "Ändra lösenordet för:"
+
+#: yali4/gui/Ui/rescuepasswordwidget.py:103
+msgid "New password:"
+msgstr "Nytt lösenord:"
+
+#: yali4/gui/Ui/rescuepasswordwidget.py:104
+msgid "New password (again):"
+msgstr "Nytt lösenord (upprepa):"
+
+#: yali4/gui/Ui/rescuepasswordwidget.py:105
+msgid "Update Password"
+msgstr "Uppdatera lösenord"
+
+#: yali4/gui/Ui/rescuepisiwidget.py:67
+msgid "Connection Status:"
+msgstr "Anslutningsstatus:"
+
+#: yali4/gui/Ui/rescuepisiwidget.py:68
+msgid "Not Connected"
+msgstr "Inte ansluten"
+
+#: yali4/gui/Ui/rescuepisiwidget.py:69
+msgid ""
+"To use PiSi's history feature, you may need to be online. Select connection "
+"profile."
+msgstr ""
+"För att använda PiSis historik kan du behöva vara uppkopplad. Välj en "
+"anslutningsprofil."
+
+#: yali4/gui/Ui/rescuepisiwidget.py:70
+msgid "Select Connection"
+msgstr "Välj anslutning"
+
+#: yali4/gui/Ui/rescuepisiwidget.py:71
+msgid "Operation to undo:"
+msgstr "Åtgärd att ångra:"
+
+#: yali4/gui/Ui/rescuewidget.py:84
+msgid "Select the partition Pardus is installed on"
+msgstr "Välj den partition Pardus är installerad på"
+
+#: yali4/gui/Ui/rescuewidget.py:85
+msgid "Select operation and click <b>Next</b>..."
+msgstr "Välj åtgärd och klicka <b>Nästa</b>..."
+
+#: yali4/gui/Ui/rescuewidget.py:86
+msgid "Reinstall GRUB (boot problems)"
+msgstr "Ominstallera GRUB (startproblem)"
+
+#: yali4/gui/Ui/rescuewidget.py:87
+msgid "PiSi history (undo package operations)"
+msgstr "Pisi-historik (ångra paketåtgärder)"
+
+#: yali4/gui/Ui/rescuewidget.py:88
+msgid "Change password (lost password)"
+msgstr "Ändra lösenord (förlorat lösenord)"
+
+#: yali4/gui/Ui/rootpasswidget.py:171
+msgid ""
+"<p align=\"left\">System administrator user (root) handles important system "
+"maintanence tasks. Enter a password for this special user and do not forget "
+"this password. Keep in mind that for privacy reasons, you shouldn't write "
+"this password elsewhere.</p>"
+msgstr ""
+"<p align=\"left\">Systemadministratören (root) sköter om viktiga uppgifter "
+"för systemunderhållet. Ange lösenord för den här specielle användaren och "
+"glöm inte bort det här lösenordet. Kom ihåg att du av säkerhetsskäl inte ska "
+"skriva ner det här lösenordet.</p>"
+
+#: yali4/gui/Ui/rootpasswidget.py:172
+msgid "System administrator password:"
+msgstr "Systemadministratörens lösenord:"
+
+#: yali4/gui/Ui/rootpasswidget.py:173
+msgid "System administrator password (again):"
+msgstr "Systemadministratörens lösenord (upprepa):"
+
+#: yali4/gui/Ui/rootpasswidget.py:182
+msgid "Hostname:"
+msgstr "Värdnamn:"
+
+#: yali4/gui/Ui/setupuserswidget.py:175
+msgid "Real Name:"
+msgstr "Verkligt namn:"
+
+#: yali4/gui/Ui/setupuserswidget.py:176
+msgid "User Name:"
+msgstr "Användarnamn:"
+
+#: yali4/gui/Ui/setupuserswidget.py:177
+msgid "Password:"
+msgstr "Lösenord:"
+
+#: yali4/gui/Ui/setupuserswidget.py:178
+msgid "Password (again):"
+msgstr "Lösenord (upprepa):"
+
+#: yali4/gui/Ui/setupuserswidget.py:179
+msgid "User ID"
+msgstr "ID:"
+
+#: yali4/gui/Ui/setupuserswidget.py:180
+msgid "Give administrator privileges to this user"
+msgstr "Ge administratörsrättigheter till den här användaren"
+
+#: yali4/gui/Ui/setupuserswidget.py:181
+msgid "Not recommended"
+msgstr "Rekommenderas ej"
+
+#: yali4/gui/Ui/setupuserswidget.py:182
+msgid "Do not ask any password to this user"
+msgstr "Fråga inte efter lösenord för den här användaren."
+
+#: yali4/gui/Ui/setupuserswidget.py:183
+msgid "Advanced"
+msgstr "Avancerat"
+
+#: yali4/gui/Ui/setupuserswidget.py:184
+msgid "Edit Selected User"
+msgstr "Redigera vald användare"
+
+#: yali4/gui/Ui/setupuserswidget.py:185
+#, fuzzy
+msgid "Delete Selected User"
+msgstr "Redigera vald användare"
+
+#: yali4/gui/Ui/setupuserswidget.py:186
+msgid "Auto Login User :"
+msgstr "Automatisk inloggning av användare:"
+
+#: yali4/gui/Ui/setupuserswidget.py:187
+msgid "Auto Login Disabled"
+msgstr "Inaktivera automatisk inloggning"
+
+#: yali4/gui/Ui/setupuserswidget.py:188
+msgid "Users:"
+msgstr "Användare:"
+
+#: yali4/gui/Ui/setupuserswidget.py:189 yali4/gui/ScrUsers.py:262
+#: yali4/gui/ScrUsers.py:304 yali4/gui/ScrUsers.py:374
+msgid "Create User"
+msgstr "Skapa användare"
+
+#: yali4/gui/Ui/summarywidget.py:69
+msgid "Begin Install"
+msgstr "Installera"
+
+#: yali4/gui/Ui/summarywidget.py:70
+msgid ""
+"If you check this, Yalı will install all language packages in this release"
+msgstr ""
+"Om du markerar detta kommer Yali att installera alla språk i den här utgåvan"
+
+#: yali4/gui/Ui/summarywidget.py:71
+msgid "Install all language packages"
+msgstr "Installera alla språkpaket"
+
+#: yali4/gui/Ui/welcomewidget.py:91
+msgid ""
+"All software developed by TUBITAK/UEKAE is licensed under GNU/GPL. Other "
+"software have their corresponding licenses. To install and/or use Pardus, "
+"you must accept them. Do you accept GNU/GPL and other, corresponding "
+"licences?"
+msgstr ""
+"All programvara utvecklad av TUBITAK/UEKAE publiceras under GNU GPL. Andra "
+"program har sina licenser. För att installera och använda Pardus måste du "
+"acceptera dem. Accepterar du GNU GPL och andra motsvarande licenser?"
+
+#: yali4/gui/Ui/welcomewidget.py:92
+msgid "Read GPL"
+msgstr "Läs GPL"
+
+#: yali4/gui/Ui/welcomewidget.py:93
+msgid "Reboot System"
+msgstr "Starta om datorn"
+
+#: yali4/gui/Ui/welcomewidget.py:94
+msgid "Yes, I accept."
+msgstr "Ja, jag accepterar."
+
+#: yali4/gui/Ui/welcomewidget.py:95
+msgid "No, I don't accept."
+msgstr "Nej, jag accepterar inte."
 
 #: yali4/gui/debugger.py:28
 msgid "Debug"
@@ -443,24 +1101,24 @@ msgstr "(%s) [%s] storlek : %s - ledigt : %s"
 msgid "%s (Boot Disk)"
 msgstr "%s (Startdisk)"
 
-#: yali4/gui/GUIAdditional.py:246
+#: yali4/gui/GUIAdditional.py:247
 #, python-format
 msgid "Connecting to network <b>%s</b> ..."
 msgstr "Ansluter till nätverk <b>%s</b>..."
 
-#: yali4/gui/GUIAdditional.py:252 yali4/gui/GUIAdditional.py:253
+#: yali4/gui/GUIAdditional.py:253 yali4/gui/GUIAdditional.py:254
 msgid "Connection failed"
 msgstr "Anslutningen misslyckades"
 
-#: yali4/gui/GUIAdditional.py:256 yali4/gui/GUIAdditional.py:257
+#: yali4/gui/GUIAdditional.py:257 yali4/gui/GUIAdditional.py:258
 msgid "Connected"
 msgstr "Ansluten"
 
-#: yali4/gui/GUIAdditional.py:291
+#: yali4/gui/GUIAdditional.py:292
 msgid "Can't open License file!"
 msgstr "Kan inte öppna licensfil!"
 
-#: yali4/gui/GUIAdditional.py:302
+#: yali4/gui/GUIAdditional.py:303
 msgid "Can't open Release Notes!"
 msgstr "Kan inte öppna versionsfakta!"
 
@@ -641,10 +1299,6 @@ msgstr "<font color=\"#FFF\">Vänta medans cd kontrolleras.</font>"
 msgid "Stop Checking"
 msgstr "Avbryt kontroll"
 
-#: yali4/gui/ScrCheckCD.py:56 yali4/installer.py:222
-msgid "Check CD Integrity"
-msgstr "Kontrollera cd-skivans integritet"
-
 #: yali4/gui/ScrDateTime.py:28
 msgid "Set your timezone"
 msgstr "Välj tidszon"
@@ -721,11 +1375,6 @@ msgstr "Kör efterbehandlingsåtgärder..."
 msgid "Press <b>Reboot</b> button to restart your system."
 msgstr "Klicka på knappen <b>Starta om</b> för att starta om datorn."
 
-#: yali4/gui/ScrGoodbye.py:85 yali4/gui/ScrRescueFinish.py:87
-#: yali4/gui/ScrSummary.py:71 yali4/installer.py:712
-msgid "Reboot"
-msgstr "Starta om"
-
 #: yali4/gui/ScrGoodbye.py:87 yali4/gui/ScrRescueFinish.py:89
 msgid "<b>Rebooting system. Please wait!</b>"
 msgstr "<b>Startar om systemet. Vänta!</b>"
@@ -754,16 +1403,16 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali4/gui/ScrInstall.py:63
+#: yali4/gui/ScrInstall.py:64
 msgid "Installing system..."
 msgstr "Installerar systemet..."
 
-#: yali4/gui/ScrInstall.py:64
+#: yali4/gui/ScrInstall.py:65
 msgid "Installing takes approximately 20 minutes depending on your hardware..."
 msgstr ""
 "Installationen tar uppskattningsvis 20 minuter, allt beroende på din dator..."
 
-#: yali4/gui/ScrInstall.py:66
+#: yali4/gui/ScrInstall.py:67
 msgid ""
 "\n"
 "<font size=\"+2\">Installation started</font>\n"
@@ -807,42 +1456,42 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali4/gui/ScrInstall.py:123
+#: yali4/gui/ScrInstall.py:124
 msgid "Packages are being installed.."
 msgstr "Installerar paket..."
 
-#: yali4/gui/ScrInstall.py:138
+#: yali4/gui/ScrInstall.py:139
 #, python-format
 msgid "Installing: <b>%s</b><br>%s"
 msgstr "Installerar: <b>%s</b><br>%s"
 
-#: yali4/gui/ScrInstall.py:143
+#: yali4/gui/ScrInstall.py:144
 #, python-format
 msgid "Configuring package: <b>%s</b>"
 msgstr "Konfigurerar paket: <b>%s</b>"
 
-#: yali4/gui/ScrInstall.py:166 yali4/gui/ScrPartitionManual.py:79
+#: yali4/gui/ScrInstall.py:167 yali4/gui/ScrPartitionManual.py:79
 msgid "Warning"
 msgstr "Varning"
 
-#: yali4/gui/ScrInstall.py:167
+#: yali4/gui/ScrInstall.py:168
 #, python-format
 msgid "Package install failed : <b>%s</b>"
 msgstr "Paketinstallationen misslyckades: <b>%s</b>"
 
-#: yali4/gui/ScrInstall.py:168
+#: yali4/gui/ScrInstall.py:169
 msgid "Do you want to retry ?"
 msgstr "Vill du försöka igen?"
 
-#: yali4/gui/ScrInstall.py:189
+#: yali4/gui/ScrInstall.py:190
 msgid "Creating baselayout for your system!"
 msgstr "Skapar baselayout för ditt system!"
 
-#: yali4/gui/ScrInstall.py:198
+#: yali4/gui/ScrInstall.py:202
 msgid "Configuring packages.."
 msgstr "Konfigurerar paket..."
 
-#: yali4/gui/ScrInstall.py:221
+#: yali4/gui/ScrInstall.py:225
 #, python-format
 msgid ""
 "An error during the installation of packages occured.\n"
@@ -1081,11 +1730,11 @@ msgstr ""
 msgid "Caps Lock is on!"
 msgstr "Caps Lock är aktiverad!"
 
-#: yali4/gui/ScrRescuePassword.py:62 yali4/gui/ScrRescuePisi.py:54
+#: yali4/gui/ScrRescuePassword.py:62 yali4/gui/ScrRescuePisi.py:53
 msgid "Starting DBUS..."
 msgstr "Startar D-Bus..."
 
-#: yali4/gui/ScrRescuePassword.py:63 yali4/gui/ScrRescuePisi.py:55
+#: yali4/gui/ScrRescuePassword.py:63 yali4/gui/ScrRescuePisi.py:54
 #: yali4/installer.py:540
 msgid "Trying to connect DBUS..."
 msgstr "Försöker ansluta till DBUS..."
@@ -1128,11 +1777,16 @@ msgstr ""
 "<font size=\"+2\">Pisi-historik</font>\n"
 "<font size=\"+1\"></font>\n"
 
-#: yali4/gui/ScrRescuePisi.py:56
+#: yali4/gui/ScrRescuePisi.py:55
 msgid "Getting history ..."
 msgstr "Hämtar historik..."
 
-#: yali4/gui/ScrRescuePisi.py:123
+#: yali4/gui/ScrRescuePisi.py:91
+#, fuzzy
+msgid "There is no connection"
+msgstr "Välj anslutning"
+
+#: yali4/gui/ScrRescuePisi.py:132
 #, python-format
 msgid "Operation %s : %s - %s"
 msgstr "Åtgärd %s: %s - %s"
@@ -1308,7 +1962,8 @@ msgstr "Paketinstallationsinställningar"
 msgid "Auto installation collection selected."
 msgstr "Automatisk installationssamling vald"
 
-#: yali4/gui/ScrSummary.py:235, python-format
+#: yali4/gui/ScrSummary.py:235
+#, python-format
 msgid "Manual Installation %s collection selected"
 msgstr "Manuell installation %s -samling vald"
 
@@ -1431,11 +2086,6 @@ msgstr "Det verkliga namnet innehåller ogiltiga tecken!"
 msgid "User ID used before, choose another one!"
 msgstr "Användarid upptaget, välj ett annat!"
 
-#: yali4/gui/ScrUsers.py:262 yali4/gui/ScrUsers.py:304
-#: yali4/gui/ScrUsers.py:363
-msgid "Create User"
-msgstr "Skapa användare"
-
 #: yali4/gui/ScrWelcome.py:30
 msgid "Welcome !! "
 msgstr "Välkommen!"
@@ -1514,11 +2164,11 @@ msgstr "Information"
 msgid "Show Help"
 msgstr "Visa hjälp"
 
-#: yali4/gui/YaliWindow.py:88 yali4/gui/YaliWindow.py:96 yali4/sysutils.py:189
+#: yali4/gui/YaliWindow.py:88 yali4/gui/YaliWindow.py:96 yali4/sysutils.py:192
 msgid "right"
 msgstr "höger"
 
-#: yali4/gui/YaliWindow.py:95 yali4/gui/YaliWindow.py:98 yali4/sysutils.py:188
+#: yali4/gui/YaliWindow.py:95 yali4/gui/YaliWindow.py:98 yali4/sysutils.py:191
 msgid "left"
 msgstr "vänster"
 
@@ -1548,11 +2198,7 @@ msgstr "Tetris"
 msgid "Hide Help"
 msgstr "Dölj hjälp"
 
-#: yali4/gui/YaliWindow.py:269
-msgid "Release Notes"
-msgstr "Versionsfakta"
-
-#: yali4/bootloader.py:227 yali4/bootloader.py:232
+#: yali4/bootloader.py:235 yali4/bootloader.py:240
 msgid "Windows"
 msgstr "Windows"
 
@@ -1563,8 +2209,8 @@ msgid ""
 "them.                                      You should restart the machine "
 "before starting the installation process !"
 msgstr ""
-"FSCheck hittade och lagade problem på partitionen "
-"%s.                                      Du bör starta om datorn före du "
+"FSCheck hittade och lagade problem på partitionen %"
+"s.                                      Du bör starta om datorn före du "
 "återupptar installationsprocessen!"
 
 #: yali4/filesystem.py:168
@@ -1581,16 +2227,13 @@ msgstr ""
 #: yali4/filesystem.py:471
 #, python-format
 msgid ""
-"Opening '%s' as NTFS failed: The NTFS journal file is unclean. Please "
-"shutdown Windows properly before using this software! Note, if you have run "
-"chkdsk previously then boot Windows again which will automatically "
-"initialize the journal correctly"
+"The filesystem of '%s' partition is NTFS, and this partition \n"
+" was not closed properly. Please restart your system and close \n"
+" this partition properly! After this operation, start Pardus \n"
+" installation again!"
 msgstr ""
-"Öppnandet av '%s' som NTFS misslyckades: NTFS-journalen är oren. Vänligen "
-"stäng av Windows korrekt före du använder detta program! Observera,  om "
-"du nyligen har kört chkdsk, starta om Windows så korrigeras journalen."
 
-#: yali4/filesystem.py:477
+#: yali4/filesystem.py:480
 #, python-format
 msgid "Resize failed on %s "
 msgstr "Storleksändringen av %s misslyckades"
@@ -1598,10 +2241,6 @@ msgstr "Storleksändringen av %s misslyckades"
 #: yali4/__init__.py:61
 msgid "Backtrace:"
 msgstr "Spårning:"
-
-#: yali4/__init__.py:69
-msgid "Error"
-msgstr "Fel"
 
 #: yali4/installer.py:169
 #, python-format
@@ -1894,7 +2533,7 @@ msgstr "Arkiveringspartition"
 msgid "as Storage Area"
 msgstr "till lagringsutrymme"
 
-#: yali4/postinstall.py:180
+#: yali4/postinstall.py:184
 #, python-format
 msgid "User <b>%s</b>'s home directory is being prepared.."
 msgstr "Användare <b>%s</b>s hemkatalog förbereds..."
@@ -1904,491 +2543,15 @@ msgstr "Användare <b>%s</b>s hemkatalog förbereds..."
 msgid "Not enough free space on %s to create new partition"
 msgstr "Inte tillräckligt med ledigt utrymme på %s för att skapa ny partition"
 
-#~ msgid "Form"
-#~ msgstr "Form"
-
 #~ msgid ""
-#~ "There appears to be more than one resizeable partition. You can select a "
-#~ "partition from the list below or YALI will select one for you."
+#~ "Opening '%s' as NTFS failed: The NTFS journal file is unclean. Please "
+#~ "shutdown Windows properly before using this software! Note, if you have "
+#~ "run chkdsk previously then boot Windows again which will automatically "
+#~ "initialize the journal correctly"
 #~ msgstr ""
-#~ "Det verkar som om det finns fler än en partition för storleksändring. "
-#~ "Välj någon partition ur listan eller låt YALI välja åt dig."
-
-#~ msgid "X"
-#~ msgstr "X"
-
-#~ msgid "Automatically choose the partition to resize (recommended)"
-#~ msgstr "Välj automatiskt partition för storleksändring (rekommenderas)"
-
-#~ msgid "I will choose the target"
-#~ msgstr "Jag väljer mål"
-
-#~ msgid "Use Selected"
-#~ msgstr "Använd vald"
-
-#~ msgid "Form1"
-#~ msgstr "Form1"
-
-#~ msgid ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:10pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><span "
-#~ "style=\" font-size:12pt; font-weight:600;\">Partitioning method</span></"
-#~ "p></body></html>"
-#~ msgstr ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:10pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><span "
-#~ "style=\" font-size:12pt; font-weight:600;\">Partitioneringsmetod</span></"
-#~ "p></body></html>"
-
-#~ msgid ""
-#~ "Please choose a partitioning method and then a device to partition."
-#~ "<br>Device list will be updated based on the selected method."
-#~ msgstr ""
-#~ "Välj först en partitioneringsmetod, sedan en enhet för partitionering. "
-#~ "<br>Enhetslistan kommer att uppdateras för vald metod."
-
-#~ msgid "Automatic"
-#~ msgstr "Automatisk"
-
-#~ msgid ""
-#~ "This option will try to find free disk space of suitable size. If no such "
-#~ "disk space exists, it will look for resizable partitions"
-#~ msgstr ""
-#~ "Det här alternativet försöker hitta ett ledigt utrymme med lämplig "
-#~ "storlek. Om det saknas letar den efter partitioner för storleksändring."
-
-#~ msgid "Try to use free space or resize current partitions"
-#~ msgstr ""
-#~ "Försök att använda ledigt utrymme eller storleksändra befintliga "
-#~ "partitioner"
-
-#~ msgid ""
-#~ "This option will erase the entire disk. All the data on the disk will be "
-#~ "lost."
-#~ msgstr ""
-#~ "Det här alternativet kommer att radera hela disken. All data kommer att "
-#~ "försvinna."
-
-#~ msgid "Delete all partitions"
-#~ msgstr "Ta bort alla partitioner"
-
-#~ msgid "This option allows partitioning the disk to your wishes."
-#~ msgstr ""
-#~ "Detta alternativ möjliggör partitionering av de hårddiskar du önskar."
-
-#~ msgid "No, I'll partition my disk manually."
-#~ msgstr "Nej, jag partitionerar min disk på egen hand."
-
-#~ msgid ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:10pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><span "
-#~ "style=\" font-size:12pt; font-weight:600;\">Disk selection</span></p></"
-#~ "body></html>"
-#~ msgstr ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:10pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><span "
-#~ "style=\" font-size:12pt; font-weight:600;\">Hårddiskval</span></p></"
-#~ "body></html>"
-
-#~ msgid "&nbsp;"
-#~ msgstr "&nbsp;"
-
-#~ msgid ""
-#~ "<b>Write boot loader (GRUB) to the master boot record?</b>\n"
-#~ "\n"
-#~ "<p>Your system will not boot without a loader.</p>\n"
-#~ "\n"
-#~ "<p>If you don't install a boot loader or choose to install to root "
-#~ "partition, you will have to manually configure already-installed (if any) "
-#~ "loader to be able to boot your new Pardus installation.</p>"
-#~ msgstr ""
-#~ "<b>Installera starthanteraren (GRUB) till huvudstartsektorn?</b>\n"
-#~ "\n"
-#~ "<p>Ditt system kan inte starta utan en starthanterare.</p>\n"
-#~ "\n"
-#~ "<p>Om du inte installerar en starthanterare eller väljer att installera "
-#~ "till huvudpartitionen måste du konfigurera en befintlig starthanterare\n"
-#~ "för att kunna starta ditt nyinstallerade Pardussystem.</p>"
-
-#~ msgid "Select target to install boot loader"
-#~ msgstr "Välj mål för installation av startladdaren:"
-
-#~ msgid "First bootable disk (recommended)"
-#~ msgstr "Första startbara disken (rekommenderas)"
-
-#~ msgid "Pardus installed partition"
-#~ msgstr "Partition med Pardusinstallation"
-
-#~ msgid "Selected disk below"
-#~ msgstr "Vald enhet nedan"
-
-#~ msgid "Don't install bootloader"
-#~ msgstr "Installera inte starthanterare"
-
-#~ msgid "Automatically add other operating systems to the GRUB Menu"
-#~ msgstr "Lägg automatiskt till andra operativsystem till GRUB-menyn."
-
-#~ msgid ""
-#~ "You can check the integrity of the packages in installation CD. Although "
-#~ "this is an optional step, we encourage you to do it in order to avoid any "
-#~ "possible errors in the installation process."
-#~ msgstr ""
-#~ "Du kan kontrollera paketens integritet på cd-skivan. Även om det här är "
-#~ "ett frivilligt steg uppmuntras du att göra det för att undvika problem "
-#~ "under installationen."
-
-#~ msgid ""
-#~ "To use PiSi History support, you may need to be online. You can use a "
-#~ "connection profile from the list below."
-#~ msgstr ""
-#~ "För att använda PiSis Historikhanterare behöver du vara uppkopplad. Du "
-#~ "kan använda en anslutningsprofil ur listan nedan."
-
-#~ msgid "Connect"
-#~ msgstr "Anslut"
-
-#~ msgid "The current time"
-#~ msgstr "Aktuell tid"
-
-#~ msgid ":"
-#~ msgstr ":"
-
-#~ msgid "Time Zone"
-#~ msgstr "Tidszon"
-
-#~ msgid ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:8pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">Please fill a bug "
-#~ "report at <span style=\" font-weight:600;\">http://bugs.pardus.org.tr/</"
-#~ "span> attaching the following backtrace.</p></body></html>"
-#~ msgstr ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:8pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">Vänligen fyll i en "
-#~ "felrapport på <span style=\" font-weight:600;\">http://bugs.pardus.org.tr/"
-#~ "</span> och bifoga följande bakåtspårning.</p></body></html>"
-
-#~ msgid "Show Backtrace"
-#~ msgstr "Visa bakåtspårning"
-
-#~ msgid "Form3"
-#~ msgstr "Form3"
-
-#~ msgid "pix"
-#~ msgstr "pix"
-
-#~ msgid "Desc"
-#~ msgstr "Desc"
-
-#~ msgid "Installing Package: "
-#~ msgstr "Installerar paket: "
-
-#~ msgid "Choose a keyboard layout:"
-#~ msgstr "Välj tangentbordslayout:"
-
-#~ msgid "Test selected layout:"
-#~ msgstr "Testa vald tangentbordslayout:"
-
-#~ msgid "Yali4"
-#~ msgstr "Yali4"
-
-#~ msgid "Screen Name"
-#~ msgstr "Skärmnamn"
-
-#~ msgid "Details about the screen"
-#~ msgstr "Detaljer om steget"
-
-#~ msgid "Toggle Help"
-#~ msgstr "Växla hjälp"
-
-#~ msgid "Previous Screen"
-#~ msgstr "Föregående steg"
-
-#~ msgid "Back"
-#~ msgstr "Bakåt"
-
-#~ msgid "Next Screen"
-#~ msgstr "Nästa steg"
-
-#~ msgid "Next"
-#~ msgstr "Nästa"
-
-#~ msgid "Partition 1 on FUJISTU - /dev/sda1"
-#~ msgstr "Partition 1 på FUJISTU - /dev/sda1"
-
-#~ msgid "Use :"
-#~ msgstr "Används:"
-
-#~ msgid "Size :"
-#~ msgstr "Storlek:"
-
-#~ msgid " MB"
-#~ msgstr " MB"
-
-#~ msgid "Format :"
-#~ msgstr "Formatera:"
-
-#~ msgid "Yes, format this partition"
-#~ msgstr "Ja, formatera partitionen"
-
-#~ msgid "File System :"
-#~ msgstr "Filsystem:"
-
-#~ msgid "Delete Partition"
-#~ msgstr "Ta bort partition"
-
-#~ msgid "Resize Partition"
-#~ msgstr "Storleksändra partition"
-
-#~ msgid "Changes will be applied after Summary Screen."
-#~ msgstr "Ändringar verkställs efter sammanställningssteget."
-
-#~ msgid "Refresh Disks"
-#~ msgstr "Uppdatera enheter"
-
-#~ msgid "Reset All Changes"
-#~ msgstr "Återställ ändringar"
-
-#~ msgid "Apply"
-#~ msgstr "Verkställ"
-
-#~ msgid ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:"
-#~ "#ffffff;\">Changes will be applied when you click \"</span><span style=\" "
-#~ "text-decoration: underline; color:#ffffff;\">Resize</span><span style=\" "
-#~ "color:#ffffff;\">\". To cancel the changes, click \"</span><span style=\" "
-#~ "text-decoration: underline; color:#ffffff;\">Cancel</span><span style=\" "
-#~ "color:#ffffff;\">\".</span></p>\n"
-#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
-#~ "color:#ffffff;\"></p>\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px; color:#ffffff;\"><span "
-#~ "style=\" font-weight:600; text-decoration: underline;\">Warning:</span> A "
-#~ "resizing operation may corrupt the partition, rendering the data on it "
-#~ "unreachable. Make sure that you have backed up the data.<span style=\" "
-#~ "font-weight:600;\"> </span><span style=\" font-weight:600;\">Note that "
-#~ "this operation cannot be undone.</span></p></body></html>"
-#~ msgstr ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:"
-#~ "#ffffff;\">Dessa ändringar verkställs när du klickar \"</span><span style="
-#~ "\" text-decoration: underline; color:#ffffff;\">Ändra storlek</span><span "
-#~ "style=\" color:#ffffff;\">\". Om du vill återgå, klicka \"</span><span "
-#~ "style=\" text-decoration: underline; color:#ffffff;\">Avbryt</span><span "
-#~ "style=\" color:#ffffff;\">\".</span></p>\n"
-#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
-#~ "color:#ffffff;\"></p>\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px; color:#ffffff;\"><span "
-#~ "style=\" font-weight:600; text-decoration: underline;\">Varning:</span> "
-#~ "En storleksändring kan förstöra din partition och göra dina filer "
-#~ "oåtkomliga. Var säker på att du har en säkerhetskopia av denna partition."
-#~ "<span style=\" font-weight:600;\"> </span><span style=\" font-weight:600;"
-#~ "\">Observera att denna åtgärd inte kan ångras.</span></p></body></html>"
-
-#~ msgid "Cancel"
-#~ msgstr "Avbryt"
-
-#~ msgid "Resize"
-#~ msgstr "Ändra storlek"
-
-#~ msgid "User to change password of:"
-#~ msgstr "Ändra lösenordet för:"
-
-#~ msgid "New password:"
-#~ msgstr "Nytt lösenord:"
-
-#~ msgid "New password (again):"
-#~ msgstr "Nytt lösenord (upprepa):"
-
-#~ msgid "Update Password"
-#~ msgstr "Uppdatera lösenord"
-
-#~ msgid "Connection Status:"
-#~ msgstr "Anslutningsstatus:"
-
-#~ msgid "Not Connected"
-#~ msgstr "Inte ansluten"
-
-#~ msgid ""
-#~ "To use PiSi's history feature, you may need to be online. Select "
-#~ "connection profile."
-#~ msgstr ""
-#~ "För att använda PiSis historik kan du behöva vara uppkopplad. Välj en "
-#~ "anslutningsprofil."
-
-#~ msgid "Select Connection"
-#~ msgstr "Välj anslutning"
-
-#~ msgid "Operation to undo:"
-#~ msgstr "Åtgärd att ångra:"
-
-#~ msgid "Select the partition Pardus is installed on"
-#~ msgstr "Välj den partition Pardus är installerad på"
-
-#~ msgid "Select operation and click <b>Next</b>..."
-#~ msgstr "Välj åtgärd och klicka <b>Nästa</b>..."
-
-#~ msgid "Reinstall GRUB (boot problems)"
-#~ msgstr "Ominstallera GRUB (startproblem)"
-
-#~ msgid "PiSi history (undo package operations)"
-#~ msgstr "Pisi-historik (ångra paketåtgärder)"
-
-#~ msgid "Change password (lost password)"
-#~ msgstr "Ändra lösenord (förlorat lösenord)"
-
-#~ msgid ""
-#~ "<p align=\"left\">System administrator user (root) handles important "
-#~ "system maintanence tasks. Enter a password for this special user and do "
-#~ "not forget this password. Keep in mind that for privacy reasons, you "
-#~ "shouldn't write this password elsewhere.</p>"
-#~ msgstr ""
-#~ "<p align=\"left\">Systemadministratören (root) sköter om viktiga "
-#~ "uppgifter för systemunderhållet. Ange lösenord för den här specielle "
-#~ "användaren och glöm inte bort det här lösenordet. Kom ihåg att du av "
-#~ "säkerhetsskäl inte ska skriva ner det här lösenordet.</p>"
-
-#~ msgid "System administrator password:"
-#~ msgstr "Systemadministratörens lösenord:"
-
-#~ msgid "System administrator password (again):"
-#~ msgstr "Systemadministratörens lösenord (upprepa):"
-
-#~ msgid "Hostname:"
-#~ msgstr "Värdnamn:"
-
-#~ msgid "Real Name:"
-#~ msgstr "Verkligt namn:"
-
-#~ msgid "User Name:"
-#~ msgstr "Användarnamn:"
-
-#~ msgid "Password:"
-#~ msgstr "Lösenord:"
-
-#~ msgid "Password (again):"
-#~ msgstr "Lösenord (upprepa):"
-
-#~ msgid "User ID"
-#~ msgstr "ID:"
-
-#~ msgid "Give administrator privileges to this user"
-#~ msgstr "Ge administratörsrättigheter till den här användaren"
-
-#~ msgid "Not recommended"
-#~ msgstr "Rekommenderas ej"
-
-#~ msgid "Do not ask any password to this user"
-#~ msgstr "Fråga inte efter lösenord för den här användaren."
-
-#~ msgid "Advanced"
-#~ msgstr "Avancerat"
-
-#~ msgid "Edit Selected User"
-#~ msgstr "Redigera vald användare"
-
-#~ msgid "Auto Login User :"
-#~ msgstr "Automatisk inloggning av användare:"
-
-#~ msgid "Auto Login Disabled"
-#~ msgstr "Inaktivera automatisk inloggning"
-
-#~ msgid "Users:"
-#~ msgstr "Användare:"
-
-#~ msgid "Begin Install"
-#~ msgstr "Installera"
-
-#~ msgid ""
-#~ "If you check this, Yalı will install all language packages in this release"
-#~ msgstr ""
-#~ "Om du markerar detta kommer Yali att installera alla språk i den här "
-#~ "utgåvan"
-
-#~ msgid "Install all language packages"
-#~ msgstr "Installera alla språkpaket"
-
-#~ msgid ""
-#~ "All software developed by TUBITAK/UEKAE is licensed under GNU/GPL. Other "
-#~ "software have their corresponding licenses. To install and/or use Pardus, "
-#~ "you must accept them. Do you accept GNU/GPL and other, corresponding "
-#~ "licences?"
-#~ msgstr ""
-#~ "All programvara utvecklad av TUBITAK/UEKAE publiceras under GNU GPL. "
-#~ "Andra program har sina licenser. För att installera och använda Pardus "
-#~ "måste du acceptera dem. Accepterar du GNU GPL och andra motsvarande "
-#~ "licenser?"
-
-#~ msgid "Read GPL"
-#~ msgstr "Läs GPL"
-
-#~ msgid "Reboot System"
-#~ msgstr "Starta om datorn"
-
-#~ msgid "Yes, I accept."
-#~ msgstr "Ja, jag accepterar."
-
-#~ msgid "No, I don't accept."
-#~ msgstr "Nej, jag accepterar inte."
+#~ "Öppnandet av '%s' som NTFS misslyckades: NTFS-journalen är oren. Vänligen "
+#~ "stäng av Windows korrekt före du använder detta program! Observera,  om "
+#~ "du nyligen har kört chkdsk, starta om Windows så korrigeras journalen."
 
 #~ msgid ""
 #~ "Pardus 2009 also includes other components updated with KDE 4.2. If you "

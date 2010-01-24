@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: File di testo_1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-16 23:40+0300\n"
+"POT-Creation-Date: 2010-01-24 21:10+0200\n"
 "PO-Revision-Date: 2009-07-16 21:55+0200\n"
 "Last-Translator: Siciliano Davide <edivad95@gmail.com>\n"
 "Language-Team: Italian <pardus-translation-it@pardus.org.tr>\n"
@@ -18,13 +18,44 @@ msgstr ""
 "X-Generator: KBabel 1.11.4\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: yali4/gui/Ui/autoinstallationlistitemwidget.py:69
+#, fuzzy
+msgid "Set connection state."
+msgstr "Stato connessione:"
+
+#: yali4/gui/Ui/autoinstallationwidget.py:80
 #: yali4/gui/Ui/autopartquestion.py:78 yali4/gui/Ui/connectionlist.py:70
-#: yali4/gui/Ui/datetimewidget.py:89 yali4/gui/Ui/exception.py:58
+#: yali4/gui/Ui/datetimewidget.py:89 yali4/gui/Ui/exception.py:57
 #: yali4/gui/Ui/goodbyewidget.py:46 yali4/gui/Ui/partedit.py:153
 #: yali4/gui/Ui/summarywidget.py:67
 #, fuzzy
 msgid "Form"
 msgstr "Form1"
+
+#: yali4/gui/Ui/autoinstallationwidget.py:81
+msgid "Choose Installation Method"
+msgstr ""
+
+#: yali4/gui/Ui/autoinstallationwidget.py:82
+msgid "Automatic installation"
+msgstr ""
+
+#: yali4/gui/Ui/autoinstallationwidget.py:83
+#, fuzzy
+msgid "No, I'll select installation metod manually"
+msgstr "No, partizionerò manualmente il disco."
+
+#: yali4/gui/Ui/autoinstallationwidget.py:84
+msgid "Defaul Kernel"
+msgstr ""
+
+#: yali4/gui/Ui/autoinstallationwidget.py:85
+msgid "PAE Kernel"
+msgstr ""
+
+#: yali4/gui/Ui/autoinstallationwidget.py:86
+msgid "Real Time Kernel"
+msgstr ""
 
 #: yali4/gui/Ui/autopartquestion.py:79
 msgid ""
@@ -198,7 +229,7 @@ msgstr ""
 "evitare qualsiasi errore durante l'installazione."
 
 #: yali4/gui/Ui/checkcdwidget.py:82 yali4/gui/ScrCheckCD.py:56
-#: yali4/installer.py:203
+#: yali4/installer.py:222
 msgid "Check CD Integrity"
 msgstr "Verifica integrità CD"
 
@@ -224,11 +255,11 @@ msgstr ":"
 msgid "Time Zone"
 msgstr "Fuso orario"
 
-#: yali4/gui/Ui/exception.py:60 yali4/__init__.py:69
+#: yali4/gui/Ui/exception.py:59 yali4/__init__.py:69
 msgid "Error"
 msgstr "Errore!"
 
-#: yali4/gui/Ui/exception.py:61
+#: yali4/gui/Ui/exception.py:60
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
 "REC-html40/strict.dtd\">\n"
@@ -243,13 +274,13 @@ msgid ""
 "attaching the following backtrace.</p></body></html>"
 msgstr ""
 
-#: yali4/gui/Ui/exception.py:66
+#: yali4/gui/Ui/exception.py:65
 msgid "Show Backtrace"
 msgstr "Mostra Backtrace"
 
-#: yali4/gui/Ui/exception.py:67 yali4/gui/Ui/rescuewidget.py:89
+#: yali4/gui/Ui/exception.py:66 yali4/gui/Ui/rescuewidget.py:89
 #: yali4/gui/ScrGoodbye.py:85 yali4/gui/ScrRescueFinish.py:87
-#: yali4/gui/ScrSummary.py:71 yali4/installer.py:684
+#: yali4/gui/ScrSummary.py:71 yali4/installer.py:712
 msgid "Reboot"
 msgstr "Riavvia"
 
@@ -542,7 +573,7 @@ msgid "Users:"
 msgstr "Utenti:"
 
 #: yali4/gui/Ui/setupuserswidget.py:189 yali4/gui/ScrUsers.py:262
-#: yali4/gui/ScrUsers.py:304 yali4/gui/ScrUsers.py:363
+#: yali4/gui/ScrUsers.py:304 yali4/gui/ScrUsers.py:374
 msgid "Create User"
 msgstr "Crea utente"
 
@@ -656,15 +687,6 @@ msgstr ""
 
 #: yali4/gui/descSlide.py:23
 msgid ""
-"Pardus 2009 also includes other components updated with KDE 4.2. If you have "
-"used Pardus before, you may want to check out the welcome tour to see what "
-"those changes are."
-msgstr ""
-"Pardus 2009 include anche altri componenti aggiornati con KDE 4.2. Se hai "
-"usato Pardus prima, guarda il tour di benvenuto e guarda cos'è cambiato."
-
-#: yali4/gui/descSlide.py:24
-msgid ""
 "Pardus includes many genuine technologies aiming for an easier use and "
 "management. TASMA has been replaced with System Manager in Pardus 2009, but "
 "you will still find all these management tools built into the System Manager "
@@ -675,7 +697,7 @@ msgstr ""
 "Gestore di Sistema, ma puoi ancora trovare gli strumenti di TASMA integrati "
 "all'interno  del Gestore di Sistema."
 
-#: yali4/gui/descSlide.py:25
+#: yali4/gui/descSlide.py:24
 msgid ""
 "Kaptan (Turkish for 'Captain') is what welcomes you to your Pardus "
 "installation. Using Kaptan, you can configure your desktop, changing the "
@@ -691,7 +713,7 @@ msgstr ""
 "contrib a Pardus 2009. Inoltre con Kaptan puoi guardare un tour di benvenuto "
 "online."
 
-#: yali4/gui/descSlide.py:26
+#: yali4/gui/descSlide.py:25
 msgid ""
 "It is possible to install hundreds of software found in Pardus' package "
 "repositories with a single click. Using the Package Manager, you can install "
@@ -705,7 +727,7 @@ msgstr ""
 "installato i pacchetti, tutto ciò che devi fare è avviare i programmi! "
 "Semplice, no?"
 
-#: yali4/gui/descSlide.py:27
+#: yali4/gui/descSlide.py:26
 msgid ""
 "Adding new users, changing boot order, starting or stopping system services "
 "or rolling your system configuration back to a previous state has never been "
@@ -718,7 +740,7 @@ msgstr ""
 "usare i Gestori di Sistema, e puoi anche aggiungere dei widget al tuo "
 "desktop per le operazioni chge ripeti spesso."
 
-#: yali4/gui/descSlide.py:28
+#: yali4/gui/descSlide.py:27
 msgid ""
 "To connect to a wireless or 'wired' network is as easy as choosing a "
 "connection profile with Pardus 2009. With the network manager's advanced "
@@ -732,7 +754,7 @@ msgstr ""
 "ogni rete,semplicemente creando dei profili. Scegliere un profilo richiede "
 "solo due click."
 
-#: yali4/gui/descSlide.py:29
+#: yali4/gui/descSlide.py:28
 msgid ""
 "With Pardus 2009, Amarok has not only shed skin, but also changed "
 "internally. It provides much more than listening to music. You now have the "
@@ -749,7 +771,7 @@ msgstr ""
 "anche copiare la tua musica sul tuo lettore MP3 con un comodo sistema di "
 "drag'n drop, senza bisogno di driver."
 
-#: yali4/gui/descSlide.py:30
+#: yali4/gui/descSlide.py:29
 msgid ""
 "Mozilla Firefox is the preferred browser with its speed, security and "
 "flexibility. With its addon support and a *very* rich addon repository, you "
@@ -765,7 +787,7 @@ msgstr ""
 "aggiunti alcuni siti su Pardus. Goditi una navigazione veloce e sicura con "
 "Mozilla Firefox 3.5."
 
-#: yali4/gui/descSlide.py:31
+#: yali4/gui/descSlide.py:30
 msgid ""
 "Connecting to your friends and contacts is really easy and seamlessly "
 "integrated into the desktop with Pardus 2009. Using Kontact, you can send "
@@ -774,7 +796,7 @@ msgid ""
 "MSN and GTalk, and chat online with your friends."
 msgstr ""
 
-#: yali4/gui/descSlide.py:32
+#: yali4/gui/descSlide.py:31
 msgid ""
 "World's leading preferred libre office suite OpenOffice.org brings a word "
 "processor, a spreadsheet, a presentation application, database, formula and "
@@ -789,7 +811,7 @@ msgstr ""
 "modo da soddisfare le tue esigenze a scuola, a casa o al lavoro. OpenOffice."
 "org è compatibile con le altre suite."
 
-#: yali4/gui/descSlide.py:33
+#: yali4/gui/descSlide.py:32
 msgid ""
 "Gimp is an advanced image editing software. Allowing creation and editing of "
 "common graphics and image file formats, it has abilities that professional "
@@ -801,7 +823,7 @@ msgstr ""
 "creazione  e la modifica di tutti i formati di immagine più diffusi, "
 "consente la creazione di filtri e pennelli grazie a un sistema di add-on."
 
-#: yali4/gui/descSlide.py:34
+#: yali4/gui/descSlide.py:33
 msgid ""
 "Pardus, along with the preinstalled games, has many games in its "
 "repositories, allowing hours of fun with various kinds of games available "
@@ -811,7 +833,7 @@ msgstr ""
 "giochidi diversi generi presenti nei repository, che consentono ore di "
 "divertimento."
 
-#: yali4/gui/descSlide.py:35
+#: yali4/gui/descSlide.py:34
 msgid ""
 "Pardus 2009 is set to support most hardware right away. At the end of the "
 "installation, when you start with Pardus, the graphics card and sound "
@@ -828,7 +850,7 @@ msgstr ""
 "stampante sarà molto semplice: tutto quello che devi fare è accendere la "
 "stampante e collegarla."
 
-#: yali4/gui/descSlide.py:36
+#: yali4/gui/descSlide.py:35
 msgid ""
 "We have a support portal to help improve your Pardus experience and help "
 "with problems you encounter. In the Özgürlükİçin portal, where content is "
@@ -851,7 +873,7 @@ msgstr ""
 msgid "'Install Root' size must be larger than %s MB."
 msgstr "La 'Root di installazione' deve essere di almeno %s MB."
 
-#: yali4/gui/DiskWidgets.py:222 yali4/gui/ScrBootloader.py:68
+#: yali4/gui/DiskWidgets.py:222 yali4/gui/ScrBootloader.py:69
 #: yali4/gui/ScrKahyaCheck.py:99 yali4/gui/ScrPartitionAuto.py:71
 #: yali4/gui/ScrRescue.py:48
 msgid "Can't find a storage device!"
@@ -975,7 +997,7 @@ msgstr ""
 msgid "Resizing to %s MB.."
 msgstr "Ridimensionamento a %s MB..."
 
-#: yali4/gui/GUIAdditional.py:97
+#: yali4/gui/GUIAdditional.py:97 yali4/installer.py:388
 msgid "Filesystem Error"
 msgstr "Errore di Filesystem"
 
@@ -998,32 +1020,32 @@ msgstr "(%s) [%s] Dimensione : %s - Spazio libero : %s"
 msgid "%s (Boot Disk)"
 msgstr "%s (Disco di Boot)"
 
-#: yali4/gui/GUIAdditional.py:246
+#: yali4/gui/GUIAdditional.py:247
 #, python-format
 msgid "Connecting to network <b>%s</b> ..."
 msgstr "Connessione alla rete <b>%s</b> ..."
 
-#: yali4/gui/GUIAdditional.py:252 yali4/gui/GUIAdditional.py:253
+#: yali4/gui/GUIAdditional.py:253 yali4/gui/GUIAdditional.py:254
 msgid "Connection failed"
 msgstr "Connessione fallita"
 
-#: yali4/gui/GUIAdditional.py:256 yali4/gui/GUIAdditional.py:257
+#: yali4/gui/GUIAdditional.py:257 yali4/gui/GUIAdditional.py:258
 msgid "Connected"
 msgstr "Connesso"
 
-#: yali4/gui/GUIAdditional.py:291
+#: yali4/gui/GUIAdditional.py:292
 msgid "Can't open License file!"
 msgstr "Impossibile aprire il file della licenza!"
 
-#: yali4/gui/GUIAdditional.py:302
+#: yali4/gui/GUIAdditional.py:303
 msgid "Can't open Release Notes!"
 msgstr "Impossibile aprire il file delle note di rilascio!"
 
-#: yali4/gui/runner.py:150
+#: yali4/gui/runner.py:156
 msgid "Error occured !"
 msgstr ""
 
-#: yali4/gui/runner.py:166
+#: yali4/gui/runner.py:172
 msgid "Unhandled exception occured!"
 msgstr ""
 
@@ -1089,15 +1111,15 @@ msgid "Hostname contains invalid characters!"
 msgstr ""
 "<font color=\"#FF6D19\">L'hostname contiene caratteri non validi!</font>"
 
-#: yali4/gui/ScrBootloader.py:37
+#: yali4/gui/ScrBootloader.py:38
 msgid "Bootloader Choice"
 msgstr ""
 
-#: yali4/gui/ScrBootloader.py:38
+#: yali4/gui/ScrBootloader.py:39
 msgid "Configure the system boot..."
 msgstr ""
 
-#: yali4/gui/ScrBootloader.py:40 yali4/gui/ScrRescueGrub.py:35
+#: yali4/gui/ScrBootloader.py:41 yali4/gui/ScrRescueGrub.py:35
 msgid ""
 "\n"
 "<font size=\"+2\">Boot loader setup</font>\n"
@@ -1255,15 +1277,38 @@ msgstr ""
 "<b><font size=\"+2\" color=\"#FF6D19\">Riavvio del sistema in corso, "
 "attendere prego</font></b>"
 
-#: yali4/gui/ScrInstall.py:63
+#: yali4/gui/ScrInstallationAuto.py:34
+msgid "Choose Installation"
+msgstr ""
+
+#: yali4/gui/ScrInstallationAuto.py:35
+#, fuzzy
+msgid "Auto or Manual installation..."
+msgstr "Partizionamento Automatico o Manuale..."
+
+#: yali4/gui/ScrInstallationAuto.py:37
+#, fuzzy
+msgid ""
+"\n"
+"<font size=\"+2\">Automatic Installation</font>\n"
+"<font size=\"+1\">\n"
+"<p>\n"
+"</p>\n"
+"</font>\n"
+msgstr ""
+"\n"
+"<font size=\"+2\">Cronologia PiSi</font>\n"
+"<font size=\"+1\"></font>\n"
+
+#: yali4/gui/ScrInstall.py:64
 msgid "Installing system..."
 msgstr "Installazione del sistema in corso..."
 
-#: yali4/gui/ScrInstall.py:64
+#: yali4/gui/ScrInstall.py:65
 msgid "Installing takes approximately 20 minutes depending on your hardware..."
 msgstr ""
 
-#: yali4/gui/ScrInstall.py:66
+#: yali4/gui/ScrInstall.py:67
 msgid ""
 "\n"
 "<font size=\"+2\">Installation started</font>\n"
@@ -1309,42 +1354,42 @@ msgstr ""
 "</p>\n"
 "</font>\n"
 
-#: yali4/gui/ScrInstall.py:123
+#: yali4/gui/ScrInstall.py:124
 msgid "Packages are being installed.."
 msgstr ""
 
-#: yali4/gui/ScrInstall.py:138
+#: yali4/gui/ScrInstall.py:139
 #, python-format
 msgid "Installing: <b>%s</b><br>%s"
 msgstr "Installazione di <b>%s</b><br>%s"
 
-#: yali4/gui/ScrInstall.py:143
+#: yali4/gui/ScrInstall.py:144
 #, python-format
 msgid "Configuring package: <b>%s</b>"
 msgstr "Configurazione pacchetto <b> %s </b>"
 
-#: yali4/gui/ScrInstall.py:166 yali4/gui/ScrPartitionManual.py:79
+#: yali4/gui/ScrInstall.py:167 yali4/gui/ScrPartitionManual.py:79
 msgid "Warning"
 msgstr "Avviso"
 
-#: yali4/gui/ScrInstall.py:167
+#: yali4/gui/ScrInstall.py:168
 #, python-format
 msgid "Package install failed : <b>%s</b>"
 msgstr ""
 
-#: yali4/gui/ScrInstall.py:168
+#: yali4/gui/ScrInstall.py:169
 msgid "Do you want to retry ?"
 msgstr ""
 
-#: yali4/gui/ScrInstall.py:189
+#: yali4/gui/ScrInstall.py:190
 msgid "Creating baselayout for your system!"
 msgstr ""
 
-#: yali4/gui/ScrInstall.py:198
+#: yali4/gui/ScrInstall.py:202
 msgid "Configuring packages.."
 msgstr "Configurazione pacchetti..."
 
-#: yali4/gui/ScrInstall.py:221
+#: yali4/gui/ScrInstall.py:225
 #, python-format
 msgid ""
 "An error during the installation of packages occured.\n"
@@ -1518,7 +1563,7 @@ msgstr ""
 "<font size=\"+2\">Modalità di riparazione del sistema</font>\n"
 "<font size=\"+1\"><p>Clicca su <b>Avanti</b> per riavviare!</p></font>\n"
 
-#: yali4/gui/ScrRescueFinish.py:64 yali4/installer.py:523
+#: yali4/gui/ScrRescueFinish.py:64 yali4/installer.py:551
 msgid "Installing BootLoader..."
 msgstr "Installazione del bootloader..."
 
@@ -1560,12 +1605,12 @@ msgstr ""
 msgid "Caps Lock is on!"
 msgstr ""
 
-#: yali4/gui/ScrRescuePassword.py:62 yali4/gui/ScrRescuePisi.py:54
+#: yali4/gui/ScrRescuePassword.py:62 yali4/gui/ScrRescuePisi.py:53
 msgid "Starting DBUS..."
 msgstr "Avvio DBUS..."
 
-#: yali4/gui/ScrRescuePassword.py:63 yali4/gui/ScrRescuePisi.py:55
-#: yali4/installer.py:512
+#: yali4/gui/ScrRescuePassword.py:63 yali4/gui/ScrRescuePisi.py:54
+#: yali4/installer.py:540
 msgid "Trying to connect DBUS..."
 msgstr "Tentativo di connessione al DBUS..."
 
@@ -1609,11 +1654,15 @@ msgstr ""
 "<font size=\"+2\">Cronologia PiSi</font>\n"
 "<font size=\"+1\"></font>\n"
 
-#: yali4/gui/ScrRescuePisi.py:56
+#: yali4/gui/ScrRescuePisi.py:55
 msgid "Getting history ..."
 msgstr ""
 
-#: yali4/gui/ScrRescuePisi.py:123
+#: yali4/gui/ScrRescuePisi.py:91
+msgid "There is no connection"
+msgstr ""
+
+#: yali4/gui/ScrRescuePisi.py:132
 #, python-format
 msgid "Operation %s : %s - %s"
 msgstr ""
@@ -1779,11 +1828,39 @@ msgstr "Grub sarà installato qui: <b>%s</b>"
 msgid "GRUB will not be installed."
 msgstr "GRUB non verrà installato."
 
-#: yali4/gui/ScrSummary.py:241
+#: yali4/gui/ScrSummary.py:230
+#, fuzzy
+msgid "Package Installation Settings"
+msgstr "Impostazioni partizioni"
+
+#: yali4/gui/ScrSummary.py:233
+#, fuzzy
+msgid "Auto installation collection selected."
+msgstr "Sì, partiziona e formatta automaticamente il disco selezionato!"
+
+#: yali4/gui/ScrSummary.py:235
+#, python-format
+msgid "Manual Installation %s collection selected"
+msgstr ""
+
+#: yali4/gui/ScrSummary.py:238
+#, fuzzy
+msgid "Default Kernel selected"
+msgstr "Elimina l'utente selezionato"
+
+#: yali4/gui/ScrSummary.py:240
+msgid "PAE Kernel selected"
+msgstr ""
+
+#: yali4/gui/ScrSummary.py:242
+msgid "Real Time Kernel selected"
+msgstr ""
+
+#: yali4/gui/ScrSummary.py:259
 msgid "Before Starting"
 msgstr "Prima di iniziare"
 
-#: yali4/gui/ScrSummary.py:242
+#: yali4/gui/ScrSummary.py:260
 msgid ""
 "<p><b><u>Warning</u></b>: There is a resizing operation and it may corrupt "
 "your partition,<br>\n"
@@ -1803,16 +1880,16 @@ msgstr ""
 "                                        <b>Attenzione: questa operazione non "
 "può essere annullata.</b></p>"
 
-#: yali4/gui/ScrSummary.py:267 yali4/gui/ScrSummary.py:278
-#: yali4/gui/ScrSummary.py:294
+#: yali4/gui/ScrSummary.py:285 yali4/gui/ScrSummary.py:296
+#: yali4/gui/ScrSummary.py:312
 msgid "Formatting..."
 msgstr "Formattazione in corso..."
 
-#: yali4/gui/ScrSummary.py:273 yali4/gui/ScrSummary.py:285
+#: yali4/gui/ScrSummary.py:291 yali4/gui/ScrSummary.py:303
 msgid "Writing disk tables..."
 msgstr "Scrittura tabella delle partizioni..."
 
-#: yali4/gui/ScrSummary.py:275
+#: yali4/gui/ScrSummary.py:293
 msgid "Resizing..."
 msgstr "Ridimensionamento..."
 
@@ -1971,11 +2048,11 @@ msgstr "Informazioni"
 msgid "Show Help"
 msgstr "Mostra aiuto"
 
-#: yali4/gui/YaliWindow.py:88 yali4/gui/YaliWindow.py:96 yali4/sysutils.py:172
+#: yali4/gui/YaliWindow.py:88 yali4/gui/YaliWindow.py:96 yali4/sysutils.py:192
 msgid "right"
 msgstr "destra"
 
-#: yali4/gui/YaliWindow.py:95 yali4/gui/YaliWindow.py:98 yali4/sysutils.py:171
+#: yali4/gui/YaliWindow.py:95 yali4/gui/YaliWindow.py:98 yali4/sysutils.py:191
 msgid "left"
 msgstr "sinistra"
 
@@ -2005,7 +2082,7 @@ msgstr "Tetris"
 msgid "Hide Help"
 msgstr "Nascondi aiuto"
 
-#: yali4/bootloader.py:216 yali4/bootloader.py:221
+#: yali4/bootloader.py:235 yali4/bootloader.py:240
 msgid "Windows"
 msgstr "Windows"
 
@@ -2024,13 +2101,22 @@ msgstr ""
 msgid "FSCheck failed on %s"
 msgstr "Controllo filesystem fallito su %s"
 
-#: yali4/filesystem.py:380 yali4/filesystem.py:471
+#: yali4/filesystem.py:380
 msgid "Partition is not ready for resizing. Check it before installation."
 msgstr ""
 "La partizione non è pronta per il ridimensionamento. Controllala prima di "
 "installare Pardus."
 
-#: yali4/filesystem.py:477
+#: yali4/filesystem.py:471
+#, python-format
+msgid ""
+"The filesystem of '%s' partition is NTFS, and this partition \n"
+" was not closed properly. Please restart your system and close \n"
+" this partition properly! After this operation, start Pardus \n"
+" installation again!"
+msgstr ""
+
+#: yali4/filesystem.py:480
 #, python-format
 msgid "Resize failed on %s "
 msgstr "Ridimensionamento fallito su %s"
@@ -2039,7 +2125,7 @@ msgstr "Ridimensionamento fallito su %s"
 msgid "Backtrace:"
 msgstr "Backtrace:"
 
-#: yali4/installer.py:150
+#: yali4/installer.py:169
 #, python-format
 msgid ""
 "Plugin (%s) not found or error occurred while loading. Switching to normal "
@@ -2048,24 +2134,24 @@ msgstr ""
 "Plugin (%s) non trovato, oppure c'è stato un errore duraante il caricamento. "
 "Passaggio all'installazione normale in corso..."
 
-#: yali4/installer.py:156
+#: yali4/installer.py:175
 msgid "YALI Is Working..."
 msgstr "YALI sta lavorando..."
 
-#: yali4/installer.py:172
+#: yali4/installer.py:191
 msgid "Starting for CD Check"
 msgstr "Avvio verifica CD..."
 
-#: yali4/installer.py:190
+#: yali4/installer.py:209
 #, python-format
 msgid "Checking: %s"
 msgstr "Controllo in corso: %s"
 
-#: yali4/installer.py:197
+#: yali4/installer.py:216
 msgid "Check Failed"
 msgstr "Verifica fallita"
 
-#: yali4/installer.py:198
+#: yali4/installer.py:217
 msgid ""
 "<b><p>Integrity check for packages failed.                                  "
 "It seems that installation CD is broken.</p></b>"
@@ -2075,7 +2161,7 @@ msgstr ""
 "installazione abbia dei problemi.</p>\n"
 "</b>"
 
-#: yali4/installer.py:202
+#: yali4/installer.py:221
 msgid ""
 "<font color=\"#FFF\"><b>Check succeeded. You can proceed to the next screen."
 "</b></font>"
@@ -2083,59 +2169,59 @@ msgstr ""
 "<font color=\"#257216\">Verifica eseguita con successo. Puoi proseguire alla "
 "schermata successiva.</font>"
 
-#: yali4/installer.py:220
+#: yali4/installer.py:239
 msgid "Setting time settings.."
 msgstr "Impostazione delle preferenze dell'orario in corso..."
 
-#: yali4/installer.py:247
+#: yali4/installer.py:266
 msgid "Disk analyze started.."
 msgstr "Analisi dei dischi..."
 
-#: yali4/installer.py:305
+#: yali4/installer.py:324
 msgid "Writing disk tables ..."
 msgstr "Scrittura tavole delle partizioni..."
 
-#: yali4/installer.py:367
+#: yali4/installer.py:390
 msgid "Resize Finished ..."
 msgstr "Ridimensionamento completato."
 
-#: yali4/installer.py:373
+#: yali4/installer.py:396
 msgid "Creating new partition ..."
 msgstr "Creazione nuova partizione..."
 
-#: yali4/installer.py:392
+#: yali4/installer.py:415
 msgid "Failed to use partition for automatic installation "
 msgstr ""
 
-#: yali4/installer.py:514
+#: yali4/installer.py:542
 msgid "Setting Hostname..."
 msgstr "Impostazione dell' hostname..."
 
-#: yali4/installer.py:515
+#: yali4/installer.py:543
 msgid "Setting TimeZone..."
 msgstr "Impostazione del fuso orario..."
 
-#: yali4/installer.py:516
+#: yali4/installer.py:544
 msgid "Setting Root Password..."
 msgstr "Impostazione della password di root..."
 
-#: yali4/installer.py:517
+#: yali4/installer.py:545
 msgid "Adding Users..."
 msgstr "Aggiunta utenti..."
 
-#: yali4/installer.py:518
+#: yali4/installer.py:546
 msgid "Writing Console Data..."
 msgstr "Scrittura dati console..."
 
-#: yali4/installer.py:519
+#: yali4/installer.py:547
 msgid "Migrating X.org Configuration..."
 msgstr "Migrazione della configurazione di X.org..."
 
-#: yali4/installer.py:521
+#: yali4/installer.py:549
 msgid "Copy Pisi index..."
 msgstr "Copia indice PiSi..."
 
-#: yali4/installer.py:522
+#: yali4/installer.py:550
 msgid "Setting misc. package configurations..."
 msgstr ""
 
@@ -2331,7 +2417,7 @@ msgstr "Partizione di archivio"
 msgid "as Storage Area"
 msgstr ""
 
-#: yali4/postinstall.py:180
+#: yali4/postinstall.py:184
 #, python-format
 msgid "User <b>%s</b>'s home directory is being prepared.."
 msgstr "Preparazione in corso della home directory di <b>%s</b>..."
@@ -2341,3 +2427,11 @@ msgstr "Preparazione in corso della home directory di <b>%s</b>..."
 msgid "Not enough free space on %s to create new partition"
 msgstr ""
 "Non c'è abbastanza spazio libero su %s per creare una nuova partizione!"
+
+#~ msgid ""
+#~ "Pardus 2009 also includes other components updated with KDE 4.2. If you "
+#~ "have used Pardus before, you may want to check out the welcome tour to "
+#~ "see what those changes are."
+#~ msgstr ""
+#~ "Pardus 2009 include anche altri componenti aggiornati con KDE 4.2. Se hai "
+#~ "usato Pardus prima, guarda il tour di benvenuto e guarda cos'è cambiato."
