@@ -14,19 +14,18 @@ msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-01-24 21:10+0200\n"
-"PO-Revision-Date: 2010-01-11 21:27-0300\n"
-"Last-Translator: Klemens Häckel <click3d at linuxmail (dot) org>\n"
+"PO-Revision-Date: 2010-02-22 21:44-0300\n"
+"Last-Translator: \n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 0.3\n"
+"X-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: yali4/gui/Ui/autoinstallationlistitemwidget.py:69
-#, fuzzy
 msgid "Set connection state."
-msgstr "Seleccionar Conexión"
+msgstr "Establecer estado de conexión."
 
 #: yali4/gui/Ui/autoinstallationwidget.py:80
 #: yali4/gui/Ui/autopartquestion.py:78 yali4/gui/Ui/connectionlist.py:70
@@ -41,26 +40,24 @@ msgid "Choose Installation Method"
 msgstr ""
 
 #: yali4/gui/Ui/autoinstallationwidget.py:82
-#, fuzzy
 msgid "Automatic installation"
-msgstr "Detalles de la instalación por realizarse..."
+msgstr "Instalación automática"
 
 #: yali4/gui/Ui/autoinstallationwidget.py:83
-#, fuzzy
 msgid "No, I'll select installation metod manually"
-msgstr "No, prefiero particionar manualmente."
+msgstr "No, prefiero particionar manualmente"
 
 #: yali4/gui/Ui/autoinstallationwidget.py:84
 msgid "Defaul Kernel"
-msgstr ""
+msgstr "Kernel predeterminado"
 
 #: yali4/gui/Ui/autoinstallationwidget.py:85
 msgid "PAE Kernel"
-msgstr ""
+msgstr "Kernel PAE"
 
 #: yali4/gui/Ui/autoinstallationwidget.py:86
 msgid "Real Time Kernel"
-msgstr ""
+msgstr "Real Time Kernel"
 
 #: yali4/gui/Ui/autopartquestion.py:79
 msgid ""
@@ -1449,7 +1446,6 @@ msgid "Auto or Manual installation..."
 msgstr "Particionamiento automático o manual..."
 
 #: yali4/gui/ScrInstallationAuto.py:37
-#, fuzzy
 msgid ""
 "\n"
 "<font size=\"+2\">Automatic Installation</font>\n"
@@ -1459,8 +1455,11 @@ msgid ""
 "</font>\n"
 msgstr ""
 "\n"
-"<font size=\"+2\">Registro histórico de PISI</font>\n"
-"<font size=\"+1\"></font>\n"
+"<font size=\"+2\">Instalación Automatica</font>\n"
+"<font size=\"+1\">\n"
+"<p>\n"
+"</p>\n"
+"</font>\n"
 
 #: yali4/gui/ScrInstall.py:64
 msgid "Installing system..."
@@ -1853,9 +1852,8 @@ msgid "Getting history ..."
 msgstr "Obteniendo registro histórico ..."
 
 #: yali4/gui/ScrRescuePisi.py:91
-#, fuzzy
 msgid "There is no connection"
-msgstr "Seleccionar Conexión"
+msgstr "No hay conexión"
 
 #: yali4/gui/ScrRescuePisi.py:132
 #, python-format
@@ -2034,32 +2032,29 @@ msgid "GRUB will not be installed."
 msgstr "GRUB no se instalará."
 
 #: yali4/gui/ScrSummary.py:230
-#, fuzzy
 msgid "Package Installation Settings"
-msgstr "Particiones"
+msgstr "Configuración de instalación de paquetes"
 
 #: yali4/gui/ScrSummary.py:233
-#, fuzzy
 msgid "Auto installation collection selected."
-msgstr "Particionamiento automático."
+msgstr "Colección de instalación automática"
 
 #: yali4/gui/ScrSummary.py:235
-#, fuzzy, python-format
+#, python-format
 msgid "Manual Installation %s collection selected"
-msgstr "Particionamiento manual seleccionado."
+msgstr "Coleción %s de instalación manual"
 
 #: yali4/gui/ScrSummary.py:238
-#, fuzzy
 msgid "Default Kernel selected"
-msgstr "Eliminar Usuario Seleccionado"
+msgstr "Kernel predeterminado"
 
 #: yali4/gui/ScrSummary.py:240
 msgid "PAE Kernel selected"
-msgstr ""
+msgstr "PAE Kernel"
 
 #: yali4/gui/ScrSummary.py:242
 msgid "Real Time Kernel selected"
-msgstr ""
+msgstr "Real Time Kernel"
 
 #: yali4/gui/ScrSummary.py:259
 msgid "Before Starting"
@@ -2324,6 +2319,10 @@ msgid ""
 " this partition properly! After this operation, start Pardus \n"
 " installation again!"
 msgstr ""
+"El sistema de archivos de la partición '%s' es NTFS y no se \n"
+" cerró correctamente. Por favor reinicie su sistema y cierre \n"
+" ésta partición correctamente! Vuelva a comenzar la instalación\n"
+" de Pardus después de esta operación!"
 
 #: yali4/filesystem.py:480
 #, python-format
