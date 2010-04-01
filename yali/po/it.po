@@ -4,24 +4,24 @@
 #
 # Andrea Decorte <adecorte@gmail.com>, 2007.
 # Siciliano Davide <edivad95@gmail.com>, 2009.
+# Davide Siciliano <edivad95@gmail.com>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: File di testo_1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-01-24 21:10+0200\n"
-"PO-Revision-Date: 2009-07-16 21:55+0200\n"
-"Last-Translator: Siciliano Davide <edivad95@gmail.com>\n"
-"Language-Team: Italian <pardus-translation-it@pardus.org.tr>\n"
+"PO-Revision-Date: 2010-04-01 15:31+0200\n"
+"Last-Translator: Davide Siciliano <edivad95@gmail.com>\n"
+"Language-Team: Italian <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: yali4/gui/Ui/autoinstallationlistitemwidget.py:69
-#, fuzzy
 msgid "Set connection state."
-msgstr "Stato connessione:"
+msgstr "Imposta lo stato della connessione."
 
 #: yali4/gui/Ui/autoinstallationwidget.py:80
 #: yali4/gui/Ui/autopartquestion.py:78 yali4/gui/Ui/connectionlist.py:70
@@ -34,7 +34,7 @@ msgstr "Form1"
 
 #: yali4/gui/Ui/autoinstallationwidget.py:81
 msgid "Choose Installation Method"
-msgstr ""
+msgstr "Scegli il metodo di installazione."
 
 #: yali4/gui/Ui/autoinstallationwidget.py:82
 msgid "Automatic installation"
@@ -542,7 +542,7 @@ msgstr "Concedi i diritti di amministratore a questo utente"
 
 #: yali4/gui/Ui/setupuserswidget.py:181
 msgid "Not recommended"
-msgstr "Non consigliato"
+msgstr "Sconsigliato"
 
 #: yali4/gui/Ui/setupuserswidget.py:182
 msgid "Do not ask any password to this user"
@@ -629,6 +629,9 @@ msgid ""
 "installation. It is now time to relax and learn about some of the features "
 "of Pardus 2009 while it is being installed."
 msgstr ""
+"Ciao, benvenuto in YALI, il programma d'installazione di Pardus. Adesso è "
+"ora di rilassarsi e conoscere alcune caratteristiche di Pardus 2009 durante "
+"l'installazione."
 
 #: yali4/gui/descSlide.py:19
 msgid ""
@@ -670,7 +673,8 @@ msgid ""
 msgstr ""
 "Con l'arrivo di KDE 4.2, Konqueror è stato sostituito con Dolphin, un nuovo "
 "file manager. Dolphin è semplice da usare e aggiunge nuove funzionalità come "
-"l'ordinare delle cartelle in vari modi, o come la visualizzaione delle "
+"la possibilità di ordinare le cartelle in vari modi, o come la "
+"visualizzaione delle "
 "informazioni sulla parte destra della finestra.Per qualunque cosa tu abbia "
 "bisogno per visualizzare file e cartelle, c'è Dolphin."
 
@@ -683,7 +687,7 @@ msgstr ""
 "Con Pardus 2009, Kpdf è stato sostituito con Okular, che supporta molti "
 "formati,  ti permette di vedere tutti i tuoi files senza nessun altro "
 "software addizionale, e consente anche di prendere degli appunti e mettere "
-"dei segnalibri su di essi."
+"dei segnalibri sui documenti."
 
 #: yali4/gui/descSlide.py:23
 msgid ""
@@ -1844,9 +1848,8 @@ msgid "Manual Installation %s collection selected"
 msgstr ""
 
 #: yali4/gui/ScrSummary.py:238
-#, fuzzy
 msgid "Default Kernel selected"
-msgstr "Elimina l'utente selezionato"
+msgstr ""
 
 #: yali4/gui/ScrSummary.py:240
 msgid "PAE Kernel selected"
@@ -2005,7 +2008,7 @@ msgstr ""
 "effettuare un backup dei tuoi dischi prima di iniziare l'installazione. </"
 "p>\n"
 "<p>Puoi cominciare l'installazione (e il tuo cammino nel mondo del sofware "
-"libero) premendo il pulsantw Avanti.</p>\n"
+"libero) premendo il pulsante Avanti.</p>\n"
 "</font>\n"
 
 #: yali4/gui/YaliDialog.py:127 yali4/gui/YaliDialog.py:154
@@ -2207,7 +2210,7 @@ msgstr "Impostazione della password di root..."
 
 #: yali4/installer.py:545
 msgid "Adding Users..."
-msgstr "Aggiunta utenti..."
+msgstr "Creazione utenti..."
 
 #: yali4/installer.py:546
 msgid "Writing Console Data..."
@@ -2391,7 +2394,7 @@ msgstr "Root di installazione"
 
 #: yali4/partitiontype.py:43
 msgid "as Pardus System Files (mandatory)"
-msgstr "File di sistema di Pardus (obbligatorio)"
+msgstr "Files di sistema di Pardus (obbligatorio)"
 
 #: yali4/partitiontype.py:46
 msgid "Users' Files"
@@ -2415,7 +2418,7 @@ msgstr "Partizione di archivio"
 
 #: yali4/partitiontype.py:82
 msgid "as Storage Area"
-msgstr ""
+msgstr "Usa come partizione per i dati"
 
 #: yali4/postinstall.py:184
 #, python-format
