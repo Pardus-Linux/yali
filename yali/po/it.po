@@ -3,8 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Andrea Decorte <adecorte@gmail.com>, 2007.
-# Siciliano Davide <edivad95@gmail.com>, 2009.
-# Davide Siciliano <edivad95@gmail.com>, 2010.
+# Davide Siciliano <edivad95@gmail.com>, 2009,2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: File di testo_1\n"
