@@ -39,7 +39,6 @@ msgid "Choose Installation Method"
 msgstr "Choisir une méthode d'installation"
 
 #: yali4/gui/Ui/autoinstallationwidget.py:82
-#, fuzzy
 msgid "Automatic installation"
 msgstr "Installation automatique"
 
