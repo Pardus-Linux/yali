@@ -232,14 +232,14 @@ Here you can see your install options before installation starts.
             if ctx.installData.autoInstallationMethod == methodInstallAutomatic:
                 content.append(item % _("Auto installation collection selected."))
             else:
-                content.append(item % _("Manual Installation %s collection selected" % ctx.installData.autoInstallationCollection))
+                content.append(item % _("Manual Installation %s collection selected" % ctx.installData.autoInstallationCollection.title))
 
             if ctx.installData.autoInstallationKernel == defaultKernel:
                 content.append(item % _("Default Kernel selected"))
             elif ctx.installData.autoInstallationKernel == paeKernel:
                 content.append(item % _("PAE Kernel selected"))
-            elif ctx.installData.autoInstallationKernel == rtKernel:
-                content.append(item % _("Real Time Kernel selected"))
+            #elif ctx.installData.autoInstallationKernel == rtKernel:
+            #    content.append(item % _("Real Time Kernel selected"))
 
             content.append(end)
 
