@@ -54,12 +54,10 @@ class Widget(QtGui.QWidget, ScreenWidget):
         self.defaultCollection = None
         self.enable_next = False
         self.isManualInstallation = False
-        self.lastChoice = None
+        self.currentChoice = None
+        self.previousChoice = None
 
         self.fillCollectionList()
-
-        #if not self.ui.collectionList.count():
-        #    raise YaliExceptionInfo, _("It seems that you don't have the collection of packages for Pardus installation.")
 
         self.connect(self.ui.radioManual, SIGNAL("clicked()"),self.slotClickedManual)
         self.connect(self.ui.radioManual, SIGNAL("toggled(bool)"),self.slotToggleManual)
@@ -68,25 +66,23 @@ class Widget(QtGui.QWidget, ScreenWidget):
         self.connect(self.ui.radioDefaultKernel, SIGNAL("toggled(bool)"),self.slotToggleDefaultKernel)
         self.connect(self.ui.radioPAEKernel, SIGNAL("toggled(bool)"),self.slotTogglePAEKernel)
         self.connect(self.ui.radioRTKernel, SIGNAL("toggled(bool)"),self.slotToggleRTKernel)
-        #self.connect(self.ui.collectionList, SIGNAL("currentItemChanged(QListWidgetItem *, QListWidgetItem *)"),self.slotCollectionItemChanged)
 
     def fillCollectionList(self):
         self.ui.collectionList.clear()
-        for collection in yali4.pisiiface.getCollection():
+        self.collections = yali4.pisiiface.getCollection()
+        for collection in self.collections:
             item = QtGui.QListWidgetItem(self.ui.collectionList)
             item.setFlags(Qt.NoItemFlags | Qt.ItemIsEnabled)
             item.setSizeHint(QSize(48,48))
-            collectionItem = CollectionListItem(collection, self, item)
+            if collection.default:
+                collectionItem = CollectionListItem(collection, self, item, default=True)
+                self.defaultCollection = collection
+                self.currentChoice = item
+            else:
+                collectionItem = CollectionListItem(collection, self, item, default=False)
             self.ui.collectionList.setItemWidget(item, collectionItem)
 
-        self.collections = yali4.pisiiface.getCollection()
-        for collection in self.collections:
-            if collection.default:
-                self.defaultCollection = collection
-
         ctx.debugger.log("Default Collection : %s" % self.defaultCollection.title)
-
-        self.ui.collectionList.setCurrentRow(0)
 
     def setDefaultKernelType(self):
         if yali4.sysutils.isLoadedKernelPAE() or yali4.sysutils.checkKernelFlags("pae"):
@@ -97,7 +93,6 @@ class Widget(QtGui.QWidget, ScreenWidget):
             ctx.debugger.log("Kernel Type as Default")
 
     def shown(self):
-        # scan partitions for resizing
         self.toggleAll()
         self.fillCollectionList()
         self.setDefaultKernelType()
@@ -143,32 +138,22 @@ class Widget(QtGui.QWidget, ScreenWidget):
             ctx.installData.autoInstallationKernel = defaultKernel
         elif self.ui.radioPAEtKernel.isChecked():
             ctx.installData.autoInstallationKernel = paeKernel
-        elif self.ui.radioRTKernel.isChecked():
-            ctx.installData.autoInstallationKernel = rtKernel
+        #elif self.ui.radioRTKernel.isChecked():
+        #    ctx.installData.autoInstallationKernel = rtKernel
 
         ctx.debugger.log("Trying to Install selected Packages from %s Collection with %s Type" % \
                                 (ctx.installData.autoInstallationCollection.title, kernels[ctx.installData.autoInstallationKernel]))
         return True
 
-    #def slotCollectionItemChanged(self, current, previous):
-    #    if current:
-    #        self.collection = self.ui.collectionList.itemWidget(current).collection
-    #        ctx.debugger.log("Installation collection selected as %s" % self.collection.uniqueTag)
-
     def slotClickedAutomatic(self):
         self.ui.radioAutomatic.setChecked(True)
         self.ui.radioManual.setChecked(False)
-        #ctx.installData.autoInstallationMethod = methodInstallAutomatic
         self.selectedCollection = self.defaultCollection
-        self.collectionList.itemWidget(self.lastChoice).ui.checkToggler.setChecked(False)
-        #self.setAutoExclusives(False)
-        #self.lastChoice.setChecked(True)
+        self.ui.collectionList.itemWidget(self.currentChoice).ui.checkToggler.setChecked(False)
 
     def slotClickedManual(self):
         self.ui.radioManual.setChecked(True)
         self.ui.radioAutomatic.setChecked(False)
-        #self.setAutoExclusives(False)
-        #ctx.installData.autoInstallationMethod = methodInstallManual
         self.enable_next = True
         self.update()
 
@@ -178,16 +163,11 @@ class Widget(QtGui.QWidget, ScreenWidget):
         else:
             self.ui.collectionList.setEnabled(True)
 
-        #self.ui.radioAutomatic.setChecked(True)
-        #self.ui.radioManual.setChecked(False)
-
     def slotToggleManual(self, checked):
         if checked:
             self.ui.collectionList.setEnabled(True)
         else:
             self.ui.collectionList.setEnabled(False)
-        #self.ui.radioAutomatic.setChecked(False)
-        #self.ui.collectionList.setEnabled(True)
 
     def slotToggleDefaultKernel(self, checked):
         if checked:
@@ -200,15 +180,6 @@ class Widget(QtGui.QWidget, ScreenWidget):
     def slotToggleRTKernel(self, checked):
         if checked:
             self.defaultKernelType = rtKernel
-
-#    def setAutoExclusives(self, val=True):
-#        self.ui.collectionList.setEnabled(val)
-#        self.ui.radioAutomatic.setAutoExclusive(val)
-#        self.ui.radioManual.setAutoExclusive(val)
-#        if not val:
-#            self.slotToggleManual(True)
-#        else:
-#            self.slotToggleAutomatic(True)
 
     def update(self):
         if self.ui.radioManual.isChecked():
@@ -225,7 +196,7 @@ class Widget(QtGui.QWidget, ScreenWidget):
         ctx.mainScreen.processEvents()
 
 class CollectionListItem(QtGui.QWidget):
-    def __init__(self, collection, parent, item):
+    def __init__(self, collection, parent, item, defult=False):
         QtGui.QWidget.__init__(self, parent)
 
         self.ui = Ui_AutoInstallationListItemWidget()
@@ -234,17 +205,19 @@ class CollectionListItem(QtGui.QWidget):
         self.collection = collection
         self.parent = parent
         self.item = item
+        self.default = default
         self.ui.labelName.setText(collection.title)
         self.ui.labelDesc.setText(collection.description.content)
         self.ui.labelIcon.setPixmap(QtGui.QPixmap(collection.icon))
-
         self.connect(self.ui.checkToggler, SIGNAL("clicked()"), self.slotToggleCollection)
 
 
     def slotToggleCollection(self):
-        if self.ui.checkToggler.isChecked():
+        if self.ui.checkToggler.checkState() == Qt.CheckState and self.parent.currentChoice != self.item:
             self.parent.selectedCollection = self.collection
-            self.parent.lastChoice = self.item
+            self.parent.ui.collectionList.itemWidget(self.parent.currentChoice).ui.checkToggler.setChecked(False)
+            self.parent.previousChoice = self.parent.currentChoice
+            self.parent.currentChoice = self.item
             self.parent.isManualInstallation = True
             ctx.debugger.log("Manual Install selected Packages from %s Collection as %s" % (self.collection.uniqueTag, self.collection.title))
 
