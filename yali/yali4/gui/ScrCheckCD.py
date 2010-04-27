@@ -30,9 +30,9 @@ class Widget(QtGui.QWidget, ScreenWidget):
     desc = _('To ignore media corruptions you can check your media integrity...')
     icon = "iconCD"
     help = _('''
-<font size="+2">Check CD Integrity!</font>
+<font size="+2">Check Packages Integrity!</font>
 <font size="+1"><p>
-You can check if the packages included in the installation CD are saved correctly into the CD. Performing this test is a highly important step in making sure for a problem-free installation. If the test fails, try re-burning the ISO image in a lower (e.g. 12x or less) speed.</p></font>
+You can check if the packages included in the installation Media are saved correctly. Performing this test is a highly important step in making sure for a problem-free installation. If the test fails, try re-burning the ISO image in a lower (e.g. 12x or less) speed.</p></font>
 ''')
 
     def __init__(self, *args):
@@ -47,11 +47,11 @@ You can check if the packages included in the installation CD are saved correctl
     def slotCheckCD(self):
         if ctx.yali.checkCDStop == True:
             ctx.yali.checkCDStop = False
-            self.ui.checkLabel.setText(_('<font color="#FFF">Please wait while checking CD.</font>'))
+            self.ui.checkLabel.setText(_('<font color="#FFF">Please wait while checking Packages.</font>'))
             self.ui.checkButton.setText(_("Stop Checking"))
             # Check the CD
             ctx.yali.checkCD(self.ui)
         else:
             ctx.yali.checkCDStop = True
-            self.ui.checkButton.setText(_("Check CD Integrity"))
+            self.ui.checkButton.setText(_("Check Packages Integrity"))
 
