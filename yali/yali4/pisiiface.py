@@ -27,7 +27,7 @@ from yali4.gui.installdata import *
 repodb = pisi.db.repodb.RepoDB()
 
 class PackageCollection(object):
-    def __init__(self, uniqueTag, icon, title, description, default=""):
+    def __init__(self, uniqueTag, icon, title, description, default=False):
         self.default = default
         self.uniqueTag = uniqueTag
         self.title = title
@@ -108,14 +108,15 @@ def takeBack(operation):
 def getCollection():
     packageCollection = []
     translations = {}
+    default = False
 
     piksemelObj = piksemel.parse(consts.pisi_collection_file)
     for collection in piksemelObj.tags("Collection"):
         default = collection.getAttribute("default")
-        if not default:
-            default = ""
+        if default:
+            default = True
 
-        name = collection.getTagData("name")
+        uniqueTag = collection.getTagData("name")
         icon = collection.getTagData("icon")
         title = collection.getTagData("title")
         descriptionTag = collection.getTag("description")
@@ -124,7 +125,7 @@ def getCollection():
             translations[translation.getAttribute("code")] = translation.firstChild().data()
 
         description = Description(content, translations)
-        packageCollection.append(PackageCollection(name, icon, title, description, default))
+        packageCollection.append(PackageCollection(uniqueTag, icon, title, description, default))
 
     return packageCollection
 
