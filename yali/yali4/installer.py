@@ -666,6 +666,13 @@ class Yali:
         # write the new grub.conf
         grubConf.write(grubConfPath)
 
+        # BUG:#11255 normal user doesn't mount /mnt/archive directory. 
+        # We set new formatted partition priveleges as user=root group=disk and change mod as 0770
+        # Check archive partition type
+        archiveRequest = partrequests.searchPartTypeAndReqType(parttype.archive, request.mountRequestType)
+        if archiveRequest:
+            yali4.postinstall.setPartitionPriveleges(archiveRequest, 0770, 0, 6)
+
         # Umount system paths
         yali4.sysutils.umountSystemPaths()
 

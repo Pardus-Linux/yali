@@ -292,3 +292,13 @@ def writeInitramfsConf(parameters=[]):
             raise IOError
 
     initramfsConf.close()
+
+def setPartitionPriveleges(request, mode, uid, gid):
+    path = os.path.join(consts.target_dir, request.partitionType().mountpoint)
+    if os.path.exists(path):
+        try:
+            os.chmod(path, mode)
+            os.chown(path, uid, gid)
+        except OSError, msg:
+                ctx.debugger.log("Unexpected error: %s" % msg)
+
