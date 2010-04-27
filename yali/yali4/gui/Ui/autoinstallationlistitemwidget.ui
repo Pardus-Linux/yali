@@ -21,15 +21,9 @@
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
-    <widget class="QCheckBox" name="checkToggler">
-     <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
-     </property>
-     <property name="toolTip">
-      <string>Set connection state.</string>
-     </property>
+    <widget class="QCheckBox" name="checkBox">
      <property name="text">
-      <string notr="true"/>
+      <string/>
      </property>
     </widget>
    </item>
