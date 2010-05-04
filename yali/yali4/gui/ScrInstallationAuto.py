@@ -129,10 +129,10 @@ class Widget(QtGui.QWidget, ScreenWidget):
             ctx.debugger.log("Manual Installation selected..")
 
         if self.ui.kernelTypeGroupBox.isVisible():
-            if self.ui.radioDefaultKernel.isChecked():
-                ctx.installData.autoInstallationKernel = defaultKernel
-            elif self.ui.radioPAEtKernel.isChecked():
+            if self.ui.radioPAEKernel.isChecked():
                 ctx.installData.autoInstallationKernel = paeKernel
+            else:
+                ctx.installData.autoInstallationKernel = defaultKernel
         else:
             ctx.installData.autoInstallationKernel = defaultKernel
 
