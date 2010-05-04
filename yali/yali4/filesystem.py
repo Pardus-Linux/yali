@@ -453,7 +453,7 @@ class NTFSFileSystem(FileSystem):
     def resizeSilent(self, size_mb, partition):
         # don't do anything, just check
         cmd_path = requires("ntfsresize")
-        cmd = "%s -P -n -ff -s %dM %s" % (cmd_path, size_mb, partition.getPath())
+        cmd = "%s -P -n -f -s %dM %s" % (cmd_path, size_mb, partition.getPath())
         return sysutils.run(cmd)
 
     def preResize(self, partition):
@@ -474,7 +474,7 @@ class NTFSFileSystem(FileSystem):
                                   "installation again!" % partition.getPath())
 
         cmd_path = requires("ntfsresize")
-        cmd = "%s -P -ff -s %dM %s" % (cmd_path, size_mb, partition.getPath())
+        cmd = "%s -P -f -s %dM %s" % (cmd_path, size_mb, partition.getPath())
 
         if not sysutils.run(cmd):
             raise FSError, _("Resize failed on %s " % partition.getPath())
@@ -507,7 +507,9 @@ class NTFSFileSystem(FileSystem):
         _min = 0
         for l in lines:
             if l.startswith("You might resize"):
-                _min = int(l.split()[4]) / parteddata.MEGABYTE + 140
+                # ntfsresize bytes conversion to megabytes isn't as same as us. Huppps!
+                # Shouldn't use own conversion, rely on ntfsresize information for megabytes
+                _min = int(l.split()[7])
 
         return _min
 
