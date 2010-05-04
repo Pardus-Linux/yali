@@ -109,23 +109,28 @@ def getCollection():
     packageCollection = []
     translations = {}
     default = False
+    piksemelObj = None
 
-    piksemelObj = piksemel.parse(consts.pisi_collection_file)
-    for collection in piksemelObj.tags("Collection"):
-        default = collection.getAttribute("default")
-        if default:
-            default = True
+    try:
+        piksemelObj = piksemel.parse(consts.pisi_collection_file)
+    except OSError, msg:
+        ctx.debugger.log("Unexcepted error:%s" % msg)
+    else:
+        for collection in piksemelObj.tags("Collection"):
+            default = collection.getAttribute("default")
+            if default:
+                default = True
 
-        uniqueTag = collection.getTagData("name")
-        icon = collection.getTagData("icon")
-        title = collection.getTagData("title")
-        descriptionTag = collection.getTag("description")
-        content = descriptionTag.getTagData("content")
-        for translation in descriptionTag.tags("translation"):
-            translations[translation.getAttribute("code")] = translation.firstChild().data()
+            uniqueTag = collection.getTagData("name")
+            icon = collection.getTagData("icon")
+            title = collection.getTagData("title")
+            descriptionTag = collection.getTag("description")
+            content = descriptionTag.getTagData("content")
+            for translation in descriptionTag.tags("translation"):
+                translations[translation.getAttribute("code")] = translation.firstChild().data()
 
-        description = Description(content, translations)
-        packageCollection.append(PackageCollection(uniqueTag, icon, title, description, default))
+            description = Description(content, translations)
+            packageCollection.append(PackageCollection(uniqueTag, icon, title, description, default))
 
     return packageCollection
 
