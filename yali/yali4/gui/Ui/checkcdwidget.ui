@@ -1,7 +1,8 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>CheckCDWidget</class>
- <widget class="QWidget" name="CheckCDWidget" >
-  <property name="geometry" >
+ <widget class="QWidget" name="CheckCDWidget">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -9,19 +10,19 @@
     <height>426</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>Form1</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout" >
-   <item row="0" column="1" >
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="1">
     <spacer>
-     <property name="orientation" >
+     <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>
-     <property name="sizeType" >
+     <property name="sizeType">
       <enum>QSizePolicy::Expanding</enum>
      </property>
-     <property name="sizeHint" stdset="0" >
+     <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
        <height>51</height>
@@ -29,15 +30,15 @@
      </property>
     </spacer>
    </item>
-   <item row="1" column="0" >
+   <item row="1" column="0">
     <spacer>
-     <property name="orientation" >
+     <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
-     <property name="sizeType" >
+     <property name="sizeType">
       <enum>QSizePolicy::Expanding</enum>
      </property>
-     <property name="sizeHint" stdset="0" >
+     <property name="sizeHint" stdset="0">
       <size>
        <width>131</width>
        <height>20</height>
@@ -45,48 +46,48 @@
      </property>
     </spacer>
    </item>
-   <item row="1" column="1" >
-    <layout class="QVBoxLayout" >
+   <item row="1" column="1">
+    <layout class="QVBoxLayout">
      <item>
-      <widget class="QLabel" name="pix" >
-       <property name="pixmap" >
-        <pixmap resource="../../data.qrc" >:/gui/pics/installcd.png</pixmap>
+      <widget class="QLabel" name="pix">
+       <property name="pixmap">
+        <pixmap resource="../../data.qrc">:/gui/pics/installcd.png</pixmap>
        </property>
-       <property name="alignment" >
+       <property name="alignment">
         <set>Qt::AlignCenter</set>
        </property>
-       <property name="wordWrap" >
+       <property name="wordWrap">
         <bool>false</bool>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="textLabel2" >
-       <property name="text" >
-        <string>You can check the integrity of the packages in installation CD. Although this is an optional step, we encourage you to do it in order to avoid any possible errors in the installation process.</string>
+      <widget class="QLabel" name="textLabel2">
+       <property name="text">
+        <string>You can check the integrity of the packages in installation media. Although this is an optional step, we encourage you to do it in order to avoid any possible errors in the installation process.</string>
        </property>
-       <property name="alignment" >
+       <property name="alignment">
         <set>Qt::AlignVCenter</set>
        </property>
-       <property name="wordWrap" >
+       <property name="wordWrap">
         <bool>true</bool>
        </property>
-       <property name="margin" >
+       <property name="margin">
         <number>20</number>
        </property>
       </widget>
      </item>
      <item>
-      <layout class="QHBoxLayout" >
+      <layout class="QHBoxLayout">
        <item>
         <spacer>
-         <property name="orientation" >
+         <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
-         <property name="sizeType" >
+         <property name="sizeType">
           <enum>QSizePolicy::Expanding</enum>
          </property>
-         <property name="sizeHint" stdset="0" >
+         <property name="sizeHint" stdset="0">
           <size>
            <width>21</width>
            <height>20</height>
@@ -95,21 +96,21 @@
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="checkButton" >
-         <property name="text" >
-          <string>Check CD Integrity</string>
+        <widget class="QPushButton" name="checkButton">
+         <property name="text">
+          <string>Check Packages Integrity</string>
          </property>
         </widget>
        </item>
        <item>
         <spacer>
-         <property name="orientation" >
+         <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
-         <property name="sizeType" >
+         <property name="sizeType">
           <enum>QSizePolicy::Expanding</enum>
          </property>
-         <property name="sizeHint" stdset="0" >
+         <property name="sizeHint" stdset="0">
           <size>
            <width>21</width>
            <height>20</height>
@@ -120,38 +121,38 @@
       </layout>
      </item>
      <item>
-      <widget class="QLabel" name="checkLabel" >
-       <property name="minimumSize" >
+      <widget class="QLabel" name="checkLabel">
+       <property name="minimumSize">
         <size>
          <width>400</width>
          <height>0</height>
         </size>
        </property>
-       <property name="text" >
+       <property name="text">
         <string/>
        </property>
-       <property name="alignment" >
+       <property name="alignment">
         <set>Qt::AlignCenter</set>
        </property>
-       <property name="wordWrap" >
+       <property name="wordWrap">
         <bool>false</bool>
        </property>
-       <property name="margin" >
+       <property name="margin">
         <number>10</number>
        </property>
       </widget>
      </item>
     </layout>
    </item>
-   <item row="1" column="2" >
+   <item row="1" column="2">
     <spacer>
-     <property name="orientation" >
+     <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
-     <property name="sizeType" >
+     <property name="sizeType">
       <enum>QSizePolicy::Expanding</enum>
      </property>
-     <property name="sizeHint" stdset="0" >
+     <property name="sizeHint" stdset="0">
       <size>
        <width>131</width>
        <height>20</height>
@@ -159,15 +160,15 @@
      </property>
     </spacer>
    </item>
-   <item row="2" column="1" >
+   <item row="2" column="1">
     <spacer>
-     <property name="orientation" >
+     <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>
-     <property name="sizeType" >
+     <property name="sizeType">
       <enum>QSizePolicy::Expanding</enum>
      </property>
-     <property name="sizeHint" stdset="0" >
+     <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
        <height>40</height>
@@ -175,17 +176,17 @@
      </property>
     </spacer>
    </item>
-   <item row="3" column="0" colspan="3" >
-    <layout class="QHBoxLayout" name="horizontalLayout" >
+   <item row="3" column="0" colspan="3">
+    <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <spacer name="horizontalSpacer" >
-       <property name="orientation" >
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
-       <property name="sizeType" >
+       <property name="sizeType">
         <enum>QSizePolicy::Fixed</enum>
        </property>
-       <property name="sizeHint" stdset="0" >
+       <property name="sizeHint" stdset="0">
         <size>
          <width>40</width>
          <height>20</height>
@@ -194,21 +195,21 @@
       </spacer>
      </item>
      <item>
-      <widget class="QProgressBar" name="progressBar" >
-       <property name="value" >
+      <widget class="QProgressBar" name="progressBar">
+       <property name="value">
         <number>0</number>
        </property>
       </widget>
      </item>
      <item>
-      <spacer name="horizontalSpacer_2" >
-       <property name="orientation" >
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
-       <property name="sizeType" >
+       <property name="sizeType">
         <enum>QSizePolicy::Fixed</enum>
        </property>
-       <property name="sizeHint" stdset="0" >
+       <property name="sizeHint" stdset="0">
         <size>
          <width>40</width>
          <height>20</height>
@@ -218,15 +219,15 @@
      </item>
     </layout>
    </item>
-   <item row="4" column="1" >
-    <spacer name="verticalSpacer" >
-     <property name="orientation" >
+   <item row="4" column="1">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>
-     <property name="sizeType" >
+     <property name="sizeType">
       <enum>QSizePolicy::Fixed</enum>
      </property>
-     <property name="sizeHint" stdset="0" >
+     <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
        <height>20</height>
@@ -236,10 +237,10 @@
    </item>
   </layout>
  </widget>
- <layoutdefault spacing="6" margin="11" />
+ <layoutdefault spacing="6" margin="11"/>
  <pixmapfunction>qPixmapFromMimeSource</pixmapfunction>
  <resources>
-  <include location="../../data.qrc" />
+  <include location="../../data.qrc"/>
  </resources>
  <connections/>
 </ui>
