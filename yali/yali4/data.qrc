@@ -1,5 +1,8 @@
 <RCC>
-  <qresource prefix="/" >
+  <qresource prefix="/">
+    <file>images/system-reboot.png</file>
+    <file>images/system-shutdown.png</file>
+    <file>images/system-yali-reboot.png</file>
     <file>gui/pics/wireless_tools.png</file>
     <file>gui/pics/net_tools.png</file>
     <file>gui/pics/help-about.png</file>
