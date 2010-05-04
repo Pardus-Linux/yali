@@ -671,7 +671,7 @@ class Yali:
         # Check archive partition type
         archiveRequest = partrequests.searchPartTypeAndReqType(parttype.archive, request.mountRequestType)
         if archiveRequest:
-            yali4.postinstall.setPartitionPriveleges(archiveRequest, 0770, 0, 6)
+            yali4.postinstall.setPartitionPrivileges(archiveRequest, 0770, 0, 6)
 
         # Umount system paths
         yali4.sysutils.umountSystemPaths()
