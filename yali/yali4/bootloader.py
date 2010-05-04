@@ -185,14 +185,15 @@ class BootLoader:
 
             s = []
             # Add initramfs.conf config file support on 2009.1. But may be old system didnt have it(Like Pardus 2008)
-            if not os.path.exists(os.path.join(consts.target_dir, "etc/initramfs.conf")):
-                s.append("root=LABEL=%s" % (root_label))
-                # a hack for http://bugs.pardus.org.tr/3345
-                rt = request.mountRequestType
-                pt = parttype.swap
-                swap_part_req = partrequests.searchPartTypeAndReqType(pt, rt)
-                if swap_part_req:
-                    s.append("resume=%s" %(swap_part_req.partition().getPath()))
+            #if not os.path.exists(os.path.join(consts.target_dir, "etc/initramfs.conf")):
+            # Removing root=LABEL= from cmdline makes problem for suspend
+            s.append("root=LABEL=%s" % (root_label))
+            # a hack for http://bugs.pardus.org.tr/3345
+            rt = request.mountRequestType
+            pt = parttype.swap
+            swap_part_req = partrequests.searchPartTypeAndReqType(pt, rt)
+            if swap_part_req:
+                s.append("resume=%s" %(swap_part_req.partition().getPath()))
 
             # Get parameters from cmdline.
             for i in [x for x in open("/proc/cmdline", "r").read().split()]:
