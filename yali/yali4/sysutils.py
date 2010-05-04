@@ -309,6 +309,9 @@ def reboot():
     run("/tmp/reboot -f")
     # fastreboot()
 
+def shutdown():
+    run("/tmp/shutdown -h now")
+
 # Shamelessly stolen from Anaconda :)
 def execClear(command, argv, stdin = 0, stdout = 1, stderr = 2):
     import yali4.gui.context as ctx
