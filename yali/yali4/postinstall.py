@@ -293,7 +293,7 @@ def writeInitramfsConf(parameters=[]):
 
     initramfsConf.close()
 
-def setPartitionPriveleges(request, mode, uid, gid):
+def setPartitionPrivileges(request, mode, uid, gid):
     path = os.path.join(consts.target_dir, request.partitionType().mountpoint)
     if os.path.exists(path):
         try:
