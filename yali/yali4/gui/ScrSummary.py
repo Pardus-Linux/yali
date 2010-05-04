@@ -80,6 +80,7 @@ Here you can see your install options before installation starts.
     def backCheck(self):
         self.timer.stop()
         ctx.yali.info.hide()
+        ctx.mainScreen.ui.buttonNext.setText(_("Next"))
         return True
 
     def updateCounter(self):
