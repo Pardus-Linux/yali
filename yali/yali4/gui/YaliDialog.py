@@ -77,9 +77,10 @@ class Dialog(QtGui.QDialog):
         self.wlayout= QtGui.QHBoxLayout()
 
         if icon:
-            self.setStyleSheet(""" QDialog#dialog {background-image:url(':/images/%s.png');
-                                                   background-repeat:no-repeat;
-                                                   background-position: top left;} """ % icon)
+            self.setStyleSheet("""QDialog QLabel{ margin-left:40px;margin-right:10px}
+                                  QDialog#dialog {background-image:url(':/images/%s.png');
+                                                  background-repeat:no-repeat;
+                                                  background-position: top left; padding-left:500px;} """ % icon)
 
         self.windowTitle = windowTitle(self, closeButton)
         self.setTitle(title)
