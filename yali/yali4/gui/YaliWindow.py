@@ -9,7 +9,8 @@
 #
 # Please read the COPYING file.
 #
-
+import os
+import sys
 from os.path import join
 from PyQt4 import QtGui
 from PyQt4.QtCore import *
@@ -52,13 +53,13 @@ class Widget(QtGui.QWidget):
         # shortcut to open debug window
         self.debugShortCut = QtGui.QShortcut(QtGui.QKeySequence(Qt.Key_F2),self)
 
-        # shortcut to open a console
-        self.consoleShortCut = QtGui.QShortcut(QtGui.QKeySequence(Qt.Key_F11),self)
-
         # something funny
+        self.tetrisShortCut = QtGui.QShortcut(QtGui.QKeySequence(Qt.Key_F6),self)
         self.cursorShortCut = QtGui.QShortcut(QtGui.QKeySequence(Qt.Key_F7),self)
         self.themeShortCut  = QtGui.QShortcut(QtGui.QKeySequence(Qt.Key_F8),self)
-        self.tetrisShortCut = QtGui.QShortcut(QtGui.QKeySequence(Qt.Key_F6),self)
+
+        # shortcut to open a console
+        self.consoleShortCut = QtGui.QShortcut(QtGui.QKeySequence(Qt.Key_F11),self)
 
         # set style
         self._style = ctx.consts.stylesheet
@@ -71,6 +72,15 @@ class Widget(QtGui.QWidget):
         self.ui.helpContent.hide()
         self.ui.toggleHelp.setText(_("Show Help"))
 
+        # ToolButton Popup Menu
+        self.popupMenu = QtGui.QMenu()
+        self.shutDownAction = self.popupMenu.addAction(QtGui.QIcon(QtGui.QPixmap(":/images/system-shutdown.png")), _("Turn off Computer"))
+        self.rebootAction = self.popupMenu.addAction(QtGui.QIcon(QtGui.QPixmap(":/images/system-reboot.png")), _("Restart Computer"))
+        self.restartAction = self.popupMenu.addAction(QtGui.QIcon(QtGui.QPixmap(":/images/system-yali-reboot.png")), _("Restart YALI"))
+        #self.popupMenu.setDefaultAction(self.shutDownAction)
+        self.ui.toolButton.setMenu(self.popupMenu)
+        self.ui.toolButton.setDefaultAction(self.shutDownAction)
+
         # Main Slots
         self.connect(self.helpShortCut,     SIGNAL("activated()"),  self.slotToggleHelp)
         self.connect(self.debugShortCut,    SIGNAL("activated()"),  self.toggleDebug)
@@ -82,6 +92,7 @@ class Widget(QtGui.QWidget):
         self.connect(self.ui.buttonBack,    SIGNAL("clicked()"),    self.slotBack)
         self.connect(self.ui.toggleHelp,    SIGNAL("clicked()"),    self.slotToggleHelp)
         self.connect(self.ui.releaseNotes,  SIGNAL("clicked()"),    self.showReleaseNotes)
+        self.connect(self.popupMenu,        SIGNAL("triggered(QAction*)"), self.slotMenu)
 
         self._terminal = QTermWidget.QTermWidget()
         self._terminal.sendText("export TERM='xterm'\nclear\n")
@@ -124,6 +135,23 @@ class Widget(QtGui.QWidget):
         self.font = self.font + num
         new = "QWidget{font:%dpt;}" % self.font
         self.setStyleSheet(self.styleSheet().replace(old, new))
+
+    def slotMenu(self, action):
+        if action == self.shutDownAction:
+            reply = QuestionDialog(_("Warning"),
+                                   _("Your system will now <b>shutdown</b>.<br/><br/><b>This action can cause harm to your computer if the installation is in progress.</b>"))
+            if reply == "yes":
+                yali4.sysutils.shutdown()
+        elif action == self.rebootAction:
+            reply = QuestionDialog(_("Warning"),
+                                   _("Your system will now <b>reboot</b>.<br/><br/><b>This action can cause harm to your computer if the installation is in progress.</b>"))
+            if reply == "yes":
+                yali4.sysutils.reboot()
+        else:
+            reply = QuestionDialog(_("Warning"),
+                                   _("YALI will now <b>restart</b>.<br/><br/><b>This action can cause harm to your computer if the installation is in progress.</b>"))
+            if reply == "yes":
+                os.execv("/usr/bin/yali4-bin", sys.argv)
 
     def toggleTheme(self):
         if self._style == ctx.consts.stylesheet:
