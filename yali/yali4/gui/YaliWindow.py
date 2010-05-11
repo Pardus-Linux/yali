@@ -149,7 +149,7 @@ class Widget(QtGui.QWidget):
                 yali4.sysutils.reboot()
         else:
             reply = QuestionDialog(_("Warning"),
-                                   _("YALI will now <b>restart</b>.<br/><br/><b>This action can cause harm to your computer if the installation is in progress.</b>"))
+                                   _("YALI will now <b>restart</b>.<br/><br/><b>This action can cause harm to your computer if the installation is in progress."))
             if reply == "yes":
                 os.execv("/usr/bin/yali4-bin", sys.argv)
 
