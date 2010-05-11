@@ -453,7 +453,7 @@ class NTFSFileSystem(FileSystem):
     def resizeSilent(self, size_mb, partition):
         # don't do anything, just check
         cmd_path = requires("ntfsresize")
-        cmd = "%s -P -n -f -s %dM %s" % (cmd_path, size_mb, partition.getPath())
+        cmd = "%s -P -n -ff -s %dM %s" % (cmd_path, size_mb, partition.getPath())
         return sysutils.run(cmd)
 
     def preResize(self, partition):
