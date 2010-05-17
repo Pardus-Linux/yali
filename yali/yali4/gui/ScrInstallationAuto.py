@@ -32,7 +32,7 @@ import yali4.sysutils
 ##
 # Installation Choice Widget
 class Widget(QtGui.QWidget, ScreenWidget):
-    title = _('Choose Installation')
+    title = _('Choose Collections')
     desc = _('Auto or Manual installation...')
     icon = "iconPartition"
     help = _('''
@@ -202,7 +202,7 @@ class CollectionListItem(QtGui.QWidget):
         self.parent = parent
         self.item = item
         self.ui.labelName.setText(collection.title)
-        self.ui.labelDesc.setText(collection.description.content)
+        self.ui.labelDesc.setText(collection.description)
         self.ui.labelIcon.setPixmap(QtGui.QPixmap(collection.icon))
         self.connect(self.ui.checkBox, SIGNAL("stateChanged(int)"), self.slotSelectCollection)
 
