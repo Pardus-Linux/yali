@@ -26,13 +26,13 @@ import yali4.gui.context as ctx
 from yali4.gui.YaliDialog import Dialog
 
 class Widget(QtGui.QWidget, ScreenWidget):
-    title = _('Check your media')
-    desc = _('To ignore media corruptions you can check your media integrity...')
+    title = _('Check your medium')
+    desc = _('To ignore medium corruptions you can check your packages integrity...')
     icon = "iconCD"
     help = _('''
 <font size="+2">Check Packages Integrity!</font>
 <font size="+1"><p>
-You can check if the packages included in the installation Media are saved correctly. Performing this test is a highly important step in making sure for a problem-free installation. If the test fails, try re-burning the ISO image in a lower (e.g. 12x or less) speed.</p></font>
+You can check if the packages included in the installation Medium are saved correctly. Performing this test is a highly important step in making sure for a problem-free installation. If the test fails, try re-burning the ISO image in a lower (e.g. 12x or less) speed.</p></font>
 ''')
 
     def __init__(self, *args):
