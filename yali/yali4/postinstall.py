@@ -294,11 +294,12 @@ def writeInitramfsConf(parameters=[]):
     initramfsConf.close()
 
 def setPartitionPrivileges(request, mode, uid, gid):
-    path = os.path.join(consts.target_dir, request.partitionType().mountpoint)
-    if os.path.exists(path):
+    requestPath = "%s%s" % (ctx.consts.target_dir, request.partitionType().mountpoint)
+    ctx.debugger.log("Trying to change privileges %s path" % requestPath)
+    if os.path.exists(requestPath):
         try:
-            os.chmod(path, mode)
-            os.chown(path, uid, gid)
+            os.chmod(requestPath, mode)
+            os.chown(requestPath, uid, gid)
         except OSError, msg:
                 ctx.debugger.log("Unexpected error: %s" % msg)
 
