@@ -146,9 +146,9 @@ msgid ""
 "This option will erase the entire disk. All the data on the disk will be "
 "lost."
 msgstr ""
-"<b>\n"
-"<p>Questa azione utilizzerà l'intero disco per l'installazione di Pardus e\n"
-"tutti i tuoi dati su tale disco verranno cancellati.</p>\n"
+""
+"Questa azione utilizzerà l'intero disco per l'installazione di Pardus e"
+"tutti i tuoi dati su tale disco verranno cancellati."
 
 #: yali4/gui/Ui/autopartwidget.py:120
 msgid "Delete all partitions"
