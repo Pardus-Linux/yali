@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2009, TUBITAK/UEKAE
+# Copyright (C) 2009-2010 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -37,22 +37,31 @@ import yali.gui.context as ctx
 ##
 # BootLoader screen.
 class Widget(QtGui.QWidget, ScreenWidget):
-    title = _('Rescue Mode for Pisi History')
-    desc = _('You can take back your system ...')
+    title = _("Take Back Your System")
     icon = "iconInstall"
-    help = _('''
+    help = _("""
 <font size="+2">Pisi History</font>
-<font size="+1"></font>
-''')
+<font size="+1">
+<p>
+Pisi, the package management system of Pardus, stores every operation in its history database. More technically speaking, every removal/installation/update operation
+within Pisi is a point-in-time that the user may want to return back in case of a
+serious problem or system inconsistency.
+</p>
+<p>
+This repair mode allows users to visualize the operation history and to return back to
+a previous system state.
+</p>
+</font>
+""")
 
     def __init__(self, *args):
         QtGui.QWidget.__init__(self,None)
         self.ui = Ui_RescuePisiWidget()
         self.ui.setupUi(self)
         self.steps = YaliSteps()
-        self.steps.setOperations([{"text":_("Starting DBUS..."),"operation":yali.sysutils.chrootDbus},
-                                  {"text":_("Trying to connect DBUS..."),"operation":yali.postinstall.connectToDBus},
-                                  {"text":_("Getting history ..."),"operation":self.fillHistoryList}])
+        self.steps.setOperations([{"text":_("Starting D-Bus..."),"operation":yali.sysutils.chrootDbus},
+                                  {"text":_("Connecting to D-Bus..."),"operation":yali.postinstall.connectToDBus},
+                                  {"text":_("Fetching history..."),"operation":self.fillHistoryList}])
 
         self.connect(self.ui.buttonSelectConnection, SIGNAL("clicked()"), self.showConnections)
         self.connectionWidget = None
@@ -88,7 +97,7 @@ class Widget(QtGui.QWidget, ScreenWidget):
         if self.checkRegisteredConnections():
             self.ui.buttonSelectConnection.setEnabled(True)
         else:
-            self.ui.labelStatus.setText(_("There is no connection"))
+            self.ui.labelStatus.setText(_("No connection available"))
 
     def execute(self):
         ctx.takeBackOperation = self.ui.historyList.currentItem().getInfo()

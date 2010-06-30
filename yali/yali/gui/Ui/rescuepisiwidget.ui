@@ -38,7 +38,7 @@
      <item>
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>Connection Status:</string>
+           <string>&lt;b&gt;Connection status:&lt;/b&gt;</string>
        </property>
       </widget>
      </item>
@@ -51,7 +51,7 @@
         </font>
        </property>
        <property name="text">
-        <string>Not Connected</string>
+        <string>Offline</string>
        </property>
       </widget>
      </item>
@@ -98,7 +98,7 @@
         <string notr="true"/>
        </property>
        <property name="text">
-        <string>Operation to undo:</string>
+        <string>Select the operation to undo:</string>
        </property>
        <property name="wordWrap">
         <bool>false</bool>

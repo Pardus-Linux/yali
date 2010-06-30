@@ -178,7 +178,7 @@ class RequestList(list):
         # RequestList stores only one request for a requestType() -
         # partitionType() pair.
         if found:
-            e = _("There is a request for the same Partition Type.")
+            e = _("Another partition has already been marked for the same partition type.")
             raise RequestException, e
 
         list.append(self, req)

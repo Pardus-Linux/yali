@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005-2008, TUBITAK/UEKAE
+# Copyright (C) 2005-2010 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -61,28 +61,24 @@ def objectSender(pack):
 ##
 # Partitioning screen.
 class Widget(QtGui.QWidget, ScreenWidget):
-    title = _('Installing system...')
-    desc = _('Installing takes approximately 20 minutes depending on your hardware...')
+    title = _("Installing Pardus")
     icon = "iconInstall"
     help = _('''
-<font size="+2">Installation started</font>
+<font size="+2">Installation</font>
 
 <font size="+1">
 
 <p>
-Pardus is now being installed on your hard disk. 
+YALI is now installing Pardus on your computer. This operation takes
+approximately 20-30 minutes depending on your computer's hardware.
 </p>
-
 <p>
-The duration of this operation depends on the 
-capability and power of your system. Meanwhile,
-you can enjoy some visual elements showing 
-the distinctive properties of Pardus, your 
-new operating system.
+Note that the installation from a USB storage will be much faster than
+an optical medium (CD/DVD).
 </p>
-
 <p>
-Have fun!
+Now, sit back and enjoy the installation during which you will be able
+to discover the features and the innovations offered by this new Pardus release.
 </p>
 </font>
 ''')
@@ -121,7 +117,7 @@ Have fun!
         self.pkg_installer = PkgInstaller()
         ctx.debugger.log("Calling PkgInstaller.start...")
         self.pkg_installer.start()
-        ctx.yali.info.updateAndShow(_("Packages are being installed.."))
+        ctx.yali.info.updateAndShow(_("Installing packages..."))
 
         ctx.mainScreen.disableNext()
         ctx.mainScreen.disableBack()
@@ -136,13 +132,13 @@ Have fun!
             p, event = qevent.data()
 
             if event == pisi.ui.installing:
-                self.ui.info.setText(_("Installing: <b>%s</b><br>%s") % (p.name, p.summary))
-                ctx.debugger.log("Pisi : %s installing" % p.name)
+                self.ui.info.setText(_("Installing <b>%s</b><br>%s") % (p.name, p.summary))
+                ctx.debugger.log("Pisi: %s installing" % p.name)
                 self.cur += 1
                 self.ui.progress.setValue(self.cur)
             elif event == pisi.ui.configuring:
-                self.ui.info.setText(_("Configuring package: <b>%s</b>") % p.name)
-                ctx.debugger.log("Pisi : %s configuring" % p.name)
+                self.ui.info.setText(_("Configuring <b>%s</b>") % p.name)
+                ctx.debugger.log("Pisi: %s configuring" % p.name)
                 self.cur += 1
                 self.ui.progress.setValue(self.cur)
 
@@ -165,8 +161,8 @@ Have fun!
             package = qevent.data()
             self.timer.stop()
             ctx.yali.retryAnswer = EjectAndRetryDialog(_("Warning"),
-                                                       _("Package install failed : <b>%s</b>") % package,
-                                                       _("Do you want to retry ?"))
+                                                       _("Failed installing <b>%s</b>") % package,
+                                                       _("Do you want to retry?"))
 
             self.timer.start(1000 * 30)
             ctx.yali.waitCondition.wakeAll()
@@ -187,7 +183,7 @@ Have fun!
         # Configure Pending...
         # run baselayout's postinstall first
 
-        ctx.yali.info.updateAndShow(_("Creating baselayout for your system!"))
+        ctx.yali.info.updateAndShow(_("Creating base layout..."))
         yali.postinstall.initbaselayout()
 
         # postscripts depend on 03locale...
@@ -199,7 +195,7 @@ Have fun!
         # run dbus in chroot
         yali.sysutils.chrootDbus()
 
-        ctx.yali.info.updateMessage(_("Configuring packages.."))
+        ctx.yali.info.updateMessage(_("Configuring packages..."))
 
         # start configurator thread
         self.pkg_configurator = PkgConfigurator()
@@ -222,13 +218,13 @@ Have fun!
         import yali.gui.runner
 
         self.hasErrors = True
-        err_str = _('''An error during the installation of packages occured.
+        err_str = _("""An error occured during the installation of packages.
 
-This is possibly a broken Pardus CD or CD-ROM drive.
+This may be caused by a corrupted installation medium.
 
 Error:
 %s
-''') % str(e)
+""") % str(e)
 
         yali.gui.runner.showException(yali.exception_fatal, err_str)
 

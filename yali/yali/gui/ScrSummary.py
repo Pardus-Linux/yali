@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2008-2009, TUBITAK/UEKAE
+# Copyright (C) 2008-2010 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -39,11 +39,10 @@ import yali.gui.context as ctx
 ##
 # Summary screen
 class Widget(QtGui.QWidget, ScreenWidget):
-    title = _('The last step before install')
-    desc = _('Summary of your installation...')
+    title = _("Summary")
     #icon = "iconKeyboard"
     help = _('''
-<font size="+2">Install Summary</font>
+<font size="+2">Installation Summary</font>
 <font size="+1">
 <p>
 Here you can see your install options before installation starts.
@@ -68,8 +67,8 @@ Here you can see your install options before installation starts.
             pass
 
     def slotReboot(self):
-        reply = QuestionDialog(_("Reboot"),
-                               _('''<b><p>This action will reboot your system.</p></b>'''))
+        reply = QuestionDialog(_("Restart"),
+                               _('''<b><p>Are you sure you want to restart the computer?</p></b>'''))
         if reply == "yes":
             yali.sysutils.reboot()
 
@@ -85,7 +84,7 @@ Here you can see your install options before installation starts.
 
     def updateCounter(self):
         remain = 20 - (int(time.time()) - self.startTime)
-        ctx.yali.info.updateAndShow(_("Install starts in: <b>%s seconds</b>") % remain)
+        ctx.yali.info.updateAndShow(_("Installation starts in <b>%s</b> seconds") % remain)
         if remain <= 0:
             self.timer.stop()
             ctx.mainScreen.slotNext()

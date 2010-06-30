@@ -65,9 +65,6 @@
        <property name="styleSheet">
         <string notr="true"/>
        </property>
-       <property name="text">
-        <string>Select the partition Pardus is installed on</string>
-       </property>
        <property name="wordWrap">
         <bool>false</bool>
        </property>
@@ -136,7 +133,7 @@
    <item row="4" column="1" colspan="2">
     <widget class="QLabel" name="solutionLabel">
      <property name="text">
-      <string>Select operation and click &lt;b&gt;Next&lt;/b&gt;...</string>
+      <string>Choose what do you want to do to repair your system:</string>
      </property>
      <property name="wordWrap">
       <bool>true</bool>
@@ -146,7 +143,7 @@
    <item row="5" column="1" colspan="2">
     <widget class="QRadioButton" name="useGrub">
      <property name="text">
-      <string>Reinstall GRUB (boot problems)</string>
+      <string>Reinstall GRUB bootloader</string>
      </property>
      <property name="iconSize">
       <size>
@@ -165,7 +162,7 @@
       <string/>
      </property>
      <property name="text">
-      <string>PiSi history (undo package operations)</string>
+      <string>Return back to a previous system state</string>
      </property>
      <property name="iconSize">
       <size>
@@ -184,7 +181,7 @@
       <string/>
      </property>
      <property name="text">
-      <string>Change password (lost password)</string>
+      <string>Reset forgotten password</string>
      </property>
      <property name="iconSize">
       <size>
@@ -212,7 +209,7 @@
      <item>
       <widget class="QPushButton" name="rebootButton">
        <property name="text">
-        <string>Reboot</string>
+        <string>Restart</string>
        </property>
       </widget>
      </item>

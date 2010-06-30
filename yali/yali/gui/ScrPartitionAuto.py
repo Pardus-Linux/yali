@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005-2008, TUBITAK/UEKAE
+# Copyright (C) 2005-2010 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -34,11 +34,10 @@ from yali.gui.installdata import *
 ##
 # Partition Choice Widget
 class Widget(QtGui.QWidget, ScreenWidget):
-    title = _('Choose Partitioning')
-    desc = _('Auto or Manual partitioning...')
+    title = _("Select Partitioning Method")
     icon = "iconPartition"
     help = _('''
-<font size="+2">Automatic Partitioning</font>
+<font size="+2">Partitioning Method</font>
 <font size="+1">
 <p>
 You can install Pardus if you have an unpartitioned-unused disk space 
@@ -47,12 +46,8 @@ The disk area or partition selected for installation will automatically
 be formatted. Therefore, it is advised to backup your data to avoid future problems.
 </p>
 <p>Auto-partitioning will automatically format the select disk part/partition 
-and install Pardus 2009. If you like, you can do the partitioning manually or make 
-Pardus 2009 create a new partition for installation.</p>
-<p>
-Please refer to Pardus Installing and Using Guide for more information
-about disk partitioning.
-</p>
+and install Pardus. If you like, you can do the partitioning manually or make 
+Pardus create a new partition for installation.</p>
 </font>
 ''')
 
@@ -68,7 +63,7 @@ about disk partitioning.
 
         # initialize all storage devices
         if not yali.storage.initDevices():
-            raise GUIException, _("Can't find a storage device!")
+            raise GUIException, _("No storage device found.")
 
         # fill device list
         for dev in yali.storage.devices:
@@ -76,7 +71,7 @@ about disk partitioning.
                 DeviceItem(self.ui.device_list, dev)
 
         if not self.ui.device_list.count():
-            raise YaliExceptionInfo, _("It seems that you don't have the required disk space (min. %s) for Pardus installation." % ctx.consts.min_root_size)
+            raise YaliExceptionInfo, _("None of the storage devices is larger than %s which is the minimum space requirement for Pardus installation." % ctx.consts.min_root_size)
 
         self.connect(self.ui.accept_auto_1, SIGNAL("toggled(bool)"),self.slotSelectAutoUseAvail)
         self.connect(self.ui.accept_auto_2, SIGNAL("toggled(bool)"),self.slotSelectAutoEraseAll)
@@ -171,7 +166,7 @@ about disk partitioning.
         ctx.installData.autoPartDev = self.device
         ctx.installData.autoPartPartition = self.autoPartPartition
         ctx.autoInstall = True
-        ctx.debugger.log("Automatic Partition selected..")
+        ctx.debugger.log("Automatic partitioning selected")
         ctx.debugger.log("Trying to use %s for automatic partitioning.." % self.device.getPath())
         if self.autoPartPartition:
             ctx.debugger.log("Trying to use %s for automatic partitioning.." % self.autoPartPartition["partition"].getPath())
@@ -245,9 +240,9 @@ about disk partitioning.
 
 class DeviceItem(QtGui.QListWidgetItem):
     def __init__(self, parent, dev, forceToFirst=False):
-        text = u"%s - %s (%s)" % (dev.getModel(),
-                                  dev.getName(),
-                                  dev.getSizeStr())
+        text = u"%s on %s (%s)" % (dev.getModel(),
+                                   dev.getPath(),
+                                   dev.getSizeStr())
         QtGui.QListWidgetItem.__init__(self, text, None)
         self._dev = dev
         if forceToFirst:

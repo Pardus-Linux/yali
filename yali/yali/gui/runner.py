@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005-2009, TUBITAK/UEKAE
+# Copyright (C) 2005-2010 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -154,7 +154,7 @@ class Runner:
         ctx.yali.info.updateMessage()
 
 def showException(ex_type, tb):
-    title = _("Error occured !")
+    title = _("An error occured")
     closeButton = True
 
     if ex_type in (yali.exception_fatal, yali.exception_pisi):
@@ -170,7 +170,7 @@ class ExceptionWidget(QtGui.QWidget):
         QtGui.QWidget.__init__(self, None)
         self.ui = Ui_Exception()
         self.ui.setupUi(self)
-        self.ui.info.setText(_("Unhandled exception occured!"))
+        self.ui.info.setText(_("Unhandled exception occured"))
         self.ui.traceback.setText(tb_text)
         self.ui.traceback.hide()
         self.connect(self.ui.showBackTrace, SIGNAL("clicked()"), self.showBackTrace)

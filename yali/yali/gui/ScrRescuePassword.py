@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2009, TUBITAK/UEKAE
+# Copyright (C) 2009-2010 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -39,13 +39,15 @@ import yali.gui.context as ctx
 ##
 # BootLoader screen.
 class Widget(QtGui.QWidget, ScreenWidget):
-    title = _('Rescue Mode for Password Recovery')
-    desc = _('You can recover your password ...')
+    title = _("Reset Forgotten Passwords")
     icon = "iconInstall"
-    help = _('''
+    help = _("""
 <font size="+2">Password Recovery</font>
-<font size="+1"></font>
-''')
+<font size="+1">
+<p>
+Here you can reset..
+</p>
+""")
 
     def __init__(self, *args):
         QtGui.QWidget.__init__(self,None)
@@ -54,14 +56,14 @@ class Widget(QtGui.QWidget, ScreenWidget):
 
         self.ui.pass_error.setVisible(False)
         self.ui.caps_error.setVisible(False)
-        self.ui.caps_error.setText(_('Caps Lock is on!'))
+        self.ui.caps_error.setText(_('Caps Lock is on.'))
 
         self.ui.updatePassword.setEnabled(False)
 
         self.steps = YaliSteps()
-        self.steps.setOperations([{"text":_("Starting DBUS..."),"operation":yali.sysutils.chrootDbus},
-                                  {"text":_("Trying to connect DBUS..."),"operation":yali.postinstall.connectToDBus},
-                                  {"text":_("Getting user list ..."),"operation":self.fillUserList}])
+        self.steps.setOperations([{"text":_("Starting D-Bus..."),"operation":yali.sysutils.chrootDbus},
+                                  {"text":_("Connecting to D-Bus..."),"operation":yali.postinstall.connectToDBus},
+                                  {"text":_("Acquiring users..."),"operation":self.fillUserList}])
 
         self.connect(self.ui.updatePassword, SIGNAL("clicked()"), self.updatePassword)
         self.connect(self.ui.userList, SIGNAL("itemChanged(QListWidgetItem*)"),
@@ -94,7 +96,7 @@ class Widget(QtGui.QWidget, ScreenWidget):
         password = unicode(self.ui.pass1.text())
         uid  = int(self.ui.userList.currentItem().getInfo()[0])
         yali.postinstall.setUserPass(uid, password)
-        InfoDialog(_("Password changed"), title = _("Info"))
+        InfoDialog(_("The password has been successfully reset."), title = _("Info"))
         self.resetWidgets()
 
     def slotTextChanged(self):
@@ -105,13 +107,13 @@ class Widget(QtGui.QWidget, ScreenWidget):
         user = self.ui.userList.currentItem().getInfo()
         if not p1 == '' and (str(p1).lower() == str(user[1]).lower() or \
                 str(p1).lower() == str(user[2]).lower()):
-            self.showError(_('Don\'t use your user name or name as a password.'))
+            self.showError(_('Do not use your username or real name as your password.'))
             return
         elif p2 != p1 and p2:
-            self.showError(_('Passwords do not match!'))
+            self.showError(_('The passwords do not match.'))
             return
         elif len(p1) == len(p2) and len(p2) < 4 and not p1=='':
-            self.showError(_('Password is too short!'))
+            self.showError(_('Password is too short.'))
             return
         elif p1 == '' or p2 == '':
             self.ui.pass_error.setVisible(False)

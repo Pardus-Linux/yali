@@ -36,7 +36,7 @@
       <number>1</number>
      </property>
      <property name="text">
-      <string>&lt;b&gt;Write boot loader (GRUB) to the master boot record?&lt;/b&gt;
+      <string>&lt;b&gt;Write GRUB bootloader to the MBR (Master Boot Record)?&lt;/b&gt;
 
 &lt;p&gt;Your system will not boot without a loader.&lt;/p&gt;
 
@@ -88,7 +88,7 @@
    <item row="3" column="1">
     <widget class="QGroupBox" name="buttonGroup">
      <property name="title">
-      <string>Select target to install boot loader</string>
+      <string>Select where to install the bootloader</string>
      </property>
      <layout class="QVBoxLayout">
       <item>
@@ -101,7 +101,7 @@
       <item>
        <widget class="QRadioButton" name="installPart">
         <property name="text">
-         <string>Pardus installed partition</string>
+         <string>Partition where Pardus is installed</string>
         </property>
        </widget>
       </item>

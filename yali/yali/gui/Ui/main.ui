@@ -72,22 +72,6 @@
             <number>4</number>
            </property>
            <item>
-            <spacer>
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Fixed</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>6</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
             <widget class="QLabel" name="screenName">
              <property name="styleSheet">
               <string>font:bold 22px;color:white;</string>
@@ -99,20 +83,7 @@
               <enum>Qt::RichText</enum>
              </property>
              <property name="alignment">
-              <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="screenDescription">
-             <property name="styleSheet">
-              <string>color:white;</string>
-             </property>
-             <property name="text">
-              <string>Details about the screen</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
              </property>
             </widget>
            </item>
@@ -222,8 +193,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>547</width>
-             <height>466</height>
+             <width>545</width>
+             <height>455</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout">

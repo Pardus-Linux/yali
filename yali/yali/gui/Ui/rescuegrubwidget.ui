@@ -41,7 +41,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Select target to install boot loader</string>
+      <string>Select where to install the GRUB bootloader</string>
      </property>
     </widget>
    </item>
@@ -80,7 +80,7 @@
         </font>
        </property>
        <property name="text">
-        <string>Pardus installed partition</string>
+        <string>Disk partition where Pardus is installed</string>
        </property>
       </widget>
      </item>

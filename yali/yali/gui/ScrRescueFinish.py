@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2009, TUBITAK/UEKAE
+# Copyright (C) 2009-2010 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -30,12 +30,15 @@ from yali.gui.installdata import *
 ##
 # Goodbye screen
 class Widget(QtGui.QWidget, ScreenWidget):
-    title = _('Rescue Mode')
-    desc = _('Final step of Rescue operations...')
-    help = _('''
-<font size="+2">Rescue Mode</font>
-<font size="+1"><p>Click <b>next</b> to reboot !</p></font>
-''')
+    title = _("System Repair")
+    help = _("""
+<font size="+2">System Repair</font>
+<font size="+1">
+<p>
+There is no help available for this section.
+</p>
+</font>
+""")
 
     def __init__(self, *args):
         QtGui.QWidget.__init__(self,None)
@@ -53,7 +56,7 @@ class Widget(QtGui.QWidget, ScreenWidget):
         try:
             yali.pisiiface.takeBack(ctx.takeBackOperation.no)
         except Exception, e:
-            ctx.debugger.log("Exception occured while taking back !!")
+            ctx.debugger.log("Exception occured while taking back the system.")
             ctx.debugger.log(e)
             return False
         return True
@@ -61,13 +64,13 @@ class Widget(QtGui.QWidget, ScreenWidget):
     def shown(self):
         ctx.mainScreen.disableNext()
         if ctx.rescueMode == "grub":
-            self.steps.setOperations([{"text":      _("Installing BootLoader..."),
+            self.steps.setOperations([{"text":      _("Installing Bootloader..."),
                                        "operation": self.installBootLoader}])
         elif ctx.rescueMode == "pisi":
-            self.steps.setOperations([{"text":      _("Taking back Pisi operation..."),
+            self.steps.setOperations([{"text":      _("Taking back operation..."),
                                        "operation": self.takeBackPisi}])
 
-        ctx.yali.info.updateAndShow(_("Running rescue operations.."))
+        ctx.yali.info.updateAndShow(_("Running rescue operations..."))
         ctx.mainScreen.disableBack()
         self.steps.slotRunOperations()
 
@@ -84,9 +87,9 @@ class Widget(QtGui.QWidget, ScreenWidget):
         ctx.mainScreen.disableNext()
 
         ctx.debugger.log("Show reboot dialog.")
-        InfoDialog(_("Press <b>Reboot</b> button to restart your system."), _("Reboot"))
+        InfoDialog(_("Press <b>Restart</b> to restart your system."), _("Restart"))
 
-        ctx.yali.info.updateAndShow(_('<b>Rebooting system. Please wait!</b>'))
+        ctx.yali.info.updateAndShow(_('<b>Please wait while restarting...</b>'))
 
         # remove cd...
         if not ctx.yali.install_type == YALI_FIRSTBOOT:

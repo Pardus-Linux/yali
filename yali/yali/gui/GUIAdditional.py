@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2009, TUBITAK/UEKAE
+# Copyright (C) 2009-2010 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -72,7 +72,7 @@ class ResizeWidget(QtGui.QWidget):
             self.ui.resizeMB.setVisible(False)
             self.ui.resizeMBSlider.setVisible(False)
             self.ui.resizeButton.setVisible(False)
-            self.ui.label.setText(_("""<p><span style="color:#FFF"><b>It seems this partition is not ready for resizing.</b></span></p>"""))
+            self.ui.label.setText(_("""<p><span style="color:#FFF"><b>It seems that this partition is not ready for resizing.</b></span></p>"""))
         else:
             maxSize = self.part.getMB()
             self.ui.resizeMB.setMaximum(maxSize)
@@ -85,7 +85,7 @@ class ResizeWidget(QtGui.QWidget):
 
     def slotResize(self):
         self.hide()
-        ctx.yali.info.updateAndShow(_("Resizing to %s MB..") % (self.ui.resizeMB.value()))
+        ctx.yali.info.updateAndShow(_("Resizing to %s MB...") % (self.ui.resizeMB.value()))
         ctx.debugger.log("Resize started on partition %s " % self.part.getPath())
         QTimer.singleShot(500,self.res)
 
@@ -101,7 +101,7 @@ class ResizeWidget(QtGui.QWidget):
                 "currentSize":self.part.getMB(),
                 "resizeTo":resizeTo,
                 "fs":self.part._fsname}
-        ctx.partSum.append(_("Partition <b>%(partition)s - %(fs)s</b> <b>resized</b> to <b>%(resizeTo)s MB</b>, old size was <b>%(currentSize)s MB</b>") % _sum)
+        ctx.partSum.append(_("Partition <b>%(partition)s</b> (%(fs)s) has been resized to <b>%(resizeTo)s MB</b> (Old size: %(currentSize)s MB)") % _sum)
 
         self.rootWidget.update()
         ctx.yali.info.hide()
@@ -176,9 +176,9 @@ class PartitionItem(QtGui.QListWidgetItem):
 
 class DeviceItem(QtGui.QListWidgetItem):
     def __init__(self, parent, dev):
-        self.text = u"%s - %s (%s)" %(dev.getModel(),
-                                      dev.getName(),
-                                      dev.getSizeStr())
+        self.text = u"%s on %s (%s)" %(dev.getModel(),
+                                       dev.getPath(),
+                                       dev.getSizeStr())
         QtGui.QListWidgetItem.__init__(self, self.text, parent)
         self._dev = dev
 
@@ -244,7 +244,7 @@ class ConnectionWidget(QtGui.QWidget):
     def slotUseSelected(self):
         current = self.ui.connectionList.currentItem()
         if current:
-            ctx.yali.info.updateAndShow(_("Connecting to network <b>%s</b> ...") % current.getConnection())
+            ctx.yali.info.updateAndShow(_("Connecting to network %s...") % current.getConnection())
 
             try:
                 ret = current.connect()
@@ -289,7 +289,7 @@ class Gpl(TextBrowser):
             f = join(ctx.consts.source_dir, "license/license-en.txt")
         if exists(f):
             return f
-        raise GUIException, _("Can't open License file!")
+        raise GUIException, _("License text could not be found.")
 
 class ReleaseNotes(TextBrowser):
 
@@ -300,4 +300,4 @@ class ReleaseNotes(TextBrowser):
             rel_path = join(ctx.consts.source_dir, "release-notes/releasenotes-en.html")
         if exists(rel_path):
             return rel_path
-        raise GUIException, _("Can't open Release Notes!")
+        raise GUIException, _("Release notes could not be loaded.")

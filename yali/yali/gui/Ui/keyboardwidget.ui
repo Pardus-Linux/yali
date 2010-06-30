@@ -99,7 +99,7 @@
      <item>
       <widget class="QLabel" name="textLabel1_2" >
        <property name="text" >
-        <string>Test selected layout:</string>
+        <string>Type something to test the layout:</string>
        </property>
        <property name="wordWrap" >
         <bool>false</bool>

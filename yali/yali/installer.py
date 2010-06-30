@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2008-2009, TUBITAK/UEKAE
+# Copyright (C) 2008-2010 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -166,14 +166,13 @@ class Yali:
                 self.plugin.config.setup()
             else:
                 install_type = YALI_INSTALL
-                InfoDialog(_("Plugin (%s) not found or error occurred while loading. Switching to normal installation process." % install_plugin))
+                InfoDialog(_("Plugin '%s' could not be loaded or found, switching to normal installation process." % install_plugin))
 
         if not self.plugin:
             self.screens = self._screens[install_type]
 
         self.install_type = install_type
-        self.info = InformationWindow(_("YALI Is Working..."))
-        self.info.hide()
+        self.info = InformationWindow("Please wait...")
         self.checkCDStop = True
 
     def getPlugin(self, p):
@@ -188,7 +187,7 @@ class Yali:
         ctx.mainScreen.disableNext()
         ctx.mainScreen.disableBack()
 
-        self.info.updateAndShow(_("Starting for CD Check"))
+        self.info.updateAndShow(_("Starting validation..."))
         class PisiUI(pisi.ui.UI):
             def notify(self, event, **keywords):
                 pass
@@ -205,21 +204,21 @@ class Yali:
         cur = 0
         for pkg_name in pkg_names:
             cur += 1
-            ctx.debugger.log("Checking %s " % pkg_name)
-            self.info.updateMessage(_("Checking: %s") % pkg_name)
+            ctx.debugger.log("Validating %s " % pkg_name)
+            self.info.updateMessage(_("Validating %s") % pkg_name)
             if self.checkCDStop:
                 continue
             try:
                 yali.pisiiface.checkPackageHash(pkg_name)
                 rootWidget.progressBar.setValue(cur)
             except:
-                self.showError(_("Check Failed"),
-                               _("<b><p>Integrity check for packages failed.\
-                                  It seems that installation CD is broken.</p></b>"))
+                self.showError(_("Validation Failed"),
+                               _("<b><p>Validation of installation packages failed.\
+                                  Please remaster your installation medium and restart the installation.</p></b>"))
 
         if not self.checkCDStop:
-            rootWidget.checkLabel.setText(_('<font color="#FFF"><b>Check succeeded. You can proceed to the next screen.</b></font>'))
-            rootWidget.checkButton.setText(_("Check CD Integrity"))
+            rootWidget.checkLabel.setText(_('<font color="#FFF"><b>Validation succeeded. You can proceed with the installation.</b></font>'))
+            rootWidget.checkButton.setText(_("Validate Integrity"))
         else:
             rootWidget.checkLabel.setText("")
             rootWidget.progressBar.setValue(0)
@@ -236,7 +235,7 @@ class Yali:
         ctx.installData.keyData = keymap
 
     def setTime(self, rootWidget):
-        self.info.updateAndShow(_("Setting time settings.."))
+        self.info.updateAndShow(_("Adjusting time settings..."))
         date = rootWidget.calendarWidget.selectedDate()
         args = "%02d%02d%02d%02d%04d.%02d" % (date.month(), date.day(),
                                               rootWidget.timeHours.time().hour(), rootWidget.timeMinutes.time().minute(),
@@ -263,14 +262,14 @@ class Yali:
             elif x["newSize"]==y["newSize"]: return 0
             return 1
 
-        self.info.updateAndShow(_("Disk analyze started.."))
+        self.info.updateAndShow(_("Analyzing disks..."))
 
         rootWidget.resizablePartitions = []
         rootWidget.resizableDisks = []
         rootWidget.freeSpacePartitions = []
         rootWidget.freeSpaceDisks = []
 
-        ctx.debugger.log("Disk analyze started.")
+        ctx.debugger.log("Disk analysis started.")
         ctx.debugger.log("%d disk found." % len(yali.storage.devices))
         for dev in yali.storage.devices:
             ctx.debugger.log("In disk %s, %d mb is free." % (dev.getPath(), dev.getLargestContinuousFreeMB()))
@@ -318,10 +317,10 @@ class Yali:
         if len(arp)>0:
             return arp[0]
         else:
-            raise YaliException, "No Resizable partition found !"
+            raise YaliException, "No resizable partition found!"
 
     def autoPartDevice(self):
-        self.info.updateAndShow(_("Writing disk tables ..."))
+        self.info.updateAndShow(_("Writing partition table(s)..."))
 
         ctx.partrequests.remove_all()
         dev = ctx.installData.autoPartDev
@@ -387,13 +386,13 @@ class Yali:
                 ctx.debugger.log("FAILED: %s" % unicode(message))
                 InfoDialog(unicode(message), title = _("Filesystem Error"))
 
-            self.info.updateMessage(_("Resize Finished ..."))
+            self.info.updateMessage(_("Finished resizing partition(s)"))
             ctx.debugger.log("UA: Resize finished.")
             time.sleep(1)
 
             newStart = _np.geom.end
             np = dev.getPartition(_np.num)
-            self.info.updateMessage(_("Creating new partition ..."))
+            self.info.updateMessage(_("Creating new partition..."))
             ctx.debugger.log("UA: newStart : %s " % newStart)
             _newPart = dev.addPartition(None,
                                         ptype,
@@ -412,7 +411,7 @@ class Yali:
                                         parttype.root.parted_flags)
             newPart = dev.getPartition(_newPart.num)
         else:
-            raise YaliError, _("Failed to use partition for automatic installation " % part.getPath())
+            raise YaliError, _("Failed to use partition '%s' for automatic installation.") % part.getPath()
 
         dev.commit()
         ctx.mainScreen.processEvents()
@@ -537,18 +536,19 @@ class Yali:
         # ctx.debugger.log(yali.toPrettyString())
 
     def processPendingActions(self, rootWidget):
-        rootWidget.steps.setOperations([{"text":_("Trying to connect DBUS..."),"operation":yali.postinstall.connectToDBus}])
+        rootWidget.steps.setOperations([{"text":_("Connecting to D-Bus..."),"operation":yali.postinstall.connectToDBus}])
 
-        steps = [{"text":_("Setting Hostname..."),"operation":yali.postinstall.setHostName},
-                 {"text":_("Setting TimeZone..."),"operation":yali.postinstall.setTimeZone},
-                 {"text":_("Setting Root Password..."),"operation":yali.postinstall.setRootPassword},
-                 {"text":_("Adding Users..."),"operation":yali.postinstall.addUsers},
-                 {"text":_("Writing Console Data..."),"operation":yali.postinstall.writeConsoleData},
-                 {"text":_("Migrating X.org Configuration..."),"operation":yali.postinstall.migrateXorgConf}]
+        steps = [{"text":_("Setting hostname..."),"operation":yali.postinstall.setHostName},
+                 {"text":_("Setting timezone..."),"operation":yali.postinstall.setTimeZone},
+                 {"text":_("Setting root password..."),"operation":yali.postinstall.setRootPassword},
+                 {"text":_("Adding users..."),"operation":yali.postinstall.addUsers},
+                 {"text":_("Setting console keymap..."),"operation":yali.postinstall.writeConsoleData},
+                 {"text":_("Migrating Xorg configuration..."),"operation":yali.postinstall.migrateXorgConf}]
 
-        stepsBase = [{"text":_("Copy Pisi index..."),"operation":yali.postinstall.copyPisiIndex},
-                     {"text":_("Setting misc. package configurations..."),"operation":yali.postinstall.setPackages},
-                     {"text":_("Installing BootLoader..."),"operation":self.installBootloader}]
+        stepsBase = [{"text":_("Copying repository index..."),"operation":yali.postinstall.copyPisiIndex},
+                    # FIXME: This is weird, look at setPackages
+                     {"text":_("Configuring other packages..."),"operation":yali.postinstall.setPackages},
+                     {"text":_("Installing Bootloader..."),"operation":self.installBootloader}]
 
         if self.install_type in [YALI_INSTALL, YALI_DVDINSTALL, YALI_FIRSTBOOT]:
             rootWidget.steps.setOperations(steps)
@@ -559,7 +559,7 @@ class Yali:
 
     def installBootloader(self, pardusPart = None):
         if not ctx.installData.bootLoaderDev:
-            ctx.debugger.log("Dont install bootloader selected; skipping.")
+            ctx.debugger.log("Don't install bootloader selected; skipping.")
             return
 
         loader = yali.bootloader.BootLoader()
@@ -584,13 +584,13 @@ class Yali:
         # FIXME We need to use pardus.grubutils addEntry method for adding found Windows entries
         if ctx.installData.bootLoaderDetectOthers:
 
-            ctx.debugger.log("Checking for Other Distros (Windows) ...")
+            ctx.debugger.log("Checking for other operating systems (Windows)")
             for d in yali.storage.devices:
                 for p in d.getPartitions():
                     fs = p.getFSName()
                     if fs in ("ntfs", "fat32"):
                         if yali.sysutils.isWindowsBoot(p.getPath(), fs):
-                            ctx.debugger.log("Windows Found on device %s partition %s " % (p.getDevicePath(), p.getPath()))
+                            ctx.debugger.log("Windows found on device %s partition %s " % (p.getDevicePath(), p.getPath()))
                             win_fs = fs
                             win_dev = os.path.basename(p.getDevicePath())
                             win_root = os.path.basename(p.getPath())
@@ -620,7 +620,7 @@ class Yali:
                     ctx.debugger.log("UD: Failed, using old: %s" % old)
                     return old
 
-            ctx.debugger.log("Checking for Other Distros (Linux) ...")
+            ctx.debugger.log("Checking for other distributions (Linux)")
             for d in yali.storage.devices:
                 for p in d.getPartitions():
                     fs = p.getFSName()

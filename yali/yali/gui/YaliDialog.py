@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005-2008, TUBITAK/UEKAE
+# Copyright (C) 2005-2010 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -136,7 +136,7 @@ def QuestionDialog(title, text, info = None, dontAsk = False):
 
     msgBox.setText(text)
     if not info:
-        info = _("Do you want to continue ?")
+        info = _("Do you want to continue?")
     msgBox.setInformativeText(info)
 
     dialog = Dialog(_(title), msgBox, closeButton = False, isDialog = True, icon="question")
@@ -151,7 +151,7 @@ def QuestionDialog(title, text, info = None, dontAsk = False):
 def EjectAndRetryDialog(title, text, info):
     msgBox = QtGui.QMessageBox()
 
-    buttonEject = msgBox.addButton(_("Eject CD"), QtGui.QMessageBox.ActionRole)
+    buttonEject = msgBox.addButton(_("Eject Disc"), QtGui.QMessageBox.ActionRole)
     buttonYes = msgBox.addButton(_("Yes"), QtGui.QMessageBox.ActionRole)
     buttonNo = msgBox.addButton(_("No"), QtGui.QMessageBox.ActionRole)
 
@@ -177,10 +177,10 @@ def EjectAndRetryDialog(title, text, info):
             os.system("eject -m")
 
             waitBox = QtGui.QMessageBox()
-            waitBox.addButton(_("Ok"), QtGui.QMessageBox.ActionRole)
-            waitBox.setText(_("Please insert a new CD and then click Ok"))
+            waitBox.addButton(_("OK"), QtGui.QMessageBox.ActionRole)
+            waitBox.setText(_("Please insert a new disc and then click OK"))
 
-            dialog = Dialog(_("Insert New CD"), waitBox, closeButton = False, isDialog = True, icon="info")
+            dialog = Dialog(_("Insert New Disc"), waitBox, closeButton = False, isDialog = True, icon="info")
             dialog.resize(300,120)
             dialog.exec_()
 
@@ -194,7 +194,7 @@ def InfoDialog(text, button=None, title=None, icon="info"):
     if not title:
         title = _("Information")
     if not button:
-        button = _("Ok")
+        button = _("OK")
 
     msgBox = QtGui.QMessageBox()
 

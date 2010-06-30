@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005-2008, TUBITAK/UEKAE
+# Copyright (C) 2005-2010 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -29,14 +29,13 @@ from yali.gui.YaliDialog import Dialog
 ##
 # Partitioning screen.
 class Widget(QtGui.QWidget, ScreenWidget):
-    title = _('Set Users')
-    desc = _('Create users to use Pardus...')
+    title = _("Add Users")
     icon = "iconUser"
     help = _('''
-<font size="+2">User setup</font>
+<font size="+2">System Users</font>
 <font size="+1">
 <p>
-Pardus 2009 allows multiple users to share the same computer.
+Pardus allows multiple users to share the same computer.
 You can assign management rights to the users you create; you can also
 configure permissions to users for various operations through User Manager.
 </p>
@@ -46,9 +45,6 @@ If you want a user to be automatically logged in to the system, select
 the user from the list; if you want to delete a user, 
 select his/her username from the list and press "Delete Selected User".
 Proceed with the installation after you make your selections.
-</p>
-<p>
-Click Next button to proceed.
 </p>
 </font>
 ''')
@@ -69,7 +65,7 @@ Click Next button to proceed.
         self.ui.userIDCheck.setVisible(False)
         self.ui.userID.setVisible(False)
 
-        self.ui.caps_error.setText(_('Caps Lock is on!'))
+        self.ui.caps_error.setText(_('Caps Lock is on.'))
 
         # User Icons
         self.normalUserIcon = QtGui.QPixmap(":/gui/pics/user_normal.png")
@@ -190,10 +186,10 @@ Click Next button to proceed.
             self.showError(_('Don\'t use your user name or name as a password.'))
             return
         elif p2 != p1 and p2:
-            self.showError(_('Passwords do not match!'))
+            self.showError(_('Passwords do not match.'))
             return
         elif len(p1) == len(p2) and len(p2) < 4 and not p1=='':
-            self.showError(_('Password is too short!'))
+            self.showError(_('Password is too short.'))
             return
         else:
             self.ui.pass_error.setVisible(False)
@@ -240,13 +236,14 @@ Click Next button to proceed.
 
         # check user validity
         if u.exists() or (existsInList and self.edititemindex == None):
-            self.showError(_('Username exists, choose another one!'))
+            self.showError(_("This user name is already taken, please choose another one."))
             return False
         elif not u.usernameIsValid():
-            self.showError(_('Username contains invalid characters!'))
+            # FIXME: Mention about what are the invalid characters!
+            self.showError(_("The user name contains invalid characters."))
             return False
         elif not u.realnameIsValid():
-            self.showError(_('Realname contains invalid characters!'))
+            self.showError(_("The real name contains invalid characters."))
             return False
 
         # Dont check in edit mode
@@ -259,7 +256,7 @@ Click Next button to proceed.
             self.usedIDs.append(uid)
             u.uid = uid
 
-        self.ui.createButton.setText(_("Create User"))
+        self.ui.createButton.setText(_("Add User"))
         self.ui.cancelButton.hide()
         updateItem = None
 
@@ -301,7 +298,7 @@ Click Next button to proceed.
             self.usedIDs.remove(item.uid)
         self.ui.userList.takeItem(_cur)
         self.ui.autoLogin.removeItem(_cur + 1)
-        self.ui.createButton.setText(_("Create User"))
+        self.ui.createButton.setText(_("Add User"))
         self.ui.cancelButton.hide()
         self.checkUsers()
 
@@ -371,7 +368,7 @@ Click Next button to proceed.
         if self.ui.cancelButton.isVisible():
             self.ui.cancelButton.setHidden(self.sender() == self.ui.cancelButton)
             self.checkUsers()
-        self.ui.createButton.setText(_("Create User"))
+        self.ui.createButton.setText(_("Add User"))
 
     def slotReturnPressed(self):
         if self.ui.createButton.isEnabled() and self.ui.addMoreUsers.isChecked():

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005-2009, TUBITAK/UEKAE
+# Copyright (C) 2005-2010 TUBITAK/UEKAE
 # Copyright 1999-2008 Gentoo Foundation
 #
 # This program is free software; you can redistribute it and/or modify it under
@@ -372,7 +372,7 @@ class Device:
                                              flags)
 
         # if you are here and then we have some problems..
-        raise DeviceError, (_("Not enough free space on %s to create new partition") % self.getPath())
+        raise DeviceError, (_("Not enough free space on %s to create a new partition.") % self.getPath())
 
     ##
     # add a partition starting from a given geom...

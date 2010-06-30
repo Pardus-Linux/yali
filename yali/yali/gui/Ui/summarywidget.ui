@@ -97,7 +97,7 @@ padding-top:30px;</string>
    <item row="2" column="1" colspan="3">
     <widget class="QCheckBox" name="installAllLangPacks">
      <property name="toolTip">
-      <string>If you check this, Yalı will install all language packages in this release</string>
+      <string>When checked, YALI will install all of the officially supported language packages on your system.</string>
      </property>
      <property name="text">
       <string>Install all language packages</string>

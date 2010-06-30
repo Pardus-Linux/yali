@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005-2008, TUBITAK/UEKAE
+# Copyright (C) 2005-2010 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -40,24 +40,20 @@ from yali.gui.installdata import *
 ##
 # Goodbye screen
 class Widget(QtGui.QWidget, ScreenWidget):
-    title = _('Goodbye from YALI')
-    desc = _('Enjoy your fresh Pardus !...')
-    help = _('''
+    title = "Goodbye"
+    # FIXME
+    help = _("""
 <font size="+2">Congratulations</font>
-
-
 <font size="+1">
 <p>
-You have successfully installed Pardus, a very easy to use desktop system on
-your machine. Now you can start playing with your system and stay productive
-all the time.
+You have successfully installed Pardus on your computer. After restarting
+your computer, you can finally enjoy the full benefits of Pardus.
 </p>
 <P>
-Click on the Next button to proceed. One note: You remember your password,
-don't you?
+Click Next to proceed. One note: You remember your password, don't you?
 </p>
 </font>
-''')
+""")
 
     def __init__(self, *args):
         QtGui.QWidget.__init__(self,None)
@@ -68,7 +64,7 @@ don't you?
 
     def shown(self):
         ctx.mainScreen.disableNext()
-        ctx.yali.info.updateAndShow(_("Running post install operations.."))
+        ctx.yali.info.updateAndShow(_("Running post-install operations..."))
         ctx.mainScreen.disableBack()
         ctx.yali.processPendingActions(self)
         self.steps.slotRunOperations()
@@ -81,10 +77,10 @@ don't you?
     def execute(self):
         ctx.mainScreen.disableNext()
 
-        ctx.debugger.log("Show reboot dialog.")
-        InfoDialog(_("Press <b>Reboot</b> button to restart your system."), _("Reboot"))
+        ctx.debugger.log("Show restart dialog.")
+        InfoDialog(_("Press <b>Restart</b> to restart the computer."), _("Restart"))
 
-        ctx.yali.info.updateAndShow(_('<b>Rebooting system. Please wait!</b>'))
+        ctx.yali.info.updateAndShow(_("<b>Please wait while restarting...</b>"))
 
         # remove cd...
         if not ctx.yali.install_type == YALI_FIRSTBOOT:

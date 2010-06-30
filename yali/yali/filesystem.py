@@ -162,10 +162,10 @@ class FileSystem:
                                 stderr="/tmp/resize.log")
 
         if res == 2:
-            raise FSCheckError, _("""FSCheck found some problems on partition %s and fixed them. \
-                                     You should restart the machine before starting the installation process !""" % (partition.getPath()))
+            raise FSCheckError, _("YALI detected some problems concerning the partition %s and repaired them. "
+                                  "You have to restart the computer before starting the installation process.") % partition.getPath()
         elif res > 2:
-            raise FSCheckError, _("FSCheck failed on %s" % (partition.getPath()))
+            raise FSCheckError, _("Failed checking %s for disk errors.") % partition.getPath()
 
         return True
 
@@ -377,12 +377,12 @@ class BtrfsFileSystem(FileSystem):
             size_mb = minsize
 
         if not self.preResize(partition):
-            raise FSCheckError, _("Partition is not ready for resizing. Check it before installation.")
+            raise FSCheckError, _("Running fsck failed or fsck does not exist on your system. Resizing is not possible for this partition.")
 
         cmd_path = requires("btrfsctl")
         cmd = "%s -r %dm -A %s" % (cmd_path, size_mb, partition.getPath())
         if not sysutils.run(cmd):
-            raise FSError, "Resize failed on %s " % (partition.getPath())
+            raise FSError, _("Failed resizing %s.") % partition.getPath()
 
         return True
 
@@ -468,16 +468,17 @@ class NTFSFileSystem(FileSystem):
             size_mb = minsize
 
         if not self.resizeSilent(size_mb, partition) or not self.preResize(partition):
-            raise FSCheckError, _("The filesystem of '%s' partition is NTFS, and this partition \n " \
-                                  "was not closed properly. Please restart your system and close \n " \
-                                  "this partition properly! After this operation, start Pardus \n " \
-                                  "installation again!" % partition.getPath())
+            raise FSCheckError, _("It seems that the NTFS filesystem on %s is not properly closed.\n"
+                                  "You will have to connect the drive back to the other operating \n"
+                                  "system, safely remove the hardware and then shutdown the system \n"
+                                  "cleanly. You can also use the 'force' option of ntfs-3g on your \n"
+                                  "own responsibility.") % partition.getPath()
 
         cmd_path = requires("ntfsresize")
         cmd = "%s -P -f -s %dM %s" % (cmd_path, size_mb, partition.getPath())
 
         if not sysutils.run(cmd):
-            raise FSError, _("Resize failed on %s " % partition.getPath())
+            raise FSError, _("Failed resizing %s.") % partition.getPath()
 
         return True
 

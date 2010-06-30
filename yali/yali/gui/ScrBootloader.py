@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005-2008, TUBITAK/UEKAE
+# Copyright (C) 2005-2010 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -35,27 +35,26 @@ import yali.sysutils
 ##
 # BootLoader screen.
 class Widget(QtGui.QWidget, ScreenWidget):
-    title = _('Bootloader Choice')
-    desc = _('Configure the system boot...')
+    title = _("Configure Bootloader")
     icon = "iconBootloader"
-    help = _('''
-<font size="+2">Boot loader setup</font>
+    help = _("""
+<font size="+2">Bootloader</font>
 <font size="+1">
 <p>
-Pardus 2009 uses a boot manager called GRUB to start the operating system you choose.
-</p>
-<p>If there are multiple operating systems in your computer, you can start the one 
-you like using GRUB. Installing GRUB to the beginning of the boot disk is the advised 
-option to avoid boot problems.  If you are sure you know what you are doing, 
-you can change boot loader settings.
+A bootloader is a tiny program that runs when a computer is first powered up.
+It is responsible for loading the operating system into memory and then transferring
+the control to it.
 </p>
 <p>
-Please refer to Pardus Installing and Using 
-Guide for more information about GRUB boot 
-loader.
+Pardus uses GRUB (GRand Unified Bootloader) as the default bootloader. GRUB allows you
+to boot any supported operating system by presenting the user with a menu.
+</p>
+<p>
+The recommended way to use GRUB is to install it to the beginning of the boot disk.
+You can always choose another installation method if you know what you are doing.
 </p>
 </font>
-''')
+""")
 
     def __init__(self, *args):
         QtGui.QWidget.__init__(self,None)
@@ -66,7 +65,7 @@ loader.
 
         # initialize all storage devices
         if not yali.storage.initDevices():
-            raise GUIException, _("Can't find a storage device!")
+            raise GUIException, _("No storage device found.")
 
         # fill device list
         for dev in yali.storage.devices:

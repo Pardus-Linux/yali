@@ -181,7 +181,7 @@ def addUsers():
         user_home_dir = os.path.join(consts.target_dir, 'home', u.username)
         user_home_dir_id = os.stat(user_home_dir)[4]
         if not user_home_dir_id == uid:
-            ctx.yali.info.updateAndShow(_("User <b>%s</b>'s home directory is being prepared..") % u.username)
+            ctx.yali.info.updateAndShow(_("Preparing home directory for %s...") % u.username)
             os.system('chown -R %d:%d %s ' % (uid, 100, user_home_dir))
             ctx.yali.info.hide()
 

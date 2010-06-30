@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2008, TUBITAK/UEKAE
+# Copyright (C) 2008-2010 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -25,14 +25,22 @@ from yali.sysutils import TimeZoneList
 import yali.localedata
 
 class Widget(QtGui.QWidget, ScreenWidget):
-    title = _('Set your timezone')
-    desc = _('You can change your timezone, time or date settings...')
+    title = _("Adjust Date and Time Settings")
     icon = "iconDate"
-    help = _('''
-<font size="+2">Time Zone settings</font>
-<font size="+1"><p>Here you can select your location and a timezone; and set the date and time.
-Your settings will update your hardware clock. Proceed with the installation after you make your selections.</p></font>
-''')
+    help = _("""
+<font size="+2">Date and Time</font>
+<font size="+1">
+<p>Date and time settings allows you to set the date and time of your computer. Generally,
+you will also want to specify a correct timezone for your location in order to benefit
+from automatic daylight saving time adjustments.
+</p>
+<p>
+A timezone is a region of the earth that has uniform standard time, usually referred as the
+local time. By convention, timezones compute their local time as an offset from UTC, the
+Coordinated Universal Time.
+</p>
+</font>
+""")
 
     def __init__(self, *args):
         QtGui.QWidget.__init__(self,None)

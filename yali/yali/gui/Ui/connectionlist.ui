@@ -57,7 +57,7 @@
            <string notr="true">color:white;</string>
           </property>
           <property name="text">
-           <string>To use PiSi History support, you may need to be online. You can use a connection profile from the list below.</string>
+           <string>To use PiSi History support, you may need to be online. You can use a connection profile from the list below:</string>
           </property>
           <property name="wordWrap">
            <bool>true</bool>

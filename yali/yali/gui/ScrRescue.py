@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2009, TUBITAK/UEKAE
+# Copyright (C) 2009-2010 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -27,13 +27,16 @@ from yali.gui.Ui.rescuewidget import Ui_RescueWidget
 import yali.gui.context as ctx
 
 class Widget(QtGui.QWidget, ScreenWidget):
-    title = _('Rescue Mode')
-    desc = _('You can reinstall your Grub or you can take back your system by using Pisi History...')
+    title = _("System Repair")
     icon = ""
-    help = _('''
-<font size="+2">Rescue Mode</font>
-<font size="+1"><p>This is a rescue mode help document.</p></font>
-''')
+    help = _("""
+<font size="+2">System Repair</font>
+<font size="+1">
+<p>
+This is a rescue mode help document.
+</p>
+</font>
+""")
 
     def __init__(self, *args):
         QtGui.QWidget.__init__(self,None)
@@ -45,7 +48,7 @@ class Widget(QtGui.QWidget, ScreenWidget):
 
         # initialize all storage devices
         if not yali.storage.initDevices():
-            raise GUIException, _("Can't find a storage device!")
+            raise GUIException, _("No storage device found.")
 
         # Get usable partitions for rescue
         self.partitionList = PardusPartitions(self)
@@ -90,7 +93,7 @@ class Widget(QtGui.QWidget, ScreenWidget):
         ctx.installData.rescuePartition = self.ui.partitionList.currentItem().getPartition()
         ctx.debugger.log("Selected Partition for rescue is %s" % ctx.installData.rescuePartition.getPath())
 
-        ctx.yali.info.updateAndShow(_("Mounting selected partition..."))
+        ctx.yali.info.updateAndShow(_("Mounting disk partition..."))
         # Mount selected partition
         ctx.partrequests.append(request.MountRequest(ctx.installData.rescuePartition, parttype.root))
         ctx.partrequests.applyAll()
@@ -102,7 +105,7 @@ class PardusPartitions:
     def __init__(self, parentWidget):
         partitionList, pardusPartitions = self.scanDisks()
         if len(partitionList) == 0:
-            parentWidget.ui.infoLabel.setText(_("Yali couldn't find a suitable partition on your system"))
+            parentWidget.ui.infoLabel.setText(_("YALI could not locate a suitable disk partition on this computer."))
             parentWidget.ui.info.show()
             parentWidget.ui.partitionList.hide()
             parentWidget.isSuitableForRescue = False
@@ -113,13 +116,13 @@ class PardusPartitions:
                 else:
                     icon = "iconPartition"
                 label = partition.getFSLabel() or ''
-                _info = "%s - %s %s" % (partition.getDevice().getModel(),
-                                        partition.getPath(),
-                                        label)
+                _info = "%s on %s [%s]" % (partition.getDevice().getModel(),
+                                           partition.getPath(),
+                                           label)
                 PartItem(parentWidget.ui.partitionList, partition, _info, icon)
 
             parentWidget.ui.partitionList.setCurrentItem(parentWidget.ui.partitionList.item(0))
-            parentWidget.ui.infoLabel.setText(_("Please select a partition from list"))
+            parentWidget.ui.infoLabel.setText(_("Please select a disk partition from the list below:"))
 
     def scanDisks(self):
         pardusPartitions = []

@@ -109,7 +109,7 @@
    <item row="3" column="1" colspan="5" >
     <widget class="QLabel" name="disclamer" >
      <property name="text" >
-      <string>All software developed by TUBITAK/UEKAE is licensed under GNU/GPL. Other software have their corresponding licenses. To install and/or use Pardus, you must accept them. Do you accept GNU/GPL and other, corresponding licences?</string>
+         <string>All software produced by TUBITAK/UEKAE is licensed under the terms of GNU General Public License (GPL). In order to install and use Pardus, you must accept the terms of GNU GPL. Do you accept?</string>
      </property>
      <property name="alignment" >
       <set>Qt::AlignTop</set>
@@ -173,7 +173,7 @@
           <enum>Qt::TabFocus</enum>
          </property>
          <property name="text" >
-          <string>Read GPL</string>
+          <string>Show GPL License</string>
          </property>
         </widget>
        </item>
@@ -189,7 +189,7 @@
           <enum>Qt::TabFocus</enum>
          </property>
          <property name="text" >
-          <string>Reboot System</string>
+          <string>Restart System</string>
          </property>
         </widget>
        </item>

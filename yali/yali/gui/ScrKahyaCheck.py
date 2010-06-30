@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005-2008, TUBITAK/UEKAE
+# Copyright (C) 2005-2010 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -51,12 +51,11 @@ def kahyaExists():
 ##
 # Welcome screen is the first screen to be shown.
 class Widget(QtGui.QWidget, ScreenWidget):
-    title = _('Kahya is working...')
-    desc = _('Kahya will automatically install your system...')
-    help = _('''
+    title = _("Kahya is working")
+    help = _("""
 <font size="+2">Kicker Check !</font>
 <p> Some help messages </p>
-''')
+""")
 
     def __init__(self, *args):
         QtGui.QWidget.__init__(self,None)
@@ -96,7 +95,7 @@ class Widget(QtGui.QWidget, ScreenWidget):
                 # find usable storage devices
                 # initialize all storage devices
                 if not yali.storage.initDevices():
-                    raise GUIException, _("Can't find a storage device!")
+                    raise GUIException, _("No storage device found.")
 
                 devices = []
                 for dev in yali.storage.devices:

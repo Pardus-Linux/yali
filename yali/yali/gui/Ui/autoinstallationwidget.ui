@@ -75,14 +75,14 @@
       <item row="0" column="0">
        <widget class="QRadioButton" name="radioAutomatic">
         <property name="text">
-         <string>Automatic installation</string>
+         <string>Automatic Installation</string>
         </property>
        </widget>
       </item>
       <item row="1" column="0">
        <widget class="QRadioButton" name="radioManual">
         <property name="text">
-         <string>No, I'll select installation metod manually</string>
+         <string>Manual Installation</string>
         </property>
        </widget>
       </item>
@@ -111,7 +111,7 @@
       <item row="0" column="0">
        <widget class="QRadioButton" name="radioDefaultKernel">
         <property name="text">
-         <string>Defaul Kernel</string>
+         <string>Default Kernel</string>
         </property>
        </widget>
       </item>

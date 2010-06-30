@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2007-2009, TUBITAK/UEKAE
+# Copyright (C) 2007-2010 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -25,15 +25,15 @@ from yali.gui.YaliDialog import Dialog
 
 class Debugger:
     def __init__(self,showTimeStamp=True):
-        title = _("Debug")
+        title = _("Debugging Console")
         self.debugWidget = QtGui.QWidget()
         self.debugShortCut = QtGui.QShortcut(QtGui.QKeySequence(Qt.Key_F2),self.debugWidget)
         QObject.connect(self.debugShortCut, SIGNAL("activated()"), self.toggleDebug)
 
         self.traceback = DebugContainer(self.debugWidget,showTimeStamp)
         self.loglevel = QtGui.QComboBox(self.debugWidget)
-        self.loglevel.addItem("0 : Developer Messages")
-        self.loglevel.addItem("1 : All Messages")
+        self.loglevel.addItem("0: Developer Messages")
+        self.loglevel.addItem("1: All Messages")
         QObject.connect(self.loglevel, SIGNAL("currentIndexChanged(int)"),self.loglevelChanged)
 
         l = QtGui.QVBoxLayout(self.debugWidget)

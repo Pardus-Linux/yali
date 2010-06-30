@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005-2008, TUBITAK/UEKAE
+# Copyright (C) 2005-2010 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -27,15 +27,15 @@ from yali.gui.GUIAdditional import Gpl
 ##
 # Welcome screen is the first screen to be shown.
 class Widget(QtGui.QWidget, ScreenWidget):
-    title = _('Welcome !! ')
-    desc = _('Welcome to the Pardus installer...')
-    help = _('''
-<font size="+2">Welcome !</font>
-<font size="+1"><p>Welcome to Pardus 2009 that contains many easy-to-use software components. You can do everything you need to, including, but not limited to, connecting to the Internet, creating documents, playing games, listening to music using Pardus 2009.</p>
-<p>This application will help you with the installation of Pardus 2009 to your computer in few and easy steps and then do what is necessary to identify and configure your hardware. We advise you to backup your data in your disk(s) before starting with the installation.</p>
+    title = _("Welcome")
+    # FIXME: Use system's pardus release to gather version info and use it if needed
+    help = _("""
+<font size="+2">Welcome</font>
+<font size="+1"><p>Welcome to Pardus that contains many easy-to-use software components. You can do everything you need to, including, but not limited to, connecting to the Internet, creating documents, playing games, listening to music using Pardus.</p>
+<p>This application will help you with the installation of Pardus to your computer in few and easy steps and then do what is necessary to identify and configure your hardware. We advise you to backup your data in your disk(s) before starting with the installation.</p>
 <p>You can start the installation process (and step in on a free world) by pressing the Next button.</p>
 </font>
-''')
+""")
 
     def __init__(self, *args):
         QtGui.QWidget.__init__(self,None)

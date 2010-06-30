@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005-2009, TUBITAK/UEKAE
+# Copyright (C) 2005-2010 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -84,7 +84,7 @@ class DiskList(QtGui.QWidget):
 
         # Summary
         ctx.partSum = []
-        ctx.partSum.append(_("Manual Partitioning selected."))
+        ctx.partSum.append(_("Manual partitioning selected."))
 
         # Connections
         self.connect(self.tabWidget,QtCore.SIGNAL("currentChanged(int)"),self.updatePartEdit)
@@ -189,7 +189,7 @@ class DiskList(QtGui.QWidget):
         if partitionTypes[cur] == parttype.root:
             if self.partEdit.ui.partitionSize.maximum() < ctx.consts.min_root_size and not self.partEdit.isPartitionUsed:
                 self.partEdit.ui.formatType.setCurrentIndex(0)
-                self.partEdit.ui.information.setText(_("'Install Root' size must be larger than %s MB.") % (ctx.consts.min_root_size))
+                self.partEdit.ui.information.setText(_("The size of the root partition should be larger than %s MB.") % (ctx.consts.min_root_size))
                 self.partEdit.ui.information.show()
             else:
                 self.partEdit.ui.partitionSize.setMinimum(ctx.consts.min_root_size + 40)
@@ -219,7 +219,7 @@ class DiskList(QtGui.QWidget):
         self.devs = []
         # initialize all storage devices
         if not yali.storage.initDevices(force):
-            raise GUIException, _("Can't find a storage device!")
+            raise GUIException, _("No storage device could be found.")
 
         self.devs = [i for i in yali.storage.devices]
 
@@ -240,14 +240,14 @@ class DiskList(QtGui.QWidget):
                 return _("%d MB free") % mb
 
         # add the device to the list
-        devstr = u"Disk %d (%s)" % (self.diskCount, dev.getName())
+        #devstr = u"Disk %d (%s)" % (self.diskCount, dev.getName())
         freespace = dev.getFreeMB()
         if freespace:
             size_str = dev.getSizeStr() + "  (%s)" % sizeStr(freespace)
         else:
             size_str = dev.getSizeStr()
 
-        diskItem = DiskItem("%s - %s" % (devstr,size_str),dev.getModel(),self.partEdit,dev.getTotalMB())
+        diskItem = DiskItem("%s (%s)" % (dev.getPath(),size_str),dev.getModel(),self.partEdit,dev.getTotalMB())
         diskItem.setData(dev)
         self.addDisk(diskItem)
 
@@ -293,7 +293,7 @@ class DiskList(QtGui.QWidget):
         _sum = {"partition":label,
                 "size":currentPart.getSizeStr(),
                 "device":dev.getModel()}
-        ctx.partSum.append(_("Partition <b>%(partition)s (%(size)s)</b> <b>deleted</b> from device <b>%(device)s</b>.") % _sum)
+        ctx.partSum.append(_("Partition <b>%(partition)s</b> (%(size)s) has been deleted from <b>%(device)s</b>.") % _sum)
 
         # check for last logical partition
         if dev.numberOfLogicalPartitions() == 0 and dev.getExtendedPartition():
@@ -346,7 +346,7 @@ class DiskList(QtGui.QWidget):
                 if self.partEdit.ui.formatCheck.isChecked():
                     _sum = {"partition":partition.getName(),
                             "fsType":t.filesystem._name}
-                    ctx.partSum.append(_("Partition <b>%(partition)s</b> will be <b>formatted</b> as <b>%(fsType)s</b>.") % _sum)
+                    ctx.partSum.append(_("Partition <b>%(partition)s</b> will be formatted as <b>%(fsType)s</b>.") % _sum)
                     ctx.partrequests.append(request.FormatRequest(partition, t))
                 else:
                     # remove previous format requests for partition (if there are any)
@@ -361,7 +361,7 @@ class DiskList(QtGui.QWidget):
                 return False
             _sum = {"partition":partition.getName(),
                     "type":t.name}
-            ctx.partSum.append(_("Partition <b>%(partition)s</b> <b>selected</b> as <b>%(type)s</b>.") % _sum)
+            ctx.partSum.append(_("Partition <b>%(partition)s</b> will be used as <b>%(type)s</b>.") % _sum)
             return True
 
         # Get selected Partition and the other informations from GUI
@@ -379,9 +379,9 @@ class DiskList(QtGui.QWidget):
             if device._disk.type.name == "gpt":
                 min_primary = 4
                 if device.numberOfPrimaryPartitions() == 4:
-                    InfoDialog(_("GPT Disk tables does not support for extended partitions.\n" \
-                                 "You need to delete one of primary partition from your disk table !"),
-                       title = _("Too many primary partitions !"))
+                    InfoDialog(_("GPT Disk tables do not support extended partitions.\n" \
+                                 "You need to delete one of the primary partitions from your disk table."),
+                       title = _("Too many primary partitions"))
                     return
             else:
                 min_primary = 1
@@ -403,8 +403,8 @@ class DiskList(QtGui.QWidget):
                 # if four primary partitions or
                 # three primary partitions and additionaly an extendedPartition
                 # exists on the disk we can't create a new primary partition
-                InfoDialog(_("You need to delete one of the primary or extended(if exists) partition from your disk table !"),
-                   title = _("Too many primary partitions !"))
+                InfoDialog(_("You need to delete one of the primary or extended partitions (if any) from your disk table."),
+                   title = _("Too many primary partitions"))
                 return
 
             if extendedPartition and partition._partition.type & parteddata.PARTITION_LOGICAL:
@@ -425,7 +425,7 @@ class DiskList(QtGui.QWidget):
                     "size":size,
                     "device":device.getModel(),
                     "fs":t.filesystem.name()}
-            ctx.partSum.append(_("Partition <b>%(partition)s</b> <b>added</b> to device <b>%(device)s</b> with <b>%(size)s MB</b> as <b>%(fs)s</b>.") % _sum)
+            ctx.partSum.append(_("Partition <b>%(partition)s</b> will be added to <b>%(device)s</b> (%(size)s MB) as <b>%(fs)s</b>.") % _sum)
 
         # Apply edit requests
         if not edit_requests(partition):
@@ -531,17 +531,17 @@ class DiskItem(QtGui.QWidget):
         _mpoint = ''
         if partitionType:
             if partitionType == parttype.root:
-                _name += "\n" + _("Pardus will install here")
-                _mpoint= "[ / ]"
+                _name += "\n" + _("Pardus will be installed here")
+                _mpoint= "[/]"
             elif partitionType == parttype.home:
-                _name += "\n" + _("User files will store here")
-                _mpoint= "[ /home ]"
+                _name += "\n" + _("User files will be stored here")
+                _mpoint= "[/home]"
             elif partitionType == parttype.swap:
-                _name += "\n" + _("Swap will be here")
-                _mpoint= "[ swap ]"
+                _name += "\n" + _("This will be used as swap space")
+                _mpoint= "[swap]"
             elif partitionType == parttype.archive:
-                _name += "\n" + _("Backup or archive files will store here")
-                _mpoint= "[ /mnt/archive ]"
+                _name += "\n" + _("General purpose storage partition")
+                _mpoint= "[/mnt/archive]"
 
         # Create partition
         partition = QtGui.QRadioButton("%s%s\n%s %s" % (name, _name, data.getSizeStr(), _mpoint), self.diskGroup)
@@ -561,7 +561,7 @@ class DiskItem(QtGui.QWidget):
 
         partition.setToolTip(_("""<b>Path:</b> %s<br>
                                   <b>Size:</b> %s<br>
-                                  <b>FileSystem:</b> %s%s""") % (data.getPath(),
+                                  <b>Filesystem:</b> %s%s""") % (data.getPath(),
                                                                  data.getSizeStr(),
                                                                  data.getFSName(),
                                                                  _name.replace("\n","<br>")))
@@ -592,7 +592,7 @@ class DiskItem(QtGui.QWidget):
         self._data.deleteAllPartitions()
 
         _sum = {"device":self._data.getModel()}
-        ctx.partSum.append(_("All partitions on device <b>%(device)s</b> has been deleted.") % _sum)
+        ctx.partSum.append(_("All partitions on <b>%(device)s</b> has been deleted.") % _sum)
 
         QObject.emit(self.partEdit,SIGNAL("updateTheList"))
 

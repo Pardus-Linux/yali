@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005-2008, TUBITAK/UEKAE
+# Copyright (C) 2005-2010 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -28,18 +28,19 @@ import yali.gui.context as ctx
 ##
 # Keyboard setup screen
 class Widget(QtGui.QWidget, ScreenWidget):
-    title = _('Set your keyboard layout')
-    desc = _('Use your keyboard layout...')
+    title = _("Choose a Keyboard Layout")
     icon = "iconKeyboard"
-    help = _('''
-<font size="+2">Keyboard Setup</font>
+    help = _("""
+<font size="+2">Keyboard Layout</font>
 <font size="+1">
 <p>
-Here you can select the type of your keyboard and the language map you want to use. You can test your selection's result in the test box. 
-Proceed with the installation after you make your selections.
+A keyboard layout is a description of how keys are placed on a keyboard. There are different keyboard layouts in use throughout the world. The one you will want to use, generally depends on the country you live in or the language you use.
+</p>
+<p>
+This screen lets you select the keyboard layout you want to use on Pardus. You can test the selected layout by typing something in the given textbox.
 </p>
 </font>
-''')
+""")
 
     def __init__(self, *args):
         QtGui.QWidget.__init__(self,None)

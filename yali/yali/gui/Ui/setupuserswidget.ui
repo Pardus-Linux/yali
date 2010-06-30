@@ -108,7 +108,7 @@
    <item row="4" column="1">
     <widget class="QLabel" name="textLabel1">
      <property name="text">
-      <string>Password (again):</string>
+      <string>Password (Again):</string>
      </property>
      <property name="wordWrap">
       <bool>false</bool>
@@ -125,7 +125,7 @@
    <item row="5" column="1">
     <widget class="QCheckBox" name="userIDCheck">
      <property name="text">
-      <string>User ID</string>
+      <string>Custom User ID</string>
      </property>
     </widget>
    </item>
@@ -145,7 +145,7 @@
    <item row="6" column="1" colspan="3">
     <widget class="QCheckBox" name="admin">
      <property name="text">
-      <string>Give administrator privileges to this user</string>
+      <string>Add user to administrator (wheel) group</string>
      </property>
      <property name="checked">
       <bool>true</bool>
@@ -158,7 +158,7 @@
       <string>Not recommended</string>
      </property>
      <property name="text">
-      <string>Do not ask any password to this user</string>
+      <string>Bypass authorization attempts for this user</string>
      </property>
     </widget>
    </item>
@@ -212,7 +212,7 @@
           <item>
            <widget class="QLabel" name="autoLoginLabel">
             <property name="text">
-             <string>Auto Login User :</string>
+             <string>Auto Login:</string>
             </property>
             <property name="wordWrap">
              <bool>false</bool>
@@ -226,7 +226,7 @@
             </property>
             <item>
              <property name="text">
-              <string>Auto Login Disabled</string>
+              <string>Disabled</string>
              </property>
             </item>
            </widget>
@@ -345,7 +345,7 @@ color:#5A2847;</string>
    <item row="5" column="5">
     <widget class="QPushButton" name="createButton">
      <property name="text">
-      <string>Create User</string>
+      <string>Add User</string>
      </property>
     </widget>
    </item>

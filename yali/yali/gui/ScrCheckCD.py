@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2006-2007, TUBITAK/UEKAE
+# Copyright (C) 2006-2010 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -26,14 +26,14 @@ import yali.gui.context as ctx
 from yali.gui.YaliDialog import Dialog
 
 class Widget(QtGui.QWidget, ScreenWidget):
-    title = _('Check your medium')
-    desc = _('To ignore medium corruptions you can check your packages integrity...')
+    title = _("Check the Integrity of Packages")
     icon = "iconCD"
-    help = _('''
-<font size="+2">Check Packages Integrity!</font>
+    help = _("""
+<font size="+2">Package Integrity</font>
 <font size="+1"><p>
-You can check if the packages included in the installation Medium are saved correctly. Performing this test is a highly important step in making sure for a problem-free installation. If the test fails, try re-burning the ISO image in a lower (e.g. 12x or less) speed.</p></font>
-''')
+Here you can validate the integrity of the installation packages. A failed validation usually is a sign of a badly mastered installation medium (CD, DVD or USB storage).</p>
+<p>If you are using an optical installation medium, try burning the installation image using DAO (Disc-at-once) mode, at a lower speed (4x for DVD, 8-12x for CD).</p></font>
+""")
 
     def __init__(self, *args):
         QtGui.QWidget.__init__(self,None)
@@ -47,11 +47,12 @@ You can check if the packages included in the installation Medium are saved corr
     def slotCheckCD(self):
         if ctx.yali.checkCDStop == True:
             ctx.yali.checkCDStop = False
-            self.ui.checkLabel.setText(_('<font color="#FFF">Please wait while checking Packages.</font>'))
-            self.ui.checkButton.setText(_("Stop Checking"))
+            # FIXME: The status is already given in the footer of the page
+            #self.ui.checkLabel.setText(_('<font color="#FFF">Please wait while validating packages.</font>'))
+            self.ui.checkButton.setText(_("Abort"))
             # Check the CD
             ctx.yali.checkCD(self.ui)
         else:
             ctx.yali.checkCDStop = True
-            self.ui.checkButton.setText(_("Check Packages Integrity"))
+            self.ui.checkButton.setText(_("Validate"))
 

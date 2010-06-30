@@ -85,7 +85,7 @@
         </size>
        </property>
        <property name="text">
-        <string>&lt;p align=&quot;left&quot;&gt;System administrator user (root) handles important system maintanence tasks. Enter a password for this special user and do not forget this password. Keep in mind that for privacy reasons, you shouldn't write this password elsewhere.&lt;/p&gt;</string>
+        <string>&lt;p align=&quot;left&quot;&gt;You need to define a password for the root user who has all rights and permissions over all of the files in the system.&lt;/p&gt;</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -148,7 +148,7 @@
        <item row="0" column="0">
         <widget class="QLabel" name="textLabel3">
          <property name="text">
-          <string>System administrator password:</string>
+          <string>Administrator (root) password:</string>
          </property>
          <property name="wordWrap">
           <bool>false</bool>
@@ -158,7 +158,7 @@
        <item row="1" column="0">
         <widget class="QLabel" name="textLabel3_2">
          <property name="text">
-          <string>System administrator password (again):</string>
+          <string>Administrator (root) password (Again):</string>
          </property>
          <property name="wordWrap">
           <bool>false</bool>

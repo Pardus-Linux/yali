@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005-2008, TUBITAK/UEKAE
+# Copyright (C) 2005-2010 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -27,29 +27,28 @@ import pardus.xorg
 ##
 # Root password widget
 class Widget(QtGui.QWidget, ScreenWidget):
-    title = _('Set Administrator')
-    desc = _('Admins have important rights on the system...')
+    title = _("Choose an Administrator Password and a Hostname")
     icon = "iconAdmin"
-    help = _('''
-<font size="+2">System administrator password and hostname</font>
+    help = _("""
+<font size="+2">Administrator Password and Hostname</font>
 
 <font size="+1">
 <p>
-You need to define a password for the "root" user that has full control over the system.
-Your password must be easy to remember (for you) but hard to guess (for others). 
-You can use lower case or upper case letters, numbers and punctuation marks in your password. 
-You should take care not to use letters not found in English to avoid incompatibilities with other systems.
+You need to define a password for the "root" user which is the conventional name
+of the user who has all rights and permissions (to all files and programs) in all
+modes (single or multi-user).
 </p>
+
 <p>
-Here you can enter a name for your computer in the text box below. As your computer will be 
-known with this name in the local network, it is advised to enter a descriptive text.
-Proceed with the installation after you make your selections.
+Your password must be easy to remember but strong enough to resist possible attacks.
+You can use capital and lower-case letters, numbers and punctuation marks in your password.
 </p>
+
 <p>
-Click Next button to proceed.
+You can also define a hostname for your computer. A hostname is an identifier assigned to your computer. As your computer will be recognized with this name in the local network, it is recommended to select a descriptive hostname.
 </p>
 </font>
-''')
+""")
 
     def __init__(self, *args):
         QtGui.QWidget.__init__(self,None)
@@ -63,7 +62,7 @@ Click Next button to proceed.
         self.ui.host_error.setVisible(False)
         self.ui.caps_error.setVisible(False)
 
-        self.ui.caps_error.setText(_('<center>Caps Lock is on!</center>'))
+        self.ui.caps_error.setText(_('<center>Caps Lock is on.</center>'))
 
         self.connect(self.ui.pass1, SIGNAL("textChanged(const QString &)"),
                      self.slotTextChanged)
@@ -84,7 +83,7 @@ Click Next button to proceed.
             if len(yali.users.pending_users) > 0:
                 hostname_guess = "%s-pardus" % yali.users.pending_users[0].username
             else:
-                ctx.debugger.log("No user defined in users screen..")
+                ctx.debugger.log("No user defined in users screen")
             if self.ui.hostname.text() == '':
                 self.ui.hostname.setText(hostname_guess)
 
@@ -117,7 +116,7 @@ Click Next button to proceed.
 
         if p1 == p2 and p1:
             if len(p1)<4:
-                self.ui.pass_error.setText(_('Password is too short!'))
+                self.ui.pass_error.setText(_('Password is too short.'))
                 self.ui.pass_error.setVisible(True)
                 self.pass_valid = False
             else:
@@ -126,12 +125,12 @@ Click Next button to proceed.
         else:
             self.pass_valid = False
             if p2:
-                self.ui.pass_error.setText(_('Passwords do not match!'))
+                self.ui.pass_error.setText(_('Passwords do not match.'))
                 self.ui.pass_error.setVisible(True)
         if str(p1).lower()=="root" or str(p2).lower()=="root":
             self.pass_valid = False
             if p2:
-                self.ui.pass_error.setText(_('Don\'t use your username as password !'))
+                self.ui.pass_error.setText(_('Do not use your username as your password.'))
                 self.ui.pass_error.setVisible(True)
         if self.pass_valid:
             self.ui.pass_error.setVisible(False)
@@ -151,7 +150,7 @@ Click Next button to proceed.
 
         if not self.host_valid:
             self.ui.host_error.setVisible(True)
-            self.ui.host_error.setText(_('Hostname contains invalid characters!'))
+            self.ui.host_error.setText(_('Hostname contains invalid characters.'))
         else:
             self.ui.host_error.setVisible(False)
         self.setNext()

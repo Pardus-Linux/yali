@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005-2008, TUBITAK/UEKAE
+# Copyright (C) 2005-2010 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -32,8 +32,7 @@ import yali.sysutils
 ##
 # Installation Choice Widget
 class Widget(QtGui.QWidget, ScreenWidget):
-    title = _('Choose Collections')
-    desc = _('Auto or Manual installation...')
+    title = _("Choose a Package Collection")
     icon = "iconPartition"
     help = _('''
 <font size="+2">Automatic Installation</font>

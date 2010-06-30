@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2009, TUBITAK/UEKAE
+# Copyright (C) 2009-2010 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -29,27 +29,28 @@ import yali.gui.context as ctx
 ##
 # BootLoader screen.
 class Widget(QtGui.QWidget, ScreenWidget):
-    title = _('Rescue Mode for Bootlooader')
-    desc = _('You can fix your bootloader...')
+    title = _("Repair the Bootloader")
     icon = "iconBootloader"
-    help = _('''
-<font size="+2">Boot loader setup</font>
+    help = _("""
+<font size="+2">Repair bootloader</font>
 <font size="+1">
 <p>
-Pardus 2009 uses a boot manager called GRUB to start the operating system you choose.
-</p>
-<p>If there are multiple operating systems in your computer, you can start the one 
-you like using GRUB. Installing GRUB to the beginning of the boot disk is the advised 
-option to avoid boot problems.  If you are sure you know what you are doing, 
-you can change boot loader settings.
+A bootloader is a tiny program that runs when a computer is first powered up.
+It is responsible for loading the operating system into memory and then transferring
+the control to it.
 </p>
 <p>
-Please refer to Pardus Installing and Using 
-Guide for more information about GRUB boot 
-loader.
+Pardus uses GRUB (GRand Unified Bootloader) as the default bootloader. GRUB allows you
+to boot any supported operating system by presenting the user with a menu.
+</p>
+<p>
+You may want to repair GRUB bootloader if you installed another operating system which replaces GRUB with its own bootloader thus avoiding you to boot into Pardus. You may also want to repair GRUB if you're stuck with strange GRUB errors during boot.
+<p>
+The recommended way to use GRUB is to install it to the beginning of the boot disk.
+You can always choose another installation method if you know what you are doing.
 </p>
 </font>
-''')
+""")
 
     def __init__(self, *args):
         QtGui.QWidget.__init__(self,None)

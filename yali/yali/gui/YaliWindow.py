@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005-2009, TUBITAK/UEKAE
+# Copyright (C) 2005-2010 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -68,13 +68,12 @@ class Widget(QtGui.QWidget):
         # move one step at a time
         self.moveInc = 1
 
-        # Dont need help as default
-        self.ui.helpContent.hide()
-        self.ui.toggleHelp.setText(_("Show Help"))
+        # Show help content by default
+        self.ui.toggleHelp.setText(_("Hide Help"))
 
         # ToolButton Popup Menu
         self.popupMenu = QtGui.QMenu()
-        self.shutDownAction = self.popupMenu.addAction(QtGui.QIcon(QtGui.QPixmap(":/images/system-shutdown.png")), _("Turn off Computer"))
+        self.shutDownAction = self.popupMenu.addAction(QtGui.QIcon(QtGui.QPixmap(":/images/system-shutdown.png")), _("Turn Off Computer"))
         self.rebootAction = self.popupMenu.addAction(QtGui.QIcon(QtGui.QPixmap(":/images/system-reboot.png")), _("Restart Computer"))
         self.restartAction = self.popupMenu.addAction(QtGui.QIcon(QtGui.QPixmap(":/images/system-yali-reboot.png")), _("Restart YALI"))
         #self.popupMenu.setDefaultAction(self.shutDownAction)
@@ -108,8 +107,8 @@ class Widget(QtGui.QWidget):
             else:
                 ocmb = _("left")
             reply = QuestionDialog(_("Mouse Settings"),
-                                   _("You just used <b>%s</b> button.") % self.cmb,
-                                   _("Do you want to use <b>%s</b> handed mouse settings ?") % ocmb,
+                                   _("You just clicked the <b>%s</b> mouse button.") % self.cmb,
+                                   _("Do you want to switch to the <b>%s</b> handed configuration?") % ocmb,
                                    dontAsk = True)
             if reply == "yes":
                 yali.sysutils.setMouse(self.cmb)
@@ -139,17 +138,17 @@ class Widget(QtGui.QWidget):
     def slotMenu(self, action):
         if action == self.shutDownAction:
             reply = QuestionDialog(_("Warning"),
-                                   _("Your system will now <b>shutdown</b>.<br/><br/><b>This action can cause harm to your computer if the installation is in progress.</b>"))
+                                   _("Are you sure you want to shut down your computer now?"))
             if reply == "yes":
                 yali.sysutils.shutdown()
         elif action == self.rebootAction:
             reply = QuestionDialog(_("Warning"),
-                                   _("Your system will now <b>reboot</b>.<br/><br/><b>This action can cause harm to your computer if the installation is in progress.</b>"))
+                                   _("Are you sure you want to restart your computer now?"))
             if reply == "yes":
                 yali.sysutils.reboot()
         else:
             reply = QuestionDialog(_("Warning"),
-                                   _("YALI will now <b>restart</b>.<br/><br/><b>This action can cause harm to your computer if the installation is in progress.</b>"))
+                                   _("Are you sure you want to restart the YALI installer now?"))
             if reply == "yes":
                 os.execv("/usr/bin/yali-bin", sys.argv)
 
@@ -162,12 +161,12 @@ class Widget(QtGui.QWidget):
 
     def toggleConsole(self):
         if not self.terminal:
-            self.terminal = Dialog(_('Terminal'), self._terminal, self, True, QtGui.QKeySequence(Qt.Key_F11))
+            self.terminal = Dialog(_("Terminal"), self._terminal, self, True, QtGui.QKeySequence(Qt.Key_F11))
             self.terminal.resize(700,500)
         self.terminal.exec_()
 
     def toggleTetris(self):
-        self.tetris = Dialog(_('Tetris'), None, self, True, QtGui.QKeySequence(Qt.Key_F6))
+        self.tetris = Dialog(_("Tetris"), None, self, True, QtGui.QKeySequence(Qt.Key_F6))
         _tetris = Tetris(self.tetris)
         self.tetris.addWidget(_tetris)
         self.tetris.resize(240,500)
@@ -236,7 +235,7 @@ class Widget(QtGui.QWidget):
             self.ui.mainStack.setCurrentIndex(id)
             _w = self.ui.mainStack.currentWidget()
             self.ui.screenName.setText(_w.title)
-            self.ui.screenDescription.setText(_w.desc)
+            #self.ui.screenDescription.setText(_w.desc)
             self.ui.screenIcon.setPixmap(QtGui.QPixmap(":/gui/pics/%s.png" % (_w.icon or "pardus")))
             self.ui.helpContent.setText(_w.help)
             # shown functions contain necessary instructions before

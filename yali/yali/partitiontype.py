@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005-2009, TUBITAK/UEKAE
+# Copyright (C) 2005-2010 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -33,27 +33,27 @@ class PartitionType:
         self.filesystem = fs(filesystem)
 
 class RootPartitionType(PartitionType):
-    name = _("Install Root")
+    name = _("System Files")
     mountpoint = "/"
     filesystem = fs("ext4")
     mountoptions = "noatime"
     parted_type = parted.PARTITION_PRIMARY
-    parted_flags = [ parted.PARTITION_BOOT ]
+    parted_flags = [parted.PARTITION_BOOT]
     label = "PARDUS_ROOT"
-    desc = _("as Pardus System Files (mandatory)")
+    desc = _("System partition for / (required)")
 
 class HomePartitionType(PartitionType):
-    name = _("Users' Files")
+    name = _("User Files")
     mountpoint = "/home"
     filesystem = fs("ext4")
     mountoptions = "noatime"
     parted_type = parted.PARTITION_PRIMARY
     parted_flags = []
     label = "PARDUS_HOME"
-    desc = _("as User Files (optional)")
+    desc = _("Separate partition for /home (optional)")
 
 class SwapPartitionType(PartitionType):
-    name = _("Swap")
+    name = _("Swap Space")
     filesystem = fs("swap")
     mountpoint = None
     mountoptions = "sw"
@@ -61,7 +61,7 @@ class SwapPartitionType(PartitionType):
     parted_flags = []
     label = "PARDUS_SWAP"
     supportedFileSystems = [fs("swap")]
-    desc = _("as Swap Space (optional)")
+    desc = _("Swap Space (optional)")
 
 class ArchivePartitionType(PartitionType):
     name = _("Archive Partition")
@@ -79,7 +79,7 @@ class ArchivePartitionType(PartitionType):
                             fs("ntfs"),
                             fs("fat32")]
                             #fs("btrfs")]
-    desc = _("as Storage Area")
+    desc = _("Storage area at /mnt/archive (optional)")
 
 root = RootPartitionType()
 home = HomePartitionType()

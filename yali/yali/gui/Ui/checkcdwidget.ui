@@ -64,7 +64,7 @@
      <item>
       <widget class="QLabel" name="textLabel2">
        <property name="text">
-        <string>You can check the integrity of the packages in installation media. Although this is an optional step, we encourage you to do it in order to avoid any possible errors in the installation process.</string>
+        <string>Here, you can validate the integrity of the installation packages. Although this is an optional step, we highly recommend to do the validation in order to avoid any possible errors during the installation process.</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignVCenter</set>
@@ -98,7 +98,7 @@
        <item>
         <widget class="QPushButton" name="checkButton">
          <property name="text">
-          <string>Check Packages Integrity</string>
+          <string>Validate</string>
          </property>
         </widget>
        </item>
