@@ -1,0 +1,7 @@
+#!/bin/sh -l
+
+HOME=/root
+USER=root
+export HOME USER
+
+exec /usr/bin/xinit /usr/bin/yali-bin -- vt7 -nolisten tcp -br -dpi 96
