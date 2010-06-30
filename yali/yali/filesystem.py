@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005-2009 TUBITAK/UEKAE
+# Copyright (C) 2005-2010 TUBITAK/UEKAE
 # Copyright 2001-2008 Red Hat, Inc.
 #
 # This program is free software; you can redistribute it and/or modify it under
