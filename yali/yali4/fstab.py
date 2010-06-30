@@ -12,7 +12,7 @@
 
 from os.path import join
 
-from yali4.constants import consts
+from yali.constants import consts
 
 class FstabEntry:
     def __init__(self, dev, mp, fs, opts, d="0", p="0"):

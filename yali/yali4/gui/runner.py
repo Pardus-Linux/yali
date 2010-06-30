@@ -16,23 +16,23 @@ from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
 import gettext
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-import yali4
-import yali4.installer
-import yali4.sysutils
-import yali4.localedata
-import yali4.gui.context as ctx
-from yali4.gui.YaliDialog import Dialog
-from yali4.gui.Ui.exception import Ui_Exception
+import yali
+import yali.installer
+import yali.sysutils
+import yali.localedata
+import yali.gui.context as ctx
+from yali.gui.YaliDialog import Dialog
+from yali.gui.Ui.exception import Ui_Exception
 
-from yali4.gui.debugger import Debugger
-from yali4.gui.debugger import DebuggerAspect
+from yali.gui.debugger import Debugger
+from yali.gui.debugger import DebuggerAspect
 
 # mainScreen
 import YaliWindow
-from yali4.gui.installdata import *
+from yali.gui.installdata import *
 
 ##
 # Runner creates main GUI components for installation...
@@ -58,23 +58,23 @@ class Runner:
             install_type = YALI_FIRSTBOOT
 
         # check for dvd install
-        if yali4.sysutils.checkYaliParams(param=ctx.consts.dvd_install_param):
+        if yali.sysutils.checkYaliParams(param=ctx.consts.dvd_install_param):
             install_type = YALI_DVDINSTALL
 
         # check for oem install
-        if yali4.sysutils.checkYaliParams(param=ctx.consts.oem_install_param):
+        if yali.sysutils.checkYaliParams(param=ctx.consts.oem_install_param):
             install_type = YALI_OEMINSTALL
 
         # check for rescue Mode
-        if ctx.options.rescueMode == True or yali4.sysutils.checkYaliParams(param=ctx.consts.rescue_mode_param):
+        if ctx.options.rescueMode == True or yali.sysutils.checkYaliParams(param=ctx.consts.rescue_mode_param):
             install_type = YALI_RESCUE
 
-        install_plugin = yali4.sysutils.checkYaliOptions("plugin") or ctx.options.plugin or None
+        install_plugin = yali.sysutils.checkYaliOptions("plugin") or ctx.options.plugin or None
         if install_plugin:
             install_type = YALI_PLUGIN
 
         # Creating the installer
-        ctx.yali = yali4.installer.Yali(install_type, install_plugin)
+        ctx.yali = yali.installer.Yali(install_type, install_plugin)
 
         # These shorcuts for developers :)
         prevScreenShortCut = QtGui.QShortcut(QtGui.QKeySequence(Qt.SHIFT + Qt.Key_F1),self._window)
@@ -87,7 +87,7 @@ class Runner:
 
         # check boot flags
         # visual debug mode
-        if ctx.options.debug == "True" or yali4.sysutils.checkYaliParams(param="debug"):
+        if ctx.options.debug == "True" or yali.sysutils.checkYaliParams(param="debug"):
             ctx.debugEnabled = True
 
         # Let start
@@ -98,12 +98,12 @@ class Runner:
 
         # VBox utils
         ctx.debugger.log("Starting VirtualBox tools..")
-        yali4.sysutils.run("VBoxClient --autoresize")
-        yali4.sysutils.run("VBoxClient --clipboard")
+        yali.sysutils.run("VBoxClient --autoresize")
+        yali.sysutils.run("VBoxClient --clipboard")
 
         # Cp Reboot, ShutDown
-        yali4.sysutils.run("cp /sbin/reboot /tmp/reboot", appendToLog = False)
-        yali4.sysutils.run("cp /sbin/shutdown /tmp/shutdown", appendToLog = False)
+        yali.sysutils.run("cp /sbin/reboot /tmp/reboot", appendToLog = False)
+        yali.sysutils.run("cp /sbin/shutdown /tmp/shutdown", appendToLog = False)
 
         # add Screens for selected install type
         self._window.createWidgets(ctx.yali.screens)
@@ -157,7 +157,7 @@ def showException(ex_type, tb):
     title = _("Error occured !")
     closeButton = True
 
-    if ex_type in (yali4.exception_fatal, yali4.exception_pisi):
+    if ex_type in (yali.exception_fatal, yali.exception_pisi):
         closeButton = False
 
     ctx.debugger.log(tb)
@@ -174,7 +174,7 @@ class ExceptionWidget(QtGui.QWidget):
         self.ui.traceback.setText(tb_text)
         self.ui.traceback.hide()
         self.connect(self.ui.showBackTrace, SIGNAL("clicked()"), self.showBackTrace)
-        self.connect(self.ui.rebootButton,  SIGNAL("clicked()"), yali4.sysutils.reboot)
+        self.connect(self.ui.rebootButton,  SIGNAL("clicked()"), yali.sysutils.reboot)
         self.ui.rebootButton.setShown(rebootButton)
 
     def showBackTrace(self):

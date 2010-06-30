@@ -11,17 +11,17 @@
 #
 
 from pyaspects.meta import MetaAspect
-import yali4.gui.context as ctx
+import yali.gui.context as ctx
 import time
 
 import gettext
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
-from yali4.gui.YaliDialog import Dialog
+from yali.gui.YaliDialog import Dialog
 
 class Debugger:
     def __init__(self,showTimeStamp=True):

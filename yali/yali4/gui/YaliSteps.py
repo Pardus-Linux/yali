@@ -11,11 +11,11 @@
 #
 
 import gettext
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 import time
-import yali4.gui.context as ctx
+import yali.gui.context as ctx
 
 class YaliSteps:
     def __init__(self):

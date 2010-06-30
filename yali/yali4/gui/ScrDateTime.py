@@ -11,18 +11,18 @@
 #
 
 import gettext
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
 import os
-from yali4.gui.ScreenWidget import ScreenWidget
-from yali4.gui.Ui.datetimewidget import Ui_DateTimeWidget
-import yali4.gui.context as ctx
-from yali4.sysutils import TimeZoneList
-import yali4.localedata
+from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui.Ui.datetimewidget import Ui_DateTimeWidget
+import yali.gui.context as ctx
+from yali.sysutils import TimeZoneList
+import yali.localedata
 
 class Widget(QtGui.QWidget, ScreenWidget):
     title = _('Set your timezone')
@@ -42,7 +42,7 @@ Your settings will update your hardware clock. Proceed with the installation aft
         self.fromTimeUpdater = True
         self.isDateChanged = False
 
-        for country,data in yali4.localedata.locales.items():
+        for country,data in yali.localedata.locales.items():
             if country == ctx.consts.lang:
                 if data.has_key("timezone"):
                     ctx.installData.timezone = data["timezone"]

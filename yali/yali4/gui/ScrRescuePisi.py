@@ -14,25 +14,25 @@ import os
 import dbus
 import pisi
 import gettext
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 from PyQt4 import QtGui
 from PyQt4.QtCore import SIGNAL, QEvent, QObject
 
-import yali4.storage
-import yali4.pisiiface
-import yali4.postinstall
-import yali4.sysutils
+import yali.storage
+import yali.pisiiface
+import yali.postinstall
+import yali.sysutils
 
-from yali4.gui.installdata import *
-from yali4.gui.GUIAdditional import DeviceItem
-from yali4.gui.ScreenWidget import ScreenWidget
-from yali4.gui.Ui.rescuepisiwidget import Ui_RescuePisiWidget
-from yali4.gui.YaliSteps import YaliSteps
-from yali4.gui.GUIException import GUIException
-from yali4.gui.GUIAdditional import ConnectionWidget
-import yali4.gui.context as ctx
+from yali.gui.installdata import *
+from yali.gui.GUIAdditional import DeviceItem
+from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui.Ui.rescuepisiwidget import Ui_RescuePisiWidget
+from yali.gui.YaliSteps import YaliSteps
+from yali.gui.GUIException import GUIException
+from yali.gui.GUIAdditional import ConnectionWidget
+import yali.gui.context as ctx
 
 ##
 # BootLoader screen.
@@ -50,8 +50,8 @@ class Widget(QtGui.QWidget, ScreenWidget):
         self.ui = Ui_RescuePisiWidget()
         self.ui.setupUi(self)
         self.steps = YaliSteps()
-        self.steps.setOperations([{"text":_("Starting DBUS..."),"operation":yali4.sysutils.chrootDbus},
-                                  {"text":_("Trying to connect DBUS..."),"operation":yali4.postinstall.connectToDBus},
+        self.steps.setOperations([{"text":_("Starting DBUS..."),"operation":yali.sysutils.chrootDbus},
+                                  {"text":_("Trying to connect DBUS..."),"operation":yali.postinstall.connectToDBus},
                                   {"text":_("Getting history ..."),"operation":self.fillHistoryList}])
 
         self.connect(self.ui.buttonSelectConnection, SIGNAL("clicked()"), self.showConnections)
@@ -63,9 +63,9 @@ class Widget(QtGui.QWidget, ScreenWidget):
     def fillHistoryList(self):
         ui = PisiUI()
         ctx.debugger.log("PisiUI is creating..")
-        yali4.pisiiface.initialize(ui, with_comar = True)
+        yali.pisiiface.initialize(ui, with_comar = True)
         try:
-            history = yali4.pisiiface.getHistory()
+            history = yali.pisiiface.getHistory()
             for hist in history:
                 HistoryItem(self.ui.historyList, hist)
         except:

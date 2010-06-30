@@ -16,7 +16,7 @@
 import locale
 from os.path import join
 from os.path import exists
-from yali4.options import options
+from yali.options import options
 
 class _constant:
     """ Constant members implementation """
@@ -52,7 +52,7 @@ consts = Constants()
 
 consts.pardus_version = file("/etc/pardus-release").readlines()[0].strip()
 
-consts.data_dir = "/usr/share/yali4"
+consts.data_dir = "/usr/share/yali"
 
 consts.mnt_dir = "/mnt"
 

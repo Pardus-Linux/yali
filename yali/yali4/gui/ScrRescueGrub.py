@@ -12,19 +12,19 @@
 
 import os
 import gettext
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 from PyQt4 import QtGui
 from PyQt4.QtCore import SIGNAL
 
-import yali4.storage
-from yali4.gui.installdata import *
-from yali4.gui.GUIAdditional import DeviceItem
-from yali4.gui.ScreenWidget import ScreenWidget
-from yali4.gui.Ui.rescuegrubwidget import Ui_RescueGrubWidget
-from yali4.gui.GUIException import GUIException
-import yali4.gui.context as ctx
+import yali.storage
+from yali.gui.installdata import *
+from yali.gui.GUIAdditional import DeviceItem
+from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui.Ui.rescuegrubwidget import Ui_RescueGrubWidget
+from yali.gui.GUIException import GUIException
+import yali.gui.context as ctx
 
 ##
 # BootLoader screen.
@@ -59,7 +59,7 @@ loader.
         self.ui.installFirstMBR.setChecked(True)
 
         # fill device list
-        for dev in yali4.storage.devices:
+        for dev in yali.storage.devices:
             DeviceItem(self.ui.deviceList, dev)
 
         # select the first disk by default
@@ -73,7 +73,7 @@ loader.
 
     def shown(self):
         ctx.mainScreen.disableBack()
-        yali4.storage.setOrderedDiskList()
+        yali.storage.setOrderedDiskList()
         ctx.debugger.log("Disks BIOS Boot order : %s " % ','.join(ctx.installData.orderedDiskList))
 
     def slotSelect(self):

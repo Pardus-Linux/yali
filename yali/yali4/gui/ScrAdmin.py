@@ -11,17 +11,17 @@
 #
 
 import gettext
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
-from yali4.gui.ScreenWidget import ScreenWidget
-from yali4.gui.Ui.rootpasswidget import Ui_RootPassWidget
-import yali4.users
-import yali4.sysutils
-import yali4.gui.context as ctx
+from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui.Ui.rootpasswidget import Ui_RootPassWidget
+import yali.users
+import yali.sysutils
+import yali.gui.context as ctx
 import pardus.xorg
 
 ##
@@ -81,8 +81,8 @@ Click Next button to proceed.
         else:
             # Use first added user's name as machine name if its exists
             hostname_guess = "pardus"
-            if len(yali4.users.pending_users) > 0:
-                hostname_guess = "%s-pardus" % yali4.users.pending_users[0].username
+            if len(yali.users.pending_users) > 0:
+                hostname_guess = "%s-pardus" % yali.users.pending_users[0].username
             else:
                 ctx.debugger.log("No user defined in users screen..")
             if self.ui.hostname.text() == '':
@@ -147,7 +147,7 @@ Click Next button to proceed.
             self.setNext()
             return
 
-        self.host_valid = yali4.sysutils.isTextValid(string.toAscii())
+        self.host_valid = yali.sysutils.isTextValid(string.toAscii())
 
         if not self.host_valid:
             self.ui.host_error.setVisible(True)

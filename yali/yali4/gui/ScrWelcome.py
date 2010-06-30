@@ -11,18 +11,18 @@
 #
 
 import gettext
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
-import yali4.sysutils
-from yali4.gui.ScreenWidget import ScreenWidget
-from yali4.gui.Ui.welcomewidget import Ui_WelcomeWidget
-import yali4.gui.context as ctx
-from yali4.gui.YaliDialog import Dialog
-from yali4.gui.GUIAdditional import Gpl
+import yali.sysutils
+from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui.Ui.welcomewidget import Ui_WelcomeWidget
+import yali.gui.context as ctx
+from yali.gui.YaliDialog import Dialog
+from yali.gui.GUIAdditional import Gpl
 
 ##
 # Welcome screen is the first screen to be shown.
@@ -75,8 +75,8 @@ class Widget(QtGui.QWidget, ScreenWidget):
         d.exec_()
 
     def slotReboot(self):
-        yali4.sysutils.ejectCdrom()
-        yali4.sysutils.reboot()
+        yali.sysutils.ejectCdrom()
+        yali.sysutils.reboot()
 
     def shown(self):
         ctx.mainScreen.disableBack()

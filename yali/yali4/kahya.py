@@ -12,9 +12,9 @@
 
 import re
 import sys
-import yali4.yalireadpiks as yaliReadPiks
-from yali4.localedata import *
-from yali4.users import *
+import yali.yalireadpiks as yaliReadPiks
+from yali.localedata import *
+from yali.users import *
 
 class userErrors:
     def __init__(self):

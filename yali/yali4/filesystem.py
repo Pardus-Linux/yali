@@ -18,7 +18,7 @@
 
 # we need i18n
 import gettext
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 import os
@@ -27,10 +27,10 @@ import string
 import parted
 import math
 
-from yali4.exception import *
-import yali4.sysutils as sysutils
-import yali4.parteddata as parteddata
-import yali4.storage
+from yali.exception import *
+import yali.sysutils as sysutils
+import yali.parteddata as parteddata
+import yali.storage
 
 def getLabel(partition):
     if not os.path.exists("/dev/disk/by-label"):
@@ -107,10 +107,10 @@ class FileSystem:
 
     def labelExists(self, label):
         """ Check label for existence """
-        if not yali4.storage.devices:
-            yali4.storage.initDevices()
+        if not yali.storage.devices:
+            yali.storage.initDevices()
 
-        for dev in yali4.storage.devices:
+        for dev in yali.storage.devices:
             for part in dev.getPartitions():
                 if label == part.getFSLabel():
                     return True
@@ -130,7 +130,7 @@ class FileSystem:
         if not self.isImplemented():
             raise YaliException, "%s file system is not fully implemented." % (self.name())
 
-        import yali4.gui.context as ctx
+        import yali.gui.context as ctx
         ctx.debugger.log("Format %s: %s" %(partition.getPath(), self.name()))
 
     def setImplemented(self, bool):
@@ -319,7 +319,7 @@ class XFSFileSystem(FileSystem):
 class BtrfsFileSystem(FileSystem):
 
     _name = "btrfs"
-    _is_ready_to_use = yali4.sysutils.checkYaliParams("wowbtrfs")
+    _is_ready_to_use = yali.sysutils.checkYaliParams("wowbtrfs")
 
     def __init__(self):
         FileSystem.__init__(self)

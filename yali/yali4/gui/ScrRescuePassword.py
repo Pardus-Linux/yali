@@ -15,26 +15,26 @@ import dbus
 import pisi
 import gettext
 import pardus.xorg
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 from PyQt4 import QtGui
 from PyQt4.QtCore import SIGNAL, QEvent, QObject
 
-import yali4.storage
-import yali4.pisiiface
-import yali4.postinstall
-import yali4.sysutils
+import yali.storage
+import yali.pisiiface
+import yali.postinstall
+import yali.sysutils
 
-from yali4.gui.installdata import *
-from yali4.gui.YaliDialog import InfoDialog
-from yali4.gui.GUIAdditional import DeviceItem
-from yali4.gui.ScreenWidget import ScreenWidget
-from yali4.gui.Ui.rescuepasswordwidget import Ui_RescuePasswordWidget
-from yali4.gui.YaliSteps import YaliSteps
-from yali4.gui.GUIException import GUIException
-from yali4.gui.GUIAdditional import ConnectionWidget
-import yali4.gui.context as ctx
+from yali.gui.installdata import *
+from yali.gui.YaliDialog import InfoDialog
+from yali.gui.GUIAdditional import DeviceItem
+from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui.Ui.rescuepasswordwidget import Ui_RescuePasswordWidget
+from yali.gui.YaliSteps import YaliSteps
+from yali.gui.GUIException import GUIException
+from yali.gui.GUIAdditional import ConnectionWidget
+import yali.gui.context as ctx
 
 ##
 # BootLoader screen.
@@ -59,8 +59,8 @@ class Widget(QtGui.QWidget, ScreenWidget):
         self.ui.updatePassword.setEnabled(False)
 
         self.steps = YaliSteps()
-        self.steps.setOperations([{"text":_("Starting DBUS..."),"operation":yali4.sysutils.chrootDbus},
-                                  {"text":_("Trying to connect DBUS..."),"operation":yali4.postinstall.connectToDBus},
+        self.steps.setOperations([{"text":_("Starting DBUS..."),"operation":yali.sysutils.chrootDbus},
+                                  {"text":_("Trying to connect DBUS..."),"operation":yali.postinstall.connectToDBus},
                                   {"text":_("Getting user list ..."),"operation":self.fillUserList}])
 
         self.connect(self.ui.updatePassword, SIGNAL("clicked()"), self.updatePassword)
@@ -93,7 +93,7 @@ class Widget(QtGui.QWidget, ScreenWidget):
     def updatePassword(self):
         password = unicode(self.ui.pass1.text())
         uid  = int(self.ui.userList.currentItem().getInfo()[0])
-        yali4.postinstall.setUserPass(uid, password)
+        yali.postinstall.setUserPass(uid, password)
         InfoDialog(_("Password changed"), title = _("Info"))
         self.resetWidgets()
 
@@ -127,7 +127,7 @@ class Widget(QtGui.QWidget, ScreenWidget):
         ctx.yali.info.hide()
 
     def fillUserList(self):
-        users = yali4.postinstall.getUserList()
+        users = yali.postinstall.getUserList()
         for user in users:
             UserItem(self.ui.userList, user)
 

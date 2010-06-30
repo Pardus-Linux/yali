@@ -14,22 +14,22 @@ from PyQt4 import QtCore, QtGui
 from PyQt4.QtCore import *
 
 import gettext
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 import parted
-import yali4.storage
-import yali4.filesystem as filesystem
-import yali4.partitionrequest as request
-import yali4.partitiontype as parttype
-import yali4.parteddata as parteddata
+import yali.storage
+import yali.filesystem as filesystem
+import yali.partitionrequest as request
+import yali.partitiontype as parttype
+import yali.parteddata as parteddata
 
-import yali4.gui.context as ctx
+import yali.gui.context as ctx
 
-from yali4.gui.Ui.partedit import Ui_PartEdit
-from yali4.gui.GUIException import *
-from yali4.gui.GUIAdditional import ResizeWidget
-from yali4.gui.YaliDialog import InfoDialog
+from yali.gui.Ui.partedit import Ui_PartEdit
+from yali.gui.GUIException import *
+from yali.gui.GUIAdditional import ResizeWidget
+from yali.gui.YaliDialog import InfoDialog
 
 partitionTypes = [None,
                   parttype.root,
@@ -218,14 +218,14 @@ class DiskList(QtGui.QWidget):
     def initDevices(self, force=False):
         self.devs = []
         # initialize all storage devices
-        if not yali4.storage.initDevices(force):
+        if not yali.storage.initDevices(force):
             raise GUIException, _("Can't find a storage device!")
 
-        self.devs = [i for i in yali4.storage.devices]
+        self.devs = [i for i in yali.storage.devices]
 
     def resetChanges(self):
         ctx.partSum = []
-        yali4.storage.clearDevices()
+        yali.storage.clearDevices()
         self.initDevices()
         ctx.partrequests.remove_all()
         self.update()

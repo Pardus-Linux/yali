@@ -11,20 +11,20 @@
 #
 
 import gettext
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
-import yali4.sysutils
-from yali4.gui.installdata import *
-from yali4.gui.ScreenWidget import ScreenWidget
-from yali4.gui.Ui.kickerwidget import Ui_KickerWidget
-import yali4.gui.context as ctx
-from yali4.gui.YaliDialog import Dialog
-from yali4.kahya import kahya
-import yali4.storage
+import yali.sysutils
+from yali.gui.installdata import *
+from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui.Ui.kickerwidget import Ui_KickerWidget
+import yali.gui.context as ctx
+from yali.gui.YaliDialog import Dialog
+from yali.kahya import kahya
+import yali.storage
 
 def loadFile(path):
     """Read contents of a file"""
@@ -42,7 +42,7 @@ def get_kernel_opt(cmdopt):
 
 def kahyaExists():
     if get_kernel_opt(ctx.consts.kahya_param) or \
-            yali4.sysutils.checkYaliParams(ctx.consts.kahya_param) or \
+            yali.sysutils.checkYaliParams(ctx.consts.kahya_param) or \
             ctx.options.kahyaFile or \
             ctx.options.useKahya==True:
         return True
@@ -95,11 +95,11 @@ class Widget(QtGui.QWidget, ScreenWidget):
 
                 # find usable storage devices
                 # initialize all storage devices
-                if not yali4.storage.initDevices():
+                if not yali.storage.initDevices():
                     raise GUIException, _("Can't find a storage device!")
 
                 devices = []
-                for dev in yali4.storage.devices:
+                for dev in yali.storage.devices:
                     if dev.getTotalMB() >= ctx.consts.min_root_size:
                         devices.append(dev)
 
@@ -114,7 +114,7 @@ class Widget(QtGui.QWidget, ScreenWidget):
                 ctx.installData.rootPassword = correctData.rootPassword
                 ctx.installData.hostName = correctData.hostname
                 ctx.installData.autoLoginUser = correctData.autoLoginUser
-                yali4.storage.setOrderedDiskList()
+                yali.storage.setOrderedDiskList()
                 ctx.installData.autoPartDev = devices[int(correctData.partitioning[0].disk[-1])]
                 ctx.installData.autoPartMethod = {"auto":methodEraseAll,"smartAuto":methodUseAvail}[correctData.partitioningType]
                 if ctx.installData.autoPartMethod == methodUseAvail:
@@ -136,7 +136,7 @@ class Widget(QtGui.QWidget, ScreenWidget):
                 # multi types
                 for user in correctData.users:
                     ctx.installData.users.append(user)
-                    yali4.users.pending_users.append(user)
+                    yali.users.pending_users.append(user)
                     ctx.debugger.log("USER    : %s " % user.username)
 
                 if ctx.options.dryRun == True:

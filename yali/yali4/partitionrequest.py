@@ -15,13 +15,13 @@
 import os
 
 import gettext
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-from yali4.exception import *
-from yali4.constants import consts
-import yali4.partitiontype as parttype
-import yali4.sysutils
+from yali.exception import *
+from yali.constants import consts
+import yali.partitiontype as parttype
+import yali.sysutils
 
 class RequestException(YaliException):
     pass
@@ -47,8 +47,8 @@ class RequestList(list):
             r.applyRequest()
 
         # we need to trigger udev for our new labels
-        yali4.sysutils.run("/sbin/udevadm trigger")
-        yali4.sysutils.run("/sbin/udevadm settle --timeout=180")
+        yali.sysutils.run("/sbin/udevadm trigger")
+        yali.sysutils.run("/sbin/udevadm settle --timeout=180")
 
         # then mount request
         # but mount root (/) first
@@ -332,7 +332,7 @@ class MountRequest(PartRequest):
         if not pt.needsmtab:
             params.insert(0,"-n")
 
-        yali4.sysutils.run("mount", params)
+        yali.sysutils.run("mount", params)
         PartRequest.applyRequest(self)
 
 ##
@@ -349,12 +349,12 @@ class SwapFileRequest(PartRequest):
     def applyRequest(self):
 
         # see #832
-        if yali4.sysutils.memTotal() > 512:
-            yali4.sysutils.swapAsFile(consts.swap_file_path, 300)
+        if yali.sysutils.memTotal() > 512:
+            yali.sysutils.swapAsFile(consts.swap_file_path, 300)
         else:
-            yali4.sysutils.swapAsFile(consts.swap_file_path, 600)
+            yali.sysutils.swapAsFile(consts.swap_file_path, 600)
 
-        yali4.sysutils.swapOn(consts.swap_file_path)
+        yali.sysutils.swapOn(consts.swap_file_path)
         PartRequest.applyRequest(self)
 
 ##

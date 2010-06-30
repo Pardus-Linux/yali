@@ -18,19 +18,19 @@ import traceback
 import cStringIO
 
 import gettext
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 import pisi
-from yali4.exception import *
+from yali.exception import *
 
 def default_runner():
     """ Main runner of YALI """
-    import yali4.gui.runner
+    import yali.gui.runner
 
     sys.excepthook = exception_handler
 
-    return yali4.gui.runner.Runner()
+    return yali.gui.runner.Runner()
 
 exception_normal, exception_fatal, \
     exception_pisi, exception_informational, \
@@ -65,8 +65,8 @@ def exception_handler(exception, value, tb):
     sio.seek(0)
 
     if exception_type == exception_informational:
-        from yali4.gui.YaliDialog import InfoDialog
+        from yali.gui.YaliDialog import InfoDialog
         InfoDialog(unicode(v), title=_("Error"), icon="error")
     else:
-        import yali4.gui.runner
-        yali4.gui.runner.showException(exception_type, unicode(sio.read()))
+        import yali.gui.runner
+        yali.gui.runner.showException(exception_type, unicode(sio.read()))

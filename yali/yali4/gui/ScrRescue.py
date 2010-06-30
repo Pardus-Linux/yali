@@ -11,20 +11,20 @@
 #
 
 import gettext
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
-import yali4.storage
-import yali4.sysutils
-import yali4.partitiontype as parttype
-import yali4.partitionrequest as request
-from yali4.gui.ScreenWidget import ScreenWidget
-from yali4.gui.GUIAdditional import PartItem
-from yali4.gui.Ui.rescuewidget import Ui_RescueWidget
-import yali4.gui.context as ctx
+import yali.storage
+import yali.sysutils
+import yali.partitiontype as parttype
+import yali.partitionrequest as request
+from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui.GUIAdditional import PartItem
+from yali.gui.Ui.rescuewidget import Ui_RescueWidget
+import yali.gui.context as ctx
 
 class Widget(QtGui.QWidget, ScreenWidget):
     title = _('Rescue Mode')
@@ -44,7 +44,7 @@ class Widget(QtGui.QWidget, ScreenWidget):
         self.isSuitableForRescue = True
 
         # initialize all storage devices
-        if not yali4.storage.initDevices():
+        if not yali.storage.initDevices():
             raise GUIException, _("Can't find a storage device!")
 
         # Get usable partitions for rescue
@@ -58,7 +58,7 @@ class Widget(QtGui.QWidget, ScreenWidget):
                 self.connect(radio, SIGNAL("toggled(bool)"), ctx.mainScreen.enableNext)
 
         # Reboot Button
-        self.connect(self.ui.rebootButton, SIGNAL("clicked()"), yali4.sysutils.reboot)
+        self.connect(self.ui.rebootButton, SIGNAL("clicked()"), yali.sysutils.reboot)
 
     def updateNext(self):
         for radio in self.radios:
@@ -125,7 +125,7 @@ class PardusPartitions:
         pardusPartitions = []
         linuxPartitions  = []
         ctx.debugger.log("Checking for Pardus ...")
-        for disk in yali4.storage.devices:
+        for disk in yali.storage.devices:
             for partition in disk.getPartitions():
                 fs = partition.getFSName()
                 label = partition.getFSLabel() or ''
@@ -134,11 +134,11 @@ class PardusPartitions:
                     linuxPartitions.append(partition)
                     if label.startswith("PARDUS_ROOT"):
                         ctx.debugger.log("Pardus Partition found (%s)" % partition.getPath())
-                        pardus_release = yali4.sysutils.pardusRelease(partition.getPath(), fs)
+                        pardus_release = yali.sysutils.pardusRelease(partition.getPath(), fs)
                         if pardus_release:
                             pardusPartitions.append(partition)
                         # If it is not a pardus installed partition skip it
-                        yali4.sysutils.umount_()
+                        yali.sysutils.umount_()
 
         return (linuxPartitions, pardusPartitions)
 

@@ -11,21 +11,21 @@
 #
 
 import gettext
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 from PyQt4 import QtGui
 
 import time
-import yali4.postinstall
-import yali4.pisiiface
-from yali4 import sysutils
-from yali4.gui.ScreenWidget import ScreenWidget
-from yali4.gui.YaliDialog import InfoDialog
-from yali4.gui.YaliSteps import YaliSteps
-from yali4.gui.Ui.goodbyewidget import Ui_GoodByeWidget
-import yali4.gui.context as ctx
-from yali4.gui.installdata import *
+import yali.postinstall
+import yali.pisiiface
+from yali import sysutils
+from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui.YaliDialog import InfoDialog
+from yali.gui.YaliSteps import YaliSteps
+from yali.gui.Ui.goodbyewidget import Ui_GoodByeWidget
+import yali.gui.context as ctx
+from yali.gui.installdata import *
 
 ##
 # Goodbye screen
@@ -51,7 +51,7 @@ class Widget(QtGui.QWidget, ScreenWidget):
 
     def takeBackPisi(self):
         try:
-            yali4.pisiiface.takeBack(ctx.takeBackOperation.no)
+            yali.pisiiface.takeBack(ctx.takeBackOperation.no)
         except Exception, e:
             ctx.debugger.log("Exception occured while taking back !!")
             ctx.debugger.log(e)
@@ -72,7 +72,7 @@ class Widget(QtGui.QWidget, ScreenWidget):
         self.steps.slotRunOperations()
 
         # Umount system paths
-        yali4.sysutils.umountSystemPaths()
+        yali.sysutils.umountSystemPaths()
 
         if not ctx.mainScreen.ui.helpContent.isVisible():
             ctx.mainScreen.slotToggleHelp()

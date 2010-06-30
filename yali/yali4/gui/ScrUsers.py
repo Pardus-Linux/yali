@@ -11,20 +11,20 @@
 #
 
 import gettext
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 import os
-import yali4.users
+import yali.users
 import pardus.xorg
-import yali4.gui.context as ctx
+import yali.gui.context as ctx
 
 from PyQt4 import QtGui
 from PyQt4.QtCore import *
-from yali4.constants import consts
-from yali4.gui.ScreenWidget import ScreenWidget
-from yali4.gui.Ui.setupuserswidget import Ui_SetupUsersWidget
-from yali4.gui.YaliDialog import Dialog
+from yali.constants import consts
+from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui.Ui.setupuserswidget import Ui_SetupUsersWidget
+from yali.gui.YaliDialog import Dialog
 
 ##
 # Partitioning screen.
@@ -119,16 +119,16 @@ Click Next button to proceed.
     def shown(self):
         self.ui.cancelButton.hide()
         self.ui.realname.setFocus()
-        if len(yali4.users.pending_users) > 0 and self.ui.userList.count() == 0:
-            for u in yali4.users.pending_users:
+        if len(yali.users.pending_users) > 0 and self.ui.userList.count() == 0:
+            for u in yali.users.pending_users:
                 pix = self.normalUserIcon
                 if "wheel" in u.groups:
                     pix = self.superUserIcon
                 UserItem(self.ui.userList, pix, user = u)
                 self.ui.autoLogin.addItem(QString(u.username))
-        if len(yali4.users.pending_users) == 1:
+        if len(yali.users.pending_users) == 1:
             self.slotEditUser(self.ui.userList.item(0))
-        elif len(yali4.users.pending_users) > 1:
+        elif len(yali.users.pending_users) > 1:
             self.ui.addMoreUsers.setChecked(True)
         self.checkUsers()
         self.checkCapsLock()
@@ -140,11 +140,11 @@ Click Next button to proceed.
 
     def refill(self):
         # reset and fill pending_users
-        yali4.users.resetPendingUsers()
+        yali.users.resetPendingUsers()
         for i in range(self.ui.userList.count()):
             u = self.ui.userList.item(i).getUser()
             ctx.installData.users.append(u)
-            yali4.users.pending_users.append(u)
+            yali.users.pending_users.append(u)
 
     def execute(self):
 
@@ -219,12 +219,12 @@ Click Next button to proceed.
 
     def slotRealNameChanged(self):
         if not self.userNameChanged:
-            usedUsers = yali4.users.getUserList()
+            usedUsers = yali.users.getUserList()
             usedUsers.extend(self.currentUsers())
-            self.ui.username.setText(yali4.users.nickGuess(self.ui.realname.text(), usedUsers))
+            self.ui.username.setText(yali.users.nickGuess(self.ui.realname.text(), usedUsers))
 
     def slotCreateUser(self):
-        u = yali4.users.User()
+        u = yali.users.User()
         u.username = str(self.ui.username.text().toAscii())
         # ignore last character. see bug #887
         u.realname = unicode(self.ui.realname.text())

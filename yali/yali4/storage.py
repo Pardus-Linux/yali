@@ -26,16 +26,16 @@ import time
 import struct
 import binascii
 
-from yali4.exception import *
+from yali.exception import *
 from pardus.diskutils import *
-from yali4.parteddata import *
-from yali4.partition import Partition, FreeSpace
-from yali4.exception import YaliError, YaliException
-import yali4.sysutils as sysutils
-import yali4.filesystem
+from yali.parteddata import *
+from yali.partition import Partition, FreeSpace
+from yali.exception import YaliError, YaliException
+import yali.sysutils as sysutils
+import yali.filesystem
 
 import gettext
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 class DeviceError(YaliError):
@@ -377,7 +377,7 @@ class Device:
     ##
     # add a partition starting from a given geom...
     def addPartitionFromStart(self, type, fs, start, size_mb, flags = []):
-        import yali4.gui.context as ctx
+        import yali.gui.context as ctx
         ctx.debugger.log("APFS: ptype: %s :: fs_name: %s :: start: %s :: size_mb: %s" % (type, fs, start, size_mb))
         size = int((size_mb * MEGABYTE) / self._sector_size)
         ctx.debugger.log("APFS: end of partition is %s" % (start + size))
@@ -394,9 +394,9 @@ class Device:
         self._needs_commit = True
         if isinstance(fs, str):
             # a string... get the corresponding FileSystem object
-            fs = yali4.filesystem.get_filesystem(fs)
+            fs = yali.filesystem.get_filesystem(fs)
 
-        if isinstance(fs, yali4.filesystem.FileSystem):
+        if isinstance(fs, yali.filesystem.FileSystem):
             fs = fs.getFSType()
         else:
             fs = None
@@ -457,13 +457,13 @@ class Device:
         self.update()
 
     def resizePartition(self, fs, size_mb, part):
-        import yali4.gui.context as ctx
+        import yali.gui.context as ctx
 
         if isinstance(fs, str):
             # a string... get the corresponding FileSystem object
-            fs = yali4.filesystem.get_filesystem(fs)
+            fs = yali.filesystem.get_filesystem(fs)
 
-        if not isinstance(fs, yali4.filesystem.FileSystem):
+        if not isinstance(fs, yali.filesystem.FileSystem):
             raise DeviceError, "filesystem is None, can't resize"
 
         start = part.getPartition().geom.start
@@ -508,7 +508,7 @@ class Device:
         return np
 
     def commit(self):
-        import yali4.gui.context as ctx
+        import yali.gui.context as ctx
 
         attempt = 1
         maxTries = 5
@@ -537,7 +537,7 @@ def setOrderedDiskList():
     devices = detectAll()
     devices.sort()
 
-    import yali4.gui.context as ctx
+    import yali.gui.context as ctx
 
     # Check EDD Module
     if not os.path.exists("/sys/firmware/edd"):

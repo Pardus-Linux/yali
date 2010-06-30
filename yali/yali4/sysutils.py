@@ -21,17 +21,17 @@ from string import digits
 from pardus.sysutils import find_executable
 from pardus import procutils
 
-from yali4._sysutils import *
-from yali4.constants import consts
+from yali._sysutils import *
+from yali.constants import consts
 
 import gettext
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 _sys_dirs = ['dev', 'proc', 'sys']
 
 def run(cmd, params=None, capture=False, appendToLog=True):
-    import yali4.gui.context as ctx
+    import yali.gui.context as ctx
 
     # Merge parameters with command
     if params:
@@ -102,7 +102,7 @@ def finalizeChroot():
         umount_(tgt)
 
     # store log content
-    import yali4.gui.context as ctx
+    import yali.gui.context as ctx
     ctx.debugger.log("Finalize Chroot called this is the last step for logs ..")
     if ctx.debugEnabled:
         open(ctx.consts.log_file,"w").write(str(ctx.debugger.traceback.plainLogs))
@@ -136,14 +136,14 @@ def isLoadedKernelPAE():
 
 def checkYaliParams(param):
     for i in [x for x in open("/proc/cmdline", "r").read().split()]:
-        if i.startswith("yali4="):
+        if i.startswith("yali="):
             if param in i.split("=")[1].split(","):
                 return True
     return False
 
 def checkYaliOptions(param):
     for i in [x for x in open("/proc/cmdline", "r").read().split(' ')]:
-        if i.startswith("yali4=") and not i.find("%s:" % param) == -1:
+        if i.startswith("yali=") and not i.find("%s:" % param) == -1:
             for part in i.split("=")[1].split(","):
                 if part.startswith("%s:" % param):
                     return str(part.split(':')[1]).strip()
@@ -213,7 +213,7 @@ def umount_(dir=None, params=''):
     run("umount",param)
 
 def umountSystemPaths():
-    import yali4.gui.context as ctx
+    import yali.gui.context as ctx
     try:
         ctx.debugger.log("Trying to umount %s" % ctx.consts.tmp_mnt_dir)
         umount_(ctx.consts.tmp_mnt_dir)
@@ -247,7 +247,7 @@ def isWindowsBoot(partition_path, file_system):
         return False
 
 def isLinuxBoot(partition_path, file_system):
-    import yali4.gui.context as ctx
+    import yali.gui.context as ctx
     result = False
     m_dir = consts.tmp_mnt_dir
     if not os.path.isdir(m_dir):
@@ -285,7 +285,7 @@ def liveMediaSystem(path=None):
         return None
 
 def pardusRelease(partition_path, file_system):
-    import yali4.gui.context as ctx
+    import yali.gui.context as ctx
     result = False
     m_dir = consts.tmp_mnt_dir
     if not os.path.isdir(m_dir):
@@ -314,7 +314,7 @@ def shutdown():
 
 # Shamelessly stolen from Anaconda :)
 def execClear(command, argv, stdin = 0, stdout = 1, stderr = 2):
-    import yali4.gui.context as ctx
+    import yali.gui.context as ctx
 
     argv = list(argv)
     if isinstance(stdin, str):

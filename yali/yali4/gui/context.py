@@ -11,16 +11,16 @@
 #
 
 from os.path import join
-from yali4.gui import installdata
+from yali.gui import installdata
 
 # singletons from yali.*
-from yali4.constants import consts
-from yali4.options import options
-from yali4.partitionrequest import partrequests
+from yali.constants import consts
+from yali.options import options
+from yali.partitionrequest import partrequests
 
 # style sheet
-import yali4.sysutils
-consts.stylesheet = join(consts.data_dir, "data/%s.qss" % (yali4.sysutils.checkYaliOptions("theme") or options.theme))
+import yali.sysutils
+consts.stylesheet = join(consts.data_dir, "data/%s.qss" % (yali.sysutils.checkYaliOptions("theme") or options.theme))
 consts.alternatestylesheet = join(consts.data_dir, "data/oxygen.qss")
 
 # lock for format request

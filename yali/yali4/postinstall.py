@@ -14,22 +14,22 @@ import os
 import grp
 import time
 import dbus
-import yali4
+import yali
 import shutil
 import sysutils
-import yali4.pisiiface
+import yali.pisiiface
 
-import yali4.partitiontype as parttype
-import yali4.partitionrequest as request
-from yali4.partitionrequest import partrequests
+import yali.partitiontype as parttype
+import yali.partitionrequest as request
+from yali.partitionrequest import partrequests
 
 import gettext
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-import yali4.gui.context as ctx
-from yali4.constants import consts
-from yali4.gui.installdata import *
+import yali.gui.context as ctx
+from yali.constants import consts
+from yali.gui.installdata import *
 
 def cp(s, d):
     src = os.path.join(consts.target_dir, s)
@@ -166,7 +166,7 @@ def addUsers():
         link.User.Manager["baselayout"].grantAuthorization(uid, "*")
 
     obj = bus.get_object("tr.org.pardus.comar", "/package/baselayout")
-    for u in yali4.users.pending_users:
+    for u in yali.users.pending_users:
         ctx.debugger.log("User %s adding to system" % u.username)
         uid = obj.addUser(-1, u.username, u.realname, "", "", unicode(u.passwd), u.groups, [], [], dbus_interface="tr.org.pardus.comar.User.Manager")
         ctx.debugger.log("New user's id is %s" % uid)
@@ -208,13 +208,13 @@ def writeConsoleData():
     keymap = ctx.installData.keyData["consolekeymap"]
     if isinstance(keymap, list):
         keymap = keymap[1]
-    yali4.localeutils.writeKeymap(ctx.installData.keyData["consolekeymap"])
+    yali.localeutils.writeKeymap(ctx.installData.keyData["consolekeymap"])
     ctx.debugger.log("Keymap stored.")
     return True
 
 def migrateXorgConf():
     if not ctx.yali.install_type == YALI_FIRSTBOOT:
-        yali4.postinstall.migrateXorg()
+        yali.postinstall.migrateXorg()
         ctx.debugger.log("xorg.conf and other files merged.")
     return True
 
@@ -237,7 +237,7 @@ def copyPisiIndex():
         ctx.debugger.log("pisi index file not found!")
 
     ctx.debugger.log("Regenerating pisi caches.. ")
-    yali4.pisiiface.regenerateCaches()
+    yali.pisiiface.regenerateCaches()
     return True
 
 def setPackages():
@@ -245,7 +245,7 @@ def setPackages():
     if ctx.yali.install_type == YALI_OEMINSTALL:
         ctx.debugger.log("OemInstall selected.")
         try:
-            obj = bus.get_object("tr.org.pardus.comar", "/package/yali4")
+            obj = bus.get_object("tr.org.pardus.comar", "/package/yali")
             obj.setState("on", dbus_interface="tr.org.pardus.comar.System.Service")
             file("%s/etc/yali-is-firstboot" % ctx.consts.target_dir, "w")
             obj = bus.get_object("tr.org.pardus.comar", "/package/kdebase")
@@ -255,13 +255,13 @@ def setPackages():
             return False
     elif ctx.yali.install_type in [YALI_INSTALL, YALI_FIRSTBOOT]:
         try:
-            obj = bus.get_object("tr.org.pardus.comar", "/package/yali4")
+            obj = bus.get_object("tr.org.pardus.comar", "/package/yali")
             obj.setState("off", dbus_interface="tr.org.pardus.comar.System.Service")
             #FIXME: We no longer have kdebase package in 2009!!
             obj = bus.get_object("tr.org.pardus.comar", "/package/kdebase")
             obj.setState("on", dbus_interface="tr.org.pardus.comar.System.Service")
             os.unlink("%s/etc/yali-is-firstboot" % ctx.consts.target_dir)
-            os.system("pisi rm yali4")
+            os.system("pisi rm yali")
         except:
             ctx.debugger.log("Dbus error: package doesnt exist !")
             return False

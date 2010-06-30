@@ -13,12 +13,12 @@
 # base
 import os
 import time
-import yali4.sysutils
-from yali4.gui.installdata import *
+import yali.sysutils
+from yali.gui.installdata import *
 
 # multi language
 import gettext
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 # PyQt4 Rocks
@@ -26,15 +26,15 @@ from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
 # libParted
-from yali4.parteddata import *
-import yali4.partitionrequest as request
-import yali4.partitiontype as parttype
+from yali.parteddata import *
+import yali.partitionrequest as request
+import yali.partitiontype as parttype
 
 # GUI Stuff
-from yali4.gui.ScreenWidget import ScreenWidget
-from yali4.gui.YaliDialog import QuestionDialog
-from yali4.gui.Ui.summarywidget import Ui_SummaryWidget
-import yali4.gui.context as ctx
+from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui.YaliDialog import QuestionDialog
+from yali.gui.Ui.summarywidget import Ui_SummaryWidget
+import yali.gui.context as ctx
 
 ##
 # Summary screen
@@ -71,7 +71,7 @@ Here you can see your install options before installation starts.
         reply = QuestionDialog(_("Reboot"),
                                _('''<b><p>This action will reboot your system.</p></b>'''))
         if reply == "yes":
-            yali4.sysutils.reboot()
+            yali.sysutils.reboot()
 
     def startBombCounter(self):
         self.startTime = int(time.time())
@@ -131,9 +131,9 @@ Here you can see your install options before installation starts.
         content.append(end)
 
         # Users
-        if len(yali4.users.pending_users)>0:
+        if len(yali.users.pending_users)>0:
             content.append(subject % _("User Settings"))
-            for user in yali4.users.pending_users:
+            for user in yali.users.pending_users:
                 state = _("User %s (<b>%s</b>) added.")
                 if "wheel" in user.groups:
                     state = _("User %s (<b>%s</b>) added with <u>administrator privileges</u>.")
@@ -303,7 +303,7 @@ Here you can see your install options before installation starts.
         else:
             ctx.debugger.log("Format Operation Started")
             ctx.yali.info.updateAndShow(_("Writing disk tables..."))
-            for dev in yali4.storage.devices:
+            for dev in yali.storage.devices:
                 ctx.mainScreen.processEvents()
                 if dev._needs_commit:
                     ctx.debugger.log("Parted Device.commit() calling...")

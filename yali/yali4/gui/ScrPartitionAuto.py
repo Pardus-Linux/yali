@@ -11,25 +11,25 @@
 #
 
 import gettext
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
 import time
-import yali4.storage
-import yali4.partitionrequest as request
-import yali4.partitiontype as parttype
-import yali4.parteddata as parteddata
+import yali.storage
+import yali.partitionrequest as request
+import yali.partitiontype as parttype
+import yali.parteddata as parteddata
 
-from yali4.gui.ScreenWidget import ScreenWidget
-from yali4.gui.Ui.autopartwidget import Ui_AutoPartWidget
-from yali4.gui.GUIAdditional import AutoPartQuestionWidget
-from yali4.gui.GUIException import *
-import yali4.gui.context as ctx
+from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui.Ui.autopartwidget import Ui_AutoPartWidget
+from yali.gui.GUIAdditional import AutoPartQuestionWidget
+from yali.gui.GUIException import *
+import yali.gui.context as ctx
 
-from yali4.gui.installdata import *
+from yali.gui.installdata import *
 
 ##
 # Partition Choice Widget
@@ -67,11 +67,11 @@ about disk partitioning.
         self.lastChoice = self.ui.accept_auto_1
 
         # initialize all storage devices
-        if not yali4.storage.initDevices():
+        if not yali.storage.initDevices():
             raise GUIException, _("Can't find a storage device!")
 
         # fill device list
-        for dev in yali4.storage.devices:
+        for dev in yali.storage.devices:
             if dev.getTotalMB() >= ctx.consts.min_root_size:
                 DeviceItem(self.ui.device_list, dev)
 
@@ -95,7 +95,7 @@ about disk partitioning.
             return False
 
         # fill device list
-        for dev in yali4.storage.devices:
+        for dev in yali.storage.devices:
             if dev.getTotalMB() >= ctx.consts.min_root_size:
                 if limit:
                     if _in(self.freeSpaceDisks, dev):

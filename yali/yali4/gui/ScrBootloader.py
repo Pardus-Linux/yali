@@ -12,7 +12,7 @@
 
 
 import gettext
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 from PyQt4 import QtGui
@@ -22,15 +22,15 @@ import time
 import thread
 from os.path import basename
 
-import yali4.storage
-from yali4.gui.installdata import *
-from yali4.gui.GUIAdditional import DeviceItem
-from yali4.gui.ScreenWidget import ScreenWidget
-from yali4.gui.Ui.bootloaderwidget import Ui_BootLoaderWidget
-from yali4.gui.GUIException import *
-import yali4.gui.context as ctx
+import yali.storage
+from yali.gui.installdata import *
+from yali.gui.GUIAdditional import DeviceItem
+from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui.Ui.bootloaderwidget import Ui_BootLoaderWidget
+from yali.gui.GUIException import *
+import yali.gui.context as ctx
 from pardus.sysutils import get_kernel_option
-import yali4.sysutils
+import yali.sysutils
 
 ##
 # BootLoader screen.
@@ -65,23 +65,23 @@ loader.
         self.ui.installFirstMBR.setChecked(True)
 
         # initialize all storage devices
-        if not yali4.storage.initDevices():
+        if not yali.storage.initDevices():
             raise GUIException, _("Can't find a storage device!")
 
         # fill device list
-        for dev in yali4.storage.devices:
+        for dev in yali.storage.devices:
             DeviceItem(self.ui.device_list, dev)
         # select the first disk by default
         self.ui.device_list.setCurrentRow(0)
         # be sure first is selected device
         self.device = self.ui.device_list.item(0).getDevice()
 
-        if len(yali4.storage.devices) < 1:
+        if len(yali.storage.devices) < 1:
             # don't show device list if we have just one disk
             self.ui.installMBR.hide()
             self.ui.device_list.hide()
 
-            self.device = yali4.storage.devices[0]
+            self.device = yali.storage.devices[0]
 
         self.connect(self.ui.device_list, SIGNAL("currentItemChanged(QListWidgetItem*,QListWidgetItem*)"),
                      self.slotDeviceChanged)
@@ -97,13 +97,13 @@ loader.
                      self.slotSelect)
 
     def shown(self):
-        yali4.storage.setOrderedDiskList()
+        yali.storage.setOrderedDiskList()
         ctx.debugger.log("Disks BIOS Boot order : %s " % ','.join(ctx.installData.orderedDiskList))
         self.getBootable().setBootable()
 
     def getBootable(self):
         #opts = get_kernel_option("mudur")
-        opts =yali4.sysutils.liveMediaSystem()
+        opts =yali.sysutils.liveMediaSystem()
         for i in range(self.ui.device_list.count()):
             item = self.ui.device_list.item(i)
             if opts.__eq__("harddisk"):

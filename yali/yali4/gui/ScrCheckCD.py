@@ -11,19 +11,19 @@
 #
 
 import gettext
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
 import pisi.ui
-import yali4.pisiiface
-from yali4.gui.ScreenWidget import ScreenWidget
-from yali4.gui.Ui.checkcdwidget import Ui_CheckCDWidget
-import yali4.gui.context as ctx
+import yali.pisiiface
+from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui.Ui.checkcdwidget import Ui_CheckCDWidget
+import yali.gui.context as ctx
 
-from yali4.gui.YaliDialog import Dialog
+from yali.gui.YaliDialog import Dialog
 
 class Widget(QtGui.QWidget, ScreenWidget):
     title = _('Check your medium')

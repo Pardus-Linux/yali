@@ -11,7 +11,7 @@
 #
 
 import gettext
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 from PyQt4 import QtGui
@@ -20,14 +20,14 @@ from PyQt4.QtCore import *
 import time
 import platform
 
-from yali4.gui.ScreenWidget import ScreenWidget
-from yali4.gui.Ui.autoinstallationwidget import Ui_AutoInstallationWidget
-from yali4.gui.Ui.autoinstallationlistitemwidget import Ui_AutoInstallationListItemWidget
-from yali4.gui.GUIException import *
-from yali4.gui.installdata import *
-import yali4.pisiiface
-import yali4.gui.context as ctx
-import yali4.sysutils
+from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui.Ui.autoinstallationwidget import Ui_AutoInstallationWidget
+from yali.gui.Ui.autoinstallationlistitemwidget import Ui_AutoInstallationListItemWidget
+from yali.gui.GUIException import *
+from yali.gui.installdata import *
+import yali.pisiiface
+import yali.gui.context as ctx
+import yali.sysutils
 
 ##
 # Installation Choice Widget
@@ -65,7 +65,7 @@ class Widget(QtGui.QWidget, ScreenWidget):
 
     def fillCollectionList(self):
         self.ui.collectionList.clear()
-        self.collections = yali4.pisiiface.getCollection()
+        self.collections = yali.pisiiface.getCollection()
         selectedItem=None
         for collection in self.collections:
             item = QtGui.QListWidgetItem(self.ui.collectionList)
@@ -215,7 +215,7 @@ class CollectionListItem(QtGui.QWidget):
     def setKernelType(self):
         isPAEKernelAvailable = None
         if self.parent.ui.kernelTypeGroupBox.isVisible():
-            isPAEKernelAvailable = yali4.pisiiface.getNeededKernel(paeKernel, self.collection.index)
+            isPAEKernelAvailable = yali.pisiiface.getNeededKernel(paeKernel, self.collection.index)
             if isPAEKernelAvailable:
                 self.parent.ui.kernelTypeGroupBox.setEnabled(True)
             else:

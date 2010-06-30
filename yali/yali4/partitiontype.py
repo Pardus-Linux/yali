@@ -15,10 +15,10 @@
 import parted
 
 import gettext
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-from yali4.filesystem import get_filesystem as fs
+from yali.filesystem import get_filesystem as fs
 
 class PartitionType:
     filesystem = None

@@ -13,12 +13,12 @@
 import os
 
 import gettext
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 import parted
-import yali4.parteddata as parteddata
-import yali4.filesystem
+import yali.parteddata as parteddata
+import yali.filesystem
 
 ##
 # Class representing a single partition within a Device object
@@ -37,7 +37,7 @@ class Partition:
         self._is_file_system_changed = False
 
     def setFileSystemType(self, fs_type):
-        if isinstance(fs_type, yali4.filesystem.FileSystem):
+        if isinstance(fs_type, yali.filesystem.FileSystem):
             fs_type = fs_type.getFSType()
 
         self._partition.set_system(fs_type)
@@ -131,10 +131,10 @@ class Partition:
         return self._fsname
 
     def getFSYSName(self):
-        return yali4.filesystem.get_filesystem(self.getFSName())._sysname
+        return yali.filesystem.get_filesystem(self.getFSName())._sysname
 
     def isResizable(self):
-        fs = yali4.filesystem.get_filesystem(self.getFSName())
+        fs = yali.filesystem.get_filesystem(self.getFSName())
         try:
             return fs.isResizable()
         except AttributeError, e:
@@ -147,14 +147,14 @@ class Partition:
         self._temp_label = label
 
     def getFSLabel(self):
-        fs = yali4.filesystem.get_filesystem(self.getFSName())
+        fs = yali.filesystem.get_filesystem(self.getFSName())
         try:
             return fs.getLabel(self)
         except AttributeError, e:
             return None
 
     def getMinResizeMB(self):
-        fs = yali4.filesystem.get_filesystem(self.getFSName())
+        fs = yali.filesystem.get_filesystem(self.getFSName())
         try:
             return fs.minResizeMB(self)
         except AttributeError, e:

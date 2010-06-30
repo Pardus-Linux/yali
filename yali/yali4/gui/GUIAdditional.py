@@ -15,19 +15,19 @@ from PyQt4.QtCore import *
 
 import codecs
 from os.path import join, exists
-from yali4.gui.GUIException import *
+from yali.gui.GUIException import *
 
 import gettext
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-import yali4.gui.context as ctx
-from yali4.postinstall import *
-from yali4.exception import *
-from yali4.gui.YaliDialog import InfoDialog
-from yali4.gui.Ui.partresize import Ui_PartResizeWidget
-from yali4.gui.Ui.autopartquestion import Ui_autoPartQuestion
-from yali4.gui.Ui.connectionlist import Ui_connectionWidget
+import yali.gui.context as ctx
+from yali.postinstall import *
+from yali.exception import *
+from yali.gui.YaliDialog import InfoDialog
+from yali.gui.Ui.partresize import Ui_PartResizeWidget
+from yali.gui.Ui.autopartquestion import Ui_autoPartQuestion
+from yali.gui.Ui.connectionlist import Ui_connectionWidget
 
 class ResizeWidget(QtGui.QWidget):
 

@@ -10,8 +10,8 @@
 # Please read the COPYING file.
 #
 
-import yali4
-__version__ = yali4.__version__
+import yali
+__version__ = yali.__version__
 
 
 

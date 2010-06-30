@@ -11,19 +11,19 @@
 #
 
 import gettext
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
-import yali4.gui.context as ctx
-import yali4.partitionrequest as request
-import yali4.partitiontype as parttype
-from yali4.gui.YaliDialog import Dialog, QuestionDialog
-from yali4.gui.GUIException import *
-from yali4.gui.DiskWidgets import *
-from yali4.gui.ScreenWidget import ScreenWidget
+import yali.gui.context as ctx
+import yali.partitionrequest as request
+import yali.partitiontype as parttype
+from yali.gui.YaliDialog import Dialog, QuestionDialog
+from yali.gui.GUIException import *
+from yali.gui.DiskWidgets import *
+from yali.gui.ScreenWidget import ScreenWidget
 
 ##
 # Partitioning screen.

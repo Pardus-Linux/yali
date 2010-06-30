@@ -12,7 +12,7 @@
 
 import piksemel
 import sys
-import yali4.localedata
+import yali.localedata
 
 class kahyaData:
     def __init__(self):
@@ -53,7 +53,7 @@ def read(args):
     doc=piksemel.parse(args)
     data=kahyaData()
     data.language=doc.getTagData("language")
-    data.keyData = yali4.localedata.locales[data.language]
+    data.keyData = yali.localedata.locales[data.language]
     _xkblayout = data.keyData["xkblayout"]
     data.keyData["xkblayout"]=doc.getTagData("keymap") or data.keyData["xkblayout"]
     if data.keyData["xkblayout"] != _xkblayout:

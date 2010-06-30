@@ -13,17 +13,17 @@
 import os
 
 import gettext
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
-import yali4.localedata
-import yali4.localeutils
-from yali4.gui.ScreenWidget import ScreenWidget
-from yali4.gui.Ui.keyboardwidget import Ui_KeyboardWidget
-import yali4.gui.context as ctx
+import yali.localedata
+import yali.localeutils
+from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui.Ui.keyboardwidget import Ui_KeyboardWidget
+import yali.gui.context as ctx
 
 ##
 # Keyboard setup screen
@@ -47,7 +47,7 @@ Proceed with the installation after you make your selections.
         self.ui.setupUi(self)
 
         defaultitem = None
-        for country,data in yali4.localedata.locales.items():
+        for country,data in yali.localedata.locales.items():
             if data["xkbvariant"]:
                 i = 0
                 for variant in data["xkbvariant"]:

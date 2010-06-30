@@ -15,16 +15,16 @@ import glob
 import time
 
 import gettext
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-from yali4.exception import *
-from yali4.constants import consts
-import yali4.sysutils
-import yali4.partitiontype as parttype
-import yali4.partitionrequest as request
-from yali4.partitionrequest import partrequests
-import yali4.gui.context as ctx
+from yali.exception import *
+from yali.constants import consts
+import yali.sysutils
+import yali.partitiontype as parttype
+import yali.partitionrequest as request
+from yali.partitionrequest import partrequests
+import yali.gui.context as ctx
 from pardus.sysutils import get_kernel_option
 
 grub_conf_tmp = """\
@@ -122,7 +122,7 @@ class BootLoader:
         i = 0
 
         #opts = get_kernel_option("mudur")
-        opts = yali4.sysutils.liveMediaSystem()
+        opts = yali.sysutils.liveMediaSystem()
         if opts.__eq__("harddisk"):
             diskList = ctx.installData.orderedDiskList[1:]
         else:
@@ -177,7 +177,7 @@ class BootLoader:
                 It also cleans unnecessary options """
 
             def is_required(param):
-                params = ["root","initrd","init","xorg","yali4","BOOT_IMAGE","lang","mudur",consts.kahya_param]
+                params = ["root","initrd","init","xorg","yali","BOOT_IMAGE","lang","mudur",consts.kahya_param]
                 for p in params:
                     if param.startswith("%s=" % p):
                         return False
@@ -253,7 +253,7 @@ class BootLoader:
         minor = getMinor(root_path)
         # LiveDisk installation grub detects usb
         #opts = get_kernel_option("mudur")
-        opts = yali4.sysutils.liveMediaSystem()
+        opts = yali.sysutils.liveMediaSystem()
         ctx.debugger.log("IG: I have found mediaSystem '%s'" % opts)
         ctx.debugger.log("IG: I have found major:'%s' minor:'%s'" % (major, minor))
 
@@ -287,12 +287,12 @@ quit
 
         file('/tmp/_grub','w').write(batch_template)
         ctx.debugger.log("IG: Batch content : %s" % batch_template)
-        cmd = "%s --no-floppy --batch < /tmp/_grub" % yali4.sysutils.find_executable("grub")
-        #cmd = "%s --batch --no-floppy --device-map=%s < %s" % (yali4.sysutils.find_executable("grub"), self.device_map, self.grub_conf)
+        cmd = "%s --no-floppy --batch < /tmp/_grub" % yali.sysutils.find_executable("grub")
+        #cmd = "%s --batch --no-floppy --device-map=%s < %s" % (yali.sysutils.find_executable("grub"), self.device_map, self.grub_conf)
 
         ctx.debugger.log("IG: Chrooted jobs are finalizing.. ")
         # before installing the bootloader we have to finish chrooted jobs..
-        yali4.sysutils.finalizeChroot()
+        yali.sysutils.finalizeChroot()
 
         ctx.debugger.log("IG: Grub install cmd is %s" % cmd)
         if os.system(cmd) > 0:

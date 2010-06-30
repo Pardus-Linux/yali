@@ -19,7 +19,7 @@ import sys
 import os
 
 from string import ascii_letters, digits
-from yali4.constants import consts
+from yali.constants import consts
 
 # a set of User instances waiting...
 # we'll add these users at the last step of the installation.
@@ -101,7 +101,7 @@ class User:
         confFile = os.path.join(consts.target_dir, 'etc/X11/kdm/kdmrc')
 
         if not os.path.exists(confFile):
-            import yali4.gui.context as ctx
+            import yali.gui.context as ctx
             ctx.debugger.log("setAutoLogin: Failed, kdmrc not found; possibly KDE is not installed !")
             return False
 
@@ -114,7 +114,7 @@ class User:
             sectionEscaped = re.escape(section)
 
             if not re.compile('^%s$' % sectionEscaped, re.MULTILINE).search(kdmrc):
-                import yali4.gui.context as ctx
+                import yali.gui.context as ctx
                 ctx.debugger.log("setAutoLogin: Failed, '%s' section not found in kdmrc." % section)
                 return False
 

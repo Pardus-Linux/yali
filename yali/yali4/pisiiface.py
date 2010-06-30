@@ -18,11 +18,11 @@ import glob
 import dbus
 import pisi
 import piksemel
-import yali4.sysutils
-import yali4.postinstall
-from yali4.constants import consts
-import yali4.gui.context as ctx
-from yali4.gui.installdata import *
+import yali.sysutils
+import yali.postinstall
+from yali.constants import consts
+import yali.gui.context as ctx
+from yali.gui.installdata import *
 
 repodb = pisi.db.repodb.RepoDB()
 
@@ -38,7 +38,7 @@ class PackageCollection(object):
 
 def initialize(ui, with_comar = False, nodestDir = False):
     options = pisi.config.Options()
-    import yali4.gui.context as ctx
+    import yali.gui.context as ctx
     ctx.debugger.log("Pisi initializing..")
     if not nodestDir:
         options.destdir = consts.target_dir

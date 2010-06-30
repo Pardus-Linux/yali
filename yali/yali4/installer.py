@@ -18,7 +18,7 @@ import shutil
 
 # we need i18n
 import gettext
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 # PyQt4 Rocks
@@ -26,52 +26,52 @@ from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
 # yali base
-from yali4.exception import *
-from yali4.constants import consts
-from yali4.gui.installdata import *
-import yali4.gui.context as ctx
-import yali4.localeutils
-import yali4.sysutils
-import yali4.fstab
+from yali.exception import *
+from yali.constants import consts
+from yali.gui.installdata import *
+import yali.gui.context as ctx
+import yali.localeutils
+import yali.sysutils
+import yali.fstab
 from pardus.sysutils import get_kernel_option
 
 # pisi base
 import pisi.ui
-import yali4.pisiiface
+import yali.pisiiface
 
 # partitioning
-import yali4.partitiontype as parttype
-import yali4.partitionrequest as request
-from yali4.partitionrequest import partrequests
-from yali4.parteddata import *
+import yali.partitiontype as parttype
+import yali.partitionrequest as request
+from yali.partitionrequest import partrequests
+from yali.parteddata import *
 
 # gui
-from yali4.gui.YaliDialog import Dialog, QuestionDialog, InfoDialog, InformationWindow
+from yali.gui.YaliDialog import Dialog, QuestionDialog, InfoDialog, InformationWindow
 
 # debugger
-from yali4.gui.debugger import Debugger
-from yali4.gui.debugger import DebuggerAspect
+from yali.gui.debugger import Debugger
+from yali.gui.debugger import DebuggerAspect
 
 # screens
-import yali4.gui.ScrKahyaCheck
-import yali4.gui.ScrWelcome
-import yali4.gui.ScrCheckCD
-import yali4.gui.ScrKeyboard
-import yali4.gui.ScrDateTime
-import yali4.gui.ScrAdmin
-import yali4.gui.ScrUsers
-import yali4.gui.ScrPartitionAuto
-import yali4.gui.ScrPartitionManual
-import yali4.gui.ScrBootloader
-import yali4.gui.ScrInstallationAuto
-import yali4.gui.ScrInstall
-import yali4.gui.ScrSummary
-import yali4.gui.ScrGoodbye
-import yali4.gui.ScrRescue
-import yali4.gui.ScrRescueGrub
-import yali4.gui.ScrRescuePisi
-import yali4.gui.ScrRescuePassword
-import yali4.gui.ScrRescueFinish
+import yali.gui.ScrKahyaCheck
+import yali.gui.ScrWelcome
+import yali.gui.ScrCheckCD
+import yali.gui.ScrKeyboard
+import yali.gui.ScrDateTime
+import yali.gui.ScrAdmin
+import yali.gui.ScrUsers
+import yali.gui.ScrPartitionAuto
+import yali.gui.ScrPartitionManual
+import yali.gui.ScrBootloader
+import yali.gui.ScrInstallationAuto
+import yali.gui.ScrInstall
+import yali.gui.ScrSummary
+import yali.gui.ScrGoodbye
+import yali.gui.ScrRescue
+import yali.gui.ScrRescueGrub
+import yali.gui.ScrRescuePisi
+import yali.gui.ScrRescuePassword
+import yali.gui.ScrRescueFinish
 
 PARTITION_ERASE_ALL, PARTITION_USE_AVAIL, PARTITION_USE_OLD = range(3)
 
@@ -82,72 +82,72 @@ class Yali:
 
         # Normal Installation process
         self._screens[YALI_INSTALL] = [                                  # Numbers can be used with -s paramter
-                                       yali4.gui.ScrKahyaCheck,          # 00
-                                       yali4.gui.ScrWelcome,             # 01
-                                       yali4.gui.ScrCheckCD,             # 02
-                                       yali4.gui.ScrKeyboard,            # 03
-                                       yali4.gui.ScrDateTime,            # 04
-                                       yali4.gui.ScrUsers,               # 05
-                                       yali4.gui.ScrAdmin,               # 06
-                                       yali4.gui.ScrPartitionAuto,       # 07
-                                       yali4.gui.ScrPartitionManual,     # 08
-                                       yali4.gui.ScrBootloader,          # 09
-                                       yali4.gui.ScrSummary,             # 10
-                                       yali4.gui.ScrInstall,             # 11
-                                       yali4.gui.ScrGoodbye              # 12
+                                       yali.gui.ScrKahyaCheck,          # 00
+                                       yali.gui.ScrWelcome,             # 01
+                                       yali.gui.ScrCheckCD,             # 02
+                                       yali.gui.ScrKeyboard,            # 03
+                                       yali.gui.ScrDateTime,            # 04
+                                       yali.gui.ScrUsers,               # 05
+                                       yali.gui.ScrAdmin,               # 06
+                                       yali.gui.ScrPartitionAuto,       # 07
+                                       yali.gui.ScrPartitionManual,     # 08
+                                       yali.gui.ScrBootloader,          # 09
+                                       yali.gui.ScrSummary,             # 10
+                                       yali.gui.ScrInstall,             # 11
+                                       yali.gui.ScrGoodbye              # 12
                                       ]
 
         self._screens[YALI_DVDINSTALL] = [                              # Numbers can be used with -s paramter
-                                       yali4.gui.ScrKahyaCheck,          # 00
-                                       yali4.gui.ScrWelcome,             # 01
-                                       yali4.gui.ScrCheckCD,             # 02
-                                       yali4.gui.ScrKeyboard,            # 03
-                                       yali4.gui.ScrDateTime,            # 04
-                                       yali4.gui.ScrUsers,               # 05
-                                       yali4.gui.ScrAdmin,               # 06
-                                       yali4.gui.ScrPartitionAuto,       # 07
-                                       yali4.gui.ScrPartitionManual,     # 08
-                                       yali4.gui.ScrBootloader,          # 09
-                                       yali4.gui.ScrInstallationAuto,    # 10
-                                       yali4.gui.ScrSummary,             # 11
-                                       yali4.gui.ScrInstall,             # 12
-                                       yali4.gui.ScrGoodbye              # 13
+                                       yali.gui.ScrKahyaCheck,          # 00
+                                       yali.gui.ScrWelcome,             # 01
+                                       yali.gui.ScrCheckCD,             # 02
+                                       yali.gui.ScrKeyboard,            # 03
+                                       yali.gui.ScrDateTime,            # 04
+                                       yali.gui.ScrUsers,               # 05
+                                       yali.gui.ScrAdmin,               # 06
+                                       yali.gui.ScrPartitionAuto,       # 07
+                                       yali.gui.ScrPartitionManual,     # 08
+                                       yali.gui.ScrBootloader,          # 09
+                                       yali.gui.ScrInstallationAuto,    # 10
+                                       yali.gui.ScrSummary,             # 11
+                                       yali.gui.ScrInstall,             # 12
+                                       yali.gui.ScrGoodbye              # 13
                                       ]
 
         # FirstBoot Installation process
         self._screens[YALI_FIRSTBOOT] = [                                # Numbers can be used with -s paramter
-                                         yali4.gui.ScrWelcome,           # 00
-                                         yali4.gui.ScrKeyboard,          # 01
-                                         yali4.gui.ScrDateTime,          # 02
-                                         yali4.gui.ScrUsers,             # 03
-                                         yali4.gui.ScrAdmin,             # 04
-                                         yali4.gui.ScrGoodbye            # 05
+                                         yali.gui.ScrWelcome,           # 00
+                                         yali.gui.ScrKeyboard,          # 01
+                                         yali.gui.ScrDateTime,          # 02
+                                         yali.gui.ScrUsers,             # 03
+                                         yali.gui.ScrAdmin,             # 04
+                                         yali.gui.ScrGoodbye            # 05
                                         ]
 
         # Oem Installation process
         self._screens[YALI_OEMINSTALL] = [                                  # Numbers can be used with -s paramter
-                                          yali4.gui.ScrWelcome,             # 00
-                                          yali4.gui.ScrCheckCD,             # 01
-                                          yali4.gui.ScrPartitionAuto,       # 02
-                                          yali4.gui.ScrPartitionManual,     # 03
-                                          yali4.gui.ScrBootloader,          # 04
-                                          yali4.gui.ScrSummary,             # 05
-                                          yali4.gui.ScrInstall,             # 06
-                                          yali4.gui.ScrGoodbye              # 07
+                                          yali.gui.ScrWelcome,             # 00
+                                          yali.gui.ScrCheckCD,             # 01
+                                          yali.gui.ScrPartitionAuto,       # 02
+                                          yali.gui.ScrPartitionManual,     # 03
+                                          yali.gui.ScrBootloader,          # 04
+                                          yali.gui.ScrSummary,             # 05
+                                          yali.gui.ScrInstall,             # 06
+                                          yali.gui.ScrGoodbye              # 07
                                          ]
 
         # Use YALI just for partitioning
         self._screens[YALI_PARTITIONER] = [
-                                           yali4.gui.ScrPartitionManual  # Manual Partitioning
+                                           yali.gui.ScrPartitionManual  # Manual Partitioning
                                           ]
 
         # Rescue Mode
         self._screens[YALI_RESCUE] = [
-                                      yali4.gui.ScrRescue,            # Rescue Mode
-                                      yali4.gui.ScrRescueGrub,        # Grub Rescue
-                                      yali4.gui.ScrRescuePisi,        # Pisi HS Rescue
-                                      yali4.gui.ScrRescuePassword,    # Password Rescue
-                                      yali4.gui.ScrRescueFinish       # Final step for rescue
+                                      yali.gui.ScrRescue,            # Rescue Mode
+                                      yali.gui.ScrRescueGrub,        # Grub Rescue
+                                      yali.gui.ScrRescuePisi,        # Pisi HS Rescue
+                                      yali.gui.ScrRescuePassword,    # Password Rescue
+                                      yali.gui.ScrRescueFinish       # Final step for rescue
                                      ]
 
         self.plugin = None
@@ -178,7 +178,7 @@ class Yali:
 
     def getPlugin(self, p):
         try:
-            _p = __import__("yali4.plugins.%s.config" % p)
+            _p = __import__("yali.plugins.%s.config" % p)
         except ImportError:
             return False
         plugin = getattr(_p.plugins,p)
@@ -195,10 +195,10 @@ class Yali:
             def display_progress(self, operation, percent, info, **keywords):
                 pass
 
-        yali4.pisiiface.initialize(ui = PisiUI(), with_comar = False, nodestDir = True)
-        yali4.pisiiface.addCdRepo()
+        yali.pisiiface.initialize(ui = PisiUI(), with_comar = False, nodestDir = True)
+        yali.pisiiface.addCdRepo()
         ctx.mainScreen.processEvents()
-        pkg_names = yali4.pisiiface.getAvailablePackages()
+        pkg_names = yali.pisiiface.getAvailablePackages()
 
         rootWidget.progressBar.setMaximum(len(pkg_names))
 
@@ -210,7 +210,7 @@ class Yali:
             if self.checkCDStop:
                 continue
             try:
-                yali4.pisiiface.checkPackageHash(pkg_name)
+                yali.pisiiface.checkPackageHash(pkg_name)
                 rootWidget.progressBar.setValue(cur)
             except:
                 self.showError(_("Check Failed"),
@@ -224,7 +224,7 @@ class Yali:
             rootWidget.checkLabel.setText("")
             rootWidget.progressBar.setValue(0)
 
-        yali4.pisiiface.removeRepo(ctx.consts.cd_repo_name)
+        yali.pisiiface.removeRepo(ctx.consts.cd_repo_name)
 
         ctx.mainScreen.enableNext()
         ctx.mainScreen.enableBack()
@@ -232,7 +232,7 @@ class Yali:
         self.info.hide()
 
     def setKeymap(self, keymap):
-        yali4.localeutils.setKeymap(keymap["xkblayout"], keymap["xkbvariant"])
+        yali.localeutils.setKeymap(keymap["xkblayout"], keymap["xkbvariant"])
         ctx.installData.keyData = keymap
 
     def setTime(self, rootWidget):
@@ -244,11 +244,11 @@ class Yali:
 
         # Set current date and time
         ctx.debugger.log("Date/Time setting to %s" % args)
-        yali4.sysutils.run("date %s" % args)
+        yali.sysutils.run("date %s" % args)
 
         # Sync date time with hardware
         ctx.debugger.log("YALI's time is syncing with the system.")
-        yali4.sysutils.run("hwclock --systohc")
+        yali.sysutils.run("hwclock --systohc")
         self.info.hide()
 
     def setTimeZone(self, rootWidget):
@@ -271,8 +271,8 @@ class Yali:
         rootWidget.freeSpaceDisks = []
 
         ctx.debugger.log("Disk analyze started.")
-        ctx.debugger.log("%d disk found." % len(yali4.storage.devices))
-        for dev in yali4.storage.devices:
+        ctx.debugger.log("%d disk found." % len(yali.storage.devices))
+        for dev in yali.storage.devices:
             ctx.debugger.log("In disk %s, %d mb is free." % (dev.getPath(), dev.getLargestContinuousFreeMB()))
             #if dev.getLargestContinuousFreeMB() > ctx.consts.min_root_size + 100:
             #    rootWidget.resizableDisks.append(dev)
@@ -426,9 +426,9 @@ class Yali:
         time.sleep(2)
 
     def guessBootLoaderDevice(self, root_part=None):
-        if len(yali4.storage.devices) > 1 or ctx.isEddFailed:
+        if len(yali.storage.devices) > 1 or ctx.isEddFailed:
             #opts = get_kernel_option("mudur")
-            opts = yali4.sysutils.liveMediaSystem()
+            opts = yali.sysutils.liveMediaSystem()
             if opts.__eq__("harddisk"):
                 ctx.installData.bootLoaderDev = os.path.basename(ctx.installData.orderedDiskList[1])
             else:
@@ -453,7 +453,7 @@ class Yali:
 
     def fillFstab(self):
         # fill fstab
-        fstab = yali4.fstab.Fstab()
+        fstab = yali.fstab.Fstab()
         for req in ctx.partrequests:
             req_type = req.requestType()
             if req_type == request.mountRequestType:
@@ -470,7 +470,7 @@ class Yali:
                 # TODO: consider merging mountoptions in filesystem.py
                 opts = ",".join([pt.filesystem.mountOptions(), pt.mountoptions])
 
-                e = yali4.fstab.FstabEntry(path, mountpoint, fs, opts)
+                e = yali.fstab.FstabEntry(path, mountpoint, fs, opts)
                 fstab.insert(e)
             elif req_type == request.swapFileRequestType:
                 path = "/" + ctx.consts.swap_file_name
@@ -478,7 +478,7 @@ class Yali:
                 mountpoint = "swap"
                 fs = "swap"
                 opts = "sw"
-                e = yali4.fstab.FstabEntry(path, mountpoint, fs, opts)
+                e = yali.fstab.FstabEntry(path, mountpoint, fs, opts)
                 fstab.insert(e)
         fstab.close()
 
@@ -498,7 +498,7 @@ class Yali:
         insert(yali,"variant",ctx.installData.keyData["xkbvariant"])
 
         # we will store passwords as shadowed..
-        insert(yali,"root_password",yali4.sysutils.getShadowed(ctx.installData.rootPassword or ""))
+        insert(yali,"root_password",yali.sysutils.getShadowed(ctx.installData.rootPassword or ""))
 
         # time zone..
         insert(yali,"timezone",ctx.installData.timezone)
@@ -507,18 +507,18 @@ class Yali:
         insert(yali,"hostname",ctx.installData.hostName)
 
         # users ..
-        if len(yali4.users.pending_users) > 0:
+        if len(yali.users.pending_users) > 0:
             users = yali.insertTag("users")
-        for u in yali4.users.pending_users:
+        for u in yali.users.pending_users:
             user = users.insertTag("user")
             insert(user,"username",u.username)
             insert(user,"realname",u.realname)
-            insert(user,"password",yali4.sysutils.getShadowed(u.passwd))
+            insert(user,"password",yali.sysutils.getShadowed(u.passwd))
             insert(user,"groups",",".join(u.groups))
 
         # partitioning ..
         devices = []
-        for dev in yali4.storage.devices:
+        for dev in yali.storage.devices:
             if dev.getTotalMB() >= ctx.consts.min_root_size:
                 devices.append(dev.getPath())
 
@@ -537,17 +537,17 @@ class Yali:
         # ctx.debugger.log(yali.toPrettyString())
 
     def processPendingActions(self, rootWidget):
-        rootWidget.steps.setOperations([{"text":_("Trying to connect DBUS..."),"operation":yali4.postinstall.connectToDBus}])
+        rootWidget.steps.setOperations([{"text":_("Trying to connect DBUS..."),"operation":yali.postinstall.connectToDBus}])
 
-        steps = [{"text":_("Setting Hostname..."),"operation":yali4.postinstall.setHostName},
-                 {"text":_("Setting TimeZone..."),"operation":yali4.postinstall.setTimeZone},
-                 {"text":_("Setting Root Password..."),"operation":yali4.postinstall.setRootPassword},
-                 {"text":_("Adding Users..."),"operation":yali4.postinstall.addUsers},
-                 {"text":_("Writing Console Data..."),"operation":yali4.postinstall.writeConsoleData},
-                 {"text":_("Migrating X.org Configuration..."),"operation":yali4.postinstall.migrateXorgConf}]
+        steps = [{"text":_("Setting Hostname..."),"operation":yali.postinstall.setHostName},
+                 {"text":_("Setting TimeZone..."),"operation":yali.postinstall.setTimeZone},
+                 {"text":_("Setting Root Password..."),"operation":yali.postinstall.setRootPassword},
+                 {"text":_("Adding Users..."),"operation":yali.postinstall.addUsers},
+                 {"text":_("Writing Console Data..."),"operation":yali.postinstall.writeConsoleData},
+                 {"text":_("Migrating X.org Configuration..."),"operation":yali.postinstall.migrateXorgConf}]
 
-        stepsBase = [{"text":_("Copy Pisi index..."),"operation":yali4.postinstall.copyPisiIndex},
-                     {"text":_("Setting misc. package configurations..."),"operation":yali4.postinstall.setPackages},
+        stepsBase = [{"text":_("Copy Pisi index..."),"operation":yali.postinstall.copyPisiIndex},
+                     {"text":_("Setting misc. package configurations..."),"operation":yali.postinstall.setPackages},
                      {"text":_("Installing BootLoader..."),"operation":self.installBootloader}]
 
         if self.install_type in [YALI_INSTALL, YALI_DVDINSTALL, YALI_FIRSTBOOT]:
@@ -562,7 +562,7 @@ class Yali:
             ctx.debugger.log("Dont install bootloader selected; skipping.")
             return
 
-        loader = yali4.bootloader.BootLoader()
+        loader = yali.bootloader.BootLoader()
 
         # Predefined Pardus path for rescue mode
         if pardusPart:
@@ -585,11 +585,11 @@ class Yali:
         if ctx.installData.bootLoaderDetectOthers:
 
             ctx.debugger.log("Checking for Other Distros (Windows) ...")
-            for d in yali4.storage.devices:
+            for d in yali.storage.devices:
                 for p in d.getPartitions():
                     fs = p.getFSName()
                     if fs in ("ntfs", "fat32"):
-                        if yali4.sysutils.isWindowsBoot(p.getPath(), fs):
+                        if yali.sysutils.isWindowsBoot(p.getPath(), fs):
                             ctx.debugger.log("Windows Found on device %s partition %s " % (p.getDevicePath(), p.getPath()))
                             win_fs = fs
                             win_dev = os.path.basename(p.getDevicePath())
@@ -621,12 +621,12 @@ class Yali:
                     return old
 
             ctx.debugger.log("Checking for Other Distros (Linux) ...")
-            for d in yali4.storage.devices:
+            for d in yali.storage.devices:
                 for p in d.getPartitions():
                     fs = p.getFSName()
                     if fs in ("ext4", "ext3", "reiserfs", "xfs") and not p.getPath() == _ins_part:
                         ctx.debugger.log("Partition found which has usable fs (%s)" % p.getPath())
-                        guest_grub_conf = yali4.sysutils.isLinuxBoot(p.getPath(), fs)
+                        guest_grub_conf = yali.sysutils.isLinuxBoot(p.getPath(), fs)
                         if guest_grub_conf:
                             ctx.debugger.log("GRUB Found on device %s partition %s " % (p.getDevicePath(), p.getPath()))
                             guestGrubConf = pardus.grubutils.grubConf()
@@ -638,7 +638,7 @@ class Yali:
                                     entry.title = entry.title + " [ %s ]" % p.getName()
 
                                     # if device order changed we should update device order in foreign grub.conf
-                                    _grub_dev = yali4.bootloader.findGrubDev(p.getPath())
+                                    _grub_dev = yali.bootloader.findGrubDev(p.getPath())
 
                                     if entry.getCommand("root"):
                                         # update device order for root command
@@ -661,7 +661,7 @@ class Yali:
                                     grubConf.addEntry(entry)
                         else:
                             # If not a proper grub.conf found umount the partition
-                            yali4.sysutils.umount_()
+                            yali.sysutils.umount_()
 
         # write the new grub.conf
         grubConf.write(grubConfPath)
@@ -672,13 +672,13 @@ class Yali:
         archiveRequest = partrequests.searchPartTypeAndReqType(parttype.archive, request.mountRequestType)
         if archiveRequest:
             ctx.debugger.log("Archive type request found!")
-            yali4.postinstall.setPartitionPrivileges(archiveRequest, 0770, 0, 6)
+            yali.postinstall.setPartitionPrivileges(archiveRequest, 0770, 0, 6)
 
         # Umount system paths
-        yali4.sysutils.umountSystemPaths()
+        yali.sysutils.umountSystemPaths()
 
         # GPT stuff
-        gptsync_path = yali4.sysutils.find_executable("gptsync")
+        gptsync_path = yali.sysutils.find_executable("gptsync")
         if gptsync_path and not pardusPart:
             gptsync = os.popen("%s %s" % (gptsync_path, root_part_req.partition().getDevicePath()))
             for line in gptsync.readlines():
@@ -723,10 +723,10 @@ class ErrorWidget(QtGui.QWidget):
         self.vboxlayout.addLayout(self.hboxlayout)
         self.gridlayout.addLayout(self.vboxlayout,0,0,1,1)
 
-        yali4.sysutils.ejectCdrom()
+        yali.sysutils.ejectCdrom()
 
         self.connect(self.reboot, SIGNAL("clicked()"),self.slotReboot)
 
     def slotReboot(self):
-        yali4.sysutils.reboot()
+        yali.sysutils.reboot()
 

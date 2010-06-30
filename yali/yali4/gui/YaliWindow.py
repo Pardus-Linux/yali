@@ -16,21 +16,21 @@ from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
 import gettext
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-import yali4.sysutils
-from yali4.gui.Ui.main import Ui_YaliMain
-from yali4.gui.YaliDialog import Dialog, QuestionDialog
-from yali4.gui.YaliDialog import Tetris
-import yali4.gui.context as ctx
+import yali.sysutils
+from yali.gui.Ui.main import Ui_YaliMain
+from yali.gui.YaliDialog import Dialog, QuestionDialog
+from yali.gui.YaliDialog import Tetris
+import yali.gui.context as ctx
 
 # Aspect oriented huh ;)
 from pyaspects.weaver import *
-from yali4.gui.aspects import *
+from yali.gui.aspects import *
 
 # Release Notes
-from yali4.gui.GUIAdditional import ReleaseNotes
+from yali.gui.GUIAdditional import ReleaseNotes
 
 # QTerm
 import QTermWidget
@@ -112,7 +112,7 @@ class Widget(QtGui.QWidget):
                                    _("Do you want to use <b>%s</b> handed mouse settings ?") % ocmb,
                                    dontAsk = True)
             if reply == "yes":
-                yali4.sysutils.setMouse(self.cmb)
+                yali.sysutils.setMouse(self.cmb)
                 self.cmb = ocmb
             elif reply == "dontask":
                 self.dontAskCmbAgain = True
@@ -141,17 +141,17 @@ class Widget(QtGui.QWidget):
             reply = QuestionDialog(_("Warning"),
                                    _("Your system will now <b>shutdown</b>.<br/><br/><b>This action can cause harm to your computer if the installation is in progress.</b>"))
             if reply == "yes":
-                yali4.sysutils.shutdown()
+                yali.sysutils.shutdown()
         elif action == self.rebootAction:
             reply = QuestionDialog(_("Warning"),
                                    _("Your system will now <b>reboot</b>.<br/><br/><b>This action can cause harm to your computer if the installation is in progress.</b>"))
             if reply == "yes":
-                yali4.sysutils.reboot()
+                yali.sysutils.reboot()
         else:
             reply = QuestionDialog(_("Warning"),
                                    _("YALI will now <b>restart</b>.<br/><br/><b>This action can cause harm to your computer if the installation is in progress.</b>"))
             if reply == "yes":
-                os.execv("/usr/bin/yali4-bin", sys.argv)
+                os.execv("/usr/bin/yali-bin", sys.argv)
 
     def toggleTheme(self):
         if self._style == ctx.consts.stylesheet:
@@ -255,7 +255,7 @@ class Widget(QtGui.QWidget):
         for screen in screens:
             _scr = screen.Widget()
 
-            if ctx.options.debug == True or yali4.sysutils.checkYaliParams(param="debug"):
+            if ctx.options.debug == True or yali.sysutils.checkYaliParams(param="debug"):
                 # debug all screens.
                 weave_all_object_methods(ctx.debugger.aspect, _scr)
 

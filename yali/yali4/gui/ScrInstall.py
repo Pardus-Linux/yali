@@ -14,7 +14,7 @@ import os
 import glob
 import zipfile
 import gettext
-__trans = gettext.translation('yali4', fallback=True)
+__trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 from PyQt4 import QtGui
@@ -22,20 +22,20 @@ from PyQt4.QtCore import *
 
 import pisi.ui
 
-import yali4.fstab
-import yali4.sysutils
-import yali4.pisiiface
-import yali4.postinstall
-import yali4.localeutils
+import yali.fstab
+import yali.sysutils
+import yali.pisiiface
+import yali.postinstall
+import yali.localeutils
 
-import yali4.gui.context as ctx
-import yali4.partitionrequest as request
-from yali4.constants import consts
+import yali.gui.context as ctx
+import yali.partitionrequest as request
+from yali.constants import consts
 
-from yali4.gui.descSlide import slideDesc
-from yali4.gui.ScreenWidget import ScreenWidget
-from yali4.gui.YaliDialog import QuestionDialog, EjectAndRetryDialog
-from yali4.gui.Ui.installwidget import Ui_InstallWidget
+from yali.gui.descSlide import slideDesc
+from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui.YaliDialog import QuestionDialog, EjectAndRetryDialog
+from yali.gui.Ui.installwidget import Ui_InstallWidget
 
 EventPisi, EventSetProgress, EventError, EventAllFinished, EventPackageInstallFinished, EventRetry = range(1001,1007)
 
@@ -188,16 +188,16 @@ Have fun!
         # run baselayout's postinstall first
 
         ctx.yali.info.updateAndShow(_("Creating baselayout for your system!"))
-        yali4.postinstall.initbaselayout()
+        yali.postinstall.initbaselayout()
 
         # postscripts depend on 03locale...
-        yali4.localeutils.writeLocaleFromCmdline()
+        yali.localeutils.writeLocaleFromCmdline()
 
         #Write InitramfsConf
-        yali4.postinstall.writeInitramfsConf()
+        yali.postinstall.writeInitramfsConf()
 
         # run dbus in chroot
-        yali4.sysutils.chrootDbus()
+        yali.sysutils.chrootDbus()
 
         ctx.yali.info.updateMessage(_("Configuring packages.."))
 
@@ -218,8 +218,8 @@ Have fun!
         ctx.mainScreen.slotNext()
 
     def installError(self, e):
-        import yali4
-        import yali4.gui.runner
+        import yali
+        import yali.gui.runner
 
         self.hasErrors = True
         err_str = _('''An error during the installation of packages occured.
@@ -230,7 +230,7 @@ Error:
 %s
 ''') % str(e)
 
-        yali4.gui.runner.showException(yali4.exception_fatal, err_str)
+        yali.gui.runner.showException(yali.exception_fatal, err_str)
 
 class PkgInstaller(QThread):
 
@@ -242,34 +242,34 @@ class PkgInstaller(QThread):
         ctx.debugger.log("PkgInstaller is running.")
         ui = PisiUI()
         ctx.debugger.log("PisiUI is creating..")
-        yali4.pisiiface.initialize(ui)
+        yali.pisiiface.initialize(ui)
         ctx.debugger.log("Pisi initialize is calling..")
 
         # if exists use remote source repo
         # otherwise use cd as repo
         if ctx.installData.repoAddr:
-            yali4.pisiiface.addRemoteRepo(ctx.installData.repoName,ctx.installData.repoAddr)
-        elif yali4.sysutils.checkYaliParams(param=ctx.consts.dvd_install_param):
-            yali4.pisiiface.addRepo(ctx.consts.dvd_repo_name, ctx.installData.autoInstallationCollection.index)
+            yali.pisiiface.addRemoteRepo(ctx.installData.repoName,ctx.installData.repoAddr)
+        elif yali.sysutils.checkYaliParams(param=ctx.consts.dvd_install_param):
+            yali.pisiiface.addRepo(ctx.consts.dvd_repo_name, ctx.installData.autoInstallationCollection.index)
             ctx.debugger.log("DVD Repo adding..")
             # Get only collection packages with collection Name
-            order = yali4.pisiiface.getAllPackagesWithPaths(collectionIndex=ctx.installData.autoInstallationCollection.index, ignoreKernels=True)
-            kernelPackages = yali4.pisiiface.getNeededKernel(ctx.installData.autoInstallationKernel, ctx.installData.autoInstallationCollection.index)
+            order = yali.pisiiface.getAllPackagesWithPaths(collectionIndex=ctx.installData.autoInstallationCollection.index, ignoreKernels=True)
+            kernelPackages = yali.pisiiface.getNeededKernel(ctx.installData.autoInstallationKernel, ctx.installData.autoInstallationCollection.index)
             order.extend(kernelPackages)
         else:
             ctx.debugger.log("CD Repo adding..")
-            yali4.pisiiface.addCdRepo()
+            yali.pisiiface.addCdRepo()
             # Check for just installing system.base packages
-            if yali4.sysutils.checkYaliParams(param=ctx.consts.base_only_param):
-                order = yali4.pisiiface.getBasePackages()
+            if yali.sysutils.checkYaliParams(param=ctx.consts.base_only_param):
+                order = yali.pisiiface.getBasePackages()
             else:
-                order = yali4.pisiiface.getAllPackagesWithPaths()
+                order = yali.pisiiface.getAllPackagesWithPaths()
 
             # Check for extra languages
             if not ctx.installData.installAllLangPacks:
-                order = list(set(order) - set(yali4.pisiiface.getNotNeededLanguagePackages()))
+                order = list(set(order) - set(yali.pisiiface.getNotNeededLanguagePackages()))
                 ctx.debugger.log("Not needed lang packages will not be installing...")
-                ctx.debugger.log(yali4.pisiiface.getNotNeededLanguagePackages())
+                ctx.debugger.log(yali.pisiiface.getNotNeededLanguagePackages())
 
 
         # show progress
@@ -284,7 +284,7 @@ class PkgInstaller(QThread):
         try:
             while True:
                 try:
-                    yali4.pisiiface.install(order)
+                    yali.pisiiface.install(order)
                     break # while
 
                 except zipfile.BadZipfile, e:
@@ -336,12 +336,12 @@ class PkgConfigurator(QThread):
     def run(self):
         ctx.debugger.log("PkgConfigurator is running.")
         ui = PisiUI()
-        yali4.pisiiface.initialize(ui=ui, with_comar=True)
+        yali.pisiiface.initialize(ui=ui, with_comar=True)
 
         try:
             # run all pending...
-            ctx.debugger.log("exec : yali4.pisiiface.configurePending() called")
-            yali4.pisiiface.configurePending()
+            ctx.debugger.log("exec : yali.pisiiface.configurePending() called")
+            yali.pisiiface.configurePending()
         except Exception, e:
             # User+10: error
             qevent = PisiEvent(QEvent.User, EventError)
@@ -349,10 +349,10 @@ class PkgConfigurator(QThread):
             objectSender(qevent)
 
         # Remove cd repository and install add real
-        if yali4.sysutils.checkYaliParams(param=ctx.consts.dvd_install_param):
-            yali4.pisiiface.switchToPardusRepo(ctx.consts.dvd_repo_name)
+        if yali.sysutils.checkYaliParams(param=ctx.consts.dvd_install_param):
+            yali.pisiiface.switchToPardusRepo(ctx.consts.dvd_repo_name)
         else:
-            yali4.pisiiface.switchToPardusRepo(ctx.consts.cd_repo_name)
+            yali.pisiiface.switchToPardusRepo(ctx.consts.cd_repo_name)
 
         qevent = PisiEvent(QEvent.User, EventAllFinished)
         objectSender(qevent)
