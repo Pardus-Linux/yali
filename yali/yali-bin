@@ -12,20 +12,20 @@
 #
 
 import locale
-import yali4
-import yali4.sysutils
+import yali
+import yali.sysutils
 from os.path import exists
-from yali4.constants import consts
-from yali4.options import options
+from yali.constants import consts
+from yali.options import options
 
 def try_umount_target():
     for mpoint in ("/home", "/dev", "/proc", "/sys", ""):
-        yali4.sysutils.umount(consts.target_dir + mpoint)
+        yali.sysutils.umount(consts.target_dir + mpoint)
 
 def main():
     if not exists("/etc/yali-is-firstboot"):
         try_umount_target()
-    runner = yali4.default_runner()
+    runner = yali.default_runner()
     runner.run()
 
 if __name__ == "__main__":
