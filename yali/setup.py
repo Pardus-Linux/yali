@@ -22,24 +22,24 @@ from distutils.command.clean import clean
 from distutils.command.install import install
 from distutils.spawn import find_executable, spawn
 
-import yali4
+import yali
 
-YALI_VERSION = yali4.__version__
+YALI_VERSION = yali.__version__
 
 def qt_ui_files():
-    p = "yali4/gui/Ui/*.ui"
+    p = "yali/gui/Ui/*.ui"
     return glob.glob(p)
 
 def gui_slidepics():
-    p = "yali4/gui/pics/slideshow/*.png"
+    p = "yali/gui/pics/slideshow/*.png"
     return glob.glob(p)
 
 def user_faces():
-    p = "yali4/user_faces/*.png"
+    p = "yali/user_faces/*.png"
     return glob.glob(p)
 
 def data_files():
-    p = "yali4/data/*"
+    p = "yali/data/*"
     return glob.glob(p)
 
 def getRevision():
@@ -69,7 +69,7 @@ class YaliBuild(build):
         py_file = py_file_name(ui_file)
         # lines in reverse order
         lines =  ["\n_ = __trans.ugettext\n",
-                  "\n__trans = gettext.translation('yali4', fallback=True)",
+                  "\n__trans = gettext.translation('yali', fallback=True)",
                   "\nimport gettext"]
         f = open(py_file, "r").readlines()
         for l in lines:
@@ -89,7 +89,7 @@ class YaliBuild(build):
                     y = l.split(",")[0]+', '
                 l = l.replace(y,z)
             l = l.replace(keyEnd,")")
-            l = l.replace("data_rc","yali4.data_rc")
+            l = l.replace("data_rc","yali.data_rc")
             x.write(l)
 
     def compile_ui(self, ui_file):
@@ -107,7 +107,7 @@ class YaliBuild(build):
         for f in qt_ui_files():
             self.compile_ui(f)
             self.add_gettext_support(f)
-        os.system("pyrcc4 yali4/data.qrc -o yali4/data_rc.py")
+        os.system("pyrcc4 yali/data.qrc -o yali/data_rc.py")
         build.run(self)
 
 ##
@@ -123,8 +123,8 @@ class YaliClean(clean):
             if os.path.exists(f):
                 os.unlink(f)
 
-        if os.path.exists("yali4/data_rc.py"):
-            os.unlink("yali4/data_rc.py")
+        if os.path.exists("yali/data_rc.py"):
+            os.unlink("yali/data_rc.py")
         if os.path.exists("build"):
             shutil.rmtree("build")
 
@@ -140,19 +140,19 @@ class YaliUninstall(Command):
         pass
 
     def run(self):
-        yali_dir = os.path.join(get_python_lib(), "yali4")
+        yali_dir = os.path.join(get_python_lib(), "yali")
         if os.path.exists(yali_dir):
             print "removing: ", yali_dir
             shutil.rmtree(yali_dir)
 
-        data_dir = "/usr/share/yali4"
+        data_dir = "/usr/share/yali"
         if os.path.exists(data_dir):
             print "removing: ", data_dir
             shutil.rmtree(data_dir)
-        os.unlink("/usr/bin/yali4-bin")
+        os.unlink("/usr/bin/yali-bin")
         os.unlink("/usr/bin/bindYali.sh")
 
-i18n_domain = "yali4"
+i18n_domain = "yali"
 i18n_languages = ["tr",
                   "nl",
                   "it",
@@ -179,7 +179,7 @@ class I18nInstall(install):
                 pass
             shutil.copy("po/%s.mo" % lang, os.path.join(destpath, "%s.mo" % i18n_domain))
 
-setup(name="yali4",
+setup(name="yali",
       version= getVersion(),
       description="YALI (Yet Another Linux Installer)",
       long_description="Pardus System Installer.",
@@ -187,14 +187,14 @@ setup(name="yali4",
       author="Pardus Developers",
       author_email="yali@pardus.org.tr",
       url="http://www.pardus.org.tr/eng/yali/",
-      packages = ['yali4', 'yali4.gui', 'yali4.gui.Ui', 'yali4.plugins'],
+      packages = ['yali', 'yali.gui', 'yali.gui.Ui', 'yali.plugins'],
       package_dir = {'': ''},
-      data_files = [('/usr/share/yali4/slideshow', gui_slidepics()),
-                    ('/usr/share/yali4/user_faces', user_faces()),
-                    ('/usr/share/yali4/data', data_files())],
-      scripts = ['yali4-bin', 'start-yali4', 'bindYali.sh'],
-      ext_modules = [Extension('yali4._sysutils',
-                               sources = ['yali4/_sysutils.c'],
+      data_files = [('/usr/share/yali/slideshow', gui_slidepics()),
+                    ('/usr/share/yali/user_faces', user_faces()),
+                    ('/usr/share/yali/data', data_files())],
+      scripts = ['yali-bin', 'start-yali', 'bindYali.sh'],
+      ext_modules = [Extension('yali._sysutils',
+                               sources = ['yali/_sysutils.c'],
                                libraries = ["ext2fs"],
                                extra_compile_args = ['-Wall'])],
       cmdclass = {
