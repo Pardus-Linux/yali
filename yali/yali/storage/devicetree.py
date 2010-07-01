@@ -10,7 +10,7 @@ import yali.context as ctx
 from . import udisks
 
 class DeviceTreeError(yali.Error):
-    pass_
+    pass
 
 class DeviceTree(object):
     def __init__(self):
@@ -28,7 +28,7 @@ class DeviceTree(object):
         if deviceName.startswith("loop") or deviceName.startswith("ram"):
             return True
 
-    def _addDevice(self, device):
+    def __addDevice(self, device):
     """ Add a device to the tree.
 
         Raise ValueError if the device's identifier is already in the list.
@@ -45,7 +45,7 @@ class DeviceTree(object):
         ctx.logger.debug("added %s %s (id %d) to device tree" % (newdev.type,
                                                           newdev.name,
                                                           newdev.id))
-    def _removeDevice(self, device, force=None):
+    def __removeDevice(self, device, force=None):
         """ Remove a device from the tree.
 
             Only leaves may be removed.
@@ -77,8 +77,8 @@ class DeviceTree(object):
 
         self._devices.remove(device)
         ctx.logger.debug("removed %s %s (id %d) from device tree" % (device.type,
-                                                              device.name,
-                                                              device.id))
+                                                                     device.name,
+                                                                     device.id))
 
         for parent in device.parents:
             parent.removeChild()
@@ -118,7 +118,7 @@ class DeviceTree(object):
         except DeviceError:
             return
 
-        self._addDevice(partition)
+        self.__addDevice(partition)
         return device
 
     def addDiskDevice(self, device):
@@ -133,13 +133,14 @@ class DeviceTree(object):
         minor = udisks.getMinor(device)
 
         disk = Disk(name, major=major, minor=minor, sysfsPath=sysfspath)
-        self._addDevice(disk)
+        self.__addDevice(disk)
         return device
 
     def addDevice(self, device):
         name = os.path.basename(udisks.info(device)["DeviceFile"])
         sysfspath = udisks.info(device)["NativaPath"]
         uuid = udisks.info(device)["IdUuid"]
+
         if self.isIgnored(name):
             ctx.logger.debug("ignoring %s (%s)" % (name, sysfsPath))
 
@@ -153,9 +154,6 @@ class DeviceTree(object):
             self.addPartitionDevice(device)
         else:
              ctx.logger.error("Unknown block device type for: %s" % name)
-
-    def removeDevice(self, device):
-        pass
 
     def getDependentDevices(self, dep):
         """Return list of devices that depend on.
@@ -183,20 +181,32 @@ class DeviceTree(object):
     def populate(self):
         """Locate all storage devices."""
         self._populated = False
-        old_devices = {}
 
         for device in udisks.devices:
-            old_devices[device] = udisks.info(device)
+            self.addDevice(device)
+
+        self._populated = True
 
     def teardownAll(self):
-        pass
+        """ Run teardown methods on all devices. """
+        for device in self.leaves:
+            try:
+                device.teardown(recursive=True)
+            except DeviceTreeError as e:
+                ctx.logger.info("teardown of %s failed: %s" % (device.name, e))
 
     def setupAll(self):
-        pass
+        """ Run setup methods on all devices. """
+        for device in self.leaves:
+            try:
+                device.setup(recursive=True)
+            except DeviceTreeError as e:
+                ctx.logger.info("setup of %s failed: %s" % (device.name, e))
 
     def getDeviceByUUID(self, uuid):
         if not uuid:
             return None
+        ctx.logger.debug("looking for device '%s'..." % uuid)
 
         found = None
         for device in self._devices:
@@ -207,6 +217,7 @@ class DeviceTree(object):
                 found = device
                 break
 
+        ctx.logger.debug("found %s" % found)
         return found
 
     def getDevicesBySerial(self, serial):
@@ -220,6 +231,7 @@ class DeviceTree(object):
         return devices
 
     def getDeviceByLabel(self, label):
+        ctx.logger.debug("looking for device '%s'..." % label)
         if not label:
             return None
 
@@ -233,18 +245,34 @@ class DeviceTree(object):
                 found = device
                 break
 
+        ctx.logger.debug("found %s" % found)
+        return found
+
+    def getDeviceByPath(self, path):
+        ctx.logger.debug("looking for device '%s'..." % path)
+        if not path:
+            return None
+
+        found = None
+        for device in self._devices:
+            if device.path ==  path:
+                found = device
+                break
+        ctx.logger.debug("found %s" % found)
         return found
 
     def getDeviceBySysPath(self, path):
         if not path:
             return None
 
+        ctx.logger.debug("looking for device '%s'..." % path)
         found = None
         for device in self._devices:
             if device.sysfsPath == path:
                 found = device
                 break
 
+        ctx.logger.debug("found %s" % found)
         return found
 
     def getDevicesByType(self, type):
@@ -270,7 +298,22 @@ class DeviceTree(object):
 
     @property
     def uuids(self):
-        pass
+        """ Dict with uuid keys and Device values. """
+        uuids = {}
+        for dev in self._devices:
+            try:
+                uuid = dev.uuid
+            except AttributeError:
+                uuid = None
+            if uuid:
+                uuids[uuid] = dev
+            try:
+                uuid = dev.format.uuid
+            except AttributeError:
+                uuid = None
+            if uuid:
+                uuids[uuid] = dev
+    return uuids
 
     @property
     def labels(self):
@@ -283,8 +326,13 @@ class DeviceTree(object):
 
     @property
     def leaves(self):
+        """ List of all devices upon which no other devices exist. """
         leaves = [d for d in self._devices if d.isleaf]
         return leaves
+
+    def getChildren(self, device):
+        """ Return a list of a device's children. """
+        return [c for c in self._devices if device in c.parents]
 
     @property
     def filesystems(self):
