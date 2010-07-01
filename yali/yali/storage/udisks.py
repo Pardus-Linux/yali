@@ -1,14 +1,10 @@
 import dbus
-#import yali
-#from yali.util import Singleton
+import yali
 
-class UDisksError(Exception):
+class UDisksError(yali.Error):
     pass
 
-
 class UDisks(object):
-
-    #__metaclass__ = Singleton
 
     def __init__(self):
         self._bus = dbus.SystemBus()
