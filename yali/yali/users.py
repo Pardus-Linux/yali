@@ -29,29 +29,6 @@ def resetPendingUsers():
     global pending_users
     pending_users = []
 
-def iterHeadImages():
-    left, right, images = [], [], []
-
-    g = glob.glob(consts.user_faces_dir + "/*.png")
-
-    for e in g: left.append(e)
-
-    for n in range(0, 5):
-        right = []
-        for i in range(0, len(g)/2 + 1):
-            right.append(left.pop(random.randrange(len(g) - i)))
-        left.reverse()
-        left = right + left
-
-    for p in left:
-        images.append(p)
-
-    while True:
-        for image in images:
-            yield image
-
-head_images = iterHeadImages()
-
 def getUserList():
     return map(lambda x: x[0], [line.split(':') for line in open('/etc/passwd', 'r').readlines()])
 
@@ -64,7 +41,6 @@ class User:
         self.realname = ''
         self.passwd = ''
         self.uid = -1
-        self.icon = head_images.next()
         self.noPass = False
 
         # KDE AutoLogin Defaults

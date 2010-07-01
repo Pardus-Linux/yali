@@ -171,12 +171,6 @@ def addUsers():
         uid = obj.addUser(-1, u.username, u.realname, "", "", unicode(u.passwd), u.groups, [], [], dbus_interface="tr.org.pardus.comar.User.Manager")
         ctx.debugger.log("New user's id is %s" % uid)
 
-        # Use random user icon from YALI Archive
-        iconPath = os.path.join(ctx.consts.target_dir,"home/%s/.face.icon" % u.username)
-        shutil.copy(u.icon, iconPath)
-        os.chmod(iconPath, 0644)
-        os.chown(iconPath, uid, 100)
-
         # If new user id is different from old one, we need to run a huge chown for it
         user_home_dir = os.path.join(consts.target_dir, 'home', u.username)
         user_home_dir_id = os.stat(user_home_dir)[4]
