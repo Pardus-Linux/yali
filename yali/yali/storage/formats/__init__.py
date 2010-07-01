@@ -42,7 +42,7 @@ def getFormat(type, *args, **kwargs):
     except AttributeError:
         className = None
 
-    ctx.ui.debug("getFormat('%s') returning %s instance" % (type, className))
+    ctx.logger.debug("getFormat('%s') returning %s instance" % (type, className))
 
     return format
 
@@ -51,7 +51,7 @@ def register_device_format(format):
         raise ValueError("arg1 must be a subclass of DeviceFormat")
 
     device_formats[format._type] = format
-    ctx.ui.debug("registered device format class %s as %s" % (format.__name__, format._type))
+    ctx.logger.debug("registered device format class %s as %s" % (format.__name__, format._type))
 
 def collect_device_formats():
     """ Pick up all device format classes from this directory.
@@ -66,7 +66,7 @@ def collect_device_formats():
             try:
                 globals()[mod_name] = __import__(mod_name, globals(), locals(), [], -1)
             except ImportError, e:
-                ctx.ui.debug("import of device format module '%s' failed" % mod_name)
+                ctx.logger.debug("import of device format module '%s' failed" % mod_name)
 
 def get_device_format(type):
     """ Return an appropriate format class based on fmt_type. """
@@ -186,7 +186,7 @@ class Format(object):
         try:
             notify_kernel(path, action="change")
         except Exception, e:
-            ctx.ui.warning("failed to notify kernel of change: %s" % e)
+            ctx.logger.warning("failed to notify kernel of change: %s" % e)
 
 
     def create(self, *args, **kwargs):
@@ -202,7 +202,7 @@ class Format(object):
         # zero out the 1MB at the beginning and end of the device in the
         # hope that it will wipe any metadata from filesystems that
         # previously occupied this device
-        ctx.ui.debug("zeroing out beginning and end of %s..." % self.device)
+        ctx.logger.debug("zeroing out beginning and end of %s..." % self.device)
         fd = None
 
         try:

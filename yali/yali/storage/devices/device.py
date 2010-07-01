@@ -87,7 +87,7 @@ class Device(AbstractDevice):
     @property
     def partedDevice(self):
         if self.exists and self.status and not self._partedDevice:
-            ctx.ui.debug("looking up parted Device: %s" % self.path)
+            ctx.logger.debug("looking up parted Device: %s" % self.path)
 
             try:
                 self._partedDevice = parted.Device(path=self.path)
@@ -116,7 +116,7 @@ class Device(AbstractDevice):
         sysfsName = self.name.replace("/", "!")
         path = os.path.join("/sys", self.sysfsBlockDir, sysfsName)
         self.sysfsPath = os.path.realpath(path)[4:]
-        ctx.ui.debug("%s sysfsPath set to %s" % (self.name, self.sysfsPath))
+        ctx.logger.debug("%s sysfsPath set to %s" % (self.name, self.sysfsPath))
 
     @property
     def formatArgs(self):
@@ -132,11 +132,11 @@ class Device(AbstractDevice):
     def notifyKernel(self):
         """ Send a 'change' uevent to the kernel for this device. """
         if not self.exists:
-            ctx.ui.debug("not sending change uevent for non-existent device")
+            ctx.logger.debug("not sending change uevent for non-existent device")
             return
 
         if not self.status:
-            ctx.ui.debug("not sending change uevent for inactive device")
+            ctx.logger.debug("not sending change uevent for inactive device")
             return
 
         path = os.path.normpath("/sys/%s" % self.sysfsPath)

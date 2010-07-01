@@ -42,7 +42,7 @@ class DeviceTree(object):
                 raise DeviceTreeError("parent device not in tree")
 
         self._devices.append(newdev)
-        ctx.ui.debug("added %s %s (id %d) to device tree" % (newdev.type,
+        ctx.logger.debug("added %s %s (id %d) to device tree" % (newdev.type,
                                                           newdev.name,
                                                           newdev.id))
     def _removeDevice(self, device, force=None):
@@ -54,7 +54,7 @@ class DeviceTree(object):
             raise ValueError("Device '%s' not in tree" % device.name)
 
         if not device.isleaf and not force:
-            ctx.ui.debug("%s has %d kids" % (device.name, device.kids))
+            ctx.logger.debug("%s has %d kids" % (device.name, device.kids))
             raise ValueError("Cannot remove non-leaf device '%s'" % device.name)
 
         # if this is a partition we need to remove it from the parted.Disk
@@ -76,7 +76,7 @@ class DeviceTree(object):
                     dev.updateName()
 
         self._devices.remove(device)
-        ctx.ui.debug("removed %s %s (id %d) from device tree" % (device.type,
+        ctx.logger.debug("removed %s %s (id %d) from device tree" % (device.type,
                                                               device.name,
                                                               device.id))
 
@@ -104,11 +104,11 @@ class DeviceTree(object):
                 disk = self.getDeviceByName(diskName)
 
                 if disk is None:
-                    ctx.ui.error("failure scanning device %s" % diskName)
+                    ctx.logger.error("failure scanning device %s" % diskName)
                     return
 
         if not getattr(disk.format, "partitions", None) or not disk.partitionable:
-            ctx.ui.debug("ignoring partition %s" % name)
+            ctx.logger.debug("ignoring partition %s" % name)
             return
 
         try:
@@ -141,18 +141,18 @@ class DeviceTree(object):
         sysfspath = udisks.info(device)["NativaPath"]
         uuid = udisks.info(device)["IdUuid"]
         if self.isIgnored(name):
-            ctx.ui.debug("ignoring %s (%s)" % (name, sysfsPath))
+            ctx.logger.debug("ignoring %s (%s)" % (name, sysfsPath))
 
-        ctx.ui.debug("scanning %s (%s)..." % (name, sysfs_path))
+        ctx.logger.debug("scanning %s (%s)..." % (name, sysfs_path))
         device = self.getDeviceByName(name)
 
         if udisks.isDisk(device):
-            ctx.ui.debug("%s is disk device." % )_
+            ctx.logger.debug("%s is disk device." % )_
             self.addDiskDevice(device)
         elif udisks.isPartition(device):
             self.addPartitionDevice(device)
         else:
-             ctx.ui.error("Unknown block device type for: %s" % name)
+             ctx.logger.error("Unknown block device type for: %s" % name)
 
     def removeDevice(self, device):
         pass

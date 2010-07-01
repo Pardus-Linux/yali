@@ -175,7 +175,7 @@ class Filesystem(Format):
                 # report current size as megabytes
                 size = math.floor(size / 1024.0 / 1024.0)
             except Exception as e:
-                ctx.ui.error("failed to obtain size of filesystem on %s: %s"
+                ctx.logger.error("failed to obtain size of filesystem on %s: %s"
                           % (self.device, e))
 
         return size
@@ -286,7 +286,7 @@ class Filesystem(Format):
         self._minInstanceSize = None
         if self.targetSize < self.minSize:
             self.targetSize = self.minSize
-            ctx.ui.info("Minimum size changed, setting targetSize on %s to %s" \
+            ctx.logger.info("Minimum size changed, setting targetSize on %s to %s" \
                      % (self.device, self.targetSize))
 
         try:
@@ -639,7 +639,7 @@ class Ext2FileSystem(FileSystem):
                     break
 
                 if size is None:
-                    ctx.ui.warning("failed to get minimum size for %s filesystem "
+                    ctx.logger.warning("failed to get minimum size for %s filesystem "
                                 "on %s" % (self.mountType, self.device))
 
             self._minInstanceSize = size

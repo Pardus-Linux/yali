@@ -91,7 +91,7 @@ class Partition(Device):
         #        parted.
 
         if self.exists:
-            ctx.ui.debug("looking up parted Partition: %s" % self.path)
+            ctx.logger.debug("looking up parted Partition: %s" % self.path)
             self._partedPartition = self.disk.format.partedDisk.getPartitionByPath(self.path)
             if not self._partedPartition:
                 raise PartitionError("cannot find parted partition instance", self.name)
@@ -216,7 +216,7 @@ class Partition(Device):
         else:
             raise ValueError("partition must be a parted.Partition instance")
 
-        ctx.ui.debug("device %s new partedPartition %s has path %s" % (self.name,
+        ctx.logger.debug("device %s new partedPartition %s has path %s" % (self.name,
                                                                     partition,
                                                                     path))
         self._partedPartition = partition
@@ -237,14 +237,14 @@ class Partition(Device):
         if self.isExtended:
             # getPartitionBySector doesn't work on extended partitions
             _partition = _disklabel.extendedPartition
-            ctx.ui.debug("extended lookup found partition %s"
+            ctx.logger.debug("extended lookup found partition %s"
                         % devicePathToName(getattr(_partition, "path", None)))
         else:
             # lookup the partition by sector to avoid the renumbering
             # nonsense entirely
             _sector = self.partedPartition.geometry.start
             _partition = _disklabel.partedDisk.getPartitionBySector(_sector)
-            ctx.ui.debug("sector-based lookup found partition %s"
+            ctx.logger.debug("sector-based lookup found partition %s"
                         % devicePathToName(getattr(_partition, "path", None)))
 
         self.partedPartition = _partition
