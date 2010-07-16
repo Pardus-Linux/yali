@@ -1,13 +1,16 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import gettext
+
+__trans = gettext.translation('yali', fallback=True)
+_ = __trans.ugettext
+
 from devices import *
 from devicetree import DeviceTree
 
 class StorageSet(object):
-    _bootFilesystemTypes = ["ext4", "ext3", "ext2", "vfat", "reiserfs", "xfs"]
-
-    def __init__(self, devicetree, rootPath):
+    def __init__(self, devicetree, rootpath):
         self.devicetree = devicetree
         self.rootpath = rootpath
         self.active = False
@@ -51,11 +54,6 @@ class StorageSet(object):
                                                      device="tmpfs",
                                                      mountpoint="/dev/shm"))
         return self._devshm
-
-    @property
-    def bootFilesystemTypes(self):
-        """Return a list of all valid filesystem types for the boot partition."""
-        return self._bootFilesystemTypes
 
     @property
     def mountpoints(self):
@@ -239,8 +237,9 @@ class StorageSet(object):
 
                     if swapError(msg, device):
                         continue
+
                 except SuspendError:
-                        msg = _("The swap device:\n\n     %s\n\n"
+                    msg = _("The swap device:\n\n     %s\n\n"
                                 "in your /etc/fstab file is currently in "
                                 "use as a software suspend device, "
                                 "which means your system is hibernating. "
@@ -251,6 +250,7 @@ class StorageSet(object):
 
                     if swapError(msg, device):
                         continue
+
                 except UnknownSwapError:
                     msg = _("The swap device:\n\n     %s\n\n"
                             "does not contain a supported swap volume.  In "
@@ -260,6 +260,7 @@ class StorageSet(object):
 
                     if swapError(msg, device):
                         continue
+
                 except DeviceError as (msg, name):
                     if ctx.yali.messageWindow:
                         err = _("Error enabling swap device %(name)s: "
@@ -317,7 +318,7 @@ class StorageSet(object):
 
     @property
     def bootDevice(self):
-        def _mountDict(self):
+        def mountDict():
             """Return a dictionary mapping mount points to devices."""
             ret = {}
             for device in [d for d in self.devices if d.format.mountable]:
@@ -325,11 +326,10 @@ class StorageSet(object):
 
             return ret
 
-        mountDict = self._mountDict()
         if yali.util.isEfi():
-            return mountDict.get("/boot/efi")
+            return mountDict().get("/boot/efi")
         else:
-            return mountDict.get("/boot", mntDict.get("/"))
+            return mountDict().get("/boot", mountDict().get("/"))
 
     @property
     def rootDevice(self):
