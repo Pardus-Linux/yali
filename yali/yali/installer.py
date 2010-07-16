@@ -40,13 +40,13 @@ import pisi.ui
 import yali.pisiiface
 
 # partitioning
-import yali.partitiontype as parttype
-import yali.partitionrequest as request
-from yali.partitionrequest import partrequests
-from yali.parteddata import *
+#import yali.partitiontype as parttype
+#import yali.partitionrequest as request
+#from yali.partitionrequest import partrequests
+#from yali.parteddata import *
 
 # gui
-from yali.gui.YaliDialog import Dialog, QuestionDialog, InfoDialog, InformationWindow
+from yali.gui.YaliDialog import Dialog, QuestionDialog, InfoDialog, InformationWindow, MesssageWindow
 
 # debugger
 from yali.gui.debugger import Debugger
@@ -174,6 +174,9 @@ class Yali:
         self.install_type = install_type
         self.info = InformationWindow("Please wait...")
         self.checkCDStop = True
+
+    def messageWindow(self, title, text, type="ok", default=None, customButtons=None, customIcon=None):
+        return MesssageWindow(title, text, type, default, customButtons, customIcon, run=True).rc
 
     def getPlugin(self, p):
         try:
