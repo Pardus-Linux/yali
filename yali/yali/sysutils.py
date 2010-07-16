@@ -39,7 +39,7 @@ def run(cmd, params=None, capture=False, appendToLog=True):
 
     # to use Popen we need a tuple
     _cmd = tuple(cmd.split())
-    ctx.debugger.log("RUN : %s" % cmd)
+    ctx.logger.debug("RUN : %s" % cmd)
 
     # Create an instance for Popen
     try:
@@ -47,22 +47,22 @@ def run(cmd, params=None, capture=False, appendToLog=True):
     except Exception, e:
         if e.errno == 2:
             # No such executable
-            ctx.debugger.log("FAILED : '%s' %s" % (cmd, e))
+            ctx.logger.debug("FAILED : '%s' %s" % (cmd, e))
             return False
     else:
         # Capture the output
         stdout, stderr = proc.communicate()
         result = proc.poll()
 
-        ctx.debugger.log(stderr)
+        ctx.logger.debug(stderr)
         if appendToLog:
-            ctx.debugger.log(stdout)
+            ctx.logger.debug(stdout)
 
         # if return code larger then zero, means there is a problem with this command
         if result > 0:
-            ctx.debugger.log("FAILED : %s" % cmd)
+            ctx.logger.debug("FAILED : %s" % cmd)
             return False
-        ctx.debugger.log("SUCCESS : %s" % cmd)
+        ctx.logger.debug("SUCCESS : %s" % cmd)
         if capture:
             return stdout
         return True
@@ -103,9 +103,9 @@ def finalizeChroot():
 
     # store log content
     import yali.gui.context as ctx
-    ctx.debugger.log("Finalize Chroot called this is the last step for logs ..")
+    ctx.logger.debug("Finalize Chroot called this is the last step for logs ..")
     if ctx.debugEnabled:
-        open(ctx.consts.log_file,"w").write(str(ctx.debugger.traceback.plainLogs))
+        open(ctx.consts.log_file,"w").write(str(ctx.logger.traceback.plainLogs))
 
     # store session log as kahya xml
     open(ctx.consts.session_file,"w").write(str(ctx.installData.sessionLog))
@@ -215,14 +215,14 @@ def umount_(dir=None, params=''):
 def umountSystemPaths():
     import yali.gui.context as ctx
     try:
-        ctx.debugger.log("Trying to umount %s" % ctx.consts.tmp_mnt_dir)
+        ctx.logger.debug("Trying to umount %s" % ctx.consts.tmp_mnt_dir)
         umount_(ctx.consts.tmp_mnt_dir)
-        ctx.debugger.log("Trying to umount %s" % (ctx.consts.target_dir + "/mnt/archive"))
+        ctx.logger.debug("Trying to umount %s" % (ctx.consts.target_dir + "/mnt/archive"))
         umount_(ctx.consts.target_dir + "/mnt/archive")
-        ctx.debugger.log("Trying to umount %s" % (ctx.consts.target_dir + "/home"))
+        ctx.logger.debug("Trying to umount %s" % (ctx.consts.target_dir + "/home"))
         umount_(ctx.consts.target_dir + "/home")
     except:
-        ctx.debugger.log("Umount Failed ")
+        ctx.logger.debug("Umount Failed ")
 
 def isWindowsBoot(partition_path, file_system):
     m_dir = consts.tmp_mnt_dir
@@ -254,12 +254,12 @@ def isLinuxBoot(partition_path, file_system):
         os.makedirs(m_dir)
     umount_(m_dir)
 
-    ctx.debugger.log("Mounting %s to %s" % (partition_path, consts.tmp_mnt_dir))
+    ctx.logger.debug("Mounting %s to %s" % (partition_path, consts.tmp_mnt_dir))
 
     try:
         mount(partition_path, m_dir, file_system)
     except:
-        ctx.debugger.log("Mount failed for %s " % partition_path)
+        ctx.logger.debug("Mount failed for %s " % partition_path)
         return False
 
     exist = lambda f: os.path.exists(os.path.join(m_dir,"boot/grub/", f))
@@ -268,10 +268,10 @@ def isLinuxBoot(partition_path, file_system):
         menuLst = os.path.join(m_dir,"boot/grub/menu.lst")
         grubCnf = os.path.join(m_dir,"boot/grub/grub.conf")
         if os.path.islink(menuLst):
-            ctx.debugger.log("grub.conf found on device %s" % partition_path)
+            ctx.logger.debug("grub.conf found on device %s" % partition_path)
             result = grubCnf
         else:
-            ctx.debugger.log("menu.lst found on device %s" % partition_path)
+            ctx.logger.debug("menu.lst found on device %s" % partition_path)
             result = menuLst
 
     return result
@@ -292,12 +292,12 @@ def pardusRelease(partition_path, file_system):
         os.makedirs(m_dir)
     umount_(m_dir)
 
-    ctx.debugger.log("Mounting %s to %s" % (partition_path, consts.tmp_mnt_dir))
+    ctx.logger.debug("Mounting %s to %s" % (partition_path, consts.tmp_mnt_dir))
 
     try:
         mount(partition_path, m_dir, file_system)
     except:
-        ctx.debugger.log("Mount failed for %s " % partition_path)
+        ctx.logger.debug("Mount failed for %s " % partition_path)
         return False
 
     fpath = os.path.join(m_dir, consts.pardus_release_path)
@@ -327,7 +327,7 @@ def execClear(command, argv, stdin = 0, stdout = 1, stderr = 2):
     if isinstance(stderr, str):
         stderr = open(stderr, "w")
     if stdout is not None and not isinstance(stdout, int):
-        ctx.debugger.log("RUN : %s" %([command] + argv,))
+        ctx.logger.debug("RUN : %s" %([command] + argv,))
         stdout.write("Running... %s\n" %([command] + argv,))
 
     p = os.pipe()
@@ -362,14 +362,14 @@ def execClear(command, argv, stdin = 0, stdout = 1, stderr = 2):
             break
 
     try:
-        ctx.debugger.log("OUT : %s" % log)
+        ctx.logger.debug("OUT : %s" % log)
     except Exception, e:
-        ctx.debugger.log("Debuger itself crashed yay :) %s" % e)
+        ctx.logger.debug("Debuger itself crashed yay :) %s" % e)
 
     try:
         (pid, status) = os.waitpid(childpid, 0)
     except OSError, (num, msg):
-        ctx.debugger.log("exception from waitpid: %s %s" %(num, msg))
+        ctx.logger.debug("exception from waitpid: %s %s" %(num, msg))
 
     if status is None:
         return 0
