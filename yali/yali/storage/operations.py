@@ -31,6 +31,32 @@ RESIZE_GROW = 89
 resize_strings = {RESIZE_SHRINK: "Shrink",
                   RESIZE_GROW: "Grow"}
 
+def operation_type_from_string(type_string):
+    if type_string is None:
+        return None
+
+    for (k,v) in operation_strings.items():
+        if v.lower() == type_string.lower():
+            return k
+
+    return resize_type_from_string(type_string)
+
+def operation_object_from_string(type_string):
+    if type_string is None:
+        return None
+
+    for (k,v) in object_strings.items():
+        if v.lower() == type_string.lower():
+            return k
+
+def resize_type_from_string(type_string):
+    if type_string is None:
+        return None
+
+    for (k,v) in resize_strings.items():
+        if v.lower() == type_string.lower():
+            return k
+
 class DeviceOperation(object):
     """ An operation that will be carried out in the future on a Device.
 
@@ -277,7 +303,7 @@ class OperationResizeFormat(DeviceOperation):
         self.device.format.targetSize = self.origSize
 
 class OperationMigrateFormat(DeviceOperation):
-    """ An action representing the migration of an existing filesystem. """
+    """ An operation representing the migration of an existing filesystem. """
     type = OPERATION_TYPE_MIGRATE
     obj = OPERATION_OBJECT_FORMAT
 
