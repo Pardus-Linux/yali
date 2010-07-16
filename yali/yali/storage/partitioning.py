@@ -171,7 +171,6 @@ class Chunk(object):
 
     def growRequests(self):
         """ Calculate growth amounts for requests in this chunk. """
-        cx
         ctx.logger.debug("Chunk.growRequests: %s" % self)
 
         # sort the partitions by start sector
@@ -185,7 +184,7 @@ class Chunk(object):
         while not self.done and self.pool and last_pool != self.pool:
             last_pool = self.pool    # to keep from getting stuck
             self.base = new_base
-            ctx.log.debug("%d partitions and %d (%dMB) left in chunk" %
+            ctx.logger.debug("%d partitions and %d (%dMB) left in chunk" %
                         (self.remaining, self.pool,
                          sectorsToSize(self.pool, self.sectorSize)))
             for p in self.requests:
@@ -479,7 +478,7 @@ def removeNewPartitions(disks, partitions):
         # remove empty extended so it doesn't interfere
         extended = disk.format.extendedPartition
         if extended and not disk.format.logicalPartitions:
-            ctx.log.debug("removing empty extended partition from %s" % disk.name)
+            ctx.logger.debug("removing empty extended partition from %s" % disk.name)
             disk.format.partedDisk.removePartition(extended)
 
 def addPartition(disk, free, part_type, size):
@@ -552,7 +551,6 @@ def doPartitioning(storage, exclusiveDisks=None):
             exclusiveDisks -- list of names of disks to use
 
     """
-    print "do partitioning"
     disks = storage.partitioned
     if exclusiveDisks:
         disks = [d for d in disks if d.name in exclusiveDisks]
@@ -778,10 +776,10 @@ def allocatePartitions(storage, disks, partitions, freespace):
             if best and free != best:
                 update = True
                 if _part.req_grow:
-                    ctx.log.debug("evaluating growth potential for new layout")
+                    ctx.logger.debug("evaluating growth potential for new layout")
                     new_growth = 0
                     for disk_path in disklabels.keys():
-                        ctx.log.debug("calculating growth for disk %s" % disk_path)
+                        ctx.logger.debug("calculating growth for disk %s" % disk_path)
                         # Now we check, for growable requests, which of the two
                         # free regions will allow for more growth.
 
@@ -939,7 +937,7 @@ def growPartitions(disks, partitions, free):
     ctx.logger.debug("growable partitions are %s" % [p.name for p in all_growable])
 
     for disk in disks:
-        log.debug("growing partitions on %s" % disk.name)
+        ctx.logger.debug("growing partitions on %s" % disk.name)
         sector_size = disk.format.partedDevice.sectorSize
 
         # find any extended partition on this disk
