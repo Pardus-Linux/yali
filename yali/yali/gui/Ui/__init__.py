@@ -9,9 +9,3 @@
 #
 # Please read the COPYING file.
 #
-
-import yali
-__version__ = yali.__version__
-
-
-
