@@ -17,10 +17,11 @@ _ = __trans.ugettext
 from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
-import yali.storage
 import yali.sysutils
-import yali.partitiontype as parttype
-import yali.partitionrequest as request
+#import yali.storage
+#import yali.partitiontype as parttype
+#import yali.partitionrequest as request
+
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.GUIAdditional import PartItem
 from yali.gui.Ui.rescuewidget import Ui_RescueWidget

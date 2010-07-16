@@ -26,9 +26,9 @@ from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
 # libParted
-from yali.parteddata import *
-import yali.partitionrequest as request
-import yali.partitiontype as parttype
+#from yali.parteddata import *
+#import yali.partitionrequest as request
+#import yali.partitiontype as parttype
 
 # GUI Stuff
 from yali.gui.ScreenWidget import ScreenWidget

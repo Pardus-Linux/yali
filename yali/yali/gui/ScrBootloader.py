@@ -22,7 +22,7 @@ import time
 import thread
 from os.path import basename
 
-import yali.storage
+#import yali.storage
 from yali.gui.installdata import *
 from yali.gui.GUIAdditional import DeviceItem
 from yali.gui.ScreenWidget import ScreenWidget
@@ -64,23 +64,23 @@ You can always choose another installation method if you know what you are doing
         self.ui.installFirstMBR.setChecked(True)
 
         # initialize all storage devices
-        if not yali.storage.initDevices():
-            raise GUIException, _("No storage device found.")
+        #if not yali.storage.initDevices():
+        #    raise GUIException, _("No storage device found.")
 
         # fill device list
-        for dev in yali.storage.devices:
-            DeviceItem(self.ui.device_list, dev)
+        #for dev in yali.storage.devices:
+        #    DeviceItem(self.ui.device_list, dev)
         # select the first disk by default
         self.ui.device_list.setCurrentRow(0)
         # be sure first is selected device
-        self.device = self.ui.device_list.item(0).getDevice()
+        #self.device = self.ui.device_list.item(0).getDevice()
 
-        if len(yali.storage.devices) < 1:
-            # don't show device list if we have just one disk
-            self.ui.installMBR.hide()
-            self.ui.device_list.hide()
+        #if len(yali.storage.devices) < 1:
+        #    # don't show device list if we have just one disk
+        #    self.ui.installMBR.hide()
+        #    self.ui.device_list.hide()
 
-            self.device = yali.storage.devices[0]
+        #    self.device = yali.storage.devices[0]
 
         self.connect(self.ui.device_list, SIGNAL("currentItemChanged(QListWidgetItem*,QListWidgetItem*)"),
                      self.slotDeviceChanged)

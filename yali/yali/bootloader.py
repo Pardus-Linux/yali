@@ -21,9 +21,11 @@ _ = __trans.ugettext
 from yali.exception import *
 from yali.constants import consts
 import yali.sysutils
-import yali.partitiontype as parttype
-import yali.partitionrequest as request
-from yali.partitionrequest import partrequests
+
+#import yali.partitiontype as parttype
+#import yali.partitionrequest as request
+#from yali.partitionrequest import partrequests
+
 import yali.gui.context as ctx
 from pardus.sysutils import get_kernel_option
 

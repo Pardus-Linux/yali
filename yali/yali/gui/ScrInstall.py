@@ -29,8 +29,8 @@ import yali.postinstall
 import yali.localeutils
 
 import yali.gui.context as ctx
-import yali.partitionrequest as request
 from yali.constants import consts
+#import yali.partitionrequest as request
 
 from yali.gui.descSlide import slideDesc
 from yali.gui.ScreenWidget import ScreenWidget

@@ -26,9 +26,11 @@ import yali.users
 import yali.localeutils
 import yali.postinstall
 import yali.bootloader
-import yali.storage
-import yali.partitionrequest as partrequest
-import yali.partitiontype as parttype
+
+#import yali.storage
+#import yali.partitionrequest as partrequest
+#import yali.partitiontype as parttype
+
 from os.path import basename
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.YaliDialog import InfoDialog
