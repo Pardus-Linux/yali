@@ -4,11 +4,17 @@
 
 import os
 import copy
-
 import parted
 import _ped
-from ..errors import *
+
+import yali
 from . import Format, register_device_format
+
+class DiskLabelError(yali.Error):
+    pass
+
+class InvalidDiskLabelError(DiskLabelError):
+    pass
 
 class DiskLabel(Format):
     """ Disklabel """

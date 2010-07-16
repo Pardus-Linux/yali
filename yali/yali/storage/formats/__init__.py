@@ -7,16 +7,17 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-from yali.util import notify_kernel, nodeFromName, sysfsPathByName
 import yali
+from yali.gui import context as ctx
+from yali.util import notify_kernel
 
 device_formats = {}
 
 def getFormat(type, *args, **kwargs):
-    """ Return a DeviceFormat instance based on fmt_type and args.
+    """ Return a Format instance based on fmt_type and args.
 
         Given a device format type and a set of constructor arguments,
-        return a DeviceFormat instance.
+        return a Format instance.
 
         Return None if no suitable format class is found.
 
@@ -33,7 +34,7 @@ def getFormat(type, *args, **kwargs):
             uuid -- the UUID of the (preexisting) formatted device
             exists -- whether or not the format exists on the device
     """
-    device_format = get_device_format(fmt_type)
+    device_format = get_device_format(type)
     format = None
     if device_format:
         format = device_format(*args, **kwargs)
@@ -48,7 +49,7 @@ def getFormat(type, *args, **kwargs):
 
 def register_device_format(format):
     if not issubclass(format, Format):
-        raise ValueError("arg1 must be a subclass of DeviceFormat")
+        raise ValueError("arg1 must be a subclass of Format")
 
     device_formats[format._type] = format
     ctx.logger.debug("registered device format class %s as %s" % (format.__name__, format._type))
@@ -64,9 +65,9 @@ def collect_device_formats():
         if moduleFile.endswith(".py") and moduleFile != __file__:
             module_name = moduleFile[:-3]
             try:
-                globals()[mod_name] = __import__(mod_name, globals(), locals(), [], -1)
+                globals()[module_name] = __import__(module_name, globals(), locals(), [], -1)
             except ImportError, e:
-                ctx.logger.debug("import of device format module '%s' failed" % mod_name)
+                ctx.logger.debug("import of device format module '%s' failed" % module_name)
 
 def get_device_format(type):
     """ Return an appropriate format class based on fmt_type. """
@@ -86,6 +87,19 @@ def get_device_format(type):
 
     return format
 
+default_fstypes = ("ext4", "ext3", "ext2")
+def get_default_filesystem_type(boot=None):
+    for fstype in default_fstypes:
+        try:
+            supported = get_device_format(fstype).supported
+        except AttributeError:
+            supported = None
+
+        if supported:
+            return fstype
+
+    raise FormatError("None of %s is supported by your kernel" % ",".join(fstypes))
+
 class FormatError(yali.Error):
     pass
 
@@ -100,6 +114,7 @@ class Format(object):
     _linuxNative = False                # for clearpart
     _resizable = False                  # can be resized
     _bootable = False                   # can be used as boot
+    _migratable = False                 # can be migrated
     _maxSize = 0                        # maximum size in MB
     _minSize = 0                        # minimum size in MB
     _dump = False
@@ -107,7 +122,7 @@ class Format(object):
     _hidden = False                     # hide devices with this formatting?
 
     def __init__(self, *args, **kwargs):
-        """ Create a DeviceFormat instance.
+        """ Create a Format instance.
 
             Keyword Arguments:
 
@@ -120,6 +135,7 @@ class Format(object):
         self.uuid = kwargs.get("uuid")
         self.exists = kwargs.get("exists")
         self.options = kwargs.get("options")
+        self._migrate = False
 
     def __str__(self):
         s = ("%(classname)s instance (%(id)s) --\n"
@@ -243,13 +259,12 @@ class Format(object):
             raise FormatSetupError("invalid device specification")
 
     def teardown(self, *args, **kwargs):
-        log_method_call(self, device=self.device,
-                        type=self.type, status=self.status)
+        ctx.logger.debug("Format teardown method call")
 
     @property
     def status(self):
         return (self.exists and
-                self.__class__ is not DeviceFormat and
+                self.__class__ is not Format and
                 isinstance(self.device, str) and
                 self.device and 
                 os.path.exists(self.device))
@@ -273,6 +288,15 @@ class Format(object):
     def bootable(self):
         """ Is this format type suitable for a boot partition? """
         return self._bootable
+
+    @property
+    def migratable(self):
+        """ Can formats of this type be migrated? """
+        return self._migratable
+
+    @property
+    def migrate(self):
+        return self._migrate
 
     @property
     def linuxNative(self):
@@ -309,4 +333,4 @@ class Format(object):
         """ Whether devices with this formatting should be hidden in UIs. """
         return self._hidden
 
-collect_device_format_classes()
+collect_device_formats()

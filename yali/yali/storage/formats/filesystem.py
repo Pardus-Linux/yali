@@ -4,16 +4,17 @@
 import os
 import sys
 import math
-import parted
-
+from parted import fileSystemType
+import pardus.sysutils
 import gettext
+
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 import yali
 import yali.util
+import yali.gui.context as ctx
 from . import Format, register_device_format
-from pardus.sysutils import get_kernel_option
 
 class FilesystemError(yali.Error):
     pass
@@ -46,17 +47,20 @@ class Filesystem(Format):
     _labelfs = ""                        # labeling utility
     _fsck = ""                           # fs check utility
     _fsckErrors = {}                     # fs check command error codes & msgs
+    _migratefs = ""                      # fs migration utility
     _infofs = ""                         # fs info utility
     _formatOptions = []                  # default options passed to mkfs
     _mountOptions = ["defaults"]         # default options passed to mount
     _labelOptions = []
     _checkOptions = []
+    _migrateOptions = []
     _infoOptions = []
+    _migrationTarget = None
     _existingSizeFields = []
     _fsProfileSpecifier = None           # mkfs option specifying fsprofile
 
     def __init__(self, *args, **kwargs):
-        """ Create a FileSystem instance.
+        """ Create a Filesystem instance.
 
             Keyword Args:
 
@@ -69,20 +73,22 @@ class Filesystem(Format):
                 exists -- indicates whether this is an existing filesystem
 
         """
-        if self.__class__ is FileSystem:
-            raise TypeError("FileSystem is an abstract class.")
+        if self.__class__ is Filesystem:
+            raise TypeError("Filesystem is an abstract class.")
 
         Format.__init__(self, *args, **kwargs)
-        self.label = kwargs.get("label")
-        self._minInstanceSize = None    # min size of this FileSystem instance
-        self._size = kwargs.get("size", 0)
-        self._mountpoint = kwargs.get("mountpoint")
+        self.mountpoint = kwargs.get("mountpoint")
         self.mountopts = kwargs.get("mountopts")
+        self.label = kwargs.get("label")
+        self.fsprofile = kwargs.get("fsprofile")
 
         # filesystem size does not necessarily equal device size
+        self._size = kwargs.get("size", 0)
+        self._minInstanceSize = None    # min size of this FS instance
+        self._mountpoint = None     # the current mountpoint when mounted
         if self.exists and self.supported:
             self._size = self._getExistingSize()
-            calculated = self.minSize      # force calculation of minimum size
+            foo = self.minSize      # force calculation of minimum size
 
         self._targetSize = self._size
 
@@ -215,6 +221,38 @@ class Filesystem(Format):
     def _fsckErrorMessage(self, rc):
         return _("Unknown return code: %d.") % (rc,)
 
+    def doMigrate(self, intf=None):
+        if not self.exists:
+            raise FilesystemError("filesystem has not been created")
+
+        if not self.migratable or not self.migrate:
+            return
+
+        if not os.path.exists(self.device):
+            raise FilesystemError("device does not exist")
+
+        # if journal already exists skip
+        if isys.ext2HasJournal(self.device):
+            ctx.logger.info("Skipping migration of %s, has a journal already." % self.device)
+            return
+
+        argv = self._migrateOptions[:]
+        argv.append(self.device)
+        try:
+            rc = yali.util.run_batch(self.migratefsProg,
+                                        argv,
+                                        stdout = "/dev/tty5",
+                                        stderr = "/dev/tty5")[0]
+        except Exception as e:
+            raise FilesystemMigrateError("filesystem migration failed: %s" % e, self.device)
+
+        if rc:
+            raise FilesystemMigrateError("filesystem migration failed: %s" % rc, self.device)
+
+        # the other option is to actually replace this instance with an
+        # instance of the new filesystem type.
+        self._type = self.migrationTarget
+
     def doFormat(self, *args, **kwargs):
         """ Create the filesystem.
 
@@ -270,16 +308,16 @@ class Filesystem(Format):
         """
 
         if not self.exists:
-            raise FileSystemResizeError("filesystem does not exist", self.device)
+            raise FilesystemResizeError("filesystem does not exist", self.device)
 
         if not self.resizable:
-            raise FileSystemResizeError("filesystem not resizable", self.device)
+            raise FilesystemResizeError("filesystem not resizable", self.device)
 
         if not self.resizefs:
             return
 
         if not os.path.exists(self.device):
-            raise FileSystemResizeError("device does not exist", self.device)
+            raise FilesystemResizeError("device does not exist", self.device)
 
         self.doCheck()
 
@@ -292,10 +330,10 @@ class Filesystem(Format):
         try:
             rc = yali.util.run_batch(self.resizefs, self.resizeArgs)
         except Exception as e:
-            raise FileSystemResizeError(e, self.device)
+            raise FilesystemResizeError(e, self.device)
 
         if rc:
-            raise FileSystemResizeError("resize failed: %s" % rc, self.device)
+            raise FilesystemResizeError("resize failed: %s" % rc, self.device)
 
         self.doCheck()
         self.notifyKernel()
@@ -303,27 +341,27 @@ class Filesystem(Format):
 
     def doCheck(self):
         if not self.exists:
-            raise FileSystemError("filesystem has not been created")
+            raise FilesystemError("filesystem has not been created")
 
         if not self.fsck:
             return
 
         if not os.path.exists(self.device):
-            raise FileSystemError("device does not exist")
+            raise FilesystemError("device does not exist")
 
         w = None
 
         try:
             rc = yali.util.run_batch(self.fsck, self._getCheckArgs())
         except Exception as e:
-            raise FileSystemError("filesystem check failed: %s" % e)
+            raise FilesystemError("filesystem check failed: %s" % e)
 
         if self._fsckFailed(rc):
             hdr = _("%(type)s filesystem check failure on %(device)s: ") % \
                    (self.type, self.device,)
             msg = self._fsckErrorMessage(rc)
 
-            raise FileSystemError(hdr + msg)
+            raise FilesystemError(hdr + msg)
 
     def mount(self, *args, **kwargs):
         """ Mount this filesystem.
@@ -343,13 +381,13 @@ class Filesystem(Format):
         mountpoint = kwargs.get("mountpoint")
 
         if not self.exists:
-            raise FileSystemError("filesystem has not been created")
+            raise FilesystemError("filesystem has not been created")
 
         if not mountpoint:
             mountpoint = self.mountpoint
 
         if not mountpoint:
-            raise FileSystemError("no mountpoint given")
+            raise FilesystemError("no mountpoint given")
 
         if self.status:
             return
@@ -370,30 +408,30 @@ class Filesystem(Format):
             rc = isys.mount(self.device, chrootedMountpoint, 
                             fstype=self.mountType,
                             options=options,
-                            bindMount=isinstance(self, BindFileSystem))
+                            bindMount=isinstance(self, BindFilesystem))
         except Exception as e:
-            raise FileSystemError("mount failed: %s" % e)
+            raise FilesystemError("mount failed: %s" % e)
 
         if rc:
-            raise FileSystemError("mount failed: %s" % rc)
+            raise FilesystemError("mount failed: %s" % rc)
 
         self._mountpoint = chrootedMountpoint
 
     def unmount(self):
         """ Unmount this filesystem. """
         if not self.exists:
-            raise FileSystemError("filesystem has not been created")
+            raise FilesystemError("filesystem has not been created")
 
         if not self._mountpoint:
             # not mounted
             return
 
         if not os.path.exists(self._mountpoint):
-            raise FileSystemError("mountpoint does not exist")
+            raise FilesystemError("mountpoint does not exist")
 
         rc = isys.umount(self._mountpoint, removeDir = False)
         if rc:
-            raise FileSystemError("umount failed")
+            raise FilesystemError("umount failed")
 
         self._mountpoint = None
 
@@ -406,19 +444,19 @@ class Filesystem(Format):
     def writeLabel(self, label):
         """ Create a label for this filesystem. """
         if not self.exists:
-            raise FileSystemError("filesystem has not been created")
+            raise FilesystemError("filesystem has not been created")
 
         if not self.labelfs:
             return
 
         if not os.path.exists(self.device):
-            raise FileSystemError("device does not exist")
+            raise FilesystemError("device does not exist")
 
         argv = self._getLabelArgs(label)
         rc = sysutils.run(self.labelfs, argv)
 
         if rc:
-            raise FileSystemError("label failed")
+            raise FilesystemError("label failed")
 
         self.label = label
         self.notifyKernel()
@@ -448,9 +486,18 @@ class Filesystem(Format):
         return self._labelfs
 
     @property
+    def migratefs(self):
+        """ Program used to migrate filesystems of this type. """
+        return self._migratefs
+
+    @property
     def infofs(self):
         """ Program used to get information for this filesystem type. """
         return self._infofs
+
+    @property
+    def migrationTarget(self):
+        return self._migrationTarget
 
     @property
     def utilsAvailable(self):
@@ -508,6 +555,29 @@ class Filesystem(Format):
 
     options = property(_getOptions, _setOptions)
 
+    def _isMigratable(self):
+        """ Can filesystems of this type be migrated? """
+        return bool(self._migratable and self.migratefsProg and
+                    filter(lambda d: os.access("%s/%s"
+                                               % (d, self.migratefsProg,),
+                                               os.X_OK),
+                           os.environ["PATH"].split(":")) and
+                    self.migrationTarget)
+
+    migratable = property(_isMigratable)
+
+    def _setMigrate(self, migrate):
+        if not migrate:
+            self._migrate = migrate
+            return
+
+        if self.migratable and self.exists:
+            self._migrate = migrate
+        else:
+            raise ValueError("cannot set migrate on non-migratable filesystem")
+
+    migrate = property(lambda f: f._migrate, lambda f,m: f._setMigrate(m))
+
     @property
     def type(self):
         return self._type
@@ -545,7 +615,7 @@ class Filesystem(Format):
             return False
         return self._mountpoint is not None
 
-class Ext2FileSystem(FileSystem):
+class Ext2Filesystem(Filesystem):
     """ ext2 filesystem. """
     _type = "ext2"
     _mkfs = "mke2fs"
@@ -567,6 +637,10 @@ class Ext2FileSystem(FileSystem):
     _checkOptions = ["-f", "-p", "-C", "0"]
     _dump = True
     _check = True
+    _migratable = True
+    _migrationTarget = "ext3"
+    _migratefs = "tune2fs"
+    _migrateOptions = ["-j"]
     _infofs = "dumpe2fs"
     _infoOptions = ["-h"]
     _existingSizeFields = ["Block count:", "Block size:"]
@@ -590,7 +664,7 @@ class Ext2FileSystem(FileSystem):
 
         return msg.strip()
 
-    def tuneFileSystem(self):
+    def tuneFilesystem(self):
         if not isys.ext2HasJournal(self.device):
             # only do this if there's a journal
             return
@@ -655,26 +729,29 @@ class Ext2FileSystem(FileSystem):
         argv = ["-p", self.device, "%dM" % (self.targetSize,)]
         return argv
 
-register_device_format(Ext2FileSystem)
+register_device_format(Ext2Filesystem)
 
-class Ext3FileSystem(Ext2FileSystem):
+class Ext3Filesystem(Ext2Filesystem):
     """ ext3 filesystem. """
     _type = "ext3"
     _formatOptions = ["-t", "ext3"]
+    _migrationTarget = "ext4"
+    _modules = ["ext3"]
+    _migrateOptions = ["-O", "extents"]
     partedSystem = fileSystemType["ext3"]
 
+register_device_format(Ext3Filesystem)
 
-register_device_format(Ext3FileSystem)
-
-class Ext4FileSystem(Ext3FileSystem):
+class Ext4Filesystem(Ext3Filesystem):
     """ ext4 filesystem. """
     _type = "ext4"
+    _migratable = False
     _formatOptions = ["-t", "ext4"]
     partedSystem = fileSystemType["ext4"]
 
-register_device_format(Ext4FileSystem)
+register_device_format(Ext4Filesystem)
 
-class FATFileSystem(FileSystem):
+class FATFilesystem(Filesystem):
     """ FAT filesystem. """
     _type = "vfat"
     _mkfs = "mkdosfs"
@@ -698,9 +775,9 @@ class FATFileSystem(FileSystem):
     def _fsckErrorMessage(self, rc):
         return self._fsckErrors[rc]
 
-register_device_format(FATFileSystem)
+register_device_format(FATFilesystem)
 
-class EFIFileSystem(FATFileSystem):
+class EFIFilesystem(FATFilesystem):
     _type = "efi"
     _mountType = "vfat"
     _name = "EFI System Partition"
@@ -710,15 +787,11 @@ class EFIFileSystem(FATFileSystem):
 
     @property
     def supported(self):
-        import platform
-        p = platform.getPlatform(None)
-        return (isinstance(p, platform.EFI) and
-                p.isEfi and
-                self.utilsAvailable)
+        return yali.util.isEfi() and self.utilsAvailable
 
-register_device_format(EFIFileSystem)
+register_device_format(EFIFilesystem)
 
-class BTRFileSystem(FileSystem):
+class BTRFilesystem(Filesystem):
     """ btrfs filesystem """
     _type = "btrfs"
     _mkfs = "mkfs.btrfs"
@@ -754,14 +827,14 @@ class BTRFileSystem(FileSystem):
     def supported(self):
         """ Is this filesystem a supported type? """
         supported = self._supported
-        if get_kernel_option.has_key("btrfs"):
+        if "wowbtrfs" in pardus.sysutils.get_kernel_option("yali"):
             supported = self.utilsAvailable
 
         return supported
 
-register_device_format(BTRFileSystem)
+register_device_format(BTRFilesystem)
 
-class ReiserFileSystem(FileSystem):
+class ReiserFilesystem(Filesystem):
     """ reiserfs filesystem """
     _type = "reiserfs"
     _mkfs = "mkreiserfs"
@@ -785,7 +858,7 @@ class ReiserFileSystem(FileSystem):
     def supported(self):
         """ Is this filesystem a supported type? """
         supported = self._supported
-        if get_kernel_option.has_key("reiserfs"):
+        if "reiserfs" in pardus.sysutils.get_kernel_option("yali"):
             supported = self.utilsAvailable
 
         return supported
@@ -796,10 +869,10 @@ class ReiserFileSystem(FileSystem):
         return argv
 
 
-register_device_format(ReiserFileSystem)
+register_device_format(ReiserFilesystem)
 
-class XFileSystem(FileSystem):
-    """ XFileSystem filesystem """
+class XFilesystem(Filesystem):
+    """ XFilesystem filesystem """
     _type = "xfs"
     _mkfs = "mkfs.xfs"
     _labelfs = "xfs_admin"
@@ -818,9 +891,9 @@ class XFileSystem(FileSystem):
     partedSystem = fileSystemType["xfs"]
     _maxSize = 16 * 1024 * 1024
 
-register_device_format(XFileSystem)
+register_device_format(XFilesystem)
 
-class NTFileSystem(FileSystem):
+class NTFSFilesystem(Filesystem):
     """ ntfs filesystem. """
     _type = "ntfs"
     _resizefs = "ntfsresize"
@@ -878,14 +951,14 @@ class NTFileSystem(FileSystem):
         argv = ["-ff", "-s", "%dM" % (self.targetSize,), self.device]
         return argv
 
-register_device_format(NTFileSystem)
+register_device_format(NTFSFilesystem)
 
-class NoDevFileSystem(FileSystem):
+class NoDevFilesystem(Filesystem):
     """ nodev filesystem base class """
     _type = "nodev"
 
     def __init__(self, *args, **kwargs):
-        FileSystem.__init__(self, *args, **kwargs)
+        Filesystem.__init__(self, *args, **kwargs)
         self.exists = True
         self.device = self.type
 
@@ -895,31 +968,31 @@ class NoDevFileSystem(FileSystem):
     def _getExistingSize(self):
         pass
 
-register_device_format(NoDevFileSystem)
+register_device_format(NoDevFilesystem)
 
 
-class DebugFileSystem(NoDevFileSystem):
+class DebugFilesystem(NoDevFilesystem):
     """ devpts filesystem. """
     _type = "debugfs"
     _mountOptions = ["debugfs", "defaults"]
 
-register_device_format(DebugFileSystem)
+register_device_format(DebugFilesystem)
 
-class ProcFileSystem(NoDevFileSystem):
+class ProcFilesystem(NoDevFilesystem):
     _type = "proc"
     _defaultMountOptions = ["nosuid", "noexec"]
 
-register_device_format(ProcFileSystem)
+register_device_format(ProcFilesystem)
 
 
-class SysFileSystem(NoDevFileSystem):
+class SysFilesystem(NoDevFilesystem):
     _type = "sysfs"
 
-register_device_format(SysFileSystem)
+register_device_format(SysFilesystem)
 
 
-class TmpFileSystem(NoDevFileSystem):
+class TmpFilesystem(NoDevFilesystem):
     _type = "tmpfs"
     _mountOptions = ["nodev", "nosuid", "noexec"]
 
-register_device_format(TmpFileSystem)
+register_device_format(TmpFilesystem)
