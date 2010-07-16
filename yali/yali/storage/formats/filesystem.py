@@ -74,7 +74,7 @@ class Filesystem(Format):
 
         Format.__init__(self, *args, **kwargs)
         self.label = kwargs.get("label")
-        self._minInstanceSize = None    # min size of this FS instance
+        self._minInstanceSize = None    # min size of this FileSystem instance
         self._size = kwargs.get("size", 0)
         self._mountpoint = kwargs.get("mountpoint")
         self.mountopts = kwargs.get("mountopts")
@@ -415,7 +415,7 @@ class Filesystem(Format):
             raise FileSystemError("device does not exist")
 
         argv = self._getLabelArgs(label)
-        rc = sysutils.run(self.labelfs,argv)
+        rc = sysutils.run(self.labelfs, argv)
 
         if rc:
             raise FileSystemError("label failed")
@@ -879,3 +879,47 @@ class NTFileSystem(FileSystem):
         return argv
 
 register_device_format(NTFileSystem)
+
+class NoDevFileSystem(FileSystem):
+    """ nodev filesystem base class """
+    _type = "nodev"
+
+    def __init__(self, *args, **kwargs):
+        FileSystem.__init__(self, *args, **kwargs)
+        self.exists = True
+        self.device = self.type
+
+    def _setDevice(self, devspec):
+        self._device = devspec
+
+    def _getExistingSize(self):
+        pass
+
+register_device_format(NoDevFileSystem)
+
+
+class DebugFileSystem(NoDevFileSystem):
+    """ devpts filesystem. """
+    _type = "debugfs"
+    _mountOptions = ["debugfs", "defaults"]
+
+register_device_format(DebugFileSystem)
+
+class ProcFileSystem(NoDevFileSystem):
+    _type = "proc"
+    _defaultMountOptions = ["nosuid", "noexec"]
+
+register_device_format(ProcFileSystem)
+
+
+class SysFileSystem(NoDevFileSystem):
+    _type = "sysfs"
+
+register_device_format(SysFileSystem)
+
+
+class TmpFileSystem(NoDevFileSystem):
+    _type = "tmpfs"
+    _mountOptions = ["nodev", "nosuid", "noexec"]
+
+register_device_format(TmpFileSystem)
