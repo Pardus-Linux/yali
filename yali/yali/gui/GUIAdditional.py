@@ -10,20 +10,20 @@
 # Please read the COPYING file.
 #
 
-from PyQt4 import QtGui
-from PyQt4.QtCore import *
 
+import os
 import codecs
-from os.path import join, exists
-from yali.gui.GUIException import *
-
 import gettext
+
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
+from PyQt4 import QtGui
+from PyQt4.QtCore import *
 import yali.gui.context as ctx
 from yali.postinstall import *
 from yali.exception import *
+from yali.gui.GUIException import *
 from yali.gui.YaliDialog import InfoDialog
 from yali.gui.Ui.partresize import Ui_PartResizeWidget
 from yali.gui.Ui.autopartquestion import Ui_autoPartQuestion
@@ -156,23 +156,6 @@ class AutoPartQuestionWidget(QtGui.QWidget):
         self.hide()
         ctx.mainScreen.enableNext()
 
-class PartitionItem(QtGui.QListWidgetItem):
-
-    def __init__(self, parent, _part):
-        part = _part["partition"]
-        if part.isFreespace():
-            label = _("Free Space")
-        else:
-            label = part.getFSLabel() or _("Partition %d") % part.getMinor()
-        text = _("(%s) [%s] Size : %s - Free : %s" % (part.getDevice().getName(),
-                                                      label,
-                                                      part.getSizeStr(),
-                                                      part.getSizeStr(_part["newSize"])))
-        QtGui.QListWidgetItem.__init__(self, text, parent)
-        self.part = _part
-
-    def getPartition(self):
-        return self.part
 
 class DriveItem(QtGui.QListWidgetItem):
     def __init__(self, parent, text, drive):
@@ -184,7 +167,6 @@ class DriveItem(QtGui.QListWidgetItem):
         return self._drive
 
 class DeviceTreeItem(QtGui.QTreeWidgetItem):
-    Device, MountPoint, Label, Type, Format, Size, Start, End = range(8)
     def __init__(self, parent, device=None):
         QtGui.QTreeWidgetItem.__init__(self, parent)
         self.device = device
@@ -212,11 +194,6 @@ class DeviceTreeItem(QtGui.QTreeWidgetItem):
 
     def setSize(self, size):
         self.setText(6, size)
-
-    #def setIsLeaf(self, leaf):
-    #    self.setText(5, leaf)
-
-
 
 class DeviceItem(QtGui.QListWidgetItem):
     def __init__(self, parent, dev):
@@ -327,21 +304,21 @@ class TextBrowser(QtGui.QTextBrowser):
 class Gpl(TextBrowser):
 
     def load_file(self):
-        f = join(ctx.consts.source_dir, "license/license-" + ctx.consts.lang + ".txt")
+        f = os.path.join(ctx.consts.source_dir, "license/license-" + ctx.consts.lang + ".txt")
 
-        if not exists(f):
-            f = join(ctx.consts.source_dir, "license/license-en.txt")
-        if exists(f):
+        if not os.path.exists(f):
+            f = os.path.join(ctx.consts.source_dir, "license/license-en.txt")
+        if os.path.exists(f):
             return f
         raise GUIException, _("License text could not be found.")
 
 class ReleaseNotes(TextBrowser):
 
     def load_file(self):
-        rel_path = join(ctx.consts.source_dir,"release-notes/releasenotes-" + ctx.consts.lang + ".html")
+        rel_path = os.path.join(ctx.consts.source_dir,"release-notes/releasenotes-" + ctx.consts.lang + ".html")
 
-        if not exists(rel_path):
-            rel_path = join(ctx.consts.source_dir, "release-notes/releasenotes-en.html")
-        if exists(rel_path):
+        if not os.path.exists(rel_path):
+            rel_path = os.path.join(ctx.consts.source_dir, "release-notes/releasenotes-en.html")
+        if os.path.exists(rel_path):
             return rel_path
         raise GUIException, _("Release notes could not be loaded.")
