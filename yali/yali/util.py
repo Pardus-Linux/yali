@@ -4,6 +4,8 @@ import subprocess
 import yali.context as ctx
 from pardus.diskutils import EDD
 
+EARLY_SWAP_RAM = 512 * 1024 # 512 MB
+
 class Singleton(type):
     def __init__(cls, name, bases, dict):
         super(Singleton, cls).__init__(name, bases, dict)
