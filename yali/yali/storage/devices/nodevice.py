@@ -6,7 +6,7 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-from . import Device
+from yali.storage.devices.device  import Device
 
 class NoDevice(Device):
     """ A nodev device for nodev filesystems like tmpfs. """

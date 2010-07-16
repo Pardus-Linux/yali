@@ -8,9 +8,9 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-from . import Device
-from storage.sysutils import udev_settle
 import yali
+from yali.storage.devices.device  import Device
+from yali.baseudev import udev_settle
 
 class DiskError(yali.Error):
     pass
@@ -23,7 +23,7 @@ class Disk(Device):
 
     def __init__(self, device, format=None, parents=None,
                  exists=True, size=None, major=None, minor=None,
-                 sysfsPath='', model=None, serial=None, vendor=None):                ):
+                 sysfsPath='', serial=None, model="", vendor="", bus=""):
         """ Create a Disk instance.
 
             Arguments:
@@ -44,7 +44,7 @@ class Disk(Device):
         """
         Device.__init__(self, device, format=format, size=size,
                         major=major, minor=minor, exists=exists,
-                        model=model, serial=serial, vendor=vendor,
+                        model=model, serial=serial, vendor=vendor,bus=bus,
                         sysfsPath=sysfsPath, parents=parents)
 
     def __str__(self):
@@ -70,7 +70,7 @@ class Disk(Device):
     @property
     def size(self):
         """ The disk's size in MB """
-        return super(DiskDevice, self).size
+        return super(Disk, self).size
 
     def probe(self):
         """ Probe for any missing information about this device.

@@ -10,8 +10,9 @@ __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 import yali
-from .  import Device
-from yali.storage.formats.partitiontable import types, flags
+import yali.gui.context as ctx
+from yali.util import numeric_type
+from yali.storage.devices.device import Device, devicePathToName
 
 class PartitionError(yali.Error):
     pass
@@ -23,11 +24,12 @@ class Partition(Device):
     _resizable = True
     defaultSize = 500
 
-    def __init__(self, name, format=None, size=None,
-                 maxsize=None, major=None, minor=None,
-                 bootable=None, sysfsPath='', parents=None,
-                 exists=None, partType=None, primary=False,
-                 model=None, serial=None, vendor=None):
+    def __init__(self, name, format=None,
+             size=None, grow=False, maxsize=None,
+             major=None, minor=None, bootable=None,
+             sysfsPath='', parents=None, exists=None,
+             partType=None, primary=False, weight=0):
+
         """ Create a PartitionDevice instance.
 
             Arguments:
@@ -49,10 +51,12 @@ class Partition(Device):
                 For new partitions:
 
                     partType -- primary,extended,&c (as parted constant)
+                    grow -- whether or not to grow the partition
                     maxsize -- max size for growable partitions (in MB)
                     size -- the device's size (in MB)
                     bootable -- whether the partition is bootable
                     parents -- a list of potential containing disks
+                    weight -- an initial sorting weight to assign
         """
         self.req_disks = []
         self.req_partType = None
@@ -68,9 +72,7 @@ class Partition(Device):
 
         Device.__init__(self, name, format=format, size=size,
                         major=major, minor=minor, exists=exists,
-                        model=model, serial=serial, vendor=vendor,
                         sysfsPath=sysfsPath, parents=parents)
-
         if not exists:
             # this is a request, not a partition -- it has no parents
             self.req_disks = self.parents[:]
@@ -113,6 +115,7 @@ class Partition(Device):
             self.req_partType = partType
             self.req_primary = primary
             self.req_max_size = numeric_type(maxsize)
+            self.req_grow = grow
             self.req_bootable = bootable
 
             # req_size may be manipulated in the course of partitioning
@@ -121,12 +124,14 @@ class Partition(Device):
             # req_base_size will always remain constant
             self.req_base_size = self._size
 
+            self.req_base_weight = weight
+
     def __str__(self):
-        s = StorageDevice.__str__(self)
-        s += ("  max size = %(maxsize)s  bootable = %(bootable)s\n"
+        s = Device.__str__(self)
+        s += ("  grow = %(grow)s max size = %(maxsize)s  bootable = %(bootable)s\n"
               "  part type = %(partType)s  primary = %(primary)s\n"
               "  partedPartition = %(partedPart)r  disk = %(disk)r\n" %
-              {"maxsize": self.req_max_size,
+              {"grow": self.req_grow, "maxsize": self.req_max_size,
                "bootable": self.bootable, "partType": self.partType,
                "primary": self.req_primary,
                "partedPart": self.partedPartition, "disk": self.disk})
@@ -249,6 +254,15 @@ class Partition(Device):
 
         self.partedPartition = _partition
 
+    def _getWeight(self):
+        return self.req_base_weight
+
+    def _setWeight(self, weight):
+        self.req_base_weight = weight
+
+    weight = property(lambda d: d._getWeight(),
+                      lambda d,w: d._setWeight(w))
+
     def updateSysfsPath(self):
         """ Update this device's sysfs path. """
         if not self.parents:
@@ -279,7 +293,7 @@ class Partition(Device):
 
     def _setFormat(self, format):
         """ Set the Device's format. """
-        StorageDevice._setFormat(self, format)
+        Device._setFormat(self, format)
 
     def _setBootable(self, bootable):
         """ Set the bootable flag for this partition. """

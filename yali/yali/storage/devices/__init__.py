@@ -15,23 +15,46 @@ class AbstractDevice(object):
     _id = 0
     _type = "abstract"
 
-    def __init__(self, parents):
+    def __init__(self, name, parents):
+        self._name = name
         if parents is None:
             parents = []
         elif not isinstance(parents, list):
-            raise ValueError("parents must be a list of Device instances")
-        self._parents = parents
-        self._kids = 0
-        self._id = Device._id
-        Device._id += 1
+            raise ValueError("parents must be a list of AbstractDevice instances")
+        self.parents = parents
+        self.kids = 0
+        self._id = AbstractDevice._id
+        AbstractDevice._id += 1
+
+    def __deepcopy__(self, memo):
+        """ Create a deep copy of a Device instance.
+
+            We can't do copy.deepcopy on parted objects, which is okay.
+            For these parted objects, we just do a shallow copy.
+        """
+        new = self.__class__.__new__(self.__class__)
+        memo[id(self)] = new
+        dont_copy_attrs = ('_raidSet',)
+        shallow_copy_attrs = ('_partedDevice', '_partedPartition')
+        for (attr, value) in self.__dict__.items():
+            if attr in dont_copy_attrs:
+                setattr(new, attr, value)
+            elif attr in shallow_copy_attrs:
+                setattr(new, attr, copy.copy(value))
+            else:
+                setattr(new, attr, copy.deepcopy(value, memo))
+
+        return new
 
     def __str__(self):
         s = ("%(type)s instance (%(id)s) --\n"
+             "  name = %(name)s  status = %(status)s"
              "  parents = %(parents)s\n"
              "  kids = %(kids)s\n"
-             "  id = %(device)s\n" %
+             "  id = %(dev_id)s\n" %
              {"type": self.__class__.__name__, "id": "%#x" % id(self),
-              "parents": self.parents, "kids": self.kids, "device": self.id})
+              "name": self.name, "parents": self.parents, "kids": self.kids,
+              "status": self.status, "dev_id": self.id})
         return s
 
     @property
@@ -49,14 +72,15 @@ class AbstractDevice(object):
         return self.kids == 0
 
     @property
-    def parents(self):
-        return self._parents
+    def type(self):
+        """ Device type. """
+        return self._type
 
     def addChild(self):
-        self._kids += 1
+        self.kids += 1
 
     def removeChild(self):
-        self._kids -= 1
+        self.kids -= 1
 
     def create(self):
         """ Open, or set up, a device. """
@@ -92,7 +116,7 @@ class AbstractDevice(object):
         if dep in self.parents:
             return True
 
-        if parent in self.parents:
+        for parent in self.parents:
             if parent.dependsOn(dep):
                 return True
 
@@ -107,3 +131,7 @@ class AbstractDevice(object):
                 False   the device is not open
         """
         return False
+
+    @property
+    def mediaPresent(self):
+        return True

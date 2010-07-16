@@ -1,21 +1,53 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import os
-
+import _ped
+import parted
 import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-from . import AbstractDevice
 import yali
-import yali.context as ctx
+from yali.util import numeric_type
+import yali.gui.context as ctx
+from yali.storage.udev import *
+from yali.storage.devices import AbstractDevice
+from yali.storage.formats import getFormat
 
 class DeviceError(yali.Error):
     pass
 
+class DeviceNotFoundError(yali.Error):
+    pass
+
+def devicePathToName(devicePath):
+    if devicePath.startswith("/dev/"):
+        name = devicePath[5:]
+    else:
+        name = devicePath
+
+    if name.startswith("mapper/"):
+        name = name[7:]
+
+    return name
+
+def deviceNameToDiskByPath(deviceName=None):
+    if not deviceName:
+        return ""
+
+    ret = None
+    for dev in udev_get_block_devices():
+        if udev_device_get_name(dev) == deviceName:
+            ret = udev_device_get_by_path(dev)
+            break
+
+    if ret:
+        return ret
+    raise DeviceNotFoundError(deviceName)
+
 class Device(AbstractDevice):
     _type = "device"
-    _devdir = "/dev"
+    _devDir = "/dev"
     _resizable = False
     _partitionable = False
     _isDisk = False
@@ -23,7 +55,7 @@ class Device(AbstractDevice):
 
     def __init__(self, device, parents=None, format=None,
                  exists=False, size=None, major=None, minor=None,
-                 model=None, serial=None, vendor=None, sysfsPath = ''):
+                 serial=None, model="", vendor="", bus="", sysfsPath = ''):
         """ Create a Device instance.
 
             Arguments:
@@ -39,6 +71,7 @@ class Device(AbstractDevice):
                 serial -- the ID_SERIAL_SHORT for this device
                 vendor -- the manufacturer of this Device
                 model -- manufacturer's device model string
+                bus -- the interconnect this device uses
                 sysfsPath -- sysfs device path
                 parents -- a list of required Device instances
                 format  -- a Format instance
@@ -48,7 +81,7 @@ class Device(AbstractDevice):
             parents = [parents]
 
         self.exists = exists
-        Device.__init__(self, device, parents=parents)
+        AbstractDevice.__init__(self, device, parents=parents)
 
         self.uuid = None
         self._format = None
@@ -71,7 +104,7 @@ class Device(AbstractDevice):
         self._partedDevice = None
 
     def __str__(self):
-        s = Device.__str__(self)
+        s = AbstractDevice.__str__(self)
         s += ("  uuid = %(uuid)s  format = %(format)r  size = %(size)s\n"
               "  major = %(major)s  minor = %(minor)r  exists = %(exists)s\n"
               "  sysfs path = %(sysfs)s  partedDevice = %(partedDevice)r\n"
@@ -254,10 +287,16 @@ class Device(AbstractDevice):
         if not format:
             format = getFormat(None, device=self.path, exists=self.exists)
         if self._format and self._format.status:
-            # FIXME: self.format.status doesn't mean much
             raise DeviceError("cannot replace active format", self.name)
 
         self._format = format
+
+    def _getFormat(self):
+        return self._format
+
+    format = property(lambda d: d._getFormat(),
+                      lambda d,f: d._setFormat(f),
+                      doc="The device's formatting.")
 
     def preCommitFixup(self, *args, **kwargs):
         """ Do any necessary pre-commit fixups."""
