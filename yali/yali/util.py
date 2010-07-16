@@ -1,7 +1,15 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+import os
+import resource
 import subprocess
-import yali.context as ctx
+import gettext
+
+
+__trans = gettext.translation('yali', fallback=True)
+_ = __trans.ugettext
+
+import yali.gui.context as ctx
 from pardus.diskutils import EDD
 
 EARLY_SWAP_RAM = 512 * 1024 # 512 MB
@@ -17,31 +25,50 @@ class Singleton(type):
 
         return cls.instance
 
+def numeric_type(num):
+    """ Verify that a value is given as a numeric data type.
+
+        Return the number if the type is sensible or raise ValueError
+        if not.
+    """
+    if num is None:
+        num = 0
+    elif not (isinstance(num, int) or \
+              isinstance(num, long) or \
+              isinstance(num, float)):
+        raise ValueError("value (%s) must be either a number or None" % num)
+
+    return num
+
 def get_edd_dict(devices):
     eddDevices = {}
 
+    print "in edd_dict devices:%s" % devices
+
     if not os.path.exists("/sys/firmware/edd"):
-        rc = run_batch("modprobe edd")[0]
+        rc = run_batch("modprobe", ["edd"])[0]
         if rc > 0:
-            ctx.debugger.error("Inserting EDD Module failed !")
-            return eddDevices
-        else:
-            edd = EDD()
-            edds = edd.list_edd_signatures()
-            mbrs = edd.list_mbr_signatures()
-
-            for number, signature in edds.items():
-                if mbrs.has_key(signature):
-                    if mbrs[signature] in devices:
-                        eddDevices[mbrs[signature]] = number
+            ctx.loggererror("Inserting EDD Module failed !")
             return eddDevices
 
-def run_batch(cmd):
+    edd = EDD()
+    edds = edd.list_edd_signatures()
+    mbrs = edd.list_mbr_signatures()
+
+    for number, signature in edds.items():
+        if mbrs.has_key(signature):
+            if mbrs[signature] in devices:
+                eddDevices[os.path.basename(mbrs[signature])] = number
+    print "EDD_DICT:%s" % eddDevices
+    return eddDevices
+
+def run_batch(cmd, argv):
     """Run command and report return value and output."""
-    ctx.ui.info(_('Running ') + cmd, verbose=True)
+    ctx.logger.info(_('Running %s') % " ".join(cmd))
+    cmd = "%s %s" % (cmd, ' '.join(argv))
     p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
-    ctx.ui.debug(_('return value for "%s" is %s') % (cmd, p.returncode))
+    ctx.logger.debug(_('return value for "%s" is %s') % (cmd, p.returncode))
     return (p.returncode, out, err)
 
 
@@ -50,7 +77,7 @@ def run_batch(cmd):
 # values instead. but this is good enough :)
 def run_logged(cmd):
     """Run command and get the return value."""
-    ctx.ui.info(_('Running ') + cmd, verbose=True)
+    ctx.logger.info(_('Running %s') % " ".join(cmd))
     if ctx.stdout:
         stdout = ctx.stdout
     else:
@@ -68,7 +95,7 @@ def run_logged(cmd):
 
     p = subprocess.Popen(cmd, shell=True, stdout=stdout, stderr=stderr)
     out, err = p.communicate()
-    ctx.ui.debug(_('return value for "%s" is %s') % (cmd, p.returncode))
+    ctx.logger.debug(_('return value for "%s" is %s') % (" ".join(cmd), p.returncode))
 
     return p.returncode
 
@@ -115,7 +142,7 @@ def memInstalled():
 
     return int(mem)
 
-def swapSuggestion(quiet=0):
+def swap_suggestion(quiet=0):
     mem = memInstalled()/1024
     mem = ((mem/16)+1)*16
     if not quiet:
@@ -136,3 +163,134 @@ def swapSuggestion(quiet=0):
         ctx.logger.info("Swap attempt of %sM to %sM", minswap, maxswap)
 
     return (minswap, maxswap)
+
+def notify_kernel(path, action="change"):
+    """ Signal the kernel that the specified device has changed. """
+    ctx.logger.debug("notifying kernel of '%s' event on device %s" % (action, path))
+    path = os.path.join(path, "uevent")
+    if not path.startswith("/sys/") or not os.access(path, os.W_OK):
+        ctx.logger.debug("sysfs path '%s' invalid" % path)
+        raise ValueError("invalid sysfs path")
+
+    f = open(path, "a")
+    f.write("%s\n" % action)
+    f.close()
+
+def name_from_dm_node(node):
+    name = block.getNameFromDmNode(dm_node)
+    if name is not None:
+        return name
+
+    st = os.stat("/dev/%s" % dm_node)
+    major = os.major(st.st_rdev)
+    minor = os.minor(st.st_rdev)
+    name = run_batch("dmsetup", ["info", "--columns",
+                      "--noheadings", "-o", "name",
+                      "-j", str(major), "-m", str(minor)])[1]
+    ctx.logger.debug("name_from_dm(%s) returning '%s'" % (node, name.strip()))
+    return name.strip()
+
+def dm_node_from_name(name):
+    dm_node = block.getDmNodeFromName(map_name)
+    if dm_node is not None:
+        return dm_node
+
+    devnum = run_batch("dmsetup", ["info", "--columns",
+                        "--noheadings", "-o", "devno",name])[1]
+    (major, sep, minor) = devnum.strip().partition(":")
+    if not sep:
+        raise DMError("dm device does not exist")
+
+    dm_node = "dm-%d" % int(minor)
+    ctx.logger.debug("dm_node_from_name(%s) returning '%s'" % (name, dm_node))
+    return dm_node
+
+def get_sysfs_path_by_name(dev_name, class_name="block"):
+    dev_name = os.path.basename(dev_name)
+    sysfs_class_dir = "/sys/class/%s" % class_name
+    dev_path = os.path.join(sysfs_class_dir, dev_name)
+    if os.path.exists(dev_path):
+        return dev_path
+
+def mkswap(device, label=''):
+    # We use -f to force since mkswap tends to refuse creation on lvs with
+    # a message about erasing bootbits sectors on whole disks. Bah.
+    argv = ["-f"]
+    if label:
+        argv.extend(["-L", label])
+    argv.append(device)
+
+    rc = yali.util.run_batch("mkswap", argv)[0]
+
+    if rc:
+        raise SwapError("mkswap failed for '%s'" % device)
+
+def swapon(device, priority=None):
+    pagesize = resource.getpagesize()
+    buf = None
+    sig = None
+
+    if pagesize > 2048:
+        num = pagesize
+    else:
+        num = 2048
+
+    try:
+        fd = os.open(device, os.O_RDONLY)
+        buf = os.read(fd, num)
+    except OSError:
+        pass
+    finally:
+        try:
+            os.close(fd)
+        except (OSError, UnboundLocalError):
+            pass
+
+    if buf is not None and len(buf) == pagesize:
+        sig = buf[pagesize - 10:]
+        if sig == 'SWAP-SPACE':
+            raise OldSwapError
+        if sig == 'S1SUSPEND\x00' or sig == 'S2SUSPEND\x00':
+            raise SuspendError
+
+    if sig != 'SWAPSPACE2':
+        raise UnknownSwapError
+
+    argv = []
+    if isinstance(priority, int) and 0 <= priority <= 32767:
+        argv.extend(["-p", "%d" % priority])
+    argv.append(device)
+    rc = yali.util.run_batch("swapon",argv)[0]
+
+    if rc:
+        raise SwapError("swapon failed for '%s'" % device)
+
+def swapoff(device):
+    rc = yali.util.run_batch("swapoff", [device])[0]
+
+    if rc:
+        raise SwapError("swapoff failed for '%s'" % device)
+
+def swapstatus(device):
+    alt_dev = None
+    if device.startswith("/dev/mapper/"):
+        # get the real device node for device-mapper devices since the ones
+        # with meaningful names are just symlinks
+        try:
+            alt_dev = "/dev/%s" % dm_node_from_name(device.split("/")[-1])
+        except DMError:
+            alt_dev = None
+
+    lines = open("/proc/swaps").readlines()
+    status = False
+    for line in lines:
+        if not line.strip():
+            continue
+
+        swap_dev = line.split()[0]
+        if swap_dev in [device, alt_dev]:
+            status = True
+            break
+
+    return status
+
