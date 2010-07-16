@@ -9,30 +9,126 @@
 #
 # Please read the COPYING file.
 #
-
+import math
 import gettext
+
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
-import time
-import yali.storage
-import yali.partitionrequest as request
-import yali.partitiontype as parttype
-import yali.parteddata as parteddata
-
+import yali.gui.context as ctx
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.autopartwidget import Ui_AutoPartWidget
-from yali.gui.GUIAdditional import AutoPartQuestionWidget
-from yali.gui.GUIException import *
-import yali.gui.context as ctx
+from yali.gui.Ui.partitionshrinkwidget import Ui_PartShrinkWidget
+from yali.storage.partitioning import CLEARPART_TYPE_ALL, CLEARPART_TYPE_LINUX, CLEARPART_TYPE_NONE
+from yali.storage.operations import OperationResizeDevice, OperationResizeFormat
 
-from yali.gui.installdata import *
+class ShrinkWidget(QtGui.QWidget):
+    def __init__(self, parent):
+        QtGui.QWidget.__init__(self, ctx.mainScreen)
+        self.parent = parent
+        self.ui = Ui_PartShrinkWidget()
+        self.ui.setupUi(self)
+        self.setStyleSheet("""
+                QFrame#mainFrame {
+                    background-image: url(:/gui/pics/transBlack.png);
+                    border: 1px solid #BBB;
+                    border-radius:8px;
+                }
+                QWidget#Ui_PartShrinkWidget {
+                    background-image: url(:/gui/pics/trans.png);
+                }
+        """)
+        self.operations = []
+        QObject.connect(self.ui.partitions, SIGNAL("currentRowChanged(int)"), self.updateSpin)
+        self.connect(self.ui.shrinkButton, SIGNAL("clicked()"), self.slotShrink)
+        self.connect(self.ui.cancelButton, SIGNAL("clicked()"), self.hide)
+        self.fillPartitions()
+        if self.ui.partitions.count() == 0:
+            self.hide()
+            self.parent.intf.messageWindow(_("Error"),
+                                           _("No partitions are available to resize.  Only "
+                                             "physical partitions with specific filesystems can be resized."),
+                                             type="warning", customIcon="error")
 
-##
-# Partition Choice Widget
+    def fillPartitions(self):
+        biggest = -1
+        i = -1
+        for partition in self.parent.storage.partitions:
+            if not partition.exists:
+                continue
+
+            if partition.resizable and partition.format.resizable:
+                entry = PartitionItem(self.ui.partitions, partition)
+                print "size:%s minsize:%s currentsize%s" % (partition.size, partition.format.minSize, partition.format.currentSize )
+
+                i += 1
+                if biggest == -1:
+                    biggest = i
+                else:
+                    current = self.ui.partitions.item(biggest).partition
+                    if partition.format.targetSize > current.format.targetSize:
+                        biggest = i
+
+        if biggest > -1:
+            self.ui.partitions.setCurrentRow(biggest)
+
+    def updateSpin(self, index):
+        request = self.ui.partitions.item(index).partition
+        reqlower = long(math.ceil(request.format.minSize))
+        requpper = long(math.floor(request.format.currentSize))
+        self.ui.shrinkMB.setMinimum(max(1, reqlower))
+        self.ui.shrinkMB.setMaximum(requpper)
+        self.ui.shrinkMB.setValue(reqlower)
+        self.ui.shrinkMBSlider.setMinimum(max(1, reqlower))
+        self.ui.shrinkMBSlider.setMaximum(requpper)
+        self.ui.shrinkMBSlider.setValue(reqlower)
+
+    def slotShrink(self):
+        self.hide()
+        runResize = True
+        while runResize:
+           index = self.ui.partitions.currentRow()
+           request = self.ui.partitions.item(index).partition
+           newsize = self.ui.shrinkMB.value()
+           try:
+               self.operations.append(OperationResizeFormat(request, newsize))
+           except ValueError as e:
+               self.parent.intf.messageWindow(_("Resize FileSystem Error"),
+                                              _("%(device)s: %(msg)s") %
+                                              {'device': request.format.device, 'msg': e.message},
+                                              type="warning", customIcon="error")
+               continue
+
+           try:
+               self.operations.append(OperationResizeDevice(request, newsize))
+           except ValueError as e:
+               self.parent.intf.messageWindow(_("Resize Device Error"),
+                                              _("%(name)s: %(msg)s") %
+                                               {'name': request.name, 'msg': e.message},
+                                               type="warning", customIcon="error")
+               continue
+
+           runResize = False
+
+        self.hide()
+
+class DriveItem(QtGui.QListWidgetItem):
+    def __init__(self, parent, drive):
+        text = u"%s on %s (%s) MB" % (drive.model, drive.name, str(int(drive.size)))
+        QtGui.QListWidgetItem.__init__(self, text, parent)
+        self.drive = drive
+        self.setCheckState(Qt.Unchecked)
+
+class PartitionItem(QtGui.QListWidgetItem):
+
+    def __init__(self, parent, partition):
+        text = u"%s (%s, %d MB)" % (partition.name, partition.format.name, math.floor(partition.format.size))
+        QtGui.QListWidgetItem.__init__(self, text, parent)
+        self.partition = partition
+
 class Widget(QtGui.QWidget, ScreenWidget):
     title = _("Select Partitioning Method")
     icon = "iconPartition"
@@ -55,201 +151,101 @@ Pardus create a new partition for installation.</p>
         QtGui.QWidget.__init__(self,None)
         self.ui = Ui_AutoPartWidget()
         self.ui.setupUi(self)
+        self.storage = ctx.storage
+        self.intf = ctx.yali
 
-        self.device = None
-        self.enable_next = False
-        self.isAutoResizeAvail = False
-        self.lastChoice = self.ui.accept_auto_1
+        self.connect(self.ui.useAllSpace, SIGNAL("toggled(bool)"), self.typeChanged)
+        self.connect(self.ui.replaceExistingLinux, SIGNAL("toggled(bool)"), self.typeChanged)
+        self.connect(self.ui.shrinkCurrent, SIGNAL("toggled(bool)"), self.typeChanged)
+        self.connect(self.ui.useFreeSpace, SIGNAL("toggled(bool)"), self.typeChanged)
+        self.connect(self.ui.createCustom, SIGNAL("toggled(bool)"), self.typeChanged)
+        #self.connect(self.ui.review, SIGNAL("stateChanged(int) "), self.typeChanged)
+        #self.connect(self.ui.drives,   SIGNAL("currentItemChanged(QListWidgetItem *, QListWidgetItem * )"),self.slotDeviceChanged)
+        self.ui.drives.hide()
+        self.ui.drivesLabel.hide()
 
-        # initialize all storage devices
-        if not yali.storage.initDevices():
-            raise GUIException, _("No storage device found.")
+    def typeChanged(self, state):
+        if self.sender() != self.ui.createCustom:
+            self.ui.review.setEnabled(True)
+        else:
+            self.ui.review.setEnabled(False)
 
-        # fill device list
-        for dev in yali.storage.devices:
-            if dev.getTotalMB() >= ctx.consts.min_root_size:
-                DeviceItem(self.ui.device_list, dev)
+        if state:
+            ctx.mainScreen.enableNext()
 
-        if not self.ui.device_list.count():
-            raise YaliExceptionInfo, _("None of the storage devices is larger than %s which is the minimum space requirement for Pardus installation." % ctx.consts.min_root_size)
+    def setPartitioningType(self):
+        if self.storage.clearPartType is None or self.storage.clearPartType == CLEARPART_TYPE_LINUX:
+            self.ui.replaceExistingLinux.toggle()
+        elif self.storage.clearPartType == CLEARPART_TYPE_NONE:
+            self.ui.useFreeSpace.togg()
+        elif self.storage.clearPartType == CLEARPART_TYPE_ALL:
+            self.ui.useAllSpace.toggle()
 
-        self.connect(self.ui.accept_auto_1, SIGNAL("toggled(bool)"),self.slotSelectAutoUseAvail)
-        self.connect(self.ui.accept_auto_2, SIGNAL("toggled(bool)"),self.slotSelectAutoEraseAll)
-        self.connect(self.ui.manual,        SIGNAL("clicked()"),self.slotSelectManual)
-        self.connect(self.ui.manual,        SIGNAL("toggled(bool)"),self.slotToggleManual)
-        self.connect(self.ui.accept_auto,   SIGNAL("clicked()"),self.slotSelectAuto)
-        self.connect(self.ui.device_list,   SIGNAL("currentItemChanged(QListWidgetItem *, QListWidgetItem * )"),self.slotDeviceChanged)
+    def fillDrives(self):
+        disks = filter(lambda d: not d.format.hidden, self.storage.disks)
+        self.ui.drives.clear()
 
-    def fillDeviceList(self, limit=False):
-        self.ui.device_list.clear()
-
-        def _in(_list, _item):
-            for item in _list:
-                if item.getName() == _item.getName():
-                    return True
-            return False
-
-        # fill device list
-        for dev in yali.storage.devices:
-            if dev.getTotalMB() >= ctx.consts.min_root_size:
-                if limit:
-                    if _in(self.freeSpaceDisks, dev):
-                        DeviceItem(self.ui.device_list, dev, forceToFirst = True)
-                    elif _in(self.resizableDisks, dev):
-                        DeviceItem(self.ui.device_list, dev)
-                else:
-                    DeviceItem(self.ui.device_list, dev)
+        for disk in disks:
+            if disk.size >= ctx.consts.min_root_size:
+                DriveItem(self.ui.drives, disk)
 
         # select the first disk by default
-        self.ui.device_list.setCurrentRow(0)
+        self.ui.drives.setCurrentRow(0)
 
     def shown(self):
-
-        ctx.partrequests.remove_all()
-
-        # scan partitions for resizing
-        self.toggleAll()
-        ctx.yali.scanPartitions(self)
-        self.toggleAll(True)
-        self.fillDeviceList(self.ui.accept_auto_1.isChecked())
-
-        self.arp = []
-        self.autoPartPartition = None
-
-        for partition in self.freeSpacePartitions:
-            if partition["newSize"] >= ctx.consts.min_root_size:
-                self.arp.append(partition)
-        for partition in self.resizablePartitions:
-            if partition["newSize"] / 2 >= ctx.consts.min_root_size:
-                self.arp.append(partition)
-
-        if len(self.arp) == 0:
-            self.isAutoResizeAvail = False
-            self.ui.accept_auto_1.setEnabled(self.isAutoResizeAvail)
-            self.ui.accept_auto_2.toggle()
-        elif len(self.arp) >= 1:
-            self.isAutoResizeAvail = True
-            self.autoPartPartition = self.arp[0]
-            self.ui.accept_auto_1.toggle()
-
-        ctx.mainScreen.disableNext()
-        if ctx.installData.autoPartMethod == methodUseAvail:
-            self.ui.accept_auto_1.toggle()
-        if ctx.installData.autoPartMethod == methodEraseAll:
-            self.ui.accept_auto_2.toggle()
-        if ctx.installData.autoPartMethod == methodManual:
-            self.slotSelectManual()
-
-        self.update()
-
-    def execute(self):
-        ctx.installData.autoPartDev = None
-        _tmp = []
-        if len(self.arp) > 1:
-            for part in self.arp:
-                if part["partition"].getDevice().getPath() == self.device.getPath():
-                    self.autoPartPartition = part
-                    _tmp.append(part)
-        if self.ui.accept_auto_1.isChecked() or self.ui.accept_auto_2.isChecked():
-            if self.ui.accept_auto_1.isChecked() and len(_tmp) > 1:
-                question = AutoPartQuestionWidget(self, _tmp)
-                question.show()
-                ctx.mainScreen.moveInc = 0
-            else:
-                self.execute_()
+        if self.storage.checkNoDisks(self.intf):
+            raise GUIException, _("No storage device found.")
         else:
-            ctx.installData.autoPartMethod = methodManual
-        ctx.selectedDisk = self.ui.device_list.currentRow()
-        return True
+            self.fillDrives()
+            self.setPartitioningType()
 
-    def execute_(self, move=False):
-        ctx.installData.autoPartDev = self.device
-        ctx.installData.autoPartPartition = self.autoPartPartition
-        ctx.autoInstall = True
-        ctx.debugger.log("Automatic partitioning selected")
-        ctx.debugger.log("Trying to use %s for automatic partitioning.." % self.device.getPath())
-        if self.autoPartPartition:
-            ctx.debugger.log("Trying to use %s for automatic partitioning.." % self.autoPartPartition["partition"].getPath())
+    def checkSelectedDisk(self):
+        clearDisks = []
+        for index in range(self.ui.drives.count()):
+            if self.ui.drives.item(index).checkState() == Qt.Checked:
+                clearDisks.append(self.ui.drives.item(index).drive)
 
-        # We pass the Manual Partitioning screen
-        ctx.mainScreen.moveInc = 2
-        if move:
-            ctx.mainScreen.slotNext(dryRun=True)
-
-    def slotDeviceChanged(self, n, o):
-        if n:
-            self.device = n.getDevice()
-            ctx.debugger.log("Install device selected as %s" % self.device.getPath())
-
-    def slotSelectAutoEraseAll(self, state):
-        ctx.installData.autoPartMethod = methodEraseAll
-        self.fillDeviceList()
-        self.enable_next = state
-        self.device = self.ui.device_list.currentItem().getDevice()
-        self.lastChoice = self.ui.accept_auto_2
-        self.update()
-
-    def slotSelectAutoUseAvail(self, state):
-        ctx.installData.autoPartMethod = methodUseAvail
-        self.fillDeviceList(state)
-        self.enable_next = state
-        self.device = self.ui.device_list.currentItem().getDevice()
-        self.lastChoice = self.ui.accept_auto_1
-        self.update()
-
-    def slotSelectAuto(self):
-        self.ui.accept_auto.setChecked(True)
-        self.ui.manual.setChecked(False)
-        self.setAutoExclusives()
-        self.lastChoice.setChecked(True)
-
-    def slotSelectManual(self):
-        self.ui.manual.setChecked(True)
-        self.ui.accept_auto.setChecked(False)
-        self.setAutoExclusives(False)
-        ctx.installData.autoPartMethod = methodManual
-        self.enable_next = True
-        self.update()
-
-    def slotToggleManual(self):
-        self.ui.accept_auto_1.setChecked(False)
-        self.ui.accept_auto_2.setChecked(False)
-
-    def setAutoExclusives(self, val=True):
-        self.ui.accept_auto_1.setEnabled(self.isAutoResizeAvail)
-        self.ui.accept_auto_1.setAutoExclusive(val)
-        self.ui.accept_auto_2.setAutoExclusive(val)
-        if not val:
-            self.slotToggleManual()
-
-    def update(self):
-        if self.ui.manual.isChecked():
-            self.enable_next = True
-            self.ui.accept_auto_1.setEnabled(False)
-            self.ui.accept_auto_2.setEnabled(False)
-        if self.enable_next:
-            ctx.mainScreen.enableNext()
-        else:
+        if len(clearDisks) == 0:
+            self.intf.messageWindow(_("Error"),
+                                    _("You must select at least one "
+                                      "drive to be used for installation."), customIcon="error")
             ctx.mainScreen.disableNext()
 
-    def toggleAll(self, state=False):
-        widgets = ["manual", "accept_auto", "accept_auto_1", "accept_auto_2"]
-        for widget in widgets:
-            getattr(self.ui, widget).setEnabled(state)
-        ctx.mainScreen.processEvents()
+        clearDisks.sort(self.storage.compareDisks)
+        self.storage.clearPartDisks = clearDisks
 
-class DeviceItem(QtGui.QListWidgetItem):
-    def __init__(self, parent, dev, forceToFirst=False):
-        text = u"%s on %s (%s)" % (dev.getModel(),
-                                   dev.getPath(),
-                                   dev.getSizeStr())
-        QtGui.QListWidgetItem.__init__(self, text, None)
-        self._dev = dev
-        if forceToFirst:
-            parent.insertItem(0, self)
+    def execute(self):
+        #self.checkSelectedDisk()
+        self._execute()
+        return True
+
+    def _execute(self):
+
+        if self.ui.createCustom.isChecked():
+            # We pass the Manual Partitioning screen
+            ctx.mainScreen.moveInc = 2
+            self.storage.clearPartType = CLEARPART_TYPE_NONE
         else:
-            parent.addItem(self)
+            if self.ui.shrinkCurrent.isChecked():
+                shrinkwidget = ShrinkWidget(self)
+                shrinkwidget.show()
+                if shrinkwidget.operations:
+                    for operation in operations:
+                        self.storage.addOperation(operation)
+                    ctx.mainScreen.enableNext()
+                else:
+                    ctx.mainScreen.disableNext()
+                self.storage.clearPartType = CLEARPART_TYPE_NONE
+            elif self.ui.useAllSpace.isChecked():
+                self.storage.clearPartType = CLEARPART_TYPE_ALL
+            elif self.ui.replaceExistingLinux.isChecked():
+                self.storage.clearPartType = CLEARPART_TYPE_LINUX
+            elif self.ui.useFreeSpace.isChecked():
+                self.storage.clearPartType = CLEARPART_TYPE_NONE
 
-    def getDevice(self):
-        return self._dev
+            self.storage.doAutoPart = True
 
+            if self.ui.review.isChecked():
+                ctx.mainScreen.moveInc = 2
+            else:
+                ctx.mainScreen.moveInc = 0
