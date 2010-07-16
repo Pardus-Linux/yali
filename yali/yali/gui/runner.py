@@ -24,11 +24,12 @@ import yali.installer
 import yali.sysutils
 import yali.localedata
 import yali.gui.context as ctx
+from yali.gui.debugger import DebuggerAspect
 from yali.gui.YaliDialog import Dialog
 from yali.gui.Ui.exception import Ui_Exception
 
-from yali.gui.debugger import Debugger
-from yali.gui.debugger import DebuggerAspect
+#from yali.gui.logger import Debugger
+#from yali.gui.logger import DebuggerAspect
 
 # mainScreen
 import YaliWindow
@@ -75,15 +76,16 @@ class Runner:
 
         # Creating the installer
         ctx.yali = yali.installer.Yali(install_type, install_plugin)
-
+        ctx.storage = yali.storage.Storage()
+        ctx.storage.reset()
         # These shorcuts for developers :)
         prevScreenShortCut = QtGui.QShortcut(QtGui.QKeySequence(Qt.SHIFT + Qt.Key_F1),self._window)
         nextScreenShortCut = QtGui.QShortcut(QtGui.QKeySequence(Qt.SHIFT + Qt.Key_F2),self._window)
         QObject.connect(prevScreenShortCut, SIGNAL("activated()"), self._window.slotBack)
         QObject.connect(nextScreenShortCut, SIGNAL("activated()"), self._window.slotNext)
 
-        # visual debugger
-        ctx.debugger = Debugger()
+        # logger aspect
+        ctx.aspect = DebuggerAspect(ctx.logger)
 
         # check boot flags
         # visual debug mode
@@ -91,13 +93,13 @@ class Runner:
             ctx.debugEnabled = True
 
         # Let start
-        ctx.debugger.log("Yali has been started.")
-        ctx.debugger.log("System language is '%s'" % ctx.consts.lang)
-        ctx.debugger.log("Install type is %d" % ctx.yali.install_type)
-        ctx.debugger.log("Kernel Command Line : %s" % file("/proc/cmdline","r").read())
+        ctx.logger.debug("Yali has been started.")
+        ctx.logger.debug("System language is '%s'" % ctx.consts.lang)
+        ctx.logger.debug("Install type is %d" % ctx.yali.install_type)
+        ctx.logger.debug("Kernel Command Line : %s" % file("/proc/cmdline","r").read())
 
         # VBox utils
-        ctx.debugger.log("Starting VirtualBox tools..")
+        ctx.logger.debug("Starting VirtualBox tools..")
         yali.sysutils.run("VBoxClient --autoresize")
         yali.sysutils.run("VBoxClient --clipboard")
 
@@ -160,7 +162,7 @@ def showException(ex_type, tb):
     if ex_type in (yali.exception_fatal, yali.exception_pisi):
         closeButton = False
 
-    ctx.debugger.log(tb)
+    ctx.logger.debug(tb)
     d = Dialog(title, ExceptionWidget(tb, not closeButton), None, closeButton, icon="error")
     d.resize(300,160)
     d.exec_()
