@@ -1,5 +1,10 @@
 <RCC>
   <qresource prefix="/">
+    <file>gui/pics/partscheme-all.png</file>
+    <file>gui/pics/partscheme-custom.png</file>
+    <file>gui/pics/partscheme-freespace.png</file>
+    <file>gui/pics/partscheme-replace.png</file>
+    <file>gui/pics/partscheme-shrink.png</file>
     <file>images/system-reboot.png</file>
     <file>images/system-shutdown.png</file>
     <file>images/system-yali-reboot.png</file>
