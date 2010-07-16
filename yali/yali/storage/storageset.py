@@ -5,6 +5,8 @@ from devices import *
 from devicetree import DeviceTree
 
 class StorageSet(object):
+    _bootFilesystemTypes = ["ext4", "ext3", "ext2", "vfat", "reiserfs", "xfs"]
+
     def __init__(self, devicetree, rootPath):
         self.devicetree = devicetree
         self.rootpath = rootpath
@@ -49,6 +51,11 @@ class StorageSet(object):
                                                      device="tmpfs",
                                                      mountpoint="/dev/shm"))
         return self._devshm
+
+    @property
+    def bootFilesystemTypes(self):
+        """Return a list of all valid filesystem types for the boot partition."""
+        return self._bootFilesystemTypes
 
     @property
     def mountpoints(self):
@@ -289,6 +296,40 @@ class StorageSet(object):
         dev.format.create()
         dev.format.setup()
         self.devicetree._addDevice(dev)
+
+    def checkBootRequest(self, request):
+        """Perform an architecture-specific check on the boot device.  Not all
+           platforms may need to do any checks.  Returns a list of errors if
+           there is a problem, or [] otherwise."""
+        errors = []
+
+        if not request:
+            return [_("You have not created a bootable partition.")]
+
+        # Make sure /boot is on a supported FS type.  This prevents crazy
+        # things like boot on vfat.
+        if not request.format.bootable or \
+           (getattr(request.format, "mountpoint", None) == "/boot" and
+            request.format.type not in self.bootFilesystemTypes):
+            errors.append(_("Bootable partitions cannot be on an %s filesystem.") % request.format.type)
+
+        return errors
+
+    @property
+    def bootDevice(self):
+        def _mountDict(self):
+            """Return a dictionary mapping mount points to devices."""
+            ret = {}
+            for device in [d for d in self.devices if d.format.mountable]:
+                ret[device.format.mountpoint] = device
+
+            return ret
+
+        mountDict = self._mountDict()
+        if yali.util.isEfi():
+            return mountDict.get("/boot/efi")
+        else:
+            return mountDict.get("/boot", mntDict.get("/"))
 
     @property
     def rootDevice(self):
