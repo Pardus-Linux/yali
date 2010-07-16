@@ -105,17 +105,17 @@ class DebuggerAspect:
     __metaclass__ = MetaAspect
     name = "DebugAspect"
 
-    def __init__(self, out ):
-        self.out = out
+    def __init__(self, logger ):
+        self.logger = logger
 
     def before(self, wobj, data, *args, **kwargs):
         met_name = data['original_method_name']
         class_ = str(data['__class__'])[8:-2]
         fun_str = "%s%s from %s" % (met_name, args, class_)
-        self.out.log("call, %s" % fun_str,1,+1)
+        self.logger.debug("call, %s" % fun_str,1,+1)
 
     def after(self, wobj, data, *args, **kwargs):
         met_name = data['original_method_name']
         fun_str = "%s%s" % (met_name, args)
-        self.out.log("left, %s" % fun_str,1,-1)
+        self.logger.debug("left, %s" % fun_str,1,-1)
 
