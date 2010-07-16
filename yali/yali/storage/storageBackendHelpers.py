@@ -271,3 +271,10 @@ def queryNoFormatPreExisting(intf):
             customButtons=[_("Modify Partition"), _("Do Not Format")],
                             customIcon="warning")
     return rc
+
+def doUIRAIDLVMChecks(format, req_disks, storage):
+    if format.type in ["lvmpv", "mdmember", "swap"]:
+        if len(storage.partitioned) > 1 and len(req_disks) != 1:
+            return (_("Partitions of type '%s' must be constrained to "
+                      "a single drive.  To do this, select the "
+                      "drive in the 'Allowable Drives' checklist.") % format.name)
