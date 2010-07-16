@@ -91,7 +91,7 @@ def isX86(bits=None):
     #     i*86
     #     x86_64
     if bits is None:
-        if (arch.startswith('i') and arch.endswith('86')) or or arch == 'x86_64':
+        if (arch.startswith('i') and arch.endswith('86')) or arch == 'x86_64':
             return True
     elif bits == 32:
         if arch.startswith('i') and arch.endswith('86'):

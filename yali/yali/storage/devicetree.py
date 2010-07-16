@@ -31,10 +31,10 @@ class DeviceTree(object):
             return True
 
     def __addDevice(self, device):
-    """ Add a device to the tree.
+        """ Add a device to the tree.
 
-        Raise ValueError if the device's identifier is already in the list.
-    """
+            Raise ValueError if the device's identifier is already in the list.
+        """
         if device.path in [d.path for d in self._devices] and \
             raise ValueError("device is already in tree")
 
