@@ -220,10 +220,10 @@ Pardus create a new partition for installation.</p>
         return True
 
     def _execute(self):
-
+        move = 0
         if self.ui.createCustom.isChecked():
             # We pass the Manual Partitioning screen
-            ctx.mainScreen.moveInc = 2
+            ctx.mainScreen.moveInc = 1
             self.storage.clearPartType = CLEARPART_TYPE_NONE
         else:
             if self.ui.shrinkCurrent.isChecked():
@@ -232,10 +232,10 @@ Pardus create a new partition for installation.</p>
                 if shrinkwidget.operations:
                     for operation in operations:
                         self.storage.addOperation(operation)
-                    ctx.mainScreen.enableNext()
+                    move = 2
+                    self.storage.clearPartType = CLEARPART_TYPE_NONE
                 else:
-                    ctx.mainScreen.disableNext()
-                self.storage.clearPartType = CLEARPART_TYPE_NONE
+                    move = 0
             elif self.ui.useAllSpace.isChecked():
                 self.storage.clearPartType = CLEARPART_TYPE_ALL
             elif self.ui.replaceExistingLinux.isChecked():
@@ -246,6 +246,8 @@ Pardus create a new partition for installation.</p>
             self.storage.doAutoPart = True
 
             if self.ui.review.isChecked():
-                ctx.mainScreen.moveInc = 2
+                move = 1
             else:
-                ctx.mainScreen.moveInc = 0
+                move = 0
+
+        ctx.mainScreen.moveInc = move

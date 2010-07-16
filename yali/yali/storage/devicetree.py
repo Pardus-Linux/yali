@@ -19,6 +19,7 @@ from devices.disk import Disk
 from devices.partition import Partition
 from formats.disklabel import InvalidDiskLabelError
 from formats.filesystem import FilesystemError
+from operations import *
 
 class DeviceTreeError(yali.Error):
     pass
@@ -397,7 +398,6 @@ class DeviceTree(object):
         if not device or not device.mediaPresent:
             return
 
-        print "Device:%s maxsize:%s minsize:%s size:%s" % (device.name, device.maxSize, device.minSize, device.size)
         self.handleFormat(info, device)
         ctx.logger.debug("got device: %s" % device)
         if device.format.type:
@@ -577,8 +577,8 @@ class DeviceTree(object):
             # if we just initialized a disklabel we should schedule
             # operations for destruction of the previous format and creation
             # of the new one
-            self.registerOperation(OperationDestroyFormat(device))
-            self.registerOperation(OperationCreateFormat(device, format))
+            self.addOperation(OperationDestroyFormat(device))
+            self.addOperation(OperationCreateFormat(device, format))
 
             # If this is a mac-formatted disk we just initialized, make
             # sure the partition table partition gets added to the device
