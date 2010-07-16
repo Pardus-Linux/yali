@@ -122,6 +122,78 @@ class Dialog(QtGui.QDialog):
         self.setCentered()
         QtGui.QDialog.exec_(self)
 
+class MesssageWindow:
+    def __init__(self, title, text, type="ok", default=None, customButtons=None, customIcon=None, run=True, destroyAfterRun=True):
+        self.rc = None
+        self.dialog = None
+        self.msgBox = QtGui.QMessageBox()
+        self.doCustom = False
+
+        icon  = None
+        buttons = None
+
+        if type == 'ok':
+            buttons = QtGui.QMessageBox.Ok
+            icon = "question"
+        elif type == 'warning':
+            icon = "warning"
+            buttons =  QtGui.QMessageBox.Ok
+        elif type == 'okcancel':
+            icon = "question"
+            buttons = QtGui.QMessageBox.Ok | QtGui.QMessageBox.Cancel
+        elif type == 'yesno':
+            icon = "question"
+            buttons = QtGui.QMessageBox.Yes | QtGui.QMessageBox.No
+        elif type == 'custom':
+            self.doCustom = True
+            icon = customIcon
+
+        self.msgBox.setText(text)
+
+        if self.doCustom:
+            button_ = None
+            for button in customButtons:
+                if button ==  _("Cancel"):
+                    role = QtGui.QMessageBox.RejectRole
+                else:
+                    role = QtGui.QMessageBox.ActionRole
+                button_ = self.msgBox.addButton(button, QtGui.QMessageBox.ActionRole)
+
+            if default is not None:
+                defaultChoice = default
+            else:
+                defaultChoice = button_
+        else:
+            self.msgBox.setStandardButtons(buttons)
+            if default == "no":
+                defaultChoice = QtGui.QMessageBox.No
+            elif default == "yes":
+                defaultChoice = QtGui.QMessageBox.Yes
+            elif default == "ok":
+                defaultChoice = QtGui.QMessageBox.Ok
+            else:
+                defaultChoice = None
+
+        self.msgBox.setDefaultButton(defaultChoice)
+
+        self.dialog = Dialog(_(title), self.msgBox, closeButton = False, isDialog = True, icon=icon)
+        if run:
+            self.run(destroyAfterRun)
+
+    def run(self, destroyAfterRun=True):
+        self.dialog.resize(300,120)
+        self.dialog.exec_()
+        if not self.doCustom:
+            if self.msgBox.clickedButton() in [QtGui.QMessageBox.Ok, QtGui.QMessageBox.Yes]:
+                self.rc = 1
+            elif self.msgBox.clickedButton() in [QtGui.QMessageBox.Cancel, QtGui.QMessageBox.No]:
+                self.rc = 0
+
+        if destroyAfterRun:
+            self.dialog = None
+
+        return self.rc
+
 def QuestionDialog(title, text, info = None, dontAsk = False):
     msgBox = QtGui.QMessageBox()
 
