@@ -7,6 +7,8 @@ import yali
 import yali.util
 from devices.partition import Partition
 from formats import getFormat
+from devicetree import DeviceTree
+from storageset import StorageSet
 
 class StorageError(yali.Error):
     pass
@@ -23,7 +25,7 @@ class Interface(object):
         self.eddDict = yali.util.get_edd_dict(self.partitioned)
         self._nextID = 0
         self.devicetree = DeviceTree(ignoredDisk)
-        self.devicetree.populate()
+        self.storageset = StorageSet(self.devicetree, ctx.target)
 
     def __compareDisks(self, first, second):
         if self.eddDict.has_key(first) and self.eddDict.has_key(second):
@@ -93,6 +95,7 @@ class Interface(object):
         """
         self.devicetree = DeviceTree(ignored=self.ignoredDisks)
         self.devicetree.populate()
+        self.storageset = StorageSet(self.devicetree, ctx.target)
         self.eddDict = get_edd_dict(self.partitioned)
 
     def deviceImmutable(self, device, ignoreProtected=False):
@@ -260,8 +263,25 @@ class Interface(object):
         raise NotImplementedError("unusedRaidMembers method not implemented in Interface class.")
 
     @property
+    def rootDevice(self):
+        self.storageset.rootDevice:
+
+    @property
+    def swaps(self):
+        """ A list of the swap devices in the device tree.
+
+            This is based on the current state of the device tree and
+            does not necessarily reflect the actual on-disk state of the
+            system's disks.
+        """
+        devices = self.devicetree.devices
+        swaps = [d for d in devices if d.format.type == "swap"]
+        swaps.sort(key=lambda d: d.name)
+        return swaps
+
+    @property
     def mountpoints(self):
-        pass
+        self.storageset.mountpoints
 
     def deviceDeps(self, device):
         return self.devicetree.getDependentDevices(device)
@@ -302,17 +322,45 @@ class Interface(object):
     def destroyDevice(self):
         pass
 
-    def mountFilesystems(self):
-        pass
+    def formatByDefault(self, device):
+        """Return whether the device should be reformatted by default."""
+        formatlist = ['/boot', '/var', '/tmp', '/usr']
+        exceptlist = ['/home', '/usr/local', '/opt', '/var/www']
 
-    def umountFilesystems(self):
-        pass
+        if not device.format.linuxNative:
+            return False
 
-    def fstab(self):
-        pass
+        if device.format.mountable:
+            if not device.format.mountpoint:
+                return False
 
-    def createSwapFile(self):
-        pass
+            if device.format.mountpoint == "/" or \
+               device.format.mountpoint in formatlist:
+                return True
+
+            for p in formatlist:
+                if device.format.mountpoint.startswith(p):
+                    for q in exceptlist:
+                        if device.format.mountpoint.startswith(q):
+                            return False
+                    return True
+        elif device.format.type == "swap":
+            return True
+
+        # be safe for anything else and default to off
+        return False
+
+    def turnOnSwap(self):
+        self.storageset.turnOnSwap()
+
+    def mountFilesystems(self, readOnly=None, skipRoot=False):
+        self.storageset.mountFilesystems(readOnly=readOnly, skipRoot=skipRoot)
+
+    def umountFilesystems(self, swapoff=True):
+        self.storageset.umountFilesystems(swapoff=swapoff)
+
+    def createSwapFile(self, device, size):
+        self.storageset.createSwapFile(device, size)
 
     def raidConf(self):
         raise NotImplementedError("raidConf method not implemented in Interface class.")
@@ -324,3 +372,80 @@ class Interface(object):
             if disk.format.partedDisk.supportsFeature(parted.DISK_TYPE_EXTENDED):
                 return True
         return False
+
+    def sanityCheck(self):
+        """ Run a series of tests to verify the storage configuration.
+
+            This function is called at the end of partitioning so that
+            we can make sure you don't have anything silly (like no /,
+            a really small /, etc).  Returns (errors, warnings) where
+            each is a list of strings.
+        """
+        checkSizes = [('/usr', 250), ('/tmp', 50), ('/var', 384),
+                      ('/home', 100), ('/boot', 75)]
+        warnings = []
+        errors = []
+
+        mustbeonlinuxfs = ['/', '/var', '/tmp', '/usr', '/home', '/usr/share', '/usr/lib']
+        mustbeonroot = ['/bin','/dev','/sbin','/etc','/lib','/root', '/mnt', 'lost+found', '/proc']
+
+        filesystems = self.mountpoints
+        root = self.storageset.rootDevice
+        swaps = self.storageset.swapDevices
+
+        try:
+            boot = self.storageset.bootDevice
+        except StorageError:
+            boot = None
+
+        if not root:
+            errors.append(_("You have not defined a root partition (/), "
+                            "which is required for installation of %s "
+                            "to continue.") % (productName,))
+
+        if root and root.size < 250:
+            warnings.append(_("Your root partition is less than 250 "
+                              "megabytes which is usually too small to "
+                              "install %s.") % (productName,))
+
+        if (root and
+            root.size < ctx.consts.min_root_size):
+            errors.append(_("Your / partition is less than %(min)s "
+                            "MB which is lower than recommended "
+                            "for a normal %(productName)s install.")
+                          % {'min': ctx.consts.min_root_size,
+                             'productName': productName})
+
+        for (mount, size) in checkSizes:
+            if mount in filesystems and filesystems[mount].size < size:
+                warnings.append(_("Your %(mount)s partition is less than "
+                                  "%(size)s megabytes which is lower than "
+                                  "recommended for a normal %(productName)s "
+                                  "install.")
+                                % {'mount': mount, 'size': size,
+                                   'productName': productName})
+
+
+        errors.extend(self.storageset.checkBootRequest(boot))
+
+        if not swaps:
+            if yali.util.memInstalled() < yali.util.EARLY_SWAP_RAM:
+                errors.append(_("You have not specified a swap partition.  "
+                                "Due to the amount of memory present, a "
+                                "swap partition is required to complete "
+                                "installation."))
+            else:
+                warnings.append(_("You have not specified a swap partition.  "
+                                  "Although not strictly required in all cases, "
+                                  "it will significantly improve performance "
+                                  "for most installations."))
+
+        for (mountpoint, dev) in filesystems.items():
+            if mountpoint in mustbeonroot:
+                errors.append(_("This mount point is invalid.  The %s directory must "
+                                "be on the / file system.") % mountpoint)
+
+            if mountpoint in mustbeonlinuxfs and (not dev.format.mountable or not dev.format.linuxNative):
+                errors.append(_("The mount point %s must be on a linux file system.") % mountpoint)
+
+        return (errors, warnings)
