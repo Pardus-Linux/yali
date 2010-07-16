@@ -1,14 +1,18 @@
-
+import parted
 import gettext
+
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 import yali
 import yali.util
-from devices.partition import Partition
-from formats import getFormat
-from devicetree import DeviceTree
-from storageset import StorageSet
+from operations import *
+from yali.gui import context as ctx
+from yali.storage.devices.device import Device
+from yali.storage.devices.partition import Partition
+from yali.storage.formats import getFormat, get_default_filesystem_type
+from yali.storage.devicetree import DeviceTree
+from yali.storage.storageset import StorageSet
 
 class StorageError(yali.Error):
     pass
@@ -19,15 +23,29 @@ def storageInitialize():
 def storageComplete():
     raise NotImplementedError("storageComplete method not implemented.")
 
-
-class Interface(object):
-    def __init__(self, ignoredDisk=[]):
-        self.eddDict = yali.util.get_edd_dict(self.partitioned)
+class Storage(object):
+    def __init__(self, ignoredDisks=[]):
         self._nextID = 0
-        self.devicetree = DeviceTree(ignoredDisk)
-        self.storageset = StorageSet(self.devicetree, ctx.target)
+        self.ignoredDisks = []
+        self.exclusiveDisks = []
+        self.doAutoPart = False
+        self.reinitializeDisks = False
+        self.zeroMbr = None
+        self.protectedDevSpecs = []
+        self.autoPartitionRequests = []
+        self.defaultFSType = get_default_filesystem_type()
+        self.defaultBootFSType = get_default_filesystem_type(boot=True)
+        self.eddDict = {}
+        self.defaultFSType = get_default_filesystem_type()
+        self.defaultBootFSType = get_default_filesystem_type(boot=True)
+        self.devicetree = DeviceTree(ignored=self.ignoredDisks,
+                                     exclusive=self.exclusiveDisks,
+                                     reinitializeDisks=self.reinitializeDisks,
+                                     protected=self.protectedDevSpecs,
+                                     zeroMbr=self.zeroMbr)
+        self.storageset = StorageSet(self.devicetree, ctx.consts.target_dir)
 
-    def __compareDisks(self, first, second):
+    def compareDisks(self, first, second):
         if self.eddDict.has_key(first) and self.eddDict.has_key(second):
             one = self.eddDict[first]
             two = self.eddDict[second]
@@ -80,6 +98,34 @@ class Interface(object):
 
         return 0
 
+    def doIt(self):
+        self.devicetree.processOperations()
+
+        # now set the boot partition's flag
+        try:
+            boot = self.storageset.bootDevice()
+            bootDevs = [boot]
+        except DeviceError:
+            bootDevs = []
+        else:
+            for dev in bootDevs:
+                if hasattr(dev, "bootable"):
+                    skip = False
+                    if dev.disk.format.partedDisk.type == "msdos":
+                        for p in dev.disk.format.partedDisk.partitions:
+                            if p.type == parted.PARTITION_NORMAL and \
+                               p.getFlag(parted.PARTITION_BOOT):
+                                skip = True
+                                break
+                    if skip:
+                         ctx.logger.info("not setting boot flag on %s as there is"
+                                  "another active partition" % dev.name)
+                         continue
+                    ctx.logger.info("setting boot flag on %s" % dev.name)
+                    dev.bootable = True
+                    dev.disk.setup()
+                    dev.disk.format.commitToDisk()
+
     @property
     def nextID(self):
         id = self._nextID
@@ -93,10 +139,14 @@ class Interface(object):
             information like passphrases, iscsi config, &c
 
         """
-        self.devicetree = DeviceTree(ignored=self.ignoredDisks)
+        self.devicetree = DeviceTree(ignored=self.ignoredDisks,
+                                     exclusive=self.exclusiveDisks,
+                                     reinitializeDisks=self.reinitializeDisks,
+                                     protected=self.protectedDevSpecs,
+                                     zeroMbr=self.zeroMbr)
         self.devicetree.populate()
-        self.storageset = StorageSet(self.devicetree, ctx.target)
-        self.eddDict = get_edd_dict(self.partitioned)
+        self.storageset = StorageSet(self.devicetree, ctx.consts.target_dir)
+        self.eddDict = yali.util.get_edd_dict(self.partitioned)
 
     def deviceImmutable(self, device, ignoreProtected=False):
         """ Return any reason the device cannot be modified/removed.
@@ -106,7 +156,6 @@ class Interface(object):
             Devices that cannot be removed include:
 
                 - protected partitions
-                - devices that are part of an md array or lvm vg
                 - extended partition containing logical partitions that
                   meet any of the above criteria
 
@@ -147,6 +196,14 @@ class Interface(object):
         return devices
 
     @property
+    def drives(self):
+        disks = self.disks
+        partitioned = self.partitioned
+        drives = [d.name for d in disks if d in partitioned]
+        drives.sort(cmp=self.compareDisks)
+        return drives
+
+    @property
     def disks(self):
         """ A list of the disks in the device tree.
 
@@ -163,7 +220,7 @@ class Interface(object):
                     ctx.logger.info("Skipping disk: %s: No media present" % device.name)
                     continue
                 disks.append(device)
-        disks.sort(key=lambda d: d.name, cmp=self.__compareDisks)
+        disks.sort(key=lambda d: d.name, cmp=self.compareDisks)
         return disks
 
     def exceptionDisks(self):
@@ -264,7 +321,7 @@ class Interface(object):
 
     @property
     def rootDevice(self):
-        self.storageset.rootDevice:
+        return self.storageset.rootDevice
 
     @property
     def swaps(self):
@@ -281,7 +338,7 @@ class Interface(object):
 
     @property
     def mountpoints(self):
-        self.storageset.mountpoints
+        return self.storageset.mountpoints
 
     def deviceDeps(self, device):
         return self.devicetree.getDependentDevices(device)
@@ -316,11 +373,29 @@ class Interface(object):
     def newRaidArray(self):
         raise NotImplementedError("newRaidArray method not implemented in Interface class.")
 
-    def createDevice(self):
-        pass
+    def createDevice(self, device):
+        """ Schedule creation of a device.
 
-    def destroyDevice(self):
-        pass
+            TODO: We could do some things here like assign the next
+                  available raid minor if one isn't already set.
+        """
+        self.devicetree.addOperation(OperationCreateDevice(device))
+        if device.format.type:
+            self.devicetree.addOperation(OperationCreateFormat(device))
+
+    def destroyDevice(self, device):
+        """ Schedule destruction of a device. """
+        if device.format.exists and device.format.type:
+            # schedule destruction of any formatting while we're at it
+            self.devicetree.addOperation(OperationDestroyFormat(device))
+
+        operation = OperationDestroyDevice(device)
+        self.devicetree.addOperation(operation)
+
+    def formatDevice(self, device, format):
+        """ Schedule formatting of a device. """
+        self.devicetree.addOperation(OperationDestroyFormat(device))
+        self.devicetree.addOperation(OperationCreateFormat(device, format))
 
     def formatByDefault(self, device):
         """Return whether the device should be reformatted by default."""
@@ -449,3 +524,20 @@ class Interface(object):
                 errors.append(_("The mount point %s must be on a linux file system.") % mountpoint)
 
         return (errors, warnings)
+
+    def addPartition(self, disklabel, free, partType, size):
+        """ Return new partition after adding it to the specified disk.
+
+            Arguments:
+
+                disklabel -- disklabel instance to add partition to
+                free -- where to add the partition (parted.Geometry instance)
+                partType -- partition type (parted.PARTITION_* constant)
+                size -- size (in MB) of the new partition
+
+            The new partition will be aligned.
+
+            Return value is a parted.Partition instance.
+
+        """
+        return self.partioning.addPartition(disklabel, free, partType, size)
