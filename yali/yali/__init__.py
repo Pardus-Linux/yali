@@ -10,26 +10,25 @@
 # Please read the COPYING file.
 #
 
-__version__ = "2.2.0"
+class Error(Exception):
+    pass
 
 import sys
-import exceptions
 import traceback
 import cStringIO
-
 import gettext
+
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 import pisi
 from yali.exception import *
 
+
 def default_runner():
     """ Main runner of YALI """
     import yali.gui.runner
-
     sys.excepthook = exception_handler
-
     return yali.gui.runner.Runner()
 
 exception_normal, exception_fatal, \
