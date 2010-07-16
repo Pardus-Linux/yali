@@ -10,25 +10,41 @@
 #
 # Please read the COPYING file.
 #
-
+import os
 import locale
-import yali
+import logging
+
+from yali import default_runner
 import yali.sysutils
-from os.path import exists
 from yali.constants import consts
 from yali.options import options
+from yali.gui import context as ctx
+
+def init_logging(log_dir):
+    print "lgging deee:1"
+    if os.access(log_dir, os.W_OK):
+        handler = logging.handlers.RotatingFileHandler('%s/yali.log' % log_dir)
+        formatter = logging.Formatter('%(asctime)-12s: %(levelname)-8s %(message)s')
+        handler.setFormatter(formatter)
+        print "lgging deee"
+        ctx.logger = logging.getLogger('yali')
+        ctx.logger.addHandler(handler)
+        ctx.loghandler = handler
+        ctx.logger.setLevel(logging.DEBUG)
 
 def try_umount_target():
     for mpoint in ("/home", "/dev", "/proc", "/sys", ""):
         yali.sysutils.umount(consts.target_dir + mpoint)
 
 def main():
-    if not exists("/etc/yali-is-firstboot"):
+    if not os.path.exists("/etc/yali-is-firstboot"):
         try_umount_target()
     runner = yali.default_runner()
     runner.run()
 
 if __name__ == "__main__":
     locale.setlocale(locale.LC_ALL, "")
+    init_logging("/var/log")
+    print ctx.logger
     main()
 
