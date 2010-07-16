@@ -10,6 +10,7 @@ import copy
 from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
+import yali.util
 import yali.gui.context as ctx
 from yali.gui.YaliDialog import Dialog, QuestionDialog, InfoDialog
 from yali.gui.GUIException import *
@@ -18,7 +19,7 @@ from yali.gui import storageGuiHelpers
 from yali.storage import formats
 from yali.storage import partitioning
 from yali.storage.operations import *
-from yali.storage.storageBackendHelpers import queryNoFormatPreExisting, sanityCheckMountPoint
+from yali.storage.storageBackendHelpers import queryNoFormatPreExisting, sanityCheckMountPoint, doUIRAIDLVMChecks
 
 class PartitionEditor:
     def __init__(self, parent, origrequest, isNew=False, restricts=None):
@@ -79,14 +80,14 @@ class PartitionEditor:
                     continue
 
             if not self.origrequest.exists:
-                format = widget.newfstypeCombo.currentText()
+                formatType = widget.newfstypeCombo.currentText()
 
                 if widget.primaryCheckBox.isChecked():
                     primary = True
                 else:
                     primary = None
 
-                if widget.fixedRadioButton.isEnabled():
+                if widget.fixedRadioButton.isChecked():
                     grow = None
                 else:
                     grow = True
@@ -100,10 +101,12 @@ class PartitionEditor:
                 for index in range(widget.driveview.count()):
                     if widget.driveview.item(index).checkState() == Qt.Checked:
                         allowedDrives.append(widget.driveview.item(index).drive)
+
                 if len(allowedDrives) == len(self.storage.partitioned):
                     allowedDrives = None
 
                 size = widget.sizeSpin.value()
+
                 disks = []
                 if allowedDrives:
                     for drive in allowedDrives:
@@ -111,7 +114,13 @@ class PartitionEditor:
                             if disk.name == drive:
                                 disks.append(disk)
 
-                format = formats.getFormat(format, mountpoint=mountpoint)
+                format = formats.getFormat(formatType, mountpoint=mountpoint)
+
+                err = doUIRAIDLVMChecks(format, disks, self.storage)
+                if err:
+                    self.intf.messageWindow(_("Error With Request"),
+                                            err, customIcon="error")
+                    continue
 
                 weight = partitioning.weight(mountpoint=mountpoint, fstype=format.type)
 
@@ -138,6 +147,8 @@ class PartitionEditor:
                     request.req_primary = primary
                     request.req_disks = disks
 
+                operations.append(OperationCreateFormat(usedev, format))
+
             else:
                 # preexisting partition
                 request = self.origrequest
@@ -146,13 +157,13 @@ class PartitionEditor:
                 origformat = usedev.format
                 devicetree = self.storage.devicetree
 
-                if self.fsoptionsDict.has_key("formatCheckBox"):
-                    if self.fsoptionsDict["formatCheckBox"].isChecked():
-                        formatType = self.fsoptionsDict["fstypeComboBox"].currentText()
-                        format = formats.getFormat(mountpoint=mountpoint, device=usedev.path)
+                if widget.fsoptions.has_key("formatCheckBox"):
+                    if widget.fsoptions["formatCheckBox"].isChecked():
+                        formatType = widget.fsoptions["fstypeComboBox"].currentText()
+                        format = formats.getFormat(formatType, mountpoint=mountpoint, device=usedev.path)
 
                         operations.append(OperationCreateFormat(usedev, format))
-                    elif not self.fsoptionsDict["formatCheckBox"].isChecked():
+                    elif not widget.fsoptions["formatCheckBox"].isChecked():
                         cancel = []
                         cancel.extend(devicetree.findOperations(type="destroy",
                                                                 object="format",
@@ -162,8 +173,9 @@ class PartitionEditor:
                                                                 devid=request.id))
                         cancel.reverse()
                         for operation in cancel:
-                            devicetree.cancelOperation(operation)
+                            devicetree.removeOperation(operation)
 
+                        request.format = request.originalFormat
                         usedev = request
 
                         if usedev.format.mountable:
@@ -173,15 +185,15 @@ class PartitionEditor:
                     # users can set a mountpoint for protected partitions
                     usedev.format.mountpoint = mountpoint
 
-                request.weight = storage.partitioning.weight(mountpoint=mountpoint, fstype=request.format.type)
+                request.weight = partitioning.weight(mountpoint=mountpoint, fstype=request.format.type)
 
-                if self.fsoptionsDict.has_key("migrateCheckBox") and \
-                   self.fsoptionsDict["migrateCheckBox"].isChecked():
+                if widget.fsoptions.has_key("migrateCheckBox") and \
+                   widget.fsoptions["migrateCheckBox"].isChecked():
                     operations.append(OperationMigrateFormat(usedev))
 
-                if self.fsoptionsDict.has_key("resizeCheckBox") and \
-                   self.fsoptionsDict["resizeCheckBox"].isChecked():
-                    size = self.fsoptionsDict["resizeSpinBox"].value()
+                if widget.fsoptions.has_key("resizeCheckBox") and \
+                   widget.fsoptions["resizeCheckBox"].isChecked():
+                    size = widget.fsoptions["resizeSpinBox"].value()
 
                     try:
                         operations.append(OperationResizeDevice(request, size))
@@ -229,9 +241,10 @@ class PartitionWidget(QtGui.QWidget):
             self.layout.addWidget(label, row, 0, 1, 1)
             self.newfstypeCombo = storageGuiHelpers.createFSTypeMenu(self,
                                                                      self.origrequest.format,
+                                                                     self.mountCombo,
                                                                      availablefstypes=restricts)
             self.layout.addWidget(self.newfstypeCombo, row, 1, 1, 1)
-            QObject.connect(self.newfstypeCombo, SIGNAL("currentIndexChanged(int)"), self.fstypechange)
+            QObject.connect(self.newfstypeCombo, SIGNAL("currentIndexChanged(int)"), self.fstypechangeCB)
 
         else:
             self.newfstypeCombo = None
@@ -251,18 +264,18 @@ class PartitionWidget(QtGui.QWidget):
 
             row += 1
 
-        # Original fs label
+        # Original filesystem type and label
         if self.origrequest.exists:
-            label = QtGui.QLabel(_("Original File System  Label:"), self)
+            label = QtGui.QLabel(_("Original File System Type:"), self)
             self.layout.addWidget(label, row, 0, 1, 1)
             label = QtGui.QLabel(self.origrequest.originalFormat.name, self)
             self.layout.addWidget(label, row, 1, 1, 1 )
             row += 1
 
             if getattr(self.origrequest.originalFormat, "label", None):
-                label = QtGui.QLabel(_("Original File System  Label:"), self)
+                label = QtGui.QLabel(_("Original File System Label:"), self)
                 self.layout.addWidget(label, row, 0, 1, 1)
-                label = QtGui.QLabel(self.origrequest.originalFormat.name, self)
+                label = QtGui.QLabel(self.origrequest.originalFormat.label, self)
                 self.layout.addWidget(label, row, 1, 1, 1)
                 row += 1
 
@@ -272,10 +285,10 @@ class PartitionWidget(QtGui.QWidget):
             self.layout.addWidget(label, row, 0, 1, 1)
             maxsize = ctx.consts.MAX_PART_SIZE
             self.sizeSpin = QtGui.QSpinBox(self)
-            self.layout.addWidget(self.sizeSpin, row, 1, 1, 1)
-            self.sizeSpin.setRange(1, maxsize)
+            self.sizeSpin.setMaximum(maxsize)
             if self.origrequest.req_size:
                 self.sizeSpin.setValue(self.origrequest.req_size)
+            self.layout.addWidget(self.sizeSpin, row, 1, 1, 1)
         else:
             self.sizeSpin = None
 
@@ -318,48 +331,68 @@ class PartitionWidget(QtGui.QWidget):
         self.connect(self.buttonBox, SIGNAL("accepted()"), self.parent.dialog.accept)
         self.connect(self.buttonBox, SIGNAL("rejected()"), self.parent.dialog.reject)
 
-    def fstypechange(self, index):
-        format  = formats.getFormat(self.newfstypeCombo.itemText(index))
-        if format.mountable:
-            self.mountCombo.setEnabled(True)
-        else:
-            self.mountCombo.setItemText(0, _("<Not Applicable>"))
-            self.mountCombo.setEnabled(False)
+    def fstypechangeCB(self, index):
+        format  = formats.getFormat(self.sender().itemText(index))
+        self.setMntptComboStateFromFStype(format, self.mountCombo)
 
-    def fillMaxSizeCB(self):
-        self.fillMaxsizeSpinBox.setEnabled(True)
+    def fillAllSpaceCB(self, state):
+        self.fillMaxsizeSpinBox.setEnabled(state)
 
-    def sizeSpinChanged(self):
-        size = self.sizeSpin.value()
+    def sizeSpinChanged(self, size):
         maxsize = self.fillMaxsizeSpinBox.value()
         if size < 1:
             self.sizeSpin.setValue(1)
+            size = 1
         if size > maxsize:
             self.sizeSpin.setValue(maxsize)
 
+        self.sizeSpin.setMinimum(size)
+
+    def mountptchangeCB(self, index):
+        if yali.util.isEfi() and self.sender().itemText(0) == "/boot/efi":
+            self.fstypeComboBox.setCurrentText(self.fstypeComboBox.findText(formats.getFormat("efi").name))
+
+        if self.sender().itemText(0) == "/boot":
+            self.fstypeComboBox.setCurrentText(self.fstypeComboBox.findText(formats.get_default_filesystem_type(boot=True)))
+
     def formatOptionResize(self, state):
-        if self.fsoptions["formatCheckBox"].isEnabled():
+        if state:
             lower = 1
         else:
-            lower = self.fsoptions["resizeSpinBox"].minimum
+            lower = self.fsoptions["resizeSpinBox"].minimum()
 
-        if self.fsoptions["resizeSpinBox"].value() < lower:
-            self.fsoptions["resizeSpinBox"].setValue(lower)
+        #if self.fsoptions["resizeSpinBox"].value() < lower:
+        #    self.fsoptions["resizeSpinBox"].setValue(lower)
 
-        self.fsoptions["resizeCheckBox"].setEnabled(not self.fsoptions["formatCheckBox"].isEnabled())
-        self.fsoptions["resizeSpinBox"].setEnabled(self.fsoptions["formatCheckBox"].isEnabled())
+        self.fsoptions["resizeCheckBox"].setEnabled(not state)
+        self.fsoptions["resizeSpinBox"].setEnabled(not state)
 
     def formatOptionCB(self, state):
         widget = None
+        otherCheckBox = None
+        otherComboBox = None
+
         if self.fsoptions.has_key("migrateCheckBox") and self.sender() == self.fsoptions["migrateCheckBox"]:
             self.fsoptions["migratefstypeComboBox"].setEnabled(state)
             widget = self.fsoptions["migratefstypeComboBox"]
+
+            if self.fsoptions.has_key("formatCheckBox") and self.fsoptions.has_key("fstypeComboBox"):
+                otherCheckBox = self.fsoptions["formatCheckBox"]
+                otherComboBox = self.fsoptions["fstypeComboBox"]
+
         elif self.fsoptions.has_key("formatCheckBox") and self.sender() == self.fsoptions["formatCheckBox"]:
             self.fsoptions["fstypeComboBox"].setEnabled(state)
             widget = self.fsoptions["fstypeComboBox"]
 
+            if self.fsoptions.has_key("migrateCheckBox") and self.fsoptions.has_key("migratefstypeComboBox"):
+                otherCheckBox = self.fsoptions["migrateCheckBox"]
+                otherComboBox = self.fsoptions["migratefstypeComboBox"]
 
-        if self.sender().isEnabled():
+        if otherComboBox and otherComboBox:
+            otherCheckBox.setEnabled(not state)
+            otherComboBox.setChecked(not state)
+
+        if state:
             format = formats.getFormat(widget.itemText(widget.currentIndex()))
             self.setMntptComboStateFromFStype(format, self.mountCombo)
         else:
@@ -370,8 +403,9 @@ class PartitionWidget(QtGui.QWidget):
             mountCombo.setEnabled(True)
         else:
             mountCombo.setEnabled(False)
-            mountCombo.setItemText(0, _("<Not Applicable>"))
+            if mountCombo.itemText(0) != _("<Not Applicable>"):
+                mountCombo.insertItem(0, _("<Not Applicable>"))
 
     def resizeOption(self, state):
-        self.fsoptions["formatCheckBox"].setEnabled(not state)
         self.fsoptions["resizeSpinBox"].setEnabled(state)
+        self.fsoptions["formatCheckBox"].setEnabled(not state)

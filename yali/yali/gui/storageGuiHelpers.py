@@ -30,26 +30,25 @@ def createMountpointMenu(parent, request, excludeMountPoints=[]):
         if mnt in excludeMountPoints:
             continue
 
-        if not mnt in mntptlist and (mnt[0] =="/"):
+        if not (mnt in mntptlist) and (mnt[0] =="/"):
             mntptlist.append(mnt)
 
     map(mountCombo.addItem, mntptlist)
 
-    if (request.format.type or request.format.migrate) and \
-       request.format.mountable:
+    if (request.format.type or request.format.migrate) and request.format.mountable:
         mountpoint = request.format.mountpoint
         if mountpoint:
-            mountCombo.setItemText(0, mountpoint)
-        else:
-            mountCombo.setItemText(0, "")
-
+            if mountpoint in mntptlist:
+               mountCombo.setCurrentIndex(mountCombo.findText(mountpoint))
+            else:
+                mountCombo.insertItem(0, mountpoint)
     else:
         mountCombo.setItemText(0, _("<Not Applicable>"))
         mountCombo.setEnabled(False)
 
     return mountCombo
 
-def createFSTypeMenu(parent, format, availablefstypes=None, ignorefs=None):
+def createFSTypeMenu(parent, format, mountCombo, availablefstypes=None, ignorefs=None):
     fstypeCombo = QtGui.QComboBox(parent)
 
     if availablefstypes:
@@ -79,6 +78,12 @@ def createFSTypeMenu(parent, format, availablefstypes=None, ignorefs=None):
             i = i + 1
 
     fstypeCombo.setCurrentIndex(defindex)
+
+    if parent.fstypechangeCB and mountCombo:
+        QObject.connect(fstypeCombo, SIGNAL("currentIndexChanged(int)"), parent.fstypechangeCB)
+
+    if mountCombo:
+        QObject.connect(mountCombo, SIGNAL("currentIndexChanged(int)"), parent.mountptchangeCB)
 
     return fstypeCombo
 
@@ -125,15 +130,19 @@ def createPreExistFSOption(parent, origrequest, row, mountcombo, storage, ignore
     rc = {}
     origfs = origrequest.format
     if origfs.formattable or not origfs.type:
-        formatCheckBox = QtGui.QCheckBox(_("Format As :"), parent)
+        formatCheckBox = QtGui.QCheckBox(_("Format as :"), parent)
         parent.layout.addWidget(formatCheckBox, row, 0, 1, 1)
         formatCheckBox.setChecked(origfs.formattable and not origfs.exists)
-        rc["formatCheckBox"] = formatCheckBox
-        fstypeComboBox = createFSTypeMenu(parent, origrequest.format, ignorefs=ignorefs)
+
+        fstypeComboBox = createFSTypeMenu(parent, origrequest.format, mountcombo, ignorefs=ignorefs)
         fstypeComboBox.setEnabled(formatCheckBox.isChecked())
         parent.layout.addWidget(fstypeComboBox, row, 1, 1, 1)
+
+        rc["formatCheckBox"] = formatCheckBox
         rc["fstypeComboBox"] = fstypeComboBox
+
         QObject.connect(formatCheckBox, SIGNAL("stateChanged(int)"), parent.formatOptionCB)
+
         row += 1
     else:
         formatCheckBox = None
@@ -142,12 +151,15 @@ def createPreExistFSOption(parent, origrequest, row, mountcombo, storage, ignore
 
     if origfs.migratable and origfs.exists:
         migrateCheckBox = QtGui.QCheckBox(_("Migrate filesystem To :"), parent)
+        if formatCheckBox  is not None:
+            migrateCheckBox.setChecked(origfs.migrate and (not formatCheckBox.isChecked()))
+        else:
+            migrateCheckBox.setChecked(origfs.migrate)
+
+        migtypes = [origfs.migrationTarget]
+
         parent.layout.addWidget(migrateCheckBox, row, 0, 1, 1)
-        migrateCheckBox.setChecked(isEnabled(origfs.migrate))
-
-        migtypes = origrequest.origfstype.getMigratableFSTargets()
-
-        migratefstypeComboBox = createFSTypeMenu(parent, origfs, availablefstypes=migtypes)
+        migratefstypeComboBox = createFSTypeMenu(parent, origfs, None, availablefstypes=migtypes)
         migratefstypeComboBox.setEnabled(migrateCheckBox.isChecked())
         parent.layout.addWidget(migratefstypeComboBox, row, 1, 1, 1)
         rc["migrateCheckBox"] = migrateCheckBox
@@ -163,11 +175,10 @@ def createPreExistFSOption(parent, origrequest, row, mountcombo, storage, ignore
 
     if origrequest.resizable and origfs.exists:
         resizeCheckBox = QtGui.QCheckBox(_("Resize :"), parent)
-        parent.layout.addWidget(resizeCheckBox, row, 0, 1, 1)
         resizeCheckBox.setChecked(origfs.resizable and \
                             (origfs.currentSize != origfs.targetSize) and \
                             (origfs.currentSize != 0))
-        rc["resizeCheckBox"] = resizeCheckBox
+
 
         if origrequest.targetSize is not None:
             value = origrequest.targetSize
@@ -185,14 +196,19 @@ def createPreExistFSOption(parent, origrequest, row, mountcombo, storage, ignore
                     requpper = geomsize
 
         resizeSpinBox = QtGui.QSpinBox(parent)
-        resizeSpinBox.setRange(reqlower, requpper)
+        resizeSpinBox.setMinimum(reqlower)
+        resizeSpinBox.setMaximum(requpper)
         resizeSpinBox.setValue(value)
-        parent.layout.addWidget(resizeSpinBox, row, 1, 1, 1)
-        rc["resizeSpinBox"] = resizeSpinBox
-        QObject.connect(resizeCheckBox, SIGNAL("stateChanged(int)"), parent.resizeOption)
 
-        row += 1
+        parent.layout.addWidget(resizeCheckBox, row, 0, 1, 1)
+        parent.layout.addWidget(resizeSpinBox, row, 1, 1, 1)
+
+        QObject.connect(resizeCheckBox, SIGNAL("stateChanged(int)"), parent.resizeOption)
         QObject.connect(formatCheckBox, SIGNAL("stateChanged(int)"), parent.formatOptionResize)
+
+        rc["resizeCheckBox"] = resizeCheckBox
+        rc["resizeSpinBox"] = resizeSpinBox
+        row += 1
 
     row += 1
 
@@ -203,39 +219,27 @@ def createAdvancedSizeOptions(parent, request):
     groupBox = QtGui.QGroupBox(_("Advanced Size Options"), parent)
     gridLayout = QtGui.QGridLayout(groupBox)
     fixedRadioButton = QtGui.QRadioButton(_("Fixed Size :"), groupBox)
-    gridLayout.addWidget(fixedRadioButton, 0, 0, 1, 2)
-    fillMaxsizeRadioButton = QtGui.QRadioButton(_("Fill all space up to (MB):"))
-    gridLayout.addWidget(fillMaxsizeRadioButton,1, 0, 1, 2)
     fillUnlimitedRadiobutton = QtGui.QRadioButton(_("Fill to maximum allowable size"), groupBox)
-    gridLayout.addWidget(fillUnlimitedRadiobutton, 2, 0, 1, 1)
+    fillMaxsizeRadioButton = QtGui.QRadioButton(_("Fill all space up to (MB):"))
     fillMaxsizeSpinBox = QtGui.QSpinBox(groupBox)
-    fillMaxsizeSpinBox.setRange(1, ctx.consts.MAX_PART_SIZE)
-    gridLayout.addWidget(fillMaxsizeSpinBox, 2, 1, 1, 1)
-    QObject.connect(fillMaxsizeRadioButton, SIGNAL("toggled()"), parent.fillMaxSizeCB)
+    fillMaxsizeSpinBox.setMaximum(ctx.consts.MAX_PART_SIZE)
+    QObject.connect(fillMaxsizeRadioButton, SIGNAL("toggled()"), parent.fillAllSpaceCB)
 
-    fillMaxsizeSpinBox.setEnabled(True)
+    fillMaxsizeSpinBox.setEnabled(False)
 
     if request.req_grow:
-        if request.max_size:
-            fillMaxsizeRadioButton.setEnabled(True)
+        if request.req_max_size:
+            fillMaxsizeRadioButton.setChecked(True)
             fillMaxsizeSpinBox.setEnabled(True)
-            fillMaxsizeSpinBox.setValue(request.max_size)
+            fillMaxsizeSpinBox.setValue(request.req_max_size)
         else:
-            fillUnlimitedRadiobutton.setEnabled(True)
+            fillUnlimitedRadiobutton.setChecked(True)
     else:
-        fixedRadioButton.setEnabled(True)
+        fixedRadioButton.setChecked(True)
+
+    gridLayout.addWidget(fixedRadioButton, 0, 0, 1, 2)
+    gridLayout.addWidget(fillMaxsizeRadioButton, 1, 0, 1, 1)
+    gridLayout.addWidget(fillMaxsizeSpinBox, 1, 1, 1, 1)
+    gridLayout.addWidget(fillUnlimitedRadiobutton, 2, 0, 1, 2)
 
     return (groupBox, fixedRadioButton, fillMaxsizeRadioButton, fillMaxsizeSpinBox)
-
-
-def doUIRAIDLVMChecks(request, devicetree):
-    fstype = request.fstype
-    numdrives = len(devicetree.disks.keys())
-
-    if fstype and fstype.getName() in ["physical volume (LVM)", "software RAID"]:
-        if numdrives > 1 and (request.drive is None or len(request.drive) > 1):
-                    return (_("Partitions of type '%s' must be constrained to "
-                        "a single drive.  To do this, select the "
-                        "drive in the 'Allowable Drives' checklist.")) % fstype.getName()
-    return None
-
