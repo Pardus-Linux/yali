@@ -14,6 +14,7 @@ from yali.storage.formats import getFormat, get_default_filesystem_type
 from yali.storage.devicetree import DeviceTree
 from yali.storage.storageset import StorageSet
 
+
 class StorageError(yali.Error):
     pass
 
@@ -29,6 +30,9 @@ class Storage(object):
         self.ignoredDisks = []
         self.exclusiveDisks = []
         self.doAutoPart = False
+        self.clearPartType = None
+        self.clearPartDisks = []
+        self.clearPartChoice = None
         self.reinitializeDisks = False
         self.zeroMbr = None
         self.protectedDevSpecs = []
@@ -40,6 +44,8 @@ class Storage(object):
         self.defaultBootFSType = get_default_filesystem_type(boot=True)
         self.devicetree = DeviceTree(ignored=self.ignoredDisks,
                                      exclusive=self.exclusiveDisks,
+                                     type=self.clearPartType,
+                                     clear=self.clearPartDisks,
                                      reinitializeDisks=self.reinitializeDisks,
                                      protected=self.protectedDevSpecs,
                                      zeroMbr=self.zeroMbr)
@@ -141,6 +147,8 @@ class Storage(object):
         """
         self.devicetree = DeviceTree(ignored=self.ignoredDisks,
                                      exclusive=self.exclusiveDisks,
+                                     type=self.clearPartType,
+                                     clear=self.clearPartDisks,
                                      reinitializeDisks=self.reinitializeDisks,
                                      protected=self.protectedDevSpecs,
                                      zeroMbr=self.zeroMbr)
@@ -525,19 +533,17 @@ class Storage(object):
 
         return (errors, warnings)
 
-    def addPartition(self, disklabel, free, partType, size):
-        """ Return new partition after adding it to the specified disk.
+    def isProtected(self, device):
+        """ Return True is the device is protected. """
+        return device.protected
 
-            Arguments:
-
-                disklabel -- disklabel instance to add partition to
-                free -- where to add the partition (parted.Geometry instance)
-                partType -- partition type (parted.PARTITION_* constant)
-                size -- size (in MB) of the new partition
-
-            The new partition will be aligned.
-
-            Return value is a parted.Partition instance.
-
-        """
-        return self.partioning.addPartition(disklabel, free, partType, size)
+    def checkNoDisks(self, intf):
+        """Check that there are valid disk devices."""
+        if not self.disks:
+            intf.messageWindow(_("No Drives Found"),
+                               _("An error has occurred - no valid devices were "
+                                 "found on which to create new file systems. "
+                                 "Please check your hardware for the cause "
+                                 "of this problem."))
+            return True
+        return False

@@ -10,23 +10,27 @@ _ = __trans.ugettext
 
 import yali
 import yali.gui.context as ctx
+import formats
+from udev import *
+from partitioning import shouldClear, CLEARPART_TYPE_ALL, CLEARPART_TYPE_LINUX, CLEARPART_TYPE_NONE
 from devices.device import DeviceNotFoundError, deviceNameToDiskByPath
 from devices.nodevice import NoDevice
 from devices.disk import Disk
 from devices.partition import Partition
-import formats
 from formats.disklabel import InvalidDiskLabelError
 from formats.filesystem import FilesystemError
-from udev import *
 
 class DeviceTreeError(yali.Error):
     pass
 
 class DeviceTree(object):
-    def __init__(self, ignored=[], exclusive=[], zeroMbr=None, reinitializeDisks=None, protected=[]):
+    def __init__(self, ignored=[], exclusive=[], type=CLEARPART_TYPE_NONE,
+                 clear=[],zeroMbr=None, reinitializeDisks=None, protected=[]):
         self._devices = []
         self._operations = []
         self.exclusiveDisks = exclusive
+        self.clearPartType = type
+        self.clearPartDisks = clear
         self.zeroMbr = zeroMbr
         self.reinitializeDisks = reinitializeDisks
 
@@ -448,6 +452,11 @@ class DeviceTree(object):
             device.format = formats.Format()
             return
 
+        if shouldClear(device, self.clearPartType, clearPartDisks=self.clearPartDisks):
+            # if this is a device that will be cleared by clearpart,
+            # don't bother with format-specific processing
+            return
+
     def handleDiskLabelFormat(self, info, device):
         if udev_device_get_format(info):
             ctx.logger.debug("device %s does not contain a disklabel" % device.name)
@@ -481,7 +490,25 @@ class DeviceTree(object):
                     device.format = format
             return
 
-        initlabel = False
+        # if the disk contains protected partitions we will not wipe the
+        # disklabel even if clearpart --initlabel was specified
+        if not self.clearPartDisks or device.name in self.clearPartDisks:
+            initlabel = self.reinitializeDisks
+            sysfs_path = udev_device_get_sysfs_path(info)
+            for protected in self.protectedDevNames:
+                # check for protected partition
+                _p = "/sys/%s/%s" % (sysfs_path, protected)
+                if os.path.exists(os.path.normpath(_p)):
+                    initlabel = False
+                    break
+
+                # check for protected partition on a device-mapper disk
+                disk_name = re.sub(r'p\d+$', '', protected)
+                if disk_name != protected and disk_name == device.name:
+                    initlabel = False
+                    break
+        else:
+            initlabel = False
 
         if self.zeroMbr:
             initcb = lambda: True

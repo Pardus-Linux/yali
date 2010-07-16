@@ -11,6 +11,8 @@ from operations import *
 from devices.device import devicePathToName
 from devices.partition import Partition
 
+CLEARPART_TYPE_ALL, CLEARPART_TYPE_LINUX, CLEARPART_TYPE_NONE = range(3)
+
 class PartitioningError(yali.Error):
     pass
 
@@ -1101,3 +1103,199 @@ def weight(fstype=None, mountpoint=None):
         return 2000
     else:
         return 0
+
+def shouldClear(device, clearPartType, clearPartDisks=None):
+    if clearPartType not in [CLEARPART_TYPE_LINUX, CLEARPART_TYPE_ALL]:
+        return False
+
+    if isinstance(device, PartitionDevice):
+        # Never clear the special first partition on a Mac disk label, as that
+        # holds the partition table itself.
+        if device.disk.format.partedDisk.type == "mac" and \
+           device.partedPartition.number == 1 and \
+           device.partedPartition.name == "Apple":
+            return False
+
+        # If we got a list of disks to clear, make sure this one's on it
+        if clearPartDisks and device.disk.name not in clearPartDisks:
+            return False
+
+        # We don't want to fool with extended partitions, freespace, &c
+        if device.partType not in [parted.PARTITION_NORMAL,
+                                   parted.PARTITION_LOGICAL]:
+            return False
+
+        if clearPartType == CLEARPART_TYPE_LINUX and \
+           not device.format.linuxNative and \
+           not device.getFlag(parted.PARTITION_LVM) and \
+           not device.getFlag(parted.PARTITION_RAID) and \
+           not device.getFlag(parted.PARTITION_SWAP):
+            return False
+    elif device.isDisk and not device.partitioned:
+        # If we got a list of disks to clear, make sure this one's on it
+        if clearPartDisks and device.name not in clearPartDisks:
+            return False
+
+        # Never clear disks with hidden formats
+        if device.format.hidden:
+            return False
+
+        if clearPartType == CLEARPART_TYPE_LINUX and \
+           not device.format.linuxNative:
+            return False
+
+    # Don't clear devices holding install media.
+    if device.protected:
+        return False
+
+    # Don't clear immutable devices.
+    if device.immutable:
+        return False
+
+    return True
+
+def _createFreeSpacePartitions(storage):
+    # get a list of disks that have at least one free space region of at
+    # least the default size for new partitions
+    disks = []
+    for disk in storage.storage.partitioned:
+        if storage.clearPartDisks and \
+           (disk.name not in storage.clearPartDisks):
+            continue
+
+        part = disk.format.firstPartition
+        while part:
+            if not part.type & parted.PARTITION_FREESPACE:
+                part = part.nextPartition()
+                continue
+
+            if part.getSize(unit="MB") > Partition.defaultSize:
+                disks.append(disk)
+                break
+
+            part = part.nextPartition()
+
+    # create a separate pv partition for each disk with free space
+    devs = []
+    for disk in disks:
+        fmt_type = "lvmpv"
+        fmt_args = {}
+        part = storage.newPartition(fmt_type=fmt_type,
+                                    fmt_args=fmt_args,
+                                    grow=True,
+                                    disks=[disk])
+        storage.createDevice(part)
+        devs.append(part)
+
+    return (disks, devs)
+
+def _schedulePartitions(storage, disks):
+    #
+    # Convert storage.autoPartitionRequests into Device instances and
+    # schedule them for creation
+    #
+    # First pass is for partitions only. We'll do LVs later.
+    #
+    for request in storage.autoPartitionRequests:
+        if request.asVol:
+            continue
+
+        if request.fstype is None:
+            request.fstype = storage.defaultFSType
+        elif request.fstype == "prepboot" and storage.bootDevice():
+            # there should never be a need for more than one PReP partition
+            continue
+
+        dev = storage.newPartition(fmt_type=request.fstype,
+                                   size=request.size,
+                                   grow=request.grow,
+                                   maxsize=request.maxSize,
+                                   mountpoint=request.mountpoint,
+                                   disks=disks,
+                                   weight=request.weight)
+
+        # schedule the device for creation
+        storage.createDevice(dev)
+
+    # make sure preexisting broken lvm/raid configs get out of the way
+    return
+
+def doAutoPartition(storage):
+    ctx.logger.debug("doAutoPartition(%s)")
+    ctx.logger.debug("doAutoPart: %s" % storage.doAutoPart)
+    ctx.logger.debug("clearPartType: %s" % storage.clearPartType)
+    ctx.logger.debug("clearPartDisks: %s" % storage.clearPartDisks)
+    ctx.logger.debug("autoPartitionRequests: %s" % storage.autoPartitionRequests)
+    ctx.logger.debug("storage.disks: %s" % [d.name for d in storage.disks])
+    ctx.logger.debug("storage.partitioned: %s" % [d.name for d in storage.partitioned])
+    ctx.logger.debug("all names: %s" % [d.name for d in storage.devices])
+
+    disks = []
+    devs = []
+
+    if storage.doAutoPart:
+        clearPartitions(anaconda.storage)
+
+    if storage.doAutoPart:
+        (disks, devs) = _createFreeSpacePartitions(storage)
+
+        if disks == []:
+            msg = _("Could not find enough free space for automatic "
+                    "partitioning, please use another partitioning method.")
+
+            ctx.yali.messageWindow(_("Error Partitioning"), msg, customIcon='error')
+
+            storage.reset()
+            return None
+
+        _schedulePartitions(anaconda, disks)
+
+    # sanity check the individual devices
+    ctx.logger.warning("not sanity checking devices because I don't know how yet")
+
+    # run the autopart function to allocate and grow partitions
+    try:
+        doPartitioning(storage, exclusiveDisks=anaconda.storage.clearPartDisks)
+
+    except PartitioningWarning as msg:
+        ctx.yali.messageWindow(_("Warnings During Automatic Partitioning"),
+                               _("Following warnings occurred during automatic partitioning:\n\n%s") % msg,
+                               customIcon='warning')
+        ctx.logger.warning(msg)
+    except PartitioningError as msg:
+        # restore drives to original state
+        storage.reset()
+        extra = _("\n\nPress 'OK' to exit the installer.")
+        ctx.yali.messageWindow(_("Error Partitioning"),
+                               _("Could not allocate requested partitions: \n\n"
+                                 "%(msg)s.%(extra)s") %
+                               {'msg': msg, 'extra': extra},
+                               customIcon='error')
+        sys.extit(0)
+
+    # sanity check the collection of devices
+    ctx.logger.warning("not sanity checking storage config because I don't know how yet")
+    # now do a full check of the requests
+    (errors, warnings) = storage.sanityCheck()
+    if warnings:
+        for warning in warnings:
+            ctx.logger.warning(warning)
+    if errors:
+        errortxt = "\n".join(errors)
+        extra = _("\n\nPress 'OK' to exit the installer.")
+        ctx.yali.messageWindow(_("Automatic Partitioning Errors"),
+                           _("The following errors occurred with your "
+                             "partitioning:\n\n%(errortxt)s\n\n"
+                             "This can happen if there is not enough "
+                             "space on your hard drive(s) for the "
+                             "installation. %(extra)s")
+                           % {'errortxt': errortxt, 'extra': extra},
+                           customIcon='error')
+        ctx.yali.messageWindow(_("Unrecoverable Error"),
+                               _("The system will now reboot."))
+
+        #Unrecoverable Error
+        #The system will now reboot.
+        sys.exit(0)
+
+    storage.reset()
