@@ -19,9 +19,9 @@ import shutil
 import sysutils
 import yali.pisiiface
 
-import yali.partitiontype as parttype
-import yali.partitionrequest as request
-from yali.partitionrequest import partrequests
+#import yali.partitiontype as parttype
+#import yali.partitionrequest as request
+#from yali.partitionrequest import partrequests
 
 import gettext
 __trans = gettext.translation('yali', fallback=True)
