@@ -16,7 +16,6 @@ from yali.gui import installdata
 # singletons from yali.*
 from yali.constants import consts
 from yali.options import options
-from yali.partitionrequest import partrequests
 
 # style sheet
 import yali.sysutils
@@ -50,3 +49,4 @@ bus = None
 
 # Selected disk for manual partitioning screen
 selectedDisk = None
+
