@@ -144,9 +144,10 @@ class Filesystem(Format):
         if self.infofs and self.mountable and self.exists and not size:
             try:
                 values = []
-                argv = self._defaultInfoOptions + [ self.device ]
+                argv = self._infoOptions + [ self.device ]
 
                 buf = yali.util.run_batch(self.infofs, argv)[1]
+                print buf
 
                 for line in buf.splitlines():
                     found = False
@@ -175,6 +176,7 @@ class Filesystem(Format):
                     return 0
 
                 size = 1
+                print "values"
                 for value in values:
                     size *= value
 
@@ -184,6 +186,7 @@ class Filesystem(Format):
                 ctx.logger.error("failed to obtain size of filesystem on %s: %s"
                           % (self.device, e))
 
+        print "Filesystemde %s existing size hesaplandi%s" %  (self.type, size)
         return size
 
     @property

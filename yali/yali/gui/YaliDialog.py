@@ -67,7 +67,7 @@ class windowTitle(QtGui.QFrame):
             event.accept()
 
 class Dialog(QtGui.QDialog):
-    def __init__(self, title, widget = None, parent = None, closeButton = True, keySequence = None, isDialog = False, icon = None):
+    def __init__(self, title, widget = None, closeButton = True, keySequence = None, isDialog = False, icon = None):
         QtGui.QDialog.__init__(self, ctx.mainScreen)
         self.setObjectName("dialog")
 
