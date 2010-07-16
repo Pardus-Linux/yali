@@ -21,12 +21,10 @@ from yali.options import options
 from yali.gui import context as ctx
 
 def init_logging(log_dir):
-    print "lgging deee:1"
     if os.access(log_dir, os.W_OK):
         handler = logging.handlers.RotatingFileHandler('%s/yali.log' % log_dir)
         formatter = logging.Formatter('%(asctime)-12s: %(levelname)-8s %(message)s')
         handler.setFormatter(formatter)
-        print "lgging deee"
         ctx.logger = logging.getLogger('yali')
         ctx.logger.addHandler(handler)
         ctx.loghandler = handler
@@ -45,6 +43,5 @@ def main():
 if __name__ == "__main__":
     locale.setlocale(locale.LC_ALL, "")
     init_logging("/var/log")
-    print ctx.logger
     main()
 

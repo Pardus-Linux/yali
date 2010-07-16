@@ -43,8 +43,6 @@ def numeric_type(num):
 def get_edd_dict(devices):
     eddDevices = {}
 
-    print "in edd_dict devices:%s" % devices
-
     if not os.path.exists("/sys/firmware/edd"):
         rc = run_batch("modprobe", ["edd"])[0]
         if rc > 0:
@@ -59,7 +57,6 @@ def get_edd_dict(devices):
         if mbrs.has_key(signature):
             if mbrs[signature] in devices:
                 eddDevices[os.path.basename(mbrs[signature])] = number
-    print "EDD_DICT:%s" % eddDevices
     return eddDevices
 
 def run_batch(cmd, argv):
