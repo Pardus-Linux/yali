@@ -22,10 +22,6 @@ from distutils.command.clean import clean
 from distutils.command.install import install
 from distutils.spawn import find_executable, spawn
 
-import yali
-
-YALI_VERSION = yali.__version__
-
 def qt_ui_files():
     p = "yali/gui/Ui/*.ui"
     return glob.glob(p)
@@ -53,10 +49,6 @@ def getRevision():
     except:
         return ""
 
-def getVersion():
-    # don't use svn revision...
-    return YALI_VERSION
-
 def py_file_name(ui_file):
     return os.path.splitext(ui_file)[0] + '.py'
 
@@ -77,11 +69,12 @@ class YaliBuild(build):
         x = open(py_file, "w")
         keyStart = "QtGui.QApplication.translate"
         keyEnd = ", None, QtGui.QApplication.UnicodeUTF8)"
+        headerItem = "headerItem"
         keyItem = "setItemText"
         styleKey = "setStyleSheet"
         for l in f:
             if not l.find(keyStart)==-1 and l.find(styleKey)==-1:
-                if not l.find(keyItem)==-1:
+                if (not l.find(keyItem)==-1) or (not l.find(headerItem) ==-1):
                     z = "%s,_(" % l.split(",")[0]
                     y = "%s,%s,"%(l.split(",")[0],l.split(",")[1])
                 else:
@@ -180,14 +173,14 @@ class I18nInstall(install):
             shutil.copy("po/%s.mo" % lang, os.path.join(destpath, "%s.mo" % i18n_domain))
 
 setup(name="yali",
-      version= getVersion(),
+      version= "2.2.0",
       description="YALI (Yet Another Linux Installer)",
       long_description="Pardus System Installer.",
       license="GNU GPL2",
       author="Pardus Developers",
       author_email="yali@pardus.org.tr",
       url="http://www.pardus.org.tr/eng/yali/",
-      packages = ['yali', 'yali.gui', 'yali.gui.Ui', 'yali.plugins'],
+      packages = ['yali', 'yali.gui', 'yali.gui.Ui', 'yali.storage','yali.storage.devices','yali.storage.formats','yali.plugins'],
       package_dir = {'': ''},
       data_files = [('/usr/share/yali/slideshow', gui_slidepics()),
                     ('/usr/share/yali/user_faces', user_faces()),
