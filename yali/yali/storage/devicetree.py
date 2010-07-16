@@ -13,9 +13,11 @@ class DeviceTreeError(yali.Error):
     pass
 
 class DeviceTree(object):
-    def __init__(self):
+    def __init__(self, ignored=[]):
         self._devices = []
         self._ignoredDisks = []
+        for disk in ignored:
+            self.addIgnoreDisk(disk)
         self._populated = False
 
     def addIgnoreDisk(self, disk):
