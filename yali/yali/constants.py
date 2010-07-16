@@ -128,3 +128,5 @@ try:
 except:
     # default lang to en_US
     consts.lang = "en"
+
+consts.MAX_PART_SIZE = 1024*1024*1024
