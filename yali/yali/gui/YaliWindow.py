@@ -256,7 +256,7 @@ class Widget(QtGui.QWidget):
 
             if ctx.options.debug == True or yali.sysutils.checkYaliParams(param="debug"):
                 # debug all screens.
-                weave_all_object_methods(ctx.debugger.aspect, _scr)
+                weave_all_object_methods(ctx.aspect, _scr)
 
             # enable navigation buttons before shown
             weave_object_method(enableNavButtonsAspect, _scr, "shown")
@@ -265,7 +265,7 @@ class Widget(QtGui.QWidget):
 
             self.ui.mainStack.addWidget(_scr)
 
-        weave_all_object_methods(ctx.debugger.aspect, self)
+        #weave_all_object_methods(ctx.aspect, self)
         self.stackMove(0)
 
     # Enable/Disable buttons
