@@ -24,7 +24,7 @@ from yali.gui.Ui.kickerwidget import Ui_KickerWidget
 import yali.gui.context as ctx
 from yali.gui.YaliDialog import Dialog
 from yali.kahya import kahya
-import yali.storage
+#import yali.storage
 
 def loadFile(path):
     """Read contents of a file"""
@@ -67,17 +67,17 @@ class Widget(QtGui.QWidget, ScreenWidget):
 
     def execute(self):
         if not kahyaExists():
-            ctx.debugger.log("There is no kahya jumps to the next screen.")
+            ctx.logger.debug("There is no kahya jumps to the next screen.")
             return True
 
         ctx.autoInstall = True
         yaliKahya = kahya()
-        ctx.debugger.log("Kahya File : %s " % ctx.options.kahyaFile)
+        ctx.logger.debug("Kahya File : %s " % ctx.options.kahyaFile)
 
         kahyaOpt = get_kernel_opt(ctx.consts.kahya_param)
 
         if kahyaOpt:
-            ctx.debugger.log("KAHYA-PARAMS:: %s" % kahyaOpt)
+            ctx.logger.debug("KAHYA-PARAMS:: %s" % kahyaOpt)
             kahyaFile = kahyaOpt.split(',')[1]
             if kahyaFile == "":
                 kahyaFile = ctx.consts.default_kahya_file
@@ -87,10 +87,10 @@ class Widget(QtGui.QWidget, ScreenWidget):
             kahyaFile = ctx.options.kahyaFile
 
         if kahyaFile:
-            ctx.debugger.log("Reading kahya from file %s" % kahyaFile)
+            ctx.logger.debug("Reading kahya from file %s" % kahyaFile)
             yaliKahya.readData(kahyaFile)
             if yaliKahya.checkFileValidity()==True:
-                ctx.debugger.log("File is ok")
+                ctx.logger.debug("File is ok")
 
                 # find usable storage devices
                 # initialize all storage devices
@@ -125,26 +125,26 @@ class Widget(QtGui.QWidget, ScreenWidget):
                 ctx.installData.repoAddr = correctData.repoAddr
                 ctx.installData.repoName = correctData.repoName
 
-                ctx.debugger.log("HOSTNAME : %s " % ctx.installData.hostName)
-                ctx.debugger.log("KEYDATA  : %s " % ctx.installData.keyData["xkblayout"])
+                ctx.logger.debug("HOSTNAME : %s " % ctx.installData.hostName)
+                ctx.logger.debug("KEYDATA  : %s " % ctx.installData.keyData["xkblayout"])
 
                 if ctx.installData.repoAddr:
-                    ctx.debugger.log("REPOADDR : %s " % ctx.installData.repoAddr)
-                    ctx.debugger.log("REPONAME : %s " % ctx.installData.repoName)
+                    ctx.logger.debug("REPOADDR : %s " % ctx.installData.repoAddr)
+                    ctx.logger.debug("REPONAME : %s " % ctx.installData.repoName)
 
                 # multi types
                 for user in correctData.users:
                     ctx.installData.users.append(user)
                     yali.users.pending_users.append(user)
-                    ctx.debugger.log("USER    : %s " % user.username)
+                    ctx.logger.debug("USER    : %s " % user.username)
 
                 if ctx.options.dryRun == True:
-                    ctx.debugger.log("dryRun activated Yali stopped")
+                    ctx.logger.debug("dryRun activated Yali stopped")
                 else:
                     # Summary Screen is 10
                     ctx.mainScreen.setCurrent(10)
             else:
-                ctx.debugger.log("This kahya file is not correct !!")
+                ctx.logger.debug("This kahya file is not correct !!")
                 wrongData = yaliKahya.getValues()
-                ctx.debugger.log("".join(wrongData))
+                ctx.logger.debug("".join(wrongData))
 
