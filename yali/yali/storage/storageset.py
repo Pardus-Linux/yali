@@ -322,14 +322,18 @@ class StorageSet(object):
             """Return a dictionary mapping mount points to devices."""
             ret = {}
             for device in [d for d in self.devices if d.format.mountable]:
-                ret[device.format.mountpoint] = device
+                if device.format.mountpoint:
+                    ret[device.format.mountpoint] = device
 
             return ret
 
+        _mountpoints = mountDict()
         if yali.util.isEfi():
-            return mountDict().get("/boot/efi")
+            return _mountpoints.get("/boot/efi")
         else:
-            return mountDict().get("/boot", mountDict().get("/"))
+            return _mountpoints.get("/boot", _mountpoints.get("/"))
+
+        return _bootDevice
 
     @property
     def rootDevice(self):
