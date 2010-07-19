@@ -25,7 +25,6 @@ from yali.gui.YaliDialog import Dialog, QuestionDialog
 from yali.gui.GUIException import *
 from yali.gui.ScreenWidget import ScreenWidget
 
-from yali.gui.GUIAdditional import DeviceTreeItem
 from yali.gui.ManualPartition import PartitionEditor
 from yali.gui.Ui.manualpartwidget import Ui_ManualPartWidget
 from yali.storage.devices.device import devicePathToName
@@ -71,19 +70,23 @@ about disk partitioning.
         self.storage = ctx.storage
         self.reset()
 
-
     # do the work and run requested actions on partitions.
     def execute(self):
         ctx.logger.info("Manual Partitioning selected...")
         ctx.mainScreen.processEvents()
         return True
 
-    def backCheck(self):
-        reply = QuestionDialog(_("Warning"),
-                               _("All changes that you made will be removed."))
+    def nextCheck(self):
+        if self.storage.storageset.rootDevice:
+            ctx.mainScreen.enableNext()
+        else:
+            ctx.mainScreen.disableNext()
 
-        if reply == "yes":
-            self.devicetree.refreshDevices()
+
+    def backCheck(self):
+        rc = ctx.yali.messageWindow(_("Warning"), _("All Changes that you made will be removed"), type="question")
+        if rc:
+            self.storage.reset()
             return True
         return False
 
@@ -220,6 +223,7 @@ about disk partitioning.
         if not rc == -1:
             self.populate()
 
+        self.nextCheck()
         return rc
 
 
@@ -288,3 +292,32 @@ about disk partitioning.
                 justRedraw = True
 
             self.refresh(justRedraw=justRedraw)
+
+class DeviceTreeItem(QtGui.QTreeWidgetItem):
+    def __init__(self, parent, device=None):
+        QtGui.QTreeWidgetItem.__init__(self, parent)
+        self.device = device
+
+    def setDevice(self, device):
+        self.device = device
+
+    def setName(self, device):
+        self.setText(0, device)
+
+    def setMountpoint(self, mountpoint):
+        self.setText(1, mountpoint)
+
+    def setLabel(self, label):
+        self.setText(2, label)
+
+    def setType(self, type):
+        self.setText(3, type)
+
+    def setFormattable(self, formattable):
+        self.setCheckState(4, formattable)
+
+    def setFormat(self, format):
+        self.setCheckState(5, format)
+
+    def setSize(self, size):
+        self.setText(6, size)

@@ -157,58 +157,6 @@ class AutoPartQuestionWidget(QtGui.QWidget):
         ctx.mainScreen.enableNext()
 
 
-class DriveItem(QtGui.QListWidgetItem):
-    def __init__(self, parent, text, drive):
-        QtGui.QListWidgetItem.__init__(self, text, parent)
-        self._drive = drive
-
-    @property
-    def drive(self):
-        return self._drive
-
-class DeviceTreeItem(QtGui.QTreeWidgetItem):
-    def __init__(self, parent, device=None):
-        QtGui.QTreeWidgetItem.__init__(self, parent)
-        self.device = device
-
-    def setDevice(self, device):
-        self.device = device
-
-    def setName(self, device):
-        self.setText(0, device)
-
-    def setMountpoint(self, mountpoint):
-        self.setText(1, mountpoint)
-
-    def setLabel(self, label):
-        self.setText(2, label)
-
-    def setType(self, type):
-        self.setText(3, type)
-
-    def setFormattable(self, formattable):
-        self.setCheckState(4, formattable)
-
-    def setFormat(self, format):
-        self.setCheckState(5, format)
-
-    def setSize(self, size):
-        self.setText(6, size)
-
-class DeviceItem(QtGui.QListWidgetItem):
-    def __init__(self, parent, dev):
-        self.text = u"%s on %s (%s)" %(dev.getModel(),
-                                       dev.getPath(),
-                                       dev.getSizeStr())
-        QtGui.QListWidgetItem.__init__(self, self.text, parent)
-        self._dev = dev
-
-    def setBootable(self):
-        self.setText(_("%s (Boot Disk)" % self.text))
-
-    def getDevice(self):
-        return self._dev
-
 class PartItem(QtGui.QListWidgetItem):
     def __init__(self, parent, partition, label, icon):
         QtGui.QListWidgetItem.__init__(self, QtGui.QIcon(":/gui/pics/%s.png" % icon), label, parent)

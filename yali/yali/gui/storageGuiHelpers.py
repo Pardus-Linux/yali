@@ -9,11 +9,21 @@ from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
 import yali.gui.context as ctx
-from yali.gui.GUIAdditional import DeviceTreeItem, DriveItem
 from yali.storage.formats import device_formats, get_default_filesystem_type
 
 defaultMountPoints = ['/', '/boot', '/home', '/tmp',
                       '/usr', '/var', '/usr/local', '/opt']
+
+class DriveItem(QtGui.QListWidgetItem):
+    def __init__(self, parent, text, drive):
+        QtGui.QListWidgetItem.__init__(self, text, parent)
+        self._drive = drive
+
+    @property
+    def drive(self):
+        return self._drive
+
+
 
 def createMountpointMenu(parent, request, excludeMountPoints=[]):
 
