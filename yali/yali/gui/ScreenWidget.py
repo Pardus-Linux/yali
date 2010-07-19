@@ -25,6 +25,9 @@ class ScreenWidget:
     def execute(self):
         return True
 
+    def nextCheck(self):
+        return True
+
     def backCheck(self):
         return True
 
