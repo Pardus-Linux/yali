@@ -24,6 +24,8 @@ import yali.installer
 import yali.sysutils
 import yali.localedata
 import yali.gui.context as ctx
+from yali.storage import Storage
+from yali.storage.bootloader import BootLoader
 from yali.gui.debugger import DebuggerAspect
 from yali.gui.YaliDialog import Dialog
 from yali.gui.Ui.exception import Ui_Exception
@@ -76,8 +78,10 @@ class Runner:
 
         # Creating the installer
         ctx.yali = yali.installer.Yali(install_type, install_plugin)
-        ctx.storage = yali.storage.Storage()
-        ctx.storage.reset()
+
+        ctx.storage = Storage()
+        ctx.bootloader = BootLoader()
+
         # These shorcuts for developers :)
         prevScreenShortCut = QtGui.QShortcut(QtGui.QKeySequence(Qt.SHIFT + Qt.Key_F1),self._window)
         nextScreenShortCut = QtGui.QShortcut(QtGui.QKeySequence(Qt.SHIFT + Qt.Key_F2),self._window)

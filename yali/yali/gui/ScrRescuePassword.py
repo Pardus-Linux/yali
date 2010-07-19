@@ -28,7 +28,6 @@ import yali.sysutils
 
 from yali.gui.installdata import *
 from yali.gui.YaliDialog import InfoDialog
-from yali.gui.GUIAdditional import DeviceItem
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.rescuepasswordwidget import Ui_RescuePasswordWidget
 from yali.gui.YaliSteps import YaliSteps

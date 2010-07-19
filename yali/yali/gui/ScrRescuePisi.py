@@ -26,7 +26,6 @@ import yali.postinstall
 import yali.sysutils
 
 from yali.gui.installdata import *
-from yali.gui.GUIAdditional import DeviceItem
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.rescuepisiwidget import Ui_RescuePisiWidget
 from yali.gui.YaliSteps import YaliSteps
