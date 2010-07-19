@@ -20,7 +20,6 @@ from PyQt4.QtCore import SIGNAL
 
 import yali.storage
 from yali.gui.installdata import *
-from yali.gui.GUIAdditional import DeviceItem
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.rescuegrubwidget import Ui_RescueGrubWidget
 from yali.gui.GUIException import GUIException
@@ -61,7 +60,7 @@ You can always choose another installation method if you know what you are doing
 
         # fill device list
         for dev in yali.storage.devices:
-            DeviceItem(self.ui.deviceList, dev)
+            DriveItem(self.ui.deviceList, dev)
 
         # select the first disk by default
         self.ui.deviceList.setCurrentRow(0)
@@ -104,3 +103,12 @@ You can always choose another installation method if you know what you are doing
 
         ctx.mainScreen.moveInc = 3
         return True
+
+class DriveItem(QtGui.QListWidgetItem):
+    def __init__(self, parent, drive):
+        text = u"%s on %s (%s) MB" % (drive.model, drive.name, str(int(drive.size)))
+        QtGui.QListWidgetItem.__init__(self, text, parent)
+        self.drive = drive
+
+    def setBootable(self):
+        self.setText(_("%s (Boot Disk)" % self.text))
