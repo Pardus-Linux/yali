@@ -13,10 +13,13 @@
 class Error(Exception):
     pass
 
+import os
 import sys
 import traceback
 import cStringIO
+import logging
 import gettext
+import yali.gui.context as ctx
 
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
@@ -24,6 +27,27 @@ _ = __trans.ugettext
 import pisi
 from yali.exception import *
 
+class Singleton(type):
+    def __init__(cls, name, bases, dict):
+        super(Singleton, cls).__init__(name, bases, dict)
+        cls.instance = None
+
+    def __call__(cls, *args, **kw):
+        if cls.instance is None:
+            cls.instance = super(Singleton, cls).__call__(*args, **kw)
+
+        return cls.instance
+
+def init_logging(log_dir):
+    import yali.gui.context as ctx
+    if os.access(log_dir, os.W_OK):
+        handler = logging.handlers.RotatingFileHandler('%s/yali.log' % log_dir)
+        formatter = logging.Formatter('%(asctime)-12s: %(levelname)-8s %(message)s')
+        handler.setFormatter(formatter)
+        ctx.logger = logging.getLogger('yali')
+        ctx.logger.addHandler(handler)
+        ctx.loghandler = handler
+        ctx.logger.setLevel(logging.DEBUG)
 
 def default_runner():
     """ Main runner of YALI """
@@ -31,9 +55,11 @@ def default_runner():
     sys.excepthook = exception_handler
     return yali.gui.runner.Runner()
 
-exception_normal, exception_fatal, \
-    exception_pisi, exception_informational, \
-    exception_unknown = range(5)
+exception_normal,\
+exception_fatal,\
+exception_pisi,\
+exception_informational,\
+exception_unknown = range(5)
 
 def exception_handler(exception, value, tb):
     """ YALI exception handler for showing exceptions in GUI """

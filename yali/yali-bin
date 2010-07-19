@@ -12,23 +12,12 @@
 #
 import os
 import locale
-import logging
 
-from yali import default_runner
+import yali
 import yali.sysutils
+import yali.gui.context as ctx
 from yali.constants import consts
-from yali.options import options
-from yali.gui import context as ctx
 
-def init_logging(log_dir):
-    if os.access(log_dir, os.W_OK):
-        handler = logging.handlers.RotatingFileHandler('%s/yali.log' % log_dir)
-        formatter = logging.Formatter('%(asctime)-12s: %(levelname)-8s %(message)s')
-        handler.setFormatter(formatter)
-        ctx.logger = logging.getLogger('yali')
-        ctx.logger.addHandler(handler)
-        ctx.loghandler = handler
-        ctx.logger.setLevel(logging.DEBUG)
 
 def try_umount_target():
     for mpoint in ("/home", "/dev", "/proc", "/sys", ""):
@@ -42,6 +31,6 @@ def main():
 
 if __name__ == "__main__":
     locale.setlocale(locale.LC_ALL, "")
-    init_logging("/var/log")
+    yali.init_logging("/var/log")
     main()
 
