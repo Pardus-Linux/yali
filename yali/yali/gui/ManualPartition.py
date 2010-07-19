@@ -53,7 +53,7 @@ class PartitionEditor:
 
             widget = self.dialog.content
 
-            mountpoint = widget.mountCombo.currentText()
+            mountpoint = str(widget.mountCombo.currentText())
             if widget.mountCombo.isEditable() and mountpoint:
                 msg = sanityCheckMountPoint(mountpoint)
                 if msg:
@@ -80,7 +80,7 @@ class PartitionEditor:
                     continue
 
             if not self.origrequest.exists:
-                formatType = widget.newfstypeCombo.currentText()
+                formatType = str(widget.newfstypeCombo.currentText())
 
                 if widget.primaryCheckBox.isChecked():
                     primary = True
@@ -159,7 +159,7 @@ class PartitionEditor:
 
                 if widget.fsoptions.has_key("formatCheckBox"):
                     if widget.fsoptions["formatCheckBox"].isChecked():
-                        formatType = widget.fsoptions["fstypeComboBox"].currentText()
+                        formatType = str(widget.fsoptions["fstypeComboBox"].currentText())
                         format = formats.getFormat(formatType, mountpoint=mountpoint, device=usedev.path)
 
                         operations.append(OperationCreateFormat(usedev, format))

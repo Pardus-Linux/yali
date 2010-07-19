@@ -109,9 +109,7 @@ def doDeleteDevice(intf, storage, device, confirm=1, quiet=0):
 
     reason = storage.deviceImmutable(device)
     if reason:
-        intf.messageWindow(_("Unable To Delete"),
-                           reason,
-                           customIcon="error")
+        intf.messageWindow(_("Unable To Delete"),reason, customIcon="error")
         return False
 
     if confirm and confirmDelete(intf, device):
@@ -142,14 +140,14 @@ def sanityCheckMountPoint(mntpt):
         Don't end with /..
         Don't end with /.
     """
-    if not mntpt.startsWith("/") or \
-       (len(mntpt) > 1 and mntpt.endsWith("/")) or \
+    if not mntpt.startswith("/") or \
+       (len(mntpt) > 1 and mntpt.endswith("/")) or \
        " " in mntpt or \
        "/../" in mntpt or \
        "/./" in mntpt or \
        "//" in mntpt or \
-       mntpt.endsWith("/..") or \
-       mntpt.endsWith("/.") :
+       mntpt.endswith("/..") or \
+       mntpt.endswith("/.") :
            return _("The mount point %s is invalid.  Mount points must start "
                     "with '/' and cannot end with '/', and must contain "
                     "printable characters and no spaces.") % mntpt
@@ -246,7 +244,6 @@ def confirmDelete(intf, device):
     rc = intf.messageWindow(_("Confirm Delete"), errmsg, type="custom",
                             customButtons=[_("Delete"), _("Cancel")],
                             customIcon="question")
-    print "RC:%s" % rc
     return rc
 
 def confirmResetPartitionState(intf):

@@ -865,7 +865,7 @@ def allocatePartitions(storage, disks, partitions, freespace):
             if not mountpoint:
                 mountpoint = ""
 
-            if free and (_part.req_bootable or mountpoint.startsWith("/boot")):
+            if free and (_part.req_bootable or mountpoint.startswith("/boot")):
                 # if this is a bootable partition we want to
                 # use the first freespace region large enough
                 # to satisfy the request
