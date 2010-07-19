@@ -10,9 +10,6 @@
 # Please read the COPYING file.
 #
 
-# Auto Partition Methods
-methodUseAvail, methodEraseAll, methodManual = range(3)
-
 # Auto Installation Methods
 methodInstallAutomatic, methodInstallManual = range(2)
 
@@ -25,19 +22,13 @@ kernels = {
         rtKernel:"kernel.rt"
         }
 
-# Boot Loader Options
-B_DONT_INSTALL = 0
-B_INSTALL_PART = 1
-B_INSTALL_MBR  = 2
-B_INSTALL_SMART= 3
-
 YALI_INSTALL, \
-        YALI_DVDINSTALL, \
-        YALI_FIRSTBOOT, \
-        YALI_OEMINSTALL, \
-        YALI_PLUGIN, \
-        YALI_PARTITIONER, \
-        YALI_RESCUE = range(7)
+YALI_DVDINSTALL, \
+YALI_FIRSTBOOT, \
+YALI_OEMINSTALL, \
+YALI_PLUGIN, \
+YALI_PARTITIONER, \
+YALI_RESCUE = range(7)
 
 class InstallData:
     keyData = None
@@ -46,21 +37,12 @@ class InstallData:
     users = []
     isKahyaUsed = False
     autoLoginUser = None
-    autoPartDev = None
-    autoPartPartition = None
-    autoPartMethod = methodUseAvail
     autoInstallationKernel = None
     autoInstallationCollection = None
     autoInstallationMethod = methodInstallAutomatic
-    bootLoaderDev = None
-    bootLoaderOption = B_INSTALL_SMART
-    bootLoaderOptionalDev = None
-    bootLoaderDetectOthers = True
     rescuePartition = None
-    orderedDiskList = []
     repoAddr = None
     useYaliFirstBoot = False
     timezone = "Europe/Istanbul"
     sessionLog = ""
     installAllLangPacks = False
-

@@ -90,53 +90,52 @@
      <property name="title">
       <string>Select where to install the bootloader</string>
      </property>
-     <layout class="QVBoxLayout">
-      <item>
-       <widget class="QRadioButton" name="installFirstMBR">
-        <property name="text">
-         <string>First bootable disk (recommended)</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="installPart">
-        <property name="text">
-         <string>Partition where Pardus is installed</string>
-        </property>
-       </widget>
-      </item>
-      <item>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0" colspan="2">
        <widget class="QRadioButton" name="installMBR">
         <property name="text">
-         <string>Selected disk below</string>
+         <string>Master Boot Record (MBR)</string>
         </property>
        </widget>
       </item>
-      <item>
-       <layout class="QVBoxLayout">
-        <item>
-         <widget class="QListWidget" name="device_list">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-       </layout>
+      <item row="1" column="0" colspan="2">
+       <widget class="QRadioButton" name="installPartition">
+        <property name="text">
+         <string>First sector of boot partition</string>
+        </property>
+       </widget>
       </item>
-      <item>
+      <item row="4" column="0" colspan="2">
+       <widget class="QListWidget" name="drives">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
        <widget class="QRadioButton" name="noInstall">
         <property name="text">
          <string>Don't install bootloader</string>
         </property>
        </widget>
       </item>
-      <item>
-       <widget class="QCheckBox" name="autoAddOthers">
+      <item row="6" column="0" colspan="2">
+       <widget class="QCheckBox" name="addOthers">
         <property name="text">
          <string>Automatically add other operating systems to the GRUB Menu</string>
         </property>
         <property name="checked">
          <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QCheckBox" name="selectDrive">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Select BIOS Drive </string>
         </property>
        </widget>
       </item>
@@ -180,11 +179,43 @@
  <layoutdefault spacing="6" margin="11"/>
  <pixmapfunction>qPixmapFromMimeSource</pixmapfunction>
  <tabstops>
-  <tabstop>installFirstMBR</tabstop>
-  <tabstop>installPart</tabstop>
   <tabstop>installMBR</tabstop>
+  <tabstop>installPartition</tabstop>
   <tabstop>noInstall</tabstop>
  </tabstops>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>installMBR</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>selectDrive</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>305</x>
+     <y>257</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>200</x>
+     <y>309</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>selectDrive</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>drives</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>200</x>
+     <y>309</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>305</x>
+     <y>394</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

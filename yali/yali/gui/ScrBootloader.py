@@ -9,28 +9,28 @@
 #
 # Please read the COPYING file.
 #
-
-
 import gettext
+
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
-import time
-import thread
-from os.path import basename
-
-#import yali.storage
-from yali.gui.installdata import *
-from yali.gui.GUIAdditional import DeviceItem
+import yali.gui.context as ctx
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.bootloaderwidget import Ui_BootLoaderWidget
-from yali.gui.GUIException import *
-import yali.gui.context as ctx
-from pardus.sysutils import get_kernel_option
-import yali.sysutils
+from yali.storage.bootloader import BOOT_TYPE_NONE, BOOT_TYPE_PARTITION, BOOT_TYPE_MBR, BootLoaderError, boot_type_strings
+
+class DriveItem(QtGui.QListWidgetItem):
+    def __init__(self, parent, drive):
+        text = u"%s on %s (%s) MB" % (drive.model, drive.name, str(int(drive.size)))
+        QtGui.QListWidgetItem.__init__(self, text, parent)
+        self.drive = drive
+
+    def setBootable(self):
+        self.setText(_("%s (Boot Disk)" % self.text))
+
 
 ##
 # BootLoader screen.
@@ -60,89 +60,79 @@ You can always choose another installation method if you know what you are doing
         QtGui.QWidget.__init__(self,None)
         self.ui = Ui_BootLoaderWidget()
         self.ui.setupUi(self)
+        self.bootloader = ctx.bootloader
+        self.bootloader.storage = ctx.storage
+        self.drives = self.bootloader.drives
+        self.device = None
+        self.initialDevice = None
 
-        self.ui.installFirstMBR.setChecked(True)
+        self.connect(self.ui.drives, SIGNAL("currentItemChanged(QListWidgetItem*, QListWidgetItem*)"), self.slotDeviceChanged)
+        self.connect(self.ui.selectDrive, SIGNAL("stateChanged(int)"), self.slotSelectDriveState)
+        self.connect(self.ui.installPartition,  SIGNAL("toggled(boo)"), self.disableDrives)
 
-        # initialize all storage devices
-        #if not yali.storage.initDevices():
-        #    raise GUIException, _("No storage device found.")
+    def fillDrives(self):
+        self.ui.drives.clear()
+        self.drives = self.bootloader.drives
 
-        # fill device list
-        #for dev in yali.storage.devices:
-        #    DeviceItem(self.ui.device_list, dev)
-        # select the first disk by default
-        self.ui.device_list.setCurrentRow(0)
-        # be sure first is selected device
-        #self.device = self.ui.device_list.item(0).getDevice()
+        if not len(self.drives):
+            raise BootLoaderError, _("No drives found.")
 
-        #if len(yali.storage.devices) < 1:
-        #    # don't show device list if we have just one disk
-        #    self.ui.installMBR.hide()
-        #    self.ui.device_list.hide()
+        if len(self.drives) ==  1:
+            self.ui.drives.hide()
+        else:
+            for drive in self.drives:
+                DriveItem(self.ui.drives, ctx.storage.devicetree.getDeviceByName(drive))
 
-        #    self.device = yali.storage.devices[0]
-
-        self.connect(self.ui.device_list, SIGNAL("currentItemChanged(QListWidgetItem*,QListWidgetItem*)"),
-                     self.slotDeviceChanged)
-        self.connect(self.ui.installFirstMBR, SIGNAL("clicked()"),
-                     self.slotDisableList)
-        self.connect(self.ui.installPart, SIGNAL("clicked()"),
-                     self.slotDisableList)
-        self.connect(self.ui.noInstall, SIGNAL("clicked()"),
-                     self.slotDisableList)
-        self.connect(self.ui.installMBR, SIGNAL("clicked()"),
-                     self.slotEnableList)
-        self.connect(self.ui.device_list, SIGNAL("itemClicked(QListWidgetItem*)"),
-                     self.slotSelect)
+            self.ui.drives.setCurrentRow(0)
 
     def shown(self):
-        yali.storage.setOrderedDiskList()
-        ctx.debugger.log("Disks BIOS Boot order : %s " % ','.join(ctx.installData.orderedDiskList))
-        self.getBootable().setBootable()
+        self.fillDrives()
+        choices = self.bootloader.choices
+        for choice, (device, bootType) in choices.items():
+            if choice == BOOT_TYPE_MBR:
+                self.ui.installMBR.setText("%s - %s" % (bootType, device))
+            elif choice == BOOT_TYPE_PARTITION:
+                self.ui.installPartition.setText("%s - %s" % (bootType, device))
 
-    def getBootable(self):
-        #opts = get_kernel_option("mudur")
-        opts =yali.sysutils.liveMediaSystem()
-        for i in range(self.ui.device_list.count()):
-            item = self.ui.device_list.item(i)
-            if opts.__eq__("harddisk"):
-                if item.getDevice().getPath() == ctx.installData.orderedDiskList[1]:
-                    return item
+        if self.bootloader.device is not None:
+            self.device = self.bootloader.device
+        else:
+            if choices.has_key(BOOT_TYPE_MBR):
+                self.device = choices[BOOT_TYPE_MBR][0]
+                self.initialDevice = self.device
+                self.ui.installMBR.setChecked(True)
             else:
-                if item.getDevice().getPath() == ctx.installData.orderedDiskList[0]:
-                    return item
+                self.device = choices[BOOT_TYPE_PARTITION][0]
+                self.ui.installPartition.setChecked(True)
 
     def backCheck(self):
-        if ctx.autoInstall:
-            # we need to go partition auto screen, not manual ;)
+        if ctx.storage.doAutoPart:
             ctx.mainScreen.moveInc = 2
         return True
 
-    def slotDisableList(self):
-        self.ui.device_list.setEnabled(False)
-        self.ui.device_list.setCurrentItem(self.getBootable())
+    def disableDrives(self, state):
+        if state:
+            self.ui.drives.setEnabled(not state)
+            self.ui.selectDrive.setChecked(Qt.Unchecked)
 
-    def slotEnableList(self):
-        self.ui.device_list.setEnabled(True)
+    def slotSelectDriveState(self, state):
+        if state == Qt.Unchecked:
+            self.device = self.initialDevice
 
-    def slotSelect(self):
-        self.ui.installMBR.toggle()
-
-    def slotDeviceChanged(self, o, n):
-        self.device = o.getDevice()
-        ctx.bootLoaderOptionalDev = self.device
+    def slotDeviceChanged(self, current, previous):
+        self.device = current.drive.name
+        self.ui.installMBR.setText("%s - %s" % (boot_type_strings[BOOT_TYPE_MBR], self.device))
 
     def execute(self):
-        ctx.installData.bootLoaderOptionalDev = self.device
-        # Apply GRUB Options
+        self.bootloader.device = self.device
         if self.ui.noInstall.isChecked():
-            ctx.installData.bootLoaderOption = B_DONT_INSTALL
-        elif self.ui.installPart.isChecked():
-            ctx.installData.bootLoaderOption = B_INSTALL_PART
+            ctx.bootloader.bootType = BOOT_TYPE_NONE
+        elif self.ui.installPartition.isChecked():
+            ctx.bootloader.bootType = BOOT_TYPE_PARTITION
         elif self.ui.installMBR.isChecked():
-            ctx.installData.bootLoaderOption = B_INSTALL_MBR
-        else:
-            ctx.installData.bootLoaderOption = B_INSTALL_SMART
-        ctx.installData.bootLoaderDetectOthers = self.ui.autoAddOthers.isChecked()
+            ctx.bootloader.bootType = BOOT_TYPE_MBR
+
+        self.bootloader.otherEnabled = self.ui.addOthers.isChecked()
+
         return True
 
