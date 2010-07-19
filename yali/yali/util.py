@@ -14,16 +14,6 @@ from pardus.diskutils import EDD
 
 EARLY_SWAP_RAM = 512 * 1024 # 512 MB
 
-class Singleton(type):
-    def __init__(cls, name, bases, dict):
-        super(Singleton, cls).__init__(name, bases, dict)
-        cls.instance = None
-
-    def __call__(cls, *args, **kw):
-        if cls.instance is None:
-            cls.instance = super(Singleton, cls).__call__(*args, **kw)
-
-        return cls.instance
 
 def numeric_type(num):
     """ Verify that a value is given as a numeric data type.
