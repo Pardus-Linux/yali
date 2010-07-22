@@ -98,11 +98,45 @@ _sysutils_fastreboot(PyObject *self)
 }
 
 
+static int get_bits(unsigned long long v) {
+    int  b = 0;
+
+    if ( v & 0xffffffff00000000LLU ) { b += 32; v >>= 32; }
+    if ( v & 0xffff0000LLU ) { b += 16; v >>= 16; }
+    if ( v & 0xff00LLU ) { b += 8; v >>= 8; }
+    if ( v & 0xf0LLU ) { b += 4; v >>= 4; }
+    if ( v & 0xcLLU ) { b += 2; v >>= 2; }
+    if ( v & 0x2LLU ) b++;
+
+    return v ? b + 1 : b;
+}
+
+static PyObject * doDevSpaceFree(PyObject * s, PyObject * args) {
+    char * path;
+    struct statfs sb;
+    unsigned long long size;
+
+    if (!PyArg_ParseTuple(args, "s", &path)) return NULL;
+
+    if (statfs(path, &sb)) {
+        PyErr_SetFromErrno(PyExc_SystemError);
+        return NULL;
+    }
+
+    /* Calculate a saturated addition to prevent oveflow. */
+    if ( get_bits(sb.f_bfree) + get_bits(sb.f_bsize) <= 64 )
+        size = (unsigned long long)sb.f_bfree * sb.f_bsize;
+    else
+        size = ~0LLU;
+
+    return PyLong_FromUnsignedLongLong(size>>20);
+}
 
 static PyMethodDef _sysutils_methods[] = {
     {"umount",  (PyCFunction)_sysutils_umount,  METH_VARARGS,  umount__doc__},
     {"eject",  (PyCFunction)_sysutils_eject,  METH_VARARGS,  eject__doc__},
-    {"fastreboot",  (PyCFunction)_sysutils_fastreboot,  METH_NOARGS,  fastreboot__doc__},
+    {"fast_reboot",  (PyCFunction)_sysutils_fastreboot,  METH_NOARGS,  fastreboot__doc__},
+    {"device_space_free", (PyCFunction) doDevSpaceFree, METH_VARARGS, NULL },
     {NULL, NULL}
 };
 

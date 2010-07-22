@@ -21,7 +21,7 @@ from string import digits
 from pardus.sysutils import find_executable
 from pardus import procutils
 
-from yali._sysutils import *
+from yali._sysutils import device_space_free
 from yali.constants import consts
 
 import gettext
@@ -29,6 +29,9 @@ __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 _sys_dirs = ['dev', 'proc', 'sys']
+
+def available_space(path):
+    return device_space_free(path)
 
 def run(cmd, params=None, capture=False, appendToLog=True):
     import yali.gui.context as ctx
@@ -172,15 +175,6 @@ def swapOn(partition):
     params = ["-v", partition]
     run("swapon", params)
 
-##
-# total memory size
-def memTotal():
-    m = open("/proc/meminfo")
-    for l in m:
-        if l.startswith("MemTotal"):
-            return int(l.split()[1]) / 1024
-    return None
-
 def ejectCdrom(mount_point=consts.source_dir):
     if "copytoram" not in open("/proc/cmdline", "r").read().strip().split():
         run("eject -m %s" % mount_point)
@@ -307,7 +301,6 @@ def pardusRelease(partition_path, file_system):
 
 def reboot():
     run("/tmp/reboot -f")
-    # fastreboot()
 
 def shutdown():
     run("/tmp/shutdown -h now")
