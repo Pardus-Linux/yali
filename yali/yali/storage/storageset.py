@@ -1,13 +1,36 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-
+import os
 import gettext
 
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
+import yali.util
 from devices import *
 from devicetree import DeviceTree
+
+def get_containing_device(path, devicetree):
+    """ Return the device that a path resides on. """
+    if not os.path.exists(path):
+        return None
+
+    st = os.stat(path)
+    major = os.major(st.st_dev)
+    minor = os.minor(st.st_dev)
+    link = "/sys/dev/block/%s:%s" % (major, minor)
+    if not os.path.exists(link):
+        return None
+
+    try:
+        device_name = os.path.basename(os.readlink(link))
+    except Exception:
+        return None
+
+    if device_name.startswith("dm-"):
+        device_name = yali.util.name_from_dm_node(device_name)
+
+    return devicetree.getDeviceByName(device_name)
 
 class StorageSet(object):
     def __init__(self, devicetree, rootpath):
@@ -85,7 +108,7 @@ class StorageSet(object):
                 #
                 # -- bind formats' device and mountpoint are always both
                 #    under the chroot. no exceptions. none, damn it.
-                targetDir = "%s/%s" % (anaconda.rootPath, device.path)
+                targetDir = "%s/%s" % (ctx.consts.target_dir, device.path)
                 parent = get_containing_device(targetDir, self.devicetree)
                 if not parent:
                     ctx.logger.error("cannot determine which device contains "
@@ -99,7 +122,6 @@ class StorageSet(object):
             try:
                 device.setup()
             except Exception as msg:
-                # FIXME: need an error popup
                 continue
 
             if readOnly:
@@ -107,33 +129,34 @@ class StorageSet(object):
 
             try:
                 device.format.setup(options=options,
-                                    chroot=anaconda.rootPath)
+                                    chroot=ctx.consts.target_dir.rootPath)
             except OSError as e:
                 ctx.logger.error("OSError: (%d) %s" % (e.errno, e.strerror))
 
                 if ctx.yali.messageWindow:
                     if e.errno == errno.EEXIST:
                         ctx.yali.messageWindow(_("Invalid mount point"),
-                                           _("An error occurred when trying "
-                                             "to create %s.  Some element of "
-                                             "this path is not a directory. "
-                                             "This is a fatal error and the "
-                                             "install cannot continue.\n\n"
-                                             "Press <Enter> to exit the "
-                                             "installer.")
-                                           % (device.format.mountpoint,))
+                                               _("An error occurred when trying "
+                                                 "to create %s.  Some element of "
+                                                 "this path is not a directory. "
+                                                 "This is a fatal error and the "
+                                                 "install cannot continue.\n\n"
+                                                 "Press <Enter> to exit the "
+                                                 "installer.")
+                                                % (device.format.mountpoint,))
                     else:
                         na = {'mountpoint': device.format.mountpoint,
                               'msg': e.strerror}
                         ctx.yali.messageWindow(_("Invalid mount point"),
-                                           _("An error occurred when trying "
-                                             "to create %(mountpoint)s: "
-                                             "%(msg)s.  This is "
-                                             "a fatal error and the install "
-                                             "cannot continue.\n\n"
-                                             "Press <Enter> to exit the "
-                                             "installer.") % na)
+                                               _("An error occurred when trying "
+                                                 "to create %(mountpoint)s: "
+                                                 "%(msg)s.  This is "
+                                                 "a fatal error and the install "
+                                                 "cannot continue.\n\n"
+                                                 "Press <Enter> to exit the "
+                                                 "installer.") % na)
                 sys.exit(0)
+
             except SystemError as (num, msg):
                 ctx.logger.error("SystemError: (%d) %s" % (num, msg) )
 
@@ -141,15 +164,14 @@ class StorageSet(object):
                     na = {'path': device.path,
                           'mountpoint': device.format.mountpoint}
                     ret = ctx.yali.messageWindow(_("Unable to mount filesystem"),
-                                             _("An error occurred mounting "
-                                             "device %(path)s as "
-                                             "%(mountpoint)s.  You may "
-                                             "continue installation, but "
-                                             "there may be problems.") % na,
-                                             type="custom",
-                                             customIcon="warning",
-                                             customButtons=[_("_Exit installer"),
-                                                            _("_Continue")])
+                                                 _("An error occurred mounting "
+                                                   "device %(path)s as "
+                                                   "%(mountpoint)s.  You may "
+                                                   "continue installation, but "
+                                                   "there may be problems.") % na,
+                                                   type="custom",
+                                                   customIcon="warning",
+                                                   customButtons=[_("Exit installer"), _("Continue")])
 
                     if ret == 0:
                         sys.exit(0)
@@ -165,13 +187,13 @@ class StorageSet(object):
                           'mountpoint': device.format.mountpoint,
                           'msg': msg}
                     ctx.yali.messageWindow(_("Unable to mount filesystem"),
-                                       _("An error occurred mounting "
-                                         "device %(path)s as %(mountpoint)s: "
-                                         "%(msg)s. This is "
-                                         "a fatal error and the install "
-                                         "cannot continue.\n\n"
-                                         "Press <Enter> to exit the "
-                                         "installer.") % na)
+                                           _("An error occurred mounting "
+                                             "device %(path)s as %(mountpoint)s: "
+                                             "%(msg)s. This is "
+                                             "a fatal error and the install "
+                                             "cannot continue.\n\n"
+                                             "Press <Enter> to exit the "
+                                             "installer.") % na)
                 sys.exit(0)
 
         self.active = True
