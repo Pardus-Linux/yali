@@ -28,10 +28,6 @@ class DriveItem(QtGui.QListWidgetItem):
         QtGui.QListWidgetItem.__init__(self, text, parent)
         self.drive = drive
 
-    def setBootable(self):
-        self.setText(_("%s (Boot Disk)" % self.text))
-
-
 ##
 # BootLoader screen.
 class Widget(QtGui.QWidget, ScreenWidget):
@@ -62,65 +58,71 @@ You can always choose another installation method if you know what you are doing
         self.ui.setupUi(self)
         self.bootloader = ctx.bootloader
         self.bootloader.storage = ctx.storage
-        self.drives = self.bootloader.drives
         self.device = None
         self.initialDevice = None
 
-        self.connect(self.ui.drives, SIGNAL("currentItemChanged(QListWidgetItem*, QListWidgetItem*)"), self.slotDeviceChanged)
-        self.connect(self.ui.selectDrive, SIGNAL("stateChanged(int)"), self.slotSelectDriveState)
-        self.connect(self.ui.installPartition,  SIGNAL("toggled(boo)"), self.disableDrives)
-
-    def fillDrives(self):
-        self.ui.drives.clear()
-        self.drives = self.bootloader.drives
-
-        if not len(self.drives):
-            raise BootLoaderError, _("No drives found.")
-
-        if len(self.drives) ==  1:
-            self.ui.drives.hide()
-        else:
-            for drive in self.drives:
-                DriveItem(self.ui.drives, ctx.storage.devicetree.getDeviceByName(drive))
-
-            self.ui.drives.setCurrentRow(0)
+        self.connect(self.ui.installMBR, SIGNAL("toggled(bool)"), self.ui.selectDrive.setEnabled)
+        self.connect(self.ui.installPartition, SIGNAL("clicked(bool)"), self.slotDrivesEnabled)
+        self.connect(self.ui.selectDrive, SIGNAL("stateChanged(int)"), self.changeDrivesState)
+        self.connect(self.ui.drives, SIGNAL("currentRowChanged(int)"), self.slotDeviceChanged)
 
     def shown(self):
         self.fillDrives()
-        choices = self.bootloader.choices
-        for choice, (device, bootType) in choices.items():
-            if choice == BOOT_TYPE_MBR:
-                self.ui.installMBR.setText("%s - %s" % (bootType, device))
-            elif choice == BOOT_TYPE_PARTITION:
-                self.ui.installPartition.setText("%s - %s" % (bootType, device))
-
-        if self.bootloader.device is not None:
-            self.device = self.bootloader.device
-        else:
-            if choices.has_key(BOOT_TYPE_MBR):
-                self.device = choices[BOOT_TYPE_MBR][0]
-                self.initialDevice = self.device
-                self.ui.installMBR.setChecked(True)
-            else:
-                self.device = choices[BOOT_TYPE_PARTITION][0]
-                self.ui.installPartition.setChecked(True)
+        self.activateChoices()
 
     def backCheck(self):
         if ctx.storage.doAutoPart:
             ctx.mainScreen.moveInc = 2
         return True
 
-    def disableDrives(self, state):
-        if state:
-            self.ui.drives.setEnabled(not state)
-            self.ui.selectDrive.setChecked(Qt.Unchecked)
+    def fillDrives(self):
+        self.ui.drives.clear()
 
-    def slotSelectDriveState(self, state):
-        if state == Qt.Unchecked:
+        if not len(self.bootloader.drives):
+            raise BootLoaderError, _("No drives found.")
+        elif len(self.bootloader.drives) ==  1:
+            self.ui.drives.setDisabled(True)
+            self.ui.selectDrive.setDisabled(True)
+
+        for drive in self.bootloader.drives:
+            DriveItem(self.ui.drives, ctx.storage.devicetree.getDeviceByName(drive))
+
+    def activateChoices(self):
+        for choice, (device, bootType) in self.bootloader.choices.items():
+            if choice == BOOT_TYPE_MBR:
+                self.ui.installMBR.setText("%s - %s" % (bootType, device))
+            elif choice == BOOT_TYPE_PARTITION:
+                self.ui.installPartition.setText("%s - %s" % (bootType, device))
+
+        if self.bootloader.choices.has_key(BOOT_TYPE_MBR):
+            self.device = self.bootloader.choices[BOOT_TYPE_MBR][0]
+            self.initialDevice = self.device
+            self.ui.installMBR.setChecked(True)
+        else:
+            self.device = self.bootloader.choices[BOOT_TYPE_PARTITION][0]
+            self.initialDevice = self.device
+            self.ui.installPartition.setChecked(True)
+
+
+    def changeDrivesState(self, state):
+        if state == Qt.Checked:
+            self.ui.drives.setEnabled(True)
+            #self.device = self.bootloader.choices[BOOT_TYPE_PARTITION][0]
+            for index in range(self.ui.drives.count()):
+                if self.device == self.ui.drives.item(index).drive.name:
+                    self.ui.drives.setCurrentRow(index)
+        else:
+            self.ui.drives.setEnabled(False)
             self.device = self.initialDevice
+            self.ui.installMBR.setText("%s - %s" % (boot_type_strings[BOOT_TYPE_MBR], self.device))
 
-    def slotDeviceChanged(self, current, previous):
-        self.device = current.drive.name
+    def slotDrivesEnabled(self, state):
+        self.ui.selectDrive.setChecked(not state)
+        self.ui.selectDrive.setEnabled(not state)
+        self.ui.drives.setEnabled(not state)
+
+    def slotDeviceChanged(self, current):
+        self.device = self.ui.drives.item(current).drive.name
         self.ui.installMBR.setText("%s - %s" % (boot_type_strings[BOOT_TYPE_MBR], self.device))
 
     def execute(self):
@@ -132,7 +134,6 @@ You can always choose another installation method if you know what you are doing
         elif self.ui.installMBR.isChecked():
             ctx.bootloader.bootType = BOOT_TYPE_MBR
 
-        self.bootloader.otherEnabled = self.ui.addOthers.isChecked()
+        self.bootloader.otherEnabled i= self.ui.addOthers.isChecked()
 
         return True
-
