@@ -208,7 +208,7 @@ Here you can see your install options before installation starts.
                                       type = "custom", customIcon="warning",
                                       customButtons=[_("Go Back"), _("Write Changes to Disk")],
                                       default = 0)
-        ctx..storage.devicetree.teardownAll()
+        ctx.storage.devicetree.teardownAll()
 
         if rc == 0:
             ctx.logger.info("unmounting filesystems")
@@ -243,6 +243,6 @@ Here you can see your install options before installation starts.
         ctx.logger.debug("Partitioning finished")
         ctx.yali.info.hide()
 
-        ctx.mainScreen.moveInc = 1
+        ctx.mainScreen.stepIncrement = 1
         ctx.mainScreen.ui.buttonNext.setText(_("Next"))
         return True

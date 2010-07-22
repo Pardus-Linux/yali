@@ -153,7 +153,7 @@ Proceed with the installation after you make your selections.
 
         if not self.ui.addMoreUsers.isChecked():
             if not self.slotCreateUser():
-                ctx.mainScreen.moveInc = 0
+                ctx.mainScreen.stepIncrement = 0
                 return True
 
         self.refill()
