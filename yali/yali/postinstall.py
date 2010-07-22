@@ -266,9 +266,10 @@ def writeInitramfsConf(parameters=[]):
     swapDevice = ctx.storage.storageset.swapDevices[0]
 
     if swapDevices:
-        parameters.append("resume=%s" % swapDevice.path
+        parameters.append("resume=%s" % swapDevice.path)
 
-    ctx.debugger.log("Configuring initramfs.conf file with parameters:%s" % " ".join(parameters))
+    parameters = " ".join(parameters)
+    ctx.logger.debug("Configuring initramfs.conf file with parameters:%s" % parameters)
 
     initramfsConf = open(path, 'w')
 

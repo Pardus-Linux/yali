@@ -8,15 +8,16 @@
 */
 
 #include <Python.h>
-#include <sys/mount.h>
-#include <sys/ioctl.h>
 #include <linux/cdrom.h>
-#include <sys/types.h>
-#include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <sys/reboot.h>
 #include <ext2fs/ext2fs.h>
+#include <sys/mount.h>
+#include <sys/ioctl.h>
+#include <sys/vfs.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/reboot.h>
 
 
 PyDoc_STRVAR(umount__doc__,
