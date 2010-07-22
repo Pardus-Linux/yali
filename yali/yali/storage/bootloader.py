@@ -312,9 +312,9 @@ class BootLoader(object):
         bootPartitionPath = get_partition_name(self.storage, bootDevices[0])
 
         batch_template = """root %s
-install --stage2=/boot/grub/stage2 %s/stage1 d %s %s/stage2 p %s%s/grub.conf
+setup %s
 quit
-""" % (bootPartitionPath, grubpath, stage1Path, grubpath, bootPartitionPath, grubpath)
+""" % (bootPartitionPath, stage1Path)
 
         file('/tmp/batch','w').write(batch_template)
 
