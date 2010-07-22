@@ -16,17 +16,13 @@ import time
 import dbus
 import yali
 import shutil
-import sysutils
-import yali.pisiiface
-
-#import yali.partitiontype as parttype
-#import yali.partitionrequest as request
-#from yali.partitionrequest import partrequests
-
 import gettext
+
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
+import sysutils
+import yali.pisiiface
 import yali.gui.context as ctx
 from yali.constants import consts
 from yali.gui.installdata import *
@@ -264,15 +260,13 @@ def setPackages():
 
 def writeInitramfsConf(parameters=[]):
     path = os.path.join(consts.target_dir, "etc/initramfs.conf")
+    rootDevice = ctx.storage.storageset.rootDevice
+    parameters.append("root=%s" % rootDevice.fstabSpec)
 
-    rootPartitionRequest = ctx.partrequests.searchPartTypeAndReqType(parttype.root, request.mountRequestType)
-    rootPartitionLabel = rootPartitionRequest.partition().getTempLabel()
-    parameters.append("root=LABEL=%s" % rootPartitionLabel)
+    swapDevice = ctx.storage.storageset.swapDevices[0]
 
-    swapPartitionRequest = partrequests.searchPartTypeAndReqType(parttype.swap, request.mountRequestType)
-
-    if swapPartitionRequest:
-        parameters.append("resume=%s" % swapPartitionRequest.partition().getPath())
+    if swapDevices:
+        parameters.append("resume=%s" % swapDevice.path
 
     ctx.debugger.log("Configuring initramfs.conf file with parameters:%s" % " ".join(parameters))
 
@@ -287,13 +281,14 @@ def writeInitramfsConf(parameters=[]):
 
     initramfsConf.close()
 
-def setPartitionPrivileges(request, mode, uid, gid):
-    requestPath =  os.path.join(ctx.consts.target_dir, request.partitionType().mountpoint.lstrip("/"))
-    ctx.debugger.log("Trying to change privileges %s path" % requestPath)
-    if os.path.exists(requestPath):
-        try:
-            os.chmod(requestPath, mode)
-            os.chown(requestPath, uid, gid)
-        except OSError, msg:
-                ctx.debugger.log("Unexpected error: %s" % msg)
+##### FIXME: Be sure after storage api rewrite will be finished
+#def setPartitionPrivileges(request, mode, uid, gid):
+#    requestPath =  os.path.join(ctx.consts.target_dir, request.partitionType().mountpoint.lstrip("/"))
+#    ctx.debugger.log("Trying to change privileges %s path" % requestPath)
+#    if os.path.exists(requestPath):
+#        try:
+#            os.chmod(requestPath, mode)
+#            os.chown(requestPath, uid, gid)
+#        except OSError, msg:
+#                ctx.debugger.log("Unexpected error: %s" % msg)
 
