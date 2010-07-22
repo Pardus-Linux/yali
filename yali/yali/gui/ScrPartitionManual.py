@@ -30,8 +30,7 @@ from yali.gui.Ui.manualpartwidget import Ui_ManualPartWidget
 from yali.storage.devices.device import devicePathToName
 from yali.storage.devices.partition import Partition
 from yali.storage.partitioning import doPartitioning, PartitioningError, PartitioningWarning
-from yali.storage.storageBackendHelpers import doDeleteDevice, doClearPartitionedDevice
-
+from yali.storage.storageBackendHelpers import doDeleteDevice, doClearPartitionedDevice, checkForSwapNoMatch
 
 class Widget(QtGui.QWidget, ScreenWidget):
     title = _('Manual Partitioning')
@@ -68,9 +67,9 @@ about disk partitioning.
     def shown(self):
         ctx.mainScreen.disableNext()
         self.storage = ctx.storage
-        self.reset()
+        checkForSwapNoMatch(ctx.yali, self.storage)
+        self.populate()
 
-    # do the work and run requested actions on partitions.
     def execute(self):
         ctx.logger.info("Manual Partitioning selected...")
         ctx.mainScreen.processEvents()
@@ -81,7 +80,6 @@ about disk partitioning.
             ctx.mainScreen.enableNext()
         else:
             ctx.mainScreen.disableNext()
-
 
     def backCheck(self):
         rc = ctx.yali.messageWindow(_("Warning"), _("All Changes that you made will be removed"), type="question")
@@ -125,9 +123,10 @@ about disk partitioning.
         item.setType(format.name)
         item.setSize("%Ld" % device.size)
         item.setFormat(formatIcon)
-        item.setFormattable(format.formattable)
+        item.setFormattable(formattable)
 
     def populate(self):
+        self.ui.deviceTree.clear()
         disks = self.storage.partitioned
         disks.sort(key=lambda d: d.name)
         # Disk&Partitions

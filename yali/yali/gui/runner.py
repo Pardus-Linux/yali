@@ -80,6 +80,7 @@ class Runner:
         ctx.yali = yali.installer.Yali(install_type, install_plugin)
 
         ctx.storage = Storage()
+        ctx.storage.reset()
         ctx.bootloader = BootLoader()
 
         # These shorcuts for developers :)
