@@ -122,7 +122,7 @@ class Dialog(QtGui.QDialog):
         self.setCentered()
         return QtGui.QDialog.exec_(self)
 
-class MesssageWindow:
+class MessageWindow:
     def __init__(self, title, text, type="ok", default=None, customButtons =None, customIcon=None, run=True, destroyAfterRun=True):
         self.rc = None
         self.dialog = None
@@ -162,26 +162,23 @@ class MesssageWindow:
 
         if self.doCustom:
             button = None
-            for text  in self.customButtons:
+            for index, text in enumerate(self.customButtons):
                 button = self.msgBox.addButton(text, QtGui.QMessageBox.ActionRole)
-
-            if default is not None:
-                defaultChoice = default
-            else:
-                defaultChoice = button
+                if default is not None and default == index:
+                    self.msgBox.setDefaultButton(button)
         else:
             self.msgBox.setStandardButtons(buttons)
 
             if default == "no":
-                defaultChoice = QtGui.QMessageBox.No
+                default = QtGui.QMessageBox.No
             elif default == "yes":
-                defaultChoice = QtGui.QMessageBox.Yes
+                default = QtGui.QMessageBox.Yes
             elif default == "ok":
-                defaultChoice = QtGui.QMessageBox.Ok
+                default = QtGui.QMessageBox.Ok
             else:
-                defaultChoice = None
+                default = None
 
-        self.msgBox.setDefaultButton(defaultChoice)
+        self.msgBox.setDefaultButton(default)
 
         self.dialog = Dialog(_(title), self.msgBox, closeButton = False, isDialog = True, icon=icon)
         if run:
@@ -203,6 +200,16 @@ class MesssageWindow:
             self.dialog = None
 
         return self.rc
+
+class DetailedMessageWindow(MessageWindow):
+    def __init__(self, title, text, longText, type="ok", default=None,
+                 customButtons=None, customIcon=None, run=True, destroyAfterRun=True):
+        MessageWindow.__init__(self, title, text, type=type, default=default, customButtons=customButtons,\
+                                customIcon=customIcon, run=run, destroyAfterRun=destroyAfterRun)
+
+        self.details = QtGui.QTextBrowser()
+        self.details.setText(unicode(longText))
+        self.dialog.addWidget(self.details)
 
 def QuestionDialog(title, text, info = None, dontAsk = False):
     msgBox = QtGui.QMessageBox()

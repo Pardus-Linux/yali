@@ -31,7 +31,7 @@ from yali.constants import consts
 import yali.gui.context as ctx
 from yali.gui.installdata import *
 from yali.gui.debugger import DebuggerAspect
-from yali.gui.YaliDialog import Dialog, QuestionDialog, InfoDialog, InformationWindow, MesssageWindow, DetailedMessageWindow
+from yali.gui.YaliDialog import Dialog, QuestionDialog, InfoDialog, InformationWindow, MessageWindow, DetailedMessageWindow
 
 # screens
 import yali.gui.ScrKahyaCheck
@@ -155,9 +155,9 @@ class Yali:
         self.checkCDStop = True
 
     def messageWindow(self, title, text, type="ok", default=None, customButtons=None, customIcon=None):
-        return MesssageWindow(title, text, type, default, customButtons, customIcon, run=True).rc
+        return MessageWindow(title, text, type, default, customButtons, customIcon, run=True).rc
 
-    def detailedMessageWindow(self, title, text, longText, type="ok", default=None, customButtons=None, customIcon=None)
+    def detailedMessageWindow(self, title, text, longText, type="ok", default=None, customButtons=None, customIcon=None):
         return DetailedMessageWindow(title, text, longText, type, default, customButtons, customIcon, run=True).rc
 
     def getPlugin(self, p):
