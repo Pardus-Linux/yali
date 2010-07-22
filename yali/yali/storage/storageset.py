@@ -33,6 +33,7 @@ def get_containing_device(path, devicetree):
     return devicetree.getDeviceByName(device_name)
 
 class StorageSet(object):
+    _bootFSTypes = ["ext4", "ext3", "ext2"]
     def __init__(self, devicetree, rootpath):
         self.devicetree = devicetree
         self.rootpath = rootpath
@@ -319,6 +320,10 @@ class StorageSet(object):
         dev.format.create()
         dev.format.setup()
         self.devicetree._addDevice(dev)
+
+    @property
+    def bootFilesystemTypes(self):
+        return self._bootFSTypes
 
     def checkBootRequest(self, request):
         """Perform an architecture-specific check on the boot device.  Not all

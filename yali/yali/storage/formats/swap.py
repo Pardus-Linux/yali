@@ -7,7 +7,7 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-from yali.util import numeric_type, swapon, swapoff, swapstatus, swapstatus, mkswap
+from yali.util import numeric_type, swapon, swap_off, swap_status, mkswap
 from . import Format, register_device_format
 
 class SwapSpace(Format):
@@ -18,6 +18,7 @@ class SwapSpace(Format):
     partedFlag = PARTITION_SWAP
     partedSystem = fileSystemType["linux-swap(v1)"]
     _formattable = True                # can be formatted
+    _supported = True                  # is supported
     _linuxNative = True                # for clearpart
 
     def __init__(self, *args, **kwargs):
@@ -91,7 +92,7 @@ class SwapSpace(Format):
     @property
     def status(self):
         """ Device status. """
-        return self.exists and swapstatus(self.device)
+        return self.exists and swap_status(self.device)
 
     def setup(self, *args, **kwargs):
         """ Open, or set up, a device. """
@@ -110,7 +111,7 @@ class SwapSpace(Format):
             raise SwapSpaceError("format has not been created")
 
         if self.status:
-            swapoff(self.device)
+            swap_off(self.device)
 
     def create(self, *args, **kwargs):
         """ Create the device. """
@@ -132,4 +133,3 @@ class SwapSpace(Format):
             self.exists = True
 
 register_device_format(SwapSpace)
-

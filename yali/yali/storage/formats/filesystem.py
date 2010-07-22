@@ -239,7 +239,7 @@ class Filesystem(Format):
         argv = self._migrateOptions[:]
         argv.append(self.device)
         try:
-            rc = yali.util.run_batch(self.migratefsProg,
+            rc = yali.util.run_batch(self.migratefs,
                                         argv,
                                         stdout = "/dev/tty5",
                                         stderr = "/dev/tty5")[0]
@@ -557,9 +557,9 @@ class Filesystem(Format):
 
     def _isMigratable(self):
         """ Can filesystems of this type be migrated? """
-        return bool(self._migratable and self.migratefsProg and
+        return bool(self._migratable and self.migratefs and
                     filter(lambda d: os.access("%s/%s"
-                                               % (d, self.migratefsProg,),
+                                               % (d, self.migratefs,),
                                                os.X_OK),
                            os.environ["PATH"].split(":")) and
                     self.migrationTarget)

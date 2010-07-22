@@ -30,7 +30,7 @@ class Partition(Device):
              sysfsPath='', parents=None, exists=None,
              partType=None, primary=False, weight=0):
 
-        """ Create a PartitionDevice instance.
+        """ Create a Partition instance.
 
             Arguments:
 
@@ -213,7 +213,7 @@ class Partition(Device):
         return self._partedPartition
 
     def _setPartedPartition(self, partition):
-        """ Set this PartitionDevice's parted Partition instance. """
+        """ Set this Partition's parted Partition instance. """
         if partition is None:
             path = None
         elif isinstance(partition, parted.Partition):
@@ -285,7 +285,7 @@ class Partition(Device):
 
     def dependsOn(self, dep):
         """ Return True if this device depends on dep. """
-        if isinstance(dep, PartitionDevice) and dep.isExtended and \
+        if isinstance(dep, Partition) and dep.isExtended and \
            self.isLogical and self.disk == dep.disk:
             return True
 

@@ -132,7 +132,7 @@ class DeviceTree(object):
 
             device.disk.format.removePartition(device.partedPartition)
 
-            # adjust all other PartitionDevice instances belonging to the
+            # adjust all other Partition instances belonging to the
             # same disk so the device name matches the potentially altered
             # name of the parted.Partition
             for dev in self._devices:
@@ -409,7 +409,7 @@ class DeviceTree(object):
         sysfs_path = udev_device_get_sysfs_path(info)
         uuid = udev_device_get_uuid(info)
         label = udev_device_get_label(info)
-        format_type = udev_device_get_format(info)
+        fmt_type = udev_device_get_format(info)
         serial = udev_device_get_serial(info)
 
         if not udev_device_is_biosraid(info) and \
@@ -425,30 +425,30 @@ class DeviceTree(object):
                 return
 
         format = None
-        if (not device) or (not format_type) or device.format.type:
+        if (not device) or (not fmt_type) or device.format.type:
             # this device has no formatting or it has already been set up
             # FIXME: this probably needs something special for disklabels
             ctx.logger.debug("no type or existing type for %s, bailing" % (name,))
             return
 
         # set up the common arguments for the format constructor
-        args = [format_type]
+        args = [fmt_type]
         kwargs = {"uuid": uuid,
                   "label": label,
                   "device": device.path,
                   "serial": serial,
                   "exists": True}
-        if format_type == "vfat":
+        if fmt_type == "vfat":
             if isinstance(device, Partition) and device.bootable:
                 efi = formats.getFormat("efi")
                 if efi.minSize <= device.size <= efi.maxSize:
                     args[0] = "efi"
         try:
-            ctx.logger.debug("type detected on '%s' is '%s'" % (name, format_type,))
+            ctx.logger.debug("type detected on '%s' is '%s'" % (name, fmt_type,))
             device.format = formats.getFormat(*args, **kwargs)
         except FilesystemError:
             ctx.logger.debug("type '%s' on '%s' invalid, assuming no format" %
-                      (format_type, name,))
+                      (fmt_type, name,))
             device.format = formats.Format()
             return
 
