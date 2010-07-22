@@ -1,9 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-
+import parted
 import gettext
+
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
+
+from formats import getFormat
 
 def checkForSwapNoMatch(intf, storage):
     """Check for any partitions of type 0x82 which don't have a swap fs."""
@@ -26,7 +29,6 @@ def checkForSwapNoMatch(intf, storage):
             if rc == 1:
                 format = getFormat("swap", device=device.path)
                 storage.formatDevice(device, format)
-
     return
 
 def doClearPartitionedDevice(intf, storage, device, confirm=1, quiet=0):
@@ -275,3 +277,4 @@ def doUIRAIDLVMChecks(format, req_disks, storage):
             return (_("Partitions of type '%s' must be constrained to "
                       "a single drive.  To do this, select the "
                       "drive in the 'Allowable Drives' checklist.") % format.name)
+

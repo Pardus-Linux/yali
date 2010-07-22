@@ -22,20 +22,16 @@ from PyQt4.QtCore import *
 
 import pisi.ui
 
-import yali.fstab
 import yali.sysutils
 import yali.pisiiface
 import yali.postinstall
 import yali.localeutils
-
-import yali.gui.context as ctx
 from yali.constants import consts
-#import yali.partitionrequest as request
-
+import yali.gui.context as ctx
 from yali.gui.descSlide import slideDesc
 from yali.gui.ScreenWidget import ScreenWidget
-from yali.gui.YaliDialog import QuestionDialog, EjectAndRetryDialog
 from yali.gui.Ui.installwidget import Ui_InstallWidget
+from yali.gui.YaliDialog import QuestionDialog, EjectAndRetryDialog
 
 EventPisi, EventSetProgress, EventError, EventAllFinished, EventPackageInstallFinished, EventRetry = range(1001,1007)
 

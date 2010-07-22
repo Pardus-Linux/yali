@@ -28,7 +28,7 @@ class DeviceTree(object):
     def __init__(self, ignored=[], exclusive=[], type=CLEARPART_TYPE_NONE,
                  clear=[],zeroMbr=None, reinitializeDisks=None, protected=[]):
         self._devices = []
-        self._operations = []
+        self.operations = []
         self.exclusiveDisks = exclusive
         self.clearPartType = type
         self.clearPartDisks = clear
@@ -172,7 +172,7 @@ class DeviceTree(object):
                 raise DeviceTreeError("mountpoint already in use")
 
         ctx.logger.debug("registered operation: %s" % operation)
-        self._operations.append(operation)
+        self.operations.append(operation)
 
     def removeOperation(self, operation):
         """ Cancel a registered operation.
@@ -188,7 +188,7 @@ class DeviceTree(object):
              (operation.isCreate() or operation.isMigrate() or operation.isResize()):
             operation.cancel()
 
-        self._operations.remove(operation)
+        self.operations.remove(operation)
 
     def findOperations(self, device=None, type=None, object=None, path=None, devid=None):
         """ Find all operations that match all specified parameters.
@@ -203,14 +203,14 @@ class DeviceTree(object):
         """
         if device is None and type is None and object is None and \
            path is None and devid is None:
-            return self._operations[:]
+            return self.operations[:]
 
         # convert the string arguments to the types used in operations
         _type = operation_type_from_string(type)
         _object = operation_object_from_string(object)
 
         operations = []
-        for operation in self._operations:
+        for operation in self.operations:
             if device is not None and operation.device != device:
                 continue
 
@@ -246,7 +246,7 @@ class DeviceTree(object):
 
         # Also call preCommitFixup on any devices we're going to
         # destroy (these are already removed from the tree)
-        for operation in self._operations:
+        for operation in self.operations:
             if isinstance(operation, OperationDestroyDevice):
                 operation.device.preCommitFixup(mountpoints=mpoints)
 
@@ -261,22 +261,22 @@ class DeviceTree(object):
                device.isExtended and not device.exists:
                 # don't properly register the operation since the device is
                 # already in the tree
-                self._operations.append(OperationsreateDevice(device))
+                self.operations.append(OperationsreateDevice(device))
 
-        for operation in self._operations:
+        for operation in self.operations:
             ctx.logger.debug("operation: %s" % operation)
 
         #ctx.logger.debug("pruning operation queue...")
         #self.pruneOperations()
-        #for operation in self._operations:
+        #for operation in self.operations:
         #    log.debug("operation: %s" % operation)
 
         #log.debug("sorting operations...")
-        #self._operations.sort(cmp=cmpOperations)
-        #for operation in self._operations:
+        #self.operations.sort(cmp=cmpOperations)
+        #for operation in self.operations:
         #    ctx.logger.debug("operation: %s" % operation)
 
-        for operation in self._operations:
+        for operation in self.operations:
             ctx.logger.info("executing operation: %s" % operation)
             if not dryRun:
                 try:
