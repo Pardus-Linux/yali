@@ -49,7 +49,7 @@
       <bool>true</bool>
      </property>
      <property name="styleSheet">
-      <string notr="true">selection-background-color: #562032;
+      <string notr="true">selection-background-color: #628577;
 alternate-background-color: rgba(255, 255, 255, 122);
 </string>
      </property>

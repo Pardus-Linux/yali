@@ -40,7 +40,7 @@ class Options(object):
         parser.add_option("-p", "--plugin", dest="plugin",
                           help="load given plugin", type="str", default=None)
         parser.add_option("-t", "--theme", dest="theme",
-                          help="load given theme", type="str", default="2009")
+                          help="load given theme", type="str", default="corporate")
         self.options, self.args = parser.parse_args()
 
     def __getattr__(self, name):
