@@ -4,6 +4,10 @@ import sys
 import os
 import parted
 from operator import add, sub, gt, lt
+import gettext
+
+__trans = gettext.translation('yali', fallback=True)
+_ = __trans.ugettext
 
 import yali
 import yali.gui.context as ctx
@@ -30,10 +34,10 @@ class Request(object):
 
             Arguments:
 
-                partition -- a PartitionDevice instance
+                partition -- a Partition instance
 
         """
-        self.partition = partition          # storage.devices.PartitionDevice
+        self.partition = partition          # storage.devices.partition.Partition
         self.growth = 0                     # growth in sectors
         self.max_growth = 0                 # max growth in sectors
         self.done = not partition.req_grow  # can we grow this request more?
@@ -58,7 +62,7 @@ class Request(object):
 
     @property
     def id(self):
-        """ The id of the PartitionDevice this request corresponds to. """
+        """ The id of the Partition this request corresponds to. """
         return self.partition.id
 
     def __str__(self):
@@ -244,6 +248,128 @@ def sizeToSectors(size, sectorSize):
             sectorSize  -   sector size for the device, in bytes
     """
     return (size * 1024.0 * 1024.0) / sectorSize
+
+def clearPartitions(storage):
+    """ Clear partitions and dependent devices from disks.
+
+        Arguments:
+
+            storage -- a storage.Storage instance
+
+        Keyword arguments:
+
+            None
+
+        NOTES:
+
+            - Needs some error handling, especially for the parted bits.
+
+    """
+    if storage.clearPartType is None or storage.clearPartType == CLEARPART_TYPE_NONE:
+        # not much to do
+        return
+
+    # we are only interested in partitions that physically exist
+    partitions = [p for p in storage.partitions if p.exists]
+    # Sort partitions by descending partition number to minimize confusing
+    # things like multiple "destroy sda5" actions due to parted renumbering
+    # partitions. This can still happen through the UI but it makes sense to
+    # avoid it where possible.
+    partitions.sort(key=lambda p: p.partedPartition.number, reverse=True)
+    for part in partitions:
+        ctx.logger.debug("clearpart: looking at %s" % part.name)
+        if not shouldClear(part, storage.clearPartType, storage.clearPartDisks):
+            continue
+
+        ctx.logger.debug("clearing %s" % part.name)
+
+        # XXX is there any argument for not removing incomplete devices?
+        #       -- maybe some RAID devices
+        devices = storage.deviceDeps(part)
+        while devices:
+            ctx.logger.debug("devices to remove: %s" % ([d.name for d in devices],))
+            leaves = [d for d in devices if d.isleaf]
+            ctx.logger.debug("leaves to remove: %s" % ([d.name for d in leaves],))
+            for leaf in leaves:
+                storage.destroyDevice(leaf)
+                devices.remove(leaf)
+
+        ctx.logger.debug("partitions: %s" % [p.getDeviceNodeName() for p in part.partedPartition.disk.partitions])
+        storage.destroyDevice(part)
+
+    # now remove any empty extended partitions
+    removeEmptyExtendedPartitions(storage)
+
+    # make sure that the the boot device has the correct disklabel type if
+    # we're going to completely clear it.
+    for disk in storage.partitioned:
+        if not storage.drives:
+            break
+
+        if disk.name != ctx.bootloader.drives[0]:
+            continue
+
+        if storage.clearPartType != CLEARPART_TYPE_ALL or \
+           (storage.clearPartDisks and disk.name not in storage.clearPartDisks):
+            continue
+
+        # don't reinitialize the disklabel if the disk contains install media
+        if filter(lambda p: p.dependsOn(disk), storage.protectedDevices):
+            continue
+
+        if yali.util.isEfi():
+            nativeLabelType = "gpt"
+        else:
+            nativeLabelType = "msdos"
+
+        if disk.format.labelType == nativeLabelType:
+            continue
+
+        if disk.format.labelType == "mac":
+            for part in storage.partitions:
+                if part.disk == disk and part.partedPartition.number == 1:
+                    ctx.logger.debug("clearing %s" % part.name)
+                    # We can't schedule the apple map partition for removal
+                    # because parted will not allow us to remove it from the
+                    # disk. Still, we need it out of the devicetree.
+                    storage.devicetree._removeDevice(part, moddisk=False)
+
+        destroy = OperationDestroyFormat(disk)
+        newLabel = getFormat("disklabel", device=disk.path)
+        create = OperationCreateFormat(disk, format=newLabel)
+        storage.devicetree.addOperation(destroy)
+        storage.devicetree.addOperation(create)
+
+def removeEmptyExtendedPartitions(storage):
+    for disk in storage.partitioned:
+        ctx.logger.debug("checking whether disk %s has an empty extended" % disk.name)
+        extended = disk.format.extendedPartition
+        logical_parts = disk.format.logicalPartitions
+        ctx.logger.debug("extended is %s ; logicals is %s" % (extended, [p.getDeviceNodeName() for p in logical_parts]))
+        if extended and not logical_parts:
+            ctx.logger.debug("removing empty extended partition from %s" % disk.name)
+            extended_name = devicePathToName(extended.getDeviceNodeName())
+            extended = storage.devicetree.getDeviceByName(extended_name)
+            storage.destroyDevice(extended)
+
+    for disk in [d for d in storage.disks if d not in storage.partitioned]:
+        # clear any whole-disk formats that need clearing
+        if shouldClear(disk, storage.clearPartType, storage.clearPartDisks):
+            ctx.logger.debug("clearing %s" % disk.name)
+            devices = storage.deviceDeps(disk)
+            while devices:
+                ctx.logger.debug("devices to remove: %s" % ([d.name for d in devices],))
+                leaves = [d for d in devices if d.isleaf]
+                ctx.logger.debug("leaves to remove: %s" % ([d.name for d in leaves],))
+                for leaf in leaves:
+                    storage.destroyDevice(leaf)
+                    devices.remove(leaf)
+
+            destroy = OperationDestroyFormat(disk)
+            newLabel = getFormat("disklabel", device=disk.path)
+            create = OperationCreateFormat(disk, format=newLabel)
+            storage.devicetree.addOperation(destroy)
+            storage.devicetree.addOperation(create)
 
 def partitionCompare(part1, part2):
     """ More specifically defined partitions come first.
@@ -455,7 +581,7 @@ def removeNewPartitions(disks, partitions):
         Arguments:
 
             disks -- list of StorageDevice instances with DiskLabel format
-            partitions -- list of PartitionDevice instances
+            partitions -- list of Partition instances
 
     """
     ctx.logger.debug("removing all non-preexisting partitions %s from disk(s) %s"
@@ -546,7 +672,7 @@ def doPartitioning(storage, exclusiveDisks=None):
 
         Arguments:
 
-            storage - Main anaconda Storage instance
+            storage - Main Storage instance
 
         Keyword arguments:
 
@@ -924,8 +1050,8 @@ def growPartitions(disks, partitions, free):
 
         Arguments:
 
-            disks -- a list of all usable disks (DiskDevice instances)
-            partitions -- a list of all partitions (PartitionDevice instances)
+            disks -- a list of all usable disks (Disk instances)
+            partitions -- a list of all partitions (Partition instances)
             free -- a list of all free regions (parted.Geometry instances)
     """
     ctx.logger.debug("growPartitions: disks=%s, partitions=%s" %
@@ -1045,7 +1171,7 @@ def growPartitions(disks, partitions, free):
                 else:
                     # If there was no extended partition on this disk when
                     # doPartitioning was called we won't have a
-                    # PartitionDevice instance for it.
+                    # Partition instance for it.
                     name = partition.getDeviceNodeName()
 
                 ctx.logger.debug("setting %s new geometry: %s" % (name,
@@ -1070,7 +1196,7 @@ def getDiskChunks(disk, partitions, free):
         Arguments:
 
             disk -- a StorageDevice with a DiskLabel format
-            partitions -- list of PartitionDevice instances
+            partitions -- list of Partition instances
             free -- list of parted.Geometry instances representing free space
 
         Partitions and free regions not on the specified disk are ignored.
@@ -1108,7 +1234,7 @@ def shouldClear(device, clearPartType, clearPartDisks=None):
     if clearPartType not in [CLEARPART_TYPE_LINUX, CLEARPART_TYPE_ALL]:
         return False
 
-    if isinstance(device, PartitionDevice):
+    if isinstance(device, Partition):
         # Never clear the special first partition on a Mac disk label, as that
         # holds the partition table itself.
         if device.disk.format.partedDisk.type == "mac" and \
@@ -1158,7 +1284,7 @@ def _createFreeSpacePartitions(storage):
     # get a list of disks that have at least one free space region of at
     # least the default size for new partitions
     disks = []
-    for disk in storage.storage.partitioned:
+    for disk in storage.partitioned:
         if storage.clearPartDisks and \
            (disk.name not in storage.clearPartDisks):
             continue
@@ -1234,7 +1360,7 @@ def doAutoPartition(storage):
     devs = []
 
     if storage.doAutoPart:
-        clearPartitions(anaconda.storage)
+        clearPartitions(storage)
 
     if storage.doAutoPart:
         (disks, devs) = _createFreeSpacePartitions(storage)
@@ -1246,22 +1372,24 @@ def doAutoPartition(storage):
             ctx.yali.messageWindow(_("Error Partitioning"), msg, customIcon='error')
 
             storage.reset()
-            return None
+            return False
 
-        _schedulePartitions(anaconda, disks)
+        _schedulePartitions(storage, disks)
 
     # sanity check the individual devices
     ctx.logger.warning("not sanity checking devices because I don't know how yet")
 
     # run the autopart function to allocate and grow partitions
     try:
-        doPartitioning(storage, exclusiveDisks=anaconda.storage.clearPartDisks)
+        doPartitioning(storage, exclusiveDisks=storage.clearPartDisks)
 
     except PartitioningWarning as msg:
         ctx.yali.messageWindow(_("Warnings During Automatic Partitioning"),
                                _("Following warnings occurred during automatic partitioning:\n\n%s") % msg,
                                customIcon='warning')
         ctx.logger.warning(msg)
+        return False
+
     except PartitioningError as msg:
         # restore drives to original state
         storage.reset()
@@ -1271,7 +1399,9 @@ def doAutoPartition(storage):
                                  "%(msg)s.%(extra)s") %
                                {'msg': msg, 'extra': extra},
                                customIcon='error')
-        sys.extit(0)
+        ctx.logger.warning(msg)
+        return None
+        #sys.extit(0)
 
     # sanity check the collection of devices
     ctx.logger.warning("not sanity checking storage config because I don't know how yet")
@@ -1280,22 +1410,21 @@ def doAutoPartition(storage):
     if warnings:
         for warning in warnings:
             ctx.logger.warning(warning)
+
     if errors:
         errortxt = "\n".join(errors)
         extra = _("\n\nPress 'OK' to exit the installer.")
         ctx.yali.messageWindow(_("Automatic Partitioning Errors"),
-                           _("The following errors occurred with your "
-                             "partitioning:\n\n%(errortxt)s\n\n"
-                             "This can happen if there is not enough "
-                             "space on your hard drive(s) for the "
-                             "installation. %(extra)s")
-                           % {'errortxt': errortxt, 'extra': extra},
-                           customIcon='error')
+                               _("The following errors occurred with your "
+                                 "partitioning:\n\n%(errortxt)s\n\n"
+                                 "This can happen if there is not enough "
+                                 "space on your hard drive(s) for the "
+                                 "installation. %(extra)s") %
+                                {'errortxt': errortxt, 'extra': extra}, customIcon='error')
+
         ctx.yali.messageWindow(_("Unrecoverable Error"),
                                _("The system will now reboot."))
 
-        #Unrecoverable Error
-        #The system will now reboot.
-        sys.exit(0)
-
-    storage.reset()
+        #sys.exit(0)
+        storage.reset()
+        return None

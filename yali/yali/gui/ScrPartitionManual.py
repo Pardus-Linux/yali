@@ -20,6 +20,7 @@ _ = __trans.ugettext
 from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
+import yali.util
 import yali.gui.context as ctx
 from yali.gui.YaliDialog import Dialog, QuestionDialog
 from yali.gui.GUIException import *
@@ -27,10 +28,10 @@ from yali.gui.ScreenWidget import ScreenWidget
 
 from yali.gui.ManualPartition import PartitionEditor
 from yali.gui.Ui.manualpartwidget import Ui_ManualPartWidget
-from yali.storage.devices.device import devicePathToName
+from yali.storage.devices.device import devicePathToName, Device
 from yali.storage.devices.partition import Partition
 from yali.storage.partitioning import doPartitioning, PartitioningError, PartitioningWarning
-from yali.storage.storageBackendHelpers import doDeleteDevice, doClearPartitionedDevice, checkForSwapNoMatch
+from yali.storage.storageBackendHelpers import doDeleteDevice, doClearPartitionedDevice, checkForSwapNoMatch, getPreExistFormatWarnings
 
 class Widget(QtGui.QWidget, ScreenWidget):
     title = _('Manual Partitioning')
@@ -59,27 +60,83 @@ about disk partitioning.
         QtGui.QWidget.__init__(self,None)
         self.ui = Ui_ManualPartWidget()
         self.ui.setupUi(self)
+        self.storage = ctx.storage
 
         self.connect(self.ui.newButton, SIGNAL("clicked()"),self.createPartition)
         self.connect(self.ui.editButton, SIGNAL("clicked()"),self.editDevice)
         self.connect(self.ui.deleteButton, SIGNAL("clicked()"),self.deleteDevice)
+        self.connect(self.ui.resetButton, SIGNAL("clicked()"),self.reset)
+        self.connect(self.ui.deviceTree, SIGNAL("itemActivated(QTreeWidgetItem *, int)"), self.activateButtons)
 
     def shown(self):
         ctx.mainScreen.disableNext()
-        self.storage = ctx.storage
         checkForSwapNoMatch(ctx.yali, self.storage)
         self.populate()
 
     def execute(self):
         ctx.logger.info("Manual Partitioning selected...")
         ctx.mainScreen.processEvents()
-        return True
+        return self.nextCheck()
 
-    def nextCheck(self):
+    def update(self):
         if self.storage.storageset.rootDevice:
             ctx.mainScreen.enableNext()
         else:
             ctx.mainScreen.disableNext()
+
+    def activateButtons(self, item, index):
+        if item.device is not None and isinstance(item.device, Device):
+            self.ui.editButton.setEnabled(True)
+            self.ui.deleteButton.setEnabled(True)
+        else:
+            self.ui.editButton.setEnabled(False)
+            self.ui.deleteButton.setEnabled(False)
+
+    def nextCheck(self):
+        (errors, warnings) = self.storage.sanityCheck()
+        if errors:
+            detailed =  _("The partitioning scheme you requested "
+                          "caused the following critical errors."
+                          "You must correct these errors before "
+                          "you continue your installation of "
+                          "%s.") % yali.util.product_name()
+
+            comments = string.join(errors, "\n\n")
+
+            ctx.yali.detailedMessageWindow(_("Partitioning Errors"),
+                                             detailed, comments, type="ok")
+            return False
+
+        if warnings:
+            detailed = _("The partitioning scheme you requested "
+                         "generated the following warnings."
+                         "Would you like to continue with "
+                         "your requested partitioning "
+                         "scheme?")
+
+            comments = string.join(warnings, "\n\n")
+            rc = ctx.yali.detailedMessageWindow(_("Partitioning Warnings"),
+                                                  detailed, comments, type="yesno")
+            if rc != 1:
+                return False
+
+        print "formatWarnings:%s" % formatWarnings
+        if formatWarnings:
+            detailed = _("The following pre-existing devices have been "
+                         "selected to be formatted, destroying all data.")
+
+            commentstr = ""
+            for (device, type, mountpoint) in formatWarnings:
+                comments = comments + "%s         %s         %s\n" % (device, type, mountpoint)
+
+            rc = ctx.yali.detailedMessageWindow(_("Format Warnings"),
+                                                  detailed, comments, type="custom",
+                                                  customButtons=[_("Cancel"), _("Format")], default=0)
+            if rc != 1:
+                return False
+
+        return True
+
 
     def backCheck(self):
         rc = ctx.yali.messageWindow(_("Warning"), _("All Changes that you made will be removed"), type="question")
@@ -95,14 +152,14 @@ about disk partitioning.
     def addDevice(self, device, item):
         format = device.format
         if format.formattable:
-            formattable = Qt.Checked
+            formattable = QtGui.QIcon(":/images/checkbox_checked.png")
         else:
-            formattable = Qt.Unchecked
+            formattable = QtGui.QIcon(":/images/checkbox_unchecked.png")
 
         if not format.exists:
-            formatIcon = Qt.Checked
+            formatIcon = QtGui.QIcon(":/images/checkbox_checked.png")
         else:
-            formatIcon = Qt.Unchecked
+            formatIcon = QtGui.QIcon(":/images/checkbox_unchecked.png")
 
         mountpoint = getattr(format, "mountpoint", "")
         if mountpoint is None:
@@ -134,6 +191,8 @@ about disk partitioning.
         drivesItem.setName(_("Hard Drives"))
         for disk in disks:
             diskItem = DeviceTreeItem(drivesItem)
+            diskItem.setName(disk.name)
+            #self.ui.deviceTree.expandItem(diskItem)
             if disk.partitioned:
                 partition = disk.format.firstPartition
                 extendedItem = None
@@ -194,7 +253,12 @@ about disk partitioning.
             else:
                 self.__addDevice(disk, diskItem)
 
-            self.ui.deviceTree.expandItem(diskItem)
+        #Expands all item in selected device tree item
+        for index in range(self.ui.deviceTree.topLevelItemCount()):
+            self.ui.deviceTree.topLevelItem(index).setExpanded(True)
+            childItem = self.ui.deviceTree.topLevelItem(index)
+            for childIndex in range(childItem.childCount()):
+                childItem.child(childIndex).setExpanded(True)
 
     def refresh(self, justRedraw=None):
         ctx.logger.debug("refresh: justRedraw=%s" % justRedraw)
@@ -222,7 +286,7 @@ about disk partitioning.
         if not rc == -1:
             self.populate()
 
-        self.nextCheck()
+        self.update()
         return rc
 
 
@@ -232,7 +296,7 @@ about disk partitioning.
     def createPartition(self):
         # create new request of size 1M
         tempformat = self.storage.defaultFSType
-        device = self.storage.newPartition(format_type=tempformat)
+        device = self.storage.newPartition(fmt_type=tempformat)
         self.editPartition(device, isNew=True)
 
     def editDevice(self, *args):
@@ -313,10 +377,10 @@ class DeviceTreeItem(QtGui.QTreeWidgetItem):
         self.setText(3, type)
 
     def setFormattable(self, formattable):
-        self.setCheckState(4, formattable)
+        self.setIcon(4, formattable)
 
     def setFormat(self, format):
-        self.setCheckState(5, format)
+        self.setIcon(5, format)
 
     def setSize(self, size):
         self.setText(6, size)
