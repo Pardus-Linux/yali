@@ -3,6 +3,8 @@
 
 import yali.util
 from devices.device import Device
+from devices.partition import Partition
+from formats import getFormat
 
 OPERATION_TYPE_NONE = 0
 OPERATION_TYPE_DESTROY = 1000
@@ -216,7 +218,7 @@ class OperationCreateFormat(DeviceOperation):
     def execute(self):
         self.device.setup()
 
-        if isinstance(self.device, PartitionDevice):
+        if isinstance(self.device, Partition):
             for flag in partitionFlag.keys():
                 # Keep the LBA flag on pre-existing partitions
                 if flag in [ PARTITION_LBA, self.format.partedFlag ]:

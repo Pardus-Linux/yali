@@ -303,7 +303,7 @@ class BootLoader(object):
             f.write("(%s)     %s\n" % (get_disk_name(self.storage, device), device.path))
         f.close()
 
-    def install(self:
+    def install(self):
         grubpath = "%sgrub" % self.path
         stage1Devices = get_physical_devices(self.storage, self.storage.devicetree.getDeviceByName(self.device))
         bootDevices = get_physical_devices(self.storage, self.storage.storageset.bootDevice)

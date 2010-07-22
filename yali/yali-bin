@@ -21,7 +21,7 @@ from yali.constants import consts
 
 def try_umount_target():
     for mpoint in ("/home", "/dev", "/proc", "/sys", ""):
-        yali.sysutils.umount(consts.target_dir + mpoint)
+        yali.sysutils.umount_(consts.target_dir + mpoint)
 
 def main():
     if not os.path.exists("/etc/yali-is-firstboot"):

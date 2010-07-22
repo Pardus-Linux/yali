@@ -353,10 +353,10 @@ class Storage(object):
 
     def newPartition(self, *args, **kwargs):
         """ Return a new PartitionDevice instance for configuring. """
-        if kwargs.has_key("format_type"):
-            kwargs["format"] = getFormat(kwargs.pop("format_type"),
+        if kwargs.has_key("fmt_type"):
+            kwargs["format"] = getFormat(kwargs.pop("fmt_type"),
                                          mountpoint=kwargs.pop("mountpoint",None),
-                                         **kwargs.pop("format_args", {}))
+                                         **kwargs.pop("fmt_args", {}))
 
         if kwargs.has_key("disks"):
             parents = kwargs.pop("disks")
@@ -484,20 +484,20 @@ class Storage(object):
         if not root:
             errors.append(_("You have not defined a root partition (/), "
                             "which is required for installation of %s "
-                            "to continue.") % (productName,))
+                            "to continue.") % (yali.util.product_name(),))
 
         if root and root.size < 250:
             warnings.append(_("Your root partition is less than 250 "
                               "megabytes which is usually too small to "
-                              "install %s.") % (productName,))
+                              "install %s.") % (yali.util.product_name(),))
 
         if (root and
             root.size < ctx.consts.min_root_size):
             errors.append(_("Your / partition is less than %(min)s "
                             "MB which is lower than recommended "
-                            "for a normal %(productName)s install.")
+                            "for a normal %(yali.util.product_name())s install.")
                           % {'min': ctx.consts.min_root_size,
-                             'productName': productName})
+                             'yali.util.product_name()': yali.util.product_name()})
 
         for (mount, size) in checkSizes:
             if mount in filesystems and filesystems[mount].size < size:
@@ -506,7 +506,7 @@ class Storage(object):
                                   "recommended for a normal %(productName)s "
                                   "install.")
                                 % {'mount': mount, 'size': size,
-                                   'productName': productName})
+                                   'productName': yali.util.product_name()})
 
 
         errors.extend(self.storageset.checkBootRequest(boot))

@@ -14,6 +14,11 @@ from pardus.diskutils import EDD
 
 EARLY_SWAP_RAM = 512 * 1024 # 512 MB
 
+def product_name():
+    if os.path.exists("/etc/pardus-release"):
+        return open("/etc/pardus-release",'r').read()
+    return ''
+
 
 def numeric_type(num):
     """ Verify that a value is given as a numeric data type.
@@ -121,9 +126,9 @@ def memInstalled():
     lines = f.readlines()
     f.close()
 
-    for l in lines:
-        if l.startswith("MemTotal:"):
-            fields = string.split(l)
+    for line in lines:
+        if line.startswith("MemTotal:"):
+            fields = line.split()
             mem = fields[1]
             break
 
@@ -308,5 +313,5 @@ def createAvailableSizeSwapFile(storage):
                 filesystems.append(info)
 
     for (device, availablespace) in filesystems:
-        if availablespace > maxsize: and (size > (suggestion + 100)):
+        if availablespace > maxsize and (size > (suggestion + 100)):
             suggestedDevice = device
