@@ -136,7 +136,7 @@ Here you can reset..
         return True
 
     def backCheck(self):
-        ctx.mainScreen.moveInc = 3
+        ctx.mainScreen.stepIncrement = 3
         return True
 
 class UserItem(QtGui.QListWidgetItem):

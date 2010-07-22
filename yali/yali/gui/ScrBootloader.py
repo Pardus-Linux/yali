@@ -72,7 +72,7 @@ You can always choose another installation method if you know what you are doing
 
     def backCheck(self):
         if ctx.storage.doAutoPart:
-            ctx.mainScreen.moveInc = 2
+            ctx.mainScreen.stepIncrement = 2
         return True
 
     def fillDrives(self):
@@ -134,6 +134,6 @@ You can always choose another installation method if you know what you are doing
         elif self.ui.installMBR.isChecked():
             ctx.bootloader.bootType = BOOT_TYPE_MBR
 
-        self.bootloader.otherEnabled i= self.ui.addOthers.isChecked()
+        self.bootloader.otherEnabled = self.ui.addOthers.isChecked()
 
         return True

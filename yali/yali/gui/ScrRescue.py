@@ -84,10 +84,10 @@ This is a rescue mode help document.
     def execute(self):
         if self.ui.usePisiHs.isChecked():
             ctx.rescueMode = "pisi"
-            ctx.mainScreen.moveInc = 2
+            ctx.mainScreen.stepIncrement = 2
         elif self.ui.usePassword.isChecked():
             ctx.rescueMode = "pass"
-            ctx.mainScreen.moveInc = 3
+            ctx.mainScreen.stepIncrement = 3
         elif self.ui.useGrub.isChecked():
             ctx.rescueMode = "grub"
 

@@ -100,11 +100,11 @@ a previous system state.
 
     def execute(self):
         ctx.takeBackOperation = self.ui.historyList.currentItem().getInfo()
-        ctx.mainScreen.moveInc = 2
+        ctx.mainScreen.stepIncrement = 2
         return True
 
     def backCheck(self):
-        ctx.mainScreen.moveInc = 2
+        ctx.mainScreen.stepIncrement = 2
         return True
 
 class PisiUI(QObject, pisi.ui.UI):

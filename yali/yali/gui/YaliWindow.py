@@ -66,7 +66,7 @@ class Widget(QtGui.QWidget):
         self.updateStyle()
 
         # move one step at a time
-        self.moveInc = 1
+        self.stepIncrement = 1
 
         # Show help content by default
         self.ui.toggleHelp.setText(_("Hide Help"))
@@ -200,7 +200,7 @@ class Widget(QtGui.QWidget):
             ctx.debugger.showWindow()
 
     # returns the id of current stack
-    def getCur(self, d):
+    def getCurrent(self, d):
         new   = self.ui.mainStack.currentIndex() + d
         total = self.ui.mainStack.count()
         if new < 0: new = 0
@@ -214,20 +214,20 @@ class Widget(QtGui.QWidget):
 
     # execute next step
     def slotNext(self,dryRun=False):
-        _w = self.ui.mainStack.currentWidget()
+        widget = self.ui.mainStack.currentWidget()
         ret = True
         if not dryRun:
-            ret = _w.execute()
+            ret = widget.execute()
         if ret:
-            self.stackMove(self.getCur(self.moveInc))
-            self.moveInc = 1
+            self.stackMove(self.getCurrent(self.stepIncrement))
+            self.stepIncrement = 1
 
     # execute previous step
     def slotBack(self):
-        _w = self.ui.mainStack.currentWidget()
-        if _w.backCheck():
-            self.stackMove(self.getCur(self.moveInc * -1))
-        self.moveInc = 1
+        widget = self.ui.mainStack.currentWidget()
+        if widget.backCheck():
+            self.stackMove(self.getCurrent(self.stepIncrement * -1))
+        self.stepIncrement = 1
 
     # move to id numbered stack
     def stackMove(self, id):

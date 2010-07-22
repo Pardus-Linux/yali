@@ -101,7 +101,7 @@ You can always choose another installation method if you know what you are doing
         ctx.debugger.log("Bootloader Device is %s" % ctx.installData.bootLoaderDev)
         ctx.debugger.log("Bootloader Partition is %s" % ctx.installData.rescuePartition.getPath())
 
-        ctx.mainScreen.moveInc = 3
+        ctx.mainScreen.stepIncrement = 3
         return True
 
 class DriveItem(QtGui.QListWidgetItem):

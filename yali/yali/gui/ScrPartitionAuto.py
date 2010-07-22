@@ -9,6 +9,7 @@
 #
 # Please read the COPYING file.
 #
+import sys
 import math
 import gettext
 
@@ -22,7 +23,7 @@ import yali.gui.context as ctx
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.autopartwidget import Ui_AutoPartWidget
 from yali.gui.Ui.partitionshrinkwidget import Ui_PartShrinkWidget
-from yali.storage.partitioning import CLEARPART_TYPE_ALL, CLEARPART_TYPE_LINUX, CLEARPART_TYPE_NONE
+from yali.storage.partitioning import CLEARPART_TYPE_ALL, CLEARPART_TYPE_LINUX, CLEARPART_TYPE_NONE, doAutoPartition
 from yali.storage.operations import OperationResizeDevice, OperationResizeFormat
 
 class ShrinkWidget(QtGui.QWidget):
@@ -153,25 +154,37 @@ Pardus create a new partition for installation.</p>
         self.ui.setupUi(self)
         self.storage = ctx.storage
         self.intf = ctx.yali
+        self.shrinkOperations = None
 
-        self.connect(self.ui.useAllSpace, SIGNAL("toggled(bool)"), self.typeChanged)
-        self.connect(self.ui.replaceExistingLinux, SIGNAL("toggled(bool)"), self.typeChanged)
-        self.connect(self.ui.shrinkCurrent, SIGNAL("toggled(bool)"), self.typeChanged)
-        self.connect(self.ui.useFreeSpace, SIGNAL("toggled(bool)"), self.typeChanged)
-        self.connect(self.ui.createCustom, SIGNAL("toggled(bool)"), self.typeChanged)
+        self.connect(self.ui.useAllSpace, SIGNAL("clicked()"), self.typeChanged)
+        self.connect(self.ui.replaceExistingLinux, SIGNAL("clicked()"), self.typeChanged)
+        self.connect(self.ui.shrinkCurrent, SIGNAL("clicked()"), self.typeChanged)
+        self.connect(self.ui.useFreeSpace, SIGNAL("clicked()"), self.typeChanged)
+        self.connect(self.ui.createCustom, SIGNAL("clicked()"), self.typeChanged)
         #self.connect(self.ui.review, SIGNAL("stateChanged(int) "), self.typeChanged)
         #self.connect(self.ui.drives,   SIGNAL("currentItemChanged(QListWidgetItem *, QListWidgetItem * )"),self.slotDeviceChanged)
         self.ui.drives.hide()
         self.ui.drivesLabel.hide()
 
-    def typeChanged(self, state):
+    def typeChanged(self):
+        print "type changed sender:%s" % self.sender().objectName()
         if self.sender() != self.ui.createCustom:
             self.ui.review.setEnabled(True)
+            print "not else sender:%s" % self.sender().objectName()
+            if self.sender() == self.ui.shrinkCurrent:
+                print "shrink control sender:shrinkCurrent"
+                shrinkwidget = ShrinkWidget(self)
+                shrinkwidget.show()
+                if shrinkwidget.operations:
+                    self.shrinkOperations = shrinkwidget.operations
+                else:
+                    return False
+            else:
+                print "not shrink control sender:%s" % self.sender().objectName()
         else:
             self.ui.review.setEnabled(False)
 
-        if state:
-            ctx.mainScreen.enableNext()
+        ctx.mainScreen.enableNext()
 
     def setPartitioningType(self):
         if self.storage.clearPartType is None or self.storage.clearPartType == CLEARPART_TYPE_LINUX:
@@ -216,26 +229,23 @@ Pardus create a new partition for installation.</p>
 
     def execute(self):
         #self.checkSelectedDisk()
-        self._execute()
-        return True
+        rc = self.nextCheck()
+        if rc is None:
+            sys.exit(0)
+        else:
+            return rc
 
-    def _execute(self):
-        move = 0
+    def nextCheck(self):
+        increment = 0
         if self.ui.createCustom.isChecked():
-            # We pass the Manual Partitioning screen
-            ctx.mainScreen.moveInc = 1
+            ctx.mainScreen.stepIncrement = 1
             self.storage.clearPartType = CLEARPART_TYPE_NONE
         else:
             if self.ui.shrinkCurrent.isChecked():
-                shrinkwidget = ShrinkWidget(self)
-                shrinkwidget.show()
-                if shrinkwidget.operations:
-                    for operation in operations:
+                if self.shrinkOperations:
+                    for operation in self.shrinkOperations:
                         self.storage.addOperation(operation)
-                    move = 2
                     self.storage.clearPartType = CLEARPART_TYPE_NONE
-                else:
-                    move = 0
             elif self.ui.useAllSpace.isChecked():
                 self.storage.clearPartType = CLEARPART_TYPE_ALL
             elif self.ui.replaceExistingLinux.isChecked():
@@ -246,8 +256,9 @@ Pardus create a new partition for installation.</p>
             self.storage.doAutoPart = True
 
             if self.ui.review.isChecked():
-                move = 1
+                increment = 1
             else:
-                move = 0
+                increment = 2
 
-        ctx.mainScreen.moveInc = move
+        ctx.mainScreen.stepIncrement = increment
+        return doAutoPartition(self.storage)
