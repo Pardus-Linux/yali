@@ -11,33 +11,23 @@
 #
 
 import os
-
+import time
 import gettext
+
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
-import dbus
-import time
 import yali.sysutils
-import yali.users
-import yali.localeutils
-import yali.postinstall
-import yali.bootloader
 
-#import yali.storage
-#import yali.partitionrequest as partrequest
-#import yali.partitiontype as parttype
-
-from os.path import basename
+import yali.gui.context as ctx
+from yali.gui.installdata import *
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.YaliDialog import InfoDialog
 from yali.gui.YaliSteps import YaliSteps
 from yali.gui.Ui.goodbyewidget import Ui_GoodByeWidget
-import yali.gui.context as ctx
-from yali.gui.installdata import *
 
 ##
 # Goodbye screen

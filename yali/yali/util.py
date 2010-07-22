@@ -252,13 +252,13 @@ def swapon(device, priority=None):
     if rc:
         raise SwapError("swapon failed for '%s'" % device)
 
-def swapoff(device):
+def swap_off(device):
     rc = yali.util.run_batch("swapoff", [device])[0]
 
     if rc:
         raise SwapError("swapoff failed for '%s'" % device)
 
-def swapstatus(device):
+def swap_status(device):
     alt_dev = None
     if device.startswith("/dev/mapper/"):
         # get the real device node for device-mapper devices since the ones
@@ -281,3 +281,32 @@ def swapstatus(device):
 
     return status
 
+def swap_amount():
+    f = open("/proc/meminfo", "r")
+    lines = f.readlines()
+    f.close()
+
+    for l in lines:
+        if l.startswith("SwapTotal:"):
+            fields = string.split(l)
+            return int(fields[1])
+    return 0
+
+def createAvailableSizeSwapFile(storage):
+    (minsize, maxsize) = swap_suggestion()
+    filesystems = []
+
+    for device in storage.storageset.devices:
+        if not device.format:
+            continue
+        if device.format.mountable and device.format.linuxNative:
+            if not device.format.status:
+                continue
+            space = sysutils.available_space(ctx.consts.target_dir + device.format.mountpoint)
+            if space > 16:
+                info = (device, space)
+                filesystems.append(info)
+
+    for (device, availablespace) in filesystems:
+        if availablespace > maxsize: and (size > (suggestion + 100)):
+            suggestedDevice = device
