@@ -17,7 +17,7 @@ from devices.device import DeviceNotFoundError, deviceNameToDiskByPath
 from devices.nodevice import NoDevice
 from devices.disk import Disk
 from devices.partition import Partition
-from formats.disklabel import InvalidDiskLabelError
+from formats.disklabel import InvalidDiskLabelError, DiskLabelCommitError
 from formats.filesystem import FilesystemError
 from operations import *
 
@@ -230,7 +230,156 @@ class DeviceTree(object):
 
         return operations
 
-    def processOperation(self):
+    def processOperations(self, dryRun=None):
+        def cmpOperations(a1, a2):
+            ret = 0
+            if a1.isDestroy() and a2.isDestroy():
+                if a1.device.path == a2.device.path:
+                    # if it's the same device, destroy the format first
+                    if a1.isFormat() and a2.isFormat():
+                        ret = 0
+                    elif a1.isFormat() and not a2.isFormat():
+                        ret = -1
+                    elif not a1.isFormat() and a2.isFormat():
+                        ret = 1
+                elif a1.device.dependsOn(a2.device):
+                    ret = -1
+                elif a2.device.dependsOn(a1.device):
+                    ret = 1
+                # generally destroy partitions after lvs, vgs, &c
+                elif isinstance(a1.device, Partition) and \
+                     isinstance(a2.device, Partition):
+                    if a1.device.disk == a2.device.disk:
+                        ret = cmp(a2.device.partedPartition.number,
+                                  a1.device.partedPartition.number)
+                    else:
+                        ret = cmp(a2.device.name, a1.device.name)
+                elif isinstance(a1.device, Partition) and \
+                     a2.device.partitioned:
+                    ret = -1
+                elif isinstance(a2.device, Partition) and \
+                     a1.device.partitioned:
+                    ret = 1
+                # remove partitions before unpartitioned non-partition
+                # devices
+                elif isinstance(a1.device, Partition) and \
+                     not isinstance(a2.device, Partition):
+                    ret = 1
+                elif isinstance(a2.device, Partition) and \
+                     not isinstance(a1.device, Partition):
+                    ret = -1
+                else:
+                    ret = 0
+            elif a1.isDestroy():
+                ret = -1
+            elif a2.isDestroy():
+                ret = 1
+            elif a1.isResize() and a2.isResize():
+                if a1.device.path == a2.device.path:
+                    if a1.obj == a2.obj:
+                        ret = 0
+                    elif a1.isFormat() and not a2.isFormat():
+                        # same path, one device, one format
+                        if a1.isGrow():
+                            ret = 1
+                        else:
+                            ret = -1
+                    elif not a1.isFormat() and a2.isFormat():
+                        # same path, one device, one format
+                        if a1.isGrow():
+                            ret = -1
+                        else:
+                            ret = 1
+                    else:
+                        ret = cmp(a1.device.name, a2.device.name)
+                elif a1.device.dependsOn(a2.device):
+                    if a1.isGrow():
+                        ret = 1
+                    else:
+                        ret = -1
+                elif a2.device.dependsOn(a1.device):
+                    if a1.isGrow():
+                        ret = -1
+                    else:
+                        ret = 1
+                elif isinstance(a1.device, Partition) and \
+                     isinstance(a2.device, Partition):
+                    ret = cmp(a1.device.name, a2.device.name)
+                else:
+                    ret = 0
+            elif a1.isResize():
+                ret = -1
+            elif a2.isResize():
+                ret = 1
+            elif a1.isCreate() and a2.isCreate():
+                if a1.device.path == a2.device.path:
+                    if a1.obj == a2.obj:
+                        ret = 0
+                    if a1.isFormat():
+                        ret = 1
+                    elif a2.isFormat():
+                        ret = -1
+                    else:
+                        ret = 0
+                elif a1.device.dependsOn(a2.device):
+                    ret = 1
+                elif a2.device.dependsOn(a1.device):
+                    ret = -1
+                # generally create partitions before other device types
+                elif isinstance(a1.device, Partition) and \
+                     isinstance(a2.device, Partition):
+                    if a1.device.disk == a2.device.disk:
+                        ret = cmp(a1.device.partedPartition.number,
+                                  a2.device.partedPartition.number)
+                    else:
+                        ret = cmp(a1.device.name, a2.device.name)
+                elif isinstance(a1.device, Partition) and \
+                     a2.device.partitioned:
+                    ret = 1
+                elif isinstance(a2.device, Partition) and \
+                     a1.device.partitioned:
+                    ret = -1
+                elif isinstance(a1.device, Partition) and \
+                     not isinstance(a2.device, Partition):
+                    ret = -1
+                elif isinstance(a2.device, Partition) and \
+                     not isinstance(a1.device, Partition):
+                    ret = 1
+                else:
+                    ret = 0
+            elif a1.isCreate():
+                ret = -1
+            elif a2.isCreate():
+                ret = 1
+            elif a1.isMigrate() and a2.isMigrate():
+                if a1.device.path == a2.device.path:
+                    ret = 0
+                elif a1.device.dependsOn(a2.device):
+                    ret = 1
+                elif a2.device.dependsOn(a1.device):
+                    ret = -1
+                elif isinstance(a1.device, Partition) and \
+                     isinstance(a2.device, Partition):
+                    if a1.device.disk == a2.device.disk:
+                        ret = cmp(a1.device.partedPartition.number,
+                                  a2.device.partedPartition.number)
+                    else:
+                        ret = cmp(a1.device.name, a2.device.name)
+                else:
+                    ret = 0
+            else:
+                ret = 0
+
+            ctx.logger.debug("cmp: %d -- %s | %s" % (ret, a1, a2))
+            return ret
+
+        ctx.logger.debug("resetting parted disks...")
+        for device in self.devices:
+            if device.partitioned:
+                device.format.resetPartedDisk()
+                if device.originalFormat.type == "disklabel" and \
+                   device.originalFormat != device.format:
+                    device.originalFormat.resetPartedDisk()
         ctx.logger.debug("resetting parted disks...")
         for device in self.devices:
             if device.partitioned:
@@ -261,38 +410,347 @@ class DeviceTree(object):
                device.isExtended and not device.exists:
                 # don't properly register the operation since the device is
                 # already in the tree
-                self.operations.append(OperationsreateDevice(device))
+                self.operations.append(OperationCreateDevice(device))
 
         for operation in self.operations:
             ctx.logger.debug("operation: %s" % operation)
 
-        #ctx.logger.debug("pruning operation queue...")
-        #self.pruneOperations()
-        #for operation in self.operations:
-        #    log.debug("operation: %s" % operation)
+        ctx.logger.debug("pruning operation queue...")
+        self.pruneOperations()
+        for operation in self.operations:
+            ctx.logger.debug("operation: %s" % operation)
 
-        #log.debug("sorting operations...")
-        #self.operations.sort(cmp=cmpOperations)
-        #for operation in self.operations:
-        #    ctx.logger.debug("operation: %s" % operation)
+        ctx.logger.debug("sorting operations...")
+        self.operations.sort(cmp=cmpOperations)
+        for operation in self.operations:
+            ctx.logger.debug("operation: %s" % operation)
 
         for operation in self.operations:
             ctx.logger.info("executing operation: %s" % operation)
             if not dryRun:
                 try:
-                    operation.execute(intf=self.intf)
+                    operation.execute()
                 except DiskLabelCommitError:
                     # it's likely that a previous format destroy operation
                     # triggered setup of an lvm or md device.
                     self.teardownAll()
-                    operation.execute(intf=self.intf)
+                    operation.execute()
 
                 udev_settle()
                 for device in self._devices:
                     # make sure we catch any renumbering parted does
-                    if device.exists and isinstance(device, PartitionDevice):
+                    if device.exists and isinstance(device, Partition):
                         device.updateName()
                         device.format.device = device.path
+    def pruneOperations(self):
+        """ Prune loops and redundant operations from the queue. """
+        # handle device destroy operations
+        operations = self.findOperations(type="destroy", object="device")
+        for a in operations:
+            if a not in self.operations:
+                # we may have removed some of the operations in a previous
+                # iteration of this loop
+                continue
+
+            ctx.logger.debug("operation '%s' (%s)" % (a, id(a)))
+            destroys = self.findOperations(devid=a.device.id,
+                                        type="destroy",
+                                        object="device")
+
+            creates = self.findOperations(devid=a.device.id,
+                                       type="create",
+                                       object="device")
+            ctx.logger.debug("found %d create and %d destroy operations for device id %d"
+                        % (len(creates), len(destroys), a.device.id))
+
+            # If the device is not preexisting, we remove all operations up
+            # to and including the last destroy operation.
+            # If the device is preexisting, we remove all operations from
+            # after the first destroy operation up to and including the last
+            # destroy operation.
+            # If the device is preexisting and there is only one device
+            # destroy operation we remove all resize and format create/migrate
+            # operations on that device that precede the destroy operation.
+            loops = []
+            first_destroy_idx = None
+            first_create_idx = None
+            stop_operation = None
+            start = None
+            if len(destroys) > 1:
+                # there are multiple destroy operations for this device
+                loops = destroys
+                first_destroy_idx = self.operations.index(loops[0])
+                start = self.operations.index(a) + 1
+                stop_operation = destroys[-1]
+
+            if creates:
+                first_create_idx = self.operations.index(creates[0])
+                if not loops or first_destroy_idx > first_create_idx:
+                    # this device is not preexisting
+                    start = first_create_idx
+                    stop_operation = destroys[-1]
+
+            dev_operations = self.findOperations(devid=a.device.id)
+            if start is None:
+                # only one device destroy, so prune preceding resizes and
+                # format creates and migrates
+                for _a in dev_operations[:]:
+                    if _a.isResize() or (_a.isFormat() and not _a.isDestroy()):
+                        continue
+
+                    dev_operations.remove(_a)
+
+                if not dev_operations:
+                    # nothing to prune
+                    continue
+
+                start = self.operations.index(dev_operations[0])
+                stop_operation = dev_operations[-1]
+
+            # now we remove all operations on this device between the start
+            # index (into self.operations) and stop_operation.
+            for rem in dev_operations:
+                end = self.operations.index(stop_operation)
+                if start <= self.operations.index(rem) <= end:
+                    ctx.logger.debug(" removing operation '%s' (%s)" % (rem, id(rem)))
+                    self.operations.remove(rem)
+
+                if rem == stop_operation:
+                    break
+
+        # device create operations
+        operations = self.findOperations(type="create", object="device")
+        for a in operations:
+            if a not in self.operations:
+                # we may have removed some of the operations in a previous
+                # iteration of this loop
+                continue
+
+            ctx.logger.debug("operation '%s' (%s)" % (a, id(a)))
+            creates = self.findOperations(devid=a.device.id,
+                                       type="create",
+                                       object="device")
+
+            destroys = self.findOperations(devid=a.device.id,
+                                        type="destroy",
+                                        object="device")
+
+            # If the device is preexisting, we remove everything between
+            # the first destroy and the last create.
+            # If the device is not preexisting, we remove everything up to
+            # the last create.
+            loops = []
+            first_destroy_idx = None
+            first_create_idx = None
+            stop_operation = None
+            start = None
+            if len(creates) > 1:
+                # there are multiple create operations for this device
+                loops = creates
+                first_create_idx = self.operations.index(loops[0])
+                start = 0
+                stop_operation = creates[-1]
+
+            if destroys:
+                first_destroy_idx = self.operations.index(destroys[0])
+                if not loops or first_create_idx > first_destroy_idx:
+                    # this device is preexisting
+                    start = first_destroy_idx + 1
+                    stop_operation = creates[-1]
+
+            if start is None:
+                continue
+
+            # remove all operations on this from after the first destroy up
+            # to the last create
+            dev_operations = self.findOperations(devid=a.device.id)
+            for rem in dev_operations:
+                if rem == stop_operation:
+                    break
+
+                end = self.operations.index(stop_operation)
+                if start <= self.operations.index(rem) < end:
+                    ctx.logger.debug(" removing operation '%s' (%s)" % (rem, id(rem)))
+                    self.operations.remove(rem)
+
+        # device resize operations
+        operations = self.findOperations(type="resize", object="device")
+        for a in operations:
+            if a not in self.operations:
+                # we may have removed some of the operations in a previous
+                # iteration of this loop
+                continue
+
+            ctx.logger.debug("operation '%s' (%s)" % (a, id(a)))
+            loops = self.findOperations(devid=a.device.id,
+                                     type="resize",
+                                     object="device")
+
+            if len(loops) == 1:
+                continue
+
+            # remove all but the last resize operation on this device
+            for rem in loops[:-1]:
+                ctx.logger.debug(" removing operation '%s' (%s)" % (rem, id(rem)))
+                self.operations.remove(rem)
+
+        # format destroy
+        # XXX I don't think there's a way for these loops to happen
+        operations = self.findOperations(type="destroy", object="format")
+        for a in operations:
+            if a not in self.operations:
+                # we may have removed some of the operations in a previous
+                # iteration of this loop
+                continue
+
+            ctx.logger.debug("operation '%s' (%s)" % (a, id(a)))
+            destroys = self.findOperations(devid=a.device.id,
+                                        type="destroy",
+                                        object="format")
+
+            creates = self.findOperations(devid=a.device.id,
+                                       type="create",
+                                       object="format")
+
+            # If the format is not preexisting, we remove all operations up
+            # to and including the last destroy operation.
+            # If the format is preexisting, we remove all operations from
+            # after the first destroy operation up to and including the last
+            # destroy operation.
+            loops = []
+            first_destroy_idx = None
+            first_create_idx = None
+            stop_operation = None
+            start = None
+            if len(destroys) > 1:
+                # there are multiple destroy operations for this format
+                loops = destroys
+                first_destroy_idx = self.operations.index(loops[0])
+                start = self.operations.index(a) + 1
+                stop_operation = destroys[-1]
+
+            if creates:
+                first_create_idx = self.operations.index(creates[0])
+                if not loops or first_destroy_idx > first_create_idx:
+                    # this format is not preexisting
+                    start = first_create_idx
+                    stop_operation = destroys[-1]
+
+            if start is None:
+                continue
+
+            # now we remove all operations on this device's format between
+            # the start index (into self.operations) and stop_operation.
+            dev_operations = self.findOperations(devid=a.device.id,
+                                           object="format")
+            for rem in dev_operations:
+                end = self.operations.index(stop_operation)
+                if start <= self.operations.index(rem) <= end:
+                    ctx.logger.debug(" removing operation '%s' (%s)" % (rem, id(rem)))
+                    self.operations.remove(rem)
+
+                if rem == stop_operation:
+                    break
+
+        # format create
+        # XXX I don't think there's a way for these loops to happen
+        operations = self.findOperations(type="create", object="format")
+        for a in operations:
+            if a not in self.operations:
+                # we may have removed some of the operations in a previous
+                # iteration of this loop
+                continue
+
+            ctx.logger.debug("operation '%s' (%s)" % (a, id(a)))
+            creates = self.findOperations(devid=a.device.id,
+                                       type="create",
+                                       object="format")
+
+            destroys = self.findOperations(devid=a.device.id,
+                                        type="destroy",
+                                        object="format")
+
+            # If the format is preexisting, we remove everything between
+            # the first destroy and the last create.
+            # If the format is not preexisting, we remove everything up to
+            # the last create.
+            loops = []
+            first_destroy_idx = None
+            first_create_idx = None
+            stop_operation = None
+            start = None
+            if len(creates) > 1:
+                # there are multiple create operations for this format
+                loops = creates
+                first_create_idx = self.operations.index(loops[0])
+                start = 0
+                stop_operation = creates[-1]
+
+            if destroys:
+                first_destroy_idx = self.operations.index(destroys[0])
+                if not loops or first_create_idx > first_destroy_idx:
+                    # this format is preexisting
+                    start = first_destroy_idx + 1
+                    stop_operation = creates[-1]
+
+            if start is None:
+                continue
+
+            # remove all operations on this from after the first destroy up
+            # to the last create
+            dev_operations = self.findOperations(devid=a.device.id,
+                                           object="format")
+            for rem in dev_operations:
+                if rem == stop_operation:
+                    break
+
+                end = self.operations.index(stop_operation)
+                if start <= self.operations.index(rem) < end:
+                    ctx.logger.debug(" removing operation '%s' (%s)" % (rem, id(rem)))
+                    self.operations.remove(rem)
+
+        # format resize
+        operations = self.findOperations(type="resize", object="format")
+        for a in operations:
+            if a not in self.operations:
+                # we may have removed some of the operations in a previous
+                # iteration of this loop
+                continue
+
+            ctx.logger.debug("operation '%s' (%s)" % (a, id(a)))
+            loops = self.findOperations(devid=a.device.id,
+                                     type="resize",
+                                     object="format")
+
+            if len(loops) == 1:
+                continue
+
+            # remove all but the last resize operation on this format
+            for rem in loops[:-1]:
+                ctx.logger.debug(" removing operation '%s' (%s)" % (rem, id(rem)))
+                self.operations.remove(rem)
+
+        # format migrate
+        # XXX I don't think there's away for these loops to occur
+        operations = self.findOperations(type="migrate", object="format")
+        for a in operations:
+            if a not in self.operations:
+                # we may have removed some of the operations in a previous
+                # iteration of this loop
+                continue
+
+            ctx.logger.debug("operation '%s' (%s)" % (a, id(a)))
+            loops = self.findOperations(devid=a.device.id,
+                                     type="migrate",
+                                     object="format")
+
+            if len(loops) == 1:
+                continue
+
+            # remove all but the last migrate operation on this format
+            for rem in loops[:-1]:
+                ctx.logger.debug(" removing operation '%s' (%s)" % (rem, id(rem)))
+                self.operations.remove(rem)
 
     def addPartitionDevice(self, info, disk=None):
         name = udev_device_get_name(info)
@@ -681,7 +1139,7 @@ class DeviceTree(object):
         devices = []
         for device in self._devices:
             if not hasattr(device, "serial"):
-                log.warning("device %s has no serial attr" % device.name)
+                ctx.logger.warning("device %s has no serial attr" % device.name)
                 continue
             if device.serial == serial:
                 devices.append(device)
