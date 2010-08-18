@@ -21,7 +21,7 @@ from string import digits
 from pardus.sysutils import find_executable
 from pardus import procutils
 
-from yali._sysutils import device_space_free
+import _sysutils
 from yali.constants import consts
 
 import gettext
@@ -31,7 +31,15 @@ _ = __trans.ugettext
 _sys_dirs = ['dev', 'proc', 'sys']
 
 def available_space(path):
-    return device_space_free(path)
+    return _sysutils.device_space_free(path)
+
+def ext2IsDirty(device):
+    label = _sysutils.e2dirty(device)
+    return label
+
+def ext2HasJournal(device):
+    hasjournal = _sysutils.e2hasjournal(device)
+    return hasjournal
 
 def run(cmd, params=None, capture=False, appendToLog=True):
     import yali.gui.context as ctx
