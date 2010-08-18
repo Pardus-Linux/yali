@@ -10,6 +10,8 @@ import yali
 class NotImplementedError(yali.Error):
     pass
 
+class AbstractDeviceError(yali.Error):
+    pass
 
 class AbstractDevice(object):
     _id = 0
@@ -90,7 +92,7 @@ class AbstractDevice(object):
         """ Close, or tear down, a device. """
         raise NotImplementedError("destroy method not implemented in AbstactDevice class.")
 
-    def setup(self):
+    def setup(self, orig=False):
         """ Open, or set up, a device. """
         raise NotImplementedError("setup method not implemented in AbstactDevice class.")
 
@@ -98,19 +100,21 @@ class AbstractDevice(object):
         """ Close, or tear down, a device. """
         raise NotImplementedError("tearDown method not implemented in AbstactDevice class.")
 
-    def setupParents(self, recursive=False):
+    def createParents(self):
+        """ Run create method of all parent devices. """
+        for parent in self.parents:
+            if not parent.exists:
+                raise AbstractDeviceError("parent device does not exist", self.name)
+
+    def setupParents(self, orig=False):
         """ Open, or set up, a device. """
         for parent in self.parents:
-            parent.setup()
-            if recursive:
-                parent.setupParents(recursive)
+            parent.setup(orig=orig)
 
     def teardownParents(self, recursive=False):
         """ Close, or tear down, a device. """
         for parent in self.parents:
-            parent.teardown()
-            if recursive:
-                parent.teardownParents(recursive)
+            parent.teardownParents(recursive)
 
     def dependsOn(self, dep):
         if dep in self.parents:
