@@ -9,6 +9,7 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
+import pisi
 import yali.gui.context as ctx
 from pardus.diskutils import EDD
 
@@ -204,6 +205,18 @@ def get_sysfs_path_by_name(dev_name, class_name="block"):
     if os.path.exists(dev_path):
         return dev_path
 
+def mkdirChain(dir):
+    try:
+        os.makedirs(dir, 0755)
+    except OSError as e:
+        try:
+            if e.errno == EEXIST and stat.S_ISDIR(os.stat(dir).st_mode):
+                return
+        except:
+            pass
+
+        ctx.logger.error("could not create directory %s: %s" % (dir, e.strerror))
+
 def mkswap(device, label=''):
     # We use -f to force since mkswap tends to refuse creation on lvs with
     # a message about erasing bootbits sectors on whole disks. Bah.
@@ -212,7 +225,7 @@ def mkswap(device, label=''):
         argv.extend(["-L", label])
     argv.append(device)
 
-    rc = yali.util.run_batch("mkswap", argv)[0]
+    rc = run_batch("mkswap", argv)[0]
 
     if rc:
         raise SwapError("mkswap failed for '%s'" % device)
@@ -252,13 +265,13 @@ def swapon(device, priority=None):
     if isinstance(priority, int) and 0 <= priority <= 32767:
         argv.extend(["-p", "%d" % priority])
     argv.append(device)
-    rc = yali.util.run_batch("swapon",argv)[0]
+    rc = run_batch("swapon",argv)[0]
 
     if rc:
         raise SwapError("swapon failed for '%s'" % device)
 
 def swap_off(device):
-    rc = yali.util.run_batch("swapoff", [device])[0]
+    rc = run_batch("swapoff", [device])[0]
 
     if rc:
         raise SwapError("swapoff failed for '%s'" % device)
@@ -297,6 +310,61 @@ def swap_amount():
             return int(fields[1])
     return 0
 
+mountCount = {}
+
+def mount(device, location, filesystem, readOnly=False,
+          bindMount=False, remount=False, options=None):
+    flags = None
+    location = os.path.normpath(location)
+    if not options:
+        opts = ["defaults"]
+    else:
+        opts = options.split(",")
+
+    if mountCount.has_key(location) and mountCount[location] > 0:
+        mountCount[location] = mountCount[location] + 1
+        return
+
+    if readOnly or bindMount or remount:
+        if readOnly:
+            opts.append("ro")
+        if bindMount:
+            opts.append("bind")
+        if remount:
+            opts.append("remount")
+
+    flags = ",".join(opts)
+    argv = ["-t", filesystem, device, location, "-o", flags]
+    rc = run_batch("mount", argv)[0]
+    if not rc:
+        mountCount[location] = 1
+
+    return rc
+
+def umount(location, removeDir = True):
+    location = os.path.normpath(location)
+
+    if not os.path.isdir(location):
+        raise ValueError, "util.umount() can only umount by mount point"
+
+    if mountCount.has_key(location) and mountCount[location] > 1:
+        mountCount[location] = mountCount[location] - 1
+        return
+
+    ctx.logger.debug("util.umount()- going to unmount %s, removeDir = %s" % (location, removeDir))
+    rc = run_batch("umount", [location])[0]
+
+    if removeDir and os.path.isdir(location):
+        try:
+            os.rmdir(location)
+        except:
+            pass
+
+    if not rc and mountCount.has_key(location):
+        del mountCount[location]
+
+    return rc
+
 def createAvailableSizeSwapFile(storage):
     (minsize, maxsize) = swap_suggestion()
     filesystems = []
@@ -315,3 +383,31 @@ def createAvailableSizeSwapFile(storage):
     for (device, availablespace) in filesystems:
         if availablespace > maxsize and (size > (suggestion + 100)):
             suggestedDevice = device
+
+
+def chroot(command):
+    run_batch("chroot", [ctx.consts.target_dir, command])
+
+def start_dbus():
+    chroot("/sbin/ldconfig")
+    chroot("/sbin/update-environment")
+    chroot("/bin/service dbus start")
+
+def stop_dbus():
+    filesdb = pisi.db.filesdb.FilesDB()
+    if filesdb.is_initialized():
+        filesdb.close()
+
+    # stop dbus
+    chroot("/bin/service dbus stop")
+    # kill comar in chroot if any exists
+    chroot("/bin/killall comar")
+
+    # store log content
+    ctx.logger.debug("Finalize Chroot called this is the last step for logs ..")
+    #if ctx.debugEnabled:
+    #    open(ctx.consts.log_file,"w").write(str(ctx.logger.traceback.plainLogs))
+
+    # store session log as kahya xml
+    open(ctx.consts.session_file,"w").write(str(ctx.installData.sessionLog))
+    os.chmod(ctx.consts.session_file,0600)
