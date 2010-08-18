@@ -13,6 +13,7 @@ _ = __trans.ugettext
 
 import yali
 import yali.util
+import yali.sysutils
 import yali.gui.context as ctx
 from . import Format, register_device_format
 
@@ -26,6 +27,9 @@ class FilesystemResizeError(FilesystemError):
     pass
 
 class FilesystemCheckError(FilesystemError):
+    pass
+
+class FilesystemMigrateError(FilesystemError):
     pass
 
 global kernel_filesystems
@@ -232,7 +236,7 @@ class Filesystem(Format):
             raise FilesystemError("device does not exist")
 
         # if journal already exists skip
-        if isys.ext2HasJournal(self.device):
+        if yali.sysutils.ext2HasJournal(self.device):
             ctx.logger.info("Skipping migration of %s, has a journal already." % self.device)
             return
 
@@ -285,7 +289,7 @@ class Filesystem(Format):
         argv = self._getFormatOptions(options=options)
 
         try:
-            rc = yali.util.run_batch(self.mkfs,argv)
+            rc = yali.util.run_batch(self.mkfs, argv)[0]
 
         except Exception as e:
             raise FilesystemFormatError(e, self.device)
@@ -328,7 +332,7 @@ class Filesystem(Format):
                      % (self.device, self.targetSize))
 
         try:
-            rc = yali.util.run_batch(self.resizefs, self.resizeArgs)
+            rc = yali.util.run_batch(self.resizefs, self.resizeArgs)[0]
         except Exception as e:
             raise FilesystemResizeError(e, self.device)
 
@@ -352,7 +356,7 @@ class Filesystem(Format):
         w = None
 
         try:
-            rc = yali.util.run_batch(self.fsck, self._getCheckArgs())
+            rc = yali.util.run_batch(self.fsck, self._getCheckArgs())[0]
         except Exception as e:
             raise FilesystemError("filesystem check failed: %s" % e)
 
@@ -392,23 +396,22 @@ class Filesystem(Format):
         if self.status:
             return
 
-        # XXX os.path.join is FUBAR:
-        #
-        #         os.path.join("/mnt/foo", "/") -> "/"
-        #
-        #mountpoint = os.path.join(chroot, mountpoint)
         chrootedMountpoint = os.path.normpath("%s/%s" % (chroot, mountpoint))
-        iutil.mkdirChain(chrootedMountpoint)
+        yali.util.mkdirChain(chrootedMountpoint)
 
         # passed in options override default options
         if not options or not isinstance(options, str):
             options = self.options
 
+        bindMount = False
+        if self.mountType == "bind":
+            bindMount = True
+
         try:
-            rc = isys.mount(self.device, chrootedMountpoint, 
-                            fstype=self.mountType,
-                            options=options,
-                            bindMount=isinstance(self, BindFilesystem))
+            rc = yali.util.mount(self.device, chrootedMountpoint,
+                                filesystem=self.mountType,
+                                bindMount=bindMount,
+                                options=options)
         except Exception as e:
             raise FilesystemError("mount failed: %s" % e)
 
@@ -429,7 +432,7 @@ class Filesystem(Format):
         if not os.path.exists(self._mountpoint):
             raise FilesystemError("mountpoint does not exist")
 
-        rc = isys.umount(self._mountpoint, removeDir = False)
+        rc = yali.util.umount(self._mountpoint, removeDir=False)
         if rc:
             raise FilesystemError("umount failed")
 
@@ -665,7 +668,7 @@ class Ext2Filesystem(Filesystem):
         return msg.strip()
 
     def tuneFilesystem(self):
-        if not isys.ext2HasJournal(self.device):
+        if not yali.sysutils.ext2HasJournal(self.device):
             # only do this if there's a journal
             return
 
@@ -722,7 +725,7 @@ class Ext2Filesystem(Filesystem):
 
     @property
     def isDirty(self):
-        return isys.ext2IsDirty(self.device)
+        return yali.sysutils.ext2IsDirty(self.device)
 
     @property
     def resizeArgs(self):
@@ -996,3 +999,15 @@ class TmpFilesystem(NoDevFilesystem):
     _mountOptions = ["nodev", "nosuid", "noexec"]
 
 register_device_format(TmpFilesystem)
+
+class BindFilesystem(Filesystem):
+    _type = "bind"
+
+    @property
+    def mountable(self):
+        return True
+
+    def _getExistingSize(self):
+        pass
+
+register_device_format(BindFilesystem)
