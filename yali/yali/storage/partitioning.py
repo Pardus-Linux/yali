@@ -10,6 +10,7 @@ __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 import yali
+import yali.util
 import yali.gui.context as ctx
 from operations import *
 from devices.device import devicePathToName
@@ -228,6 +229,54 @@ class Chunk(object):
                 self.trimOverGrownRequest(p)
                 if self.pool == 0:
                     break
+
+
+class PartitionSpec(object):
+    def __init__(self, mountpoint=None, fstype=None, size=None, maxSize=None,
+                 grow=False, asVol=False, weight=0, requiredSpace=0):
+        """ Create a new storage specification.  These are used to specify
+            the default partitioning layout as an object before we have the
+            storage system up and running.  The attributes are obvious
+            except for the following:
+
+            asVol -- Should this be allocated as a logical volume?  If not,
+                     it will be allocated as a partition.
+            weight -- An integer that modifies the sort algorithm for partition
+                      requests.  A larger value means the partition will end up
+                      closer to the front of the disk.  This is mainly used to
+                      make sure /boot ends up in front, and any special (PReP,
+                      appleboot, etc.) partitions end up in front of /boot.
+                      This value means nothing if asVol=False.
+            requiredSpace -- This value is only taken into account if
+                             asVol=True, and specifies the size in MB that the
+                             containing VG must be for this PartSpec to even
+                             get used.  The VG's size is calculated before any
+                             other LVs are created inside it.  If not enough
+                             space exists, this PartSpec will never get turned
+                             into an LV.
+        """
+
+        self.mountpoint = mountpoint
+        self.fstype = fstype
+        self.size = size
+        self.maxSize = maxSize
+        self.grow = grow
+        self.asVol = asVol
+        self.weight = weight
+        self.requiredSpace = requiredSpace
+
+    def __str__(self):
+        s = ("%(type)s instance (%(id)s) -- \n"
+             "  mountpoint = %(mountpoint)s  asVol = %(asVol)s\n"
+             "  weight = %(weight)s  fstype = %(fstype)s\n"
+             "  size = %(size)s  maxSize = %(maxSize)s  grow = %(grow)s\n" %
+             {"type": self.__class__.__name__, "id": "%#x" % id(self),
+              "mountpoint": self.mountpoint, "asVol": self.asVol,
+              "weight": self.weight, "fstype": self.fstype, "size": self.size,
+              "maxSize": self.maxSize, "grow": self.grow})
+
+        return s
+
 
 def sectorsToSize(sectors, sectorSize):
     """ Convert length in sectors to size in MB.
@@ -461,7 +510,7 @@ def getNextPartitionType(disk, no_primary=None):
     if primaryCount < disk.maxPrimaryPartitionCount:
         if primaryCount == disk.maxPrimaryPartitionCount - 1:
             # can we make an extended partition? now's our chance.
-            if not extended and supports_extended:
+            if not extended and supportsExtended:
                 partType = parted.PARTITION_EXTENDED
             elif not extended:
                 # extended partitions not supported. primary or nothing.
@@ -1222,14 +1271,6 @@ def getDiskChunks(disk, partitions, free):
 
     return chunks
 
-def weight(fstype=None, mountpoint=None):
-    if yali.util.isEfi() and (fstype and fstype == "efi" or mountpoint and mountpoint == "/boot/efi"):
-        return 5000
-    elif mountpoint and mountpoint == "/boot":
-        return 2000
-    else:
-        return 0
-
 def shouldClear(device, clearPartType, clearPartDisks=None):
     if clearPartType not in [CLEARPART_TYPE_LINUX, CLEARPART_TYPE_ALL]:
         return False
@@ -1280,6 +1321,37 @@ def shouldClear(device, clearPartType, clearPartDisks=None):
 
     return True
 
+def weight(fstype=None, mountpoint=None):
+    """ Given an fstype (as a string) or a mountpoint, return an integer
+        for the base sorting weight.  This is used to modify the sort
+        algorithm for partition requests, mainly to make sure bootable
+        partitions and /boot are placed where they need to be."""
+    if fstype and fstype == "efi" or mountpoint and mountpoint == "/boot/efi":
+        return 5000
+    elif mountpoint and mountpoint == "/boot":
+        return 2000
+    else:
+        return 0
+
+def defaultPartitioning(storage, quiet=0):
+    """Return the default partitioning information."""
+    autorequests = [PartitionSpec(mountpoint="/", fstype=storage.defaultFSType,
+                                  size=1024, maxSize=50*1024,
+                                  grow=True, asVol=False),
+                    PartitionSpec(mountpoint="/home", fstype=storage.defaultFSType,
+                                  size=100, grow=True,
+                                  asVol=False, requiredSpace=50*1024)]
+
+    bootreq = PartitionSpec(mountpoint="/boot", fstype=storage.defaultFSType,
+                            size=500, weight=weight(mountpoint="/boot"))
+    autorequests.append(bootreq)
+
+    (minswap, maxswap) = yali.util.swap_suggestion(quiet=quiet)
+    swapreq = PartitionSpec(fstype="swap", size=minswap, maxSize=maxswap, grow=True, asVol=False)
+    autorequests.append(swapreq)
+
+    return autorequests
+
 def _createFreeSpacePartitions(storage):
     # get a list of disks that have at least one free space region of at
     # least the default size for new partitions
@@ -1303,15 +1375,17 @@ def _createFreeSpacePartitions(storage):
 
     # create a separate pv partition for each disk with free space
     devs = []
-    for disk in disks:
-        fmt_type = "lvmpv"
-        fmt_args = {}
-        part = storage.newPartition(fmt_type=fmt_type,
-                                    fmt_args=fmt_args,
-                                    grow=True,
-                                    disks=[disk])
-        storage.createDevice(part)
-        devs.append(part)
+    # Disable up to enable lvm support. This commented block is due to
+    # add free space partitions as physical volumes automatically.
+    #for disk in disks:
+    #    fmt_type = "lvmpv"
+    #    fmt_args = {}
+    #    part = storage.newPartition(fmt_type=fmt_type,
+    #                                fmt_args=fmt_args,
+    #                                grow=True,
+    #                                disks=[disk])
+    #    storage.createDevice(part)
+    #    devs.append(part)
 
     return (disks, devs)
 
@@ -1347,7 +1421,7 @@ def _schedulePartitions(storage, disks):
     return
 
 def doAutoPartition(storage):
-    ctx.logger.debug("doAutoPartition(%s)")
+    ctx.logger.debug("doAutoPartition")
     ctx.logger.debug("doAutoPart: %s" % storage.doAutoPart)
     ctx.logger.debug("clearPartType: %s" % storage.clearPartType)
     ctx.logger.debug("clearPartDisks: %s" % storage.clearPartDisks)
@@ -1377,7 +1451,7 @@ def doAutoPartition(storage):
         _schedulePartitions(storage, disks)
 
     # sanity check the individual devices
-    ctx.logger.warning("not sanity checking devices because I don't know how yet")
+    #ctx.logger.warning("not sanity checking devices because I don't know how yet")
 
     # run the autopart function to allocate and grow partitions
     try:
@@ -1401,10 +1475,10 @@ def doAutoPartition(storage):
                                customIcon='error')
         ctx.logger.warning(msg)
         return None
-        #sys.extit(0)
+        #sys.exit(0)
 
     # sanity check the collection of devices
-    ctx.logger.warning("not sanity checking storage config because I don't know how yet")
+    #ctx.logger.warning("not sanity checking storage config because I don't know how yet")
     # now do a full check of the requests
     (errors, warnings) = storage.sanityCheck()
     if warnings:
