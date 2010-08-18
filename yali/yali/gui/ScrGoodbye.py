@@ -20,8 +20,7 @@ _ = __trans.ugettext
 from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
-import yali.sysutils
-
+import yali.util
 import yali.gui.context as ctx
 from yali.gui.installdata import *
 from yali.gui.ScreenWidget import ScreenWidget
@@ -77,11 +76,11 @@ Click Next to proceed. One note: You remember your password, don't you?
         # remove cd...
         if not ctx.yali.install_type == YALI_FIRSTBOOT:
             ctx.logger.debug("Trying to eject the CD.")
-            yali.sysutils.ejectCdrom()
+            yali.util.eject()
 
         ctx.logger.debug("Yali, reboot calling..")
 
         ctx.mainScreen.processEvents()
         time.sleep(4)
-        yali.sysutils.reboot()
+        yali.util.reboot()
 

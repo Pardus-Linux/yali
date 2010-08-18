@@ -17,6 +17,7 @@ _ = __trans.ugettext
 from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
+import yali.util
 import yali.sysutils
 #import yali.storage
 #import yali.partitiontype as parttype
@@ -62,7 +63,7 @@ This is a rescue mode help document.
                 self.connect(radio, SIGNAL("toggled(bool)"), ctx.mainScreen.enableNext)
 
         # Reboot Button
-        self.connect(self.ui.rebootButton, SIGNAL("clicked()"), yali.sysutils.reboot)
+        self.connect(self.ui.rebootButton, SIGNAL("clicked()"), yali.util.reboot)
 
     def updateNext(self):
         for radio in self.radios:
@@ -142,7 +143,7 @@ class PardusPartitions:
                         if pardus_release:
                             pardusPartitions.append(partition)
                         # If it is not a pardus installed partition skip it
-                        yali.sysutils.umount_()
+                        #yali.sysutils.umount_()
 
         return (linuxPartitions, pardusPartitions)
 

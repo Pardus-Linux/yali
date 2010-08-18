@@ -20,18 +20,15 @@ _ = __trans.ugettext
 from PyQt4 import QtGui
 from PyQt4.QtCore import SIGNAL, QEvent, QObject
 
-import yali.storage
+import yali.util
 import yali.pisiiface
 import yali.postinstall
-import yali.sysutils
-
-from yali.gui.installdata import *
+import yali.gui.context as ctx
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.rescuepisiwidget import Ui_RescuePisiWidget
 from yali.gui.YaliSteps import YaliSteps
 from yali.gui.GUIException import GUIException
 from yali.gui.GUIAdditional import ConnectionWidget
-import yali.gui.context as ctx
 
 ##
 # BootLoader screen.
@@ -58,7 +55,7 @@ a previous system state.
         self.ui = Ui_RescuePisiWidget()
         self.ui.setupUi(self)
         self.steps = YaliSteps()
-        self.steps.setOperations([{"text":_("Starting D-Bus..."),"operation":yali.sysutils.chrootDbus},
+        self.steps.setOperations([{"text":_("Starting D-Bus..."),"operation":yali.util.start_dbus},
                                   {"text":_("Connecting to D-Bus..."),"operation":yali.postinstall.connectToDBus},
                                   {"text":_("Fetching history..."),"operation":self.fillHistoryList}])
 

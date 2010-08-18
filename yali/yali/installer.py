@@ -21,16 +21,13 @@ _ = __trans.ugettext
 from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
-
 import pisi.ui
 from pardus.sysutils import get_kernel_option
 import yali.pisiiface
-import yali.sysutils
+import yali.util
 import yali.localeutils
-from yali.constants import consts
 import yali.gui.context as ctx
 from yali.gui.installdata import YALI_DVDINSTALL, YALI_INSTALL, YALI_OEMINSTALL, YALI_FIRSTBOOT, YALI_PARTITIONER, YALI_RESCUE, YALI_PLUGIN
-from yali.gui.debugger import DebuggerAspect
 from yali.gui.YaliDialog import Dialog, QuestionDialog, InfoDialog, InformationWindow, MessageWindow
 from yali.storage.formats.filesystem import FilesystemResizeError, FilesystemMigrateError
 
@@ -230,11 +227,11 @@ class Yali:
 
         # Set current date and time
         ctx.logger.debug("Date/Time setting to %s" % args)
-        yali.sysutils.run("date %s" % args)
+        yali.util.run_batch("date", args)
 
         # Sync date time with hardware
         ctx.logger.debug("YALI's time is syncing with the system.")
-        yali.sysutils.run("hwclock --systohc")
+        yali.util.run_batch("hwclock", ["--systohc"])
         self.info.hide()
 
     def setTimeZone(self, rootWidget):
@@ -412,7 +409,7 @@ class ErrorWidget(QtGui.QWidget):
         self.vboxlayout.addLayout(self.hboxlayout)
         self.gridlayout.addLayout(self.vboxlayout,0,0,1,1)
 
-        yali.sysutils.ejectCdrom()
+        yali.util.eject()
 
         self.connect(self.reboot, SIGNAL("clicked()"),self.slotReboot)
 

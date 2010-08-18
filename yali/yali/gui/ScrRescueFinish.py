@@ -19,13 +19,12 @@ from PyQt4 import QtGui
 import time
 import yali.postinstall
 import yali.pisiiface
-from yali import sysutils
+import yali.util
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.YaliDialog import InfoDialog
 from yali.gui.YaliSteps import YaliSteps
 from yali.gui.Ui.goodbyewidget import Ui_GoodByeWidget
 import yali.gui.context as ctx
-from yali.gui.installdata import *
 
 ##
 # Goodbye screen
@@ -94,12 +93,12 @@ There is no help available for this section.
         # remove cd...
         if not ctx.yali.install_type == YALI_FIRSTBOOT:
             ctx.logger.debug("Trying to eject the CD.")
-            sysutils.ejectCdrom()
+            yali.util.eject()
 
         ctx.logger.debug("Yali, reboot calling..")
 
         ctx.mainScreen.processEvents()
-        sysutils.run("sync")
+        yali.util.sync()
         time.sleep(4)
-        sysutils.reboot()
+        yali.util.reboot()
 

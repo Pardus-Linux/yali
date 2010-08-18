@@ -17,7 +17,7 @@ _ = __trans.ugettext
 from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
-import yali.sysutils
+import yali.util
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.welcomewidget import Ui_WelcomeWidget
 import yali.gui.context as ctx
@@ -75,8 +75,8 @@ class Widget(QtGui.QWidget, ScreenWidget):
         d.exec_()
 
     def slotReboot(self):
-        yali.sysutils.ejectCdrom()
-        yali.sysutils.reboot()
+        yali.util.eject()
+        yali.util.reboot()
 
     def shown(self):
         ctx.mainScreen.disableBack()

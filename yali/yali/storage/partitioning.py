@@ -1425,7 +1425,6 @@ def doAutoPartition(storage):
     ctx.logger.debug("doAutoPart: %s" % storage.doAutoPart)
     ctx.logger.debug("clearPartType: %s" % storage.clearPartType)
     ctx.logger.debug("clearPartDisks: %s" % storage.clearPartDisks)
-    ctx.logger.debug("autoPartitionRequests: %s" % storage.autoPartitionRequests)
     ctx.logger.debug("storage.disks: %s" % [d.name for d in storage.disks])
     ctx.logger.debug("storage.partitioned: %s" % [d.name for d in storage.partitioned])
     ctx.logger.debug("all names: %s" % [d.name for d in storage.devices])

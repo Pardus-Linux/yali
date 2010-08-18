@@ -456,7 +456,7 @@ class Filesystem(Format):
             raise FilesystemError("device does not exist")
 
         argv = self._getLabelArgs(label)
-        rc = sysutils.run(self.labelfs, argv)
+        rc = yali.util.run_batch(self.labelfs, argv)[0]
 
         if rc:
             raise FilesystemError("label failed")
@@ -673,10 +673,11 @@ class Ext2Filesystem(Filesystem):
             return
 
         try:
-            rc = sysutils.run("tune2fs",["-c0", "-i0","-ouser_xattr,acl", self.device])
-
+            rc = yali.util.run_batch("tune2fs", ["-c0", "-i0","-ouser_xattr,acl", self.device])[0]
         except Exception as e:
             pass
+        else:
+            return rc
 
     @property
     def minSize(self):
@@ -924,9 +925,7 @@ class NTFSFilesystem(Filesystem):
             size = self._minSize
             if self.exists and os.path.exists(self.device):
                 minSize = None
-                buf = iutil.execWithCapture(self.resizefsProg,
-                                            ["-m", self.device],
-                                            stderr = "/dev/tty5")
+                buf = yali.util.run_batch(self.resizefs, ["-m", self.device])[1]
                 for l in buf.split("\n"):
                     if not l.startswith("Minsize"):
                         continue

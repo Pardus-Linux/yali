@@ -16,11 +16,9 @@ methodInstallAutomatic, methodInstallManual = range(2)
 # Auto Selected Kernels
 defaultKernel, paeKernel, rtKernel = range(3)
 
-kernels = {
-        defaultKernel:"kernel.default",
-        paeKernel:"kernel.pae",
-        rtKernel:"kernel.rt"
-        }
+kernels = {defaultKernel:"kernel.default",
+           paeKernel:"kernel.pae",
+           rtKernel:"kernel.rt"}
 
 YALI_INSTALL, \
 YALI_DVDINSTALL, \
@@ -46,3 +44,5 @@ class InstallData:
     timezone = "Europe/Istanbul"
     sessionLog = ""
     installAllLangPacks = False
+
+installData = InstallData()

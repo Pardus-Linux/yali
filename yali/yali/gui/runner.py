@@ -21,6 +21,7 @@ _ = __trans.ugettext
 
 import yali
 import yali.installer
+import yali.util
 import yali.sysutils
 import yali.localedata
 import yali.gui.context as ctx
@@ -89,11 +90,7 @@ class Runner:
         QObject.connect(prevScreenShortCut, SIGNAL("activated()"), self._window.slotBack)
         QObject.connect(nextScreenShortCut, SIGNAL("activated()"), self._window.slotNext)
 
-        # logger aspect
-        ctx.aspect = DebuggerAspect(ctx.logger)
-
         # check boot flags
-        # visual debug mode
         if ctx.options.debug == "True" or yali.sysutils.checkYaliParams(param="debug"):
             ctx.debugEnabled = True
 
@@ -105,12 +102,12 @@ class Runner:
 
         # VBox utils
         ctx.logger.debug("Starting VirtualBox tools..")
-        yali.sysutils.run("VBoxClient --autoresize")
-        yali.sysutils.run("VBoxClient --clipboard")
+        yali.util.run_batch("VBoxClient", ["--autoresize"])
+        yali.util.run_batch("VBoxClient", ["--clipboard"])
 
         # Cp Reboot, ShutDown
-        yali.sysutils.run("cp /sbin/reboot /tmp/reboot", appendToLog = False)
-        yali.sysutils.run("cp /sbin/shutdown /tmp/shutdown", appendToLog = False)
+        yali.util.run_batch("cp", ["/sbin/reboot", "/tmp/reboot"])
+        yali.util.run_batch("cp", ["/sbin/shutdown", "/tmp/shutdown"])
 
         # add Screens for selected install type
         self._window.createWidgets(ctx.yali.screens)
@@ -181,7 +178,7 @@ class ExceptionWidget(QtGui.QWidget):
         self.ui.traceback.setText(tb_text)
         self.ui.traceback.hide()
         self.connect(self.ui.showBackTrace, SIGNAL("clicked()"), self.showBackTrace)
-        self.connect(self.ui.rebootButton,  SIGNAL("clicked()"), yali.sysutils.reboot)
+        self.connect(self.ui.rebootButton,  SIGNAL("clicked()"), yali.util.reboot)
         self.ui.rebootButton.setShown(rebootButton)
 
     def showBackTrace(self):

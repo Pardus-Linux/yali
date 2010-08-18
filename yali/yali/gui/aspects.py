@@ -12,7 +12,6 @@
 
 
 from pyaspects.meta import MetaAspect
-
 import yali.gui.context as ctx
 
 ##
@@ -64,6 +63,5 @@ class LoggerAspect:
         met_name = data['original_method_name']
         fun_str = "%s%s" % (met_name, args)
         self.logger.debug("left, %s" % fun_str,1,-1)
-
 
 loggerAspect = LoggerAspect(ctx.logger)

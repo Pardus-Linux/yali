@@ -10,10 +10,20 @@ __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 import pisi
+import yali
 import yali.gui.context as ctx
 from pardus.diskutils import EDD
 
 EARLY_SWAP_RAM = 512 * 1024 # 512 MB
+
+class SwapError(yali.Error):
+    pass
+
+class OldSwapError(SwapError):
+    pass
+
+class UnknownSwapError(SwapError):
+    pass
 
 def product_name():
     if os.path.exists("/etc/pardus-release"):
@@ -42,7 +52,7 @@ def get_edd_dict(devices):
     if not os.path.exists("/sys/firmware/edd"):
         rc = run_batch("modprobe", ["edd"])[0]
         if rc > 0:
-            ctx.loggererror("Inserting EDD Module failed !")
+            ctx.logger.error("Inserting EDD Module failed !")
             return eddDevices
 
     edd = EDD()

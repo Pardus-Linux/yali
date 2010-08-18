@@ -19,7 +19,7 @@ _ = __trans.ugettext
 from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
-import yali.sysutils
+import yali.util
 import yali.gui.context as ctx
 import yali.gui.context as ctx
 from yali.gui.installdata import YALI_PLUGIN, YALI_INSTALL, YALI_DVDINSTALL
@@ -57,7 +57,7 @@ Here you can see your install options before installation starts.
         reply = QuestionDialog(_("Restart"),
                                _('''<b><p>Are you sure you want to restart the computer?</p></b>'''))
         if reply == "yes":
-            yali.sysutils.reboot()
+            yali.util.reboot()
 
     def startBombCounter(self):
         self.startTime = int(time.time())

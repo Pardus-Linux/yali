@@ -21,7 +21,7 @@ import os
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.datetimewidget import Ui_DateTimeWidget
 import yali.gui.context as ctx
-from yali.sysutils import TimeZoneList
+from yali.timezone import TimeZoneList
 import yali.localedata
 
 class Widget(QtGui.QWidget, ScreenWidget):

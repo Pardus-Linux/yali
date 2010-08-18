@@ -19,6 +19,7 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
+import yali.util
 import yali.sysutils
 from yali.gui.Ui.main import Ui_YaliMain
 from yali.gui.YaliDialog import Dialog, QuestionDialog
@@ -27,7 +28,7 @@ import yali.gui.context as ctx
 
 # Aspect oriented huh ;)
 from pyaspects.weaver import *
-from yali.gui.aspects import *
+from yali.gui.aspects import enableNavButtonsAspect, disableNavButtonsAspect, loggerAspect
 
 # Release Notes
 from yali.gui.GUIAdditional import ReleaseNotes
@@ -51,7 +52,7 @@ class Widget(QtGui.QWidget):
         self.helpShortCut = QtGui.QShortcut(QtGui.QKeySequence(Qt.Key_F1),self)
 
         # shortcut to open debug window
-        self.debugShortCut = QtGui.QShortcut(QtGui.QKeySequence(Qt.Key_F2),self)
+        #self.debugShortCut = QtGui.QShortcut(QtGui.QKeySequence(Qt.Key_F2),self)
 
         # something funny
         self.tetrisShortCut = QtGui.QShortcut(QtGui.QKeySequence(Qt.Key_F6),self)
@@ -82,7 +83,7 @@ class Widget(QtGui.QWidget):
 
         # Main Slots
         self.connect(self.helpShortCut,     SIGNAL("activated()"),  self.slotToggleHelp)
-        self.connect(self.debugShortCut,    SIGNAL("activated()"),  self.toggleDebug)
+        #self.connect(self.debugShortCut,    SIGNAL("activated()"),  self.toggleDebug)
         self.connect(self.consoleShortCut,  SIGNAL("activated()"),  self.toggleConsole)
         self.connect(self.cursorShortCut,   SIGNAL("activated()"),  self.toggleCursor)
         self.connect(self.themeShortCut,    SIGNAL("activated()"),  self.toggleTheme)
@@ -140,12 +141,12 @@ class Widget(QtGui.QWidget):
             reply = QuestionDialog(_("Warning"),
                                    _("Are you sure you want to shut down your computer now?"))
             if reply == "yes":
-                yali.sysutils.shutdown()
+                yali.util.shutdown()
         elif action == self.rebootAction:
             reply = QuestionDialog(_("Warning"),
                                    _("Are you sure you want to restart your computer now?"))
             if reply == "yes":
-                yali.sysutils.reboot()
+                yali.util.reboot()
         else:
             reply = QuestionDialog(_("Warning"),
                                    _("Are you sure you want to restart the YALI installer now?"))

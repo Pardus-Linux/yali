@@ -55,7 +55,7 @@ class AbstractDevice(object):
              "  kids = %(kids)s\n"
              "  id = %(dev_id)s\n" %
              {"type": self.__class__.__name__, "id": "%#x" % id(self),
-              "name": self.name, "parents": self.parents, "kids": self.kids,
+              "name": self.name, "parents": [parent.name for parent in self.parents], "kids": self.kids,
               "status": self.status, "dev_id": self.id})
         return s
 

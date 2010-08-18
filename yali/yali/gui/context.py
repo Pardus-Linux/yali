@@ -9,18 +9,18 @@
 #
 # Please read the COPYING file.
 #
-
-from os.path import join
-from yali.gui import installdata
+import os
+import yali.gui.installdata
 
 # singletons from yali.*
+from yali.gui.installdata import installData
 from yali.constants import consts
 from yali.options import options
 
 # style sheet
 import yali.sysutils
-consts.stylesheet = join(consts.data_dir, "data/%s.qss" % (yali.sysutils.checkYaliOptions("theme") or options.theme))
-consts.alternatestylesheet = join(consts.data_dir, "data/oxygen.qss")
+consts.stylesheet = os.path.join(consts.data_dir, "data/%s.qss" % (yali.sysutils.checkYaliOptions("theme") or options.theme))
+consts.alternatestylesheet = os.path.join(consts.data_dir, "data/oxygen.qss")
 
 # lock for format request
 requestsCompleted = False
@@ -28,9 +28,6 @@ requestsCompleted = False
 # debugger variables
 debugger = None
 debugEnabled = False
-
-# install data
-installData = installdata.InstallData()
 
 # edd check
 isEddFailed = False
@@ -49,4 +46,3 @@ bus = None
 
 # Selected disk for manual partitioning screen
 selectedDisk = None
-

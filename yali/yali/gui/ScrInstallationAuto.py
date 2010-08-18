@@ -10,24 +10,24 @@
 # Please read the COPYING file.
 #
 
+import time
+import platform
 import gettext
+
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
-import time
-import platform
 
+import yali.pisiiface
+import yali.gui.context as ctx
+from yali.gui.installdata import methodInstallManual, methodInstallAutomatic, defaultKernel, paeKernel, kernels
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.autoinstallationwidget import Ui_AutoInstallationWidget
 from yali.gui.Ui.autoinstallationlistitemwidget import Ui_AutoInstallationListItemWidget
 from yali.gui.GUIException import *
-from yali.gui.installdata import *
-import yali.pisiiface
-import yali.gui.context as ctx
-import yali.sysutils
 
 ##
 # Installation Choice Widget

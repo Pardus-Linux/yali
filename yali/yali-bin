@@ -12,20 +12,28 @@
 #
 import os
 import locale
+import gettext
+
+__trans = gettext.translation('yali', fallback=True)
+_ = __trans.ugettext
 
 import yali
-import yali.sysutils
+import yali.util
 import yali.gui.context as ctx
 from yali.constants import consts
 
 
 def try_umount_target():
     for mpoint in ("/home", "/dev", "/proc", "/sys", ""):
-        yali.sysutils.umount_(consts.target_dir + mpoint)
+        yali.util.umount(consts.target_dir + mpoint, removeDir=False)
 
 def main():
     if not os.path.exists("/etc/yali-is-firstboot"):
-        try_umount_target()
+        try:
+            try_umount_target()
+        except ValueError, msg:
+            ctx.logger.debug(_(msg))
+
     runner = yali.default_runner()
     runner.run()
 
