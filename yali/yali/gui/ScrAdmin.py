@@ -83,7 +83,7 @@ You can also define a hostname for your computer. A hostname is an identifier as
             if len(yali.users.pending_users) > 0:
                 hostname_guess = "%s-pardus" % yali.users.pending_users[0].username
             else:
-                ctx.debugger.log("No user defined in users screen")
+                ctx.logger.debug("No user defined in users screen")
             if self.ui.hostname.text() == '':
                 self.ui.hostname.setText(hostname_guess)
 

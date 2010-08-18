@@ -78,7 +78,7 @@ class User:
 
         if not os.path.exists(confFile):
             import yali.gui.context as ctx
-            ctx.debugger.log("setAutoLogin: Failed, kdmrc not found; possibly KDE is not installed !")
+            ctx.logger.debug("setAutoLogin: Failed, kdmrc not found; possibly KDE is not installed !")
             return False
 
         # We shouldn't use ConfigParser for changing kdmrc: 1- It removes all useful comments 2- KConfig confuses when it sees assignments including space characters like ' = ' 
@@ -91,7 +91,7 @@ class User:
 
             if not re.compile('^%s$' % sectionEscaped, re.MULTILINE).search(kdmrc):
                 import yali.gui.context as ctx
-                ctx.debugger.log("setAutoLogin: Failed, '%s' section not found in kdmrc." % section)
+                ctx.logger.debug("setAutoLogin: Failed, '%s' section not found in kdmrc." % section)
                 return False
 
             result = re.compile('^%s=(.*)$' % key, re.MULTILINE)

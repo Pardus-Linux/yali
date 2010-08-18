@@ -86,7 +86,7 @@ class ResizeWidget(QtGui.QWidget):
     def slotResize(self):
         self.hide()
         ctx.yali.info.updateAndShow(_("Resizing to %s MB...") % (self.ui.resizeMB.value()))
-        ctx.debugger.log("Resize started on partition %s " % self.part.getPath())
+        ctx.logger.debug("Resize started on partition %s " % self.part.getPath())
         QTimer.singleShot(500,self.res)
 
     def res(self):

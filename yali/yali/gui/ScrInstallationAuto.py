@@ -121,11 +121,11 @@ class Widget(QtGui.QWidget, ScreenWidget):
         if self.ui.radioAutomatic.isChecked():
             ctx.installData.autoInstallationMethod = methodInstallAutomatic
             ctx.installData.autoInstallationCollection = self.defaultChoice.collection
-            ctx.debugger.log("Automatic Installation selected..")
+            ctx.logger.debug("Automatic Installation selected..")
         else:
             ctx.installData.autoInstallationMethod = methodInstallManual
             ctx.installData.autoInstallationCollection = self.currentChoice.collection
-            ctx.debugger.log("Manual Installation selected..")
+            ctx.logger.debug("Manual Installation selected..")
 
         if self.ui.kernelTypeGroupBox.isVisible():
             if self.ui.radioPAEKernel.isChecked():
@@ -136,7 +136,7 @@ class Widget(QtGui.QWidget, ScreenWidget):
             ctx.installData.autoInstallationKernel = defaultKernel
 
 
-        ctx.debugger.log("Trying to Install selected Packages from %s Collection with %s Type" % \
+        ctx.logger.debug("Trying to Install selected Packages from %s Collection with %s Type" % \
                                 (ctx.installData.autoInstallationCollection.title, kernels[ctx.installData.autoInstallationKernel]))
         return True
 

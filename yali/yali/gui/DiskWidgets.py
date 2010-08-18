@@ -130,7 +130,7 @@ class DiskList(QtGui.QWidget):
 
         for dev in self.devs:
             try:
-                ctx.debugger.log("Device Found %s" % dev.getModel())
+                ctx.logger.debug("Device Found %s" % dev.getModel())
             except:
                 pass
             self.addDevice(dev)
@@ -261,13 +261,13 @@ class DiskList(QtGui.QWidget):
                 try:
                     name = part.getFSLabel() or name
                 except:
-                    ctx.debugger.log("GFSL: Failed for %s, not important " % name)
+                    ctx.logger.debug("GFSL: Failed for %s, not important " % name)
             else:
                 if part.getMB() < minimumSize:
                     continue
                 name = _("Free Space")
             if ctx.debugger:
-                ctx.debugger.log("Partition added with %s mb" % part.getMB())
+                ctx.logger.debug("Partition added with %s mb" % part.getMB())
             diskItem.addPartition(name, part)
 
         diskItem.updateSizes(self.tabWidget.width())
@@ -391,13 +391,13 @@ class DiskList(QtGui.QWidget):
             elif device.numberOfPrimaryPartitions() >= min_primary and device.numberOfPrimaryPartitions() <= 3 and not extendedPartition:
                 # if three primary partitions exists on disk and no more extendedPartition
                 # we must create new extended one for other logical partitions
-                ctx.debugger.log("There is no extended partition, Yalı will create new one")
+                ctx.logger.debug("There is no extended partition, Yalı will create new one")
                 type = parteddata.PARTITION_EXTENDED
                 p = device.addPartition(partition._partition, type, None, partition.getMB(), t.parted_flags)
 
                 # New Fresh logical partition
                 partition = device.getPartition(p.num)
-                ctx.debugger.log("Yalı created new extended partition as number of %d " % p.num)
+                ctx.logger.debug("Yalı created new extended partition as number of %d " % p.num)
                 type = parteddata.PARTITION_LOGICAL
             elif device.numberOfPrimaryPartitions() == 4 or ( device.numberOfPrimaryPartitions() == 3 and extendedPartition and not(partition._partition.type and parteddata.PARTITION_LOGICAL)):
                 # if four primary partitions or
@@ -414,7 +414,7 @@ class DiskList(QtGui.QWidget):
                 # Let's create the partition
                 p = device.addPartition(partition._partition, type, t.filesystem, size, t.parted_flags)
             except Exception, e:
-                ctx.debugger.log("Exception : %s" % e)
+                ctx.logger.debug("Exception : %s" % e)
                 InfoDialog(unicode(e), title = _("Error !"))
                 return
 

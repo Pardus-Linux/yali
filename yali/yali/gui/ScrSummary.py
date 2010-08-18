@@ -219,7 +219,7 @@ Here you can see your install options before installation starts.
         ctx.mainScreen.processEvents()
 
         if ctx.options.dryRun == True:
-            ctx.debugger.log("dryRun activated Yali stopped")
+            ctx.logger.debug("dryRun activated Yali stopped")
             return
 
         # Auto Partitioning
@@ -233,10 +233,10 @@ Here you can see your install options before installation starts.
                                                   ctx.constants.target_dir, size)
         if ctx.storage.doAutoPart:
             ctx.yali.info.updateMessage(_("Auto partitioning..."))
-            ctx.debugger.log("Auto partitioning")
+            ctx.logger.debug("Auto partitioning")
         else:
             ctx.yali.info.updateMessage(_("Manual partitioning..."))
-            ctx.debugger.log("Manual partitioning...")
+            ctx.logger.debug("Manual partitioning...")
 
         ctx.yali.storageComplete()
         ctx.yali.info.updateMessage(_("Partitioning finished..."))

@@ -40,10 +40,10 @@ class stepItem:
 
     def runOperation(self):
         self.status = self.operation()
-        ctx.debugger.log("Running step : %s" % self.text)
+        ctx.logger.debug("Running step : %s" % self.text)
         ctx.yali.info.updateAndShow(self.text)
         if self.status:
-            ctx.debugger.log("Step '%s' finished sucessfully." % self.text)
+            ctx.logger.debug("Step '%s' finished sucessfully." % self.text)
         else:
-            ctx.debugger.log("Step '%s' finished with failure." % self.text)
+            ctx.logger.debug("Step '%s' finished with failure." % self.text)
 

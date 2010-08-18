@@ -131,7 +131,7 @@ class FileSystem:
             raise YaliException, "%s file system is not fully implemented." % (self.name())
 
         import yali.gui.context as ctx
-        ctx.debugger.log("Format %s: %s" %(partition.getPath(), self.name()))
+        ctx.logger.debug("Format %s: %s" %(partition.getPath(), self.name()))
 
     def setImplemented(self, bool):
         """ Set if file system is implemented """

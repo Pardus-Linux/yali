@@ -72,8 +72,8 @@ def findGrubDev(dev_path, device_map=None):
         dev_name = str(filter(lambda u: u.isalpha(),
                               os.path.basename(dev_path)))
 
-    ctx.debugger.log("dev_path:%s" % dev_path)
-    ctx.debugger.log("dev_name:%s" % dev_name)
+    ctx.logger.debug("dev_path:%s" % dev_path)
+    ctx.logger.debug("dev_name:%s" % dev_name)
 
     for l in open(device_map).readlines():
         if l.find(dev_name) >= 0:
@@ -111,8 +111,8 @@ class BootLoader:
         # some paths has own directories like (/dev/cciss/c0d0p1)
         # it removes /dev/ and gets the device.
         install_root = install_root_path[5:]
-        ctx.debugger.log("WGC: Given install_root_path is : %s" % install_root_path)
-        ctx.debugger.log("WGC: Final install_root is : %s" % install_root)
+        ctx.logger.debug("WGC: Given install_root_path is : %s" % install_root_path)
+        ctx.logger.debug("WGC: Final install_root is : %s" % install_root)
 
         grub_dir = os.path.join(consts.target_dir, "boot/grub")
         if not os.path.exists(grub_dir):
@@ -160,7 +160,7 @@ class BootLoader:
         def find_pardus_release():
             """Returns Pardus Relase"""
             releaseConfPath = os.path.join(consts.target_dir, "etc/pardus-release")
-            ctx.debugger.log("DEBUG: Pardus Release %s" % file(releaseConfPath).readlines()[0].strip())
+            ctx.logger.debug("DEBUG: Pardus Release %s" % file(releaseConfPath).readlines()[0].strip())
             return file(releaseConfPath).readlines()[0].strip()
 
         def find_boot_kernel():
@@ -205,7 +205,7 @@ class BootLoader:
             return " ".join(s).strip()
 
         boot_kernel = find_boot_kernel()
-        ctx.debugger.log("FBK: Kernel found as %s" % boot_kernel)
+        ctx.logger.debug("FBK: Kernel found as %s" % boot_kernel)
         initramfs_name = find_initramfs_name(boot_kernel)
         boot_parameters =  boot_parameters(install_root_path_label)
         s = grub_conf_tmp % {"root": install_root,
@@ -222,17 +222,17 @@ class BootLoader:
         minor = getMinor(win_root)
         grub_root = ",".join([grub_dev, minor])
 
-        ctx.debugger.log("GCAW : win_dev : %s , win_root : %s " % (win_dev, win_root))
-        ctx.debugger.log("GCAW : grub_dev: %s , grub_root: %s " % (grub_dev, grub_root))
-        ctx.debugger.log("GCAW : install_dev: %s " % install_dev)
+        ctx.logger.debug("GCAW : win_dev : %s , win_root : %s " % (win_dev, win_root))
+        ctx.logger.debug("GCAW : grub_dev: %s , grub_root: %s " % (grub_dev, grub_root))
+        ctx.logger.debug("GCAW : install_dev: %s " % install_dev)
 
         if not install_dev:
             install_dev = self._find_hd0()
 
-        ctx.debugger.log("GCAW :2install_dev: %s " % install_dev)
+        ctx.logger.debug("GCAW :2install_dev: %s " % install_dev)
 
         dev_str = str(os.path.basename(install_dev))
-        ctx.debugger.log("GCAW : dev_str: %s " % dev_str)
+        ctx.logger.debug("GCAW : dev_str: %s " % dev_str)
 
         if win_dev == dev_str:
             s = win_part_tmp % {"title": _("Windows"),
@@ -256,8 +256,8 @@ class BootLoader:
         # LiveDisk installation grub detects usb
         #opts = get_kernel_option("mudur")
         opts = yali.sysutils.liveMediaSystem()
-        ctx.debugger.log("IG: I have found mediaSystem '%s'" % opts)
-        ctx.debugger.log("IG: I have found major:'%s' minor:'%s'" % (major, minor))
+        ctx.logger.debug("IG: I have found mediaSystem '%s'" % opts)
+        ctx.logger.debug("IG: I have found major:'%s' minor:'%s'" % (major, minor))
 
         if opts.__eq__("harddisk"):
             major = major.replace(major[2],chr(ord(major[2])+1))
@@ -272,7 +272,7 @@ class BootLoader:
         if opts.__eq__("harddisk"):
             major = major.replace(major[2],chr(ord(major[2])+1))
 
-        ctx.debugger.log("IG: I have found major as '%s'" % major)
+        ctx.logger.debug("IG: I have found major as '%s'" % major)
         if ctx.installData.bootLoaderOption == 1:
             # means it will install to a partition not MBR
             minor = getMinor(grub_install_root)
@@ -280,7 +280,7 @@ class BootLoader:
         else:
             # means it will install to the MBR
             setupto = "(%s)" % major
-        ctx.debugger.log("IG: And the last it will install to '%s'" % setupto)
+        ctx.logger.debug("IG: And the last it will install to '%s'" % setupto)
 
         batch_template = """root %s
 setup %s
@@ -288,18 +288,18 @@ quit
 """ % (root_path, setupto)
 
         file('/tmp/_grub','w').write(batch_template)
-        ctx.debugger.log("IG: Batch content : %s" % batch_template)
+        ctx.logger.debug("IG: Batch content : %s" % batch_template)
         cmd = "%s --no-floppy --batch < /tmp/_grub" % yali.sysutils.find_executable("grub")
         #cmd = "%s --batch --no-floppy --device-map=%s < %s" % (yali.sysutils.find_executable("grub"), self.device_map, self.grub_conf)
 
-        ctx.debugger.log("IG: Chrooted jobs are finalizing.. ")
+        ctx.logger.debug("IG: Chrooted jobs are finalizing.. ")
         # before installing the bootloader we have to finish chrooted jobs..
         yali.sysutils.finalizeChroot()
 
-        ctx.debugger.log("IG: Grub install cmd is %s" % cmd)
+        ctx.logger.debug("IG: Grub install cmd is %s" % cmd)
         if os.system(cmd) > 0:
-            ctx.debugger.log("grub")
-            ctx.debugger.log("IG: Command failed %s - trying again.. " % cmd)
+            ctx.logger.debug("grub")
+            ctx.logger.debug("IG: Command failed %s - trying again.. " % cmd)
             time.sleep(2)
             if os.system(cmd) > 0:
                 raise YaliException, "Command failed: %s" % cmd

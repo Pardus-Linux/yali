@@ -78,7 +78,7 @@ This screen lets you select the keyboard layout you want to use on Pardus. You c
             pass
 
     def execute(self):
-        ctx.debugger.log("Selected keymap is : %s" % ctx.installData.keyData["name"] )
+        ctx.logger.debug("Selected keymap is : %s" % ctx.installData.keyData["name"] )
         return True
 
 class KeyboardItem(QtGui.QListWidgetItem):

@@ -92,7 +92,7 @@ This is a rescue mode help document.
             ctx.rescueMode = "grub"
 
         ctx.installData.rescuePartition = self.ui.partitionList.currentItem().getPartition()
-        ctx.debugger.log("Selected Partition for rescue is %s" % ctx.installData.rescuePartition.getPath())
+        ctx.logger.debug("Selected Partition for rescue is %s" % ctx.installData.rescuePartition.getPath())
 
         ctx.yali.info.updateAndShow(_("Mounting disk partition..."))
         # Mount selected partition
@@ -128,16 +128,16 @@ class PardusPartitions:
     def scanDisks(self):
         pardusPartitions = []
         linuxPartitions  = []
-        ctx.debugger.log("Checking for Pardus ...")
+        ctx.logger.debug("Checking for Pardus ...")
         for disk in yali.storage.devices:
             for partition in disk.getPartitions():
                 fs = partition.getFSName()
                 label = partition.getFSLabel() or ''
                 if fs in ("ext4", "ext3", "reiserfs", "xfs"):
-                    ctx.debugger.log("Partition found which has usable fs (%s)" % partition.getPath())
+                    ctx.logger.debug("Partition found which has usable fs (%s)" % partition.getPath())
                     linuxPartitions.append(partition)
                     if label.startswith("PARDUS_ROOT"):
-                        ctx.debugger.log("Pardus Partition found (%s)" % partition.getPath())
+                        ctx.logger.debug("Pardus Partition found (%s)" % partition.getPath())
                         pardus_release = yali.sysutils.pardusRelease(partition.getPath(), fs)
                         if pardus_release:
                             pardusPartitions.append(partition)

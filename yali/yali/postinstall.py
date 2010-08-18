@@ -30,7 +30,7 @@ from yali.gui.installdata import *
 def cp(s, d):
     src = os.path.join(consts.target_dir, s)
     dst = os.path.join(consts.target_dir, d)
-    ctx.debugger.log("Copying from '%s' to '%s'" % (src,dst))
+    ctx.logger.debug("Copying from '%s' to '%s'" % (src,dst))
     shutil.copyfile(src, dst)
 
 def touch(f, m=0644):
@@ -100,7 +100,7 @@ def migrateXorg():
             os.makedirs(joy(os.path.dirname(conf)))
 
         if os.path.exists(conf):
-            ctx.debugger.log("Copying from '%s' to '%s'" % (conf, joy(conf)))
+            ctx.logger.debug("Copying from '%s' to '%s'" % (conf, joy(conf)))
             shutil.copyfile(conf, joy(conf))
 
 global bus
@@ -110,12 +110,12 @@ def connectToDBus():
     global bus
     for i in range(40):
         try:
-            ctx.debugger.log("trying to start dbus..")
+            ctx.logger.debug("trying to start dbus..")
             ctx.bus = bus = dbus.bus.BusConnection(address_or_type="unix:path=%s" % ctx.consts.dbus_socket_file)
             break
         except dbus.DBusException:
             time.sleep(2)
-            ctx.debugger.log("wait dbus for 1 second...")
+            ctx.logger.debug("wait dbus for 1 second...")
     if bus:
         return True
     return False
@@ -124,7 +124,7 @@ def setHostName():
     global bus
     obj = bus.get_object("tr.org.pardus.comar", "/package/baselayout")
     obj.setHostName(str(ctx.installData.hostName), dbus_interface="tr.org.pardus.comar.Network.Stack")
-    ctx.debugger.log("Hostname set as %s" % ctx.installData.hostName)
+    ctx.logger.debug("Hostname set as %s" % ctx.installData.hostName)
     return True
 
 def getUserList():
@@ -163,9 +163,9 @@ def addUsers():
 
     obj = bus.get_object("tr.org.pardus.comar", "/package/baselayout")
     for u in yali.users.pending_users:
-        ctx.debugger.log("User %s adding to system" % u.username)
+        ctx.logger.debug("User %s adding to system" % u.username)
         uid = obj.addUser(-1, u.username, u.realname, "", "", unicode(u.passwd), u.groups, [], [], dbus_interface="tr.org.pardus.comar.User.Manager")
-        ctx.debugger.log("New user's id is %s" % uid)
+        ctx.logger.debug("New user's id is %s" % uid)
 
         # If new user id is different from old one, we need to run a huge chown for it
         user_home_dir = os.path.join(consts.target_dir, 'home', u.username)
@@ -199,13 +199,13 @@ def writeConsoleData():
     if isinstance(keymap, list):
         keymap = keymap[1]
     yali.localeutils.writeKeymap(ctx.installData.keyData["consolekeymap"])
-    ctx.debugger.log("Keymap stored.")
+    ctx.logger.debug("Keymap stored.")
     return True
 
 def migrateXorgConf():
     if not ctx.yali.install_type == YALI_FIRSTBOOT:
         yali.postinstall.migrateXorg()
-        ctx.debugger.log("xorg.conf and other files merged.")
+        ctx.logger.debug("xorg.conf and other files merged.")
     return True
 
 def copyPisiIndex():
@@ -222,18 +222,18 @@ def copyPisiIndex():
         pureIndex.write(bz2.decompress(open(ctx.consts.pisi_index_file).read()))
         pureIndex.close()
 
-        ctx.debugger.log("pisi index files copied.")
+        ctx.logger.debug("pisi index files copied.")
     else:
-        ctx.debugger.log("pisi index file not found!")
+        ctx.logger.debug("pisi index file not found!")
 
-    ctx.debugger.log("Regenerating pisi caches.. ")
+    ctx.logger.debug("Regenerating pisi caches.. ")
     yali.pisiiface.regenerateCaches()
     return True
 
 def setPackages():
     global bus
     if ctx.yali.install_type == YALI_OEMINSTALL:
-        ctx.debugger.log("OemInstall selected.")
+        ctx.logger.debug("OemInstall selected.")
         try:
             obj = bus.get_object("tr.org.pardus.comar", "/package/yali")
             obj.setState("on", dbus_interface="tr.org.pardus.comar.System.Service")
@@ -241,7 +241,7 @@ def setPackages():
             obj = bus.get_object("tr.org.pardus.comar", "/package/kdebase")
             obj.setState("off", dbus_interface="tr.org.pardus.comar.System.Service")
         except:
-            ctx.debugger.log("Dbus error: package doesnt exist !")
+            ctx.logger.debug("Dbus error: package doesnt exist !")
             return False
     elif ctx.yali.install_type in [YALI_INSTALL, YALI_FIRSTBOOT]:
         try:
@@ -253,7 +253,7 @@ def setPackages():
             os.unlink("%s/etc/yali-is-firstboot" % ctx.consts.target_dir)
             os.system("pisi rm yali")
         except:
-            ctx.debugger.log("Dbus error: package doesnt exist !")
+            ctx.logger.debug("Dbus error: package doesnt exist !")
             return False
     return True
 
@@ -265,7 +265,7 @@ def writeInitramfsConf(parameters=[]):
 
     swapDevice = ctx.storage.storageset.swapDevices[0]
 
-    if swapDevices:
+    if swapDevice:
         parameters.append("resume=%s" % swapDevice.path)
 
     parameters = " ".join(parameters)
@@ -277,7 +277,7 @@ def writeInitramfsConf(parameters=[]):
         try:
             initramfsConf.write("%s\n" % param)
         except IOError, msg:
-            ctx.debugger.log("Unexpected error: %s" % msg)
+            ctx.logger.debug("Unexpected error: %s" % msg)
             raise IOError
 
     initramfsConf.close()
@@ -285,11 +285,11 @@ def writeInitramfsConf(parameters=[]):
 ##### FIXME: Be sure after storage api rewrite will be finished
 #def setPartitionPrivileges(request, mode, uid, gid):
 #    requestPath =  os.path.join(ctx.consts.target_dir, request.partitionType().mountpoint.lstrip("/"))
-#    ctx.debugger.log("Trying to change privileges %s path" % requestPath)
+#    ctx.logger.debug("Trying to change privileges %s path" % requestPath)
 #    if os.path.exists(requestPath):
 #        try:
 #            os.chmod(requestPath, mode)
 #            os.chown(requestPath, uid, gid)
 #        except OSError, msg:
-#                ctx.debugger.log("Unexpected error: %s" % msg)
+#                ctx.logger.debug("Unexpected error: %s" % msg)
 

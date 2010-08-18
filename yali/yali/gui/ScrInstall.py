@@ -109,9 +109,9 @@ to discover the features and the innovations offered by this new Pardus release.
         currentObject = self
 
         # start installer thread
-        ctx.debugger.log("PkgInstaller is creating...")
+        ctx.logger.debug("PkgInstaller is creating...")
         self.pkg_installer = PkgInstaller()
-        ctx.debugger.log("Calling PkgInstaller.start...")
+        ctx.logger.debug("Calling PkgInstaller.start...")
         self.pkg_installer.start()
         ctx.yali.info.updateAndShow(_("Installing packages..."))
 
@@ -129,12 +129,12 @@ to discover the features and the innovations offered by this new Pardus release.
 
             if event == pisi.ui.installing:
                 self.ui.info.setText(_("Installing <b>%s</b><br>%s") % (p.name, p.summary))
-                ctx.debugger.log("Pisi: %s installing" % p.name)
+                ctx.logger.debug("Pisi: %s installing" % p.name)
                 self.cur += 1
                 self.ui.progress.setValue(self.cur)
             elif event == pisi.ui.configuring:
                 self.ui.info.setText(_("Configuring <b>%s</b>") % p.name)
-                ctx.debugger.log("Pisi: %s configuring" % p.name)
+                ctx.logger.debug("Pisi: %s configuring" % p.name)
                 self.cur += 1
                 self.ui.progress.setValue(self.cur)
 
@@ -227,15 +227,15 @@ Error:
 class PkgInstaller(QThread):
 
     def __init__(self):
-        ctx.debugger.log("PkgInstaller started.")
+        ctx.logger.debug("PkgInstaller started.")
         QThread.__init__(self)
 
     def run(self):
-        ctx.debugger.log("PkgInstaller is running.")
+        ctx.logger.debug("PkgInstaller is running.")
         ui = PisiUI()
-        ctx.debugger.log("PisiUI is creating..")
+        ctx.logger.debug("PisiUI is creating..")
         yali.pisiiface.initialize(ui)
-        ctx.debugger.log("Pisi initialize is calling..")
+        ctx.logger.debug("Pisi initialize is calling..")
 
         # if exists use remote source repo
         # otherwise use cd as repo
@@ -243,13 +243,13 @@ class PkgInstaller(QThread):
             yali.pisiiface.addRemoteRepo(ctx.installData.repoName,ctx.installData.repoAddr)
         elif yali.sysutils.checkYaliParams(param=ctx.consts.dvd_install_param):
             yali.pisiiface.addRepo(ctx.consts.dvd_repo_name, ctx.installData.autoInstallationCollection.index)
-            ctx.debugger.log("DVD Repo adding..")
+            ctx.logger.debug("DVD Repo adding..")
             # Get only collection packages with collection Name
             order = yali.pisiiface.getAllPackagesWithPaths(collectionIndex=ctx.installData.autoInstallationCollection.index, ignoreKernels=True)
             kernelPackages = yali.pisiiface.getNeededKernel(ctx.installData.autoInstallationKernel, ctx.installData.autoInstallationCollection.index)
             order.extend(kernelPackages)
         else:
-            ctx.debugger.log("CD Repo adding..")
+            ctx.logger.debug("CD Repo adding..")
             yali.pisiiface.addCdRepo()
             # Check for just installing system.base packages
             if yali.sysutils.checkYaliParams(param=ctx.consts.base_only_param):
@@ -260,19 +260,19 @@ class PkgInstaller(QThread):
             # Check for extra languages
             if not ctx.installData.installAllLangPacks:
                 order = list(set(order) - set(yali.pisiiface.getNotNeededLanguagePackages()))
-                ctx.debugger.log("Not needed lang packages will not be installing...")
-                ctx.debugger.log(yali.pisiiface.getNotNeededLanguagePackages())
+                ctx.logger.debug("Not needed lang packages will not be installing...")
+                ctx.logger.debug(yali.pisiiface.getNotNeededLanguagePackages())
 
 
         # show progress
         total = len(order)
-        ctx.debugger.log("Creating PisiEvent..")
+        ctx.logger.debug("Creating PisiEvent..")
         qevent = PisiEvent(QEvent.User, EventSetProgress)
-        ctx.debugger.log("Setting data on just created PisiEvent (EventSetProgress)..")
+        ctx.logger.debug("Setting data on just created PisiEvent (EventSetProgress)..")
         qevent.setData(total * 2)
-        ctx.debugger.log("Posting PisiEvent to the widget..")
+        ctx.logger.debug("Posting PisiEvent to the widget..")
         objectSender(qevent)
-        ctx.debugger.log("Found %d packages in repo.." % total)
+        ctx.logger.debug("Found %d packages in repo.." % total)
         try:
             while True:
                 try:
@@ -314,7 +314,7 @@ class PkgInstaller(QThread):
             # wait for the result
             ctx.yali.waitCondition.wait(ctx.yali.mutex)
 
-        ctx.debugger.log("Package install finished ...")
+        ctx.logger.debug("Package install finished ...")
         # Package Install finished lets configure them
         qevent = PisiEvent(QEvent.User, EventPackageInstallFinished)
         objectSender(qevent)
@@ -322,17 +322,17 @@ class PkgInstaller(QThread):
 class PkgConfigurator(QThread):
 
     def __init__(self):
-        ctx.debugger.log("PkgConfigurator started.")
+        ctx.logger.debug("PkgConfigurator started.")
         QThread.__init__(self)
 
     def run(self):
-        ctx.debugger.log("PkgConfigurator is running.")
+        ctx.logger.debug("PkgConfigurator is running.")
         ui = PisiUI()
         yali.pisiiface.initialize(ui=ui, with_comar=True)
 
         try:
             # run all pending...
-            ctx.debugger.log("exec : yali.pisiiface.configurePending() called")
+            ctx.logger.debug("exec : yali.pisiiface.configurePending() called")
             yali.pisiiface.configurePending()
         except Exception, e:
             # User+10: error

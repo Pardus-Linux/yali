@@ -56,8 +56,8 @@ There is no help available for this section.
         try:
             yali.pisiiface.takeBack(ctx.takeBackOperation.no)
         except Exception, e:
-            ctx.debugger.log("Exception occured while taking back the system.")
-            ctx.debugger.log(e)
+            ctx.logger.debug("Exception occured while taking back the system.")
+            ctx.logger.debug(e)
             return False
         return True
 
@@ -86,17 +86,17 @@ There is no help available for this section.
     def execute(self):
         ctx.mainScreen.disableNext()
 
-        ctx.debugger.log("Show reboot dialog.")
+        ctx.logger.debug("Show reboot dialog.")
         InfoDialog(_("Press <b>Restart</b> to restart your system."), _("Restart"))
 
         ctx.yali.info.updateAndShow(_('<b>Please wait while restarting...</b>'))
 
         # remove cd...
         if not ctx.yali.install_type == YALI_FIRSTBOOT:
-            ctx.debugger.log("Trying to eject the CD.")
+            ctx.logger.debug("Trying to eject the CD.")
             sysutils.ejectCdrom()
 
-        ctx.debugger.log("Yali, reboot calling..")
+        ctx.logger.debug("Yali, reboot calling..")
 
         ctx.mainScreen.processEvents()
         sysutils.run("sync")

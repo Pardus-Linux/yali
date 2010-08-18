@@ -70,7 +70,7 @@ a previous system state.
 
     def fillHistoryList(self):
         ui = PisiUI()
-        ctx.debugger.log("PisiUI is creating..")
+        ctx.logger.debug("PisiUI is creating..")
         yali.pisiiface.initialize(ui, with_comar = True)
         try:
             history = yali.pisiiface.getHistory()
@@ -114,10 +114,10 @@ class PisiUI(QObject, pisi.ui.UI):
         apply(QObject.__init__, (self,) + args)
 
     def notify(self, event, **keywords):
-        ctx.debugger.log("PISI: Event %s %s" % (event, keywords))
+        ctx.logger.debug("PISI: Event %s %s" % (event, keywords))
 
     def display_progress(self, operation, percent, info, **keywords):
-        ctx.debugger.log("PISI: %s %s %s" % (operation, percent, info))
+        ctx.logger.debug("PISI: %s %s %s" % (operation, percent, info))
         ctx.mainScreen.processEvents()
 
 class PisiEvent(QEvent):

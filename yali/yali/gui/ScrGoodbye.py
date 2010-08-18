@@ -69,17 +69,17 @@ Click Next to proceed. One note: You remember your password, don't you?
     def execute(self):
         ctx.mainScreen.disableNext()
 
-        ctx.debugger.log("Show restart dialog.")
+        ctx.logger.debug("Show restart dialog.")
         InfoDialog(_("Press <b>Restart</b> to restart the computer."), _("Restart"))
 
         ctx.yali.info.updateAndShow(_("<b>Please wait while restarting...</b>"))
 
         # remove cd...
         if not ctx.yali.install_type == YALI_FIRSTBOOT:
-            ctx.debugger.log("Trying to eject the CD.")
+            ctx.logger.debug("Trying to eject the CD.")
             yali.sysutils.ejectCdrom()
 
-        ctx.debugger.log("Yali, reboot calling..")
+        ctx.logger.debug("Yali, reboot calling..")
 
         ctx.mainScreen.processEvents()
         time.sleep(4)

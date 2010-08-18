@@ -39,7 +39,7 @@ class PackageCollection(object):
 def initialize(ui, with_comar = False, nodestDir = False):
     options = pisi.config.Options()
     import yali.gui.context as ctx
-    ctx.debugger.log("Pisi initializing..")
+    ctx.logger.debug("Pisi initializing..")
     if not nodestDir:
         options.destdir = consts.target_dir
     options.yes_all = True
@@ -49,7 +49,7 @@ def initialize(ui, with_comar = False, nodestDir = False):
     # generally we don't need this but I think this is safer
     for i in range(20):
         try:
-            ctx.debugger.log("DBUS call..")
+            ctx.logger.debug("DBUS call..")
             bus = dbus.SystemBus()
             break
         except dbus.DBusException:
@@ -111,7 +111,7 @@ def getCollection():
         description = ""
         locale = os.environ["LANG"].split(".")[0]
         if not translations.has_key(locale):
-            ctx.debugger.log("Collection (%s) has no translation in %s locale. Default language (%s) is setting ..." %
+            ctx.logger.debug("Collection (%s) has no translation in %s locale. Default language (%s) is setting ..." %
                                                             (id, locale, translations["default"]))
             locale = translations["default"]
 
@@ -122,7 +122,7 @@ def getCollection():
     try:
         piksemelObj = piksemel.parse(consts.pisi_collection_file)
     except OSError, msg:
-        ctx.debugger.log("Unexcepted error:%s" % msg)
+        ctx.logger.debug("Unexcepted error:%s" % msg)
     else:
         for collection in piksemelObj.tags("Collection"):
             default = collection.getAttribute("default")
@@ -142,7 +142,7 @@ def getCollection():
     return packageCollection
 
 def getCollectionPackages(collectionIndex, kernels=False):
-    ctx.debugger.log("index_path%s" % collectionIndex)
+    ctx.logger.debug("index_path%s" % collectionIndex)
     piksemelObj = piksemel.parseString(bz2.decompress(file(collectionIndex).read()))
     collectionPackages = []
     for package in piksemelObj.tags("Package"):

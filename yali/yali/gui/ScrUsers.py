@@ -279,8 +279,8 @@ Proceed with the installation after you make your selections.
         # clear form
         self.resetWidgets()
 
-        ctx.debugger.log("slotCreateUser :: user (%s) '%s (%s)' added/updated" % (u.uid, u.realname, u.username))
-        ctx.debugger.log("slotCreateUser :: user groups are %s" % str(','.join(u.groups)))
+        ctx.logger.debug("slotCreateUser :: user (%s) '%s (%s)' added/updated" % (u.uid, u.realname, u.username))
+        ctx.logger.debug("slotCreateUser :: user groups are %s" % str(','.join(u.groups)))
 
         # give focus to realname widget for a new user. #3280
         self.ui.realname.setFocus()

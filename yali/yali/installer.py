@@ -152,6 +152,7 @@ class Yali:
 
         self.install_type = install_type
         self.info = InformationWindow("Please wait...")
+        self.info.hide()
         self.checkCDStop = True
 
     def messageWindow(self, title, text, type="ok", default=None, customButtons=None, customIcon=None):
@@ -189,7 +190,7 @@ class Yali:
         cur = 0
         for pkg_name in pkg_names:
             cur += 1
-            ctx.debugger.log("Validating %s " % pkg_name)
+            ctx.logger.debug("Validating %s " % pkg_name)
             self.info.updateMessage(_("Validating %s") % pkg_name)
             if self.checkCDStop:
                 continue
@@ -227,18 +228,18 @@ class Yali:
                                               date.year(), rootWidget.timeSeconds.time().second())
 
         # Set current date and time
-        ctx.debugger.log("Date/Time setting to %s" % args)
+        ctx.logger.debug("Date/Time setting to %s" % args)
         yali.sysutils.run("date %s" % args)
 
         # Sync date time with hardware
-        ctx.debugger.log("YALI's time is syncing with the system.")
+        ctx.logger.debug("YALI's time is syncing with the system.")
         yali.sysutils.run("hwclock --systohc")
         self.info.hide()
 
     def setTimeZone(self, rootWidget):
         # Store time zone selection we will set it in processPending actions.
         ctx.installData.timezone = rootWidget.timeZoneList.currentItem().text()
-        ctx.debugger.log("Time zone selected as %s " % ctx.installData.timezone)
+        ctx.logger.debug("Time zone selected as %s " % ctx.installData.timezone)
 
     def storageComplete(self):
         title = None
@@ -328,7 +329,7 @@ class Yali:
                 partitioning.insertData(ctx.installData.autoPartDev.getPath())
 
         ctx.installData.sessionLog = yali.toPrettyString()
-        # ctx.debugger.log(yali.toPrettyString())
+        # ctx.logger.debug(yali.toPrettyString())
 
     def processPendingActions(self, rootWidget):
         rootWidget.steps.setOperations([{"text":_("Connecting to D-Bus..."),"operation":yali.postinstall.connectToDBus}])
@@ -362,7 +363,7 @@ class Yali:
         # Check archive partition type
         #archiveRequest = partrequests.searchPartTypeAndReqType(parttype.archive, request.mountRequestType)
         #if archiveRequest:
-        #    ctx.debugger.log("Archive type request found!")
+        #    ctx.logger.debug("Archive type request found!")
         #    yali.postinstall.setPartitionPrivileges(archiveRequest, 0770, 0, 6)
 
         # Umount system paths

@@ -74,7 +74,7 @@ You can always choose another installation method if you know what you are doing
     def shown(self):
         ctx.mainScreen.disableBack()
         yali.storage.setOrderedDiskList()
-        ctx.debugger.log("Disks BIOS Boot order : %s " % ','.join(ctx.installData.orderedDiskList))
+        ctx.logger.debug("Disks BIOS Boot order : %s " % ','.join(ctx.installData.orderedDiskList))
 
     def slotSelect(self):
         self.ui.installSelectedDisk.toggle()
@@ -97,9 +97,9 @@ You can always choose another installation method if you know what you are doing
             ctx.installData.bootLoaderOption = B_INSTALL_SMART
             ctx.yali.guessBootLoaderDevice(ctx.installData.rescuePartition.getPath())
 
-        ctx.debugger.log("Bootloader Option is %s" % ctx.installData.bootLoaderOption)
-        ctx.debugger.log("Bootloader Device is %s" % ctx.installData.bootLoaderDev)
-        ctx.debugger.log("Bootloader Partition is %s" % ctx.installData.rescuePartition.getPath())
+        ctx.logger.debug("Bootloader Option is %s" % ctx.installData.bootLoaderOption)
+        ctx.logger.debug("Bootloader Device is %s" % ctx.installData.bootLoaderDev)
+        ctx.logger.debug("Bootloader Partition is %s" % ctx.installData.rescuePartition.getPath())
 
         ctx.mainScreen.stepIncrement = 3
         return True

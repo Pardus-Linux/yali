@@ -378,9 +378,9 @@ class Device:
     # add a partition starting from a given geom...
     def addPartitionFromStart(self, type, fs, start, size_mb, flags = []):
         import yali.gui.context as ctx
-        ctx.debugger.log("APFS: ptype: %s :: fs_name: %s :: start: %s :: size_mb: %s" % (type, fs, start, size_mb))
+        ctx.logger.debug("APFS: ptype: %s :: fs_name: %s :: start: %s :: size_mb: %s" % (type, fs, start, size_mb))
         size = int((size_mb * MEGABYTE) / self._sector_size)
-        ctx.debugger.log("APFS: end of partition is %s" % (start + size))
+        ctx.logger.debug("APFS: end of partition is %s" % (start + size))
         return self.addPartitionStartEnd(type, fs, start, start + size, flags)
 
     ##
@@ -467,7 +467,7 @@ class Device:
             raise DeviceError, "filesystem is None, can't resize"
 
         start = part.getPartition().geom.start
-        ctx.debugger.log("RP: Starting to resize : %s" % str(part))
+        ctx.logger.debug("RP: Starting to resize : %s" % str(part))
         try:
             ret = fs.resize(size_mb, part)
         except FSCheckError, e:
@@ -475,9 +475,9 @@ class Device:
         except FSError, e:
             raise FSError, e
 
-        ctx.debugger.log("RP: Old Start : %s" % str(start))
+        ctx.logger.debug("RP: Old Start : %s" % str(start))
         fs_name = part.getFSName()
-        ctx.debugger.log("RP: FS Name : %s" % str(fs_name))
+        ctx.logger.debug("RP: FS Name : %s" % str(fs_name))
         if part.isLogical():
             ptype = PARTITION_LOGICAL
         else:
@@ -485,20 +485,20 @@ class Device:
         sysutils.udevSettle(timeout=1)
 
         try:
-            ctx.debugger.log("RP: Deleting : %s" % str(part))
+            ctx.logger.debug("RP: Deleting : %s" % str(part))
             self.deletePartition(part)
         except:
             # After some file system checks, partition objects are changing,
             # In this situation we need to recreate partition objects and use the proper one
-            ctx.debugger.log("Partition table is changed, recreating partition objects...")
+            ctx.logger.debug("Partition table is changed, recreating partition objects...")
             self.update()
-            ctx.debugger.log("Searching for old partition...")
+            ctx.logger.debug("Searching for old partition...")
             for p in self.getPartitions():
                 if p.getPath() == part.getPath():
-                    ctx.debugger.log("Partition found as %s" % p.getPath())
+                    ctx.logger.debug("Partition found as %s" % p.getPath())
                     part = p
                     break
-            ctx.debugger.log("RP: Deleting (try #2) : %s" % str(part))
+            ctx.logger.debug("RP: Deleting (try #2) : %s" % str(part))
             start = part.getPartition().geom.start
             self.deletePartition(part)
 
@@ -523,7 +523,7 @@ class Device:
                 attempt += 1
 
         if keepTrying:
-            ctx.debugger.log("Commit failed with %s " % str(msg))
+            ctx.logger.debug("Commit failed with %s " % str(msg))
             raise FSError, msg
 
         sysutils.udevSettle(timeout=1)
@@ -546,7 +546,7 @@ def setOrderedDiskList():
         res = sysutils.run(cmd)
         if not res:
             ctx.installData.orderedDiskList = devices
-            ctx.debugger.log("ERROR : Inserting EDD Module failed !")
+            ctx.logger.debug("ERROR : Inserting EDD Module failed !")
             return
 
     edd = EDD()
