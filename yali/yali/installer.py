@@ -29,9 +29,10 @@ import yali.sysutils
 import yali.localeutils
 from yali.constants import consts
 import yali.gui.context as ctx
-from yali.gui.installdata import *
+from yali.gui.installdata import YALI_DVDINSTALL, YALI_INSTALL, YALI_OEMINSTALL, YALI_FIRSTBOOT, YALI_PARTITIONER, YALI_RESCUE, YALI_PLUGIN
 from yali.gui.debugger import DebuggerAspect
-from yali.gui.YaliDialog import Dialog, QuestionDialog, InfoDialog, InformationWindow, MessageWindow, DetailedMessageWindow
+from yali.gui.YaliDialog import Dialog, QuestionDialog, InfoDialog, InformationWindow, MessageWindow
+from yali.storage.formats.filesystem import FilesystemResizeError, FilesystemMigrateError
 
 # screens
 import yali.gui.ScrKahyaCheck
@@ -159,7 +160,7 @@ class Yali:
         return MessageWindow(title, text, type, default, customButtons, customIcon, run=True).rc
 
     def detailedMessageWindow(self, title, text, longText, type="ok", default=None, customButtons=None, customIcon=None):
-        return DetailedMessageWindow(title, text, longText, type, default, customButtons, customIcon, run=True).rc
+        return MessageWindow(title, text, type, default, customButtons, customIcon, run=True, detailed=True, longText=longText).rc
 
     def getPlugin(self, p):
         try:
@@ -258,21 +259,19 @@ class Yali:
             message = _("An error was encountered while "
                         "migrating filesystem on device %s.") % (device,)
             details = msg
-        except Exception as e:
-            raise
+        else:
+            ctx.storage.turnOnSwap()
+            ctx.storage.mountFilesystems(readOnly=False, skipRoot=False)
+        finally:
+            if title:
+                rc = self.detailedMessageWindow(title, message, details,
+                                                type = "custom",
+                                                customButtons = [_("File Bug"), _("Exit installer")])
 
-        if title:
-            rc = self.detailedMessageWindow(title, message, details,
-                                            type = "custom",
-                                            customButtons = [_("File Bug"), _("Exit installer")])
-
-            if rc == 0:
-                raise
-            elif rc == 1:
-                sys.exit(1)
-
-        ctx.storage.turnOnSwap()
-        ctx.storage.mountFilesystems(readOnly=False, skipRoot=False)
+                if rc == 0:
+                    raise
+                elif rc == 1:
+                    sys.exit(1)
 
     def fillFstab(self):
         ctx.storage.storageset.write(ctx.consts.target_dir)
@@ -288,6 +287,7 @@ class Yali:
         yali = piksemel.newDocument("yali")
 
         # let store keymap and language options
+        # yali.insertTag("language").insertData(str(ctx.consts.lang))
         insert(yali,"language",ctx.consts.lang)
         insert(yali,"keymap",ctx.installData.keyData["xkblayout"])
         insert(yali,"variant",ctx.installData.keyData["xkbvariant"])
@@ -342,8 +342,10 @@ class Yali:
                  {"text":_("Migrating Xorg configuration..."),"operation":yali.postinstall.migrateXorgConf}]
 
         stepsBase = [{"text":_("Copying repository index..."),"operation":yali.postinstall.copyPisiIndex},
-                    # FIXME: This is weird, look at setPackages
                      {"text":_("Configuring other packages..."),"operation":yali.postinstall.setPackages},
+                     {"text":_("Setup bootloader..."),"operation":self.setupBootLooder},
+                     {"text":_("Writing bootloader..."),"operation":self.writeBootLooder},
+                     {"text":_("Stopping to D-Bus..."),"operation":yali.util.stop_dbus},
                      {"text":_("Installing Bootloader..."),"operation":self.installBootloader}]
 
         if self.install_type in [YALI_INSTALL, YALI_DVDINSTALL, YALI_FIRSTBOOT]:
@@ -353,11 +355,15 @@ class Yali:
 
         rootWidget.steps.setOperations(stepsBase)
 
-    def installBootloader(self, pardusPart = None):
+    def setupBootLooder(self):
         ctx.bootloader.setup()
         ctx.logger.debug("Setup bootloader")
+
+    def writeBootLooder(self):
         ctx.bootloader.write()
         ctx.logger.debug("Writing grub.conf and devicemap")
+
+    def installBootloader(self, pardusPart = None):
         # BUG:#11255 normal user doesn't mount /mnt/archive directory. 
         # We set new formatted partition priveleges as user=root group=disk and change mod as 0770
         # Check archive partition type
@@ -371,9 +377,9 @@ class Yali:
         ctx.logger.debug("Unmount system paths")
         rc = ctx.bootloader.install()
         if rc:
-            ctx.logger.debug("Bootloader installed")
-        else:
             ctx.logger.debug("Bootloader installation failed!")
+        else:
+            ctx.logger.debug("Bootloader installed")
 
     def showError(self, title, message, parent=None):
         r = ErrorWidget(parent)
