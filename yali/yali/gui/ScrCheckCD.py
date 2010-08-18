@@ -21,7 +21,7 @@ import pisi.ui
 import yali.pisiiface
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.checkcdwidget import Ui_CheckCDWidget
-import yali.gui.context as ctx
+import yali.context as ctx
 
 from yali.gui.YaliDialog import Dialog
 

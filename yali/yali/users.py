@@ -77,7 +77,7 @@ class User:
         confFile = os.path.join(consts.target_dir, 'etc/X11/kdm/kdmrc')
 
         if not os.path.exists(confFile):
-            import yali.gui.context as ctx
+            import yali.context as ctx
             ctx.logger.debug("setAutoLogin: Failed, kdmrc not found; possibly KDE is not installed !")
             return False
 
@@ -90,7 +90,7 @@ class User:
             sectionEscaped = re.escape(section)
 
             if not re.compile('^%s$' % sectionEscaped, re.MULTILINE).search(kdmrc):
-                import yali.gui.context as ctx
+                import yali.context as ctx
                 ctx.logger.debug("setAutoLogin: Failed, '%s' section not found in kdmrc." % section)
                 return False
 

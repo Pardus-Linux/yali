@@ -9,7 +9,7 @@ __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 import yali.util
-import yali.gui.context as ctx
+import yali.context as ctx
 from devices import *
 from devicetree import DeviceTree
 from devices.directorydevice import DirectoryDevice

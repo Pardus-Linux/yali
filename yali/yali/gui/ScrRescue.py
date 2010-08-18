@@ -26,7 +26,7 @@ import yali.sysutils
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.GUIAdditional import PartItem
 from yali.gui.Ui.rescuewidget import Ui_RescueWidget
-import yali.gui.context as ctx
+import yali.context as ctx
 
 class Widget(QtGui.QWidget, ScreenWidget):
     title = _("System Repair")

@@ -25,7 +25,7 @@ import os
 import yali.util
 import pyudev
 global_udev = pyudev.Udev()
-import  yali.gui.context as ctx
+import  yali.context as ctx
 
 def udev_enumerate_devices(deviceClass="block"):
     devices = global_udev.enumerate_devices(subsystem=deviceClass)

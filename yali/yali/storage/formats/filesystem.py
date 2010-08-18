@@ -14,7 +14,7 @@ _ = __trans.ugettext
 import yali
 import yali.util
 import yali.sysutils
-import yali.gui.context as ctx
+import yali.context as ctx
 from . import Format, register_device_format
 
 class FilesystemError(yali.Error):

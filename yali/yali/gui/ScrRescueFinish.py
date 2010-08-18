@@ -24,7 +24,7 @@ from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.YaliDialog import InfoDialog
 from yali.gui.YaliSteps import YaliSteps
 from yali.gui.Ui.goodbyewidget import Ui_GoodByeWidget
-import yali.gui.context as ctx
+import yali.context as ctx
 
 ##
 # Goodbye screen

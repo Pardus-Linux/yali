@@ -21,7 +21,7 @@ from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.rootpasswidget import Ui_RootPassWidget
 import yali.users
 import yali.sysutils
-import yali.gui.context as ctx
+import yali.context as ctx
 import pardus.xorg
 
 ##

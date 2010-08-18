@@ -100,7 +100,7 @@ def isWindowsBoot(partition_path, file_system):
         return False
 
 def isLinuxBoot(partition_path, file_system):
-    import yali.gui.context as ctx
+    import yali.context as ctx
     result = False
     m_dir = consts.tmp_mnt_dir
     if not os.path.isdir(m_dir):
@@ -138,7 +138,7 @@ def liveMediaSystem(path=None):
         return None
 
 def pardusRelease(partition_path, file_system):
-    import yali.gui.context as ctx
+    import yali.context as ctx
     result = False
     m_dir = consts.tmp_mnt_dir
     if not os.path.isdir(m_dir):

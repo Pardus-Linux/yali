@@ -9,7 +9,7 @@ __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 import yali
-import yali.gui.context as ctx
+import yali.context as ctx
 import formats
 from udev import *
 from partitioning import shouldClear, CLEARPART_TYPE_ALL, CLEARPART_TYPE_LINUX, CLEARPART_TYPE_NONE

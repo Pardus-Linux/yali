@@ -19,7 +19,7 @@ _ = __trans.ugettext
 from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
-import yali.gui.context as ctx
+import yali.context as ctx
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.GUIException import GUIException
 from yali.gui.Ui.autopartwidget import Ui_AutoPartWidget

@@ -17,7 +17,7 @@ _ = __trans.ugettext
 import os
 import yali.users
 import pardus.xorg
-import yali.gui.context as ctx
+import yali.context as ctx
 
 from PyQt4 import QtGui
 from PyQt4.QtCore import *

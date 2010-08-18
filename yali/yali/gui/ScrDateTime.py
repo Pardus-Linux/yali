@@ -20,7 +20,7 @@ from PyQt4.QtCore import *
 import os
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.datetimewidget import Ui_DateTimeWidget
-import yali.gui.context as ctx
+import yali.context as ctx
 from yali.timezone import TimeZoneList
 import yali.localedata
 

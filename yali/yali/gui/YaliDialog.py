@@ -18,7 +18,7 @@ __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 import random
-import yali.gui.context as ctx
+import yali.context as ctx
 
 class windowTitle(QtGui.QFrame):
     def __init__(self, parent, closeButton=True):

@@ -8,7 +8,7 @@ _ = __trans.ugettext
 from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
-import yali.gui.context as ctx
+import yali.context as ctx
 from yali.storage.formats import device_formats, get_default_filesystem_type
 
 defaultMountPoints = ['/', '/boot', '/home', '/tmp',

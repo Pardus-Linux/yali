@@ -24,7 +24,7 @@ import os
 
 import yali.util
 from yali.baseudev import *
-import yali.gui.context as ctx
+import yali.context as ctx
 
 def udev_resolve_devspec(devspec):
     if not devspec:

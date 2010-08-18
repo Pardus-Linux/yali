@@ -28,7 +28,7 @@ import yali.pisiiface
 import yali.postinstall
 import yali.localeutils
 from yali.constants import consts
-import yali.gui.context as ctx
+import yali.context as ctx
 from yali.gui.descSlide import slideDesc
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.installwidget import Ui_InstallWidget

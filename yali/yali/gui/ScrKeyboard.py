@@ -23,7 +23,7 @@ import yali.localedata
 import yali.localeutils
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.keyboardwidget import Ui_KeyboardWidget
-import yali.gui.context as ctx
+import yali.context as ctx
 
 ##
 # Keyboard setup screen

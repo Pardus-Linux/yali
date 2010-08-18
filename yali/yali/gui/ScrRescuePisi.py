@@ -23,7 +23,7 @@ from PyQt4.QtCore import SIGNAL, QEvent, QObject
 import yali.util
 import yali.pisiiface
 import yali.postinstall
-import yali.gui.context as ctx
+import yali.context as ctx
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.rescuepisiwidget import Ui_RescuePisiWidget
 from yali.gui.YaliSteps import YaliSteps

@@ -24,7 +24,7 @@ import yali.sysutils
 from yali.gui.Ui.main import Ui_YaliMain
 from yali.gui.YaliDialog import Dialog, QuestionDialog
 from yali.gui.YaliDialog import Tetris
-import yali.gui.context as ctx
+import yali.context as ctx
 
 # Aspect oriented huh ;)
 from pyaspects.weaver import *

@@ -21,7 +21,7 @@ import yali.sysutils
 from yali.gui.installdata import *
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.kickerwidget import Ui_KickerWidget
-import yali.gui.context as ctx
+import yali.context as ctx
 from yali.gui.YaliDialog import Dialog
 from yali.kahya import kahya
 #import yali.storage

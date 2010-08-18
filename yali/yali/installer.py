@@ -26,7 +26,7 @@ from pardus.sysutils import get_kernel_option
 import yali.pisiiface
 import yali.util
 import yali.localeutils
-import yali.gui.context as ctx
+import yali.context as ctx
 from yali.gui.installdata import YALI_DVDINSTALL, YALI_INSTALL, YALI_OEMINSTALL, YALI_FIRSTBOOT, YALI_PARTITIONER, YALI_RESCUE, YALI_PLUGIN
 from yali.gui.YaliDialog import Dialog, QuestionDialog, InfoDialog, InformationWindow, MessageWindow
 from yali.storage.formats.filesystem import FilesystemResizeError, FilesystemMigrateError

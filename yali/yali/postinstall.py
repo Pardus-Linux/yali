@@ -23,7 +23,7 @@ _ = __trans.ugettext
 
 import sysutils
 import yali.pisiiface
-import yali.gui.context as ctx
+import yali.context as ctx
 from yali.constants import consts
 from yali.gui.installdata import *
 

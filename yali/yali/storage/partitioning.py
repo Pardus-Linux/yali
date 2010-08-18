@@ -11,7 +11,7 @@ _ = __trans.ugettext
 
 import yali
 import yali.util
-import yali.gui.context as ctx
+import yali.context as ctx
 from operations import *
 from devices.device import devicePathToName
 from devices.partition import Partition

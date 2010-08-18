@@ -23,7 +23,7 @@ from yali.gui.installdata import *
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.rescuegrubwidget import Ui_RescueGrubWidget
 from yali.gui.GUIException import GUIException
-import yali.gui.context as ctx
+import yali.context as ctx
 
 ##
 # BootLoader screen.

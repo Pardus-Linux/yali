@@ -17,7 +17,7 @@ _ = __trans.ugettext
 from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
-import yali.gui.context as ctx
+import yali.context as ctx
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.bootloaderwidget import Ui_BootLoaderWidget
 from yali.storage.bootloader import BOOT_TYPE_NONE, BOOT_TYPE_PARTITION, BOOT_TYPE_MBR, BootLoaderError, boot_type_strings

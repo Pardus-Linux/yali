@@ -9,7 +9,7 @@ _ = __trans.ugettext
 
 import yali
 import yali.baseudev
-import yali.gui.context as ctx
+import yali.context as ctx
 from yali.util import numeric_type
 from yali.storage.udev import *
 from yali.storage.devices import AbstractDevice

@@ -19,7 +19,7 @@ import traceback
 import cStringIO
 import logging
 import gettext
-import yali.gui.context as ctx
+import yali.context as ctx
 
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
@@ -39,7 +39,7 @@ class Singleton(type):
         return cls.instance
 
 def init_logging(log_dir):
-    import yali.gui.context as ctx
+    import yali.context as ctx
     if os.access(log_dir, os.W_OK):
         handler = logging.handlers.RotatingFileHandler('%s/yali.log' % log_dir)
         formatter = logging.Formatter('%(asctime)-12s: %(levelname)-8s %(message)s')

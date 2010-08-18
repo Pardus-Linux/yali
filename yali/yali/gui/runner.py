@@ -24,7 +24,7 @@ import yali.installer
 import yali.util
 import yali.sysutils
 import yali.localedata
-import yali.gui.context as ctx
+import yali.context as ctx
 from yali.storage import Storage
 from yali.storage.bootloader import BootLoader
 from yali.gui.debugger import DebuggerAspect

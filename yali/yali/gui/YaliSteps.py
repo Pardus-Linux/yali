@@ -15,7 +15,7 @@ __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 import time
-import yali.gui.context as ctx
+import yali.context as ctx
 
 class YaliSteps:
     def __init__(self):

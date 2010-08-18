@@ -20,7 +20,7 @@ from PyQt4.QtCore import *
 import yali.util
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.welcomewidget import Ui_WelcomeWidget
-import yali.gui.context as ctx
+import yali.context as ctx
 from yali.gui.YaliDialog import Dialog
 from yali.gui.GUIAdditional import Gpl
 

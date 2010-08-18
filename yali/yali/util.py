@@ -11,7 +11,7 @@ _ = __trans.ugettext
 
 import pisi
 import yali
-import yali.gui.context as ctx
+import yali.context as ctx
 from pardus.diskutils import EDD
 
 EARLY_SWAP_RAM = 512 * 1024 # 512 MB

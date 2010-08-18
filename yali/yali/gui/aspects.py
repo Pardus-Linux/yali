@@ -12,7 +12,7 @@
 
 
 from pyaspects.meta import MetaAspect
-import yali.gui.context as ctx
+import yali.context as ctx
 
 ##
 # Disables navigation buttons before method.

@@ -9,7 +9,7 @@ _ = __trans.ugettext
 
 import yali
 import yali.util
-import yali.gui.context as ctx
+import yali.context as ctx
 
 device_formats = {}
 
