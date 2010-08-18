@@ -142,6 +142,9 @@ class MessageWindow:
         elif type == 'okcancel':
             icon = "question"
             buttons = QtGui.QMessageBox.Ok | QtGui.QMessageBox.Cancel
+        elif type == 'question':
+            icon = "question"
+            buttons = QtGui.QMessageBox.Ok | QtGui.QMessageBox.Cancel
         elif type == 'yesno':
             icon = "question"
             buttons = QtGui.QMessageBox.Yes | QtGui.QMessageBox.No
