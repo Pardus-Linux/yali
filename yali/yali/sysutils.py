@@ -14,21 +14,18 @@
 
 import os
 import sys
+import string
 import time
 import subprocess
-from string import ascii_letters
-from string import digits
-from pardus.sysutils import find_executable
-from pardus import procutils
-
-import _sysutils
-from yali.constants import consts
-
+import random
+import hashlib
 import gettext
+
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-_sys_dirs = ['dev', 'proc', 'sys']
+import _sysutils
+from yali.constants import consts
 
 def available_space(path):
     return _sysutils.device_space_free(path)
@@ -40,99 +37,6 @@ def ext2IsDirty(device):
 def ext2HasJournal(device):
     hasjournal = _sysutils.e2hasjournal(device)
     return hasjournal
-
-def run(cmd, params=None, capture=False, appendToLog=True):
-    import yali.gui.context as ctx
-
-    # Merge parameters with command
-    if params:
-        cmd = "%s %s" % (cmd, ' '.join(params))
-
-    # to use Popen we need a tuple
-    _cmd = tuple(cmd.split())
-    ctx.logger.debug("RUN : %s" % cmd)
-
-    # Create an instance for Popen
-    try:
-        proc = subprocess.Popen(_cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    except Exception, e:
-        if e.errno == 2:
-            # No such executable
-            ctx.logger.debug("FAILED : '%s' %s" % (cmd, e))
-            return False
-    else:
-        # Capture the output
-        stdout, stderr = proc.communicate()
-        result = proc.poll()
-
-        ctx.logger.debug(stderr)
-        if appendToLog:
-            ctx.logger.debug(stdout)
-
-        # if return code larger then zero, means there is a problem with this command
-        if result > 0:
-            ctx.logger.debug("FAILED : %s" % cmd)
-            return False
-        ctx.logger.debug("SUCCESS : %s" % cmd)
-        if capture:
-            return stdout
-        return True
-
-def chrootRun(cmd):
-    run("chroot %s %s" % (consts.target_dir, cmd))
-
-# run dbus daemon in chroot
-def chrootDbus():
-
-    for _dir in _sys_dirs:
-        tgt = os.path.join(consts.target_dir, _dir)
-        run("mount --bind /%s %s" % (_dir, tgt))
-
-    chrootRun("/sbin/ldconfig")
-    chrootRun("/sbin/update-environment")
-    chrootRun("/bin/service dbus start")
-
-def finalizeChroot():
-    # close filesDB if it is still open
-    import pisi
-    filesdb = pisi.db.filesdb.FilesDB()
-    if filesdb.is_initialized():
-        filesdb.close()
-
-    # stop dbus
-    chrootRun("/bin/service dbus stop")
-
-    # kill comar in chroot if any exists
-    chrootRun("/bin/killall comar")
-
-    # unmount sys dirs
-    c = _sys_dirs
-    c.reverse()
-    for _dir in c:
-        tgt = os.path.join(consts.target_dir, _dir)
-        umount_(tgt)
-
-    # store log content
-    import yali.gui.context as ctx
-    ctx.logger.debug("Finalize Chroot called this is the last step for logs ..")
-    if ctx.debugEnabled:
-        open(ctx.consts.log_file,"w").write(str(ctx.logger.traceback.plainLogs))
-
-    # store session log as kahya xml
-    open(ctx.consts.session_file,"w").write(str(ctx.installData.sessionLog))
-    os.chmod(ctx.consts.session_file,0600)
-
-    # swap off if it is opened
-    run("swapoff -a")
-
-    # umount target dir
-    umount_(consts.target_dir)
-
-def udevSettle(timeout=None):
-    arg = ''
-    if timeout:
-        arg = "--timeout=%d" % int(timeout)
-    run("udevadm settle %s" % arg)
 
 def checkKernelFlags(flag):
     for line in open("/proc/cpuinfo", "r").readlines():
@@ -160,35 +64,6 @@ def checkYaliOptions(param):
                     return str(part.split(':')[1]).strip()
     return None
 
-def swapAsFile(filepath, mb_size):
-    dd, mkswap = find_executable('dd'), find_executable('mkswap')
-
-    if (not dd) or (not mkswap): return False
-
-    create_swap_file = "%s if=/dev/zero of=%s bs=1024 count=%d" % (dd, filepath, (int(mb_size)*1024))
-    mk_swap          = "%s %s" % (mkswap, filepath)
-
-    try:
-        for cmd in [create_swap_file, mk_swap]:
-            p = os.popen(cmd)
-            p.close()
-        os.chmod(filepath, 0600)
-    except:
-        return False
-
-    return True
-
-def swapOn(partition):
-    # swap on
-    params = ["-v", partition]
-    run("swapon", params)
-
-def ejectCdrom(mount_point=consts.source_dir):
-    if "copytoram" not in open("/proc/cmdline", "r").read().strip().split():
-        run("eject -m %s" % mount_point)
-    else:
-        reboot()
-
 def setMouse(key="left"):
     struct = {_("left") :"1 2 3",
               _("right"):"3 2 1"}
@@ -199,32 +74,8 @@ def setMouse(key="left"):
         os.system("synclient TapButton1=3 TapButton3=1")
 
 def isTextValid(text):
-    allowed_chars = ascii_letters + digits + '.' + '_' + '-'
+    allowed_chars = string.ascii_letters + string.digits + '.' + '_' + '-'
     return len(text) == len(filter(lambda u: [x for x in allowed_chars if x == u], text))
-
-def mount(source, target, fs, needs_mtab=False):
-    params = ["-t", fs, source, target]
-    if not needs_mtab:
-        params.insert(0,"-n")
-    run("mount",params)
-
-def umount_(dir=None, params=''):
-    if not dir:
-        dir = consts.tmp_mnt_dir
-    param = [dir, params]
-    run("umount",param)
-
-def umountSystemPaths():
-    import yali.gui.context as ctx
-    try:
-        ctx.logger.debug("Trying to umount %s" % ctx.consts.tmp_mnt_dir)
-        umount_(ctx.consts.tmp_mnt_dir)
-        ctx.logger.debug("Trying to umount %s" % (ctx.consts.target_dir + "/mnt/archive"))
-        umount_(ctx.consts.target_dir + "/mnt/archive")
-        ctx.logger.debug("Trying to umount %s" % (ctx.consts.target_dir + "/home"))
-        umount_(ctx.consts.target_dir + "/home")
-    except:
-        ctx.logger.debug("Umount Failed ")
 
 def isWindowsBoot(partition_path, file_system):
     m_dir = consts.tmp_mnt_dir
@@ -306,149 +157,6 @@ def pardusRelease(partition_path, file_system):
     if os.path.exists(fpath):
         return open(fpath,'r').read().strip()
     return ''
-
-def reboot():
-    run("/tmp/reboot -f")
-
-def shutdown():
-    run("/tmp/shutdown -h now")
-
-# Shamelessly stolen from Anaconda :)
-def execClear(command, argv, stdin = 0, stdout = 1, stderr = 2):
-    import yali.gui.context as ctx
-
-    argv = list(argv)
-    if isinstance(stdin, str):
-        if os.access(stdin, os.R_OK):
-            stdin = open(stdin)
-        else:
-            stdin = 0
-    if isinstance(stdout, str):
-        stdout = open(stdout, "w")
-    if isinstance(stderr, str):
-        stderr = open(stderr, "w")
-    if stdout is not None and not isinstance(stdout, int):
-        ctx.logger.debug("RUN : %s" %([command] + argv,))
-        stdout.write("Running... %s\n" %([command] + argv,))
-
-    p = os.pipe()
-    childpid = os.fork()
-    if not childpid:
-        os.close(p[0])
-        os.dup2(p[1], 1)
-        os.dup2(stderr.fileno(), 2)
-        os.dup2(stdin, 0)
-        os.close(stdin)
-        os.close(p[1])
-        stderr.close()
-
-        os.execvp(command, [command] + argv)
-        os._exit(1)
-
-    os.close(p[1])
-    log = ''
-    while 1:
-        try:
-            s = os.read(p[0], 1)
-        except OSError, args:
-            (num, msg) = args
-            if (num != 4):
-                raise IOError, args
-
-        stdout.write(s)
-        log+=s
-        ctx.mainScreen.processEvents()
-
-        if len(s) < 1:
-            break
-
-    try:
-        ctx.logger.debug("OUT : %s" % log)
-    except Exception, e:
-        ctx.logger.debug("Debuger itself crashed yay :) %s" % e)
-
-    try:
-        (pid, status) = os.waitpid(childpid, 0)
-    except OSError, (num, msg):
-        ctx.logger.debug("exception from waitpid: %s %s" %(num, msg))
-
-    if status is None:
-        return 0
-
-    if os.WIFEXITED(status):
-        return os.WEXITSTATUS(status)
-
-    return 1
-
-
-## Run an external program and capture standard out.
-# @param command The command to run.
-# @param argv A list of arguments.
-# @param stdin The file descriptor to read stdin from.
-# @param stderr The file descriptor to redirect stderr to.
-# @param root The directory to chroot to before running command.
-# @return The output of command from stdout.
-def execWithCapture(command, argv, stdin = 0, stderr = 2, root ='/'):
-    argv = list(argv)
-
-    if isinstance(stdin, str):
-        if os.access(stdin, os.R_OK):
-            stdin = open(stdin)
-        else:
-            stdin = 0
-
-    if isinstance(stderr, str):
-        stderr = open(stderr, "w")
-
-    try:
-        pipe = subprocess.Popen([command] + argv, stdin = stdin,
-                                stdout=subprocess.PIPE,
-                                stderr=subprocess.STDOUT,
-                                cwd=root)
-    except OSError, ( errno, msg ):
-        raise RuntimeError, "Error running " + command + ": " + msg
-
-    rc = pipe.stdout.read()
-    pipe.wait()
-    return rc
-
-import re
-import string
-
-# Based on RedHat's ZoneTab class
-class TimeZoneEntry:
-    def __init__(self, code=None, timeZone=None):
-        self.code = code
-        self.timeZone = timeZone
-
-class TimeZoneList:
-    def __init__(self, fromFile='/usr/share/zoneinfo/zone.tab'):
-        self.entries = []
-        self.readTimeZone(fromFile)
-
-    def getEntries(self):
-        return self.entries
-
-    def readTimeZone(self, fn):
-        f = open(fn, 'r')
-        comment = re.compile("^#")
-        while 1:
-            line = f.readline()
-            if not line:
-                break
-            if comment.search(line):
-                continue
-            fields = string.split(line, '\t')
-            if len(fields) < 3:
-                continue
-            code = fields[0]
-            timeZone = string.strip(fields[2])
-            entry = TimeZoneEntry(code, timeZone)
-            self.entries.append(entry)
-
-# getShadow for passwd ..
-import random
-import hashlib
 
 def getShadowed(passwd):
     des_salt = list('./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz') 

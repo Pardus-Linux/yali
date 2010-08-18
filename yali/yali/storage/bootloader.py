@@ -37,19 +37,13 @@ boot_type_strings = {BOOT_TYPE_PARTITION: "None",
                      BOOT_TYPE_PARTITION: "First sector of Boot partition",
                      BOOT_TYPE_RAID: "RAID Device"}
 
-def sync():
-    os.system("sync")
-    os.system("sync")
-    os.system("sync")
-
-
 def get_configs(rootpath):
     try:
         releasePath = os.path.join(rootpath, "etc/pardus-release")
         release = file(releasePath).readlines()[0].strip()
         bootDir = os.path.join(rootpath, "boot")
         kernels = glob.glob(bootDir + "/kernel-*")
-        kernel = os.path.basename(sorted(k)[-1])eorted(kernels)[-1]
+        kernel = os.path.basename(sorted(kernels)[-1])
         kernelVersion = kernel[len("kernel-"):]
         initramfs = "initramfs-%s" % kernelVersion
     except IOError, msg:
@@ -280,7 +274,7 @@ class BootLoader(object):
                          release,
                          kernel,
                          get_commands(self.storage),
-                         initramfs)
+                         initramfs))
         if self.enabledOthers:
             for device, (label, filesystem) in self.others().items():
                 s += windows_conf % {"title": label,
@@ -321,11 +315,11 @@ setup %s
 quit
 """ % (bootPartitionPath, stage1Path)
 
-ctx.logger.debug("Batch template: %s" % batch_template)
+        ctx.logger.debug("Batch template: %s" % batch_template)
         file('/tmp/batch','w').write(batch_template)
 
         rc = yali.util.run_batch("grub", ["--no-floppy", "--batch < ", "/tmp/batch"])[0]
-        sync()
+        yali.util.sync()
         return rc
 
     @property

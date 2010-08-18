@@ -411,3 +411,22 @@ def stop_dbus():
     # store session log as kahya xml
     open(ctx.consts.session_file,"w").write(str(ctx.installData.sessionLog))
     os.chmod(ctx.consts.session_file,0600)
+
+def reboot():
+    run_batch("/tmp/reboot", ["-f"])
+
+def shutdown():
+    run_batch("/tmp/shutdown", ["-h", "now"])
+
+def eject(mount_point=ctx.consts.source_dir):
+    if "copytoram" not in open("/proc/cmdline", "r").read().strip().split():
+        run_batch("eject", ["-m", mount_point])
+    else:
+        reboot()
+
+def sync():
+    os.system("sync")
+    os.system("sync")
+    os.system("sync")
+
+
