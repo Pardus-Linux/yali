@@ -21,7 +21,7 @@ from PyQt4.QtCore import *
 
 import yali.util
 import yali.context as ctx
-from yali.gui.installdata import YALI_PLUGIN, YALI_INSTALL, YALI_DVDINSTALL
+from yali.installdata import YALI_PLUGIN, YALI_INSTALL, YALI_DVDINSTALL
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.YaliDialog import QuestionDialog
 from yali.gui.Ui.summarywidget import Ui_SummaryWidget

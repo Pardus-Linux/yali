@@ -19,7 +19,7 @@ from PyQt4 import QtGui
 from PyQt4.QtCore import SIGNAL
 
 import yali.storage
-from yali.gui.installdata import *
+from yali.installdata import *
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.rescuegrubwidget import Ui_RescueGrubWidget
 from yali.gui.GUIException import GUIException

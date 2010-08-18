@@ -27,16 +27,11 @@ import yali.localedata
 import yali.context as ctx
 from yali.storage import Storage
 from yali.storage.bootloader import BootLoader
-from yali.gui.debugger import DebuggerAspect
+import yali.gui.YaliWindow
 from yali.gui.YaliDialog import Dialog
 from yali.gui.Ui.exception import Ui_Exception
+from yali.installdata import YALI_INSTALL, YALI_DVDINSTALL, YALI_FIRSTBOOT, YALI_OEMINSTALL, YALI_RESCUE, YALI_PLUGIN
 
-#from yali.gui.logger import Debugger
-#from yali.gui.logger import DebuggerAspect
-
-# mainScreen
-import YaliWindow
-from yali.gui.installdata import *
 
 ##
 # Runner creates main GUI components for installation...
@@ -81,7 +76,6 @@ class Runner:
         ctx.yali = yali.installer.Yali(install_type, install_plugin)
 
         ctx.storage = Storage()
-        #ctx.storage.reset()
         ctx.bootloader = BootLoader()
 
         # These shorcuts for developers :)

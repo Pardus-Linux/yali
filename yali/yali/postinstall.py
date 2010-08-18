@@ -25,7 +25,7 @@ import sysutils
 import yali.pisiiface
 import yali.context as ctx
 from yali.constants import consts
-from yali.gui.installdata import *
+from yali.installdata import *
 
 def cp(s, d):
     src = os.path.join(consts.target_dir, s)

@@ -23,7 +23,7 @@ from PyQt4.QtCore import *
 
 import yali.pisiiface
 import yali.context as ctx
-from yali.gui.installdata import methodInstallManual, methodInstallAutomatic, defaultKernel, paeKernel, kernels
+from yali.installdata import methodInstallManual, methodInstallAutomatic, defaultKernel, paeKernel, kernels
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.autoinstallationwidget import Ui_AutoInstallationWidget
 from yali.gui.Ui.autoinstallationlistitemwidget import Ui_AutoInstallationListItemWidget

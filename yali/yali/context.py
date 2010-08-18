@@ -10,10 +10,10 @@
 # Please read the COPYING file.
 #
 import os
-import yali.gui.installdata
+import yali.installdata
 
 # singletons from yali.*
-from yali.gui.installdata import installData
+from yali.installdata import installData
 from yali.constants import consts
 from yali.options import options
 

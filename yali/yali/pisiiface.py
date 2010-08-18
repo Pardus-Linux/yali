@@ -19,7 +19,7 @@ import dbus
 import pisi
 import piksemel
 import yali.postinstall
-import yali.gui.installdata
+import yali.installdata
 import yali.context as ctx
 
 repodb = pisi.db.repodb.RepoDB()

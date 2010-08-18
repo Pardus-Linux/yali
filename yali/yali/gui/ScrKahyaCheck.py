@@ -18,7 +18,7 @@ from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
 import yali.sysutils
-from yali.gui.installdata import *
+from yali.installdata import *
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.kickerwidget import Ui_KickerWidget
 import yali.context as ctx

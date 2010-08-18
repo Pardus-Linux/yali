@@ -22,7 +22,7 @@ from PyQt4.QtCore import *
 
 import yali.util
 import yali.context as ctx
-from yali.gui.installdata import *
+from yali.installdata import YALI_FIRSTBOOT
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.YaliDialog import InfoDialog
 from yali.gui.YaliSteps import YaliSteps
