@@ -47,7 +47,7 @@ class DeviceTree(object):
 
         self._populated = False
 
-    def addIgnoreDisk(self, disk):
+    def addIgnoredDisk(self, disk):
         self._ignoredDisks.append(disk)
 
     def isIgnored(self, info):
@@ -109,7 +109,7 @@ class DeviceTree(object):
         self._devices.append(device)
         ctx.logger.debug("added %s %s (id %d) to device tree" % (device.type, device.name, device.id))
 
-    def _removeDevice(self, device, force=None):
+    def _removeDevice(self, device, force=None, moddisk=True):
         """ Remove a device from the tree.
 
             Only leaves may be removed.
@@ -122,7 +122,7 @@ class DeviceTree(object):
             raise ValueError("Cannot remove non-leaf device '%s'" % device.name)
 
         # if this is a partition we need to remove it from the parted.Disk
-        if isinstance(device, Partition) and device.disk is not None:
+        if moddisk and isinstance(device, Partition) and device.disk is not None:
             # if this partition hasn't been allocated it could not have
             # a disk attribute
             if device.partedPartition.type == parted.PARTITION_EXTENDED and \
@@ -513,6 +513,8 @@ class DeviceTree(object):
         if self.zeroMbr:
             initcb = lambda: True
         else:
+            bypath = None
+            details = None
             description = device.description or device.model
             try:
                 bypath = os.path.basename(deviceNameToDiskByPath(device.name))
@@ -548,10 +550,8 @@ class DeviceTree(object):
                     return True
 
 
-            initcb = lambda: self.intf.questionInitializeDisk(bypath,
-                                                              description,
-                                                              device.size,
-                                                              details)
+            initcb = lambda: questionInitializeDisk(bypath, description,
+                                                    device.size, details)
 
         try:
             format = formats.getFormat("disklabel",
