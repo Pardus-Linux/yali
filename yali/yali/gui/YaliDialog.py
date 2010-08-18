@@ -9,7 +9,7 @@
 #
 # Please read the COPYING file.
 #
-
+from PyQt4.Qt import QApplication
 from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
@@ -123,7 +123,7 @@ class Dialog(QtGui.QDialog):
         return QtGui.QDialog.exec_(self)
 
 class MessageWindow:
-    def __init__(self, title, text, type="ok", default=None, customButtons =None, customIcon=None, run=True, destroyAfterRun=True):
+    def __init__(self, title, text, type="ok", default=None, customButtons =None, customIcon=None, run=True, destroyAfterRun=True, detailed=False, longText=""):
         self.rc = None
         self.dialog = None
         self.msgBox = QtGui.QMessageBox()
@@ -184,6 +184,10 @@ class MessageWindow:
         self.msgBox.setDefaultButton(default)
 
         self.dialog = Dialog(_(title), self.msgBox, closeButton = False, isDialog = True, icon=icon)
+        if detailed:
+            self.details = QtGui.QTextBrowser()
+            self.details.setText(unicode(longText))
+            self.dialog.layout.addWidget(self.details)
         if run:
             self.run(destroyAfterRun)
 
@@ -191,9 +195,9 @@ class MessageWindow:
         self.dialog.resize(300,120)
         self.rc = self.dialog.exec_()
         if not self.doCustom:
-            if self.msgBox.clickedButton() in [QtGui.QMessageBox.Ok, QtGui.QMessageBox.Yes]:
+            if self.msgBox.clickedButton().text() in [_("OK"), _("YES")]:
                 self.rc = 1
-            elif self.msgBox.clickedButton() in [QtGui.QMessageBox.Cancel, QtGui.QMessageBox.No]:
+            elif self.msgBox.clickedButton().text() in [_("CANCEL"), _("NO")]:
                 self.rc = 0
         else:
             if self.msgBox.clickedButton().text() in self.customButtons:
@@ -203,16 +207,6 @@ class MessageWindow:
             self.dialog = None
 
         return self.rc
-
-class DetailedMessageWindow(MessageWindow):
-    def __init__(self, title, text, longText, type="ok", default=None,
-                 customButtons=None, customIcon=None, run=True, destroyAfterRun=True):
-        MessageWindow.__init__(self, title, text, type=type, default=default, customButtons=customButtons,\
-                                customIcon=customIcon, run=run, destroyAfterRun=destroyAfterRun)
-
-        self.details = QtGui.QTextBrowser()
-        self.details.setText(unicode(longText))
-        self.dialog.addWidget(self.details)
 
 def QuestionDialog(title, text, info = None, dontAsk = False):
     msgBox = QtGui.QMessageBox()
