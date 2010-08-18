@@ -8,6 +8,7 @@ import parted
 import _ped
 
 import yali
+import yali.util
 from . import Format, register_device_format
 
 class DiskLabelError(yali.Error):
@@ -85,8 +86,11 @@ class DiskLabel(Format):
 
     def freshPartedDisk(self):
         """ Return a new, empty parted.Disk instance for this device. """
-        platf = platform.getPlatform(None)
-        labelType = platf.diskLabelType(self.partedDevice.type)
+        if yali.util.isEfi():
+            labelType = "gpt"
+        else:
+            labelType = "msdos"
+
         return parted.freshDisk(device=self.partedDevice, ty=labelType)
 
     @property
