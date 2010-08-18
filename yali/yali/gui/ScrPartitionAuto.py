@@ -21,9 +21,10 @@ from PyQt4.QtCore import *
 
 import yali.gui.context as ctx
 from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui.GUIException import GUIException
 from yali.gui.Ui.autopartwidget import Ui_AutoPartWidget
 from yali.gui.Ui.partitionshrinkwidget import Ui_PartShrinkWidget
-from yali.storage.partitioning import CLEARPART_TYPE_ALL, CLEARPART_TYPE_LINUX, CLEARPART_TYPE_NONE, doAutoPartition
+from yali.storage.partitioning import CLEARPART_TYPE_ALL, CLEARPART_TYPE_LINUX, CLEARPART_TYPE_NONE, doAutoPartition, defaultPartitioning
 from yali.storage.operations import OperationResizeDevice, OperationResizeFormat
 
 class ShrinkWidget(QtGui.QWidget):
@@ -47,12 +48,9 @@ class ShrinkWidget(QtGui.QWidget):
         self.connect(self.ui.shrinkButton, SIGNAL("clicked()"), self.slotShrink)
         self.connect(self.ui.cancelButton, SIGNAL("clicked()"), self.hide)
         self.fillPartitions()
-        if self.ui.partitions.count() == 0:
-            self.hide()
-            self.parent.intf.messageWindow(_("Error"),
-                                           _("No partitions are available to resize.  Only "
-                                             "physical partitions with specific filesystems can be resized."),
-                                             type="warning", customIcon="error")
+
+    def check(self):
+        return self.ui.partitions.count() == 0
 
     def fillPartitions(self):
         biggest = -1
@@ -63,7 +61,6 @@ class ShrinkWidget(QtGui.QWidget):
 
             if partition.resizable and partition.format.resizable:
                 entry = PartitionItem(self.ui.partitions, partition)
-                print "size:%s minsize:%s currentsize%s" % (partition.size, partition.format.minSize, partition.format.currentSize )
 
                 i += 1
                 if biggest == -1:
@@ -167,20 +164,21 @@ Pardus create a new partition for installation.</p>
         self.ui.drivesLabel.hide()
 
     def typeChanged(self):
-        print "type changed sender:%s" % self.sender().objectName()
         if self.sender() != self.ui.createCustom:
             self.ui.review.setEnabled(True)
-            print "not else sender:%s" % self.sender().objectName()
             if self.sender() == self.ui.shrinkCurrent:
-                print "shrink control sender:shrinkCurrent"
                 shrinkwidget = ShrinkWidget(self)
-                shrinkwidget.show()
-                if shrinkwidget.operations:
-                    self.shrinkOperations = shrinkwidget.operations
+                if shrinkwidget.check():
+                    self.intf.messageWindow(_("Error"),
+                                            _("No partitions are available to resize.Only physical\n"
+                                              "partitions with specific filesystems can be resized."),
+                                            type="warning", customIcon="error")
                 else:
-                    return False
-            else:
-                print "not shrink control sender:%s" % self.sender().objectName()
+                    shrinkwidget.show()
+                    if shrinkwidget.operations:
+                        self.shrinkOperations = shrinkwidget.operations
+                    else:
+                        return False
         else:
             self.ui.review.setEnabled(False)
 
@@ -206,6 +204,7 @@ Pardus create a new partition for installation.</p>
         self.ui.drives.setCurrentRow(0)
 
     def shown(self):
+        self.storage.reset()
         if self.storage.checkNoDisks(self.intf):
             raise GUIException, _("No storage device found.")
         else:
@@ -231,7 +230,9 @@ Pardus create a new partition for installation.</p>
         #self.checkSelectedDisk()
         rc = self.nextCheck()
         if rc is None:
-            sys.exit(0)
+            #FIXME:Unknown bug
+            #sys.exit(0)
+            return True
         else:
             return rc
 
@@ -254,6 +255,7 @@ Pardus create a new partition for installation.</p>
                 self.storage.clearPartType = CLEARPART_TYPE_NONE
 
             self.storage.doAutoPart = True
+            self.storage.autoPartitionRequests = defaultPartitioning(self.storage, quiet=0)
 
             if self.ui.review.isChecked():
                 increment = 1
