@@ -8,8 +8,9 @@ __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 import yali
-from yali.util import numeric_type
+import yali.baseudev
 import yali.gui.context as ctx
+from yali.util import numeric_type
 from yali.storage.udev import *
 from yali.storage.devices import AbstractDevice
 from yali.storage.formats import getFormat
@@ -214,7 +215,7 @@ class Device(AbstractDevice):
                 self.originalFormat.teardown()
             if self.format.exists:
                 self.format.teardown()
-            udev_settle()
+            yali.baseudev.udev_settle()
 
         if recursive:
             self.teardownParents(recursive=recursive)

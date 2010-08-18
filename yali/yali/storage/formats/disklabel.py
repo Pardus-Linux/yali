@@ -8,6 +8,7 @@ import parted
 import _ped
 
 import yali
+import yali.baseudev
 import yali.util
 from . import Format, register_device_format
 
@@ -15,6 +16,9 @@ class DiskLabelError(yali.Error):
     pass
 
 class InvalidDiskLabelError(DiskLabelError):
+    pass
+
+class DiskLabelCommitError(DiskLabelError):
     pass
 
 class DiskLabel(Format):
@@ -208,7 +212,7 @@ class DiskLabel(Format):
         except parted.DiskException as msg:
             raise DiskLabelCommitError(msg)
         else:
-            udev_settle()
+            yali.baseudev.udev_settle()
 
     def commitToDisk(self):
         """ Commit the current partition table to disk. """

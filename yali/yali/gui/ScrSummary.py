@@ -21,11 +21,13 @@ from PyQt4.QtCore import *
 
 import yali.sysutils
 import yali.gui.context as ctx
+import yali.gui.context as ctx
+from yali.gui.installdata import YALI_PLUGIN, YALI_INSTALL, YALI_DVDINSTALL
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.YaliDialog import QuestionDialog
 from yali.gui.Ui.summarywidget import Ui_SummaryWidget
 from yali.storage.partitioning import CLEARPART_TYPE_ALL, CLEARPART_TYPE_LINUX, CLEARPART_TYPE_NONE
-
+from yali.storage.bootloader import BOOT_TYPE_NONE
 class Widget(QtGui.QWidget, ScreenWidget):
     title = _("Summary")
     #icon = "iconKeyboard"
@@ -106,12 +108,16 @@ Here you can see your install options before installation starts.
         # Keyboard Layout
         if ctx.installData.keyData:
             content.append(subject % _("Keyboard Settings"))
-            content.append(item % _("Selected keyboard layout is <b>%s</b>") % ctx.installData.keyData["name"])
+            content.append(item %
+                           _("Selected keyboard layout is <b>%s</b>") %
+                           ctx.installData.keyData["name"])
             content.append(end)
 
         # TimeZone
         content.append(subject % _("Date/Time Settings"))
-        content.append(item % _("Selected TimeZone is <b>%s</b>") % ctx.installData.timezone)
+        content.append(item %
+                       _("Selected TimeZone is <b>%s</b>") %
+                       ctx.installData.timezone)
         content.append(end)
 
         # Users
@@ -127,7 +133,9 @@ Here you can see your install options before installation starts.
         # HostName
         if ctx.installData.hostName:
             content.append(subject % _("Hostname Settings"))
-            content.append(item % _("Hostname is set as <b>%s</b>") % ctx.installData.hostName)
+            content.append(item %
+                           _("Hostname is set as <b>%s</b>") %
+                           ctx.installData.hostName)
             content.append(end)
 
         # Partition
@@ -136,22 +144,28 @@ Here you can see your install options before installation starts.
         if ctx.storage.doAutoPart:
             summary = ""
             clearPartDisks = ctx.storage.clearPartDisks
+            devices = ""
             for disk in clearPartDisks:
                 devices += "(%s on %s)" % (disk.model, disk.name)
 
             content.append(item % _("Automatic Partitioning selected."))
             if ctx.storage.clearPartType == CLEARPART_TYPE_ALL:
                 content.append(item % _("Use All Space"))
-                content.append(item % _("Removes all partitions on the selected %s device(s). This includes partitions "\
+                content.append(item % _("Removes all partitions on the selected"\
+                                        "%s device(s). This includes partitions "\
                                         "created by other operating systems.") % devices)
             elif ctx.storage.clearPartType == CLEARPART_TYPE_LINUX:
                 content.append(item % _("Replace Existing Linux System(s)"))
-                content.append(item % _("Removes all Linux partitions on the selected %s device(s). This does not remove "\
-                                        "other partitions you may have on your storage device(s) (such as VFAT or FAT32)") % devices)
+                content.append(item % _("Removes all Linux partitions on the selected" \
+                                        "%s device(s). This does not remove "\
+                                        "other partitions you may have on your " \
+                                        "storage device(s) (such as VFAT or FAT32)") % devices)
             elif ctx.storage.clearPartType == CLEARPART_TYPE_NONE:
                 content.append(item % _("Use Free Space"))
-                content.append(item % _("Retains your current data and partitions and uses only the unpartitioned space on "
-                                        "the selected %s device(s), assuming you have enough free space available.") % devices)
+                content.append(item % _("Retains your current data and partitions" \
+                                        " and uses only the unpartitioned space on " \
+                                        "the selected %s device(s), assuming you have"\
+                                        "enough free space available.") % devices)
 
         else:
             content.append(item % _("Manual Partitioning selected."))
@@ -177,7 +191,8 @@ Here you can see your install options before installation starts.
             if ctx.installData.autoInstallationMethod == methodInstallAutomatic:
                 content.append(item % _("Auto installation selected."))
             else:
-                content.append(item % _("Manual Installation ( %s ) selected" % ctx.installData.autoInstallationCollection.title))
+                content.append(item % _("Manual Installation ( %s ) selected" %
+                               ctx.installData.autoInstallationCollection.title))
 
             if ctx.installData.autoInstallationKernel == defaultKernel:
                 content.append(item % _("Default Kernel selected"))
@@ -195,8 +210,8 @@ Here you can see your install options before installation starts.
     def execute(self):
 
         # Just store normal installation session
-        if ctx.yali.install_type == 0:
-            ctx.yali.backupInstallData()
+        #if ctx.yali.install_type == YALI_INSTALL:
+        #    ctx.yali.backupInstallData()
 
         self.timer.stop()
 
@@ -223,7 +238,7 @@ Here you can see your install options before installation starts.
             return
 
         # Auto Partitioning
-        if not ctx.storage.swapDevices:
+        if not ctx.storage.storageset.swapDevices:
             size = 0
             if yali.util.memInstalled() > 512:
                 size = 300

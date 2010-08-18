@@ -10,9 +10,12 @@ __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 import yali
+import yali.baseudev
 import yali.gui.context as ctx
 from yali.util import numeric_type
 from yali.storage.devices.device import Device, devicePathToName
+from yali.storage.formats import Format
+from yali.storage.formats.disklabel import DiskLabelCommitError
 
 class PartitionError(yali.Error):
     pass
@@ -465,7 +468,7 @@ class Partition(Device):
                         block.removeDeviceMap(devmap)
                     except Exception as e:
                         raise PartitionTeardownError("failed to tear down device-mapper partition %s: %s" % (self.name, e))
-                udev_settle()
+                yali.baseudev.udev_settle()
 
         Device.teardown(self, recursive=recursive)
 

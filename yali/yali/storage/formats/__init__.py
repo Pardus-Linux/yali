@@ -2,14 +2,14 @@
 # -*- coding: utf-8 -*-
 
 import os
-
 import gettext
+
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 import yali
+import yali.util
 from yali.gui import context as ctx
-from yali.util import notify_kernel
 
 device_formats = {}
 
@@ -193,14 +193,14 @@ class Format(object):
             try:
                 name = dm_node_from_name(os.path.basename(self.device))
             except Exception, e:
-                log.warning("failed to get dm node for %s" % self.device)
+                ctx.logger.warning("failed to get dm node for %s" % self.device)
                 return
         elif self.device:
             name = os.path.basename(self.device)
 
-        path = get_sysfs_path_by_name(name)
+        path = yali.util.get_sysfs_path_by_name(name)
         try:
-            notify_kernel(path, action="change")
+            yali.util.notify_kernel(path, action="change")
         except Exception, e:
             ctx.logger.warning("failed to notify kernel of change: %s" % e)
 
@@ -232,12 +232,12 @@ class Format(object):
             if getattr(e, "errno", None) == 28: # No space left in device
                 pass
             else:
-                log.error("error zeroing out %s: %s" % (self.device, e))
+                ctx.logger.error("error zeroing out %s: %s" % (self.device, e))
 
             if fd:
                 os.close(fd)
         except Exception as e:
-            log.error("error zeroing out %s: %s" % (self.device, e))
+            ctx.logger.error("error zeroing out %s: %s" % (self.device, e))
             if fd:
                 os.close(fd)
 

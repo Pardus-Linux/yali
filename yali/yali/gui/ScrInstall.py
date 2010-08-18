@@ -22,6 +22,7 @@ from PyQt4.QtCore import *
 
 import pisi.ui
 
+import yali.util
 import yali.sysutils
 import yali.pisiiface
 import yali.postinstall
@@ -189,7 +190,7 @@ to discover the features and the innovations offered by this new Pardus release.
         yali.postinstall.writeInitramfsConf()
 
         # run dbus in chroot
-        yali.sysutils.chrootDbus()
+        yali.util.chroot_dbus()
 
         ctx.yali.info.updateMessage(_("Configuring packages..."))
 

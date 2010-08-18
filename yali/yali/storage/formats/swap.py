@@ -126,7 +126,7 @@ class SwapSpace(Format):
 
         try:
             Format.create(self, *args, **kwargs)
-            mkswap(self.device, label=self.label, progress=w)
+            mkswap(self.device, label=self.label)
         except Exception:
             raise
         else:

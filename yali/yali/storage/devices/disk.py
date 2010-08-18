@@ -10,7 +10,6 @@ _ = __trans.ugettext
 
 import yali
 from yali.storage.devices.device  import Device
-from yali.baseudev import udev_settle
 
 class DiskError(yali.Error):
     pass

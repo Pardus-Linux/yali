@@ -1,10 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import yali.util
+from parted import partitionFlag, PARTITION_LBA
+import yali.baseudev
 from devices.device import Device
 from devices.partition import Partition
 from formats import getFormat
+from udev import udev_get_block_device, udev_device_get_uuid
 
 OPERATION_TYPE_NONE = 0
 OPERATION_TYPE_DESTROY = 1000
@@ -237,7 +239,7 @@ class OperationCreateFormat(DeviceOperation):
                                   options=self.device.formatArgs)
 
         # Get the UUID now that the format is created
-        yali.util.udev_settle()
+        yali.baseudev.udev_settle()
         self.device.updateSysfsPath()
         info = udev_get_block_device(self.device.sysfsPath)
         self.device.format.uuid = udev_device_get_uuid(info)
@@ -265,7 +267,7 @@ class OperationDestroyFormat(DeviceOperation):
         if self.origFormat:
             self.device.setup(orig=True)
             self.origFormat.destroy()
-            yali.util.udev_settle()
+            yali.baseudev.udev_settle()
             self.device.teardown()
 
     def cancel(self):
