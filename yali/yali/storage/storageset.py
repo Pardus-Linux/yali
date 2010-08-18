@@ -1,14 +1,22 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import os
+import sys
+import time
 import gettext
 
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 import yali.util
+import yali.gui.context as ctx
 from devices import *
 from devicetree import DeviceTree
+from devices.directorydevice import DirectoryDevice
+from devices.filedevice import FileDevice
+from devices.nodevice import NoDevice
+from formats import getFormat
+from formats.filesystem import FilesystemError
 
 def get_containing_device(path, devicetree):
     """ Return the device that a path resides on. """
@@ -38,6 +46,7 @@ class StorageSet(object):
         self.devicetree = devicetree
         self.rootpath = rootpath
         self.active = False
+        self._dev = None
         self._debugfs = None
         self._sysfs = None
         self._proc = None
@@ -48,6 +57,16 @@ class StorageSet(object):
         return sorted(self.devicetree.devices, key=lambda d: d.path)
 
     @property
+    def dev(self):
+        if not self._dev:
+            self._dev = DirectoryDevice("/dev", format=getFormat("bind",
+                                                                 device="/dev",
+                                                                 mountpoint="/dev",
+                                                                 exists=True),
+                                        exists=True)
+
+        return self._dev
+    @property
     def sysfs(self):
         if not self._sysfs:
             self._sysfs = NoDevice(format=getFormat("sysfs",
@@ -57,7 +76,7 @@ class StorageSet(object):
 
     @property
     def debugfs(self):
-        if not self._devpts:
+        if not self._debugfs:
             self._debugfs = NoDevice(format=getFormat("debugfs",
                                                      device="debugfs",
                                                      mountpoint="/sys/kernel/debug"))
@@ -89,7 +108,7 @@ class StorageSet(object):
 
     def mountFilesystems(self, readOnly=None, skipRoot=False):
         devices = self.mountpoints.values() + self.swapDevices
-        devices.extend([self.dev, self.devshm, self.devpts, self.sysfs, self.proc])
+        devices.extend([self.dev, self.sysfs, self.proc])
         devices.sort(key=lambda d: getattr(d.format, "mountpoint", None))
 
         for device in devices:
@@ -112,8 +131,8 @@ class StorageSet(object):
                 targetDir = "%s/%s" % (ctx.consts.target_dir, device.path)
                 parent = get_containing_device(targetDir, self.devicetree)
                 if not parent:
-                    ctx.logger.error("cannot determine which device contains "
-                              "directory %s" % device.path)
+                    ctx.logger.error("cannot determine which device contains "\
+                                     "directory %s" % device.path)
                     device.parents = []
                     self.devicetree._removeDevice(device)
                     continue
@@ -130,7 +149,7 @@ class StorageSet(object):
 
             try:
                 device.format.setup(options=options,
-                                    chroot=ctx.consts.target_dir.rootPath)
+                                    chroot=ctx.consts.target_dir)
             except OSError as e:
                 ctx.logger.error("OSError: (%d) %s" % (e.errno, e.strerror))
 
@@ -180,8 +199,8 @@ class StorageSet(object):
                         continue
 
                 sys.exit(0)
-            except FSError as msg:
-                ctx.logger.error("FSError: %s" % msg)
+            except FilesystemError as msg:
+                ctx.logger.error("FilesystemError: %s" % msg)
 
                 if ctx.yali.messageWindow:
                     na = {'path': device.path,
@@ -201,7 +220,7 @@ class StorageSet(object):
 
     def umountFilesystems(self, swapoff=True):
         devices = self.mountpoints.values() + self.swapDevices
-        devices.extend([self.dev, self.devshm, self.devpts, self.sysfs, self.proc])
+        devices.extend([self.dev, self.sysfs, self.proc])
         devices.sort(key=lambda d: getattr(d.format, "mountpoint", None))
         devices.reverse()
         for device in devices:
