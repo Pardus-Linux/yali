@@ -1,13 +1,13 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-
+import os
 import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 import yali
-import yali.context as ctx
-from . import Device
+import yali.gui.context as ctx
+from device import Device
 
 class FileDeviceError(yali.Error):
     pass
