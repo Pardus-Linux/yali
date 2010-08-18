@@ -8,7 +8,7 @@ import yali
 import yali.util
 from operations import *
 from yali.gui import context as ctx
-from yali.storage.devices.device import Device
+from yali.storage.devices.device import Device, DeviceError
 from yali.storage.devices.partition import Partition
 from yali.storage.formats import getFormat, get_default_filesystem_type
 from yali.storage.devicetree import DeviceTree
@@ -109,7 +109,7 @@ class Storage(object):
 
         # now set the boot partition's flag
         try:
-            boot = self.storageset.bootDevice()
+            boot = self.storageset.bootDevice
             bootDevs = [boot]
         except DeviceError:
             bootDevs = []

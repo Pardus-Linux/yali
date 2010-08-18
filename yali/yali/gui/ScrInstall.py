@@ -190,7 +190,7 @@ to discover the features and the innovations offered by this new Pardus release.
         yali.postinstall.writeInitramfsConf()
 
         # run dbus in chroot
-        yali.util.chroot_dbus()
+        yali.util.start_dbus()
 
         ctx.yali.info.updateMessage(_("Configuring packages..."))
 
