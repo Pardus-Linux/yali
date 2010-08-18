@@ -69,14 +69,21 @@ about disk partitioning.
         self.connect(self.ui.deviceTree, SIGNAL("itemActivated(QTreeWidgetItem *, int)"), self.activateButtons)
 
     def shown(self):
-        ctx.mainScreen.disableNext()
         checkForSwapNoMatch(ctx.yali, self.storage)
         self.populate()
+        (errors, warnings) =  self.storage.sanityCheck()
+        if errors or warnings:
+            ctx.mainScreen.disableNext()
+        else:
+            ctx.mainScreen.enableNext()
 
     def execute(self):
         ctx.logger.info("Manual Partitioning selected...")
         ctx.mainScreen.processEvents()
-        return self.nextCheck()
+        check = self.nextCheck()
+        if not check:
+            ctx.mainScreen.enableBack()
+        return check
 
     def update(self):
         if self.storage.storageset.rootDevice:
@@ -120,12 +127,12 @@ about disk partitioning.
             if rc != 1:
                 return False
 
-        print "formatWarnings:%s" % formatWarnings
+        formatWarnings = getPreExistFormatWarnings(self.storage)
         if formatWarnings:
             detailed = _("The following pre-existing devices have been "
                          "selected to be formatted, destroying all data.")
 
-            commentstr = ""
+            comments = ""
             for (device, type, mountpoint) in formatWarnings:
                 comments = comments + "%s         %s         %s\n" % (device, type, mountpoint)
 
