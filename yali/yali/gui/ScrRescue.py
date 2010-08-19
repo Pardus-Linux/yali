@@ -23,10 +23,17 @@ import yali.sysutils
 #import yali.partitiontype as parttype
 #import yali.partitionrequest as request
 
-from yali.gui.ScreenWidget import ScreenWidget
-from yali.gui.GUIAdditional import PartItem
-from yali.gui.Ui.rescuewidget import Ui_RescueWidget
 import yali.context as ctx
+from yali.gui.ScreenWidget import ScreenWidget, GUIError
+from yali.gui.Ui.rescuewidget import Ui_RescueWidget
+
+class PartItem(QtGui.QListWidgetItem):
+    def __init__(self, parent, partition, label, icon):
+        QtGui.QListWidgetItem.__init__(self, QtGui.QIcon(":/gui/pics/%s.png" % icon), label, parent)
+        self._part = partition
+
+    def getPartition(self):
+        return self._part
 
 class Widget(QtGui.QWidget, ScreenWidget):
     title = _("System Repair")
@@ -50,7 +57,7 @@ This is a rescue mode help document.
 
         # initialize all storage devices
         if not yali.storage.initDevices():
-            raise GUIException, _("No storage device found.")
+            raise GUIError, _("No storage device found.")
 
         # Get usable partitions for rescue
         self.partitionList = PardusPartitions(self)

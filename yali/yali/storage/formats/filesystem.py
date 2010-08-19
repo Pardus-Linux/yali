@@ -185,8 +185,7 @@ class Filesystem(Format):
                 # report current size as megabytes
                 size = math.floor(size / 1024.0 / 1024.0)
             except Exception as e:
-                ctx.logger.error("failed to obtain size of filesystem on %s: %s"
-                          % (self.device, e))
+                ctx.logger.error("failed to obtain size of filesystem on %s: %s" % (self.device, e))
 
         return size
 
@@ -697,8 +696,8 @@ class Ext2Filesystem(Filesystem):
                         break
 
                 if blockSize is None:
-                    raise FilesystemError("failed to get block size for %s filesystem "
-                                  "on %s" % (self.mountType, self.device))
+                    raise FilesystemError("failed to get block size for %s filesystem on %s" %
+                                         (self.mountType, self.device))
 
                 # get minimum size according to resize2fs
                 rc, out, err = yali.util.run_batch(self.resizefs, ["-P", self.device])

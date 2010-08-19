@@ -19,7 +19,7 @@ from PyQt4.QtCore import *
 
 import yali.sysutils
 from yali.installdata import *
-from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui.ScreenWidget import ScreenWidget, GUIError
 from yali.gui.Ui.kickerwidget import Ui_KickerWidget
 import yali.context as ctx
 from yali.gui.YaliDialog import Dialog
@@ -95,7 +95,7 @@ class Widget(QtGui.QWidget, ScreenWidget):
                 # find usable storage devices
                 # initialize all storage devices
                 if not yali.storage.initDevices():
-                    raise GUIException, _("No storage device found.")
+                    raise GUIError, _("No storage device found.")
 
                 devices = []
                 for dev in yali.storage.devices:

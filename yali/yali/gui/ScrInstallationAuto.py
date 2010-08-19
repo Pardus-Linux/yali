@@ -27,7 +27,6 @@ from yali.installdata import methodInstallManual, methodInstallAutomatic, defaul
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.autoinstallationwidget import Ui_AutoInstallationWidget
 from yali.gui.Ui.autoinstallationlistitemwidget import Ui_AutoInstallationListItemWidget
-from yali.gui.GUIException import *
 
 ##
 # Installation Choice Widget

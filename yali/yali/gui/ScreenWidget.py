@@ -12,6 +12,11 @@
 
 ##
 # Abstract class for screen widgets
+import yali
+
+class GUIError(yali.Error):
+    pass
+
 class ScreenWidget:
 
     title = ""

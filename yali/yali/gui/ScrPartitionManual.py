@@ -23,7 +23,6 @@ from PyQt4.QtCore import *
 import yali.util
 import yali.context as ctx
 from yali.gui.YaliDialog import Dialog, QuestionDialog
-from yali.gui.GUIException import *
 from yali.gui.ScreenWidget import ScreenWidget
 
 from yali.gui.ManualPartition import PartitionEditor

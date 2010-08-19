@@ -22,15 +22,11 @@ from PyQt4 import QtGui
 from PyQt4.QtCore import SIGNAL, QEvent, QObject
 
 import yali.util
-import yali.pisiiface
 import yali.postinstall
 import yali.context as ctx
 from yali.gui.YaliDialog import InfoDialog
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.rescuepasswordwidget import Ui_RescuePasswordWidget
-from yali.gui.YaliSteps import YaliSteps
-from yali.gui.GUIException import GUIException
-from yali.gui.GUIAdditional import ConnectionWidget
 
 ##
 # BootLoader screen.

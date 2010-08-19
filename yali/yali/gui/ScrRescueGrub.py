@@ -22,7 +22,6 @@ import yali.storage
 from yali.installdata import *
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.rescuegrubwidget import Ui_RescueGrubWidget
-from yali.gui.GUIException import GUIException
 import yali.context as ctx
 
 ##

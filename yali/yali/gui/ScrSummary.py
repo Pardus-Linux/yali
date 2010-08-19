@@ -215,9 +215,9 @@ Here you can see your install options before installation starts.
         self.timer.stop()
 
         rc = ctx.yali.messageWindow(_("Confirm"),
-                                    _("The partitioning options you have selected "
-                                      "will now be written to disk.  Any "
-                                      "data on deleted or reformatted partitions "
+                                    _("The partitioning options you have selected"
+                                      "will now be\nwritten to disk.  Any"
+                                      "data on deleted or reformatted partitions\n"
                                       "will be lost."),
                                       type = "custom", customIcon="warning",
                                       customButtons=[_("Go Back"), _("Write Changes to Disk")],
