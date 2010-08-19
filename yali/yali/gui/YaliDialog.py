@@ -50,7 +50,7 @@ class windowTitle(QtGui.QFrame):
         self.dragPosition = None
         self.mainwidget = self.parent()
         self.setStyleSheet("""
-            QFrame#windowTitle {background-color:#562032;color:#FFF;}
+            QFrame#windowTitle {background-color:#628577;color:#FFF;}
         """)
 
         # Initial position to top left

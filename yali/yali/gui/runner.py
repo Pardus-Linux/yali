@@ -47,7 +47,7 @@ class Runner:
         desktop  = self._app.desktop()
 
         # Yali..
-        self._window = YaliWindow.Widget()
+        self._window = yali.gui.YaliWindow.Widget()
         ctx.mainScreen = self._window
 
         # Check for firstBoot on installed system (parameters from options)

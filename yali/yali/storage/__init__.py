@@ -7,7 +7,7 @@ _ = __trans.ugettext
 import yali
 import yali.util
 from operations import *
-from yali.gui import context as ctx
+import yali.context as ctx
 from yali.storage.devices.device import Device, DeviceError
 from yali.storage.devices.partition import Partition
 from yali.storage.formats import getFormat, get_default_filesystem_type
