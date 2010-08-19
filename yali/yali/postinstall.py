@@ -21,7 +21,7 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-import sysutils
+import yali.util
 import yali.pisiiface
 import yali.context as ctx
 from yali.constants import consts
@@ -75,7 +75,7 @@ def initbaselayout():
 def setTimeZone():
 
     # New Way; use zic
-    sysutils.chrootRun("/usr/sbin/zic -l %s" % ctx.installData.timezone)
+    yali.util.chroot("/usr/sbin/zic -l %s" % ctx.installData.timezone)
 
     # Old Way; copy proper timezone file as etc/localtime
     # os.system("rm -rf %s" % os.path.join(consts.target_dir, "etc/localtime"))

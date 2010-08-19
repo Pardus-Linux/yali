@@ -7,8 +7,12 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-from yali.util import numeric_type, swapon, swap_off, swap_status, mkswap
+import yali
+from yali.util import numeric_type, swapon, swap_off, swap_status, mkswap, SwapError
 from . import Format, register_device_format
+
+class SwapSpaceError(yali.Error):
+    pass
 
 class SwapSpace(Format):
     """ Swap space """
@@ -111,7 +115,10 @@ class SwapSpace(Format):
             raise SwapSpaceError("format has not been created")
 
         if self.status:
-            swap_off(self.device)
+            try:
+                swap_off(self.device)
+            except SwapError, msg:
+                raise SwapSpaceError, msg
 
     def create(self, *args, **kwargs):
         """ Create the device. """
@@ -122,7 +129,7 @@ class SwapSpace(Format):
         if force:
             self.teardown()
         elif self.status:
-            raise SwapSpaceError("device exists and is active")
+            raise SwapError("device exists and is active")
 
         try:
             Format.create(self, *args, **kwargs)
