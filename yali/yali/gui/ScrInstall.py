@@ -210,20 +210,17 @@ to discover the features and the innovations offered by this new Pardus release.
         # trigger next screen. will activate execute()
         ctx.mainScreen.slotNext()
 
-    def installError(self, e):
-        import yali
-        import yali.gui.runner
-
+    def installError(self, error):
         self.hasErrors = True
-        err_str = _("""An error occured during the installation of packages.
+        errorstr = _("""An error occured during the installation of packages.
 
 This may be caused by a corrupted installation medium.
 
 Error:
 %s
-""") % str(e)
-
-        yali.gui.runner.showException(yali.exception_fatal, err_str)
+""") % str(error)
+        import yali.gui.runner
+        yali.gui.runner.showException(1, errorstr)
 
 class PkgInstaller(QThread):
 

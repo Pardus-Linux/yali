@@ -151,15 +151,15 @@ class Runner:
         self._window.show()
         ctx.yali.info.updateMessage()
 
-def showException(ex_type, tb):
+def showException(error_type, error_traceback):
     title = _("An error occured")
     closeButton = True
 
-    if ex_type in (yali.exception_fatal, yali.exception_pisi):
+    if error_type in (yali.exception_yali, yali.exception_pisi):
         closeButton = False
 
-    ctx.logger.debug(tb)
-    d = Dialog(title, ExceptionWidget(tb, not closeButton), None, closeButton, icon="error")
+    ctx.logger.debug(error_traceback)
+    d = Dialog(title, ExceptionWidget(error_traceback, not closeButton), None, closeButton, icon="error")
     d.resize(300,160)
     d.exec_()
 
@@ -179,4 +179,3 @@ class ExceptionWidget(QtGui.QWidget):
         self.ui.traceback.show()
         self.ui.showBackTrace.hide()
         self.emit(SIGNAL("resizeDialog(int,int)"), 440, 440)
-

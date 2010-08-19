@@ -25,7 +25,6 @@ __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 import pisi
-from yali.exception import *
 
 class Singleton(type):
     def __init__(cls, name, bases, dict):
@@ -55,19 +54,13 @@ def default_runner():
     sys.excepthook = exception_handler
     return yali.gui.runner.Runner()
 
-exception_normal,\
-exception_fatal,\
-exception_pisi,\
-exception_informational,\
-exception_unknown = range(5)
+exception_yali, exception_pisi, exception_unknown = range(3)
 
 def exception_handler(exception, value, tb):
     """ YALI exception handler for showing exceptions in GUI """
 
-    knownExceptions = {YaliError:           exception_fatal,
-                       YaliException:       exception_normal,
-                       YaliExceptionInfo:   exception_informational,
-                       pisi.Error:          exception_pisi}
+    knownExceptions = {Error:           exception_yali,
+                       pisi.Error:      exception_pisi}
 
     try:
         exception_type = knownExceptions[filter(lambda x: isinstance(value, x), knownExceptions.keys())[0]]
@@ -89,9 +82,6 @@ def exception_handler(exception, value, tb):
 
     sio.seek(0)
 
-    if exception_type == exception_informational:
-        from yali.gui.YaliDialog import InfoDialog
-        InfoDialog(unicode(v), title=_("Error"), icon="error")
-    else:
-        import yali.gui.runner
-        yali.gui.runner.showException(exception_type, unicode(sio.read()))
+    import yali.gui.runner
+    yali.gui.runner.showException(exception_type, unicode(sio.read()))
+
