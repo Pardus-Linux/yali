@@ -173,7 +173,7 @@ class I18nInstall(install):
             shutil.copy("po/%s.mo" % lang, os.path.join(destpath, "%s.mo" % i18n_domain))
 
 setup(name="yali",
-      version= "2.2.0",
+      version= "2.4.0",
       description="YALI (Yet Another Linux Installer)",
       long_description="Pardus System Installer.",
       license="GNU GPL2",
