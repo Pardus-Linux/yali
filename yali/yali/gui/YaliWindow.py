@@ -11,30 +11,24 @@
 #
 import os
 import sys
-from os.path import join
-from PyQt4 import QtGui
-from PyQt4.QtCore import *
+import codecs
 
 import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
+from PyQt4 import QtGui
+from PyQt4.QtCore import *
+import QTermWidget
+from pyaspects.weaver import *
+
 import yali.util
 import yali.sysutils
+import yali.context as ctx
 from yali.gui.Ui.main import Ui_YaliMain
 from yali.gui.YaliDialog import Dialog, QuestionDialog
 from yali.gui.YaliDialog import Tetris
-import yali.context as ctx
-
-# Aspect oriented huh ;)
-from pyaspects.weaver import *
 from yali.gui.aspects import enableNavButtonsAspect, disableNavButtonsAspect, loggerAspect
-
-# Release Notes
-from yali.gui.GUIAdditional import ReleaseNotes
-
-# QTerm
-import QTermWidget
 
 ##
 # Widget for YaliWindow (you can call it MainWindow too ;).
@@ -298,3 +292,23 @@ class Widget(QtGui.QWidget):
         d.resize(500,400)
         d.exec_()
 
+class ReleaseNotes(QtGui.QTextBrowser):
+
+    def __init__(self, *args):
+        apply(QtGui.QTextBrowser.__init__, (self,) + args)
+
+        self.setStyleSheet("background:white;color:black;")
+
+        try:
+            self.setText(codecs.open(self.load_file(), "r", "UTF-8").read())
+        except Exception, msg:
+            ctx.logger.error(_(msg))
+
+    def load_file(self):
+        rel_path = os.path.join(ctx.consts.source_dir,"release-notes/releasenotes-" + ctx.consts.lang + ".html")
+
+        if not os.path.exists(rel_path):
+            rel_path = os.path.join(ctx.consts.source_dir, "release-notes/releasenotes-en.html")
+        if os.path.exists(rel_path):
+            return rel_path
+        raise Exception, _("Release notes could not be loaded.")

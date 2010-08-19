@@ -10,6 +10,7 @@
 # Please read the COPYING file.
 #
 
+import codecs
 import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
@@ -18,11 +19,10 @@ from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
 import yali.util
-from yali.gui.ScreenWidget import ScreenWidget
-from yali.gui.Ui.welcomewidget import Ui_WelcomeWidget
 import yali.context as ctx
+from yali.gui.Ui.welcomewidget import Ui_WelcomeWidget
+from yali.gui.ScreenWidget import ScreenWidget, GUIError
 from yali.gui.YaliDialog import Dialog
-from yali.gui.GUIAdditional import Gpl
 
 ##
 # Welcome screen is the first screen to be shown.
@@ -70,7 +70,7 @@ class Widget(QtGui.QWidget, ScreenWidget):
 
     def showGPL(self):
         # make a GPL dialog
-        d = Dialog("GPL", Gpl(self), self)
+        d = Dialog("GPL", LicenseBrowser(self), self)
         d.resize(500,400)
         d.exec_()
 
@@ -86,3 +86,23 @@ class Widget(QtGui.QWidget, ScreenWidget):
             ctx.mainScreen.disableNext()
         ctx.mainScreen.processEvents()
 
+class LicenseBrowser(QtGui.QTextBrowser):
+
+    def __init__(self, *args):
+        apply(QtGui.QTextBrowser.__init__, (self,) + args)
+
+        self.setStyleSheet("background:white;color:black;")
+
+        try:
+            self.setText(codecs.open(self.load_file(), "r", "UTF-8").read())
+        except Exception, msg:
+            GUIError, _(msg)
+
+    def load_file(self):
+        f = os.path.join(ctx.consts.source_dir, "license/license-" + ctx.consts.lang + ".txt")
+
+        if not os.path.exists(f):
+            f = os.path.join(ctx.consts.source_dir, "license/license-en.txt")
+        if os.path.exists(f):
+            return f
+        raise GUIError, _("License text could not be found.")

@@ -26,9 +26,7 @@ import yali.postinstall
 import yali.context as ctx
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.rescuepisiwidget import Ui_RescuePisiWidget
-from yali.gui.YaliSteps import YaliSteps
-from yali.gui.GUIException import GUIException
-from yali.gui.GUIAdditional import ConnectionWidget
+from yali.gui.Ui.connectionlist import Ui_connectionWidget
 
 ##
 # BootLoader screen.
@@ -140,3 +138,70 @@ class HistoryItem(QtGui.QListWidgetItem):
     def getInfo(self):
         return self._info
 
+class ConnectionItem(QtGui.QListWidgetItem):
+    def __init__(self, parent, connection, package):
+        QtGui.QListWidgetItem.__init__(self, QtGui.QIcon(":/gui/pics/%s.png" % package), connection, parent)
+        self._connection = [connection, package]
+
+    def getConnection(self):
+        return self._connection[0]
+
+    def getPackage(self):
+        return self._connection[1]
+
+    def connect(self):
+        connectTo(self.getPackage(), self.getConnection())
+
+class ConnectionWidget(QtGui.QWidget):
+
+    def __init__(self, rootWidget):
+        QtGui.QWidget.__init__(self, ctx.mainScreen)
+        self.ui = Ui_connectionWidget()
+        self.ui.setupUi(self)
+        self.setStyleSheet("""
+                QFrame#mainFrame {
+                    background-image: url(:/gui/pics/transBlack.png);
+                    border: 1px solid #BBB;
+                    border-radius:8px;
+                }
+                QWidget#autoPartQuestion {
+                    background-image: url(:/gui/pics/trans.png);
+                }
+        """)
+
+        self.rootWidget = rootWidget
+        self.needsExecute = False
+        self.connect(self.ui.buttonCancel, SIGNAL("clicked()"), self.hide)
+        self.connect(self.ui.buttonConnect, SIGNAL("clicked()"), self.slotUseSelected)
+
+        self.connections = getConnectionList()
+        if self.connections:
+            for package in self.connections.keys():
+                for connection in self.connections[package]:
+                    ci = ConnectionItem(self.ui.connectionList, unicode(str(connection)), package)
+
+            self.ui.connectionList.setCurrentRow(0)
+            self.resize(ctx.mainScreen.size())
+
+    def slotUseSelected(self):
+        current = self.ui.connectionList.currentItem()
+        if current:
+            ctx.yali.info.updateAndShow(_("Connecting to network %s...") % current.getConnection())
+
+            try:
+                ret = current.connect()
+            except:
+                ret = True
+                self.rootWidget.ui.labelStatus.setText(_("Connection failed"))
+                ctx.yali.info.updateAndShow(_("Connection failed"))
+
+            if not ret:
+                self.rootWidget.ui.labelStatus.setText(_("Connected"))
+                ctx.yali.info.updateAndShow(_("Connected"))
+
+            self.hide()
+            ctx.mainScreen.processEvents()
+            ctx.yali.info.hide()
+
+            if self.needsExecute:
+                self.rootWidget.execute_(True)
