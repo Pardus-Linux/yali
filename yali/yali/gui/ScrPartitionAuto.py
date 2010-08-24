@@ -143,23 +143,14 @@ class DrivesListItem(QtGui.QListWidgetItem):
 class DriveItem(QtGui.QWidget):
     def __init__(self, parent, drive):
         QtGui.QWidget.__init__(self, parent)
-        #self.gridLayout = QtGui.QGridLayout(self)
         self.layout = QtGui.QHBoxLayout(self)
         self.checkBox = QtGui.QCheckBox(self)
-        #self.gridLayout.addWidget(self.checkBox, 0, 0, 1, 1)
-        #self.layout.addWidget(self.checkBox, 0, 0, 1, 1)
         self.layout.addWidget(self.checkBox)
-        #self.verticalLayout = QtGui.QVBoxLayout()
         self.labelDrive = QtGui.QLabel(self)
         self.labelDrive.setText("%s on %s - (%s) MB" % (drive.model, drive.name, str(int(drive.size))))
         self.layout.addWidget(self.labelDrive)
         spacerItem = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
         self.layout.addItem(spacerItem)
-        #self.labelDescription = QtGui.QLabel(self)
-        #self.labelDescription.setText("%s" % drive.model)
-        #self.verticalLayout.addWidget(self.labelDrive)
-        #self.verticalLayout.addWidget(self.labelDescription)
-        #self.gridLayout.addLayout(self.verticalLayout, 0, 1, 1, 1)
         self.connect(self.checkBox, SIGNAL("stateChanged(int)"), self.stateChanged)
         self.drive = drive
         self.parent = parent
@@ -171,7 +162,7 @@ class DriveItem(QtGui.QWidget):
             selectedDisks = []
             for index in range(self.parent.count()):
                 if self.checkBox.checkState() == Qt.Checked:
-                    selectedDisks.append(self.ui.drives.item(index).drive)
+                    selectedDisks.append(self.ui.drives.item(index).drive.name)
 
             if len(selectedDisks):
                 ctx.mainScreen.enableNext()
@@ -277,16 +268,17 @@ Pardus create a new partition for installation.</p>
         selectedDisks = []
         for index in range(self.ui.drives.count()):
             if self.ui.drives.item(index).widget.checkBox.checkState() == Qt.Checked:
-                selectedDisks.append(self.ui.drives.item(index).widget.drive)
+                selectedDisks.append(self.ui.drives.item(index).widget.drive.name)
 
         if len(selectedDisks) == 0:
             self.intf.messageWindow(_("Error"),
                                     _("You must select at least one "
                                       "drive to be used for installation."), customIcon="error")
             return False
-
-        self.clearPartDisks = selectedDisks.sort(self.storage.compareDisks)
-        return True
+        else:
+            selectedDisks.sort(self.storage.compareDisks)
+            self.storage.clearPartDisks = selectedDisks
+            return True
 
     def execute(self):
         rc = self.nextCheck()
@@ -301,7 +293,7 @@ Pardus create a new partition for installation.</p>
         if self.checkClearPartDisks():
             increment = 0
             if self.ui.createCustom.isChecked():
-                ctx.mainScreen.stepIncrement = 1
+                increment = 1
                 self.storage.clearPartType = CLEARPART_TYPE_NONE
             else:
                 if self.ui.shrinkCurrent.isChecked():
@@ -318,7 +310,6 @@ Pardus create a new partition for installation.</p>
 
                 self.storage.doAutoPart = True
                 self.storage.autoPartitionRequests = defaultPartitioning(self.storage, quiet=0)
-                self.storage.clearPartDisks = self.clearPartDisks
                 if not self.storage.clearPartDisks:
                     return False
 
@@ -326,8 +317,9 @@ Pardus create a new partition for installation.</p>
                     increment = 1
                 else:
                     increment = 2
+                return doAutoPartition(self.storage)
 
             ctx.mainScreen.stepIncrement = increment
-            return doAutoPartition(self.storage)
+            return True
 
         return False

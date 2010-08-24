@@ -233,7 +233,7 @@ def createAdvancedSizeOptions(parent, request):
     fillMaxsizeRadioButton = QtGui.QRadioButton(_("Fill all space up to (MB):"))
     fillMaxsizeSpinBox = QtGui.QSpinBox(groupBox)
     fillMaxsizeSpinBox.setMaximum(ctx.consts.MAX_PART_SIZE)
-    QObject.connect(fillMaxsizeRadioButton, SIGNAL("toggled()"), parent.fillAllSpaceCB)
+    QObject.connect(fillMaxsizeRadioButton, SIGNAL("toggled(bool)"), lambda x: fillMaxsizeSpinBox.setEnabled(x))
 
     fillMaxsizeSpinBox.setEnabled(False)
 

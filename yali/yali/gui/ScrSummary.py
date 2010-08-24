@@ -144,7 +144,8 @@ Here you can see your install options before installation starts.
             summary = ""
             devices = ""
             for disk in ctx.storage.clearPartDisks:
-                devices += "(%s on %s)" % (disk.model, disk.name)
+                device = ctx.storage.devicetree.getDeviceByName(disk)
+                devices += "(%s on %s)" % (device.model, device.name)
 
             content.append(item % _("Automatic Partitioning selected."))
             if ctx.storage.clearPartType == CLEARPART_TYPE_ALL:

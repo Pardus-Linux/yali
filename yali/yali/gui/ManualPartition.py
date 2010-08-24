@@ -110,7 +110,7 @@ class PartitionEditor:
                 if allowedDrives:
                     for drive in allowedDrives:
                         for disk in self.storage.partitioned:
-                            if disk.name == drive:
+                            if disk.name == drive.name:
                                 disks.append(disk)
 
                 format = formats.getFormat(formatType, mountpoint=mountpoint)
@@ -333,9 +333,6 @@ class PartitionWidget(QtGui.QWidget):
     def fstypechangeCB(self, index):
         format  = formats.getFormat(self.sender().itemText(index))
         self.setMntptComboStateFromFStype(format, self.mountCombo)
-
-    def fillAllSpaceCB(self, state):
-        self.fillMaxsizeSpinBox.setEnabled(state)
 
     def sizeSpinChanged(self, size):
         maxsize = self.fillMaxsizeSpinBox.value()

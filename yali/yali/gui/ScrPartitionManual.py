@@ -107,8 +107,7 @@ about disk partitioning.
                           "you continue your installation of "
                           "%s.") % yali.util.product_name()
 
-            comments = string.join(errors, "\n\n")
-
+            comments = "\n\n".join(errors)
             ctx.yali.detailedMessageWindow(_("Partitioning Errors"),
                                              detailed, comments, type="ok")
             return False
@@ -120,7 +119,7 @@ about disk partitioning.
                          "your requested partitioning "
                          "scheme?")
 
-            comments = string.join(warnings, "\n\n")
+            comments = "\n\n".join(warnings)
             rc = ctx.yali.detailedMessageWindow(_("Partitioning Warnings"),
                                                   detailed, comments, type="yesno")
             if rc != 1:
