@@ -25,7 +25,7 @@ class KernelError(BootLoaderError):
 
 dos_filesystems = ('FAT', 'fat16', 'fat32', 'ntfs', 'hpfs')
 linux_filesystems = ('ext4', 'ext3', 'reisersfs', 'xfs')
-allParameters = ["root", "initrd","init","xorg","yali","BOOT_IMAGE","lang","mudur"]
+allParameters = ["root", "initrd","init","xorg","yali","BOOT_IMAGE","lang","mudur", "copytoram"]
 
 BOOT_TYPE_NONE = 0
 BOOT_TYPE_MBR = 1
@@ -54,16 +54,21 @@ def get_configs(rootpath):
         return (release, kernel, initramfs)
 
 def get_commands(storage):
+    def is_required(parameter):
+        for p in allParameters:
+            if parameter.startswith("%s=" % p):
+                return False
+        return True
+
     _commands = []
     _commands.append("root=%s" % (storage.rootDevice.fstabSpec))
 
     if storage.storageset.swapDevices:
         _commands.append("resume=%s" % storage.storageset.swapDevices[0].path)
 
-    for command in [cmd for cmd in open("/proc/cmdline", "r").read().split()]:
-        for parameter in allParameters:
-            if not command.startswith("%s=" % parameter):
-                _commands.append(command)
+    for parameter in [x for x in open("/proc/cmdline", "r").read().split()]:
+        if is_required(parameter):
+            _commands.append(parameter)
 
     return " ".join(_commands).strip()
 
