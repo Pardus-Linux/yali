@@ -142,9 +142,8 @@ Here you can see your install options before installation starts.
         content.append(subject % _("Partition Settings"))
         if ctx.storage.doAutoPart:
             summary = ""
-            clearPartDisks = ctx.storage.clearPartDisks
             devices = ""
-            for disk in clearPartDisks:
+            for disk in ctx.storage.clearPartDisks:
                 devices += "(%s on %s)" % (disk.model, disk.name)
 
             content.append(item % _("Automatic Partitioning selected."))

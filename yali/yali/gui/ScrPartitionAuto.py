@@ -248,7 +248,7 @@ Pardus create a new partition for installation.</p>
         if self.storage.clearPartType is None or self.storage.clearPartType == CLEARPART_TYPE_LINUX:
             self.ui.replaceExistingLinux.toggle()
         elif self.storage.clearPartType == CLEARPART_TYPE_NONE:
-            self.ui.useFreeSpace.togg()
+            self.ui.useFreeSpace.toggle()
         elif self.storage.clearPartType == CLEARPART_TYPE_ALL:
             self.ui.useAllSpace.toggle()
 
@@ -319,6 +319,8 @@ Pardus create a new partition for installation.</p>
                 self.storage.doAutoPart = True
                 self.storage.autoPartitionRequests = defaultPartitioning(self.storage, quiet=0)
                 self.storage.clearPartDisks = self.clearPartDisks
+                if not self.storage.clearPartDisks:
+                    return False
 
                 if self.ui.review.isChecked():
                     increment = 1

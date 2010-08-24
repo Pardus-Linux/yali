@@ -65,7 +65,7 @@ about disk partitioning.
         self.connect(self.ui.editButton, SIGNAL("clicked()"),self.editDevice)
         self.connect(self.ui.deleteButton, SIGNAL("clicked()"),self.deleteDevice)
         self.connect(self.ui.resetButton, SIGNAL("clicked()"),self.reset)
-        self.connect(self.ui.deviceTree, SIGNAL("itemActivated(QTreeWidgetItem *, int)"), self.activateButtons)
+        self.connect(self.ui.deviceTree, SIGNAL("itemClicked(QTreeWidgetItem *, int)"), self.activateButtons)
 
     def shown(self):
         checkForSwapNoMatch(ctx.yali, self.storage)
@@ -91,7 +91,7 @@ about disk partitioning.
             ctx.mainScreen.disableNext()
 
     def activateButtons(self, item, index):
-        if item.device is not None and isinstance(item.device, Device):
+        if item and item.device is not None and isinstance(item.device, Device):
             self.ui.editButton.setEnabled(True)
             self.ui.deleteButton.setEnabled(True)
         else:
