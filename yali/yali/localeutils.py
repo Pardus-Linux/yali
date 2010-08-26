@@ -31,7 +31,7 @@ def setKeymap(keymap, variant=None):
     if variant:
         ad = "-variant %s" % variant
     else:
-        variant = ""
+        variant = "\"\""
     yali.util.run_batch("setxkbmap", ["-layout", keymap, ad])
     yali.util.run_batch("hav", ["call", "zorg", "Xorg.Display", "setKeymap", keymap, variant])
 
