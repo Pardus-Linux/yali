@@ -201,7 +201,7 @@ Pardus create a new partition for installation.</p>
         self.ui = Ui_AutoPartWidget()
         self.ui.setupUi(self)
         self.storage = ctx.storage
-        self.intf = ctx.yali
+        self.intf = ctx.interface
         self.shrinkOperations = None
         self.clearPartDisks = None
 

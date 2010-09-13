@@ -155,6 +155,9 @@ about disk partitioning.
         self.refresh(justRedraw=True)
 
     def addDevice(self, device, item):
+        if device.format.hidden:
+            return
+
         format = device.format
         if format.formattable:
             formattable = QtGui.QIcon(":/images/checkbox_checked.png")
@@ -166,12 +169,22 @@ about disk partitioning.
         else:
             formatIcon = QtGui.QIcon(":/images/checkbox_unchecked.png")
 
-        mountpoint = getattr(format, "mountpoint", "")
-        if mountpoint is None:
-            mountpoint = ""
+        # mount point string
+        if format.type == "lvmpv":
+            vg = None
+            for _vg in self.storage.vgs:
+                if _vg.dependsOn(device):
+                    vg = _vg
+                    break
+            mountpoint = getattr(vg, "name", "")
+        else:
+            mountpoint = getattr(format, "mountpoint", "")
+            if mountpoint is None:
+                mountpoint = ""
 
         # device name
-        name = getattr(device, "name", "")
+        # device name
+        name = getattr(device, "lvname", device.name)
 
         # label
         label = getattr(format, "label", "")
@@ -189,7 +202,33 @@ about disk partitioning.
 
     def populate(self):
         self.ui.deviceTree.clear()
+        # first do LVM
+        vgs = self.storage.vgs
+        if vgs:
+            volumeGroupsItem = DeviceTreeItem(self.ui.deviceTree)
+            volumeGroupsItem.setName(_("LVM Volume Groups"))
+            for vg in vgs:
+                volumeGroupItem = DeviceTreeItem(volumeGroupsItem)
+                self.addDevice(vg, volumeGroupItem)
+                volumeGroupItem.setType("")
+                for lv in vg.lvs:
+                    logicalVolumeItem = DeviceTreeItem(volumeGroupItem)
+                    self.addDevice(lv, logicalVolumeItem)
+
+                # We add a row for the VG free space.
+                if vg.freeSpace > 0:
+                    freeLogicalVolumeItem = DeviceTreeItem(volumeGroupItem)
+                    freeLogicalVolumeItem.setName(_("Free"))
+                    freeLogicalVolumeItem.setSize("%Ld" % vg.freeSpace)
+                    freeLogicalVolumeItem.setDevice(None)
+                    freeLogicalVolumeItem.setMountpoint("")
+
+        # now normal partitions
         disks = self.storage.partitioned
+        # also include unpartitioned disks that aren't mpath or biosraid
+        whole = filter(lambda d: not d.partitioned and not d.format.hidden,
+                       self.storage.disks)
+        disks.extend(whole)
         disks.sort(key=lambda d: d.name)
         # Disk&Partitions
         drivesItem = DeviceTreeItem(self.ui.deviceTree)
@@ -256,7 +295,7 @@ about disk partitioning.
 
                     partition = partition.nextPartition()
             else:
-                self.__addDevice(disk, diskItem)
+                self.addDevice(disk, diskItem)
 
         #Expands all item in selected device tree item
         for index in range(self.ui.deviceTree.topLevelItemCount()):
@@ -298,6 +337,12 @@ about disk partitioning.
     def getCurrentDevice(self):
         return self.ui.deviceTree.currentItem().device
 
+    def getCurrentDeviceParent(self):
+        """ Return the parent of the selected row.  Returns an item.
+            None if there is no parent.
+        """
+        pass
+
     def createPartition(self):
         # create new request of size 1M
         tempformat = self.storage.defaultFSType
@@ -315,8 +360,26 @@ about disk partitioning.
                                     customIcon="error")
             return
 
+        if device.type == "lvmvg":
+            self.editVolumeGroup(device)
+        elif device.type == "lvmlv":
+            self.editLogicalVolume(lv=device)
         if isinstance(device, Partition):
             self.editPartition(device)
+
+    def editVolumeGroup(self, device, isNew = False):
+        pass
+
+    def editLogicalVolume(self, lv = None, vg = None):
+        """Will be consistent with the state of things and use this funciton
+        for creating and editing LVs.
+
+        lv -- the logical volume to edit.  If this is set there is no need
+              for the other two arguments.
+        vg -- the volume group where the new lv is going to be created. This
+              will only be relevant when we are createing an LV.
+        """
+        pass
 
     def editPartition(self, device, isNew=False, restricts=None):
         partitionEditor = PartitionEditor(self, device, isNew=isNew, restricts=restricts)
@@ -358,6 +421,8 @@ about disk partitioning.
                 justRedraw = False
             else:
                 justRedraw = True
+                if device.type == "lvmlv" and device in device.vg.lvs:
+                    device.vg._removeLogicalVolume(device)
 
             self.refresh(justRedraw=justRedraw)
 
