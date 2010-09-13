@@ -629,7 +629,7 @@ def removeNewPartitions(disks, partitions):
 
         Arguments:
 
-            disks -- list of StorageDevice instances with DiskLabel format
+            disks -- list of Device instances with DiskLabel format
             partitions -- list of Partition instances
 
     """
@@ -838,7 +838,7 @@ def allocatePartitions(storage, disks, partitions, freespace):
 
     # the following dicts all use device path strings as keys
     disklabels = {}     # DiskLabel instances for each disk
-    all_disks = {}      # StorageDevice for each disk
+    all_disks = {}      # Device for each disk
     for disk in disks:
         if disk.path not in disklabels.keys():
             disklabels[disk.path] = disk.format
@@ -1238,13 +1238,133 @@ def growPartitions(disks, partitions, free):
                     # make sure we store the disk's version of the partition
                     newpart = disklabel.partedDisk.getPartitionByPath(path)
                     device.partedPartition = newpart
+def growLVM(storage):
+    """ Grow LVs according to the sizes of the PVs. """
+    for vg in storage.vgs:
+        total_free = vg.freeSpace
+        if total_free < 0:
+            # by now we have allocated the PVs so if there isn't enough
+            # space in the VG we have a real problem
+            raise PartitioningError("not enough space for LVM requests")
+        elif not total_free:
+            ctx.logger.debug("vg %s has no free space" % vg.name)
+            continue
+
+        ctx.logger.debug("vg %s: %dMB free ; lvs: %s" % (vg.name, vg.freeSpace,
+                                                        [l.lvname for l in vg.lvs]))
+
+        # figure out how much to grow each LV
+        grow_amounts = {}
+        lv_total = vg.size - total_free
+        ctx.logger.debug("used: %dMB ; vg.size: %dMB" % (lv_total, vg.size))
+
+        # This first loop is to calculate percentage-based growth
+        # amounts. These are based on total free space.
+        lvs = vg.lvs
+        lvs.sort(cmp=logicalVolumeCompare)
+        for lv in lvs:
+            if not lv.req_grow or not lv.req_percent:
+                continue
+
+            portion = (lv.req_percent * 0.01)
+            grow = portion * vg.vgFree
+            new_size = lv.req_size + grow
+            if lv.req_max_size and new_size > lv.req_max_size:
+                grow -= (new_size - lv.req_max_size)
+
+            if lv.format.maxSize and lv.format.maxSize < new_size:
+                grow -= (new_size - lv.format.maxSize)
+
+            # clamp growth amount to a multiple of vg extent size
+            grow_amounts[lv.name] = vg.align(grow)
+            total_free -= grow
+            lv_total += grow
+
+        # This second loop is to calculate non-percentage-based growth
+        # amounts. These are based on free space remaining after
+        # calculating percentage-based growth amounts.
+
+        # keep a tab on space not allocated due to format or requested
+        # maximums -- we'll dole it out to subsequent requests
+        leftover = 0
+        for lv in lvs:
+            ctx.logger.debug("checking lv %s: req_grow: %s ; req_percent: %s"
+                            % (lv.name, lv.req_grow, lv.req_percent))
+            if not lv.req_grow or lv.req_percent:
+                continue
+
+            portion = float(lv.req_size) / float(lv_total)
+            grow = portion * total_free
+            ctx.logger.debug("grow is %dMB" % grow)
+
+            todo = lvs[lvs.index(lv):]
+            unallocated = reduce(lambda x,y: x+y,
+                                 [l.req_size for l in todo
+                                  if l.req_grow and not l.req_percent])
+            extra_portion = float(lv.req_size) / float(unallocated)
+            extra = extra_portion * leftover
+            ctx.logger.debug("%s getting %dMB (%d%%) of %dMB leftover space"
+                      % (lv.name, extra, extra_portion * 100, leftover))
+            leftover -= extra
+            grow += extra
+            ctx.logger.debug("grow is now %dMB" % grow)
+            max_size = lv.req_size + grow
+            if lv.req_max_size and max_size > lv.req_max_size:
+                max_size = lv.req_max_size
+
+            if lv.format.maxSize and max_size > lv.format.maxSize:
+                max_size = lv.format.maxSize
+
+            ctx.logger.debug("max size is %dMB" % max_size)
+            max_size = max_size
+            leftover += (lv.req_size + grow) - max_size
+            grow = max_size - lv.req_size
+            ctx.logger.debug("lv %s gets %dMB" % (lv.name, vg.align(grow)))
+            grow_amounts[lv.name] = vg.align(grow)
+
+        if not grow_amounts:
+            ctx.logger.debug("no growable lvs in vg %s" % vg.name)
+            continue
+
+        # now grow the lvs by the amounts we've calculated above
+        for lv in lvs:
+            if lv.name not in grow_amounts.keys():
+                continue
+            lv.size += grow_amounts[lv.name]
+
+        # now there shouldn't be any free space left, but if there is we
+        # should allocate it to one of the LVs
+        vg_free = vg.freeSpace
+        ctx.logger.debug("vg %s has %dMB free" % (vg.name, vg_free))
+        if vg_free:
+            for lv in lvs:
+                if not lv.req_grow:
+                    continue
+
+                if lv.req_max_size and lv.size == lv.req_max_size:
+                    continue
+
+                if lv.format.maxSize and lv.size == lv.format.maxSize:
+                    continue
+
+                # first come, first served
+                projected = lv.size + vg.freeSpace
+                if lv.req_max_size and projected > lv.req_max_size:
+                    projected = lv.req_max_size
+
+                if lv.format.maxSize and projected > lv.format.maxSize:
+                    projected = lv.format.maxSize
+
+                ctx.logger.debug("giving leftover %dMB to %s" % (projected - lv.size,
+                                                                lv.name))
+                lv.size = projected
 
 def getDiskChunks(disk, partitions, free):
     """ Return a list of Chunk instances representing a disk.
 
         Arguments:
 
-            disk -- a StorageDevice with a DiskLabel format
+            disk -- a Device with a DiskLabel format
             partitions -- list of Partition instances
             free -- list of parted.Geometry instances representing free space
 
@@ -1321,6 +1441,37 @@ def shouldClear(device, clearPartType, clearPartDisks=None):
 
     return True
 
+def logicalVolumeCompare(lv1, lv2):
+    """ More specifically defined lvs come first.
+
+        < 1 => x < y
+          0 => x == y
+        > 1 => x > y
+    """
+    ret = 0
+
+    # larger requests go to the front of the list
+    ret -= cmp(lv1.size, lv2.size) * 100
+
+    # fixed size requests to the front
+    ret += cmp(lv1.req_grow, lv2.req_grow) * 50
+
+    # potentially larger growable requests go to the front
+    if lv1.req_grow and lv2.req_grow:
+        if not lv1.req_max_size and lv2.req_max_size:
+            ret -= 25
+        elif lv1.req_max_size and not lv2.req_max_size:
+            ret += 25
+        else:
+            ret -= cmp(lv1.req_max_size, lv2.req_max_size) * 25
+
+    if ret > 0:
+        ret = 1
+    elif ret < 0:
+        ret = -1
+
+    return ret
+
 def weight(fstype=None, mountpoint=None):
     """ Given an fstype (as a string) or a mountpoint, return an integer
         for the base sorting weight.  This is used to modify the sort
@@ -1337,17 +1488,17 @@ def defaultPartitioning(storage, quiet=0):
     """Return the default partitioning information."""
     autorequests = [PartitionSpec(mountpoint="/", fstype=storage.defaultFSType,
                                   size=1024, maxSize=50*1024,
-                                  grow=True, asVol=False),
+                                  grow=True, asVol=True),
                     PartitionSpec(mountpoint="/home", fstype=storage.defaultFSType,
                                   size=100, grow=True,
-                                  asVol=False, requiredSpace=50*1024)]
+                                  asVol=True, requiredSpace=50*1024)]
 
     bootreq = PartitionSpec(mountpoint="/boot", fstype=storage.defaultFSType,
                             size=500, weight=weight(mountpoint="/boot"))
     autorequests.append(bootreq)
 
     (minswap, maxswap) = yali.util.swap_suggestion(quiet=quiet)
-    swapreq = PartitionSpec(fstype="swap", size=minswap, maxSize=maxswap, grow=True, asVol=False)
+    swapreq = PartitionSpec(fstype="swap", size=minswap, maxSize=maxswap, grow=True, asVol=True)
     autorequests.append(swapreq)
 
     return autorequests
@@ -1375,17 +1526,15 @@ def _createFreeSpacePartitions(storage):
 
     # create a separate pv partition for each disk with free space
     devs = []
-    # Disable up to enable lvm support. This commented block is due to
-    # add free space partitions as physical volumes automatically.
-    #for disk in disks:
-    #    fmt_type = "lvmpv"
-    #    fmt_args = {}
-    #    part = storage.newPartition(fmt_type=fmt_type,
-    #                                fmt_args=fmt_args,
-    #                                grow=True,
-    #                                disks=[disk])
-    #    storage.createDevice(part)
-    #    devs.append(part)
+    for disk in disks:
+        fmt_type = "lvmpv"
+        fmt_args = {}
+        part = storage.newPartition(fmt_type=fmt_type,
+                                    fmt_args=fmt_args,
+                                    grow=True,
+                                    disks=[disk])
+        storage.createDevice(part)
+        devs.append(part)
 
     return (disks, devs)
 
@@ -1419,6 +1568,39 @@ def _schedulePartitions(storage, disks):
 
     # make sure preexisting broken lvm/raid configs get out of the way
     return
+
+def _scheduleLogicalVolumes(storage, devices):
+    pvs = devices
+    # create a vg containing all of the autopart pvs
+    vg = storage.newVolumeGroup(pvs=pvs)
+    storage.createDevice(vg)
+
+    initialVGSize = vg.size
+
+    #
+    # Convert storage.autoPartitionRequests into Device instances and
+    # schedule them for creation.
+    #
+    # Second pass, for LVs only.
+    for request in storage.autoPartitionRequests:
+        if not request.asVol:
+            continue
+
+        if request.requiredSpace and request.requiredSpace > initialVGSize:
+            continue
+
+        if request.fstype is None:
+            request.fstype = storage.defaultFSType
+
+        # FIXME: move this to a function and handle exceptions
+        device = storage.newLogicalVolume(vg=vg, fmt_type=request.fstype,
+                                          mountpoint=request.mountpoint,
+                                          grow=request.grow,
+                                          maxsize=request.maxSize,
+                                          size=request.size)
+
+        # schedule the device for creation
+        storage.createDevice(device)
 
 def doAutoPartition(storage):
     ctx.logger.debug("doAutoPartition")
@@ -1455,6 +1637,12 @@ def doAutoPartition(storage):
     # run the autopart function to allocate and grow partitions
     try:
         doPartitioning(storage, exclusiveDisks=storage.clearPartDisks)
+
+        if storage.doAutoPart:
+            _scheduleLogicalVolumes(storage, devs)
+
+        # grow LVs
+        growLVM(storage)
 
     except PartitioningWarning as msg:
         ctx.interface.messageWindow(_("Warnings During Automatic Partitioning"),
