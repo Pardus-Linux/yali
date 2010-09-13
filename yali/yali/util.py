@@ -5,7 +5,6 @@ import resource
 import subprocess
 import gettext
 
-
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
@@ -114,6 +113,14 @@ def isEfi():
 
     return efi
 
+def getArch():
+    if isX86(bits=32):
+        return 'i386'
+    elif isX86(bits=64):
+        return 'x86_64'
+    else:
+        return os.uname()[4]
+
 def isX86(bits=None):
     arch = os.uname()[4]
 
@@ -178,35 +185,6 @@ def notify_kernel(path, action="change"):
     f = open(path, "a")
     f.write("%s\n" % action)
     f.close()
-
-def name_from_dm_node(node):
-    name = block.getNameFromDmNode(dm_node)
-    if name is not None:
-        return name
-
-    st = os.stat("/dev/%s" % dm_node)
-    major = os.major(st.st_rdev)
-    minor = os.minor(st.st_rdev)
-    name = run_batch("dmsetup", ["info", "--columns",
-                      "--noheadings", "-o", "name",
-                      "-j", str(major), "-m", str(minor)])[1]
-    ctx.logger.debug("name_from_dm(%s) returning '%s'" % (node, name.strip()))
-    return name.strip()
-
-def dm_node_from_name(name):
-    dm_node = block.getDmNodeFromName(map_name)
-    if dm_node is not None:
-        return dm_node
-
-    devnum = run_batch("dmsetup", ["info", "--columns",
-                        "--noheadings", "-o", "devno",name])[1]
-    (major, sep, minor) = devnum.strip().partition(":")
-    if not sep:
-        raise DMError("dm device does not exist")
-
-    dm_node = "dm-%d" % int(minor)
-    ctx.logger.debug("dm_node_from_name(%s) returning '%s'" % (name, dm_node))
-    return dm_node
 
 def get_sysfs_path_by_name(dev_name, class_name="block"):
     dev_name = os.path.basename(dev_name)
