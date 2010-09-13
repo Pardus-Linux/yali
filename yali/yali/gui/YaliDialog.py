@@ -194,14 +194,15 @@ class MessageWindow:
     def run(self, destroyAfterRun=True):
         self.dialog.resize(300,120)
         self.rc = self.dialog.exec_()
-        if not self.doCustom:
-            if self.msgBox.clickedButton().text() in [_("OK"), _("YES")]:
-                self.rc = 1
-            elif self.msgBox.clickedButton().text() in [_("CANCEL"), _("NO")]:
-                self.rc = 0
-        else:
-            if self.msgBox.clickedButton().text() in self.customButtons:
-                self.rc = self.customButtons.index(self.msgBox.clickedButton().text())
+        if self.msgBox.clickedButton():
+            if not self.doCustom:
+                if self.msgBox.clickedButton().text() in [_("OK"), _("YES")]:
+                    self.rc = 1
+                elif self.msgBox.clickedButton().text() in [_("CANCEL"), _("NO")]:
+                    self.rc = 0
+            else:
+                if self.msgBox.clickedButton().text() in self.customButtons:
+                    self.rc = self.customButtons.index(self.msgBox.clickedButton().text())
 
         if destroyAfterRun:
             self.dialog = None
