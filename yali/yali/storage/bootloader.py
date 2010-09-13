@@ -95,7 +95,7 @@ def get_disk_partition(device):
 grub_conf = """\
 default 0
 timeout 10
-gfxmenu /boot/grub/message
+gfxmenu %(bootpath)sgrub/message
 background 10333C
 
 title %(release)s
