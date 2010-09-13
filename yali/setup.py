@@ -180,7 +180,9 @@ setup(name="yali",
       author="Pardus Developers",
       author_email="yali@pardus.org.tr",
       url="http://www.pardus.org.tr/eng/yali/",
-      packages = ['yali', 'yali.gui', 'yali.gui.Ui', 'yali.storage','yali.storage.devices','yali.storage.formats','yali.plugins'],
+      packages = ['yali', 'yali.gui', 'yali.gui.Ui', 'yali.storage',\
+                  'yali.storage.devices', 'yali.storage.formats',\
+                  'yali.storage.library', 'yali.plugins'],\
       package_dir = {'': ''},
       data_files = [('/usr/share/yali/slideshow', gui_slidepics()),
                     ('/usr/share/yali/user_faces', user_faces()),
