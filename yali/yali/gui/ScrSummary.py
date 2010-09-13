@@ -21,7 +21,7 @@ from PyQt4.QtCore import *
 
 import yali.util
 import yali.context as ctx
-from yali.installdata import YALI_PLUGIN, YALI_INSTALL, YALI_DVDINSTALL
+from yali.installdata import YALI_PLUGIN, YALI_INSTALL, YALI_DVDINSTALL, methodInstallAutomatic, defaultKernel, paeKernel, rtKernel
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.YaliDialog import QuestionDialog
 from yali.gui.Ui.summarywidget import Ui_SummaryWidget
@@ -222,11 +222,10 @@ Here you can see your install options before installation starts.
                                       type = "custom", customIcon="warning",
                                       customButtons=[_("Go Back"), _("Write Changes to Disk")],
                                       default = 0)
-        ctx.storage.devicetree.teardownAll()
 
-        if rc == 0:
-            ctx.logger.info("unmounting filesystems")
-            ctx.storage.umountFilesystems()
+        if rc:
+            ctx.storage.devicetree.teardownAll()
+         else:
             return
 
         ctx.installData.installAllLangPacks = self.ui.installAllLangPacks.isChecked()
