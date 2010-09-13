@@ -116,7 +116,7 @@ def getMaxLVSize():
 # LVM sources set the maximum length limit on VG and LV names at 128.  Set
 # our default to 2 below that to account for 0 through 99 entries we may
 # make with this name as a prefix.  LVM doesn't seem to impose a limit of
-# 99, but we do in anaconda.
+# 99, but we do.
 def safeLvmName(name, maxlen=126):
     tmp = name.strip()
     tmp = tmp.replace("/", "_")
@@ -137,7 +137,7 @@ def clampSize(size, pesize, roundup=None):
     return long(round(float(size)/float(pesize)) * pesize)
 
 def lvm(args):
-    rc, out, err = yali.util.run_batch.("lvm", args)
+    rc, out, err = yali.util.run_batch("lvm", args)
     if rc:
         raise LVMError(err)
 

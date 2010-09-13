@@ -9,7 +9,7 @@ import yali
 import yali.util
 from operations import *
 import yali.context as ctx
-from library.lvm import safeLvmName
+from library import lvm
 from yali.storage.devices.device import Device, DeviceError
 from yali.storage.devices.partition import Partition
 from yali.storage.devices.volumegroup import VolumeGroup
@@ -17,16 +17,20 @@ from yali.storage.devices.logicalvolume import LogicalVolume
 from yali.storage.formats import getFormat, get_default_filesystem_type
 from yali.storage.devicetree import DeviceTree
 from yali.storage.storageset import StorageSet
-
+from yali.baseudev import udev_trigger
 
 class StorageError(yali.Error):
     pass
 
 def storageInitialize():
+    storage.shutdown()
+    udev_trigger(subsystem="block", action="change")
     ctx.interface.resetInitializeDiskQuestion()
     ctx.interface.resetReinitInconsistentLVMQuestion()
-    lvm.lvm_vg_blacklist = []
 
+    ctx.interface.resetInitializeDisk()
+    ctx.interface.resetReinitInconsistentLVMQuestion()
+    lvm.lvm_vg_blacklist = []
     storage.reset()
 
     if not storage.disks:
@@ -35,7 +39,9 @@ def storageInitialize():
                                          type="custom",
                                          customButtons=[_("Back"), _("Exit installer")],
                                          default=0)
-        if rc == 1:
+        if rc == 0:
+            ctx.mainScreen.slotBack()
+        else:
             sys.exit(1)
 
 def storageComplete():
@@ -52,7 +58,7 @@ def storageComplete():
     ctx.storage.devicetree.teardownAll()
 
     if rc == 0:
-        return ctx.mainScreen.slotBack()
+        ctx.mainScreen.slotBack()
 
 class Storage(object):
     def __init__(self, ignoredDisks=[]):
@@ -445,8 +451,8 @@ class Storage(object):
 
         return Partition(name, *args, **kwargs)
 
-    def newVolumeGroup(self):
-        """ Return a new LVMVolumeGroupDevice instance. """
+    def newVolumeGroup(self, *args, **kwargs):
+        """ Return a new VolumeGroup instance. """
         pvs = kwargs.pop("pvs", [])
         for pv in pvs:
             if pv not in self.devices:
@@ -455,15 +461,15 @@ class Storage(object):
         if kwargs.has_key("name"):
             name = kwargs.pop("name")
         else:
-            name = self.createSuggestedVolumeGroupName(self.anaconda.network)
+            name = self.createSuggestedVolumeGroupName()
 
         if name in [d.name for d in self.devices]:
             raise ValueError("name already in use")
 
-        return VolumeGroupDevice(name, pvs, *args, **kwargs)
+        return VolumeGroup(name, pvs, *args, **kwargs)
 
-    def newLogicalVolume(self):
-        """ Return a new LVMLogicalVolumeDevice instance. """
+    def newLogicalVolume(self, *args, **kwargs):
+        """ Return a new LogicalVolumeDevice instance. """
         if kwargs.has_key("vg"):
             vg = kwargs.pop("vg")
 
@@ -488,7 +494,7 @@ class Storage(object):
 
         return LogicalVolume(name, vg, *args, **kwargs)
 
-    def newRaidArray(self):
+    def newRaidArray(self, *args, **kwargs):
         raise NotImplementedError("newRaidArray method not implemented in Interface class.")
 
     def createDevice(self, device):
@@ -566,20 +572,22 @@ class Storage(object):
                 return True
         return False
 
-    def createSuggestedVolumeGroupName(self, network):
+    def createSuggestedVolumeGroupName(self):
         """ Return a reasonable, unused VG name. """
         # try to create a volume group name incorporating the hostname
-        hn = network.hostname
+        hostname = ctx.installData.hostName
+        release=open("/etc/pardus-release").read().split()
+        releaseHostName = "".join(release[:2]).lower()
         vgnames = [vg.name for vg in self.vgs]
-        if hn is not None and hn != '':
-            if hn == 'localhost' or hn == 'localhost.localdomain':
+        if hostname is not None and hostname != '':
+            if hostname == releaseHostName:
                 vgtemplate = "VolGroup"
-            elif hn.find('.') != -1:
-                template = "vg_%s" % (hn.split('.')[0].lower(),)
-                vgtemplate = safeLvmName(template)
+            elif hostname.find('.') != -1:
+                template = "vg_%s" % (hostname.split('.')[0].lower(),)
+                vgtemplate = lvm.safeLvmName(template)
             else:
-                template = "vg_%s" % (hn.lower(),)
-                vgtemplate = safeLvmName(template)
+                template = "vg_%s" % (hostname.lower(),)
+                vgtemplate = lvm.safeLvmName(template)
         else:
             vgtemplate = "VolGroup"
 
@@ -613,7 +621,7 @@ class Storage(object):
                 else:
                     template = "lv_%s" % (mountpoint,)
 
-                lvtemplate = safeLvmName(template)
+                lvtemplate = lvm.safeLvmName(template)
         else:
             if swap:
                 if len([s for s in self.swaps if s in vg.lvs]):

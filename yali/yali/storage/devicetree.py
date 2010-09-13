@@ -11,14 +11,15 @@ _ = __trans.ugettext
 import yali
 import yali.context as ctx
 import formats
-import devicelibs.lvm
 from udev import *
+from library import lvm
 from partitioning import shouldClear, CLEARPART_TYPE_ALL, CLEARPART_TYPE_LINUX, CLEARPART_TYPE_NONE
 from devices.device import DeviceNotFoundError, deviceNameToDiskByPath
 from devices.nodevice import NoDevice
 from devices.devicemapper import DeviceMapper
 from devices.volumegroup import VolumeGroup
 from library.devicemapper import DeviceMapperError
+from operations import operation_type_from_string, operation_object_from_string
 from devices.disk import Disk
 from devices.partition import Partition
 from formats.disklabel import InvalidDiskLabelError, DiskLabelCommitError
@@ -1214,7 +1215,7 @@ class DeviceTree(object):
             name = "%s-%s" % (vg_name, lv_name)
             if lv_attr[index][0] in 'Ss':
                 ctx.logger.debug("found lvm snapshot volume '%s'" % name)
-                origin_name = devicelibs.lvm.lvorigin(vg_name, lv_name)
+                origin_name = lvm.lvorigin(vg_name, lv_name)
                 if not origin_name:
                     ctx.logger.error("lvm snapshot '%s-%s' has unknown origin" %
                                     (vg_name, lv_name))
@@ -1341,12 +1342,14 @@ class DeviceTree(object):
         """Locate all storage devices."""
         self._populated = False
 
-        # First iteration - let's just look for disks.
-        old_devices = {}
         devices = udev_get_block_devices()
         for device in devices:
-            old_devices[dev['name']] = device
+            self.addDevice(device)
 
+        # First iteration - let's just look for disks.
+        old_devices = {}
+        for device in devices:
+            old_devices[device['name']] = device
         while True:
             devices = []
             new_devices = udev_get_block_devices()
@@ -1361,7 +1364,7 @@ class DeviceTree(object):
                 # we delay this till all other devices are scanned so that
                 # 1) the lvm filter for ignored disks is completely setup
                 # 2) we have checked all devs for duplicate vg names
-                if self._setupLvs():
+                if self.setupLogicalVolumes():
                     continue
                 # nothing is changing -- we are finished building devices
                 break

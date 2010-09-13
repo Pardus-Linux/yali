@@ -355,7 +355,7 @@ class StorageSet(object):
             return [_("You have not created a bootable partition.")]
 
         # can't have bootable partition on LV
-        if req.type == "lvmlv":
+        if request.type == "lvmlv":
             errors.append(_("Bootable partitions cannot be on a logical volume."))
 
         # Make sure /boot is on a supported FS type.  This prevents crazy

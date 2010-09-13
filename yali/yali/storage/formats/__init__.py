@@ -11,7 +11,6 @@ import yali
 import yali.util
 import yali.context as ctx
 from yali.storage.library import devicemapper
-
 device_formats = {}
 
 def getFormat(type, *args, **kwargs):
