@@ -17,6 +17,7 @@ from devices.filedevice import FileDevice
 from devices.nodevice import NoDevice
 from formats import getFormat
 from formats.filesystem import FilesystemError
+from library import devicemapper
 
 def get_containing_device(path, devicetree):
     """ Return the device that a path resides on. """
@@ -36,7 +37,7 @@ def get_containing_device(path, devicetree):
         return None
 
     if device_name.startswith("dm-"):
-        device_name = yali.util.name_from_dm_node(device_name)
+        device_name = devicemapper.name_from_dm_node(device_name)
 
     return devicetree.getDeviceByName(device_name)
 

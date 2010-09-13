@@ -10,6 +10,7 @@ _ = __trans.ugettext
 import yali
 import yali.util
 import yali.context as ctx
+from yali.storage.library import devicemapper
 
 device_formats = {}
 
@@ -191,7 +192,7 @@ class Format(object):
 
         if self.device.startswith("/dev/mapper/"):
             try:
-                name = dm_node_from_name(os.path.basename(self.device))
+                name = devicemapper.dm_node_from_name(os.path.basename(self.device))
             except Exception, e:
                 ctx.logger.warning("failed to get dm node for %s" % self.device)
                 return

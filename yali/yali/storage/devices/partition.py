@@ -13,6 +13,7 @@ import yali
 import yali.baseudev
 import yali.context as ctx
 from yali.util import numeric_type
+from yali.storage.library import devicemapper
 from yali.storage.devices.device import Device, devicePathToName
 from yali.storage.formats import Format
 from yali.storage.formats.disklabel import DiskLabelCommitError
@@ -272,7 +273,7 @@ class Partition(Device):
             self.sysfsPath = ''
 
         elif self.parents[0]._devDir == "/dev/mapper":
-            dm_node = dm.dm_node_from_name(self.name)
+            dm_node = devicemapper.dm_node_from_name(self.name)
             path = os.path.join("/sys", self.sysfsBlockDir, dm_node)
             self.sysfsPath = os.path.realpath(path)[4:]
 
