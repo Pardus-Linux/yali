@@ -225,7 +225,7 @@ Here you can see your install options before installation starts.
 
         if not rc:
             ctx.storage.devicetree.teardownAll()
-         else:
+        else:
             return
 
         ctx.installData.installAllLangPacks = self.ui.installAllLangPacks.isChecked()
