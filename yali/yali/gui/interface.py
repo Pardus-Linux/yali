@@ -27,7 +27,7 @@ class Interface(object):
     def resetInitializeDisk(self):
         self._initLabelAnswers = {}
 
-    def questionInitializeDisk(path, description, size, details):
+    def questionInitializeDisk(self, path, description, size, details):
         rc = self.messageWindow(_("Warning"),
                                 _("Error processing drive:\n\n"
                                   "%(path)s\n%(size)-0.fMB\n%(description)s\n\n"
