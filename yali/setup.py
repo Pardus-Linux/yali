@@ -143,7 +143,7 @@ class YaliUninstall(Command):
             print "removing: ", data_dir
             shutil.rmtree(data_dir)
         os.unlink("/usr/bin/yali-bin")
-        os.unlink("/usr/bin/bindYali.sh")
+        os.unlink("/usr/bin/bindYali")
 
 i18n_domain = "yali"
 i18n_languages = ["tr",
@@ -187,7 +187,7 @@ setup(name="yali",
       data_files = [('/usr/share/yali/slideshow', gui_slidepics()),
                     ('/usr/share/yali/user_faces', user_faces()),
                     ('/usr/share/yali/data', data_files())],
-      scripts = ['yali-bin', 'start-yali', 'bindYali.sh'],
+      scripts = ['yali-bin', 'start-yali', 'bindYali'],
       ext_modules = [Extension('yali._sysutils',
                                sources = ['yali/_sysutils.c'],
                                libraries = ["ext2fs"],
