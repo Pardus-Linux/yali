@@ -26,7 +26,9 @@ from yali.gui.YaliDialog import Dialog, QuestionDialog
 from yali.gui.ScreenWidget import ScreenWidget
 
 from yali.gui.partition_gui import PartitionEditor
+from yali.gui.lvm_gui import LVMEditor
 from yali.gui.Ui.manualpartwidget import Ui_ManualPartWidget
+from yali.storage.library import lvm
 from yali.storage.devices.device import devicePathToName, Device
 from yali.storage.devices.partition import Partition
 from yali.storage.partitioning import doPartitioning, PartitioningError, PartitioningWarning
@@ -60,15 +62,16 @@ about disk partitioning.
         self.ui = Ui_ManualPartWidget()
         self.ui.setupUi(self)
         self.storage = ctx.storage
+        self.intf = ctx.interface
 
-        self.connect(self.ui.newButton, SIGNAL("clicked()"),self.createPartition)
+        self.connect(self.ui.newButton, SIGNAL("clicked()"),self.createDevice)
         self.connect(self.ui.editButton, SIGNAL("clicked()"),self.editDevice)
         self.connect(self.ui.deleteButton, SIGNAL("clicked()"),self.deleteDevice)
         self.connect(self.ui.resetButton, SIGNAL("clicked()"),self.reset)
         self.connect(self.ui.deviceTree, SIGNAL("itemClicked(QTreeWidgetItem *, int)"), self.activateButtons)
 
     def shown(self):
-        checkForSwapNoMatch(ctx.yali, self.storage)
+        checkForSwapNoMatch(self.intf, self.storage)
         self.populate()
         (errors, warnings) =  self.storage.sanityCheck()
         if errors or warnings:
@@ -82,6 +85,8 @@ about disk partitioning.
         check = self.nextCheck()
         if not check:
             ctx.mainScreen.enableBack()
+        elif check is None:
+            ctx.mainScreen.enableNext()
         return check
 
     def update(self):
@@ -101,40 +106,38 @@ about disk partitioning.
     def nextCheck(self):
         (errors, warnings) = self.storage.sanityCheck()
         if errors:
-            detailed =  _("The partitioning scheme you requested "
-                          "caused the following critical errors."
-                          "You must correct these errors before "
-                          "you continue your installation of "
-                          "%s.") % yali.util.product_name()
+            detailed =  _("The partitioning scheme you requested caused the \n"
+                          "following critical errors.You must correct these \n"
+                          "errors before you continue your installation of %s." %
+                          yali.util.product_name())
 
             comments = "\n\n".join(errors)
-            ctx.yali.detailedMessageWindow(_("Partitioning Errors"),
+            self.intf.detailedMessageWindow(_("Partitioning Errors"),
                                              detailed, comments, type="ok")
             return False
 
         if warnings:
-            detailed = _("The partitioning scheme you requested "
-                         "generated the following warnings."
-                         "Would you like to continue with "
+            detailed = _("The partitioning scheme you requested generated the \n"
+                         "following warnings. Would you like to continue with \n"
                          "your requested partitioning "
                          "scheme?")
 
             comments = "\n\n".join(warnings)
-            rc = ctx.yali.detailedMessageWindow(_("Partitioning Warnings"),
+            rc = self.intf.detailedMessageWindow(_("Partitioning Warnings"),
                                                   detailed, comments, type="yesno")
             if rc != 1:
-                return False
+                return True
 
         formatWarnings = getPreExistFormatWarnings(self.storage)
         if formatWarnings:
-            detailed = _("The following pre-existing devices have been "
-                         "selected to be formatted, destroying all data.")
+            detailed = _("The following pre-existing devices have been selected\n"
+                         "to be formatted, destroying all data.")
 
             comments = ""
             for (device, type, mountpoint) in formatWarnings:
                 comments = comments + "%s         %s         %s\n" % (device, type, mountpoint)
 
-            rc = ctx.yali.detailedMessageWindow(_("Format Warnings"),
+            rc = self.intf.detailedMessageWindow(_("Format Warnings"),
                                                   detailed, comments, type="custom",
                                                   customButtons=[_("Cancel"), _("Format")], default=0)
             if rc != 1:
@@ -144,7 +147,7 @@ about disk partitioning.
 
 
     def backCheck(self):
-        rc = ctx.interface.messageWindow(_("Warning"), _("All Changes that you made will be removed"), type="question")
+        rc = self.intf.messageWindow(_("Warning"), _("All Changes that you made will be removed"), type="question")
         if rc:
             self.storage.reset()
             return True
@@ -160,14 +163,14 @@ about disk partitioning.
 
         format = device.format
         if format.formattable:
-            formattable = QtGui.QIcon(":/images/checkbox_checked.png")
+            formattable = _("Yes")
         else:
-            formattable = QtGui.QIcon(":/images/checkbox_unchecked.png")
+            formattable = _("No")
 
         if not format.exists:
-            formatIcon = QtGui.QIcon(":/images/checkbox_checked.png")
+            formatIcon = _("Yes")
         else:
-            formatIcon = QtGui.QIcon(":/images/checkbox_unchecked.png")
+            formatIcon = _("No")
 
         # mount point string
         if format.type == "lvmpv":
@@ -314,11 +317,11 @@ about disk partitioning.
                 doPartitioning(self.storage)
                 rc = 0
             except PartitioningError, msg:
-                ctx.interface.messageWindow(_("Error Partitioning"), _("Could not allocate requested partitions: %s.") % 
+                self.intf.messageWindow(_("Error Partitioning"), _("Could not allocate requested partitions: %s.") % 
                                       (msg), customIcon="error")
                 rc = -1
             except PartitioningWarning, msg:
-                rc = ctx.interface.messageWindow(_("Warning Partitioning"), _("Warning: %s." % msg),
+                rc = self.intf.messageWindow(_("Warning Partitioning"), _("Warning: %s." % msg),
                         customButtons=[_("Modify Partition"), _("Continue")], customIcon="warning")
                 if rc == 1:
                     rc = -1
@@ -343,18 +346,42 @@ about disk partitioning.
         """
         pass
 
-    def createPartition(self):
-        # create new request of size 1M
-        tempformat = self.storage.defaultFSType
-        device = self.storage.newPartition(fmt_type=tempformat)
-        self.editPartition(device, isNew=True)
+    def createDevice(self):
+        activatePartition = False
+        freePartition = hasFreeDiskSpace(self.storage)
+        if freePartition:
+            activatePartition = True
+
+        activateVolumeGroup = False
+        availablePVS = len(self.storage.unusedPVS())
+        if (lvm.has_lvm() and
+                formats.getFormat("lvmpv").supported and
+                availablePVS > 0):
+            activateVolumeGroup = True
+
+        if not (activatePartition and activateVolumeGroup):
+            self.intf.messageWindow(_("Cannot perform any creation operation"),
+                                    _("Note that the creation operation requires one of the following:\n\n"
+                                      "* Free space in one of the Hard Drives.\n"
+                                      "* At least one free physical volume (LVM) partition.\n"
+                                      "* At least one Volume Group with free space."),
+                                    customIcon="warning")
+            return
+
+        activateLogicalVolume = False
+        freeVolumeGroupSpace = []
+        for vg in self.storage.vgs:
+            if vg.freeSpace > 0:
+                freeVolumeGroupSpace.append(vg)
+        if len(freeVolumeGroupSpace) > 0:
+            activateLogicalVolume = True
 
     def editDevice(self, *args):
         device = self.getCurrentDevice()
         reason = self.storage.deviceImmutable(device, ignoreProtected=True)
 
         if reason:
-            ctx.interface.messageWindow(_("Unable To Edit"),
+            self.intf.messageWindow(_("Unable To Edit"),
                                    _("You cannot edit this device:\n\n%s")
                                     % reason,
                                     customIcon="error")
@@ -364,13 +391,53 @@ about disk partitioning.
             self.editVolumeGroup(device)
         elif device.type == "lvmlv":
             self.editLogicalVolume(lv=device)
-        if isinstance(device, Partition):
+        elif isinstance(device, Partition):
             self.editPartition(device)
 
-    def editVolumeGroup(self, device, isNew = False):
-        pass
+    def deleteDevice(self):
+        device = self.getCurrentDevice()
+        if device.partitioned:
+            if doClearPartitionedDevice(self.intf, self.storage, device):
+                self.refresh()
+        elif doDeleteDevice(self.intf, self.storage, device):
+            if isinstance(device, Partition):
+                justRedraw = False
+            else:
+                justRedraw = True
+                if device.type == "lvmlv" and device in device.vg.lvs:
+                    device.vg._removeLogicalVolume(device)
 
-    def editLogicalVolume(self, lv = None, vg = None):
+            self.refresh(justRedraw=justRedraw)
+
+
+    def editVolumeGroup(self, device, isNew=False):
+        volumegroupEditor =  LVMEditor(self, device, isNew=isNew)
+
+        while True:
+            origDevice = copy.copy(device)
+            operations = volumegroupEditor.run()
+
+            for operation in operations:
+                self.storage.devicetree.registerOperation(operation)
+
+            if self.refresh(justRedraw=not operations):
+                operations.reverse()
+
+                for operation in operations:
+                    self.storage.devicetree.cancelOperation(operation)
+
+                if not isNew:
+                    device = origDevice
+
+                if self.refresh():
+                    raise RuntimeError, ("Returning partitions to state "
+                                         "prior to edit failed")
+            else:
+                break
+
+        volumegroupEditor.destroy()
+
+    def editLogicalVolume(self, lv=None, vg=None):
         """Will be consistent with the state of things and use this funciton
         for creating and editing LVs.
 
@@ -379,7 +446,57 @@ about disk partitioning.
         vg -- the volume group where the new lv is going to be created. This
               will only be relevant when we are createing an LV.
         """
-        pass
+        if lv != None:
+            volumegroupEditor = LVMEditor(self, lv.vg, isNew = False)
+            lv = volumegroupEditor.lvs[lv.lvname]
+            isNew = False
+
+        elif vg != None:
+            volumegroupEditor = LVMEditor(self, vg, isNew = False)
+            tempvg = volumegroupEditor.tmpVolumeGroup
+            name = self.storage.createSuggestedLogicalVolumeName(tempvg)
+            format = fornmats.getFormat(self.storage.defaultFSType)
+            volumegroupEditor.lvs[name] = {'name': name,
+                                           'size': vg.freeSpace,
+                                           'format': format,
+                                           'originalFormat': format,
+                                           'stripes': 1,
+                                           'logSize': 0,
+                                           'snapshotSpace': 0,
+                                           'exists': False}
+            lv = volumegroupEditor.lvs[name]
+            isNew = True
+
+        else:
+            return
+
+        while True:
+            #volumegroupEditor.editLogicalVolume(lv, isNew = isNew)
+            operations = volumegroupEditor.run()
+
+            for operation in operations:
+                self.storage.devicetree.addOperation(operation)
+
+            if self.refresh(justRedraw=True):
+                operations.reverse()
+                for operation in operations:
+                    self.storage.devicetree.removeOperation(operation)
+
+                if self.refresh():
+                    raise RuntimeError, ("Returning partitions to state "
+                                         "prior to edit failed")
+                continue
+            else:
+                break
+
+        volumegroupEditor.destroy()
+
+    def createPartition(self):
+        # create new request of size 1M
+        tempformat = self.storage.defaultFSType
+        device = self.storage.newPartition(fmt_type=tempformat)
+        self.editPartition(device, isNew=True)
+
 
     def editPartition(self, device, isNew=False, restricts=None):
         partitionEditor = PartitionEditor(self, device, isNew=isNew, restricts=restricts)
@@ -396,12 +513,12 @@ about disk partitioning.
                     self.storage.devicetree.removeOperation(operation)
 
                 if not isNew:
-                    device.req_size = orig_device.req_size
-                    device.req_base_size = orig_device.req_base_size
-                    device.req_grow = orig_device.req_grow
-                    device.req_max_size = orig_device.req_max_size
-                    device.req_primary = orig_device.req_primary
-                    device.req_disks = orig_device.req_disks
+                    device.req_size = origDevice.req_size
+                    device.req_base_size = origDevice.req_base_size
+                    device.req_grow = origDevice.req_grow
+                    device.req_max_size = origDevice.req_max_size
+                    device.req_primary = origDevice.req_primary
+                    device.req_disks = origDevice.req_disks
 
                 if self.refresh():
                     raise RuntimeError, ("Returning partitions to state "
@@ -410,21 +527,6 @@ about disk partitioning.
                 break
 
         partitionEditor.destroy()
-
-    def deleteDevice(self):
-        device = self.getCurrentDevice()
-        if device.partitioned:
-            if doClearPartitionedDevice(ctx.yali, self.storage, device):
-                self.refresh()
-        elif doDeleteDevice(ctx.yali, self.storage, device):
-            if isinstance(device, Partition):
-                justRedraw = False
-            else:
-                justRedraw = True
-                if device.type == "lvmlv" and device in device.vg.lvs:
-                    device.vg._removeLogicalVolume(device)
-
-            self.refresh(justRedraw=justRedraw)
 
 class DeviceTreeItem(QtGui.QTreeWidgetItem):
     def __init__(self, parent, device=None):
@@ -447,10 +549,10 @@ class DeviceTreeItem(QtGui.QTreeWidgetItem):
         self.setText(3, type)
 
     def setFormattable(self, formattable):
-        self.setIcon(4, formattable)
+        self.setText(4, formattable)
 
     def setFormat(self, format):
-        self.setIcon(5, format)
+        self.setText(5, format)
 
     def setSize(self, size):
         self.setText(6, size)
