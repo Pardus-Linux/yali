@@ -220,10 +220,10 @@ Here you can see your install options before installation starts.
                                       "data on deleted or reformatted partitions\n"
                                       "will be lost."),
                                       type = "custom", customIcon="warning",
-                                      customButtons=[_("Go Back"), _("Write Changes to Disk")],
-                                      default = 0)
+                                      customButtons=[_("Write Changes to Disk"), _("Go Back")],
+                                      default=1)
 
-        if rc:
+        if not rc:
             ctx.storage.devicetree.teardownAll()
          else:
             return
