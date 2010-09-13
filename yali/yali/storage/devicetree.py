@@ -11,15 +11,18 @@ _ = __trans.ugettext
 import yali
 import yali.context as ctx
 import formats
+import devicelibs.lvm
 from udev import *
 from partitioning import shouldClear, CLEARPART_TYPE_ALL, CLEARPART_TYPE_LINUX, CLEARPART_TYPE_NONE
 from devices.device import DeviceNotFoundError, deviceNameToDiskByPath
 from devices.nodevice import NoDevice
+from devices.devicemapper import DeviceMapper
+from devices.volumegroup import VolumeGroup
+from library.devicemapper import DeviceMapperError
 from devices.disk import Disk
 from devices.partition import Partition
 from formats.disklabel import InvalidDiskLabelError, DiskLabelCommitError
 from formats.filesystem import FilesystemError
-from operations import *
 
 class DeviceTreeError(yali.Error):
     pass
@@ -39,16 +42,18 @@ class DeviceTree(object):
         self.protectedDevSpecs = protected
 
         # names of protected devices at the time of tree population
-        self.protectedDevNames = []
+        self.protectedDeviceNames = []
 
         self._ignoredDisks = []
         for disk in ignored:
             self.addIgnoredDisk(disk)
+        lvm.lvm_cc_resetFilter()
 
         self._populated = False
 
     def addIgnoredDisk(self, disk):
         self._ignoredDisks.append(disk)
+        lvm.lvm_cc_addFilterRejectRegexp(disk)
 
     def isIgnored(self, info):
         sysfs_path = udev_device_get_sysfs_path(info)
@@ -752,6 +757,81 @@ class DeviceTree(object):
                 ctx.logger.debug(" removing operation '%s' (%s)" % (rem, id(rem)))
                 self.operations.remove(rem)
 
+    def addDeviceMapperDevice(self, info):
+        name = udev_device_get_name(info)
+        log_method_call(self, name=name)
+        uuid = udev_device_get_uuid(info)
+        sysfs_path = udev_device_get_sysfs_path(info)
+        device = None
+
+        for devicemapperdevice in self.devices:
+            if not isinstance(devicemapperdevice, DeviceMapper):
+                continue
+
+            try:
+                # there is a device in the tree already with the same
+                # major/minor as this one but with a different name
+                # XXX this is kind of racy
+                if devicemmaperdevice.getDMNode() == os.path.basename(sysfs_path):
+                    # XXX should we take the name already in use?
+                    device = devicemapperdevice
+                    break
+            except DeviceMapperError:
+                # This is a little lame, but the VG device is a DMDevice
+                # and it won't have a dm node. At any rate, this is not
+                # important enough to crash the install.
+                ctx.logger.debug("failed to find dm node for %s" % devicemapperdevice.name)
+                continue
+
+        if device is None:
+            # we couldn't find it, so create it
+            # first, get a list of the slave devs and look them up
+            slaves = []
+            dir = os.path.normpath("/sys/%s/slaves" % sysfs_path)
+            slave_names = os.listdir(dir)
+            for slave_name in slave_names:
+                # if it's a dm-X name, resolve it to a map name first
+                if slave_name.startswith("dm-"):
+                    dev_name = devicemapper.name_from_dm_node(slave_name)
+                else:
+                    dev_name = slave_name
+                slave_dev = self.getDeviceByName(dev_name)
+                if slave_dev:
+                    slaves.append(slave_dev)
+                else:
+                    # we haven't scanned the slave yet, so do it now
+                    path = os.path.normpath("%s/%s" % (dir, slave_name))
+                    new_info = udev_get_block_device(os.path.realpath(path)[4:])
+                    if new_info:
+                        self.addDevice(new_info)
+                        if self.getDeviceByName(dev_name) is None:
+                            # if the current slave is still not in
+                            # the tree, something has gone wrong
+                            ctx.logger.error("failure scanning device %s: could not add slave %s" % (name, dev_name))
+                            return
+
+            # try to get the device again now that we've got all the slaves
+            device = self.getDeviceByName(name)
+
+            if device is None:
+                if udev_device_is_multipath_partition(info, self):
+                    diskname = udev_device_get_multipath_partition_disk(info)
+                    disk = self.getDeviceByName(diskname)
+                    return self.addPartition(info, disk=disk)
+                elif udev_device_is_dmraid_partition(info, self):
+                    diskname = udev_device_get_dmraid_partition_disk(info)
+                    disk = self.getDeviceByName(diskname)
+                    return self.addPartition(info, disk=disk)
+
+            # if we get here, we found all of the slave devices and
+            # something must be wrong -- if all of the slaves are in
+            # the tree, this device should be as well
+            if device is None:
+                lvm.lvm_cc_addFilterRejectRegexp(name)
+                ctx.logger.warning("ignoring dm device %s" % name)
+
+        return device
+
     def addPartitionDevice(self, info, disk=None):
         name = udev_device_get_name(info)
         uuid = udev_device_get_uuid(info)
@@ -774,6 +854,7 @@ class DeviceTree(object):
                 # if the current device is still not in
                 # the tree, something has gone wrong
                 ctx.logger.error("failure scanning device %s" % disk_name)
+                lvm.lvm_cc_addFilterRejectRegexp(name)
                 return
 
         # Check that the disk has partitions. If it does not, we must have
@@ -787,7 +868,7 @@ class DeviceTree(object):
             # format (ie a biosraid member), or because it is not
             # partitionable we want LVM to ignore this partition too
             if disk.format.type != "disklabel" or not disk.partitionable:
-                pass
+                lvm.lvm_cc_addFilterRejectRegexp(name)
             ctx.logger.debug("ignoring partition %s" % name)
             return
 
@@ -842,7 +923,16 @@ class DeviceTree(object):
 
         ctx.logger.debug("scanning %s (%s)..." % (name, sysfs_path))
         device = self.getDeviceByName(name)
-        if udev_device_is_disk(info):
+        if udev_device_is_dm(info):
+            ctx.logger.debug("%s is a device-mapper device" % name)
+            # try to look up the device
+            if device is None and uuid:
+                # try to find the device by uuid
+                device = self.getDeviceByUuid(uuid)
+
+            if device is None:
+                device = self.addUdevDMDevice(info)
+        elif udev_device_is_disk(info):
             if device is None:
                 device = self.addDiskDevice(info)
         elif udev_device_is_partition(info):
@@ -852,6 +942,9 @@ class DeviceTree(object):
         else:
             ctx.logger.error("Unknown block device type for: %s" % name)
             return
+
+        if device and device.name in self.protectedDeviceNames:
+            device.protected = True
 
         if not device or not device.mediaPresent:
             return
@@ -867,7 +960,7 @@ class DeviceTree(object):
         sysfs_path = udev_device_get_sysfs_path(info)
         uuid = udev_device_get_uuid(info)
         label = udev_device_get_label(info)
-        fmt_type = udev_device_get_format(info)
+        format_type = udev_device_get_format(info)
         serial = udev_device_get_serial(info)
 
         if not udev_device_is_biosraid(info) and \
@@ -883,30 +976,44 @@ class DeviceTree(object):
                 return
 
         format = None
-        if (not device) or (not fmt_type) or device.format.type:
+        if (not device) or (not format_type) or device.format.type:
             # this device has no formatting or it has already been set up
             # FIXME: this probably needs something special for disklabels
             ctx.logger.debug("no type or existing type for %s, bailing" % (name,))
             return
 
         # set up the common arguments for the format constructor
-        args = [fmt_type]
+        args = [format_type]
         kwargs = {"uuid": uuid,
                   "label": label,
                   "device": device.path,
                   "serial": serial,
                   "exists": True}
-        if fmt_type == "vfat":
+        if format_type == "LVM2_member":
+            # lvm
+            try:
+                kwargs["vgName"] = udev_device_get_vg_name(info)
+            except KeyError as e:
+                log.debug("PV %s has no vg_name" % name)
+            try:
+                kwargs["vgUuid"] = udev_device_get_vg_uuid(info)
+            except KeyError:
+                log.debug("PV %s has no vg_uuid" % name)
+            try:
+                kwargs["peStart"] = udev_device_get_pv_pe_start(info)
+            except KeyError:
+                ctx.logger.debug("PV %s has no pe_start" % name)
+        if format_type == "vfat":
             if isinstance(device, Partition) and device.bootable:
                 efi = formats.getFormat("efi")
                 if efi.minSize <= device.size <= efi.maxSize:
                     args[0] = "efi"
         try:
-            ctx.logger.debug("type detected on '%s' is '%s'" % (name, fmt_type,))
+            ctx.logger.debug("type detected on '%s' is '%s'" % (name, format_type,))
             device.format = formats.getFormat(*args, **kwargs)
         except FilesystemError:
             ctx.logger.debug("type '%s' on '%s' invalid, assuming no format" %
-                      (fmt_type, name,))
+                      (format_type, name,))
             device.format = formats.Format()
             return
 
@@ -914,6 +1021,9 @@ class DeviceTree(object):
             # if this is a device that will be cleared by clearpart,
             # don't bother with format-specific processing
             return
+
+        if device.format.type == "lvmpv":
+            self.handlePhysicalVolumeFormat(info, device)
 
     def handleDiskLabelFormat(self, info, device):
         if udev_device_get_format(info):
@@ -953,7 +1063,7 @@ class DeviceTree(object):
         if not self.clearPartDisks or device.name in self.clearPartDisks:
             initlabel = self.reinitializeDisks
             sysfs_path = udev_device_get_sysfs_path(info)
-            for protected in self.protectedDevNames:
+            for protected in self.protectedDeviceNames:
                 # check for protected partition
                 _p = "/sys/%s/%s" % (sysfs_path, protected)
                 if os.path.exists(os.path.normpath(_p)):
@@ -981,35 +1091,12 @@ class DeviceTree(object):
                 # some devices don't have a /dev/disk/by-path/ #!@#@!@#
                 bypath = device.name
                 details = ""
-            def questionInitializeDisk(path, description, size, details):
-                if ctx.yali:
-                    rc = ctx.yali.messageWindow(_("Warning"),
-                                                  _("Error processing drive:\n\n"
-                                                    "%(path)s\n%(size)-0.fMB\n%(description)s\n\n"
-                                                    "This device may need to be reinitialized.\n\n"
-                                                    "REINITIALIZING WILL CAUSE ALL DATA TO BE LOST!\n\n"
-                                                    "This operation may also be applied to all other disks "
-                                                    "needing reinitialization.%(details)s")
-                                                    % {'path': path, 'size': size,
-                                                       'description': description, 'details': details},
-                                                    type="custom",
-                                                    customButtons = [_("Ignore"), _("Ignore all"),
-                                                                     _("Re-initialize"), ("Re-initialize all") ],
-                                                    customIcon="question")
-                    if rc == 0:
-                        return False
-                    elif rc == 1:
-                        return False
-                    elif rc == 2:
-                        return True
-                    elif rc == 3:
-                        return True
-                else:
-                    return True
 
 
-            initcb = lambda: questionInitializeDisk(bypath, description,
-                                                    device.size, details)
+            initcb = lambda: ctx.interface.questionInitializeDisk(bypath,
+                                                                  description,
+                                                                  device.size,
+                                                                  details)
 
         try:
             format = formats.getFormat("disklabel",
@@ -1051,6 +1138,182 @@ class DeviceTree(object):
         else:
             device.format = format
 
+    def handlePhysicalVolumeFormat(self, info, device):
+        # lookup/create the VG and LVs
+        try:
+            vg_name = udev_device_get_vg_name(info)
+        except KeyError:
+            # no vg name means no vg -- we're done with this pv
+            return
+
+        vg_device = self.getDeviceByName(vg_name)
+        if vg_device:
+            vg_device._addDevice(device)
+        else:
+            try:
+                vg_uuid = udev_device_get_vg_uuid(info)
+                vg_size = udev_device_get_vg_size(info)
+                vg_free = udev_device_get_vg_free(info)
+                pe_size = udev_device_get_vg_extent_size(info)
+                pe_count = udev_device_get_vg_extent_count(info)
+                pe_free = udev_device_get_vg_free_extents(info)
+                pv_count = udev_device_get_vg_pv_count(info)
+            except (KeyError, ValueError) as e:
+                ctx.logger.warning("invalid data for %s: %s" % (device.name, e))
+                return
+
+            vg_device = VolumeGroup(vg_name,device,uuid=vg_uuid,
+                                    size=vg_size,free=vg_free,
+                                    peSize=pe_size,peCount=pe_count,
+                                    peFree=pe_free, pvCount=pv_count,exists=True)
+            self._addDevice(vg_device)
+
+        # Now we add any lv info found in this pv to the vg_device, we
+        # do this for all pvs as pvs only contain lv info for lvs which they
+        # contain themselves
+        try:
+            lv_names = udev_device_get_lv_names(info)
+            lv_uuids = udev_device_get_lv_uuids(info)
+            lv_sizes = udev_device_get_lv_sizes(info)
+            lv_attr = udev_device_get_lv_attr(info)
+        except KeyError as e:
+            ctx.logger.warning("invalid data for %s: %s" % (device.name, e))
+            return
+
+        for i in range(len(lv_names)):
+            # Skip empty and already added lvs
+            if not lv_names[i] or lv_names[i] in vg_device.lv_names:
+                continue
+
+            vg_device.lv_names.append(lv_names[i])
+            vg_device.lv_uuids.append(lv_uuids[i])
+            vg_device.lv_sizes.append(lv_sizes[i])
+            vg_device.lv_attr.append(lv_attr[i])
+
+    def handleLogicalVolumes(self, vg_device):
+        ret = False
+        vg_name = vg_device.name
+        lv_names = vg_device.lv_names
+        lv_uuids = vg_device.lv_uuids
+        lv_sizes = vg_device.lv_sizes
+        lv_attr = vg_device.lv_attr
+
+        if not vg_device.complete:
+            ctx.logger.warning("Skipping LVs for incomplete VG %s" % vg_name)
+            return False
+
+        if not lv_names:
+            ctx.logger.debug("no LVs listed for VG %s" % vg_name)
+            return False
+
+        # make a list of indices with snapshots at the end
+        indices = range(len(lv_names))
+        indices.sort(key=lambda i: lv_attr[i][0] in 'Ss')
+        for index in indices:
+            lv_name = lv_names[index]
+            name = "%s-%s" % (vg_name, lv_name)
+            if lv_attr[index][0] in 'Ss':
+                ctx.logger.debug("found lvm snapshot volume '%s'" % name)
+                origin_name = devicelibs.lvm.lvorigin(vg_name, lv_name)
+                if not origin_name:
+                    ctx.logger.error("lvm snapshot '%s-%s' has unknown origin" %
+                                    (vg_name, lv_name))
+                    continue
+
+                origin = self.getDeviceByName("%s-%s" % (vg_name, origin_name))
+                if not origin:
+                    ctx.logger.warning("snapshot lv '%s' origin lv '%s-%s not found" %
+                                      (name, vg_name, origin_name))
+                    continue
+
+                ctx.logger.debug("adding %dMB to %s snapshot total" %
+                                (lv_sizes[index], origin.name))
+                origin.snapshotSpace += lv_sizes[index]
+                continue
+            elif lv_attr[index][0] in 'Iil':
+                # skip mirror images and log volumes
+                continue
+
+            log_size = 0
+            if lv_attr[index][0] in 'Mm':
+                stripes = 0
+                # identify mirror stripes/copies and mirror logs
+                for (j, _lvname) in enumerate(lv_names):
+                    if lv_attr[j][0] not in 'Iil':
+                        continue
+
+                    if _lvname == "[%s_mlog]" % lv_name:
+                        log_size = lv_sizes[j]
+                    elif _lvname.startswith("[%s_mimage_" % lv_name):
+                        stripes += 1
+            else:
+                stripes = 1
+
+            lv_dev = self.getDeviceByName(name)
+            if lv_dev is None:
+                lv_uuid = lv_uuids[index]
+                lv_size = lv_sizes[index]
+                lv_device = LogicalVolume(lv_name, vg_device, uuid=lv_uuid,
+                                          size=lv_size, stripes=stripes,
+                                          logSize=log_size, exists=True)
+                self._addDevice(lv_device)
+                lv_device.setup()
+
+        return ret
+
+    def handleInconsistencies(self):
+        def reinitializeVG(vg):
+            # First we remove VG data
+            try:
+                vg.destroy()
+            except DeviceError:
+                # the pvremoves will finish the job.
+                ctx.logger.debug("There was an error destroying the VG %s." % vg.name)
+
+            # remove VG device from list.
+            self._removeDevice(vg)
+
+            for parent in vg.parents:
+                parent.format.destroy()
+
+                # Give the vg the a default format
+                kwargs = {"device": parent.path,
+                          "exists": parent.exists}
+                parent.format = formats.getFormat(*[""], **kwargs)
+
+        def leafInconsistencies(device):
+            if device.type == "lvmvg":
+                if device.complete:
+                    return
+
+                paths = []
+                for parent in device.parents:
+                    paths.append(parent.path)
+
+                # if zeroMbr is true don't ask.
+                if (self.zeroMbr or
+                    ctx.interface.questionReinitInconsistentLVM(pv_names=paths,
+                                                                vg_name=device.name)):
+                    reinitializeVG(device)
+                else:
+                    # The user chose not to reinitialize.
+                    # hopefully this will ignore the vg components too.
+                    self._removeDevice(device)
+                    lvm.lvm_cc_addFilterRejectRegexp(device.name)
+                    lvm.blacklistVG(device.name)
+                    for parent in device.parents:
+                        if parent.type == "partition":
+                            parent.immutable = \
+                                _("This partition is part of an inconsistent LVM Volume Group.")
+                        else:
+                            self._removeDevice(parent, moddisk=False)
+                            self.addIgnoredDisk(parent.name)
+                        lvm.lvm_cc_addFilterRejectRegexp(parent.name)
+
+        # Address the inconsistencies present in the tree leaves.
+        for leaf in self.leaves:
+            leafInconsistencies(leaf)
+
     def getDependentDevices(self, dep):
         """Return list of devices that depend on.
 
@@ -1080,13 +1343,38 @@ class DeviceTree(object):
 
         # First iteration - let's just look for disks.
         old_devices = {}
-
         devices = udev_get_block_devices()
-        ctx.logger.info("devices to scan: %s" % [d['name'] for d in devices])
-        for dev in devices:
-            self.addDevice(dev)
+        for device in devices:
+            old_devices[dev['name']] = device
+
+        while True:
+            devices = []
+            new_devices = udev_get_block_devices()
+
+            for new_device in new_devices:
+                if not old_devices.has_key(new_device['name']):
+                    old_devices[new_device['name']] = new_device
+                    devices.append(new_device)
+
+            if len(devices) == 0:
+                # nothing is changing -- time to setup lvm lvs and scan them
+                # we delay this till all other devices are scanned so that
+                # 1) the lvm filter for ignored disks is completely setup
+                # 2) we have checked all devs for duplicate vg names
+                if self._setupLvs():
+                    continue
+                # nothing is changing -- we are finished building devices
+                break
+
+            ctx.logger.info("devices to scan: %s" % [d['name'] for d in devices])
+            for device in devices:
+                self.addDevice(device)
 
         self._populated = True
+        # After having the complete tree we make sure that the system
+        # inconsistencies are ignored or resolved.
+        self.handleInconsistencies()
+        self.teardownAll()
 
     def teardownAll(self):
         """ Run teardown methods on all devices. """
@@ -1104,6 +1392,15 @@ class DeviceTree(object):
             except DeviceTreeError as e:
                 ctx.logger.info("setup of %s failed: %s" % (device.name, e))
 
+    def setupLogicalVolumes(self):
+        ret = False
+
+        for device in self.getDevicesByType("lvmvg"):
+            if self.handleLogicalVolumes(device):
+                ret = True
+
+        return ret
+
     def getDeviceByName(self, name):
         ctx.logger.debug("looking for device '%s'..." % name)
         if not name:
@@ -1112,6 +1409,10 @@ class DeviceTree(object):
         found = None
         for device in self._devices:
             if device.name == name:
+                found = device
+                break
+            elif (device.type == "lvmlv" or device.type == "lvmvg") and \
+                    device.name == name.replace("--","-"):
                 found = device
                 break
 
@@ -1171,6 +1472,10 @@ class DeviceTree(object):
         found = None
         for device in self._devices:
             if device.path ==  path:
+                found = device
+                break
+            elif (device.type == "lvmlv" or device.type == "lvmvg") and \
+                    device.path == path.replace("--","-"):
                 found = device
                 break
         ctx.logger.debug("found %s" % found)

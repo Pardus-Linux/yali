@@ -1,3 +1,4 @@
+import sys
 import parted
 import gettext
 
@@ -8,8 +9,11 @@ import yali
 import yali.util
 from operations import *
 import yali.context as ctx
+from library.lvm import safeLvmName
 from yali.storage.devices.device import Device, DeviceError
 from yali.storage.devices.partition import Partition
+from yali.storage.devices.volumegroup import VolumeGroup
+from yali.storage.devices.logicalvolume import LogicalVolume
 from yali.storage.formats import getFormat, get_default_filesystem_type
 from yali.storage.devicetree import DeviceTree
 from yali.storage.storageset import StorageSet
@@ -19,10 +23,36 @@ class StorageError(yali.Error):
     pass
 
 def storageInitialize():
-    raise NotImplementedError("storageInitialize method not implemented.")
+    ctx.interface.resetInitializeDiskQuestion()
+    ctx.interface.resetReinitInconsistentLVMQuestion()
+    lvm.lvm_vg_blacklist = []
+
+    storage.reset()
+
+    if not storage.disks:
+        rc = ctx.interface.messageWindow(_("No disks found"),
+                                         _("No usable disks have been found."),
+                                         type="custom",
+                                         customButtons=[_("Back"), _("Exit installer")],
+                                         default=0)
+        if rc == 1:
+            sys.exit(1)
 
 def storageComplete():
-    raise NotImplementedError("storageComplete method not implemented.")
+    rc = ctx.interface.messageWindow(_("Confirm"),
+                                     _("The partitioning options you have selected\n"
+                                       "will now be written to disk.  Any\n"
+                                       "data on deleted or reformatted partitions\n"
+                                       "will be lost."),
+                                     type = "custom", customIcon="warning",
+                                     customButtons=[_("Go Back"), _("Write Changes to Disk")],
+                                     default = 0)
+
+    # Make sure that all is down, even the disks that we setup after popluate.
+    ctx.storage.devicetree.teardownAll()
+
+    if rc == 0:
+        return ctx.mainScreen.slotBack()
 
 class Storage(object):
     def __init__(self, ignoredDisks=[]):
@@ -301,15 +331,40 @@ class Storage(object):
 
     @property
     def lvs(self):
-        raise NotImplementedError("lvs method not implemented in Interface class.")
+        """ A list of the LVM Logical Volumes in the device tree.
+
+            This is based on the current state of the device tree and
+            does not necessarily reflect the actual on-disk state of the
+            system's disks.
+        """
+        lvs = self.devicetree.getDevicesByType("lvmlv")
+        lvs.sort(key=lambda d: d.name)
+        return lvs
 
     @property
     def vgs(self):
-        raise NotImplementedError("vgs method not implemented in Interface class.")
+        """ A list of the LVM Volume Groups in the device tree.
+
+            This is based on the current state of the device tree and
+            does not necessarily reflect the actual on-disk state of the
+            system's disks.
+        """
+        vgs = self.devicetree.getDevicesByType("lvmvg")
+        vgs.sort(key=lambda d: d.name)
+        return vgs
 
     @property
     def pvs(self):
-        raise NotImplementedError("pvs method not implemented in Interface class.")
+        """ A list of the LVM Physical Volumes in the device tree.
+
+            This is based on the current state of the device tree and
+            does not necessarily reflect the actual on-disk state of the
+            system's disks.
+        """
+        devices = self.devicetree.devices
+        pvs = [d for d in devices if d.format.type == "lvmpv"]
+        pvs.sort(key=lambda d: d.name)
+        return pvs
 
     @property
     def mdarrays(self):
@@ -320,8 +375,19 @@ class Storage(object):
         raise NotImplementedError("mdmembers method not implemented in Interface class.")
 
     @property
-    def unusedPVS(self):
-        raise NotImplementedError("unusedPVS method not implemented in Interface class.")
+    def unusedPVS(self, vg=None):
+        unused = []
+        for pv in self.pvs:
+            used = False
+            for _vg in self.vgs:
+                if _vg.dependsOn(pv) and _vg != vg:
+                    used = True
+                    break
+                elif _vg == vg:
+                    break
+            if not used:
+                unused.append(pv)
+        return unused
 
     @property
     def unusedRaidMembers(self):
@@ -380,10 +446,47 @@ class Storage(object):
         return Partition(name, *args, **kwargs)
 
     def newVolumeGroup(self):
-        raise NotImplementedError("newVolumeGroup method not implemented in Interface class.")
+        """ Return a new LVMVolumeGroupDevice instance. """
+        pvs = kwargs.pop("pvs", [])
+        for pv in pvs:
+            if pv not in self.devices:
+                raise ValueError("pv is not in the device tree")
+
+        if kwargs.has_key("name"):
+            name = kwargs.pop("name")
+        else:
+            name = self.createSuggestedVolumeGroupName(self.anaconda.network)
+
+        if name in [d.name for d in self.devices]:
+            raise ValueError("name already in use")
+
+        return VolumeGroupDevice(name, pvs, *args, **kwargs)
 
     def newLogicalVolume(self):
-        raise NotImplementedError("newLogicalVolume method not implemented in Interface class.")
+        """ Return a new LVMLogicalVolumeDevice instance. """
+        if kwargs.has_key("vg"):
+            vg = kwargs.pop("vg")
+
+        mountpoint = kwargs.pop("mountpoint", None)
+        if kwargs.has_key("fmt_type"):
+            kwargs["format"] = getFormat(kwargs.pop("fmt_type"),
+                                         mountpoint=mountpoint)
+
+        if kwargs.has_key("name"):
+            name = kwargs.pop("name")
+        else:
+            if kwargs.get("format") and kwargs["format"].type == "swap":
+                swap = True
+            else:
+                swap = False
+            name = self.createSuggestedLogicalVolumeName(vg,
+                                                         swap=swap,
+                                                         mountpoint=mountpoint)
+
+        if name in [d.name for d in self.devices]:
+            raise ValueError("name already in use")
+
+        return LogicalVolume(name, vg, *args, **kwargs)
 
     def newRaidArray(self):
         raise NotImplementedError("newRaidArray method not implemented in Interface class.")
@@ -462,6 +565,77 @@ class Storage(object):
             if disk.format.partedDisk.supportsFeature(parted.DISK_TYPE_EXTENDED):
                 return True
         return False
+
+    def createSuggestedVolumeGroupName(self, network):
+        """ Return a reasonable, unused VG name. """
+        # try to create a volume group name incorporating the hostname
+        hn = network.hostname
+        vgnames = [vg.name for vg in self.vgs]
+        if hn is not None and hn != '':
+            if hn == 'localhost' or hn == 'localhost.localdomain':
+                vgtemplate = "VolGroup"
+            elif hn.find('.') != -1:
+                template = "vg_%s" % (hn.split('.')[0].lower(),)
+                vgtemplate = safeLvmName(template)
+            else:
+                template = "vg_%s" % (hn.lower(),)
+                vgtemplate = safeLvmName(template)
+        else:
+            vgtemplate = "VolGroup"
+
+        if vgtemplate not in vgnames and \
+                vgtemplate not in lvm.lvm_vg_blacklist:
+            return vgtemplate
+        else:
+            i = 0
+            while 1:
+                tmpname = "%s%02d" % (vgtemplate, i,)
+                if not tmpname in vgnames and \
+                        tmpname not in lvm.lvm_vg_blacklist:
+                    break
+
+                i += 1
+                if i > 99:
+                    tmpname = ""
+
+            return tmpname
+
+    def createSuggestedLogicalVolumeName(self, vg, swap=None, mountpoint=None):
+        """ Return a suitable, unused name for a new logical volume. """
+        # FIXME: this is not at all guaranteed to work
+        if mountpoint:
+            # try to incorporate the mountpoint into the name
+            if mountpoint == '/':
+                lvtemplate = 'lv_root'
+            else:
+                if mountpoint.startswith("/"):
+                    template = "lv_%s" % mountpoint[1:]
+                else:
+                    template = "lv_%s" % (mountpoint,)
+
+                lvtemplate = safeLvmName(template)
+        else:
+            if swap:
+                if len([s for s in self.swaps if s in vg.lvs]):
+                    idx = len([s for s in self.swaps if s in vg.lvs])
+                    while True:
+                        lvtemplate = "lv_swap%02d" % idx
+                        if lvtemplate in [lv.lvname for lv in vg.lvs]:
+                            idx += 1
+                        else:
+                            break
+                else:
+                    lvtemplate = "lv_swap"
+            else:
+                idx = len(vg.lvs)
+                while True:
+                    lvtemplate = "LogVol%02d" % idx
+                    if lvtemplate in [l.lvname for l in vg.lvs]:
+                        idx += 1
+                    else:
+                        break
+
+        return lvtemplate
 
     def sanityCheck(self):
         """ Run a series of tests to verify the storage configuration.

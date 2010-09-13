@@ -8,6 +8,52 @@ _ = __trans.ugettext
 
 from formats import getFormat
 
+def sanityCheckVolumeGroupName(volname):
+    """Make sure that the volume group name doesn't contain invalid chars."""
+    badNames = ['lvm', 'root', '.', '..' ]
+
+    if not volname:
+        return _("Please enter a volume group name.")
+
+    # ripped the value for this out of linux/include/lvm.h
+    if len(volname) > 128:
+        return _("Volume Group Names must be less than 128 characters")
+
+    if volname in badNames:
+        return _("Error - the volume group name %s is not valid." % (volname,))
+
+    for i in range(0, len(volname)):
+        rc = string.find(string.letters + string.digits + '.' + '_' + '-', volname[i])
+        if rc == -1:
+            return _("Error - the volume group name contains illegal "
+                    "characters or spaces.  Acceptable characters "
+                    "are letters, digits, '.' or '_'.")
+    return None
+
+def sanityCheckLogicalVolumeName(logvolname):
+    """Make sure that the logical volume name doesn't contain invalid chars."""
+    badNames = ['group', '.', '..' ]
+
+    if not logvolname:
+        return _("Please enter a logical volume name.")
+
+    # ripped the value for this out of linux/include/lvm.h
+    if len(logvolname) > 128:
+        return _("Logical Volume Names must be less than 128 characters")
+
+
+    if logvolname in badNames:
+        return _("Error - the logical volume name %s is not "
+                 "valid." % (logvolname,))
+
+    for i in range(0, len(logvolname)):
+        rc = string.find(string.letters + string.digits + '.' + '_', logvolname[i])
+        if rc == -1:
+            return _("Error - the logical volume name contains illegal "
+                    "characters or spaces.  Acceptable characters "
+                    "are letters, digits, '.' or '_'.")
+    return None
+
 def checkForSwapNoMatch(intf, storage):
     """Check for any partitions of type 0x82 which don't have a swap fs."""
     for device in storage.partitions:
