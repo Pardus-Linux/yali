@@ -240,7 +240,10 @@ class PartitionWidget(QtGui.QWidget):
             self.newfstypeCombo = storageGuiHelpers.createFSTypeMenu(self,
                                                                      self.origrequest.format,
                                                                      self.mountCombo,
-                                                                     availablefstypes=restricts)
+                                                                     availablefstypes=restricts,
+                                                                     filesystemComboCB=self.fstypechangeCB,
+                                                                     mountComboCB=self.mountptchangeCB)
+
             self.layout.addWidget(self.newfstypeCombo, row, 1, 1, 1)
             QObject.connect(self.newfstypeCombo, SIGNAL("currentIndexChanged(int)"), self.fstypechangeCB)
 
@@ -256,8 +259,7 @@ class PartitionWidget(QtGui.QWidget):
             req_disk_names = [d.name for d in self.origrequest.req_disks]
             self.driveview = storageGuiHelpers.createAllowedDrivesList(self,
                                                                     self.parent.storage.partitioned,
-                                                                    req_disk_names,
-                                                                    selectDrives=False)
+                                                                    req_disk_names)
             self.layout.addWidget(self.driveview, row, 1, 1, 1)
 
             row += 1
@@ -292,14 +294,6 @@ class PartitionWidget(QtGui.QWidget):
 
         row += 1
 
-        # format/migrate option  for pre-exist partitions, as long as they aren't protected
-        # (we will still like to be mount them, though)
-        self.fsoptions = {}
-        if self.origrequest.exists and not self.origrequest.protected:
-            (row, self.fsoptions) = storageGuiHelpers.createPreExistFSOption(self, self.origrequest,
-                                                                             row, self.mountCombo,
-                                                                             self.parent.storage)
-
         #size options
         if not self.origrequest.exists:
             (groupBox,
@@ -309,8 +303,15 @@ class PartitionWidget(QtGui.QWidget):
             self.layout.addWidget(groupBox, row, 0, 1, 2)
             QObject.connect(self.sizeSpin, SIGNAL("valueChanged(int)"), self.sizeSpinChanged)
             row += 1
-        else:
-            pass
+
+        # format/migrate option  for pre-exist partitions, as long as they aren't protected
+        # (we will still like to be mount them, though)
+        self.fsoptions = {}
+        if self.origrequest.exists and not self.origrequest.protected:
+            (row, self.fsoptions) = storageGuiHelpers.createPreExistFSOption(self, self.origrequest,
+                                                                             row, self.mountCombo,
+                                                                             self.parent.storage)
+            row += 1
 
         #create only as primary
         if not self.origrequest.exists:
@@ -403,4 +404,5 @@ class PartitionWidget(QtGui.QWidget):
 
     def resizeOption(self, state):
         self.fsoptions["resizeSpinBox"].setEnabled(state)
-        self.fsoptions["formatCheckBox"].setEnabled(not state)
+        if self.fsoptions["formatCheckBox"]:
+            self.fsoptions["formatCheckBox"].setEnabled(not state)
