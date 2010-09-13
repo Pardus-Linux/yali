@@ -191,7 +191,7 @@ class Device(AbstractDevice):
 
             New size should already be set.
         """
-        raise NotImplementedError("resize method not defined for StorageDevice")
+        raise NotImplementedError("resize method not defined for Device")
 
     def setup(self, intf=None, orig=False):
         """ Open, or set up, a device. """

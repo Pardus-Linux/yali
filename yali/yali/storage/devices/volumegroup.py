@@ -1,15 +1,19 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import os
+import math
 import gettext
 
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 import yali
+import yali.context as ctx
+from yali.util import numeric_type
 from devicemapper import DeviceMapper
 from device import DeviceError
 from yali.storage.library import lvm
+from yali.storage.formats import get_device_format
 
 class VolumeGroupError(yali.Error):
     pass
@@ -17,7 +21,7 @@ class VolumeGroupError(yali.Error):
 class VolumeGroup(DeviceMapper):
     """ An LVM Volume Group
 
-        XXX Maybe this should inherit from StorageDevice instead of
+        XXX Maybe this should inherit from Device instead of
             DeviceMapper since there's no actual device.
     """
     _type = "lvmvg"
@@ -30,7 +34,7 @@ class VolumeGroup(DeviceMapper):
             Arguments:
 
                 name -- the device name (generally a device node's basename)
-                parents -- a list of physical volumes (StorageDevice)
+                parents -- a list of physical volumes (Device)
 
             Keyword Arguments:
 
@@ -48,7 +52,7 @@ class VolumeGroup(DeviceMapper):
                     uuid -- the VG's UUID
 
         """
-        self.pvClass = get_device_format_class("lvmpv")
+        self.pvClass = get_device_format("lvmpv")
         if not self.pvClass:
             raise DeviceError("cannot find 'lvmpv' class")
 
@@ -274,7 +278,7 @@ class VolumeGroup(DeviceMapper):
         lvm.vgreduce(self.name, pv_list)
         # XXX do we need to notify the kernel?
 
-    def _addLogVol(self, lv):
+    def _addLogicalVolume(self, lv):
         """ Add an LV to this VG. """
         if lv in self._lvs:
             raise ValueError("lv is already part of this vg")
@@ -289,14 +293,14 @@ class VolumeGroup(DeviceMapper):
         ctx.logger.debug("Adding %s/%dMB to %s" % (lv.name, lv.size, self.name))
         self._lvs.append(lv)
 
-    def _removeLogVol(self, lv):
+    def _removeLogicalVolume(self, lv):
         """ Remove an LV from this VG. """
         if lv not in self.lvs:
             raise ValueError("specified lv is not part of this vg")
 
         self._lvs.remove(lv)
 
-    def _addPV(self, pv):
+    def _addPhysicalVolume(self, pv):
         """ Add a PV to this VG. """
         if pv in self.pvs:
             raise ValueError("pv is already part of this vg")
@@ -311,7 +315,7 @@ class VolumeGroup(DeviceMapper):
         # and update our pv count
         self.pvCount = len(self.parents)
 
-    def _removePV(self, pv):
+    def _removePhysicalVolume(self, pv):
         """ Remove an PV from this VG. """
         if not pv in self.pvs:
             raise ValueError("specified pv is not part of this vg")
@@ -371,7 +375,7 @@ class VolumeGroup(DeviceMapper):
         size = self.size
         ctx.logger.debug("%s size is %dMB" % (self.name, size))
         for lv in self.lvs:
-            log.debug("lv %s uses %dMB" % (lv.name, lv.vgSpaceUsed))
+            ctx.logger.debug("lv %s uses %dMB" % (lv.name, lv.vgSpaceUsed))
             used += self.align(lv.vgSpaceUsed, roundup=True)
 
         free = self.size - used

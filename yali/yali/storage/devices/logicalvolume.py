@@ -2,8 +2,10 @@
 # -*- coding: utf-8 -*-
 import yali
 import yali.context as ctx
+from yali.util import numeric_type
 from devicemapper import DeviceMapper
-from device import DeviceError
+from device import Device, DeviceError
+from volumegroup import VolumeGroup
 from yali.storage.library import lvm
 from yali.baseudev import udev_settle
 from yali.storage.library import devicemapper
@@ -26,7 +28,7 @@ class LogicalVolume(DeviceMapper):
             Arguments:
 
                 name -- the device name (generally a device node's basename)
-                vgdev -- volume group (LVMVolumeGroupDevice instance)
+                vgdev -- volume group (VolumeGroup instance)
 
             Keyword Arguments:
 
@@ -48,11 +50,11 @@ class LogicalVolume(DeviceMapper):
         """
         if isinstance(vgdev, list):
             if len(vgdev) != 1:
-                raise ValueError("constructor requires a single LVMVolumeGroupDevice instance")
-            elif not isinstance(vgdev[0], LVMVolumeGroupDevice):
-                raise ValueError("constructor requires a LVMVolumeGroupDevice instance")
-        elif not isinstance(vgdev, LVMVolumeGroupDevice):
-            raise ValueError("constructor requires a LVMVolumeGroupDevice instance")
+                raise ValueError("constructor requires a single VolumeGroup instance")
+            elif not isinstance(vgdev[0], VolumeGroup):
+                raise ValueError("constructor requires a VolumeGroup instance")
+        elif not isinstance(vgdev, VolumeGroup):
+            raise ValueError("constructor requires a VolumeGroup instance")
 
         DeviceMapper.__init__(self, name, size=size, format=format,
                               sysfsPath=sysfsPath, parents=vgdev, exists=exists)
@@ -75,7 +77,7 @@ class LogicalVolume(DeviceMapper):
             self.req_percent = numeric_type(percent)
 
         # here we go with the circular references
-        self.vg._addLogVol(self)
+        self.vg._addLogicalVolume(self)
 
     def __str__(self):
         s = DeviceMapper.__str__(self)
@@ -114,7 +116,7 @@ class LogicalVolume(DeviceMapper):
             ctx.logger.debug("failed to set size: %dMB short" % (size - (self.vg.freeSpace + self._size),))
             raise ValueError("not enough free space in volume group")
 
-    size = property(StorageDevice._getSize, _setSize)
+    size = property(Device._getSize, _setSize)
 
     @property
     def vgSpaceUsed(self):
