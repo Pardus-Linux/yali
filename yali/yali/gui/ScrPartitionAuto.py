@@ -259,7 +259,7 @@ Pardus create a new partition for installation.</p>
     def shown(self):
         self.storage.reset()
         if self.storage.checkNoDisks(self.intf):
-            raise GUIError, _("No storage device found.")
+            sys.exit(0)
         else:
             self.fillDrives()
             self.setPartitioningType()
@@ -291,10 +291,10 @@ Pardus create a new partition for installation.</p>
 
     def nextCheck(self):
         if self.checkClearPartDisks():
-            increment = 0
             if self.ui.createCustom.isChecked():
-                increment = 1
                 self.storage.clearPartType = CLEARPART_TYPE_NONE
+                ctx.mainScreen.stepIncrement = 1
+                return True
             else:
                 if self.ui.shrinkCurrent.isChecked():
                     if self.shrinkOperations:
@@ -317,9 +317,7 @@ Pardus create a new partition for installation.</p>
                     increment = 1
                 else:
                     increment = 2
+                ctx.mainScreen.stepIncrement = increment
                 return doAutoPartition(self.storage)
-
-            ctx.mainScreen.stepIncrement = increment
-            return True
 
         return False
