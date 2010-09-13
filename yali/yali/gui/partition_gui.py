@@ -12,8 +12,7 @@ from PyQt4.QtCore import *
 
 import yali.util
 import yali.context as ctx
-from yali.gui.YaliDialog import Dialog, QuestionDialog, InfoDialog
-from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui.YaliDialog import Dialog
 from yali.gui import storageGuiHelpers
 from yali.storage import formats
 from yali.storage import partitioning
