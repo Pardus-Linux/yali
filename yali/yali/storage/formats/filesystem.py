@@ -898,10 +898,12 @@ register_device_format(XFilesystem)
 
 class NTFSFilesystem(Filesystem):
     """ ntfs filesystem. """
-    _type = "ntfs"
+    _type = "ntfs-3g"
+    #_mkfs = "mkfs.ntfs"
     _resizefs = "ntfsresize"
     _fsck = "ntfsresize"
     _resizable = True
+    #_formattable = True
     _mountOptions = ["defaults", "ro"]
     _checkOptions = ["-c"]
     _infofs = "ntfsinfo"
@@ -933,11 +935,10 @@ class NTFSFilesystem(Filesystem):
                         minSize = int(min) + 250
                     except Exception, e:
                         minSize = None
-                        log.warning("Unable to parse output for minimum size on %s: %s" %(self.device, e))
+                        ctx.logger.warning("Unable to parse output for minimum size on %s: %s" %(self.device, e))
 
                 if minSize is None:
-                    log.warning("Unable to discover minimum size of filesystem "
-                                "on %s" %(self.device,))
+                    ctx.logger.warning("Unable to discover minimum size of filesystem on %s" %(self.device,))
                 else:
                     size = minSize
 

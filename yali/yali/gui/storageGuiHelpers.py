@@ -9,7 +9,6 @@ from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
 import yali.context as ctx
-from yali.storage.library import lvm
 from yali.storage.formats import device_formats, get_default_filesystem_type
 
 defaultMountPoints = ['/', '/boot', '/home', '/tmp',
@@ -24,81 +23,7 @@ class DriveItem(QtGui.QListWidgetItem):
     def drive(self):
         return self._drive
 
-class PhysicalVolumeItem(QtGui.QListWidgetItem):
-    def __init__(self, parent, text, pv):
-        QtGui.QListWidgetItem.__init__(self, text, parent)
-        self._pv = pv
 
-    def pv(self):
-        return self._pv
-
-def createAllowedPhysicals(parent):
-    physicalsList = QtGui.QListWidget(parent)
-    originalpvs = self.pvs[:]
-    peCombo = parent.physicalExtendsCombo
-    origpvs = parent.pvs[:]
-    for device in self.availlvmparts:
-        # clip size to current PE
-        pesize = peCombope.itemData(peCombo.currentIndex()).toInt() / 1024.0
-        size = "%10.2f MB" % lvm.clampSize(device.size, pesize)
-
-        include = True
-        selected = False
-        if device in origpvs:
-            selected = True
-            include = True
-        else:
-            for vg in parent.storage.vgs:
-                if vg.name == parent.volumeGroup.name:
-                    continue
-
-                if device in vg.pvs:
-                    include = False
-                    break
-
-            if include and not origpvs:
-                selected = True
-
-        if include:
-            physicalVolumeItem = PhysicalVolumeItem(physicalsList, "%s size %s" % (device.name, size), device)
-            if selected:
-                physicalVolumeItem.setCheckState(Qt.Checked)
-
-            if selected and device not in parent.pvs:
-                parent.pvs.append(device)
-
-    return physicalsList
-
-def createPhysicalExtendsMenu(parent, default=4096):
-    def prettyFormatSize(value):
-        """ Pretty print for PhysicalExtends size in KB """
-        if val < 1024:
-            return "%s KB" % value
-        elif val < 1024*1024:
-            return "%s MB" % value/1024
-        else:
-            return "%s GB" % value/1024/1024
-
-    physicalExtendsCombo = QtGui.QComboBox(parent)
-    physicalextendlist = []
-    actualPhysicalExtends = []
-    for curpe in lvm.getPossiblePhysicalExtents(floor=1024):
-        # don't show PE over 128M, unless it's the default
-        if curpe > 131072 and curpe != default:
-            continue
-
-        actualPhysicalExtends.append(curpe)
-        value = prettyFormatSize(curpe)
-
-        physicalextendlist.append(value, curpe)
-        physicalExtendsCombo.addItem(value, curpe)
-
-    try:
-        physicalExtendsCombo.setCurrentIndex(actualPhysicalExtends.index(default))
-    except ValueError:
-        physicalExtendsCombo.setCurrentIndex(0)
-
-    return physicalExtendsCombo
 
 def createMountpointMenu(parent, request, excludeMountPoints=[]):
 
@@ -133,7 +58,8 @@ def createMountpointMenu(parent, request, excludeMountPoints=[]):
 
     return mountCombo
 
-def createFSTypeMenu(parent, format, mountCombo, availablefstypes=None, ignorefs=None):
+def createFSTypeMenu(parent, format, mountCombo, availablefstypes=None, ignorefs=None,
+                     filesystemComboCB=None, mountComboCB=None):
     fstypeCombo = QtGui.QComboBox(parent)
 
     if availablefstypes:
@@ -158,17 +84,17 @@ def createFSTypeMenu(parent, format, mountCombo, availablefstypes=None, ignorefs
         if format.formattable:
             fstypeCombo.addItem(name)
             if default == name:
-                defindex = i
+                index = i
                 defismountable = format.mountable
             i = i + 1
 
-    fstypeCombo.setCurrentIndex(defindex)
+    fstypeCombo.setCurrentIndex(index)
 
-    if parent.fstypechangeCB and mountCombo:
-        QObject.connect(fstypeCombo, SIGNAL("currentIndexChanged(int)"), parent.fstypechangeCB)
+    if filesystemComboCB and mountCombo:
+        QObject.connect(fstypeCombo, SIGNAL("currentIndexChanged(int)"), filesystemComboCB)
 
-    if mountCombo:
-        QObject.connect(mountCombo, SIGNAL("currentIndexChanged(int)"), parent.mountptchangeCB)
+    if mountCombo and mountComboCB:
+        QObject.connect(mountCombo, SIGNAL("currentIndexChanged(int)"), mountComboCB)
 
     return fstypeCombo
 
@@ -289,13 +215,13 @@ def createPreExistFSOption(parent, origrequest, row, mountcombo, storage, ignore
         parent.layout.addWidget(resizeSpinBox, row, 1, 1, 1)
 
         QObject.connect(resizeCheckBox, SIGNAL("stateChanged(int)"), parent.resizeOption)
-        QObject.connect(formatCheckBox, SIGNAL("stateChanged(int)"), parent.formatOptionResize)
+        #Kernel ntfs module rather than ntfs-3g is not formattable.
+        if formatCheckBox:
+            QObject.connect(formatCheckBox, SIGNAL("stateChanged(int)"), parent.formatOptionResize)
 
         rc["resizeCheckBox"] = resizeCheckBox
         rc["resizeSpinBox"] = resizeSpinBox
         row += 1
-
-    row += 1
 
     return (row, rc)
 
