@@ -44,6 +44,7 @@ kernel_filesystems = get_kernel_filesystems()
 
 class Filesystem(Format):
     _type = "filesystem"  # fs type name
+    _modules = []                        # kernel modules required for support
     _mountType = None                    # like _type but for passing to mount
     _name = None
     _mkfs = ""                           # mkfs utility
@@ -366,6 +367,30 @@ class Filesystem(Format):
 
             raise FilesystemError(hdr + msg)
 
+    def loadModule(self):
+        """Load whatever kernel module is required to support this filesystem."""
+        global kernel_filesystems
+
+        if not self._modules or self.mountType in kernel_filesystems:
+            return
+
+        for module in self._modules:
+            try:
+                rc = yali.utils.run_batch("modprobe", [module])
+            except Exception as e:
+                ctx.logger.error("Could not load kernel module %s: %s" % (module, e))
+                self._supported = False
+                return
+
+            if rc:
+                ctx.logger.error("Could not load kernel module %s" % module)
+                self._supported = False
+                return
+
+        # If we successfully loaded a kernel module, for this filesystem, we
+        # also need to update the list of supported filesystems.
+        kernel_filesystems = get_kernel_filesystems()
+
     def mount(self, *args, **kwargs):
         """ Mount this filesystem.
 
@@ -620,6 +645,7 @@ class Filesystem(Format):
 class Ext2Filesystem(Filesystem):
     """ ext2 filesystem. """
     _type = "ext2"
+    _modules = ["ext2"]
     _mkfs = "mke2fs"
     _resizefs = "resize2fs"
     _labelfs = "e2label"
@@ -737,6 +763,7 @@ register_device_format(Ext2Filesystem)
 class Ext3Filesystem(Ext2Filesystem):
     """ ext3 filesystem. """
     _type = "ext3"
+    _modules = ["ext3"]
     _formatOptions = ["-t", "ext3"]
     _migrationTarget = "ext4"
     _modules = ["ext3"]
@@ -748,6 +775,7 @@ register_device_format(Ext3Filesystem)
 class Ext4Filesystem(Ext3Filesystem):
     """ ext4 filesystem. """
     _type = "ext4"
+    _modules = ["ext4"]
     _migratable = False
     _formatOptions = ["-t", "ext4"]
     partedSystem = fileSystemType["ext4"]
@@ -757,6 +785,7 @@ register_device_format(Ext4Filesystem)
 class FATFilesystem(Filesystem):
     """ FAT filesystem. """
     _type = "vfat"
+    _modules = ["vfat"]
     _mkfs = "mkdosfs"
     _labelfs = "dosfslabel"
     _fsck = "dosfsck"
@@ -782,6 +811,7 @@ register_device_format(FATFilesystem)
 
 class EFIFilesystem(FATFilesystem):
     _type = "efi"
+    _modules = ["vfat"]
     _mountType = "vfat"
     _name = "EFI System Partition"
     _bootable = True
@@ -797,6 +827,7 @@ register_device_format(EFIFilesystem)
 class BTRFilesystem(Filesystem):
     """ btrfs filesystem """
     _type = "btrfs"
+    _modules = ["btrfs"]
     _mkfs = "mkfs.btrfs"
     _resizefs = "btrfsctl"
     _formattable = True
@@ -877,6 +908,7 @@ register_device_format(ReiserFilesystem)
 class XFilesystem(Filesystem):
     """ XFilesystem filesystem """
     _type = "xfs"
+    _modules = ["xfs"]
     _mkfs = "mkfs.xfs"
     _labelfs = "xfs_admin"
     _formatOptions = ["-f"]
@@ -954,6 +986,54 @@ class NTFSFilesystem(Filesystem):
         return argv
 
 register_device_format(NTFSFilesystem)
+
+class HFS(Filesystem):
+    _type = "hfs"
+    _modules = ["hfs"]
+    _mkfs = "hformat"
+    _formattable = True
+    partedSystem = fileSystemType["hfs"]
+
+register_device_format(HFS)
+
+class HFSPlus(Filesystem):
+    _type = "hfs+"
+    _modules = ["hfsplus"]
+    _udevTypes = ["hfsplus"]
+    partedSystem = fileSystemType["hfs+"]
+
+register_device_format(HFSPlus)
+
+class JFS(FS):
+    """ JFS filesystem """
+    _type = "jfs"
+    _modules = ["jfs"]
+    _mkfs = "mkfs.jfs"
+    _labelfs = "jfs_tune"
+    _formatOptions = ["-q"]
+    _labelOptions = ["-L"]
+    _maxLabelChars = 16
+    _maxSize = 8 * 1024 * 1024
+    _formattable = True
+    _linuxNative = True
+    _supported = False
+    _dump = True
+    _check = True
+    _infofs = "jfs_tune"
+    _infoOptions = ["-l"]
+    _existingSizeFields = ["Aggregate block size:", "Aggregate size:"]
+    partedSystem = fileSystemType["jfs"]
+
+    @property
+    def supported(self):
+        """ Is this filesystem a supported type? """
+        supported = self._supported
+        if "jfs" in pardus.sysutils.get_kernel_option("yali"):
+            supported = self.utilsAvailable
+
+        return supported
+
+register_device_format(JFS)
 
 class NoDevFilesystem(Filesystem):
     """ nodev filesystem base class """
