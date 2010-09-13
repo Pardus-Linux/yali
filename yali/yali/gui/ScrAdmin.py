@@ -79,13 +79,10 @@ You can also define a hostname for your computer. A hostname is an identifier as
             self.ui.hostname.setText(str(ctx.installData.hostName))
         else:
             # Use first added user's name as machine name if its exists
-            hostname_guess = "pardus"
-            if len(yali.users.pending_users) > 0:
-                hostname_guess = "%s-pardus" % yali.users.pending_users[0].username
-            else:
-                ctx.logger.debug("No user defined in users screen")
+            release=open("/etc/pardus-release").read().split()
+            releaseHostName = "".join(release[:2]).lower()
             if self.ui.hostname.text() == '':
-                self.ui.hostname.setText(hostname_guess)
+                self.ui.hostname.setText(releaseHostName)
 
         if ctx.installData.rootPassword:
             self.ui.pass1.setText(ctx.installData.rootPassword)
