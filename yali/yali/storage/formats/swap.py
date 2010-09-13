@@ -8,7 +8,7 @@ __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 import yali
-from yali.util import numeric_type, swapon, swap_off, swap_status, mkswap, SwapError
+from yali.storage.library.swap import swapon, swap_off, swap_status, mkswap, SwapError
 from . import Format, register_device_format
 
 class SwapSpaceError(yali.Error):

@@ -141,7 +141,7 @@ class LogicalVolume(DeviceMapper):
         if not self.exists:
             raise DeviceError("device has not been created", self.name)
 
-        return devimapper.dm_node_from_name(self.mapName)
+        return devicemapper.dm_node_from_name(self.mapName)
 
     @property
     def name(self):
@@ -186,7 +186,11 @@ class LogicalVolume(DeviceMapper):
             udev_settle()
 
         if self.status:
-            lvm.lvdeactivate(self.vg.name, self._name)
+            try:
+                lvm.lvdeactivate(self.vg.name, self._name)
+            except lvm.LVMError, msg:
+                ctx.logger.debug("lv %s deactivate failed; continuing" % self._name)
+
 
         if recursive:
             # It's likely that teardown of a VG will fail due to other
@@ -206,7 +210,7 @@ class LogicalVolume(DeviceMapper):
             self.setupParents()
 
             # should we use --zero for safety's sake?
-            lvm.lvcreate(self.vg.name, self._name, self.size, progress=w)
+            lvm.lvcreate(self.vg.name, self._name, self.size)
         except Exception:
             raise
         else:

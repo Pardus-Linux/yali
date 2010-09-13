@@ -1004,7 +1004,7 @@ class HFSPlus(Filesystem):
 
 register_device_format(HFSPlus)
 
-class JFS(FS):
+class JFS(Filesystem):
     """ JFS filesystem """
     _type = "jfs"
     _modules = ["jfs"]

@@ -241,7 +241,7 @@ class VolumeGroup(DeviceMapper):
             self.setupParents()
 
             pv_list = [pv.path for pv in self.parents]
-            lvm.vgcreate(self.name, pv_list, self.peSize, progress=w)
+            lvm.vgcreate(self.name, pv_list, self.peSize)
         except Exception:
             raise
         else:

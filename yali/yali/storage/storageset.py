@@ -15,9 +15,11 @@ from devicetree import DeviceTree
 from devices.directorydevice import DirectoryDevice
 from devices.filedevice import FileDevice
 from devices.nodevice import NoDevice
+from devices.device import DeviceError
 from formats import getFormat
 from formats.filesystem import FilesystemError
 from library import devicemapper
+from library import swap
 
 def get_containing_device(path, devicetree):
     """ Return the device that a path resides on. """
@@ -270,7 +272,7 @@ class StorageSet(object):
                 try:
                     device.setup()
                     device.format.setup()
-                except OldSwapError:
+                except swap.OldSwapError:
                     msg = _("The swap device:\n\n     %s\n\n"
                             "is an old-style Linux swap partition.  If "
                             "you want to use this device for swap space, "
@@ -281,7 +283,7 @@ class StorageSet(object):
                     if swapError(msg, device):
                         continue
 
-                except SuspendError:
+                except swap.SuspendError:
                     msg = _("The swap device:\n\n     %s\n\n"
                                 "in your /etc/fstab file is currently in "
                                 "use as a software suspend device, "
@@ -294,7 +296,7 @@ class StorageSet(object):
                     if swapError(msg, device):
                         continue
 
-                except UnknownSwapError:
+                except swap.UnknownSwapError:
                     msg = _("The swap device:\n\n     %s\n\n"
                             "does not contain a supported swap volume.  In "
                             "order to continue installation, you will need "

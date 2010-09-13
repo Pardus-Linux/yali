@@ -69,15 +69,18 @@ def collect_device_formats():
             except ImportError, e:
                 ctx.logger.debug("import of device format module '%s' failed" % module_name)
 
-def get_device_format(type):
+def get_device_format(formatType):
     """ Return an appropriate format class based on fmt_type. """
     if not device_formats:
         collect_device_formats()
 
-    format = device_formats.get(type)
+    format = device_formats.get(formatType)
     if not format:
         for device_format in device_formats.values():
-            if type and format == device_format._name:
+            if formatType and formatType == device_format._name:
+                format = device_format
+                break
+            elif formatType in device_format._udevTypes:
                 format = device_format
                 break
 
@@ -107,6 +110,7 @@ class Format(object):
     """ Generic device format. """
     _type = None
     _name = "Unknown"
+    _udevTypes = []
     partedFlag = None
     partedSystem = None
     _formattable = False                # can be formatted

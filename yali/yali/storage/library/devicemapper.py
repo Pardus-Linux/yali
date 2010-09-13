@@ -24,7 +24,7 @@ def name_from_dm_node(node):
     return name.strip()
 
 def dm_node_from_name(name):
-    dm_node = block.getDmNodeFromName(map_name)
+    dm_node = block.getDmNodeFromName(name)
     if dm_node is not None:
         return dm_node
 

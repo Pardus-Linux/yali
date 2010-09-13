@@ -12,6 +12,7 @@ import yali
 import yali.context as ctx
 import formats
 from udev import *
+from operations import *
 from library import lvm
 from partitioning import shouldClear, CLEARPART_TYPE_ALL, CLEARPART_TYPE_LINUX, CLEARPART_TYPE_NONE
 from devices.device import DeviceNotFoundError, deviceNameToDiskByPath
@@ -19,7 +20,6 @@ from devices.nodevice import NoDevice
 from devices.devicemapper import DeviceMapper
 from devices.volumegroup import VolumeGroup
 from library.devicemapper import DeviceMapperError
-from operations import operation_type_from_string, operation_object_from_string
 from devices.disk import Disk
 from devices.partition import Partition
 from formats.disklabel import InvalidDiskLabelError, DiskLabelCommitError
@@ -760,7 +760,6 @@ class DeviceTree(object):
 
     def addDeviceMapperDevice(self, info):
         name = udev_device_get_name(info)
-        log_method_call(self, name=name)
         uuid = udev_device_get_uuid(info)
         sysfs_path = udev_device_get_sysfs_path(info)
         device = None
@@ -773,7 +772,7 @@ class DeviceTree(object):
                 # there is a device in the tree already with the same
                 # major/minor as this one but with a different name
                 # XXX this is kind of racy
-                if devicemmaperdevice.getDMNode() == os.path.basename(sysfs_path):
+                if devicemapperdevice.getDMNode() == os.path.basename(sysfs_path):
                     # XXX should we take the name already in use?
                     device = devicemapperdevice
                     break
@@ -932,7 +931,7 @@ class DeviceTree(object):
                 device = self.getDeviceByUuid(uuid)
 
             if device is None:
-                device = self.addUdevDMDevice(info)
+                device = self.addDeviceMapperDevice(info)
         elif udev_device_is_disk(info):
             if device is None:
                 device = self.addDiskDevice(info)
@@ -995,11 +994,11 @@ class DeviceTree(object):
             try:
                 kwargs["vgName"] = udev_device_get_vg_name(info)
             except KeyError as e:
-                log.debug("PV %s has no vg_name" % name)
+                ctx.logger.debug("PV %s has no vg_name" % name)
             try:
                 kwargs["vgUuid"] = udev_device_get_vg_uuid(info)
             except KeyError:
-                log.debug("PV %s has no vg_uuid" % name)
+                ctx.logger.debug("PV %s has no vg_uuid" % name)
             try:
                 kwargs["peStart"] = udev_device_get_pv_pe_start(info)
             except KeyError:

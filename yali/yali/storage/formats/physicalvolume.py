@@ -76,7 +76,7 @@ class PhysicalVolume(Format):
             # hammer...
             Format.destroy(self, *args, **kwargs)
 
-            lvm.pvcreate(self.device, progress=w)
+            lvm.pvcreate(self.device)
         except Exception:
             raise
         else:
@@ -94,7 +94,7 @@ class PhysicalVolume(Format):
         # FIXME: verify path exists?
         try:
             lvm.pvremove(self.device)
-        except LVMError:
+        except lvm.LVMError:
             Format.destroy(self, *args, **kwargs)
 
         self.exists = False
