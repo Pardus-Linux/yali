@@ -28,7 +28,7 @@ import yali.util
 import yali.localeutils
 import yali.context as ctx
 from yali.installdata import YALI_DVDINSTALL, YALI_INSTALL, YALI_OEMINSTALL, YALI_FIRSTBOOT, YALI_PARTITIONER, YALI_RESCUE, YALI_PLUGIN
-from yali.gui.YaliDialog import Dialog, QuestionDialog, InfoDialog, InformationWindow, MessageWindow
+from yali.gui.YaliDialog import Dialog, InfoDialog, InformationWindow, MessageWindow
 from yali.storage.formats.filesystem import FilesystemResizeError, FilesystemMigrateError
 
 # screens
@@ -152,12 +152,7 @@ class Yali:
         self.info = InformationWindow("Please wait...")
         self.info.hide()
         self.checkCDStop = True
-
-    def messageWindow(self, title, text, type="ok", default=None, customButtons=None, customIcon=None):
-        return MessageWindow(title, text, type, default, customButtons, customIcon, run=True).rc
-
-    def detailedMessageWindow(self, title, text, longText, type="ok", default=None, customButtons=None, customIcon=None):
-        return MessageWindow(title, text, type, default, customButtons, customIcon, run=True, detailed=True, longText=longText).rc
+        self._inconsistentLVMAnswers = {}
 
     def getPlugin(self, p):
         try:

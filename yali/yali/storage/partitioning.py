@@ -1442,7 +1442,7 @@ def doAutoPartition(storage):
             msg = _("Could not find enough free space for automatic "
                     "partitioning, please use another partitioning method.")
 
-            ctx.yali.messageWindow(_("Error Partitioning"), msg, customIcon='error')
+            ctx.interface.messageWindow(_("Error Partitioning"), msg, customIcon='error')
 
             storage.reset()
             return False
@@ -1457,7 +1457,7 @@ def doAutoPartition(storage):
         doPartitioning(storage, exclusiveDisks=storage.clearPartDisks)
 
     except PartitioningWarning as msg:
-        ctx.yali.messageWindow(_("Warnings During Automatic Partitioning"),
+        ctx.interface.messageWindow(_("Warnings During Automatic Partitioning"),
                                _("Following warnings occurred during automatic partitioning:\n\n%s") % msg,
                                customIcon='warning')
         ctx.logger.warning(msg)
@@ -1467,7 +1467,7 @@ def doAutoPartition(storage):
         # restore drives to original state
         storage.reset()
         extra = _("\n\nPress 'OK' to exit the installer.")
-        ctx.yali.messageWindow(_("Error Partitioning"),
+        ctx.interface.messageWindow(_("Error Partitioning"),
                                _("Could not allocate requested partitions: \n\n"
                                  "%(msg)s.%(extra)s") %
                                {'msg': msg, 'extra': extra},
@@ -1487,7 +1487,7 @@ def doAutoPartition(storage):
     if errors:
         errortxt = "\n".join(errors)
         extra = _("\n\nPress 'OK' to exit the installer.")
-        ctx.yali.messageWindow(_("Automatic Partitioning Errors"),
+        ctx.interface.messageWindow(_("Automatic Partitioning Errors"),
                                _("The following errors occurred with your "
                                  "partitioning:\n\n%(errortxt)s\n\n"
                                  "This can happen if there is not enough "
@@ -1495,7 +1495,7 @@ def doAutoPartition(storage):
                                  "installation. %(extra)s") %
                                 {'errortxt': errortxt, 'extra': extra}, customIcon='error')
 
-        ctx.yali.messageWindow(_("Unrecoverable Error"),
+        ctx.interface.messageWindow(_("Unrecoverable Error"),
                                _("The system will now reboot."))
 
         #sys.exit(0)

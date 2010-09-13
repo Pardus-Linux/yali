@@ -56,7 +56,7 @@ class PartitionEditor:
             if widget.mountCombo.isEditable() and mountpoint:
                 msg = sanityCheckMountPoint(mountpoint)
                 if msg:
-                    ctx.yali.messageWindow(_("Mount Point Error"),
+                    ctx.interface.messageWindow(_("Mount Point Error"),
                                             msg,
                                             customIcon="error")
                     continue
@@ -71,7 +71,7 @@ class PartitionEditor:
                         break
 
                 if used:
-                    ctx.yali.messageWindow(_("Mount point in use"),
+                    ctx.interface.messageWindow(_("Mount point in use"),
                                             _("The mount point \"%s\" is in "
                                               "use. Please pick another.") %
                                             (mountpoint,),

@@ -144,7 +144,7 @@ about disk partitioning.
 
 
     def backCheck(self):
-        rc = ctx.yali.messageWindow(_("Warning"), _("All Changes that you made will be removed"), type="question")
+        rc = ctx.interface.messageWindow(_("Warning"), _("All Changes that you made will be removed"), type="question")
         if rc:
             self.storage.reset()
             return True
@@ -275,11 +275,11 @@ about disk partitioning.
                 doPartitioning(self.storage)
                 rc = 0
             except PartitioningError, msg:
-                ctx.yali.messageWindow(_("Error Partitioning"), _("Could not allocate requested partitions: %s.") % 
+                ctx.interface.messageWindow(_("Error Partitioning"), _("Could not allocate requested partitions: %s.") % 
                                       (msg), customIcon="error")
                 rc = -1
             except PartitioningWarning, msg:
-                rc = ctx.yali.messageWindow(_("Warning Partitioning"), _("Warning: %s." % msg),
+                rc = ctx.interface.messageWindow(_("Warning Partitioning"), _("Warning: %s." % msg),
                         customButtons=[_("Modify Partition"), _("Continue")], customIcon="warning")
                 if rc == 1:
                     rc = -1
@@ -309,7 +309,7 @@ about disk partitioning.
         reason = self.storage.deviceImmutable(device, ignoreProtected=True)
 
         if reason:
-            ctx.yali.messageWindow(_("Unable To Edit"),
+            ctx.interface.messageWindow(_("Unable To Edit"),
                                    _("You cannot edit this device:\n\n%s")
                                     % reason,
                                     customIcon="error")

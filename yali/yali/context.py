@@ -46,3 +46,8 @@ bus = None
 
 # Selected disk for manual partitioning screen
 selectedDisk = None
+
+#GUI base user message Interface
+interface = None
+
+

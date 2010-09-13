@@ -74,6 +74,7 @@ class Runner:
 
         # Creating the installer
         ctx.yali = yali.installer.Yali(install_type, install_plugin)
+        ctx.interface = yali.gui.Interface()
 
         ctx.storage = Storage()
         ctx.bootloader = BootLoader()

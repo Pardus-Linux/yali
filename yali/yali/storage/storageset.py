@@ -154,9 +154,9 @@ class StorageSet(object):
             except OSError as e:
                 ctx.logger.error("OSError: (%d) %s" % (e.errno, e.strerror))
 
-                if ctx.yali.messageWindow:
+                if ctx.interface.messageWindow:
                     if e.errno == errno.EEXIST:
-                        ctx.yali.messageWindow(_("Invalid mount point"),
+                        ctx.interface.messageWindow(_("Invalid mount point"),
                                                _("An error occurred when trying "
                                                  "to create %s.  Some element of "
                                                  "this path is not a directory. "
@@ -168,7 +168,7 @@ class StorageSet(object):
                     else:
                         na = {'mountpoint': device.format.mountpoint,
                               'msg': e.strerror}
-                        ctx.yali.messageWindow(_("Invalid mount point"),
+                        ctx.interface.messageWindow(_("Invalid mount point"),
                                                _("An error occurred when trying "
                                                  "to create %(mountpoint)s: "
                                                  "%(msg)s.  This is "
@@ -181,10 +181,10 @@ class StorageSet(object):
             except SystemError as (num, msg):
                 ctx.logger.error("SystemError: (%d) %s" % (num, msg) )
 
-                if ctx.yali.messageWindow and not device.format.linuxNative:
+                if ctx.interface.messageWindow and not device.format.linuxNative:
                     na = {'path': device.path,
                           'mountpoint': device.format.mountpoint}
-                    ret = ctx.yali.messageWindow(_("Unable to mount filesystem"),
+                    ret = ctx.interface.messageWindow(_("Unable to mount filesystem"),
                                                  _("An error occurred mounting "
                                                    "device %(path)s as "
                                                    "%(mountpoint)s.  You may "
@@ -203,11 +203,11 @@ class StorageSet(object):
             except FilesystemError as msg:
                 ctx.logger.error("FilesystemError: %s" % msg)
 
-                if ctx.yali.messageWindow:
+                if ctx.interface.messageWindow:
                     na = {'path': device.path,
                           'mountpoint': device.format.mountpoint,
                           'msg': msg}
-                    ctx.yali.messageWindow(_("Unable to mount filesystem"),
+                    ctx.interface.messageWindow(_("Unable to mount filesystem"),
                                            _("An error occurred mounting "
                                              "device %(path)s as %(mountpoint)s: "
                                              "%(msg)s. This is "
@@ -236,11 +236,11 @@ class StorageSet(object):
 
     def turnOnSwap(self):
         def swapError(msg, device):
-            if not ctx.yali.messageWindow:
+            if not ctx.interface.messageWindow:
                 sys.exit(0)
 
             buttons = [_("Skip"), _("Format"), _("_Exit")]
-            ret = ctx.yali.messageWindow(_("Error"), msg, type="custom",
+            ret = ctx.interface.messageWindow(_("Error"), msg, type="custom",
                                               customButtons=buttons,
                                               customIcon="warning")
 
@@ -305,14 +305,14 @@ class StorageSet(object):
                         continue
 
                 except DeviceError as (msg, name):
-                    if ctx.yali.messageWindow:
+                    if ctx.interface.messageWindow:
                         err = _("Error enabling swap device %(name)s: "
                                     "%(msg)s\n\n"
                                     "This most likely means this swap "
                                     "device has not been initialized.\n\n"
                                     "Press OK to exit the installer.") % \
                                   {'name': name, 'msg': msg}
-                        ctx.yali.messageWindow(_("Error"), err)
+                        ctx.interface.messageWindow(_("Error"), err)
                     sys.exit(0)
 
                 break
@@ -353,6 +353,10 @@ class StorageSet(object):
 
         if not request:
             return [_("You have not created a bootable partition.")]
+
+        # can't have bootable partition on LV
+        if req.type == "lvmlv":
+            errors.append(_("Bootable partitions cannot be on a logical volume."))
 
         # Make sure /boot is on a supported FS type.  This prevents crazy
         # things like boot on vfat.
