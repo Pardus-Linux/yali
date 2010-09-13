@@ -219,7 +219,7 @@ Here you can see your install options before installation starts.
                                       "will now be\nwritten to disk.  Any"
                                       "data on deleted or reformatted partitions\n"
                                       "will be lost."),
-                                      type = "custom", customIcon="warning",
+                                      type = "custom", customIcon="question",
                                       customButtons=[_("Write Changes to Disk"), _("Go Back")],
                                       default=1)
 
