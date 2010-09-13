@@ -49,8 +49,8 @@ class Interface(object):
             return True
         elif rc == 3:
             return True
-    else:
-        return True
+        else:
+            return True
 
     def resetReinitInconsistentLVM(self):
         self._inconsistentLVMAnswers = {}

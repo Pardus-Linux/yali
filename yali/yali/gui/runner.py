@@ -28,6 +28,7 @@ import yali.context as ctx
 from yali.storage import Storage
 from yali.storage.bootloader import BootLoader
 import yali.gui.YaliWindow
+import yali.gui.interface
 from yali.gui.YaliDialog import Dialog
 from yali.gui.Ui.exception import Ui_Exception
 from yali.installdata import YALI_INSTALL, YALI_DVDINSTALL, YALI_FIRSTBOOT, YALI_OEMINSTALL, YALI_RESCUE, YALI_PLUGIN
@@ -74,7 +75,7 @@ class Runner:
 
         # Creating the installer
         ctx.yali = yali.installer.Yali(install_type, install_plugin)
-        ctx.interface = yali.gui.Interface()
+        ctx.interface = yali.gui.interface.Interface()
 
         ctx.storage = Storage()
         ctx.bootloader = BootLoader()
