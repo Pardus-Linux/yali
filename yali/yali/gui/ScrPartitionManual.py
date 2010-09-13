@@ -25,7 +25,7 @@ import yali.context as ctx
 from yali.gui.YaliDialog import Dialog, QuestionDialog
 from yali.gui.ScreenWidget import ScreenWidget
 
-from yali.gui.ManualPartition import PartitionEditor
+from yali.gui.partition_gui import PartitionEditor
 from yali.gui.Ui.manualpartwidget import Ui_ManualPartWidget
 from yali.storage.devices.device import devicePathToName, Device
 from yali.storage.devices.partition import Partition
