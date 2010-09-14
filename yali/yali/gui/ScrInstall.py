@@ -361,6 +361,7 @@ class PisiUI(QObject, pisi.ui.UI):
             self.lastPackage = keywords['package'].name
             qevent.setData(data)
             objectSender(qevent)
+        QtGui.QApplication.processEvents()
 
     def display_progress(self, operation, percent, info, **keywords):
         pass
