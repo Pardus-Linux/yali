@@ -28,11 +28,43 @@ from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.partition_gui import PartitionEditor
 from yali.gui.lvm_gui import LVMEditor
 from yali.gui.Ui.manualpartwidget import Ui_ManualPartWidget
+from yali.gui.Ui.createdevicewidget import Ui_CreateDeviceWidget
 from yali.storage.library import lvm
 from yali.storage.devices.device import devicePathToName, Device
 from yali.storage.devices.partition import Partition
-from yali.storage.partitioning import doPartitioning, PartitioningError, PartitioningWarning
-from yali.storage.storageBackendHelpers import doDeleteDevice, doClearPartitionedDevice, checkForSwapNoMatch, getPreExistFormatWarnings
+from yali.storage.partitioning import doPartitioning, hasFreeDiskSpace, PartitioningError, PartitioningWarning
+from yali.storage.storageBackendHelpers import doDeleteDevice, doClearPartitionedDevice, checkForSwapNoMatch, getPreExistFormatWarnings, confirmResetPartitionState
+
+partition, volumeGroup, logicalVolume, physicalVolume, raidMember, raidArray = range(6)
+
+class CreateDeviceWidget(QtGui.QWidget, Ui_CreateDeviceWidget):
+    def __init__(self, parent):
+        QtGui.QWidget.__init__(self, parent)
+        self.parent = parent
+        self.setupUi(self)
+        self.connect(self.partition, SIGNAL("clicked()"), self.clickedButton)
+        self.connect(self.volumeGroup, SIGNAL("clicked()"), self.clickedButton)
+        self.connect(self.logicalVolume, SIGNAL("clicked()"), self.clickedButton)
+        self.connect(self.physicalVolume, SIGNAL("clicked()"), self.clickedButton)
+        self.connect(self.raidMember, SIGNAL("clicked()"), self.clickedButton)
+        self.connect(self.raidArray, SIGNAL("clicked()"), self.clickedButton)
+        self.connect(self.buttonBox, SIGNAL("accepted()"), self.parent.accept)
+        self.connect(self.buttonBox, SIGNAL("rejected()"), self.parent.reject)
+        self.rc = None
+
+    def clickedButton(self):
+        if self.sender() == self.partition:
+            self.rc = partition
+        elif self.sender() == self.volumeGroup:
+            self.rc = volumeGroup
+        elif self.sender() == self.logicalVolume:
+            self.rc = logicalVolume
+        elif self.sender() == self.physicalVolume:
+            self.rc = physicalVolume
+        elif self.sender() == self.raidMember:
+            self.rc = raidMember
+        elif self.sender() == self.raidArray:
+            self.rc = raidArray
 
 class Widget(QtGui.QWidget, ScreenWidget):
     title = _('Manual Partitioning')
@@ -154,8 +186,12 @@ about disk partitioning.
         return False
 
     def reset(self):
+        if not confirmResetPartitionState(self.intf):
+            return
         self.storage.reset()
-        self.refresh(justRedraw=True)
+        self.ui.deviceTree.clear()
+        self.populate()
+        #self.refresh(justRedraw=True)
 
     def addDevice(self, device, item):
         if device.format.hidden:
@@ -338,7 +374,8 @@ about disk partitioning.
 
 
     def getCurrentDevice(self):
-        return self.ui.deviceTree.currentItem().device
+        if self.ui.deviceTree.currentItem():
+            return self.ui.deviceTree.currentItem().device
 
     def getCurrentDeviceParent(self):
         """ Return the parent of the selected row.  Returns an item.
@@ -359,22 +396,98 @@ about disk partitioning.
                 availablePVS > 0):
             activateVolumeGroup = True
 
-        if not (activatePartition and activateVolumeGroup):
+        activateRaidArray = False
+        #availableRaidMembers = len(self.storage.unusedRaidMembers)
+        #availableMinors = len(self.storage.unusedRaidMinors)
+        #if (availableMinors > 0
+        #        and formats.getFormat("software RAID").supported
+        #        and availableRaidMembers > 1):
+        #    activateRaidArray = True
+
+
+        if (not activatePartition and not activateVolumeGroup):
             self.intf.messageWindow(_("Cannot perform any creation operation"),
-                                    _("Note that the creation operation requires one of the following:\n\n"
-                                      "* Free space in one of the Hard Drives.\n"
-                                      "* At least one free physical volume (LVM) partition.\n"
-                                      "* At least one Volume Group with free space."),
+                                    _("Note that the creation operation requires one of the\nfollowing:"
+                                      " * Free space in one of the Hard Drives.\n"
+                                      " * At least one free physical volume (LVM) partition.\n"
+                                      " * At least one Volume Group with free space."),
                                     customIcon="warning")
             return
 
-        activateLogicalVolume = False
         freeVolumeGroupSpace = []
         for vg in self.storage.vgs:
             if vg.freeSpace > 0:
                 freeVolumeGroupSpace.append(vg)
+
+        activateLogicalVolume = False
         if len(freeVolumeGroupSpace) > 0:
             activateLogicalVolume = True
+
+        dialog = Dialog(_("Create Storage"), closeButton=False)
+        dialog.addWidget(CreateDeviceWidget(dialog))
+
+        if activatePartition:
+            dialog.content.partition.setEnabled(True)
+            dialog.content.partitionLabel.setEnabled(True)
+            dialog.content.physicalVolume.setEnabled(True)
+            dialog.content.physicalVolumeLabel.setEnabled(True)
+            #dialog.content.raidMember.setEnabled(True)
+            #dialog.content.raidMemberLabel.setEnabled(Trueu)
+
+        if activateVolumeGroup:
+            dialog.content.volumeGroup.setEnabled(True)
+            dialog.content.volumeGroupLabel.setEnabled(True)
+
+        if activateLogicalVolume:
+            #FIXME: find way to show only logical volume edit widget
+            pass
+
+        if activateRaidArray:
+            #FIXME: Not implemented
+            pass
+
+        if activatePartition:
+            #dialog.content.partition.setChecked(True)
+            dialog.content.partition.click()
+        elif activateVolumeGroup:
+            #dialog.content.volumeGroup.setChecked(True)
+            dialog.content.volumeGroup.click()
+        elif activateRaidArray:
+            dialog.content.raidArray.click()
+            #dialog.content.raidArray.setClicked(True)
+
+        rc = dialog.exec_()
+        print "Dialog.rc --> %s" % rc
+        if not rc:
+            ctx.logger.debug(_("Received Create Storage Dialog code   != 1 (%d) witch should not happen" % rc))
+            return
+
+        print "Dialog.content.rc --> %s" % dialog.content.rc
+        if dialog.content.rc == raidMember:
+            raidmember = self.storage.newPartition(fmt_type="mdmember")
+            self.editPartition(member, isNew = True, restricts=["mdmember"])
+            return
+
+        elif dialog.content.rc == raidArray:
+            array = self.storage.newMDArray(fmt_type=self.storage.defaultFSType)
+            self.editRaidArray(array, isNew = True)
+            return
+
+        elif dialog.content.rc == physicalVolume:
+            physicalvolume = self.storage.newPartition(fmt_type="lvmpv")
+            self.editPartition(physicalvolume, isNew = True, restricts=["lvmpv"])
+            return
+
+        elif dialog.content.rc == volumeGroup:
+            vg = self.storage.newVolumeGroup()
+            self.editVolumeGroup(vg, isNew=True)
+            return
+
+        elif dialog.content.rc == partition:
+            format = self.storage.defaultFSType
+            device = self.storage.newPartition(fmt_type=format)
+            self.editPartition(device, isNew=True)
+            return
 
     def editDevice(self, *args):
         device = self.getCurrentDevice()
@@ -491,12 +604,8 @@ about disk partitioning.
 
         volumegroupEditor.destroy()
 
-    def createPartition(self):
-        # create new request of size 1M
-        tempformat = self.storage.defaultFSType
-        device = self.storage.newPartition(fmt_type=tempformat)
-        self.editPartition(device, isNew=True)
-
+    def editRaidArray(self, device, isNew = False):
+        pass
 
     def editPartition(self, device, isNew=False, restricts=None):
         partitionEditor = PartitionEditor(self, device, isNew=isNew, restricts=restricts)
