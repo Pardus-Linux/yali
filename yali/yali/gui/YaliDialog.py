@@ -188,11 +188,11 @@ class MessageWindow:
             self.details = QtGui.QTextBrowser()
             self.details.setText(unicode(longText))
             self.dialog.layout.addWidget(self.details)
+        self.dialog.resize(QSize(300, 120))
         if run:
             self.run(destroyAfterRun)
 
     def run(self, destroyAfterRun=True):
-        self.dialog.resize(300,120)
         self.rc = self.dialog.exec_()
         if self.msgBox.clickedButton():
             if not self.doCustom:
