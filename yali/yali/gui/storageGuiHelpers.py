@@ -73,7 +73,8 @@ def createFSTypeMenu(parent, format, mountCombo, availablefstypes=None, ignorefs
         default = get_default_filesystem_type()
 
     index = 0
-    for i, name in enumerate(names):
+    i = 0
+    for name in names:
         format = device_formats[name]()
         if not format.supported:
             continue
@@ -85,8 +86,7 @@ def createFSTypeMenu(parent, format, mountCombo, availablefstypes=None, ignorefs
             fstypeCombo.addItem(name)
             if default == name:
                 index = i
-                defismountable = format.mountable
-            i = i + 1
+            i += 1
 
     fstypeCombo.setCurrentIndex(index)
 
@@ -115,7 +115,7 @@ def createAllowedDrives(disks, requestDrives=None, driveList=None, selectDrives=
                 if disk.name in requestDrives:
                     selected = 2
             else:
-                if drive not in disallowDrives:
+                if disk not in disallowDrives:
                     selected = 2
 
         size = "%8.0f MB" % disk.size

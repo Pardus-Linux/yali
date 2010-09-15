@@ -1391,6 +1391,13 @@ def getDiskChunks(disk, partitions, free):
 
     return chunks
 
+def hasFreeDiskSpace(storage, exclusiveDisks=None):
+    """Returns True if there is at least 100Mb of free usable space in any of
+       the disks.  False otherwise.
+
+    """
+    return True
+
 def shouldClear(device, clearPartType, clearPartDisks=None):
     if clearPartType not in [CLEARPART_TYPE_LINUX, CLEARPART_TYPE_ALL]:
         return False

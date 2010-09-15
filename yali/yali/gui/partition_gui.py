@@ -35,7 +35,8 @@ class PartitionEditor:
                 title = _("Edit Partition")
 
         self.dialog = Dialog(title, closeButton=False)
-        self.dialog.addWidget(PartitionWidget(self, origrequest, isNew))
+        self.dialog.addWidget(PartitionWidget(self, origrequest, isNew, restricts))
+        self.dialog.resize(300,200)
 
     def run(self):
         if self.dialog is None:
@@ -52,7 +53,9 @@ class PartitionEditor:
             widget = self.dialog.content
 
             mountpoint = str(widget.mountCombo.currentText())
-            if widget.mountCombo.isEditable() and mountpoint:
+            active = widget.mountCombo.isEnabled()
+            #if widget.mountCombo.isEditable() and mountpoint:
+            if active and mountpoint:
                 msg = sanityCheckMountPoint(mountpoint)
                 if msg:
                     ctx.interface.messageWindow(_("Mount Point Error"),

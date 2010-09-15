@@ -399,6 +399,10 @@ class Storage(object):
         raise NotImplementedError("unusedRaidMembers method not implemented in Interface class.")
 
     @property
+    def unusedRaidMinors(self):
+        raise NotImplementedError("unusedRaidMinors method not implemented in Interface class.")
+
+    @property
     def rootDevice(self):
         return self.storageset.rootDevice
 

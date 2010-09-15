@@ -349,14 +349,15 @@ class VolumeGroupWidget(QtGui.QWidget):
     @property
     def smallestPhysicalVolumeSize(self):
         first = 1
-        minpvsize = None
+        minpvsize = 1
         activePESize = self.physicalExtends.itemData(self.physicalExtends.currentIndex()).toInt()[0]
         for pv in self.selectedPhysicalVolumes:
             try:
-                peSize = activePESize / 1024
+                peSize = activePESize / 1024.0
             except:
                 peSize = self.origrequest.peSize
 
+            pvsize = max(0, lvm.clampSize(pv.size, peSize) - peSize)
             if first:
                 minpvsize = pvsize
                 first = 0
@@ -564,13 +565,14 @@ class VolumeGroupWidget(QtGui.QWidget):
 
             return 1
 
-        curpe = self.physicalExtends.itemData(index).toInt()[0] / 1024.0
+        curpe = self.physicalExtends.itemData(index).toFloat()[0] / 1024.0
         maximumPhysicalSize = self.smallestPhysicalVolumeSize
+        print "curpe%s -- maximumPhysicalSize:%s" % (curpe, maximumPhysicalSize)
         if curpe > maximumPhysicalSize:
             self.parent.intf.messageWindow(_("Not enough space"),
                                            _("The physical extent size cannot be "
-                                             "changed because the value selected "
-                                             "(%(curpe)10.2f MB) is larger than the "
+                                             "changed because\nthe value selected "
+                                             "(%(curpe)10.2f MB) is larger than the\n"
                                              "smallest physical volume "
                                              "(%(maxpvsize)10.2f MB) in the volume "
                                              "group.") %
