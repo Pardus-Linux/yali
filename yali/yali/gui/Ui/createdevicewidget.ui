@@ -55,7 +55,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QLabel" name="label">
+         <widget class="QLabel" name="partitionLabel">
           <property name="text">
            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -106,7 +106,7 @@ p, li { white-space: pre-wrap; }
          </spacer>
         </item>
         <item>
-         <widget class="QLabel" name="label_3">
+         <widget class="QLabel" name="raidMemberLabel">
           <property name="enabled">
            <bool>false</bool>
           </property>
@@ -146,7 +146,7 @@ p, li { white-space: pre-wrap; }
          </spacer>
         </item>
         <item>
-         <widget class="QLabel" name="label_2">
+         <widget class="QLabel" name="raidArrayLabel">
           <property name="enabled">
            <bool>false</bool>
           </property>
@@ -193,7 +193,7 @@ p, li { white-space: pre-wrap; }
          </spacer>
         </item>
         <item>
-         <widget class="QLabel" name="label_4">
+         <widget class="QLabel" name="volumeGroupLabel">
           <property name="text">
            <string>Requires at least 1 free LVM formatted partition</string>
           </property>
@@ -227,7 +227,7 @@ p, li { white-space: pre-wrap; }
          </spacer>
         </item>
         <item>
-         <widget class="QLabel" name="label_5">
+         <widget class="QLabel" name="logicalVolumeLabel">
           <property name="text">
            <string>Create Logical Volume on selected Volume Group</string>
           </property>
@@ -261,7 +261,7 @@ p, li { white-space: pre-wrap; }
          </spacer>
         </item>
         <item>
-         <widget class="QLabel" name="label_6">
+         <widget class="QLabel" name="physicalVolumeLabel">
           <property name="text">
            <string>Create LVM formatted partition</string>
           </property>

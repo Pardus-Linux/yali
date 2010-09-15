@@ -30,6 +30,7 @@ from yali.gui.lvm_gui import LVMEditor
 from yali.gui.Ui.manualpartwidget import Ui_ManualPartWidget
 from yali.gui.Ui.createdevicewidget import Ui_CreateDeviceWidget
 from yali.storage.library import lvm
+from yali.storage import formats
 from yali.storage.devices.device import devicePathToName, Device
 from yali.storage.devices.partition import Partition
 from yali.storage.partitioning import doPartitioning, hasFreeDiskSpace, PartitioningError, PartitioningWarning
