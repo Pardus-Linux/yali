@@ -187,12 +187,11 @@ about disk partitioning.
         return False
 
     def reset(self):
-        if not confirmResetPartitionState(self.intf):
+        if confirmResetPartitionState(self.intf):
             return
         self.storage.reset()
         self.ui.deviceTree.clear()
-        self.populate()
-        #self.refresh(justRedraw=True)
+        self.refresh(justRedraw=True)
 
     def addDevice(self, device, item):
         if device.format.hidden:
@@ -458,12 +457,10 @@ about disk partitioning.
             #dialog.content.raidArray.setClicked(True)
 
         rc = dialog.exec_()
-        print "Dialog.rc --> %s" % rc
         if not rc:
             ctx.logger.debug(_("Received Create Storage Dialog code   != 1 (%d) witch should not happen" % rc))
             return
 
-        print "Dialog.content.rc --> %s" % dialog.content.rc
         if dialog.content.rc == raidMember:
             raidmember = self.storage.newPartition(fmt_type="mdmember")
             self.editPartition(member, isNew = True, restricts=["mdmember"])

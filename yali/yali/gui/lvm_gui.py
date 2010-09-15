@@ -66,6 +66,7 @@ class LVMEditor(object):
 
         self.dialog = Dialog(title, closeButton=False)
         self.dialog.addWidget(VolumeGroupWidget(self, self.origrequest, isNew=isNew))
+        self.dialog.resize(QSize(450, 400))
 
     def run(self):
         if self.dialog is None:
@@ -229,6 +230,11 @@ class VolumeGroupWidget(QtGui.QWidget):
 
         row += 1
 
+        # Have to set before calling createPhysicalExtendsMenu to update values
+        self.totalSpace = QtGui.QLabel(_(""), self)
+        self.usedSpace = QtGui.QLabel(_(""), self)
+        self.freeSpace = QtGui.QLabel(_(""), self)
+
         label = QtGui.QLabel(_("Physical Extent:"), self)
         self.layout.addWidget(label, row, 0, 1, 1)
         self.physicalExtends =  self.createPhysicalExtendsMenu(self.origrequest.peSize * 1024)
@@ -250,21 +256,18 @@ class VolumeGroupWidget(QtGui.QWidget):
 
         label = QtGui.QLabel(_("Used Space:"), self)
         self.layout.addWidget(label, row, 0, 1, 1)
-        self.usedSpace = QtGui.QLabel(_(""), self)
         self.layout.addWidget(self.usedSpace, row, 1, 1, 1)
 
         row += 1
 
         label = QtGui.QLabel(_("Free Space:"), self)
         self.layout.addWidget(label, row, 0, 1, 1)
-        self.freeSpace = QtGui.QLabel(_(""), self)
         self.layout.addWidget(self.freeSpace, row, 1, 1, 1)
 
         row += 1
 
         label = QtGui.QLabel(_("Total Space:"), self)
         self.layout.addWidget(label, row, 0, 1, 1)
-        self.totalSpace = QtGui.QLabel(_(""), self)
         self.layout.addWidget(self.totalSpace, row, 1, 1, 1)
 
         row += 1
@@ -342,7 +345,7 @@ class VolumeGroupWidget(QtGui.QWidget):
     def selectedPhysicalVolumes(self):
         pvs = []
         for index in range(self.physicals.count()):
-            if self.physicals.item(index).widget.checkBox == Qt.Checked:
+            if self.physicals.item(index).widget.checkBox.isChecked():
                 pvs.append(self.physicals.item(index).widget.pv)
         return pvs
 
@@ -350,7 +353,7 @@ class VolumeGroupWidget(QtGui.QWidget):
     def smallestPhysicalVolumeSize(self):
         first = 1
         minpvsize = 1
-        activePESize = self.physicalExtends.itemData(self.physicalExtends.currentIndex()).toInt()[0]
+        activePESize = self.physicalExtends.itemData(self.physicalExtends.currentIndex()).toFloat()[0]
         for pv in self.selectedPhysicalVolumes:
             try:
                 peSize = activePESize / 1024.0
@@ -417,11 +420,11 @@ class VolumeGroupWidget(QtGui.QWidget):
         originalpvs = self.parent.pvs[:]
         peCombo = self.physicalExtends
         for device in self.parent.availlvmparts:
-            peSize = peCombo.itemData(peCombo.currentIndex()).toInt()[0] / 1024
+            peSize = peCombo.itemData(peCombo.currentIndex()).toFloat()[0] / 1024.0
             size = "%10.2f MB" % lvm.clampSize(device.size, peSize)
-
             include = True
             selected = False
+
             if device in originalpvs:
                 selected = True
                 include = True
@@ -438,12 +441,11 @@ class VolumeGroupWidget(QtGui.QWidget):
                     selected = True
 
             if include:
-                physicalVolume = PhysicalVolumeItem(physicalsList, "%s size %s" % (device.name, size), device, self.parent, self)
+                physicalVolume = PhysicalVolumeItem(physicalsList, "%s (%s)" % (device.name, size), device, self.parent, self)
                 listItem = PhysicalVolumeListItem(physicalsList, physicalVolume)
                 physicalsList.setItemWidget(listItem, physicalVolume)
-                #if selected:
-                #    physicalVolume.checkBox.setCheckState(Qt.Checked)
-
+                if selected:
+                    physicalVolume.checkBox.setCheckState(Qt.Checked)
                 if selected and device not in self.parent.pvs:
                     self.parent.pvs.append(device)
 
@@ -451,12 +453,12 @@ class VolumeGroupWidget(QtGui.QWidget):
 
     def updateAllowedPhysicals(self):
         """ update sizes in pvs """
-        for index, partition in enumerate(self.availlvmparts):
+        for index, partition in enumerate(self.parent.availlvmparts):
             size = partition.size
-            peSize = self.physicalExtends.itemData(self.physicalExtends.currentIndex()).toInt()[0] / 1024
+            peSize = self.physicalExtends.itemData(self.physicalExtends.currentIndex()).toFloat()[0] / 1024.0
             size = lvm.clampSize(size, peSize)
-            partitionsize = "%10.2f MB"  % size
-            self.physicals.item(index).setText(2, partitionsize)
+            prettysize = "%10.2f MB"  % size
+            self.physicals.item(index).widget.labelDrive.setText("%s (%s)" % (partition.name, prettysize))
 
 
 
@@ -522,52 +524,49 @@ class VolumeGroupWidget(QtGui.QWidget):
             """
 
             pvs = self.selectedPhysicalVolumes
-            availSpace = computeVGSize(pvs, physicalextend)
+            availableSpace = computeVolumeGroupSize(pvs, physicalextend)
 
             # see if total space is enough
             used = 0
             resize = False
             for lv in self.parent.lvs.values():
                 # total space required by an lv may be greater than lv size.
-                vg_space = lv['size'] * lv['stripes'] + lv['logSize'] + lv['snapshotSpace']
-                clamped_vg_space = lvm.clampSize(vg_space, physicalextend, roundup=1)
-                used += clamped_vg_space
+                vgSpace = lv['size'] * lv['stripes'] + lv['logSize'] + lv['snapshotSpace']
+                clampedVGSpace = lvm.clampSize(vgSpace, physicalextend, roundup=1)
+                used += clampedVGSpace
                 if lv['size'] != lvm.clampSize(lv['size'], physicalextend, roundup=1):
                     resize = True
 
-            if used > availSpace:
+            if used > availableSpace:
                 self.parent.intf.messageWindow(_("Not enough space"),
-                                               _("The physical extent size cannot be "
-                                                 "changed because otherwise the space "
-                                                 "required by the currently defined "
-                                                 "logical volumes will be increased "
-                                                 "to more than the available space."),
+                                               _("The physical extent size cannot be changed because\n"
+                                                 "otherwise the space required by the currently defined\n"
+                                                 "logical volumes will be increased to more than the\n"
+                                                 "available space."),
                                                customIcon="error")
                 return  0
 
             if resize:
                 rc = self.parent.intf.messageWindow(_("Confirm Physical Extent Change"),
-                                                    _("This change in the value of the "
-                                                      "physical extent will require the "
-                                                      "sizes of the current logical "
-                                                      "volume requests to be rounded "
-                                                      "up in size to an integer multiple "
-                                                      "of the "
-                                                      "physical extent.\n\nThis change "
-                                                      "will take effect immediately."),
-                                                    type="custom", customIcon="question",
-                                                    customButtons=[_("Cancel"), _("Continue")])
+                                                   _("This change in the value of the physical extent will\n"
+                                                     "require the sizes of the current logical volume requests\n"
+                                                     "to be rounded up in size to an integer multiple of\n"
+                                                     "the physical extent.\n\nThis change will take effect\n"
+                                                     "immediately."),
+                                                   type="custom", customIcon="question",
+                                                   customButtons=[_("Cancel"), _("Continue")])
                 if not rc:
                     return 0
 
             for lv in self.parent.lvs.values():
-                lv['size'] = lvm.clampSize(lv['size'], newpe, roundup=1)
+                lv['size'] = lvm.clampSize(lv['size'], physicalextend, roundup=1)
 
             return 1
 
         curpe = self.physicalExtends.itemData(index).toFloat()[0] / 1024.0
+        currentValue = curpe
+        lastValue = self.origrequest.peSize
         maximumPhysicalSize = self.smallestPhysicalVolumeSize
-        print "curpe%s -- maximumPhysicalSize:%s" % (curpe, maximumPhysicalSize)
         if curpe > maximumPhysicalSize:
             self.parent.intf.messageWindow(_("Not enough space"),
                                            _("The physical extent size cannot be "
@@ -607,7 +606,7 @@ class VolumeGroupWidget(QtGui.QWidget):
                 return 0
 
         # now see if we need to fixup effect PV and LV sizes based on PE
-        if curval > lastval:
+        if currentValue > lastValue:
             rc = reclampLogicalVolume(curpe)
             if not rc:
                 return 0
@@ -689,13 +688,13 @@ class VolumeGroupWidget(QtGui.QWidget):
                                             _("Are you sure you want to delete the \n"
                                               "logical volume \"%s\"?") % (item.device.lvname,),
                                             type="custom",
-                                            customButtons=[_("Cancel"), _("Delete")], customIcon="warning")
-        if not rc:
+                                            customButtons=[_("Delete"), _("Cancel")], customIcon="question")
+        if rc:
             return
-
-        del self.parent.lvs[item.device.lvname]
-        self.updateLogicalVolumeTree()
-        self.updateSpaces()
+        else:
+            del self.parent.lvs[item.device.lvname]
+            self.updateLogicalVolumeTree()
+            self.updateSpaces()
 
     def editLogicalVolume(self, device, isNew=False):
         logicalVolumeEditor = LogicalVolumeEditor(self, device, isNew=isNew)
@@ -1034,7 +1033,7 @@ class PhysicalVolumeListItem(QtGui.QListWidgetItem):
     def __init__(self, parent, widget):
         QtGui.QListWidgetItem.__init__(self, parent)
         self.widget = widget
-        #self.setSizeHint(QSize(300, 64))
+        self.setSizeHint(QSize(40, 40))
 
 class PhysicalVolumeItem(QtGui.QWidget):
     def __init__(self, parent, text, device, editor, widget):
@@ -1053,22 +1052,19 @@ class PhysicalVolumeItem(QtGui.QWidget):
         self.widget = widget
 
     def stateChanged(self, state):
-        if state == Qt.Checked:
+        if state == Qt.Checked and self.pv not in self.editor.pvs:
             self.editor.pvs.append(self.pv)
-        else:
+        elif state == Qt.Unchecked and self.pv in self.editor.pvs:
             self.editor.pvs.remove(self.pv)
             try:
                 self.widget.tmpVolumeGroup
-            except ValueError, msg:
+            except Exception, msg:
                 self.editor.intf.messageWindow(_("Not enough space"),
-                                               _("You cannot remove this physical "
-                                                 "volume because otherwise the "
-                                                 "volume group will be too small to "
-                                                 "hold the currently defined logical "
-                                                 "volumes."), customIcon="error")
+                                               _("You cannot remove this physical volume because\n"
+                                                 "otherwise the volume group will be too small to\n"
+                                                 "hold the currently defined logical volumes."),
+                                               customIcon="error")
                 self.editor.pvs.append(self.pv)
-                return False
-
-        self.widget.updateSpaces()
-        return True
+            else:
+                self.widget.updateSpaces()
 

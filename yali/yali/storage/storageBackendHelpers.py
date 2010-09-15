@@ -89,7 +89,7 @@ def doClearPartitionedDevice(intf, storage, device, confirm=1, quiet=0):
                 _("You are about to delete all partitions on "
                   "the device '%s'.") % (device.path,),
                 type="custom", customIcon="warning",
-                custom_buttons=[_("Cancel"), _("_Delete")])
+                customButtons=[_("Cancel"), _("Delete")])
 
         if not rc:
             return False
@@ -297,10 +297,10 @@ def confirmDelete(intf, device):
 
 def confirmResetPartitionState(intf):
     """Confirm reset of partitioning to that present on the system."""
-    rc = intf.messageWindow(_("Confirm Reset"),
-                            _("Are you sure you want to reset the "
-                              "partition table to its original state?"),
-                            type="yesno", customIcon="question")
+    rc = intf.messageWindow(_("Confirm Reset"), _("Are you sure you want to reset the "
+                              "partition table to its original state?"), type="custom",
+                            customButtons=[_("Yes"), _("No")],
+                            customIcon="question")
     return rc
 
 def queryNoFormatPreExisting(intf):

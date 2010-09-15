@@ -100,7 +100,7 @@ background 10333C
 
 title %(release)s
 root %(root)s
-kernel %(root)s%(bootpath)s%(kernel)s %(commands)s
+kernel %(root)s%(bootpath)s%(kernel)s %(commands)s mudur=lvm
 initrd %(root)s%(bootpath)s%(initramfs)s
 
 """
@@ -170,7 +170,6 @@ class BootLoader(object):
     def _setDevice(self, device):
         self._device = device
 
-        print "_setDevice --> device:%s" % device
         (disk, partition) = get_disk_partition(self.storage.devicetree.getDeviceByName(device))
         if partition is None:
             self._type = BOOT_TYPE_MBR
