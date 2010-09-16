@@ -26,14 +26,16 @@ def writeLocaleFromCmdline():
     f.write("LANG=%s\n" % yali.localedata.locales[consts.lang]["locale"])
     f.write("LC_ALL=%s\n" % yali.localedata.locales[consts.lang]["locale"])
 
-def setKeymap(keymap, variant=None):
+def setKeymap(keymap, variant=None, chroot=False):
     ad = ""
     if variant:
         ad = "-variant %s" % variant
     else:
         variant = "\"\""
-    yali.util.run_batch("setxkbmap", ["-layout", keymap, ad])
-    yali.util.run_batch("hav", ["call", "zorg", "Xorg.Display", "setKeymap", keymap, variant])
+    if not chroot:
+        yali.util.run_batch("setxkbmap", ["-layout", keymap, ad])
+    else:
+        yali.util.chroot("hav call zorg Xorg.Display setKeymap %s %s" % (keymap, variant))
 
 def writeKeymap(keymap):
     mudur_file_path = os.path.join(consts.target_dir, "etc/conf.d/mudur")

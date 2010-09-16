@@ -19,11 +19,11 @@ _ = __trans.ugettext
 from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
-import yali.localedata
 import yali.localeutils
+import yali.localedata
+import yali.context as ctx
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.keyboardwidget import Ui_KeyboardWidget
-import yali.context as ctx
 
 ##
 # Keyboard setup screen
@@ -70,10 +70,11 @@ This screen lets you select the keyboard layout you want to use on Pardus. You c
         self.connect(self.ui.keyboard_list, SIGNAL("currentItemChanged(QListWidgetItem*, QListWidgetItem*)"),
                 self.slotLayoutChanged)
 
-    def slotLayoutChanged(self, i, y=None):
+    def slotLayoutChanged(self, current, previous=None):
         try:
-            if not i==y:
-                ctx.yali.setKeymap(i.getData())
+            if not current == previous:
+                ctx.installData.keyData = current.getData()
+                yali.localeutils.setKeymap(current.getData()["xkblayout"], current.getData()["xkbvariant"])
         except:
             pass
 

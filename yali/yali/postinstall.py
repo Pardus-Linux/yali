@@ -96,10 +96,9 @@ def migrateXorg():
              "/var/lib/zorg/config.xml"]
 
     for conf in files:
-        if not os.path.exists(joy(os.path.dirname(conf))):
-            os.makedirs(joy(os.path.dirname(conf)))
-
         if os.path.exists(conf):
+            if not os.path.exists(joy(os.path.dirname(conf))):
+                os.makedirs(joy(os.path.dirname(conf)))
             ctx.logger.debug("Copying from '%s' to '%s'" % (conf, joy(conf)))
             shutil.copyfile(conf, joy(conf))
 
@@ -201,6 +200,10 @@ def writeConsoleData():
     yali.localeutils.writeKeymap(ctx.installData.keyData["consolekeymap"])
     ctx.logger.debug("Keymap stored.")
     return True
+
+def setKeymap():
+    keymap = ctx.installData.keyData
+    yali.localeutils.setKeymap(keymap["xkblayout"], keymap["xkbvariant"], chroot=True)
 
 def migrateXorgConf():
     if not ctx.yali.install_type == YALI_FIRSTBOOT:

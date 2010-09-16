@@ -209,10 +209,6 @@ class Yali:
 
         self.info.hide()
 
-    def setKeymap(self, keymap):
-        yali.localeutils.setKeymap(keymap["xkblayout"], keymap["xkbvariant"])
-        ctx.installData.keyData = keymap
-
     def setTime(self, rootWidget):
         self.info.updateAndShow(_("Adjusting time settings..."))
         date = rootWidget.calendarWidget.selectedDate()
@@ -331,7 +327,7 @@ class Yali:
                  {"text":_("Setting root password..."),"operation":yali.postinstall.setRootPassword},
                  {"text":_("Adding users..."),"operation":yali.postinstall.addUsers},
                  {"text":_("Setting console keymap..."),"operation":yali.postinstall.writeConsoleData},
-                 {"text":_("Migrating Xorg configuration..."),"operation":yali.postinstall.migrateXorgConf}]
+                 {"text":_("Migrating Xorg configuration..."),"operation":yali.postinstall.setKeymap}]
 
         stepsBase = [{"text":_("Copying repository index..."),"operation":yali.postinstall.copyPisiIndex},
                      {"text":_("Configuring other packages..."),"operation":yali.postinstall.setPackages},
