@@ -77,7 +77,7 @@ class LVMEditor(object):
             operations = []
             if not rc:
                 if self.isNew:
-                    del self.parent.lvs[self.origrequest.name]
+                    del self.lvs[self.origrequest.name]
                 self.destroy()
                 return []
 
@@ -222,7 +222,7 @@ class VolumeGroupWidget(QtGui.QWidget):
             if not self.isNew:
                 self.name.setText(self.origrequest.name)
             else:
-                self.name.setText(self.storage.createSuggestedVolumeGroupName())
+                self.name.setText(self.parent.storage.createSuggestedVolumeGroupName())
         else:
             self.name = QtGui.QLabel(self)
             self.name.setText(self.origrequest.name)
@@ -465,7 +465,7 @@ class VolumeGroupWidget(QtGui.QWidget):
     def updateLogicalVolumeTree(self):
         self.logicalVolumesTree.clear()
         for lv in self.parent.lvs.values():
-            logicalVolume = self.getLogicalVolumeByName(lv["name"])
+            logicalVolume = self.getLogicalVolumeByName(lv["name"], vg=self.tmpVolumeGroup)
             LogicalVolumeItem(self.logicalVolumesTree, logicalVolume)
 
     def updateSpaces(self):
@@ -666,6 +666,7 @@ class VolumeGroupWidget(QtGui.QWidget):
                           'logSize': 0,
                           'snapshotSpace': 0,
                           'exists': False}
+        tempvg = self.tmpVolumeGroup
         device =  self.getLogicalVolumeByName(name, vg=tempvg)
         self.editLogicalVolume(device, isNew=True)
 
@@ -712,6 +713,7 @@ class VolumeGroupWidget(QtGui.QWidget):
 class LogicalVolumeEditor:
     def __init__(self, parent, request, isNew=0):
         self.parent = parent
+        self.storage = parent.parent.storage
         self.intf = parent.parent.intf
         self.origrequest = request
         self.isNew = isNew
