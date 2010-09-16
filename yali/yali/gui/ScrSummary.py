@@ -227,6 +227,7 @@ Here you can see your install options before installation starts.
             ctx.storage.devicetree.teardownAll()
         else:
             ctx.mainScreen.enableBack()
+            return
 
         ctx.installData.installAllLangPacks = self.ui.installAllLangPacks.isChecked()
         ctx.mainScreen.processEvents()
@@ -236,14 +237,14 @@ Here you can see your install options before installation starts.
             return
 
         # Auto Partitioning
-        if not ctx.storage.storageset.swapDevices:
-            size = 0
-            if yali.util.memInstalled() > 512:
-                size = 300
-            else:
-                size = 600
-            ctx.storage.storageset.createSwapFile(ctx.storage.storageset.rootDevice,\
-                                                  ctx.constants.target_dir, size)
+        #if not ctx.storage.storageset.swapDevices:
+        #    size = 0
+        #    if yali.util.memInstalled() > 512:
+        #        size = 300
+        #    else:
+        #        size = 600
+        #    ctx.storage.storageset.createSwapFile(ctx.storage.storageset.rootDevice, ctx.consts.target_dir, size)
+
         if ctx.storage.doAutoPart:
             ctx.yali.info.updateMessage(_("Auto partitioning..."))
             ctx.logger.debug("Auto partitioning")
