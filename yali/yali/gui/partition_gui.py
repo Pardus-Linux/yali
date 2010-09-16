@@ -22,6 +22,7 @@ from yali.storage.storageBackendHelpers import queryNoFormatPreExisting, sanityC
 class PartitionEditor:
     def __init__(self, parent, origrequest, isNew=False, restricts=None):
         self.storage = parent.storage
+        self.intf = parent.intf
         self.origrequest = origrequest
         self.isNew = isNew
         self.parent = parent

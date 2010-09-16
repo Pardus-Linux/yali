@@ -425,6 +425,7 @@ about disk partitioning.
 
         dialog = Dialog(_("Create Storage"), closeButton=False)
         dialog.addWidget(CreateDeviceWidget(dialog))
+        dialog.resize(QSize(450, 400))
 
         if activatePartition:
             dialog.content.partition.setEnabled(True)
@@ -489,36 +490,38 @@ about disk partitioning.
 
     def editDevice(self, *args):
         device = self.getCurrentDevice()
-        reason = self.storage.deviceImmutable(device, ignoreProtected=True)
+        if device:
+            reason = self.storage.deviceImmutable(device, ignoreProtected=True)
 
-        if reason:
-            self.intf.messageWindow(_("Unable To Edit"),
-                                   _("You cannot edit this device:\n\n%s")
-                                    % reason,
-                                    customIcon="error")
-            return
+            if reason:
+                self.intf.messageWindow(_("Unable To Edit"),
+                                       _("You cannot edit this device:\n\n%s")
+                                        % reason,
+                                        customIcon="error")
+                return
 
-        if device.type == "lvmvg":
-            self.editVolumeGroup(device)
-        elif device.type == "lvmlv":
-            self.editLogicalVolume(lv=device)
-        elif isinstance(device, Partition):
-            self.editPartition(device)
+            if device.type == "lvmvg":
+                self.editVolumeGroup(device)
+            elif device.type == "lvmlv":
+                self.editLogicalVolume(lv=device)
+            elif isinstance(device, Partition):
+                self.editPartition(device)
 
     def deleteDevice(self):
         device = self.getCurrentDevice()
-        if device.partitioned:
-            if doClearPartitionedDevice(self.intf, self.storage, device):
-                self.refresh()
-        elif doDeleteDevice(self.intf, self.storage, device):
-            if isinstance(device, Partition):
-                justRedraw = False
-            else:
-                justRedraw = True
-                if device.type == "lvmlv" and device in device.vg.lvs:
-                    device.vg._removeLogicalVolume(device)
+        if device:
+            if device.partitioned:
+                if doClearPartitionedDevice(self.intf, self.storage, device):
+                    self.refresh()
+            elif doDeleteDevice(self.intf, self.storage, device):
+                if isinstance(device, Partition):
+                    justRedraw = False
+                else:
+                    justRedraw = True
+                    if device.type == "lvmlv" and device in device.vg.lvs:
+                        device.vg._removeLogicalVolume(device)
 
-            self.refresh(justRedraw=justRedraw)
+                self.refresh(justRedraw=justRedraw)
 
 
     def editVolumeGroup(self, device, isNew=False):
@@ -529,13 +532,13 @@ about disk partitioning.
             operations = volumegroupEditor.run()
 
             for operation in operations:
-                self.storage.devicetree.registerOperation(operation)
+                self.storage.devicetree.addOperation(operation)
 
             if self.refresh(justRedraw=not operations):
                 operations.reverse()
 
                 for operation in operations:
-                    self.storage.devicetree.cancelOperation(operation)
+                    self.storage.devicetree.removeOperation(operation)
 
                 if not isNew:
                     device = origDevice
