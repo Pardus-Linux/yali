@@ -77,7 +77,8 @@ class LVMEditor(object):
             operations = []
             if not rc:
                 if self.isNew:
-                    del self.lvs[self.origrequest.name]
+                    if self.lvs.has_key(self.origrequest.name):
+                        del self.lvs[self.origrequest.name]
                 self.destroy()
                 return []
 
@@ -646,13 +647,10 @@ class VolumeGroupWidget(QtGui.QWidget):
         (total, used, free) = self.computeSpace()
         if free <= 0:
             self.parent.intf.messageWindow(_("No free space"),
-                                    _("There is no room left in the "
-                                      "volume group to create new logical "
-                                      "volumes. "
-                                      "To add a logical volume you must "
-                                      "reduce the size of one or more of "
-                                      "the currently existing "
-                                      "logical volumes"), customIcon="error")
+                                    _("There is no room left in the volume group to create new\n"
+                                      "logical volumes. To add a logical volume you must reduce\n"
+                                      "the size of one or more of the currently existing logical\n"
+                                      "volumes"), customIcon="error")
             return
 
         tempvg = self.tmpVolumeGroup
@@ -735,7 +733,8 @@ class LogicalVolumeEditor:
             rc = self.dialog.exec_()
             if not rc:
                 if self.isNew:
-                    del self.parent.parent.lvs[self.origrequest.name]
+                    if self.parent.parent.lvs.has_key(self.origrequest.name):
+                        del self.parent.parent.lvs[self.origrequest.name]
                 self.destroy()
                 return None
 
@@ -1067,6 +1066,6 @@ class PhysicalVolumeItem(QtGui.QWidget):
                                                  "hold the currently defined logical volumes."),
                                                customIcon="error")
                 self.editor.pvs.append(self.pv)
-            else:
-                self.widget.updateSpaces()
+        #Update spaces not only if physical volume unchecked
+        self.widget.updateSpaces()
 

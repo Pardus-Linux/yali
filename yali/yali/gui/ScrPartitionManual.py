@@ -139,9 +139,10 @@ about disk partitioning.
     def nextCheck(self):
         (errors, warnings) = self.storage.sanityCheck()
         if errors:
-            detailed =  _("The partitioning scheme you requested caused the \n"
-                          "following critical errors.You must correct these \n"
-                          "errors before you continue your installation of %s." %
+            detailed =  _("The partitioning scheme you requested\n"
+                          "caused the following critical errors.\n"
+                          "You must correct these errors before\n"
+                          "you continue your installation of %s." %
                           yali.util.product_name())
 
             comments = "\n\n".join(errors)
@@ -163,8 +164,9 @@ about disk partitioning.
 
         formatWarnings = getPreExistFormatWarnings(self.storage)
         if formatWarnings:
-            detailed = _("The following pre-existing devices have been selected\n"
-                         "to be formatted, destroying all data.")
+            detailed = _("The following pre-existing devices have\n"
+                         "been selected to be formatted, destroying\n"
+                         "all data.")
 
             comments = ""
             for (device, type, mountpoint) in formatWarnings:
@@ -172,8 +174,8 @@ about disk partitioning.
 
             rc = self.intf.detailedMessageWindow(_("Format Warnings"),
                                                   detailed, comments, type="custom",
-                                                  customButtons=[_("Cancel"), _("Format")], default=0)
-            if rc != 1:
+                                                  customButtons=[_("Format")], _("Cancel"), default=1)
+            if rc:
                 return False
 
         return True
