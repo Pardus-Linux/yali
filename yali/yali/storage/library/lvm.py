@@ -147,7 +147,7 @@ def lvm(args):
         raise LVMError(err)
 
 def pvcreate(device):
-    args = ["pvcreate"] + config_args + [device]
+    args = ["pvcreate"] + [device]
 
     try:
         lvm(args)
@@ -156,18 +156,14 @@ def pvcreate(device):
 
 def pvresize(device, size):
     args = ["pvresize"] + \
-            ["--setphysicalvolumesize", ("%dm" % size)] + \
-            config_args + \
-            [device]
+            ["--setphysicalvolumesize", ("%dm" % size)] + [device]
     try:
         lvm(args)
     except LVMError as msg:
         raise LVMError("pvresize failed for %s: %s" % (device, msg))
 
 def pvremove(device):
-    args = ["pvremove"] + \
-            config_args + \
-            [device]
+    args = ["pvremove"] + [device]
     try:
         lvm(args)
     except LVMError as msg:
@@ -184,9 +180,7 @@ def pvinfo(device):
     """
     args = ["pvs", "--noheadings"] + \
             ["--units", "m"] + \
-            ["-o", "pv_name,pv_mda_count,vg_name,vg_uuid"] + \
-            config_args + \
-            [device]
+            ["-o", "pv_name,pv_mda_count,vg_name,vg_uuid"] + [device]
 
     out = yali.util.run_batch("lvm", args)[1]
     vals = out.split()
@@ -210,7 +204,6 @@ def vgcreate(vg_name, pv_list, pe_size):
     argv = ["vgcreate"]
     if pe_size:
         argv.extend(["-s", "%dm" % pe_size])
-    argv.extend(config_args)
     argv.append(vg_name)
     argv.extend(pv_list)
 
@@ -220,7 +213,7 @@ def vgcreate(vg_name, pv_list, pe_size):
         raise LVMError("vgcreate failed for %s: %s" % (vg_name, msg))
 
 def vgremove(vg_name):
-    args = ["vgremove", "--force"] + config_args + [vg_name]
+    args = ["vgremove", "--force"] + [vg_name]
 
     try:
         lvm(args)
@@ -228,7 +221,7 @@ def vgremove(vg_name):
         raise LVMError("vgremove failed for %s: %s" % (vg_name, msg))
 
 def vgactivate(vg_name):
-    args = ["vgchange", "-a", "y"] + config_args + [vg_name]
+    args = ["vgchange", "-a", "y"] + [vg_name]
 
     try:
         lvm(args)
@@ -236,7 +229,7 @@ def vgactivate(vg_name):
         raise LVMError("vgactivate failed for %s: %s" % (vg_name, msg))
 
 def vgdeactivate(vg_name):
-    args = ["vgchange", "-a", "n"] + config_args + [vg_name]
+    args = ["vgchange", "-a", "n"] + [vg_name]
 
     try:
         lvm(args)
@@ -251,7 +244,6 @@ def vgreduce(vg_name, pv_list, rm=False):
     the --removemissing option.
     """
     args = ["vgreduce"]
-    args.extend(config_args)
     if rm:
         args.extend(["--removemissing", vg_name])
     else:
@@ -265,9 +257,7 @@ def vgreduce(vg_name, pv_list, rm=False):
 def vginfo(vg_name):
     args = ["vgs", "--noheadings", "--nosuffix"] + \
             ["--units", "m"] + \
-            ["-o", "uuid,size,free,extent_size,extent_count,free_count,pv_count"] + \
-            config_args + \
-            [vg_name]
+            ["-o", "uuid,size,free,extent_size,extent_count,free_count,pv_count"] + [vg_name]
 
     buf = yali.util.run_batch("lvm", args)[1]
     info = buf.split()
@@ -283,7 +273,6 @@ def lvs(vg_name):
     args = ["lvs", "--noheadings", "--nosuffix"] + \
             ["--units", "m"] + \
             ["-o", "lv_name,lv_uuid,lv_size,lv_attr"] + \
-            config_args + \
             [vg_name]
 
     buf = yali.util.run_batch("lvm", args)[1]
@@ -305,7 +294,6 @@ def lvs(vg_name):
 
 def lvorigin(vg_name, lv_name):
     args = ["lvs", "--noheadings", "-o", "origin"] + \
-            config_args + \
             ["%s/%s" % (vg_name, lv_name)]
 
     buf = yali.util.run_batch("lvm", args)[1]
@@ -321,7 +309,6 @@ def lvcreate(vg_name, lv_name, size):
     args = ["lvcreate"] + \
             ["-L", "%dm" % size] + \
             ["-n", lv_name] + \
-            config_args + \
             [vg_name]
 
     try:
@@ -331,7 +318,6 @@ def lvcreate(vg_name, lv_name, size):
 
 def lvremove(vg_name, lv_name):
     args = ["lvremove"] + \
-            config_args + \
             ["%s/%s" % (vg_name, lv_name)]
 
     try:
@@ -342,7 +328,6 @@ def lvremove(vg_name, lv_name):
 def lvresize(vg_name, lv_name, size):
     args = ["lvresize"] + \
             ["--force", "-L", "%dm" % size] + \
-            config_args + \
             ["%s/%s" % (vg_name, lv_name)]
 
     try:
@@ -353,7 +338,6 @@ def lvresize(vg_name, lv_name, size):
 def lvactivate(vg_name, lv_name):
     # see if lvchange accepts paths of the form 'mapper/$vg-$lv'
     args = ["lvchange", "-a", "y"] + \
-            config_args + \
             ["%s/%s" % (vg_name, lv_name)]
 
     try:
@@ -363,7 +347,6 @@ def lvactivate(vg_name, lv_name):
 
 def lvdeactivate(vg_name, lv_name):
     args = ["lvchange", "-a", "n"] + \
-            config_args + \
             ["%s/%s" % (vg_name, lv_name)]
 
     try:
