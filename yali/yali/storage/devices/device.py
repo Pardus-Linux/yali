@@ -287,6 +287,7 @@ class Device(AbstractDevice):
         """ Set the Device's format. """
         if not format:
             format = getFormat(None, device=self.path, exists=self.exists)
+            ctx.logger.debug("Setting abstract format to %s" % self.path)
         if self._format and self._format.status:
             raise DeviceError("cannot replace active format", self.name)
 

@@ -174,7 +174,7 @@ about disk partitioning.
 
             rc = self.intf.detailedMessageWindow(_("Format Warnings"),
                                                   detailed, comments, type="custom",
-                                                  customButtons=[_("Format")], _("Cancel"), default=1)
+                                                  customButtons=[_("Format"), _("Cancel")], default=1)
             if rc:
                 return False
 
@@ -276,7 +276,7 @@ about disk partitioning.
         drivesItem.setName(_("Hard Drives"))
         for disk in disks:
             diskItem = DeviceTreeItem(drivesItem)
-            diskItem.setName(disk.name)
+            diskItem.setName("%s - %s" % (disk.model, disk.name))
             #self.ui.deviceTree.expandItem(diskItem)
             if disk.partitioned:
                 partition = disk.format.firstPartition

@@ -56,7 +56,7 @@
        </column>
        <column>
         <property name="text">
-         <string>Size</string>
+         <string>Size  (MB)</string>
         </property>
        </column>
       </widget>
