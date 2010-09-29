@@ -109,15 +109,15 @@ You can always choose another installation method if you know what you are doing
 
     def activateInstallMBR(self, state):
         if state:
-            self.device = str(self.ui.installMBR.text()).split("-")[1]
+            self.device = str(self.ui.installMBR.text()).split("-")[1].strip()
 
     def activateInstallPartition(self, state):
         self.ui.selectDrive.setChecked(not state)
         self.ui.selectDrive.setEnabled(not state)
-        self.ui.selectDrive.setCurrentRow(0)
+        self.ui.drives.setCurrentRow(0)
         self.ui.drives.setEnabled(not state)
         if state:
-            self.device =  str(self.ui.installPartition.text()).split("-")[1]
+            self.device =  str(self.ui.installPartition.text()).split("-")[1].strip()
 
     def currentDeviceChanged(self, current):
         if self.ui.drives.item(current):
@@ -136,11 +136,11 @@ You can always choose another installation method if you know what you are doing
     def execute(self):
         self.bootloader.device = self.device
         if self.ui.noInstall.isChecked():
-            ctx.bootloader.bootType = BOOT_TYPE_NONE
+            self.bootloader.bootType = BOOT_TYPE_NONE
         elif self.ui.installPartition.isChecked():
-            ctx.bootloader.bootType = BOOT_TYPE_PARTITION
+            self.bootloader.bootType = BOOT_TYPE_PARTITION
         elif self.ui.installMBR.isChecked():
-            ctx.bootloader.bootType = BOOT_TYPE_MBR
+            self.bootloader.bootType = BOOT_TYPE_MBR
 
         self.bootloader.otherEnabled = self.ui.addOthers.isChecked()
 
