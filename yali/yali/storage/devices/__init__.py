@@ -28,6 +28,9 @@ class AbstractDevice(object):
         self._id = AbstractDevice._id
         AbstractDevice._id += 1
 
+        for parent in self.parents:
+            parent.addChild()
+
     def __deepcopy__(self, memo):
         """ Create a deep copy of a Device instance.
 
