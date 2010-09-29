@@ -955,7 +955,6 @@ class DeviceTree(object):
         ctx.logger.debug("got device: %s" % device)
         if device.format.type:
             ctx.logger.debug("%s device has format: %s" % (name, device.format))
-        #print "%s device format is %s" % (name, device.format)
         device.originalFormat = device.format
 
     def handleFormat(self, info, device):
@@ -1172,10 +1171,11 @@ class DeviceTree(object):
                 ctx.logger.warning("invalid data for %s: %s" % (device.name, e))
                 return
 
-            vg_device = VolumeGroup(vg_name,device,uuid=vg_uuid,
-                                    size=vg_size,free=vg_free,
-                                    peSize=pe_size,peCount=pe_count,
-                                    peFree=pe_free, pvCount=pv_count,exists=True)
+            vg_device = VolumeGroup(vg_name, device, uuid=vg_uuid,
+                                    size=vg_size, free=vg_free,
+                                    peSize=pe_size, peCount=pe_count,
+                                    peFree=pe_free, pvCount=pv_count,
+                                    exists=True)
             self._addDevice(vg_device)
 
         # Now we add any lv info found in this pv to the vg_device, we
