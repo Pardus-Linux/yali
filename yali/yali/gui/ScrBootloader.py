@@ -62,30 +62,21 @@ You can always choose another installation method if you know what you are doing
         self.initialDevice = None
 
         self.connect(self.ui.installMBR, SIGNAL("toggled(bool)"), self.ui.selectDrive.setEnabled)
-        self.connect(self.ui.installPartition, SIGNAL("clicked(bool)"), self.slotDrivesEnabled)
-        self.connect(self.ui.selectDrive, SIGNAL("stateChanged(int)"), self.changeDrivesState)
-        self.connect(self.ui.drives, SIGNAL("currentRowChanged(int)"), self.slotDeviceChanged)
-
-    def shown(self):
-        self.fillDrives()
-        self.activateChoices()
-
-    def backCheck(self):
-        if ctx.storage.doAutoPart:
-            ctx.mainScreen.stepIncrement = 2
-        return True
+        self.connect(self.ui.installMBR, SIGNAL("toggled(bool)"), self.activateInstallMBR)
+        self.connect(self.ui.installPartition, SIGNAL("toggled(bool)"), self.activateInstallPartition)
+        self.connect(self.ui.selectDrive, SIGNAL("stateChanged(int)"), self.checkBoxState)
+        self.connect(self.ui.drives, SIGNAL("currentRowChanged(int)"), self.currentDeviceChanged)
 
     def fillDrives(self):
         self.ui.drives.clear()
-
-        if not len(self.bootloader.drives):
-            raise BootLoaderError, _("No drives found.")
-        elif len(self.bootloader.drives) ==  1:
+        if len(self.bootloader.drives) ==  1:
             self.ui.drives.setDisabled(True)
             self.ui.selectDrive.setDisabled(True)
 
         for drive in self.bootloader.drives:
             DriveItem(self.ui.drives, ctx.storage.devicetree.getDeviceByName(drive))
+
+        self.ui.drives.setCurrentRow(0)
 
     def activateChoices(self):
         for choice, (device, bootType) in self.bootloader.choices.items():
@@ -104,7 +95,7 @@ You can always choose another installation method if you know what you are doing
             self.ui.installPartition.setChecked(True)
 
 
-    def changeDrivesState(self, state):
+    def checkBoxState(self, state):
         if state == Qt.Checked:
             self.ui.drives.setEnabled(True)
             #self.device = self.bootloader.choices[BOOT_TYPE_PARTITION][0]
@@ -116,14 +107,31 @@ You can always choose another installation method if you know what you are doing
             self.device = self.initialDevice
             self.ui.installMBR.setText("%s - %s" % (boot_type_strings[BOOT_TYPE_MBR], self.device))
 
-    def slotDrivesEnabled(self, state):
+    def activateInstallMBR(self, state):
+        if state:
+            self.device = str(self.ui.installMBR.text()).split("-")[1]
+
+    def activateInstallPartition(self, state):
         self.ui.selectDrive.setChecked(not state)
         self.ui.selectDrive.setEnabled(not state)
+        self.ui.selectDrive.setCurrentRow(0)
         self.ui.drives.setEnabled(not state)
+        if state:
+            self.device =  str(self.ui.installPartition.text()).split("-")[1]
 
-    def slotDeviceChanged(self, current):
-        self.device = self.ui.drives.item(current).drive.name
-        self.ui.installMBR.setText("%s - %s" % (boot_type_strings[BOOT_TYPE_MBR], self.device))
+    def currentDeviceChanged(self, current):
+        if self.ui.drives.item(current):
+            self.device = self.ui.drives.item(current).drive.name
+            self.ui.installMBR.setText("%s - %s" % (boot_type_strings[BOOT_TYPE_MBR], self.device))
+
+    def shown(self):
+        self.fillDrives()
+        self.activateChoices()
+
+    def backCheck(self):
+        if ctx.storage.doAutoPart:
+            ctx.mainScreen.stepIncrement = 2
+        return True
 
     def execute(self):
         self.bootloader.device = self.device
