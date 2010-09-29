@@ -28,7 +28,7 @@ def dm_node_from_name(name):
     if dm_node is not None:
         return dm_node
 
-    devnum = run_batch("dmsetup", ["info", "--columns",
+    devnum = yali.util.run_batch("dmsetup", ["info", "--columns",
                         "--noheadings", "-o", "devno",name])[1]
     (major, sep, minor) = devnum.strip().partition(":")
     if not sep:

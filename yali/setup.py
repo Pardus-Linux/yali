@@ -38,6 +38,10 @@ def data_files():
     p = "yali/data/*"
     return glob.glob(p)
 
+def udev_files():
+    p = "data/*"
+    return glob.glob(p)
+
 def getRevision():
     import os
     try:
@@ -186,7 +190,8 @@ setup(name="yali",
       package_dir = {'': ''},
       data_files = [('/usr/share/yali/slideshow', gui_slidepics()),
                     ('/usr/share/yali/user_faces', user_faces()),
-                    ('/usr/share/yali/data', data_files())],
+                    ('/usr/share/yali/data', data_files()),
+                    ('/lib/udev/rules.d', udev_files())],
       scripts = ['yali-bin', 'start-yali', 'bindYali'],
       ext_modules = [Extension('yali._sysutils',
                                sources = ['yali/_sysutils.c'],

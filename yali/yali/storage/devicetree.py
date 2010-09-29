@@ -19,6 +19,7 @@ from devices.device import DeviceNotFoundError, deviceNameToDiskByPath
 from devices.nodevice import NoDevice
 from devices.devicemapper import DeviceMapper
 from devices.volumegroup import VolumeGroup
+from devices.logicalvolume import LogicalVolume
 from library.devicemapper import DeviceMapperError
 from devices.disk import Disk
 from devices.partition import Partition
@@ -758,7 +759,7 @@ class DeviceTree(object):
                 ctx.logger.debug(" removing operation '%s' (%s)" % (rem, id(rem)))
                 self.operations.remove(rem)
 
-    def addDeviceMapperDevice(self, info):
+    def addDeviceMapper(self, info):
         name = udev_device_get_name(info)
         uuid = udev_device_get_uuid(info)
         sysfs_path = udev_device_get_sysfs_path(info)
@@ -832,7 +833,7 @@ class DeviceTree(object):
 
         return device
 
-    def addPartitionDevice(self, info, disk=None):
+    def addPartition(self, info, disk=None):
         name = udev_device_get_name(info)
         uuid = udev_device_get_uuid(info)
         sysfs_path = udev_device_get_sysfs_path(info)
@@ -887,7 +888,7 @@ class DeviceTree(object):
         self._addDevice(device)
         return device
 
-    def addDiskDevice(self, info):
+    def addDisk(self, info):
         name = udev_device_get_name(info)
         uuid = udev_device_get_uuid(info)
         sysfs_path = udev_device_get_sysfs_path(info)
@@ -928,17 +929,17 @@ class DeviceTree(object):
             # try to look up the device
             if device is None and uuid:
                 # try to find the device by uuid
-                device = self.getDeviceByUuid(uuid)
+                device = self.getDeviceByUUID(uuid)
 
             if device is None:
-                device = self.addDeviceMapperDevice(info)
+                device = self.addDeviceMapper(info)
         elif udev_device_is_disk(info):
             if device is None:
-                device = self.addDiskDevice(info)
+                device = self.addDisk(info)
         elif udev_device_is_partition(info):
             ctx.logger.debug("%s is a partition" % name)
             if device is None:
-                device = self.addPartitionDevice(info)
+                device = self.addPartition(info)
         else:
             ctx.logger.error("Unknown block device type for: %s" % name)
             return
@@ -949,10 +950,12 @@ class DeviceTree(object):
         if not device or not device.mediaPresent:
             return
 
+        ctx.logger.debug("%s is created as : %s" % (name, device))
         self.handleFormat(info, device)
         ctx.logger.debug("got device: %s" % device)
         if device.format.type:
-            ctx.logger.debug("got format: %s" % device.format)
+            ctx.logger.debug("%s device has format: %s" % (name, device.format))
+        print "%s device format is %s" % (name, device.format)
         device.originalFormat = device.format
 
     def handleFormat(self, info, device):
@@ -1008,6 +1011,13 @@ class DeviceTree(object):
                 efi = formats.getFormat("efi")
                 if efi.minSize <= device.size <= efi.maxSize:
                     args[0] = "efi"
+
+        elif format_type == "hfs":
+            # apple bootstrap magic
+            if isinstance(device, Partition) and device.bootable:
+                apple = formats.getFormat("appleboot")
+                if apple.minSize <= device.size <= apple.maxSize:
+                    args[0] = "appleboot"
         try:
             ctx.logger.debug("type detected on '%s' is '%s'" % (name, format_type,))
             device.format = formats.getFormat(*args, **kwargs)
@@ -1180,6 +1190,11 @@ class DeviceTree(object):
             ctx.logger.warning("invalid data for %s: %s" % (device.name, e))
             return
 
+        if not lv_names:
+            ctx.logger.debug("no logical volumes listed for Volume Group %s" %
+                            device.name)
+            return
+
         for i in range(len(lv_names)):
             # Skip empty and already added lvs
             if not lv_names[i] or lv_names[i] in vg_device.lv_names:
@@ -1189,6 +1204,8 @@ class DeviceTree(object):
             vg_device.lv_uuids.append(lv_uuids[i])
             vg_device.lv_sizes.append(lv_sizes[i])
             vg_device.lv_attr.append(lv_attr[i])
+
+        return self.handleLogicalVolumes(vg_device)
 
     def handleLogicalVolumes(self, vg_device):
         ret = False
@@ -1257,7 +1274,10 @@ class DeviceTree(object):
                                           size=lv_size, stripes=stripes,
                                           logSize=log_size, exists=True)
                 self._addDevice(lv_device)
-                lv_device.setup()
+                try:
+                    lv_device.setup()
+                except DeviceError as (msg, name):
+                    ctx.logger.info("setup of %s failed: %s" % (lv_device.name, msg))
 
         return ret
 
@@ -1404,9 +1424,10 @@ class DeviceTree(object):
         return ret
 
     def getDeviceByName(self, name):
-        ctx.logger.debug("looking for device '%s'..." % name)
         if not name:
             return None
+
+        ctx.logger.debug("looking for device by name '%s'..." % name)
 
         found = None
         for device in self._devices:
@@ -1418,13 +1439,14 @@ class DeviceTree(object):
                 found = device
                 break
 
-        ctx.logger.debug("found %s" % found)
+        ctx.logger.debug("%s found by name is %s" % (name, found))
         return found
 
     def getDeviceByUUID(self, uuid):
         if not uuid:
             return None
-        ctx.logger.debug("looking for device '%s'..." % uuid)
+
+        ctx.logger.debug("looking for device by uuid '%s'..." % uuid)
 
         found = None
         for device in self._devices:
@@ -1435,11 +1457,12 @@ class DeviceTree(object):
                 found = device
                 break
 
-        ctx.logger.debug("found %s" % found)
+        ctx.logger.debug("%s found by uuid is %s" % (uuid, found))
         return found
 
     def getDevicesBySerial(self, serial):
         devices = []
+        ctx.logger.debug("looking for device by serial '%s'..." % serial)
         for device in self._devices:
             if not hasattr(device, "serial"):
                 ctx.logger.warning("device %s has no serial attr" % device.name)
@@ -1449,9 +1472,10 @@ class DeviceTree(object):
         return devices
 
     def getDeviceByLabel(self, label):
-        ctx.logger.debug("looking for device '%s'..." % label)
         if not label:
             return None
+
+        ctx.logger.debug("looking for device by label '%s'..." % label)
 
         found = None
         for device in self._devices:
@@ -1463,13 +1487,14 @@ class DeviceTree(object):
                 found = device
                 break
 
-        ctx.logger.debug("found %s" % found)
+        ctx.logger.debug("%s found by label is %s" % (label, found))
         return found
 
     def getDeviceByPath(self, path):
-        ctx.logger.debug("looking for device '%s'..." % path)
         if not path:
             return None
+
+        ctx.logger.debug("looking for device by path '%s'..." % path)
 
         found = None
         for device in self._devices:
@@ -1480,21 +1505,22 @@ class DeviceTree(object):
                     device.path == path.replace("--","-"):
                 found = device
                 break
-        ctx.logger.debug("found %s" % found)
+
+        ctx.logger.debug("%s found by path is %s" % (path, found))
         return found
 
-    def getDeviceBySysPath(self, path):
-        if not path:
+    def getDeviceBySysPath(self, sysfsPath):
+        if not sysfsPath:
             return None
 
-        ctx.logger.debug("looking for device '%s'..." % path)
+        ctx.logger.debug("looking for device '%s'..." % sysfsPath)
         found = None
         for device in self._devices:
-            if device.sysfsPath == path:
+            if device.sysfsPath == sysfsPath:
                 found = device
                 break
 
-        ctx.logger.debug("found %s" % found)
+        ctx.logger.debug("%s found by syspath is %s" % (sysfsPath, found))
         return found
 
     def getDevicesByType(self, type):

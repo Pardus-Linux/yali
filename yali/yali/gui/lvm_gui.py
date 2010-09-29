@@ -479,14 +479,14 @@ class VolumeGroupWidget(QtGui.QWidget):
             usedpercent = (100.0 * used)/total
         else:
             usedpercent = 0.0
-        self.usedSpace.setText("(%% %4.1f)" % usedpercent)
+        self.usedSpace.setText("(%4.1f %%)" % usedpercent)
 
         self.freeSpace.setText("%10.2f MB" % free)
         if total > 0:
             freepercent = (100.0 * free)/total
         else:
             freepercent = 0.0
-        self.freeSpace.setText("(%% %4.1f)" % freepercent)
+        self.freeSpace.setText("(%4.1f %%)" % freepercent)
 
 
     def physicalExtendsChanged(self, index):
@@ -698,9 +698,9 @@ class VolumeGroupWidget(QtGui.QWidget):
     def editLogicalVolume(self, device, isNew=False):
         logicalVolumeEditor = LogicalVolumeEditor(self, device, isNew=isNew)
         while True:
-            volumeDevice = logicalVolumeEditor.run()
-            if volumeDevice:
-                self.parent.lvs[volumeDevice["name"]] = volumeDevice
+            logicalvolume = logicalVolumeEditor.run()
+            if logicalvolume:
+                self.parent.lvs[logicalvolume["name"]] = logicalvolume
                 self.updateLogicalVolumeTree()
                 self.updateSpaces()
             break
@@ -709,7 +709,7 @@ class VolumeGroupWidget(QtGui.QWidget):
 
 
 class LogicalVolumeEditor:
-    def __init__(self, parent, request, isNew=0):
+    def __init__(self, parent, request, isNew=False):
         self.parent = parent
         self.storage = parent.parent.storage
         self.intf = parent.parent.intf
@@ -727,14 +727,15 @@ class LogicalVolumeEditor:
 
     def run(self):
         if self.dialog is None:
-            return []
+            return None
 
         while 1:
             rc = self.dialog.exec_()
+
             if not rc:
                 if self.isNew:
-                    if self.parent.parent.lvs.has_key(self.origrequest.name):
-                        del self.parent.parent.lvs[self.origrequest.name]
+                    if self.parent.parent.lvs.has_key(self.origrequest.lvname):
+                        del self.parent.parent.lvs[self.origrequest.lvname]
                 self.destroy()
                 return None
 
@@ -1021,7 +1022,9 @@ class LogicalVolumeItem(QtGui.QTreeWidgetItem):
         self._device = device
         self.setText(0, device.lvname)
         mountpoint = getattr(device.format, "mountpoint", "")
-        if not (device.format and device.format.mountable):
+        if not mountpoint:
+            mountpoint = ""
+        elif not (device.format and device.format.mountable):
             mountpoint = "N/A"
         self.setText(1, mountpoint)
         self.setText(2, "%Ld" % device.size)
