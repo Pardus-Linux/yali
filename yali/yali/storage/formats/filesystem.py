@@ -861,7 +861,7 @@ class BTRFilesystem(Filesystem):
     def supported(self):
         """ Is this filesystem a supported type? """
         supported = self._supported
-        if "wowbtrfs" in pardus.sysutils.get_kernel_option("yali"):
+        if "btrfs" in pardus.sysutils.get_kernel_option("yali"):
             supported = self.utilsAvailable
 
         return supported
@@ -1003,6 +1003,24 @@ class HFSPlus(Filesystem):
     partedSystem = fileSystemType["hfs+"]
 
 register_device_format(HFSPlus)
+
+class AppleBootstrap(HFS):
+    _type = "appleboot"
+    _mountType = "hfs"
+    _name = "Apple Bootstrap"
+    _bootable = True
+    _minSize = 800.00 / 1024.00
+    _maxSize = 1
+
+    @property
+    def supported(self):
+        supported = self._supported
+        if "appleboot" in pardus.sysutils.get_kernel_option("yali"):
+            supported = self.utilsAvailable
+
+        return supported
+
+register_device_format(AppleBootstrap)
 
 class JFS(Filesystem):
     """ JFS filesystem """

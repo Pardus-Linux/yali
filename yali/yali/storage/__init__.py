@@ -722,9 +722,10 @@ class Storage(object):
         if not self.disks:
             rc = intf.messageWindow(_("No Drives Found"),
                                _("An error has occurred - no valid devices were "
-                                 "found on which to create new file systems. "
-                                 "Please check your hardware for the cause "
-                                 "of this problem."), customButtons=[_("Reboot"), _("Cancel")], customIcon="error")
+                                 "found on\nwhich to create new file systems. "
+                                 "Please check your\nhardware for the cause "
+                                 "of this problem."), type="custom",
+                               customButtons=[_("Reboot"), _("Cancel")], customIcon="error")
             if not rc:
                 return True
         return False
