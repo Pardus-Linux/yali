@@ -22,117 +22,8 @@ from PyQt4.QtCore import *
 import yali.context as ctx
 from yali.gui.ScreenWidget import ScreenWidget, GUIError
 from yali.gui.Ui.autopartwidget import Ui_AutoPartWidget
-from yali.gui.Ui.partitionshrinkwidget import Ui_PartShrinkWidget
+from yali.gui.shrink_gui import ShrinkEditor
 from yali.storage.partitioning import CLEARPART_TYPE_ALL, CLEARPART_TYPE_LINUX, CLEARPART_TYPE_NONE, doAutoPartition, defaultPartitioning
-from yali.storage.operations import OperationResizeDevice, OperationResizeFormat
-
-
-class ShrinkWidget(QtGui.QWidget):
-    def __init__(self, parent):
-        QtGui.QWidget.__init__(self, ctx.mainScreen)
-        self.parent = parent
-        self.ui = Ui_PartShrinkWidget()
-        self.ui.setupUi(self)
-        self.setStyleSheet("""
-                     QSlider::groove:horizontal {
-                         border: 1px solid #999999;
-                         height: 12px;
-                         background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #B1B1B1, stop:1 #c4c4c4);
-                         margin: 2px 0;
-                     }
-
-                     QSlider::handle:horizontal {
-                         background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #b4b4b4, stop:1 #8f8f8f);
-                         border: 1px solid #5c5c5c;
-                         width: 18px;
-                         margin: 0 0;
-                         border-radius: 2px;
-                     }
-
-                    QFrame#mainFrame {
-                        background-image: url(:/gui/pics/transBlack.png);
-                        border: 1px solid #BBB;
-                        border-radius:8px;
-                    }
-
-                    QWidget#Ui_PartShrinkWidget {
-                        background-image: url(:/gui/pics/trans.png);
-                    }
-        """)
-        self.operations = []
-        QObject.connect(self.ui.partitions, SIGNAL("currentRowChanged(int)"), self.updateSpin)
-        self.connect(self.ui.shrinkButton, SIGNAL("clicked()"), self.slotShrink)
-        self.connect(self.ui.cancelButton, SIGNAL("clicked()"), self.hide)
-        self.fillPartitions()
-
-    def check(self):
-        return self.ui.partitions.count() == 0
-
-    def fillPartitions(self):
-        biggest = -1
-        i = -1
-        for partition in self.parent.storage.partitions:
-            if not partition.exists:
-                continue
-
-            if partition.resizable and partition.format.resizable:
-                entry = PartitionItem(self.ui.partitions, partition)
-
-                i += 1
-                if biggest == -1:
-                    biggest = i
-                else:
-                    current = self.ui.partitions.item(biggest).partition
-                    if partition.format.targetSize > current.format.targetSize:
-                        biggest = i
-
-        if biggest > -1:
-            self.ui.partitions.setCurrentRow(biggest)
-
-    def updateSpin(self, index):
-        request = self.ui.partitions.item(index).partition
-        try:
-            reqlower = long(math.ceil(request.format.minSize))
-        except FilesystemError, msg:
-            raise GUIError, msg
-        else:
-            requpper = long(math.floor(request.format.currentSize))
-
-        self.ui.shrinkMB.setMinimum(max(1, reqlower))
-        self.ui.shrinkMB.setMaximum(requpper)
-        self.ui.shrinkMB.setValue(reqlower)
-        self.ui.shrinkMBSlider.setMinimum(max(1, reqlower))
-        self.ui.shrinkMBSlider.setMaximum(requpper)
-        self.ui.shrinkMBSlider.setValue(reqlower)
-
-    def slotShrink(self):
-        self.hide()
-        runResize = True
-        while runResize:
-           index = self.ui.partitions.currentRow()
-           request = self.ui.partitions.item(index).partition
-           newsize = self.ui.shrinkMB.value()
-           try:
-               self.operations.append(OperationResizeFormat(request, newsize))
-           except ValueError as e:
-               self.parent.intf.messageWindow(_("Resize FileSystem Error"),
-                                              _("%(device)s: %(msg)s") %
-                                              {'device': request.format.device, 'msg': e.message},
-                                              type="warning", customIcon="error")
-               continue
-
-           try:
-               self.operations.append(OperationResizeDevice(request, newsize))
-           except ValueError as e:
-               self.parent.intf.messageWindow(_("Resize Device Error"),
-                                              _("%(name)s: %(msg)s") %
-                                               {'name': request.name, 'msg': e.message},
-                                               type="warning", customIcon="error")
-               continue
-
-           runResize = False
-
-        self.hide()
 
 class DrivesListItem(QtGui.QListWidgetItem):
     def __init__(self, parent, widget):
@@ -171,12 +62,6 @@ class DriveItem(QtGui.QWidget):
 
 
 
-class PartitionItem(QtGui.QListWidgetItem):
-
-    def __init__(self, parent, partition):
-        text = u"%s (%s, %d MB)" % (partition.name, partition.format.name, math.floor(partition.format.size))
-        QtGui.QListWidgetItem.__init__(self, text, parent)
-        self.partition = partition
 
 class Widget(QtGui.QWidget, ScreenWidget):
     title = _("Select Partitioning Method")
@@ -218,18 +103,14 @@ Pardus create a new partition for installation.</p>
         if self.sender() != self.ui.createCustom:
             self.ui.review.setEnabled(True)
             if self.sender() == self.ui.shrinkCurrent:
-                shrinkwidget = ShrinkWidget(self)
-                if shrinkwidget.check():
-                    self.intf.messageWindow(_("Error"),
+                resizablePartitions = [partition for partition in self.storage.partitions if partition.exists and
+                                                                                             partition.resizable and
+                                                                                             partition.format.resizable]
+                if not len(resizablePartitions):
+                    self.intf.messageWindow(_("Warning"),
                                             _("No partitions are available to resize.Only physical\n"
                                               "partitions with specific filesystems can be resized."),
                                             type="warning", customIcon="error")
-                else:
-                    shrinkwidget.show()
-                    if shrinkwidget.operations:
-                        self.shrinkOperations = shrinkwidget.operations
-                    else:
-                        return False
         else:
             self.ui.review.setEnabled(False)
 
@@ -243,42 +124,38 @@ Pardus create a new partition for installation.</p>
         elif self.storage.clearPartType == CLEARPART_TYPE_ALL:
             self.ui.useAllSpace.toggle()
 
-    def fillDrives(self):
-        disks = filter(lambda d: not d.format.hidden, self.storage.disks)
-        self.ui.drives.clear()
+    def setDrives(self):
+        def fillDrives(drives):
+            for drive in drives:
+                if drive.size >= ctx.consts.min_root_size:
+                    drive = DriveItem(self.ui.drives, drive)
+                    listItem = DrivesListItem(self.ui.drives, drive)
+                    self.ui.drives.setItemWidget(listItem, drive)
 
-        for disk in disks:
-            if disk.size >= ctx.consts.min_root_size:
-                drive = DriveItem(self.ui.drives, disk)
-                listItem = DrivesListItem(self.ui.drives, drive)
-                self.ui.drives.setItemWidget(listItem, drive)
-
-        # select the first disk by default
-        self.ui.drives.setCurrentRow(0)
+        if self.storage.clearPartDisks:
+            if len(self.storage.clearPartDisks) == 1:
+                self.ui.drives.hide()
+            else:
+                self.ui.drives.clear()
+                fillDrives(self.storage.clearPartDisks)
+                self.ui.drives.setCurrentRow(0)
+        else:
+            disks = filter(lambda d: not d.format.hidden, self.storage.disks)
+            if len(disks) == 1:
+                self.storage.clearPartDisks = [disk.name for disk in disks]
+                self.ui.drives.hide()
+            else:
+                self.ui.drives.clear()
+                fillDrives(disks)
+                self.ui.drives.setCurrentRow(0)
 
     def shown(self):
         self.storage.reset()
         if self.storage.checkNoDisks(self.intf):
             sys.exit(0)
         else:
-            self.fillDrives()
+            self.setDrives()
             self.setPartitioningType()
-
-    def checkClearPartDisks(self):
-        selectedDisks = []
-        for index in range(self.ui.drives.count()):
-            if self.ui.drives.item(index).widget.checkBox.checkState() == Qt.Checked:
-                selectedDisks.append(self.ui.drives.item(index).widget.drive.name)
-
-        if len(selectedDisks) == 0:
-            self.intf.messageWindow(_("Error"),
-                                    _("You must select at least one "
-                                      "drive to be used for installation."), customIcon="error")
-            return False
-        else:
-            selectedDisks.sort(self.storage.compareDisks)
-            self.storage.clearPartDisks = selectedDisks
-            return True
 
     def execute(self):
         rc = self.nextCheck()
@@ -289,18 +166,43 @@ Pardus create a new partition for installation.</p>
         else:
             return rc
 
+    def checkClearPartDisks(self):
+        selectedDisks = []
+        for index in range(self.ui.drives.count()):
+            if self.ui.drives.item(index).widget.checkBox.checkState() == Qt.Checked:
+                selectedDisks.append(self.ui.drives.item(index).widget.drive.name)
+
+        if not self.storage.clearPartDisks:
+            if not selectedDisks:
+                self.intf.messageWindow(_("Error"),
+                                        _("You must select at least one "
+                                          "drive to be used for installation."), customIcon="error")
+                return False
+            else:
+                selectedDisks.sort(self.storage.compareDisks)
+                self.storage.clearPartDisks = selectedDisks
+                return True
+        else:
+            return True
+
     def nextCheck(self):
         if self.checkClearPartDisks():
             if self.ui.createCustom.isChecked():
                 self.storage.clearPartType = CLEARPART_TYPE_NONE
                 ctx.mainScreen.stepIncrement = 1
+                self.storage.doAutoPart = False
                 return True
             else:
                 if self.ui.shrinkCurrent.isChecked():
-                    if self.shrinkOperations:
-                        for operation in self.shrinkOperations:
-                            self.storage.addOperation(operation)
-                        self.storage.clearPartType = CLEARPART_TYPE_NONE
+                    shrinkeditor = ShrinkEditor(self, self.storage)
+                    rc, operations = shrinkeditor.run()
+                    if rc:
+                        for operation in operations:
+                            self.storage.devicetree.addOperation(operation)
+                    else:
+                        return False
+                    # we're not going to delete any partitions in the resize case
+                    self.storage.clearPartType = CLEARPART_TYPE_NONE
                 elif self.ui.useAllSpace.isChecked():
                     self.storage.clearPartType = CLEARPART_TYPE_ALL
                 elif self.ui.replaceExistingLinux.isChecked():

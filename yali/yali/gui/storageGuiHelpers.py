@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-
+import math
 import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
@@ -15,14 +15,44 @@ defaultMountPoints = ['/', '/boot', '/home', '/tmp',
                       '/usr', '/var', '/usr/local', '/opt']
 
 class DriveItem(QtGui.QListWidgetItem):
-    def __init__(self, parent, text, drive):
-        QtGui.QListWidgetItem.__init__(self, text, parent)
+    def __init__(self, parent, drive):
+        QtGui.QListWidgetItem.__init__(self, parent)
+        size = "%8.0f MB" % drive.size
+        self.setText("%s -%s" % (drive.name, size))
         self._drive = drive
 
     @property
     def drive(self):
         return self._drive
 
+def createShrinkablePartitionMenu(parent, storage):
+
+    partitionsCombo = QtGui.QComboBox(parent)
+    biggest = -1
+    i = -1
+    for partition in storage.partitions:
+        if not partition.exists:
+            continue
+
+        if partition.resizable and partition.format.resizable:
+            entry = u"%s (%s, %d MB)" % (partition.name, partition.format.name, math.floor(partition.format.size))
+            partitionsCombo.addItem(entry, partition)
+
+            i += 1
+            if biggest == -1:
+                biggest = i
+            else:
+                current = partitionsCombo.itemData(biggest).toPyObject()
+                if partition.format.targetSize > current.format.targetSize:
+                    biggest = i
+
+    if biggest > -1:
+        partitionsCombo.setCurrentIndex(biggest)
+
+    if partitionsCombo.maxCount():
+        return partitionsCombo
+
+    return None
 
 
 def createMountpointMenu(parent, request, excludeMountPoints=[]):
@@ -118,8 +148,7 @@ def createAllowedDrives(disks, requestDrives=None, driveList=None, selectDrives=
                 if disk not in disallowDrives:
                     selected = 2
 
-        size = "%8.0f MB" % disk.size
-        driveItem = DriveItem(driveList, size, disk)
+        driveItem = DriveItem(driveList, disk)
         driveItem.setCheckState(selected)
         if len(disks) < 2:
             driveList.setEnabled(False)
