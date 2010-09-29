@@ -48,9 +48,9 @@ class LVMEditor(object):
             self.intf.messageWindow(_("Not enough physical volumes"),
                                     _("At least one unused physical "
                                       "volume partition is "
-                                      "needed to create an LVM Volume Group.\n\n"
+                                      "needed to\ncreate an LVM Volume Group.\n"
                                       "Create a partition or RAID array "
-                                      "of type \"physical volume (LVM)\" and then "
+                                      "of type \"physical volume\n(LVM)\" and then "
                                       "select the \"LVM\" option again."),
                                     customIcon="error")
             self.dialog = None

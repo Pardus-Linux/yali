@@ -204,6 +204,13 @@ p, li { white-space: pre-wrap; }
        </layout>
       </item>
       <item>
+       <widget class="Line" name="line_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QRadioButton" name="raidMember">
         <property name="enabled">
          <bool>false</bool>
@@ -285,13 +292,6 @@ p, li { white-space: pre-wrap; }
          </widget>
         </item>
        </layout>
-      </item>
-      <item>
-       <widget class="Line" name="line_2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
       </item>
      </layout>
     </widget>

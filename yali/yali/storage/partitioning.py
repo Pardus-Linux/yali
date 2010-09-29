@@ -1628,7 +1628,7 @@ def doAutoPartition(storage):
         (disks, devs) = _createFreeSpacePartitions(storage)
 
         if disks == []:
-            msg = _("Could not find enough free space for automatic "
+            msg = _("Could not find enough free space for automatic\n"
                     "partitioning, please use another partitioning method.")
 
             ctx.interface.messageWindow(_("Error Partitioning"), msg, customIcon='error')

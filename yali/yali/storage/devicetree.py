@@ -955,7 +955,7 @@ class DeviceTree(object):
         ctx.logger.debug("got device: %s" % device)
         if device.format.type:
             ctx.logger.debug("%s device has format: %s" % (name, device.format))
-        print "%s device format is %s" % (name, device.format)
+        #print "%s device format is %s" % (name, device.format)
         device.originalFormat = device.format
 
     def handleFormat(self, info, device):

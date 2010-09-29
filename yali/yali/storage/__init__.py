@@ -683,14 +683,14 @@ class Storage(object):
 
         if (root and
             root.size < ctx.consts.min_root_size):
-            errors.append(_("Your / partition is less than %(min)s MB which is lower than recommended\n"
-                            "for a normal %(productName)s install.\n"
+            errors.append(_("Your / partition is less than %(min)s MB which is lower than\n"
+                            "recommended for a normal %(productName)s install."
                             % {'min': ctx.consts.min_root_size, 'productName': yali.util.product_name()}))
 
         for (mount, size) in checkSizes:
             if mount in filesystems and filesystems[mount].size < size:
-                warnings.append(_("Your %(mount)s partition is less than %(size)s megabytes which is\n"
-                                  "lower than recommended for a normal %(productName)s install."
+                warnings.append(_("Your %(mount)s partition is less than %(size)s megabytes which is "
+                                  "lower than\nrecommended for a normal %(productName)s install."
                                 % {'mount': mount, 'size': size, 'productName': yali.util.product_name()}))
 
 
@@ -701,8 +701,9 @@ class Storage(object):
                 errors.append(_("You have not specified a swap partition. Due to the amount of memory\n"
                                 "present, a swap partition is required to complete installation."))
             else:
-                warnings.append(_("You have not specified a swap partition. Although not strictly required\n"
-                                  "in all cases, it will significantly improve performance for most installations."))
+                warnings.append(_("You have not specified a swap partition. Although not strictly\n"
+                                  "required in all cases, it will significantly improve performance\n"
+                                  "for most installations."))
 
         for (mountpoint, dev) in filesystems.items():
             if mountpoint in mustbeonroot:

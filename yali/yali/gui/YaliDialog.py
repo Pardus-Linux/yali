@@ -188,7 +188,7 @@ class MessageWindow:
             self.details = QtGui.QTextBrowser()
             self.details.setText(unicode(longText))
             self.dialog.layout.addWidget(self.details)
-        self.dialog.resize(QSize(300, 120))
+        self.dialog.resize(QSize(200, 120))
         if run:
             self.run(destroyAfterRun)
 

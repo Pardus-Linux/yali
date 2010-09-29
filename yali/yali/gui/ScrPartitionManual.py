@@ -355,12 +355,15 @@ about disk partitioning.
                 doPartitioning(self.storage)
                 rc = 0
             except PartitioningError, msg:
-                self.intf.messageWindow(_("Error Partitioning"), _("Could not allocate requested partitions: %s.") % 
-                                      (msg), customIcon="error")
+                self.intf.messageWindow(_("Error Partitioning"), 
+                                        _("Could not allocate requested partitions: %s." % msg),
+                                        customIcon="error")
                 rc = -1
             except PartitioningWarning, msg:
-                rc = self.intf.messageWindow(_("Warning Partitioning"), _("Warning: %s." % msg),
-                        customButtons=[_("Modify Partition"), _("Continue")], customIcon="warning")
+                rc = self.intf.messageWindow(_("Warning Partitioning"),
+                                             _("Warning: %s." % msg),
+                                             customButtons=[_("Modify Partition"), _("Continue")],
+                                             customIcon="warning")
                 if rc == 1:
                     rc = -1
                 else:
