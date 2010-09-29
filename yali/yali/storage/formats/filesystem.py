@@ -727,6 +727,10 @@ class Ext2Filesystem(Filesystem):
 
                 # get minimum size according to resize2fs
                 rc, out, err = yali.util.run_batch(self.resizefs, ["-P", self.device])
+                if rc:
+                    #BUG:14255:resizefs needs file system check
+                    yali.util.run_batch(self.fsck, ["-f", self.device])
+                rc, out, err = yali.util.run_batch(self.resizefs, ["-P", self.device])
                 for line in out.splitlines():
                     if "minimum size of the filesystem:" not in line:
                         continue
