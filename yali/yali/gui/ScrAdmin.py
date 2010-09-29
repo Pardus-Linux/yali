@@ -74,7 +74,6 @@ You can also define a hostname for your computer. A hostname is an identifier as
                      self.slotHostnameChanged)
 
     def shown(self):
-
         if ctx.installData.hostName:
             self.ui.hostname.setText(str(ctx.installData.hostName))
         else:
@@ -94,7 +93,7 @@ You can also define a hostname for your computer. A hostname is an identifier as
 
     def execute(self):
         ctx.installData.rootPassword = unicode(self.ui.pass1.text())
-        ctx.installData.hostName = self.ui.hostname.text().toAscii()
+        ctx.installData.hostName = unicode(self.ui.hostname.text())
         return True
 
     def checkCapsLock(self):
