@@ -56,7 +56,7 @@ consts.data_dir = "/usr/share/yali"
 
 consts.mnt_dir = "/mnt"
 
-consts.tmp_mnt_dir = "/tmp/_pcheck"
+consts.tmp_mnt_dir = "/tmp/check"
 
 if options.firstBoot == True or exists("/etc/yali-is-firstboot"):
     consts.target_dir = "/"

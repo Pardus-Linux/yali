@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 import os
 import subprocess
+import struct
 import gettext
 
 __trans = gettext.translation('yali', fallback=True)
@@ -237,11 +238,11 @@ def mount(device, location, filesystem, readOnly=False,
 
     return rc
 
-def umount(location, removeDir = True):
+def umount(location, removeDir=True):
     location = os.path.normpath(location)
 
     if not os.path.isdir(location):
-        raise ValueError, "util.umount() can only umount by mount point"
+        raise ValueError, "util.umount() can only umount by mount point. %s is not existing directory" % location
 
     if mountCount.has_key(location) and mountCount[location] > 1:
         mountCount[location] = mountCount[location] - 1
@@ -325,4 +326,5 @@ def sync():
     os.system("sync")
     os.system("sync")
 
-
+def check_dual_boot():
+    return isX86()

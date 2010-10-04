@@ -301,7 +301,7 @@ class OperationResizeFormat(DeviceOperation):
 
     def execute(self):
         self.device.setup(orig=True)
-        self.device.doResize()
+        self.device.format.doResize()
 
     def cancel(self):
         self.device.format.targetSize = self.origSize
