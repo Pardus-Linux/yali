@@ -610,8 +610,27 @@ about disk partitioning.
 
         volumegroupEditor.destroy()
 
-    def editRaidArray(self, device, isNew = False):
-        pass
+    def editRaidArray(self, device, isNew=False):
+        raideditor = RaidEditor(self, device, isNew)
+
+        while True:
+            operations = raideditor.run()
+
+            for operation in operations:
+                self.storage.devicetree.addOperation(operation)
+
+            if self.refresh(justRedraw=True):
+                operation.reverse()
+                for operation in operation:
+                    self.storage.devicetree.removeOperation(operation)
+                    if self.refresh():
+                        raise RuntimeError, ("Returning partitions to state "
+                                             "prior to RAID edit failed")
+                continue
+            else:
+                break
+
+        raideditor.destroy()
 
     def editPartition(self, device, isNew=False, restricts=None):
         partitionEditor = PartitionEditor(self, device, isNew=isNew, restricts=restricts)
