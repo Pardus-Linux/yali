@@ -213,6 +213,23 @@ class Storage(object):
         elif isinstance(device, Partition) and device.isProtected:
             return _("You cannot delete a partition of a LDL formatted "
                      "DASD.")
+        elif device.format.type == "mdmember":
+            for array in self.raidArrays + self.raidContainers:
+                if array.dependsOn(device):
+                    if array.minor is not None:
+                        return _("This device is part of the RAID "
+                                 "device %s.") % (array.path,)
+                    else:
+                        return _("This device is part of a RAID device.")
+        elif device.format.type == "lvmpv":
+            for vg in self.vgs:
+                if vg.dependsOn(device):
+                    if vg.name is not None:
+                        return _("This device is part of the LVM "
+                                 "volume group '%s'.") % (vg.name,)
+                    else:
+                        return _("This device is part of a LVM volume "
+                                 "group.")
         elif isinstance(device, Partition) and device.isExtended:
             reasons = {}
             for dep in self.deviceDeps(device):
@@ -373,12 +390,37 @@ class Storage(object):
         return pvs
 
     @property
-    def mdarrays(self):
-        raise NotImplementedError("mdarrays method not implemented in Interface class.")
+    def raidContainers(self):
+        """ A list of the RAID containers in the device tree. """
+        arrays = self.devicetree.getDevicesByType("mdcontainer")
+        arrays.sort(key=lambda d: d.name)
+        return arrays
+
 
     @property
-    def mdmembers(self):
-        raise NotImplementedError("mdmembers method not implemented in Interface class.")
+    def raidArrays(self):
+        """ A list of the MD arrays in the device tree.
+
+            This is based on the current state of the device tree and
+            does not necessarily reflect the actual on-disk state of the
+            system's disks.
+        """
+        arrays = self.devicetree.getDevicesByType("mdarray")
+        arrays.sort(key=lambda d: d.name)
+        return arrays
+
+    @property
+    def raidMembers(self):
+        """ A list of the MD member devices in the device tree.
+
+            This is based on the current state of the device tree and
+            does not necessarily reflect the actual on-disk state of the
+            system's disks.
+        """
+        devices = self.devicetree.devices
+        members = [d for d in devices if d.format.type == "mdmember"]
+        members.sort(key=lambda d: d.name)
+        return members
 
     def unusedPVS(self, vg=None):
         unused = []
@@ -396,11 +438,27 @@ class Storage(object):
 
     @property
     def unusedRaidMembers(self):
-        raise NotImplementedError("unusedRaidMembers method not implemented in Interface class.")
+        unused = []
+        for member in self.raidMembers:
+            used = False
+            for _array in self.raidArrays + self.raidContainers:
+                if _array.dependsOn(member) and _array != array:
+                    used = True
+                    break
+                elif _array == array:
+                    break
+            if not used:
+                unused.append(member)
+        return unused
 
     @property
     def unusedRaidMinors(self):
-        raise NotImplementedError("unusedRaidMinors method not implemented in Interface class.")
+        """ Return a list of unused minors for use in RAID. """
+        raidMinors = range(0,32)
+        for array in self.raidArrays + self.raidContainers:
+            if array.minor is not None and array.minor in raidMinors:
+                raidMinors.remove(array.minor)
+        return raidMinors
 
     @property
     def rootDevice(self):
