@@ -25,6 +25,17 @@ class DriveItem(QtGui.QListWidgetItem):
     def drive(self):
         return self._drive
 
+class PartitionItem(QtGui.QListWidgetItem):
+    def __init__(self, parent, partition):
+        QtGui.QListWidgetItem.__init__(self, parent)
+        size = "%8.0f MB" % partition.size
+        self.setText("%s -%s" % (partition.name, size))
+        self._partition = partition
+
+    @property
+    def partition(self):
+        return self._partition
+
 def createShrinkablePartitionMenu(parent, storage):
 
     partitionsCombo = QtGui.QComboBox(parent)
@@ -127,6 +138,26 @@ def createFSTypeMenu(parent, format, mountCombo, availablefstypes=None, ignorefs
         QObject.connect(mountCombo, SIGNAL("currentIndexChanged(int)"), mountComboCB)
 
     return fstypeCombo
+
+def createAllowedRaidPartitions(parent, raidPartitions, requestRaidPartition, preexist, isNew):
+    partitionList = QtGui.QListWidget(parent)
+    tmpDevices = []
+    if not parent.isNew:
+        for device in requestRaidPartition:
+            tmpDevices.append(device)
+
+    for partition in raidPartitions:
+
+            if partition in tmpDevices:
+                partitionItem = PartitionItem(partitionList, partition)
+                partitionItem.setCheckState(2)
+            else:
+                if not parent.origrequest.exists:
+                    PartitionItem(partitionList, partition)
+                    partition.setChecked(0)
+
+
+        return partitionList
 
 def createAllowedDrivesList(parent, disks, requestDrives, selectDrives=True, disallowDrives=[]):
     driveList = QtGui.QListWidget(parent)
