@@ -3,9 +3,9 @@
 import yali
 import yali.context as ctx
 from yali.util import numeric_type
-from devicemapper import DeviceMapper
-from device import Device, DeviceError
-from volumegroup import VolumeGroup
+from yali.storage.devices.devicemapper import DeviceMapper
+from yali.storage.devices.device import Device, DeviceError
+from yali.storage.devices.volumegroup import VolumeGroup
 from yali.storage.library import lvm
 from yali.baseudev import udev_settle
 from yali.storage.library import devicemapper

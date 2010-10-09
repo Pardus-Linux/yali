@@ -1,6 +1,5 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-import os
 import gettext
 
 __trans = gettext.translation('yali', fallback=True)
@@ -9,8 +8,9 @@ _ = __trans.ugettext
 import yali
 import yali.context as ctx
 
-from device import Device, DeviceError
-from devicemapper import DeviceMapper
+from yali.baseudev import udev_settle
+from yali.storage.devices.device import Device, DeviceError
+from yali.storage.devices.devicemapper import DeviceMapper
 from yali.storage.formats import get_device_format
 
 class DMRaidArrayError(yali.Error):
