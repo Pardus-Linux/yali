@@ -11,13 +11,13 @@
             <username>pars</username>
             <realname>Panthera Pardus Tulliana</realname>
             <password>pardus</password>
-            <groups>audio,dialout,disk,pnp,pnpadmin,users,video,wheel,lp,lpadmin,cdrom,floppy</groups>
+            <groups>audio,dialout,disk,pnp,pnpadmin,users,video,wheel</groups>
         </user>
         <user>
             <username>caddy</username>
             <realname>Panthera Pardus Caddy</realname>
             <password>pardus</password>
-            <groups>audio,dialout,disk,pnp,pnpadmin,users,wheel,lp,lpadmin,cdrom,floppy</groups>
+            <groups>audio,dialout,disk,pnp,pnpadmin,users,video</groups>
         </user>
     </users>
     <!--<reponame>pardus-2008</reponame>-->

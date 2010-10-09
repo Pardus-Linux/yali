@@ -124,7 +124,7 @@ class kahya:
     def __init__(self):
         self.fileSystems=["swap","ext4","ext3","ntfs","reiserfs","xfs"]
         self.fileSystems2=["ext4","ext3","xfs"]
-        self.defaultGroups=["audio","dialout","disk","pnp","pnpadmin","power","removable","users","video","lp","lpadmin","cdrom","floppy"]
+        self.defaultGroups=["audio","dialout","disk","pnp","pnpadmin","power","removable","users","video"]
         self.errorList=[]
         self.RatioList=[]
         self.correctData=yaliReadPiks.kahyaData()

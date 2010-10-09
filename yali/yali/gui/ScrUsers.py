@@ -225,9 +225,7 @@ Proceed with the installation after you make your selections.
         # ignore last character. see bug #887
         u.realname = unicode(self.ui.realname.text())
         u.passwd = unicode(self.ui.pass1.text())
-        u.groups = ["users", "pnp", "pnpadmin", "removable",
-                    "disk", "audio", "video", "power",
-                    "dialout", "lp", "lpadmin", "cdrom", "floppy"]
+        u.groups = ["users", "pnp", "pnpadmin", "removable", "disk", "audio", "video", "power", "dialout"]
         pix = self.normalUserIcon
         if self.ui.admin.isChecked():
             u.groups.append("wheel")
