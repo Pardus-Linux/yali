@@ -4,12 +4,12 @@
 
 import os
 import gettext
+from parted import PARTITION_LVM
 
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 import yali
-from parted import PARTITION_LVM
 from yali.storage.library import lvm
 from . import Format, register_device_format
 

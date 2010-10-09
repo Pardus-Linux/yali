@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+import block
 import parted
 import gettext
 
@@ -14,15 +15,18 @@ import formats
 from udev import *
 from operations import *
 from library import lvm
+from library import raid
 from partitioning import shouldClear, CLEARPART_TYPE_ALL, CLEARPART_TYPE_LINUX, CLEARPART_TYPE_NONE
-from devices.device import DeviceNotFoundError, deviceNameToDiskByPath
+from devices.device import DeviceNotFoundError, deviceNameToDiskByPath, devicePathToName
 from devices.nodevice import NoDevice
 from devices.devicemapper import DeviceMapper
 from devices.volumegroup import VolumeGroup
+from devices.dmraidarray import DMRaidArray
+from devices.raidarray import RaidArray
 from devices.logicalvolume import LogicalVolume
-from library.devicemapper import DeviceMapperError
 from devices.disk import Disk
 from devices.partition import Partition
+from library.devicemapper import DeviceMapperError
 from formats.disklabel import InvalidDiskLabelError, DiskLabelCommitError
 from formats.filesystem import FilesystemError
 
@@ -45,6 +49,7 @@ class DeviceTree(object):
 
         # names of protected devices at the time of tree population
         self.protectedDeviceNames = []
+        self.unusedRaidMembers = []
 
         self._ignoredDisks = []
         for disk in ignored:
@@ -84,10 +89,12 @@ class DeviceTree(object):
                     return False
 
         if udev_device_is_disk(info) and \
-                not udev_device_is_md(info) and \
-                not udev_device_is_dm(info) and \
-                not udev_device_is_biosraid(info) and \
-                not udev_device_is_multipath_member(info):
+           not udev_device_is_dmraid_partition(info) and \
+           not udev_device_is_multipath_partition(info) and \
+           not udev_device_is_dm_lvm(info) and \
+           not udev_device_is_dm_crypt(info) and \
+           not (udev_device_is_md(info) and
+                not udev_device_get_md_container(info)):
             if self.exclusiveDisks and name not in self.exclusiveDisks:
                 self.addIgnoredDisk(name)
                 return True
@@ -759,6 +766,54 @@ class DeviceTree(object):
                 ctx.logger.debug(" removing operation '%s' (%s)" % (rem, id(rem)))
                 self.operations.remove(rem)
 
+    def addRaidArray(self, info):
+        name = udev_device_get_name(info)
+        log_method_call(self, name=name)
+        uuid = udev_device_get_uuid(info)
+        sysfs_path = udev_device_get_sysfs_path(info)
+        device = None
+
+        slaves = []
+        dir = os.path.normpath("/sys/%s/slaves" % sysfs_path)
+        slave_names = os.listdir(dir)
+        for slave_name in slave_names:
+            # if it's a dm-X name, resolve it to a map name
+            if slave_name.startswith("dm-"):
+                dev_name = devicemapper.name_from_dm_node(slave_name)
+            else:
+                dev_name = slave_name
+            slave_dev = self.getDeviceByName(dev_name)
+            if slave_dev:
+                slaves.append(slave_dev)
+            else:
+                # we haven't scanned the slave yet, so do it now
+                path = os.path.normpath("%s/%s" % (dir, slave_name))
+                new_info = udev_get_block_device(os.path.realpath(path)[4:])
+                if new_info:
+                    self.addDevice(new_info)
+                    if self.getDeviceByName(dev_name) is None:
+                        # if the current slave is still not in
+                        # the tree, something has gone wrong
+                        ctx.logger.error("failure scanning device %s: could not add slave %s" % (name, dev_name))
+                        return
+
+        # try to get the device again now that we've got all the slaves
+        device = self.getDeviceByName(name)
+
+        if device is None:
+            device = self.getDeviceByUuid(info.get("MD_UUID"))
+            if device:
+                raise DeviceTreeError("MD RAID device %s already in "
+                                      "devicetree as %s" % (name, device.name))
+
+        # if we get here, we found all of the slave devices and
+        # something must be wrong -- if all of the slaves we in
+        # the tree, this device should be as well
+        if device is None:
+            raise DeviceTreeError("MD RAID device %s not in devicetree after "
+                                  "scanning all slaves" % name)
+        return device
+
     def addDeviceMapper(self, info):
         name = udev_device_get_name(info)
         uuid = udev_device_get_uuid(info)
@@ -903,12 +958,27 @@ class DeviceTree(object):
         device = None
 
         kwargs = { "serial": serial, "vendor": vendor, "bus": bus }
-        ctx.logger.debug("%s is a disk" % name)
+        if udev_device_get_md_container(info):
+            diskType = RaidArray
+            parentName = devicePathToName(udev_device_get_md_container(info))
+            kwargs["parents"] = [ self.getDeviceByName(parentName) ]
+            kwargs["level"]  = udev_device_get_md_level(info)
+            kwargs["memberDevices"] = int(udev_device_get_md_devices(info))
+            kwargs["uuid"] = udev_device_get_md_uuid(info)
+            kwargs["exists"]  = True
+            del kwargs["serial"]
+            del kwargs["vendor"]
+            del kwargs["bus"]
+            ctx.logger.debug("%s is a raid array" % name)
+        else:
+            diskType = Disk
+            ctx.logger.debug("%s is a disk" % name)
 
-        device = Disk(name,
-                      major=udev_device_get_major(info),
-                      minor=udev_device_get_minor(info),
-                      sysfsPath=sysfs_path, **kwargs)
+
+        device = diskType(name,
+                          major=udev_device_get_major(info),
+                          minor=udev_device_get_minor(info),
+                          sysfsPath=sysfs_path, **kwargs)
 
         self._addDevice(device)
         return device
@@ -933,6 +1003,21 @@ class DeviceTree(object):
 
             if device is None:
                 device = self.addDeviceMapper(info)
+        elif udev_device_is_md(info):
+           ctx.logger.debug("%s is an md device" % name)
+            if device is None and uuid:
+                # try to find the device by uuid
+                device = self.getDeviceByUUID(uuid)
+            if device is None:
+                device = self.addRaidArray(info)
+        elif udev_device_is_biosraid_member(info) and udev_device_is_disk(info):
+            ctx.logger.debug("%s is part of a biosraid" % name)
+            if device is None:
+                device = Disk(name,
+                              major=udev_device_get_major(info),
+                              minor=udev_device_get_minor(info),
+                              sysfsPath=sysfs_path, exists=True)
+                self._addDevice(device)
         elif udev_device_is_disk(info):
             if device is None:
                 device = self.addDisk(info)
@@ -1005,6 +1090,12 @@ class DeviceTree(object):
                 kwargs["peStart"] = udev_device_get_pv_pe_start(info)
             except KeyError:
                 ctx.logger.debug("PV %s has no pe_start" % name)
+        elif format_type in formats.raid.RaidMember._udevTypes:
+            try:
+                kwargs["mdUuid"] = udev_device_get_md_uuid(info)
+            except KeyError:
+                ctx.logger.debug("mdraid member %s has no md uuid" % name)
+            kwargs["biosraid"] = udev_device_is_biosraid_member(info)
         if format_type == "vfat":
             if isinstance(device, Partition) and device.bootable:
                 efi = formats.getFormat("efi")
@@ -1033,6 +1124,10 @@ class DeviceTree(object):
 
         if device.format.type == "lvmpv":
             self.handlePhysicalVolumeFormat(info, device)
+        elif device.format.type == "mdmember":
+            self.handleRaidMemberFormat(info, device)
+        elif device.format.type == "dmraidmember":
+            self.handleDMRaidMemberFormat(info, device)
 
     def handleDiskLabelFormat(self, info, device):
         if udev_device_get_format(info):
@@ -1207,6 +1302,132 @@ class DeviceTree(object):
 
         return self.handleLogicalVolumes(vg_device)
 
+    def handleRaidMemberFormat(self, info, device):
+        # either look up or create the array device
+        name = udev_device_get_name(info)
+        sysfs_path = udev_device_get_sysfs_path(info)
+
+        md_array = self.getDeviceByUUID(device.format.mdUuid)
+        if device.format.mdUuid and md_array:
+            md_array._addDevice(device)
+        else:
+            # create the array with just this one member
+            # FIXME: why does this exact block appear twice?
+            try:
+                # level is reported as, eg: "raid1"
+                md_level = udev_device_get_md_level(info)
+                md_devices = int(udev_device_get_md_devices(info))
+                md_uuid = udev_device_get_md_uuid(info)
+            except (KeyError, ValueError) as e:
+                ctx.logger.warning("invalid data for %s: %s" % (name, e))
+                return
+
+            # try to name the array based on the preferred minor
+            md_info = raid.mdexamine(device.path)
+            md_path = md_info.get("device", "")
+            md_name = devicePathToName(md_info.get("device", ""))
+            if md_name:
+                try:
+                    # md_name can be either md# or md/#
+                    if md_name.startswith("md/"):
+                        minor = int(md_name[3:])     # strip off leading "md/"
+                        md_name = "md%d" % minor     # use a regular md# name
+                    else:
+                        minor = int(md_name[2:])     # strip off leading "md"
+                except (IndexError, ValueError):
+                    minor = None
+                    md_name = None
+                else:
+                    array = self.getDeviceByName(md_name)
+                    if array and array.uuid != md_uuid:
+                        md_name = None
+
+            if not md_name:
+                # if we don't have a name yet, find the first unused minor
+                minor = 0
+                while True:
+                    if self.getDeviceByName("md%d" % minor):
+                        minor += 1
+                    else:
+                        break
+
+                md_name = "md%d" % minor
+
+            ctx.logger.debug("using name %s for md array containing member %s"
+                             % (md_name, device.name))
+            md_array = RaidArray(md_name,
+                                 level=md_level,
+                                 minor=minor,
+                                 memberDevices=md_devices,
+                                 uuid=md_uuid,
+                                 sysfsPath=sysfs_path,
+                                 exists=True)
+            md_array._addDevice(device)
+            self._addDevice(md_array)
+
+    def handleDMRaidMemberFormat(self, info, device):
+        """ Handle device mapper raid member disk. """
+        name = udev_device_get_name(info)
+        sysfs_path = udev_device_get_sysfs_path(info)
+        uuid = udev_device_get_uuid(info)
+        major = udev_device_get_major(info)
+        minor = udev_device_get_minor(info)
+
+        def _all_ignored(rss):
+            retval = True
+            for rs in rss:
+                if rs.name not in self._ignoredDisks:
+                    retval = False
+                    break
+            return retval
+
+        # Have we already created the DMRaidArray?
+        rss = block.getRaidSetFromRelatedMem(uuid=uuid, name=name,
+                                            major=major, minor=minor)
+        if len(rss) == 0:
+            # we ignore the device in the hope that all the devices
+            # from this set will be ignored.
+            self.unusedRaidMembers.append(device.name)
+            self.addIgnoredDisk(device.name)
+            return
+
+        # We ignore the device if all the rss are in self._ignoredDisks
+        if _all_ignored(rss):
+            self.addIgnoredDisk(device.name)
+            return
+
+        for rs in rss:
+            dm_array = self.getDeviceByName(rs.name)
+            if dm_array is not None:
+                # We add the new device.
+                dm_array._addDevice(device)
+            else:
+                # Activate the Raid set.
+                rs.activate(mknod=True)
+                dm_array = DMRaidArray(rs.name,
+                                                 raidSet=rs,
+                                                 parents=[device])
+
+                self._addDevice(dm_array)
+
+                # Wait for udev to scan the just created nodes, to avoid a race
+                # with the udev_get_block_device() call below.
+                udev_settle()
+
+                # Get the DMRaidArray a DiskLabel format *now*, in case
+                # its partitions get scanned before it does.
+                dm_array.updateSysfsPath()
+                dm_array_info = udev_get_block_device(dm_array.sysfsPath)
+                self.handleDiskLabelFormat(dm_array_info, dm_array)
+
+                # Use the rs's object on the device.
+                # pyblock can return the memebers of a set and the
+                # device has the attribute to hold it.  But ATM we
+                # are not really using it. Commenting this out until
+                # we really need it.
+                #device.format.raidmem = block.getMemFromRaidSet(dm_array,
+                #        major=major, minor=minor, uuid=uuid, name=name)
+
     def handleLogicalVolumes(self, vg_device):
         ret = False
         vg_name = vg_device.name
@@ -1333,6 +1554,15 @@ class DeviceTree(object):
         # Address the inconsistencies present in the tree leaves.
         for leaf in self.leaves:
             leafInconsistencies(leaf)
+
+        # Check for unused BIOS raid members, unused dmraid members are added
+        # to self.unusedRaidMembers as they are processed, extend this list
+        # with unused mdraid BIOS raid members
+        for container in self.getDevicesByType("mdcontainer"):
+            if container.kids == 0:
+                self.unusedRaidMembers.extend(map(lambda m: m.name, container.devices))
+
+        self.intf.unusedRaidMembers(self.unusedRaidMembers)
 
     def getDependentDevices(self, dep):
         """Return list of devices that depend on.

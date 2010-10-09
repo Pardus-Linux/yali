@@ -12,6 +12,7 @@ from yali.gui.YaliDialog import MessageWindow
 
 class Interface(object):
     def __init__(self):
+        self._warnedUnusedRaidMembers = []
         self._initLabelAnswers = {}
         self._inconsistentLVMAnswers = {}
 
@@ -23,6 +24,18 @@ class Interface(object):
 
     def detailedMessageWindow(self, title, text, longText, type="ok", default=None, customButtons=None, customIcon=None):
         return MessageWindow(title, text, type, default, customButtons, customIcon, run=True, detailed=True, longText=longText).rc
+
+    def unusedRaidMembers(self, unusedRaidMembers):
+        """Warn about unused BIOS RAID members"""
+        unusedRaidMembers = filter(lambda m: m not in self._warnedUnusedRaidMembers, unusedRaidMembers)
+        if unusedRaidMembers:
+            self._warnedUnusedRaidMembers.extend(unusedRaidMembers)
+            unusedRaidMembers.sort()
+            self.messageWindow(_("Warning"),
+                               _("Disk contains %s BIOS RAID metadata, but is not part of "
+                                 "any recognized BIOS RAID sets. Ignoring disk %s."
+                               % (len(unusedRaidMembers), ", ".join(unusedRaidMembers))),
+                                 customIcon="warning")
 
     def resetInitializeDisk(self):
         self._initLabelAnswers = {}
