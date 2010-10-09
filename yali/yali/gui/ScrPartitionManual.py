@@ -27,6 +27,7 @@ from yali.gui.ScreenWidget import ScreenWidget
 
 from yali.gui.partition_gui import PartitionEditor
 from yali.gui.lvm_gui import LVMEditor
+from yali.gui.raid_gui import RaidEditor
 from yali.gui.Ui.manualpartwidget import Ui_ManualPartWidget
 from yali.gui.Ui.createdevicewidget import Ui_CreateDeviceWidget
 from yali.storage.library import lvm
@@ -218,12 +219,19 @@ about disk partitioning.
                     vg = _vg
                     break
             mountpoint = getattr(vg, "name", "")
+        elif format.type == "mdmember":
+            array = None
+            for _array in self.storage.raidArrays:
+                if _array.dependsOn(device):
+                    array = _array
+                    break
+
+            mountpoint = getattr(array, "name", "")
         else:
             mountpoint = getattr(format, "mountpoint", "")
             if mountpoint is None:
                 mountpoint = ""
 
-        # device name
         # device name
         name = getattr(device, "lvname", device.name)
 
@@ -242,12 +250,14 @@ about disk partitioning.
         item.setFormattable(formattable)
 
     def populate(self):
+        # Clear device tree
         self.ui.deviceTree.clear()
+
         # first do LVM
         vgs = self.storage.vgs
         if vgs:
             volumeGroupsItem = DeviceTreeItem(self.ui.deviceTree)
-            volumeGroupsItem.setName(_("LVM Volume Groups"))
+            volumeGroupsItem.setName(_("Volume Groups"))
             for vg in vgs:
                 volumeGroupItem = DeviceTreeItem(volumeGroupsItem)
                 self.addDevice(vg, volumeGroupItem)
@@ -263,6 +273,15 @@ about disk partitioning.
                     freeLogicalVolumeItem.setSize("%Ld" % vg.freeSpace)
                     freeLogicalVolumeItem.setDevice(None)
                     freeLogicalVolumeItem.setMountpoint("")
+
+        # handle RAID next
+        raidarrays = self.storage.raidArrays
+        if raidarrays:
+            raidArraysItem = DeviceTreeItem(self.ui.deviceTree)
+            raidArraysItem.setName(_("Raid Arrays"))
+            for array in raidarrays:
+                raidArrayItem = DeviceTreeItem(raidArraysItem)
+                self.addDevice(array, raidArrayItem)
 
         # now normal partitions
         disks = self.storage.partitioned
@@ -402,12 +421,12 @@ about disk partitioning.
             activateVolumeGroup = True
 
         activateRaidArray = False
-        #availableRaidMembers = len(self.storage.unusedRaidMembers)
-        #availableMinors = len(self.storage.unusedRaidMinors)
-        #if (availableMinors > 0
-        #        and formats.getFormat("software RAID").supported
-        #        and availableRaidMembers > 1):
-        #    activateRaidArray = True
+        availableRaidMembers = len(self.storage.unusedRaidMembers())
+        availableMinors = len(self.storage.unusedRaidMinors)
+        if (availableMinors > 0
+                and formats.getFormat("software RAID").supported
+                and availableRaidMembers > 1):
+            activateRaidArray = True
 
 
         if (not activatePartition and not activateVolumeGroup):
@@ -437,8 +456,8 @@ about disk partitioning.
             dialog.content.partitionLabel.setEnabled(True)
             dialog.content.physicalVolume.setEnabled(True)
             dialog.content.physicalVolumeLabel.setEnabled(True)
-            #dialog.content.raidMember.setEnabled(True)
-            #dialog.content.raidMemberLabel.setEnabled(Trueu)
+            dialog.content.raidMember.setEnabled(True)
+            dialog.content.raidMemberLabel.setEnabled(True)
 
         if activateVolumeGroup:
             dialog.content.volumeGroup.setEnabled(True)
@@ -449,8 +468,8 @@ about disk partitioning.
             pass
 
         if activateRaidArray:
-            #FIXME: Not implemented
-            pass
+            dialog.content.raidArray.setEnabled(True)
+            dialog.content.raidArrayLabel.setEnabled(True)
 
         if activatePartition:
             #dialog.content.partition.setChecked(True)
@@ -469,17 +488,17 @@ about disk partitioning.
 
         if dialog.content.rc == raidMember:
             raidmember = self.storage.newPartition(fmt_type="mdmember")
-            self.editPartition(member, isNew = True, restricts=["mdmember"])
+            self.editPartition(raidmember, isNew=True, restricts=["mdmember"])
             return
 
         elif dialog.content.rc == raidArray:
-            array = self.storage.newMDArray(fmt_type=self.storage.defaultFSType)
-            self.editRaidArray(array, isNew = True)
+            raidarray = self.storage.newRaidArray(fmt_type=self.storage.defaultFSType)
+            self.editRaidArray(raidarray, isNew=True)
             return
 
         elif dialog.content.rc == physicalVolume:
             physicalvolume = self.storage.newPartition(fmt_type="lvmpv")
-            self.editPartition(physicalvolume, isNew = True, restricts=["lvmpv"])
+            self.editPartition(physicalvolume, isNew=True, restricts=["lvmpv"])
             return
 
         elif dialog.content.rc == volumeGroup:
@@ -505,7 +524,9 @@ about disk partitioning.
                                         customIcon="error")
                 return
 
-            if device.type == "lvmvg":
+            if device.type == "mdarray":
+                self.editRaidArray(device)
+            elif device.type == "lvmvg":
                 self.editVolumeGroup(device)
             elif device.type == "lvmlv":
                 self.editLogicalVolume(lv=device)

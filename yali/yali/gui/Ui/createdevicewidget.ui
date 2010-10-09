@@ -242,12 +242,12 @@ p, li { white-space: pre-wrap; }
          </spacer>
         </item>
         <item>
-         <widget class="QLabel" name="raidMemberLabel">
+         <widget class="QLabel" name="raidArrayLabel">
           <property name="enabled">
            <bool>false</bool>
           </property>
           <property name="text">
-           <string>Requires at least 2 free Raid formatted partition</string>
+           <string>Create Raid formatted partition</string>
           </property>
          </widget>
         </item>
@@ -282,12 +282,12 @@ p, li { white-space: pre-wrap; }
          </spacer>
         </item>
         <item>
-         <widget class="QLabel" name="raidArrayLabel">
+         <widget class="QLabel" name="raidMemberLabel">
           <property name="enabled">
            <bool>false</bool>
           </property>
           <property name="text">
-           <string>Create Raid formatted partition</string>
+           <string>Requires at least 2 free Raid formatted partition</string>
           </property>
          </widget>
         </item>
