@@ -179,7 +179,7 @@ def mddeactivate(device):
         raise RaidError("mddeactivate failed for %s: %s" % (device, msg))
 
 def mdexamine(device):
-    vars = mdadm(["--examine", "--brief", device])[1]
+    vars = yali.util.run_batch("mdadm", ["--examine", "--brief", device])[1].split()
 
     info = {}
     if vars:

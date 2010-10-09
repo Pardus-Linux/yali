@@ -769,11 +769,9 @@ class DeviceTree(object):
 
     def addRaidArray(self, info):
         name = udev_device_get_name(info)
-        log_method_call(self, name=name)
         uuid = udev_device_get_uuid(info)
         sysfs_path = udev_device_get_sysfs_path(info)
         device = None
-
         slaves = []
         dir = os.path.normpath("/sys/%s/slaves" % sysfs_path)
         slave_names = os.listdir(dir)
@@ -802,9 +800,9 @@ class DeviceTree(object):
         device = self.getDeviceByName(name)
 
         if device is None:
-            device = self.getDeviceByUuid(info.get("MD_UUID"))
+            device = self.getDeviceByUUID(info.get("MD_UUID"))
             if device:
-                raise DeviceTreeError("MD RAID device %s already in "
+                raise DeviceTreeError("RAID device %s already in "
                                       "devicetree as %s" % (name, device.name))
 
         # if we get here, we found all of the slave devices and
@@ -995,6 +993,7 @@ class DeviceTree(object):
 
         ctx.logger.debug("scanning %s (%s)..." % (name, sysfs_path))
         device = self.getDeviceByName(name)
+
         if udev_device_is_dm(info):
             ctx.logger.debug("%s is a device-mapper device" % name)
             # try to look up the device
