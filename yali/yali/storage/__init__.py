@@ -14,6 +14,7 @@ from yali.storage.devices.device import Device, DeviceError
 from yali.storage.devices.partition import Partition
 from yali.storage.devices.volumegroup import VolumeGroup
 from yali.storage.devices.logicalvolume import LogicalVolume
+from yali.storage.devices.raidarray import RaidArray
 from yali.storage.formats import getFormat, get_default_filesystem_type
 from yali.storage.devicetree import DeviceTree
 from yali.storage.storageset import StorageSet
@@ -436,8 +437,7 @@ class Storage(object):
                 unused.append(pv)
         return unused
 
-    @property
-    def unusedRaidMembers(self):
+    def unusedRaidMembers(self, array=None):
         unused = []
         for member in self.raidMembers:
             used = False
@@ -556,7 +556,22 @@ class Storage(object):
         return LogicalVolume(name, vg, *args, **kwargs)
 
     def newRaidArray(self, *args, **kwargs):
-        raise NotImplementedError("newRaidArray method not implemented in Interface class.")
+        """ Return a new MDRaidArrayDevice instance for configuring. """
+        if kwargs.has_key("fmt_type"):
+            kwargs["format"] = getFormat(kwargs.pop("fmt_type"),
+                                         mountpoint=kwargs.pop("mountpoint",None))
+
+        if kwargs.has_key("minor"):
+            kwargs["minor"] = int(kwargs["minor"])
+        else:
+            kwargs["minor"] = self.unusedRaidMinors[0]
+
+        if kwargs.has_key("name"):
+            name = kwargs.pop("name")
+        else:
+            name = "md%d" % kwargs["minor"]
+
+        return RaidArray(name, *args, **kwargs)
 
     def createDevice(self, device):
         """ Schedule creation of a device.

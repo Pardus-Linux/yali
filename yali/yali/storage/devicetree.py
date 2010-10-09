@@ -29,6 +29,7 @@ from devices.partition import Partition
 from library.devicemapper import DeviceMapperError
 from formats.disklabel import InvalidDiskLabelError, DiskLabelCommitError
 from formats.filesystem import FilesystemError
+from formats.raidmember import RaidMember
 
 class DeviceTreeError(yali.Error):
     pass
@@ -1004,7 +1005,7 @@ class DeviceTree(object):
             if device is None:
                 device = self.addDeviceMapper(info)
         elif udev_device_is_md(info):
-           ctx.logger.debug("%s is an md device" % name)
+            ctx.logger.debug("%s is an md device" % name)
             if device is None and uuid:
                 # try to find the device by uuid
                 device = self.getDeviceByUUID(uuid)
@@ -1050,7 +1051,7 @@ class DeviceTree(object):
         format_type = udev_device_get_format(info)
         serial = udev_device_get_serial(info)
 
-        if not udev_device_is_biosraid(info) and \
+        if not udev_device_is_biosraid_member(info) and \
            not udev_device_is_multipath_member(info):
             self.handleDiskLabelFormat(info, device)
             if device.partitioned or self.isIgnored(info) or \
@@ -1090,7 +1091,7 @@ class DeviceTree(object):
                 kwargs["peStart"] = udev_device_get_pv_pe_start(info)
             except KeyError:
                 ctx.logger.debug("PV %s has no pe_start" % name)
-        elif format_type in formats.raid.RaidMember._udevTypes:
+        elif format_type in RaidMember._udevTypes:
             try:
                 kwargs["mdUuid"] = udev_device_get_md_uuid(info)
             except KeyError:
@@ -1562,7 +1563,7 @@ class DeviceTree(object):
             if container.kids == 0:
                 self.unusedRaidMembers.extend(map(lambda m: m.name, container.devices))
 
-        self.intf.unusedRaidMembers(self.unusedRaidMembers)
+        ctx.interface.unusedRaidMembers(self.unusedRaidMembers)
 
     def getDependentDevices(self, dep):
         """Return list of devices that depend on.

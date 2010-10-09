@@ -9,11 +9,12 @@ _ = __trans.ugettext
 
 import yali
 import yali.context as ctx
+from yali.util import numeric_type
 from yali.baseudev import udev_settle
 from yali.storage.library import raid
 from yali.storage.formats import get_device_format
-from yali.storage.udev import udev_get_device, udev_device_get_md_uuid
-from device import Device, DeviceError
+from yali.storage.udev import udev_device_get_md_uuid, udev_get_block_device
+from yali.storage.devices.device import Device, DeviceError
 
 class RaidArrayError(yali.Error):
     pass
@@ -57,10 +58,8 @@ class RaidArray(Device):
         # For new arrays check if we have enough members
         if (not exists and parents and
                 len(parents) < raid.get_raid_min_members(self.level)):
-            raise ValueError, P_("A RAID%d set requires at least %d member",
-                                 "A RAID%d set requires at least %d members",
-                                 raid.get_raid_min_members(self.level)) % \
-                                 (self.level, raid.get_raid_min_members(self.level))
+            raise ValueError, _("A RAID%d set requires at least %d member" % 
+                                (self.level, raid.get_raid_min_members(self.level)))
 
         self.uuid = uuid
         self._totalDevices = numeric_type(totalDevices)
@@ -414,7 +413,7 @@ class RaidArray(Device):
         if self.size < 1000 or self.format.type == "swap":
             self.createBitmap = False
 
-    def create(sel):
+    def create(self):
         """ Create the device. """
         if self.exists:
             raise DeviceError("device already exists", self.name)

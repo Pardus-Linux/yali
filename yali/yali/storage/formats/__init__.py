@@ -146,13 +146,14 @@ class Format(object):
              "  type = %(type)s  name = %(name)s  status = %(status)s\n"
              "  device = %(device)s  uuid = %(uuid)s  exists = %(exists)s\n"
              "  options = %(options)s  supported = %(supported)s"
-             "  formattable = %(format)s  resizable = %(resize)s\n"
+             "  formattable = %(format)s  resizable = %(resize)s mountable = %(mount)s\n"
              "  maxSize = %(maxSize)s  minSize = %(minSize)s\n" %
              {"classname": self.__class__.__name__, "id": "%#x" % id(self),
               "type": self.type, "name": self.name, "status": self.status,
               "device": self.device, "uuid": self.uuid, "exists": self.exists,
               "options": self.options, "supported": self.supported,
               "format": self.formattable, "resize": self.resizable,
+              "mount": self.mountable,
               "maxSize": self.maxSize, "minSize": self.minSize})
         return s
 
