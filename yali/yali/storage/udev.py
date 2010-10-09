@@ -21,6 +21,7 @@
 #
 
 import os
+import re
 
 import yali.util
 from yali.baseudev import *
@@ -45,8 +46,12 @@ def udev_resolve_devspec(devspec):
             ret = dev
             break
         else:
+            spec = devspec
+            if not spec.startswith("/dev/"):
+                spec = os.path.normpath("/dev/" + spec)
+
             for link in dev["symlinks"]:
-                if devspec == link:
+                if spec == link:
                     ret = dev
                     break
 
@@ -77,7 +82,6 @@ def udev_get_block_devices():
     # Wait for scsi adapters to be done with scanning their busses (#583143)
     yali.util.run_batch("modprobe", ["scsi_wait_scan"])
     yali.util.run_batch("rmmod", ["scsi_wait_scan"])
-
     udev_settle()
     entries = []
     for path in udev_enumerate_block_devices():
@@ -136,10 +140,11 @@ def udev_device_get_format(udev_info):
 
 def udev_device_get_uuid(udev_info):
     """ Get the UUID from the device's format as reported by udev. """
-    md_uuid = udev_info.get("MD_UUID")
-    uuid = udev_info.get("ID_FS_UUID")
+    md_uuid = udev_info.get("MD_UUID", '')
+    uuid = udev_info.get("ID_FS_UUID", '')
     # we don't want to return the array's uuid as a member's uuid
-    if uuid and not md_uuid == uuid:
+    if len(uuid) > 0 and \
+            re.sub(r'\W', '', md_uuid) != re.sub(r'\W', '', uuid):
         return udev_info.get("ID_FS_UUID")
 
 def udev_device_get_label(udev_info):
@@ -247,22 +252,13 @@ def udev_device_is_partition(info):
 
 def udev_device_get_serial(udev_info):
     """ Get the serial number/UUID from the device as reported by udev. """
-    return udev_info.get("ID_SERIAL_SHORT", udev_info.get("ID_SERIAL"))
+    return udev_info.get("ID_SERIAL_RAW", udev_info.get("ID_SERIAL_SHORT", udev_info.get("ID_SERIAL")))
 
 def udev_device_get_wwid(udev_info):
     """ The WWID of a device is typically just its serial number, but with
         colons in the name to make it more readable. """
     serial = udev_device_get_serial(udev_info)
-    serial_len = len(serial)
-
-    if serial and (serial_len == 32 or serial_len == 16):
-        retval = ""
-        for i in range(0, (serial_len / 2)):
-            retval += serial[i*2:i*2+2] + ":"
-
-        return retval[0:-1]
-
-    return ""
+    return yali.util.insert_colons(serial) if serial else ""
 
 def udev_device_get_vendor(udev_info):
     """ Get the vendor of the device as reported by udev. """
@@ -381,29 +377,59 @@ def udev_device_get_lv_attr(info):
         attr = [attr]
     return attr
 
-def udev_device_is_biosraid(info):
+def udev_device_dm_subsystem_match(info, subsystem):
+    """ Return True if the device matches a given device-mapper subsystem. """
+    uuid = info.get("DM_UUID", "")
+    _subsystem = uuid.split("-")[0]
+    if _subsystem == uuid or not _subsystem:
+        return False
+
+    return _subsystem.lower() == subsystem.lower()
+
+def udev_device_is_dm_lvm(info):
+    """ Return True if the device is an LVM logical volume. """
+    return udev_device_dm_subsystem_match(info, "lvm")
+
+def udev_device_is_dm_crypt(info):
+    """ Return True if the device is a mapped dm-crypt device. """
+    return udev_device_dm_subsystem_match(info, "crypt")
+
+def udev_device_is_dm_luks(info):
+    """ Return True if the device is a mapped LUKS device. """
+    is_crypt = udev_device_dm_subsystem_match(info, "crypt")
+    try:
+        _type = info.get("DM_UUID", "").split("-")[1].lower()
+    except IndexError:
+        _type = ""
+
+    return is_crypt and _type.startswith("luks")
+
+def udev_device_is_dm_raid(info):
+    """ Return True if the device is a dmraid array device. """
+    return udev_device_dm_subsystem_match(info, "dmraid")
+
+def udev_device_is_dm_mpath(info):
+    """ Return True if the device is an. """
+    return udev_device_dm_subsystem_match(info, "mpath")
+
+def udev_device_is_biosraid_member(info):
     # Note that this function does *not* identify raid sets.
     # Tests to see if device is parto of a dmraid set.
     # dmraid and mdraid have the same ID_FS_USAGE string, ID_FS_TYPE has a
     # string that describes the type of dmraid (isw_raid_member...),  I don't
     # want to maintain a list and mdraid's ID_FS_TYPE='linux_raid_member', so
     # dmraid will be everything that is raid and not linux_raid_member
-    DMRaidMemberudevTypes =  ["adaptec_raid_member", "ddf_raid_member",
-                              "highpoint_raid_member", "isw_raid_member",
-                              "jmicron_raid_member", "lsi_mega_raid_member",
-                              "nvidia_raid_member", "promise_fasttrack_raid_member",
-                              "silicon_medley_raid_member", "via_raid_member"]
-    MDRaidMemberudevTypes = ["linux_raid_member"]
-
+    from formats.dmraidmember import DMRaidMember
+    from formats.raidmember import RaidMember
     if info.has_key("ID_FS_TYPE") and \
-            (info["ID_FS_TYPE"] in DMRaidMemberudevTypes or \
-             info["ID_FS_TYPE"] in MDRaidMemberudevTypes) and \
+            (info["ID_FS_TYPE"] in DMRaidMember._udevTypes or \
+             info["ID_FS_TYPE"] in RaidMember._udevTypes) and \
             info["ID_FS_TYPE"] != "linux_raid_member":
         return True
 
     return False
 
-def udev_device_get_dmraid_partition_disk(info):
+def udev_device_get_dm_partition_disk(info):
     try:
         p_index = info["DM_NAME"].rindex("p")
     except (KeyError, AttributeError, ValueError):
@@ -414,43 +440,20 @@ def udev_device_get_dmraid_partition_disk(info):
 
     return info["DM_NAME"][:p_index]
 
-def udev_device_is_dmraid_partition(info, devicetree):
-    diskname = udev_device_get_dmraid_partition_disk(info)
-    dmraid_devices = devicetree.getDevicesByType("dm-raid array")
+def udev_device_is_dmraid_partition(info):
+    if not udev_device_is_dm_raid(info):
+        return False
 
-    for device in dmraid_devices:
-        if diskname == device.name:
-            return True
+    diskname = udev_device_get_dm_partition_disk(info)
+    return diskname not in ("", None)
 
-    return False
-
-def udev_device_is_multipath_partition(info, devicetree):
+def udev_device_is_multipath_partition(info):
     """ Return True if the device is a partition of a multipath device. """
-    if not udev_device_is_dm(info):
-        return False
-    if not info["DM_NAME"].startswith("mpath"):
-        return False
-    diskname = udev_device_get_dmraid_partition_disk(info)
-    if diskname is None:
+    if not udev_device_is_dm_mpath(info):
         return False
 
-    # this is sort of a lame check, but basically, if diskname gave us "mpath0"
-    # and we start with "mpath" but we're not "mpath0", then we must be
-    # "mpath0" plus some non-numeric crap.
-    if diskname != info["DM_NAME"]:
-        return True
-
-    return False
-
-def udev_device_get_multipath_partition_disk(info):
-    """ Return True if the device is a partition of a multipath device. """
-    # XXX PJFIX This whole function is crap.
-    if not udev_device_is_dm(info):
-        return False
-    if not info["DM_NAME"].startswith("mpath"):
-        return False
-    diskname = udev_device_get_dmraid_partition_disk(info)
-    return diskname
+    diskname = udev_device_get_dm_partition_disk(info)
+    return diskname not in ("", None)
 
 def udev_device_is_multipath_member(info):
     """ Return True if the device is part of a multipath. """

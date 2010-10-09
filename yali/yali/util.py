@@ -36,6 +36,19 @@ def numeric_type(num):
 
     return num
 
+def insert_colons(a_string):
+    """
+    Insert colon between every second character.
+
+    E.g. creates 'al:go:ri:th:ms' from 'algoritms'. Useful for formatting MAC
+    addresses and wwids for output.
+    """
+    suffix = a_string[-2:]
+    if len(a_string) > 2:
+        return insert_colons(a_string[:-2]) + ':' + suffix
+    else:
+        return suffix
+
 def get_edd_dict(devices):
     eddDevices = {}
 
