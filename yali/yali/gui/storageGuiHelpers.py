@@ -10,6 +10,7 @@ from PyQt4.QtCore import *
 
 import yali.context as ctx
 from yali.storage.library import raid
+from yali.storage.library import lvm
 from yali.storage.formats import device_formats, get_default_filesystem_type
 
 defaultMountPoints = ['/', '/boot', '/home', '/tmp',
@@ -36,6 +37,45 @@ class PartitionItem(QtGui.QListWidgetItem):
     @property
     def partition(self):
         return self._partition
+
+class PhysicalVolumeListItem(QtGui.QListWidgetItem):
+    def __init__(self, parent, widget):
+        QtGui.QListWidgetItem.__init__(self, parent)
+        self.widget = widget
+        self.setSizeHint(QSize(40, 40))
+
+class PhysicalVolumeItem(QtGui.QWidget):
+    def __init__(self, parent, text, device, editor, widget):
+        QtGui.QListWidgetItem.__init__(self, parent)
+        self.layout = QtGui.QHBoxLayout(self)
+        self.checkBox = QtGui.QCheckBox(self)
+        self.layout.addWidget(self.checkBox)
+        self.labelDrive = QtGui.QLabel(self)
+        self.labelDrive.setText(text)
+        self.layout.addWidget(self.labelDrive)
+        spacerItem = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.layout.addItem(spacerItem)
+        self.connect(self.checkBox, SIGNAL("stateChanged(int)"), self.stateChanged)
+        self.pv = device
+        self.editor = editor
+        self.widget = widget
+
+    def stateChanged(self, state):
+        if state == Qt.Checked and self.pv not in self.editor.pvs:
+            self.editor.pvs.append(self.pv)
+        elif state == Qt.Unchecked and self.pv in self.editor.pvs:
+            self.editor.pvs.remove(self.pv)
+            try:
+                self.widget.tmpVolumeGroup
+            except Exception, msg:
+                self.editor.intf.messageWindow(_("Not enough space"),
+                                               _("You cannot remove this physical volume because\n"
+                                                 "otherwise the volume group will be too small to\n"
+                                                 "hold the currently defined logical volumes."),
+                                               customIcon="error")
+                self.editor.pvs.append(self.pv)
+        #Update spaces not only if physical volume unchecked
+        self.widget.updateSpaces()
 
 def createShrinkablePartitionMenu(parent, storage):
 
@@ -195,6 +235,74 @@ def createFSTypeMenu(parent, format, mountCombo, availablefstypes=None, ignorefs
 
     return fstypeCombo
 
+def fillPhysicalExtends(widget, default=4096):
+    def prettyFormatSize(value):
+        """ Pretty print for PhysicalExtends size in KB """
+        if value < 1024:
+            return "%d KB" % value
+        elif value < 1024*1024:
+            return "%d MB" % (value/1024)
+        else:
+            return "%d GB" % (value/1024/1024)
+
+    actualPhysicalExtends = []
+    for curpe in lvm.getPossiblePhysicalExtents(floor=1024):
+        if curpe > 131072 and curpe != default:
+            continue
+
+        actualPhysicalExtends.append(curpe)
+        value = prettyFormatSize(curpe)
+
+        widget.addItem(value, curpe)
+
+    try:
+        widget.setCurrentIndex(actualPhysicalExtends.index(default))
+    except ValueError:
+        widget.setCurrentIndex(0)
+
+
+def fillLvmPhysicals(widget):
+
+    def calculateSize(value):
+        if value[1] == "KB":
+            return value[0]
+        elif value[1] == "MB":
+            return value[0] * 1024
+        else:
+            return value[0] * 1024 * 1024
+
+    originalpvs = widget.parent().parent.pvs[:]
+    peCombo = widget.parent().physicalExtends
+    for device in widget.parent().parent.availlvmparts:
+        peSize = peCombo.itemData(peCombo.currentIndex()).toFloat()[0] / 1024.0
+        size = "%10.2f MB" % lvm.clampSize(device.size, peSize)
+        include = True
+        selected = False
+
+        if device in originalpvs:
+            selected = True
+            include = True
+        else:
+            for vg in widget.parent().parent.storage.vgs:
+                if vg.name == widget.parent().origrequest.name:
+                    continue
+
+                if device in vg.pvs:
+                    include = False
+                    break
+
+            if include and not originalpvs:
+                selected = True
+
+        if include:
+            physicalVolume = PhysicalVolumeItem(widget, "%s (%s)" % (device.name, size), device, widget.parent().parent, widget.parent())
+            listItem = PhysicalVolumeListItem(widget, physicalVolume)
+            widget.setItemWidget(listItem, physicalVolume)
+            if selected:
+                physicalVolume.checkBox.setCheckState(Qt.Checked)
+            if selected and device not in widget.parent().parent.pvs:
+                widget.parent().parent.pvs.append(device)
+
 def fillRaidMembers(widget, raidPartitions, requestRaidPartition, preexist):
     tmpDevices = []
     if not widget.parent().isNew:
@@ -227,7 +335,7 @@ def fillRaidLevels(widget, raidLevels, requestedLevel):
         index = raidLevels.index(raid.RAID1)
     i = 0
     for level in raidLevels:
-        widget.addItem("RAID%d" % level)
+        widget.addItem("RAID%d" % level, level)
         if requestedLevel is not None and level == requestedLevel:
             index = i
         i = i + 1
@@ -254,6 +362,25 @@ def createAllowedRaidPartitions(parent, raidPartitions, requestRaidPartition, pr
 
 
     return partitionList
+
+def fillAllowedDrives(widget, disks, requestDrives, selectDrives=True, disallowes=[]):
+    widget.clear()
+    for disk in disks:
+        selected = 0
+        if selectDrives:
+            if requestDrives:
+                if disk.name in requestDrives:
+                    selected = 2
+            else:
+                if disk not in disallowes:
+                    selected = 2
+
+        driveItem = DriveItem(widget, disk)
+        driveItem.setCheckState(selected)
+        if len(disks) < 2:
+            widget.setEnabled(False)
+        else:
+            widget.setEnabled(True)
 
 def createAllowedDrivesList(parent, disks, requestDrives, selectDrives=True, disallowDrives=[]):
     driveList = QtGui.QListWidget(parent)

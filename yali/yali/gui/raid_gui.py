@@ -104,7 +104,7 @@ class RaidEditor(object):
             if not self.origrequest.exists:
                 formatType = str(widget.filesystemMenu.currentText())
                 raidminor = widget.raidMinors.itemData(widget.raidMinors.currentIndex()).toInt()[0]
-                raidlevel = widget.raidLevels.currentText()
+                raidlevel = widget.raidMinors.itemData(widget.raidLevels.currentIndex()).toInt()[0]
 
                 if not raid.isRaid(raid.RAID0, raidlevel):
                     spares = widget.spareSpin.value()
@@ -181,7 +181,15 @@ class RaidWidget(QtGui.QWidget, Ui_RaidWidget):
         self.parent = parent
         self.origrequest = request
         self.isNew = isNew
-        self.initUi()
+
+        if self.origrequest.exists:
+            self.filesystemLabel.hide()
+            self.filesystemMenu.hide()
+        else:
+            self.formatRadio.hide()
+            self.formatCombo.hide()
+            self.migrateRadio.hide()
+            self.migrateCombo.hide()
 
         # Mountpoints
         storageGuiHelpers.fillMountpointMenu(self.mountpointMenu, self.origrequest)
@@ -226,13 +234,15 @@ class RaidWidget(QtGui.QWidget, Ui_RaidWidget):
             availminors.sort()
             storageGuiHelpers.fillRaidMinors(self.raidMinors, availminors, self.origrequest.minor)
         else:
-            self.raidMinorsExists.setText(str(self.origrequest.name))
+            self.raidMinors.addItem(self.origrequest.name)
+            self.raidMinors.setEnabled(0)
 
         # Raid Level
         if not self.origrequest.exists:
             storageGuiHelpers.fillRaidLevels(self.raidLevels, raid.raid_levels, self.origrequest.level)
         else:
-            self.raidLevelsExists.setText(str(self.origrequest.level))
+            self.raidLevels.addItem(str(self.origrequest.level))
+            self.raidLevels.setEnabled(0)
 
         QObject.connect(self.raidLevels, SIGNAL("currentIndexChanged(int)"), self.raidLevelChanged)
 
@@ -249,8 +259,7 @@ class RaidWidget(QtGui.QWidget, Ui_RaidWidget):
             else:
                 maxspares = 0
 
-            self.spareSpin.setMinimum(0)
-            self.spareSpin.setMaximum(maxspares)
+            self.spareSpin.setRange(0,maxspares)
             self.spareSpin.setValue(spares)
 
             if maxspares > 0:
@@ -259,7 +268,8 @@ class RaidWidget(QtGui.QWidget, Ui_RaidWidget):
                 self.spareSpin.setEnabled(False)
                 self.spareSpin.setValue(0)
         else:
-            self.spareSpinExists.setText(str(self.origrequest.spares))
+            self.spareSpin.setValue(self.origrequest.spares)
+            self.spareSpin.setEnabled(0)
 
 
         if self.origrequest.level is not None and self.origrequest.level == raid.RAID0:
@@ -267,28 +277,6 @@ class RaidWidget(QtGui.QWidget, Ui_RaidWidget):
 
         self.connect(self.buttonBox, SIGNAL("accepted()"), self.parent.dialog.accept)
         self.connect(self.buttonBox, SIGNAL("rejected()"), self.parent.dialog.reject)
-
-    def initUi(self):
-        if self.origrequest.exists:
-            self.raidMinorLabel.hide()
-            self.raidMinors.hide()
-            self.filesystemLabel.hide()
-            self.filesystemMenu.hide()
-            self.raidLevelLabel.hide()
-            self.raidLevels.hide()
-            self.spareLabel.hide()
-            self.spareSpin.hide()
-        else:
-            self.raidMinorLabelExists.hide()
-            self.raidMinorsExists.hide()
-            self.formatRadio.hide()
-            self.formatCombo.hide()
-            self.migrateRadio.hide()
-            self.migrateCombo.hide()
-            self.raidLevelLabelExists.hide()
-            self.raidLevelsExists.hide()
-            self.spareLabelExists.hide()
-            self.spareSpinExists.hide()
 
     def raidLevelChanged(self, index):
         raidlevel = int(self.raidLevels.currentText())

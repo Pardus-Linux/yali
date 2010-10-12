@@ -11,6 +11,8 @@ from PyQt4.QtCore import *
 import yali.context as ctx
 from yali.gui.YaliDialog import Dialog
 from yali.gui import storageGuiHelpers
+from yali.gui.Ui.volumegroup import Ui_VolumeGroupWidget
+from yali.gui.Ui.logicalvolume import Ui_LogicalVolumeWidget
 from yali.storage import formats
 from yali.storage.operations import *
 from yali.storage.library import lvm
@@ -164,12 +166,12 @@ class LVMEditor(object):
                         format = lv.format
                         if format == usedev.originalFormat:
                             cancel = []
-                            cancel.extend(devicetree.findOperations(type="create",
-                                                                 object="format",
-                                                                 devid=origlv.id))
-                            cancel.extend(devicetree.findOperations(type="destroy",
-                                                                 object="format",
-                                                                 devid=origlv.id))
+                            cancel.extend(self.parent.storage.devicetree.findOperations(type="create",
+                                                                                        object="format",
+                                                                                        devid=origlv.id))
+                            cancel.extend(self.parent.storage.devicetree.findOperations(type="destroy",
+                                                                                        object="format",
+                                                                                        devid=origlv.id))
                             for operation in cancel:
                                 self.storage.devicetree.cancelOperation(operation)
 
@@ -207,17 +209,13 @@ class LVMEditor(object):
         if self.dialog:
             self.dialog = None
 
-class VolumeGroupWidget(QtGui.QWidget):
+class VolumeGroupWidget(QtGui.QWidget, Ui_VolumeGroupWidget):
     def __init__(self, parent, request, isNew):
         QtGui.QWidget.__init__(self, parent.parent)
-        self.layout = QtGui.QGridLayout(self)
+        self.setupUi(self)
         self.origrequest = request
         self.parent = parent
         self.isNew = isNew
-        row = 0
-
-        label = QtGui.QLabel(_("Volume Group Name:"), self)
-        self.layout.addWidget(label, row, 0, 1, 1)
         if not self.origrequest.exists:
             self.name = QtGui.QLineEdit(self)
             if not self.isNew:
@@ -225,88 +223,27 @@ class VolumeGroupWidget(QtGui.QWidget):
             else:
                 self.name.setText(self.parent.storage.createSuggestedVolumeGroupName())
         else:
-            self.name = QtGui.QLabel(self)
             self.name.setText(self.origrequest.name)
-        self.layout.addWidget(self.name, row, 1, 1, 1)
+            self.name.setEnabled(False)
 
-        row += 1
-
-        # Have to set before calling createPhysicalExtendsMenu to update values
-        self.totalSpace = QtGui.QLabel(_(""), self)
-        self.usedSpace = QtGui.QLabel(_(""), self)
-        self.freeSpace = QtGui.QLabel(_(""), self)
-
-        label = QtGui.QLabel(_("Physical Extent:"), self)
-        self.layout.addWidget(label, row, 0, 1, 1)
-        self.physicalExtends =  self.createPhysicalExtendsMenu(self.origrequest.peSize * 1024)
-        self.layout.addWidget(self.physicalExtends, row, 1, 1, 1)
+        storageGuiHelpers.fillPhysicalExtends(self.physicalExtends)
+        self.connect(self.physicalExtends, SIGNAL("currentIndexChanged(int)"), self.physicalExtendsChanged)
         if self.origrequest.exists:
             self.physicalExtends.setEnabled(False)
 
-        row += 1
-
-        label = QtGui.QLabel(_("Physical Volumes to Use:"), self)
-        self.layout.addWidget(label, row, 0, 1, 1)
-        self.physicals = self.createAllowedPhysicals()
+        storageGuiHelpers.fillLvmPhysicals(self.physicals)
         if self.origrequest.exists:
             self.physicals.setEnabled(False)
 
-        self.layout.addWidget(self.physicals, row, 1, 1, 1)
-
-        row += 1
-
-        label = QtGui.QLabel(_("Used Space:"), self)
-        self.layout.addWidget(label, row, 0, 1, 1)
-        self.layout.addWidget(self.usedSpace, row, 1, 1, 1)
-
-        row += 1
-
-        label = QtGui.QLabel(_("Free Space:"), self)
-        self.layout.addWidget(label, row, 0, 1, 1)
-        self.layout.addWidget(self.freeSpace, row, 1, 1, 1)
-
-        row += 1
-
-        label = QtGui.QLabel(_("Total Space:"), self)
-        self.layout.addWidget(label, row, 0, 1, 1)
-        self.layout.addWidget(self.totalSpace, row, 1, 1, 1)
-
-        row += 1
-
-        groupBox = QtGui.QGroupBox(_("Logical Volumes"), self)
-        gridLayout = QtGui.QGridLayout(groupBox)
-
-        self.logicalVolumesTree = QtGui.QTreeWidget(groupBox)
-        self.logicalVolumesTree.headerItem().setText(0, _("Name"))
-        self.logicalVolumesTree.headerItem().setText(1, _("Mountpoint"))
-        self.logicalVolumesTree.headerItem().setText(2, _("Size"))
         if self.origrequest.lvs:
             for lv in self.origrequest.lvs:
                 LogicalVolumeItem(self.logicalVolumesTree, lv)
 
 
-        self.addButton = QtGui.QPushButton(_("Add"), groupBox)
         self.connect(self.addButton, SIGNAL("clicked()"), self.add)
-
-        self.editButton = QtGui.QPushButton(_("Edit"), groupBox)
         self.connect(self.editButton, SIGNAL("clicked()"), self.edit)
-
-        self.deleteButton = QtGui.QPushButton(_("Delete"), groupBox)
         self.connect(self.deleteButton, SIGNAL("clicked()"), self.delete)
-
         self.connect(self.logicalVolumesTree, SIGNAL("itemClicked(QTreeWidgetItem *, int)"), self.activateButtons)
-
-        gridLayout.addWidget(self.logicalVolumesTree, 0, 0, 3, 1)
-        gridLayout.addWidget(self.addButton, 0, 1, 1, 1)
-        gridLayout.addWidget(self.editButton, 1, 1, 1, 1)
-        gridLayout.addWidget(self.deleteButton, 2, 1, 1, 1)
-        self.layout.addWidget(groupBox, row, 0, 1, 2)
-
-        row += 1
-
-        self.buttonBox = QtGui.QDialogButtonBox(self)
-        self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.Ok)
-        self.layout.addWidget(self.buttonBox, row, 0, 1, 2)
         self.connect(self.buttonBox, SIGNAL("accepted()"), self.parent.dialog.accept)
         self.connect(self.buttonBox, SIGNAL("rejected()"), self.parent.dialog.reject)
 
@@ -380,78 +317,6 @@ class VolumeGroupWidget(QtGui.QWidget):
         used = size - free
         return (size, used, free)
 
-    def createPhysicalExtendsMenu(self, default=4096):
-        def prettyFormatSize(value):
-            """ Pretty print for PhysicalExtends size in KB """
-            if value < 1024:
-                return "%d KB" % value
-            elif value < 1024*1024:
-                return "%d MB" % (value/1024)
-            else:
-                return "%d GB" % (value/1024/1024)
-
-        physicalExtends = QtGui.QComboBox(self)
-        actualPhysicalExtends = []
-        for curpe in lvm.getPossiblePhysicalExtents(floor=1024):
-            if curpe > 131072 and curpe != default:
-                continue
-
-            actualPhysicalExtends.append(curpe)
-            value = prettyFormatSize(curpe)
-
-            physicalExtends.addItem(value, curpe)
-
-        try:
-            physicalExtends.setCurrentIndex(actualPhysicalExtends.index(default))
-        except ValueError:
-            physicalExtends.setCurrentIndex(0)
-
-        self.connect(physicalExtends, SIGNAL("currentIndexChanged(int)"), self.physicalExtendsChanged)
-        return physicalExtends
-
-    def createAllowedPhysicals(self):
-        def calculateSize(value):
-            if value[1] == "KB":
-                return value[0]
-            elif value[1] == "MB":
-                return value[0] * 1024
-            else:
-                return value[0] * 1024 * 1024
-        physicalsList = QtGui.QListWidget(self)
-        originalpvs = self.parent.pvs[:]
-        peCombo = self.physicalExtends
-        for device in self.parent.availlvmparts:
-            peSize = peCombo.itemData(peCombo.currentIndex()).toFloat()[0] / 1024.0
-            size = "%10.2f MB" % lvm.clampSize(device.size, peSize)
-            include = True
-            selected = False
-
-            if device in originalpvs:
-                selected = True
-                include = True
-            else:
-                for vg in self.parent.storage.vgs:
-                    if vg.name == self.origrequest.name:
-                        continue
-
-                    if device in vg.pvs:
-                        include = False
-                        break
-
-                if include and not originalpvs:
-                    selected = True
-
-            if include:
-                physicalVolume = PhysicalVolumeItem(physicalsList, "%s (%s)" % (device.name, size), device, self.parent, self)
-                listItem = PhysicalVolumeListItem(physicalsList, physicalVolume)
-                physicalsList.setItemWidget(listItem, physicalVolume)
-                if selected:
-                    physicalVolume.checkBox.setCheckState(Qt.Checked)
-                if selected and device not in self.parent.pvs:
-                    self.parent.pvs.append(device)
-
-        return physicalsList
-
     def updateAllowedPhysicals(self):
         """ update sizes in pvs """
         for index, partition in enumerate(self.parent.availlvmparts):
@@ -460,8 +325,6 @@ class VolumeGroupWidget(QtGui.QWidget):
             size = lvm.clampSize(size, peSize)
             prettysize = "%10.2f MB"  % size
             self.physicals.item(index).widget.labelDrive.setText("%s (%s)" % (partition.name, prettysize))
-
-
 
     def updateLogicalVolumeTree(self):
         self.logicalVolumesTree.clear()
@@ -723,6 +586,7 @@ class LogicalVolumeEditor:
 
         self.dialog = Dialog(title, closeButton=False)
         self.dialog.addWidget(LogicalVolumeWidget(self, request, isNew))
+        self.dialog.resize(QSize(450, 200))
 
 
     def run(self):
@@ -744,8 +608,8 @@ class LogicalVolumeEditor:
 
             widget = self.dialog.content
 
-            mountpoint = str(widget.mountCombo.currentText())
-            if widget.mountCombo.isEditable() and mountpoint:
+            mountpoint = str(widget.mountpointMenu.currentText())
+            if widget.mountpointMenu.isEditable() and mountpoint:
                 msg = sanityCheckMountPoint(mountpoint)
                 if msg:
                     self.intf.messageWindow(_("Mount Point Error"),
@@ -796,10 +660,11 @@ class LogicalVolumeEditor:
 
             if used:
                 self.intf.messageWindow(_("Illegal logical volume name"),
-                                               _("The logical volume name \"%s\" is "
-                                                 "already in use. Please pick another.")
-                                                % (name,), customIcon="error")
+                                        _("The logical volume name \"%s\" is "
+                                          "already in use. Please pick another.")
+                                        % (name,), customIcon="error")
                 continue
+
 
             if not self.origrequest.exists:
                 badsize = 0
@@ -836,10 +701,10 @@ class LogicalVolumeEditor:
                 continue
 
             # Get format
-            formatType = str(widget.newfstypeCombo.currentText())
-            format = formats.getFormat(formatType, mountpoint=mountpoint)
             origname = self.origrequest.lvname
             if not self.origrequest.exists:
+                formatType = str(widget.filesystemMenu.currentText())
+                format = formats.getFormat(formatType, mountpoint=mountpoint)
                 self.origrequest._name = name
                 try:
                     self.origrequest.size = size
@@ -860,28 +725,24 @@ class LogicalVolumeEditor:
                 else:
                     self.origrequest.format = format
             else:
-                request = self.origrequest
-                usedev = request
+                formatType = str(widget.formatCombo.currentText())
+                format = formats.getFormat(formatType, mountpoint=mountpoint)
 
-                origformat = usedev.format
+                if widget.formatRadio.isChecked():
+                    formatType = str(widget.formatCombo.currentText())
+                    format = formats.getFormat(formatType, mountpoint=mountpoint, device=self.origrequest.path)
+                    self.origrequest.format = format
+                else:
+                    self.origrequest.format = self.origrequest.originalFormat
 
-                if widget.fsoptions.has_key("formatCheckBox"):
-                    if widget.fsoptions["formatCheckBox"].isChecked():
-                        formatType = str(widget.fsoptions["fstypeComboBox"].currentText())
-                        format = formats.getFormat(formatType, mountpoint=mountpoint, device=self.origrequest.path)
-                    elif not widget.fsoptions["formatCheckBox"].isChecked():
-                        self.origrequest.format = self.origrequest.originalFormat
+                if widget.migrateRadio.isChecked():
+                    self.origrequest.format.migrate = True
 
-                        request.format = request.originalFormat
-                        usedev = request
+                if widget.resizeRadio.isChecked():
+                    self.origrequest.targetSize = widget.resizeSpin.value()
 
-                if widget.fsoptions.has_key("migrateCheckBox") and \
-                   widget.fsoptions["migrateCheckBox"].isChecked():
-                       usedev.format.migrate = True
-
-                if widget.fsoptions.has_key("resizeCheckBox") and \
-                   widget.fsoptions["resizeCheckBox"].isChecked():
-                    self.origrequest.targetSize = widget.fsoptions["resizeSpinBox"].value()
+                if format.mountable:
+                    format.mountpoint = mountpoint
 
             if format.exists and format.mountable and format.mountpoint:
                 tmpDevice = Device('tmp', format=format)
@@ -908,20 +769,14 @@ class LogicalVolumeEditor:
         if self.dialog:
             self.dialog = None
 
-class LogicalVolumeWidget(QtGui.QWidget):
+class LogicalVolumeWidget(QtGui.QWidget, Ui_LogicalVolumeWidget):
     def __init__(self, parent, request, isNew=0):
         QtGui.QWidget.__init__(self, parent.parent)
-        self.layout = QtGui.QGridLayout(self)
+        self.setupUi(self)
         self.parent = parent
         self.origrequest = request
         self.isNew = isNew
 
-        row = 0
-
-        # Volume Name
-        label = QtGui.QLabel(_("Logical Volume Name:"), self)
-        self.layout.addWidget(label, row, 0, 1, 1)
-        self.name = QtGui.QLineEdit(self)
         if not self.origrequest.exists:
             if self.origrequest.name:
                 self.name.setText(self.origrequest.lvname)
@@ -929,92 +784,89 @@ class LogicalVolumeWidget(QtGui.QWidget):
                 self.name.setText(self.parent.storage.createSuggestedVolumeGroupName(self.origrequest.vg))
         else:
             self.name.setText(self.origrequest.lvname)
-        self.layout.addWidget(self.name, row, 1, 1, 1)
-
-        row += 1
-
-        # Mount Point entry
-        label = QtGui.QLabel(_("Mount Point:"), self)
-        self.layout.addWidget(label, row, 0, 1, 1)
-        self.mountCombo = storageGuiHelpers.createMountpointMenu(self, self.origrequest, excludeMountPoints=["/boot"])
-        self.layout.addWidget(self.mountCombo,row, 1, 1, 1)
-        row += 1
+        storageGuiHelpers.fillMountpointMenu(self.mountpointMenu, self.origrequest, excludes=["/boot"])
 
         # Partition Type
         if not self.origrequest.exists:
-            label = QtGui.QLabel(_("File System Type:"), self)
-            self.layout.addWidget(label, row, 0, 1, 1)
-            self.newfstypeCombo = storageGuiHelpers.createFSTypeMenu(self,
-                                                                     self.origrequest.format,
-                                                                     self.mountCombo,
-                                                                     ignorefs=["mdmember", "lvmpv", "efi"],
-                                                                     filesystemComboCB=self.fstypechangeCB,
-                                                                     mountComboCB=self.mountptchangeCB)
-            self.layout.addWidget(self.newfstypeCombo, row, 1, 1, 1)
-            QObject.connect(self.newfstypeCombo, SIGNAL("currentIndexChanged(int)"), self.fstypechangeCB)
+            storageGuiHelpers.fillFilesystemMenu(self.filesystemMenu, self.origrequest.format,
+                                                 ignores=["mdmember", "efi", "lvmpv"])
+            QObject.connect(self.filesystemMenu, SIGNAL("currentIndexChanged(int)"), self.formatTypeChanged)
+            self.resizeRadio.hide()
+            self.resizeSlider.hide()
+            self.resizeSpin.hide()
+            self.formatRadio.hide()
+            self.formatCombo.hide()
+            self.migrateRadio.hide()
+            self.migrateCombo.hide()
         else:
-            self.newfstypeCombo = None
+            self.filesystemLabel.hide()
+            self.filesystemMenu.hide()
+            if self.origrequest.format.formattable or not self.origrequest.format.type:
+                storageGuiHelpers.fillFilesystemMenu(self.formatCombo, self.origrequest.format,
+                                                     ignores= ["software RAID", "physical volume (LVM)","vfat"])
+                self.formatRadio.setChecked(self.origrequest.format.formattable and not self.origrequest.format.exists)
+                QObject.connect(self.formatCombo, SIGNAL("currentIndexChanged(int)"), self.formatTypeChanged)
+            else:
+                self.formatRadio.hide()
+                self.formatCombo.hide()
 
-        row += 1
+            if self.origrequest.format.migratable and self.origrequest.format.exists:
+                storageGuiHelpers.fillFilesystemMenu(self.migrateCombo, self.origrequest.format,
+                                                     availables=[self.origrequest.format.migrationTarget])
+                self.migrateRadio.setChecked(self.origrequest.format.migrate and not self.formatRadio.isChecked())
+                QObject.connect(self.migrateCombo, SIGNAL("currentIndexChanged(int)"), self.formatTypeChanged)
+            else:
+                self.migrateRadio.hide()
+                self.migrateCombo.hide()
 
-        # Original filesystem type and label
-        if self.origrequest.exists:
-            label = QtGui.QLabel(_("Original File System Type:"), self)
-            self.layout.addWidget(label, row, 0, 1, 1)
-            label = QtGui.QLabel( self.origrequest.originalFormat.name, self)
-            self.layout.addWidget(label, row, 1, 1, 1 )
-            row += 1
+            if self.origrequest.resizable and self.origrequest.format.exists:
+                if self.origrequest.targetSize is not None:
+                    value = self.origrequest.targetSize
+                else:
+                    value = self.origrequest.size
 
-            if getattr(self.origrequest.originalFormat, "label", None):
-                label = QtGui.QLabel(_("Original File System Label:"), self)
-                self.layout.addWidget(label, row, 0, 1, 1)
-                label = QtGui.QLabel(self.origrequest.originalFormat.label, self)
-                self.layout.addWidget(label, row, 1, 1, 1)
-                row += 1
+                reqlower = 1
+                requpper = self.origrequest.maxSize
+                if self.origrequest.format.exists:
+                    reqlower = self.origrequest.minSize
+
+                    if self.origrequest.type == "partition":
+                        geomsize = self.origrequest.partedPartition.geometry.getSize(unit="MB")
+                        if (geomsize != 0) and (requpper > geomsize):
+                            requpper = geomsize
+
+                self.resizeSpin.setMinimum(reqlower)
+                self.resizeSpin.setMaximum(requpper)
+                self.resizeSpin.setValue(value)
+                self.resizeSlider.setMinimum(reqlower)
+                self.resizeSlider.setMaximum(requpper)
+                self.resizeSlider.setValue(value)
+            else:
+                self.resizeRadio.hide()
+                self.resizeSpin.hide()
+                self.resizeSlider.hide()
 
         #Size and maximum size
         if not self.origrequest.exists:
-            label = QtGui.QLabel(_("Size:"), self)
-            self.layout.addWidget(label, row, 0, 1, 1)
-            self.sizeSpin = QtGui.QSpinBox(self)
-            maximumGrow = self.origrequest.vg.freeSpace / self.origrequest.stripes
-            self.sizeSpin.setMaximum(min(lvm.getMaxLVSize(), self.origrequest.size + maximumGrow))
-            self.sizeSpin.setValue(self.origrequest.size)
-            self.layout.addWidget(self.sizeSpin, row, 1, 1, 1)
-            row += 1
+             maximumGrow = self.origrequest.vg.freeSpace / self.origrequest.stripes
+             self.sizeSpin.setMaximum(min(lvm.getMaxLVSize(), self.origrequest.size + maximumGrow))
+             self.sizeSpin.setValue(self.origrequest.size)
+        else:
+            self.sizeLabel.hide()
+            self.sizeSlider.hide()
+            self.sizeSpin.hide()
 
-        #Preexisting Logical Volume
-        self.fsoptions = {}
-        if self.origrequest.exists:
-            (row, self.fsoptions) = storageGuiHelpers.createPreExistFSOption(self,
-                                                                             self.origrequest,
-                                                                             row, self.mountCombo,
-                                                                             self.parent.storage,
-                                                                             ignorefs=["software RAID",
-                                                                                       "physical volume (LVM)",
-                                                                                       "vfat"])
-        row += 1
 
-        self.buttonBox = QtGui.QDialogButtonBox(self)
-        self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.Ok)
-        self.layout.addWidget(self.buttonBox, row, 0, 1, 2)
         self.connect(self.buttonBox, SIGNAL("accepted()"), self.parent.dialog.accept)
         self.connect(self.buttonBox, SIGNAL("rejected()"), self.parent.dialog.reject)
-
-    def fstypechangeCB(self, index):
-        format  = formats.getFormat(self.sender().itemText(index))
-        self.setMntptStateFromFSType(format, self.mountCombo)
-
-    def setMntptStateFromFSType(self, fstype, mountCombo):
-        if fstype.mountable:
-            mountCombo.setEnabled(True)
+    def formatTypeChanged(self, index):
+        format  = formats.getFormat(str(self.sender().itemText(index)))
+        if format.mountable:
+            self.mountpointMenu.setEnabled(True)
         else:
-            mountCombo.setEnabled(False)
-            if mountCombo.itemText(0) != _("<Not Applicable>"):
-                mountCombo.insertItem(0, _("<Not Applicable>"))
+            self.mountpointMenu.setEnabled(False)
+            self.mountpointMenu.setCurrentIndex(0)
 
-    def mountptchangeCB(self, index):
-        pass
 
 class LogicalVolumeItem(QtGui.QTreeWidgetItem):
     def __init__(self, parent, device):
@@ -1033,42 +885,4 @@ class LogicalVolumeItem(QtGui.QTreeWidgetItem):
     def device(self):
         return self._device
 
-class PhysicalVolumeListItem(QtGui.QListWidgetItem):
-    def __init__(self, parent, widget):
-        QtGui.QListWidgetItem.__init__(self, parent)
-        self.widget = widget
-        self.setSizeHint(QSize(40, 40))
-
-class PhysicalVolumeItem(QtGui.QWidget):
-    def __init__(self, parent, text, device, editor, widget):
-        QtGui.QListWidgetItem.__init__(self, parent)
-        self.layout = QtGui.QHBoxLayout(self)
-        self.checkBox = QtGui.QCheckBox(self)
-        self.layout.addWidget(self.checkBox)
-        self.labelDrive = QtGui.QLabel(self)
-        self.labelDrive.setText(text)
-        self.layout.addWidget(self.labelDrive)
-        spacerItem = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.layout.addItem(spacerItem)
-        self.connect(self.checkBox, SIGNAL("stateChanged(int)"), self.stateChanged)
-        self.pv = device
-        self.editor = editor
-        self.widget = widget
-
-    def stateChanged(self, state):
-        if state == Qt.Checked and self.pv not in self.editor.pvs:
-            self.editor.pvs.append(self.pv)
-        elif state == Qt.Unchecked and self.pv in self.editor.pvs:
-            self.editor.pvs.remove(self.pv)
-            try:
-                self.widget.tmpVolumeGroup
-            except Exception, msg:
-                self.editor.intf.messageWindow(_("Not enough space"),
-                                               _("You cannot remove this physical volume because\n"
-                                                 "otherwise the volume group will be too small to\n"
-                                                 "hold the currently defined logical volumes."),
-                                               customIcon="error")
-                self.editor.pvs.append(self.pv)
-        #Update spaces not only if physical volume unchecked
-        self.widget.updateSpaces()
 
