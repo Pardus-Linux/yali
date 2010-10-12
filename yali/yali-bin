@@ -39,7 +39,7 @@ def main():
 
 if __name__ == "__main__":
     locale.setlocale(locale.LC_ALL, "")
-    os.system("modprobe dm-mod")
+    os.system("modprobe -bqa dm-mod raid0 raid1 raid456 raid10")
     yali.init_logging("/var/log")
     main()
 
