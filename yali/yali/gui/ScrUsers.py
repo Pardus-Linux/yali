@@ -54,7 +54,7 @@ Proceed with the installation after you make your selections.
 
         self.edititemindex = None
 
-        self.ui.caps_error.setVisible(False)
+        #self.ui.caps_error.setVisible(False)
 
         self.timeLine = QTimeLine(400, self)
         self.timeLine.setFrameRange(0, 220);
@@ -62,7 +62,7 @@ Proceed with the installation after you make your selections.
 
         self.ui.scrollArea.setFixedHeight(0)
 
-        self.ui.caps_error.setText(_('Caps Lock is on.'))
+        #self.ui.caps_error.setText(_('Caps Lock is on.'))
 
         # User Icons
         self.normalUserIcon = QtGui.QPixmap(":/gui/pics/user_normal.png")
@@ -103,6 +103,15 @@ Proceed with the installation after you make your selections.
                      self.slotEditUser)
         self.connect(self.ui.pass2, SIGNAL("returnPressed()"),
                      self.slotReturnPressed)
+
+        self.connect(self.ui.pass1, SIGNAL("focusInEvent(QFocusEvent*)"),
+                     self.checkCapsLock)
+        self.connect(self.ui.pass2, SIGNAL("focusInEvent(QFocusEvent*)"),
+                     self.checkCapsLock)
+        self.connect(self.ui.username, SIGNAL("focusInEvent(QFocusEvent*)"),
+                     self.checkCapsLock)
+        self.connect(self.ui.realname, SIGNAL("focusInEvent(QFocusEvent*)"),
+                     self.checkCapsLock)
 
         ctx.installData.users = []
         ctx.installData.autoLoginUser = None
@@ -158,12 +167,19 @@ Proceed with the installation after you make your selections.
         self.refill()
         ctx.installData.autoLoginUser = str(self.ui.autoLogin.currentText())
         return True
+    def setCapsLockIcon(self, child):
+        if type(child) == QtGui.QLineEdit:
+            if pardus.xorg.capslock.isOn():
+                child.setStyleSheet("QLineEdit {background: url(:/gui/pics/caps.png) no-repeat right;\npadding-right: 20px}")
+            else:
+                child.setStyleSheet("QLineEdit {background: none; padding-right: 0px}")
+
 
     def checkCapsLock(self):
-        if pardus.xorg.capslock.isOn():
-            self.ui.caps_error.setVisible(True)
-        else:
-            self.ui.caps_error.setVisible(False)
+        for child in self.ui.groupBox.children():
+            self.setCapsLockIcon(child)
+        for child in self.ui.groupBox_2.children():
+            self.setCapsLockIcon(child)
 
     def keyReleaseEvent(self, e):
         self.checkCapsLock()
