@@ -52,8 +52,8 @@ def kahyaExists():
 # Welcome screen is the first screen to be shown.
 class Widget(QtGui.QWidget, ScreenWidget):
     title = _("Kahya is working")
+    helpSummary = _("")
     help = _("""
-<font size="+2">Kicker Check !</font>
 <p> Some help messages </p>
 """)
 

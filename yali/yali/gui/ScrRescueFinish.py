@@ -30,13 +30,11 @@ import yali.context as ctx
 # Goodbye screen
 class Widget(QtGui.QWidget, ScreenWidget):
     title = _("System Repair")
+    helpSummary = _("Repairs your system")
     help = _("""
-<font size="+2">System Repair</font>
-<font size="+1">
 <p>
 There is no help available for this section.
 </p>
-</font>
 """)
 
     def __init__(self, *args):

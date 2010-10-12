@@ -33,9 +33,8 @@ from yali.gui.Ui.goodbyewidget import Ui_GoodByeWidget
 class Widget(QtGui.QWidget, ScreenWidget):
     title = "Goodbye"
     # FIXME
+    helpSummary = _("Selametle")
     help = _("""
-<font size="+2">Congratulations</font>
-<font size="+1">
 <p>
 You have successfully installed Pardus on your computer. After restarting
 your computer, you can finally enjoy the full benefits of Pardus.
@@ -43,7 +42,6 @@ your computer, you can finally enjoy the full benefits of Pardus.
 <P>
 Click Next to proceed. One note: You remember your password, don't you?
 </p>
-</font>
 """)
 
     def __init__(self, *args):

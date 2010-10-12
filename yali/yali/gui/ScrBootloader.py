@@ -33,9 +33,8 @@ class DriveItem(QtGui.QListWidgetItem):
 class Widget(QtGui.QWidget, ScreenWidget):
     title = _("Configure Bootloader")
     icon = "iconBootloader"
+    helpSummary = _("A bootloader is a tiny program that runs when a computer is first powered up.")
     help = _("""
-<font size="+2">Bootloader</font>
-<font size="+1">
 <p>
 A bootloader is a tiny program that runs when a computer is first powered up.
 It is responsible for loading the operating system into memory and then transferring
@@ -49,7 +48,6 @@ to boot any supported operating system by presenting the user with a menu.
 The recommended way to use GRUB is to install it to the beginning of the boot disk.
 You can always choose another installation method if you know what you are doing.
 </p>
-</font>
 """)
 
     def __init__(self, *args):
@@ -61,29 +59,40 @@ You can always choose another installation method if you know what you are doing
         self.device = None
         self.initialDevice = None
 
-        self.connect(self.ui.installMBR, SIGNAL("toggled(bool)"), self.ui.selectDrive.setEnabled)
-        self.connect(self.ui.installMBR, SIGNAL("toggled(bool)"), self.activateInstallMBR)
+        self.connect(self.ui.defaultSettings, SIGNAL("toggled(bool)"), self.hideAdvancedSettings)
+        self.connect(self.ui.advancedSettings, SIGNAL("toggled(bool)"), self.showAdvancedSettings)
+        self.connect(self.ui.installMBR, SIGNAL("toggled(bool)"), self.ui.drives.setEnabled)
         self.connect(self.ui.installPartition, SIGNAL("toggled(bool)"), self.activateInstallPartition)
-        self.connect(self.ui.selectDrive, SIGNAL("stateChanged(int)"), self.checkBoxState)
         self.connect(self.ui.drives, SIGNAL("currentRowChanged(int)"), self.currentDeviceChanged)
+
+        self.ui.advancedSettingsBox.show()
+        self.ui.defaultSettings.setChecked(True)
+
+    def hideAdvancedSettings(self):
+        self.ui.advancedSettingsBox.hide()
+
+    def showAdvancedSettings(self):
+        self.ui.advancedSettingsBox.show()
+
 
     def fillDrives(self):
         self.ui.drives.clear()
         if len(self.bootloader.drives) ==  1:
-            self.ui.drives.setDisabled(True)
-            self.ui.selectDrive.setDisabled(True)
+            self.ui.drives.hide()
 
         for drive in self.bootloader.drives:
-            DriveItem(self.ui.drives, ctx.storage.devicetree.getDeviceByName(drive))
+            device = ctx.storage.devicetree.getDeviceByName(drive)
+            item = u"%s" % (device.name)
+            self.ui.drives.addItem(item, device)
 
         self.ui.drives.setCurrentRow(0)
 
     def activateChoices(self):
         for choice, (device, bootType) in self.bootloader.choices.items():
             if choice == BOOT_TYPE_MBR:
-                self.ui.installMBR.setText("%s - %s" % (bootType, device))
+                self.ui.installMBR.setText("The first sector of")
             elif choice == BOOT_TYPE_PARTITION:
-                self.ui.installPartition.setText("%s - %s" % (bootType, device))
+                self.ui.installPartition.setText("The partition where Pardus is installed")
 
         if self.bootloader.choices.has_key(BOOT_TYPE_MBR):
             self.device = self.bootloader.choices[BOOT_TYPE_MBR][0]
@@ -107,21 +116,15 @@ You can always choose another installation method if you know what you are doing
             self.device = self.initialDevice
             self.ui.installMBR.setText("%s - %s" % (boot_type_strings[BOOT_TYPE_MBR], self.device))
 
-    def activateInstallMBR(self, state):
-        if state:
-            self.device = str(self.ui.installMBR.text()).split("-")[1].strip()
-
     def activateInstallPartition(self, state):
-        self.ui.selectDrive.setChecked(not state)
-        self.ui.selectDrive.setEnabled(not state)
-        self.ui.drives.setCurrentRow(0)
+        #self.ui.drives.setCurrentRow(0)
         self.ui.drives.setEnabled(not state)
         if state:
             self.device =  str(self.ui.installPartition.text()).split("-")[1].strip()
 
     def currentDeviceChanged(self, current):
         if self.ui.drives.item(current):
-            self.device = self.ui.drives.item(current).drive.name
+            self.device = self.ui.drives.itemData(current).toPyObject().name
             self.ui.installMBR.setText("%s - %s" % (boot_type_strings[BOOT_TYPE_MBR], self.device))
 
     def shown(self):

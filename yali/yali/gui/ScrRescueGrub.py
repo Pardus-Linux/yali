@@ -29,9 +29,8 @@ import yali.context as ctx
 class Widget(QtGui.QWidget, ScreenWidget):
     title = _("Repair the Bootloader")
     icon = "iconBootloader"
+    helpSummary = _("")
     help = _("""
-<font size="+2">Repair bootloader</font>
-<font size="+1">
 <p>
 A bootloader is a tiny program that runs when a computer is first powered up.
 It is responsible for loading the operating system into memory and then transferring
@@ -47,7 +46,6 @@ You may want to repair GRUB bootloader if you installed another operating system
 The recommended way to use GRUB is to install it to the beginning of the boot disk.
 You can always choose another installation method if you know what you are doing.
 </p>
-</font>
 """)
 
     def __init__(self, *args):

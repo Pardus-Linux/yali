@@ -33,9 +33,8 @@ from yali.gui.Ui.connectionlist import Ui_connectionWidget
 class Widget(QtGui.QWidget, ScreenWidget):
     title = _("Take Back Your System")
     icon = "iconInstall"
+    helpSummary = _("")
     help = _("""
-<font size="+2">Pisi History</font>
-<font size="+1">
 <p>
 Pisi, the package management system of Pardus, stores every operation in its history database. More technically speaking, every removal/installation/update operation
 within Pisi is a point-in-time that the user may want to return back in case of a
@@ -45,7 +44,6 @@ serious problem or system inconsistency.
 This repair mode allows users to visualize the operation history and to return back to
 a previous system state.
 </p>
-</font>
 """)
 
     def __init__(self, *args):

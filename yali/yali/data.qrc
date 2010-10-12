@@ -1,5 +1,40 @@
 <RCC>
   <qresource prefix="/">
+    <file>gui/pics/dialog-warning.png</file>
+    <file>gui/pics/dialog-cancel.png</file>
+    <file>gui/pics/document-edit.png</file>
+    <file>gui/pics/draw-eraser.png</file>
+    <file>gui/pics/list-add.png</file>
+    <file>gui/pics/meeting-participant.png</file>
+    <file>gui/pics/meeting-participant-big.png</file>
+    <file>gui/pics/drive-removable-media-usb-big.png</file>
+    <file>gui/pics/media-flash-sd-mmc-big.png</file>
+    <file>gui/pics/disk-prototype.png</file>
+    <file>gui/pics/drive-harddisk-big.png</file>
+    <file>gui/pics/drive-harddisk.png</file>
+    <file>gui/pics/expand.png</file>
+    <file>gui/pics/collapse.png</file>
+    <file>gui/pics/applications-other.png</file>
+    <file>gui/pics/input-keyboard.png</file>
+    <file>gui/pics/input-keyboard-big.png</file>
+    <file>gui/pics/preferences-system-time-big.png</file>
+    <file>gui/pics/media-optical-small.png</file>
+    <file>gui/pics/media-optical.png</file>
+    <file>gui/pics/favorites.png</file>
+    <file>gui/pics/dialog-error.png</file>
+    <file>gui/pics/task-accepted.png</file>
+    <file>gui/pics/task-complete.png</file>
+    <file>gui/pics/input-keyboard.png</file>
+    <file>gui/pics/preferences-system-time.png</file>
+    <file>gui/pics/system-users.png</file>
+    <file>gui/pics/applications-other.png</file>
+    <file>gui/pics/system-help.png</file>
+    <file>gui/pics/preferences-system-time.png</file>
+    <file>gui/pics/arrow-left.png</file>
+    <file>gui/pics/arrow-right.png</file>
+    <file>gui/pics/media-optical.png</file>
+    <file>gui/pics/tick.png</file>
+    <file>gui/pics/bg.png</file>
     <file>gui/pics/partscheme-all.png</file>
     <file>gui/pics/partscheme-custom.png</file>
     <file>gui/pics/partscheme-freespace.png</file>

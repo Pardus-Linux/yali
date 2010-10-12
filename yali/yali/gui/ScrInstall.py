@@ -60,11 +60,9 @@ def objectSender(pack):
 class Widget(QtGui.QWidget, ScreenWidget):
     title = _("Installing Pardus")
     icon = "iconInstall"
+    helpSummary = _("""YALI is now installing Pardus on your computer. This operation takes
+            approximately 20-30 minutes depending on your computer's hardware.""")
     help = _('''
-<font size="+2">Installation</font>
-
-<font size="+1">
-
 <p>
 YALI is now installing Pardus on your computer. This operation takes
 approximately 20-30 minutes depending on your computer's hardware.
@@ -77,7 +75,6 @@ an optical medium (CD/DVD).
 Now, sit back and enjoy the installation during which you will be able
 to discover the features and the innovations offered by this new Pardus release.
 </p>
-</font>
 ''')
 
     def __init__(self, *args):

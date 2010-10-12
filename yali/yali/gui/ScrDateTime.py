@@ -26,10 +26,9 @@ import yali.localedata
 
 class Widget(QtGui.QWidget, ScreenWidget):
     title = _("Adjust Date and Time Settings")
-    icon = "iconDate"
+    icon = "preferences-system-time"
+    helpSummary = _("Date and time settings allows you to set the date and time of your computer.")
     help = _("""
-<font size="+2">Date and Time</font>
-<font size="+1">
 <p>Date and time settings allows you to set the date and time of your computer. Generally,
 you will also want to specify a correct timezone for your location in order to benefit
 from automatic daylight saving time adjustments.
@@ -39,7 +38,6 @@ A timezone is a region of the earth that has uniform standard time, usually refe
 local time. By convention, timezones compute their local time as an offset from UTC, the
 Coordinated Universal Time.
 </p>
-</font>
 """)
 
     def __init__(self, *args):
@@ -49,6 +47,8 @@ Coordinated Universal Time.
         self.timer = QTimer(self)
         self.fromTimeUpdater = True
         self.isDateChanged = False
+
+        self.currentZone = ""
 
         for country,data in yali.localedata.locales.items():
             if country == ctx.consts.lang:
@@ -60,21 +60,23 @@ Coordinated Universal Time.
         zoneList = [ x.timeZone for x in zom.getEntries() ]
         zoneList.sort()
         for zone in zoneList:
+            self.prettyZoneName = "%s - %s" % (zone.split("/")[0], zone.split("/")[1])
             if zone == ctx.installData.timezone:
-                self.currentZone = QtGui.QListWidgetItem(zone)
-                self.ui.timeZoneList.addItem(self.currentZone)
-            else:
-                self.ui.timeZoneList.addItem(QtGui.QListWidgetItem(zone))
+                self.currentZone = self.prettyZoneName
+            self.ui.timeZoneList.addItem(self.prettyZoneName, zone)
+
+
+        # Select the timeZone
+        self.index = self.ui.timeZoneList.findText(self.currentZone)
+        self.ui.timeZoneList.setCurrentIndex(self.index)
 
         # Widget connections
-        self.connect(self.ui.timeHours, SIGNAL("timeChanged(QTime)"),self.timerStop)
-        self.connect(self.ui.timeMinutes, SIGNAL("timeChanged(QTime)"),self.timerStop)
-        self.connect(self.ui.timeSeconds, SIGNAL("timeChanged(QTime)"),self.timerStop)
+        self.connect(self.ui.timeEdit, SIGNAL("timeChanged(QTime)"),self.timerStop)
         self.connect(self.ui.calendarWidget, SIGNAL("selectionChanged()"),self.dateChanged)
         self.connect(self.timer, SIGNAL("timeout()"),self.updateClock)
 
-        # Select the timeZone
-        self.ui.timeZoneList.setCurrentItem(self.currentZone)
+        self.ui.calendarWidget.setDate(QDate.currentDate())
+
         self.timer.start(1000)
 
     def dateChanged(self):
@@ -92,9 +94,7 @@ Coordinated Universal Time.
         cur = QTime.currentTime()
 
         self.fromTimeUpdater = True
-        self.ui.timeHours.setTime(cur)
-        self.ui.timeMinutes.setTime(cur)
-        self.ui.timeSeconds.setTime(cur)
+        self.ui.timeEdit.setTime(cur)
         self.fromTimeUpdater = False
 
     def shown(self):

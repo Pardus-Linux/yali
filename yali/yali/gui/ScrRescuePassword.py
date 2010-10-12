@@ -33,9 +33,8 @@ from yali.gui.Ui.rescuepasswordwidget import Ui_RescuePasswordWidget
 class Widget(QtGui.QWidget, ScreenWidget):
     title = _("Reset Forgotten Passwords")
     icon = "iconInstall"
+    helpSummary = _("")
     help = _("""
-<font size="+2">Password Recovery</font>
-<font size="+1">
 <p>
 Here you can reset..
 </p>

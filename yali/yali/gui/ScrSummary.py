@@ -30,13 +30,11 @@ from yali.storage.bootloader import BOOT_TYPE_NONE
 class Widget(QtGui.QWidget, ScreenWidget):
     title = _("Summary")
     #icon = "iconKeyboard"
+    helpSummary = _("")
     help = _('''
-<font size="+2">Installation Summary</font>
-<font size="+1">
 <p>
 Here you can see your install options before installation starts.
 </p>
-</font>
 ''')
 
     def __init__(self, *args):

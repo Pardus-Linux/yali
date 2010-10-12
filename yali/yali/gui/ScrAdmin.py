@@ -29,10 +29,9 @@ import pardus.xorg
 class Widget(QtGui.QWidget, ScreenWidget):
     title = _("Choose an Administrator Password and a Hostname")
     icon = "iconAdmin"
+    helpSummary = _("""Your password must be easy to remember but strong enough to resist possible attacks.
+    You can use capital and lower-case letters, numbers and punctuation marks in your password.""")
     help = _("""
-<font size="+2">Administrator Password and Hostname</font>
-
-<font size="+1">
 <p>
 You need to define a password for the "root" user which is the conventional name
 of the user who has all rights and permissions (to all files and programs) in all
@@ -47,7 +46,6 @@ You can use capital and lower-case letters, numbers and punctuation marks in you
 <p>
 You can also define a hostname for your computer. A hostname is an identifier assigned to your computer. As your computer will be recognized with this name in the local network, it is recommended to select a descriptive hostname.
 </p>
-</font>
 """)
 
     def __init__(self, *args):

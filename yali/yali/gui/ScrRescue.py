@@ -38,13 +38,11 @@ class PartItem(QtGui.QListWidgetItem):
 class Widget(QtGui.QWidget, ScreenWidget):
     title = _("System Repair")
     icon = ""
+    helpSummary = _("")
     help = _("""
-<font size="+2">System Repair</font>
-<font size="+1">
 <p>
 This is a rescue mode help document.
 </p>
-</font>
 """)
 
     def __init__(self, *args):

@@ -29,17 +29,9 @@ from yali.gui.Ui.keyboardwidget import Ui_KeyboardWidget
 # Keyboard setup screen
 class Widget(QtGui.QWidget, ScreenWidget):
     title = _("Choose a Keyboard Layout")
-    icon = "iconKeyboard"
-    help = _("""
-<font size="+2">Keyboard Layout</font>
-<font size="+1">
-<p>
-A keyboard layout is a description of how keys are placed on a keyboard. There are different keyboard layouts in use throughout the world. The one you will want to use, generally depends on the country you live in or the language you use.
-</p>
-<p>
+    icon = "input-keyboard"
+    help = _("""A keyboard layout is a description of how keys are placed on a keyboard. There are different keyboard layouts in use throughout the world. The one you will want to use, generally depends on the country you live in or the language you use.
 This screen lets you select the keyboard layout you want to use on Pardus. You can test the selected layout by typing something in the given textbox.
-</p>
-</font>
 """)
 
     def __init__(self, *args):
@@ -47,7 +39,8 @@ This screen lets you select the keyboard layout you want to use on Pardus. You c
         self.ui = Ui_KeyboardWidget()
         self.ui.setupUi(self)
 
-        defaultitem = None
+        index = 0 # comboBox.addItem doesn't increase the currentIndex
+        self.defaultLayoutIndex = None
         for country,data in yali.localedata.locales.items():
             if data["xkbvariant"]:
                 i = 0
@@ -56,39 +49,32 @@ This screen lets you select the keyboard layout you want to use on Pardus. You c
                     _d["xkbvariant"] = variant[0]
                     _d["name"] = variant[1]
                     _d["consolekeymap"] = data["consolekeymap"][i]
-                    ki = KeyboardItem(self.ui.keyboard_list, _d)
+                    self.ui.keyboard_list.addItem(_d["name"], QVariant(data))
                     i+=1
             else:
-                ki = KeyboardItem(self.ui.keyboard_list, data)
-            if ctx.consts.lang == country and not defaultitem:
-                defaultitem = ki
+                self.ui.keyboard_list.addItem(data["name"], QVariant(data))
+            if ctx.consts.lang == country:
+                if ctx.consts.lang == "tr":
+                    self.defaultLayoutIndex = index + 1
+                else:
+                    self.defaultLayoutIndex = index
+            index += 1
 
-        self.ui.keyboard_list.sortItems(Qt.AscendingOrder)
-        self.ui.keyboard_list.setCurrentItem(defaultitem)
-        self.slotLayoutChanged(defaultitem)
 
-        self.connect(self.ui.keyboard_list, SIGNAL("currentItemChanged(QListWidgetItem*, QListWidgetItem*)"),
+        self.ui.keyboard_list.setCurrentIndex(self.defaultLayoutIndex)
+        self.slotLayoutChanged()
+
+        self.connect(self.ui.keyboard_list, SIGNAL("currentIndexChanged(int)"),
                 self.slotLayoutChanged)
 
-    def slotLayoutChanged(self, current, previous=None):
-        try:
-            if not current == previous:
-                ctx.installData.keyData = current.getData()
-                yali.localeutils.setKeymap(current.getData()["xkblayout"], current.getData()["xkbvariant"])
-        except:
-            pass
+    def slotLayoutChanged(self):
+        index = self.ui.keyboard_list.currentIndex()
+        keymap = self.ui.keyboard_list.itemData(index).toMap()
+        # Gökmen's converter
+        keymap = dict(map(lambda x: (str(x[0]), unicode(x[1].toString())), keymap.iteritems()))
+        ctx.installData.keyData = keymap
+        yali.localeutils.setKeymap(keymap["xkblayout"], keymap["xkbvariant"])
 
     def execute(self):
         ctx.logger.debug("Selected keymap is : %s" % ctx.installData.keyData["name"] )
         return True
-
-class KeyboardItem(QtGui.QListWidgetItem):
-
-    def __init__(self, parent, keydata):
-        text = "%s" %(keydata["name"])
-        QtGui.QListWidgetItem.__init__(self, text, parent)
-        self._keydata = keydata
-
-    def getData(self):
-        return self._keydata
-

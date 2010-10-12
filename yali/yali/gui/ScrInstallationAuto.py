@@ -33,12 +33,10 @@ from yali.gui.Ui.autoinstallationlistitemwidget import Ui_AutoInstallationListIt
 class Widget(QtGui.QWidget, ScreenWidget):
     title = _("Choose a Package Collection")
     icon = "iconPartition"
+    helpSummary = _("Choose a Package Collection")
     help = _('''
-<font size="+2">Automatic Installation</font>
-<font size="+1">
 <p>
 </p>
-</font>
 ''')
 
     def __init__(self, *args):

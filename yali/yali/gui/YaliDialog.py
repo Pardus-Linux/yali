@@ -299,11 +299,14 @@ class InformationWindow(QtGui.QWidget):
     def __init__(self, message):
         QtGui.QWidget.__init__(self, ctx.mainScreen)
         self.setObjectName("InfoWin")
-        self.resize(300,50)
+        #self.resize(300,50)
+        self.setSizePolicy(QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Expanding)
+        self.setFixedHeight(50)
+        self.setMaximumWidth(800)
         self.setStyleSheet("""
-            QFrame#frame { border: 1px solid #CCC;
-                           border-radius: 4px;
-                           background-image:url(':/gui/pics/transBlack.png');}
+            QFrame#frame { border: 1px solid rgba(255,255,255,30);
+                           /*border-radius: 4px;*/
+                           background-color: rgba(0,0,0,100);}
 
             QLabel { border:none;
                      color:#FFFFFF;}
@@ -318,7 +321,7 @@ class InformationWindow(QtGui.QWidget):
         self.frame = QtGui.QFrame(self)
         self.frame.setObjectName("frame")
         self.horizontalLayout = QtGui.QHBoxLayout(self.frame)
-        self.horizontalLayout.setContentsMargins(6, 0, 0, 0)
+        self.horizontalLayout.setContentsMargins(10, 0, 10, 0)
 
         # Spinner
         self.spinner = QtGui.QLabel(self.frame)
@@ -332,23 +335,79 @@ class InformationWindow(QtGui.QWidget):
 
         # Message
         self.label = QtGui.QLabel(self.frame)
+        self.label.setAlignment(Qt.AlignCenter)
+        self.label.setSizePolicy(QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Expanding)
+        self.icon = QtGui.QLabel(self.frame)
+        self.icon.setFixedWidth(16)
+        self.icon.setFixedHeight(16)
+        self.horizontalLayout.setSpacing(10)
+        self.horizontalLayout.addWidget(self.icon)
         self.horizontalLayout.addWidget(self.label)
 
         self.gridlayout.addWidget(self.frame,0,0,1,1)
         self.updateMessage(message)
 
-    def updateMessage(self, message=None, spinner=False):
+    def updateMessage(self, message=None, spinner=False, **kwargs):
+        if "type" in kwargs.keys():
+            type = kwargs["type"]
+            self.icon.show()
+
+            if type == "error":
+                self.icon.setPixmap(QtGui.QPixmap(":/gui/pics/dialog-error.png"))
+                self.setStyleSheet("""
+                    QFrame#frame {background-color: rgba(255,0,0,100);}
+                    QLabel {background-color: rgb(0,0,0)}
+                    """)
+
+            elif type == "warning":
+                self.icon.setPixmap(QtGui.QPixmap(":/gui/pics/dialog-warning.png"))
+                self.setStyleSheet(" QFrame#frame {background-color: rgba(255,255,0,100);} ")
+
+        else:
+            self.icon.hide()
+            self.setStyleSheet(" QFrame#frame {background-color: rgba(0,0,0,100);} ")
+
         self.spinner.setVisible(spinner)
         self.move(ctx.mainScreen.width()/2 - self.width()/2,
-                  ctx.mainScreen.height() - self.height()/2 - 26)
+                  ctx.mainScreen.height() - self.height()/2 - 50)
         if message:
             self.label.setText(message)
+
         ctx.mainScreen.processEvents()
 
-    def updateAndShow(self, message, spinner=False):
-        self.updateMessage(message, spinner)
+    def updateAndShow(self, message=None, spinner=False, **kwargs):
+        fm = self.label.fontMetrics()
+        textWidth = fm.width(message)
+
+        if "type" in kwargs.keys():
+            type = kwargs["type"]
+            self.icon.show()
+
+            if type == "error":
+                self.icon.setPixmap(QtGui.QPixmap(":/gui/pics/dialog-error.png"))
+                self.setStyleSheet(" QFrame#frame {background-color: rgba(255,0,0,100);} ")
+
+            elif type == "warning":
+                self.icon.setPixmap(QtGui.QPixmap(":/gui/pics/dialog-warning.png"))
+                self.setStyleSheet(" QFrame#frame {background-color: rgba(0,0,0,100);} ")
+
+            self.setFixedWidth(textWidth + self.icon.width() + 50)
+            self.label.setText(message)
+
+        else:
+            self.icon.hide()
+            self.setStyleSheet(" QFrame#frame {background-color: rgba(0,0,0,100);} ")
+            self.setFixedWidth(textWidth + self.icon.width() + 100)
+            self.label.setText(message)
+            print message
+
+        self.spinner.setVisible(spinner)
+        self.move(ctx.mainScreen.width()/2 - self.width()/2,
+                  ctx.mainScreen.height() - self.height()/2 - 50)
+
         self.show()
         ctx.mainScreen.processEvents()
+
 
     def show(self):
         QtGui.QWidget.show(self)
@@ -357,6 +416,8 @@ class InformationWindow(QtGui.QWidget):
     def hide(self):
         QtGui.QWidget.hide(self)
         ctx.mainScreen.processEvents()
+
+
 
 # Tetris from http://zetcode.com/tutorials/pyqt4/thetetrisgame
 class Tetris(QtGui.QFrame):

@@ -72,9 +72,8 @@ class Widget(QtGui.QWidget, ScreenWidget):
     title = _('Manual Partitioning')
     desc = _('You can easily configure your partitions...')
     icon = "iconPartition"
+    helpSummary = _("Partition manual summary")
     help = _('''
-<font size="+2">Partitioning your hard disk</font>
-<font size="+1">
 <p>
 In this screen, you can manually partition your disk. You can select 
 existing partitions and resize or delete them. You can create new 
@@ -86,7 +85,6 @@ which means you can revert if you make any unwanted changes or change your confi
 <p>
 Please refer to Pardus Installing and Using Guide for more information
 about disk partitioning.
-</p>
 </font>
 ''')
 
@@ -201,15 +199,11 @@ about disk partitioning.
             return
 
         format = device.format
-        if format.formattable:
-            formattable = _("Yes")
-        else:
-            formattable = _("No")
 
         if not format.exists:
-            formatIcon = _("Yes")
+            formatIcon = QtGui.QIcon(":/images/tick.png")
         else:
-            formatIcon = _("No")
+            formatIcon = QtGui.QIcon(":/images/dialog-error.png")
 
         # mount point string
         if format.type == "lvmpv":
@@ -247,7 +241,6 @@ about disk partitioning.
         item.setType(format.name)
         item.setSize("%Ld" % device.size)
         item.setFormat(formatIcon)
-        item.setFormattable(formattable)
 
     def populate(self):
         # Clear device tree
@@ -703,11 +696,8 @@ class DeviceTreeItem(QtGui.QTreeWidgetItem):
     def setType(self, type):
         self.setText(3, type)
 
-    def setFormattable(self, formattable):
-        self.setText(4, formattable)
-
     def setFormat(self, format):
-        self.setText(5, format)
+        self.setIcon(4, format)
 
     def setSize(self, size):
-        self.setText(6, size)
+        self.setText(5, size)

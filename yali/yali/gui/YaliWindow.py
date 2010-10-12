@@ -63,9 +63,6 @@ class Widget(QtGui.QWidget):
         # move one step at a time
         self.stepIncrement = 1
 
-        # Show help content by default
-        self.ui.toggleHelp.setText(_("Hide Help"))
-
         # ToolButton Popup Menu
         self.popupMenu = QtGui.QMenu()
         self.shutDownAction = self.popupMenu.addAction(QtGui.QIcon(QtGui.QPixmap(":/images/system-shutdown.png")), _("Turn Off Computer"))
@@ -94,6 +91,15 @@ class Widget(QtGui.QWidget):
         self.dontAskCmbAgain = False
         self.terminal = None
         self.tetris = None
+
+        self.ui.helpContentFrame.hide()
+
+        self.effect = QtGui.QGraphicsOpacityEffect(self)
+        self.ui.mainStack.setGraphicsEffect(self.effect)
+        self.effect.setOpacity(1.0)
+
+        self.anime = QTimer(self)
+        self.connect(self.anime, SIGNAL("timeout()"), self.animate)
 
     def mousePressEvent(self, event):
         if event.button() == Qt.RightButton and not self.dontAskCmbAgain:
@@ -178,12 +184,11 @@ class Widget(QtGui.QWidget):
 
     # show/hide help text
     def slotToggleHelp(self):
-        if self.ui.helpContent.isVisible():
-            self.ui.helpContent.hide()
-            self.ui.toggleHelp.setText(_("Show Help"))
+        self.ui.helpContentFrame.setFixedHeight(self.ui.helpContent.height())
+        if self.ui.helpContentFrame.isVisible():
+            self.ui.helpContentFrame.hide()
         else:
-            self.ui.helpContent.show()
-            self.ui.toggleHelp.setText(_("Hide Help"))
+            self.ui.helpContentFrame.show()
         _w = self.ui.mainStack.currentWidget()
         _w.update()
 
@@ -227,18 +232,35 @@ class Widget(QtGui.QWidget):
     # move to id numbered stack
     def stackMove(self, id):
         if not id == self.ui.mainStack.currentIndex() or id==0:
+            self.effect.setOpacity(0.0)
+            self.animationType = "fade-in"
+            self.anime.start(50)
             self.ui.mainStack.setCurrentIndex(id)
             _w = self.ui.mainStack.currentWidget()
             self.ui.screenName.setText(_w.title)
+            print "------- %s " % _w.title
             #self.ui.screenDescription.setText(_w.desc)
-            self.ui.screenIcon.setPixmap(QtGui.QPixmap(":/gui/pics/%s.png" % (_w.icon or "pardus")))
+            self.ui.screenIcon.setPixmap(QtGui.QPixmap(":/gui/pics/%s.png" % (_w.icon)))
             self.ui.helpContent.setText(_w.help)
             # shown functions contain necessary instructions before
             # showing a stack ( updating gui, disabling some buttons etc. )
+
             ctx.mainScreen.processEvents()
             _w.update()
             ctx.mainScreen.processEvents()
             _w.shown()
+
+    def animate(self):
+        if self.animationType == "fade-in":
+            if self.effect.opacity() < 1.0:
+                self.effect.setOpacity(self.effect.opacity() + 0.2)
+            else:
+                self.anime.stop()
+        if self.animationType == "fade-out":
+            if self.effect.opacity() > 0.0:
+                self.effect.setOpacity(self.effect.opacity() - 0.2)
+            else:
+                self.anime.stop()
 
     # create all widgets and add inside stack
     # see runner.py/_all_screens for the list

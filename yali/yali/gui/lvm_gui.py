@@ -965,7 +965,7 @@ class LogicalVolumeWidget(QtGui.QWidget):
             self.layout.addWidget(label, row, 1, 1, 1 )
             row += 1
 
-            if getattr(originalFormat, "label", None):
+            if getattr(self.origrequest.originalFormat, "label", None):
                 label = QtGui.QLabel(_("Original File System Label:"), self)
                 self.layout.addWidget(label, row, 0, 1, 1)
                 label = QtGui.QLabel(self.origrequest.originalFormat.label, self)
