@@ -203,10 +203,10 @@ class Yali:
                                              type="custom", customIcon="error",
                                              customButtons=[_("Go Forward"), _("Reboot")],
                                              default=1)
-            if not rc:
-                ctx.mainScreen.enableBack()
-            else:
-                yali.util.reboot()
+                if not rc:
+                    ctx.mainScreen.enableBack()
+                else:
+                    yali.util.reboot()
 
 
         if not self.checkCDStop:
@@ -225,7 +225,7 @@ class Yali:
 
     def setTime(self, rootWidget):
         self.info.updateAndShow(_("Adjusting time settings..."))
-        date = rootWidget.calendarWidget.selectedDate()
+        date = rootWidget.calendarWidget.date()
         args = "%02d%02d%02d%02d%04d.%02d" % (date.month(), date.day(),
                                               rootWidget.timeHours.time().hour(), rootWidget.timeMinutes.time().minute(),
                                               date.year(), rootWidget.timeSeconds.time().second())

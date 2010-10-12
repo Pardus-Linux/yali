@@ -105,7 +105,7 @@ Coordinated Universal Time.
 
     def execute(self):
         if not self.timer.isActive() or self.isDateChanged:
-            QTimer.singleShot(500,self.setTime)
+            QTimer.singleShot(500, self.setTime)
             self.timer.stop()
 
         ctx.yali.setTimeZone(self.ui)
