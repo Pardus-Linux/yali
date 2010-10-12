@@ -22,13 +22,12 @@ from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
 import pisi.ui
-from pardus.sysutils import get_kernel_option
-import yali.pisiiface
 import yali.util
+import yali.pisiiface
 import yali.localeutils
 import yali.context as ctx
 from yali.installdata import YALI_DVDINSTALL, YALI_INSTALL, YALI_OEMINSTALL, YALI_FIRSTBOOT, YALI_PARTITIONER, YALI_RESCUE, YALI_PLUGIN
-from yali.gui.YaliDialog import Dialog, InfoDialog, InformationWindow, MessageWindow
+from yali.gui.YaliDialog import InformationWindow
 from yali.storage.formats.filesystem import FilesystemResizeError, FilesystemMigrateError
 
 # screens
@@ -146,7 +145,10 @@ class Yali:
                 self.plugin.config.setup()
             else:
                 install_type = YALI_INSTALL
-                InfoDialog(_("Plugin '%s' could not be loaded or found, switching to normal installation process." % install_plugin))
+                ctx.interface.messageWindow(_("Warning"),
+                                            _("Plugin '%s' could not be loaded or found, switching to"
+                                              "normal installation process." % install_plugin),
+                                            type="warning", customIcon="error")
 
         if not self.plugin:
             self.screens = self._screens[install_type]
@@ -194,9 +196,18 @@ class Yali:
                 yali.pisiiface.checkPackageHash(pkg_name)
                 rootWidget.progressBar.setValue(cur)
             except:
-                self.showError(_("Validation Failed"),
-                               _("<b><p>Validation of installation packages failed.\
-                                  Please remaster your installation medium and restart the installation.</p></b>"))
+                rc  = ctx.interface.messageWindow(_("Warning"),
+                                              _("Validation of installation packages failed."
+                                                "Please remaster your installation medium and"
+                                                "reboot."),
+                                             type="custom", customIcon="error",
+                                             customButtons=[_("Go Forward"), _("Reboot")],
+                                             default=1)
+            if not rc:
+                ctx.mainScreen.enableBack()
+            else:
+                yali.util.reboot()
+
 
         if not self.checkCDStop:
             rootWidget.checkLabel.setText(_('<font color="#FFF"><b>Validation succeeded. You can proceed with the installation.</b></font>'))
@@ -375,42 +386,4 @@ class Yali:
             ctx.logger.debug("Bootloader installation failed!")
         else:
             ctx.logger.debug("Bootloader installed")
-
-    def showError(self, title, message, parent=None):
-        r = ErrorWidget(parent)
-        r.label.setText(message)
-        d = Dialog(title, r, self, closeButton=False)
-        d.resize(300,200)
-        d.exec_()
-
-class ErrorWidget(QtGui.QWidget):
-
-    def __init__(self, parent):
-        QtGui.QWidget.__init__(self, parent)
-
-        self.gridlayout = QtGui.QGridLayout(self)
-        self.vboxlayout = QtGui.QVBoxLayout()
-
-        self.label = QtGui.QLabel(self)
-        self.vboxlayout.addWidget(self.label)
-
-        self.hboxlayout = QtGui.QHBoxLayout()
-
-        spacerItem = QtGui.QSpacerItem(40,20,QtGui.QSizePolicy.Expanding,QtGui.QSizePolicy.Minimum)
-        self.hboxlayout.addItem(spacerItem)
-
-        self.reboot = QtGui.QPushButton(self)
-        self.reboot.setFocusPolicy(Qt.NoFocus)
-        self.reboot.setText(_("Reboot"))
-
-        self.hboxlayout.addWidget(self.reboot)
-        self.vboxlayout.addLayout(self.hboxlayout)
-        self.gridlayout.addLayout(self.vboxlayout,0,0,1,1)
-
-        yali.util.eject()
-
-        self.connect(self.reboot, SIGNAL("clicked()"),self.slotReboot)
-
-    def slotReboot(self):
-        yali.sysutils.reboot()
 
