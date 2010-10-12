@@ -204,8 +204,6 @@ Pardus create a new partition for installation.</p>
         else:
             ctx.mainScreen.disableNext()
 
-        print self.selectedDisks
-
     def typeChanged(self, index):
         if index != self.createCustom:
             self.ui.review.setEnabled(True)

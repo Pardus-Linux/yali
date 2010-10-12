@@ -79,7 +79,6 @@ You can always choose another installation method if you know what you are doing
         return True
 
     def execute(self):
-        print "device:%s" % self.device
         self.bootloader.device = self.device
         if self.ui.noInstall.isChecked():
             self.bootloader.bootType = BOOT_TYPE_NONE
@@ -121,7 +120,6 @@ You can always choose another installation method if you know what you are doing
 
     def activateInstallPartition(self, state):
         if state:
-            print "self.device:%s" % self.bootPartition
             self.device =  self.bootPartition
 
     def currentDeviceChanged(self, index):

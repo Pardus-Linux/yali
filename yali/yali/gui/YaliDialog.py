@@ -399,7 +399,6 @@ class InformationWindow(QtGui.QWidget):
             self.setStyleSheet(" QFrame#frame {background-color: rgba(0,0,0,100);} ")
             self.setFixedWidth(textWidth + self.icon.width() + 100)
             self.label.setText(message)
-            print message
 
         self.spinner.setVisible(spinner)
         self.move(ctx.mainScreen.width()/2 - self.width()/2,

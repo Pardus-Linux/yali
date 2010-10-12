@@ -339,7 +339,7 @@ class Yali:
                      {"text":_("Writing bootloader..."),"operation":self.writeBootLooder},
                      {"text":_("Stopping to D-Bus..."),"operation":yali.util.stop_dbus}]
 
-        if ctx.storage.bootloader.device:
+        if ctx.bootloader.device:
             stepsBase.append({"text":_("Installing Bootloader..."),"operation":self.installBootloader})
 
         if self.install_type in [YALI_INSTALL, YALI_DVDINSTALL, YALI_FIRSTBOOT]:

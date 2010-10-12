@@ -51,13 +51,11 @@ If you are using an optical installation medium, try burning the installation im
             icon.addPixmap(QtGui.QPixmap(":/gui/pics/dialog-error.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
             self.ui.checkButton.setIcon(icon)
             self.ui.checkButton.setText("")
-            print "clicked1"
             ctx.yali.checkCD(self.ui)
         else:
             ctx.yali.checkCDStop = True
             self.ui.progressBar.show()
             icon = QtGui.QIcon()
             icon.addPixmap(QtGui.QPixmap(":/gui/pics/task-accepted.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-            print "clicked2"
             self.ui.checkButton.setIcon(icon)
             self.ui.checkButton.setText(_("Validate"))
