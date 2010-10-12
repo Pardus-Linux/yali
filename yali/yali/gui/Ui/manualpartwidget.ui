@@ -170,7 +170,7 @@ border:0px;
              </spacer>
             </item>
             <item>
-             <widget class="QPushButton" name="newButton">
+             <widget class="QToolButton" name="newButton">
               <property name="text">
                <string>New</string>
               </property>

@@ -258,6 +258,14 @@ class DiskLabel(Format):
         return logicals
 
     @property
+    def freePartitions(self):
+        try:
+            freeSpaces = self.partedDisk.getFreeSpacePartitions()
+        except Exception:
+            freeSpaces = []
+        return freeSpaces
+
+    @property
     def firstPartition(self):
         try:
             part = self.partedDisk.getFirstPartition()

@@ -54,7 +54,6 @@ Pardus create a new partition for installation.</p>
 
     def typeChanged(self, index):
         if index == shrinkCurrent:
-            self.ui.review.setEnabled(True)
             resizablePartitions = [partition for partition in self.storage.partitions if partition.exists and
                                                                                          partition.resizable and
                                                                                          partition.format.resizable]
