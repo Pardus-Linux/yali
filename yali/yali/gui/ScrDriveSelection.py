@@ -189,16 +189,15 @@ Pardus create a new partition for installation.</p>
         self.clearPartDisks = None
 
         self.useAllSpace, self.replaceExistingLinux, self.shrinkCurrent, self.useFreeSpace, self.createCustom = range(5)
-        self.connect(self.ui.drives, SIGNAL("itemSelectionChanged()"), self.stateChanged)
+        self.connect(self.ui.drives, SIGNAL("itemSelectionChanged()"), self.itemStateChanged)
 
-    def stateChanged(self):
+    def itemStateChanged(self):
         self.selectedDisks = []
 
         for item in self.ui.drives.selectedItems():
             self.selectedDisks.append(str(item.statusTip()))
 
         self.selectedDisks.sort(self.storage.compareDisks)
-        self.storage.clearPartDisks = self.selectedDisks
 
         if len(self.selectedDisks):
             ctx.mainScreen.enableNext()
@@ -258,11 +257,11 @@ Pardus create a new partition for installation.</p>
     def shown(self):
         self.storage.reset()
         if self.storage.checkNoDisks(self.intf):
-            raise GUIError, _("No storage device found.")
+            sys.exit(0)
         else:
             self.fillDrives()
 
-    def checkClearPartDisks(self):
+    def nextCheck(self):
 
         if len(self.selectedDisks) == 0:
             self.intf.messageWindow(_("Error"),
@@ -275,10 +274,4 @@ Pardus create a new partition for installation.</p>
             return True
 
     def execute(self):
-        rc = self.nextCheck()
-        if rc is None:
-            #FIXME:Unknown bug
-            #sys.exit(0)
-            return True
-        else:
-            return rc
+        return self.nextCheck()

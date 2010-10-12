@@ -25,44 +25,7 @@ from yali.gui.Ui.autopartwidget import Ui_AutoPartWidget
 from yali.gui.shrink_gui import ShrinkEditor
 from yali.storage.partitioning import CLEARPART_TYPE_ALL, CLEARPART_TYPE_LINUX, CLEARPART_TYPE_NONE, doAutoPartition, defaultPartitioning
 
-class DrivesListItem(QtGui.QListWidgetItem):
-    def __init__(self, parent, widget):
-        QtGui.QListWidgetItem.__init__(self, parent)
-        self.widget = widget
-        self.setSizeHint(QSize(300, 64))
-
-class DriveItem(QtGui.QWidget):
-    def __init__(self, parent, drive):
-        QtGui.QWidget.__init__(self, parent)
-        self.layout = QtGui.QHBoxLayout(self)
-        self.checkBox = QtGui.QCheckBox(self)
-        self.layout.addWidget(self.checkBox)
-        self.labelDrive = QtGui.QLabel(self)
-        self.labelDrive.setText("%s on %s - (%s) MB" % (drive.model, drive.name, str(int(drive.size))))
-        self.layout.addWidget(self.labelDrive)
-        spacerItem = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.layout.addItem(spacerItem)
-        self.connect(self.checkBox, SIGNAL("stateChanged(int)"), self.stateChanged)
-        self.drive = drive
-        self.parent = parent
-
-    def stateChanged(self, state):
-        if state == Qt.Checked:
-            ctx.mainScreen.enableNext()
-        else:
-            selectedDisks = []
-            for index in range(self.parent.count()):
-                if self.checkBox.checkState() == Qt.Checked:
-                    selectedDisks.append(self.ui.drives.item(index).drive.name)
-
-            if len(selectedDisks):
-                ctx.mainScreen.enableNext()
-            else:
-                ctx.mainScreen.disableNext()
-
-
-
-
+useAllSpace, replaceExistingLinux, shrinkCurrent, useFreeSpace, createCustom = range(5)
 
 class Widget(QtGui.QWidget, ScreenWidget):
     title = _("Select Partitioning Method")
@@ -87,12 +50,10 @@ Pardus create a new partition for installation.</p>
         self.storage = ctx.storage
         self.intf = ctx.interface
         self.shrinkOperations = None
-        self.clearPartDisks = None
         self.connect(self.ui.autopartType, SIGNAL("currentRowChanged(int)"), self.typeChanged)
-        self.useAllSpace, self.replaceExistingLinux, self.shrinkCurrent, self.useFreeSpace, self.createCustom = range(5)
 
     def typeChanged(self, index):
-        if index == self.shrinkCurrent:
+        if index == shrinkCurrent:
             self.ui.review.setEnabled(True)
             resizablePartitions = [partition for partition in self.storage.partitions if partition.exists and
                                                                                          partition.resizable and
@@ -108,18 +69,14 @@ Pardus create a new partition for installation.</p>
 
     def setPartitioningType(self):
         if self.storage.clearPartType is None or self.storage.clearPartType == CLEARPART_TYPE_LINUX:
-            self.ui.autopartType.setCurrentRow(self.replaceExistingLinux)
+            self.ui.autopartType.setCurrentRow(replaceExistingLinux)
         elif self.storage.clearPartType == CLEARPART_TYPE_NONE:
-            self.ui.autopartType.setCurrentRow(self.useFreeSpace)
+            self.ui.autopartType.setCurrentRow(useFreeSpace)
         elif self.storage.clearPartType == CLEARPART_TYPE_ALL:
-            self.ui.autopartType.setCurrentRow(self.useAllSpace)
+            self.ui.autopartType.setCurrentRow(useAllSpace)
 
     def shown(self):
-        self.storage.reset()
-        if self.storage.checkNoDisks(self.intf):
-            sys.exit(0)
-        else:
-            self.setPartitioningType()
+        self.setPartitioningType()
 
     def execute(self):
         rc = self.nextCheck()
@@ -131,12 +88,13 @@ Pardus create a new partition for installation.</p>
             return rc
 
     def nextCheck(self):
-        if self.ui.autopartType.currentRow() == self.createCustom:
+        if self.ui.autopartType.currentRow() == createCustom:
             self.storage.clearPartType = CLEARPART_TYPE_NONE
             self.storage.doAutoPart = False
             return True
         else:
-            if self.ui.autopartType.currentRow() == self.shrinkCurrent:
+            self.storage.doAutoPart = True
+            if self.ui.autopartType.currentRow() == shrinkCurrent:
                 shrinkeditor = ShrinkEditor(self, self.storage)
                 rc, operations = shrinkeditor.run()
                 if rc:
@@ -145,18 +103,15 @@ Pardus create a new partition for installation.</p>
                 else:
                     return False
                 self.storage.clearPartType = CLEARPART_TYPE_NONE
-            elif self.ui.autopartType.currentRow() == self.useAllSpace:
+            elif self.ui.autopartType.currentRow() == useAllSpace:
                 self.storage.clearPartType = CLEARPART_TYPE_ALL
-            elif self.ui.autopartType.currentRow() == self.replaceExistingLinux:
+            elif self.ui.autopartType.currentRow() == replaceExistingLinux:
                 self.storage.clearPartType = CLEARPART_TYPE_LINUX
-            elif self.ui.autopartType.currentRow() == self.useFreeSpace:
+            elif self.ui.autopartType.currentRow() == useFreeSpace:
                 self.storage.clearPartType = CLEARPART_TYPE_NONE
 
-                self.storage.doAutoPart = True
-                self.storage.autoPartitionRequests = defaultPartitioning(self.storage, quiet=0)
-                if not self.storage.clearPartDisks:
-                    return False
-
-                return doAutoPartition(self.storage)
+            ctx.mainScreen.stepIncrement = 2
+            self.storage.autoPartitionRequests = defaultPartitioning(self.storage, quiet=0)
+            return doAutoPartition(self.storage)
 
         return False
