@@ -35,7 +35,7 @@ BOOT_TYPE_RAID = 4
 
 boot_type_strings = {BOOT_TYPE_PARTITION: "None",
                      BOOT_TYPE_MBR: "Master Boot Record(MBR)",
-                     BOOT_TYPE_PARTITION: "First sector of Boot partition",
+                     BOOT_TYPE_PARTITION: "First sector of Pardus Boot partition",
                      BOOT_TYPE_RAID: "RAID Device"}
 
 def get_configs(rootpath):
@@ -152,7 +152,6 @@ class BootLoader(object):
         self._device = None
         self._type = BOOT_TYPE_NONE
         self.grubConf = None
-        self.enabledOthers = False
 
     def _setPath(self, path):
         self._path = path
@@ -166,11 +165,12 @@ class BootLoader(object):
     def _setDevice(self, device):
         self._device = device
 
-        partition = get_disk_partition(self.storage.devicetree.getDeviceByName(device))[1]
-        if partition is None:
-            self._type = BOOT_TYPE_MBR
-        else:
-            self._type = BOOT_TYPE_PARTITION
+        if device:
+            partition = get_disk_partition(self.storage.devicetree.getDeviceByName(device))[1]
+            if partition is None:
+                self._type = BOOT_TYPE_MBR
+            else:
+                self._type = BOOT_TYPE_PARTITION
 
     def _getDevice(self):
         return self._device

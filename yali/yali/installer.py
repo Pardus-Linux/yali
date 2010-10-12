@@ -337,8 +337,10 @@ class Yali:
                      {"text":_("Configuring other packages..."),"operation":yali.postinstall.setPackages},
                      {"text":_("Setup bootloader..."),"operation":self.setupBootLooder},
                      {"text":_("Writing bootloader..."),"operation":self.writeBootLooder},
-                     {"text":_("Stopping to D-Bus..."),"operation":yali.util.stop_dbus},
-                     {"text":_("Installing Bootloader..."),"operation":self.installBootloader}]
+                     {"text":_("Stopping to D-Bus..."),"operation":yali.util.stop_dbus}]
+
+        if ctx.storage.bootloader.device:
+            stepsBase.append({"text":_("Installing Bootloader..."),"operation":self.installBootloader})
 
         if self.install_type in [YALI_INSTALL, YALI_DVDINSTALL, YALI_FIRSTBOOT]:
             rootWidget.steps.setOperations(steps)
@@ -356,6 +358,7 @@ class Yali:
         ctx.logger.debug("Writing grub.conf and devicemap")
 
     def installBootloader(self, pardusPart = None):
+        #FIXME:Rewrite this to re-fix with new storage api
         # BUG:#11255 normal user doesn't mount /mnt/archive directory. 
         # We set new formatted partition priveleges as user=root group=disk and change mod as 0770
         # Check archive partition type
