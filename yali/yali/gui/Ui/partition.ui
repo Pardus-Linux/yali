@@ -20,7 +20,7 @@
       <font/>
      </property>
      <property name="text">
-      <string>Use :</string>
+      <string>Use as:</string>
      </property>
     </widget>
    </item>
@@ -181,7 +181,11 @@
     </widget>
    </item>
    <item row="9" column="1" colspan="2">
-    <widget class="QComboBox" name="formatCombo"/>
+    <widget class="QComboBox" name="formatCombo">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+    </widget>
    </item>
    <item row="10" column="0">
     <widget class="QRadioButton" name="migrateRadio">
@@ -191,9 +195,13 @@
     </widget>
    </item>
    <item row="10" column="1" colspan="2">
-    <widget class="QComboBox" name="migrateCombo"/>
+    <widget class="QComboBox" name="migrateCombo">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+    </widget>
    </item>
-   <item row="11" column="0" colspan="3">
+   <item row="12" column="0" colspan="3">
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -206,7 +214,7 @@
      </property>
     </spacer>
    </item>
-   <item row="12" column="0" colspan="3">
+   <item row="13" column="0" colspan="3">
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="standardButtons">
       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
@@ -242,6 +250,19 @@
       <string>Allowable Drives:</string>
      </property>
     </widget>
+   </item>
+   <item row="11" column="1">
+    <spacer name="verticalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
    </item>
   </layout>
  </widget>
@@ -340,6 +361,38 @@
     <hint type="destinationlabel">
      <x>370</x>
      <y>96</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>formatRadio</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>formatCombo</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>55</x>
+     <y>224</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>271</x>
+     <y>224</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>migrateRadio</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>migrateCombo</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>55</x>
+     <y>252</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>271</x>
+     <y>252</y>
     </hint>
    </hints>
   </connection>

@@ -130,7 +130,6 @@ def fillMountpointMenu(widget, request, excludes=[]):
             else:
                 widget.insertItem(0, mountpoint)
     else:
-        widget.setItemText(0, _("<Not Applicable>"))
         widget.setEnabled(False)
 
 def createMountpointMenu(parent, request, excludeMountPoints=[]):
