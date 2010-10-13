@@ -54,8 +54,6 @@ Proceed with the installation after you make your selections.
 
         self.edititemindex = None
 
-        #self.ui.caps_error.setVisible(False)
-
         self.timeLine = QTimeLine(400, self)
         self.timeLine.setFrameRange(0, 220);
         self.connect(self.timeLine, SIGNAL("frameChanged(int)"), self.animate)
@@ -170,7 +168,7 @@ Proceed with the installation after you make your selections.
     def setCapsLockIcon(self, child):
         if type(child) == QtGui.QLineEdit:
             if pardus.xorg.capslock.isOn():
-                child.setStyleSheet("QLineEdit {background: url(:/gui/pics/caps.png) no-repeat right;\npadding-right: 20px}")
+                child.setStyleSheet("QLineEdit {background: url(:/gui/pics/caps.png) no-repeat right;\npadding-right: 42px}")
             else:
                 child.setStyleSheet("QLineEdit {background: none; padding-right: 0px}")
 

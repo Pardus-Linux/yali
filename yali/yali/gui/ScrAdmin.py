@@ -56,12 +56,6 @@ You can also define a hostname for your computer. A hostname is an identifier as
         self.host_valid = True
         self.pass_valid = False
 
-        self.ui.pass_error.setVisible(False)
-        self.ui.host_error.setVisible(False)
-        self.ui.caps_error.setVisible(False)
-
-        self.ui.caps_error.setText(_('<center>Caps Lock is on.</center>'))
-
         self.connect(self.ui.pass1, SIGNAL("textChanged(const QString &)"),
                      self.slotTextChanged)
         self.connect(self.ui.pass2, SIGNAL("textChanged(const QString &)"),
@@ -94,11 +88,16 @@ You can also define a hostname for your computer. A hostname is an identifier as
         ctx.installData.hostName = unicode(self.ui.hostname.text())
         return True
 
+    def setCapsLockIcon(self, child):
+        if type(child) == QtGui.QLineEdit:
+            if pardus.xorg.capslock.isOn():
+                child.setStyleSheet("QLineEdit {background: url(:/gui/pics/caps.png) no-repeat right;\npadding-right: 42px}")
+            else:
+                child.setStyleSheet("QLineEdit {background: none; padding-right: 0px}")
+
     def checkCapsLock(self):
-        if pardus.xorg.capslock.isOn():
-            self.ui.caps_error.setVisible(True)
-        else:
-            self.ui.caps_error.setVisible(False)
+        for child in self.ui.frame_2.children():
+            self.setCapsLockIcon(child)
 
     def keyReleaseEvent(self, e):
         self.checkCapsLock()
@@ -110,30 +109,33 @@ You can also define a hostname for your computer. A hostname is an identifier as
 
         if p1 == p2 and p1:
             if len(p1)<4:
-                self.ui.pass_error.setText(_('Password is too short.'))
-                self.ui.pass_error.setVisible(True)
+                ctx.yali.info.updateAndShow(_('Password is too short.'), type = "error")
                 self.pass_valid = False
             else:
-                self.ui.pass_error.setVisible(False)
+                ctx.yali.info.hide()
                 self.pass_valid = True
         else:
             self.pass_valid = False
             if p2:
-                self.ui.pass_error.setText(_('Passwords do not match.'))
-                self.ui.pass_error.setVisible(True)
+                ctx.yali.info.updateAndShow(_('Passwords do not match.'), type = "error")
         if str(p1).lower()=="root" or str(p2).lower()=="root":
             self.pass_valid = False
             if p2:
-                self.ui.pass_error.setText(_('Do not use your username as your password.'))
-                self.ui.pass_error.setVisible(True)
+                ctx.yali.info.updateAndShow(_('Do not use your username as your password.'), type = "error")
         if self.pass_valid:
-            self.ui.pass_error.setVisible(False)
+            ctx.yali.info.hide()
 
         self.setNext()
 
     ##
     # check hostname validity
     def slotHostnameChanged(self, string):
+        if len(string) > 64:
+            self.host_valid = False
+            ctx.yali.info.updateAndShow(_('Hostname cannot be longer than 64 characters.'), type = "error")
+            self.setNext()
+            return
+
 
         if not string.toAscii():
             self.host_valid = False
@@ -143,10 +145,9 @@ You can also define a hostname for your computer. A hostname is an identifier as
         self.host_valid = yali.sysutils.isTextValid(string.toAscii())
 
         if not self.host_valid:
-            self.ui.host_error.setVisible(True)
-            self.ui.host_error.setText(_('Hostname contains invalid characters.'))
+            ctx.yali.info.updateAndShow(_('Hostname contains invalid characters.'), type = "error")
         else:
-            self.ui.host_error.setVisible(False)
+            ctx.yali.info.hide()
         self.setNext()
 
     def setNext(self):
