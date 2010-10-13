@@ -93,7 +93,10 @@ class PartitionEditor:
 
                 formatType = str(widget.filesystemMenu.currentText())
                 format = formats.getFormat(formatType, mountpoint=mountpoint)
-                disk = self.storage.devicetree.getDeviceByPath(self.partedPartition.disk.device.path)
+                if self.isNew:
+                    disk = self.storage.devicetree.getDeviceByPath(self.partedPartition.disk.device.path)
+                else:
+                    disk = self.origrequest.disk
 
                 err = doUIRAIDLVMChecks(format, [disk.name], self.storage)
                 if err:
@@ -277,11 +280,14 @@ class PartitionWidget(QtGui.QWidget, Ui_PartitionWidget):
 
         #Size
         if not self.origrequest.exists:
-            maxsize = self.parent.partedPartition.getSize(unit="MB")
-            self.sizeSpin.setMaximum(maxsize)
-            self.sizeSlider.setMaximum(maxsize)
-            if self.origrequest.req_size:
+            if self.parent.isNew:
+                maxsize = self.parent.partedPartition.getSize(unit="MB")
+                self.sizeSpin.setMaximum(maxsize)
+                self.sizeSlider.setMaximum(maxsize)
+            elif not self.parent.isNew and self.origrequest.req_size:
+                self.sizeSpin.setMaximum(self.origrequest.req_size)
                 self.sizeSpin.setValue(self.origrequest.req_size)
+                self.sizeSlider.setMaximum(self.origrequest.req_size)
                 self.sizeSlider.setValue(self.origrequest.req_size)
         else:
             self.sizeLabel.hide()

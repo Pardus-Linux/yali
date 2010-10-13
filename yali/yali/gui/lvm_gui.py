@@ -216,8 +216,8 @@ class VolumeGroupWidget(QtGui.QWidget, Ui_VolumeGroupWidget):
         self.origrequest = request
         self.parent = parent
         self.isNew = isNew
+
         if not self.origrequest.exists:
-            self.name = QtGui.QLineEdit(self)
             if not self.isNew:
                 self.name.setText(self.origrequest.name)
             else:
@@ -851,6 +851,8 @@ class LogicalVolumeWidget(QtGui.QWidget, Ui_LogicalVolumeWidget):
              maximumGrow = self.origrequest.vg.freeSpace / self.origrequest.stripes
              self.sizeSpin.setMaximum(min(lvm.getMaxLVSize(), self.origrequest.size + maximumGrow))
              self.sizeSpin.setValue(self.origrequest.size)
+             self.sizeSlider.setMaximum(min(lvm.getMaxLVSize(), self.origrequest.size + maximumGrow))
+             self.sizeSlider.setValue(self.origrequest.size)
         else:
             self.sizeLabel.hide()
             self.sizeSlider.hide()
@@ -859,6 +861,7 @@ class LogicalVolumeWidget(QtGui.QWidget, Ui_LogicalVolumeWidget):
 
         self.connect(self.buttonBox, SIGNAL("accepted()"), self.parent.dialog.accept)
         self.connect(self.buttonBox, SIGNAL("rejected()"), self.parent.dialog.reject)
+
     def formatTypeChanged(self, index):
         format  = formats.getFormat(str(self.sender().itemText(index)))
         if format.mountable:

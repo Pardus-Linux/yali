@@ -70,7 +70,7 @@ def get_edd_dict(devices):
 
 def run_batch(cmd, argv):
     """Run command and report return value and output."""
-    ctx.logger.info(_('Running %s') % " ".join(cmd))
+    ctx.logger.info(_('Running %s') % "".join(cmd))
     cmd = "%s %s" % (cmd, ' '.join(argv))
     p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
