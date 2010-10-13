@@ -90,6 +90,10 @@ Pardus create a new partition for installation.</p>
         if self.ui.autopartType.currentRow() == createCustom:
             self.storage.clearPartType = CLEARPART_TYPE_NONE
             self.storage.doAutoPart = False
+            #If user return back next screen or choose not permitted
+            #option(like chosing free space installation however not
+            #enough free space to install), we have to reset increment
+            ctx.mainScreen.stepIncrement = 1
             return True
         else:
             self.storage.doAutoPart = True
