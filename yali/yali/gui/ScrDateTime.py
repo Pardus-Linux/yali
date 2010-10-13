@@ -101,13 +101,27 @@ Coordinated Universal Time.
         self.timer.start(1000)
 
     def setTime(self):
-        ctx.yali.setTime(self.ui)
+        self.info.updateAndShow(_("Adjusting time settings..."))
+        day = self.calendarWidget.date().toString()
+        time = rootWidget.timeEdit.time().toString()
+        date = "--set=\"%s %s\"" % (day, time)
+
+        # Set current date and time
+        ctx.logger.debug("Date/Time setting to %s" % args)
+        yali.util.run_batch("date", [date])
+
+        # Sync date time with hardware
+        ctx.logger.debug("YALI's time is syncing with the system.")
+        yali.util.run_batch("hwclock", ["--systohc"])
+        self.info.hide()
 
     def execute(self):
         if not self.timer.isActive() or self.isDateChanged:
             QTimer.singleShot(500, self.setTime)
             self.timer.stop()
 
-        ctx.yali.setTimeZone(self.ui)
+        index = self.timeZoneList.currentIndex()
+        ctx.installData.timezone = self.timeZoneList.itemData(index)
+        ctx.logger.debug("Time zone selected as %s " % ctx.installData.timezone)
 
         return True

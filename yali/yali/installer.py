@@ -197,12 +197,12 @@ class Yali:
                 rootWidget.progressBar.setValue(cur)
             except:
                 rc  = ctx.interface.messageWindow(_("Warning"),
-                                              _("Validation of installation packages failed."
-                                                "Please remaster your installation medium and"
-                                                "reboot."),
-                                             type="custom", customIcon="error",
-                                             customButtons=[_("Go Forward"), _("Reboot")],
-                                             default=1)
+                                                  _("Validation of installation packages failed."
+                                                    "Please remaster your installation medium and"
+                                                    "reboot."),
+                                                  type="custom", customIcon="error",
+                                                  customButtons=[_("Go Forward"), _("Reboot")],
+                                                  default=1)
                 if not rc:
                     ctx.mainScreen.enableBack()
                 else:
@@ -210,10 +210,10 @@ class Yali:
 
 
         if not self.checkCDStop:
-            rootWidget.checkLabel.setText(_('<font color="#FFF"><b>Validation succeeded. You can proceed with the installation.</b></font>'))
+            ctx.yali.info.updateAndShow("Validation succeeded. You can proceed with the installation.")
             rootWidget.checkButton.setText(_("Validate Integrity"))
         else:
-            rootWidget.checkLabel.setText("")
+            ctx.yali.info.hide()
             rootWidget.progressBar.setValue(0)
 
         yali.pisiiface.removeRepo(ctx.consts.cd_repo_name)
@@ -222,28 +222,6 @@ class Yali:
         ctx.mainScreen.enableBack()
 
         self.info.hide()
-
-    def setTime(self, rootWidget):
-        self.info.updateAndShow(_("Adjusting time settings..."))
-        date = rootWidget.calendarWidget.date()
-        args = "%02d%02d%02d%02d%04d.%02d" % (date.month(), date.day(),
-                                              rootWidget.timeHours.time().hour(), rootWidget.timeMinutes.time().minute(),
-                                              date.year(), rootWidget.timeSeconds.time().second())
-
-        # Set current date and time
-        ctx.logger.debug("Date/Time setting to %s" % args)
-        yali.util.run_batch("date", args)
-
-        # Sync date time with hardware
-        ctx.logger.debug("YALI's time is syncing with the system.")
-        yali.util.run_batch("hwclock", ["--systohc"])
-        self.info.hide()
-
-    def setTimeZone(self, rootWidget):
-        # Store time zone selection we will set it in processPending actions.
-        index = rootWidget.timeZoneList.currentIndex()
-        ctx.installData.timezone = rootWidget.timeZoneList.itemData(index)
-        ctx.logger.debug("Time zone selected as %s " % ctx.installData.timezone)
 
     def storageComplete(self):
         title = None
