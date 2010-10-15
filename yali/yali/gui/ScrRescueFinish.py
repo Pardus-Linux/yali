@@ -67,7 +67,7 @@ There is no help available for this section.
             self.steps.setOperations([{"text":      _("Taking back operation..."),
                                        "operation": self.takeBackPisi}])
 
-        ctx.yali.info.updateAndShow(_("Running rescue operations..."))
+        ctx.interface.informationWindow.update(_("Running rescue operations..."))
         ctx.mainScreen.disableBack()
         self.steps.slotRunOperations()
 
@@ -77,7 +77,7 @@ There is no help available for this section.
         if not ctx.mainScreen.ui.helpContent.isVisible():
             ctx.mainScreen.slotToggleHelp()
         self.ui.label.setPixmap(QtGui.QPixmap(":/gui/pics/goodbye.png"))
-        ctx.yali.info.hide()
+        ctx.interface.informationWindow.hide()
         ctx.mainScreen.enableNext()
 
     def execute(self):
@@ -86,7 +86,7 @@ There is no help available for this section.
         ctx.logger.debug("Show reboot dialog.")
         InfoDialog(_("Press <b>Restart</b> to restart your system."), _("Restart"))
 
-        ctx.yali.info.updateAndShow(_('<b>Please wait while restarting...</b>'))
+        ctx.interface.informationWindow.update(_('<b>Please wait while restarting...</b>'))
 
         # remove cd...
         if not ctx.yali.install_type == YALI_FIRSTBOOT:

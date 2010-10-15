@@ -14,6 +14,7 @@ import os
 import glob
 import zipfile
 import gettext
+
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
@@ -27,7 +28,6 @@ import yali.sysutils
 import yali.pisiiface
 import yali.postinstall
 import yali.localeutils
-from yali.constants import consts
 import yali.context as ctx
 from yali.gui.descSlide import slideDesc
 from yali.gui.ScreenWidget import ScreenWidget
@@ -111,7 +111,7 @@ to discover the features and the innovations offered by this new Pardus release.
         self.pkg_installer = PkgInstaller()
         ctx.logger.debug("Calling PkgInstaller.start...")
         self.pkg_installer.start()
-        ctx.yali.info.updateAndShow(_("Installing packages..."))
+        ctx.interface.informationWindow.update(_("Installing packages..."))
 
         ctx.mainScreen.disableNext()
         ctx.mainScreen.disableBack()
@@ -177,7 +177,7 @@ to discover the features and the innovations offered by this new Pardus release.
         # Configure Pending...
         # run baselayout's postinstall first
 
-        ctx.yali.info.updateAndShow(_("Creating base layout..."))
+        ctx.interface.informationWindow.update(_("Creating base layout..."))
         yali.postinstall.initbaselayout()
 
         # postscripts depend on 03locale...
@@ -189,7 +189,7 @@ to discover the features and the innovations offered by this new Pardus release.
         # run dbus in chroot
         yali.util.start_dbus()
 
-        ctx.yali.info.updateMessage(_("Configuring packages..."))
+        ctx.interface.informationWindow.update(_("Configuring packages..."))
 
         # start configurator thread
         self.pkg_configurator = PkgConfigurator()
@@ -203,7 +203,7 @@ to discover the features and the innovations offered by this new Pardus release.
     def finished(self):
         if self.hasErrors:
             return
-        ctx.yali.info.hide()
+        ctx.interface.informationWindow.hide()
         # trigger next screen. will activate execute()
         ctx.mainScreen.slotNext()
 

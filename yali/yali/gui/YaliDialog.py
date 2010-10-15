@@ -296,7 +296,7 @@ def InfoDialog(text, button=None, title=None, icon="info"):
 
 class InformationWindow(QtGui.QWidget):
 
-    def __init__(self, message):
+    def __init__(self):
         QtGui.QWidget.__init__(self, ctx.mainScreen)
         self.setObjectName("InfoWin")
         #self.resize(300,50)
@@ -345,44 +345,13 @@ class InformationWindow(QtGui.QWidget):
         self.horizontalLayout.addWidget(self.label)
 
         self.gridlayout.addWidget(self.frame,0,0,1,1)
-        self.updateMessage(message)
 
-    def updateMessage(self, message=None, spinner=False, **kwargs):
-        if "type" in kwargs.keys():
-            type = kwargs["type"]
+    def update(self, message, type=None):
+        fontMetric = self.label.fontMetrics()
+        textWidth = fontMetric.width(message)
+
+        if type:
             self.icon.show()
-
-            if type == "error":
-                self.icon.setPixmap(QtGui.QPixmap(":/gui/pics/dialog-error.png"))
-                self.setStyleSheet("""
-                    QFrame#frame {background-color: rgba(255,0,0,100);}
-                    QLabel {background-color: rgb(0,0,0)}
-                    """)
-
-            elif type == "warning":
-                self.icon.setPixmap(QtGui.QPixmap(":/gui/pics/dialog-warning.png"))
-                self.setStyleSheet(" QFrame#frame {background-color: rgba(255,255,0,100);} ")
-
-        else:
-            self.icon.hide()
-            self.setStyleSheet(" QFrame#frame {background-color: rgba(0,0,0,100);} ")
-
-        self.spinner.setVisible(spinner)
-        self.move(ctx.mainScreen.width()/2 - self.width()/2,
-                  ctx.mainScreen.height() - self.height()/2 - 50)
-        if message:
-            self.label.setText(message)
-
-        ctx.mainScreen.processEvents()
-
-    def updateAndShow(self, message=None, spinner=False, **kwargs):
-        fm = self.label.fontMetrics()
-        textWidth = fm.width(message)
-
-        if "type" in kwargs.keys():
-            type = kwargs["type"]
-            self.icon.show()
-
             if type == "error":
                 self.icon.setPixmap(QtGui.QPixmap(":/gui/pics/dialog-error.png"))
                 self.setStyleSheet(" QFrame#frame {background-color: rgba(255,0,0,100);} ")
@@ -400,21 +369,22 @@ class InformationWindow(QtGui.QWidget):
             self.setFixedWidth(textWidth + self.icon.width() + 100)
             self.label.setText(message)
 
-        self.spinner.setVisible(spinner)
+        self.spinner.setVisible(False)
         self.move(ctx.mainScreen.width()/2 - self.width()/2,
                   ctx.mainScreen.height() - self.height()/2 - 50)
 
         self.show()
-        ctx.mainScreen.processEvents()
 
+    def refresh(self):
+        ctx.mainScreen.processEvents()
 
     def show(self):
         QtGui.QWidget.show(self)
-        ctx.mainScreen.processEvents()
+        self.refresh()
 
     def hide(self):
         QtGui.QWidget.hide(self)
-        ctx.mainScreen.processEvents()
+        self.refresh()
 
 
 

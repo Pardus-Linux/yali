@@ -154,8 +154,6 @@ class Yali:
             self.screens = self._screens[install_type]
 
         self.install_type = install_type
-        self.info = InformationWindow("Please wait...")
-        self.info.hide()
         self.checkCDStop = True
         self._inconsistentLVMAnswers = {}
 
@@ -171,7 +169,7 @@ class Yali:
         ctx.mainScreen.disableNext()
         ctx.mainScreen.disableBack()
 
-        self.info.updateAndShow(_("Starting validation..."))
+        self.info.update(_("Starting validation..."))
         class PisiUI(pisi.ui.UI):
             def notify(self, event, **keywords):
                 pass
@@ -189,7 +187,7 @@ class Yali:
         for pkg_name in pkg_names:
             cur += 1
             ctx.logger.debug("Validating %s " % pkg_name)
-            self.info.updateMessage(_("Validating %s") % pkg_name)
+            self.info.update(_("Validating %s") % pkg_name)
             if self.checkCDStop:
                 continue
             try:
@@ -210,10 +208,10 @@ class Yali:
 
 
         if not self.checkCDStop:
-            ctx.yali.info.updateAndShow("Validation succeeded. You can proceed with the installation.")
+            ctx.interface.informationWindow.update("Validation succeeded. You can proceed with the installation.")
             rootWidget.checkButton.setText(_("Validate Integrity"))
         else:
-            ctx.yali.info.hide()
+            ctx.interface.informationWindow.hide()
             rootWidget.progressBar.setValue(0)
 
         yali.pisiiface.removeRepo(ctx.consts.cd_repo_name)

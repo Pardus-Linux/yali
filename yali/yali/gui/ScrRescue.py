@@ -100,11 +100,11 @@ This is a rescue mode help document.
         ctx.installData.rescuePartition = self.ui.partitionList.currentItem().getPartition()
         ctx.logger.debug("Selected Partition for rescue is %s" % ctx.installData.rescuePartition.getPath())
 
-        ctx.yali.info.updateAndShow(_("Mounting disk partition..."))
+        ctx.interface.informationWindow.update(_("Mounting disk partition..."))
         # Mount selected partition
         ctx.partrequests.append(request.MountRequest(ctx.installData.rescuePartition, parttype.root))
         ctx.partrequests.applyAll()
-        ctx.yali.info.hide()
+        ctx.interface.informationWindow.hide()
 
         return True
 

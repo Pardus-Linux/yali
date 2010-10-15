@@ -41,7 +41,7 @@ class stepItem:
     def runOperation(self):
         self.status = self.operation()
         ctx.logger.debug("Running step : %s" % self.text)
-        ctx.yali.info.updateAndShow(self.text)
+        ctx.interface.informationWindow.update(self.text)
         if self.status:
             ctx.logger.debug("Step '%s' finished sucessfully." % self.text)
         else:

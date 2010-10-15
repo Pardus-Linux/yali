@@ -10,24 +10,21 @@
 # Please read the COPYING file.
 #
 
+import os
 import gettext
+import pardus.xorg
+
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-import os
-import yali.users
-import pardus.xorg
-import yali.context as ctx
-
 from PyQt4 import QtGui
 from PyQt4.QtCore import *
-from yali.constants import consts
+
+import yali.users
+import yali.context as ctx
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.setupuserswidget import Ui_SetupUsersWidget
-from yali.gui.YaliDialog import Dialog, InformationWindow
 
-##
-# Partitioning screen.
 class Widget(QtGui.QWidget, ScreenWidget):
     title = _("Add Users")
     icon = "iconUser"
@@ -116,7 +113,7 @@ Proceed with the installation after you make your selections.
         self.userNameChanged = False
         self.usedIDs = []
 
-        #self.info.updateAndShow(_("Starting validation..."))
+        #self.info.update(_("Starting validation..."))
 
     def shown(self):
         self.ui.cancelButton.hide()
@@ -182,8 +179,8 @@ Proceed with the installation after you make your selections.
     def keyReleaseEvent(self, e):
         self.checkCapsLock()
 
-    def showError(self,message):
-        ctx.yali.info.updateAndShow(message, type = "error")
+    def showError(self, message):
+        ctx.interface.informationWindow.update(message, type="error")
         self.ui.createButton.setEnabled(False)
 
     def animate(self, value):
@@ -230,7 +227,7 @@ Proceed with the installation after you make your selections.
             self.showError(_('Password is too short'))
             return
         else:
-            ctx.yali.info.hide()
+            ctx.interface.informationWindow.hide()
 
         if self.ui.username.text() and p1 and p2:
             self.ui.createButton.setEnabled(True)

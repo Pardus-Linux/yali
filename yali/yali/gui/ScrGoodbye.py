@@ -28,8 +28,6 @@ from yali.gui.YaliDialog import InfoDialog
 from yali.gui.YaliSteps import YaliSteps
 from yali.gui.Ui.goodbyewidget import Ui_GoodByeWidget
 
-##
-# Goodbye screen
 class Widget(QtGui.QWidget, ScreenWidget):
     title = "Goodbye"
     # FIXME
@@ -53,14 +51,14 @@ Click Next to proceed. One note: You remember your password, don't you?
 
     def shown(self):
         ctx.mainScreen.disableNext()
-        ctx.yali.info.updateAndShow(_("Running post-install operations..."))
+        ctx.interface.informationWindow.update(_("Running post-install operations..."))
         ctx.mainScreen.disableBack()
         ctx.yali.processPendingActions(self)
         self.steps.slotRunOperations()
         if not ctx.mainScreen.ui.helpContent.isVisible():
             ctx.mainScreen.slotToggleHelp()
         self.ui.label.setPixmap(QtGui.QPixmap(":/gui/pics/goodbye.png"))
-        ctx.yali.info.hide()
+        ctx.interface.informationWindow.hide()
         ctx.mainScreen.enableNext()
 
     def execute(self):
@@ -69,7 +67,7 @@ Click Next to proceed. One note: You remember your password, don't you?
         ctx.logger.debug("Show restart dialog.")
         InfoDialog(_("Press <b>Restart</b> to restart the computer."), _("Restart"))
 
-        ctx.yali.info.updateAndShow(_("<b>Please wait while restarting...</b>"))
+        ctx.interface.informationWindow.update(_("<b>Please wait while restarting...</b>"))
 
         # remove cd...
         if not ctx.yali.install_type == YALI_FIRSTBOOT:

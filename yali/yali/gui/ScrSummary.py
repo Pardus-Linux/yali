@@ -9,7 +9,6 @@
 #
 # Please read the COPYING file.
 #
-import os
 import time
 import gettext
 
@@ -27,6 +26,7 @@ from yali.gui.YaliDialog import QuestionDialog
 from yali.gui.Ui.summarywidget import Ui_SummaryWidget
 from yali.storage.partitioning import CLEARPART_TYPE_ALL, CLEARPART_TYPE_LINUX, CLEARPART_TYPE_NONE
 from yali.storage.bootloader import BOOT_TYPE_NONE
+
 class Widget(QtGui.QWidget, ScreenWidget):
     title = _("Summary")
     #icon = "iconKeyboard"
@@ -62,13 +62,13 @@ Here you can see your install options before installation starts.
 
     def backCheck(self):
         self.timer.stop()
-        ctx.yali.info.hide()
+        ctx.interface.informationWindow.hide()
         ctx.mainScreen.ui.buttonNext.setText(_("Next"))
         return True
 
     def updateCounter(self):
         remain = 20 - (int(time.time()) - self.startTime)
-        ctx.yali.info.updateAndShow(_("Installation starts in <b>%s</b> seconds") % remain)
+        ctx.interface.informationWindow.update(_("Installation starts in <b>%s</b> seconds") % remain)
         if remain <= 0:
             self.timer.stop()
             ctx.mainScreen.slotNext()
@@ -244,16 +244,16 @@ Here you can see your install options before installation starts.
         #    ctx.storage.storageset.createSwapFile(ctx.storage.storageset.rootDevice, ctx.consts.target_dir, size)
 
         if ctx.storage.doAutoPart:
-            ctx.yali.info.updateMessage(_("Auto partitioning..."))
+            ctx.interface.informationWindow.update(_("Auto partitioning..."))
             ctx.logger.debug("Auto partitioning")
         else:
-            ctx.yali.info.updateMessage(_("Manual partitioning..."))
+            ctx.interface.informationWindow.update(_("Manual partitioning..."))
             ctx.logger.debug("Manual partitioning...")
 
         ctx.yali.storageComplete()
-        ctx.yali.info.updateMessage(_("Partitioning finished..."))
+        ctx.interface.informationWindow.update(_("Partitioning finished..."))
         ctx.logger.debug("Partitioning finished")
-        ctx.yali.info.hide()
+        ctx.interface.informationWindow.hide()
 
         ctx.mainScreen.stepIncrement = 1
         ctx.mainScreen.ui.buttonNext.setText(_("Next"))

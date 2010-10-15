@@ -83,9 +83,9 @@ a previous system state.
 
     def shown(self):
         self.ui.buttonSelectConnection.setEnabled(False)
-        ctx.yali.info.show()
+        ctx.interface.informationWindow.update(_("Please Wait..."))
         self.steps.slotRunOperations()
-        ctx.yali.info.hide()
+        ctx.interface.informationWindow.hide()
         if self.checkRegisteredConnections():
             self.ui.buttonSelectConnection.setEnabled(True)
         else:
@@ -184,22 +184,22 @@ class ConnectionWidget(QtGui.QWidget):
     def slotUseSelected(self):
         current = self.ui.connectionList.currentItem()
         if current:
-            ctx.yali.info.updateAndShow(_("Connecting to network %s...") % current.getConnection())
+            ctx.interface.informationWindow.update(_("Connecting to network %s...") % current.getConnection())
 
             try:
                 ret = current.connect()
             except:
                 ret = True
                 self.rootWidget.ui.labelStatus.setText(_("Connection failed"))
-                ctx.yali.info.updateAndShow(_("Connection failed"))
+                ctx.interface.informationWindow.update(_("Connection failed"))
 
             if not ret:
                 self.rootWidget.ui.labelStatus.setText(_("Connected"))
-                ctx.yali.info.updateAndShow(_("Connected"))
+                ctx.interface.informationWindow.update(_("Connected"))
 
             self.hide()
             ctx.mainScreen.processEvents()
-            ctx.yali.info.hide()
+            ctx.interface.informationWindow.hide()
 
             if self.needsExecute:
                 self.rootWidget.execute_(True)

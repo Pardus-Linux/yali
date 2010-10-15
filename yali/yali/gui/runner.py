@@ -151,7 +151,6 @@ class Runner:
         self._window.setMaximumSize(scr.size())
         self._window.move(scr.topLeft())
         self._window.show()
-        ctx.yali.info.updateMessage()
 
 def showException(error_type, error_traceback):
     title = _("An error occured")

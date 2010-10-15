@@ -115,9 +115,9 @@ Here you can reset..
 
     def shown(self):
         ctx.mainScreen.disableBack()
-        ctx.yali.info.show()
+        ctx.interface.informationWindow.update(_("Please Wait..."))
         self.steps.slotRunOperations()
-        ctx.yali.info.hide()
+        ctx.interface.informationWindow.hide()
 
     def fillUserList(self):
         users = yali.postinstall.getUserList()

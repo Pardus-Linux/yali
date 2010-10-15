@@ -10,19 +10,19 @@
 # Please read the COPYING file.
 #
 
+import pardus.xorg
 import gettext
+
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 from PyQt4 import QtGui
 from PyQt4.QtCore import *
 
+import yali.util
+import yali.context as ctx
 from yali.gui.ScreenWidget import ScreenWidget
 from yali.gui.Ui.rootpasswidget import Ui_RootPassWidget
-import yali.users
-import yali.sysutils
-import yali.context as ctx
-import pardus.xorg
 
 ##
 # Root password widget
@@ -65,6 +65,12 @@ You can also define a hostname for your computer. A hostname is an identifier as
         self.connect(self.ui.hostname, SIGNAL("textChanged(const QString &)"),
                      self.slotHostnameChanged)
 
+    def update(self):
+        if self.host_valid and self.pass_valid:
+            ctx.mainScreen.enableNext()
+        else:
+            ctx.mainScreen.disableNext()
+
     def shown(self):
         if ctx.installData.hostName:
             self.ui.hostname.setText(str(ctx.installData.hostName))
@@ -79,7 +85,7 @@ You can also define a hostname for your computer. A hostname is an identifier as
             self.ui.pass1.setText(ctx.installData.rootPassword)
             self.ui.pass2.setText(ctx.installData.rootPassword)
 
-        self.setNext()
+        self.update()
         self.checkCapsLock()
         self.ui.pass1.setFocus()
 
@@ -109,52 +115,46 @@ You can also define a hostname for your computer. A hostname is an identifier as
 
         if p1 == p2 and p1:
             if len(p1)<4:
-                ctx.yali.info.updateAndShow(_('Password is too short.'), type = "error")
+                ctx.interface.informationWindow.update(_('Password is too short.'), type="error")
                 self.pass_valid = False
             else:
-                ctx.yali.info.hide()
+                ctx.interface.informationWindow.hide()
                 self.pass_valid = True
         else:
             self.pass_valid = False
             if p2:
-                ctx.yali.info.updateAndShow(_('Passwords do not match.'), type = "error")
+                ctx.interface.informationWindow.update(_('Passwords do not match.'), type="error")
         if str(p1).lower()=="root" or str(p2).lower()=="root":
             self.pass_valid = False
             if p2:
-                ctx.yali.info.updateAndShow(_('Do not use your username as your password.'), type = "error")
+                ctx.interface.informationWindow.update(_('Do not use your username as your password.'), type="error")
+
         if self.pass_valid:
-            ctx.yali.info.hide()
+            ctx.interface.informationWindow.hide()
 
-        self.setNext()
+        self.update()
 
-    ##
-    # check hostname validity
-    def slotHostnameChanged(self, string):
-        if len(string) > 64:
+    def slotHostnameChanged(self, hostname):
+        if len(hostname) > 64:
             self.host_valid = False
-            ctx.yali.info.updateAndShow(_('Hostname cannot be longer than 64 characters.'), type = "error")
-            self.setNext()
+            ctx.interface.informationWindow.update(_('Hostname cannot be longer than 64 characters.'), type="error")
+            self.update()
             return
 
 
-        if not string.toAscii():
+        if not hostname.toAscii():
             self.host_valid = False
-            self.setNext()
+            self.update()
             return
 
-        self.host_valid = yali.sysutils.isTextValid(string.toAscii())
+        self.host_valid = yali.util.is_text_valid(hostname.toAscii())
 
         if not self.host_valid:
-            ctx.yali.info.updateAndShow(_('Hostname contains invalid characters.'), type = "error")
+            ctx.interface.informationWindow.update(_('Hostname contains invalid characters.'), type="error")
         else:
-            ctx.yali.info.hide()
-        self.setNext()
+            ctx.interface.informationWindow.hide()
+        self.update()
 
-    def setNext(self):
-        if self.host_valid and self.pass_valid:
-            ctx.mainScreen.enableNext()
-        else:
-            ctx.mainScreen.disableNext()
 
     def slotReturnPressed(self):
         if ctx.mainScreen.isNextEnabled():

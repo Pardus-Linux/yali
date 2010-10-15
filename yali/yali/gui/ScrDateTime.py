@@ -120,8 +120,8 @@ Coordinated Universal Time.
             QTimer.singleShot(500, self.setTime)
             self.timer.stop()
 
-        index = self.timeZoneList.currentIndex()
-        ctx.installData.timezone = self.timeZoneList.itemData(index)
+        index = self.ui.timeZoneList.currentIndex()
+        ctx.installData.timezone = self.ui.timeZoneList.itemData(index)
         ctx.logger.debug("Time zone selected as %s " % ctx.installData.timezone)
 
         return True
