@@ -3,6 +3,7 @@
 import os
 import subprocess
 import struct
+import string
 import gettext
 
 __trans = gettext.translation('yali', fallback=True)
@@ -20,6 +21,9 @@ def product_name():
         return open("/etc/pardus-release",'r').read()
     return ''
 
+def is_text_valid(text):
+    allowed_chars = string.ascii_letters + string.digits + '.' + '_' + '-'
+    return len(text) == len(filter(lambda u: [x for x in allowed_chars if x == u], text))
 
 def numeric_type(num):
     """ Verify that a value is given as a numeric data type.

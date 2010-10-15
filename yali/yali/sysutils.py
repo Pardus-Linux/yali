@@ -73,62 +73,6 @@ def setMouse(key="left"):
     if key == "right":
         os.system("synclient TapButton1=3 TapButton3=1")
 
-def isTextValid(text):
-    allowed_chars = string.ascii_letters + string.digits + '.' + '_' + '-'
-    return len(text) == len(filter(lambda u: [x for x in allowed_chars if x == u], text))
-
-def isWindowsBoot(partition_path, file_system):
-    m_dir = consts.tmp_mnt_dir
-    if not os.path.isdir(m_dir):
-        os.makedirs(m_dir)
-    umount(m_dir)
-    try:
-        if file_system == "fat32":
-            mount(partition_path, m_dir, "vfat")
-        else:
-            mount(partition_path, m_dir, file_system)
-    except:
-        return False
-
-    exist = lambda f: os.path.exists(os.path.join(m_dir, f))
-
-    if exist("boot.ini") or exist("command.com") or exist("bootmgr"):
-        umount_(m_dir)
-        return True
-    else:
-        umount_(m_dir)
-        return False
-
-def isLinuxBoot(partition_path, file_system):
-    import yali.context as ctx
-    result = False
-    m_dir = consts.tmp_mnt_dir
-    if not os.path.isdir(m_dir):
-        os.makedirs(m_dir)
-    umount_(m_dir)
-
-    ctx.logger.debug("Mounting %s to %s" % (partition_path, consts.tmp_mnt_dir))
-
-    try:
-        mount(partition_path, m_dir, file_system)
-    except:
-        ctx.logger.debug("Mount failed for %s " % partition_path)
-        return False
-
-    exist = lambda f: os.path.exists(os.path.join(m_dir,"boot/grub/", f))
-
-    if exist("grub.conf") or exist("menu.lst"):
-        menuLst = os.path.join(m_dir,"boot/grub/menu.lst")
-        grubCnf = os.path.join(m_dir,"boot/grub/grub.conf")
-        if os.path.islink(menuLst):
-            ctx.logger.debug("grub.conf found on device %s" % partition_path)
-            result = grubCnf
-        else:
-            ctx.logger.debug("menu.lst found on device %s" % partition_path)
-            result = menuLst
-
-    return result
-
 def liveMediaSystem(path=None):
     if not path:
         path  = "/var/run/pardus/livemedia"
