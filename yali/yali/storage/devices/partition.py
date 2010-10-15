@@ -373,10 +373,10 @@ class Partition(Device):
 
             try:
                 self.disk.format.commit()
-            except DiskLabelCommitError:
+            except DiskLabelCommitError, msg:
                 part = self.disk.format.partedDisk.getPartitionByPath(self.path)
                 self.disk.format.removePartition(part)
-                raise
+                raise PartitionError, msg
 
             if not self.isExtended:
                 # Ensure old metadata which lived in freespace so did not get
@@ -445,10 +445,10 @@ class Partition(Device):
         self.disk.originalFormat.removePartition(self.partedPartition)
         try:
             self.disk.originalFormat.commit()
-        except DiskLabelCommitError:
+        except DiskLabelCommitError, msg:
             self.disk.originalFormat.addPartition(self.partedPartition)
             self.partedPartition = self.disk.originalFormat.partedDisk.getPartitionByPath(self.path)
-            raise
+            raise PartitionError, msg
 
         self.exists = False
 
