@@ -299,7 +299,6 @@ class InformationWindow(QtGui.QWidget):
     def __init__(self):
         QtGui.QWidget.__init__(self, ctx.mainScreen)
         self.setObjectName("InfoWin")
-        #self.resize(300,50)
         self.setSizePolicy(QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Expanding)
         self.setFixedHeight(50)
         self.setMaximumWidth(800)
@@ -346,7 +345,7 @@ class InformationWindow(QtGui.QWidget):
 
         self.gridlayout.addWidget(self.frame,0,0,1,1)
 
-    def update(self, message, type=None):
+    def update(self, message, type=None, spinner=False):
         fontMetric = self.label.fontMetrics()
         textWidth = fontMetric.width(message)
 
@@ -369,7 +368,7 @@ class InformationWindow(QtGui.QWidget):
             self.setFixedWidth(textWidth + self.icon.width() + 100)
             self.label.setText(message)
 
-        self.spinner.setVisible(False)
+        self.spinner.setVisible(spinner)
         self.move(ctx.mainScreen.width()/2 - self.width()/2,
                   ctx.mainScreen.height() - self.height()/2 - 50)
 
@@ -383,6 +382,66 @@ class InformationWindow(QtGui.QWidget):
         self.refresh()
 
     def hide(self):
+        QtGui.QWidget.hide(self)
+        self.refresh()
+
+class ProgressWindow(QtGui.QWidget):
+    def __init__(self, message):
+        QtGui.QWidget.__init__(self, ctx.mainScreen)
+        self.setObjectName("InfoWin")
+        self.resize(300,50)
+        self.setStyleSheet("""
+            QFrame#frame { border: 1px solid rgba(255,255,255,30);
+                           /*border-radius: 4px;*/
+                           background-color: rgba(255,0,0,100);}
+
+            QLabel { border:none;
+                     color:#FFFFFF;}
+
+            QProgressBar { border: 1px solid white;}
+
+            QProgressBar::chunk { background-color: #F1610D;
+                                  width: 0.5px;}
+        """)
+
+        self.gridlayout = QtGui.QGridLayout(self)
+        self.frame = QtGui.QFrame(self)
+        self.frame.setObjectName("frame")
+        self.horizontalLayout = QtGui.QHBoxLayout(self.frame)
+        self.horizontalLayout.setContentsMargins(6, 0, 0, 0)
+
+        # Spinner
+        self.spinner = QtGui.QLabel(self.frame)
+        self.spinner.setMinimumSize(QSize(16, 16))
+        self.spinner.setMaximumSize(QSize(16, 16))
+        self.spinner.setIndent(6)
+        self.movie = QtGui.QMovie(':/images/working.mng')
+        self.spinner.setMovie(self.movie)
+        self.movie.start()
+        self.horizontalLayout.addWidget(self.spinner)
+
+        # Message
+        self.label = QtGui.QLabel(self.frame)
+        self.horizontalLayout.addWidget(self.label)
+        self.gridlayout.addWidget(self.frame,0,0,1,1)
+
+        self.update(message)
+
+    def update(self, message):
+        self.spinner.setVisible(True)
+        self.move(ctx.mainScreen.width()/2 - self.width()/2,
+                  ctx.mainScreen.height() - self.height()/2 - 50)
+        self.label.setText(message)
+        self.show()
+
+    def refresh(self):
+        ctx.mainScreen.processEvents()
+
+    def show(self):
+        QtGui.QWidget.show(self)
+        self.refresh()
+
+    def pop(self):
         QtGui.QWidget.hide(self)
         self.refresh()
 

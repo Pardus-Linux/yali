@@ -87,7 +87,7 @@ class AbstractDevice(object):
     def removeChild(self):
         self.kids -= 1
 
-    def create(self):
+    def create(self, intf=None):
         """ Open, or set up, a device. """
         raise NotImplementedError("create method not implemented in AbstactDevice class.")
 
@@ -95,7 +95,7 @@ class AbstractDevice(object):
         """ Close, or tear down, a device. """
         raise NotImplementedError("destroy method not implemented in AbstactDevice class.")
 
-    def setup(self, orig=False):
+    def setup(self, intf=None):
         """ Open, or set up, a device. """
         raise NotImplementedError("setup method not implemented in AbstactDevice class.")
 

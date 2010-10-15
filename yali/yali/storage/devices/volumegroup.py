@@ -236,10 +236,15 @@ class VolumeGroup(DeviceMapper):
         if recursive:
             self.teardownParents(recursive=recursive)
 
-    def create(self):
+    def create(self, intf=None):
         """ Create the device. """
         if self.exists:
             raise DeviceError("device already exists", self.name)
+
+        w = None
+        if intf:
+            w = intf.progressWindow(("Creating device %s") % (self.path,))
+
         try:
             self.createParents()
             self.setupParents()
@@ -252,6 +257,9 @@ class VolumeGroup(DeviceMapper):
             # FIXME set / update self.uuid here
             self.exists = True
             self.setup()
+        finally:
+            if w:
+                w.pop()
 
     def destroy(self):
         """ Destroy the device. """

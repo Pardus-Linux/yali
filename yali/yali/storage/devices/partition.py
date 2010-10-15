@@ -360,10 +360,15 @@ class Partition(Device):
 
         self._bootable = self.getFlag(parted.PARTITION_BOOT)
 
-    def create(self):
+    def create(self, intf=None):
         """ Create the device. """
         if self.exists:
             raise PartitionError("device already exists", self.name)
+
+        w = None
+        if intf:
+            w = intf.progressWindow(_("Creating device %s") % (self.path,))
+
 
         try:
             self.createParents()
@@ -390,6 +395,9 @@ class Partition(Device):
             self.exists = True
             self._currentSize = self.partedPartition.getSize()
             self.setup()
+        finally:
+            if w:
+                w.pop()
 
     def _computeResize(self, partition):
         # compute new size for partition
@@ -406,7 +414,7 @@ class Partition(Device):
 
         return (constraint, newGeometry)
 
-    def resize(self):
+    def resize(self, intf=None):
         """ Resize the device.
 
             self.targetSize must be set to the new size.

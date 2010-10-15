@@ -269,6 +269,7 @@ class Filesystem(Format):
                 options -- list of options to pass to mkfs
 
         """
+        intf = kwargs.get("intf")
         options = kwargs.get("options")
 
         if self.exists:
@@ -287,12 +288,18 @@ class Filesystem(Format):
             raise FilesystemFormatError("device does not exist", self.device)
 
         argv = self._getFormatOptions(options=options)
+        w = None
+        if intf:
+            w = intf.progressWindow(_("Creating %s filesystem on %s") % (self.type, self.device))
 
         try:
             rc = yali.util.run_batch(self.mkfs, argv)[0]
 
         except Exception as e:
             raise FilesystemFormatError(e, self.device)
+        finally:
+            if w:
+                w.pop()
 
         if rc:
             raise FilesystemFormatError("format failed: %s" % rc, self.device)
@@ -310,6 +317,7 @@ class Filesystem(Format):
             Arguments:
 
         """
+        intf = kwargs.get("intf")
 
         if not self.exists:
             raise FilesystemResizeError("filesystem does not exist", self.device)
@@ -323,27 +331,34 @@ class Filesystem(Format):
         if not os.path.exists(self.device):
             raise FilesystemResizeError("device does not exist", self.device)
 
-        self.doCheck()
+        self.doCheck(intf=intf)
 
         self._minInstanceSize = None
         if self.targetSize < self.minSize:
             self.targetSize = self.minSize
             ctx.logger.info("Minimum size changed, setting targetSize on %s to %s" \
                      % (self.device, self.targetSize))
+        w = None
+        if intf:
+            w = intf.progressWindow(("Resizing filesystem on %s")
+                                    % (self.device,))
 
         try:
             rc = yali.util.run_batch(self.resizefs, self.resizeArgs)[0]
         except Exception as e:
             raise FilesystemResizeError(e, self.device)
+        finally:
+            if w:
+                w.pop()
 
         if rc:
             raise FilesystemResizeError("resize failed: %s" % rc, self.device)
 
-        self.doCheck()
+        self.doCheck(intf=intf)
         self.notifyKernel()
 
 
-    def doCheck(self):
+    def doCheck(self, intf=None):
         if not self.exists:
             raise FilesystemError("filesystem has not been created")
 
@@ -354,18 +369,37 @@ class Filesystem(Format):
             raise FilesystemError("device does not exist")
 
         w = None
+        if intf:
+            w = intf.progressWindow(_("Checking filesystem on %s")
+                                    % (self.device))
 
         try:
             rc = yali.util.run_batch(self.fsck, self._getCheckArgs())[0]
         except Exception as e:
             raise FilesystemError("filesystem check failed: %s" % e)
+        finally:
+            if w:
+                w.pop()
 
         if self._fsckFailed(rc):
             hdr = _("%(type)s filesystem check failure on %(device)s: ") % \
                    (self.type, self.device,)
             msg = self._fsckErrorMessage(rc)
+            if intf:
+                help = _("Errors like this usually mean there is a problem "
+                         "with the filesystem that will require user "
+                         "interaction to repair.  Before restarting "
+                         "installation, reboot to rescue mode or another "
+                         "system that allows you to repair the filesystem "
+                         "interactively.  Restart installation after you "
+                         "have corrected the problems on the filesystem.")
 
-            raise FilesystemError(hdr + msg)
+                intf.messageWindow(_("Unrecoverable Error"),
+                                   hdr + "\n\n" + msg + "\n\n" + help,
+                                   customIcon='error')
+                sys.exit(0)
+            else:
+                raise FilesystemError(hdr + msg)
 
     def loadModule(self):
         """Load whatever kernel module is required to support this filesystem."""
@@ -692,6 +726,14 @@ class Ext2Filesystem(Filesystem):
 
         return msg.strip()
 
+    def doMigrate(self, intf=None):
+        Filesystem.doMigrate(self, intf=intf)
+        self.tuneFilesystem()
+
+    def doFormat(self, *args, **kwargs):
+        Filesystem.doFormat(self, *args, **kwargs)
+        self.tuneFilesystem()
+
     def tuneFilesystem(self):
         if not yali.sysutils.ext2HasJournal(self.device):
             # only do this if there's a journal
@@ -700,7 +742,7 @@ class Ext2Filesystem(Filesystem):
         try:
             rc = yali.util.run_batch("tune2fs", ["-c0", "-i0","-ouser_xattr,acl", self.device])[0]
         except Exception as e:
-            pass
+            ctx.logger.error("failed to run tune2fs on %s: %s" % (self.device, e))
         else:
             return rc
 

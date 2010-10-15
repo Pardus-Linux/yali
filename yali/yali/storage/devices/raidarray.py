@@ -413,10 +413,14 @@ class RaidArray(Device):
         if self.size < 1000 or self.format.type == "swap":
             self.createBitmap = False
 
-    def create(self):
+    def create(self, intf=None):
         """ Create the device. """
         if self.exists:
             raise DeviceError("device already exists", self.name)
+
+        w = None
+        if intf:
+            w = intf.progressWindow(("Creating device %s") % (self.path,))
 
         try:
             self.createParents()
@@ -430,8 +434,8 @@ class RaidArray(Device):
                             spares,
                             metadataVer=self.createMetadataVer,
                             bitmap=self.createBitmap)
-        except Exception:
-            raise
+        except Exception, msg:
+            raise RaidArrayError, msg
         else:
             self.exists = True
             # the array is automatically activated upon creation, but...
@@ -442,6 +446,9 @@ class RaidArray(Device):
             self.uuid = udev_device_get_md_uuid(info)
             for member in self.devices:
                 member.mdUuid = self.uuid
+        finally:
+            if w:
+                w.pop()
 
     @property
     def formatArgs(self):

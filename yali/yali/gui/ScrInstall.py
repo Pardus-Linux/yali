@@ -111,7 +111,7 @@ to discover the features and the innovations offered by this new Pardus release.
         self.pkg_installer = PkgInstaller()
         ctx.logger.debug("Calling PkgInstaller.start...")
         self.pkg_installer.start()
-        ctx.interface.informationWindow.update(_("Installing packages..."))
+        #ctx.interface.informationWindow.update(_("Installing packages..."))
 
         ctx.mainScreen.disableNext()
         ctx.mainScreen.disableBack()
@@ -177,7 +177,7 @@ to discover the features and the innovations offered by this new Pardus release.
         # Configure Pending...
         # run baselayout's postinstall first
 
-        ctx.interface.informationWindow.update(_("Creating base layout..."))
+        #ctx.interface.informationWindow.update(_("Creating base layout..."))
         yali.postinstall.initbaselayout()
 
         # postscripts depend on 03locale...
@@ -189,7 +189,7 @@ to discover the features and the innovations offered by this new Pardus release.
         # run dbus in chroot
         yali.util.start_dbus()
 
-        ctx.interface.informationWindow.update(_("Configuring packages..."))
+        #ctx.interface.informationWindow.update(_("Configuring packages..."))
 
         # start configurator thread
         self.pkg_configurator = PkgConfigurator()
@@ -203,7 +203,7 @@ to discover the features and the innovations offered by this new Pardus release.
     def finished(self):
         if self.hasErrors:
             return
-        ctx.interface.informationWindow.hide()
+        #ctx.interface.informationWindow.hide()
         # trigger next screen. will activate execute()
         ctx.mainScreen.slotNext()
 

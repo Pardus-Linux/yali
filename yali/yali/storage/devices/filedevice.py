@@ -68,7 +68,7 @@ class FileDevice(Device):
 
         return os.path.normpath("%s/%s" % (root, path))
 
-    def setup(self, orig=False):
+    def setup(self, intf=None, orig=False):
         Device.setup(self, orig=orig)
         if self.format and self.format.exists and not self.format.status:
             self.format.device = self.path
@@ -84,10 +84,14 @@ class FileDevice(Device):
         if self.format and self.format.exists and not self.format.status:
             self.format.device = self.path
 
-    def create(self):
+    def create(self, intf=None):
         """ Create the device. """
         if self.exists:
             raise FileDeviceError("device already exists", self.name)
+
+        w = None
+        if intf:
+            w = intf.progressWindow(_("Creating file %s") % (self.path,))
 
         try:
             # this only checks that parents exist
@@ -104,6 +108,8 @@ class FileDevice(Device):
             self.exists = True
         finally:
             os.close(fd)
+            if w:
+                w.pop()
 
     def destroy(self):
         """ Destroy the device. """

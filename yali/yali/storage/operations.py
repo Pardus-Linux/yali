@@ -102,7 +102,7 @@ class DeviceOperation(object):
         self.device = device
 
 
-    def execute(self):
+    def execute(self, intf=None):
         """ perform the operation """
         pass
 
@@ -152,9 +152,8 @@ class OperationCreateDevice(DeviceOperation):
         # FIXME: assert device.fs is None
         DeviceOperation.__init__(self, device)
 
-    def execute(self):
-        self.device.create()
-
+    def execute(self, intf=None):
+        self.device.create(intf=intf)
 
 class OperationDestroyDevice(DeviceOperation):
     """ An operation representing the deletion of an existing device. """
@@ -166,7 +165,7 @@ class OperationDestroyDevice(DeviceOperation):
         if device.exists:
             device.teardown()
 
-    def execute(self):
+    def execute(self, intf=None):
         self.device.destroy()
 
         # Make sure libparted does not keep cached info for this device
@@ -195,8 +194,8 @@ class OperationResizeDevice(DeviceOperation):
         self.origsize = device.targetSize
         self.device.targetSize = newsize
 
-    def execute(self):
-        self.device.resize()
+    def execute(self, intf=None):
+        self.device.resize(intf=intf)
 
     def cancel(self):
         self.device.targetSize = self.origsize
@@ -217,7 +216,7 @@ class OperationCreateFormat(DeviceOperation):
         else:
             self.origFormat = getFormat(None)
 
-    def execute(self):
+    def execute(self, intf=None):
         self.device.setup()
 
         if isinstance(self.device, Partition):
@@ -235,7 +234,8 @@ class OperationCreateFormat(DeviceOperation):
 
             self.device.disk.format.commitToDisk()
 
-        self.device.format.create(device=self.device.path,
+        self.device.format.create(intf=intf,
+                                  device=self.device.path,
                                   options=self.device.formatArgs)
 
         # Get the UUID now that the format is created
@@ -262,7 +262,7 @@ class OperationDestroyFormat(DeviceOperation):
             device.format.teardown()
         self.device.format = None
 
-    def execute(self):
+    def execute(self, intf=None):
         """ wipe the filesystem signature from the device """
         if self.origFormat:
             self.device.setup(orig=True)
@@ -299,9 +299,9 @@ class OperationResizeFormat(DeviceOperation):
         self.origSize = self.device.format.targetSize
         self.device.format.targetSize = newsize
 
-    def execute(self):
+    def execute(self, intf=None):
         self.device.setup(orig=True)
-        self.device.format.doResize()
+        self.device.format.doResize(intf=intf)
 
     def cancel(self):
         self.device.format.targetSize = self.origSize
@@ -318,9 +318,9 @@ class OperationMigrateFormat(DeviceOperation):
         DeviceOperation.__init__(self, device)
         self.device.format.migrate = True
 
-    def execute(self):
+    def execute(self, intf=None):
         self.device.setup(orig=True)
-        self.device.format.doMigrate()
+        self.device.format.doMigrate(intf=intf)
 
     def cancel(self):
         self.device.format.migrate = False

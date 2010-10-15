@@ -95,9 +95,9 @@ class DMRaidArray(DeviceMapper):
         self._raidSet.activate(mknod=True)
         udev_settle()
 
-    def setup(self, orig=False):
+    def setup(self, intf=None, orig=False):
         """ Open, or set up, a device. """
-        Device.setup(self, orig=orig)
+        Device.setup(self, intf=None, orig=orig)
         self.activate()
 
     def teardown(self, recursive=None):

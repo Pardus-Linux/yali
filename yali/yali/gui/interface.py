@@ -7,7 +7,7 @@ __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 import yali.context as ctx
-from yali.gui.YaliDialog import MessageWindow, InformationWindow
+from yali.gui.YaliDialog import MessageWindow, InformationWindow, ProgressWindow
 
 
 class Interface(object):
@@ -16,6 +16,9 @@ class Interface(object):
         self._warnedUnusedRaidMembers = []
         self._initLabelAnswers = {}
         self._inconsistentLVMAnswers = {}
+
+    def progressWindow(self, message):
+        return ProgressWindow(message)
 
     def messageWindow(self, title, text, type="ok", default=None, customButtons=None, customIcon=None):
         return MessageWindow(title, text, type, default, customButtons, customIcon, run=True).rc

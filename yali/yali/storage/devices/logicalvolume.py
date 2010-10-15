@@ -203,10 +203,14 @@ class LogicalVolume(DeviceMapper):
             except Exception as e:
                 ctx.logger.debug("vg %s teardown failed; continuing" % self.vg.name)
 
-    def create(self):
+    def create(self, intf=None):
         """ Create the device. """
         if self.exists:
             raise DeviceError("device already exists", self.name)
+
+        w = None
+        if intf:
+            w = intf.progressWindow(("Creating device %s") % (self.path,))
         try:
             self.createParents()
             self.setupParents()
@@ -219,6 +223,9 @@ class LogicalVolume(DeviceMapper):
             # FIXME set / update self.uuid here
             self.exists = True
             self.setup()
+        finally:
+            if w:
+                w.pop()
 
     def destroy(self):
         """ Destroy the device. """
@@ -231,7 +238,7 @@ class LogicalVolume(DeviceMapper):
         lvm.lvremove(self.vg.name, self._name)
         self.exists = False
 
-    def resize(self):
+    def resize(self, intf=None):
         # XXX resize format probably, right?
         if not self.exists:
             raise DeviceError("device has not been created", self.name)

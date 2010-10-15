@@ -35,8 +35,10 @@ class DeviceTreeError(yali.Error):
     pass
 
 class DeviceTree(object):
-    def __init__(self, ignored=[], exclusive=[], type=CLEARPART_TYPE_NONE,
+    def __init__(self, intf=None, ignored=[], exclusive=[], type=CLEARPART_TYPE_NONE,
                  clear=[],zeroMbr=None, reinitializeDisks=None, protected=[]):
+
+        self.intf = intf
         self._devices = []
         self.operations = []
         self.exclusiveDisks = exclusive
@@ -444,12 +446,12 @@ class DeviceTree(object):
             ctx.logger.info("executing operation: %s" % operation)
             if not dryRun:
                 try:
-                    operation.execute()
+                    operation.execute(intf=self.intf)
                 except DiskLabelCommitError:
                     # it's likely that a previous format destroy operation
                     # triggered setup of an lvm or md device.
                     self.teardownAll()
-                    operation.execute()
+                    operation.execute(intf=self.intf)
 
                 udev_settle()
                 for device in self._devices:

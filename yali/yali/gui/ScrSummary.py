@@ -250,6 +250,8 @@ Here you can see your install options before installation starts.
             ctx.interface.informationWindow.update(_("Manual partitioning..."))
             ctx.logger.debug("Manual partitioning...")
 
+        ctx.interface.informationWindow.hide()
+
         ctx.yali.storageComplete()
         ctx.interface.informationWindow.update(_("Partitioning finished..."))
         ctx.logger.debug("Partitioning finished")

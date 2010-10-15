@@ -182,7 +182,8 @@ class Storage(object):
             information like passphrases, iscsi config, &c
 
         """
-        self.devicetree = DeviceTree(ignored=self.ignoredDisks,
+        self.devicetree = DeviceTree(intf=ctx.interface,
+                                     ignored=self.ignoredDisks,
                                      exclusive=self.exclusiveDisks,
                                      type=self.clearPartType,
                                      clear=self.clearPartDisks,
