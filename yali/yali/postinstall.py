@@ -220,9 +220,13 @@ def copyPisiIndex():
         shutil.copy(ctx.consts.pisi_index_file_sum, target)
 
         # Extract the index
-        import bz2
         pureIndex = file(os.path.join(target,"pisi-index.xml"),"w")
-        pureIndex.write(bz2.decompress(open(ctx.consts.pisi_index_file).read()))
+        if ctx.consts.pisi_index_file.endswith("bz2"):
+            import bz2
+            pureIndex.write(bz2.decompress(open(ctx.consts.pisi_index_file).read()))
+        else:
+            import lzma
+            pureIndex.write(lzma.decompress(open(ctx.consts.pisi_index_file).read()))
         pureIndex.close()
 
         ctx.logger.debug("pisi index files copied.")

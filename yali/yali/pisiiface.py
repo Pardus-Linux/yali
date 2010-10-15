@@ -13,6 +13,7 @@
 
 import os
 import bz2
+import lzma
 import time
 import glob
 import dbus
@@ -141,7 +142,10 @@ def getCollection():
 
 def getCollectionPackages(collectionIndex, kernels=False):
     ctx.logger.debug("index_path%s" % collectionIndex)
-    piksemelObj = piksemel.parseString(bz2.decompress(file(collectionIndex).read()))
+    if collectionIndex.endswith("bz2"):
+        piksemelObj = piksemel.parseString(bz2.decompress(file(collectionIndex).read()))
+    else:
+        piksemelObj = piksemel.parseString(lzma.decompress(file(collectionIndex).read()))
     collectionPackages = []
     for package in piksemelObj.tags("Package"):
         # ignorekernel assignment changes kernel packages adding into package list
@@ -158,12 +162,17 @@ def getCollectionPackages(collectionIndex, kernels=False):
     return collectionPackages
 
 def getXmlObject(path):
-    return piksemel.parseString(bz2.decompress(file(path).read()))
+    if path.endswith("bz2"):
+        return piksemel.parseString(bz2.decompress(file(path).read()))
+    return piksemel.parseString(lzma.decompress(file(path).read()))
 
 def getPackages(tag=None, value=None, index=None):
     if not index:
         index = os.path.join(ctx.consts.source_dir, "repo/pisi-index.xml.bz2")
-    piksemelObj = piksemel.parseString(bz2.decompress(file(index).read()))
+    if index.endswith("bz2"):
+        piksemelObj = piksemel.parseString(bz2.decompress(file(index).read()))
+    else:
+        piksemelObj = piksemel.parseString(lzma.decompress(file(index).read()))
     ret = []
     for package in piksemelObj.tags("Package"):
         tagData = package.getTagData(tag)
