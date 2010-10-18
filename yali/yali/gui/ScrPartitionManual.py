@@ -165,7 +165,7 @@ about disk partitioning.
         return False
 
     def setupMenu(self):
-        self.menu = QtGui.QMenu()
+        self.menu = QtGui.QMenu("New")
         self.standardDevices = self.menu.addMenu(_("Standard"))
         self.lvmDevices = self.menu.addMenu(_("LVM"))
         self.raidDevices = self.menu.addMenu(_("RAID"))
