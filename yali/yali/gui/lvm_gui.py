@@ -135,7 +135,7 @@ class LVMEditor(object):
                         operations.append(OperationDestroyFormat(lv))
 
                     if lv in self.origrequest.lvs:
-                        self.origrequest._removeLogicalVolumel(lv)
+                        self.origrequest._removeLogicalVolume(lv)
 
                     operations.append(OperationDestroyDevice(lv))
 
