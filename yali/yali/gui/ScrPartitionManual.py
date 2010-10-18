@@ -133,9 +133,10 @@ about disk partitioning.
 
             comments = "\n\n".join(warnings)
             rc = self.intf.detailedMessageWindow(_("Partitioning Warnings"),
-                                                  detailed, comments, type="yesno")
-            if rc != 1:
-                return True
+                                                  detailed, comments, type="custom",
+                                                  customButtons=[_("Ok"), _("Cancel")], default=1)
+            if rc == 1:
+                return False
 
         formatWarnings = getPreExistFormatWarnings(self.storage)
         if formatWarnings:

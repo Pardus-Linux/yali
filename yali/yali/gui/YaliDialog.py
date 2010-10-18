@@ -196,9 +196,9 @@ class MessageWindow:
         self.rc = self.dialog.exec_()
         if self.msgBox.clickedButton():
             if not self.doCustom:
-                if self.msgBox.clickedButton().text() in [_("OK"), _("YES")]:
+                if self.msgBox.clickedButton().text() in [_("Ok"), _("Yes")]:
                     self.rc = 1
-                elif self.msgBox.clickedButton().text() in [_("CANCEL"), _("NO")]:
+                elif self.msgBox.clickedButton().text() in [_("Cancel"), _("No")]:
                     self.rc = 0
             else:
                 if self.msgBox.clickedButton().text() in self.customButtons:
