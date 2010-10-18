@@ -13,8 +13,7 @@ from yali.storage.library import raid
 from yali.storage.library import lvm
 from yali.storage.formats import device_formats, get_default_filesystem_type
 
-defaultMountPoints = ['/', '/boot', '/home', '/tmp',
-                      '/usr', '/var', '/usr/local', '/opt']
+defaultMountPoints = ['/', '/boot', '/home', '/tmp', '/var', '/opt']
 
 class DriveItem(QtGui.QListWidgetItem):
     def __init__(self, parent, drive):
