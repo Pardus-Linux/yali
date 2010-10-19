@@ -302,7 +302,8 @@ about disk partitioning.
                     if not device and not partition.type & parted.PARTITION_FREESPACE:
                         ctx.logger.debug("can't find partition %s in device tree" % partName)
 
-                    if partition.getSize(unit="MB") <= 1:
+                    # Force partitions tree item not to be less than 12 MB
+                    if partition.getSize(unit="MB") <= 12.0:
                         if not partition.active or not partition.getFlag(parted.PARTITION_BOOT):
                             partition = partition.nextPartition()
                             continue
@@ -320,7 +321,11 @@ about disk partitioning.
                         partitionItem = DeviceTreeItem(extendedItem)
 
                     else:
-                        partitionItem = DeviceTreeItem(diskItem)
+                        # Free space item
+                        if partition.type & parted.PARTITION_LOGICAL:
+                            partitionItem = DeviceTreeItem(extendedItem)
+                        else:
+                            partitionItem = DeviceTreeItem(diskItem)
 
 
                     if device and not device.isExtended:
