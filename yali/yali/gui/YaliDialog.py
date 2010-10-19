@@ -162,6 +162,8 @@ class MessageWindow:
             icon = "info"
 
         self.msgBox.setText(text)
+        if detailed:
+            self.msgBox.setDetailedText(unicode(longText))
 
         if self.doCustom:
             button = None
@@ -183,12 +185,8 @@ class MessageWindow:
 
         self.msgBox.setDefaultButton(default)
 
-        self.dialog = Dialog(_(title), self.msgBox, closeButton = False, isDialog = True, icon=icon)
-        if detailed:
-            self.details = QtGui.QTextBrowser()
-            self.details.setText(unicode(longText))
-            self.dialog.layout.addWidget(self.details)
-        self.dialog.resize(QSize(200, 120))
+        self.dialog = Dialog(_(title), self.msgBox, closeButton=False, isDialog=True, icon=icon)
+        self.dialog.resize(QSize(480, 180))
         if run:
             self.run(destroyAfterRun)
 
