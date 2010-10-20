@@ -128,10 +128,15 @@ class User:
 nickmap = {
     u"ğ": u"g",
     u"ü": u"u",
+    u"Ü": u"u",
     u"ş": u"s",
+    u"Ş": u"s",
     u"ı": u"i",
+    u"İ": u"i",
     u"ö": u"o",
+    u"Ö": u"o",
     u"ç": u"c",
+    u"Ç": u"c",
 }
 
 def nickGuess(name, nicklist):
@@ -151,8 +156,16 @@ def nickGuess(name, nicklist):
 
     text = unicode(name).lower().split()
 
-    # First guess: name
+
     ret = convert(text[0])
+
+    # First guess: name
+
+    # if user has a name pattern like x. y z, then return y.
+    # e.g. a. murat eren, s. caglar onur, h. ibrahim gungor :)
+    if len(text) > 2 and "." in text[0]:
+        ret = convert(text[1])
+
     if not ret in nicklist:
         return ret
 
