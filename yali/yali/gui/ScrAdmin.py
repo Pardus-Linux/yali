@@ -110,12 +110,12 @@ You can also define a hostname for your computer. A hostname is an identifier as
     def setCapsLockIcon(self, child):
         if type(child) == QtGui.QLineEdit:
             if pardus.xorg.capslock.isOn():
-                child.setStyleSheet("QLineEdit {background: url(:/gui/pics/caps.png) no-repeat right;\npadding-right: 42px}")
+                child.setStyleSheet("QLineEdit {background: url(:/gui/pics/caps.png) no-repeat right;\npadding-right: 35px}")
             else:
                 child.setStyleSheet("QLineEdit {background: none; padding-right: 0px}")
 
     def checkCapsLock(self):
-        for child in self.ui.frame_2.children():
+        for child in self.ui.groupBox.children():
             self.setCapsLockIcon(child)
 
     def keyReleaseEvent(self, e):

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>969</width>
+    <width>986</width>
     <height>858</height>
    </rect>
   </property>
@@ -98,7 +98,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QFrame" name="frame_2">
+       <widget class="QFrame" name="groupBox">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -168,7 +168,7 @@
             <enum>QLineEdit::Password</enum>
            </property>
            <property name="placeholderText">
-            <string/>
+            <string>Administator Password</string>
            </property>
           </widget>
          </item>
@@ -222,7 +222,7 @@
             <enum>QLineEdit::Password</enum>
            </property>
            <property name="placeholderText">
-            <string/>
+            <string>Confirm Password</string>
            </property>
           </widget>
          </item>
@@ -270,7 +270,7 @@
             <string/>
            </property>
            <property name="placeholderText">
-            <string/>
+            <string>Computer Name</string>
            </property>
           </widget>
          </item>

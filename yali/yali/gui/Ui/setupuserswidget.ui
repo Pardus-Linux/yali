@@ -688,7 +688,7 @@
                   <property name="styleSheet">
                    <string notr="true">#frame_5{ 
 	border:0px;
-	background-color: rgba(0, 0, 0, 100);
+	background-color: rgba(0, 0, 0, 50);
 	border-radius: 2px;
 }</string>
                   </property>

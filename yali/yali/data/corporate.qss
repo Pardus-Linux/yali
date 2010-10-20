@@ -7,11 +7,11 @@
 	border:1px solid  rgba(34, 49, 60, 100);
 	border-radius:2px;
 	background-color: qlineargradient(spread:pad, x1:0.5, y1:0, x2:0.5, y2:1, stop:0 rgba(132, 132, 132, 255), stop:0.501481 rgba(70, 70, 70, 255), stop:0.503057 rgba(62, 62, 62, 255), stop:1 rgba(16, 16, 16, 255));
-    padding:1px 0px 1px 5px;
+	padding:1px 0px 1px 5px;
  }
 
  QToolButton[popupMode="1"] {
-     padding-right: 20px;
+	padding-right: 20px;
  }
 
  QToolButton:hover{
@@ -30,8 +30,7 @@
 
  /* the subcontrols below are used only in the MenuButtonPopup mode */
  QToolButton::menu-button {
-	border:1px solid  rgba(34, 49, 60, 100);/* rgba(175, 111, 130, 150);*/
-	border-radius:2px;
+	border-left:1px solid  rgba(34, 49, 60, 100);
      border-bottom-right-radius: 6px;
      /* 16px width + 4px for border = 20px allocated above */
      width: 16px;
@@ -44,6 +43,16 @@ QToolButton::menu-arrow {
  QToolButton::menu-arrow:open {
      top: 1px; left: 1px; /* shift it a bit */
  }
+
+ /* the subcontrols below are used only in the MenuButtonPopup mode */
+ QToolButton::menu-button {
+     border-top-right-radius: 3px;
+     border-bottom-right-radius: 3px;
+     width: 16px;
+ }
+
+
+
 
 
 
@@ -346,11 +355,12 @@ QTextBrowser#helpContent {
 }
 
 QDialog {
-        color: #628577;
+        color: white;
         background-image: url(:/images/background-dialog.png);
         background-repeat: no-repeat;
         background-position: bottom center;
-        background-color: #394E46;
+        /*background-color: #394E46;*/
+	background-color: rgb(50, 50, 50);
 }
 
 QLabel {
@@ -618,33 +628,6 @@ QTreeView::branch:open:has-children:has-siblings  {
          border-image: none;
          image: url(:/gui/pics/collapse.png);;
 }
-
- /* the subcontrols below are used only in the MenuButtonPopup mode */
- QToolButton::menu-button {
-     border: 1px solid #bcbbbb;
-     border-top-right-radius: 3px;
-     border-bottom-right-radius: 3px;
-     /* 16px width + 4px for border = 20px allocated above */
-     width: 16px;
- }
-
-
- /* the subcontrols below are used only in the MenuButtonPopup mode */
- QToolButton::menu-button {
-     border: 1px solid #bcbbbb;
-     border-top-right-radius: 3px;
-     border-bottom-right-radius: 3px;
-     /* 16px width + 4px for border = 20px allocated above */
-     width: 16px;
- }
-
-QToolButton::menu-arrow {
-     image: url(:/images/treeview-branch-open.png);
- }
-
- QToolButton::menu-arrow:open {
-     top: 1px; left: 1px; /* shift it a bit */
- }
 
 
 QHeaderView::section {
