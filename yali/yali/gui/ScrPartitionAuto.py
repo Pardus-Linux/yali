@@ -118,3 +118,13 @@ Pardus create a new partition for installation.</p>
             return doAutoPartition(self.storage)
 
         return False
+
+
+    def backCheck(self):
+        disks = filter(lambda d: not d.format.hidden, ctx.storage.disks)
+        if len(disks) == 1:
+            ctx.mainScreen.stepIncrement = 2
+        else:
+            ctx.mainScreen.stepIncrement = 1
+
+        return True

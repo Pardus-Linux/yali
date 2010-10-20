@@ -156,8 +156,10 @@ about disk partitioning.
 
 
     def backCheck(self):
-        rc = self.intf.messageWindow(_("Warning"), _("All Changes that you made will be removed"), type="question")
-        if rc:
+        rc = self.intf.messageWindow(_("Warning"), _("All Changes that you made will be removed"),
+                                      type="custom", customIcon="question",
+                                      customButtons=[_("Ok"), _("Cancel")], default=1)
+        if not rc:
             self.storage.reset()
             return True
         return False
