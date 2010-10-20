@@ -1096,6 +1096,22 @@ class JFS(Filesystem):
 
 register_device_format(JFS)
 
+class Iso9660Filesystem(Filesystem):
+    """ ISO9660 filesystem. """
+    _type = "iso9660"
+    _formattable = False
+    _supported = True
+    _resizable = False
+    _bootable = False
+    _linuxNative = False
+    _dump = False
+    _check = False
+    _migratable = False
+    _defaultMountOptions = ["ro"]
+
+
+register_device_format(Iso9660Filesystem)
+
 class NoDevFilesystem(Filesystem):
     """ nodev filesystem base class """
     _type = "nodev"
