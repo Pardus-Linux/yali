@@ -101,19 +101,22 @@ Coordinated Universal Time.
         self.timer.start(1000)
 
     def setTime(self):
-        self.info.updateAndShow(_("Adjusting time settings..."))
-        day = self.calendarWidget.date().toString()
-        time = rootWidget.timeEdit.time().toString()
-        date = "--set=\"%s %s\"" % (day, time)
+        ctx.interface.informationWindow.update(_("Adjusting time settings"))
+        date = self.ui.calendarWidget.date()
+        time = self.ui.timeEdit.time()
+        args = "%02d%02d%02d%02d%04d.%02d" % (date.month(), date.day(),
+                                              time.hour(), time.minute(),
+                                              date.year(), time.second())
+
 
         # Set current date and time
         ctx.logger.debug("Date/Time setting to %s" % args)
-        yali.util.run_batch("date", [date])
+        yali.util.run_batch("date", [args])
 
         # Sync date time with hardware
         ctx.logger.debug("YALI's time is syncing with the system.")
         yali.util.run_batch("hwclock", ["--systohc"])
-        self.info.hide()
+        ctx.interface.informationWindow.hide()
 
     def execute(self):
         if not self.timer.isActive() or self.isDateChanged:
@@ -121,7 +124,7 @@ Coordinated Universal Time.
             self.timer.stop()
 
         index = self.ui.timeZoneList.currentIndex()
-        ctx.installData.timezone = self.ui.timeZoneList.itemData(index)
+        ctx.installData.timezone = self.ui.timeZoneList.itemData(index).toString()
         ctx.logger.debug("Time zone selected as %s " % ctx.installData.timezone)
 
         return True
