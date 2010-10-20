@@ -270,12 +270,8 @@ def checkPackageHash(pkg_name):
     repo_path = os.path.dirname(ctx.consts.cd_repo_uri)
 
     pkg = pisi.db.packagedb.PackageDB().get_package(pkg_name)
-    file_name = pisi.util.package_name(pkg.name,
-                                       pkg.version,
-                                       pkg.release,
-                                       pkg.build)
     file_hash = pisi.util.sha1_file(
-        os.path.join(repo_path, file_name))
+        os.path.join(repo_path, pkg.packageURI))
 
     if not pkg.packageHash == file_hash:
         raise Exception
