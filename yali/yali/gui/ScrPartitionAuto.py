@@ -25,7 +25,7 @@ from yali.gui.Ui.autopartwidget import Ui_AutoPartWidget
 from yali.gui.shrink_gui import ShrinkEditor
 from yali.storage.partitioning import CLEARPART_TYPE_ALL, CLEARPART_TYPE_LINUX, CLEARPART_TYPE_NONE, doAutoPartition, defaultPartitioning
 
-useAllSpace, replaceExistingLinux, shrinkCurrent, useFreeSpace, createCustom = range(5)
+useAllSpace, shrinkCurrent, useFreeSpace, createCustom = range(4)
 
 class Widget(QtGui.QWidget, ScreenWidget):
     title = _("Select Partitioning Method")
@@ -67,12 +67,14 @@ Pardus create a new partition for installation.</p>
             ctx.mainScreen.enableNext()
 
     def setPartitioningType(self):
-        if self.storage.clearPartType is None or self.storage.clearPartType == CLEARPART_TYPE_LINUX:
-            self.ui.autopartType.setCurrentRow(replaceExistingLinux)
-        elif self.storage.clearPartType == CLEARPART_TYPE_NONE:
+        if self.storage.clearPartType is None:
             self.ui.autopartType.setCurrentRow(useFreeSpace)
+        elif self.storage.clearPartType == CLEARPART_TYPE_NONE:
+            self.ui.autopartType.setCurrentRow(shrinkCurrent)
         elif self.storage.clearPartType == CLEARPART_TYPE_ALL:
             self.ui.autopartType.setCurrentRow(useAllSpace)
+        else:
+            self.ui.autopartType.setCurrentRow(createCustom)
 
     def shown(self):
         self.setPartitioningType()
@@ -108,8 +110,6 @@ Pardus create a new partition for installation.</p>
                 self.storage.clearPartType = CLEARPART_TYPE_NONE
             elif self.ui.autopartType.currentRow() == useAllSpace:
                 self.storage.clearPartType = CLEARPART_TYPE_ALL
-            elif self.ui.autopartType.currentRow() == replaceExistingLinux:
-                self.storage.clearPartType = CLEARPART_TYPE_LINUX
             elif self.ui.autopartType.currentRow() == useFreeSpace:
                 self.storage.clearPartType = CLEARPART_TYPE_NONE
 
