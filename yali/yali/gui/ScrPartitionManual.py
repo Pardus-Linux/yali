@@ -103,11 +103,9 @@ about disk partitioning.
     def activateButtons(self, item, index):
         if item:
             if isinstance(item.device, Device) and not isinstance(item.device, parted.partition.Partition):
-                self.ui.newButton.setEnabled(False)
                 self.ui.editButton.setEnabled(True)
                 self.ui.deleteButton.setEnabled(True)
             else:
-                self.ui.newButton.setEnabled(True)
                 self.ui.editButton.setEnabled(False)
                 self.ui.deleteButton.setEnabled(False)
 
@@ -190,7 +188,6 @@ about disk partitioning.
         self.createRaidArray.setVisible(False)
 
         self.ui.newButton.setMenu(self.menu)
-        self.ui.newButton.setDefaultAction(self.createPartition)
 
     def addDevice(self, device, item):
         if device.format.hidden:
