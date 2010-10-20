@@ -119,6 +119,10 @@ def fillMountpointMenu(widget, request, excludes=[]):
         if not (mnt in mountpoints) and (mnt[0] =="/"):
             mountpoints.append(mnt)
 
+    if (request.format.type or request.format.migrate) and \
+            request.format.mountable and request.format.mountpoint:
+        mountpoints.append(request.format.mountpoint)
+
     map(widget.addItem, mountpoints)
 
     if (request.format.type or request.format.migrate) and request.format.mountable:
