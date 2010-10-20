@@ -248,6 +248,7 @@ class BootLoader(object):
         with open(os.path.join(ctx.consts.target_dir, self._conf), "w") as grubConfFile:
             grubConfFile.write(s)
 
+        self.writeGrubInstallConf()
         self.appendOtherSystems()
 
     def appendOtherSystems(self):
@@ -379,7 +380,7 @@ class BootLoader(object):
             for device in devices:
                 deviceMapFile.write("(%s)     %s\n" % (get_disk_name(self.storage, device), device.path))
 
-    def install(self):
+    def writeGrubInstallConf(self):
         stage1Devices = get_physical_devices(self.storage, self.storage.devicetree.getDeviceByName(self.device))
         bootDevices = get_physical_devices(self.storage, self.storage.storageset.bootDevice)
 
@@ -393,7 +394,10 @@ quit
 
         ctx.logger.debug("Batch template: %s" % batch_template)
         file('/tmp/batch','w').write(batch_template)
+        file('/mnt/target/etc/grub.conf','w').write(batch_template)
 
+
+    def install(self):
         rc = yali.util.run_batch("grub", ["--no-floppy", "--batch < ", "/tmp/batch"])[0]
         yali.util.sync()
         return rc
