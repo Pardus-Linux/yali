@@ -127,7 +127,7 @@ class PartitionEditor:
                     request.req_grow = None
                     request.req_max_size = 0
                     request.req_primary = primary
-                    request.req_disks = [disk.name]
+                    request.req_disks = [disk]
 
                 operations.append(OperationCreateFormat(usedev, format))
 
@@ -203,6 +203,10 @@ class PartitionWidget(QtGui.QWidget, Ui_PartitionWidget):
         self.parent = parent
         self.origrequest = request
         self.isNew = isNew
+
+        if not self.origrequest.exists:
+            if self.parent.partedPartition.type & parted.PARTITION_LOGICAL:
+                self.primaryCheck.hide()
 
         # Mount Point entry
         storageGuiHelpers.fillMountpointMenu(self.mountpointMenu, self.origrequest)
