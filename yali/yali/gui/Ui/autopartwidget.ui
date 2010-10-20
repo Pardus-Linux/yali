@@ -228,15 +228,6 @@ border:0px
           </item>
           <item>
            <property name="text">
-            <string notr="true">Replace Existing Linux Systems</string>
-           </property>
-           <property name="icon">
-            <iconset resource="../../data.qrc">
-             <normaloff>:/gui/pics/partscheme-replace.png</normaloff>:/gui/pics/partscheme-replace.png</iconset>
-           </property>
-          </item>
-          <item>
-           <property name="text">
             <string notr="true">Shrink Current System</string>
            </property>
            <property name="icon">
