@@ -76,6 +76,28 @@ class PhysicalVolumeItem(QtGui.QWidget):
         #Update spaces not only if physical volume unchecked
         self.widget.updateSpaces()
 
+def fillResizablePartitions(widget, storage):
+    biggest = -1
+    i = -1
+    for partition in storage.partitions:
+        if not partition.exists:
+            continue
+
+        if partition.resizable and partition.format.resizable:
+            entry = u"%s (%s, %d MB)" % (partition.name, partition.format.name, math.floor(partition.format.size))
+            widget.addItem(entry, partition)
+
+            i += 1
+            if biggest == -1:
+                biggest = i
+            else:
+                current = widget.itemData(biggest).toPyObject()
+                if partition.format.targetSize > current.format.targetSize:
+                    biggest = i
+
+    if biggest > -1:
+        widget.setCurrentIndex(biggest)
+
 def createShrinkablePartitionMenu(parent, storage):
 
     partitionsCombo = QtGui.QComboBox(parent)
