@@ -119,7 +119,7 @@ class Dialog(QtGui.QDialog):
                   ctx.mainScreen.height()/2 - self.height()/2)
 
     def exec_(self):
-        self.setCentered()
+        QTimer.singleShot(100, self.setCentered)
         return QtGui.QDialog.exec_(self)
 
 class MessageWindow:
@@ -186,7 +186,7 @@ class MessageWindow:
         self.msgBox.setDefaultButton(default)
 
         self.dialog = Dialog(_(title), self.msgBox, closeButton=False, isDialog=True, icon=icon)
-        self.dialog.resize(QSize(480, 180))
+        self.dialog.resize(QSize(0,0))
         if run:
             self.run(destroyAfterRun)
 
