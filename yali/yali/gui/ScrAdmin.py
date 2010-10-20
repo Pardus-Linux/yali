@@ -100,7 +100,7 @@ You can also define a hostname for your computer. A hostname is an identifier as
         else:
             disks = filter(lambda d: not d.format.hidden, ctx.storage.disks)
             if len(disks) == 1:
-                ctx.storage.clearPartDisks = disks[0].name
+                ctx.storage.clearPartDisks = [disks[0].name]
                 ctx.mainScreen.stepIncrement = 2
             else:
                 ctx.mainScreen.stepIncrement = 1
