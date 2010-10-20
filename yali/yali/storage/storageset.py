@@ -14,6 +14,7 @@ from devices import *
 from devicetree import DeviceTree
 from devices.directorydevice import DirectoryDevice
 from devices.filedevice import FileDevice
+from devices.opticaldevice import OpticalDevice
 from devices.nodevice import NoDevice
 from devices.device import DeviceError
 from formats import getFormat
