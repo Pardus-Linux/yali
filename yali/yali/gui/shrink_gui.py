@@ -88,7 +88,6 @@ class ShrinkWidget(QtGui.QWidget, Ui_ShrinkPartitionWidget):
         self.partitions.setCurrentIndex(0)
 
     def updateSpin(self, index):
-        print "index degisti:%s" % index
         request = self.partitions.itemData(index).toPyObject()
         try:
             requestlower = long(math.ceil(request.format.minSize))
@@ -96,7 +95,6 @@ class ShrinkWidget(QtGui.QWidget, Ui_ShrinkPartitionWidget):
         except FilesystemError, msg:
             ctx.logger.error("Shrink Widget update spin gives error:%s" % msg)
         else:
-            print "max:%s min%s" % (max(1, requestlower), requestupper)
             self.sizeSpin.setRange(max(1, requestlower), requestupper)
             self.sizeSpin.setValue(requestlower)
             self.sizeSlider.setRange(max(1, requestlower), requestupper)

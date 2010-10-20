@@ -1676,7 +1676,7 @@ def doAutoPartition(storage):
         storage.reset()
         extra = _("\n\nPress 'OK' to exit the installer.")
         ctx.interface.messageWindow(_("Error Partitioning"),
-                               _("Could not allocate requested partitions: \n\n"
+                               _("Could not allocate requested partitions: \n"
                                  "%(msg)s.%(extra)s") %
                                {'msg': msg, 'extra': extra},
                                customIcon='error')
