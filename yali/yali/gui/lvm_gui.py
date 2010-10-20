@@ -68,7 +68,7 @@ class LVMEditor(object):
 
         self.dialog = Dialog(title, closeButton=False)
         self.dialog.addWidget(VolumeGroupWidget(self, self.origrequest, isNew=isNew))
-        self.dialog.resize(QSize(450, 400))
+        self.dialog.resize(QSize(0,0))
 
     def run(self):
         if self.dialog is None:
@@ -586,8 +586,7 @@ class LogicalVolumeEditor:
 
         self.dialog = Dialog(title, closeButton=False)
         self.dialog.addWidget(LogicalVolumeWidget(self, request, isNew))
-        self.dialog.resize(QSize(450, 200))
-
+        self.dialog.resize(QSize(0,0))
 
     def run(self):
         if self.dialog is None:

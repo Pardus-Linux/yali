@@ -40,7 +40,7 @@ class PartitionEditor:
 
         self.dialog = Dialog(title, closeButton=False)
         self.dialog.addWidget(PartitionWidget(self, origrequest, isNew, restricts))
-        self.dialog.resize(QSize(450, 200))
+        self.dialog.resize(QSize(0,0))
 
     def run(self):
         if self.dialog is None:

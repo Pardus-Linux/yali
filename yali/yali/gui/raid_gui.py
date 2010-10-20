@@ -47,10 +47,7 @@ class RaidEditor(object):
 
         self.dialog = Dialog(title, closeButton=False)
         self.dialog.addWidget(RaidWidget(self, request, isNew))
-        if self.origrequest.exists:
-            self.dialog.resize(QSize(450, 200))
-        else:
-            self.dialog.resize(QSize(450, 400))
+        self.dialog.resize(QSize(0,0))
 
     def run(self):
         if self.dialog is None:

@@ -22,7 +22,7 @@ class ShrinkEditor:
         self.parent = parent
         self.dialog = Dialog(_("Partitions to Shrink"), closeButton=False)
         self.dialog.addWidget(ShrinkWidget(self))
-        self.dialog.resize(QSize(350, 150))
+        self.dialog.resize(QSize(0,0))
 
     def run(self):
         if self.dialog is None:
