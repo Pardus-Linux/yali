@@ -3,6 +3,20 @@
 	border-top: 1px solid white
 }
 
+QSlider::groove:horizontal {
+    height: 12px;
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #B1B1B1, stop:1 #FFFFFF);
+    margin: 2px 0;
+}
+
+QSlider::handle:horizontal {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #5A2848, stop:1 #8f8f8f);
+    border: 1px solid #5c5c5c;
+    width: 18px;
+    margin: 0 0;
+    border-radius: 2px;
+}
+
  QToolButton {
 	border:1px solid  rgba(34, 49, 60, 100);
 	border-radius:2px;
