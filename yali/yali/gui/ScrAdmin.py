@@ -52,6 +52,7 @@ You can also define a hostname for your computer. A hostname is an identifier as
         QtGui.QWidget.__init__(self,None)
         self.ui = Ui_RootPassWidget()
         self.ui.setupUi(self)
+        self.intf = ctx.interface
 
         self.host_valid = True
         self.pass_valid = False
@@ -92,6 +93,18 @@ You can also define a hostname for your computer. A hostname is an identifier as
     def execute(self):
         ctx.installData.rootPassword = unicode(self.ui.pass1.text())
         ctx.installData.hostName = unicode(self.ui.hostname.text())
+
+        ctx.storage.reset()
+        if ctx.storage.checkNoDisks(self.intf):
+            sys.exit(0)
+        else:
+            disks = filter(lambda d: not d.format.hidden, ctx.storage.disks)
+            if len(disks) == 1:
+                ctx.storage.clearPartDisks = disks[0].name
+                ctx.mainScreen.stepIncrement = 2
+            else:
+                ctx.mainScreen.stepIncrement = 1
+
         return True
 
     def setCapsLockIcon(self, child):
@@ -115,29 +128,29 @@ You can also define a hostname for your computer. A hostname is an identifier as
 
         if p1 == p2 and p1:
             if len(p1)<4:
-                ctx.interface.informationWindow.update(_('Password is too short.'), type="error")
+                self.intf.informationWindow.update(_('Password is too short.'), type="error")
                 self.pass_valid = False
             else:
-                ctx.interface.informationWindow.hide()
+                self.intf.informationWindow.hide()
                 self.pass_valid = True
         else:
             self.pass_valid = False
             if p2:
-                ctx.interface.informationWindow.update(_('Passwords do not match.'), type="error")
+                self.intf.informationWindow.update(_('Passwords do not match.'), type="error")
         if str(p1).lower()=="root" or str(p2).lower()=="root":
             self.pass_valid = False
             if p2:
-                ctx.interface.informationWindow.update(_('Do not use your username as your password.'), type="error")
+                self.intf.informationWindow.update(_('Do not use your username as your password.'), type="error")
 
         if self.pass_valid:
-            ctx.interface.informationWindow.hide()
+            self.intf.informationWindow.hide()
 
         self.update()
 
     def slotHostnameChanged(self, hostname):
         if len(hostname) > 64:
             self.host_valid = False
-            ctx.interface.informationWindow.update(_('Hostname cannot be longer than 64 characters.'), type="error")
+            self.intf.informationWindow.update(_('Hostname cannot be longer than 64 characters.'), type="error")
             self.update()
             return
 
@@ -150,9 +163,9 @@ You can also define a hostname for your computer. A hostname is an identifier as
         self.host_valid = yali.util.is_text_valid(hostname.toAscii())
 
         if not self.host_valid:
-            ctx.interface.informationWindow.update(_('Hostname contains invalid characters.'), type="error")
+            self.intf.informationWindow.update(_('Hostname contains invalid characters.'), type="error")
         else:
-            ctx.interface.informationWindow.hide()
+            self.intf.informationWindow.hide()
         self.update()
 
 
