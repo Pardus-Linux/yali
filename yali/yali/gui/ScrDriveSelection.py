@@ -27,114 +27,6 @@ from yali.gui.Ui.diskItem import Ui_DiskItem
 from yali.storage.partitioning import CLEARPART_TYPE_ALL, CLEARPART_TYPE_LINUX, CLEARPART_TYPE_NONE, doAutoPartition, defaultPartitioning
 from yali.storage.operations import OperationResizeDevice, OperationResizeFormat
 
-
-class ShrinkWidget(QtGui.QWidget):
-    def __init__(self, parent):
-        QtGui.QWidget.__init__(self, ctx.mainScreen)
-        self.parent = parent
-        self.ui = Ui_PartShrinkWidget()
-        self.ui.setupUi(self)
-        self.setStyleSheet("""
-                     QSlider::groove:horizontal {
-                         border: 1px solid #999999;
-                         height: 12px;
-                         background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #B1B1B1, stop:1 #c4c4c4);
-                         margin: 2px 0;
-                     }
-
-                     QSlider::handle:horizontal {
-                         background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #b4b4b4, stop:1 #8f8f8f);
-                         border: 1px solid #5c5c5c;
-                         width: 18px;
-                         margin: 0 0;
-                         border-radius: 2px;
-                     }
-
-                    QFrame#mainFrame {
-                        background-image: url(:/gui/pics/transBlack.png);
-                        border: 1px solid #BBB;
-                        border-radius:8px;
-                    }
-
-                    QWidget#Ui_PartShrinkWidget {
-                        background-image: url(:/gui/pics/trans.png);
-                    }
-        """)
-        self.operations = []
-        QObject.connect(self.ui.partitions, SIGNAL("currentRowChanged(int)"), self.updateSpin)
-        self.connect(self.ui.shrinkButton, SIGNAL("clicked()"), self.slotShrink)
-        self.connect(self.ui.cancelButton, SIGNAL("clicked()"), self.hide)
-        self.fillPartitions()
-
-    def check(self):
-        return self.ui.partitions.count() == 0
-
-    def fillPartitions(self):
-        biggest = -1
-        i = -1
-        for partition in self.parent.storage.partitions:
-            if not partition.exists:
-                continue
-
-            if partition.resizable and partition.format.resizable:
-                entry = PartitionItem(self.ui.partitions, partition)
-
-                i += 1
-                if biggest == -1:
-                    biggest = i
-                else:
-                    current = self.ui.partitions.item(biggest).partition
-                    if partition.format.targetSize > current.format.targetSize:
-                        biggest = i
-
-        if biggest > -1:
-            self.ui.partitions.setCurrentRow(biggest)
-
-    def updateSpin(self, index):
-        request = self.ui.partitions.item(index).partition
-        try:
-            reqlower = long(math.ceil(request.format.minSize))
-        except FilesystemError, msg:
-            raise GUIError, msg
-        else:
-            requpper = long(math.floor(request.format.currentSize))
-
-        self.ui.shrinkMB.setMinimum(max(1, reqlower))
-        self.ui.shrinkMB.setMaximum(requpper)
-        self.ui.shrinkMB.setValue(reqlower)
-        self.ui.shrinkMBSlider.setMinimum(max(1, reqlower))
-        self.ui.shrinkMBSlider.setMaximum(requpper)
-        self.ui.shrinkMBSlider.setValue(reqlower)
-
-    def slotShrink(self):
-        self.hide()
-        runResize = True
-        while runResize:
-           index = self.ui.partitions.currentRow()
-           request = self.ui.partitions.item(index).partition
-           newsize = self.ui.shrinkMB.value()
-           try:
-               self.operations.append(OperationResizeFormat(request, newsize))
-           except ValueError as e:
-               self.parent.intf.messageWindow(_("Resize FileSystem Error"),
-                                              _("%(device)s: %(msg)s") %
-                                              {'device': request.format.device, 'msg': e.message},
-                                              type="warning", customIcon="error")
-               continue
-
-           try:
-               self.operations.append(OperationResizeDevice(request, newsize))
-           except ValueError as e:
-               self.parent.intf.messageWindow(_("Resize Device Error"),
-                                              _("%(name)s: %(msg)s") %
-                                               {'name': request.name, 'msg': e.message},
-                                               type="warning", customIcon="error")
-               continue
-
-           runResize = False
-
-        self.hide()
-
 class DrivesListItem(QtGui.QListWidgetItem):
     def __init__(self, parent, widget):
         QtGui.QListWidgetItem.__init__(self, parent)
@@ -155,13 +47,6 @@ class DriveItem(QtGui.QWidget, Ui_DiskItem):
         self.labelInfo.setText("%s\n%s GB" % (drive.model, str(int(drive.size) / 1024)))
         #self.drive = drive
         #self.parent = parent
-
-class PartitionItem(QtGui.QListWidgetItem):
-
-    def __init__(self, parent, partition):
-        text = u"%s (%s, %d MB)" % (partition.name, partition.format.name, math.floor(partition.format.size))
-        QtGui.QListWidgetItem.__init__(self, text, parent)
-        self.partition = partition
 
 
 class Widget(QtGui.QWidget, ScreenWidget):
@@ -184,7 +69,7 @@ Pardus create a new partition for installation.</p>
         self.ui = Ui_DriveSelectionWidget()
         self.ui.setupUi(self)
         self.storage = ctx.storage
-        self.intf = ctx.yali
+        self.intf = ctx.interface
         self.shrinkOperations = None
         self.clearPartDisks = None
 
@@ -203,27 +88,6 @@ Pardus create a new partition for installation.</p>
             ctx.mainScreen.enableNext()
         else:
             ctx.mainScreen.disableNext()
-
-    def typeChanged(self, index):
-        if index != self.createCustom:
-            self.ui.review.setEnabled(True)
-            if index == self.shrinkCurrent:
-                shrinkwidget = ShrinkWidget(self)
-                if shrinkwidget.check():
-                    self.intf.messageWindow(_("Error"),
-                                            _("No partitions are available to resize.Only physical\n"
-                                              "partitions with specific filesystems can be resized."),
-                                            type="warning", customIcon="error")
-                else:
-                    shrinkwidget.show()
-                    if shrinkwidget.operations:
-                        self.shrinkOperations = shrinkwidget.operations
-                    else:
-                        return False
-        else:
-            self.ui.review.setEnabled(False)
-
-        ctx.mainScreen.enableNext()
 
     def fillDrives(self):
         disks = filter(lambda d: not d.format.hidden, self.storage.disks)
