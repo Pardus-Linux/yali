@@ -169,7 +169,7 @@ class Yali:
         ctx.mainScreen.disableNext()
         ctx.mainScreen.disableBack()
 
-        self.info.update(_("Starting validation..."))
+        ctx.interface.informationWindow.update(_("Starting validation"))
         class PisiUI(pisi.ui.UI):
             def notify(self, event, **keywords):
                 pass
@@ -187,7 +187,7 @@ class Yali:
         for pkg_name in pkg_names:
             cur += 1
             ctx.logger.debug("Validating %s " % pkg_name)
-            self.info.update(_("Validating %s") % pkg_name)
+            ctx.interface.informationWindow.update(_("Validating %s") % pkg_name)
             if self.checkCDStop:
                 continue
             try:
@@ -208,7 +208,7 @@ class Yali:
 
 
         if not self.checkCDStop:
-            ctx.interface.informationWindow.update("Validation succeeded. You can proceed with the installation.")
+            ctx.interface.informationWindow.updat(_('<font color="#FFF"><b>Validation succeeded. You can proceed with the installation.</b></font>'))
             rootWidget.checkButton.setText(_("Validate Integrity"))
         else:
             ctx.interface.informationWindow.hide()
@@ -219,7 +219,7 @@ class Yali:
         ctx.mainScreen.enableNext()
         ctx.mainScreen.enableBack()
 
-        self.info.hide()
+        ctx.interface.informationWindow.hide()
 
     def storageComplete(self):
         title = None
