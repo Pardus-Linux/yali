@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import os
+import shutil
 import subprocess
 import struct
 import string
@@ -319,8 +320,7 @@ def stop_dbus():
 
     # store log content
     ctx.logger.debug("Finalize Chroot called this is the last step for logs ..")
-    #if ctx.debugEnabled:
-    #    open(ctx.consts.log_file,"w").write(str(ctx.logger.traceback.plainLogs))
+    shutil.copyfile("/var/log/yali.log", ctx.consts.log_file)
 
     # store session log as kahya xml
     open(ctx.consts.session_file,"w").write(str(ctx.installData.sessionLog))
