@@ -155,7 +155,6 @@ class Yali:
 
         self.install_type = install_type
         self.checkCDStop = True
-        self._inconsistentLVMAnswers = {}
 
     def getPlugin(self, p):
         try:
