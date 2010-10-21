@@ -16,8 +16,8 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
+from PyQt4 import QtCore
 from PyQt4 import QtGui
-from PyQt4.QtCore import *
 
 import yali.util
 import yali.context as ctx

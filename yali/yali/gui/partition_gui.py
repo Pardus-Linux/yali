@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 import os
 import copy
+import parted
 import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
@@ -205,7 +206,7 @@ class PartitionWidget(QtGui.QWidget, Ui_PartitionWidget):
         self.isNew = isNew
 
         if not self.origrequest.exists:
-            if self.parent.partedPartition.type & parted.PARTITION_LOGICAL:
+            if self.parent.partedPartition and self.parent.partedPartition.type & parted.PARTITION_LOGICAL:
                 self.primaryCheck.hide()
 
         # Mount Point entry
