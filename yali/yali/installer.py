@@ -207,7 +207,7 @@ class Yali:
 
 
         if not self.checkCDStop:
-            ctx.interface.informationWindow.updat(_('<font color="#FFF"><b>Validation succeeded. You can proceed with the installation.</b></font>'))
+            ctx.interface.informationWindow.update(_('<font color="#FFF"><b>Validation succeeded. You can proceed with the installation.</b></font>'))
             rootWidget.checkButton.setText(_("Validate Integrity"))
         else:
             ctx.interface.informationWindow.hide()
