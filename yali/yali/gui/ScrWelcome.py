@@ -27,7 +27,7 @@ from yali.gui.YaliDialog import Dialog
 ##
 # Welcome screen is the first screen to be shown.
 class Widget(QtGui.QWidget, ScreenWidget):
-    title = _("Welcome to Pardus 2011 Alpha2")
+    title = _("Welcome to %s") % yali.util.product_name()
     # FIXME: Use system's pardus release to gather version info and use it if needed
     icon = "applications-other"
     help = _("""
