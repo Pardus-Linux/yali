@@ -12,10 +12,16 @@ from yali.gui.YaliDialog import MessageWindow, InformationWindow, ProgressWindow
 
 class Interface(object):
     def __init__(self):
-        self.informationWindow = InformationWindow()
+        self._informationWindow = None
         self._warnedUnusedRaidMembers = []
         self._initLabelAnswers = {}
         self._inconsistentLVMAnswers = {}
+
+    @property
+    def informationWindow(self):
+        if not self._informationWindow:
+            self._informationWindow = InformationWindow()
+        return self._informationWindow
 
     def progressWindow(self, message):
         return ProgressWindow(message)
