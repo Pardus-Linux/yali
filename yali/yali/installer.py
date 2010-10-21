@@ -168,7 +168,10 @@ class Yali:
         ctx.mainScreen.disableNext()
         ctx.mainScreen.disableBack()
 
-        ctx.interface.informationWindow.update(_("Starting validation"))
+        rootWidget.validationSucceedBox.hide()
+        rootWidget.validationFailBox.hide()
+        rootWidget.validationBox.show()
+        #ctx.interface.informationWindow.update(_("Starting validation"))
         class PisiUI(pisi.ui.UI):
             def notify(self, event, **keywords):
                 pass
@@ -183,10 +186,11 @@ class Yali:
         rootWidget.progressBar.setMaximum(len(pkg_names))
 
         cur = 0
+        self.flag = 0
         for pkg_name in pkg_names:
             cur += 1
             ctx.logger.debug("Validating %s " % pkg_name)
-            ctx.interface.informationWindow.update(_("Validating %s") % pkg_name)
+            #ctx.interface.informationWindow.update(_("Validating %s") % pkg_name)
             if self.checkCDStop:
                 continue
             try:
@@ -194,21 +198,28 @@ class Yali:
                 rootWidget.progressBar.setValue(cur)
             except:
                 rc  = ctx.interface.messageWindow(_("Warning"),
-                                                  _("Validation of installation packages failed."
+                                                  _("Validation of %s package failed."
                                                     "Please remaster your installation medium and"
-                                                    "reboot."),
+                                                    "reboot.") % pkg_name,
                                                   type="custom", customIcon="error",
-                                                  customButtons=[_("Go Forward"), _("Reboot")],
-                                                  default=1)
+                                                  customButtons=[_("Skip Validation"), _("Skip Package"), _("Reboot")],
+                                                  default=0)
+                self.flag = 1
                 if not rc:
-                    ctx.mainScreen.enableBack()
+                    rootWidget.validationBox.hide()
+                    rootWidget.validationFailBox.show()
+                    ctx.mainScreen.enableNext()
+                    break
+                elif rc ==1:
+                    continue
                 else:
                     yali.util.reboot()
 
 
-        if not self.checkCDStop:
+        if not self.checkCDStop and self.flag == 0:
             ctx.interface.informationWindow.update(_('<font color="#FFF"><b>Validation succeeded. You can proceed with the installation.</b></font>'))
-            rootWidget.checkButton.setText(_("Validate Integrity"))
+            rootWidget.validationSucceedBox.show()
+            rootWidget.validationBox.hide()
         else:
             ctx.interface.informationWindow.hide()
             rootWidget.progressBar.setValue(0)
