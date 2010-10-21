@@ -37,6 +37,8 @@ If you are using an optical installation medium, try burning the installation im
         self.ui = Ui_CheckCDWidget()
         self.ui.setupUi(self)
 
+        self.ui.validationSucceedBox.hide()
+        self.ui.validationFailBox.hide()
         self.ui.progressBar.hide()
 
         self.connect(self.ui.checkButton, SIGNAL("clicked()"),self.slotCheckCD)
