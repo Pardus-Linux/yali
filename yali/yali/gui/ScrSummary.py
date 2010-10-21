@@ -225,14 +225,14 @@ Here you can see your install options before installation starts.
             ctx.storage.devicetree.teardownAll()
         else:
             ctx.mainScreen.enableBack()
-            return
+            return False
 
         ctx.installData.installAllLangPacks = self.ui.installAllLangPacks.isChecked()
         ctx.mainScreen.processEvents()
 
         if ctx.options.dryRun == True:
             ctx.logger.debug("dryRun activated Yali stopped")
-            return
+            return False
 
         # Auto Partitioning
         #if not ctx.storage.storageset.swapDevices:
