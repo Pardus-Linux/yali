@@ -16,7 +16,7 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-from PyQt4 import QtCore
+from PyQt4.QtCore import SIGNAL
 from PyQt4 import QtGui
 
 import yali.util
