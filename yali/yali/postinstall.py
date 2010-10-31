@@ -206,8 +206,9 @@ def setKeymap():
     yali.localeutils.setKeymap(keymap["xkblayout"], keymap["xkbvariant"], chroot=True)
 
 def migrateXorgConf():
-    if not ctx.yali.install_type == YALI_FIRSTBOOT:
-        yali.postinstall.migrateXorg()
+    # if installation type is not First Boot
+    if not ctx.flags.install_type == 3:
+        migrateXorg()
         ctx.logger.debug("xorg.conf and other files merged.")
     return True
 
@@ -239,7 +240,8 @@ def copyPisiIndex():
 
 def setPackages():
     global bus
-    if ctx.yali.install_type == YALI_OEMINSTALL:
+    # if installation type is OEM Install
+    if ctx.flags.install_type == 2:
         ctx.logger.debug("OemInstall selected.")
         try:
             obj = bus.get_object("tr.org.pardus.comar", "/package/yali")
@@ -250,7 +252,8 @@ def setPackages():
         except:
             ctx.logger.debug("Dbus error: package doesnt exist !")
             return False
-    elif ctx.yali.install_type in [YALI_INSTALL, YALI_FIRSTBOOT]:
+    # if installation type is Base Install or First boot
+    elif ctx.flags.install_type == 1 or ctx.flags.install_type == 3:
         try:
             obj = bus.get_object("tr.org.pardus.comar", "/package/yali")
             obj.setState("off", dbus_interface="tr.org.pardus.comar.System.Service")
@@ -300,3 +303,33 @@ def writeInitramfsConf(parameters=[]):
 #        except OSError, msg:
 #                ctx.logger.debug("Unexpected error: %s" % msg)
 
+def fillFstab():
+    ctx.logger.debug("Generating fstab configuration file")
+    ctx.storage.storageset.write(ctx.consts.target_dir)
+
+def setupBootLooder():
+    ctx.bootloader.setup()
+    ctx.logger.debug("Setup bootloader")
+
+def writeBootLooder():
+    ctx.bootloader.write()
+    ctx.logger.debug("Writing grub.conf and devicemap")
+
+def installBootloader():
+    #FIXME:Rewrite this to re-fix with new storage api
+    # BUG:#11255 normal user doesn't mount /mnt/archive directory. 
+    # We set new formatted partition priveleges as user=root group=disk and change mod as 0770
+    # Check archive partition type
+    #archiveRequest = partrequests.searchPartTypeAndReqType(parttype.archive, request.mountRequestType)
+    #if archiveRequest:
+    #    ctx.logger.debug("Archive type request found!")
+    #    yali.postinstall.setPartitionPrivileges(archiveRequest, 0770, 0, 6)
+
+    # Umount system paths
+    ctx.storage.storageset.umountFilesystems()
+    ctx.logger.debug("Unmount system paths")
+    rc = ctx.bootloader.install()
+    if rc:
+        ctx.logger.debug("Bootloader installation failed!")
+    else:
+        ctx.logger.debug("Bootloader installed")
