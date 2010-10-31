@@ -11,23 +11,22 @@
 #
 import time
 import gettext
+_ = gettext.translation('yali', fallback=True).ugettext
 
-__trans = gettext.translation('yali', fallback=True)
-_ = __trans.ugettext
-
-from PyQt4 import QtGui
-from PyQt4.QtCore import *
+from PyQt4.Qt import QWidget, SIGNAL, QTimer, QString
 
 import yali.util
 import yali.context as ctx
-from yali.installdata import YALI_PLUGIN, YALI_INSTALL, YALI_DVDINSTALL, methodInstallAutomatic, defaultKernel, paeKernel, rtKernel
-from yali.gui.ScreenWidget import ScreenWidget
+import yali.storage
+from yali.installdata import methodInstallAutomatic, defaultKernel, paeKernel, rtKernel
+from yali.gui import ScreenWidget, register_gui_screen
 from yali.gui.YaliDialog import QuestionDialog
 from yali.gui.Ui.summarywidget import Ui_SummaryWidget
 from yali.storage.partitioning import CLEARPART_TYPE_ALL, CLEARPART_TYPE_LINUX, CLEARPART_TYPE_NONE
 from yali.storage.bootloader import BOOT_TYPE_NONE
 
-class Widget(QtGui.QWidget, ScreenWidget):
+class Widget(QWidget, ScreenWidget):
+    type = "summary"
     title = _("Summary")
     #icon = "iconKeyboard"
     helpSummary = _("")
@@ -37,13 +36,14 @@ Here you can see your install options before installation starts.
 </p>
 ''')
 
-    def __init__(self, *args):
-        QtGui.QWidget.__init__(self,None)
+    def __init__(self):
+        QWidget.__init__(self, None)
         self.ui = Ui_SummaryWidget()
         self.ui.setupUi(self)
 
         self.ui.content.setText("")
         self.timer = QTimer()
+        self.start_time = 0
 
         try:
             self.connect(self.timer, SIGNAL("timeout()"), self.updateCounter)
@@ -57,7 +57,7 @@ Here you can see your install options before installation starts.
             yali.util.reboot()
 
     def startBombCounter(self):
-        self.startTime = int(time.time())
+        self.start_time = int(time.time())
         self.timer.start(1000)
 
     def backCheck(self):
@@ -67,7 +67,7 @@ Here you can see your install options before installation starts.
         return True
 
     def updateCounter(self):
-        remain = 20 - (int(time.time()) - self.startTime)
+        remain = 20 - (int(time.time()) - self.start_time)
         ctx.interface.informationWindow.update(_("Installation starts in <b>%s</b> seconds") % remain)
         if remain <= 0:
             self.timer.stop()
@@ -90,17 +90,6 @@ Here you can see your install options before installation starts.
         content = QString("")
 
         content.append("""<html><body><ul>""")
-
-        # Plugin Summary
-        if ctx.yali.install_type == YALI_PLUGIN:
-            try:
-                _summary = ctx.yali.plugin.config.getSummary()
-                content.append(subject % _summary["subject"])
-                for _item in _summary["items"]:
-                    content.append(item % _item)
-                content.append(end)
-            except:
-                pass
 
         # Keyboard Layout
         if ctx.installData.keyData:
@@ -136,10 +125,8 @@ Here you can see your install options before installation starts.
             content.append(end)
 
         # Partition
-        self.resizeAction = ctx.storage.devicetree.findOperations(type="resize")
         content.append(subject % _("Partition Settings"))
         if ctx.storage.doAutoPart:
-            summary = ""
             devices = ""
             for disk in ctx.storage.clearPartDisks:
                 device = ctx.storage.devicetree.getDeviceByName(disk)
@@ -181,8 +168,8 @@ Here you can see your install options before installation starts.
 
         content.append(end)
 
-        if ctx.yali.install_type == YALI_DVDINSTALL:
-            # DVD INSTALL
+        if ctx.flags.collection:
+            # Collection INSTALL
             content.append(subject % _("Package Installation Settings"))
             #installation_str = _("Installation Collection <b>%s</b> installed.")
             if ctx.installData.autoInstallationMethod == methodInstallAutomatic:
@@ -205,11 +192,6 @@ Here you can see your install options before installation starts.
         self.ui.content.setHtml(content)
 
     def execute(self):
-
-        # Just store normal installation session
-        #if ctx.yali.install_type == YALI_INSTALL:
-        #    ctx.yali.backupInstallData()
-
         self.timer.stop()
 
         rc = ctx.interface.messageWindow(_("Confirm"),
@@ -230,7 +212,7 @@ Here you can see your install options before installation starts.
         ctx.installData.installAllLangPacks = self.ui.installAllLangPacks.isChecked()
         ctx.mainScreen.processEvents()
 
-        if ctx.options.dryRun == True:
+        if ctx.flags.dryRun == True:
             ctx.logger.debug("dryRun activated Yali stopped")
             return False
 
@@ -252,7 +234,7 @@ Here you can see your install options before installation starts.
 
         ctx.interface.informationWindow.hide()
 
-        ctx.yali.storageComplete()
+        yali.storage.storageComplete()
         ctx.interface.informationWindow.update(_("Partitioning finished..."))
         ctx.logger.debug("Partitioning finished")
         ctx.interface.informationWindow.hide()
@@ -260,3 +242,5 @@ Here you can see your install options before installation starts.
         ctx.mainScreen.stepIncrement = 1
         ctx.mainScreen.ui.buttonNext.setText(_("Next"))
         return True
+
+register_gui_screen(Widget)
