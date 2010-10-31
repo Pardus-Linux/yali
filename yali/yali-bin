@@ -11,35 +11,149 @@
 # Please read the COPYING file.
 #
 import os
-import locale
 import gettext
-
-__trans = gettext.translation('yali', fallback=True)
-_ = __trans.ugettext
+_ = gettext.translation('yali', fallback=True).ugettext
 
 import yali
-import yali.util
 import yali.context as ctx
-from yali.constants import consts
 
+def loadModules():
+    os.system("modprobe -bqa dm-mod raid0 raid1 raid456 raid10")
 
-def try_umount_target():
-    for mpoint in ("/home", "/dev", "/proc", "/sys", ""):
-        yali.util.umount(consts.target_dir + mpoint, removeDir=False)
+def setupEnvironment():
+    import locale
+    locale.setlocale(locale.LC_ALL, "")
+    os.environ['LC_NUMERIC'] = 'C'
+    os.environ["LVM_SUPPRESS_FD_WARNINGS"] = "1"
+
+def setupExceptionHandler():
+    import sys
+    import signal
+    import traceback
+    import cStringIO
+    def signal_handler(sig, frame):
+        if sig == signal.SIGTERM:
+            sys.exit(1)
+    def exception_handler(exception, value, error_traceback):
+        """ YALI exception handler for showing exceptions in GUI """
+        signal.signal(signal.SIGINT, signal.SIG_IGN)   # disable further interrupts
+
+        sio = cStringIO.StringIO()
+
+        sio.write(_("Unhandled internal YALI exception.\n"
+                    "Please file a bug report to <http://bugs.pardus.org.tr>."))
+
+        _value = ''
+        for arg in value.args:
+            _value += str(arg) + '\n'
+
+        sio.write(_value)
+        sio.write(str(exception))
+        sio.write('\n\n')
+        sio.write(_("Backtrace:"))
+        sio.write('\n')
+        traceback.print_tb(error_traceback, None, sio)
+
+        sio.seek(0)
+
+        ctx.logger.debug("Unhandled internal YALI exception:%s" % unicode(sio.read()))
+
+        if ctx.interface:
+            ctx.interface.exceptionWindow(exception, unicode(sio.read()))
+
+    sys.excepthook = exception_handler
+    signal.signal(signal.SIGTERM, signal_handler)
+
+def init_gui_runner():
+    import yali.gui
+    import yali.gui.runner
+    interface = yali.gui.runner.Runner()
+    ctx.logger.debug("Install type is %s" % yali.gui.STEP_TYPE_STRINGS[ctx.flags.install_type])
+    interface.setSteps(yali.gui.get_screens(ctx.flags.install_type))
+    interface.run()
+
+def parseOptions(argv=None):
+    from optparse import OptionParser
+    parser = OptionParser()
+    parser.add_option("-d", "--debug", dest="debug",
+                      action="store_true", default="True",
+                      help="enable debug")
+    parser.add_option("--dryRun", dest="dryRun",
+                      action="store_true", default="False",
+                      help="only show the result")
+    parser.add_option("--baseonly", dest="baseonly",
+                      action="store_true", default="False",
+                      help="install base system packages")
+    parser.add_option("--colllection", dest="collection",
+                      action="store_true", default="False",
+                      help="install collection type package"
+                           "installation if collections exist")
+    parser.add_option("--system", dest="install_type",
+                      action="store_const", const= 1,
+                      help="start system installation")
+    parser.add_option("--oem", dest="install_type",
+                      action="store_const", const=2,
+                      help="start Yali with oem mode")
+    parser.add_option("--firstBoot", dest="install_type",
+                      action="store_const", const=3,
+                      help="start with first boot options")
+    parser.add_option("--rescue", dest="install_type",
+                      action="store_const", const=4,
+                      help="start Yali with rescue mode")
+    parser.add_option("--kahya", dest="kahya",
+                      help="run with Kahya file", metavar="FILE")
+    parser.add_option("-s", "--startFrom", dest="screen",
+                      help="start from the given screen (num)", type="int", default=0)
+    parser.add_option("-p", "--plugin", dest="plugin",
+                      help="load given plugin", type="str", default=None)
+    parser.add_option("-t", "--theme", dest="theme",
+                      help="load given theme", type="str", default="corporate")
+
+    return parser.parse_args(argv)
 
 def main():
-    if not os.path.exists("/etc/yali-is-firstboot"):
-        try:
-            try_umount_target()
-        except ValueError, msg:
-            ctx.logger.debug(_(msg))
+    loadModules()
+    setupEnvironment()
+    setupExceptionHandler()
 
-    runner = yali.default_runner()
-    runner.run()
+    ctx.logger.debug("Yali has been started")
+
+    (options, args) = parseOptions()
+
+    if options.debug:
+        ctx.flags.debug = True
+
+    if options.dryRun:
+        ctx.flags.dryRun = True
+
+    ctx.flags.install_type = options.install_type
+
+    if options.collection:
+        ctx.flags.collection = True
+
+    if options.baseonly:
+        ctx.flags.baseonly = True
+
+    if options.kahya:
+        ctx.flags.kahya = True
+        ctx.flags.kahyaFile = options.kahya
+
+    if options.screen:
+        ctx.flags.startup = options.screen
+
+    if options.theme:
+        ctx.flags.stylesheet = os.path.join(ctx.consts.data_dir, "data/%s.qss" % options.theme)
+
+    if not ctx.storage:
+        from yali.storage import Storage
+        ctx.storage = Storage()
+
+    if not ctx.bootloader:
+        from yali.storage.bootloader import BootLoader
+        ctx.bootloader = BootLoader()
+
+
+    init_gui_runner()
 
 if __name__ == "__main__":
-    locale.setlocale(locale.LC_ALL, "")
-    os.system("modprobe -bqa dm-mod raid0 raid1 raid456 raid10")
-    yali.init_logging("/var/log")
     main()
-
