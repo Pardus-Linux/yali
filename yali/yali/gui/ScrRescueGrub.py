@@ -12,21 +12,18 @@
 
 import os
 import gettext
-__trans = gettext.translation('yali', fallback=True)
-_ = __trans.ugettext
+_ = gettext.translation('yali', fallback=True).ugettext
 
-from PyQt4 import QtGui
-from PyQt4.QtCore import SIGNAL
+from PyQt4.Qt import QWidget, SIGNAL, QListWidgetItem
 
 import yali.storage
 from yali.installdata import *
-from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui import ScreenWidget, register_gui_screen
 from yali.gui.Ui.rescuegrubwidget import Ui_RescueGrubWidget
 import yali.context as ctx
 
-##
-# BootLoader screen.
-class Widget(QtGui.QWidget, ScreenWidget):
+class Widget(QWidget, ScreenWidget):
+    type = "grubRescue"
     title = _("Repair the Bootloader")
     icon = "iconBootloader"
     helpSummary = _("")
@@ -49,7 +46,7 @@ You can always choose another installation method if you know what you are doing
 """)
 
     def __init__(self, *args):
-        QtGui.QWidget.__init__(self,None)
+        QWidget.__init__(self,None)
         self.ui = Ui_RescueGrubWidget()
         self.ui.setupUi(self)
 
@@ -101,11 +98,13 @@ You can always choose another installation method if you know what you are doing
         ctx.mainScreen.stepIncrement = 3
         return True
 
-class DriveItem(QtGui.QListWidgetItem):
+class DriveItem(QListWidgetItem):
     def __init__(self, parent, drive):
         text = u"%s on %s (%s) MB" % (drive.model, drive.name, str(int(drive.size)))
-        QtGui.QListWidgetItem.__init__(self, text, parent)
+        QListWidgetItem.__init__(self, text, parent)
         self.drive = drive
 
     def setBootable(self):
         self.setText(_("%s (Boot Disk)" % self.text))
+
+register_gui_screen(Widget)

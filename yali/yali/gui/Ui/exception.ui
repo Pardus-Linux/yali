@@ -27,7 +27,7 @@
       <string>font:bold;</string>
      </property>
      <property name="text">
-      <string>Error</string>
+      <string>Unhandled exception occured</string>
      </property>
     </widget>
    </item>

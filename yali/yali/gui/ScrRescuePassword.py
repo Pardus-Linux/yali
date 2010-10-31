@@ -15,22 +15,19 @@ import dbus
 import pisi
 import gettext
 import pardus.xorg
-__trans = gettext.translation('yali', fallback=True)
-_ = __trans.ugettext
+_ = gettext.translation('yali', fallback=True).ugettext
 
-from PyQt4 import QtGui
-from PyQt4.QtCore import SIGNAL, QEvent, QObject
+from PyQt4.Qt import QWidget, SIGNAL, QListWidgetItem, QIcon
 
 import yali.util
 import yali.postinstall
 import yali.context as ctx
 from yali.gui.YaliDialog import InfoDialog
-from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui import ScreenWidget, register_gui_screen
 from yali.gui.Ui.rescuepasswordwidget import Ui_RescuePasswordWidget
 
-##
-# BootLoader screen.
-class Widget(QtGui.QWidget, ScreenWidget):
+class Widget(QWidget, ScreenWidget):
+    type = "passwordRescue"
     title = _("Reset Forgotten Passwords")
     icon = "iconInstall"
     helpSummary = _("")
@@ -41,7 +38,7 @@ Here you can reset..
 """)
 
     def __init__(self, *args):
-        QtGui.QWidget.__init__(self,None)
+        QWidget.__init__(self,None)
         self.ui = Ui_RescuePasswordWidget()
         self.ui.setupUi(self)
 
@@ -131,7 +128,7 @@ Here you can reset..
         ctx.mainScreen.stepIncrement = 3
         return True
 
-class UserItem(QtGui.QListWidgetItem):
+class UserItem(QListWidgetItem):
     def __init__(self, parent, user):
 
         name = user[2]
@@ -140,7 +137,7 @@ class UserItem(QtGui.QListWidgetItem):
             icon = "root"
             name = _("Super User")
 
-        QtGui.QListWidgetItem.__init__(self, QtGui.QIcon(":/gui/pics/user_%s.png" % icon),
+        QListWidgetItem.__init__(self, QIcon(":/gui/pics/user_%s.png" % icon),
                                              "%s (%s)" % (name,user[1]),
                                              parent)
         self._user = user
@@ -148,3 +145,4 @@ class UserItem(QtGui.QListWidgetItem):
     def getInfo(self):
         return self._user
 
+register_gui_screen(Widget)

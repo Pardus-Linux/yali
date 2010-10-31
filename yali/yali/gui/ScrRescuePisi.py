@@ -14,23 +14,20 @@ import os
 import dbus
 import pisi
 import gettext
-__trans = gettext.translation('yali', fallback=True)
-_ = __trans.ugettext
+_ = gettext.translation('yali', fallback=True).ugettext
 
-from PyQt4 import QtGui
-from PyQt4.QtCore import SIGNAL, QEvent, QObject
+from PyQt4.Qt import QWidget, SIGNAL, QListWidgetItem, QIcon, QObject, QEvent
 
 import yali.util
 import yali.pisiiface
 import yali.postinstall
 import yali.context as ctx
-from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui import ScreenWidget, register_gui_screen
 from yali.gui.Ui.rescuepisiwidget import Ui_RescuePisiWidget
 from yali.gui.Ui.connectionlist import Ui_connectionWidget
 
-##
-# BootLoader screen.
-class Widget(QtGui.QWidget, ScreenWidget):
+class Widget(QWidget, ScreenWidget):
+    type = "pisiRescue"
     title = _("Take Back Your System")
     icon = "iconInstall"
     helpSummary = _("")
@@ -47,7 +44,7 @@ a previous system state.
 """)
 
     def __init__(self, *args):
-        QtGui.QWidget.__init__(self,None)
+        QWidget.__init__(self,None)
         self.ui = Ui_RescuePisiWidget()
         self.ui.setupUi(self)
         self.steps = YaliSteps()
@@ -128,17 +125,17 @@ class PisiEvent(QEvent):
     def data(self):
         return self._data
 
-class HistoryItem(QtGui.QListWidgetItem):
+class HistoryItem(QListWidgetItem):
     def __init__(self, parent, info):
-        QtGui.QListWidgetItem.__init__(self, _("Operation %s : %s - %s") % (info.no, info.date, info.type), parent)
+        QListWidgetItem.__init__(self, _("Operation %s : %s - %s") % (info.no, info.date, info.type), parent)
         self._info = info
 
     def getInfo(self):
         return self._info
 
-class ConnectionItem(QtGui.QListWidgetItem):
+class ConnectionItem(QListWidgetItem):
     def __init__(self, parent, connection, package):
-        QtGui.QListWidgetItem.__init__(self, QtGui.QIcon(":/gui/pics/%s.png" % package), connection, parent)
+        QListWidgetItem.__init__(self, QIcon(":/gui/pics/%s.png" % package), connection, parent)
         self._connection = [connection, package]
 
     def getConnection(self):
@@ -150,10 +147,10 @@ class ConnectionItem(QtGui.QListWidgetItem):
     def connect(self):
         connectTo(self.getPackage(), self.getConnection())
 
-class ConnectionWidget(QtGui.QWidget):
+class ConnectionWidget(QWidget):
 
     def __init__(self, rootWidget):
-        QtGui.QWidget.__init__(self, ctx.mainScreen)
+        QWidget.__init__(self, ctx.mainScreen)
         self.ui = Ui_connectionWidget()
         self.ui.setupUi(self)
         self.setStyleSheet("""
@@ -203,3 +200,5 @@ class ConnectionWidget(QtGui.QWidget):
 
             if self.needsExecute:
                 self.rootWidget.execute_(True)
+
+register_gui_screen(Widget)

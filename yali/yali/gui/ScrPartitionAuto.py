@@ -9,25 +9,22 @@
 #
 # Please read the COPYING file.
 #
-import sys
-import math
 import gettext
 
-__trans = gettext.translation('yali', fallback=True)
-_ = __trans.ugettext
+_ = gettext.translation('yali', fallback=True).ugettext
 
-from PyQt4 import QtGui
-from PyQt4.QtCore import *
+from PyQt4.Qt import QWidget, SIGNAL
 
 import yali.context as ctx
-from yali.gui.ScreenWidget import ScreenWidget, GUIError
+from yali.gui import ScreenWidget, register_gui_screen
 from yali.gui.Ui.autopartwidget import Ui_AutoPartWidget
 from yali.gui.shrink_gui import ShrinkEditor
 from yali.storage.partitioning import CLEARPART_TYPE_ALL, CLEARPART_TYPE_LINUX, CLEARPART_TYPE_NONE, doAutoPartition, defaultPartitioning
 
-useAllSpace, shrinkCurrent, useFreeSpace, createCustom = range(4)
+USE_ALL_SPACE, REPLACE_EXISTING_LINUX, SHRINK_CURRENT, FREE_SPACE, CUSTOM = range(5)
 
-class Widget(QtGui.QWidget, ScreenWidget):
+class Widget(QWidget, ScreenWidget):
+    type = "automaticPartitioning"
     title = _("Select Partitioning Method")
     icon = "iconPartition"
     helpSummary = _("Partitioning summary")
@@ -43,21 +40,20 @@ and install Pardus. If you like, you can do the partitioning manually or make
 Pardus create a new partition for installation.</p>
 ''')
 
-    def __init__(self, *args):
-        QtGui.QWidget.__init__(self,None)
+    def __init__(self):
+        QWidget.__init__(self, None)
         self.ui = Ui_AutoPartWidget()
         self.ui.setupUi(self)
         self.storage = ctx.storage
         self.intf = ctx.interface
-        self.shrinkOperations = None
         self.connect(self.ui.autopartType, SIGNAL("currentRowChanged(int)"), self.typeChanged)
 
     def typeChanged(self, index):
-        if index == shrinkCurrent:
-            resizablePartitions = [partition for partition in self.storage.partitions if partition.exists and
+        if index == SHRINK_CURRENT:
+            resizable_partitions = [partition for partition in self.storage.partitions if partition.exists and
                                                                                          partition.resizable and
                                                                                          partition.format.resizable]
-            if not len(resizablePartitions):
+            if not len(resizable_partitions):
                 self.intf.messageWindow(_("Warning"),
                                         _("No partitions are available to resize.Only physical\n"
                                           "partitions with specific filesystems can be resized."),
@@ -68,11 +64,11 @@ Pardus create a new partition for installation.</p>
 
     def setPartitioningType(self):
         if self.storage.clearPartType is None:
-            self.ui.autopartType.setCurrentRow(useFreeSpace)
+            self.ui.autopartType.setCurrentRow(REPLACE_EXISTING_LINUX)
         elif self.storage.clearPartType == CLEARPART_TYPE_NONE:
-            self.ui.autopartType.setCurrentRow(shrinkCurrent)
+            self.ui.autopartType.setCurrentRow(FREE_SPACE)
         elif self.storage.clearPartType == CLEARPART_TYPE_ALL:
-            self.ui.autopartType.setCurrentRow(useAllSpace)
+            self.ui.autopartType.setCurrentRow(USE_ALL_SPACE)
         else:
             self.ui.autopartType.setCurrentRow(createCustom)
 
@@ -89,7 +85,7 @@ Pardus create a new partition for installation.</p>
             return rc
 
     def nextCheck(self):
-        if self.ui.autopartType.currentRow() == createCustom:
+        if self.ui.autopartType.currentRow() == CUSTOM:
             self.storage.clearPartType = CLEARPART_TYPE_NONE
             self.storage.doAutoPart = False
             #If user return back next screen or choose not permitted
@@ -99,7 +95,7 @@ Pardus create a new partition for installation.</p>
             return True
         else:
             self.storage.doAutoPart = True
-            if self.ui.autopartType.currentRow() == shrinkCurrent:
+            if self.ui.autopartType.currentRow() == SHRINK_CURRENT:
                 shrinkeditor = ShrinkEditor(self, self.storage)
                 rc, operations = shrinkeditor.run()
                 if rc:
@@ -128,3 +124,5 @@ Pardus create a new partition for installation.</p>
             ctx.mainScreen.stepIncrement = 1
 
         return True
+
+register_gui_screen(Widget)

@@ -11,15 +11,13 @@
 #
 
 import gettext
-__trans = gettext.translation('yali', fallback=True)
-_ = __trans.ugettext
+_ = gettext.translation('yali', fallback=True).ugettext
 
-from PyQt4 import QtGui
-from PyQt4.QtCore import *
+from PyQt4.Qt import QWidget, SIGNAL
 
 import yali.sysutils
 from yali.installdata import *
-from yali.gui.ScreenWidget import ScreenWidget, GUIError
+from yali.gui import ScreenWidget, GUIError, register_gui_screen
 from yali.gui.Ui.kickerwidget import Ui_KickerWidget
 import yali.context as ctx
 from yali.gui.YaliDialog import Dialog
@@ -40,17 +38,8 @@ def get_kernel_opt(cmdopt):
             return cmd[pos+1:]
     return ''
 
-def kahyaExists():
-    if get_kernel_opt(ctx.consts.kahya_param) or \
-            yali.sysutils.checkYaliParams(ctx.consts.kahya_param) or \
-            ctx.options.kahyaFile or \
-            ctx.options.useKahya==True:
-        return True
-    return False
-
-##
-# Welcome screen is the first screen to be shown.
-class Widget(QtGui.QWidget, ScreenWidget):
+class Widget(QWidget, ScreenWidget):
+    type = "kahya"
     title = _("Kahya is working")
     helpSummary = _("")
     help = _("""
@@ -58,7 +47,7 @@ class Widget(QtGui.QWidget, ScreenWidget):
 """)
 
     def __init__(self, *args):
-        QtGui.QWidget.__init__(self,None)
+        QWidget.__init__(self,None)
         self.ui = Ui_KickerWidget()
         self.ui.setupUi(self)
 
@@ -66,13 +55,13 @@ class Widget(QtGui.QWidget, ScreenWidget):
         ctx.mainScreen.slotNext()
 
     def execute(self):
-        if not kahyaExists():
+        if not ctx.flags.kahya:
             ctx.logger.debug("There is no kahya jumps to the next screen.")
             return True
 
         ctx.autoInstall = True
         yaliKahya = kahya()
-        ctx.logger.debug("Kahya File : %s " % ctx.options.kahyaFile)
+        ctx.logger.debug("Kahya File : %s " % ctx.flags.kahyaFile)
 
         kahyaOpt = get_kernel_opt(ctx.consts.kahya_param)
 
@@ -148,3 +137,4 @@ class Widget(QtGui.QWidget, ScreenWidget):
                 wrongData = yaliKahya.getValues()
                 ctx.logger.debug("".join(wrongData))
 
+register_gui_screen(Widget)

@@ -10,28 +10,23 @@
 # Please read the COPYING file.
 #
 
-import os
 import time
 import gettext
+_ = gettext.translation('yali', fallback=True).ugettext
 
-__trans = gettext.translation('yali', fallback=True)
-_ = __trans.ugettext
-
-from PyQt4 import QtGui
-from PyQt4.QtCore import *
+from PyQt4.Qt import QWidget, QPixmap
 
 import yali.util
 import yali.context as ctx
-from yali.installdata import YALI_FIRSTBOOT
-from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui import ScreenWidget, register_gui_screen
 from yali.gui.YaliDialog import InfoDialog
 from yali.gui.YaliSteps import YaliSteps
 from yali.gui.Ui.goodbyewidget import Ui_GoodByeWidget
 
-class Widget(QtGui.QWidget, ScreenWidget):
+class Widget(QWidget, ScreenWidget):
+    type = "goodbye"
     title = "Goodbye"
-    # FIXME
-    helpSummary = _("Selametle")
+    helpSummary = _("Goodbye")
     help = _("""
 <p>
 You have successfully installed Pardus on your computer. After restarting
@@ -42,8 +37,8 @@ Click Next to proceed. One note: You remember your password, don't you?
 </p>
 """)
 
-    def __init__(self, *args):
-        QtGui.QWidget.__init__(self,None)
+    def __init__(self):
+        QWidget.__init__(self, None)
         self.ui = Ui_GoodByeWidget()
         self.ui.setupUi(self)
 
@@ -53,11 +48,11 @@ Click Next to proceed. One note: You remember your password, don't you?
         ctx.mainScreen.disableNext()
         ctx.interface.informationWindow.update(_("Running post-install operations..."))
         ctx.mainScreen.disableBack()
-        ctx.yali.processPendingActions(self)
+        self.processPendingActions()
         self.steps.slotRunOperations()
         if not ctx.mainScreen.ui.helpContent.isVisible():
             ctx.mainScreen.slotToggleHelp()
-        self.ui.label.setPixmap(QtGui.QPixmap(":/gui/pics/goodbye.png"))
+        self.ui.label.setPixmap(QPixmap(":/gui/pics/goodbye.png"))
         ctx.interface.informationWindow.hide()
         ctx.mainScreen.enableNext()
 
@@ -70,7 +65,8 @@ Click Next to proceed. One note: You remember your password, don't you?
         ctx.interface.informationWindow.update(_("<b>Please wait while restarting...</b>"))
 
         # remove cd...
-        if not ctx.yali.install_type == YALI_FIRSTBOOT:
+        # if installation type is First Boot
+        if not ctx.flags.install_type == 3:
             ctx.logger.debug("Trying to eject the CD.")
             yali.util.eject()
 
@@ -80,3 +76,28 @@ Click Next to proceed. One note: You remember your password, don't you?
         time.sleep(4)
         yali.util.reboot()
 
+    def processPendingActions(self):
+        self.steps.setOperations([{"text":_("Connecting to D-Bus..."), "operation":yali.postinstall.connectToDBus}])
+
+        steps = [{"text":_("Setting hostname..."), "operation":yali.postinstall.setHostName},
+                 {"text":_("Setting timezone..."), "operation":yali.postinstall.setTimeZone},
+                 {"text":_("Setting root password..."), "operation":yali.postinstall.setRootPassword},
+                 {"text":_("Adding users..."), "operation":yali.postinstall.addUsers},
+                 {"text":_("Setting console keymap..."), "operation":yali.postinstall.writeConsoleData},
+                 {"text":_("Migrating Xorg configuration..."), "operation":yali.postinstall.setKeymap}]
+
+        base_steps = [{"text":_("Copying repository index..."), "operation":yali.postinstall.copyPisiIndex},
+                     {"text":_("Configuring other packages..."), "operation":yali.postinstall.setPackages},
+                     {"text":_("Setup bootloader..."), "operation":yali.postinstall.setupBootLooder},
+                     {"text":_("Writing bootloader..."), "operation":yali.postinstall.writeBootLooder},
+                     {"text":_("Stopping to D-Bus..."), "operation":yali.util.stop_dbus}]
+
+        if ctx.bootloader.device:
+            base_steps.append({"text":_("Installing Bootloader..."), "operation":yali.postinstall.installBootloader})
+
+        if ctx.flags.install_type == 1 or ctx.flags.install_type == 3:
+            self.steps.setOperations(steps)
+
+        self.steps.setOperations(base_steps)
+
+register_gui_screen(Widget)

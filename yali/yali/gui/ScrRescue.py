@@ -11,11 +11,9 @@
 #
 
 import gettext
-__trans = gettext.translation('yali', fallback=True)
-_ = __trans.ugettext
+_ = gettext.translation('yali', fallback=True).ugettext
 
-from PyQt4 import QtGui
-from PyQt4.QtCore import *
+from PyQt4.Qt import QWidget, SIGNAL, QListWidgetItem, QIcon
 
 import yali.util
 import yali.sysutils
@@ -24,18 +22,19 @@ import yali.sysutils
 #import yali.partitionrequest as request
 
 import yali.context as ctx
-from yali.gui.ScreenWidget import ScreenWidget, GUIError
+from yali.gui import ScreenWidget, GUIError, register_gui_screen
 from yali.gui.Ui.rescuewidget import Ui_RescueWidget
 
-class PartItem(QtGui.QListWidgetItem):
+class PartItem(QListWidgetItem):
     def __init__(self, parent, partition, label, icon):
-        QtGui.QListWidgetItem.__init__(self, QtGui.QIcon(":/gui/pics/%s.png" % icon), label, parent)
+        QListWidgetItem.__init__(self, QIcon(":/gui/pics/%s.png" % icon), label, parent)
         self._part = partition
 
     def getPartition(self):
         return self._part
 
-class Widget(QtGui.QWidget, ScreenWidget):
+class Widget(QWidget, ScreenWidget):
+    type = "rescue"
     title = _("System Repair")
     icon = ""
     helpSummary = _("")
@@ -45,8 +44,8 @@ This is a rescue mode help document.
 </p>
 """)
 
-    def __init__(self, *args):
-        QtGui.QWidget.__init__(self,None)
+    def __init__(self):
+        QWidget.__init__(self)
         self.ui = Ui_RescueWidget()
         self.ui.setupUi(self)
         self.ui.info.hide()
@@ -152,3 +151,4 @@ class PardusPartitions:
 
         return (linuxPartitions, pardusPartitions)
 
+register_gui_screen(Widget)

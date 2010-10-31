@@ -12,23 +12,21 @@
 
 import codecs
 import gettext
-__trans = gettext.translation('yali', fallback=True)
-_ = __trans.ugettext
+_ = gettext.translation('yali', fallback=True).ugettext
 
-from PyQt4 import QtGui
-from PyQt4.QtCore import *
+from PyQt4.Qt import QWidget, SIGNAL, QTextBrowser
 
 import yali.util
 import yali.context as ctx
 from yali.gui.Ui.welcomewidget import Ui_WelcomeWidget
-from yali.gui.ScreenWidget import ScreenWidget, GUIError
+from yali.gui import ScreenWidget, GUIError, register_gui_screen
 from yali.gui.YaliDialog import Dialog
 
 ##
 # Welcome screen is the first screen to be shown.
-class Widget(QtGui.QWidget, ScreenWidget):
-    title = _("Welcome to %s") % yali.util.product_name()
-    # FIXME: Use system's pardus release to gather version info and use it if needed
+class Widget(QWidget, ScreenWidget):
+    type = "welcome"
+    title = _("Welcome to Pardus %s")  % yali.util.product_name()
     icon = "applications-other"
     help = _("""
 <p>Welcome to Pardus that contains many easy-to-use software components. You can do everything you need to, including, but not limited to, connecting to the Internet, creating documents, playing games, listening to music using Pardus.</p>
@@ -36,8 +34,8 @@ class Widget(QtGui.QWidget, ScreenWidget):
 <p>You can start the installation process (and step in on a free world) by pressing the Next button.</p>
 """)
 
-    def __init__(self, *args):
-        QtGui.QWidget.__init__(self,None)
+    def __init__(self):
+        QWidget.__init__(self, None)
         self.ui = Ui_WelcomeWidget()
         self.ui.setupUi(self)
 
@@ -54,9 +52,9 @@ class Widget(QtGui.QWidget, ScreenWidget):
             ctx.mainScreen.disableNext()
 
     def showGPL(self):
-        d = Dialog("GPL", LicenseBrowser(self), self)
-        d.resize(500,400)
-        d.exec_()
+        dialog = Dialog("GPL", LicenseBrowser(self), self)
+        dialog.resize(500, 400)
+        dialog.exec_()
 
     def shown(self):
         ctx.mainScreen.disableBack()
@@ -66,23 +64,25 @@ class Widget(QtGui.QWidget, ScreenWidget):
             ctx.mainScreen.disableNext()
         ctx.mainScreen.processEvents()
 
-class LicenseBrowser(QtGui.QTextBrowser):
+class LicenseBrowser(QTextBrowser):
 
     def __init__(self, *args):
-        apply(QtGui.QTextBrowser.__init__, (self,) + args)
+        apply(QTextBrowser.__init__, (self,) + args)
 
         self.setStyleSheet("background:white;color:black;")
 
         try:
-            self.setText(codecs.open(self.load_file(), "r", "UTF-8").read())
+            self.setText(codecs.open(self.loadFile(), "r", "UTF-8").read())
         except Exception, msg:
             GUIError, _(msg)
 
-    def load_file(self):
-        f = os.path.join(ctx.consts.source_dir, "license/license-" + ctx.consts.lang + ".txt")
+    def loadFile(self):
+        licence = os.path.join(ctx.consts.source_dir, "license/license-" + ctx.consts.lang + ".txt")
 
-        if not os.path.exists(f):
-            f = os.path.join(ctx.consts.source_dir, "license/license-en.txt")
-        if os.path.exists(f):
-            return f
+        if not os.path.exists(licence):
+            licence = os.path.join(ctx.consts.source_dir, "license/license-en.txt")
+        if os.path.exists(licence):
+            return licence
         raise GUIError, _("License text could not be found.")
+
+register_gui_screen(Widget)

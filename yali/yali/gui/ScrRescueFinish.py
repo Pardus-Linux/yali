@@ -11,24 +11,22 @@
 #
 
 import gettext
-__trans = gettext.translation('yali', fallback=True)
-_ = __trans.ugettext
+_ = gettext.translation('yali', fallback=True).ugettext
 
-from PyQt4 import QtGui
+from PyQt4.Qt import QWidget, SIGNAL, QPixmap
 
 import time
 import yali.postinstall
 import yali.pisiiface
 import yali.util
-from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui import ScreenWidget, register_gui_screen
 from yali.gui.YaliDialog import InfoDialog
 from yali.gui.YaliSteps import YaliSteps
 from yali.gui.Ui.goodbyewidget import Ui_GoodByeWidget
 import yali.context as ctx
 
-##
-# Goodbye screen
-class Widget(QtGui.QWidget, ScreenWidget):
+class Widget(QWidget, ScreenWidget):
+    type = "finishRescue"
     title = _("System Repair")
     helpSummary = _("Repairs your system")
     help = _("""
@@ -38,7 +36,7 @@ There is no help available for this section.
 """)
 
     def __init__(self, *args):
-        QtGui.QWidget.__init__(self,None)
+        QWidget.__init__(self,None)
         self.ui = Ui_GoodByeWidget()
         self.ui.setupUi(self)
 
@@ -76,7 +74,7 @@ There is no help available for this section.
 
         if not ctx.mainScreen.ui.helpContent.isVisible():
             ctx.mainScreen.slotToggleHelp()
-        self.ui.label.setPixmap(QtGui.QPixmap(":/gui/pics/goodbye.png"))
+        self.ui.label.setPixmap(QPixmap(":/gui/pics/goodbye.png"))
         ctx.interface.informationWindow.hide()
         ctx.mainScreen.enableNext()
 
@@ -89,7 +87,8 @@ There is no help available for this section.
         ctx.interface.informationWindow.update(_('<b>Please wait while restarting...</b>'))
 
         # remove cd...
-        if not ctx.yali.install_type == YALI_FIRSTBOOT:
+        # if installation type is First Boot
+        if not ctx.flags.install_type == 3:
             ctx.logger.debug("Trying to eject the CD.")
             yali.util.eject()
 
@@ -100,3 +99,4 @@ There is no help available for this section.
         time.sleep(4)
         yali.util.reboot()
 
+register_gui_screen(Widget)

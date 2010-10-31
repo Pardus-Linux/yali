@@ -10,27 +10,21 @@
 # Please read the COPYING file.
 #
 
-import time
 import platform
 import gettext
+_ = gettext.translation('yali', fallback=True).ugettext
 
-__trans = gettext.translation('yali', fallback=True)
-_ = __trans.ugettext
-
-from PyQt4 import QtGui
-from PyQt4.QtCore import *
-
+from PyQt4.Qt import QWidget, SIGNAL, QPixmap, Qt, QListWidgetItem, QSize
 
 import yali.pisiiface
 import yali.context as ctx
 from yali.installdata import methodInstallManual, methodInstallAutomatic, defaultKernel, paeKernel, kernels
-from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui import ScreenWidget, register_gui_screen
 from yali.gui.Ui.autoinstallationwidget import Ui_AutoInstallationWidget
 from yali.gui.Ui.autoinstallationlistitemwidget import Ui_AutoInstallationListItemWidget
 
-##
-# Installation Choice Widget
-class Widget(QtGui.QWidget, ScreenWidget):
+class Widget(QWidget, ScreenWidget):
+    type = "collectionSelection"
     title = _("Choose a Package Collection")
     icon = "iconPartition"
     helpSummary = _("Choose a Package Collection")
@@ -39,52 +33,52 @@ class Widget(QtGui.QWidget, ScreenWidget):
 </p>
 ''')
 
-    def __init__(self, *args):
-        QtGui.QWidget.__init__(self,None)
+    def __init__(self):
+        QWidget.__init__(self, None)
         self.ui = Ui_AutoInstallationWidget()
         self.ui.setupUi(self)
 
         self.collections = None
-        self.kernelType = None
-        self.defaultChoice = None
-        self.currentChoice = None
-        self.previousChoice = None
+        self.kernel_type = None
+        self.default_choice = None
+        self.current_choice = None
 
         self.ui.kernelTypeGroupBox.setEnabled(False)
 
-        self.connect(self.ui.radioManual, SIGNAL("clicked()"),self.slotClickedManual)
-        self.connect(self.ui.radioManual, SIGNAL("toggled(bool)"),self.slotToggleManual)
-        self.connect(self.ui.radioAutomatic, SIGNAL("toggled(bool)"),self.slotToggleAutomatic)
-        self.connect(self.ui.radioAutomatic, SIGNAL("clicked()"),self.slotClickedAutomatic)
-        self.connect(self.ui.radioDefaultKernel, SIGNAL("toggled(bool)"),self.slotToggleDefaultKernel)
-        self.connect(self.ui.radioPAEKernel, SIGNAL("toggled(bool)"),self.slotTogglePAEKernel)
+        self.connect(self.ui.radioManual, SIGNAL("clicked()"), self.slotClickedManual)
+        self.connect(self.ui.radioManual, SIGNAL("toggled(bool)"), self.slotToggleManual)
+        self.connect(self.ui.radioAutomatic, SIGNAL("toggled(bool)"), self.slotToggleAutomatic)
+        self.connect(self.ui.radioAutomatic, SIGNAL("clicked()"), self.slotClickedAutomatic)
+        self.connect(self.ui.radioDefaultKernel, SIGNAL("toggled(bool)"), self.slotToggleDefaultKernel)
+        self.connect(self.ui.radioPAEKernel, SIGNAL("toggled(bool)"), self.slotTogglePAEKernel)
 
     def fillCollectionList(self):
         self.ui.collectionList.clear()
         self.collections = yali.pisiiface.getCollection()
-        selectedItem=None
+        selected = None
+        collection_item = None
         for collection in self.collections:
-            item = QtGui.QListWidgetItem(self.ui.collectionList)
+            item = QListWidgetItem(self.ui.collectionList)
             #item.setFlags(Qt.NoItemFlags | Qt.ItemIsEnabled)
-            item.setSizeHint(QSize(48,48))
+            item.setSizeHint(QSize(48, 48))
             if ctx.installData.autoInstallationCollection  == collection:
-                collectionItem = CollectionListItem(self, item, collection)
-                selectedItem = collectionItem
+                collection_item = CollectionListItem(self, item, collection)
+                selected = collection_item
             elif collection.default:
-                collectionItem = CollectionListItem(self, item, collection)
-                self.defaultChoice = collectionItem
+                collection_item = CollectionListItem(self, item, collection)
+                self.default_choice = collection_item
             else:
-                collectionItem = CollectionListItem(self, item, collection)
-            self.ui.collectionList.setItemWidget(item, collectionItem)
+                collection_item = CollectionListItem(self, item, collection)
+            self.ui.collectionList.setItemWidget(item, collection_item)
 
-        if selectedItem:
-            self.currentChoice = selectedItem
-        elif self.defaultChoice and not selectedItem:
-            self.currentChoice = self.defaultChoice
+        if selected:
+            self.current_choice = selected
+        elif self.default_choice and not selected:
+            self.current_choice = self.default_choice
         else:
-            self.currentChoice = collectionItem
+            self.current_choice = collection_item
 
-        self.currentChoice.setChecked(Qt.Checked)
+        self.current_choice.setChecked(Qt.Checked)
 
     def shown(self):
         self.toggleAll()
@@ -117,11 +111,11 @@ class Widget(QtGui.QWidget, ScreenWidget):
 
         if self.ui.radioAutomatic.isChecked():
             ctx.installData.autoInstallationMethod = methodInstallAutomatic
-            ctx.installData.autoInstallationCollection = self.defaultChoice.collection
+            ctx.installData.autoInstallationCollection = self.default_choice.collection
             ctx.logger.debug("Automatic Installation selected..")
         else:
             ctx.installData.autoInstallationMethod = methodInstallManual
-            ctx.installData.autoInstallationCollection = self.currentChoice.collection
+            ctx.installData.autoInstallationCollection = self.current_choice.collection
             ctx.logger.debug("Manual Installation selected..")
 
         if self.ui.kernelTypeGroupBox.isVisible():
@@ -140,16 +134,16 @@ class Widget(QtGui.QWidget, ScreenWidget):
     def slotClickedAutomatic(self):
         self.ui.radioAutomatic.setChecked(True)
         self.ui.radioManual.setChecked(False)
-        self.defaultChoice.setChecked(Qt.Checked)
-        self.defaultChoice.setKernelType()
+        self.default_choice.setChecked(Qt.Checked)
+        self.default_choice.setKernelType()
         self.update()
 
     def slotClickedManual(self):
         self.ui.radioManual.setChecked(True)
         self.ui.radioAutomatic.setChecked(False)
-        if self.currentChoice:
-            self.currentChoice.setChecked(Qt.Checked)
-            self.currentChoice.setKernelType()
+        if self.current_choice:
+            self.current_choice.setChecked(Qt.Checked)
+            self.current_choice.setKernelType()
         self.update()
 
     def slotToggleAutomatic(self, checked):
@@ -167,16 +161,16 @@ class Widget(QtGui.QWidget, ScreenWidget):
 
     def slotToggleDefaultKernel(self, checked):
         if checked:
-            self.kernelType = defaultKernel
+            self.kernel_type = defaultKernel
 
     def slotTogglePAEKernel(self, checked):
         if checked:
-            self.kernelType = paeKernel
+            self.kernel_type = paeKernel
 
     def update(self):
-        if self.ui.radioAutomatic.isChecked() and self.defaultChoice:
+        if self.ui.radioAutomatic.isChecked() and self.default_choice:
             ctx.mainScreen.enableNext()
-        elif self.ui.radioManual.isChecked() and self.currentChoice and self.currentChoice.isChecked():
+        elif self.ui.radioManual.isChecked() and self.current_choice and self.current_choice.isChecked():
             ctx.mainScreen.enableNext()
         else:
             ctx.mainScreen.disableNext()
@@ -187,9 +181,9 @@ class Widget(QtGui.QWidget, ScreenWidget):
             getattr(self.ui, widget).setEnabled(state)
         ctx.mainScreen.processEvents()
 
-class CollectionListItem(QtGui.QWidget):
+class CollectionListItem(QWidget):
     def __init__(self, parent, item, collection):
-        QtGui.QWidget.__init__(self, parent)
+        QWidget.__init__(self, parent)
 
         self.ui = Ui_AutoInstallationListItemWidget()
         self.ui.setupUi(self)
@@ -199,7 +193,7 @@ class CollectionListItem(QtGui.QWidget):
         self.item = item
         self.ui.labelName.setText(collection.title)
         self.ui.labelDesc.setText(collection.description)
-        self.ui.labelIcon.setPixmap(QtGui.QPixmap(collection.icon))
+        self.ui.labelIcon.setPixmap(QPixmap(collection.icon))
         self.connect(self.ui.checkBox, SIGNAL("stateChanged(int)"), self.slotSelectCollection)
 
     def setChecked(self, state):
@@ -209,10 +203,10 @@ class CollectionListItem(QtGui.QWidget):
         return self.ui.checkBox.isChecked()
 
     def setKernelType(self):
-        isPAEKernelAvailable = None
+        pae_available = None
         if self.parent.ui.kernelTypeGroupBox.isVisible():
-            isPAEKernelAvailable = yali.pisiiface.getNeededKernel(paeKernel, self.collection.index)
-            if isPAEKernelAvailable:
+            pae_available = yali.pisiiface.getNeededKernel(paeKernel, self.collection.index)
+            if pae_available:
                 self.parent.ui.kernelTypeGroupBox.setEnabled(True)
             else:
                 self.parent.ui.kernelTypeGroupBox.setEnabled(False)
@@ -228,3 +222,5 @@ class CollectionListItem(QtGui.QWidget):
 
         self.setKernelType()
         self.parent.update()
+
+register_gui_screen(Widget)

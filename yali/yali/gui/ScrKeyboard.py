@@ -9,39 +9,35 @@
 #
 # Please read the COPYING file.
 #
-
-import os
-
 import gettext
-__trans = gettext.translation('yali', fallback=True)
-_ = __trans.ugettext
+_ = gettext.translation('yali', fallback=True).ugettext
 
-from PyQt4 import QtGui
-from PyQt4.QtCore import *
+from PyQt4.Qt import QWidget, SIGNAL, QVariant
 
 import yali.localeutils
 import yali.localedata
 import yali.context as ctx
-from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui import ScreenWidget, register_gui_screen
 from yali.gui.Ui.keyboardwidget import Ui_KeyboardWidget
 
 ##
 # Keyboard setup screen
-class Widget(QtGui.QWidget, ScreenWidget):
+class Widget(QWidget, ScreenWidget):
+    type = "keyboardSetup"
     title = _("Choose a Keyboard Layout")
     icon = "input-keyboard"
     help = _("""A keyboard layout is a description of how keys are placed on a keyboard. There are different keyboard layouts in use throughout the world. The one you will want to use, generally depends on the country you live in or the language you use.
 This screen lets you select the keyboard layout you want to use on Pardus. You can test the selected layout by typing something in the given textbox.
 """)
 
-    def __init__(self, *args):
-        QtGui.QWidget.__init__(self,None)
+    def __init__(self):
+        QWidget.__init__(self, None)
         self.ui = Ui_KeyboardWidget()
         self.ui.setupUi(self)
 
         index = 0 # comboBox.addItem doesn't increase the currentIndex
-        self.defaultLayoutIndex = None
-        for country,data in yali.localedata.locales.items():
+        self.default_layout_index = None
+        for country, data in yali.localedata.locales.items():
             if data["xkbvariant"]:
                 i = 0
                 for variant in data["xkbvariant"]:
@@ -50,18 +46,18 @@ This screen lets you select the keyboard layout you want to use on Pardus. You c
                     _d["name"] = variant[1]
                     _d["consolekeymap"] = data["consolekeymap"][i]
                     self.ui.keyboard_list.addItem(_d["name"], QVariant(data))
-                    i+=1
+                    i += 1
             else:
                 self.ui.keyboard_list.addItem(data["name"], QVariant(data))
             if ctx.consts.lang == country:
                 if ctx.consts.lang == "tr":
-                    self.defaultLayoutIndex = index + 1
+                    self.default_layout_index = index + 1
                 else:
-                    self.defaultLayoutIndex = index
+                    self.default_layout_index = index
             index += 1
 
 
-        self.ui.keyboard_list.setCurrentIndex(self.defaultLayoutIndex)
+        self.ui.keyboard_list.setCurrentIndex(self.default_layout_index)
         self.slotLayoutChanged()
 
         self.connect(self.ui.keyboard_list, SIGNAL("currentIndexChanged(int)"),
@@ -78,3 +74,5 @@ This screen lets you select the keyboard layout you want to use on Pardus. You c
     def execute(self):
         ctx.logger.debug("Selected keymap is : %s" % ctx.installData.keyData["name"] )
         return True
+
+register_gui_screen(Widget)

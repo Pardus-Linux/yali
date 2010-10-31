@@ -13,20 +13,19 @@
 import pardus.xorg
 import gettext
 
-__trans = gettext.translation('yali', fallback=True)
-_ = __trans.ugettext
+_ = gettext.translation('yali', fallback=True).ugettext
 
-from PyQt4.QtCore import SIGNAL
-from PyQt4 import QtGui
+from PyQt4.Qt import QWidget, SIGNAL, QLineEdit
 
 import yali.util
 import yali.context as ctx
-from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui import ScreenWidget, register_gui_screen
 from yali.gui.Ui.rootpasswidget import Ui_RootPassWidget
 
 ##
 # Root password widget
-class Widget(QtGui.QWidget, ScreenWidget):
+class Widget(QWidget, ScreenWidget):
+    type = "admin"
     title = _("Choose an Administrator Password and a Hostname")
     icon = "iconAdmin"
     helpSummary = _("""Your password must be easy to remember but strong enough to resist possible attacks.
@@ -48,8 +47,8 @@ You can also define a hostname for your computer. A hostname is an identifier as
 </p>
 """)
 
-    def __init__(self, *args):
-        QtGui.QWidget.__init__(self,None)
+    def __init__(self,):
+        QWidget.__init__(self)
         self.ui = Ui_RootPassWidget()
         self.ui.setupUi(self)
         self.intf = ctx.interface
@@ -77,10 +76,10 @@ You can also define a hostname for your computer. A hostname is an identifier as
             self.ui.hostname.setText(str(ctx.installData.hostName))
         else:
             # Use first added user's name as machine name if its exists
-            release=open("/etc/pardus-release").read().split()
-            releaseHostName = "".join(release[:2]).lower()
+            release = open("/etc/pardus-release").read().split()
+            release_hostname = "".join(release[:2]).lower()
             if self.ui.hostname.text() == '':
-                self.ui.hostname.setText(releaseHostName)
+                self.ui.hostname.setText(release_hostname)
 
         if ctx.installData.rootPassword:
             self.ui.pass1.setText(ctx.installData.rootPassword)
@@ -108,7 +107,7 @@ You can also define a hostname for your computer. A hostname is an identifier as
         return True
 
     def setCapsLockIcon(self, child):
-        if type(child) == QtGui.QLineEdit:
+        if type(child) == QLineEdit:
             if pardus.xorg.capslock.isOn():
                 child.setStyleSheet("QLineEdit {background: url(:/gui/pics/caps.png) no-repeat right;\npadding-right: 35px}")
             else:
@@ -118,16 +117,16 @@ You can also define a hostname for your computer. A hostname is an identifier as
         for child in self.ui.groupBox.children():
             self.setCapsLockIcon(child)
 
-    def keyReleaseEvent(self, e):
+    def keyReleaseEvent(self, event):
         self.checkCapsLock()
 
     def slotTextChanged(self):
 
-        p1 = self.ui.pass1.text()
-        p2 = self.ui.pass2.text()
+        password = self.ui.pass1.text()
+        password_confirm = self.ui.pass2.text()
 
-        if p1 == p2 and p1:
-            if len(p1)<4:
+        if password and password == password_confirm:
+            if len(password)<4:
                 self.intf.informationWindow.update(_('Password is too short.'), type="error")
                 self.pass_valid = False
             else:
@@ -135,11 +134,11 @@ You can also define a hostname for your computer. A hostname is an identifier as
                 self.pass_valid = True
         else:
             self.pass_valid = False
-            if p2:
+            if password_confirm:
                 self.intf.informationWindow.update(_('Passwords do not match.'), type="error")
-        if str(p1).lower()=="root" or str(p2).lower()=="root":
+        if str(password).lower()=="root" or str(password_confirm).lower()=="root":
             self.pass_valid = False
-            if p2:
+            if password_confirm:
                 self.intf.informationWindow.update(_('Do not use your username as your password.'), type="error")
 
         if self.pass_valid:
@@ -173,3 +172,5 @@ You can also define a hostname for your computer. A hostname is an identifier as
         if ctx.mainScreen.isNextEnabled():
             ctx.mainScreen.slotNext()
 
+
+register_gui_screen(Widget)

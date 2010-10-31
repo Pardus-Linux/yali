@@ -10,21 +10,20 @@
 # Please read the COPYING file.
 #
 
-import gettext
-__trans = gettext.translation('yali', fallback=True)
-_ = __trans.ugettext
-
-from PyQt4 import QtGui
-from PyQt4.QtCore import *
-
 import os
-from yali.gui.ScreenWidget import ScreenWidget
-from yali.gui.Ui.datetimewidget import Ui_DateTimeWidget
-import yali.context as ctx
-from yali.timezone import TimeZoneList
-import yali.localedata
+import gettext
+_ = gettext.translation('yali', fallback=True).ugettext
 
-class Widget(QtGui.QWidget, ScreenWidget):
+from PyQt4.Qt import QWidget, SIGNAL, QTimer, QDate, QTime
+
+import yali.localedata
+import yali.context as ctx
+from yali.gui import ScreenWidget, register_gui_screen
+from yali.gui.Ui.datetimewidget import Ui_DateTimeWidget
+from yali.timezone import TimeZoneList
+
+class Widget(QWidget, ScreenWidget):
+    type = "timeSetup"
     title = _("Adjust Date and Time Settings")
     icon = "preferences-system-time"
     helpSummary = _("Date and time settings allows you to set the date and time of your computer.")
@@ -40,50 +39,50 @@ Coordinated Universal Time.
 </p>
 """)
 
-    def __init__(self, *args):
-        QtGui.QWidget.__init__(self,None)
+    def __init__(self):
+        QWidget.__init__(self, None)
         self.ui = Ui_DateTimeWidget()
         self.ui.setupUi(self)
         self.timer = QTimer(self)
-        self.fromTimeUpdater = True
-        self.isDateChanged = False
+        self.from_time_updater = True
+        self.is_date_changed = False
 
-        self.currentZone = ""
+        self.current_zone = ""
 
-        for country,data in yali.localedata.locales.items():
+        for country, data in yali.localedata.locales.items():
             if country == ctx.consts.lang:
                 if data.has_key("timezone"):
                     ctx.installData.timezone = data["timezone"]
 
         # fill in the timezone list
         zom = TimeZoneList()
-        zoneList = [ x.timeZone for x in zom.getEntries() ]
-        zoneList.sort()
-        for zone in zoneList:
-            self.prettyZoneName = "%s - %s" % (zone.split("/")[0], zone.split("/")[1])
+        zones = [ x.timeZone for x in zom.getEntries() ]
+        zones.sort()
+        for zone in zones:
+            self.pretty_zone_name = "%s - %s" % (zone.split("/")[0], zone.split("/")[1])
             if zone == ctx.installData.timezone:
-                self.currentZone = self.prettyZoneName
-            self.ui.timeZoneList.addItem(self.prettyZoneName, zone)
+                self.current_zone = self.pretty_zone_name
+            self.ui.timeZoneList.addItem(self.pretty_zone_name, zone)
 
 
         # Select the timeZone
-        self.index = self.ui.timeZoneList.findText(self.currentZone)
+        self.index = self.ui.timeZoneList.findText(self.current_zone)
         self.ui.timeZoneList.setCurrentIndex(self.index)
 
         # Widget connections
-        self.connect(self.ui.timeEdit, SIGNAL("timeChanged(QTime)"),self.timerStop)
-        self.connect(self.ui.calendarWidget, SIGNAL("selectionChanged()"),self.dateChanged)
-        self.connect(self.timer, SIGNAL("timeout()"),self.updateClock)
+        self.connect(self.ui.timeEdit, SIGNAL("timeChanged(QTime)"), self.timerStop)
+        self.connect(self.ui.calendarWidget, SIGNAL("selectionChanged()"), self.dateChanged)
+        self.connect(self.timer, SIGNAL("timeout()"), self.updateClock)
 
         self.ui.calendarWidget.setDate(QDate.currentDate())
 
         self.timer.start(1000)
 
     def dateChanged(self):
-        self.isDateChanged = True
+        self.is_date_changed = True
 
-    def timerStop(self,i):
-        if self.fromTimeUpdater:
+    def timerStop(self):
+        if self.from_time_updater:
             return
         # Human action detected; stop the timer.
         self.timer.stop()
@@ -119,7 +118,7 @@ Coordinated Universal Time.
         ctx.interface.informationWindow.hide()
 
     def execute(self):
-        if not self.timer.isActive() or self.isDateChanged:
+        if not self.timer.isActive() or self.is_date_changed:
             QTimer.singleShot(500, self.setTime)
             self.timer.stop()
 
@@ -128,3 +127,5 @@ Coordinated Universal Time.
         ctx.logger.debug("Time zone selected as %s " % ctx.installData.timezone)
 
         return True
+
+register_gui_screen(Widget)

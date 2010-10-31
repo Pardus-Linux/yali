@@ -57,7 +57,7 @@ class Widget(QtGui.QWidget):
         self.consoleShortCut = QtGui.QShortcut(QtGui.QKeySequence(Qt.Key_F11),self)
 
         # set style
-        self._style = ctx.consts.stylesheet
+        self._style = ctx.flags.stylesheet
         self.updateStyle()
 
         # move one step at a time
@@ -154,10 +154,10 @@ class Widget(QtGui.QWidget):
                 os.execv("/usr/bin/yali-bin", sys.argv)
 
     def toggleTheme(self):
-        if self._style == ctx.consts.stylesheet:
+        if self._style == ctx.flags.stylesheet:
             self._style = ctx.consts.alternatestylesheet
         else:
-            self._style = ctx.consts.stylesheet
+            self._style = ctx.flags.stylesheet
         self.updateStyle()
 
     def toggleConsole(self):
@@ -268,18 +268,16 @@ class Widget(QtGui.QWidget):
             self.screenData = screens
         self.ui.mainStack.removeWidget(self.ui.page)
         for screen in screens:
-            _scr = screen.Widget()
-
-            if ctx.options.debug == True or yali.sysutils.checkYaliParams(param="debug"):
+            #if ctx.flags.debug:
                 # debug all screens.
-                weave_all_object_methods(ctx.aspect, _scr)
+            #    weave_all_object_methods(ctx.aspect, screen)
 
             # enable navigation buttons before shown
-            weave_object_method(enableNavButtonsAspect, _scr, "shown")
+            weave_object_method(enableNavButtonsAspect, screen, "shown")
             # disable navigation buttons before the execute.
-            weave_object_method(disableNavButtonsAspect, _scr, "execute")
-
-            self.ui.mainStack.addWidget(_scr)
+            weave_object_method(disableNavButtonsAspect, screen, "execute")
+            print "screen:%s" % screen
+            self.ui.mainStack.addWidget(screen())
 
         #weave_all_object_methods(ctx.aspect, self)
         self.stackMove(0)

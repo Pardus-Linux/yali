@@ -13,43 +13,40 @@ import sys
 import math
 import gettext
 
-__trans = gettext.translation('yali', fallback=True)
-_ = __trans.ugettext
+_ = gettext.translation('yali', fallback=True).ugettext
 
-from PyQt4 import QtGui
-from PyQt4.QtCore import *
+from PyQt4.Qt import QWidget, SIGNAL, QObject, QListWidgetItem, QSize, QPixmap
 
 import yali.context as ctx
-from yali.gui.ScreenWidget import ScreenWidget, GUIError
+from yali.gui import ScreenWidget, GUIError, register_gui_screen
 from yali.gui.Ui.driveselectionwidget import Ui_DriveSelectionWidget
 from yali.gui.Ui.partitionshrinkwidget import Ui_PartShrinkWidget
 from yali.gui.Ui.diskItem import Ui_DiskItem
-from yali.storage.partitioning import CLEARPART_TYPE_ALL, CLEARPART_TYPE_LINUX, CLEARPART_TYPE_NONE, doAutoPartition, defaultPartitioning
 from yali.storage.operations import OperationResizeDevice, OperationResizeFormat
+from yali.storage.formats.filesystem import FilesystemError
 
-class DrivesListItem(QtGui.QListWidgetItem):
+class DrivesListItem(QListWidgetItem):
     def __init__(self, parent, widget):
-        QtGui.QListWidgetItem.__init__(self, parent)
+        QListWidgetItem.__init__(self, parent)
         self.widget = widget
         self.setSizeHint(QSize(widget.width()-20, widget.height()))
 
-class DriveItem(QtGui.QWidget, Ui_DiskItem):
+class DriveItem(QWidget, Ui_DiskItem):
     def __init__(self, parent, drive, name):
-        QtGui.QWidget.__init__(self, parent)
+        QWidget.__init__(self, parent)
         self.setupUi(self)
         if drive.removable:
-            self.icon.setPixmap(QtGui.QPixmap(":/gui/pics/drive-removable-media-usb-big.png"))
+            self.icon.setPixmap(QPixmap(":/gui/pics/drive-removable-media-usb-big.png"))
         elif drive.name.startswith("mmc"):
-            self.icon.setPixmap(QtGui.QPixmap(":/gui/pics/media-flash-sd-mmc-big.png"))
+            self.icon.setPixmap(QPixmap(":/gui/pics/media-flash-sd-mmc-big.png"))
         else:
-            self.icon.setPixmap(QtGui.QPixmap(":/gui/pics/drive-harddisk-big.png"))
+            self.icon.setPixmap(QPixmap(":/gui/pics/drive-harddisk-big.png"))
         self.labelDrive.setText("%s" % (name))
         self.labelInfo.setText("%s\n%s GB" % (drive.model, str(int(drive.size) / 1024)))
-        #self.drive = drive
-        #self.parent = parent
 
 
-class Widget(QtGui.QWidget, ScreenWidget):
+class Widget(QWidget, ScreenWidget):
+    type = "driveSelection"
     title = _("Select a Drive to Install Pardus")
     icon = "iconPartition"
     help = _('''
@@ -64,27 +61,28 @@ and install Pardus. If you like, you can do the partitioning manually or make
 Pardus create a new partition for installation.</p>
 ''')
 
-    def __init__(self, *args):
-        QtGui.QWidget.__init__(self,None)
+    def __init__(self):
+        QWidget.__init__(self, None)
         self.ui = Ui_DriveSelectionWidget()
         self.ui.setupUi(self)
         self.storage = ctx.storage
         self.intf = ctx.interface
-        self.shrinkOperations = None
-        self.clearPartDisks = None
+        self.shrink_operations = None
+        self.clear_partdisks = None
+        self.selected_disks = None
 
         self.useAllSpace, self.replaceExistingLinux, self.shrinkCurrent, self.useFreeSpace, self.createCustom = range(5)
         self.connect(self.ui.drives, SIGNAL("itemSelectionChanged()"), self.itemStateChanged)
 
     def itemStateChanged(self):
-        self.selectedDisks = []
+        self.selected_disks = []
 
         for item in self.ui.drives.selectedItems():
-            self.selectedDisks.append(str(item.statusTip()))
+            self.selected_disks.append(str(item.statusTip()))
 
-        self.selectedDisks.sort(self.storage.compareDisks)
+        self.selected_disks.sort(self.storage.compareDisks)
 
-        if len(self.selectedDisks):
+        if len(self.selected_disks):
             ctx.mainScreen.enableNext()
         else:
             ctx.mainScreen.disableNext()
@@ -106,11 +104,11 @@ Pardus create a new partition for installation.</p>
 
                 name = "Disk %s" % count
                 drive = DriveItem(self.ui.drives, disk, name)
-                listItem = DrivesListItem(self.ui.drives, drive)
-                listItem.setStatusTip(disk.name)
-                listItem.setToolTip("System Path: %s" % (disk.name))
+                item = DrivesListItem(self.ui.drives, drive)
+                item.setStatusTip(disk.name)
+                item.setToolTip("System Path: %s" % (disk.name))
                 self.ui.drives.setGridSize(QSize(drive.width(), drive.height()))
-                self.ui.drives.setItemWidget(listItem, drive)
+                self.ui.drives.setItemWidget(item, drive)
 
             count += 1
         # select the first disk by default
@@ -125,15 +123,17 @@ Pardus create a new partition for installation.</p>
 
     def nextCheck(self):
 
-        if len(self.selectedDisks) == 0:
+        if len(self.selected_disks) == 0:
             self.intf.messageWindow(_("Error"),
                                     _("You must select at least one "
                                       "drive to be used for installation."), customIcon="error")
             return False
         else:
-            self.selectedDisks.sort(self.storage.compareDisks)
-            self.storage.clearPartDisks = self.selectedDisks
+            self.selected_disks.sort(self.storage.compareDisks)
+            self.storage.clearPartDisks = self.selected_disks
             return True
 
     def execute(self):
         return self.nextCheck()
+
+register_gui_screen(Widget)

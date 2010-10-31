@@ -12,18 +12,14 @@
 import copy
 import parted
 import gettext
+_ = gettext.translation('yali', fallback=True).ugettext
 
-__trans = gettext.translation('yali', fallback=True)
-_ = __trans.ugettext
-
-
-from PyQt4 import QtGui
-from PyQt4.QtCore import *
+from PyQt4.Qt import QWidget, SIGNAL, QMenu, QTreeWidgetItem, QIcon
 
 import yali.util
 import yali.context as ctx
 from yali.gui.YaliDialog import Dialog, QuestionDialog
-from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui import ScreenWidget, register_gui_screen
 
 from yali.gui.partition_gui import PartitionEditor
 from yali.gui.lvm_gui import LVMEditor
@@ -36,7 +32,8 @@ from yali.storage.devices.partition import Partition
 from yali.storage.partitioning import doPartitioning, hasFreeDiskSpace, PartitioningError, PartitioningWarning
 from yali.storage.storageBackendHelpers import doDeleteDevice, doClearPartitionedDevice, checkForSwapNoMatch, getPreExistFormatWarnings, confirmResetPartitionState
 
-class Widget(QtGui.QWidget, ScreenWidget):
+class Widget(QWidget, ScreenWidget):
+    type = "manualPartitioning"
     title = _('Manual Partitioning')
     desc = _('You can easily configure your partitions...')
     icon = "iconPartition"
@@ -58,7 +55,7 @@ about disk partitioning.
 
 
     def __init__(self, *args):
-        QtGui.QWidget.__init__(self,None)
+        QWidget.__init__(self,None)
         self.ui = Ui_ManualPartWidget()
         self.ui.setupUi(self)
         self.storage = ctx.storage
@@ -198,9 +195,9 @@ about disk partitioning.
         format = device.format
 
         if not format.exists:
-            formatIcon = QtGui.QIcon(":/images/tick.png")
+            formatIcon = QIcon(":/images/tick.png")
         else:
-            formatIcon = QtGui.QIcon(":/images/dialog-error.png")
+            formatIcon = QIcon(":/images/dialog-error.png")
 
         # mount point string
         if format.type == "lvmpv":
@@ -558,7 +555,7 @@ about disk partitioning.
             volumegroupEditor = LVMEditor(self, vg, isNew = False)
             tempvg = volumegroupEditor.tmpVolumeGroup
             name = self.storage.createSuggestedLogicalVolumeName(tempvg)
-            format = fornmats.getFormat(self.storage.defaultFSType)
+            format = formats.getFormat(self.storage.defaultFSType)
             volumegroupEditor.lvs[name] = {'name': name,
                                            'size': vg.freeSpace,
                                            'format': format,
@@ -670,9 +667,9 @@ about disk partitioning.
         self.refresh(justRedraw=True)
 
 
-class DeviceTreeItem(QtGui.QTreeWidgetItem):
+class DeviceTreeItem(QTreeWidgetItem):
     def __init__(self, parent, device=None):
-        QtGui.QTreeWidgetItem.__init__(self, parent)
+        QTreeWidgetItem.__init__(self, parent)
         self.device = device
 
     def setDevice(self, device):
@@ -695,3 +692,5 @@ class DeviceTreeItem(QtGui.QTreeWidgetItem):
 
     def setSize(self, size):
         self.setText(5, size)
+
+register_gui_screen(Widget)

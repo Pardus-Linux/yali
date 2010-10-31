@@ -10,20 +10,17 @@
 # Please read the COPYING file.
 #
 import gettext
+_ = gettext.translation('yali', fallback=True).ugettext
 
-__trans = gettext.translation('yali', fallback=True)
-_ = __trans.ugettext
-
-from PyQt4 import QtGui
-from PyQt4.QtCore import *
+from PyQt4.Qt import QWidget, SIGNAL
 
 import yali.context as ctx
-from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui import ScreenWidget, register_gui_screen
 from yali.gui.Ui.bootloaderwidget import Ui_BootLoaderWidget
-from yali.storage.bootloader import BOOT_TYPE_NONE, BOOT_TYPE_PARTITION, BOOT_TYPE_MBR, BOOT_TYPE_RAID, BootLoaderError, boot_type_strings
+from yali.storage.bootloader import BOOT_TYPE_NONE, BOOT_TYPE_PARTITION, BOOT_TYPE_MBR, BOOT_TYPE_RAID
 
-
-class Widget(QtGui.QWidget, ScreenWidget):
+class Widget(QWidget, ScreenWidget):
+    type = "bootloadersetup"
     title = _("Configure Bootloader")
     icon = "iconBootloader"
     helpSummary = _("A bootloader is a tiny program that runs when a computer is first powered up.")
@@ -43,16 +40,16 @@ You can always choose another installation method if you know what you are doing
 </p>
 """)
 
-    def __init__(self, *args):
-        QtGui.QWidget.__init__(self,None)
+    def __init__(self):
+        QWidget.__init__(self, None)
         self.ui = Ui_BootLoaderWidget()
         self.ui.setupUi(self)
         self.bootloader = ctx.bootloader
         self.bootloader.storage = ctx.storage
         self.default = None
         self.device = None
-        self.bootDisk = None
-        self.bootPartition = None
+        self.boot_disk = None
+        self.boot_partition = None
 
         self.connect(self.ui.defaultSettings, SIGNAL("toggled(bool)"), self.showDefaultSettings)
         self.connect(self.ui.noInstall, SIGNAL("toggled(bool)"), self.deactivateBootloader)
@@ -97,22 +94,22 @@ You can always choose another installation method if you know what you are doing
             self.ui.advancedSettingsBox.show()
 
     def activateChoices(self):
-        for choice, (device, bootType) in self.bootloader.choices.items():
+        for choice in self.bootloader.choices.keys():
             if choice == BOOT_TYPE_MBR:
                 self.ui.installMBR.setText("The first sector of")
-                self.bootDisk = self.bootloader.choices[BOOT_TYPE_MBR][0]
+                self.boot_disk = self.bootloader.choices[BOOT_TYPE_MBR][0]
             elif choice == BOOT_TYPE_RAID:
                 self.ui.installMBR.setText("The RAID array where Pardus is installed")
-                self.bootPartition = self.bootloader.choices[BOOT_TYPE_RAID][0]
+                self.boot_partition = self.bootloader.choices[BOOT_TYPE_RAID][0]
             elif choice == BOOT_TYPE_PARTITION:
                 self.ui.installPartition.setText("The partition where Pardus is installed")
-                self.bootPartition = self.bootloader.choices[BOOT_TYPE_PARTITION][0]
+                self.boot_partition = self.bootloader.choices[BOOT_TYPE_PARTITION][0]
 
-        if self.bootDisk:
-            self.default = self.bootDisk
+        if self.boot_disk:
+            self.default = self.boot_disk
             self.ui.installMBR.setChecked(True)
         else:
-            self.default = self.bootPartition
+            self.default = self.boot_partition
             self.ui.installPartition.setChecked(True)
 
     def deactivateBootloader(self):
@@ -120,9 +117,10 @@ You can always choose another installation method if you know what you are doing
 
     def activateInstallPartition(self, state):
         if state:
-            self.device =  self.bootPartition
+            self.device =  self.boot_partition
 
     def currentDeviceChanged(self, index):
         if index != -1:
             self.device = self.ui.drives.itemData(index).toPyObject().name
 
+register_gui_screen(Widget)

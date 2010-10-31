@@ -10,22 +10,19 @@
 # Please read the COPYING file.
 #
 
-import os
 import gettext
 import pardus.xorg
+_ = gettext.translation('yali', fallback=True).ugettext
 
-__trans = gettext.translation('yali', fallback=True)
-_ = __trans.ugettext
-
-from PyQt4 import QtGui
-from PyQt4.QtCore import *
+from PyQt4.Qt import QWidget, SIGNAL, QString, QIcon, QTimeLine, QPixmap, QLineEdit, QListWidgetItem
 
 import yali.users
 import yali.context as ctx
-from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui import ScreenWidget, register_gui_screen
 from yali.gui.Ui.setupuserswidget import Ui_SetupUsersWidget
 
-class Widget(QtGui.QWidget, ScreenWidget):
+class Widget(QWidget, ScreenWidget):
+    type = "accounts"
     title = _("Add Users")
     icon = "iconUser"
     helpSummary = _("")
@@ -45,7 +42,7 @@ Proceed with the installation after you make your selections.
 ''')
 
     def __init__(self, *args):
-        QtGui.QWidget.__init__(self,None)
+        QWidget.__init__(self,None)
         self.ui = Ui_SetupUsersWidget()
         self.ui.setupUi(self)
 
@@ -58,8 +55,8 @@ Proceed with the installation after you make your selections.
         self.ui.scrollArea.setFixedHeight(0)
 
         # User Icons
-        self.normalUserIcon = QtGui.QPixmap(":/gui/pics/user_normal.png")
-        self.superUserIcon = QtGui.QPixmap(":/gui/pics/user_root.png")
+        self.normalUserIcon = QPixmap(":/gui/pics/user_normal.png")
+        self.superUserIcon = QPixmap(":/gui/pics/user_root.png")
 
         # KDE AutoLogin
         self.autoLoginUser = ""
@@ -163,7 +160,7 @@ Proceed with the installation after you make your selections.
         ctx.installData.autoLoginUser = str(self.ui.autoLogin.currentText())
         return True
     def setCapsLockIcon(self, child):
-        if type(child) == QtGui.QLineEdit:
+        if type(child) == QLineEdit:
             if pardus.xorg.capslock.isOn():
                 child.setStyleSheet("QLineEdit {background: url(:/gui/pics/caps.png) no-repeat right;\npadding-right: 35px; color: #333333;}")
             else:
@@ -213,8 +210,8 @@ Proceed with the installation after you make your selections.
             self.operation = "expand"
             self.timeLine.start()
 
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(self.iconPath), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon = QIcon()
+        icon.addPixmap(QPixmap(self.iconPath), QIcon.Normal, QIcon.Off)
         self.ui.addMoreUsers.setIcon(icon)
         self.checkUsers()
 
@@ -341,8 +338,8 @@ Proceed with the installation after you make your selections.
         self.ui.autoLogin.removeItem(_cur + 1)
         self.ui.createButton.setText(_("Add"))
 
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/gui/pics/list-add.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon = QIcon()
+        icon.addPixmap(QPixmap(":/gui/pics/list-add.png"), QIcon.Normal, QIcon.Off)
         self.ui.createButton.setIcon(icon)
 
         self.ui.cancelButton.hide()
@@ -370,8 +367,8 @@ Proceed with the installation after you make your selections.
 
         self.edititemindex = self.ui.userList.currentRow()
         self.ui.createButton.setText(_("Update"))
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/gui/pics/tick.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon = QIcon()
+        icon.addPixmap(QPixmap(":/gui/pics/tick.png"), QIcon.Normal, QIcon.Off)
         self.ui.createButton.setIcon(icon)
         self.ui.cancelButton.setVisible(self.ui.createButton.isVisible())
 
@@ -418,8 +415,8 @@ Proceed with the installation after you make your selections.
             self.ui.cancelButton.setHidden(self.sender() == self.ui.cancelButton)
             self.checkUsers()
         self.ui.createButton.setText(_("Add"))
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/gui/pics/list-add.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon = QIcon()
+        icon.addPixmap(QPixmap(":/gui/pics/list-add.png"), QIcon.Normal, QIcon.Off)
         self.ui.createButton.setIcon(icon)
 
 
@@ -427,15 +424,17 @@ Proceed with the installation after you make your selections.
         if self.ui.createButton.isEnabled() and self.ui.addMoreUsers.isChecked():
             self.slotCreateUser()
 
-class UserItem(QtGui.QListWidgetItem):
+class UserItem(QListWidgetItem):
 
     ##
     # @param user (yali.users.User)
     def __init__(self, parent, pix, user):
-        _pix = QtGui.QIcon(pix)
+        _pix = QIcon(pix)
         _user= QString(user.username)
-        QtGui.QListWidgetItem.__init__(self,_pix,_user,parent)
+        QListWidgetItem.__init__(self,_pix,_user,parent)
         self._user = user
 
     def getUser(self):
         return self._user
+
+register_gui_screen(Widget)
