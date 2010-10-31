@@ -19,7 +19,6 @@ import glob
 import dbus
 import pisi
 import piksemel
-import yali.postinstall
 import yali.installdata
 import yali.context as ctx
 
