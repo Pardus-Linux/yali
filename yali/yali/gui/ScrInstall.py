@@ -11,15 +11,11 @@
 #
 
 import os
-import glob
 import zipfile
 import gettext
+_ = gettext.translation('yali', fallback=True).ugettext
 
-__trans = gettext.translation('yali', fallback=True)
-_ = __trans.ugettext
-
-from PyQt4 import QtGui
-from PyQt4.QtCore import *
+from PyQt4.Qt import QWidget, SIGNAL, QPixmap, QCoreApplication, QEvent, QThread, QObject, QTimer, QApplication, QMutex, QWaitCondition
 
 import pisi.ui
 
@@ -30,34 +26,35 @@ import yali.postinstall
 import yali.localeutils
 import yali.context as ctx
 from yali.gui.descSlide import slideDesc
-from yali.gui.ScreenWidget import ScreenWidget
+from yali.gui import ScreenWidget, register_gui_screen
 from yali.gui.Ui.installwidget import Ui_InstallWidget
-from yali.gui.YaliDialog import QuestionDialog, EjectAndRetryDialog
+from yali.gui.YaliDialog import EjectAndRetryDialog
 
-EventPisi, EventSetProgress, EventError, EventAllFinished, EventPackageInstallFinished, EventRetry = range(1001,1007)
+EventPisi, EventSetProgress, EventError, EventAllFinished, EventPackageInstallFinished, EventRetry = range(1001, 1007)
+
+current_object = None
 
 def iter_slide_pics():
     def pat(pic):
         return "%s/%s.png" % (ctx.consts.slidepics_dir, pic)
 
     # load all pics
-    pics = []
+    pictures = []
 
     for slide in slideDesc:
-        pic, desc = slide.items()[0]
-        pics.append({"pic":QtGui.QPixmap(pat(pic)),"desc":desc})
+        picture, description = slide.items()[0]
+        pictures.append({"pic":QPixmap(pat(picture)), "desc":description})
 
     while True:
-        for pic in pics:
-            yield pic
+        for picture in pictures:
+            yield picture
 
-def objectSender(pack):
-    global currentObject
-    QCoreApplication.postEvent(currentObject, pack)
+def object_sender(pack):
+    global current_object
+    QCoreApplication.postEvent(current_object, pack)
 
-##
-# Partitioning screen.
-class Widget(QtGui.QWidget, ScreenWidget):
+class Widget(QWidget, ScreenWidget):
+    type = "packageInstallation"
     title = _("Installing Pardus")
     icon = "iconInstall"
     helpSummary = _("""YALI is now installing Pardus on your computer. This operation takes
@@ -77,13 +74,13 @@ to discover the features and the innovations offered by this new Pardus release.
 </p>
 ''')
 
-    def __init__(self, *args):
-        QtGui.QWidget.__init__(self,None)
+    def __init__(self):
+        QWidget.__init__(self, None)
         self.ui = Ui_InstallWidget()
         self.ui.setupUi(self)
 
         self.timer = QTimer(self)
-        QObject.connect(self.timer, SIGNAL("timeout()"),self.slotChangePix)
+        QObject.connect(self.timer, SIGNAL("timeout()"), self.slotChangePix)
 
         if ctx.consts.lang == "tr":
             self.ui.progress.setFormat("%%p")
@@ -95,7 +92,14 @@ to discover the features and the innovations offered by this new Pardus release.
 
         self.total = 0
         self.cur = 0
-        self.hasErrors = False
+        self.has_errors = False
+
+        # mutual exclusion
+        self.mutex = QMutex()
+        self.wait_condition = QWaitCondition()
+        self.retry_answer = False
+        self.pkg_configurator = None
+        self.pkg_installer = None
 
     def shown(self):
         # Disable mouse handler
@@ -103,8 +107,8 @@ to discover the features and the innovations offered by this new Pardus release.
         ctx.mainScreen.themeShortCut.setEnabled(False)
 
         # Thread object
-        global currentObject
-        currentObject = self
+        global current_object
+        current_object = self
 
         # start installer thread
         ctx.logger.debug("PkgInstaller is creating...")
@@ -123,16 +127,16 @@ to discover the features and the innovations offered by this new Pardus release.
 
         # EventPisi
         if qevent.eventType() == EventPisi:
-            p, event = qevent.data()
+            package, event = qevent.data()
 
             if event == pisi.ui.installing:
-                self.ui.info.setText(_("Installing <b>%s</b><br>%s") % (p.name, p.summary))
-                ctx.logger.debug("Pisi: %s installing" % p.name)
+                self.ui.info.setText(_("Installing <b>%s</b><br>%s") % (package.name, package.summary))
+                ctx.logger.debug("Pisi: %s installing" % package.name)
                 self.cur += 1
                 self.ui.progress.setValue(self.cur)
             elif event == pisi.ui.configuring:
-                self.ui.info.setText(_("Configuring <b>%s</b>") % p.name)
-                ctx.logger.debug("Pisi: %s configuring" % p.name)
+                self.ui.info.setText(_("Configuring <b>%s</b>") % package.name)
+                ctx.logger.debug("Pisi: %s configuring" % package.name)
                 self.cur += 1
                 self.ui.progress.setValue(self.cur)
 
@@ -154,12 +158,12 @@ to discover the features and the innovations offered by this new Pardus release.
         elif qevent.eventType() == EventRetry:
             package = qevent.data()
             self.timer.stop()
-            ctx.yali.retryAnswer = EjectAndRetryDialog(_("Warning"),
+            self.retry_answer = EjectAndRetryDialog(_("Warning"),
                                                        _("Failed installing <b>%s</b>") % package,
                                                        _("Do you want to retry?"))
 
             self.timer.start(1000 * 30)
-            ctx.yali.waitCondition.wakeAll()
+            self.wait_condition.wakeAll()
 
         # EventAllFinished
         elif qevent.eventType() == EventAllFinished:
@@ -171,8 +175,7 @@ to discover the features and the innovations offered by this new Pardus release.
         self.ui.desc.setText(slide["desc"])
 
     def packageInstallFinished(self):
-
-        ctx.yali.fillFstab()
+        yali.postinstall.fillFstab()
 
         # Configure Pending...
         # run baselayout's postinstall first
@@ -201,14 +204,14 @@ to discover the features and the innovations offered by this new Pardus release.
         return True
 
     def finished(self):
-        if self.hasErrors:
+        if self.has_errors:
             return
         #ctx.interface.informationWindow.hide()
         # trigger next screen. will activate execute()
         ctx.mainScreen.slotNext()
 
     def installError(self, error):
-        self.hasErrors = True
+        self.has_errors = True
         errorstr = _("""An error occured during the installation of packages.
 
 This may be caused by a corrupted installation medium.
@@ -216,8 +219,7 @@ This may be caused by a corrupted installation medium.
 Error:
 %s
 """) % str(error)
-        import yali.gui.runner
-        yali.gui.runner.showException(1, errorstr)
+        ctx.interface.exceptionWindow(1, errorstr)
 
 class PkgInstaller(QThread):
 
@@ -232,22 +234,18 @@ class PkgInstaller(QThread):
         yali.pisiiface.initialize(ui)
         ctx.logger.debug("Pisi initialize is calling..")
 
-        # if exists use remote source repo
-        # otherwise use cd as repo
-        if ctx.installData.repoAddr:
-            yali.pisiiface.addRemoteRepo(ctx.installData.repoName,ctx.installData.repoAddr)
-        elif yali.sysutils.checkYaliParams(param=ctx.consts.dvd_install_param):
+        if ctx.flags.collection:
             yali.pisiiface.addRepo(ctx.consts.dvd_repo_name, ctx.installData.autoInstallationCollection.index)
             ctx.logger.debug("DVD Repo adding..")
             # Get only collection packages with collection Name
             order = yali.pisiiface.getAllPackagesWithPaths(collectionIndex=ctx.installData.autoInstallationCollection.index, ignoreKernels=True)
-            kernelPackages = yali.pisiiface.getNeededKernel(ctx.installData.autoInstallationKernel, ctx.installData.autoInstallationCollection.index)
-            order.extend(kernelPackages)
+            kernel_packages = yali.pisiiface.getNeededKernel(ctx.installData.autoInstallationKernel, ctx.installData.autoInstallationCollection.index)
+            order.extend(kernel_packages)
         else:
             ctx.logger.debug("CD Repo adding..")
             yali.pisiiface.addCdRepo()
             # Check for just installing system.base packages
-            if yali.sysutils.checkYaliParams(param=ctx.consts.base_only_param):
+            if ctx.flags.baseonly:
                 order = yali.pisiiface.getBasePackages()
             else:
                 order = yali.pisiiface.getAllPackagesWithPaths()
@@ -266,7 +264,7 @@ class PkgInstaller(QThread):
         ctx.logger.debug("Setting data on just created PisiEvent (EventSetProgress)..")
         qevent.setData(total * 2)
         ctx.logger.debug("Posting PisiEvent to the widget..")
-        objectSender(qevent)
+        object_sender(qevent)
         ctx.logger.debug("Found %d packages in repo.." % total)
         try:
             while True:
@@ -274,45 +272,45 @@ class PkgInstaller(QThread):
                     yali.pisiiface.install(order)
                     break # while
 
-                except zipfile.BadZipfile, e:
+                except zipfile.BadZipfile, msg:
                     # Lock the mutex
-                    ctx.yali.mutex.lock()
+                    self.mutex.lock()
 
                     # Send event for asking retry
                     qevent = PisiEvent(QEvent.User, EventRetry)
 
                     # Send failed package name
-                    qevent.setData(os.path.basename(str(e)))
-                    objectSender(qevent)
+                    qevent.setData(os.path.basename(str(msg)))
+                    object_sender(qevent)
 
                     # wait for the result
-                    ctx.yali.waitCondition.wait(ctx.yali.mutex)
-                    ctx.yali.mutex.unlock()
+                    self.wait_condition.wait(self.mutex)
+                    self.mutex.unlock()
 
-                    if ctx.yali.retryAnswer == "no":
-                        raise e
+                    if self.retry_answer == "no":
+                        raise msg
 
-                except Exception, e:
+                except Exception, msg:
                     # Lock the mutex
-                    ctx.yali.mutex.lock()
-                    raise e
+                    self.mutex.lock()
+                    raise msg
 
-        except Exception, e:
+        except Exception, msg:
             # Lock the mutex
-            ctx.yali.mutex.lock()
+            self.mutex.lock()
 
             # User+10: error
             qevent = PisiEvent(QEvent.User, EventError)
-            qevent.setData(e)
-            objectSender(qevent)
+            qevent.setData(msg)
+            object_sender(qevent)
 
             # wait for the result
-            ctx.yali.waitCondition.wait(ctx.yali.mutex)
+            self.wait_condition.wait(self.mutex)
 
         ctx.logger.debug("Package install finished ...")
         # Package Install finished lets configure them
         qevent = PisiEvent(QEvent.User, EventPackageInstallFinished)
-        objectSender(qevent)
+        object_sender(qevent)
 
 class PkgConfigurator(QThread):
 
@@ -329,52 +327,53 @@ class PkgConfigurator(QThread):
             # run all pending...
             ctx.logger.debug("exec : yali.pisiiface.configurePending() called")
             yali.pisiiface.configurePending()
-        except Exception, e:
+        except Exception, msg:
             # User+10: error
             qevent = PisiEvent(QEvent.User, EventError)
-            qevent.setData(e)
-            objectSender(qevent)
+            qevent.setData(msg)
+            object_sender(qevent)
 
         # Remove cd repository and install add real
-        if yali.sysutils.checkYaliParams(param=ctx.consts.dvd_install_param):
+        if ctx.flags.collection:
             yali.pisiiface.switchToPardusRepo(ctx.consts.dvd_repo_name)
         else:
             yali.pisiiface.switchToPardusRepo(ctx.consts.cd_repo_name)
 
         qevent = PisiEvent(QEvent.User, EventAllFinished)
-        objectSender(qevent)
+        object_sender(qevent)
 
 class PisiUI(QObject, pisi.ui.UI):
 
     def __init__(self, *args):
         pisi.ui.UI.__init__(self)
         apply(QObject.__init__, (self,) + args)
-        self.lastPackage = ''
+        self.last_package = ''
 
     def notify(self, event, **keywords):
         if event == pisi.ui.installing or event == pisi.ui.configuring:
             qevent = PisiEvent(QEvent.User, EventPisi)
             data = [keywords['package'], event]
-            self.lastPackage = keywords['package'].name
+            self.last_package = keywords['package'].name
             qevent.setData(data)
-            objectSender(qevent)
-        QtGui.QApplication.processEvents()
+            object_sender(qevent)
+        QApplication.processEvents()
 
     def display_progress(self, operation, percent, info, **keywords):
         pass
 
 class PisiEvent(QEvent):
 
-    def __init__(self, _, event):
-        QEvent.__init__(self, _)
+    def __init__(self, event_type, event):
+        QEvent.__init__(self, event_type)
         self.event = event
 
     def eventType(self):
         return self.event
 
-    def setData(self,data):
+    def setData(self, data):
         self._data = data
 
     def data(self):
         return self._data
 
+register_gui_screen(Widget)
