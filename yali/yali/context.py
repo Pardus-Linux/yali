@@ -9,45 +9,23 @@
 #
 # Please read the COPYING file.
 #
-import os
-import yali.installdata
 
-# singletons from yali.*
 from yali.installdata import installData
 from yali.constants import consts
-from yali.options import options
+from yali.flags import flags
 
-# style sheet
-import yali.sysutils
-consts.stylesheet = os.path.join(consts.data_dir, "data/%s.qss" % (yali.sysutils.checkYaliOptions("theme") or options.theme))
-consts.alternatestylesheet = os.path.join(consts.data_dir, "data/oxygen.qss")
+logger = None
 
-# lock for format request
-requestsCompleted = False
+storage = None
 
-# debugger variables
-debugger = None
-debugEnabled = False
+bootloader = None
 
-# edd check
-isEddFailed = False
-
-# auto partitioning
-use_autopart = False
-
-# auto installation
 autoInstall = False
 
-# keydata
 keydata = None
 
-# Bus
 bus = None
 
-# Selected disk for manual partitioning screen
-selectedDisk = None
-
-#GUI base user message Interface
 interface = None
 
-
+mainScreen = None
