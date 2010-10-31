@@ -9,37 +9,60 @@
 #
 # Please read the COPYING file.
 #
-from PyQt4.Qt import QApplication
-from PyQt4 import QtGui
-from PyQt4.QtCore import *
-
-import gettext
-__trans = gettext.translation('yali', fallback=True)
-_ = __trans.ugettext
-
 import random
-import yali.context as ctx
+import gettext
+_ = gettext.translation('yali', fallback=True).ugettext
 
-class windowTitle(QtGui.QFrame):
+
+from PyQt4.Qt import Qt
+from PyQt4.Qt import QApplication
+from PyQt4.Qt import QWidget
+from PyQt4.Qt import SIGNAL
+from PyQt4.Qt import QHBoxLayout
+from PyQt4.Qt import QVBoxLayout
+from PyQt4.Qt import QLabel
+from PyQt4.Qt import QSpacerItem
+from PyQt4.Qt import QSizePolicy
+from PyQt4.Qt import QPushButton
+from PyQt4.Qt import QDialog
+from PyQt4.Qt import QObject
+from PyQt4.Qt import QMetaObject
+from PyQt4.Qt import QFrame
+from PyQt4.Qt import QPainter
+from PyQt4.Qt import QColor
+from PyQt4.Qt import QPixmap
+from PyQt4.Qt import QMessageBox
+from PyQt4.Qt import QSize
+from PyQt4.Qt import QShortcut
+from PyQt4.Qt import QGridLayout
+from PyQt4.Qt import QMovie
+from PyQt4.Qt import QBasicTimer
+
+import pisi
+import yali
+import yali.context as ctx
+from yali.gui.Ui.exception import Ui_Exception
+
+class windowTitle(QFrame):
     def __init__(self, parent, closeButton=True):
-        QtGui.QFrame.__init__(self, parent)
+        QFrame.__init__(self, parent)
         self.setMaximumSize(QSize(9999999,22))
         self.setObjectName("windowTitle")
-        self.hboxlayout = QtGui.QHBoxLayout(self)
+        self.hboxlayout = QHBoxLayout(self)
         self.hboxlayout.setSpacing(0)
         self.hboxlayout.setContentsMargins(0,0,4,0)
 
-        self.label = QtGui.QLabel(self)
+        self.label = QLabel(self)
         self.label.setObjectName("label")
         self.label.setStyleSheet("padding-left:4px; font:bold 11px; color: #FFFFFF;")
 
         self.hboxlayout.addWidget(self.label)
 
-        spacerItem = QtGui.QSpacerItem(40,20,QtGui.QSizePolicy.Expanding,QtGui.QSizePolicy.Minimum)
+        spacerItem = QSpacerItem(40,20,QSizePolicy.Expanding,QSizePolicy.Minimum)
         self.hboxlayout.addItem(spacerItem)
 
         if closeButton:
-            self.pushButton = QtGui.QPushButton(self)
+            self.pushButton = QPushButton(self)
             self.pushButton.setFocusPolicy(Qt.NoFocus)
             self.pushButton.setObjectName("pushButton")
             self.pushButton.setStyleSheet("font:bold;")
@@ -66,15 +89,15 @@ class windowTitle(QtGui.QFrame):
             self.mainwidget.move(event.globalPos() - self.dragPosition)
             event.accept()
 
-class Dialog(QtGui.QDialog):
+class Dialog(QDialog):
     def __init__(self, title, widget = None, closeButton = True, keySequence = None, isDialog = False, icon = None):
-        QtGui.QDialog.__init__(self, ctx.mainScreen)
+        QDialog.__init__(self, ctx.mainScreen)
         self.setObjectName("dialog")
 
         self.isDialog = isDialog
-        self.layout = QtGui.QVBoxLayout()
+        self.layout = QVBoxLayout()
         self.setLayout(self.layout)
-        self.wlayout= QtGui.QHBoxLayout()
+        self.wlayout= QHBoxLayout()
 
         if icon:
             self.setStyleSheet("""QDialog QLabel{ margin-left:40px;margin-right:10px}
@@ -96,7 +119,7 @@ class Dialog(QtGui.QDialog):
             QObject.connect(self.windowTitle.pushButton, SIGNAL("clicked()"), self.reject)
 
         if keySequence:
-            shortCut = QtGui.QShortcut(keySequence, self)
+            shortCut = QShortcut(keySequence, self)
             QObject.connect(shortCut, SIGNAL("activated()"), self.reject)
 
         QMetaObject.connectSlotsByName(self)
@@ -110,7 +133,7 @@ class Dialog(QtGui.QDialog):
         self.wlayout.addWidget(self.content)
         if self.isDialog:
             widget.setStyleSheet("QWidget { background:none }")
-            self.layout.addItem(QtGui.QSpacerItem(10, 10, QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.MinimumExpanding))
+            self.layout.addItem(QSpacerItem(10, 10, QSizePolicy.Fixed, QSizePolicy.MinimumExpanding))
             self.layout.setContentsMargins(0, 0, 0, 8)
         self.layout.addLayout(self.wlayout)
 
@@ -120,13 +143,13 @@ class Dialog(QtGui.QDialog):
 
     def exec_(self):
         QTimer.singleShot(100, self.setCentered)
-        return QtGui.QDialog.exec_(self)
+        return QDialog.exec_(self)
 
 class MessageWindow:
     def __init__(self, title, text, type="ok", default=None, customButtons =None, customIcon=None, run=True, destroyAfterRun=True, detailed=False, longText=""):
         self.rc = None
         self.dialog = None
-        self.msgBox = QtGui.QMessageBox()
+        self.msgBox = QMessageBox()
         self.doCustom = False
         self.customButtons = customButtons
 
@@ -134,20 +157,20 @@ class MessageWindow:
         buttons = None
 
         if type == 'ok':
-            buttons = QtGui.QMessageBox.Ok
+            buttons = QMessageBox.Ok
             icon = "question"
         elif type == 'warning':
             icon = "warning"
-            buttons =  QtGui.QMessageBox.Ok
+            buttons =  QMessageBox.Ok
         elif type == 'okcancel':
             icon = "question"
-            buttons = QtGui.QMessageBox.Ok | QtGui.QMessageBox.Cancel
+            buttons = QMessageBox.Ok | QMessageBox.Cancel
         elif type == 'question':
             icon = "question"
-            buttons = QtGui.QMessageBox.Ok | QtGui.QMessageBox.Cancel
+            buttons = QMessageBox.Ok | QMessageBox.Cancel
         elif type == 'yesno':
             icon = "question"
-            buttons = QtGui.QMessageBox.Yes | QtGui.QMessageBox.No
+            buttons = QMessageBox.Yes | QMessageBox.No
         elif type == 'custom':
             self.doCustom = True
             icon = "question"
@@ -168,18 +191,18 @@ class MessageWindow:
         if self.doCustom:
             button = None
             for index, text in enumerate(self.customButtons):
-                button = self.msgBox.addButton(text, QtGui.QMessageBox.ActionRole)
+                button = self.msgBox.addButton(text, QMessageBox.ActionRole)
                 if default is not None and default == index:
                     self.msgBox.setDefaultButton(button)
         else:
             self.msgBox.setStandardButtons(buttons)
 
             if default == "no":
-                default = QtGui.QMessageBox.No
+                default = QMessageBox.No
             elif default == "yes":
-                default = QtGui.QMessageBox.Yes
+                default = QMessageBox.Yes
             elif default == "ok":
-                default = QtGui.QMessageBox.Ok
+                default = QMessageBox.Ok
             else:
                 default = None
 
@@ -208,15 +231,15 @@ class MessageWindow:
         return self.rc
 
 def QuestionDialog(title, text, info = None, dontAsk = False):
-    msgBox = QtGui.QMessageBox()
+    msgBox = QMessageBox()
 
-    buttonYes = msgBox.addButton(_("Yes"), QtGui.QMessageBox.ActionRole)
-    buttonNo = msgBox.addButton(_("No"), QtGui.QMessageBox.ActionRole)
+    buttonYes = msgBox.addButton(_("Yes"), QMessageBox.ActionRole)
+    buttonNo = msgBox.addButton(_("No"), QMessageBox.ActionRole)
 
     answers = {buttonYes:"yes",
                buttonNo :"no"}
     if dontAsk:
-        buttonDontAsk = msgBox.addButton(_("Don't ask again"), QtGui.QMessageBox.ActionRole)
+        buttonDontAsk = msgBox.addButton(_("Don't ask again"), QMessageBox.ActionRole)
         answers[buttonDontAsk] = "dontask"
 
     msgBox.setText(text)
@@ -234,11 +257,11 @@ def QuestionDialog(title, text, info = None, dontAsk = False):
     return "no"
 
 def EjectAndRetryDialog(title, text, info):
-    msgBox = QtGui.QMessageBox()
+    msgBox = QMessageBox()
 
-    buttonEject = msgBox.addButton(_("Eject Disc"), QtGui.QMessageBox.ActionRole)
-    buttonYes = msgBox.addButton(_("Yes"), QtGui.QMessageBox.ActionRole)
-    buttonNo = msgBox.addButton(_("No"), QtGui.QMessageBox.ActionRole)
+    buttonEject = msgBox.addButton(_("Eject Disc"), QMessageBox.ActionRole)
+    buttonYes = msgBox.addButton(_("Yes"), QMessageBox.ActionRole)
+    buttonNo = msgBox.addButton(_("No"), QMessageBox.ActionRole)
 
     answers = {buttonYes:"yes",
                buttonNo :"no",
@@ -261,8 +284,8 @@ def EjectAndRetryDialog(title, text, info):
             os.system("echo 3 > /proc/sys/vm/drop_caches")
             os.system("eject -m")
 
-            waitBox = QtGui.QMessageBox()
-            waitBox.addButton(_("OK"), QtGui.QMessageBox.ActionRole)
+            waitBox = QMessageBox()
+            waitBox.addButton(_("OK"), QMessageBox.ActionRole)
             waitBox.setText(_("Please insert a new disc and then click OK"))
 
             dialog = Dialog(_("Insert New Disc"), waitBox, closeButton = False, isDialog = True, icon="info")
@@ -281,9 +304,9 @@ def InfoDialog(text, button=None, title=None, icon="info"):
     if not button:
         button = _("OK")
 
-    msgBox = QtGui.QMessageBox()
+    msgBox = QMessageBox()
 
-    buttonOk = msgBox.addButton(button, QtGui.QMessageBox.ActionRole)
+    buttonOk = msgBox.addButton(button, QMessageBox.ActionRole)
 
     msgBox.setText(text)
 
@@ -292,12 +315,12 @@ def InfoDialog(text, button=None, title=None, icon="info"):
     dialog.exec_()
     ctx.mainScreen.processEvents()
 
-class InformationWindow(QtGui.QWidget):
+class InformationWindow(QWidget):
 
     def __init__(self):
-        QtGui.QWidget.__init__(self, ctx.mainScreen)
+        QWidget.__init__(self, ctx.mainScreen)
         self.setObjectName("InfoWin")
-        self.setSizePolicy(QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Expanding)
+        self.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         self.setFixedHeight(50)
         self.setMaximumWidth(800)
         self.setStyleSheet("""
@@ -314,27 +337,27 @@ class InformationWindow(QtGui.QWidget):
                                   width: 0.5px;}
         """)
 
-        self.gridlayout = QtGui.QGridLayout(self)
-        self.frame = QtGui.QFrame(self)
+        self.gridlayout = QGridLayout(self)
+        self.frame = QFrame(self)
         self.frame.setObjectName("frame")
-        self.horizontalLayout = QtGui.QHBoxLayout(self.frame)
+        self.horizontalLayout = QHBoxLayout(self.frame)
         self.horizontalLayout.setContentsMargins(10, 0, 10, 0)
 
         # Spinner
-        self.spinner = QtGui.QLabel(self.frame)
+        self.spinner = QLabel(self.frame)
         self.spinner.setMinimumSize(QSize(16, 16))
         self.spinner.setMaximumSize(QSize(16, 16))
         self.spinner.setIndent(6)
-        self.movie = QtGui.QMovie(':/images/working.mng')
+        self.movie = QMovie(':/images/working.mng')
         self.spinner.setMovie(self.movie)
         self.movie.start()
         self.horizontalLayout.addWidget(self.spinner)
 
         # Message
-        self.label = QtGui.QLabel(self.frame)
+        self.label = QLabel(self.frame)
         self.label.setAlignment(Qt.AlignCenter)
-        self.label.setSizePolicy(QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Expanding)
-        self.icon = QtGui.QLabel(self.frame)
+        self.label.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        self.icon = QLabel(self.frame)
         self.icon.setFixedWidth(16)
         self.icon.setFixedHeight(16)
         self.horizontalLayout.setSpacing(10)
@@ -350,11 +373,11 @@ class InformationWindow(QtGui.QWidget):
         if type:
             self.icon.show()
             if type == "error":
-                self.icon.setPixmap(QtGui.QPixmap(":/gui/pics/dialog-error.png"))
+                self.icon.setPixmap(QPixmap(":/gui/pics/dialog-error.png"))
                 self.setStyleSheet(" QFrame#frame {background-color: rgba(255,0,0,100);} ")
 
             elif type == "warning":
-                self.icon.setPixmap(QtGui.QPixmap(":/gui/pics/dialog-warning.png"))
+                self.icon.setPixmap(QPixmap(":/gui/pics/dialog-warning.png"))
                 self.setStyleSheet(" QFrame#frame {background-color: rgba(0,0,0,100);} ")
 
             self.setFixedWidth(textWidth + self.icon.width() + 50)
@@ -376,16 +399,16 @@ class InformationWindow(QtGui.QWidget):
         ctx.mainScreen.processEvents()
 
     def show(self):
-        QtGui.QWidget.show(self)
+        QWidget.show(self)
         self.refresh()
 
     def hide(self):
-        QtGui.QWidget.hide(self)
+        QWidget.hide(self)
         self.refresh()
 
-class ProgressWindow(QtGui.QWidget):
+class ProgressWindow(QWidget):
     def __init__(self, message):
-        QtGui.QWidget.__init__(self, ctx.mainScreen)
+        QWidget.__init__(self, ctx.mainScreen)
         self.setObjectName("InfoWin")
         self.resize(300,50)
         self.setStyleSheet("""
@@ -402,24 +425,24 @@ class ProgressWindow(QtGui.QWidget):
                                   width: 0.5px;}
         """)
 
-        self.gridlayout = QtGui.QGridLayout(self)
-        self.frame = QtGui.QFrame(self)
+        self.gridlayout = QGridLayout(self)
+        self.frame = QFrame(self)
         self.frame.setObjectName("frame")
-        self.horizontalLayout = QtGui.QHBoxLayout(self.frame)
+        self.horizontalLayout = QHBoxLayout(self.frame)
         self.horizontalLayout.setContentsMargins(6, 0, 0, 0)
 
         # Spinner
-        self.spinner = QtGui.QLabel(self.frame)
+        self.spinner = QLabel(self.frame)
         self.spinner.setMinimumSize(QSize(16, 16))
         self.spinner.setMaximumSize(QSize(16, 16))
         self.spinner.setIndent(6)
-        self.movie = QtGui.QMovie(':/images/working.mng')
+        self.movie = QMovie(':/images/working.mng')
         self.spinner.setMovie(self.movie)
         self.movie.start()
         self.horizontalLayout.addWidget(self.spinner)
 
         # Message
-        self.label = QtGui.QLabel(self.frame)
+        self.label = QLabel(self.frame)
         self.horizontalLayout.addWidget(self.label)
         self.gridlayout.addWidget(self.frame,0,0,1,1)
 
@@ -436,23 +459,55 @@ class ProgressWindow(QtGui.QWidget):
         ctx.mainScreen.processEvents()
 
     def show(self):
-        QtGui.QWidget.show(self)
+        QWidget.show(self)
         self.refresh()
 
     def pop(self):
-        QtGui.QWidget.hide(self)
+        QWidget.hide(self)
         self.refresh()
 
+class ExceptionWidget(QWidget):
+    def __init__(self, traceback, rebootButton=False):
+        QWidget.__init__(self, None)
+        self.ui = Ui_Exception()
+        self.ui.setupUi(self)
+        self.ui.traceback.setText(traceback)
+        self.ui.traceback.hide()
+        self.connect(self.ui.showBackTrace, SIGNAL("clicked()"), self.showBackTrace)
+        self.connect(self.ui.rebootButton,  SIGNAL("clicked()"), yali.util.reboot)
+        self.ui.rebootButton.setShown(rebootButton)
+
+    def showBackTrace(self):
+        self.ui.traceback.show()
+        self.ui.showBackTrace.hide()
+        self.emit(SIGNAL("resizeDialog(int,int)"), 440, 440)
+
+class ExceptionWindow:
+    def __init__(self, error, traceback):
+        self.rc = None
+        self.dialog = None
+        if isinstance(error, pisi.Error) or issubclass(error, yali.Error):
+            closeButton = False
+        else:
+            closeButton = True
+
+        ctx.logger.debug(traceback)
+        self.dialog = Dialog(_("Error reporting"), ExceptionWidget(traceback, not closeButton), None, closeButton, icon="error")
+        self.dialog.resize(300,160)
+        self.run()
+
+    def run(self):
+        self.rc = self.dialog.exec_()
 
 
 # Tetris from http://zetcode.com/tutorials/pyqt4/thetetrisgame
-class Tetris(QtGui.QFrame):
+class Tetris(QFrame):
     BoardWidth = 10
     BoardHeight = 22
     Speed = 300
 
     def __init__(self, parent):
-        QtGui.QFrame.__init__(self, parent)
+        QFrame.__init__(self, parent)
 
         self.timer = QBasicTimer()
         self.isWaitingAfterLine = False
@@ -513,7 +568,7 @@ class Tetris(QtGui.QFrame):
         self.update()
 
     def paintEvent(self, event):
-        painter = QtGui.QPainter(self)
+        painter = QPainter(self)
         rect = self.contentsRect()
 
         boardTop = rect.bottom() - Tetris.BoardHeight * self.squareHeight()
@@ -536,7 +591,7 @@ class Tetris(QtGui.QFrame):
 
     def keyPressEvent(self, event):
         if not self.isStarted or self.curPiece.shape() == Tetrominoes.NoShape:
-            QtGui.QWidget.keyPressEvent(self, event)
+            QWidget.keyPressEvent(self, event)
             return
 
         key = event.key()
@@ -556,7 +611,7 @@ class Tetris(QtGui.QFrame):
         elif key == Qt.Key_D:
             self.oneLineDown()
         else:
-            QtGui.QWidget.keyPressEvent(self, event)
+            QWidget.keyPressEvent(self, event)
 
     def timerEvent(self, event):
         if event.timerId() == self.timer.timerId():
@@ -566,7 +621,7 @@ class Tetris(QtGui.QFrame):
             else:
                 self.oneLineDown()
         else:
-            QtGui.QFrame.timerEvent(self, event)
+            QFrame.timerEvent(self, event)
 
     def clearBoard(self):
         for i in range(Tetris.BoardHeight * Tetris.BoardWidth):
@@ -658,7 +713,7 @@ class Tetris(QtGui.QFrame):
         colorTable = [0x000000, 0xCC6666, 0x66CC66, 0x6666CC,
                       0xCCCC66, 0xCC66CC, 0x66CCCC, 0xDAAA00]
 
-        color = QtGui.QColor(colorTable[shape])
+        color = QColor(colorTable[shape])
         painter.fillRect(x + 1, y + 1, self.squareWidth() - 2, 
             self.squareHeight() - 2, color)
 

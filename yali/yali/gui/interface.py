@@ -2,13 +2,10 @@
 # -*- coding: utf-8 -*-
 
 import gettext
-
-__trans = gettext.translation('yali', fallback=True)
-_ = __trans.ugettext
+_ = gettext.translation('yali', fallback=True).ugettext
 
 import yali.context as ctx
-from yali.gui.YaliDialog import MessageWindow, InformationWindow, ProgressWindow
-
+from yali.gui.YaliDialog import MessageWindow, InformationWindow, ProgressWindow, ExceptionWindow
 
 class Interface(object):
     def __init__(self):
@@ -22,6 +19,9 @@ class Interface(object):
         if not self._informationWindow:
             self._informationWindow = InformationWindow()
         return self._informationWindow
+
+    def exceptionWindow(self, error, traceback):
+        return ExceptionWindow(error, traceback).rc
 
     def progressWindow(self, message):
         return ProgressWindow(message)
