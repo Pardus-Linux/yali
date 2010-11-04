@@ -216,7 +216,7 @@ def finalize():
     pass
 
 def install(pkg_name_list):
-    pisi.api.install(pkg_name_list, reinstall=False)
+    pisi.api.install(pkg_name_list, reinstall=False, ignore_file_conflicts=True)
 
 #def getAllCollectionPackagesWithPaths(collectionName):
 #    packages = getCollectionPackages(collectionName)
