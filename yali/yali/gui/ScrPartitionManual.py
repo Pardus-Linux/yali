@@ -53,8 +53,8 @@ about disk partitioning.
 ''')
 
 
-    def __init__(self, *args):
-        QWidget.__init__(self,None)
+    def __init__(self):
+        QWidget.__init__(self)
         self.ui = Ui_ManualPartWidget()
         self.ui.setupUi(self)
         self.storage = ctx.storage
@@ -402,9 +402,14 @@ about disk partitioning.
     def updateMenus(self):
         self.createPartition.setVisible(True)
         activatePartition = False
-        freePartition = hasFreeDiskSpace(self.storage)
-        if freePartition:
-            activatePartition = True
+
+        try:
+            freePartition = hasFreeDiskSpace(self.storage)
+        except AttributeError, msg:
+            ctx.logger.debug(msg)
+        else:
+            if freePartition:
+                activatePartition = True
 
         activateVolumeGroup = False
         availablePVS = len(self.storage.unusedPVS())
