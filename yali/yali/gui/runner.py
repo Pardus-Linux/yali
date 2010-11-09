@@ -30,7 +30,6 @@ import yali
 import yali.util
 import yali.context as ctx
 import yali.gui.YaliWindow
-import yali.gui.interface
 
 class Runner:
 
@@ -44,8 +43,6 @@ class Runner:
         self._window = yali.gui.YaliWindow.Widget()
         ctx.mainScreen = self._window
 
-        ctx.interface = yali.gui.interface.Interface()
-
         # These shorcuts for developers :)
         prevScreenShortCut = QShortcut(QKeySequence(Qt.SHIFT + Qt.Key_F1), self._window)
         nextScreenShortCut = QShortcut(QKeySequence(Qt.SHIFT + Qt.Key_F2), self._window)
@@ -55,8 +52,8 @@ class Runner:
         # VBox utils
         ctx.logger.debug("Starting VirtualBox tools..")
         #FIXME:sh /etc/X11/Xsession.d/98-vboxclient.sh
-        #yali.util.run_batch("VBoxClient", ["--autoresize"])
-        #yali.util.run_batch("VBoxClient", ["--clipboard"])
+        yali.util.run_batch("VBoxClient", ["--autoresize"])
+        yali.util.run_batch("VBoxClient", ["--clipboard"])
 
         # Cp Reboot, ShutDown
         yali.util.run_batch("cp", ["/sbin/reboot", "/tmp/reboot"])
@@ -65,7 +62,7 @@ class Runner:
         # base connections
         QObject.connect(self._application, SIGNAL("lastWindowClosed()"),
                         self._application, SLOT("quit()"))
-        QObject.connect(ctx.mainScreen, SIGNAL("signalProcessEvents"),
+        QObject.connect(self._window, SIGNAL("signalProcessEvents"),
                         self._application.processEvents)
         QObject.connect(self._application.desktop(), SIGNAL("resized(int)"),
                         self._reinit_screen)
@@ -88,11 +85,11 @@ class Runner:
         self._window.move(screen.topLeft())
         self._window.show()
 
-    def setSteps(self, screens):
+    def setSteps(self, screens, startup):
         self._window.createWidgets(screens)
+        self._window.setCurrent(startup)
 
     def run(self):
-        ctx.mainScreen.setCurrent(ctx.flags.startup)
         # Use default theme;
         # if you use different Qt4 theme our works looks ugly :)
         self._application.setStyle(QStyleFactory.create('Plastique'))
