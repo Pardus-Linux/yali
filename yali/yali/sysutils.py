@@ -49,21 +49,6 @@ def isLoadedKernelPAE():
     else:
         return False
 
-def checkYaliParams(param):
-    for i in [x for x in open("/proc/cmdline", "r").read().split()]:
-        if i.startswith("yali="):
-            if param in i.split("=")[1].split(","):
-                return True
-    return False
-
-def checkYaliOptions(param):
-    for i in [x for x in open("/proc/cmdline", "r").read().split(' ')]:
-        if i.startswith("yali=") and not i.find("%s:" % param) == -1:
-            for part in i.split("=")[1].split(","):
-                if part.startswith("%s:" % param):
-                    return str(part.split(':')[1]).strip()
-    return None
-
 def setMouse(key="left"):
     struct = {_("left") :"1 2 3",
               _("right"):"3 2 1"}
