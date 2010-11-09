@@ -33,7 +33,7 @@ class Widget(QWidget, ScreenWidget):
 ''')
 
     def __init__(self):
-        QWidget.__init__(self, None)
+        QWidget.__init__(self)
         self.ui = Ui_AutoInstallationWidget()
         self.ui.setupUi(self)
 

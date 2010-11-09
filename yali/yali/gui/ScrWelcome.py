@@ -9,24 +9,22 @@
 #
 # Please read the COPYING file.
 #
-
 import codecs
 import gettext
 _ = gettext.translation('yali', fallback=True).ugettext
 
 from PyQt4.Qt import QWidget, SIGNAL, QTextBrowser
 
-import yali.util
 import yali.context as ctx
-from yali.gui.Ui.welcomewidget import Ui_WelcomeWidget
 from yali.gui import ScreenWidget, GUIError, register_gui_screen
 from yali.gui.YaliDialog import Dialog
+from yali.gui.Ui.welcomewidget import Ui_WelcomeWidget
 
 ##
 # Welcome screen is the first screen to be shown.
 class Widget(QWidget, ScreenWidget):
-    type = "welcome"
-    title = _("Welcome to Pardus %s")  % yali.util.product_name()
+    name = "welcome"
+    title = _("Welcome to Pardus")
     icon = "applications-other"
     help = _("""
 <p>Welcome to Pardus that contains many easy-to-use software components. You can do everything you need to, including, but not limited to, connecting to the Internet, creating documents, playing games, listening to music using Pardus.</p>
@@ -35,7 +33,7 @@ class Widget(QWidget, ScreenWidget):
 """)
 
     def __init__(self):
-        QWidget.__init__(self, None)
+        QWidget.__init__(self)
         self.ui = Ui_WelcomeWidget()
         self.ui.setupUi(self)
 

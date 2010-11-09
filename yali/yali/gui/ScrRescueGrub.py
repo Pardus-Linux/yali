@@ -44,8 +44,8 @@ You can always choose another installation method if you know what you are doing
 </p>
 """)
 
-    def __init__(self, *args):
-        QWidget.__init__(self,None)
+    def __init__(self):
+        QWidget.__init__(self)
         self.ui = Ui_RescueGrubWidget()
         self.ui.setupUi(self)
 

@@ -45,8 +45,8 @@ class Widget(QWidget, ScreenWidget):
 <p> Some help messages </p>
 """)
 
-    def __init__(self, *args):
-        QWidget.__init__(self,None)
+    def __init__(self):
+        QWidget.__init__(self)
         self.ui = Ui_KickerWidget()
         self.ui.setupUi(self)
 
@@ -122,7 +122,7 @@ class Widget(QWidget, ScreenWidget):
                 # multi types
                 for user in correctData.users:
                     ctx.installData.users.append(user)
-                    yali.users.pending_users.append(user)
+                    yali.users.PENDING_USERS.append(user)
                     ctx.logger.debug("USER    : %s " % user.username)
 
                 if ctx.options.dryRun == True:

@@ -36,8 +36,8 @@ Here you can reset..
 </p>
 """)
 
-    def __init__(self, *args):
-        QWidget.__init__(self,None)
+    def __init__(self):
+        QWidget.__init__(self)
         self.ui = Ui_RescuePasswordWidget()
         self.ui.setupUi(self)
 

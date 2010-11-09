@@ -34,8 +34,8 @@ There is no help available for this section.
 </p>
 """)
 
-    def __init__(self, *args):
-        QWidget.__init__(self,None)
+    def __init__(self):
+        QWidget.__init__(self)
         self.ui = Ui_GoodByeWidget()
         self.ui.setupUi(self)
 
