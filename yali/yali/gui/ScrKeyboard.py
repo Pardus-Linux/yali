@@ -16,6 +16,7 @@ from PyQt4.Qt import QWidget, SIGNAL, QVariant
 
 import yali.localeutils
 import yali.localedata
+import yali.postinstall
 import yali.context as ctx
 from yali.gui import ScreenWidget, register_gui_screen
 from yali.gui.Ui.keyboardwidget import Ui_KeyboardWidget
@@ -31,7 +32,7 @@ This screen lets you select the keyboard layout you want to use on Pardus. You c
 """)
 
     def __init__(self):
-        QWidget.__init__(self, None)
+        QWidget.__init__(self)
         self.ui = Ui_KeyboardWidget()
         self.ui.setupUi(self)
 
@@ -45,7 +46,7 @@ This screen lets you select the keyboard layout you want to use on Pardus. You c
                     _d["xkbvariant"] = variant[0]
                     _d["name"] = variant[1]
                     _d["consolekeymap"] = data["consolekeymap"][i]
-                    self.ui.keyboard_list.addItem(_d["name"], QVariant(data))
+                    self.ui.keyboard_list.addItem(_d["name"], QVariant(_d))
                     i += 1
             else:
                 self.ui.keyboard_list.addItem(data["name"], QVariant(data))
@@ -72,7 +73,7 @@ This screen lets you select the keyboard layout you want to use on Pardus. You c
         yali.localeutils.setKeymap(keymap["xkblayout"], keymap["xkbvariant"])
 
     def execute(self):
-        ctx.logger.debug("Selected keymap is : %s" % ctx.installData.keyData["name"] )
+        ctx.logger.debug("Selected keymap is : %s" % ctx.installData.keyData["name"])
         return True
 
 register_gui_screen(Widget)
