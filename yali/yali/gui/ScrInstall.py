@@ -35,7 +35,7 @@ EventPisi, EventSetProgress, EventError, EventAllFinished, EventPackageInstallFi
 current_object = None
 
 def iter_slide_pics():
-    def pat(pic):
+    def path(pic):
         return "%s/%s.png" % (ctx.consts.slidepics_dir, pic)
 
     # load all pics
@@ -43,7 +43,7 @@ def iter_slide_pics():
 
     for slide in slideDesc:
         picture, description = slide.items()[0]
-        pictures.append({"pic":QPixmap(pat(picture)), "desc":description})
+        pictures.append({"pic":QPixmap(path(picture)), "desc":description})
 
     while True:
         for picture in pictures:
@@ -73,7 +73,7 @@ to discover the features and the innovations offered by this new Pardus release.
 ''')
 
     def __init__(self):
-        QWidget.__init__(self, None)
+        QWidget.__init__(self)
         self.ui = Ui_InstallWidget()
         self.ui.setupUi(self)
 
@@ -102,7 +102,7 @@ to discover the features and the innovations offered by this new Pardus release.
     def shown(self):
         # Disable mouse handler
         ctx.mainScreen.dontAskCmbAgain = True
-        ctx.mainScreen.themeShortCut.setEnabled(False)
+        ctx.mainScreen.theme_shortcut.setEnabled(False)
 
         # Thread object
         global current_object
@@ -154,17 +154,18 @@ to discover the features and the innovations offered by this new Pardus release.
 
         # EventRetry
         elif qevent.eventType() == EventRetry:
-            package = qevent.data()
+            msg = qevent.data()
             self.timer.stop()
             self.retry_answer = EjectAndRetryDialog(_("Warning"),
-                                                       _("Failed installing <b>%s</b>") % package,
-                                                       _("Do you want to retry?"))
+                    _("Following error occured while installing packages:\n"
+                      "<b>%s</b>") % msg, _("Do you want to retry?"))
 
             self.timer.start(1000 * 30)
             self.wait_condition.wakeAll()
 
         # EventAllFinished
         elif qevent.eventType() == EventAllFinished:
+            ctx.logger.debug("EventAllFinished catched")
             self.finished()
 
     def slotChangePix(self):
@@ -270,15 +271,15 @@ class PkgInstaller(QThread):
                     yali.pisiiface.install(order)
                     break # while
 
-                except zipfile.BadZipfile, msg:
+                except Exception, msg:
                     # Lock the mutex
                     self.mutex.lock()
 
                     # Send event for asking retry
                     qevent = PisiEvent(QEvent.User, EventRetry)
 
-                    # Send failed package name
-                    qevent.setData(os.path.basename(str(msg)))
+                    # Send error message
+                    qevent.setData(str(msg))
                     object_sender(qevent)
 
                     # wait for the result
@@ -288,15 +289,7 @@ class PkgInstaller(QThread):
                     if self.retry_answer == "no":
                         raise msg
 
-                except Exception, msg:
-                    # Lock the mutex
-                    self.mutex.lock()
-                    raise msg
-
         except Exception, msg:
-            # Lock the mutex
-            self.mutex.lock()
-
             # User+10: error
             qevent = PisiEvent(QEvent.User, EventError)
             qevent.setData(msg)
