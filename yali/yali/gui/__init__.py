@@ -16,27 +16,20 @@ import yali.context as ctx
 class GUIError(yali.Error):
     pass
 
-STEP_DEFAULT, STEP_BASE, STEP_OEM_INSTALL, STEP_FIRST_BOOT, STEP_RESCUE = xrange(5)
 
-STEP_TYPE_STRINGS = {STEP_DEFAULT:"Default",
-                     STEP_BASE:"Base System Installation",
-                     STEP_OEM_INSTALL:"OEM Installation",
-                     STEP_FIRST_BOOT:"First Boot mode",
-                     STEP_RESCUE:"System Rescue mode"}
-
-GUI_STEPS = {STEP_DEFAULT:("kahya", "welcome", "mediaCheck", "keyboardSetup",
+GUI_STEPS = {ctx.STEP_DEFAULT:("welcome", "mediaCheck", "keyboardSetup",
                            "timeSetup", "accounts", "admin", "driveSelection",
                            "automaticPartitioning", "manualPartitioning", "bootloadersetup",
                            "collectionSelection", "summary", "packageInstallation", "goodbye"),
-             STEP_BASE:("welcome", "mediaCheck", "keyboardSetup",
+             ctx.STEP_BASE:("welcome", "mediaCheck", "keyboardSetup",
                         "timeSetup", "driveSelection", "automaticPartitioning",
                         "manualPartitioning", "bootloadersetup", "collectionSelection",
                         "summary", "packageInstallation", "goodbye"),
-             STEP_OEM_INSTALL:("welcome", "mediaCheck", "keyboardSetup", "driveSelection",
+             ctx.STEP_OEM_INSTALL:("welcome", "mediaCheck", "keyboardSetup", "driveSelection",
                                "automaticPartitioning", "manualPartitioning", "bootloadersetup",
                                "collectionSelection", "summary", "packageInstallation", "goodbye"),
-             STEP_FIRST_BOOT:("welcome", "keyboardSetup", "timeSetup", "accounts", "admin", "goodbye"),
-             STEP_RESCUE:("rescue", "grubRescue", "pisiRescue", "passwordRescue", "finishRescue")}
+             ctx.STEP_FIRST_BOOT:("welcome", "accounts", "admin", "network", "summary", "goodbye"),
+             ctx.STEP_RESCUE:("rescue", "grubRescue", "pisiRescue", "passwordRescue", "finishRescue")}
 
 GUI_SCREENS = {}
 
@@ -44,8 +37,8 @@ def register_gui_screen(screen):
     if not issubclass(screen, ScreenWidget):
         raise ValueError("arg1 must be a subclass of ScreenWidget")
 
-    GUI_SCREENS[screen.type] = screen
-    ctx.logger.debug("registered screen type %s" % screen.type)
+    GUI_SCREENS[screen.name] = screen
+    ctx.logger.debug("registered screen name %s" % screen.name)
 
 def collect_screens():
     """ Pick up all device screen classes from this directory.
@@ -58,27 +51,26 @@ def collect_screens():
         if moduleFile.startswith("Scr") and \
         moduleFile.endswith(".py") and \
         moduleFile != __file__:
-            print "moduleFile:%s" % moduleFile
             module_name = moduleFile[:-3]
             try:
-                print "%s is importing" % module_name
                 globals()[module_name] = __import__(module_name, globals(), locals(), [], -1)
             except ImportError:
-                ctx.logger.debug("import of screen module '%s' failed %s" % module_name)
-            except Exception, msg:
-                print "%s is importing patladi:\n %s" % (module_name, msg)
+                ctx.logger.debug("import of screen module '%s' failed" % module_name)
 
 
 def get_screens(install_type):
+    if not GUI_SCREENS:
+        collect_screens()
+
     screens = []
-    for step in GUI_STEPS[install_type]:
-        screens.append(GUI_SCREENS[step])
+    for name in GUI_STEPS[install_type]:
+        screens.append(GUI_SCREENS[name])
+
     return screens
 
 class ScreenWidget:
     title = ""
-    type = ""
-    desc = ""
+    name = ""
     help = ""
     icon = None
 
