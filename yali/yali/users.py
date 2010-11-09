@@ -11,25 +11,19 @@
 #
 # User management module for YALI.
 
-import random
-import shutil
-import locale
-import glob
-import sys
 import os
-
-from string import ascii_letters, digits
+import string
 from yali.constants import consts
 
 # a set of User instances waiting...
 # we'll add these users at the last step of the installation.
-pending_users = []
+PENDING_USERS = []
 
-def resetPendingUsers():
-    global pending_users
-    pending_users = []
+def reset_pending_users():
+    global PENDING_USERS
+    PENDING_USERS = []
 
-def getUserList():
+def get_users():
     return map(lambda x: x[0], [line.split(':') for line in open('/etc/passwd', 'r').readlines()])
 
 class User:
@@ -41,10 +35,10 @@ class User:
         self.realname = ''
         self.passwd = ''
         self.uid = -1
-        self.noPass = False
+        self.no_password = False
 
         # KDE AutoLogin Defaults
-        self.autoLoginDefaults = {"AutoLoginAgain":"false",
+        self.auto_login_defaults = {"AutoLoginAgain":"false",
                                   "AutoLoginDelay":"0",
                                   "AutoLoginLocked":"false"}
 
@@ -54,15 +48,15 @@ class User:
 
     def exists(self):
         """ Check if the given user exists on system """
-        if filter(lambda x: x == self.username, getUserList()):
+        if filter(lambda x: x == self.username, get_users()):
             return True
         return False
 
     def usernameIsValid(self):
         """ Check if the given username is valid not """
-        valid = ascii_letters + '_' + digits
+        valid = string.ascii_letters + '_' + string.digits
         name = self.username
-        if len(name) == 0 or filter(lambda x: not x in valid, name) or not name[0] in ascii_letters:
+        if len(name) == 0 or filter(lambda x: not x in valid, name) or not name[0] in string.ascii_letters:
             return False
         return True
 
@@ -71,12 +65,17 @@ class User:
         not_allowed_chars = '\n' + ':'
         return '' == filter(lambda r: [x for x in not_allowed_chars if x == r], self.realname)
 
-    # KDE AutoLogin
-    def setAutoLogin(self,state=True):
-        """ Sets the KDE's Autologin feature's state """
-        confFile = os.path.join(consts.target_dir, 'etc/X11/kdm/kdmrc')
+    def passwordIsValid(self):
+        if len(self.passwd) or filter(lambda x: not x in string.ascii_letters, self.passwd):
+            return False
+        return True
 
-        if not os.path.exists(confFile):
+    # KDE AutoLogin
+    def setAutoLogin(self, state=True):
+        """ Sets the KDE's Autologin feature's state """
+        conf = os.path.join(consts.target_dir, 'etc/X11/kdm/kdmrc')
+
+        if not os.path.exists(conf):
             import yali.context as ctx
             ctx.logger.debug("setAutoLogin: Failed, kdmrc not found; possibly KDE is not installed !")
             return False
@@ -86,10 +85,10 @@ class User:
 
         import re
 
-        def setKey(section, key, value, rc):
-            sectionEscaped = re.escape(section)
+        def set_key(section, key, value, rc):
+            section_escaped = re.escape(section)
 
-            if not re.compile('^%s$' % sectionEscaped, re.MULTILINE).search(kdmrc):
+            if not re.compile('^%s$' % section_escaped, re.MULTILINE).search(kdmrc):
                 import yali.context as ctx
                 ctx.logger.debug("setAutoLogin: Failed, '%s' section not found in kdmrc." % section)
                 return False
@@ -103,29 +102,29 @@ class User:
                 return result.sub('%s=%s' % (key, value), rc)
 
             # If key can not be found, insert key=value right below the section
-            return re.compile('^%s$' % sectionEscaped, re.MULTILINE).sub("%s\n%s=%s" % (section, key, value), rc)
+            return re.compile('^%s$' % section_escaped, re.MULTILINE).sub("%s\n%s=%s" % (section, key, value), rc)
 
-        kdmrc = open(confFile).read()
+        kdmrc = open(conf).read()
         section = "[X-:0-Core]"
 
         # Get a deep copy of default option dictionary and add AutoLoginEnable and AutoLoginuser options
         import copy
-        autoLoginDefaults = copy.deepcopy(self.autoLoginDefaults)
-        autoLoginDefaults['AutoLoginEnable'] = str(state).lower()
-        autoLoginDefaults['AutoLoginUser'] = self.username
+        auto_login_defaults = copy.deepcopy(self.auto_login_defaults)
+        auto_login_defaults['AutoLoginEnable'] = str(state).lower()
+        auto_login_defaults['AutoLoginUser'] = self.username
 
-        for opt in autoLoginDefaults.keys():
-            kdmrc = setKey(section, opt, autoLoginDefaults[opt], kdmrc)
+        for opt in auto_login_defaults.keys():
+            kdmrc = set_key(section, opt, auto_login_defaults[opt], kdmrc)
             if kdmrc is False:
                 return False
 
-        kdmrcfp = open(confFile, 'w')
+        kdmrcfp = open(conf, 'w')
         kdmrcfp.write(kdmrc)
         kdmrcfp.close()
 
         return True
 
-nickmap = {
+NICK_MAP = {
     u"ğ": u"g",
     u"ü": u"u",
     u"Ü": u"u",
@@ -139,16 +138,16 @@ nickmap = {
     u"Ç": u"c",
 }
 
-def nickGuess(name, nicklist):
+def nick_guess(name, nicklist):
     def convert(name):
         text = ""
-        for c in name:
-            if c in ascii_letters:
-                text += c
+        for letter in name:
+            if letter in string.ascii_letters:
+                text += letter
             else:
-                c = nickmap.get(c, None)
-                if c:
-                    text += c
+                letter = NICK_MAP.get(letter, None)
+                if letter:
+                    text += letter
         return text
 
     if name == "":

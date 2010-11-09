@@ -9,7 +9,7 @@
 #
 # Please read the COPYING file.
 #
-
+import string
 import gettext
 import pardus.xorg
 _ = gettext.translation('yali', fallback=True).ugettext
@@ -22,10 +22,9 @@ from yali.gui import ScreenWidget, register_gui_screen
 from yali.gui.Ui.setupuserswidget import Ui_SetupUsersWidget
 
 class Widget(QWidget, ScreenWidget):
-    type = "accounts"
+    name = "accounts"
     title = _("Add Users")
     icon = "iconUser"
-    helpSummary = _("")
     help = _('''
 <p>
 Pardus allows multiple users to share the same computer.
@@ -48,18 +47,16 @@ Proceed with the installation after you make your selections.
 
         self.edititemindex = None
 
-        self.timeLine = QTimeLine(400, self)
-        self.timeLine.setFrameRange(0, 220);
-        self.connect(self.timeLine, SIGNAL("frameChanged(int)"), self.animate)
+        self.time_line = QTimeLine(400, self)
+        self.time_line.setFrameRange(0, 220);
+        self.connect(self.time_line, SIGNAL("frameChanged(int)"), self.animate)
 
         self.ui.scrollArea.setFixedHeight(0)
 
         # User Icons
-        self.normalUserIcon = QPixmap(":/gui/pics/user_normal.png")
-        self.superUserIcon = QPixmap(":/gui/pics/user_root.png")
+        self.normal_user_icon = QPixmap(":/gui/pics/user_normal.png")
+        self.super_user_icon = QPixmap(":/gui/pics/user_root.png")
 
-        # KDE AutoLogin
-        self.autoLoginUser = ""
 
         # Set disabled the create Button
         self.ui.createButton.setEnabled(False)
@@ -107,24 +104,24 @@ Proceed with the installation after you make your selections.
 
         ctx.installData.users = []
         ctx.installData.autoLoginUser = None
-        self.userNameChanged = False
-        self.usedIDs = []
+        self.user_name_changed = False
+        self.used_ids = []
 
         #self.info.update(_("Starting validation..."))
 
     def shown(self):
         self.ui.cancelButton.hide()
         self.ui.realname.setFocus()
-        if len(yali.users.pending_users) > 0 and self.ui.userList.count() == 0:
-            for u in yali.users.pending_users:
-                pix = self.normalUserIcon
+        if len(yali.users.PENDING_USERS) > 0 and self.ui.userList.count() == 0:
+            for u in yali.users.PENDING_USERS:
+                pix = self.normal_user_icon
                 if "wheel" in u.groups:
-                    pix = self.superUserIcon
+                    pix = self.super_user_icon
                 UserItem(self.ui.userList, pix, user = u)
                 self.ui.autoLogin.addItem(QString(u.username))
-        if len(yali.users.pending_users) == 1:
+        if len(yali.users.PENDING_USERS) == 1:
             self.slotEditUser(self.ui.userList.item(0))
-        elif len(yali.users.pending_users) > 1:
+        elif len(yali.users.PENDING_USERS) > 1:
             self.ui.addMoreUsers.setChecked(True)
         self.checkUsers()
         self.checkCapsLock()
@@ -135,15 +132,14 @@ Proceed with the installation after you make your selections.
         return True
 
     def refill(self):
-        # reset and fill pending_users
-        yali.users.resetPendingUsers()
-        for i in range(self.ui.userList.count()):
-            u = self.ui.userList.item(i).getUser()
-            ctx.installData.users.append(u)
-            yali.users.pending_users.append(u)
+        # reset and fill PENDING_USERS
+        yali.users.reset_pending_users()
+        for index in range(self.ui.userList.count()):
+            user = self.ui.userList.item(index).getUser()
+            ctx.installData.users.append(user)
+            yali.users.PENDING_USERS.append(user)
 
     def execute(self):
-
         if self.checkUsers():
             self.refill()
             ctx.installData.autoLoginUser = str(self.ui.autoLogin.currentText())
@@ -153,12 +149,13 @@ Proceed with the installation after you make your selections.
 
         if not self.ui.addMoreUsers.isChecked():
             if not self.slotCreateUser():
-                ctx.mainScreen.stepIncrement = 0
+                ctx.mainScreen.step_increment = 0
                 return True
 
         self.refill()
         ctx.installData.autoLoginUser = str(self.ui.autoLogin.currentText())
         return True
+
     def setCapsLockIcon(self, child):
         if type(child) == QLineEdit:
             if pardus.xorg.capslock.isOn():
@@ -188,9 +185,9 @@ Proceed with the installation after you make your selections.
             self.ui.scrollArea.show()
 
         if self.ui.scrollArea.height() == 220:
-            self.timeLine.setDirection(1)
+            self.time_line.setDirection(1)
         if self.ui.scrollArea.height() == 0:
-            self.timeLine.setDirection(0)
+            self.time_line.setDirection(0)
 
     def slotuserIDCheck(self, state):
         if state:
@@ -199,40 +196,40 @@ Proceed with the installation after you make your selections.
             self.ui.userID.setEnabled(False)
 
     def slotAdvanced(self):
-
+        icon_path = None
         if self.ui.scrollArea.isVisible():
-            self.iconPath = ":/gui/pics/expand.png"
-            self.operation = "collapse"
-            self.timeLine.start()
+            icon_path = ":/gui/pics/expand.png"
+            self.time_line.start()
         else:
             self.ui.scrollArea.show()
-            self.iconPath = ":/gui/pics/collapse.png"
-            self.operation = "expand"
-            self.timeLine.start()
+            icon_path = ":/gui/pics/collapse.png"
+            self.time_line.start()
 
         icon = QIcon()
-        icon.addPixmap(QPixmap(self.iconPath), QIcon.Normal, QIcon.Off)
+        icon.addPixmap(QPixmap(icon_path), QIcon.Normal, QIcon.Off)
         self.ui.addMoreUsers.setIcon(icon)
         self.checkUsers()
 
     def slotTextChanged(self):
-        p1 = self.ui.pass1.text()
-        p2 = self.ui.pass2.text()
+        password = self.ui.pass1.text()
+        password_confirm = self.ui.pass2.text()
 
-        if not p1 == '' and (str(p1).lower() == str(self.ui.username.text()).lower() or \
-                str(p1).lower() == str(self.ui.realname.text()).lower()):
+        if not password == '' and (str(password).lower() == str(self.ui.username.text()).lower() or \
+                str(password).lower() == str(self.ui.realname.text()).lower()):
             self.showError(_('Don\'t use your user name or name as a password'))
             return
-        elif p2 != p1 and p2:
+        elif password_confirm != password and password_confirm:
             self.showError(_('Passwords do not match'))
             return
-        elif len(p1) == len(p2) and len(p2) < 4 and not p1=='':
+        elif len(password) == len(password_confirm) and len(password_confirm) < 4 and not password=='':
             self.showError(_('Password is too short'))
             return
+        elif not len(password) and filter(lambda x: not x in string.ascii_letters, password):
+            self.showError(_("Don't use non-ascii characters"))
         else:
             ctx.interface.informationWindow.hide()
 
-        if self.ui.username.text() and p1 and p2:
+        if self.ui.username.text() and password and password_confirm:
             self.ui.createButton.setEnabled(True)
             if not self.ui.addMoreUsers.isChecked():
                 ctx.mainScreen.enableNext()
@@ -243,44 +240,42 @@ Proceed with the installation after you make your selections.
                 ctx.mainScreen.disableNext()
 
     def currentUsers(self):
-        ret = []
-        for i in range(self.ui.userList.count()):
-            ret.append(self.ui.userList.item(i).getUser().username)
-        return ret
+        users = []
+        for index in range(self.ui.userList.count()):
+            users.append(self.ui.userList.item(index).getUser().username)
+        return users
 
     def slotUserNameChanged(self):
-        self.userNameChanged = True
+        self.user_name_changed = True
 
     def slotRealNameChanged(self):
-        if not self.userNameChanged:
-            usedUsers = yali.users.getUserList()
-            usedUsers.extend(self.currentUsers())
-            self.ui.username.setText(yali.users.nickGuess(self.ui.realname.text(), usedUsers))
+        if not self.user_name_changed:
+            used_users = yali.users.get_users()
+            used_users.extend(self.currentUsers())
+            self.ui.username.setText(yali.users.nick_guess(self.ui.realname.text(), used_users))
 
     def slotCreateUser(self):
-        u = yali.users.User()
-        u.username = str(self.ui.username.text().toAscii())
+        user = yali.users.User()
+        user.username = str(self.ui.username.text().toAscii())
         # ignore last character. see bug #887
-        u.realname = unicode(self.ui.realname.text())
-        u.passwd = unicode(self.ui.pass1.text())
-        u.groups = ["users", "pnp", "pnpadmin", "removable", "disk", "audio", "video", "power", "dialout"]
-        pix = self.normalUserIcon
+        user.realname = unicode(self.ui.realname.text())
+        user.passwd = unicode(self.ui.pass1.text())
+        user.groups = ["users", "pnp", "pnpadmin", "removable", "disk", "audio", "video", "power", "dialout"]
+        pix = self.normal_user_icon
         if self.ui.admin.isChecked():
-            u.groups.append("wheel")
-            pix = self.superUserIcon
-        u.noPass = self.ui.noPass.isChecked()
-
-        existsInList = u.username in self.currentUsers()
+            user.groups.append("wheel")
+            pix = self.super_user_icon
+        user.no_password = self.ui.no_password.isChecked()
 
         # check user validity
-        if u.exists() or (existsInList and self.edititemindex == None):
+        if user.exists() or (user.username in self.currentUsers() and self.edititemindex == None):
             self.showError(_("This user name is already taken, please choose another one."))
             return False
-        elif not u.usernameIsValid():
+        elif not user.usernameIsValid():
             # FIXME: Mention about what are the invalid characters!
             self.showError(_("The user name contains invalid characters."))
             return False
-        elif not u.realnameIsValid():
+        elif not user.realnameIsValid():
             self.showError(_("The real name contains invalid characters."))
             return False
 
@@ -288,52 +283,52 @@ Proceed with the installation after you make your selections.
         if self.ui.addMoreUsers.isChecked() and self.ui.userIDCheck.isChecked():
             uid = self.ui.userID.value()
             if self.edititemindex == None:
-                if uid in self.usedIDs:
+                if uid in self.used_ids:
                     self.showError(_('User ID used before, choose another one!'))
                     return False
-            self.usedIDs.append(uid)
-            u.uid = uid
+            self.used_ids.append(uid)
+            user.uid = uid
 
         self.ui.createButton.setText(_("Add"))
         self.ui.cancelButton.hide()
-        updateItem = None
+        update_item = None
 
         try:
             self.ui.userList.takeItem(self.edititemindex)
             self.ui.autoLogin.removeItem(self.edititemindex + 1)
         except:
-            updateItem = self.edititemindex
+            update_item = self.edititemindex
             # nothing wrong. just adding a new user...
             pass
 
-        i = UserItem(self.ui.userList, pix, user = u)
+        item = UserItem(self.ui.userList, pix, user=user)
 
         # add user to auto-login list.
-        self.ui.autoLogin.addItem(QString(u.username))
+        self.ui.autoLogin.addItem(QString(user.username))
 
-        if updateItem:
+        if update_item:
             self.ui.autoLogin.setCurrentIndex(self.ui.autoLogin.count())
 
         # clear form
         self.resetWidgets()
 
-        ctx.logger.debug("slotCreateUser :: user (%s) '%s (%s)' added/updated" % (u.uid, u.realname, u.username))
-        ctx.logger.debug("slotCreateUser :: user groups are %s" % str(','.join(u.groups)))
+        ctx.logger.debug("slotCreateUser :: user (%s) '%s (%s)' added/updated" % (user.uid, user.realname, user.username))
+        ctx.logger.debug("slotCreateUser :: user groups are %s" % str(','.join(user.groups)))
 
         # give focus to realname widget for a new user. #3280
         #self.ui.realname.setFocus()
         self.checkUsers()
-        self.userNameChanged = False
+        self.user_name_changed = False
         return True
 
     def slotDeleteUser(self):
-        if self.ui.userList.currentRow()==self.edititemindex:
+        if self.ui.userList.currentRow() == self.edititemindex:
             self.resetWidgets()
             self.ui.autoLogin.setCurrentIndex(0)
         _cur = self.ui.userList.currentRow()
         item = self.ui.userList.item(_cur).getUser()
-        if item.uid in self.usedIDs:
-            self.usedIDs.remove(item.uid)
+        if item.uid in self.used_ids:
+            self.used_ids.remove(item.uid)
         self.ui.userList.takeItem(_cur)
         self.ui.autoLogin.removeItem(_cur + 1)
         self.ui.createButton.setText(_("Add"))
@@ -349,21 +344,21 @@ Proceed with the installation after you make your selections.
         if not item:
             item = self.ui.userList.currentItem()
         self.ui.userList.setCurrentItem(item)
-        u = item.getUser()
-        if u.uid > -1:
+        user = item.getUser()
+        if user.uid > -1:
             self.ui.userIDCheck.setChecked(True)
-            self.ui.userID.setValue(u.uid)
-        self.ui.username.setText(QString(u.username))
-        self.ui.realname.setText(QString(u.realname))
-        self.ui.pass1.setText(QString(u.passwd))
-        self.ui.pass2.setText(QString(u.passwd))
+            self.ui.userID.setValue(user.uid)
+        self.ui.username.setText(QString(user.username))
+        self.ui.realname.setText(QString(user.realname))
+        self.ui.pass1.setText(QString(user.passwd))
+        self.ui.pass2.setText(QString(user.passwd))
 
-        if "wheel" in u.groups:
+        if "wheel" in user.groups:
             self.ui.admin.setChecked(True)
         else:
             self.ui.admin.setChecked(False)
 
-        self.ui.noPass.setChecked(u.noPass)
+        self.ui.no_password.setChecked(user.no_password)
 
         self.edititemindex = self.ui.userList.currentRow()
         self.ui.createButton.setText(_("Update"))
@@ -390,6 +385,7 @@ Proceed with the installation after you make your selections.
         else:
             if self.checkUserFields():
                 ctx.mainScreen.enableNext()
+                return True
             else:
                 ctx.mainScreen.disableNext()
 
@@ -408,7 +404,7 @@ Proceed with the installation after you make your selections.
         self.ui.pass1.clear()
         self.ui.pass2.clear()
         self.ui.admin.setChecked(False)
-        self.ui.noPass.setChecked(False)
+        self.ui.no_password.setChecked(False)
         self.ui.userIDCheck.setChecked(False)
         self.ui.createButton.setEnabled(False)
         if self.ui.cancelButton.isVisible():
@@ -428,10 +424,9 @@ class UserItem(QListWidgetItem):
 
     ##
     # @param user (yali.users.User)
-    def __init__(self, parent, pix, user):
-        _pix = QIcon(pix)
-        _user= QString(user.username)
-        QListWidgetItem.__init__(self,_pix,_user,parent)
+    def __init__(self, parent, pixmap, user):
+        icon = QIcon(pixmap)
+        QListWidgetItem.__init__(self, icon, QString(user.username), parent)
         self._user = user
 
     def getUser(self):
