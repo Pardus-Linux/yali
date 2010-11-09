@@ -9,7 +9,8 @@
 #
 # Please read the COPYING file.
 #
-
+import sys
+import string
 import pardus.xorg
 import gettext
 
@@ -18,6 +19,7 @@ _ = gettext.translation('yali', fallback=True).ugettext
 from PyQt4.Qt import QWidget, SIGNAL, QLineEdit
 
 import yali.util
+import yali.postinstall
 import yali.context as ctx
 from yali.gui import ScreenWidget, register_gui_screen
 from yali.gui.Ui.rootpasswidget import Ui_RootPassWidget
@@ -25,11 +27,9 @@ from yali.gui.Ui.rootpasswidget import Ui_RootPassWidget
 ##
 # Root password widget
 class Widget(QWidget, ScreenWidget):
-    type = "admin"
+    name = "admin"
     title = _("Choose an Administrator Password and a Hostname")
     icon = "iconAdmin"
-    helpSummary = _("""Your password must be easy to remember but strong enough to resist possible attacks.
-    You can use capital and lower-case letters, numbers and punctuation marks in your password.""")
     help = _("""
 <p>
 You need to define a password for the "root" user which is the conventional name
@@ -47,7 +47,7 @@ You can also define a hostname for your computer. A hostname is an identifier as
 </p>
 """)
 
-    def __init__(self,):
+    def __init__(self):
         QWidget.__init__(self)
         self.ui = Ui_RootPassWidget()
         self.ui.setupUi(self)
@@ -93,17 +93,20 @@ You can also define a hostname for your computer. A hostname is an identifier as
         ctx.installData.rootPassword = unicode(self.ui.pass1.text())
         ctx.installData.hostName = unicode(self.ui.hostname.text())
 
-        ctx.storage.reset()
-        if ctx.storage.checkNoDisks(self.intf):
-            sys.exit(0)
-        else:
-            disks = filter(lambda d: not d.format.hidden, ctx.storage.disks)
-            if len(disks) == 1:
-                ctx.storage.clearPartDisks = [disks[0].name]
-                ctx.mainScreen.stepIncrement = 2
+        if ctx.flags.install_type == 0:
+            storage_initialized = yali.storage.initialize(ctx.storage, ctx.interface)
+            if not storage_initialized:
+                sys.exit(1)
             else:
-                ctx.mainScreen.stepIncrement = 1
+                disks = filter(lambda d: not d.format.hidden, ctx.storage.disks)
+                if len(disks) == 1:
+                    ctx.storage.clearPartDisks = [disks[0].name]
+                    ctx.mainScreen.step_increment = 2
+                else:
+                    ctx.mainScreen.step_increment = 1
 
+        ctx.pendingOperations.add((_("Setting hostname"), yali.postinstall.setHostName))
+        ctx.pendingOperations.add((_("Setting root password"), yali.postinstall.setRootPassword))
         return True
 
     def setCapsLockIcon(self, child):
@@ -122,13 +125,15 @@ You can also define a hostname for your computer. A hostname is an identifier as
 
     def slotTextChanged(self):
 
-        password = self.ui.pass1.text()
-        password_confirm = self.ui.pass2.text()
+        password = str(self.ui.pass1.text())
+        password_confirm = str(self.ui.pass2.text())
 
         if password and password == password_confirm:
-            if len(password)<4:
+            if len(password) < 4:
                 self.intf.informationWindow.update(_('Password is too short.'), type="error")
                 self.pass_valid = False
+            elif filter(lambda x: not x in string.ascii_letters, password):
+                self.intf.informationWindow.update(_("Don't use invalid characters"), type="error")
             else:
                 self.intf.informationWindow.hide()
                 self.pass_valid = True
@@ -136,7 +141,8 @@ You can also define a hostname for your computer. A hostname is an identifier as
             self.pass_valid = False
             if password_confirm:
                 self.intf.informationWindow.update(_('Passwords do not match.'), type="error")
-        if str(password).lower()=="root" or str(password_confirm).lower()=="root":
+
+        if password.lower()=="root" or password_confirm.lower()=="root":
             self.pass_valid = False
             if password_confirm:
                 self.intf.informationWindow.update(_('Do not use your username as your password.'), type="error")
