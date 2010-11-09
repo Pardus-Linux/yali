@@ -197,6 +197,9 @@ def getBasePackages():
     systemBase = getPackages("PartOf", "system.base")
     systemBase.extend(getPackages("Name", "kernel"))
     systemBase.extend(getPackages("Name", "gfxtheme-pardus-boot"))
+    systemBase.extend(getPackages("Name", "lvm2-static"))
+    systemBase.extend(getPackages("Name", "device-mapper-static"))
+    systemBase.extend(getPackages("Name", "mdadm-static"))
     return mergePackagesWithRepoPath(systemBase)
 
 def getHistory(limit=50):
