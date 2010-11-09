@@ -36,11 +36,11 @@ def data_files():
     return glob.glob(data)
 
 def udev_files():
-    rules = "data/*"
+    rules = "data/*.rules"
     return glob.glob(rules)
 
 def conf_files():
-    conf = "data/*"
+    conf = "data/*.conf"
     return glob.glob(conf)
 
 def py_file_name(ui_file):
