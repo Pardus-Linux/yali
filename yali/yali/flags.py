@@ -28,7 +28,7 @@ class Flags:
         options = get_kernel_option("yali")
         self.__dict__['flags']['live'] = options.has_key("live") or \
                                          os.path.exists("/var/run/pardus/livemedia")
-        if options.has_key("basesystem"):
+        if options.has_key("system"):
             self.__dict__['flags']['install_type'] = 1
         elif options.has_key("oem") :
             self.__dict__['flags']['install_type'] = 2
@@ -37,11 +37,14 @@ class Flags:
         elif options.has_key("rescue") :
             self.__dict__['flags']['install_type'] = 4
 
+        if options.has_key("theme"):
+            self.__dict__['flags']['stylesheet'] = options["theme"]
+
         self.__dict__['flags']['kahya'] = options.has_key("kahyaFile") or \
                                           os.path.exists("/usr/share/yali/data/default.xml")
 
         for key in [_key for _key in options.keys() \
-                    if _key not in ("live", "basesystem", "firstboot", "oem", "firstboot", "rescue")]:
+                    if _key not in ("live", "system", "firstboot", "oem", "firstboot", "rescue", "theme")]:
             self.__dict__[key] = options[key] if options[key] else True
 
     def __init__(self):
@@ -57,8 +60,6 @@ class Flags:
         self.__dict__['flags']['dryRun'] = False
         self.__dict__['flags']['startup'] = 0
         self.__dict__['flags']['stylesheet'] = ""
-        self.parse_kernel_options()
-
 
 global flags
 flags = Flags()
