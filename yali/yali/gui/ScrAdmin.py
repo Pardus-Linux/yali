@@ -76,8 +76,7 @@ You can also define a hostname for your computer. A hostname is an identifier as
             self.ui.hostname.setText(str(ctx.installData.hostName))
         else:
             # Use first added user's name as machine name if its exists
-            release = open("/etc/pardus-release").read().split()
-            release_hostname = "".join(release[:2]).lower()
+            release_hostname = yali.util.product_release()
             if self.ui.hostname.text() == '':
                 self.ui.hostname.setText(release_hostname)
 
@@ -93,7 +92,7 @@ You can also define a hostname for your computer. A hostname is an identifier as
         ctx.installData.rootPassword = unicode(self.ui.pass1.text())
         ctx.installData.hostName = unicode(self.ui.hostname.text())
 
-        if ctx.flags.install_type == 0:
+        if ctx.flags.install_type == ctx.STEP_DEFAULT:
             storage_initialized = yali.storage.initialize(ctx.storage, ctx.interface)
             if not storage_initialized:
                 sys.exit(1)
@@ -105,8 +104,6 @@ You can also define a hostname for your computer. A hostname is an identifier as
                 else:
                     ctx.mainScreen.step_increment = 1
 
-        ctx.pendingOperations.add((_("Setting hostname"), yali.postinstall.setHostName))
-        ctx.pendingOperations.add((_("Setting root password"), yali.postinstall.setRootPassword))
         return True
 
     def setCapsLockIcon(self, child):

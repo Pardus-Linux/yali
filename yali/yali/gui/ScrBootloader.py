@@ -85,11 +85,6 @@ You can always choose another installation method if you know what you are doing
         elif self.ui.installMBR.isChecked():
             self.bootloader.bootType = BOOT_TYPE_MBR
 
-        ctx.pendingOperations.add((_("Setup bootloader"), yali.postinstall.setupBootLooder))
-        ctx.pendingOperations.add((_("Writing bootloader"), yali.postinstall.writeBootLooder))
-        if ctx.bootloader.device:
-            ctx.pendingOperations.add((_("Installing Bootloader"), yali.postinstall.installBootloader))
-
         if not ctx.flags.collection:
             ctx.mainScreen.step_increment = 2
 

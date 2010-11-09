@@ -126,7 +126,7 @@ Coordinated Universal Time.
         ctx.installData.timezone = self.ui.timeZoneList.itemData(index).toString()
         ctx.logger.debug("Time zone selected as %s " % ctx.installData.timezone)
 
-        if ctx.flags.install_type == 1:
+        if ctx.flags.install_type == ctx.STEP_BASE:
             storage_initialized = yali.storage.initialize(ctx.storage, ctx.interface)
             if not storage_initialized:
                 sys.exit(1)
@@ -138,7 +138,6 @@ Coordinated Universal Time.
                 else:
                     ctx.mainScreen.step_increment = 1
 
-        ctx.pendingOperations.add((_("Setting timezone"), yali.postinstall.setTimeZone))
         return True
 
 register_gui_screen(Widget)
