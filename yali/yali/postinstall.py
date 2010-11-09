@@ -100,7 +100,11 @@ def connectToDBus():
 def setHostName():
     global bus
     obj = bus.get_object("tr.org.pardus.comar", "/package/baselayout")
-    obj.setHostName(str(ctx.installData.hostName), dbus_interface="tr.org.pardus.comar.Network.Stack")
+    if ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
+        obj.setHostName(str(ctx.installData.hostName), dbus_interface="tr.org.pardus.comar.Network.Stack")
+    elif ctx.flags.install_type == ctx.STEP_BASE:
+        obj.setHostName(str(yali.util.product_release()), dbus_interface="tr.org.pardus.comar.Network.Stack")
+
     ctx.logger.debug("Hostname set as %s" % ctx.installData.hostName)
     return True
 
@@ -166,10 +170,13 @@ def addUsers():
     return True
 
 def setRootPassword():
-    if not ctx.flags.install_type == 3:
-        global bus
-        obj = bus.get_object("tr.org.pardus.comar", "/package/baselayout")
+    global bus
+    obj = bus.get_object("tr.org.pardus.comar", "/package/baselayout")
+    if ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
         obj.setUser(0, "", "", "", str(ctx.installData.rootPassword), "", dbus_interface="tr.org.pardus.comar.User.Manager")
+    elif ctx.flags.install_type == ctx.STEP_BASE:
+        obj.setUser(0, "", "", "", str(""), "", dbus_interface="tr.org.pardus.comar.User.Manager")
+
     return True
 
 def writeConsoleData():
@@ -186,7 +193,7 @@ def setKeymap():
 
 def migrateXorgConf():
     # if installation type is not First Boot
-    if not ctx.flags.install_type == 3:
+    if not ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
         migrateXorg()
         ctx.logger.debug("xorg.conf and other files merged.")
     return True
@@ -216,36 +223,6 @@ def copyPisiIndex():
     ctx.logger.debug("Regenerating pisi caches.. ")
     yali.pisiiface.regenerateCaches()
     return True
-
-def setPackages():
-    # if installation type is OEM Install
-    global bus
-    if ctx.flags.install_type == 2:
-        ctx.logger.debug("OemInstall selected.")
-        try:
-            obj = bus.get_object("tr.org.pardus.comar", "/package/yali")
-            obj.setState("on", dbus_interface="tr.org.pardus.comar.System.Service")
-            file("%s/etc/yali-is-firstboot" % ctx.consts.target_dir, "w")
-            obj = bus.get_object("tr.org.pardus.comar", "/package/kdebase")
-            obj.setState("off", dbus_interface="tr.org.pardus.comar.System.Service")
-        except:
-            ctx.logger.debug("Dbus error: package doesnt exist !")
-            return False
-    # if installation type is Base Install or First boot
-    elif ctx.flags.install_type == 1 or ctx.flags.install_type == 3:
-        try:
-            obj = bus.get_object("tr.org.pardus.comar", "/package/yali")
-            obj.setState("off", dbus_interface="tr.org.pardus.comar.System.Service")
-            #FIXME: We no longer have kdebase package in 2009!!
-            obj = bus.get_object("tr.org.pardus.comar", "/package/kdebase")
-            obj.setState("on", dbus_interface="tr.org.pardus.comar.System.Service")
-            os.unlink("%s/etc/yali-is-firstboot" % ctx.consts.target_dir)
-            os.system("pisi rm yali")
-        except:
-            ctx.logger.debug("Dbus error: package doesnt exist !")
-            return False
-    return True
-
 
 def writeInitramfsConf(parameters=[]):
     path = os.path.join(ctx.consts.target_dir, "etc/initramfs.conf")
@@ -310,5 +287,7 @@ def installBootloader():
     rc = ctx.bootloader.install()
     if rc:
         ctx.logger.debug("Bootloader installation failed!")
+        return False
     else:
         ctx.logger.debug("Bootloader installed")
+        return True
