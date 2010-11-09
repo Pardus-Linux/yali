@@ -18,7 +18,7 @@ from distutils.cmd import Command
 from distutils.command.build import build
 from distutils.command.clean import clean
 from distutils.command.install import install
-from distutils.spawn import find_executable
+from distutils.spawn import find_executable, spawn
 
 I18N_DOMAIN = "yali"
 I18N_LANGUAGES = ["tr", "nl", "it", "fr", "de", "pt_BR", "es", "pl", "ca", "sv"]
@@ -38,6 +38,10 @@ def data_files():
 def udev_files():
     rules = "data/*"
     return glob.glob(rules)
+
+def conf_files():
+    conf = "data/*"
+    return glob.glob(conf)
 
 def py_file_name(ui_file):
     return os.path.splitext(ui_file)[0] + '.py'
@@ -141,6 +145,7 @@ setup(name="yali",
       package_dir = {'': ''},
       data_files = [('/usr/share/yali/slideshow', gui_slidepics()),
                     ('/usr/share/yali/data', data_files()),
+                    ('/etc/yali', conf_files()),
                     ('/lib/udev/rules.d', udev_files())],
       scripts = ['yali-bin', 'start-yali', 'bindYali'],
       ext_modules = [Extension('yali._sysutils',

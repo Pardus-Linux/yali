@@ -11,23 +11,93 @@
 # Please read the COPYING file.
 #
 import os
+import sys
 import gettext
 _ = gettext.translation('yali', fallback=True).ugettext
 
 import yali
 import yali.context as ctx
 
-def loadModules():
+
+def load_modules():
+    """
+        Load modules.
+
+    """
     os.system("modprobe -bqa dm-mod raid0 raid1 raid456 raid10")
 
-def setupEnvironment():
+
+def load_config(options):
+    """
+        Load configuration.
+
+        Arguments:
+            parser: Options parsed with ConfigParser module
+            options: Options parsed with optparse module
+    """
+    # Read configuration file
+    if not os.path.exists(ctx.consts.conf_file):
+        ctx.logger.debug(_("%s is missing") % ctx.consts.conf_file)
+        sys.exit(1)
+
+    import ConfigParser
+    parser = ConfigParser.ConfigParser()
+
+    try:
+        parser.read(ctx.consts.conf_file)
+    except IOError:
+        ctx.logger.debug(_("%s is corrupted") % ctx.consts.conf_file)
+        sys.exit(1)
+
+    if parser.has_option("general", "installation"):
+        if parser.get("general", "installation") == "system":
+            options.install_type = 1
+        elif parser.get("general", "installation") == "oem":
+            options.install_type = 2
+        elif parser.get("general", "installation") == "firstboot":
+            options.install_type = 3
+        elif parser.get("general", "installation") == "rescue":
+            options.install_type = 4
+
+    if parser.has_option("general", "debug"):
+        if parser.get("general", "debug") == "True":
+            options.debug =  True
+        else:
+            options.debug =  False
+
+    if parser.has_option("general", "collection"):
+        if parser.get("general", "collection") == "True":
+            options.collection =  True
+        else:
+            options.debug =  False
+
+    if parser.has_option("general", "baseonly"):
+        if parser.get("general", "baseonly") == "True":
+            options.collection =  True
+        else:
+            options.debug =  False
+
+    if parser.has_option("general", "dryrun"):
+        if parser.get("general", "dryrun") == "True":
+            options.dryRun =  True
+        else:
+            options.dryRun =  False
+
+    if parser.has_option("general", "theme"):
+        options.theme = parser.get("general", "theme")
+
+
+def setup_environment():
+    """
+        Setup environment.
+
+    """
     import locale
     locale.setlocale(locale.LC_ALL, "")
     os.environ['LC_NUMERIC'] = 'C'
     os.environ["LVM_SUPPRESS_FD_WARNINGS"] = "1"
 
-def setupExceptionHandler():
-    import sys
+def setup_exception_handler():
     import signal
     import traceback
     import cStringIO
@@ -40,8 +110,7 @@ def setupExceptionHandler():
 
         sio = cStringIO.StringIO()
 
-        sio.write(_("Unhandled internal YALI exception.\n"
-                    "Please file a bug report to <http://bugs.pardus.org.tr>."))
+        sio.write(_("Please file a bug report to <http://bugs.pardus.org.tr>.\n"))
 
         _value = ''
         for arg in value.args:
@@ -55,41 +124,44 @@ def setupExceptionHandler():
         traceback.print_tb(error_traceback, None, sio)
 
         sio.seek(0)
+        exception_traceback =  unicode(sio.read())
 
-        ctx.logger.debug("Unhandled internal YALI exception:%s" % unicode(sio.read()))
+        ctx.logger.debug(_("Unhandled internal YALI exception:%s") % exception_traceback)
 
         if ctx.interface:
-            ctx.interface.exceptionWindow(exception, unicode(sio.read()))
+            ctx.interface.exceptionWindow(exception, exception_traceback)
 
     sys.excepthook = exception_handler
     signal.signal(signal.SIGTERM, signal_handler)
 
 def init_gui_interface():
-    import yali.gui.interface
-    ctx.interface = yali.gui.interface.Interface()
+    from yali.gui.interface import Interface
+    ctx.interface = Interface()
 
 def init_gui_runner():
-    import yali.gui.runner
-    gui_runner = yali.gui.runner.Runner()
+    from yali.gui.runner import Runner
+    gui_runner = Runner()
     ctx.logger.debug("Install type is %s" % yali.gui.STEP_TYPE_STRINGS[ctx.flags.install_type])
     screens = yali.gui.get_screens(ctx.flags.install_type)
     gui_runner.setSteps(screens, ctx.flags.startup)
     gui_runner.run()
 
-def parseOptions(argv=None):
+def load_options(argv=None):
     from optparse import OptionParser
     parser = OptionParser()
     parser.add_option("-d", "--debug", dest="debug",
-                      action="store_true", default="True",
+                      action="store_true", default=True,
                       help="enable debug")
+    parser.add_option("-c", "--config", dest="conffile",
+                      help="Use alternate configuration file", metavar="FILE")
     parser.add_option("--dryRun", dest="dryRun",
-                      action="store_true", default="False",
+                      action="store_true", default=False,
                       help="only show the result")
     parser.add_option("--baseonly", dest="baseonly",
-                      action="store_true", default="False",
+                      action="store_true", default=False,
                       help="install base system packages")
     parser.add_option("--colllection", dest="collection",
-                      action="store_true", default="False",
+                      action="store_true", default=False,
                       help="install collection type package"
                            "installation if collections exist")
     parser.add_option("--system", dest="install_type",
@@ -98,7 +170,7 @@ def parseOptions(argv=None):
     parser.add_option("--oem", dest="install_type",
                       action="store_const", const=2, default=0,
                       help="start Yali with oem mode")
-    parser.add_option("--firstBoot", dest="install_type",
+    parser.add_option("--firstboot", dest="install_type",
                       action="store_const", const=3, default=0,
                       help="start with first boot options")
     parser.add_option("--rescue", dest="install_type",
@@ -115,38 +187,39 @@ def parseOptions(argv=None):
     return parser.parse_args(argv)
 
 def main():
+    # Only root can run that application
+    if os.getuid() != 0:
+        print "%s must be run as root." % sys.argv[0]
+        sys.exit(1)
+
+
     ctx.logger.debug("Yali has been started")
-
-    loadModules()
-    setupEnvironment()
+    load_modules()
+    setup_environment()
     init_gui_interface()
-    setupExceptionHandler()
+    setup_exception_handler()
 
-    (options, args) = parseOptions()
-    if options.install_type:
-        ctx.flags.install_type = options.install_type
+    (options, args) = load_options()
+    load_config(options)
+
+    ctx.flags.install_type = options.install_type
 
     ctx.flags.startup = options.startFrom
 
-    if options.debug:
-        ctx.flags.debug = True
+    ctx.flags.debug = options.debug
 
-    if options.dryRun:
-        ctx.flags.dryRun = True
+    ctx.flags.dryRun = options.dryRun
 
+    ctx.flags.collection = options.collection
 
-    if options.collection:
-        ctx.flags.collection = True
+    ctx.flags.baseonly = options.baseonly
 
-    if options.baseonly:
-        ctx.flags.baseonly = True
+    ctx.flags.stylesheet = options.theme
 
     if options.kahya:
         ctx.flags.kahya = True
         ctx.flags.kahyaFile = options.kahya
 
-    if options.theme:
-        ctx.flags.stylesheet = options.theme
 
     if not ctx.storage:
         from yali.storage import Storage
@@ -154,11 +227,13 @@ def main():
 
     if not ctx.bootloader:
         from yali.storage.bootloader import BootLoader
-        ctx.bootloader = BootLoader()
+        ctx.bootloader = BootLoader(ctx.storage)
+
     ctx.flags.parse_kernel_options()
 
     init_gui_runner()
 
 
+
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
