@@ -38,6 +38,15 @@ def product_name():
         return open("/etc/pardus-release",'r').read()
     return ''
 
+def produc_id():
+    if os.path.exists("/etc/pardus-release"):
+        return open("/etc/lsb-release",'r').readlines()[1].strip().split("=")[1].strip("\"")
+    return ''
+
+def product_release():
+    release = product_name()
+    return "".join(release[:2]).lower()
+
 def is_text_valid(text):
     allowed_chars = string.ascii_letters + string.digits + '.' + '_' + '-'
     return len(text) == len(filter(lambda u: [x for x in allowed_chars if x == u], text))
@@ -140,7 +149,7 @@ def isEfi():
 
 def getArch():
     if isX86(bits=32):
-        return 'i386'
+        return 'i686'
     elif isX86(bits=64):
         return 'x86_64'
     else:
@@ -149,9 +158,6 @@ def getArch():
 def isX86(bits=None):
     arch = os.uname()[4]
 
-    # x86 platforms include:
-    #     i*86
-    #     x86_64
     if bits is None:
         if (arch.startswith('i') and arch.endswith('86')) or arch == 'x86_64':
             return True
