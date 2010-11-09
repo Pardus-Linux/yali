@@ -87,7 +87,7 @@ There is no help available for this section.
 
         # remove cd...
         # if installation type is First Boot
-        if not ctx.flags.install_type == 3:
+        if not ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
             ctx.logger.debug("Trying to eject the CD.")
             yali.util.eject()
 

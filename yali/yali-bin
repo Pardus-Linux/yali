@@ -141,7 +141,7 @@ def init_gui_interface():
 def init_gui_runner():
     from yali.gui.runner import Runner
     gui_runner = Runner()
-    ctx.logger.debug("Install type is %s" % yali.gui.STEP_TYPE_STRINGS[ctx.flags.install_type])
+    ctx.logger.debug("Install type is %s" % ctx.STEP_TYPE_STRINGS[ctx.flags.install_type])
     screens = yali.gui.get_screens(ctx.flags.install_type)
     gui_runner.setSteps(screens, ctx.flags.startup)
     gui_runner.run()
