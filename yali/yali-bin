@@ -58,6 +58,8 @@ def load_config(options):
             options.install_type = ctx.STEP_FIRST_BOOT
         elif parser.get("general", "installation") == "rescue":
             options.install_type = ctx.STEP_RESCUE
+        else:
+            options.install_type = ctx.STEP_DEFAULT
 
     if parser.has_option("general", "debug"):
         if parser.get("general", "debug") == "True":
