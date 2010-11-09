@@ -39,8 +39,8 @@ class User:
 
         # KDE AutoLogin Defaults
         self.auto_login_defaults = {"AutoLoginAgain":"false",
-                                  "AutoLoginDelay":"0",
-                                  "AutoLoginLocked":"false"}
+                                    "AutoLoginDelay":"0",
+                                    "AutoLoginLocked":"false"}
 
         self.shadow_path = os.path.join(consts.target_dir, 'etc/shadow')
         self.passwd_path = os.path.join(consts.target_dir, 'etc/passwd')
@@ -66,7 +66,7 @@ class User:
         return '' == filter(lambda r: [x for x in not_allowed_chars if x == r], self.realname)
 
     def passwordIsValid(self):
-        if len(self.passwd) or filter(lambda x: not x in string.ascii_letters, self.passwd):
+        if not len(self.passwd) or filter(lambda x: not x in string.ascii_letters, self.passwd):
             return False
         return True
 
