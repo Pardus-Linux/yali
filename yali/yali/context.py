@@ -13,6 +13,7 @@
 from yali.installdata import installData
 from yali.constants import consts
 from yali.flags import flags
+from yali.pendingoperations import pendingOperations
 
 logger = None
 
@@ -20,12 +21,7 @@ storage = None
 
 bootloader = None
 
-autoInstall = False
-
-keydata = None
-
-bus = None
-
 interface = None
 
 mainScreen = None
+
