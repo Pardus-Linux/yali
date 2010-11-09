@@ -18,6 +18,7 @@ from PyQt4.Qt import QWidget, SIGNAL, QTimer, QDate, QTime
 
 import yali.localedata
 import yali.context as ctx
+import yali.postinstall
 from yali.gui import ScreenWidget, register_gui_screen
 from yali.gui.Ui.datetimewidget import Ui_DateTimeWidget
 from yali.timezone import TimeZoneList
@@ -39,7 +40,7 @@ Coordinated Universal Time.
 """)
 
     def __init__(self):
-        QWidget.__init__(self, None)
+        QWidget.__init__(self)
         self.ui = Ui_DateTimeWidget()
         self.ui.setupUi(self)
         self.timer = QTimer(self)
@@ -125,6 +126,19 @@ Coordinated Universal Time.
         ctx.installData.timezone = self.ui.timeZoneList.itemData(index).toString()
         ctx.logger.debug("Time zone selected as %s " % ctx.installData.timezone)
 
+        if ctx.flags.install_type == 1:
+            storage_initialized = yali.storage.initialize(ctx.storage, ctx.interface)
+            if not storage_initialized:
+                sys.exit(1)
+            else:
+                disks = filter(lambda d: not d.format.hidden, ctx.storage.disks)
+                if len(disks) == 1:
+                    ctx.storage.clearPartDisks = [disks[0].name]
+                    ctx.mainScreen.step_increment = 2
+                else:
+                    ctx.mainScreen.step_increment = 1
+
+        ctx.pendingOperations.add((_("Setting timezone"), yali.postinstall.setTimeZone))
         return True
 
 register_gui_screen(Widget)
