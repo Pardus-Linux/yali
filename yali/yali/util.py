@@ -39,12 +39,11 @@ def product_name():
     return ''
 
 def produc_id():
-    if os.path.exists("/etc/pardus-release"):
-        return open("/etc/lsb-release",'r').readlines()[1].strip().split("=")[1].strip("\"")
-    return ''
+    release = product_name().split()
+    return release[1].lower()
 
 def product_release():
-    release = product_name()
+    release = product_name().split()
     return "".join(release[:2]).lower()
 
 def is_text_valid(text):
