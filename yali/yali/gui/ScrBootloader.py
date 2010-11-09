@@ -15,6 +15,7 @@ _ = gettext.translation('yali', fallback=True).ugettext
 from PyQt4.Qt import QWidget, SIGNAL
 
 import yali.context as ctx
+import yali.postinstall
 from yali.gui import ScreenWidget, register_gui_screen
 from yali.gui.Ui.bootloaderwidget import Ui_BootLoaderWidget
 from yali.storage.bootloader import BOOT_TYPE_NONE, BOOT_TYPE_PARTITION, BOOT_TYPE_MBR, BOOT_TYPE_RAID
@@ -40,7 +41,7 @@ You can always choose another installation method if you know what you are doing
 """)
 
     def __init__(self):
-        QWidget.__init__(self, None)
+        QWidget.__init__(self)
         self.ui = Ui_BootLoaderWidget()
         self.ui.setupUi(self)
         self.bootloader = None
@@ -83,6 +84,14 @@ You can always choose another installation method if you know what you are doing
             self.bootloader.bootType = BOOT_TYPE_PARTITION
         elif self.ui.installMBR.isChecked():
             self.bootloader.bootType = BOOT_TYPE_MBR
+
+        ctx.pendingOperations.add((_("Setup bootloader"), yali.postinstall.setupBootLooder))
+        ctx.pendingOperations.add((_("Writing bootloader"), yali.postinstall.writeBootLooder))
+        if ctx.bootloader.device:
+            ctx.pendingOperations.add((_("Installing Bootloader"), yali.postinstall.installBootloader))
+
+        if not ctx.flags.collection:
+            ctx.mainScreen.step_increment = 2
 
         return True
 
