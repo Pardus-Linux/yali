@@ -12,15 +12,28 @@
 import os
 import sys
 import codecs
-
 import gettext
-__trans = gettext.translation('yali', fallback=True)
-_ = __trans.ugettext
 
-from PyQt4 import QtGui
-from PyQt4.QtCore import *
+_ = gettext.translation('yali', fallback=True).ugettext
+
+from PyQt4.Qt import QWidget
+from PyQt4.Qt import SIGNAL
+from PyQt4.Qt import QTextBrowser
+from PyQt4.Qt import QObject
+from PyQt4.Qt import QPixmap
+from PyQt4.Qt import QCursor
+from PyQt4.Qt import QPixmap
+from PyQt4.Qt import Qt
+from PyQt4.Qt import QCursor
+from PyQt4.Qt import QKeySequence
+from PyQt4.Qt import QTimer
+from PyQt4.Qt import QGraphicsOpacityEffect
+from PyQt4.Qt import QIcon
+from PyQt4.Qt import QMenu
+from PyQt4.Qt import QShortcut
+
 import QTermWidget
-from pyaspects.weaver import *
+from pyaspects.weaver import weave_object_method
 
 import yali.util
 import yali.sysutils
@@ -28,73 +41,72 @@ import yali.context as ctx
 from yali.gui.Ui.main import Ui_YaliMain
 from yali.gui.YaliDialog import Dialog, QuestionDialog
 from yali.gui.YaliDialog import Tetris
-from yali.gui.aspects import enableNavButtonsAspect, disableNavButtonsAspect, loggerAspect
+from yali.gui.aspects import enableNavButtonsAspect, disableNavButtonsAspect
 
 ##
 # Widget for YaliWindow (you can call it MainWindow too ;).
-class Widget(QtGui.QWidget):
+class Widget(QWidget):
     def __init__(self):
-        QtGui.QWidget.__init__(self, None)
+        QWidget.__init__(self, None)
 
         self.ui = Ui_YaliMain()
         self.ui.setupUi(self)
 
         self.font = 10
+        self.animation_type = None
 
-        self.screenData = None
+        self.screens = None
         # shortcut to open help
-        self.helpShortCut = QtGui.QShortcut(QtGui.QKeySequence(Qt.Key_F1),self)
+        self.help_shortcut = QShortcut(QKeySequence(Qt.Key_F1), self)
 
         # shortcut to open debug window
         #self.debugShortCut = QtGui.QShortcut(QtGui.QKeySequence(Qt.Key_F2),self)
 
         # something funny
-        self.tetrisShortCut = QtGui.QShortcut(QtGui.QKeySequence(Qt.Key_F6),self)
-        self.cursorShortCut = QtGui.QShortcut(QtGui.QKeySequence(Qt.Key_F7),self)
-        self.themeShortCut  = QtGui.QShortcut(QtGui.QKeySequence(Qt.Key_F8),self)
+        self.tetris_shortcut = QShortcut(QKeySequence(Qt.Key_F6), self)
+        self.cursor_shortcut = QShortcut(QKeySequence(Qt.Key_F7), self)
+        self.theme_shortcut  = QShortcut(QKeySequence(Qt.Key_F8), self)
 
         # shortcut to open a console
-        self.consoleShortCut = QtGui.QShortcut(QtGui.QKeySequence(Qt.Key_F11),self)
+        self.console_shortcut = QShortcut(QKeySequence(Qt.Key_F11), self)
 
         # set style
-        self._style = ctx.flags.stylesheet
+        self._style = os.path.join(ctx.consts.data_dir, "data/%s.qss" % ctx.flags.stylesheet)
         self.updateStyle()
 
         # move one step at a time
-        self.stepIncrement = 1
+        self.step_increment = 1
 
         # ToolButton Popup Menu
-        self.popupMenu = QtGui.QMenu()
-        self.shutDownAction = self.popupMenu.addAction(QtGui.QIcon(QtGui.QPixmap(":/images/system-shutdown.png")), _("Turn Off Computer"))
-        self.rebootAction = self.popupMenu.addAction(QtGui.QIcon(QtGui.QPixmap(":/images/system-reboot.png")), _("Restart Computer"))
-        self.restartAction = self.popupMenu.addAction(QtGui.QIcon(QtGui.QPixmap(":/images/system-yali-reboot.png")), _("Restart YALI"))
-        #self.popupMenu.setDefaultAction(self.shutDownAction)
-        self.ui.toolButton.setMenu(self.popupMenu)
-        self.ui.toolButton.setDefaultAction(self.shutDownAction)
+        self.menu = QMenu()
+        self.shutdown = self.menu.addAction(QIcon(QPixmap(":/images/system-shutdown.png")), _("Turn Off Computer"))
+        self.reboot = self.menu.addAction(QIcon(QPixmap(":/images/system-reboot.png")), _("Restart Computer"))
+        self.restart = self.menu.addAction(QIcon(QPixmap(":/images/system-yali-reboot.png")), _("Restart YALI"))
+        #self.menu.setDefaultAction(self.shutdown)
+        self.ui.toolButton.setMenu(self.menu)
+        self.ui.toolButton.setDefaultAction(self.shutdown)
 
         # Main Slots
-        self.connect(self.helpShortCut,     SIGNAL("activated()"),  self.slotToggleHelp)
-        #self.connect(self.debugShortCut,    SIGNAL("activated()"),  self.toggleDebug)
-        self.connect(self.consoleShortCut,  SIGNAL("activated()"),  self.toggleConsole)
-        self.connect(self.cursorShortCut,   SIGNAL("activated()"),  self.toggleCursor)
-        self.connect(self.themeShortCut,    SIGNAL("activated()"),  self.toggleTheme)
-        self.connect(self.tetrisShortCut,   SIGNAL("activated()"),  self.toggleTetris)
-        self.connect(self.ui.buttonNext,    SIGNAL("clicked()"),    self.slotNext)
-        self.connect(self.ui.buttonBack,    SIGNAL("clicked()"),    self.slotBack)
-        self.connect(self.ui.toggleHelp,    SIGNAL("clicked()"),    self.slotToggleHelp)
-        self.connect(self.ui.releaseNotes,  SIGNAL("clicked()"),    self.showReleaseNotes)
-        self.connect(self.popupMenu,        SIGNAL("triggered(QAction*)"), self.slotMenu)
+        self.connect(self.help_shortcut, SIGNAL("activated()"), self.slotToggleHelp)
+        #self.connect(self.debugShortCut,    SIGNAL("activated()"), self.toggleDebug)
+        self.connect(self.console_shortcut, SIGNAL("activated()"), self.toggleConsole)
+        self.connect(self.cursor_shortcut, SIGNAL("activated()"), self.toggleCursor)
+        self.connect(self.theme_shortcut, SIGNAL("activated()"), self.toggleTheme)
+        self.connect(self.tetris_shortcut, SIGNAL("activated()"), self.toggleTetris)
+        self.connect(self.ui.buttonNext, SIGNAL("clicked()"), self.slotNext)
+        self.connect(self.ui.buttonBack, SIGNAL("clicked()"), self.slotBack)
+        self.connect(self.ui.toggleHelp, SIGNAL("clicked()"), self.slotToggleHelp)
+        self.connect(self.ui.releaseNotes, SIGNAL("clicked()"), self.showReleaseNotes)
+        self.connect(self.menu, SIGNAL("triggered(QAction*)"), self.slotMenu)
 
-        self._terminal = QTermWidget.QTermWidget()
-        self._terminal.sendText("export TERM='xterm'\nclear\n")
         self.cmb = _("right")
-        self.dontAskCmbAgain = False
+        self.dont_ask_again = False
         self.terminal = None
         self.tetris = None
 
         self.ui.helpContentFrame.hide()
 
-        self.effect = QtGui.QGraphicsOpacityEffect(self)
+        self.effect = QGraphicsOpacityEffect(self)
         self.ui.mainStack.setGraphicsEffect(self.effect)
         self.effect.setOpacity(1.0)
 
@@ -102,7 +114,7 @@ class Widget(QtGui.QWidget):
         self.connect(self.anime, SIGNAL("timeout()"), self.animate)
 
     def mousePressEvent(self, event):
-        if event.button() == Qt.RightButton and not self.dontAskCmbAgain:
+        if event.button() == Qt.RightButton and not self.dont_ask_again:
             if self.cmb == _("left"):
                 ocmb = _("right")
             else:
@@ -115,19 +127,19 @@ class Widget(QtGui.QWidget):
                 yali.sysutils.setMouse(self.cmb)
                 self.cmb = ocmb
             elif reply == "dontask":
-                self.dontAskCmbAgain = True
+                self.dont_ask_again = True
 
     def updateStyle(self):
         self.setStyleSheet(file(self._style).read())
         self.font = 10
 
     def setFontPlus(self):
-        self._set_font(1)
+        self.increaseFontSize(1)
 
     def setFontMinus(self):
-        self._set_font(-1)
+        self.increaseFontSize(-1)
 
-    def _set_font(self, num):
+    def increaseFontSize(self, num):
         # We have to edit style sheet to set new fonts
         # Because if you use a style sheet in your application
         # ::setFont gets useless :( http://doc.trolltech.com/4.5/qapplication.html#setFont
@@ -137,12 +149,12 @@ class Widget(QtGui.QWidget):
         self.setStyleSheet(self.styleSheet().replace(old, new))
 
     def slotMenu(self, action):
-        if action == self.shutDownAction:
+        if action == self.shutdown:
             reply = QuestionDialog(_("Warning"),
                                    _("Are you sure you want to shut down your computer now?"))
             if reply == "yes":
                 yali.util.shutdown()
-        elif action == self.rebootAction:
+        elif action == self.reboot:
             reply = QuestionDialog(_("Warning"),
                                    _("Are you sure you want to restart your computer now?"))
             if reply == "yes":
@@ -162,23 +174,25 @@ class Widget(QtGui.QWidget):
 
     def toggleConsole(self):
         if not self.terminal:
-            self.terminal = Dialog(_("Terminal"), self._terminal, self, True, QtGui.QKeySequence(Qt.Key_F11))
-            self.terminal.resize(700,500)
+            terminal = QTermWidget.QTermWidget()
+            terminal.sendText("export TERM='xterm'\nclear\n")
+            self.terminal = Dialog(_("Terminal"), terminal, self, True, QKeySequence(Qt.Key_F11))
+            self.terminal.resize(700, 500)
         self.terminal.exec_()
 
     def toggleTetris(self):
-        self.tetris = Dialog(_("Tetris"), None, self, True, QtGui.QKeySequence(Qt.Key_F6))
+        self.tetris = Dialog(_("Tetris"), None, self, True, QKeySequence(Qt.Key_F6))
         _tetris = Tetris(self.tetris)
         self.tetris.addWidget(_tetris)
-        self.tetris.resize(240,500)
+        self.tetris.resize(240, 500)
         _tetris.start()
         self.tetris.exec_()
 
     def toggleCursor(self):
-        if self.cursor().shape() == QtGui.QCursor(Qt.ArrowCursor).shape():
-            raw = QtGui.QPixmap(":/gui/pics/pardusman-icon.png")
+        if self.cursor().shape() == QCursor(Qt.ArrowCursor).shape():
+            raw = QPixmap(":/gui/pics/pardusman-icon.png")
             raw.setMask(raw.mask())
-            self.setCursor(QtGui.QCursor(raw,2,2))
+            self.setCursor(QCursor(raw, 2, 2))
         else:
             self.unsetCursor()
 
@@ -189,8 +203,8 @@ class Widget(QtGui.QWidget):
             self.ui.helpContentFrame.hide()
         else:
             self.ui.helpContentFrame.show()
-        _w = self.ui.mainStack.currentWidget()
-        _w.update()
+        widget = self.ui.mainStack.currentWidget()
+        widget.update()
 
     # show/hide debug window
     def toggleDebug(self):
@@ -200,62 +214,61 @@ class Widget(QtGui.QWidget):
             ctx.debugger.showWindow()
 
     # returns the id of current stack
-    def getCurrent(self, d):
-        new   = self.ui.mainStack.currentIndex() + d
-        total = self.ui.mainStack.count()
-        if new < 0: new = 0
-        if new > total: new = total
-        return new
+    def getCurrent(self, index):
+        new_index   = self.ui.mainStack.currentIndex() + index
+        total_index = self.ui.mainStack.count()
+        if new_index < 0: new_index = 0
+        if new_index > total_index: new_index = total_index
+        return new_index
 
     # move to id numbered step
-    def setCurrent(self, id=None):
+    def setCurrent(self, index=None):
         if id:
-            self.stackMove(id)
+            self.stackMove(index)
 
     # execute next step
-    def slotNext(self,dryRun=False):
+    def slotNext(self, dry_run=False):
         widget = self.ui.mainStack.currentWidget()
         ret = True
-        if not dryRun:
+        if not dry_run:
             ret = widget.execute()
         if ret:
-            self.stackMove(self.getCurrent(self.stepIncrement))
-            self.stepIncrement = 1
+            self.stackMove(self.getCurrent(self.step_increment))
+            self.step_increment = 1
 
     # execute previous step
     def slotBack(self):
         widget = self.ui.mainStack.currentWidget()
         if widget.backCheck():
-            self.stackMove(self.getCurrent(self.stepIncrement * -1))
-        self.stepIncrement = 1
+            self.stackMove(self.getCurrent(self.step_increment * -1))
+        self.step_increment = 1
 
     # move to id numbered stack
-    def stackMove(self, id):
-        if not id == self.ui.mainStack.currentIndex() or id==0:
+    def stackMove(self, index):
+        if not index == self.ui.mainStack.currentIndex() or index == 0:
             self.effect.setOpacity(0.0)
-            self.animationType = "fade-in"
+            self.animation_type = "fade-in"
             self.anime.start(50)
-            self.ui.mainStack.setCurrentIndex(id)
-            _w = self.ui.mainStack.currentWidget()
-            self.ui.screenName.setText(_w.title)
-            #self.ui.screenDescription.setText(_w.desc)
-            self.ui.screenIcon.setPixmap(QtGui.QPixmap(":/gui/pics/%s.png" % (_w.icon)))
-            self.ui.helpContent.setText(_w.help)
+            self.ui.mainStack.setCurrentIndex(index)
+            widget = self.ui.mainStack.currentWidget()
+            self.ui.screenName.setText(widget.title)
+            self.ui.helpContent.setText(widget.help)
+            self.ui.screenIcon.setPixmap(QPixmap(":/gui/pics/%s.png" % (widget.icon)))
             # shown functions contain necessary instructions before
             # showing a stack ( updating gui, disabling some buttons etc. )
 
             ctx.mainScreen.processEvents()
-            _w.update()
+            widget.update()
             ctx.mainScreen.processEvents()
-            _w.shown()
+            widget.shown()
 
     def animate(self):
-        if self.animationType == "fade-in":
+        if self.animation_type == "fade-in":
             if self.effect.opacity() < 1.0:
                 self.effect.setOpacity(self.effect.opacity() + 0.2)
             else:
                 self.anime.stop()
-        if self.animationType == "fade-out":
+        if self.animation_type == "fade-out":
             if self.effect.opacity() > 0.0:
                 self.effect.setOpacity(self.effect.opacity() - 0.2)
             else:
@@ -264,8 +277,8 @@ class Widget(QtGui.QWidget):
     # create all widgets and add inside stack
     # see runner.py/_all_screens for the list
     def createWidgets(self, screens=[]):
-        if not self.screenData:
-            self.screenData = screens
+        if not self.screens:
+            self.screens = screens
         self.ui.mainStack.removeWidget(self.ui.page)
         for screen in screens:
             #if ctx.flags.debug:
@@ -276,7 +289,6 @@ class Widget(QtGui.QWidget):
             weave_object_method(enableNavButtonsAspect, screen, "shown")
             # disable navigation buttons before the execute.
             weave_object_method(disableNavButtonsAspect, screen, "execute")
-            print "screen:%s" % screen
             self.ui.mainStack.addWidget(screen())
 
         #weave_all_object_methods(ctx.aspect, self)
@@ -307,23 +319,23 @@ class Widget(QtGui.QWidget):
 
     def showReleaseNotes(self):
         # make a release notes dialog
-        d = Dialog(_('Release Notes'), ReleaseNotes(self), self)
-        d.resize(500,400)
-        d.exec_()
+        dialog = Dialog(_('Release Notes'), ReleaseNotes(self), self)
+        dialog.resize(500, 400)
+        dialog.exec_()
 
-class ReleaseNotes(QtGui.QTextBrowser):
+class ReleaseNotes(QTextBrowser):
 
     def __init__(self, *args):
-        apply(QtGui.QTextBrowser.__init__, (self,) + args)
+        QTextBrowser.__init__(self, args)
 
         self.setStyleSheet("background:white;color:black;")
 
         try:
-            self.setText(codecs.open(self.load_file(), "r", "UTF-8").read())
+            self.setText(codecs.open(self.loadFile(), "r", "UTF-8").read())
         except Exception, msg:
             ctx.logger.error(_(msg))
 
-    def load_file(self):
+    def loadFile(self):
         rel_path = os.path.join(ctx.consts.source_dir,"release-notes/releasenotes-" + ctx.consts.lang + ".html")
 
         if not os.path.exists(rel_path):
