@@ -8,9 +8,7 @@
 # any later version.
 #
 # Please read the COPYING file.
-
 import os
-import re
 import glob
 import shutil
 from PyQt4 import pyqtconfig
@@ -20,105 +18,69 @@ from distutils.cmd import Command
 from distutils.command.build import build
 from distutils.command.clean import clean
 from distutils.command.install import install
-from distutils.spawn import find_executable, spawn
+from distutils.spawn import find_executable
+
+I18N_DOMAIN = "yali"
+I18N_LANGUAGES = ["tr", "nl", "it", "fr", "de", "pt_BR", "es", "pl", "ca", "sv"]
 
 def qt_ui_files():
-    p = "yali/gui/Ui/*.ui"
-    return glob.glob(p)
+    ui_files = "yali/gui/Ui/*.ui"
+    return glob.glob(ui_files)
 
 def gui_slidepics():
-    p = "yali/gui/pics/slideshow/*.png"
-    return glob.glob(p)
-
-def user_faces():
-    p = "yali/user_faces/*.png"
-    return glob.glob(p)
+    slide_pics = "yali/gui/pics/slideshow/*.png"
+    return glob.glob(slide_pics)
 
 def data_files():
-    p = "yali/data/*"
-    return glob.glob(p)
+    data = "yali/data/*"
+    return glob.glob(data)
 
 def udev_files():
-    p = "data/*"
-    return glob.glob(p)
-
-def getRevision():
-    import os
-    try:
-        p = os.popen("svn info 2> /dev/null")
-        for line in p.readlines():
-            line = line.strip()
-            if line.startswith("Revision:"):
-                return line.split(":")[1].strip()
-    except:
-        return ""
+    rules = "data/*"
+    return glob.glob(rules)
 
 def py_file_name(ui_file):
     return os.path.splitext(ui_file)[0] + '.py'
 
-##
-# build command
 class YaliBuild(build):
-
-    def add_gettext_support(self, ui_file):
-        # hacky, too hacky. but it works...
+    def changeQRCPath(self, ui_file):
         py_file = py_file_name(ui_file)
-        # lines in reverse order
-        lines =  ["\n_ = __trans.ugettext\n",
-                  "\n__trans = gettext.translation('yali', fallback=True)",
-                  "\nimport gettext"]
-        f = open(py_file, "r").readlines()
-        for l in lines:
-            f.insert(1, l)
-        x = open(py_file, "w")
-        keyStart = "QtGui.QApplication.translate"
-        keyEnd = ", None, QtGui.QApplication.UnicodeUTF8)"
-        headerItem = "headerItem"
-        keyItem = "setItemText"
-        styleKey = "setStyleSheet"
-        for l in f:
-            if not l.find(keyStart)==-1 and l.find(styleKey)==-1:
-                if (not l.find(keyItem)==-1) or (not l.find(headerItem) ==-1):
-                    z = "%s,_(" % l.split(",")[0]
-                    y = "%s,%s,"%(l.split(",")[0],l.split(",")[1])
-                else:
-                    z = "%s(_(" % l.split("(")[0]
-                    y = l.split(",")[0]+', '
-                l = l.replace(y,z)
-            l = l.replace(keyEnd,")")
-            l = l.replace("data_rc","yali.data_rc")
-            x.write(l)
+        lines = open(py_file, "r").readlines()
+        replaced = open(py_file, "w")
+        for line in lines:
+            line = line.replace("data_rc","yali.data_rc")
+            replaced.write(line)
 
-    def compile_ui(self, ui_file):
+
+    def compileUI(self, ui_file):
         pyqt_configuration = pyqtconfig.Configuration()
         pyuic_exe = find_executable('pyuic4', pyqt_configuration.default_bin_dir)
         if not pyuic_exe:
-            # Search on the $Path.
             pyuic_exe = find_executable('pyuic4')
 
         cmd = [pyuic_exe, ui_file, '-o']
         cmd.append(py_file_name(ui_file))
+        cmd.append("-g \"yali\"")
         os.system(' '.join(cmd))
 
     def run(self):
-        for f in qt_ui_files():
-            self.compile_ui(f)
-            self.add_gettext_support(f)
+        for ui_file in qt_ui_files():
+            print ui_file
+            self.compileUI(ui_file)
+            self.changeQRCPath(ui_file)
         os.system("pyrcc4 yali/data.qrc -o yali/data_rc.py")
         build.run(self)
 
-##
-# clean command
 class YaliClean(clean):
 
     def run(self):
         clean.run(self)
 
         # clean ui generated .py files
-        for f in qt_ui_files():
-            f = py_file_name(f)
-            if os.path.exists(f):
-                os.unlink(f)
+        for _file in qt_ui_files():
+            _file = py_file_name(_file)
+            if os.path.exists(_file):
+                os.unlink(_file)
 
         if os.path.exists("yali/data_rc.py"):
             os.unlink("yali/data_rc.py")
@@ -147,24 +109,14 @@ class YaliUninstall(Command):
             print "removing: ", data_dir
             shutil.rmtree(data_dir)
         os.unlink("/usr/bin/yali-bin")
+        os.unlink("/usr/bin/start-yali")
         os.unlink("/usr/bin/bindYali")
 
-i18n_domain = "yali"
-i18n_languages = ["tr",
-                  "nl",
-                  "it",
-                  "fr",
-                  "de",
-                  "pt_BR",
-                  "es",
-                  "pl",
-                  "ca",
-                  "sv"]
 
 class I18nInstall(install):
     def run(self):
         install.run(self)
-        for lang in i18n_languages:
+        for lang in I18N_LANGUAGES:
             print "Installing '%s' translations..." % lang
             os.popen("msgfmt po/%s.po -o po/%s.mo" % (lang, lang))
             if not self.root:
@@ -174,7 +126,7 @@ class I18nInstall(install):
                 os.makedirs(destpath)
             except:
                 pass
-            shutil.copy("po/%s.mo" % lang, os.path.join(destpath, "%s.mo" % i18n_domain))
+            shutil.copy("po/%s.mo" % lang, os.path.join(destpath, "%s.mo" % I18N_DOMAIN))
 
 setup(name="yali",
       version= "2.4.0",
@@ -185,11 +137,9 @@ setup(name="yali",
       author_email="yali@pardus.org.tr",
       url="http://www.pardus.org.tr/eng/yali/",
       packages = ['yali', 'yali.gui', 'yali.gui.Ui', 'yali.storage',\
-                  'yali.storage.devices', 'yali.storage.formats',\
-                  'yali.storage.library', 'yali.plugins'],\
+                  'yali.storage.devices', 'yali.storage.formats', 'yali.storage.library'],
       package_dir = {'': ''},
       data_files = [('/usr/share/yali/slideshow', gui_slidepics()),
-                    ('/usr/share/yali/user_faces', user_faces()),
                     ('/usr/share/yali/data', data_files()),
                     ('/lib/udev/rules.d', udev_files())],
       scripts = ['yali-bin', 'start-yali', 'bindYali'],
