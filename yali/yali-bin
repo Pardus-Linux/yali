@@ -64,13 +64,17 @@ def setupExceptionHandler():
     sys.excepthook = exception_handler
     signal.signal(signal.SIGTERM, signal_handler)
 
+def init_gui_interface():
+    import yali.gui.interface
+    ctx.interface = yali.gui.interface.Interface()
+
 def init_gui_runner():
-    import yali.gui
     import yali.gui.runner
-    interface = yali.gui.runner.Runner()
+    gui_runner = yali.gui.runner.Runner()
     ctx.logger.debug("Install type is %s" % yali.gui.STEP_TYPE_STRINGS[ctx.flags.install_type])
-    interface.setSteps(yali.gui.get_screens(ctx.flags.install_type))
-    interface.run()
+    screens = yali.gui.get_screens(ctx.flags.install_type)
+    gui_runner.setSteps(screens, ctx.flags.startup)
+    gui_runner.run()
 
 def parseOptions(argv=None):
     from optparse import OptionParser
@@ -89,36 +93,40 @@ def parseOptions(argv=None):
                       help="install collection type package"
                            "installation if collections exist")
     parser.add_option("--system", dest="install_type",
-                      action="store_const", const= 1,
+                      action="store_const", const= 1, default=0,
                       help="start system installation")
     parser.add_option("--oem", dest="install_type",
-                      action="store_const", const=2,
+                      action="store_const", const=2, default=0,
                       help="start Yali with oem mode")
     parser.add_option("--firstBoot", dest="install_type",
-                      action="store_const", const=3,
+                      action="store_const", const=3, default=0,
                       help="start with first boot options")
     parser.add_option("--rescue", dest="install_type",
-                      action="store_const", const=4,
+                      action="store_const", const=4, default=0,
                       help="start Yali with rescue mode")
     parser.add_option("--kahya", dest="kahya",
                       help="run with Kahya file", metavar="FILE")
-    parser.add_option("-s", "--startFrom", dest="screen",
-                      help="start from the given screen (num)", type="int", default=0)
-    parser.add_option("-p", "--plugin", dest="plugin",
-                      help="load given plugin", type="str", default=None)
+    parser.add_option("-s", "--startFrom", dest="startFrom",
+                      type="int", default=0,
+                      help="start from the given screen (num)")
     parser.add_option("-t", "--theme", dest="theme",
-                      help="load given theme", type="str", default="corporate")
+                      help="load given theme", type="str", default="oxygen")
 
     return parser.parse_args(argv)
 
 def main():
-    loadModules()
-    setupEnvironment()
-    setupExceptionHandler()
-
     ctx.logger.debug("Yali has been started")
 
+    loadModules()
+    setupEnvironment()
+    init_gui_interface()
+    setupExceptionHandler()
+
     (options, args) = parseOptions()
+    if options.install_type:
+        ctx.flags.install_type = options.install_type
+
+    ctx.flags.startup = options.startFrom
 
     if options.debug:
         ctx.flags.debug = True
@@ -126,7 +134,6 @@ def main():
     if options.dryRun:
         ctx.flags.dryRun = True
 
-    ctx.flags.install_type = options.install_type
 
     if options.collection:
         ctx.flags.collection = True
@@ -138,11 +145,8 @@ def main():
         ctx.flags.kahya = True
         ctx.flags.kahyaFile = options.kahya
 
-    if options.screen:
-        ctx.flags.startup = options.screen
-
     if options.theme:
-        ctx.flags.stylesheet = os.path.join(ctx.consts.data_dir, "data/%s.qss" % options.theme)
+        ctx.flags.stylesheet = options.theme
 
     if not ctx.storage:
         from yali.storage import Storage
@@ -151,9 +155,10 @@ def main():
     if not ctx.bootloader:
         from yali.storage.bootloader import BootLoader
         ctx.bootloader = BootLoader()
-
+    ctx.flags.parse_kernel_options()
 
     init_gui_runner()
+
 
 if __name__ == "__main__":
     main()
