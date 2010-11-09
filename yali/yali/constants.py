@@ -64,10 +64,12 @@ class Constants:
         self.__c.repo_uri = os.path.join(self.__c.source_dir, "repo/pisi-index.xml.bz2")
         self.__c.pisi_collection_file = os.path.join(self.__c.data_dir, "data/index/collection.xml")
         self.__c.pisi_collection_dir = os.path.join(self.__c.data_dir, "data/index")
-        self.__c.cd_repo_name = os.path.join(self.__c.source_dir, "repo/pisi-index.xml.bz2")
+        self.__c.cd_repo_name = "pardus-cd"
+        self.__c.dvd_repo_name = "pardus-dvd"
         self.__c.cd_repo_uri = os.path.join(self.__c.source_dir, "repo/pisi-index.xml.bz2")
         self.__c.pardus_repo_uri = "http://packages.pardus.org.tr"
         self.__c.pisi_index_file = os.path.join(self.__c.data_dir,"data/pisi-index.xml.bz2")
+        self.__c.pisi_index_file_sum = os.path.join(self.__c.data_dir,"data/pisi-index.xml.bz2.sha1sum")
         self.__c.session_file = os.path.join(self.__c.target_dir, "root/kahyaSession.xml")
         self.__c.default_kahya_file = os.path.join(self.__c.data_dir,"data/default.xml")
         self.__c.oem_install_file = os.path.join(self.__c.data_dir,"data/firstBoot.xml")
