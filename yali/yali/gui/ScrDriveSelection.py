@@ -46,7 +46,7 @@ class DriveItem(QWidget, Ui_DiskItem):
 
 
 class Widget(QWidget, ScreenWidget):
-    type = "driveSelection"
+    name = "driveSelection"
     title = _("Select a Drive to Install Pardus")
     icon = "iconPartition"
     help = _('''
@@ -62,11 +62,11 @@ Pardus create a new partition for installation.</p>
 ''')
 
     def __init__(self):
-        QWidget.__init__(self, None)
+        QWidget.__init__(self)
         self.ui = Ui_DriveSelectionWidget()
         self.ui.setupUi(self)
-        self.storage = ctx.storage
-        self.intf = ctx.interface
+        self.storage = None
+        self.intf = None
         self.shrink_operations = None
         self.clear_partdisks = None
         self.selected_disks = None
@@ -115,11 +115,10 @@ Pardus create a new partition for installation.</p>
         self.ui.drives.setCurrentRow(0)
 
     def shown(self):
+        self.storage = ctx.storage
+        self.intf = ctx.interface
         self.storage.reset()
-        if self.storage.checkNoDisks(self.intf):
-            sys.exit(0)
-        else:
-            self.fillDrives()
+        self.fillDrives()
 
     def nextCheck(self):
 
