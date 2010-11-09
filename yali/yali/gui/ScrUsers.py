@@ -17,6 +17,7 @@ _ = gettext.translation('yali', fallback=True).ugettext
 from PyQt4.Qt import QWidget, SIGNAL, QString, QIcon, QTimeLine, QPixmap, QLineEdit, QListWidgetItem
 
 import yali.users
+import yali.postinstall
 import yali.context as ctx
 from yali.gui import ScreenWidget, register_gui_screen
 from yali.gui.Ui.setupuserswidget import Ui_SetupUsersWidget
@@ -40,8 +41,8 @@ Proceed with the installation after you make your selections.
 </p>
 ''')
 
-    def __init__(self, *args):
-        QWidget.__init__(self,None)
+    def __init__(self):
+        QWidget.__init__(self)
         self.ui = Ui_SetupUsersWidget()
         self.ui.setupUi(self)
 
@@ -107,8 +108,6 @@ Proceed with the installation after you make your selections.
         self.user_name_changed = False
         self.used_ids = []
 
-        #self.info.update(_("Starting validation..."))
-
     def shown(self):
         self.ui.cancelButton.hide()
         self.ui.realname.setFocus()
@@ -152,7 +151,9 @@ Proceed with the installation after you make your selections.
             return True
 
         self.refill()
+        ctx.interface.informationWindow.hide()
         ctx.installData.autoLoginUser = str(self.ui.autoLogin.currentText())
+
         return True
 
     def setCapsLockIcon(self, child):
@@ -210,21 +211,23 @@ Proceed with the installation after you make your selections.
         self.checkUsers()
 
     def slotTextChanged(self):
-        password = self.ui.pass1.text()
-        password_confirm = self.ui.pass2.text()
+        username = str(self.ui.username.text())
+        realname = unicode(self.ui.realname.text())
+        password = str(self.ui.pass1.text())
+        password_confirm = str(self.ui.pass2.text())
 
-        if not password == '' and (str(password).lower() == str(self.ui.username.text()).lower() or \
-                str(password).lower() == str(self.ui.realname.text()).lower()):
+        if not password == '' and (password.lower() == username.lower() or
+                                   password.lower() == realname.lower()):
             self.showError(_('Don\'t use your user name or name as a password'))
             return
         elif password_confirm != password and password_confirm:
             self.showError(_('Passwords do not match'))
             return
-        elif len(password) == len(password_confirm) and len(password_confirm) < 4 and not password=='':
+        elif len(password) == len(password_confirm) and len(password_confirm) < 4 and not password =='':
             self.showError(_('Password is too short'))
             return
-        elif not len(password) and filter(lambda x: not x in string.ascii_letters, password):
-            self.showError(_("Don't use non-ascii characters"))
+        elif filter(lambda x: not x in string.ascii_letters, password):
+            self.showError(_("Don't use invalid characters"))
         else:
             ctx.interface.informationWindow.hide()
 
@@ -264,7 +267,7 @@ Proceed with the installation after you make your selections.
         if self.ui.admin.isChecked():
             user.groups.append("wheel")
             pix = self.super_user_icon
-        user.no_password = self.ui.no_password.isChecked()
+        user.no_password = self.ui.noPass.isChecked()
 
         # check user validity
         if user.exists() or (user.username in self.currentUsers() and self.edititemindex == None):
@@ -276,6 +279,9 @@ Proceed with the installation after you make your selections.
             return False
         elif not user.realnameIsValid():
             self.showError(_("The real name contains invalid characters."))
+            return False
+        elif not user.passwordIsValid():
+            self.showError(_("The password contains invalid characters."))
             return False
 
         # Dont check in edit mode
@@ -357,7 +363,7 @@ Proceed with the installation after you make your selections.
         else:
             self.ui.admin.setChecked(False)
 
-        self.ui.no_password.setChecked(user.no_password)
+        self.ui.noPass.setChecked(user.no_password)
 
         self.edititemindex = self.ui.userList.currentRow()
         self.ui.createButton.setText(_("Update"))
@@ -384,7 +390,6 @@ Proceed with the installation after you make your selections.
         else:
             if self.checkUserFields():
                 ctx.mainScreen.enableNext()
-                return True
             else:
                 ctx.mainScreen.disableNext()
 
@@ -403,7 +408,7 @@ Proceed with the installation after you make your selections.
         self.ui.pass1.clear()
         self.ui.pass2.clear()
         self.ui.admin.setChecked(False)
-        self.ui.no_password.setChecked(False)
+        self.ui.noPass.setChecked(False)
         self.ui.userIDCheck.setChecked(False)
         self.ui.createButton.setEnabled(False)
         if self.ui.cancelButton.isVisible():
