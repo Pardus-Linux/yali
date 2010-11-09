@@ -21,7 +21,7 @@ from yali.gui.Ui.autopartwidget import Ui_AutoPartWidget
 from yali.gui.shrink_gui import ShrinkEditor
 from yali.storage.partitioning import CLEARPART_TYPE_ALL, CLEARPART_TYPE_LINUX, CLEARPART_TYPE_NONE, doAutoPartition, defaultPartitioning
 
-USE_ALL_SPACE, REPLACE_EXISTING_LINUX, SHRINK_CURRENT, FREE_SPACE, CUSTOM = range(5)
+USE_ALL_SPACE, SHRINK_CURRENT, FREE_SPACE, CUSTOM = xrange(4)
 
 class Widget(QWidget, ScreenWidget):
     name = "automaticPartitioning"
@@ -40,7 +40,7 @@ Pardus create a new partition for installation.</p>
 ''')
 
     def __init__(self):
-        QWidget.__init__(self, None)
+        QWidget.__init__(self)
         self.ui = Ui_AutoPartWidget()
         self.ui.setupUi(self)
         self.storage = None
@@ -63,13 +63,11 @@ Pardus create a new partition for installation.</p>
 
     def setPartitioningType(self):
         if self.storage.clearPartType is None:
-            self.ui.autopartType.setCurrentRow(REPLACE_EXISTING_LINUX)
+            self.ui.autopartType.setCurrentRow(CUSTOM)
         elif self.storage.clearPartType == CLEARPART_TYPE_NONE:
             self.ui.autopartType.setCurrentRow(FREE_SPACE)
         elif self.storage.clearPartType == CLEARPART_TYPE_ALL:
             self.ui.autopartType.setCurrentRow(USE_ALL_SPACE)
-        else:
-            self.ui.autopartType.setCurrentRow(createCustom)
 
     def shown(self):
         self.storage = ctx.storage
@@ -107,12 +105,19 @@ Pardus create a new partition for installation.</p>
                 self.storage.clearPartType = CLEARPART_TYPE_NONE
             elif self.ui.autopartType.currentRow() == USE_ALL_SPACE:
                 self.storage.clearPartType = CLEARPART_TYPE_ALL
-            elif self.ui.autopartType.currentRow() == useFreeSpace:
+            elif self.ui.autopartType.currentRow() == FREE_SPACE:
                 self.storage.clearPartType = CLEARPART_TYPE_NONE
 
             ctx.mainScreen.step_increment = 2
             self.storage.autoPartitionRequests = defaultPartitioning(self.storage, quiet=0)
-            return doAutoPartition(self.storage)
+
+            try:
+                returncode = doAutoPartition(self.storage)
+            except Exception, msg:
+                ctx.logger.debug(msg)
+                ctx.mainScreen.enableBack()
+            else:
+                return returncode
 
         return False
 
