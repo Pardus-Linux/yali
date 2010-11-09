@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 import sys
 import parted
 import gettext
@@ -10,56 +12,79 @@ import yali.util
 from operations import *
 import yali.context as ctx
 from library import lvm
+from yali.baseudev import udev_trigger
 from yali.storage.devices.device import Device, DeviceError
 from yali.storage.devices.partition import Partition
 from yali.storage.devices.volumegroup import VolumeGroup
 from yali.storage.devices.logicalvolume import LogicalVolume
 from yali.storage.devices.raidarray import RaidArray
 from yali.storage.formats import getFormat, get_default_filesystem_type
-from yali.storage.devicetree import DeviceTree
+from yali.storage.devicetree import DeviceTree, DeviceTreeError
 from yali.storage.storageset import StorageSet
-from yali.baseudev import udev_trigger
+from yali.storage.formats.filesystem import FilesystemResizeError, FilesystemMigrateError
 
 class StorageError(yali.Error):
     pass
 
-def storageInitialize():
+def initialize(storage, intf):
     storage.shutdown()
     udev_trigger(subsystem="block", action="change")
-    ctx.interface.resetInitializeDiskQuestion()
-    ctx.interface.resetReinitInconsistentLVMQuestion()
-
-    ctx.interface.resetInitializeDisk()
-    ctx.interface.resetReinitInconsistentLVMQuestion()
+    intf.resetInitializeDisk()
+    intf.resetReinitInconsistentLVM()
     lvm.lvm_vg_blacklist = []
     storage.reset()
 
-    if not storage.disks:
-        rc = ctx.interface.messageWindow(_("No disks found"),
-                                         _("No usable disks have been found."),
-                                         type="custom",
-                                         customButtons=[_("Back"), _("Exit installer")],
-                                         default=0)
-        if rc == 0:
-            ctx.mainScreen.slotBack()
-        else:
-            sys.exit(1)
+    if storage.checkNoDisks(intf):
+        return False
 
-def storageComplete():
-    rc = ctx.interface.messageWindow(_("Confirm"),
-                                     _("The partitioning options you have selected\n"
-                                       "will now be written to disk.  Any\n"
-                                       "data on deleted or reformatted partitions\n"
-                                       "will be lost."),
-                                     type = "custom", customIcon="warning",
-                                     customButtons=[_("Go Back"), _("Write Changes to Disk")],
-                                     default = 0)
+    return True
 
-    # Make sure that all is down, even the disks that we setup after popluate.
-    ctx.storage.devicetree.teardownAll()
+def complete(storage, intf):
+    try:
+        storage.devicetree.teardownAll()
+    except DeviceTreeError, msg:
+        return False
 
-    if rc == 0:
-        ctx.mainScreen.slotBack()
+    if storage.doAutoPart:
+        intf.informationWindow.update(_("Auto partitioning..."))
+        ctx.logger.debug("Auto partitioning")
+    else:
+        intf.informationWindow.update(_("Manual partitioning..."))
+        ctx.logger.debug("Manual partitioning...")
+
+    intf.informationWindow.hide()
+
+    title = None
+    message = None
+    details = None
+    try:
+        storage.doIt()
+    except FilesystemResizeError as (msg, device):
+        title = _("Resizing Failed")
+        message = _("There was an error encountered while "
+                    "resizing the device %s.") % (device,)
+        details = "%s" %(msg,)
+
+    except FilesystemMigrateError as (msg, device):
+        title = _("Migration Failed")
+        message = _("An error was encountered while "
+                    "migrating filesystem on device %s.") % (device,)
+        details = msg
+    else:
+        ctx.interface.informationWindow.update(_("Partitioning finished..."))
+        ctx.logger.debug("Partitioning finished")
+        ctx.interface.informationWindow.hide()
+        return True
+    finally:
+        if title:
+            rc = intf.detailedMessageWindow(title, message, details,
+                                            type = "custom",
+                                            customButtons = [_("File Bug"), _("Exit installer")])
+
+            if not rc:
+                raise
+            elif rc:
+                sys.exit(1)
 
 class Storage(object):
     def __init__(self, ignoredDisks=[]):
@@ -174,6 +199,12 @@ class Storage(object):
         id = self._nextID
         self._nextID += 1
         return id
+
+    def shutdown(self):
+        try:
+            self.devicetree.teardownAll()
+        except DeviceTreeError as msg:
+            ctx.logger.error("failure tearing down device tree: %s" % msg)
 
     def reset(self):
         """ Reset storage configuration to reflect actual system state.
