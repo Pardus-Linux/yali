@@ -491,7 +491,6 @@ class ExceptionWindow:
         else:
             closeButton = True
 
-        ctx.logger.debug(traceback)
         self.dialog = Dialog(_("Error reporting"), ExceptionWidget(traceback, not closeButton), None, closeButton, icon="error")
         self.dialog.resize(300,160)
         self.run()

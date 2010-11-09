@@ -20,14 +20,6 @@ kernels = {defaultKernel:"kernel.default",
            paeKernel:"kernel.pae",
            rtKernel:"kernel.rt"}
 
-YALI_INSTALL, \
-YALI_DVDINSTALL, \
-YALI_FIRSTBOOT, \
-YALI_OEMINSTALL, \
-YALI_PLUGIN, \
-YALI_PARTITIONER, \
-YALI_RESCUE = range(7)
-
 class InstallData:
     keyData = None
     rootPassword = None
@@ -40,8 +32,7 @@ class InstallData:
     autoInstallationMethod = methodInstallAutomatic
     rescuePartition = None
     repoAddr = None
-    useYaliFirstBoot = False
-    timezone = "Europe/Istanbul"
+    timezone = ""
     sessionLog = ""
     installAllLangPacks = False
 
