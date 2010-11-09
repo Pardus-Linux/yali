@@ -39,8 +39,8 @@ class stepItem:
         self.status = False
 
     def runOperation(self):
+        ctx.logger.debug("Running Step : %s" % self.text)
         self.status = self.operation()
-        ctx.logger.debug("Running step : %s" % self.text)
         ctx.interface.informationWindow.update(self.text)
         if self.status:
             ctx.logger.debug("Step '%s' finished sucessfully." % self.text)
