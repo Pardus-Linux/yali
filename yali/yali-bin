@@ -51,13 +51,13 @@ def load_config(options):
 
     if parser.has_option("general", "installation"):
         if parser.get("general", "installation") == "system":
-            options.install_type = 1
+            options.install_type = ctx.STEP_BASE
         elif parser.get("general", "installation") == "oem":
-            options.install_type = 2
+            options.install_type = ctx.STEP_OEM_INSTALL
         elif parser.get("general", "installation") == "firstboot":
-            options.install_type = 3
+            options.install_type = ctx.STEP_FIRST_BOOT
         elif parser.get("general", "installation") == "rescue":
-            options.install_type = 4
+            options.install_type = ctx.STEP_RESCUE
 
     if parser.has_option("general", "debug"):
         if parser.get("general", "debug") == "True":
