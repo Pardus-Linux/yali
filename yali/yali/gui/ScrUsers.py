@@ -147,10 +147,9 @@ Proceed with the installation after you make your selections.
                 return self.slotCreateUser()
             return True
 
-        if not self.ui.addMoreUsers.isChecked():
-            if not self.slotCreateUser():
-                ctx.mainScreen.step_increment = 0
-                return True
+        if not self.slotCreateUser():
+            ctx.mainScreen.step_increment = 0
+            return True
 
         self.refill()
         ctx.installData.autoLoginUser = str(self.ui.autoLogin.currentText())
