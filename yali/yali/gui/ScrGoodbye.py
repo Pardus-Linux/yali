@@ -37,10 +37,9 @@ Click Next to proceed. One note: You remember your password, don't you?
 """)
 
     def __init__(self):
-        QWidget.__init__(self, None)
+        QWidget.__init__(self)
         self.ui = Ui_GoodByeWidget()
         self.ui.setupUi(self)
-
         self.steps = YaliSteps()
 
     def shown(self):
@@ -49,8 +48,10 @@ Click Next to proceed. One note: You remember your password, don't you?
         ctx.mainScreen.disableBack()
         self.processPendingActions()
         self.steps.slotRunOperations()
+
         if not ctx.mainScreen.ui.helpContent.isVisible():
             ctx.mainScreen.slotToggleHelp()
+
         self.ui.label.setPixmap(QPixmap(":/gui/pics/goodbye.png"))
         ctx.interface.informationWindow.hide()
         ctx.mainScreen.enableNext()
@@ -65,7 +66,7 @@ Click Next to proceed. One note: You remember your password, don't you?
 
         # remove cd...
         # if installation type is First Boot
-        if not ctx.flags.install_type == 3:
+        if not ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
             ctx.logger.debug("Trying to eject the CD.")
             yali.util.eject()
 
@@ -79,24 +80,25 @@ Click Next to proceed. One note: You remember your password, don't you?
         self.steps.setOperations([{"text":_("Connecting to D-Bus..."), "operation":yali.postinstall.connectToDBus}])
 
         steps = [{"text":_("Setting hostname..."), "operation":yali.postinstall.setHostName},
-                 {"text":_("Setting timezone..."), "operation":yali.postinstall.setTimeZone},
-                 {"text":_("Setting root password..."), "operation":yali.postinstall.setRootPassword},
-                 {"text":_("Adding users..."), "operation":yali.postinstall.addUsers},
-                 {"text":_("Setting console keymap..."), "operation":yali.postinstall.writeConsoleData},
-                 {"text":_("Migrating Xorg configuration..."), "operation":yali.postinstall.setKeymap}]
+                 {"text":_("Setting root password..."), "operation":yali.postinstall.setRootPassword}]
 
-        base_steps = [{"text":_("Copying repository index..."), "operation":yali.postinstall.copyPisiIndex},
-                     {"text":_("Configuring other packages..."), "operation":yali.postinstall.setPackages},
-                     {"text":_("Setup bootloader..."), "operation":yali.postinstall.setupBootLooder},
-                     {"text":_("Writing bootloader..."), "operation":yali.postinstall.writeBootLooder},
-                     {"text":_("Stopping to D-Bus..."), "operation":yali.util.stop_dbus}]
+        base_steps = [{"text":_("Setting timezone..."), "operation":yali.postinstall.setTimeZone},
+                      {"text":_("Migrating Xorg configuration..."), "operation":yali.postinstall.setKeymap},
+                      {"text":_("Setting console keymap..."), "operation":yali.postinstall.writeConsoleData},
+                      {"text":_("Copying repository index..."), "operation":yali.postinstall.copyPisiIndex},
+                      {"text":_("Setup bootloader..."), "operation":yali.postinstall.setupBootLooder},
+                      {"text":_("Writing bootloader..."), "operation":yali.postinstall.writeBootLooder},
+                      {"text":_("Stopping to D-Bus..."), "operation":yali.util.stop_dbus}]
 
-        if ctx.bootloader.device:
+
+        if ctx.flags.install_type == ctx.STEP_BASE and ctx.bootloader.device:
             base_steps.append({"text":_("Installing Bootloader..."), "operation":yali.postinstall.installBootloader})
 
-        if ctx.flags.install_type == 1 or ctx.flags.install_type == 3:
-            self.steps.setOperations(steps)
+        if ctx.flags.install_type == ctx.STEP_FIRST_BOOT or ctx.flags.install_type == ctx.STEP_DEFAULT:
+            steps.append({"text":_("Adding users..."), "operation":yali.postinstall.addUsers})
+        elif ctx.flags.install_type == ctx.STEP_BASE  or ctx.flags.install_type == ctx.STEP_DEFAULT:
+            steps.extend(base_steps)
 
-        self.steps.setOperations(base_steps)
+        self.steps.setOperations(steps)
 
 register_gui_screen(Widget)
