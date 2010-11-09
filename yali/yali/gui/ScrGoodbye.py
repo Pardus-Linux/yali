@@ -24,9 +24,8 @@ from yali.gui.YaliSteps import YaliSteps
 from yali.gui.Ui.goodbyewidget import Ui_GoodByeWidget
 
 class Widget(QWidget, ScreenWidget):
-    type = "goodbye"
+    name = "goodbye"
     title = "Goodbye"
-    helpSummary = _("Goodbye")
     help = _("""
 <p>
 You have successfully installed Pardus on your computer. After restarting

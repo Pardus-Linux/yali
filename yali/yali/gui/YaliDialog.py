@@ -15,7 +15,6 @@ _ = gettext.translation('yali', fallback=True).ugettext
 
 
 from PyQt4.Qt import Qt
-from PyQt4.Qt import QApplication
 from PyQt4.Qt import QWidget
 from PyQt4.Qt import SIGNAL
 from PyQt4.Qt import QHBoxLayout
@@ -36,6 +35,7 @@ from PyQt4.Qt import QSize
 from PyQt4.Qt import QShortcut
 from PyQt4.Qt import QGridLayout
 from PyQt4.Qt import QMovie
+from PyQt4.Qt import QTimer
 from PyQt4.Qt import QBasicTimer
 
 import pisi

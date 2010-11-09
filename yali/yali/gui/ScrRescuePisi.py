@@ -27,10 +27,9 @@ from yali.gui.Ui.rescuepisiwidget import Ui_RescuePisiWidget
 from yali.gui.Ui.connectionlist import Ui_connectionWidget
 
 class Widget(QWidget, ScreenWidget):
-    type = "pisiRescue"
+    name = "pisiRescue"
     title = _("Take Back Your System")
     icon = "iconInstall"
-    helpSummary = _("")
     help = _("""
 <p>
 Pisi, the package management system of Pardus, stores every operation in its history database. More technically speaking, every removal/installation/update operation
@@ -90,11 +89,11 @@ a previous system state.
 
     def execute(self):
         ctx.takeBackOperation = self.ui.historyList.currentItem().getInfo()
-        ctx.mainScreen.stepIncrement = 2
+        ctx.mainScreen.step_increment = 2
         return True
 
     def backCheck(self):
-        ctx.mainScreen.stepIncrement = 2
+        ctx.mainScreen.step_increment = 2
         return True
 
 class PisiUI(QObject, pisi.ui.UI):

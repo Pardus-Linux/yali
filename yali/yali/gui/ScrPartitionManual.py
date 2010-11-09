@@ -33,11 +33,10 @@ from yali.storage.partitioning import doPartitioning, hasFreeDiskSpace, Partitio
 from yali.storage.storageBackendHelpers import doDeleteDevice, doClearPartitionedDevice, checkForSwapNoMatch, getPreExistFormatWarnings, confirmResetPartitionState
 
 class Widget(QWidget, ScreenWidget):
-    type = "manualPartitioning"
+    name = "manualPartitioning"
     title = _('Manual Partitioning')
     desc = _('You can easily configure your partitions...')
     icon = "iconPartition"
-    helpSummary = _("Partition manual summary")
     help = _('''
 <p>
 In this screen, you can manually partition your disk. You can select 
@@ -162,7 +161,7 @@ about disk partitioning.
         return False
 
     def setupMenu(self):
-        self.menu = QtGui.QMenu("New")
+        self.menu = QMenu("New")
         self.standardDevices = self.menu.addMenu(_("Standard"))
         self.lvmDevices = self.menu.addMenu(_("LVM"))
         self.raidDevices = self.menu.addMenu(_("RAID"))

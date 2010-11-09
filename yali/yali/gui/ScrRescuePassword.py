@@ -27,10 +27,9 @@ from yali.gui import ScreenWidget, register_gui_screen
 from yali.gui.Ui.rescuepasswordwidget import Ui_RescuePasswordWidget
 
 class Widget(QWidget, ScreenWidget):
-    type = "passwordRescue"
+    name = "passwordRescue"
     title = _("Reset Forgotten Passwords")
     icon = "iconInstall"
-    helpSummary = _("")
     help = _("""
 <p>
 Here you can reset..
@@ -125,7 +124,7 @@ Here you can reset..
         return True
 
     def backCheck(self):
-        ctx.mainScreen.stepIncrement = 3
+        ctx.mainScreen.step_increment = 3
         return True
 
 class UserItem(QListWidgetItem):

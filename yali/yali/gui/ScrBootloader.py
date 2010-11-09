@@ -20,10 +20,9 @@ from yali.gui.Ui.bootloaderwidget import Ui_BootLoaderWidget
 from yali.storage.bootloader import BOOT_TYPE_NONE, BOOT_TYPE_PARTITION, BOOT_TYPE_MBR, BOOT_TYPE_RAID
 
 class Widget(QWidget, ScreenWidget):
-    type = "bootloadersetup"
+    name = "bootloadersetup"
     title = _("Configure Bootloader")
     icon = "iconBootloader"
-    helpSummary = _("A bootloader is a tiny program that runs when a computer is first powered up.")
     help = _("""
 <p>
 A bootloader is a tiny program that runs when a computer is first powered up.
@@ -44,8 +43,7 @@ You can always choose another installation method if you know what you are doing
         QWidget.__init__(self, None)
         self.ui = Ui_BootLoaderWidget()
         self.ui.setupUi(self)
-        self.bootloader = ctx.bootloader
-        self.bootloader.storage = ctx.storage
+        self.bootloader = None
         self.default = None
         self.device = None
         self.boot_disk = None
@@ -67,12 +65,14 @@ You can always choose another installation method if you know what you are doing
             self.ui.drives.addItem(item, device)
 
     def shown(self):
+        self.bootloader = ctx.bootloader
+        self.bootloader.storage = ctx.storage
         self.fillDrives()
         self.activateChoices()
 
     def backCheck(self):
         if ctx.storage.doAutoPart:
-            ctx.mainScreen.stepIncrement = 2
+            ctx.mainScreen.step_increment = 2
         return True
 
     def execute(self):

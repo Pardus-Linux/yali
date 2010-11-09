@@ -39,9 +39,8 @@ def get_kernel_opt(cmdopt):
     return ''
 
 class Widget(QWidget, ScreenWidget):
-    type = "kahya"
+    name = "kahya"
     title = _("Kahya is working")
-    helpSummary = _("")
     help = _("""
 <p> Some help messages </p>
 """)
@@ -63,9 +62,8 @@ class Widget(QWidget, ScreenWidget):
         yaliKahya = kahya()
         ctx.logger.debug("Kahya File : %s " % ctx.flags.kahyaFile)
 
-        kahyaOpt = get_kernel_opt(ctx.consts.kahya_param)
 
-        if kahyaOpt:
+        if ctx.flags.kahya:
             ctx.logger.debug("KAHYA-PARAMS:: %s" % kahyaOpt)
             kahyaFile = kahyaOpt.split(',')[1]
             if kahyaFile == "":

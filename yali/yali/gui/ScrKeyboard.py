@@ -23,7 +23,7 @@ from yali.gui.Ui.keyboardwidget import Ui_KeyboardWidget
 ##
 # Keyboard setup screen
 class Widget(QWidget, ScreenWidget):
-    type = "keyboardSetup"
+    name = "keyboardSetup"
     title = _("Choose a Keyboard Layout")
     icon = "input-keyboard"
     help = _("""A keyboard layout is a description of how keys are placed on a keyboard. There are different keyboard layouts in use throughout the world. The one you will want to use, generally depends on the country you live in or the language you use.

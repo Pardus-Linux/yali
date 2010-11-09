@@ -54,11 +54,9 @@ def object_sender(pack):
     QCoreApplication.postEvent(current_object, pack)
 
 class Widget(QWidget, ScreenWidget):
-    type = "packageInstallation"
+    name = "packageInstallation"
     title = _("Installing Pardus")
     icon = "iconInstall"
-    helpSummary = _("""YALI is now installing Pardus on your computer. This operation takes
-            approximately 20-30 minutes depending on your computer's hardware.""")
     help = _('''
 <p>
 YALI is now installing Pardus on your computer. This operation takes
@@ -235,8 +233,8 @@ class PkgInstaller(QThread):
         ctx.logger.debug("Pisi initialize is calling..")
 
         if ctx.flags.collection:
-            yali.pisiiface.addRepo(ctx.consts.dvd_repo_name, ctx.installData.autoInstallationCollection.index)
             ctx.logger.debug("DVD Repo adding..")
+            yali.pisiiface.addRepo(ctx.consts.dvd_repo_name, ctx.installData.autoInstallationCollection.index)
             # Get only collection packages with collection Name
             order = yali.pisiiface.getAllPackagesWithPaths(collectionIndex=ctx.installData.autoInstallationCollection.index, ignoreKernels=True)
             kernel_packages = yali.pisiiface.getNeededKernel(ctx.installData.autoInstallationKernel, ctx.installData.autoInstallationCollection.index)

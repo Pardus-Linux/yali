@@ -34,10 +34,9 @@ class PartItem(QListWidgetItem):
         return self._part
 
 class Widget(QWidget, ScreenWidget):
-    type = "rescue"
+    name = "rescue"
     title = _("System Repair")
     icon = ""
-    helpSummary = _("")
     help = _("""
 <p>
 This is a rescue mode help document.
@@ -89,10 +88,10 @@ This is a rescue mode help document.
     def execute(self):
         if self.ui.usePisiHs.isChecked():
             ctx.rescueMode = "pisi"
-            ctx.mainScreen.stepIncrement = 2
+            ctx.mainScreen.step_increment = 2
         elif self.ui.usePassword.isChecked():
             ctx.rescueMode = "pass"
-            ctx.mainScreen.stepIncrement = 3
+            ctx.mainScreen.step_increment = 3
         elif self.ui.useGrub.isChecked():
             ctx.rescueMode = "grub"
 

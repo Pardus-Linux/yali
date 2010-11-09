@@ -23,10 +23,9 @@ from yali.gui.Ui.rescuegrubwidget import Ui_RescueGrubWidget
 import yali.context as ctx
 
 class Widget(QWidget, ScreenWidget):
-    type = "grubRescue"
+    name = "grubRescue"
     title = _("Repair the Bootloader")
     icon = "iconBootloader"
-    helpSummary = _("")
     help = _("""
 <p>
 A bootloader is a tiny program that runs when a computer is first powered up.
@@ -95,7 +94,7 @@ You can always choose another installation method if you know what you are doing
         ctx.logger.debug("Bootloader Device is %s" % ctx.installData.bootLoaderDev)
         ctx.logger.debug("Bootloader Partition is %s" % ctx.installData.rescuePartition.getPath())
 
-        ctx.mainScreen.stepIncrement = 3
+        ctx.mainScreen.step_increment = 3
         return True
 
 class DriveItem(QListWidgetItem):

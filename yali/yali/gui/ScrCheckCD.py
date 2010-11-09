@@ -24,7 +24,7 @@ from yali.gui.Ui.checkcdwidget import Ui_CheckCDWidget
 from yali.gui.YaliDialog import Dialog
 
 class Widget(QWidget, ScreenWidget):
-    type = "mediaCheck"
+    name = "mediaCheck"
     title = _("Check the Integrity of Packages")
     icon = "media-optical-small"
     help = _("""Here you can validate the integrity of the installation packages. A failed validation usually is a sign of a badly mastered installation medium (CD, DVD or USB storage).
@@ -36,14 +36,16 @@ If you are using an optical installation medium, try burning the installation im
         self.ui = Ui_CheckCDWidget()
         self.ui.setupUi(self)
 
-        self.ui.validationSucceedBox.hide()
-        self.ui.validationFailBox.hide()
         self.check_media_stop = True
-        self.ui.progressBar.hide()
 
         self.connect(self.ui.checkButton, SIGNAL("clicked()"), self.slotCheckCD)
         if ctx.consts.lang == "tr":
             self.ui.progressBar.setFormat("%%p")
+
+    def shown(self):
+        self.ui.validationSucceedBox.hide()
+        self.ui.validationFailBox.hide()
+        self.ui.progressBar.hide()
 
     def slotCheckCD(self):
         if self.check_media_stop:
@@ -53,7 +55,7 @@ If you are using an optical installation medium, try burning the installation im
             icon.addPixmap(QPixmap(":/gui/pics/dialog-error.png"), QIcon.Normal, QIcon.Off)
             self.ui.checkButton.setIcon(icon)
             self.ui.checkButton.setText("")
-            ctx.yali.checkCD(self.ui)
+            self.checkMedia()
         else:
             self.check_media_stop = True
             self.ui.progressBar.show()
@@ -73,7 +75,7 @@ If you are using an optical installation medium, try burning the installation im
             def display_progress(self, operation, percent, info, **keywords):
                 pass
 
-        yali.pisiiface.initialize(ui = PisiUI(), with_comar = False, nodestDir = True)
+        yali.pisiiface.initialize(ui=PisiUI(), with_comar=False, nodestDir=True)
         yali.pisiiface.addCdRepo()
         ctx.mainScreen.processEvents()
         pkg_names = yali.pisiiface.getAvailablePackages()
@@ -81,7 +83,7 @@ If you are using an optical installation medium, try burning the installation im
         self.ui.progressBar.setMaximum(len(pkg_names))
 
         cur = 0
-        self.flag = 0
+        flag = 0
         for pkg_name in pkg_names:
             cur += 1
             ctx.logger.debug("Validating %s " % pkg_name)
@@ -99,7 +101,7 @@ If you are using an optical installation medium, try burning the installation im
                                                   type="custom", customIcon="error",
                                                   customButtons=[_("Skip Validation"), _("Skip Package"), _("Reboot")],
                                                   default=0)
-                self.flag = 1
+                flag = 1
                 if not rc:
                     self.ui.validationBox.hide()
                     self.ui.validationFailBox.show()
@@ -111,7 +113,7 @@ If you are using an optical installation medium, try burning the installation im
                     yali.util.reboot()
 
 
-        if not self.checkCDStop and self.flag == 0:
+        if not self.check_media_stop and flag == 0:
             ctx.interface.informationWindow.update(_('<font color="#FFF"><b>Validation succeeded. You can proceed with the installation.</b></font>'))
             self.ui.validationSucceedBox.show()
             self.ui.validationBox.hide()

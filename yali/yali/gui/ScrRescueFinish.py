@@ -26,9 +26,8 @@ from yali.gui.Ui.goodbyewidget import Ui_GoodByeWidget
 import yali.context as ctx
 
 class Widget(QWidget, ScreenWidget):
-    type = "finishRescue"
+    name = "finishRescue"
     title = _("System Repair")
-    helpSummary = _("Repairs your system")
     help = _("""
 <p>
 There is no help available for this section.

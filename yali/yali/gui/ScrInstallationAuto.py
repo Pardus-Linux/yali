@@ -24,10 +24,9 @@ from yali.gui.Ui.autoinstallationwidget import Ui_AutoInstallationWidget
 from yali.gui.Ui.autoinstallationlistitemwidget import Ui_AutoInstallationListItemWidget
 
 class Widget(QWidget, ScreenWidget):
-    type = "collectionSelection"
+    name = "collectionSelection"
     title = _("Choose a Package Collection")
     icon = "iconPartition"
-    helpSummary = _("Choose a Package Collection")
     help = _('''
 <p>
 </p>

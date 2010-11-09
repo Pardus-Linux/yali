@@ -24,10 +24,9 @@ from yali.storage.partitioning import CLEARPART_TYPE_ALL, CLEARPART_TYPE_LINUX, 
 USE_ALL_SPACE, REPLACE_EXISTING_LINUX, SHRINK_CURRENT, FREE_SPACE, CUSTOM = range(5)
 
 class Widget(QWidget, ScreenWidget):
-    type = "automaticPartitioning"
+    name = "automaticPartitioning"
     title = _("Select Partitioning Method")
     icon = "iconPartition"
-    helpSummary = _("Partitioning summary")
     help = _('''
 <p>
 You can install Pardus if you have an unpartitioned-unused disk space 
@@ -44,8 +43,8 @@ Pardus create a new partition for installation.</p>
         QWidget.__init__(self, None)
         self.ui = Ui_AutoPartWidget()
         self.ui.setupUi(self)
-        self.storage = ctx.storage
-        self.intf = ctx.interface
+        self.storage = None
+        self.intf = None
         self.connect(self.ui.autopartType, SIGNAL("currentRowChanged(int)"), self.typeChanged)
 
     def typeChanged(self, index):
@@ -73,6 +72,8 @@ Pardus create a new partition for installation.</p>
             self.ui.autopartType.setCurrentRow(createCustom)
 
     def shown(self):
+        self.storage = ctx.storage
+        self.intf = ctx.interface
         self.setPartitioningType()
 
     def execute(self):
@@ -91,7 +92,7 @@ Pardus create a new partition for installation.</p>
             #If user return back next screen or choose not permitted
             #option(like chosing free space installation however not
             #enough free space to install), we have to reset increment
-            ctx.mainScreen.stepIncrement = 1
+            ctx.mainScreen.step_increment = 1
             return True
         else:
             self.storage.doAutoPart = True
@@ -104,12 +105,12 @@ Pardus create a new partition for installation.</p>
                 else:
                     return False
                 self.storage.clearPartType = CLEARPART_TYPE_NONE
-            elif self.ui.autopartType.currentRow() == useAllSpace:
+            elif self.ui.autopartType.currentRow() == USE_ALL_SPACE:
                 self.storage.clearPartType = CLEARPART_TYPE_ALL
             elif self.ui.autopartType.currentRow() == useFreeSpace:
                 self.storage.clearPartType = CLEARPART_TYPE_NONE
 
-            ctx.mainScreen.stepIncrement = 2
+            ctx.mainScreen.step_increment = 2
             self.storage.autoPartitionRequests = defaultPartitioning(self.storage, quiet=0)
             return doAutoPartition(self.storage)
 
@@ -119,9 +120,9 @@ Pardus create a new partition for installation.</p>
     def backCheck(self):
         disks = filter(lambda d: not d.format.hidden, ctx.storage.disks)
         if len(disks) == 1:
-            ctx.mainScreen.stepIncrement = 2
+            ctx.mainScreen.step_increment = 2
         else:
-            ctx.mainScreen.stepIncrement = 1
+            ctx.mainScreen.step_increment = 1
 
         return True
 

@@ -23,10 +23,9 @@ from yali.gui.Ui.datetimewidget import Ui_DateTimeWidget
 from yali.timezone import TimeZoneList
 
 class Widget(QWidget, ScreenWidget):
-    type = "timeSetup"
+    name = "timeSetup"
     title = _("Adjust Date and Time Settings")
     icon = "preferences-system-time"
-    helpSummary = _("Date and time settings allows you to set the date and time of your computer.")
     help = _("""
 <p>Date and time settings allows you to set the date and time of your computer. Generally,
 you will also want to specify a correct timezone for your location in order to benefit
