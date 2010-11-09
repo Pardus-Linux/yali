@@ -22,7 +22,7 @@ class Error(Exception):
 
 def init_logging():
     log_dir = os.path.join(ctx.consts.log_dir, ctx.consts.log_file)
-    if os.access(log_dir, os.W_OK):
+    if os.access(ctx.consts.log_dir, os.W_OK):
         handler = logging.handlers.RotatingFileHandler(log_dir)
         formatter = logging.Formatter('%(asctime)-12s: %(levelname)-8s %(message)s')
         handler.setFormatter(formatter)
