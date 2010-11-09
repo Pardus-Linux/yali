@@ -1,21 +1,37 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import os
+import grp
 import shutil
 import subprocess
-import struct
 import string
+import stat
+import errno
 import gettext
 
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 import pisi
-import yali
 import yali.context as ctx
 from pardus.diskutils import EDD
 
 EARLY_SWAP_RAM = 512 * 1024 # 512 MB
+
+def cp(source, destination):
+    source = os.path.join(ctx.consts.target_dir, source)
+    destination = os.path.join(ctx.consts.target_dir, destination)
+    ctx.logger.debug("Copying from '%s' to '%s'" % (source, destination))
+    shutil.copyfile(source, destination)
+
+def touch(path, mode=0644):
+    f = os.path.join(ctx.consts.target_dir, path)
+    open(f, "w", mode).close()
+
+def chgrp(path, group):
+    f = os.path.join(ctx.consts.target_dir, path)
+    gid = int(grp.getgrnam(group)[2])
+    os.chown(f, 0, gid)
 
 def product_name():
     if os.path.exists("/etc/pardus-release"):
@@ -92,7 +108,7 @@ def run_logged(cmd):
     if ctx.stdout:
         stdout = ctx.stdout
     else:
-        if ctx.get_option('debug'):
+        if ctx.flags.debug:
             stdout = None
         else:
             stdout = subprocess.PIPE
@@ -207,7 +223,7 @@ def mkdirChain(dir):
         os.makedirs(dir, 0755)
     except OSError as e:
         try:
-            if e.errno == EEXIST and stat.S_ISDIR(os.stat(dir).st_mode):
+            if e.errno == errno.EEXIST and stat.S_ISDIR(os.stat(dir).st_mode):
                 return
         except:
             pass
@@ -323,8 +339,8 @@ def stop_dbus():
     shutil.copyfile("/var/log/yali.log", ctx.consts.log_file)
 
     # store session log as kahya xml
-    open(ctx.consts.session_file,"w").write(str(ctx.installData.sessionLog))
-    os.chmod(ctx.consts.session_file,0600)
+    #open(ctx.consts.session_file,"w").write(str(ctx.installData.sessionLog))
+    #os.chmod(ctx.consts.session_file,0600)
 
 def reboot():
     run_batch("/tmp/reboot", ["-f"])

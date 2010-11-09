@@ -11,66 +11,45 @@
 #
 
 import os
-import grp
 import time
 import dbus
 import yali
 import shutil
 import gettext
 
-__trans = gettext.translation('yali', fallback=True)
-_ = __trans.ugettext
+_ = gettext.translation('yali', fallback=True).ugettext
 
 import yali.util
 import yali.pisiiface
 import yali.context as ctx
-from yali.constants import consts
-from yali.installdata import *
-
-def cp(s, d):
-    src = os.path.join(consts.target_dir, s)
-    dst = os.path.join(consts.target_dir, d)
-    ctx.logger.debug("Copying from '%s' to '%s'" % (src,dst))
-    shutil.copyfile(src, dst)
-
-def touch(f, m=0644):
-    f = os.path.join(consts.target_dir, f)
-    open(f, "w", m).close()
-
-def chgrp(f, group):
-    f = os.path.join(consts.target_dir, f)
-    gid = int(grp.getgrnam(group)[2])
-    os.chown(f, 0, gid)
-
-# necessary things after a full install
 
 def initbaselayout():
     # create /etc/hosts
-    cp("usr/share/baselayout/hosts", "etc/hosts")
+    yali.util.cp("usr/share/baselayout/hosts", "etc/hosts")
 
     # create /etc/ld.so.conf
-    cp("usr/share/baselayout/ld.so.conf", "etc/ld.so.conf")
+    yali.util.cp("usr/share/baselayout/ld.so.conf", "etc/ld.so.conf")
 
     # /etc/passwd, /etc/shadow, /etc/group
-    cp("usr/share/baselayout/passwd", "etc/passwd")
-    cp("usr/share/baselayout/shadow", "etc/shadow")
-    os.chmod(os.path.join(consts.target_dir, "etc/shadow"), 0600)
-    cp("usr/share/baselayout/group", "etc/group")
+    yali.util.cp("usr/share/baselayout/passwd", "etc/passwd")
+    yali.util.cp("usr/share/baselayout/shadow", "etc/shadow")
+    os.chmod(os.path.join(ctx.consts.target_dir, "etc/shadow"), 0600)
+    yali.util.cp("usr/share/baselayout/group", "etc/group")
 
     # create empty log file
-    touch("var/log/lastlog")
+    yali.util.touch("var/log/lastlog")
 
-    touch("var/run/utmp", 0664)
-    chgrp("var/run/utmp", "utmp")
+    yali.util.touch("var/run/utmp", 0664)
+    yali.util.chgrp("var/run/utmp", "utmp")
 
-    touch("var/log/wtmp", 0664)
-    chgrp("var/log/wtmp", "utmp")
+    yali.util.touch("var/log/wtmp", 0664)
+    yali.util.chgrp("var/log/wtmp", "utmp")
 
     # create needed device nodes
-    os.system("/bin/mknod %s/dev/console c 5 1" % consts.target_dir)
-    os.system("/bin/mknod %s/dev/null c 1 3" % consts.target_dir)
-    os.system("/bin/mknod %s/dev/random c 1 8" % consts.target_dir)
-    os.system("/bin/mknod %s/dev/urandom c 1 9" % consts.target_dir)
+    os.system("/bin/mknod %s/dev/console c 5 1" % ctx.consts.target_dir)
+    os.system("/bin/mknod %s/dev/null c 1 3" % ctx.consts.target_dir)
+    os.system("/bin/mknod %s/dev/random c 1 8" % ctx.consts.target_dir)
+    os.system("/bin/mknod %s/dev/urandom c 1 9" % ctx.consts.target_dir)
 
 def setTimeZone():
 
@@ -79,16 +58,16 @@ def setTimeZone():
 
     # Old Way; copy proper timezone file as etc/localtime
     # os.system("rm -rf %s" % os.path.join(consts.target_dir, "etc/localtime"))
-    # cp("usr/share/zoneinfo/%s" % ctx.installData.timezone, "etc/localtime")
+    # yali.util.cp("usr/share/zoneinfo/%s" % ctx.installData.timezone, "etc/localtime")
 
     # Write the timezone data into /etc/timezone
-    open(os.path.join(consts.target_dir, "etc/timezone"), "w").write("%s" % ctx.installData.timezone)
+    open(os.path.join(ctx.consts.target_dir, "etc/timezone"), "w").write("%s" % ctx.installData.timezone)
 
     return True
 
 def migrateXorg():
     def joy(a):
-        return os.path.join(consts.target_dir,a[1:])
+        return os.path.join(ctx.consts.target_dir,a[1:])
 
     # copy confs
     files = ["/etc/X11/xorg.conf",
@@ -102,7 +81,6 @@ def migrateXorg():
             ctx.logger.debug("Copying from '%s' to '%s'" % (conf, joy(conf)))
             shutil.copyfile(conf, joy(conf))
 
-global bus
 bus = None
 
 def connectToDBus():
@@ -110,7 +88,7 @@ def connectToDBus():
     for i in range(40):
         try:
             ctx.logger.debug("trying to start dbus..")
-            ctx.bus = bus = dbus.bus.BusConnection(address_or_type="unix:path=%s" % ctx.consts.dbus_socket_file)
+            bus = dbus.bus.BusConnection(address_or_type="unix:path=%s" % ctx.consts.dbus_socket)
             break
         except dbus.DBusException:
             time.sleep(2)
@@ -126,21 +104,21 @@ def setHostName():
     ctx.logger.debug("Hostname set as %s" % ctx.installData.hostName)
     return True
 
-def getUserList():
+def get_users():
     import comar
-    link = comar.Link(socket=ctx.consts.dbus_socket_file)
+    link = comar.Link(socket=ctx.consts.dbus_socket)
     users = link.User.Manager["baselayout"].userList()
     return filter(lambda user: user[0]==0 or (user[0]>=1000 and user[0]<=65000), users)
 
 def setUserPass(uid, password):
     import comar
-    link = comar.Link(socket=ctx.consts.dbus_socket_file)
+    link = comar.Link(socket=ctx.consts.dbus_socket)
     info = link.User.Manager["baselayout"].userInfo(uid)
     return link.User.Manager["baselayout"].setUser(uid, info[1], info[3], info[4], password, info[5])
 
 def getConnectionList():
     import comar
-    link = comar.Link(socket=ctx.consts.dbus_socket_file)
+    link = comar.Link(socket=ctx.consts.dbus_socket)
     results = {}
     for package in link.Network.Link:
         results[package] = list(link.Network.Link[package].connections())
@@ -148,46 +126,47 @@ def getConnectionList():
 
 def connectTo(package, profile):
     import comar
-    link = comar.Link(socket=ctx.consts.dbus_socket_file)
+    link = comar.Link(socket=ctx.consts.dbus_socket)
     return link.Network.Link[package].setState(profile, "up")
 
 def addUsers():
-    global bus
-
     import comar
-    link = comar.Link(socket=ctx.consts.dbus_socket_file)
+    link = comar.Link(socket=ctx.consts.dbus_socket)
 
     def setNoPassword(uid):
         link.User.Manager["baselayout"].grantAuthorization(uid, "*")
 
+    global bus
     obj = bus.get_object("tr.org.pardus.comar", "/package/baselayout")
-    for u in yali.users.pending_users:
-        ctx.logger.debug("User %s adding to system" % u.username)
-        uid = obj.addUser(-1, u.username, u.realname, "", "", unicode(u.passwd), u.groups, [], [], dbus_interface="tr.org.pardus.comar.User.Manager")
+    for user in yali.users.PENDING_USERS:
+        ctx.logger.debug("User %s adding to system" % user.username)
+        uid = obj.addUser(-1, user.username,user.realname, "", "",
+                          unicode(user.passwd), user.groups, [], [],
+                          dbus_interface="tr.org.pardus.comar.User.Manager")
         ctx.logger.debug("New user's id is %s" % uid)
 
         # If new user id is different from old one, we need to run a huge chown for it
-        user_home_dir = os.path.join(consts.target_dir, 'home', u.username)
+        user_home_dir = os.path.join(ctx.consts.target_dir, 'home', user.username)
         user_home_dir_id = os.stat(user_home_dir)[4]
         if not user_home_dir_id == uid:
-            ctx.interface.informationWindow.update(_("Preparing home directory for %s...") % u.username)
+            ctx.interface.informationWindow.update(_("Preparing home directory for %s...") % user.username)
             os.system('chown -R %d:%d %s ' % (uid, 100, user_home_dir))
             ctx.interface.informationWindow.hide()
 
         os.chmod(user_home_dir, 0711)
 
         # Enable auto-login
-        if u.username == ctx.installData.autoLoginUser:
-            u.setAutoLogin()
+        if user.username == ctx.installData.autoLoginUser:
+            user.setAutoLogin()
 
         # Set no password ask for PolicyKit
-        if u.noPass:
+        if user.no_password:
             setNoPassword(uid)
 
     return True
 
 def setRootPassword():
-    if not ctx.installData.useYaliFirstBoot:
+    if not ctx.flags.install_type == 3:
         global bus
         obj = bus.get_object("tr.org.pardus.comar", "/package/baselayout")
         obj.setUser(0, "", "", "", str(ctx.installData.rootPassword), "", dbus_interface="tr.org.pardus.comar.User.Manager")
@@ -239,8 +218,8 @@ def copyPisiIndex():
     return True
 
 def setPackages():
-    global bus
     # if installation type is OEM Install
+    global bus
     if ctx.flags.install_type == 2:
         ctx.logger.debug("OemInstall selected.")
         try:
@@ -269,7 +248,7 @@ def setPackages():
 
 
 def writeInitramfsConf(parameters=[]):
-    path = os.path.join(consts.target_dir, "etc/initramfs.conf")
+    path = os.path.join(ctx.consts.target_dir, "etc/initramfs.conf")
     rootDevice = ctx.storage.storageset.rootDevice
     parameters.append("root=%s" % rootDevice.fstabSpec)
 
