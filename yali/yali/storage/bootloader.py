@@ -400,7 +400,4 @@ quit
     def install(self):
         rc = yali.util.run_batch("grub", ["--no-floppy", "--batch < ", "/tmp/batch"])[0]
         yali.util.sync()
-        if rc == 0:
-            return True
-        else:
-            return False
+        return rc
