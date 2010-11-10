@@ -183,13 +183,13 @@ def writeConsoleData():
     keymap = ctx.installData.keyData["consolekeymap"]
     if isinstance(keymap, list):
         keymap = keymap[1]
-    yali.localeutils.writeKeymap(ctx.installData.keyData["consolekeymap"])
+    yali.util.writeKeymap(ctx.installData.keyData["consolekeymap"])
     ctx.logger.debug("Keymap stored.")
     return True
 
 def setKeymap():
     keymap = ctx.installData.keyData
-    yali.localeutils.setKeymap(keymap["xkblayout"], keymap["xkbvariant"], chroot=True)
+    yali.util.setKeymap(keymap["xkblayout"], keymap["xkbvariant"], chroot=True)
 
 def migrateXorgConf():
     # if installation type is not First Boot

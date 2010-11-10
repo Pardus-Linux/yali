@@ -14,7 +14,7 @@ _ = gettext.translation('yali', fallback=True).ugettext
 
 from PyQt4.Qt import QWidget, SIGNAL, QVariant
 
-import yali.localeutils
+import yali.util
 import yali.localedata
 import yali.postinstall
 import yali.context as ctx
@@ -70,7 +70,7 @@ This screen lets you select the keyboard layout you want to use on Pardus. You c
         # Gökmen's converter
         keymap = dict(map(lambda x: (str(x[0]), unicode(x[1].toString())), keymap.iteritems()))
         ctx.installData.keyData = keymap
-        yali.localeutils.setKeymap(keymap["xkblayout"], keymap["xkbvariant"])
+        yali.util.setKeymap(keymap["xkblayout"], keymap["xkbvariant"])
 
     def execute(self):
         ctx.logger.debug("Selected keymap is : %s" % ctx.installData.keyData["name"])

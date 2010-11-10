@@ -15,6 +15,7 @@ _ = __trans.ugettext
 import pisi
 import yali.context as ctx
 from pardus.diskutils import EDD
+import yali.localedata
 
 EARLY_SWAP_RAM = 512 * 1024 # 512 MB
 
@@ -34,8 +35,8 @@ def chgrp(path, group):
     os.chown(f, 0, gid)
 
 def product_name():
-    if os.path.exists("/etc/pardus-release"):
-        return open("/etc/pardus-release",'r').read()
+    if os.path.exists(ctx.consts.pardus_release_file):
+        return open(ctx.consts.pardus_release_file,'r').read()
     return ''
 
 def produc_id():
@@ -45,6 +46,26 @@ def produc_id():
 def product_release():
     release = product_name().split()
     return "".join(release[:2]).lower()
+
+def target_pardus_release(device, file_system):
+    result = False
+    if not os.path.isdir(ctx.consts.tmp_mnt_dir):
+        os.makedirs(ctx.consts.tmp_mnt_dir)
+
+    umount(ctx.consts.tmp_mnt_dir)
+
+    ctx.logger.debug("Mounting %s to %s" % (partition_path, ctx.consts.tmp_mnt_dir))
+
+    try:
+        mount(device, ctx.consts.tmp_mnt_dir, file_system)
+    except:
+        ctx.logger.debug("Mount failed for %s " % device)
+        return False
+
+    fpath = os.path.join(ctx.consts.tmp_mnt_dir, ctx.consts.pardus_release_file)
+    if os.path.exists(fpath):
+        return open(fpath,'r').read().strip()
+    return ''
 
 def is_text_valid(text):
     allowed_chars = string.ascii_letters + string.digits + '.' + '_' + '-'
@@ -366,3 +387,36 @@ def sync():
 
 def check_dual_boot():
     return isX86()
+
+def writeLocaleFromCmdline():
+    locale_file_path = os.path.join(ctx.consts.target_dir, "etc/env.d/03locale")
+    f = open(locale_file_path, "w")
+
+    f.write("LANG=%s\n" % yali.localedata.locales[ctx.consts.lang]["locale"])
+    f.write("LC_ALL=%s\n" % yali.localedata.locales[ctx.consts.lang]["locale"])
+
+def setKeymap(keymap, variant=None, chroot=False):
+    ad = ""
+    if variant:
+        ad = "-variant %s" % variant
+    else:
+        variant = "\"\""
+    if not chroot:
+        run_batch("setxkbmap", ["-layout", keymap, ad])
+    else:
+        chroot("hav call zorg Xorg.Display setKeymap %s %s" % (keymap, variant))
+
+def writeKeymap(keymap):
+    mudur_file_path = os.path.join(ctx.consts.target_dir, "etc/conf.d/mudur")
+    lines = []
+    for l in open(mudur_file_path, "r").readlines():
+        if l.strip().startswith('keymap=') or l.strip().startswith('# keymap='):
+            l = 'keymap="%s"\n' % keymap
+        if l.strip().startswith('language=') or l.strip().startswith('# language='):
+            if ctx.consts.lang == "pt":
+                l = 'language="pt_BR"\n'
+            else:
+                l = 'language="%s"\n' % ctx.consts.lang
+        lines.append(l)
+
+    open(mudur_file_path, "w").writelines(lines)
