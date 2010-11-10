@@ -25,7 +25,6 @@ __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 import _sysutils
-from yali.constants import consts
 
 def available_space(path):
     return _sysutils.device_space_free(path)
@@ -66,26 +65,6 @@ def liveMediaSystem(path=None):
     else:
         return None
 
-def pardusRelease(partition_path, file_system):
-    import yali.context as ctx
-    result = False
-    m_dir = consts.tmp_mnt_dir
-    if not os.path.isdir(m_dir):
-        os.makedirs(m_dir)
-    umount_(m_dir)
-
-    ctx.logger.debug("Mounting %s to %s" % (partition_path, consts.tmp_mnt_dir))
-
-    try:
-        mount(partition_path, m_dir, file_system)
-    except:
-        ctx.logger.debug("Mount failed for %s " % partition_path)
-        return False
-
-    fpath = os.path.join(m_dir, consts.pardus_release_path)
-    if os.path.exists(fpath):
-        return open(fpath,'r').read().strip()
-    return ''
 
 def getShadowed(passwd):
     des_salt = list('./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz') 
