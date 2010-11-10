@@ -17,7 +17,6 @@ _ = gettext.translation('yali', fallback=True).ugettext
 from PyQt4.Qt import QWidget, SIGNAL, QListWidgetItem
 
 import yali.storage
-from yali.installdata import *
 from yali.gui import ScreenWidget, register_gui_screen
 from yali.gui.Ui.rescuegrubwidget import Ui_RescueGrubWidget
 import yali.context as ctx

@@ -55,6 +55,7 @@ class Constants:
         self.__c.min_root_size = 3500
         self.__c.root_path = "/"
         self.__c.conf_file = "/etc/yali/yali.conf"
+        self.__c.pardus_release_file = "/etc/pardus-relase"
         self.__c.data_dir = "/usr/share/yali"
         self.__c.log_dir = "/var/log"
         self.__c.log_file = "yali.log"
@@ -87,6 +88,3 @@ class Constants:
 
     def __delattr__(self, attr):
         delattr(self.__c, attr)
-
-
-consts = Constants()

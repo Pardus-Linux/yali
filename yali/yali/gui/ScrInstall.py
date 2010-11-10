@@ -9,9 +9,6 @@
 #
 # Please read the COPYING file.
 #
-
-import os
-import zipfile
 import gettext
 _ = gettext.translation('yali', fallback=True).ugettext
 
@@ -23,7 +20,6 @@ import yali.util
 import yali.sysutils
 import yali.pisiiface
 import yali.postinstall
-import yali.localeutils
 import yali.context as ctx
 from yali.gui.descSlide import slideDesc
 from yali.gui import ScreenWidget, register_gui_screen
@@ -183,7 +179,7 @@ to discover the features and the innovations offered by this new Pardus release.
         yali.postinstall.initbaselayout()
 
         # postscripts depend on 03locale...
-        yali.localeutils.writeLocaleFromCmdline()
+        yali.util.writeLocaleFromCmdline()
 
         #Write InitramfsConf
         yali.postinstall.writeInitramfsConf()

@@ -18,7 +18,6 @@ from PyQt4.Qt import QWidget, SIGNAL, QTimer, QString
 import yali.util
 import yali.context as ctx
 import yali.storage
-from yali.installdata import methodInstallAutomatic, defaultKernel, paeKernel, rtKernel
 from yali.gui import ScreenWidget, register_gui_screen
 from yali.gui.YaliDialog import QuestionDialog
 from yali.gui.Ui.summarywidget import Ui_SummaryWidget
@@ -175,15 +174,15 @@ Here you can see your install options before installation starts.
 
         if ctx.flags.collection:
             content.append(subject % _("Package Installation Settings"))
-            if ctx.installData.autoInstallationMethod == methodInstallAutomatic:
+            if ctx.installData.autoInstallationMethod == ctx.methodInstallAutomatic:
                 content.append(item % _("Auto installation selected."))
             else:
                 content.append(item % _("Manual Installation ( %s ) selected" %
                                ctx.installData.autoInstallationCollection.title))
 
-            if ctx.installData.autoInstallationKernel == defaultKernel:
+            if ctx.installData.autoInstallationKernel == ctx.defaultKernel:
                 content.append(item % _("Default Kernel selected"))
-            elif ctx.installData.autoInstallationKernel == paeKernel:
+            elif ctx.installData.autoInstallationKernel == ctx.paeKernel:
                 content.append(item % _("PAE Kernel selected"))
 
             content.append(end)

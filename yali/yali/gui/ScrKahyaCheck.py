@@ -15,14 +15,11 @@ _ = gettext.translation('yali', fallback=True).ugettext
 
 from PyQt4.Qt import QWidget, SIGNAL
 
-import yali.sysutils
-from yali.installdata import *
+import yali.context as ctx
+from yali.kahya import kahya
 from yali.gui import ScreenWidget, GUIError, register_gui_screen
 from yali.gui.Ui.kickerwidget import Ui_KickerWidget
-import yali.context as ctx
 from yali.gui.YaliDialog import Dialog
-from yali.kahya import kahya
-#import yali.storage
 
 def loadFile(path):
     """Read contents of a file"""

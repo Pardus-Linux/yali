@@ -60,6 +60,3 @@ class Flags:
         self.__dict__['flags']['dryRun'] = False
         self.__dict__['flags']['startup'] = 0
         self.__dict__['flags']['stylesheet'] = ""
-
-global flags
-flags = Flags()

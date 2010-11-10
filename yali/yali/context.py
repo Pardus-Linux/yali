@@ -9,10 +9,13 @@
 #
 # Please read the COPYING file.
 #
+import yali.flags
+import yali.constants
+import yali.installdata
 
-from yali.installdata import installData
-from yali.constants import consts
-from yali.flags import flags
+flags = yali.flags.Flags()
+consts = yali.constants.Constants()
+installData = yali.installdata.InstallData()
 
 STEP_DEFAULT, STEP_BASE, STEP_OEM_INSTALL, STEP_FIRST_BOOT, STEP_RESCUE = xrange(5)
 
@@ -21,6 +24,16 @@ STEP_TYPE_STRINGS = {STEP_DEFAULT:"Default",
                      STEP_OEM_INSTALL:"OEM Installation",
                      STEP_FIRST_BOOT:"First Boot mode",
                      STEP_RESCUE:"System Rescue mode"}
+
+# Auto Installation Methods
+methodInstallAutomatic, methodInstallManual = range(2)
+
+# Auto Selected Kernels
+defaultKernel, paeKernel, rtKernel = range(3)
+
+kernels = {defaultKernel:"kernel.default",
+           paeKernel:"kernel.pae",
+           rtKernel:"kernel.rt"}
 
 logger = None
 

@@ -10,16 +10,6 @@
 # Please read the COPYING file.
 #
 
-# Auto Installation Methods
-methodInstallAutomatic, methodInstallManual = range(2)
-
-# Auto Selected Kernels
-defaultKernel, paeKernel, rtKernel = range(3)
-
-kernels = {defaultKernel:"kernel.default",
-           paeKernel:"kernel.pae",
-           rtKernel:"kernel.rt"}
-
 class InstallData:
     keyData = None
     rootPassword = None
@@ -29,11 +19,9 @@ class InstallData:
     autoLoginUser = None
     autoInstallationKernel = None
     autoInstallationCollection = None
-    autoInstallationMethod = methodInstallAutomatic
+    autoInstallationMethod = 0
     rescuePartition = None
     repoAddr = None
     timezone = ""
     sessionLog = ""
     installAllLangPacks = False
-
-installData = InstallData()

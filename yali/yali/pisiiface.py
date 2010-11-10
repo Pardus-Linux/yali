@@ -19,7 +19,6 @@ import glob
 import dbus
 import pisi
 import piksemel
-import yali.installdata
 import yali.context as ctx
 
 repodb = pisi.db.repodb.RepoDB()
@@ -188,7 +187,7 @@ def mergePackagesWithRepoPath(packages):
     return map(lambda x: os.path.join(ctx.consts.source_dir, 'repo', x.split(',')[0]), packages)
 
 def getNeededKernel(type, index):
-    return mergePackagesWithRepoPath(filter(lambda x: x.split(',')[1].startswith(yali.installdata.kernels[type]), getPackages("PartOf", "kernel", index)))
+    return mergePackagesWithRepoPath(filter(lambda x: x.split(',')[1].startswith(ctx.kernels[type]), getPackages("PartOf", "kernel", index)))
 
 def getNotNeededLanguagePackages():
     return mergePackagesWithRepoPath(filter(lambda x: not x.split(',')[1].split(':')[1].startswith((ctx.consts.lang, "en")), getPackages("IsA", "locale:")))

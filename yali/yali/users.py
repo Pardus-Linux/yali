@@ -13,7 +13,7 @@
 
 import os
 import string
-from yali.constants import consts
+import yali.context as ctx
 
 # a set of User instances waiting...
 # we'll add these users at the last step of the installation.
@@ -42,9 +42,9 @@ class User:
                                     "AutoLoginDelay":"0",
                                     "AutoLoginLocked":"false"}
 
-        self.shadow_path = os.path.join(consts.target_dir, 'etc/shadow')
-        self.passwd_path = os.path.join(consts.target_dir, 'etc/passwd')
-        self.group_path  = os.path.join(consts.target_dir, 'etc/group')
+        self.shadow_path = os.path.join(ctx.consts.target_dir, 'etc/shadow')
+        self.passwd_path = os.path.join(ctx.consts.target_dir, 'etc/passwd')
+        self.group_path  = os.path.join(ctx.consts.target_dir, 'etc/group')
 
     def exists(self):
         """ Check if the given user exists on system """
@@ -73,7 +73,7 @@ class User:
     # KDE AutoLogin
     def setAutoLogin(self, state=True):
         """ Sets the KDE's Autologin feature's state """
-        conf = os.path.join(consts.target_dir, 'etc/X11/kdm/kdmrc')
+        conf = os.path.join(ctx.consts.target_dir, 'etc/X11/kdm/kdmrc')
 
         if not os.path.exists(conf):
             import yali.context as ctx

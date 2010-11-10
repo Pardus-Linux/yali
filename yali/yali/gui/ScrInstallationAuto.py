@@ -18,7 +18,6 @@ from PyQt4.Qt import QWidget, SIGNAL, QPixmap, Qt, QListWidgetItem, QSize
 
 import yali.pisiiface
 import yali.context as ctx
-from yali.installdata import methodInstallManual, methodInstallAutomatic, defaultKernel, paeKernel, kernels
 from yali.gui import ScreenWidget, register_gui_screen
 from yali.gui.Ui.autoinstallationwidget import Ui_AutoInstallationWidget
 from yali.gui.Ui.autoinstallationlistitemwidget import Ui_AutoInstallationListItemWidget
@@ -90,7 +89,7 @@ class Widget(QWidget, ScreenWidget):
 
         ctx.mainScreen.disableNext()
 
-        if ctx.installData.autoInstallationMethod == methodInstallManual:
+        if ctx.installData.autoInstallationMethod == ctx.methodInstallManual:
             self.slotClickedManual()
         else:
             self.slotClickedAutomatic()
@@ -98,7 +97,7 @@ class Widget(QWidget, ScreenWidget):
         if platform.machine() == "x86_64":
             self.ui.kernelTypeGroupBox.hide()
         else:
-            if ctx.installData.autoInstallationKernel == paeKernel:
+            if ctx.installData.autoInstallationKernel == ctx.paeKernel:
                 self.slotTogglePAEKernel(True)
             else:
                 self.slotToggleDefaultKernel(True)
@@ -109,25 +108,25 @@ class Widget(QWidget, ScreenWidget):
         ctx.installData.autoInstallationCollection = None
 
         if self.ui.radioAutomatic.isChecked():
-            ctx.installData.autoInstallationMethod = methodInstallAutomatic
+            ctx.installData.autoInstallationMethod = ctx.methodInstallAutomatic
             ctx.installData.autoInstallationCollection = self.default_choice.collection
             ctx.logger.debug("Automatic Installation selected..")
         else:
-            ctx.installData.autoInstallationMethod = methodInstallManual
+            ctx.installData.autoInstallationMethod = ctx.methodInstallManual
             ctx.installData.autoInstallationCollection = self.current_choice.collection
             ctx.logger.debug("Manual Installation selected..")
 
         if self.ui.kernelTypeGroupBox.isVisible():
             if self.ui.radioPAEKernel.isChecked():
-                ctx.installData.autoInstallationKernel = paeKernel
+                ctx.installData.autoInstallationKernel = ctx.paeKernel
             else:
-                ctx.installData.autoInstallationKernel = defaultKernel
+                ctx.installData.autoInstallationKernel = ctx.defaultKernel
         else:
-            ctx.installData.autoInstallationKernel = defaultKernel
+            ctx.installData.autoInstallationKernel = ctx.defaultKernel
 
 
         ctx.logger.debug("Trying to Install selected Packages from %s Collection with %s Type" % \
-                                (ctx.installData.autoInstallationCollection.title, kernels[ctx.installData.autoInstallationKernel]))
+                                (ctx.installData.autoInstallationCollection.title, ctx.kernels[ctx.installData.autoInstallationKernel]))
         return True
 
     def slotClickedAutomatic(self):
@@ -160,11 +159,11 @@ class Widget(QWidget, ScreenWidget):
 
     def slotToggleDefaultKernel(self, checked):
         if checked:
-            self.kernel_type = defaultKernel
+            self.kernel_type = ctx.defaultKernel
 
     def slotTogglePAEKernel(self, checked):
         if checked:
-            self.kernel_type = paeKernel
+            self.kernel_type = ctx.paeKernel
 
     def update(self):
         if self.ui.radioAutomatic.isChecked() and self.default_choice:
@@ -204,7 +203,7 @@ class CollectionListItem(QWidget):
     def setKernelType(self):
         pae_available = None
         if self.parent.ui.kernelTypeGroupBox.isVisible():
-            pae_available = yali.pisiiface.getNeededKernel(paeKernel, self.collection.index)
+            pae_available = yali.pisiiface.getNeededKernel(ctx.paeKernel, self.collection.index)
             if pae_available:
                 self.parent.ui.kernelTypeGroupBox.setEnabled(True)
             else:
