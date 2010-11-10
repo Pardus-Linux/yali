@@ -93,16 +93,25 @@ You can also define a hostname for your computer. A hostname is an identifier as
         ctx.installData.hostName = unicode(self.ui.hostname.text())
 
         if ctx.flags.install_type == ctx.STEP_DEFAULT:
-            storage_initialized = yali.storage.initialize(ctx.storage, ctx.interface)
-            if not storage_initialized:
-                sys.exit(1)
-            else:
+            #FIXME:Refactor dirty code
+            if ctx.storageInitialized:
                 disks = filter(lambda d: not d.format.hidden, ctx.storage.disks)
                 if len(disks) == 1:
                     ctx.storage.clearPartDisks = [disks[0].name]
                     ctx.mainScreen.step_increment = 2
                 else:
                     ctx.mainScreen.step_increment = 1
+            else:
+                ctx.storageInitialized = yali.storage.initialize(ctx.storage, ctx.interface)
+                if not ctx.storageInitialized:
+                    return False
+                else:
+                    disks = filter(lambda d: not d.format.hidden, ctx.storage.disks)
+                    if len(disks) == 1:
+                        ctx.storage.clearPartDisks = [disks[0].name]
+                        ctx.mainScreen.step_increment = 2
+                    else:
+                        ctx.mainScreen.step_increment = 1
 
         return True
 

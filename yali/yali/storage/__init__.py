@@ -34,10 +34,11 @@ def initialize(storage, intf):
     lvm.lvm_vg_blacklist = []
     storage.reset()
 
-    if storage.checkNoDisks(intf):
-        return False
-
-    return True
+    check = storage.checkDisks(intf)
+    if check == None:
+        sys.exit(1)
+    else:
+        return check
 
 def complete(storage, intf):
     try:
@@ -823,8 +824,17 @@ class Storage(object):
         """ Return True is the device is protected. """
         return device.protected
 
-    def checkNoDisks(self, intf):
-        """Check that there are valid disk devices."""
+    def checkDisks(self, intf):
+        """Check that there are valid disk devices.
+            Args:
+                intf -- Interface instance to show messages
+
+            Returns:
+                True -- If there is any disk
+                False -- If there is no disk
+                None -- If user accept reboot option from interface
+
+        """
         if not self.disks:
             rc = intf.messageWindow(_("No Drives Found"),
                                _("An error has occurred - no valid devices were "
@@ -833,5 +843,8 @@ class Storage(object):
                                  "of this problem."), type="custom",
                                customButtons=[_("Reboot"), _("Cancel")], customIcon="error")
             if not rc:
-                return True
-        return False
+                return None
+            else:
+                return False
+
+        return True

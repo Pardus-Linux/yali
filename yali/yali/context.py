@@ -32,3 +32,4 @@ interface = None
 
 mainScreen = None
 
+storageInitialized = False
