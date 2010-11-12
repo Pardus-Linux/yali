@@ -16,6 +16,7 @@ import gettext
 
 _ = gettext.translation('yali', fallback=True).ugettext
 
+from PyQt4.Qt import QResource
 from PyQt4.Qt import QWidget
 from PyQt4.Qt import SIGNAL
 from PyQt4.Qt import QTextBrowser
@@ -35,12 +36,12 @@ from PyQt4.Qt import QShortcut
 import QTermWidget
 from pyaspects.weaver import weave_object_method
 
+import yali
 import yali.util
 import yali.sysutils
 import yali.context as ctx
 from yali.gui.Ui.main import Ui_YaliMain
-from yali.gui.YaliDialog import Dialog, QuestionDialog
-from yali.gui.YaliDialog import Tetris
+from yali.gui.YaliDialog import Dialog, QuestionDialog, Tetris
 from yali.gui.aspects import enableNavButtonsAspect, disableNavButtonsAspect
 
 ##
@@ -48,6 +49,13 @@ from yali.gui.aspects import enableNavButtonsAspect, disableNavButtonsAspect
 class Widget(QWidget):
     def __init__(self):
         QWidget.__init__(self, None)
+        # Set pixmaps resource before Main Window initialized
+        self._resource = os.path.join(ctx.consts.theme_dir, "%s/data.rcc" % ctx.flags.theme)
+        if os.path.exists(self._resource):
+            resource = QResource()
+            resource.registerResource(self._resource)
+        else:
+            raise yali.Error, _("Pixmaps resources file doesn't exists")
 
         self.ui = Ui_YaliMain()
         self.ui.setupUi(self)
@@ -56,6 +64,8 @@ class Widget(QWidget):
         self.animation_type = None
 
         self.screens = None
+        self.screens_content = None
+
         # shortcut to open help
         self.help_shortcut = QShortcut(QKeySequence(Qt.Key_F1), self)
 
@@ -70,9 +80,21 @@ class Widget(QWidget):
         # shortcut to open a console
         self.console_shortcut = QShortcut(QKeySequence(Qt.Key_F11), self)
 
+
         # set style
-        self._style = os.path.join(ctx.consts.data_dir, "data/%s.qss" % ctx.flags.stylesheet)
-        self.updateStyle()
+        self._style = os.path.join(ctx.consts.theme_dir, "%s/style.qss" % ctx.flags.theme)
+        if os.path.exists(self._style):
+            self.updateStyle()
+        else:
+            raise yali.Error, _("Style file doesn't exists")
+
+        # set screens content
+        release_file = os.path.join(ctx.consts.branding_dir, "%s/release.xml" % ctx.flags.branding)
+        if os.path.exists(release_file):
+            self.screens_content = yali.util.parse_branding_screens(release_file)
+        else:
+            raise yali.Error, _("Release file doesn't exists")
+
 
         # move one step at a time
         self.step_increment = 1
@@ -166,10 +188,11 @@ class Widget(QWidget):
                 os.execv("/usr/bin/yali-bin", sys.argv)
 
     def toggleTheme(self):
-        if self._style == ctx.flags.stylesheet:
-            self._style = ctx.consts.alternatestylesheet
+        if self._style == os.path.join(ctx.consts.theme_dir, "%s/style.qss" % ctx.flags.theme):
+            if os.path.join(ctx.consts.theme_dir, "default/style.qss"):
+                self._style = os.path.join(ctx.consts.theme_dir, "default/style.qss")
         else:
-            self._style = ctx.flags.stylesheet
+            self._style = os.path.join(ctx.consts.theme_dir, "%s/style.qss" % ctx.flags.theme)
         self.updateStyle()
 
     def toggleConsole(self):
@@ -251,11 +274,12 @@ class Widget(QWidget):
             self.anime.start(50)
             self.ui.mainStack.setCurrentIndex(index)
             widget = self.ui.mainStack.currentWidget()
-            self.ui.screenName.setText(widget.title)
-            self.ui.helpContent.setText(widget.help)
-            self.ui.screenIcon.setPixmap(QPixmap(":/gui/pics/%s.png" % (widget.icon)))
-            # shown functions contain necessary instructions before
-            # showing a stack ( updating gui, disabling some buttons etc. )
+            icon = self.screens_content[widget.name][0]
+            title = self.screens_content[widget.name][1][ctx.consts.lang]
+            help = self.screens_content[widget.name][2][ctx.consts.lang]
+            self.ui.screenName.setText(title)
+            self.ui.helpContent.setText(help)
+            self.ui.screenIcon.setPixmap(QPixmap(":/gui/pics/%s.png" % (icon)))
 
             ctx.mainScreen.processEvents()
             widget.update()
@@ -274,12 +298,11 @@ class Widget(QWidget):
             else:
                 self.anime.stop()
 
-    # create all widgets and add inside stack
-    # see runner.py/_all_screens for the list
     def createWidgets(self, screens=[]):
         if not self.screens:
             self.screens = screens
         self.ui.mainStack.removeWidget(self.ui.page)
+
         for screen in screens:
             #if ctx.flags.debug:
                 # debug all screens.
