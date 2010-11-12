@@ -117,7 +117,6 @@ Pardus create a new partition for installation.</p>
     def shown(self):
         self.storage = ctx.storage
         self.intf = ctx.interface
-        self.storage.reset()
         self.fillDrives()
 
     def nextCheck(self):
