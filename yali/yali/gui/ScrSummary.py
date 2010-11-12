@@ -63,7 +63,6 @@ Here you can see your install options before installation starts.
         ctx.interface.informationWindow.hide()
         ctx.mainScreen.ui.buttonNext.setText(_("Next"))
         if ctx.flags.install_type == ctx.STEP_BASE and not ctx.flags.collection:
-            print "buradan gidiyor"
             ctx.mainScreen.step_increment = 2
         return True
 
@@ -199,7 +198,7 @@ Here you can see your install options before installation starts.
             ctx.mainScreen.enableBack()
             return False
 
-        if ctx.flags.install_type == ctx.STEP_BASE:
+        if ctx.flags.install_type == ctx.STEP_BASE or ctx.flags.install_type == ctx.STEP_DEFAULT:
             rc = ctx.interface.messageWindow(_("Confirm"),
                                         _("The partitioning options you have selected "
                                           "will now be\nwritten to disk.  Any "
