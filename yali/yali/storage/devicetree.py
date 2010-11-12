@@ -1210,17 +1210,15 @@ class DeviceTree(object):
             description = device.description or device.model
             try:
                 bypath = os.path.basename(deviceNameToDiskByPath(device.name))
-                details = "\n\nDevice details:\n%s" % (bypath,)
             except DeviceNotFoundError:
                 # some devices don't have a /dev/disk/by-path/ #!@#@!@#
                 bypath = device.name
-                details = ""
 
 
             initcb = lambda: ctx.interface.questionInitializeDisk(bypath,
                                                                   description,
                                                                   device.size,
-                                                                  details)
+                                                                  device.name)
 
         try:
             format = formats.getFormat("disklabel",

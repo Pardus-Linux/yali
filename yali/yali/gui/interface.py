@@ -47,30 +47,47 @@ class Interface(object):
     def resetInitializeDisk(self):
         self._initLabelAnswers = {}
 
-    def questionInitializeDisk(self, path, description, size, details):
-        rc = self.messageWindow(_("Warning"),
-                                _("Error processing drive:\n\n"
-                                  "%(path)s\n%(size)-0.fMB\n%(description)s\n\n"
-                                  "This device may need to be reinitialized.\n\n"
-                                  "REINITIALIZING WILL CAUSE ALL DATA TO BE LOST!\n\n"
-                                  "This operation may also be applied to all other disks "
-                                  "needing reinitialization.%(details)s")
-                                  % {'path': path, 'size': size,
-                                     'description': description, 'details': details},
+    def questionInitializeDisk(self, path, description, size, name):
+        retVal = False
+
+        if not path:
+            return retVal
+
+        if path in self._initLabelAnswers:
+            ctx.logger.info("Interface not asking about disk initialization, "
+                            "using cached answer: %s" % self._initLabelAnswers[path])
+            return self._initLabelAnswers[path]
+
+        elif "all" in self._initLabelAnswers:
+            ctx.logger.info("Interface not asking about disk initialization, "
+                     "using cached answer: %s" % self._initLabelAnswers["all"])
+            return self._initLabelAnswers["all"]
+
+        rc = self.messageWindow(_("Error"),
+                                _("Cannot access the partition table of %(description)s(%(name)s) -- %(size)-0.fMB\n\n"
+                                  "If there already exists a partition table on this device, "
+                                  "it willi\n be re-initialized and <b>your existing data will be lost!</b>\n\n"
+                                  "To re-initialize the current disk press Re-initialize.\n\n"
+                                  "To re-initialize all disks with unaccessible partition tables press "
+                                  "Re-initialize All")
+                                  % {'name': name, 'size': size, 'description': description},
                                   type="custom",
-                                  customButtons = [_("Ignore"), _("Ignore all"),
-                                                   _("Re-initialize"), ("Re-initialize all") ],
+                                  customButtons = [_("Ignore"), _("Ignore All"),
+                                                   _("Re-initialize"), ("Re-initialize All") ],
                                   customIcon="question")
         if rc == 0:
-            return False
+            retVal = False
         elif rc == 1:
-            return False
+            path = "all"
+            retVal = False
         elif rc == 2:
-            return True
+            retVal = True
         elif rc == 3:
-            return True
-        else:
-            return True
+            path = "all"
+            retVal = True
+
+        self._initLabelAnswers[path] = retVal
+        return retVal
 
     def resetReinitInconsistentLVM(self):
         self._inconsistentLVMAnswers = {}
