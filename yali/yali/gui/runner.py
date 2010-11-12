@@ -12,6 +12,7 @@
 
 import os
 import sys
+import imp
 import gettext
 
 _ = gettext.translation('yali', fallback=True).ugettext
@@ -29,6 +30,7 @@ from PyQt4.Qt import QKeySequence
 import yali
 import yali.util
 import yali.context as ctx
+import yali.gui
 import yali.gui.YaliWindow
 
 class Runner:
@@ -42,6 +44,9 @@ class Runner:
         # Main Window Initialized..
         self._window = yali.gui.YaliWindow.Widget()
         ctx.mainScreen = self._window
+
+        screens = self._get_screens(ctx.flags.install_type)
+        self._set_steps(screens)
 
         # These shorcuts for developers :)
         prevScreenShortCut = QShortcut(QKeySequence(Qt.SHIFT + Qt.Key_F1), self._window)
@@ -85,9 +90,36 @@ class Runner:
         self._window.move(screen.topLeft())
         self._window.show()
 
-    def setSteps(self, screens, startup):
+    def _get_screens(self, install_type):
+        screens = []
+        for name in yali.gui.GUI_STEPS[install_type]:
+            screenClass = None
+            moduleName = ""
+            try:
+                module_name  = yali.gui.stepToClass[name]
+                found = imp.find_module(module_name, yali.gui.__path__)
+                loaded = imp.load_module(module_name, *found)
+                screenClass = loaded.__dict__["Widget"]
+            except ImportError, msg:
+                ctx.logger.debug(msg)
+                rc = ctx.interface.messageWindow(_("Error!"),
+                                                 _("An error occurred when attempting "
+                                                   "to load an installer interface "
+                                                   "component.\n\nclassName = %s.%s") % (module_name, "Widget"),
+                                                 type="custom", customIcon="warning",
+                                                 customButtons=[_("Exit"), _("Retry")])
+                if not rc:
+                    import sys
+                    sys.exit(0)
+            else:
+                screens.append(screenClass)
+
+        return screens
+
+
+    def _set_steps(self, screens):
         self._window.createWidgets(screens)
-        self._window.setCurrent(startup)
+        self._window.setCurrent(ctx.flags.startup)
 
     def run(self):
         # Use default theme;
