@@ -38,7 +38,10 @@ class Flags:
             self.__dict__['flags']['install_type'] = 4
 
         if options.has_key("theme"):
-            self.__dict__['flags']['stylesheet'] = options["theme"]
+            self.__dict__['flags']['theme'] = options["theme"]
+
+        if options.has_key("branding"):
+            self.__dict__['flags']['branding'] = options["branding"]
 
         self.__dict__['flags']['kahya'] = options.has_key("kahyaFile") or \
                                           os.path.exists("/usr/share/yali/data/default.xml")
@@ -59,4 +62,5 @@ class Flags:
         self.__dict__['flags']['dmraid'] = True
         self.__dict__['flags']['dryRun'] = False
         self.__dict__['flags']['startup'] = 0
-        self.__dict__['flags']['stylesheet'] = ""
+        self.__dict__['flags']['theme'] = ""
+        self.__dict__['flags']['branding'] = ""
