@@ -9,13 +9,14 @@ import stat
 import errno
 import gettext
 
-__trans = gettext.translation('yali', fallback=True)
-_ = __trans.ugettext
+_ = gettext.translation('yali', fallback=True).ugettext
 
 import pisi
+import piksemel
+import yali
+import yali.localedata
 import yali.context as ctx
 from pardus.diskutils import EDD
-import yali.localedata
 
 EARLY_SWAP_RAM = 512 * 1024 # 512 MB
 
@@ -420,3 +421,79 @@ def writeKeymap(keymap):
         lines.append(l)
 
     open(mudur_file_path, "w").writelines(lines)
+
+def parse_branding_screens(release_file):
+    try:
+        document = piksemel.parse(release_file)
+    except OSError, msg:
+        if msg.errno == 2:
+            raise yali.Error, _("Release file is missing")
+    except piksemel.ParseError:
+        raise yali.Error, _("Release file is inconsistent")
+
+    if document.name() != "Release":
+        raise yali.Error, _("Invalid xml file")
+
+    screens = {}
+    screens_tag = document.getTag("screens")
+    if screens_tag:
+        for screen_tag in screens_tag.tags("screen"):
+            name = screen_tag.getTagData("name")
+            icon = screen_tag.getTagData("icon")
+            if not icon:
+                icon  = ""
+
+            title_tags = screen_tag.tags("title")
+            if title_tags:
+                titles = {}
+                for title_tag in title_tags:
+                    lang = title_tag.getAttribute("xml:lang")
+                    if not lang:
+                        lang = "en"
+                    titles[lang] = unicode(title_tag.firstChild().data())
+
+            help_tags = screen_tag.tags("help")
+            if help_tags:
+                helps = {}
+                for help_tag in help_tags:
+                    lang = help_tag.getAttribute("xml:lang")
+                    if not lang:
+                        lang = "en"
+                    helps[lang] = unicode(help_tag.firstChild().data())
+
+            screens[name] = (icon, titles, helps)
+
+    return screens
+
+def parse_branding_slideshows(release_file):
+    try:
+        document = piksemel.parse(release_file)
+    except OSError, msg:
+        if msg.errno == 2:
+            raise yali.Error, _("Release file is missing")
+    except piksemel.ParseError:
+        raise yali.Error, _("Release file is inconsistent")
+
+    if document.name() != "Release":
+        raise yali.Error, _("Invalid xml file")
+
+    slideshows = []
+    slideshows_tag = document.getTag("slideshows")
+    if slideshows_tag:
+        for slideshow_tag in slideshows_tag.tags("slideshow"):
+            picture = slideshow_tag.getTagData("picture")
+            description_tags = slideshow_tag.tags("description")
+
+            if description_tags:
+                descriptions = {}
+                for description_tag in description_tags:
+                    lang = description_tag.getAttribute("xml:lang")
+                    if not lang:
+                        lang = "en"
+                    descriptions[lang] = unicode(description_tag.firstChild().data())
+
+            slideshows = [(picture, descriptions)]
+
+    return slideshows
+
+
