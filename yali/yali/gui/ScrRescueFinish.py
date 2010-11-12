@@ -19,7 +19,7 @@ import time
 import yali.postinstall
 import yali.pisiiface
 import yali.util
-from yali.gui import ScreenWidget, register_gui_screen
+from yali.gui import ScreenWidget
 from yali.gui.YaliDialog import InfoDialog
 from yali.gui.YaliSteps import YaliSteps
 from yali.gui.Ui.goodbyewidget import Ui_GoodByeWidget
@@ -98,4 +98,4 @@ There is no help available for this section.
         time.sleep(4)
         yali.util.reboot()
 
-register_gui_screen(Widget)
+

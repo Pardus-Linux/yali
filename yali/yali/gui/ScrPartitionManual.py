@@ -19,7 +19,7 @@ from PyQt4.Qt import QWidget, SIGNAL, QMenu, QTreeWidgetItem, QIcon
 import yali.util
 import yali.context as ctx
 from yali.gui.YaliDialog import Dialog, QuestionDialog
-from yali.gui import ScreenWidget, register_gui_screen
+from yali.gui import ScreenWidget
 
 from yali.gui.partition_gui import PartitionEditor
 from yali.gui.lvm_gui import LVMEditor
@@ -697,4 +697,4 @@ class DeviceTreeItem(QTreeWidgetItem):
     def setSize(self, size):
         self.setText(5, size)
 
-register_gui_screen(Widget)
+

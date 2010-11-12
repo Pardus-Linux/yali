@@ -21,7 +21,7 @@ from PyQt4.Qt import QWidget, SIGNAL, QLineEdit
 import yali.util
 import yali.postinstall
 import yali.context as ctx
-from yali.gui import ScreenWidget, register_gui_screen
+from yali.gui import ScreenWidget
 from yali.gui.Ui.rootpasswidget import Ui_RootPassWidget
 
 ##
@@ -185,4 +185,4 @@ You can also define a hostname for your computer. A hostname is an identifier as
             ctx.mainScreen.slotNext()
 
 
-register_gui_screen(Widget)
+

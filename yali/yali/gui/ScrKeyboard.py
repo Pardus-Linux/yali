@@ -18,7 +18,7 @@ import yali.util
 import yali.localedata
 import yali.postinstall
 import yali.context as ctx
-from yali.gui import ScreenWidget, register_gui_screen
+from yali.gui import ScreenWidget
 from yali.gui.Ui.keyboardwidget import Ui_KeyboardWidget
 
 ##
@@ -76,4 +76,4 @@ This screen lets you select the keyboard layout you want to use on Pardus. You c
         ctx.logger.debug("Selected keymap is : %s" % ctx.installData.keyData["name"])
         return True
 
-register_gui_screen(Widget)
+

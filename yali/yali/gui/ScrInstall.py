@@ -22,7 +22,7 @@ import yali.pisiiface
 import yali.postinstall
 import yali.context as ctx
 from yali.gui.descSlide import slideDesc
-from yali.gui import ScreenWidget, register_gui_screen
+from yali.gui import ScreenWidget
 from yali.gui.Ui.installwidget import Ui_InstallWidget
 from yali.gui.YaliDialog import EjectAndRetryDialog
 
@@ -363,4 +363,4 @@ class PisiEvent(QEvent):
     def data(self):
         return self._data
 
-register_gui_screen(Widget)
+

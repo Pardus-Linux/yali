@@ -7,7 +7,7 @@ _ = gettext.translation('yali', fallback=True).ugettext
 
 from PyQt4.Qt import QWidget, SIGNAL, QGridLayout
 import yali.context as ctx
-from yali.gui import ScreenWidget, register_gui_screen
+from yali.gui import ScreenWidget
 
 class Widget(QWidget, ScreenWidget):
     name = "network"
@@ -30,4 +30,4 @@ class Widget(QWidget, ScreenWidget):
         ctx.mainScreen.disableBack()
         return True
 
-register_gui_screen(Widget)
+

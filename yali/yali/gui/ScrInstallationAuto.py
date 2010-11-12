@@ -18,7 +18,7 @@ from PyQt4.Qt import QWidget, SIGNAL, QPixmap, Qt, QListWidgetItem, QSize
 
 import yali.pisiiface
 import yali.context as ctx
-from yali.gui import ScreenWidget, register_gui_screen
+from yali.gui import ScreenWidget
 from yali.gui.Ui.autoinstallationwidget import Ui_AutoInstallationWidget
 from yali.gui.Ui.autoinstallationlistitemwidget import Ui_AutoInstallationListItemWidget
 
@@ -221,4 +221,4 @@ class CollectionListItem(QWidget):
         self.setKernelType()
         self.parent.update()
 
-register_gui_screen(Widget)
+

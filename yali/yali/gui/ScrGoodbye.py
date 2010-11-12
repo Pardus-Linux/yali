@@ -18,7 +18,7 @@ from PyQt4.Qt import QWidget, QPixmap
 
 import yali.util
 import yali.context as ctx
-from yali.gui import ScreenWidget, register_gui_screen
+from yali.gui import ScreenWidget
 from yali.gui.YaliDialog import InfoDialog
 from yali.gui.YaliSteps import YaliSteps
 from yali.gui.Ui.goodbyewidget import Ui_GoodByeWidget
@@ -101,4 +101,4 @@ Click Next to proceed. One note: You remember your password, don't you?
 
         self.steps.setOperations(steps)
 
-register_gui_screen(Widget)
+

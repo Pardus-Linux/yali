@@ -22,7 +22,7 @@ import yali.sysutils
 #import yali.partitionrequest as request
 
 import yali.context as ctx
-from yali.gui import ScreenWidget, GUIError, register_gui_screen
+from yali.gui import ScreenWidget, GUIError
 from yali.gui.Ui.rescuewidget import Ui_RescueWidget
 
 class PartItem(QListWidgetItem):
@@ -150,4 +150,4 @@ class PardusPartitions:
 
         return (linuxPartitions, pardusPartitions)
 
-register_gui_screen(Widget)
+

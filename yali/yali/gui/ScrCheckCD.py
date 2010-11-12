@@ -18,7 +18,7 @@ from PyQt4.Qt import QWidget, SIGNAL, QIcon, QPixmap
 import pisi.ui
 import yali.context as ctx
 import yali.pisiiface
-from yali.gui import ScreenWidget, register_gui_screen
+from yali.gui import ScreenWidget
 from yali.gui.Ui.checkcdwidget import Ui_CheckCDWidget
 
 from yali.gui.YaliDialog import Dialog
@@ -128,4 +128,4 @@ If you are using an optical installation medium, try burning the installation im
 
         ctx.interface.informationWindow.hide()
 
-register_gui_screen(Widget)
+

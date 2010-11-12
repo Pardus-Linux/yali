@@ -22,7 +22,7 @@ import yali.util
 import yali.pisiiface
 import yali.postinstall
 import yali.context as ctx
-from yali.gui import ScreenWidget, register_gui_screen
+from yali.gui import ScreenWidget
 from yali.gui.Ui.rescuepisiwidget import Ui_RescuePisiWidget
 from yali.gui.Ui.connectionlist import Ui_connectionWidget
 
@@ -200,4 +200,4 @@ class ConnectionWidget(QWidget):
             if self.needsExecute:
                 self.rootWidget.execute_(True)
 
-register_gui_screen(Widget)
+

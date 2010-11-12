@@ -9,7 +9,6 @@
 #
 # Please read the COPYING file.
 #
-import os
 import yali
 import yali.context as ctx
 
@@ -31,42 +30,20 @@ GUI_STEPS = {ctx.STEP_DEFAULT:("welcome", "mediaCheck", "keyboardSetup",
              ctx.STEP_FIRST_BOOT:("welcome", "accounts", "admin", "network", "summary", "goodbye"),
              ctx.STEP_RESCUE:("rescue", "grubRescue", "pisiRescue", "passwordRescue", "finishRescue")}
 
-GUI_SCREENS = {}
-
-def register_gui_screen(screen):
-    if not issubclass(screen, ScreenWidget):
-        raise ValueError("arg1 must be a subclass of ScreenWidget")
-
-    GUI_SCREENS[screen.name] = screen
-    ctx.logger.debug("registered screen name %s" % screen.name)
-
-def collect_screens():
-    """ Pick up all device screen classes from this directory.
-
-        Note: Modules must call register_device_screen(ScreenWidget) in
-              order for the screen class to be picked up.
-    """
-    dir = os.path.dirname(__file__)
-    for moduleFile in os.listdir(dir):
-        if moduleFile.startswith("Scr") and \
-        moduleFile.endswith(".py") and \
-        moduleFile != __file__:
-            module_name = moduleFile[:-3]
-            try:
-                globals()[module_name] = __import__(module_name, globals(), locals(), [], -1)
-            except ImportError:
-                ctx.logger.debug("import of screen module '%s' failed" % module_name)
-
-
-def get_screens(install_type):
-    if not GUI_SCREENS:
-        collect_screens()
-
-    screens = []
-    for name in GUI_STEPS[install_type]:
-        screens.append(GUI_SCREENS[name])
-
-    return screens
+stepToClass = {"welcome":"ScrWelcome",
+               "mediaCheck":"ScrCheckCD",
+               "keyboardSetup":"ScrKeyboard",
+               "timeSetup":"ScrDateTime",
+               "accounts":"ScrUsers",
+               "admin":"ScrAdmin",
+               "driveSelection":"ScrDriveSelection",
+               "automaticPartitioning":"ScrPartitionAuto",
+               "manualPartitioning":"ScrPartitionManual",
+               "bootloadersetup":"ScrBootloader",
+               "collectionSelection":"ScrInstallationAuto",
+               "summary":"ScrSummary",
+               "packageInstallation":"ScrInstall",
+               "goodbye":"ScrGoodbye"}
 
 class ScreenWidget:
     title = ""
@@ -88,5 +65,3 @@ class ScreenWidget:
 
     def update(self):
         pass
-
-collect_screens()

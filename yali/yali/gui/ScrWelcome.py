@@ -16,7 +16,7 @@ _ = gettext.translation('yali', fallback=True).ugettext
 from PyQt4.Qt import QWidget, SIGNAL, QTextBrowser
 
 import yali.context as ctx
-from yali.gui import ScreenWidget, GUIError, register_gui_screen
+from yali.gui import ScreenWidget, GUIError
 from yali.gui.YaliDialog import Dialog
 from yali.gui.Ui.welcomewidget import Ui_WelcomeWidget
 
@@ -83,4 +83,4 @@ class LicenseBrowser(QTextBrowser):
             return licence
         raise GUIError, _("License text could not be found.")
 
-register_gui_screen(Widget)
+

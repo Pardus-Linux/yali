@@ -16,7 +16,7 @@ _ = gettext.translation('yali', fallback=True).ugettext
 from PyQt4.Qt import QWidget, SIGNAL
 
 import yali.context as ctx
-from yali.gui import ScreenWidget, register_gui_screen
+from yali.gui import ScreenWidget
 from yali.gui.Ui.autopartwidget import Ui_AutoPartWidget
 from yali.gui.shrink_gui import ShrinkEditor
 from yali.storage.partitioning import CLEARPART_TYPE_ALL, CLEARPART_TYPE_LINUX, CLEARPART_TYPE_NONE, doAutoPartition, defaultPartitioning
@@ -131,4 +131,4 @@ Pardus create a new partition for installation.</p>
 
         return True
 
-register_gui_screen(Widget)
+

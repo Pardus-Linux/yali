@@ -18,7 +18,7 @@ _ = gettext.translation('yali', fallback=True).ugettext
 from PyQt4.Qt import QWidget, SIGNAL, QObject, QListWidgetItem, QSize, QPixmap
 
 import yali.context as ctx
-from yali.gui import ScreenWidget, GUIError, register_gui_screen
+from yali.gui import ScreenWidget, GUIError
 from yali.gui.Ui.driveselectionwidget import Ui_DriveSelectionWidget
 from yali.gui.Ui.partitionshrinkwidget import Ui_PartShrinkWidget
 from yali.gui.Ui.diskItem import Ui_DiskItem
@@ -135,4 +135,4 @@ Pardus create a new partition for installation.</p>
     def execute(self):
         return self.nextCheck()
 
-register_gui_screen(Widget)
+

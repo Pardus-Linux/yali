@@ -19,7 +19,7 @@ from PyQt4.Qt import QWidget, SIGNAL, QString, QIcon, QTimeLine, QPixmap, QLineE
 import yali.users
 import yali.postinstall
 import yali.context as ctx
-from yali.gui import ScreenWidget, register_gui_screen
+from yali.gui import ScreenWidget
 from yali.gui.Ui.setupuserswidget import Ui_SetupUsersWidget
 
 class Widget(QWidget, ScreenWidget):
@@ -436,4 +436,4 @@ class UserItem(QListWidgetItem):
     def getUser(self):
         return self._user
 
-register_gui_screen(Widget)
+

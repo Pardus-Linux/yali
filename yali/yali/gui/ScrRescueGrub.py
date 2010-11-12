@@ -17,7 +17,7 @@ _ = gettext.translation('yali', fallback=True).ugettext
 from PyQt4.Qt import QWidget, SIGNAL, QListWidgetItem
 
 import yali.storage
-from yali.gui import ScreenWidget, register_gui_screen
+from yali.gui import ScreenWidget
 from yali.gui.Ui.rescuegrubwidget import Ui_RescueGrubWidget
 import yali.context as ctx
 
@@ -105,4 +105,4 @@ class DriveItem(QListWidgetItem):
     def setBootable(self):
         self.setText(_("%s (Boot Disk)" % self.text))
 
-register_gui_screen(Widget)
+

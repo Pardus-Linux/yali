@@ -17,7 +17,7 @@ from PyQt4.Qt import QWidget, SIGNAL
 
 import yali.context as ctx
 from yali.kahya import kahya
-from yali.gui import ScreenWidget, GUIError, register_gui_screen
+from yali.gui import ScreenWidget, GUIError
 from yali.gui.Ui.kickerwidget import Ui_KickerWidget
 from yali.gui.YaliDialog import Dialog
 
@@ -132,4 +132,4 @@ class Widget(QWidget, ScreenWidget):
                 wrongData = yaliKahya.getValues()
                 ctx.logger.debug("".join(wrongData))
 
-register_gui_screen(Widget)
+

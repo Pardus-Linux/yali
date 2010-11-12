@@ -23,7 +23,7 @@ import yali.util
 import yali.postinstall
 import yali.context as ctx
 from yali.gui.YaliDialog import InfoDialog
-from yali.gui import ScreenWidget, register_gui_screen
+from yali.gui import ScreenWidget
 from yali.gui.Ui.rescuepasswordwidget import Ui_RescuePasswordWidget
 
 class Widget(QWidget, ScreenWidget):
@@ -144,4 +144,4 @@ class UserItem(QListWidgetItem):
     def getInfo(self):
         return self._user
 
-register_gui_screen(Widget)
+

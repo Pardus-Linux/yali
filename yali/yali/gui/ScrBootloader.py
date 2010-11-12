@@ -16,7 +16,7 @@ from PyQt4.Qt import QWidget, SIGNAL
 
 import yali.context as ctx
 import yali.postinstall
-from yali.gui import ScreenWidget, register_gui_screen
+from yali.gui import ScreenWidget
 from yali.gui.Ui.bootloaderwidget import Ui_BootLoaderWidget
 from yali.storage.bootloader import BOOT_TYPE_NONE, BOOT_TYPE_PARTITION, BOOT_TYPE_MBR, BOOT_TYPE_RAID
 
@@ -127,4 +127,4 @@ You can always choose another installation method if you know what you are doing
         if index != -1:
             self.device = self.ui.drives.itemData(index).toPyObject().name
 
-register_gui_screen(Widget)
+

@@ -18,7 +18,7 @@ from PyQt4.Qt import QWidget, SIGNAL, QTimer, QString
 import yali.util
 import yali.context as ctx
 import yali.storage
-from yali.gui import ScreenWidget, register_gui_screen
+from yali.gui import ScreenWidget
 from yali.gui.YaliDialog import QuestionDialog
 from yali.gui.Ui.summarywidget import Ui_SummaryWidget
 from yali.storage.partitioning import CLEARPART_TYPE_ALL, CLEARPART_TYPE_LINUX, CLEARPART_TYPE_NONE
@@ -236,4 +236,4 @@ Here you can see your install options before installation starts.
         #        size = 600
         #    ctx.storage.storageset.createSwapFile(ctx.storage.storageset.rootDevice, ctx.consts.target_dir, size)
 
-register_gui_screen(Widget)
+

@@ -19,7 +19,7 @@ from PyQt4.Qt import QWidget, SIGNAL, QTimer, QDate, QTime
 import yali.localedata
 import yali.context as ctx
 import yali.postinstall
-from yali.gui import ScreenWidget, register_gui_screen
+from yali.gui import ScreenWidget
 from yali.gui.Ui.datetimewidget import Ui_DateTimeWidget
 from yali.timezone import TimeZoneList
 
@@ -149,4 +149,4 @@ Coordinated Universal Time.
 
         return True
 
-register_gui_screen(Widget)
+
