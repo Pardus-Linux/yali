@@ -27,22 +27,6 @@ def qt_ui_files():
     ui_files = "yali/gui/Ui/*.ui"
     return glob.glob(ui_files)
 
-def gui_slidepics():
-    slide_pics = "yali/gui/pics/slideshow/*.png"
-    return glob.glob(slide_pics)
-
-def data_files():
-    data = "yali/data/*"
-    return glob.glob(data)
-
-def udev_files():
-    rules = "data/*.rules"
-    return glob.glob(rules)
-
-def conf_files():
-    conf = "data/*.conf"
-    return glob.glob(conf)
-
 def py_file_name(ui_file):
     return os.path.splitext(ui_file)[0] + '.py'
 
@@ -52,9 +36,9 @@ class YaliBuild(build):
         lines = open(py_file, "r").readlines()
         replaced = open(py_file, "w")
         for line in lines:
-            line = line.replace("data_rc","yali.data_rc")
+            if line.find("data_rc") != -1:
+                continue
             replaced.write(line)
-
 
     def compileUI(self, ui_file):
         pyqt_configuration = pyqtconfig.Configuration()
@@ -72,7 +56,6 @@ class YaliBuild(build):
             print ui_file
             self.compileUI(ui_file)
             self.changeQRCPath(ui_file)
-        os.system("pyrcc4 yali/data.qrc -o yali/data_rc.py")
         build.run(self)
 
 class YaliClean(clean):
@@ -80,19 +63,14 @@ class YaliClean(clean):
     def run(self):
         clean.run(self)
 
-        # clean ui generated .py files
-        for _file in qt_ui_files():
-            _file = py_file_name(_file)
-            if os.path.exists(_file):
-                os.unlink(_file)
+        for ui_file in qt_ui_files():
+            ui_file = py_file_name(ui_file)
+            if os.path.exists(ui_file):
+                os.unlink(ui_file)
 
-        if os.path.exists("yali/data_rc.py"):
-            os.unlink("yali/data_rc.py")
         if os.path.exists("build"):
             shutil.rmtree("build")
 
-##
-# uninstall command
 class YaliUninstall(Command):
     user_options = [ ]
 
@@ -142,11 +120,8 @@ setup(name="yali",
       url="http://www.pardus.org.tr/eng/yali/",
       packages = ['yali', 'yali.gui', 'yali.gui.Ui', 'yali.storage',\
                   'yali.storage.devices', 'yali.storage.formats', 'yali.storage.library'],
-      package_dir = {'': ''},
-      data_files = [('/usr/share/yali/slideshow', gui_slidepics()),
-                    ('/usr/share/yali/data', data_files()),
-                    ('/etc/yali', conf_files()),
-                    ('/lib/udev/rules.d', udev_files())],
+      data_files = [('/etc/yali', glob.glob("conf/*")),
+                    ('/lib/udev/rules.d', ["70-yali.rules"])],
       scripts = ['yali-bin', 'start-yali', 'bindYali'],
       ext_modules = [Extension('yali._sysutils',
                                sources = ['yali/_sysutils.c'],
