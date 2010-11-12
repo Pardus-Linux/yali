@@ -54,12 +54,18 @@ class Constants:
     def __init__(self):
         self.__c.min_root_size = 3500
         self.__c.root_path = "/"
-        self.__c.conf_file = "/etc/yali/yali.conf"
-        self.__c.pardus_release_file = "/etc/pardus-relase"
+        self.__c.conf_dir = "/etc/yali"
+        self.__c.conf_file = os.path.join(self.__c.conf_dir, "yali.conf")
+        self.__c.oem_file = os.path.join(self.__c.conf_dir,"oem.xml")
+        self.__c.firstboot_file = os.path.join(self.__c.conf_dir,"firstboot.xml")
+        self.__c.pardus_release_file = "/etc/pardus-release"
         self.__c.data_dir = "/usr/share/yali"
+        self.__c.theme_dir = os.path.join(self.__c.data_dir, "theme")
+        self.__c.branding_dir = os.path.join(self.__c.data_dir, "branding")
         self.__c.log_dir = "/var/log"
         self.__c.log_file = "yali.log"
         self.__c.target_dir = "/mnt/target"
+        self.__c.session_file = os.path.join(self.__c.target_dir, "root/session.xml")
         self.__c.source_dir = "/mnt/cdrom"
         self.__c.tmp_mnt_dir = "/tmp/check"
         self.__c.dbus_socket = os.path.join(self.__c.target_dir,"var/run/dbus/system_bus_socket")
@@ -74,10 +80,6 @@ class Constants:
         self.__c.pardus_repo_uri = "http://packages.pardus.org.tr/pardus-2009/pisi-index.xml.bz2"
         self.__c.pisi_index_file = os.path.join(self.__c.data_dir,"data/pisi-index.xml.bz2")
         self.__c.pisi_index_file_sum = os.path.join(self.__c.data_dir,"data/pisi-index.xml.bz2.sha1sum")
-        self.__c.session_file = os.path.join(self.__c.target_dir, "root/kahyaSession.xml")
-        self.__c.default_kahya_file = os.path.join(self.__c.data_dir,"data/default.xml")
-        self.__c.oem_install_file = os.path.join(self.__c.data_dir,"data/firstBoot.xml")
-        self.__c.alternatestylesheet = os.path.join(self.__c.data_dir, "data/oxygen.qss")
         self.__c.lang = locale.getdefaultlocale()[0][:2]
 
     def __getattr__(self, attr):
