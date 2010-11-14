@@ -23,25 +23,6 @@ import yali.context as ctx
 
 class Widget(QWidget, ScreenWidget):
     name = "grubRescue"
-    title = _("Repair the Bootloader")
-    icon = "iconBootloader"
-    help = _("""
-<p>
-A bootloader is a tiny program that runs when a computer is first powered up.
-It is responsible for loading the operating system into memory and then transferring
-the control to it.
-</p>
-<p>
-Pardus uses GRUB (GRand Unified Bootloader) as the default bootloader. GRUB allows you
-to boot any supported operating system by presenting the user with a menu.
-</p>
-<p>
-You may want to repair GRUB bootloader if you installed another operating system which replaces GRUB with its own bootloader thus avoiding you to boot into Pardus. You may also want to repair GRUB if you're stuck with strange GRUB errors during boot.
-<p>
-The recommended way to use GRUB is to install it to the beginning of the boot disk.
-You can always choose another installation method if you know what you are doing.
-</p>
-""")
 
     def __init__(self):
         QWidget.__init__(self)

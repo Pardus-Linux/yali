@@ -26,13 +26,6 @@ from yali.storage.bootloader import BOOT_TYPE_NONE
 
 class Widget(QWidget, ScreenWidget):
     name = "summary"
-    title = _("Summary")
-    #icon = "iconKeyboard"
-    help = _('''
-<p>
-Here you can see your install options before installation starts.
-</p>
-''')
 
     def __init__(self):
         QWidget.__init__(self)

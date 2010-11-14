@@ -11,10 +11,6 @@ from yali.gui import ScreenWidget
 
 class Widget(QWidget, ScreenWidget):
     name = "network"
-    title = _("Network Setup")
-    icon = "applications-other"
-    help = _("""""")
-
 
     def __init__(self):
         QWidget.__init__(self)

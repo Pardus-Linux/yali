@@ -28,24 +28,6 @@ from yali.gui.Ui.rootpasswidget import Ui_RootPassWidget
 # Root password widget
 class Widget(QWidget, ScreenWidget):
     name = "admin"
-    title = _("Choose an Administrator Password and a Hostname")
-    icon = "iconAdmin"
-    help = _("""
-<p>
-You need to define a password for the "root" user which is the conventional name
-of the user who has all rights and permissions (to all files and programs) in all
-modes (single or multi-user).
-</p>
-
-<p>
-Your password must be easy to remember but strong enough to resist possible attacks.
-You can use capital and lower-case letters, numbers and punctuation marks in your password.
-</p>
-
-<p>
-You can also define a hostname for your computer. A hostname is an identifier assigned to your computer. As your computer will be recognized with this name in the local network, it is recommended to select a descriptive hostname.
-</p>
-""")
 
     def __init__(self):
         QWidget.__init__(self)

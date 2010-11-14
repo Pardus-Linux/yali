@@ -25,19 +25,6 @@ USE_ALL_SPACE, SHRINK_CURRENT, FREE_SPACE, CUSTOM = xrange(4)
 
 class Widget(QWidget, ScreenWidget):
     name = "automaticPartitioning"
-    title = _("Select Partitioning Method")
-    icon = "iconPartition"
-    help = _('''
-<p>
-You can install Pardus if you have an unpartitioned-unused disk space 
-of 4GBs (10 GBs recommended) or an unused-unpartitioned disk. 
-The disk area or partition selected for installation will automatically 
-be formatted. Therefore, it is advised to backup your data to avoid future problems.
-</p>
-<p>Auto-partitioning will automatically format the select disk part/partition 
-and install Pardus. If you like, you can do the partitioning manually or make 
-Pardus create a new partition for installation.</p>
-''')
 
     def __init__(self):
         QWidget.__init__(self)

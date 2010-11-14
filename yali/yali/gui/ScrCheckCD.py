@@ -25,11 +25,6 @@ from yali.gui.YaliDialog import Dialog
 
 class Widget(QWidget, ScreenWidget):
     name = "mediaCheck"
-    title = _("Check the Integrity of Packages")
-    icon = "media-optical-small"
-    help = _("""Here you can validate the integrity of the installation packages. A failed validation usually is a sign of a badly mastered installation medium (CD, DVD or USB storage).
-If you are using an optical installation medium, try burning the installation image using DAO (Disc-at-once) mode, at a lower speed (4x for DVD, 8-12x for CD).
-""")
 
     def __init__(self):
         QWidget.__init__(self)

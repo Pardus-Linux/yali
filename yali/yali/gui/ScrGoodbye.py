@@ -25,16 +25,6 @@ from yali.gui.Ui.goodbyewidget import Ui_GoodByeWidget
 
 class Widget(QWidget, ScreenWidget):
     name = "goodbye"
-    title = "Goodbye"
-    help = _("""
-<p>
-You have successfully installed Pardus on your computer. After restarting
-your computer, you can finally enjoy the full benefits of Pardus.
-</p>
-<P>
-Click Next to proceed. One note: You remember your password, don't you?
-</p>
-""")
 
     def __init__(self):
         QWidget.__init__(self)

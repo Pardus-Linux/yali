@@ -22,23 +22,6 @@ from yali.storage.bootloader import BOOT_TYPE_NONE, BOOT_TYPE_PARTITION, BOOT_TY
 
 class Widget(QWidget, ScreenWidget):
     name = "bootloadersetup"
-    title = _("Configure Bootloader")
-    icon = "iconBootloader"
-    help = _("""
-<p>
-A bootloader is a tiny program that runs when a computer is first powered up.
-It is responsible for loading the operating system into memory and then transferring
-the control to it.
-</p>
-<p>
-Pardus uses GRUB (GRand Unified Bootloader) as the default bootloader. GRUB allows you
-to boot any supported operating system by presenting the user with a menu.
-</p>
-<p>
-The recommended way to use GRUB is to install it to the beginning of the boot disk.
-You can always choose another installation method if you know what you are doing.
-</p>
-""")
 
     def __init__(self):
         QWidget.__init__(self)

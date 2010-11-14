@@ -28,19 +28,6 @@ from yali.gui.Ui.connectionlist import Ui_connectionWidget
 
 class Widget(QWidget, ScreenWidget):
     name = "pisiRescue"
-    title = _("Take Back Your System")
-    icon = "iconInstall"
-    help = _("""
-<p>
-Pisi, the package management system of Pardus, stores every operation in its history database. More technically speaking, every removal/installation/update operation
-within Pisi is a point-in-time that the user may want to return back in case of a
-serious problem or system inconsistency.
-</p>
-<p>
-This repair mode allows users to visualize the operation history and to return back to
-a previous system state.
-</p>
-""")
 
     def __init__(self):
         QWidget.__init__(self)

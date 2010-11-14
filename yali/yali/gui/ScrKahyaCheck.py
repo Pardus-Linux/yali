@@ -37,10 +37,6 @@ def get_kernel_opt(cmdopt):
 
 class Widget(QWidget, ScreenWidget):
     name = "kahya"
-    title = _("Kahya is working")
-    help = _("""
-<p> Some help messages </p>
-""")
 
     def __init__(self):
         QWidget.__init__(self)

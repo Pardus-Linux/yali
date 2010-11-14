@@ -24,12 +24,6 @@ from yali.gui.Ui.autoinstallationlistitemwidget import Ui_AutoInstallationListIt
 
 class Widget(QWidget, ScreenWidget):
     name = "collectionSelection"
-    title = _("Choose a Package Collection")
-    icon = "iconPartition"
-    help = _('''
-<p>
-</p>
-''')
 
     def __init__(self):
         QWidget.__init__(self)

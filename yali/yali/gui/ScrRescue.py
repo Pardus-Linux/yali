@@ -35,13 +35,6 @@ class PartItem(QListWidgetItem):
 
 class Widget(QWidget, ScreenWidget):
     name = "rescue"
-    title = _("System Repair")
-    icon = ""
-    help = _("""
-<p>
-This is a rescue mode help document.
-</p>
-""")
 
     def __init__(self):
         QWidget.__init__(self)

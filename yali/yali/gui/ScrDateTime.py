@@ -25,19 +25,6 @@ from yali.timezone import TimeZoneList
 
 class Widget(QWidget, ScreenWidget):
     name = "timeSetup"
-    title = _("Adjust Date and Time Settings")
-    icon = "preferences-system-time"
-    help = _("""
-<p>Date and time settings allows you to set the date and time of your computer. Generally,
-you will also want to specify a correct timezone for your location in order to benefit
-from automatic daylight saving time adjustments.
-</p>
-<p>
-A timezone is a region of the earth that has uniform standard time, usually referred as the
-local time. By convention, timezones compute their local time as an offset from UTC, the
-Coordinated Universal Time.
-</p>
-""")
 
     def __init__(self):
         QWidget.__init__(self)

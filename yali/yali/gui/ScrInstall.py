@@ -50,22 +50,6 @@ def object_sender(pack):
 
 class Widget(QWidget, ScreenWidget):
     name = "packageInstallation"
-    title = _("Installing Pardus")
-    icon = "iconInstall"
-    help = _('''
-<p>
-YALI is now installing Pardus on your computer. This operation takes
-approximately 20-30 minutes depending on your computer's hardware.
-</p>
-<p>
-Note that the installation from a USB storage will be much faster than
-an optical medium (CD/DVD).
-</p>
-<p>
-Now, sit back and enjoy the installation during which you will be able
-to discover the features and the innovations offered by this new Pardus release.
-</p>
-''')
 
     def __init__(self):
         QWidget.__init__(self)

@@ -24,13 +24,6 @@ from yali.gui.Ui.welcomewidget import Ui_WelcomeWidget
 # Welcome screen is the first screen to be shown.
 class Widget(QWidget, ScreenWidget):
     name = "welcome"
-    title = _("Welcome to Pardus")
-    icon = "applications-other"
-    help = _("""
-<p>Welcome to Pardus that contains many easy-to-use software components. You can do everything you need to, including, but not limited to, connecting to the Internet, creating documents, playing games, listening to music using Pardus.</p>
-<p>This application will help you with the installation of Pardus to your computer in few and easy steps and then do what is necessary to identify and configure your hardware. We advise you to backup your data in your disk(s) before starting with the installation.</p>
-<p>You can start the installation process (and step in on a free world) by pressing the Next button.</p>
-""")
 
     def __init__(self):
         QWidget.__init__(self)

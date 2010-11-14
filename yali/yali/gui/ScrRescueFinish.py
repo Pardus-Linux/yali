@@ -27,12 +27,6 @@ import yali.context as ctx
 
 class Widget(QWidget, ScreenWidget):
     name = "finishRescue"
-    title = _("System Repair")
-    help = _("""
-<p>
-There is no help available for this section.
-</p>
-""")
 
     def __init__(self):
         QWidget.__init__(self)

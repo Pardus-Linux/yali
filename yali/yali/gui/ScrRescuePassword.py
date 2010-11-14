@@ -28,13 +28,6 @@ from yali.gui.Ui.rescuepasswordwidget import Ui_RescuePasswordWidget
 
 class Widget(QWidget, ScreenWidget):
     name = "passwordRescue"
-    title = _("Reset Forgotten Passwords")
-    icon = "iconInstall"
-    help = _("""
-<p>
-Here you can reset..
-</p>
-""")
 
     def __init__(self):
         QWidget.__init__(self)

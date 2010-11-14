@@ -34,24 +34,6 @@ from yali.storage.storageBackendHelpers import doDeleteDevice, doClearPartitione
 
 class Widget(QWidget, ScreenWidget):
     name = "manualPartitioning"
-    title = _('Manual Partitioning')
-    desc = _('You can easily configure your partitions...')
-    icon = "iconPartition"
-    help = _('''
-<p>
-In this screen, you can manually partition your disk. You can select 
-existing partitions and resize or delete them. You can create new 
-partition(s) in the empty parts, make Pardus use them for system files, 
-users' home directories, swap space or general use. The changes that you 
-make will not be applied until you go on with the installation, 
-which means you can revert if you make any unwanted changes or change your configuration.
-</p>
-<p>
-Please refer to Pardus Installing and Using Guide for more information
-about disk partitioning.
-</font>
-''')
-
 
     def __init__(self):
         QWidget.__init__(self)
