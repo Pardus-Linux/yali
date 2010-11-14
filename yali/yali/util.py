@@ -482,8 +482,8 @@ def parse_branding_slideshows(release_file):
     if slideshows_tag:
         for slideshow_tag in slideshows_tag.tags("slideshow"):
             picture = slideshow_tag.getTagData("picture")
-            description_tags = slideshow_tag.tags("description")
 
+            description_tags = slideshow_tag.tags("description")
             if description_tags:
                 descriptions = {}
                 for description_tag in description_tags:
@@ -492,7 +492,7 @@ def parse_branding_slideshows(release_file):
                         lang = "en"
                     descriptions[lang] = unicode(description_tag.firstChild().data())
 
-            slideshows = [(picture, descriptions)]
+            slideshows.append((picture, descriptions))
 
     return slideshows
 

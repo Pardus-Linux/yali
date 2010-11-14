@@ -9,6 +9,7 @@
 #
 # Please read the COPYING file.
 #
+import os
 import gettext
 _ = gettext.translation('yali', fallback=True).ugettext
 
@@ -17,11 +18,9 @@ from PyQt4.Qt import QWidget, SIGNAL, QPixmap, QCoreApplication, QEvent, QThread
 import pisi.ui
 
 import yali.util
-import yali.sysutils
 import yali.pisiiface
 import yali.postinstall
 import yali.context as ctx
-from yali.gui.descSlide import slideDesc
 from yali.gui import ScreenWidget
 from yali.gui.Ui.installwidget import Ui_InstallWidget
 from yali.gui.YaliDialog import EjectAndRetryDialog
@@ -30,20 +29,20 @@ EventPisi, EventSetProgress, EventError, EventAllFinished, EventPackageInstallFi
 
 current_object = None
 
-def iter_slide_pics():
-    def path(pic):
-        return "%s/%s.png" % (ctx.consts.slidepics_dir, pic)
+def iter_slideshows():
+    slideshows = []
 
-    # load all pics
-    pictures = []
+    release_file = os.path.join(ctx.consts.branding_dir, ctx.flags.branding, ctx.consts.release_file)
+    slideshows_content = yali.util.parse_branding_slideshows(release_file)
 
-    for slide in slideDesc:
-        picture, description = slide.items()[0]
-        pictures.append({"pic":QPixmap(path(picture)), "desc":description})
-
+    for content in slideshows_content:
+        slideshows.append({"picture":QPixmap(os.path.join(ctx.consts.branding_dir,
+                                                    ctx.flags.branding,
+                                                    ctx.consts.slideshows_dir,
+                                                    content[0])), "description":content[1]})
     while True:
-        for picture in pictures:
-            yield picture
+        for slideshow in slideshows:
+            yield slideshow
 
 def object_sender(pack):
     global current_object
@@ -74,15 +73,15 @@ to discover the features and the innovations offered by this new Pardus release.
         self.ui.setupUi(self)
 
         self.timer = QTimer(self)
-        QObject.connect(self.timer, SIGNAL("timeout()"), self.slotChangePix)
+        QObject.connect(self.timer, SIGNAL("timeout()"), self.changeSlideshows)
 
         if ctx.consts.lang == "tr":
             self.ui.progress.setFormat("%%p")
 
-        self.iter_pics = iter_slide_pics()
+        self.iter_slideshows = iter_slideshows()
 
         # show first pic
-        self.slotChangePix()
+        self.changeSlideshows()
 
         self.total = 0
         self.cur = 0
@@ -164,10 +163,14 @@ to discover the features and the innovations offered by this new Pardus release.
             ctx.logger.debug("EventAllFinished catched")
             self.finished()
 
-    def slotChangePix(self):
-        slide = self.iter_pics.next()
-        self.ui.pix.setPixmap(slide["pic"])
-        self.ui.desc.setText(slide["desc"])
+    def changeSlideshows(self):
+        slide = self.iter_slideshows.next()
+        self.ui.pix.setPixmap(slide["picture"])
+        if slide["description"].has_key(ctx.consts.lang):
+            description = slide["description"][ctx.consts.lang]
+        else:
+            description = slide["description"]["en"]
+        self.ui.desc.setText(description)
 
     def packageInstallFinished(self):
         yali.postinstall.fillFstab()
