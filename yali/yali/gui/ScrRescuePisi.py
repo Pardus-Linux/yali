@@ -113,7 +113,7 @@ class PisiEvent(QEvent):
 
 class HistoryItem(QListWidgetItem):
     def __init__(self, parent, info):
-        QListWidgetItem.__init__(self, _("Operation %s : %s - %s") % (info.no, info.date, info.type), parent)
+        QListWidgetItem.__init__(self, _("Operation %(no)s : %(date)s - %(type)s") % {"no":info.no, "date":info.date, "type":info.type}, parent)
         self._info = info
 
     def getInfo(self):

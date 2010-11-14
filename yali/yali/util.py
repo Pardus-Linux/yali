@@ -125,7 +125,7 @@ def run_batch(cmd, argv):
     cmd = "%s %s" % (cmd, ' '.join(argv))
     p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
-    ctx.logger.debug(_('return value for "%s" is %s') % (cmd, p.returncode))
+    ctx.logger.debug(_('return value for "%(command)s" is %(return)s') % {"command":cmd, "return":p.returncode})
     return (p.returncode, out, err)
 
 
@@ -152,7 +152,7 @@ def run_logged(cmd):
 
     p = subprocess.Popen(cmd, shell=True, stdout=stdout, stderr=stderr)
     out, err = p.communicate()
-    ctx.logger.debug(_('return value for "%s" is %s') % (" ".join(cmd), p.returncode))
+    ctx.logger.debug(_('return value for "%(command)s" is %(return)s') % {"command":cmd, "return":p.returncode})
 
     return p.returncode
 

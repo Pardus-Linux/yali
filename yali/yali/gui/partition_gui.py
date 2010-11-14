@@ -31,8 +31,8 @@ class PartitionEditor:
         self.partedPartition = partedPartition
 
         if isNew:
-            title = _("Create Partition on %s (%s)" %  (os.path.basename(partedPartition.disk.device.path),
-                                                        partedPartition.disk.device.model))
+            title = _("Create Partition on %(path)s (%(model)s)") %  {"path":os.path.basename(partedPartition.disk.device.path),
+                                                                      "model":partedPartition.disk.device.model}
         else:
             try:
                 title = _("Edit Partition %s" % origrequest.path)

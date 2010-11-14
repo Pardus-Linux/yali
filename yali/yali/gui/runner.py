@@ -105,7 +105,7 @@ class Runner:
                 rc = ctx.interface.messageWindow(_("Error!"),
                                                  _("An error occurred when attempting "
                                                    "to load an installer interface "
-                                                   "component.\n\nclassName = %s.%s") % (module_name, "Widget"),
+                                                   "component.\n\nclassName = %s.Widget") % module_name,
                                                  type="custom", customIcon="warning",
                                                  customButtons=[_("Exit"), _("Retry")])
                 if not rc:

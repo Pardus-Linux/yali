@@ -39,9 +39,9 @@ class Interface(object):
             self._warnedUnusedRaidMembers.extend(unusedRaidMembers)
             unusedRaidMembers.sort()
             self.messageWindow(_("Warning"),
-                               _("Disk contains %s BIOS RAID metadata, but is not part of "
-                                 "any recognized BIOS RAID sets. Ignoring disk %s."
-                               % (len(unusedRaidMembers), ", ".join(unusedRaidMembers))),
+                               _("Disk contains %(members_count)s BIOS RAID metadata, but is not part of "
+                                 "any recognized BIOS RAID sets. Ignoring disk %(members)s.)"
+                                 % {"members_count":len(unusedRaidMembers), "members":", ".join(unusedRaidMembers)},
                                  customIcon="warning")
 
     def resetInitializeDisk(self):
@@ -66,7 +66,7 @@ class Interface(object):
         rc = self.messageWindow(_("Error"),
                                 _("Cannot access the partition table of %(description)s(%(name)s) -- %(size)-0.fMB\n\n"
                                   "If there already exists a partition table on this device, "
-                                  "it willi\n be re-initialized and your existing data will be lost!\n\n"
+                                  "it will\n be re-initialized and your existing data will be lost!\n\n"
                                   "To re-initialize the current disk press Re-initialize.\n\n"
                                   "To re-initialize all disks with unaccessible partition tables press "
                                   "Re-initialize All")
@@ -127,8 +127,8 @@ class Interface(object):
                                   "the LVM metadata, or ignore which will preserve the "
                                   "contents.  This action may also be applied to all other "
                                   "PVs with inconsistent metadata.") % na, type="custom",
-                                customButtons = [_("Ignore"), _("Ignore _all"),
-                                                 _("Re-initialize"), _("Re-ini_tialize all") ],
+                                customButtons = [_("Ignore"), _("Ignore all"),
+                                                 _("Re-initialize"), _("Re-initialize all") ],
                 customIcon="question")
         if rc == 0:
             retVal = False

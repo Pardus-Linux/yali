@@ -107,7 +107,8 @@ class Widget(QWidget, ScreenWidget):
             package, event = qevent.data()
 
             if event == pisi.ui.installing:
-                self.ui.info.setText(_("Installing <b>%s</b><br>%s") % (package.name, package.summary))
+                self.ui.info.setText(_("Installing <b>%(name)s</b><br>%(summary)s") % {"name":package.name,
+                                                                                       "summary":package.summary)}
                 ctx.logger.debug("Pisi: %s installing" % package.name)
                 self.cur += 1
                 self.ui.progress.setValue(self.cur)

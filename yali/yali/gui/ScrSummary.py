@@ -104,10 +104,10 @@ class Widget(QWidget, ScreenWidget):
         if len(yali.users.PENDING_USERS) > 0:
             content.append(subject % _("User Settings"))
             for user in yali.users.PENDING_USERS:
-                state = _("User %s (<b>%s</b>) added.")
+                state = _("User %(username)s (<b>%(realname)s</b>) added.")
                 if "wheel" in user.groups:
-                    state = _("User %s (<b>%s</b>) added with <u>administrator privileges</u>.")
-                content.append(item % state % (user.realname, user.username))
+                    state = _("User %(username)s (<b>%(realname)s</b>) added with <u>administrator privileges</u>.")
+                content.append(item % state % {"username":user.realname, "realname":user.username})
             content.append(end)
 
         # HostName
