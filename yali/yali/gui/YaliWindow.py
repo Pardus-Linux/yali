@@ -50,7 +50,7 @@ class Widget(QWidget):
     def __init__(self):
         QWidget.__init__(self, None)
         # Set pixmaps resource before Main Window initialized
-        self._resource = os.path.join(ctx.consts.theme_dir, "%s/data.rcc" % ctx.flags.theme)
+        self._resource = os.path.join(ctx.consts.theme_dir, ctx.flags.theme, ctx.consts.pixmaps_resource_file)
         if os.path.exists(self._resource):
             resource = QResource()
             resource.registerResource(self._resource)
@@ -82,14 +82,14 @@ class Widget(QWidget):
 
 
         # set style
-        self._style = os.path.join(ctx.consts.theme_dir, "%s/style.qss" % ctx.flags.theme)
+        self._style = os.path.join(ctx.consts.theme_dir, ctx.flags.theme, ctx.consts.style_file)
         if os.path.exists(self._style):
             self.updateStyle()
         else:
             raise yali.Error, _("Style file doesn't exists")
 
         # set screens content
-        release_file = os.path.join(ctx.consts.branding_dir, "%s/release.xml" % ctx.flags.branding)
+        release_file = os.path.join(ctx.consts.branding_dir, ctx.flags.branding, ctx.consts.release_file)
         if os.path.exists(release_file):
             self.screens_content = yali.util.parse_branding_screens(release_file)
         else:
@@ -275,8 +275,14 @@ class Widget(QWidget):
             self.ui.mainStack.setCurrentIndex(index)
             widget = self.ui.mainStack.currentWidget()
             icon = self.screens_content[widget.name][0]
-            title = self.screens_content[widget.name][1][ctx.consts.lang]
-            help = self.screens_content[widget.name][2][ctx.consts.lang]
+            if self.screens_content[widget.name][1].has_key(ctx.consts.lang):
+                title = self.screens_content[widget.name][1][ctx.consts.lang]
+            else:
+                title = self.screens_content[widget.name][1]["en"]
+            if self.screens_content[widget.name][2].has_key(ctx.consts.lang):
+                help = self.screens_content[widget.name][2][ctx.consts.lang]
+            else:
+                help = self.screens_content[widget.name][2]["en"]
             self.ui.screenName.setText(title)
             self.ui.helpContent.setText(help)
             self.ui.screenIcon.setPixmap(QPixmap(":/gui/pics/%s.png" % (icon)))

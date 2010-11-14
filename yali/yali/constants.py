@@ -62,6 +62,10 @@ class Constants:
         self.__c.data_dir = "/usr/share/yali"
         self.__c.theme_dir = os.path.join(self.__c.data_dir, "theme")
         self.__c.branding_dir = os.path.join(self.__c.data_dir, "branding")
+        self.__c.slideshows_dir = "slideshow"
+        self.__c.release_file = "release.xml"
+        self.__c.style_file = "style.qss"
+        self.__c.pixmaps_resource_file = "data.rcc"
         self.__c.log_dir = "/var/log"
         self.__c.log_file = "yali.log"
         self.__c.target_dir = "/mnt/target"
@@ -69,7 +73,6 @@ class Constants:
         self.__c.source_dir = "/mnt/cdrom"
         self.__c.tmp_mnt_dir = "/tmp/check"
         self.__c.dbus_socket = os.path.join(self.__c.target_dir,"var/run/dbus/system_bus_socket")
-        self.__c.slidepics_dir = os.path.join(self.__c.data_dir, "slideshow")
         self.__c.repo_uri = os.path.join(self.__c.source_dir, "repo/pisi-index.xml.bz2")
         self.__c.pisi_collection_file = os.path.join(self.__c.data_dir, "data/index/collection.xml")
         self.__c.pisi_collection_dir = os.path.join(self.__c.data_dir, "data/index")
