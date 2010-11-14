@@ -66,7 +66,7 @@ class Interface(object):
         rc = self.messageWindow(_("Error"),
                                 _("Cannot access the partition table of %(description)s(%(name)s) -- %(size)-0.fMB\n\n"
                                   "If there already exists a partition table on this device, "
-                                  "it willi\n be re-initialized and <b>your existing data will be lost!</b>\n\n"
+                                  "it willi\n be re-initialized and your existing data will be lost!\n\n"
                                   "To re-initialize the current disk press Re-initialize.\n\n"
                                   "To re-initialize all disks with unaccessible partition tables press "
                                   "Re-initialize All")
