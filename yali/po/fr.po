@@ -34,7 +34,7 @@ msgstr "Attention"
 #: yali/gui/interface.py:42
 #, python-format
 msgid "Disk contains %(members_count)s BIOS RAID metadata, but is not part of any recognized BIOS RAID sets. Ignoring disk %(members)s.)"
-msgstr ""
+msgstr "Le disque contient %(members_count)s  métadonnées RAID BIOS, mais ne fait pas partie d'un ensemble RAID BIOS reconnu. On ignorera le disque %(members)s"
 
 #: yali/gui/interface.py:66 yali/gui/raid_gui.py:122
 #: yali/gui/ScrDriveSelection.py:112
