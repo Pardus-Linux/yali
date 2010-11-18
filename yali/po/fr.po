@@ -978,7 +978,7 @@ msgstr ""
 
 #: yali/gui/ScrSummary.py:201
 msgid "Write Changes to Disk"
-msgstr ""
+msgstr "Écrire les modifications sur le disque"
 
 #: yali/gui/ScrSummary.py:201
 msgid "Go Back"
@@ -1026,12 +1026,11 @@ msgstr "Ajouter"
 
 #: yali/gui/ScrWelcome.py:77
 msgid "License text could not be found."
-msgstr ""
+msgstr "Texte de la licence introuvable."
 
 #: yali/gui/shrink_gui.py:23
-#, fuzzy
 msgid "Partitions to Shrink"
-msgstr "Configuration des partitions"
+msgstr "Partitions à réduire"
 
 #: yali/gui/shrink_gui.py:47
 #, fuzzy
@@ -1041,7 +1040,7 @@ msgstr "Erreur de système de fichiers :"
 #: yali/gui/shrink_gui.py:48
 #, python-format
 msgid "%(device)s: %(msg)s"
-msgstr ""
+msgstr "%(device)s : %(msg)s"
 
 #: yali/gui/shrink_gui.py:56
 msgid "Resize Device Error"
@@ -1050,7 +1049,7 @@ msgstr ""
 #: yali/gui/shrink_gui.py:57
 #, python-format
 msgid "%(name)s: %(msg)s"
-msgstr ""
+msgstr "%(name)s : %(msg)s"
 
 #: yali/gui/storageGuiHelpers.py:71
 msgid ""
@@ -1064,16 +1063,14 @@ msgid "<Not Applicable>"
 msgstr ""
 
 #: yali/gui/storageGuiHelpers.py:451
-#, fuzzy
 msgid "Format as :"
-msgstr "Formatage :"
+msgstr "Formatage en :"
 
 #: yali/gui/storageGuiHelpers.py:471
 msgid "Migrate filesystem To :"
 msgstr ""
 
 #: yali/gui/storageGuiHelpers.py:495
-#, fuzzy
 msgid "Resize :"
 msgstr "Redimensionner"
 
