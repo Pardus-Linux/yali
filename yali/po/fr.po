@@ -847,9 +847,8 @@ msgid "Installation starts in <b>%s</b> seconds"
 msgstr "L'installation débutera dans <b>%s secondes</b>"
 
 #: yali/gui/ScrSummary.py:71
-#, fuzzy
 msgid "Start Installation"
-msgstr "Installation automatique"
+msgstr "Commencer l'installation"
 
 #: yali/gui/ScrSummary.py:89
 msgid "Keyboard Settings"
@@ -874,14 +873,14 @@ msgid "User Settings"
 msgstr "Configuration des utilisateurs"
 
 #: yali/gui/ScrSummary.py:107
-#, fuzzy, python-format
+#, python-format
 msgid "User %(username)s (<b>%(realname)s</b>) added."
-msgstr "L'utilisateur %s (<b>%s</b>) est ajouté."
+msgstr "Ajout de l'utilisateur %(username)s (<b>%(realname)s</b>)."
 
 #: yali/gui/ScrSummary.py:109
-#, fuzzy, python-format
+#, python-format
 msgid "User %(username)s (<b>%(realname)s</b>) added with <u>administrator privileges</u>."
-msgstr "L'utilisateur %s (<b>%s</b>) est ajouté avec des <u>droits de l'administrateur</u>."
+msgstr "Ajout de l'utilisateur %(username)s (<b>%(realname)s</b>) avec des <u>droits d'administrateur</u>."
 
 #: yali/gui/ScrSummary.py:115
 msgid "Hostname Settings"
@@ -901,9 +900,8 @@ msgid "Automatic Partitioning selected."
 msgstr "Partitionnement automatique sélectionné."
 
 #: yali/gui/ScrSummary.py:132
-#, fuzzy
 msgid "Use All Space"
-msgstr "Espace Disponible"
+msgstr "Utiliser tout l'espace"
 
 #: yali/gui/ScrSummary.py:133
 #, python-format
