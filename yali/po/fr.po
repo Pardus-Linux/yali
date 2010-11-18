@@ -79,7 +79,7 @@ msgstr "Re-initialiser"
 msgid ""
 "Error processing LVM.\n"
 "There is inconsistent LVM data on %(msg)s.  You can reinitialize all related PVs (%(pvs)s) which will erase the LVM metadata, or ignore which will preserve the contents.  This action may also be applied to all other PVs with inconsistent metadata."
-msgstr ""
+msgstr "Il y a des données LVM inconsistantes dans %(msg)s. Vous pouvez réinitialiser tous les volumes physiques liés (%(pvs)s), ce qui effacera les métadonnées LVM, ou choisir d'ignorer, ce qui permettra d'en préserver le contenu. Cette action peut également être appliquée à tous les autres volumes physiques avec des métadonnées incohérentes."
 
 #: yali/gui/interface.py:130
 msgid "Ignore all"
