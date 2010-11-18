@@ -100,6 +100,10 @@ msgid ""
 "Create a partition or RAID array of type \"physical volume\n"
 "(LVM)\" and then select the \"LVM\" option again."
 msgstr ""
+"Au moins une partition non utilisée de volume physique est nécessaire pour \n"
+"créer un groupe de volume LVM. \n"
+"Créez une partition ou une chaîne RAID de type \"volume physique\n"
+"(LVM)\", puis sélectionnez à nouveau l'option \"LVM\"."
 
 #: yali/gui/lvm_gui.py:62
 msgid "Make LVM Volume Group"
@@ -140,10 +144,12 @@ msgid ""
 "logical volumes will be increased to more than the\n"
 "available space."
 msgstr ""
+"La taille de l'étendue physique ne peut être changée parce que\n"
+"sinon l'espace requis par les volumes logiques choisis excéderait l'espace disponible."
 
 #: yali/gui/lvm_gui.py:414
 msgid "Confirm Physical Extent Change"
-msgstr ""
+msgstr "Confirmer le changement d'étendue physique"
 
 #: yali/gui/lvm_gui.py:415
 msgid ""
