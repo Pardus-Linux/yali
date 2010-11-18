@@ -201,12 +201,12 @@ msgstr "Trop petit"
 
 #: yali/gui/lvm_gui.py:462
 msgid "This change in the value of the physical extent will waste substantial space on one or more of the physical volumes in the volume group."
-msgstr ""
+msgstr "Ce changement dans la valeur de l'étendue physique gâchera beaucoup d'espace sur un ou plusieurs des volumes physiques du groupe de volumes."
 
 #: yali/gui/lvm_gui.py:484
 #, python-format
 msgid "The physical extent size cannot be changed because the resulting maximum logical volume size (%10.2f MB) is smaller than one or more of theircurrently defined logical volumes."
-msgstr ""
+msgstr "La taille de l'étendue physique ne peut être changée parce que la taille maximale résultante du volume logique (%10.2f Mo) est plus petite que un ou plusieurs des volumes logiques actuels."
 
 #: yali/gui/lvm_gui.py:505
 msgid "No free slots"
