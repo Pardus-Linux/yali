@@ -186,6 +186,9 @@ msgid ""
 "the value selected (%(curpe)10.2f MB) is larger than the\n"
 "smallest physical volume (%(maxpvsize)10.2f MB) in the volume group."
 msgstr ""
+"La taille de l'étendue physique ne peut être changée parce que\n"
+"la valeur choisie (%(curpe)10.2f Mo) est supérieure au \n"
+"plus petit volume physique (%(maxpvsize)10.2f Mo) dans le groupe de volumes."
 
 #: yali/gui/lvm_gui.py:449
 #, python-format
