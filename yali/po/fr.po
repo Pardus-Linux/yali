@@ -193,7 +193,7 @@ msgstr ""
 #: yali/gui/lvm_gui.py:449
 #, python-format
 msgid "The physical extent size cannot be changed because the value selected (%(curpe)10.2f MB) is too large compared to the size of the smallest physical volume (%(maxpvsize)10.2f MB) in the volume group."
-msgstr ""
+msgstr "La taille de l'étendue physique ne peut être changée parce que la valeur choisie (%(curpe)10.2f Mo) est trop grande par rapport à la taille du plus petit volume physique (%(maxpvsize)10.2f Mo) dans le groupe de volumes."
 
 #: yali/gui/lvm_gui.py:461
 msgid "Too small"
