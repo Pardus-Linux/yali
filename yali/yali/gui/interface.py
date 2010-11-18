@@ -40,7 +40,7 @@ class Interface(object):
             unusedRaidMembers.sort()
             self.messageWindow(_("Warning"),
                                _("Disk contains %(members_count)s BIOS RAID metadata, but is not part of "
-                                 "any recognized BIOS RAID sets. Ignoring disk %(members)s.)"
+                                 "any recognized BIOS RAID sets. Ignoring disk %(members)s.")
                                  % {"members_count":len(unusedRaidMembers), "members":", ".join(unusedRaidMembers)},
                                  customIcon="warning")
 
