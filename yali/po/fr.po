@@ -1035,9 +1035,8 @@ msgid "Partitions to Shrink"
 msgstr "Partitions à réduire"
 
 #: yali/gui/shrink_gui.py:47
-#, fuzzy
 msgid "Resize FileSystem Error"
-msgstr "Erreur de système de fichiers :"
+msgstr "Erreur de redimensionnement du système de fichiers"
 
 #: yali/gui/shrink_gui.py:48
 #, python-format
@@ -1046,7 +1045,7 @@ msgstr "%(device)s : %(msg)s"
 
 #: yali/gui/shrink_gui.py:56
 msgid "Resize Device Error"
-msgstr ""
+msgstr "Erreur de redimensionnement du périphérique"
 
 #: yali/gui/shrink_gui.py:57
 #, python-format
@@ -1059,6 +1058,8 @@ msgid ""
 "otherwise the volume group will be too small to\n"
 "hold the currently defined logical volumes."
 msgstr ""
+"Vous ne pouvez pas supprimer ce volume physique parce que\\sinon le groupe de volumes sera trop petite pour \n"
+"contenir les volumes logiques actuels."
 
 #: yali/gui/storageGuiHelpers.py:188
 msgid "<Not Applicable>"
