@@ -157,7 +157,7 @@ msgstr "Annuler"
 #: yali/gui/lvm_gui.py:421 yali/gui/lvm_gui.py:468
 #: yali/gui/ScrPartitionManual.py:358
 msgid "Continue"
-msgstr ""
+msgstr "Continuer"
 
 #: yali/gui/lvm_gui.py:436
 #, python-format
@@ -174,7 +174,7 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:461
 msgid "Too small"
-msgstr ""
+msgstr "Trop petit"
 
 #: yali/gui/lvm_gui.py:462
 msgid "This change in the value of the physical extent will waste substantial space on one or more of the physical volumes in the volume group."
@@ -186,8 +186,9 @@ msgid "The physical extent size cannot be changed because the resulting maximum 
 msgstr ""
 
 #: yali/gui/lvm_gui.py:505
+#, fuzzy
 msgid "No free slots"
-msgstr ""
+msgstr "Aucun slot libre"
 
 #: yali/gui/lvm_gui.py:506
 #, python-format
@@ -195,11 +196,12 @@ msgid ""
 "You cannot create more than %d logical volume \n"
 "per volume group."
 msgstr ""
+"Vous ne pouvez pas créer plus de %d groupes de volume logique \n"
+"par groupe de volume."
 
 #: yali/gui/lvm_gui.py:512
-#, fuzzy
 msgid "No free space"
-msgstr "espace libre"
+msgstr "Pas d'espace libre"
 
 #: yali/gui/lvm_gui.py:513
 msgid ""
