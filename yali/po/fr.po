@@ -439,97 +439,83 @@ msgstr "Configuration des paramètres horaires..."
 
 #: yali/gui/ScrDriveSelection.py:113
 msgid "You must select at least one drive to be used for installation."
-msgstr ""
+msgstr "Vous devez sélectionner au moins un lecteur pour être utilisé pour l'installation."
 
 #: yali/gui/ScrGoodbye.py:37
-#, fuzzy
 msgid "Running post-install operations..."
-msgstr "Exécution des opérations post install est en cours.."
+msgstr "Exécution des opérations de post-installation..."
 
 #: yali/gui/ScrGoodbye.py:53
-#, fuzzy
 msgid "Press <b>Restart</b> to restart the computer."
-msgstr "Cliquez le bouton <b>Redémarrer</b> pour redémarrer le système."
+msgstr "Appuyez sur <b>Redémarrer</b> pour redémarrer l'ordinateur."
 
 #: yali/gui/ScrGoodbye.py:53 yali/gui/ScrRescueFinish.py:78
 #: yali/gui/ScrSummary.py:45
 msgid "Restart"
-msgstr ""
+msgstr "Redémarrez"
 
 #: yali/gui/ScrGoodbye.py:55 yali/gui/ScrRescueFinish.py:80
 msgid "<b>Please wait while restarting...</b>"
-msgstr ""
+msgstr "<b>Veuillez patienter pendant le redémarrage...</b>"
 
 #: yali/gui/ScrGoodbye.py:70 yali/gui/ScrRescuePassword.py:45
 #: yali/gui/ScrRescuePisi.py:38
-#, fuzzy
 msgid "Connecting to D-Bus..."
-msgstr "Statut de la connexion :"
+msgstr "Connexion à D-Bus..."
 
 #: yali/gui/ScrGoodbye.py:72
-#, fuzzy
 msgid "Setting hostname..."
 msgstr "Établissement du nom d'hôte..."
 
 #: yali/gui/ScrGoodbye.py:73
-#, fuzzy
 msgid "Setting root password..."
 msgstr "Établissement du mot de passe root..."
 
 #: yali/gui/ScrGoodbye.py:75
-#, fuzzy
 msgid "Setting timezone..."
 msgstr "Établissement du fuseau horaire..."
 
 #: yali/gui/ScrGoodbye.py:76
-#, fuzzy
 msgid "Migrating Xorg configuration..."
 msgstr "Migration de la configuration de X.org..."
 
 #: yali/gui/ScrGoodbye.py:77
-#, fuzzy
 msgid "Setting console keymap..."
-msgstr "Écriture de l'information de console..."
+msgstr "Configuration du clavier pour la console..."
 
 #: yali/gui/ScrGoodbye.py:78
-#, fuzzy
 msgid "Copying repository index..."
 msgstr "Copie de l'index de Pisi..."
 
 #: yali/gui/ScrGoodbye.py:79
-#, fuzzy
 msgid "Setup bootloader..."
-msgstr "Vous pouvez réparer votre chargeur de démarrage..."
+msgstr "Configuration du chargeur de démarrage..."
 
 #: yali/gui/ScrGoodbye.py:80
-#, fuzzy
 msgid "Writing bootloader..."
-msgstr "Installation du chargeur de démarrage..."
+msgstr "Écriture du chargeur de démarrage..."
 
 #: yali/gui/ScrGoodbye.py:81
-#, fuzzy
 msgid "Stopping to D-Bus..."
-msgstr "Démarrage de DBUS..."
+msgstr "Arrêt de D-Bus..."
 
 #: yali/gui/ScrGoodbye.py:85 yali/gui/ScrRescueFinish.py:55
-#, fuzzy
 msgid "Installing Bootloader..."
 msgstr "Installation du chargeur de démarrage..."
 
 #: yali/gui/ScrGoodbye.py:88
-#, fuzzy
 msgid "Adding users..."
 msgstr "Ajout des utilisateurs..."
 
 #: yali/gui/ScrInstall.py:110
-#, fuzzy, python-format
+#, python-format
 msgid "Installing <b>%(name)s</b><br>%(summary)s"
-msgstr "Installation de : <b>%s</b><br>%s"
+msgstr "Installation <b>de %(name)s</b><br>%(summary)s "
 
 #: yali/gui/ScrInstall.py:116
-#, fuzzy, python-format
+#, python-format
 msgid "Configuring <b>%s</b>"
-msgstr "Configuration du paquet : <b>%s</b>"
+msgstr "Configuration de : <b>%s</b>"
 
 #: yali/gui/ScrInstall.py:140
 #, python-format
@@ -537,6 +523,8 @@ msgid ""
 "Following error occured while installing packages:\n"
 "<b>%s</b>"
 msgstr ""
+"L'erreur suivante s'est produite lors de l'installation des paquets :\n"
+"<b>%s</b>"
 
 #: yali/gui/ScrInstall.py:141
 #, fuzzy
