@@ -948,14 +948,13 @@ msgid "Package Installation Settings"
 msgstr "Paramètres d'installation des paquets"
 
 #: yali/gui/ScrSummary.py:170
-#, fuzzy
 msgid "Auto installation selected."
-msgstr "Auto installation de la collection sélectionnée."
+msgstr "installation automatique sélectionnée."
 
 #: yali/gui/ScrSummary.py:172
-#, fuzzy, python-format
+#, python-format
 msgid "Manual Installation ( %s ) selected"
-msgstr "Installation manuelle de la collection %s sélectionnée."
+msgstr "Installation manuelle ( %s ) sélectionnée"
 
 #: yali/gui/ScrSummary.py:176
 msgid "Default Kernel selected"
@@ -967,7 +966,7 @@ msgstr "Noyau PAE sélectionné"
 
 #: yali/gui/ScrSummary.py:195
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmer"
 
 #: yali/gui/ScrSummary.py:196
 msgid ""
@@ -975,6 +974,9 @@ msgid ""
 "written to disk.  Any data on deleted or reformatted partitions\n"
 "will be lost."
 msgstr ""
+"Les options de partitionnement que vous avez sélectionnées vont maintenant \n"
+"être écrites sur le disque. Toutes les données sur des partitions effacées ou reformatées\n"
+"seront perdues."
 
 #: yali/gui/ScrSummary.py:201
 msgid "Write Changes to Disk"
