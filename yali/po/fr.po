@@ -228,82 +228,81 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:583
 msgid "Make Logical Volume"
-msgstr ""
+msgstr "Créer le volume logique"
 
 #: yali/gui/lvm_gui.py:585
 #, python-format
 msgid "Edit Logical Volume: %s"
-msgstr ""
+msgstr "Modifier le volume logique : %s"
 
 #: yali/gui/lvm_gui.py:614 yali/gui/partition_gui.py:65
 #: yali/gui/raid_gui.py:79
 msgid "Mount Point Error"
-msgstr ""
+msgstr "Erreur de point de montage"
 
 #: yali/gui/lvm_gui.py:638 yali/gui/partition_gui.py:80
 #: yali/gui/raid_gui.py:94
 msgid "Mount point in use"
-msgstr ""
+msgstr "Point de montage utilisé"
 
 #: yali/gui/lvm_gui.py:639 yali/gui/partition_gui.py:81
 #: yali/gui/raid_gui.py:95
 #, python-format
 msgid "The mount point \"%s\" is in use. Please pick another."
-msgstr ""
+msgstr "Le point de montage \"%s\" est utilisé. Merci d'en choisir un autre."
 
 #: yali/gui/lvm_gui.py:649
 msgid "Illegal Logical Volume Name"
-msgstr ""
+msgstr "Nom de volume logique non autorisé"
 
 #: yali/gui/lvm_gui.py:661
 msgid "Illegal logical volume name"
-msgstr ""
+msgstr "Nom de volume logique non autorisé"
 
 #: yali/gui/lvm_gui.py:662
 #, python-format
 msgid "The logical volume name \"%s\" is already in use. Please pick another."
-msgstr ""
+msgstr "Le nom du volume logique \"%s\" est déjà utilisé. Merci d'en choisir un autre."
 
 #: yali/gui/lvm_gui.py:676
 msgid "Illegal size"
-msgstr ""
+msgstr "Taille non autorisée"
 
 #: yali/gui/lvm_gui.py:677
 msgid "The requested size as entered is not a valid number greater than 0."
-msgstr ""
+msgstr "La taille demandée n'est pas un nombre valide supérieur à 0."
 
 #: yali/gui/lvm_gui.py:690
 #, python-format
 msgid "The current requested size (%(size)10.2f MB) is larger than the maximum logical volume size (%(maxlv)10.2f MB). To increase this limit you can create more Physical Volumes from unpartitioned disk space and add them to this Volume Group."
-msgstr ""
+msgstr "La taille actuelle demandée (%(size)10.2f Mo) est plus grande que la taille du volume logique maximum (%(maxlv)10.2f Mo). Pour augmenter cette limite, vous pouvez créer plus de volumes physiques à partir de l'espace disque non partitionné et les ajouter à ce groupe de volume."
 
 #: yali/gui/lvm_gui.py:712
 #, python-format
 msgid "The size entered for this logical volume (%(size)d MB) combined with the size of the other logical volume(s) exceeds the size of the volume group (%(tmpvgsize)d MB). Please make the volume group larger or make the logical volume smaller."
-msgstr ""
+msgstr "La taille choisie pour ce volume logique (%(size)d Mo) combinée à la taille de l'autre volume logique dépasse la taille du groupe de volume (%(tmpvgsize)d Mo). Merci d'agrandir le groupe de volume ou de rétrécir le volume logique."
 
 #: yali/gui/partition_gui.py:34
-#, fuzzy, python-format
+#, python-format
 msgid "Create Partition on %(path)s (%(model)s)"
-msgstr "Supprimer la partition"
+msgstr "Créer une partition sur %(path)s  (%(model)s)"
 
 #: yali/gui/partition_gui.py:38
-#, fuzzy, python-format
+#, python-format
 msgid "Edit Partition %s"
-msgstr "Partition %d"
+msgstr "Modifier la partition %s"
 
 #: yali/gui/partition_gui.py:40
-#, fuzzy
 msgid "Edit Partition"
-msgstr "Supprimer la partition"
+msgstr "Modifier la partition"
 
 #: yali/gui/partition_gui.py:104
 msgid "Error With Request"
-msgstr ""
+msgstr "Erreur avec la demande"
 
 #: yali/gui/raid_gui.py:30
 msgid "Invalid Raid Members"
-msgstr ""
+msgstr "Membres du Raid invalides"
 
 #: yali/gui/raid_gui.py:31
 msgid ""
@@ -311,15 +310,18 @@ msgid ""
 "\n"
 "First create at least two partitions of type \"software RAID\", and then select the \"RAID\" option again."
 msgstr ""
+"Au moins deux partitions RAID logicielles inutilisées sont nécessaires pour créer un périphérique RAID. \n"
+"\n"
+"D'abord, créez au moins deux partitions de type \"RAID logiciel \", puis sélectionnez l'option \"RAID\" à nouveau."
 
 #: yali/gui/raid_gui.py:41
 msgid "Make RAID Device"
-msgstr ""
+msgstr "Créer un périphérique RAID"
 
 #: yali/gui/raid_gui.py:44
 #, python-format
 msgid "Edit RAID Device: %s"
-msgstr ""
+msgstr "Modifier le périphérique RAID : %s"
 
 #: yali/gui/raid_gui.py:46
 msgid "Edit RAID Device"
