@@ -918,7 +918,6 @@ msgid "Removes all Linux partitions on the selected%s device(s). This does not r
 msgstr ""
 
 #: yali/gui/ScrSummary.py:143
-#, fuzzy
 msgid "Use Free Space"
 msgstr "Espace Disponible"
 
@@ -982,49 +981,40 @@ msgid "Write Changes to Disk"
 msgstr ""
 
 #: yali/gui/ScrSummary.py:201
-#, fuzzy
 msgid "Go Back"
 msgstr "Retour"
 
 #: yali/gui/ScrUsers.py:129 yali/gui/ScrUsers.py:353
-#, fuzzy
 msgid "Update"
-msgstr "Mettre à jour l'utilisateur"
+msgstr "Mise à jour"
 
 #: yali/gui/ScrUsers.py:205
-#, fuzzy
 msgid "Don't use your user name or name as a password"
-msgstr "<font color=\"#FF6D19\">N'utilisez pas votre nom d'utilisateur ou nom propre comme mot de passe.</font>"
+msgstr "Ne pas utiliser votre nom d'utilisateur ou un mot de passe"
 
 #: yali/gui/ScrUsers.py:208
-#, fuzzy
 msgid "Passwords do not match"
-msgstr "<font color=\"#FF6D19\">Les mots de passe ne sont pas identiques !</font>"
+msgstr "Les mots de passe ne correspondent pas"
 
 #: yali/gui/ScrUsers.py:211
-#, fuzzy
 msgid "Password is too short"
-msgstr "<font color=\"#FF6D19\">Le mot de passe est trop court !</font>"
+msgstr "Mot de passe trop court"
 
 #: yali/gui/ScrUsers.py:258
-#, fuzzy
 msgid "This user name is already taken, please choose another one."
 msgstr "Cet utilisateur existe déjà, choisissez-en un autre !"
 
 #: yali/gui/ScrUsers.py:262
-#, fuzzy
 msgid "The user name contains invalid characters."
-msgstr "Le nom de l'utilisateur contient des caractères invalides !"
+msgstr "Le nom d'utilisateur contient des caractères invalides !"
 
 #: yali/gui/ScrUsers.py:265
-#, fuzzy
 msgid "The real name contains invalid characters."
 msgstr "Le nom réel contient des caractères invalides !"
 
 #: yali/gui/ScrUsers.py:268
-#, fuzzy
 msgid "The password contains invalid characters."
-msgstr "Le nom de l'utilisateur contient des caractères invalides !"
+msgstr "Le mot de passe contient des caractères invalides."
 
 #: yali/gui/ScrUsers.py:276
 msgid "User ID used before, choose another one!"
@@ -1032,7 +1022,7 @@ msgstr "Identifiant utilisateur déjà pris, choisissez-en un autre !"
 
 #: yali/gui/ScrUsers.py:281 yali/gui/ScrUsers.py:323 yali/gui/ScrUsers.py:401
 msgid "Add"
-msgstr ""
+msgstr "Ajouter"
 
 #: yali/gui/ScrWelcome.py:77
 msgid "License text could not be found."
