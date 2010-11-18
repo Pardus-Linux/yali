@@ -338,7 +338,6 @@ msgid "Edit RAID Device"
 msgstr "Modifier le périphérique RAID"
 
 #: yali/gui/runner.py:105
-#, fuzzy
 msgid "Error!"
 msgstr "Erreur !"
 
@@ -349,14 +348,17 @@ msgid ""
 "\n"
 "className = %s.Widget"
 msgstr ""
+"Une erreur s'est produite lorsque vous tentez de charger un composant de l'interface de l'installeur.\n"
+"\n"
+"className = %s.Widget"
 
 #: yali/gui/runner.py:110
 msgid "Exit"
-msgstr ""
+msgstr "Sortir"
 
 #: yali/gui/runner.py:110
 msgid "Retry"
-msgstr ""
+msgstr "Réessayer"
 
 #: yali/gui/ScrAdmin.py:121 yali/gui/ScrRescuePassword.py:96
 msgid "Password is too short."
@@ -387,39 +389,36 @@ msgid "Validate"
 msgstr "Valider"
 
 #: yali/gui/ScrCheckCD.py:66
-#, fuzzy
 msgid "Starting validation..."
-msgstr "Établissement du fuseau horaire..."
+msgstr "Début de la validation..."
 
 #: yali/gui/ScrCheckCD.py:85
 #, python-format
 msgid "Validating %s"
-msgstr ""
+msgstr "Validation de %s"
 
 #: yali/gui/ScrCheckCD.py:93
 #, python-format
 msgid "Validation of %s package failed.Please remaster your installation medium andreboot."
-msgstr ""
+msgstr "Échec de la validation du paquet %s. Merci de refaire votre DVD d'installation et de redémarrer."
 
 #: yali/gui/ScrCheckCD.py:97
 msgid "Skip Validation"
-msgstr ""
+msgstr "Shunter la validation"
 
 #: yali/gui/ScrCheckCD.py:97
 msgid "Skip Package"
-msgstr ""
+msgstr "Shunter le paquet"
 
 #: yali/gui/ScrCheckCD.py:97
 msgid "Reboot"
 msgstr "Redémarrer"
 
 #: yali/gui/ScrCheckCD.py:112
-#, fuzzy
 msgid "<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the installation.</b></font>"
-msgstr "<font color=\"#FFF\"><b>La vérification s'est terminée avec succès. Vous pouvez passer à l'écran suivant.</b></font>"
+msgstr "<b><font color=\"#FFF\">Validation réussie. Vous pouvez procéder à l'installation.</font></b>"
 
 #: yali/gui/ScrDateTime.py:90
-#, fuzzy
 msgid "Adjusting time settings"
 msgstr "Configuration des paramètres horaires..."
 
