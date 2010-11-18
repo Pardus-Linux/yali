@@ -738,19 +738,19 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Vous ne pouvez pas modifier ce périphérique :\n"
+"\n"
+"%s"
 
 #: yali/gui/ScrRescueFinish.py:58
-#, fuzzy
 msgid "Taking back operation..."
-msgstr "Reprise de l'opération de PiSi..."
+msgstr "Reprise de l'opération..."
 
 #: yali/gui/ScrRescueFinish.py:61
-#, fuzzy
 msgid "Running rescue operations..."
 msgstr "Opérations de secours en cours..."
 
 #: yali/gui/ScrRescueFinish.py:78
-#, fuzzy
 msgid "Press <b>Restart</b> to restart your system."
 msgstr "Cliquez le bouton <b>Redémarrer</b> pour redémarrer le système."
 
@@ -760,65 +760,58 @@ msgid "%s (Boot Disk)"
 msgstr "%s (disque d'amorçage)"
 
 #: yali/gui/ScrRescuePassword.py:39
-#, fuzzy
 msgid "Caps Lock is on."
 msgstr "Majuscules verrouillées sur votre clavier !"
 
 #: yali/gui/ScrRescuePassword.py:44 yali/gui/ScrRescuePisi.py:37
-#, fuzzy
 msgid "Starting D-Bus..."
 msgstr "Démarrage de DBUS..."
 
 #: yali/gui/ScrRescuePassword.py:46
-#, fuzzy
 msgid "Acquiring users..."
-msgstr "Ajout des utilisateurs..."
+msgstr "Acquisition des utilisateurs..."
 
 #: yali/gui/ScrRescuePassword.py:79
 msgid "The password has been successfully reset."
-msgstr ""
+msgstr "Le mot de passe a été réinitialisé avec succès."
 
 #: yali/gui/ScrRescuePassword.py:79
 msgid "Info"
 msgstr "Info"
 
 #: yali/gui/ScrRescuePassword.py:90
-#, fuzzy
 msgid "Do not use your username or real name as your password."
-msgstr "<font color=\"#FF6D19\">N'utilisez pas votre nom d'utilisateur ou nom propre comme mot de passe.</font>"
+msgstr "Ne pas utiliser votre nom d'utilisateur ou votre vrai nom comme mot de passe."
 
 #: yali/gui/ScrRescuePassword.py:93
-#, fuzzy
 msgid "The passwords do not match."
-msgstr "<font color=\"#FF6D19\">Les mots de passe ne sont pas identiques !</font>"
+msgstr "Les mots de passe ne correspondent pas."
 
 #: yali/gui/ScrRescuePassword.py:107 yali/gui/ScrRescuePisi.py:69
 msgid "Please Wait..."
-msgstr ""
+msgstr "Veuillez patienter..."
 
 #: yali/gui/ScrRescuePassword.py:130
 msgid "Super User"
 msgstr "Administrateur (root)"
 
 #: yali/gui/ScrRescuePisi.py:39
-#, fuzzy
 msgid "Fetching history..."
 msgstr "Obtention de l'historique..."
 
 #: yali/gui/ScrRescuePisi.py:75
-#, fuzzy
 msgid "No connection available"
-msgstr "Échec de la connexion"
+msgstr "Aucune connexion disponible"
 
 #: yali/gui/ScrRescuePisi.py:116
-#, fuzzy, python-format
+#, python-format
 msgid "Operation %(no)s : %(date)s - %(type)s"
-msgstr "Opération %s : %s - %s"
+msgstr "Opération %(no)s : %(date)s - %(type)s"
 
 #: yali/gui/ScrRescuePisi.py:170
-#, fuzzy, python-format
+#, python-format
 msgid "Connecting to network %s..."
-msgstr "Connexion au réseau <b>%s</b> ..."
+msgstr "Connexion au réseau %s..."
 
 #: yali/gui/ScrRescuePisi.py:176 yali/gui/ScrRescuePisi.py:177
 msgid "Connection failed"
@@ -829,32 +822,29 @@ msgid "Connected"
 msgstr "Connecté"
 
 #: yali/gui/ScrRescue.py:94
-#, fuzzy
 msgid "Mounting disk partition..."
-msgstr "Montage de la partition sélectionnée..."
+msgstr "Montage de la partition de disque..."
 
 #: yali/gui/ScrRescue.py:106
-#, fuzzy
 msgid "YALI could not locate a suitable disk partition on this computer."
-msgstr "Yali n'a pas pu trouver de partition convenable sur votre système."
+msgstr "YALI n'a pas pu trouver de partition convenable sur votre système."
 
 #: yali/gui/ScrRescue.py:123
-#, fuzzy
 msgid "Please select a disk partition from the list below:"
-msgstr "Choisissez une partition dans la liste"
+msgstr "Choisissez une partition dans la liste :"
 
 #: yali/gui/ScrSummary.py:46
 msgid "<b><p>Are you sure you want to restart the computer?</p></b>"
-msgstr ""
+msgstr "<b><p>Êtes-vous sûr de vouloir redémarrer l'ordinateur ?</p></b>"
 
 #: yali/gui/ScrSummary.py:57 yali/gui/ScrSummary.py:212
 msgid "Next"
 msgstr "Suivant"
 
 #: yali/gui/ScrSummary.py:64
-#, fuzzy, python-format
+#, python-format
 msgid "Installation starts in <b>%s</b> seconds"
-msgstr "L'installation dans <b>%s secondes</b>"
+msgstr "L'installation débutera dans <b>%s secondes</b>"
 
 #: yali/gui/ScrSummary.py:71
 #, fuzzy
