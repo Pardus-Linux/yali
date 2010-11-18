@@ -651,89 +651,85 @@ msgstr "Groupe de volume"
 
 #: yali/gui/ScrPartitionManual.py:158
 msgid "Requires at least 1 free LVM formatted partition"
-msgstr ""
+msgstr "Nécessite au moins une partition formatée LVM libre"
 
 #: yali/gui/ScrPartitionManual.py:160
 msgid "Logical Volume"
-msgstr ""
+msgstr "Volume logique"
 
 #: yali/gui/ScrPartitionManual.py:161
 msgid "Create Logical Volume on selected Volume Group"
-msgstr ""
+msgstr "Créer un volume logique sur le volume de groupe sélectionné"
 
 #: yali/gui/ScrPartitionManual.py:163
 msgid "Member"
-msgstr ""
+msgstr "Membre"
 
 #: yali/gui/ScrPartitionManual.py:164
-#, fuzzy
 msgid "Create Raid formatted partition"
-msgstr "Oui, formater cette partition"
+msgstr "Créer une partition formatée Raid"
 
 #: yali/gui/ScrPartitionManual.py:166
 msgid "Array"
-msgstr ""
+msgstr "Chaîne"
 
 #: yali/gui/ScrPartitionManual.py:167
 msgid "Requires at least 2 free Raid formatted partition"
-msgstr ""
+msgstr "Nécessite au moins deux partition formatées Raid"
 
 #: yali/gui/ScrPartitionManual.py:228
 msgid "Volume Groups"
-msgstr ""
+msgstr "Groupes de volumes"
 
 #: yali/gui/ScrPartitionManual.py:240 yali/gui/ScrPartitionManual.py:313
 msgid "Free"
-msgstr ""
+msgstr "Disponible"
 
 #: yali/gui/ScrPartitionManual.py:249
 msgid "Raid Arrays"
-msgstr ""
+msgstr "Chaînes RAID"
 
 #: yali/gui/ScrPartitionManual.py:263
 msgid "Hard Drives"
-msgstr ""
+msgstr "Disques durs"
 
 #: yali/gui/ScrPartitionManual.py:290
 msgid "Can't handle more than one extended partition per disk"
-msgstr ""
+msgstr "Ne peut pas gérer plus d'une partition étendue par disque"
 
 #: yali/gui/ScrPartitionManual.py:297
 msgid "Crossed logical partition before extended"
-msgstr ""
+msgstr "Partition logique croisée avant d'être prolongée"
 
 #: yali/gui/ScrPartitionManual.py:318
 msgid "Extended"
-msgstr ""
+msgstr "Étendu"
 
 #: yali/gui/ScrPartitionManual.py:351
-#, fuzzy
 msgid "Error Partitioning"
-msgstr "Partitionnement du disque"
+msgstr "Erreur de partitionnement"
 
 #: yali/gui/ScrPartitionManual.py:352
 #, python-format
 msgid "Could not allocate requested partitions: %s."
-msgstr ""
+msgstr "Impossible d'allouer les partitions demandées : %s."
 
 #: yali/gui/ScrPartitionManual.py:356
-#, fuzzy
 msgid "Warning Partitioning"
-msgstr "Partitionnement manuel"
+msgstr "Avertissement de partitionnement"
 
 #: yali/gui/ScrPartitionManual.py:357
-#, fuzzy, python-format
+#, python-format
 msgid "Warning: %s."
-msgstr "Attention"
+msgstr "Avertissement : %s."
 
 #: yali/gui/ScrPartitionManual.py:358
-#, fuzzy
 msgid "Modify Partition"
-msgstr "Redimensionner la partition"
+msgstr "Modifier la partition"
 
 #: yali/gui/ScrPartitionManual.py:482
 msgid "Unable To Edit"
-msgstr ""
+msgstr "Impossible de modifier"
 
 #: yali/gui/ScrPartitionManual.py:483
 #, python-format
