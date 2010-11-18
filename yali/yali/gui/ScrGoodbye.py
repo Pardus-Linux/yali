@@ -75,13 +75,13 @@ class Widget(QWidget, ScreenWidget):
         base_steps = [{"text":_("Setting timezone..."), "operation":yali.postinstall.setTimeZone},
                       {"text":_("Migrating Xorg configuration..."), "operation":yali.postinstall.setKeymap},
                       {"text":_("Setting console keymap..."), "operation":yali.postinstall.writeConsoleData},
-                      {"text":_("Copying repository index..."), "operation":yali.postinstall.copyPisiIndex},
-                      {"text":_("Setup bootloader..."), "operation":yali.postinstall.setupBootLooder},
-                      {"text":_("Writing bootloader..."), "operation":yali.postinstall.writeBootLooder},
+                      {"text":_("Copying repository index..."), "operation":yali.postinstall.copyPisiIndex}]
                       {"text":_("Stopping to D-Bus..."), "operation":yali.util.stop_dbus}]
 
 
         if ctx.flags.install_type == ctx.STEP_BASE and ctx.bootloader.device:
+            base_steps.insert(4, {"text":_("Setup bootloader..."), "operation":yali.postinstall.setupBootLooder})
+            base_steps.insert(5, {"text":_("Writing bootloader..."), "operation":yali.postinstall.writeBootLooder})
             base_steps.append({"text":_("Installing Bootloader..."), "operation":yali.postinstall.installBootloader})
 
         if ctx.flags.install_type == ctx.STEP_FIRST_BOOT or ctx.flags.install_type == ctx.STEP_DEFAULT:
