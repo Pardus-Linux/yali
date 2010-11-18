@@ -161,6 +161,12 @@ msgid ""
 "This change will take effect\n"
 "immediately."
 msgstr ""
+"Ce changement de la valeur de l'étendue physique \n"
+"obligera à arrondir la taille des volumes logiques actuels à un multiple entier de \n"
+"l'étendue physique. \n"
+"\n"
+"Cette modification prendra effet \n"
+"immédiatement."
 
 #: yali/gui/lvm_gui.py:421 yali/gui/lvm_gui.py:468 yali/gui/lvm_gui.py:553
 #: yali/gui/ScrPartitionManual.py:113 yali/gui/ScrPartitionManual.py:129
