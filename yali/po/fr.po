@@ -1402,11 +1402,11 @@ msgstr ""
 
 #: yali/util.py:432 yali/util.py:475
 msgid "Release file is inconsistent"
-msgstr ""
+msgstr "Fichier de sortie inconsistant"
 
 #: yali/util.py:435 yali/util.py:478
 msgid "Invalid xml file"
-msgstr ""
+msgstr "Fichier xml Invalide"
 
 #~ msgid "Set connection state."
 #~ msgstr "Fixer l'état d'une connexion"
