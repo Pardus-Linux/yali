@@ -359,38 +359,32 @@ msgid "Retry"
 msgstr ""
 
 #: yali/gui/ScrAdmin.py:121 yali/gui/ScrRescuePassword.py:96
-#, fuzzy
 msgid "Password is too short."
-msgstr "<font color=\"#FF6D19\">Le mot de passe est trop court !</font>"
+msgstr "Mot de passe trop court."
 
 #: yali/gui/ScrAdmin.py:124 yali/gui/ScrUsers.py:214
-#, fuzzy
 msgid "Don't use invalid characters"
-msgstr "<font color=\"#FF6D19\">Le nom d'hôte contient des caractères invalides !</font>"
+msgstr "Ne pas utiliser des caractères non valides"
 
 #: yali/gui/ScrAdmin.py:131
-#, fuzzy
 msgid "Passwords do not match."
-msgstr "<font color=\"#FF6D19\">Les mots de passe ne sont pas identiques !</font>"
+msgstr "Les mots de passe ne correspondent pas."
 
 #: yali/gui/ScrAdmin.py:136
-#, fuzzy
 msgid "Do not use your username as your password."
-msgstr "<font color=\"#FF6D19\">N'utilisez pas votre nom d'utilisateur ou nom propre comme mot de passe !</font>"
+msgstr "Ne pas utiliser votre nom d'utilisateur comme mot de passe."
 
 #: yali/gui/ScrAdmin.py:146
-#, fuzzy
 msgid "Hostname cannot be longer than 64 characters."
-msgstr "<font color=\"#FF6D19\">Le nom d'hôte contient des caractères invalides !</font>"
+msgstr "Nom d'hôte ne pouvant excéder 64 caractères."
 
 #: yali/gui/ScrAdmin.py:159
-#, fuzzy
 msgid "Hostname contains invalid characters."
-msgstr "<font color=\"#FF6D19\">Le nom d'hôte contient des caractères invalides !</font>"
+msgstr "Nom d'hôte contenant des caractères invalides."
 
 #: yali/gui/ScrCheckCD.py:60
 msgid "Validate"
-msgstr ""
+msgstr "Valider"
 
 #: yali/gui/ScrCheckCD.py:66
 #, fuzzy
