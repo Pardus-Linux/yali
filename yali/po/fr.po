@@ -1183,15 +1183,15 @@ msgstr "Voulez-vous utiliser une souris pour <b>%s</b> ?"
 
 #: yali/gui/YaliWindow.py:176
 msgid "Are you sure you want to shut down your computer now?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir éteindre votre ordinateur maintenant ?"
 
 #: yali/gui/YaliWindow.py:181
 msgid "Are you sure you want to restart your computer now?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir redémarrer votre ordinateur maintenant ?"
 
 #: yali/gui/YaliWindow.py:186
 msgid "Are you sure you want to restart the YALI installer now?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir redémarrer l'installeur YALI maintenant ?"
 
 #: yali/gui/YaliWindow.py:202
 msgid "Terminal"
@@ -1207,7 +1207,7 @@ msgstr "Notes de publication"
 
 #: yali/gui/YaliWindow.py:374
 msgid "Release notes could not be loaded."
-msgstr ""
+msgstr "Les notes de version ne peuvent être chargées."
 
 #: yali/localedata.py:20
 msgid "Turkish"
@@ -1364,21 +1364,21 @@ msgstr "Serbe"
 #: yali/postinstall.py:156
 #, python-format
 msgid "Preparing home directory for %s..."
-msgstr ""
+msgstr "Préparation du dossier personnel de %s..."
 
 #: yali/util.py:124 yali/util.py:137
 #, python-format
 msgid "Running %s"
-msgstr ""
+msgstr "Exécution de %s"
 
 #: yali/util.py:128 yali/util.py:155
 #, python-format
 msgid "return value for \"%(command)s\" is %(return)s"
-msgstr ""
+msgstr "La valeur de retour pour \"%(command)s\" est %(return)s "
 
 #: yali/util.py:430 yali/util.py:473
 msgid "Release file is missing"
-msgstr ""
+msgstr "Fichier de sortie manquant"
 
 #: yali/util.py:432 yali/util.py:475
 msgid "Release file is inconsistent"
