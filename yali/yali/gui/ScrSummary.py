@@ -55,7 +55,8 @@ class Widget(QWidget, ScreenWidget):
         self.timer.stop()
         ctx.interface.informationWindow.hide()
         ctx.mainScreen.ui.buttonNext.setText(_("Next"))
-        if ctx.flags.install_type == ctx.STEP_BASE and not ctx.flags.collection:
+        if (ctx.flags.install_type == ctx.STEP_BASE or ctx.flags.install_type == ctx.STEP_DEFAULT) \
+           and not ctx.flags.collection:
             ctx.mainScreen.step_increment = 2
         return True
 

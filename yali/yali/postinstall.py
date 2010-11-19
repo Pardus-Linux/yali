@@ -100,7 +100,7 @@ def connectToDBus():
 def setHostName():
     global bus
     obj = bus.get_object("tr.org.pardus.comar", "/package/baselayout")
-    if ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
+    if ctx.flags.install_type == ctx.STEP_FIRST_BOOT or ctx.flags.install_type == ctx.STEP_DEFAULT:
         obj.setHostName(str(ctx.installData.hostName), dbus_interface="tr.org.pardus.comar.Network.Stack")
     elif ctx.flags.install_type == ctx.STEP_BASE:
         obj.setHostName(str(yali.util.product_release()), dbus_interface="tr.org.pardus.comar.Network.Stack")
@@ -172,7 +172,7 @@ def addUsers():
 def setRootPassword():
     global bus
     obj = bus.get_object("tr.org.pardus.comar", "/package/baselayout")
-    if ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
+    if ctx.flags.install_type == ctx.STEP_FIRST_BOOT or ctx.flags.install_type == ctx.STEP_DEFAULT:
         obj.setUser(0, "", "", "", str(ctx.installData.rootPassword), "", dbus_interface="tr.org.pardus.comar.User.Manager")
     elif ctx.flags.install_type == ctx.STEP_BASE:
         obj.setUser(0, "", "", "", str(""), "", dbus_interface="tr.org.pardus.comar.User.Manager")
@@ -189,7 +189,7 @@ def writeConsoleData():
 
 def setKeymap():
     keymap = ctx.installData.keyData
-    yali.util.setKeymap(keymap["xkblayout"], keymap["xkbvariant"], chroot=True)
+    yali.util.setKeymap(keymap["xkblayout"], keymap["xkbvariant"], root=True)
 
 def migrateXorgConf():
     # if installation type is not First Boot

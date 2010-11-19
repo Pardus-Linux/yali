@@ -363,11 +363,12 @@ def stop_dbus():
 
     # store log content
     ctx.logger.debug("Finalize Chroot called this is the last step for logs ..")
-    shutil.copyfile("/var/log/yali.log", ctx.consts.log_file)
+    shutil.copyfile("/var/log/yali.log", os.path.join(ctx.target_dir, "/var/log", ctx.consts.log_file))
 
     # store session log as kahya xml
     #open(ctx.consts.session_file,"w").write(str(ctx.installData.sessionLog))
     #os.chmod(ctx.consts.session_file,0600)
+    return True
 
 def reboot():
     run_batch("/tmp/reboot", ["-f"])
@@ -396,13 +397,13 @@ def writeLocaleFromCmdline():
     f.write("LANG=%s\n" % yali.localedata.locales[ctx.consts.lang]["locale"])
     f.write("LC_ALL=%s\n" % yali.localedata.locales[ctx.consts.lang]["locale"])
 
-def setKeymap(keymap, variant=None, chroot=False):
+def setKeymap(keymap, variant=None, root=False):
     ad = ""
     if variant:
         ad = "-variant %s" % variant
     else:
         variant = "\"\""
-    if not chroot:
+    if not root:
         run_batch("setxkbmap", ["-layout", keymap, ad])
     else:
         chroot("hav call zorg Xorg.Display setKeymap %s %s" % (keymap, variant))
