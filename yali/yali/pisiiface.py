@@ -35,7 +35,6 @@ class PackageCollection(object):
 
 def initialize(ui, with_comar = False, nodestDir = False):
     options = pisi.config.Options()
-    import yali.context as ctx
     ctx.logger.debug("Pisi initializing..")
     if not nodestDir:
         options.destdir = ctx.consts.target_dir
@@ -65,8 +64,12 @@ def initialize(ui, with_comar = False, nodestDir = False):
     pisi.api.set_signal_handling(False)
 
 def addRepo(name=None, uri=None):
-    if name and uri:
-        pisi.api.add_repo(name, uri)
+    try:
+        if name and uri:
+            pisi.api.add_repo(name, uri)
+    except pisi.Error, msg:
+        ctx.logger.debug(_("Error occured while %(repo)s repo is adding:%(msg)s") %
+                         {"repo":name, "msg":msgmsg})
 
 def addCdRepo():
     if not repodb.has_repo(ctx.consts.cd_repo_name):
