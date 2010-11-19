@@ -1082,6 +1082,10 @@ class DeviceTree(object):
                 # we fall through to handle that.
                 return
 
+        if device.removable and format_type == "iso9660":
+            ctx.logger.debug("Removable device %s is iso9660 format. We have to remove from devices index" % device.name)
+            self._removeDevice(device)
+
         format = None
         if (not device) or (not format_type) or device.format.type:
             # this device has no formatting or it has already been set up
