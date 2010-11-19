@@ -319,7 +319,7 @@ class InformationWindow(QWidget):
 
     def __init__(self):
         QWidget.__init__(self, ctx.mainScreen)
-        self.setObjectName("InfoWin")
+        self.setObjectName("InformationWindow")
         self.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         self.setFixedHeight(50)
         self.setMaximumWidth(800)
@@ -409,8 +409,10 @@ class InformationWindow(QWidget):
 class ProgressWindow(QWidget):
     def __init__(self, message):
         QWidget.__init__(self, ctx.mainScreen)
-        self.setObjectName("InfoWin")
-        self.resize(300,50)
+        self.setObjectName("ProgressWindow")
+        self.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        self.setFixedHeight(50)
+        self.setMaximumWidth(800)
         self.setStyleSheet("""
             QFrame#frame { border: 1px solid rgba(255,255,255,30);
                            /*border-radius: 4px;*/
@@ -443,6 +445,7 @@ class ProgressWindow(QWidget):
 
         # Message
         self.label = QLabel(self.frame)
+        self.label.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         self.horizontalLayout.addWidget(self.label)
         self.gridlayout.addWidget(self.frame,0,0,1,1)
 
@@ -450,9 +453,12 @@ class ProgressWindow(QWidget):
 
     def update(self, message):
         self.spinner.setVisible(True)
+        fontMetric = self.label.fontMetrics()
+        textWidth = fontMetric.width(message)
+        self.setFixedWidth(textWidth + 100)
+        self.label.setText(message)
         self.move(ctx.mainScreen.width()/2 - self.width()/2,
                   ctx.mainScreen.height() - self.height()/2 - 50)
-        self.label.setText(message)
         self.show()
 
     def refresh(self):
