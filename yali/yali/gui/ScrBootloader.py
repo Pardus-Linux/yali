@@ -57,6 +57,7 @@ class Widget(QWidget, ScreenWidget):
     def backCheck(self):
         if ctx.storage.doAutoPart:
             ctx.mainScreen.step_increment = 2
+            ctx.storage.reset()
         return True
 
     def execute(self):
