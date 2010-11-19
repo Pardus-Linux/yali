@@ -75,7 +75,7 @@ class Widget(QWidget, ScreenWidget):
         base_steps = [{"text":_("Setting timezone..."), "operation":yali.postinstall.setTimeZone},
                       {"text":_("Migrating Xorg configuration..."), "operation":yali.postinstall.setKeymap},
                       {"text":_("Setting console keymap..."), "operation":yali.postinstall.writeConsoleData},
-                      {"text":_("Copying repository index..."), "operation":yali.postinstall.copyPisiIndex}]
+                      {"text":_("Copying repository index..."), "operation":yali.postinstall.copyPisiIndex},
                       {"text":_("Stopping to D-Bus..."), "operation":yali.util.stop_dbus}]
 
 
