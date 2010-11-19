@@ -46,15 +46,6 @@ def complete(storage, intf):
     except DeviceTreeError, msg:
         return False
 
-    if storage.doAutoPart:
-        intf.informationWindow.update(_("Auto partitioning..."))
-        ctx.logger.debug("Auto partitioning")
-    else:
-        intf.informationWindow.update(_("Manual partitioning..."))
-        ctx.logger.debug("Manual partitioning...")
-
-    intf.informationWindow.hide()
-
     title = None
     message = None
     details = None
@@ -72,9 +63,7 @@ def complete(storage, intf):
                     "migrating filesystem on device %s.") % (device,)
         details = msg
     else:
-        ctx.interface.informationWindow.update(_("Partitioning finished..."))
         ctx.logger.debug("Partitioning finished")
-        ctx.interface.informationWindow.hide()
         return True
     finally:
         if title:
