@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>741</width>
+    <width>750</width>
     <height>540</height>
    </rect>
   </property>
@@ -14,7 +14,33 @@
    <string>Yali</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">#menuContainer{
+background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(26, 38, 45, 255), stop:0.398093 rgba(51, 72, 91, 255), stop:0.521739 rgba(45, 76, 94, 255), stop:0.531585 rgba(49, 84, 106, 255), stop:0.983696 rgba(99, 141, 164, 255), stop:1 rgba(120, 146, 172, 255));
+}
+
+QPushButton{
+padding: 3px 10px 3px 10px;
+color: white;
+border:0px;
+}
+
+QPushButton::flat:hover{
+border:1px solid  rgba(34, 49, 60, 100);
+border-radius:2px;
+background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(129, 3, 3, 255), stop:0.0192308 rgba(160, 35, 25, 255), stop:0.521739 rgba(166, 35, 29, 255), stop:0.531585 rgba(184, 46, 40, 255), stop:0.983696 rgba(168, 78, 74, 255), stop:1 rgba(210, 110, 110, 255));
+}
+
+QPushButton::flat{
+border:1px solid  rgba(34, 49, 60, 100);
+border-radius:2px;
+}
+
+QPushButton::flat:pressed{
+border:1px solid  rgba(34, 49, 60, 50);
+border-radius:2px;
+padding: 4px 10px 3px 10px;
+background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(129, 36, 36, 255), stop:0.0192308 rgba(160, 64, 57, 255), stop:0.521739 rgba(166, 63, 58, 255), stop:0.531585 rgba(184, 72, 67, 255), stop:0.983696 rgba(168, 92, 88, 255), stop:1 rgba(210, 126, 126, 255));
+}</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_3">
    <property name="margin">
@@ -53,8 +79,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>739</width>
-             <height>315</height>
+             <width>748</width>
+             <height>316</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout">
@@ -309,7 +335,7 @@
             </size>
            </property>
            <property name="pixmap">
-            <pixmap resource="../../data.qrc">:/gui/pics/logo.png</pixmap>
+            <pixmap resource="../../data.qrc">:/gui/pics/logo-on-black.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>false</bool>
@@ -371,7 +397,7 @@
                 <enum>Qt::TabFocus</enum>
                </property>
                <property name="styleSheet">
-                <string notr="true"/>
+                <string/>
                </property>
                <property name="text">
                 <string/>
@@ -437,7 +463,7 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>548</width>
+                <width>557</width>
                 <height>129</height>
                </rect>
               </property>

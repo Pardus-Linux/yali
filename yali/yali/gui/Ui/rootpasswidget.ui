@@ -167,9 +167,6 @@
            <property name="echoMode">
             <enum>QLineEdit::Password</enum>
            </property>
-           <property name="placeholderText">
-            <string>Administator Password</string>
-           </property>
           </widget>
          </item>
          <item>
@@ -221,9 +218,6 @@
            <property name="echoMode">
             <enum>QLineEdit::Password</enum>
            </property>
-           <property name="placeholderText">
-            <string>Confirm Password</string>
-           </property>
           </widget>
          </item>
          <item>
@@ -268,9 +262,6 @@
            </property>
            <property name="text">
             <string/>
-           </property>
-           <property name="placeholderText">
-            <string>Computer Name</string>
            </property>
           </widget>
          </item>

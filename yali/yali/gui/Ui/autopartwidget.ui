@@ -48,9 +48,8 @@
      </property>
      <property name="styleSheet">
       <string notr="true">#frame{
-background-color: rgba(0,0,0,100);
-border-top: 1px solid rgba(255,255,255,60);
-border-bottom: 1px solid rgba(255,255,255,60);
+	background-color: rgba(0,0,0,100);
+	background-repeat: no-repeat;
 }
 
 
@@ -126,7 +125,7 @@ border:0px;
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap resource="../../data.qrc">:/gui/pics/drive-harddisk-big.png</pixmap>
+           <pixmap resource="../../data.qrc">:/gui/pics/partitionmanager-big.png</pixmap>
           </property>
           <property name="scaledContents">
            <bool>false</bool>

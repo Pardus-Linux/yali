@@ -129,7 +129,7 @@ class Interface(object):
                                   "PVs with inconsistent metadata.") % na, type="custom",
                                 customButtons = [_("Ignore"), _("Ignore all"),
                                                  _("Re-initialize"), _("Re-initialize all") ],
-                customIcon="question")
+                                customIcon="question")
         if rc == 0:
             retVal = False
         elif rc == 1:

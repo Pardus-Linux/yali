@@ -100,9 +100,17 @@ class Widget(QWidget, ScreenWidget):
     def setCapsLockIcon(self, child):
         if type(child) == QLineEdit:
             if pardus.xorg.capslock.isOn():
-                child.setStyleSheet("QLineEdit {background: url(:/gui/pics/caps.png) no-repeat right;\npadding-right: 35px}")
+                child.setStyleSheet("""QLineEdit {
+                        background-image: url(:/gui/pics/caps.png);
+                        background-repeat: no-repeat;
+                        background-position: right;
+                        padding-right: 35px;
+                        }""")
             else:
-                child.setStyleSheet("QLineEdit {background: none; padding-right: 0px}")
+                child.setStyleSheet("""QLineEdit {
+                        background-image: none;
+                        padding-right: 0px;
+                        }""")
 
     def checkCapsLock(self):
         for child in self.ui.groupBox.children():
