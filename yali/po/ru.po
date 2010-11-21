@@ -2,8 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -12,10 +11,10 @@ msgstr ""
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 
 #: yali/gui/interface.py:41 yali/gui/interface.py:123
 #: yali/gui/ScrCheckCD.py:92 yali/gui/ScrInstall.py:139
@@ -23,42 +22,38 @@ msgstr ""
 #: yali/gui/YaliWindow.py:175 yali/gui/YaliWindow.py:180
 #: yali/gui/YaliWindow.py:185
 msgid "Warning"
-msgstr ""
+msgstr "Предупреждение"
 
 #: yali/gui/interface.py:42
 #, python-format
-msgid ""
-"Disk contains %(members_count)s BIOS RAID metadata, but is not part of any "
-"recognized BIOS RAID sets. Ignoring disk %(members)s.)"
+msgid "Disk contains %(members_count)s BIOS RAID metadata, but is not part of any recognized BIOS RAID sets. Ignoring disk %(members)s.)"
 msgstr ""
 
 #: yali/gui/interface.py:66 yali/gui/raid_gui.py:122
 #: yali/gui/ScrDriveSelection.py:112
 msgid "Error"
-msgstr ""
+msgstr "Ошибка"
 
 #: yali/gui/interface.py:67
 #, python-format
 msgid ""
-"Cannot access the partition table of %(description)s(%(name)s) -- "
-"%(size)-0.fMB\n"
+"Cannot access the partition table of %(description)s(%(name)s) -- %(size)-0.fMB\n"
 "\n"
 "If there already exists a partition table on this device, it will\n"
 " be re-initialized and your existing data will be lost!\n"
 "\n"
 "To re-initialize the current disk press Re-initialize.\n"
 "\n"
-"To re-initialize all disks with unaccessible partition tables press Re-"
-"initialize All"
+"To re-initialize all disks with unaccessible partition tables press Re-initialize All"
 msgstr ""
 
 #: yali/gui/interface.py:75 yali/gui/interface.py:130
 msgid "Ignore"
-msgstr ""
+msgstr "Игнорировать"
 
 #: yali/gui/interface.py:75
 msgid "Ignore All"
-msgstr ""
+msgstr "Игнорировать все"
 
 #: yali/gui/interface.py:76 yali/gui/interface.py:131
 msgid "Re-initialize"
@@ -68,15 +63,12 @@ msgstr ""
 #, python-format
 msgid ""
 "Error processing LVM.\n"
-"There is inconsistent LVM data on %(msg)s.  You can reinitialize all related "
-"PVs (%(pvs)s) which will erase the LVM metadata, or ignore which will "
-"preserve the contents.  This action may also be applied to all other PVs "
-"with inconsistent metadata."
+"There is inconsistent LVM data on %(msg)s.  You can reinitialize all related PVs (%(pvs)s) which will erase the LVM metadata, or ignore which will preserve the contents.  This action may also be applied to all other PVs with inconsistent metadata."
 msgstr ""
 
 #: yali/gui/interface.py:130
 msgid "Ignore all"
-msgstr ""
+msgstr "Игнорировать все"
 
 #: yali/gui/interface.py:131
 msgid "Re-initialize all"
@@ -96,24 +88,24 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:62
 msgid "Make LVM Volume Group"
-msgstr ""
+msgstr "Создать LVM Volume Group"
 
 #: yali/gui/lvm_gui.py:65
 #, python-format
 msgid "Edit LVM Volume Group: %s"
-msgstr ""
+msgstr "Изменить LVM Volume Group: %s"
 
 #: yali/gui/lvm_gui.py:67
 msgid "Edit LVM Volume Group"
-msgstr ""
+msgstr "Изменить LVM Volume Group"
 
 #: yali/gui/lvm_gui.py:93
 msgid "Invalid Volume Group Name"
-msgstr ""
+msgstr "Не верное имя Volume Group"
 
 #: yali/gui/lvm_gui.py:101
 msgid "Name in use"
-msgstr ""
+msgstr "Имя используется"
 
 #: yali/gui/lvm_gui.py:102
 #, python-format
@@ -123,8 +115,9 @@ msgstr ""
 #: yali/gui/lvm_gui.py:405 yali/gui/lvm_gui.py:435 yali/gui/lvm_gui.py:448
 #: yali/gui/lvm_gui.py:483 yali/gui/lvm_gui.py:689 yali/gui/lvm_gui.py:711
 #: yali/gui/storageGuiHelpers.py:70
+#, fuzzy
 msgid "Not enough space"
-msgstr ""
+msgstr "Недостаточно места"
 
 #: yali/gui/lvm_gui.py:406
 msgid ""
@@ -170,10 +163,7 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:449
 #, python-format
-msgid ""
-"The physical extent size cannot be changed because the value selected "
-"(%(curpe)10.2f MB) is too large compared to the size of the smallest "
-"physical volume (%(maxpvsize)10.2f MB) in the volume group."
+msgid "The physical extent size cannot be changed because the value selected (%(curpe)10.2f MB) is too large compared to the size of the smallest physical volume (%(maxpvsize)10.2f MB) in the volume group."
 msgstr ""
 
 #: yali/gui/lvm_gui.py:461
@@ -181,17 +171,12 @@ msgid "Too small"
 msgstr ""
 
 #: yali/gui/lvm_gui.py:462
-msgid ""
-"This change in the value of the physical extent will waste substantial space "
-"on one or more of the physical volumes in the volume group."
+msgid "This change in the value of the physical extent will waste substantial space on one or more of the physical volumes in the volume group."
 msgstr ""
 
 #: yali/gui/lvm_gui.py:484
 #, python-format
-msgid ""
-"The physical extent size cannot be changed because the resulting maximum "
-"logical volume size (%10.2f MB) is smaller than one or more of "
-"theircurrently defined logical volumes."
+msgid "The physical extent size cannot be changed because the resulting maximum logical volume size (%10.2f MB) is smaller than one or more of theircurrently defined logical volumes."
 msgstr ""
 
 #: yali/gui/lvm_gui.py:505
@@ -207,7 +192,7 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:512
 msgid "No free space"
-msgstr ""
+msgstr "Нет свободного места"
 
 #: yali/gui/lvm_gui.py:513
 msgid ""
@@ -219,7 +204,7 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:549
 msgid "Confirm Delete"
-msgstr ""
+msgstr "Подтвердить удаление"
 
 #: yali/gui/lvm_gui.py:550
 #, python-format
@@ -230,26 +215,26 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:553
 msgid "Delete"
-msgstr ""
+msgstr "Удалить"
 
 #: yali/gui/lvm_gui.py:583
 msgid "Make Logical Volume"
-msgstr ""
+msgstr "Создать Logical Volume"
 
 #: yali/gui/lvm_gui.py:585
 #, python-format
 msgid "Edit Logical Volume: %s"
-msgstr ""
+msgstr "Изменить Logical Volume: %s"
 
 #: yali/gui/lvm_gui.py:614 yali/gui/partition_gui.py:65
 #: yali/gui/raid_gui.py:79
 msgid "Mount Point Error"
-msgstr ""
+msgstr "Ошибка точки монтирования"
 
 #: yali/gui/lvm_gui.py:638 yali/gui/partition_gui.py:80
 #: yali/gui/raid_gui.py:94
 msgid "Mount point in use"
-msgstr ""
+msgstr "Точка монтирования уже используется"
 
 #: yali/gui/lvm_gui.py:639 yali/gui/partition_gui.py:81
 #: yali/gui/raid_gui.py:95
@@ -272,7 +257,7 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:676
 msgid "Illegal size"
-msgstr ""
+msgstr "Не верный размер"
 
 #: yali/gui/lvm_gui.py:677
 msgid "The requested size as entered is not a valid number greater than 0."
@@ -280,20 +265,12 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:690
 #, python-format
-msgid ""
-"The current requested size (%(size)10.2f MB) is larger than the maximum "
-"logical volume size (%(maxlv)10.2f MB). To increase this limit you can "
-"create more Physical Volumes from unpartitioned disk space and add them to "
-"this Volume Group."
+msgid "The current requested size (%(size)10.2f MB) is larger than the maximum logical volume size (%(maxlv)10.2f MB). To increase this limit you can create more Physical Volumes from unpartitioned disk space and add them to this Volume Group."
 msgstr ""
 
 #: yali/gui/lvm_gui.py:712
 #, python-format
-msgid ""
-"The size entered for this logical volume (%(size)d MB) combined with the "
-"size of the other logical volume(s) exceeds the size of the volume group "
-"(%(tmpvgsize)d MB). Please make the volume group larger or make the logical "
-"volume smaller."
+msgid "The size entered for this logical volume (%(size)d MB) combined with the size of the other logical volume(s) exceeds the size of the volume group (%(tmpvgsize)d MB). Please make the volume group larger or make the logical volume smaller."
 msgstr ""
 
 #: yali/gui/partition_gui.py:34
@@ -304,45 +281,43 @@ msgstr ""
 #: yali/gui/partition_gui.py:38
 #, python-format
 msgid "Edit Partition %s"
-msgstr ""
+msgstr "Изменить раздел %s"
 
 #: yali/gui/partition_gui.py:40
 msgid "Edit Partition"
-msgstr ""
+msgstr "Изменить Раздел"
 
 #: yali/gui/partition_gui.py:104
 msgid "Error With Request"
-msgstr ""
+msgstr "Ошибка с просьбой"
 
 #: yali/gui/raid_gui.py:30
 msgid "Invalid Raid Members"
-msgstr ""
+msgstr "Неверный рейда"
 
 #: yali/gui/raid_gui.py:31
 msgid ""
-"At least two unused software RAID partitions are needed to create a RAID "
-"device.\n"
+"At least two unused software RAID partitions are needed to create a RAID device.\n"
 "\n"
-"First create at least two partitions of type \"software RAID\", and then "
-"select the \"RAID\" option again."
+"First create at least two partitions of type \"software RAID\", and then select the \"RAID\" option again."
 msgstr ""
 
 #: yali/gui/raid_gui.py:41
 msgid "Make RAID Device"
-msgstr ""
+msgstr "Создать RAID Device"
 
 #: yali/gui/raid_gui.py:44
 #, python-format
 msgid "Edit RAID Device: %s"
-msgstr ""
+msgstr "Изменить RAID Device: %s"
 
 #: yali/gui/raid_gui.py:46
 msgid "Edit RAID Device"
-msgstr ""
+msgstr "Изменить RAID Device"
 
 #: yali/gui/runner.py:105
 msgid "Error!"
-msgstr ""
+msgstr "Ошибка!"
 
 #: yali/gui/runner.py:106
 #, python-format
@@ -354,11 +329,11 @@ msgstr ""
 
 #: yali/gui/runner.py:110
 msgid "Exit"
-msgstr ""
+msgstr "Выход"
 
 #: yali/gui/runner.py:110
 msgid "Retry"
-msgstr ""
+msgstr "Повторить"
 
 #: yali/gui/ScrAdmin.py:121 yali/gui/ScrRescuePassword.py:96
 msgid "Password is too short."
@@ -399,9 +374,7 @@ msgstr ""
 
 #: yali/gui/ScrCheckCD.py:93
 #, python-format
-msgid ""
-"Validation of %s package failed.Please remaster your installation medium "
-"andreboot."
+msgid "Validation of %s package failed.Please remaster your installation medium andreboot."
 msgstr ""
 
 #: yali/gui/ScrCheckCD.py:97
@@ -417,9 +390,7 @@ msgid "Reboot"
 msgstr ""
 
 #: yali/gui/ScrCheckCD.py:112
-msgid ""
-"<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the "
-"installation.</b></font>"
+msgid "<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the installation.</b></font>"
 msgstr ""
 
 #: yali/gui/ScrDateTime.py:90
@@ -441,7 +412,7 @@ msgstr ""
 #: yali/gui/ScrGoodbye.py:53 yali/gui/ScrRescueFinish.py:78
 #: yali/gui/ScrSummary.py:45
 msgid "Restart"
-msgstr ""
+msgstr "Перезапуск"
 
 #: yali/gui/ScrGoodbye.py:55 yali/gui/ScrRescueFinish.py:80
 msgid "<b>Please wait while restarting...</b>"
@@ -450,19 +421,19 @@ msgstr ""
 #: yali/gui/ScrGoodbye.py:70 yali/gui/ScrRescuePassword.py:45
 #: yali/gui/ScrRescuePisi.py:38
 msgid "Connecting to D-Bus..."
-msgstr ""
+msgstr "Подключение к D-Bus ..."
 
 #: yali/gui/ScrGoodbye.py:72
 msgid "Setting hostname..."
-msgstr ""
+msgstr "Настройка hostname..."
 
 #: yali/gui/ScrGoodbye.py:73
 msgid "Setting root password..."
-msgstr ""
+msgstr "Настройка пароля администратора..."
 
 #: yali/gui/ScrGoodbye.py:75
 msgid "Setting timezone..."
-msgstr ""
+msgstr "Настройка часового пояса ..."
 
 #: yali/gui/ScrGoodbye.py:76
 msgid "Migrating Xorg configuration..."
@@ -470,7 +441,7 @@ msgstr ""
 
 #: yali/gui/ScrGoodbye.py:77
 msgid "Setting console keymap..."
-msgstr ""
+msgstr "Настройка раскладки в консоли ..."
 
 #: yali/gui/ScrGoodbye.py:78
 msgid "Copying repository index..."
@@ -478,23 +449,23 @@ msgstr ""
 
 #: yali/gui/ScrGoodbye.py:79
 msgid "Setup bootloader..."
-msgstr ""
+msgstr "Установка загрузчика ..."
 
 #: yali/gui/ScrGoodbye.py:80
 msgid "Writing bootloader..."
-msgstr ""
+msgstr "Запись загрузчика..."
 
 #: yali/gui/ScrGoodbye.py:81
 msgid "Stopping to D-Bus..."
-msgstr ""
+msgstr "Остановка D-Bus ..."
 
 #: yali/gui/ScrGoodbye.py:85 yali/gui/ScrRescueFinish.py:55
 msgid "Installing Bootloader..."
-msgstr ""
+msgstr "Установка загрузчика ..."
 
 #: yali/gui/ScrGoodbye.py:88
 msgid "Adding users..."
-msgstr ""
+msgstr "Добавление пользователей ..."
 
 #: yali/gui/ScrInstall.py:110
 #, python-format
@@ -504,7 +475,7 @@ msgstr ""
 #: yali/gui/ScrInstall.py:116
 #, python-format
 msgid "Configuring <b>%s</b>"
-msgstr ""
+msgstr "Настройка <b>%s</b>"
 
 #: yali/gui/ScrInstall.py:140
 #, python-format
@@ -515,7 +486,7 @@ msgstr ""
 
 #: yali/gui/ScrInstall.py:141
 msgid "Do you want to retry?"
-msgstr ""
+msgstr "Вы хотите повторить?"
 
 #: yali/gui/ScrInstall.py:198
 #, python-format
@@ -588,19 +559,19 @@ msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:147
 msgid "Standard"
-msgstr ""
+msgstr "Стандартный"
 
 #: yali/gui/ScrPartitionManual.py:148
 msgid "LVM"
-msgstr ""
+msgstr "LVM"
 
 #: yali/gui/ScrPartitionManual.py:149
 msgid "RAID"
-msgstr ""
+msgstr "RAID"
 
 #: yali/gui/ScrPartitionManual.py:151
 msgid "Partition"
-msgstr ""
+msgstr "Раздел"
 
 #: yali/gui/ScrPartitionManual.py:152
 msgid "General purpose of partition creation"
@@ -616,7 +587,7 @@ msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:157
 msgid "Volume Group"
-msgstr ""
+msgstr "Volume Group"
 
 #: yali/gui/ScrPartitionManual.py:158
 msgid "Requires at least 1 free LVM formatted partition"
@@ -624,7 +595,7 @@ msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:160
 msgid "Logical Volume"
-msgstr ""
+msgstr "Logical Volume"
 
 #: yali/gui/ScrPartitionManual.py:161
 msgid "Create Logical Volume on selected Volume Group"
@@ -632,7 +603,7 @@ msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:163
 msgid "Member"
-msgstr ""
+msgstr "Участник"
 
 #: yali/gui/ScrPartitionManual.py:164
 msgid "Create Raid formatted partition"
@@ -652,15 +623,15 @@ msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:240 yali/gui/ScrPartitionManual.py:313
 msgid "Free"
-msgstr ""
+msgstr "Свободно"
 
 #: yali/gui/ScrPartitionManual.py:249
 msgid "Raid Arrays"
-msgstr ""
+msgstr "Raid Arrays"
 
 #: yali/gui/ScrPartitionManual.py:263
 msgid "Hard Drives"
-msgstr ""
+msgstr "Жесткий диск"
 
 #: yali/gui/ScrPartitionManual.py:290
 msgid "Can't handle more than one extended partition per disk"
@@ -731,7 +702,7 @@ msgstr ""
 
 #: yali/gui/ScrRescuePassword.py:44 yali/gui/ScrRescuePisi.py:37
 msgid "Starting D-Bus..."
-msgstr ""
+msgstr "Начиная D-Bus ..."
 
 #: yali/gui/ScrRescuePassword.py:46
 msgid "Acquiring users..."
@@ -743,7 +714,7 @@ msgstr ""
 
 #: yali/gui/ScrRescuePassword.py:79
 msgid "Info"
-msgstr ""
+msgstr "Информация"
 
 #: yali/gui/ScrRescuePassword.py:90
 msgid "Do not use your username or real name as your password."
@@ -759,7 +730,7 @@ msgstr ""
 
 #: yali/gui/ScrRescuePassword.py:130
 msgid "Super User"
-msgstr ""
+msgstr "Супер Пользователь"
 
 #: yali/gui/ScrRescuePisi.py:39
 msgid "Fetching history..."
@@ -845,9 +816,7 @@ msgstr ""
 
 #: yali/gui/ScrSummary.py:109
 #, python-format
-msgid ""
-"User %(username)s (<b>%(realname)s</b>) added with <u>administrator "
-"privileges</u>."
+msgid "User %(username)s (<b>%(realname)s</b>) added with <u>administrator privileges</u>."
 msgstr ""
 
 #: yali/gui/ScrSummary.py:115
@@ -873,9 +842,7 @@ msgstr ""
 
 #: yali/gui/ScrSummary.py:133
 #, python-format
-msgid ""
-"Removes all partitions on the selected%s device(s). This includes partitions "
-"created by other operating systems."
+msgid "Removes all partitions on the selected%s device(s). This includes partitions created by other operating systems."
 msgstr ""
 
 #: yali/gui/ScrSummary.py:137
@@ -884,10 +851,7 @@ msgstr ""
 
 #: yali/gui/ScrSummary.py:138
 #, python-format
-msgid ""
-"Removes all Linux partitions on the selected%s device(s). This does not "
-"remove other partitions you may have on your storage device(s) (such as VFAT "
-"or FAT32)"
+msgid "Removes all Linux partitions on the selected%s device(s). This does not remove other partitions you may have on your storage device(s) (such as VFAT or FAT32)"
 msgstr ""
 
 #: yali/gui/ScrSummary.py:143
@@ -896,10 +860,7 @@ msgstr ""
 
 #: yali/gui/ScrSummary.py:144
 #, python-format
-msgid ""
-"Retains your current data and partitions and uses only the unpartitioned "
-"space on the selected %s device(s), assuming you haveenough free space "
-"available."
+msgid "Retains your current data and partitions and uses only the unpartitioned space on the selected %s device(s), assuming you haveenough free space available."
 msgstr ""
 
 #: yali/gui/ScrSummary.py:150
