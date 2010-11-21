@@ -76,7 +76,7 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:50
 msgid "Not enough physical volumes"
-msgstr ""
+msgstr "Не хватает физических объемов"
 
 #: yali/gui/lvm_gui.py:51
 msgid ""
@@ -110,12 +110,11 @@ msgstr "Имя используется"
 #: yali/gui/lvm_gui.py:102
 #, python-format
 msgid "The volume group name \"%s\" is already in use. Please pick another."
-msgstr ""
+msgstr "Имя volume group  \"%s\" уже используется. Пожалуйста укажите другое."
 
 #: yali/gui/lvm_gui.py:405 yali/gui/lvm_gui.py:435 yali/gui/lvm_gui.py:448
 #: yali/gui/lvm_gui.py:483 yali/gui/lvm_gui.py:689 yali/gui/lvm_gui.py:711
 #: yali/gui/storageGuiHelpers.py:70
-#, fuzzy
 msgid "Not enough space"
 msgstr "Недостаточно места"
 
@@ -146,12 +145,12 @@ msgstr ""
 #: yali/gui/ScrPartitionManual.py:113 yali/gui/ScrPartitionManual.py:129
 #: yali/gui/ScrPartitionManual.py:139 yali/gui/YaliDialog.py:222
 msgid "Cancel"
-msgstr ""
+msgstr "Отмена"
 
 #: yali/gui/lvm_gui.py:421 yali/gui/lvm_gui.py:468
 #: yali/gui/ScrPartitionManual.py:358
 msgid "Continue"
-msgstr ""
+msgstr "Продолжить"
 
 #: yali/gui/lvm_gui.py:436
 #, python-format
@@ -168,7 +167,7 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:461
 msgid "Too small"
-msgstr ""
+msgstr "Слишком мало"
 
 #: yali/gui/lvm_gui.py:462
 msgid "This change in the value of the physical extent will waste substantial space on one or more of the physical volumes in the volume group."
@@ -181,7 +180,7 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:505
 msgid "No free slots"
-msgstr ""
+msgstr "Нет свободных слотов"
 
 #: yali/gui/lvm_gui.py:506
 #, python-format
@@ -276,7 +275,7 @@ msgstr ""
 #: yali/gui/partition_gui.py:34
 #, python-format
 msgid "Create Partition on %(path)s (%(model)s)"
-msgstr ""
+msgstr "Создание раздела на %(path)s (%(model)s)"
 
 #: yali/gui/partition_gui.py:38
 #, python-format
@@ -337,40 +336,40 @@ msgstr "Повторить"
 
 #: yali/gui/ScrAdmin.py:121 yali/gui/ScrRescuePassword.py:96
 msgid "Password is too short."
-msgstr ""
+msgstr "Пароль слишком короткий."
 
 #: yali/gui/ScrAdmin.py:124 yali/gui/ScrUsers.py:214
 msgid "Don't use invalid characters"
-msgstr ""
+msgstr "Не используйте недопустимые символы"
 
 #: yali/gui/ScrAdmin.py:131
 msgid "Passwords do not match."
-msgstr ""
+msgstr "Пароли не совпадают."
 
 #: yali/gui/ScrAdmin.py:136
 msgid "Do not use your username as your password."
-msgstr ""
+msgstr "Не используйте имя пользователя в качестве пароля."
 
 #: yali/gui/ScrAdmin.py:146
 msgid "Hostname cannot be longer than 64 characters."
-msgstr ""
+msgstr "Имя хоста не может быть длиннее 64 символов."
 
 #: yali/gui/ScrAdmin.py:159
 msgid "Hostname contains invalid characters."
-msgstr ""
+msgstr "Hostname содержит недопустимые символы."
 
 #: yali/gui/ScrCheckCD.py:60
 msgid "Validate"
-msgstr ""
+msgstr "Проверка"
 
 #: yali/gui/ScrCheckCD.py:66
 msgid "Starting validation..."
-msgstr ""
+msgstr "Идет проверка..."
 
 #: yali/gui/ScrCheckCD.py:85
 #, python-format
 msgid "Validating %s"
-msgstr ""
+msgstr "Проверяется %s"
 
 #: yali/gui/ScrCheckCD.py:93
 #, python-format
@@ -387,7 +386,7 @@ msgstr ""
 
 #: yali/gui/ScrCheckCD.py:97
 msgid "Reboot"
-msgstr ""
+msgstr "Перезагрузка"
 
 #: yali/gui/ScrCheckCD.py:112
 msgid "<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the installation.</b></font>"
@@ -395,11 +394,11 @@ msgstr ""
 
 #: yali/gui/ScrDateTime.py:90
 msgid "Adjusting time settings"
-msgstr ""
+msgstr "Регулировка времени настройки"
 
 #: yali/gui/ScrDriveSelection.py:113
 msgid "You must select at least one drive to be used for installation."
-msgstr ""
+msgstr "Вы должны выбрать хотя бы один из дисков, который будет использоваться для установки."
 
 #: yali/gui/ScrGoodbye.py:37
 msgid "Running post-install operations..."
@@ -407,7 +406,7 @@ msgstr ""
 
 #: yali/gui/ScrGoodbye.py:53
 msgid "Press <b>Restart</b> to restart the computer."
-msgstr ""
+msgstr "Выберите <b>Перезагрузка,</b> чтобы перезагрузить компьютер."
 
 #: yali/gui/ScrGoodbye.py:53 yali/gui/ScrRescueFinish.py:78
 #: yali/gui/ScrSummary.py:45
@@ -416,7 +415,7 @@ msgstr "Перезапуск"
 
 #: yali/gui/ScrGoodbye.py:55 yali/gui/ScrRescueFinish.py:80
 msgid "<b>Please wait while restarting...</b>"
-msgstr ""
+msgstr "<b>Пожалуйста, подождите, пока произойдет перезапуск ...</b>"
 
 #: yali/gui/ScrGoodbye.py:70 yali/gui/ScrRescuePassword.py:45
 #: yali/gui/ScrRescuePisi.py:38
@@ -437,7 +436,7 @@ msgstr "Настройка часового пояса ..."
 
 #: yali/gui/ScrGoodbye.py:76
 msgid "Migrating Xorg configuration..."
-msgstr ""
+msgstr "Миграция конфигурации Xorg ..."
 
 #: yali/gui/ScrGoodbye.py:77
 msgid "Setting console keymap..."
@@ -470,7 +469,7 @@ msgstr "Добавление пользователей ..."
 #: yali/gui/ScrInstall.py:110
 #, python-format
 msgid "Installing <b>%(name)s</b><br>%(summary)s"
-msgstr ""
+msgstr "Установка <b>%(name)s</b><br>%(summary)s"
 
 #: yali/gui/ScrInstall.py:116
 #, python-format
@@ -501,7 +500,7 @@ msgstr ""
 
 #: yali/gui/ScrKahyaCheck.py:78 yali/gui/ScrRescue.py:49
 msgid "No storage device found."
-msgstr ""
+msgstr "Запоминающие устройства не найдены."
 
 #: yali/gui/ScrPartitionAuto.py:44
 msgid ""
@@ -520,7 +519,7 @@ msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:100
 msgid "Partitioning Errors"
-msgstr ""
+msgstr "Ошибка создания разделов"
 
 #: yali/gui/ScrPartitionManual.py:105
 msgid ""
@@ -536,7 +535,7 @@ msgstr ""
 #: yali/gui/ScrPartitionManual.py:113 yali/gui/ScrPartitionManual.py:139
 #: yali/gui/YaliDialog.py:220
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: yali/gui/ScrPartitionManual.py:119
 msgid ""
@@ -547,11 +546,11 @@ msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:127
 msgid "Format Warnings"
-msgstr ""
+msgstr "Формат Предупреждения"
 
 #: yali/gui/ScrPartitionManual.py:129
 msgid "Format"
-msgstr ""
+msgstr "Формат"
 
 #: yali/gui/ScrPartitionManual.py:137
 msgid "All Changes that you made will be removed"
@@ -643,11 +642,11 @@ msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:318
 msgid "Extended"
-msgstr ""
+msgstr "Расширенные"
 
 #: yali/gui/ScrPartitionManual.py:351
 msgid "Error Partitioning"
-msgstr ""
+msgstr "Ошибка разметки"
 
 #: yali/gui/ScrPartitionManual.py:352
 #, python-format
@@ -656,12 +655,12 @@ msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:356
 msgid "Warning Partitioning"
-msgstr ""
+msgstr "Опасность разметки"
 
 #: yali/gui/ScrPartitionManual.py:357
 #, python-format
 msgid "Warning: %s."
-msgstr ""
+msgstr "Предупреждение: %s."
 
 #: yali/gui/ScrPartitionManual.py:358
 msgid "Modify Partition"
@@ -669,7 +668,7 @@ msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:482
 msgid "Unable To Edit"
-msgstr ""
+msgstr "Невозможно редактировать"
 
 #: yali/gui/ScrPartitionManual.py:483
 #, python-format
@@ -692,13 +691,13 @@ msgid "Press <b>Restart</b> to restart your system."
 msgstr ""
 
 #: yali/gui/ScrRescueGrub.py:87
-#, python-format
+#, python-format, fuzzy
 msgid "%s (Boot Disk)"
-msgstr ""
+msgstr "%s (Boot Disk)"
 
 #: yali/gui/ScrRescuePassword.py:39
 msgid "Caps Lock is on."
-msgstr ""
+msgstr "Caps Lock включен."
 
 #: yali/gui/ScrRescuePassword.py:44 yali/gui/ScrRescuePisi.py:37
 msgid "Starting D-Bus..."
@@ -710,7 +709,7 @@ msgstr ""
 
 #: yali/gui/ScrRescuePassword.py:79
 msgid "The password has been successfully reset."
-msgstr ""
+msgstr "Пароль был успешно сброшен."
 
 #: yali/gui/ScrRescuePassword.py:79
 msgid "Info"
@@ -718,15 +717,15 @@ msgstr "Информация"
 
 #: yali/gui/ScrRescuePassword.py:90
 msgid "Do not use your username or real name as your password."
-msgstr ""
+msgstr "Не используйте свое имя пользователя или реальное имя в качестве пароля."
 
 #: yali/gui/ScrRescuePassword.py:93
 msgid "The passwords do not match."
-msgstr ""
+msgstr "Пароли не совпадают."
 
 #: yali/gui/ScrRescuePassword.py:107 yali/gui/ScrRescuePisi.py:69
 msgid "Please Wait..."
-msgstr ""
+msgstr "Пожалуйста, подождите ..."
 
 #: yali/gui/ScrRescuePassword.py:130
 msgid "Super User"
@@ -734,7 +733,7 @@ msgstr "Супер Пользователь"
 
 #: yali/gui/ScrRescuePisi.py:39
 msgid "Fetching history..."
-msgstr ""
+msgstr "Получение истории ..."
 
 #: yali/gui/ScrRescuePisi.py:75
 msgid "No connection available"
@@ -785,20 +784,20 @@ msgstr ""
 
 #: yali/gui/ScrSummary.py:71
 msgid "Start Installation"
-msgstr ""
+msgstr "Начать установку"
 
 #: yali/gui/ScrSummary.py:89
 msgid "Keyboard Settings"
-msgstr ""
+msgstr "Настройки клавиатуры"
 
 #: yali/gui/ScrSummary.py:91
 #, python-format
 msgid "Selected keyboard layout is <b>%s</b>"
-msgstr ""
+msgstr "Выбрана  <b>%s</b> раскладка клавиатуры"
 
 #: yali/gui/ScrSummary.py:97
 msgid "Date/Time Settings"
-msgstr ""
+msgstr "Установка даты / времени"
 
 #: yali/gui/ScrSummary.py:99
 #, python-format
@@ -807,12 +806,12 @@ msgstr ""
 
 #: yali/gui/ScrSummary.py:105
 msgid "User Settings"
-msgstr ""
+msgstr "Настройки пользователя"
 
 #: yali/gui/ScrSummary.py:107
 #, python-format
 msgid "User %(username)s (<b>%(realname)s</b>) added."
-msgstr ""
+msgstr "Пользователь %(username)s (<b>%(realname)s</b>) добавлен."
 
 #: yali/gui/ScrSummary.py:109
 #, python-format
@@ -821,7 +820,7 @@ msgstr ""
 
 #: yali/gui/ScrSummary.py:115
 msgid "Hostname Settings"
-msgstr ""
+msgstr "Hostname Настройки"
 
 #: yali/gui/ScrSummary.py:117
 #, python-format
@@ -830,15 +829,15 @@ msgstr ""
 
 #: yali/gui/ScrSummary.py:123
 msgid "Partition Settings"
-msgstr ""
+msgstr "Настройки раздела"
 
 #: yali/gui/ScrSummary.py:130
 msgid "Automatic Partitioning selected."
-msgstr ""
+msgstr "Автоматическое разбиение."
 
 #: yali/gui/ScrSummary.py:132
 msgid "Use All Space"
-msgstr ""
+msgstr "Используйте все пространство"
 
 #: yali/gui/ScrSummary.py:133
 #, python-format
@@ -856,7 +855,7 @@ msgstr ""
 
 #: yali/gui/ScrSummary.py:143
 msgid "Use Free Space"
-msgstr ""
+msgstr "Использовать свободное место"
 
 #: yali/gui/ScrSummary.py:144
 #, python-format
@@ -865,11 +864,11 @@ msgstr ""
 
 #: yali/gui/ScrSummary.py:150
 msgid "Manual Partitioning selected."
-msgstr ""
+msgstr "Разметка вручную"
 
 #: yali/gui/ScrSummary.py:158
 msgid "Bootloader Settings"
-msgstr ""
+msgstr "Настройка начальной загрузчика"
 
 #: yali/gui/ScrSummary.py:159
 #, python-format
@@ -922,7 +921,7 @@ msgstr ""
 
 #: yali/gui/ScrUsers.py:129 yali/gui/ScrUsers.py:353
 msgid "Update"
-msgstr ""
+msgstr "Обновление"
 
 #: yali/gui/ScrUsers.py:205
 msgid "Don't use your user name or name as a password"
@@ -930,11 +929,11 @@ msgstr ""
 
 #: yali/gui/ScrUsers.py:208
 msgid "Passwords do not match"
-msgstr ""
+msgstr "Пароли не совпадают"
 
 #: yali/gui/ScrUsers.py:211
 msgid "Password is too short"
-msgstr ""
+msgstr "Пароль слишком короткий"
 
 #: yali/gui/ScrUsers.py:258
 msgid "This user name is already taken, please choose another one."
@@ -958,7 +957,7 @@ msgstr ""
 
 #: yali/gui/ScrUsers.py:281 yali/gui/ScrUsers.py:323 yali/gui/ScrUsers.py:401
 msgid "Add"
-msgstr ""
+msgstr "Добавить"
 
 #: yali/gui/ScrWelcome.py:77
 msgid "License text could not be found."
@@ -975,7 +974,7 @@ msgstr ""
 #: yali/gui/shrink_gui.py:48
 #, python-format
 msgid "%(device)s: %(msg)s"
-msgstr ""
+msgstr "%(device)s: %(msg)s"
 
 #: yali/gui/shrink_gui.py:56
 msgid "Resize Device Error"
@@ -984,7 +983,7 @@ msgstr ""
 #: yali/gui/shrink_gui.py:57
 #, python-format
 msgid "%(name)s: %(msg)s"
-msgstr ""
+msgstr "%(name)s: %(msg)s"
 
 #: yali/gui/storageGuiHelpers.py:71
 msgid ""
@@ -994,12 +993,13 @@ msgid ""
 msgstr ""
 
 #: yali/gui/storageGuiHelpers.py:188
+#, fuzzy
 msgid "<Not Applicable>"
-msgstr ""
+msgstr "<Not Applicable>"
 
 #: yali/gui/storageGuiHelpers.py:451
 msgid "Format as :"
-msgstr ""
+msgstr "Формат:"
 
 #: yali/gui/storageGuiHelpers.py:471
 msgid "Migrate filesystem To :"
@@ -1061,11 +1061,11 @@ msgstr ""
 
 #: yali/gui/YaliDialog.py:303
 msgid "Information"
-msgstr ""
+msgstr "Информация"
 
 #: yali/gui/YaliDialog.py:494
 msgid "Error reporting"
-msgstr ""
+msgstr "Сообщить об ошибке"
 
 #: yali/gui/YaliWindow.py:58
 msgid "Pixmaps resources file doesn't exists"
@@ -1081,27 +1081,27 @@ msgstr ""
 
 #: yali/gui/YaliWindow.py:104
 msgid "Turn Off Computer"
-msgstr ""
+msgstr "Выключение компьютера"
 
 #: yali/gui/YaliWindow.py:105
 msgid "Restart Computer"
-msgstr ""
+msgstr "Перезагрузка компьютера"
 
 #: yali/gui/YaliWindow.py:106
 msgid "Restart YALI"
-msgstr ""
+msgstr "Перезагрузка YALI"
 
 #: yali/gui/YaliWindow.py:124 yali/gui/YaliWindow.py:141 yali/sysutils.py:53
 msgid "right"
-msgstr ""
+msgstr "право"
 
 #: yali/gui/YaliWindow.py:140 yali/gui/YaliWindow.py:143 yali/sysutils.py:52
 msgid "left"
-msgstr ""
+msgstr "слева"
 
 #: yali/gui/YaliWindow.py:144
 msgid "Mouse Settings"
-msgstr ""
+msgstr "Настройки мыши"
 
 #: yali/gui/YaliWindow.py:145
 #, python-format
@@ -1127,19 +1127,19 @@ msgstr ""
 
 #: yali/gui/YaliWindow.py:202
 msgid "Terminal"
-msgstr ""
+msgstr "Терминал"
 
 #: yali/gui/YaliWindow.py:207
 msgid "Tetris"
-msgstr ""
+msgstr "Тетрис"
 
 #: yali/gui/YaliWindow.py:351
 msgid "Release Notes"
-msgstr ""
+msgstr "Информация о выпуске"
 
 #: yali/gui/YaliWindow.py:374
 msgid "Release notes could not be loaded."
-msgstr ""
+msgstr "Примечания к выпуску не может быть загружено."
 
 #: yali/localedata.py:20
 msgid "Turkish"
@@ -1171,83 +1171,83 @@ msgstr ""
 
 #: yali/localedata.py:72
 msgid "Vietnamese"
-msgstr ""
+msgstr "Vietnamese"
 
 #: yali/localedata.py:82
 msgid "Catalan"
-msgstr ""
+msgstr "Catalan"
 
 #: yali/localedata.py:93
 msgid "Italian"
-msgstr ""
+msgstr "Italian"
 
 #: yali/localedata.py:104
 msgid "Czech"
-msgstr ""
+msgstr "Czech"
 
 #: yali/localedata.py:114
 msgid "Welsh"
-msgstr ""
+msgstr "Welsh"
 
 #: yali/localedata.py:124
 msgid "Arabic"
-msgstr ""
+msgstr "Arabic"
 
 #: yali/localedata.py:134
 msgid "Estonian"
-msgstr ""
+msgstr "Estonian"
 
 #: yali/localedata.py:144
 msgid "Spanish"
-msgstr ""
+msgstr "Spanish"
 
 #: yali/localedata.py:155
 msgid "Russian"
-msgstr ""
+msgstr "Russian"
 
 #: yali/localedata.py:165
 msgid "Dutch"
-msgstr ""
+msgstr "Dutch"
 
 #: yali/localedata.py:176
 msgid "Portuguese"
-msgstr ""
+msgstr "Portuguese"
 
 #: yali/localedata.py:187
 msgid "Norwegian"
-msgstr ""
+msgstr "Norwegian"
 
 #: yali/localedata.py:197
 msgid "Icelandic"
-msgstr ""
+msgstr "Icelandic"
 
 #: yali/localedata.py:207
 msgid "Polish"
-msgstr ""
+msgstr "Polish"
 
 #: yali/localedata.py:218
 msgid "Belgium"
-msgstr ""
+msgstr "Belgium"
 
 #: yali/localedata.py:228
 msgid "French"
-msgstr ""
+msgstr "French"
 
 #: yali/localedata.py:239
 msgid "Bulgarian"
-msgstr ""
+msgstr "Bulgarian"
 
 #: yali/localedata.py:249
 msgid "Slovenian"
-msgstr ""
+msgstr "Slovenian"
 
 #: yali/localedata.py:259
 msgid "Croatian"
-msgstr ""
+msgstr "Croatian"
 
 #: yali/localedata.py:269
 msgid "German"
-msgstr ""
+msgstr "German"
 
 #: yali/localedata.py:280
 msgid "Danish"
