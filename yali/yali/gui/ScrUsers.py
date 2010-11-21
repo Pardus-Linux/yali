@@ -254,7 +254,8 @@ class Widget(QWidget, ScreenWidget):
         # ignore last character. see bug #887
         user.realname = unicode(self.ui.realname.text())
         user.passwd = unicode(self.ui.pass1.text())
-        user.groups = ["users", "pnp", "pnpadmin", "removable", "disk", "audio", "video", "power", "dialout"]
+        user.groups = ["users", "pnp", "disk", "audio", "video", "power",
+                     "dialout", "lp", "lpadmin", "cdrom", "floppy"]
         pix = self.normal_user_icon
         if self.ui.admin.isChecked():
             user.groups.append("wheel")
