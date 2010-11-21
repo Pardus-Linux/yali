@@ -1,22 +1,21 @@
+# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-# , 2010.
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-14 22:42+0200\n"
-"PO-Revision-Date: 2010-01-19 21:15+0300\n"
-"Last-Translator: \n"
-"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
-"Language: ru\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.0\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: yali/gui/interface.py:41 yali/gui/interface.py:123
 #: yali/gui/ScrCheckCD.py:92 yali/gui/ScrInstall.py:139
@@ -24,7 +23,7 @@ msgstr ""
 #: yali/gui/YaliWindow.py:175 yali/gui/YaliWindow.py:180
 #: yali/gui/YaliWindow.py:185
 msgid "Warning"
-msgstr "Внимание"
+msgstr ""
 
 #: yali/gui/interface.py:42
 #, python-format
@@ -36,7 +35,7 @@ msgstr ""
 #: yali/gui/interface.py:66 yali/gui/raid_gui.py:122
 #: yali/gui/ScrDriveSelection.py:112
 msgid "Error"
-msgstr "Ошибка"
+msgstr ""
 
 #: yali/gui/interface.py:67
 #, python-format
@@ -154,7 +153,7 @@ msgstr ""
 #: yali/gui/ScrPartitionManual.py:113 yali/gui/ScrPartitionManual.py:129
 #: yali/gui/ScrPartitionManual.py:139 yali/gui/YaliDialog.py:222
 msgid "Cancel"
-msgstr "Отмена"
+msgstr ""
 
 #: yali/gui/lvm_gui.py:421 yali/gui/lvm_gui.py:468
 #: yali/gui/ScrPartitionManual.py:358
@@ -207,9 +206,8 @@ msgid ""
 msgstr ""
 
 #: yali/gui/lvm_gui.py:512
-#, fuzzy
 msgid "No free space"
-msgstr "свободное место"
+msgstr ""
 
 #: yali/gui/lvm_gui.py:513
 msgid ""
@@ -299,19 +297,18 @@ msgid ""
 msgstr ""
 
 #: yali/gui/partition_gui.py:34
-#, fuzzy, python-format
+#, python-format
 msgid "Create Partition on %(path)s (%(model)s)"
-msgstr "Удалить Раздел"
+msgstr ""
 
 #: yali/gui/partition_gui.py:38
-#, fuzzy, python-format
+#, python-format
 msgid "Edit Partition %s"
-msgstr "Раздел %d"
+msgstr ""
 
 #: yali/gui/partition_gui.py:40
-#, fuzzy
 msgid "Edit Partition"
-msgstr "Удалить Раздел"
+msgstr ""
 
 #: yali/gui/partition_gui.py:104
 msgid "Error With Request"
@@ -344,9 +341,8 @@ msgid "Edit RAID Device"
 msgstr ""
 
 #: yali/gui/runner.py:105
-#, fuzzy
 msgid "Error!"
-msgstr "Ошибка !"
+msgstr ""
 
 #: yali/gui/runner.py:106
 #, python-format
@@ -365,43 +361,36 @@ msgid "Retry"
 msgstr ""
 
 #: yali/gui/ScrAdmin.py:121 yali/gui/ScrRescuePassword.py:96
-#, fuzzy
 msgid "Password is too short."
-msgstr "Пароль слишком короткий!"
+msgstr ""
 
 #: yali/gui/ScrAdmin.py:124 yali/gui/ScrUsers.py:214
-#, fuzzy
 msgid "Don't use invalid characters"
-msgstr "Имя компьютера содержит неверные символы!"
+msgstr ""
 
 #: yali/gui/ScrAdmin.py:131
-#, fuzzy
 msgid "Passwords do not match."
-msgstr "Пароли не совпадают!"
+msgstr ""
 
 #: yali/gui/ScrAdmin.py:136
-#, fuzzy
 msgid "Do not use your username as your password."
-msgstr "Не используйте имя пользователя в качестве пароля!"
+msgstr ""
 
 #: yali/gui/ScrAdmin.py:146
-#, fuzzy
 msgid "Hostname cannot be longer than 64 characters."
-msgstr "Имя компьютера содержит неверные символы!"
+msgstr ""
 
 #: yali/gui/ScrAdmin.py:159
-#, fuzzy
 msgid "Hostname contains invalid characters."
-msgstr "Имя компьютера содержит неверные символы!"
+msgstr ""
 
 #: yali/gui/ScrCheckCD.py:60
 msgid "Validate"
 msgstr ""
 
 #: yali/gui/ScrCheckCD.py:66
-#, fuzzy
 msgid "Starting validation..."
-msgstr "Установка Часового Пояса..."
+msgstr ""
 
 #: yali/gui/ScrCheckCD.py:85
 #, python-format
@@ -425,33 +414,29 @@ msgstr ""
 
 #: yali/gui/ScrCheckCD.py:97
 msgid "Reboot"
-msgstr "Перезагрузиться"
+msgstr ""
 
 #: yali/gui/ScrCheckCD.py:112
-#, fuzzy
 msgid ""
 "<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the "
 "installation.</b></font>"
-msgstr "<font color=\"#FFF\"><b>Проверка успешна. Можно продолжать.</b></font>"
+msgstr ""
 
 #: yali/gui/ScrDateTime.py:90
-#, fuzzy
 msgid "Adjusting time settings"
-msgstr "Установка параметров времени.."
+msgstr ""
 
 #: yali/gui/ScrDriveSelection.py:113
 msgid "You must select at least one drive to be used for installation."
 msgstr ""
 
 #: yali/gui/ScrGoodbye.py:37
-#, fuzzy
 msgid "Running post-install operations..."
-msgstr "Запуск постустановочных операций.."
+msgstr ""
 
 #: yali/gui/ScrGoodbye.py:53
-#, fuzzy
 msgid "Press <b>Restart</b> to restart the computer."
-msgstr "Нажмите кнопку <b>Рестарт</b> для перезагрузки вашей системы."
+msgstr ""
 
 #: yali/gui/ScrGoodbye.py:53 yali/gui/ScrRescueFinish.py:78
 #: yali/gui/ScrSummary.py:45
@@ -464,74 +449,62 @@ msgstr ""
 
 #: yali/gui/ScrGoodbye.py:70 yali/gui/ScrRescuePassword.py:45
 #: yali/gui/ScrRescuePisi.py:38
-#, fuzzy
 msgid "Connecting to D-Bus..."
-msgstr "Статус Соединения:"
+msgstr ""
 
 #: yali/gui/ScrGoodbye.py:72
-#, fuzzy
 msgid "Setting hostname..."
-msgstr "Установка Имени..."
+msgstr ""
 
 #: yali/gui/ScrGoodbye.py:73
-#, fuzzy
 msgid "Setting root password..."
-msgstr "Установка Пароля Суперпользователя...."
+msgstr ""
 
 #: yali/gui/ScrGoodbye.py:75
-#, fuzzy
 msgid "Setting timezone..."
-msgstr "Установка Часового Пояса..."
+msgstr ""
 
 #: yali/gui/ScrGoodbye.py:76
-#, fuzzy
 msgid "Migrating Xorg configuration..."
-msgstr "Установка Данных X.Org"
+msgstr ""
 
 #: yali/gui/ScrGoodbye.py:77
-#, fuzzy
 msgid "Setting console keymap..."
-msgstr "Запись данных в консоль..."
+msgstr ""
 
 #: yali/gui/ScrGoodbye.py:78
-#, fuzzy
 msgid "Copying repository index..."
-msgstr "Копирование индекса Pisi..."
+msgstr ""
 
 #: yali/gui/ScrGoodbye.py:79
-#, fuzzy
 msgid "Setup bootloader..."
-msgstr "Вы можете восстановить ваш загрузчик..."
+msgstr ""
 
 #: yali/gui/ScrGoodbye.py:80
-#, fuzzy
 msgid "Writing bootloader..."
-msgstr "Установка Загрузчика..."
+msgstr ""
 
 #: yali/gui/ScrGoodbye.py:81
-#, fuzzy
 msgid "Stopping to D-Bus..."
-msgstr "Стартует DBUS..."
+msgstr ""
 
 #: yali/gui/ScrGoodbye.py:85 yali/gui/ScrRescueFinish.py:55
-#, fuzzy
 msgid "Installing Bootloader..."
-msgstr "Установка Загрузчика..."
+msgstr ""
 
 #: yali/gui/ScrGoodbye.py:88
-#, fuzzy
 msgid "Adding users..."
-msgstr "Добавление Пользователей..."
+msgstr ""
 
 #: yali/gui/ScrInstall.py:110
-#, fuzzy, python-format
+#, python-format
 msgid "Installing <b>%(name)s</b><br>%(summary)s"
-msgstr "Устанавливается: <b>%s</b><br>%s"
+msgstr ""
 
 #: yali/gui/ScrInstall.py:116
-#, fuzzy, python-format
+#, python-format
 msgid "Configuring <b>%s</b>"
-msgstr "Настраивается пакет: <b>%s</b>"
+msgstr ""
 
 #: yali/gui/ScrInstall.py:140
 #, python-format
@@ -541,12 +514,11 @@ msgid ""
 msgstr ""
 
 #: yali/gui/ScrInstall.py:141
-#, fuzzy
 msgid "Do you want to retry?"
-msgstr "Хотите попробовать заново?"
+msgstr ""
 
 #: yali/gui/ScrInstall.py:198
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "An error occured during the installation of packages.\n"
 "\n"
@@ -555,12 +527,6 @@ msgid ""
 "Error:\n"
 "%s\n"
 msgstr ""
-"Во время установки произошла ошибка.\n"
-"\n"
-"Возможно это проблема с диском или с приводом.\n"
-"\n"
-"Ошибка:\n"
-"%s\n"
 
 #: yali/gui/ScrKahyaCheck.py:78 yali/gui/ScrRescue.py:49
 msgid "No storage device found."
@@ -582,9 +548,8 @@ msgid ""
 msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:100
-#, fuzzy
 msgid "Partitioning Errors"
-msgstr "Установки Разделов"
+msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:105
 msgid ""
@@ -594,14 +559,13 @@ msgid ""
 msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:111
-#, fuzzy
 msgid "Partitioning Warnings"
-msgstr "Установки Разделов"
+msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:113 yali/gui/ScrPartitionManual.py:139
 #: yali/gui/YaliDialog.py:220
 msgid "Ok"
-msgstr "Ок"
+msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:119
 msgid ""
@@ -611,19 +575,16 @@ msgid ""
 msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:127
-#, fuzzy
 msgid "Format Warnings"
-msgstr "Форматирование..."
+msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:129
-#, fuzzy
 msgid "Format"
-msgstr "Формат :"
+msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:137
-#, fuzzy
 msgid "All Changes that you made will be removed"
-msgstr "Все изменения, которые вы сделали, будут отменены."
+msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:147
 msgid "Standard"
@@ -638,9 +599,8 @@ msgid "RAID"
 msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:151
-#, fuzzy
 msgid "Partition"
-msgstr "Раздел %d"
+msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:152
 msgid "General purpose of partition creation"
@@ -651,9 +611,8 @@ msgid "Physical Volume"
 msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:155
-#, fuzzy
 msgid "Create LVM formatted partition"
-msgstr "Да, отформатировать данный раздел"
+msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:157
 msgid "Volume Group"
@@ -676,9 +635,8 @@ msgid "Member"
 msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:164
-#, fuzzy
 msgid "Create Raid formatted partition"
-msgstr "Да, отформатировать данный раздел"
+msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:166
 msgid "Array"
@@ -717,9 +675,8 @@ msgid "Extended"
 msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:351
-#, fuzzy
 msgid "Error Partitioning"
-msgstr "Выберете Разбиение диска"
+msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:352
 #, python-format
@@ -727,19 +684,17 @@ msgid "Could not allocate requested partitions: %s."
 msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:356
-#, fuzzy
 msgid "Warning Partitioning"
-msgstr "Ручное Создание Разделов"
+msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:357
-#, fuzzy, python-format
+#, python-format
 msgid "Warning: %s."
-msgstr "Внимание"
+msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:358
-#, fuzzy
 msgid "Modify Partition"
-msgstr "Изменить Раздел"
+msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:482
 msgid "Unable To Edit"
@@ -754,39 +709,33 @@ msgid ""
 msgstr ""
 
 #: yali/gui/ScrRescueFinish.py:58
-#, fuzzy
 msgid "Taking back operation..."
-msgstr "Отмена операций с Pisi"
+msgstr ""
 
 #: yali/gui/ScrRescueFinish.py:61
-#, fuzzy
 msgid "Running rescue operations..."
-msgstr "Запуск действий по восстановлению.."
+msgstr ""
 
 #: yali/gui/ScrRescueFinish.py:78
-#, fuzzy
 msgid "Press <b>Restart</b> to restart your system."
-msgstr "Нажмите кнопку <b>Рестарт</b> для перезагрузки вашей системы."
+msgstr ""
 
 #: yali/gui/ScrRescueGrub.py:87
 #, python-format
 msgid "%s (Boot Disk)"
-msgstr "%s (Загрузочный диск)"
+msgstr ""
 
 #: yali/gui/ScrRescuePassword.py:39
-#, fuzzy
 msgid "Caps Lock is on."
-msgstr "Caps Lock нажата!"
+msgstr ""
 
 #: yali/gui/ScrRescuePassword.py:44 yali/gui/ScrRescuePisi.py:37
-#, fuzzy
 msgid "Starting D-Bus..."
-msgstr "Стартует DBUS..."
+msgstr ""
 
 #: yali/gui/ScrRescuePassword.py:46
-#, fuzzy
 msgid "Acquiring users..."
-msgstr "Добавление Пользователей..."
+msgstr ""
 
 #: yali/gui/ScrRescuePassword.py:79
 msgid "The password has been successfully reset."
@@ -794,17 +743,15 @@ msgstr ""
 
 #: yali/gui/ScrRescuePassword.py:79
 msgid "Info"
-msgstr "Информация"
+msgstr ""
 
 #: yali/gui/ScrRescuePassword.py:90
-#, fuzzy
 msgid "Do not use your username or real name as your password."
-msgstr "Не используйте ваш логин или ваше имя в качестве пароля"
+msgstr ""
 
 #: yali/gui/ScrRescuePassword.py:93
-#, fuzzy
 msgid "The passwords do not match."
-msgstr "Пароли не совпадают!"
+msgstr ""
 
 #: yali/gui/ScrRescuePassword.py:107 yali/gui/ScrRescuePisi.py:69
 msgid "Please Wait..."
@@ -812,50 +759,45 @@ msgstr ""
 
 #: yali/gui/ScrRescuePassword.py:130
 msgid "Super User"
-msgstr "Системный Администратор"
+msgstr ""
 
 #: yali/gui/ScrRescuePisi.py:39
-#, fuzzy
 msgid "Fetching history..."
-msgstr "Получение истории..."
+msgstr ""
 
 #: yali/gui/ScrRescuePisi.py:75
-#, fuzzy
 msgid "No connection available"
-msgstr "Соединение не удалось"
+msgstr ""
 
 #: yali/gui/ScrRescuePisi.py:116
-#, fuzzy, python-format
+#, python-format
 msgid "Operation %(no)s : %(date)s - %(type)s"
-msgstr "Операция %s : %s - %s"
+msgstr ""
 
 #: yali/gui/ScrRescuePisi.py:170
-#, fuzzy, python-format
+#, python-format
 msgid "Connecting to network %s..."
-msgstr "Соединение с сетью <b>%s</b> ..."
+msgstr ""
 
 #: yali/gui/ScrRescuePisi.py:176 yali/gui/ScrRescuePisi.py:177
 msgid "Connection failed"
-msgstr "Соединение не удалось"
+msgstr ""
 
 #: yali/gui/ScrRescuePisi.py:180 yali/gui/ScrRescuePisi.py:181
 msgid "Connected"
-msgstr "Соединено"
+msgstr ""
 
 #: yali/gui/ScrRescue.py:94
-#, fuzzy
 msgid "Mounting disk partition..."
-msgstr "Монтирование выбранного раздела..."
+msgstr ""
 
 #: yali/gui/ScrRescue.py:106
-#, fuzzy
 msgid "YALI could not locate a suitable disk partition on this computer."
-msgstr "Yali не может найти подходящий раздел на вашей системе"
+msgstr ""
 
 #: yali/gui/ScrRescue.py:123
-#, fuzzy
 msgid "Please select a disk partition from the list below:"
-msgstr "Пожалуйста выберите раздел из списка"
+msgstr ""
 
 #: yali/gui/ScrSummary.py:46
 msgid "<b><p>Are you sure you want to restart the computer?</p></b>"
@@ -863,73 +805,71 @@ msgstr ""
 
 #: yali/gui/ScrSummary.py:57 yali/gui/ScrSummary.py:212
 msgid "Next"
-msgstr "Следующий"
+msgstr ""
 
 #: yali/gui/ScrSummary.py:64
-#, fuzzy, python-format
+#, python-format
 msgid "Installation starts in <b>%s</b> seconds"
-msgstr "Установка начнется через: <b>%s секунд(ы)</b>"
+msgstr ""
 
 #: yali/gui/ScrSummary.py:71
-#, fuzzy
 msgid "Start Installation"
-msgstr "Итог инсталляции..."
+msgstr ""
 
 #: yali/gui/ScrSummary.py:89
 msgid "Keyboard Settings"
-msgstr "Настройки Клавиатуры"
+msgstr ""
 
 #: yali/gui/ScrSummary.py:91
 #, python-format
 msgid "Selected keyboard layout is <b>%s</b>"
-msgstr "Выбранная раскладка клавиатуры: <b>%s</b>"
+msgstr ""
 
 #: yali/gui/ScrSummary.py:97
 msgid "Date/Time Settings"
-msgstr "Установки Даты и Времени"
+msgstr ""
 
 #: yali/gui/ScrSummary.py:99
 #, python-format
 msgid "Selected TimeZone is <b>%s</b>"
-msgstr "Выбранный Часовой Пояс: <b>%s</b>"
+msgstr ""
 
 #: yali/gui/ScrSummary.py:105
 msgid "User Settings"
-msgstr "Пользовательские Установки"
+msgstr ""
 
 #: yali/gui/ScrSummary.py:107
-#, fuzzy, python-format
+#, python-format
 msgid "User %(username)s (<b>%(realname)s</b>) added."
-msgstr "Пользователь %s (<b>%s</b>) добавлен."
+msgstr ""
 
 #: yali/gui/ScrSummary.py:109
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "User %(username)s (<b>%(realname)s</b>) added with <u>administrator "
 "privileges</u>."
-msgstr "Пользователь %s (<b>%s</b>) добавлен с <u>правами администратора</u>."
+msgstr ""
 
 #: yali/gui/ScrSummary.py:115
 msgid "Hostname Settings"
-msgstr "Установки Имени Компьютера"
+msgstr ""
 
 #: yali/gui/ScrSummary.py:117
 #, python-format
 msgid "Hostname is set as <b>%s</b>"
-msgstr "Имя Компьютера: <b>%s</b>"
+msgstr ""
 
 #: yali/gui/ScrSummary.py:123
 msgid "Partition Settings"
-msgstr "Установки Разделов"
+msgstr ""
 
 #: yali/gui/ScrSummary.py:130
 msgid "Automatic Partitioning selected."
-msgstr "Выбрано Автоматическое Разбиение на разделы."
+msgstr ""
 
 #: yali/gui/ScrSummary.py:132
-#, fuzzy
 msgid "Use All Space"
-msgstr "Свободное Место"
+msgstr ""
 
 #: yali/gui/ScrSummary.py:133
 #, python-format
@@ -951,9 +891,8 @@ msgid ""
 msgstr ""
 
 #: yali/gui/ScrSummary.py:143
-#, fuzzy
 msgid "Use Free Space"
-msgstr "Свободное Место"
+msgstr ""
 
 #: yali/gui/ScrSummary.py:144
 #, python-format
@@ -965,40 +904,37 @@ msgstr ""
 
 #: yali/gui/ScrSummary.py:150
 msgid "Manual Partitioning selected."
-msgstr "Выбрано Ручное разбиение на разделы"
+msgstr ""
 
 #: yali/gui/ScrSummary.py:158
 msgid "Bootloader Settings"
-msgstr "Установки Загрузчика"
+msgstr ""
 
 #: yali/gui/ScrSummary.py:159
 #, python-format
 msgid "GRUB will be installed to <b>%s</b>."
-msgstr "GRUB будет установлен на <b>%s</b>."
+msgstr ""
 
 #: yali/gui/ScrSummary.py:161
 msgid "GRUB will not be installed."
-msgstr "GRUB не будет установлен."
+msgstr ""
 
 #: yali/gui/ScrSummary.py:168
-#, fuzzy
 msgid "Package Installation Settings"
-msgstr "Установки Разделов"
+msgstr ""
 
 #: yali/gui/ScrSummary.py:170
-#, fuzzy
 msgid "Auto installation selected."
-msgstr "Выбрано Автоматическое Разбиение на разделы."
+msgstr ""
 
 #: yali/gui/ScrSummary.py:172
-#, fuzzy, python-format
+#, python-format
 msgid "Manual Installation ( %s ) selected"
-msgstr "Выбрано Ручное разбиение на разделы"
+msgstr ""
 
 #: yali/gui/ScrSummary.py:176
-#, fuzzy
 msgid "Default Kernel selected"
-msgstr "Удалить Выбранного Пользователя"
+msgstr ""
 
 #: yali/gui/ScrSummary.py:178
 msgid "PAE Kernel selected"
@@ -1020,53 +956,44 @@ msgid "Write Changes to Disk"
 msgstr ""
 
 #: yali/gui/ScrSummary.py:201
-#, fuzzy
 msgid "Go Back"
-msgstr "Назад"
+msgstr ""
 
 #: yali/gui/ScrUsers.py:129 yali/gui/ScrUsers.py:353
-#, fuzzy
 msgid "Update"
-msgstr "Обновить Пользователя"
+msgstr ""
 
 #: yali/gui/ScrUsers.py:205
-#, fuzzy
 msgid "Don't use your user name or name as a password"
-msgstr "Не используйте ваш логин или ваше имя в качестве пароля"
+msgstr ""
 
 #: yali/gui/ScrUsers.py:208
-#, fuzzy
 msgid "Passwords do not match"
-msgstr "Пароли не совпадают!"
+msgstr ""
 
 #: yali/gui/ScrUsers.py:211
-#, fuzzy
 msgid "Password is too short"
-msgstr "Пароль слишком короткий!"
+msgstr ""
 
 #: yali/gui/ScrUsers.py:258
-#, fuzzy
 msgid "This user name is already taken, please choose another one."
-msgstr "Это имя пользователя уже существует, выберете другое!"
+msgstr ""
 
 #: yali/gui/ScrUsers.py:262
-#, fuzzy
 msgid "The user name contains invalid characters."
-msgstr "Имя пользователя содержит некорректные символы!"
+msgstr ""
 
 #: yali/gui/ScrUsers.py:265
-#, fuzzy
 msgid "The real name contains invalid characters."
-msgstr "Настоящее имя пользователя содержит некорректные символы!"
+msgstr ""
 
 #: yali/gui/ScrUsers.py:268
-#, fuzzy
 msgid "The password contains invalid characters."
-msgstr "Имя пользователя содержит некорректные символы!"
+msgstr ""
 
 #: yali/gui/ScrUsers.py:276
 msgid "User ID used before, choose another one!"
-msgstr "ID пользователя уже использовался, выберете другой!"
+msgstr ""
 
 #: yali/gui/ScrUsers.py:281 yali/gui/ScrUsers.py:323 yali/gui/ScrUsers.py:401
 msgid "Add"
@@ -1077,14 +1004,12 @@ msgid "License text could not be found."
 msgstr ""
 
 #: yali/gui/shrink_gui.py:23
-#, fuzzy
 msgid "Partitions to Shrink"
-msgstr "Установки Разделов"
+msgstr ""
 
 #: yali/gui/shrink_gui.py:47
-#, fuzzy
 msgid "Resize FileSystem Error"
-msgstr "Ошибка Файловой Системы"
+msgstr ""
 
 #: yali/gui/shrink_gui.py:48
 #, python-format
@@ -1112,27 +1037,24 @@ msgid "<Not Applicable>"
 msgstr ""
 
 #: yali/gui/storageGuiHelpers.py:451
-#, fuzzy
 msgid "Format as :"
-msgstr "Формат :"
+msgstr ""
 
 #: yali/gui/storageGuiHelpers.py:471
 msgid "Migrate filesystem To :"
 msgstr ""
 
 #: yali/gui/storageGuiHelpers.py:495
-#, fuzzy
 msgid "Resize :"
-msgstr "Изменить Размер"
+msgstr ""
 
 #: yali/gui/storageGuiHelpers.py:537
 msgid "Advanced Size Options"
 msgstr ""
 
 #: yali/gui/storageGuiHelpers.py:539
-#, fuzzy
 msgid "Fixed Size :"
-msgstr "Размер :"
+msgstr ""
 
 #: yali/gui/storageGuiHelpers.py:540
 msgid "Fill to maximum allowable size"
@@ -1145,44 +1067,40 @@ msgstr ""
 #: yali/gui/YaliDialog.py:220 yali/gui/YaliDialog.py:236
 #: yali/gui/YaliDialog.py:263
 msgid "Yes"
-msgstr "Да"
+msgstr ""
 
 #: yali/gui/YaliDialog.py:222 yali/gui/YaliDialog.py:237
 #: yali/gui/YaliDialog.py:264
 msgid "No"
-msgstr "Нет"
+msgstr ""
 
 #: yali/gui/YaliDialog.py:242
 msgid "Don't ask again"
-msgstr "Больше не спрашивать"
+msgstr ""
 
 #: yali/gui/YaliDialog.py:247
-#, fuzzy
 msgid "Do you want to continue?"
-msgstr "Вы хотите продолжить?"
+msgstr ""
 
 #: yali/gui/YaliDialog.py:262
-#, fuzzy
 msgid "Eject Disc"
-msgstr "Извлечь CD"
+msgstr ""
 
 #: yali/gui/YaliDialog.py:288 yali/gui/YaliDialog.py:305
 msgid "OK"
 msgstr ""
 
 #: yali/gui/YaliDialog.py:289
-#, fuzzy
 msgid "Please insert a new disc and then click OK"
-msgstr "Пожалуйста вставьте новый диск и нажмите Ок"
+msgstr ""
 
 #: yali/gui/YaliDialog.py:291
-#, fuzzy
 msgid "Insert New Disc"
-msgstr "Вставьте новый диск"
+msgstr ""
 
 #: yali/gui/YaliDialog.py:303
 msgid "Information"
-msgstr "Информация"
+msgstr ""
 
 #: yali/gui/YaliDialog.py:494
 msgid "Error reporting"
@@ -1197,9 +1115,8 @@ msgid "Style file doesn't exists"
 msgstr ""
 
 #: yali/gui/YaliWindow.py:96
-#, fuzzy
 msgid "Release file doesn't exists"
-msgstr "Описание Выпуска"
+msgstr ""
 
 #: yali/gui/YaliWindow.py:104
 msgid "Turn Off Computer"
@@ -1215,25 +1132,25 @@ msgstr ""
 
 #: yali/gui/YaliWindow.py:124 yali/gui/YaliWindow.py:141 yali/sysutils.py:53
 msgid "right"
-msgstr "правый"
+msgstr ""
 
 #: yali/gui/YaliWindow.py:140 yali/gui/YaliWindow.py:143 yali/sysutils.py:52
 msgid "left"
-msgstr "левый"
+msgstr ""
 
 #: yali/gui/YaliWindow.py:144
 msgid "Mouse Settings"
-msgstr "Установки Мыши"
+msgstr ""
 
 #: yali/gui/YaliWindow.py:145
-#, fuzzy, python-format
+#, python-format
 msgid "You just clicked the <b>%s</b> mouse button."
-msgstr "Вы только что использовали кнопку <b>%s</b> "
+msgstr ""
 
 #: yali/gui/YaliWindow.py:146
-#, fuzzy, python-format
+#, python-format
 msgid "Do you want to switch to the <b>%s</b> handed configuration?"
-msgstr "Вы хотите использовать <b>%s</b> направленные установки мыши ?"
+msgstr ""
 
 #: yali/gui/YaliWindow.py:176
 msgid "Are you sure you want to shut down your computer now?"
@@ -1249,15 +1166,15 @@ msgstr ""
 
 #: yali/gui/YaliWindow.py:202
 msgid "Terminal"
-msgstr "Терминал"
+msgstr ""
 
 #: yali/gui/YaliWindow.py:207
 msgid "Tetris"
-msgstr "Тетрис"
+msgstr ""
 
 #: yali/gui/YaliWindow.py:351
 msgid "Release Notes"
-msgstr "Описание Выпуска"
+msgstr ""
 
 #: yali/gui/YaliWindow.py:374
 msgid "Release notes could not be loaded."
@@ -1265,155 +1182,155 @@ msgstr ""
 
 #: yali/localedata.py:20
 msgid "Turkish"
-msgstr "Турецкий"
+msgstr ""
 
 #: yali/localedata.py:22
 msgid "Turkish F"
-msgstr "Турецкий Ф"
+msgstr ""
 
 #: yali/localedata.py:22
 msgid "Turkish Q"
-msgstr "Турецкий К"
+msgstr ""
 
 #: yali/localedata.py:31
 msgid "English"
-msgstr "Английский"
+msgstr ""
 
 #: yali/localedata.py:42
 msgid "English GB"
-msgstr "Классический Английский"
+msgstr ""
 
 #: yali/localedata.py:52
 msgid "Greek"
-msgstr "Греческий"
+msgstr ""
 
 #: yali/localedata.py:62
 msgid "Afrikaans"
-msgstr "Африканский"
+msgstr ""
 
 #: yali/localedata.py:72
 msgid "Vietnamese"
-msgstr "Вьетнамский"
+msgstr ""
 
 #: yali/localedata.py:82
 msgid "Catalan"
-msgstr "Каталонский"
+msgstr ""
 
 #: yali/localedata.py:93
 msgid "Italian"
-msgstr "Итальянский"
+msgstr ""
 
 #: yali/localedata.py:104
 msgid "Czech"
-msgstr "Чешский"
+msgstr ""
 
 #: yali/localedata.py:114
 msgid "Welsh"
-msgstr "Валлийский"
+msgstr ""
 
 #: yali/localedata.py:124
 msgid "Arabic"
-msgstr "Арабский"
+msgstr ""
 
 #: yali/localedata.py:134
 msgid "Estonian"
-msgstr "Эстонский"
+msgstr ""
 
 #: yali/localedata.py:144
 msgid "Spanish"
-msgstr "Испанский"
+msgstr ""
 
 #: yali/localedata.py:155
 msgid "Russian"
-msgstr "Русский"
+msgstr ""
 
 #: yali/localedata.py:165
 msgid "Dutch"
-msgstr "Немецкий"
+msgstr ""
 
 #: yali/localedata.py:176
 msgid "Portuguese"
-msgstr "Португальский"
+msgstr ""
 
 #: yali/localedata.py:187
 msgid "Norwegian"
-msgstr "Норвежский"
+msgstr ""
 
 #: yali/localedata.py:197
 msgid "Icelandic"
-msgstr "Исландский"
+msgstr ""
 
 #: yali/localedata.py:207
 msgid "Polish"
-msgstr "Польский"
+msgstr ""
 
 #: yali/localedata.py:218
 msgid "Belgium"
-msgstr "Бельгийский"
+msgstr ""
 
 #: yali/localedata.py:228
 msgid "French"
-msgstr "Французский"
+msgstr ""
 
 #: yali/localedata.py:239
 msgid "Bulgarian"
-msgstr "Болгарский"
+msgstr ""
 
 #: yali/localedata.py:249
 msgid "Slovenian"
-msgstr "Словенский"
+msgstr ""
 
 #: yali/localedata.py:259
 msgid "Croatian"
-msgstr "Хорватский"
+msgstr ""
 
 #: yali/localedata.py:269
 msgid "German"
-msgstr "Немецкий"
+msgstr ""
 
 #: yali/localedata.py:280
 msgid "Danish"
-msgstr "Датский"
+msgstr ""
 
 #: yali/localedata.py:290
 msgid "Brazilian"
-msgstr "Бразильский"
+msgstr ""
 
 #: yali/localedata.py:300
 msgid "Finnish"
-msgstr "Финский"
+msgstr ""
 
 #: yali/localedata.py:310
 msgid "Hungarian"
-msgstr "Венгерский"
+msgstr ""
 
 #: yali/localedata.py:320
 msgid "Japanese"
-msgstr "Японский"
+msgstr ""
 
 #: yali/localedata.py:330
 msgid "Malayalam"
-msgstr "Малаялам"
+msgstr ""
 
 #: yali/localedata.py:340
 msgid "Swedish"
-msgstr "Шведский"
+msgstr ""
 
 #: yali/localedata.py:351
 msgid "Macedonian"
-msgstr "Македонский"
+msgstr ""
 
 #: yali/localedata.py:361
 msgid "Slovak"
-msgstr "Словакский"
+msgstr ""
 
 #: yali/localedata.py:371
 msgid "Ukrainian"
-msgstr "Украинский"
+msgstr ""
 
 #: yali/localedata.py:381
 msgid "Serbian"
-msgstr "Сербский"
+msgstr ""
 
 #: yali/postinstall.py:156
 #, python-format
@@ -1441,1645 +1358,3 @@ msgstr ""
 #: yali/util.py:435 yali/util.py:478
 msgid "Invalid xml file"
 msgstr ""
-
-#, fuzzy
-#~ msgid "Set connection state."
-#~ msgstr "Выберите Соединение"
-
-#~ msgid "Form"
-#~ msgstr "Форма"
-
-#, fuzzy
-#~ msgid "No, I'll select installation metod manually"
-#~ msgstr "Нет, я проведу разметку диска вручную."
-
-#~ msgid ""
-#~ "There appears to be more than one resizeable partition. You can select a "
-#~ "partition from the list below or YALI will select one for you."
-#~ msgstr ""
-#~ "Есть несколько разделов, размеры которых можно изменить. Вы можете "
-#~ "выбрать раздел из списка ниже или YALI выберет его для вас."
-
-#~ msgid "X"
-#~ msgstr "X"
-
-#~ msgid "Automatically choose the partition to resize (recommended)"
-#~ msgstr "Автоматически выбрать раздел для изменения (рекомендуется)"
-
-#~ msgid "I will choose the target"
-#~ msgstr "Я выберу цель"
-
-#~ msgid "Use Selected"
-#~ msgstr "Использовать Выбранное"
-
-#~ msgid "Form1"
-#~ msgstr "Форма1"
-
-#~ msgid ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:10pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><span "
-#~ "style=\" font-size:12pt; font-weight:600;\">Partitioning method</span></"
-#~ "p></body></html>"
-#~ msgstr ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:10pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><span "
-#~ "style=\" font-size:12pt; font-weight:600;\">Метод раздела</span></p></"
-#~ "body></html>"
-
-#~ msgid ""
-#~ "Please choose a partitioning method and then a device to partition."
-#~ "<br>Device list will be updated based on the selected method."
-#~ msgstr ""
-#~ "Пожалуйста, выберете метод раздела и затем устройство для раздела. "
-#~ "<br>Список устройств будет обновлен на основе выбранного метода."
-
-#~ msgid "Automatic"
-#~ msgstr "Автоматический"
-
-#~ msgid ""
-#~ "This option will try to find free disk space of suitable size. If no such "
-#~ "disk space exists, it will look for resizable partitions"
-#~ msgstr ""
-#~ "Эта опция попробует найти свободное место на диске. Если места будет не "
-#~ "достаточно, попробует найти подходящие разделы"
-
-#~ msgid "Try to use free space or resize current partitions"
-#~ msgstr ""
-#~ "Попробовать использовать свободное место или изменить размеры "
-#~ "существующих разделов"
-
-#~ msgid ""
-#~ "This option will erase the entire disk. All the data on the disk will be "
-#~ "lost."
-#~ msgstr "Эта опция очистит весь диск. Все данные будут утеряны."
-
-#~ msgid "Delete all partitions"
-#~ msgstr "Удалить все разделы"
-
-#~ msgid "This option allows partitioning the disk to your wishes."
-#~ msgstr ""
-#~ "Эта опция позволит произвести разметку диска так, как вы этого хотите."
-
-#~ msgid "No, I'll partition my disk manually."
-#~ msgstr "Нет, я проведу разметку диска вручную."
-
-#~ msgid ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:10pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><span "
-#~ "style=\" font-size:12pt; font-weight:600;\">Disk selection</span></p></"
-#~ "body></html>"
-#~ msgstr ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:10pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><span "
-#~ "style=\" font-size:12pt; font-weight:600;\">Выбор диска</span></p></"
-#~ "body></html>"
-
-#~ msgid "&nbsp;"
-#~ msgstr "&nbsp;"
-
-#~ msgid ""
-#~ "<b>Write boot loader (GRUB) to the master boot record?</b>\n"
-#~ "\n"
-#~ "<p>Your system will not boot without a loader.</p>\n"
-#~ "\n"
-#~ "<p>If you don't install a boot loader or choose to install to root "
-#~ "partition, you will have to manually configure already-installed (if any) "
-#~ "loader to be able to boot your new Pardus installation.</p>"
-#~ msgstr ""
-#~ "<b>Записать загрузчик (GRUB) в главную загрузочную запись?</b>\n"
-#~ "\n"
-#~ "<p>Ваша система не загрузится без загрузчика.</p>\n"
-#~ "\n"
-#~ "<p>Если вы не установите загрузчик или выберете установку в корневой "
-#~ "раздел, вам нужно будет настраивать уже установленный (если есть) "
-#~ "загрузчик для того, чтобы загрузить вашу новую систему Pardus</p>"
-
-#~ msgid "Select target to install boot loader"
-#~ msgstr "Выберете цель для установки загрузчика"
-
-#~ msgid "First bootable disk (recommended)"
-#~ msgstr "Первый загрузочный диск (рекомендуется)"
-
-#~ msgid "Pardus installed partition"
-#~ msgstr "Раздел с установленной системой Pardus"
-
-#~ msgid "Selected disk below"
-#~ msgstr "Выбранный диск ниже"
-
-#~ msgid "Don't install bootloader"
-#~ msgstr "Не устанавливать загрузчик"
-
-#~ msgid "Automatically add other operating systems to the GRUB Menu"
-#~ msgstr ""
-#~ "Автоматически добавить другие операционные системы в меню загрузчика"
-
-#~ msgid ""
-#~ "You can check the integrity of the packages in installation CD. Although "
-#~ "this is an optional step, we encourage you to do it in order to avoid any "
-#~ "possible errors in the installation process."
-#~ msgstr ""
-#~ "Вы можете проверить целостность пакетов на установочном CD. Хотя это и не "
-#~ "обязательно, мы советуем сделать это, чтобы избежать возможных ошибок в "
-#~ "процессе установки."
-
-#~ msgid "Check CD Integrity"
-#~ msgstr "Проверить Целостность CD"
-
-#~ msgid ""
-#~ "To use PiSi History support, you may need to be online. You can use a "
-#~ "connection profile from the list below."
-#~ msgstr ""
-#~ "Чтобы использовать поддержку истории операций PiSi, вам нужно быть "
-#~ "подключенными к Сети. Вы можете выбрать способ подключения из списка ниже."
-
-#~ msgid "Connect"
-#~ msgstr "Подключиться"
-
-#~ msgid "The current time"
-#~ msgstr "Текущее время"
-
-#~ msgid ":"
-#~ msgstr ":"
-
-#~ msgid "Time Zone"
-#~ msgstr "Часовой Пояс"
-
-#~ msgid ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:8pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">Please fill a bug "
-#~ "report at <span style=\" font-weight:600;\">http://bugs.pardus.org.tr/</"
-#~ "span> attaching the following backtrace.</p></body></html>"
-#~ msgstr ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:8pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">Пожалуйста заполните "
-#~ "отчет об ошибке по адресу<span style=\" font-weight:600;\">http://bugs."
-#~ "pardus.org.tr /</span> подключив следующий стэк.</p></body></html>"
-
-#~ msgid "Show Backtrace"
-#~ msgstr "Показать Стэк"
-
-#~ msgid "Form3"
-#~ msgstr "Форма4"
-
-#~ msgid "pix"
-#~ msgstr "пикс"
-
-#~ msgid "Desc"
-#~ msgstr "Опис"
-
-#~ msgid "Installing Package: "
-#~ msgstr "Устанавливаемый Пакет: "
-
-#~ msgid "Choose a keyboard layout:"
-#~ msgstr "Выберите раскладку клавиатуры:"
-
-#~ msgid "Test selected layout:"
-#~ msgstr "Проверить выбранную раскладку:"
-
-#~ msgid "Yali4"
-#~ msgstr "Yali4"
-
-#~ msgid "Screen Name"
-#~ msgstr "Имя Экрана"
-
-#~ msgid "Details about the screen"
-#~ msgstr "Детали о экране"
-
-#~ msgid "Toggle Help"
-#~ msgstr "Переключиться на Помощь"
-
-#~ msgid "Previous Screen"
-#~ msgstr "Предыдущий Экран"
-
-#~ msgid "Next Screen"
-#~ msgstr "Следующий Экран"
-
-#~ msgid "Partition 1 on FUJISTU - /dev/sda1"
-#~ msgstr "Раздел 1 на FUJISTU - /dev/sda1"
-
-#~ msgid "Use :"
-#~ msgstr "Использовано :"
-
-#~ msgid " MB"
-#~ msgstr " MB"
-
-#~ msgid "File System :"
-#~ msgstr "Файловая Система :"
-
-#~ msgid "Changes will be applied after Summary Screen."
-#~ msgstr "Изменения будут приняты после итогового экрана."
-
-#~ msgid "Refresh Disks"
-#~ msgstr "Обновить Диски"
-
-#~ msgid "Reset All Changes"
-#~ msgstr "Сбросить Все Изменения"
-
-#~ msgid "Apply"
-#~ msgstr "Применить"
-
-#~ msgid ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:"
-#~ "#ffffff;\">Changes will be applied when you click \"</span><span style=\" "
-#~ "text-decoration: underline; color:#ffffff;\">Resize</span><span style=\" "
-#~ "color:#ffffff;\">\". To cancel the changes, click \"</span><span style=\" "
-#~ "text-decoration: underline; color:#ffffff;\">Cancel</span><span style=\" "
-#~ "color:#ffffff;\">\".</span></p>\n"
-#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
-#~ "color:#ffffff;\"></p>\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px; color:#ffffff;\"><span "
-#~ "style=\" font-weight:600; text-decoration: underline;\">Warning:</span> A "
-#~ "resizing operation may corrupt the partition, rendering the data on it "
-#~ "unreachable. Make sure that you have backed up the data.<span style=\" "
-#~ "font-weight:600;\"> </span><span style=\" font-weight:600;\">Note that "
-#~ "this operation cannot be undone.</span></p></body></html>"
-#~ msgstr ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:"
-#~ "#ffffff;\">Изменения будут сделаны, когда вы нажмете кнопку \"</"
-#~ "span><span style=\" text-decoration: underline; color:#ffffff;\">Изменить "
-#~ "размер</span><span style=\" color:#ffffff;\">\". Чтобы отменить изменения "
-#~ "нажмите \"</span><span style=\" text-decoration: underline; color:#ffffff;"
-#~ "\">Отмена</span><span style=\" color:#ffffff;\">\".</span></p>\n"
-#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
-#~ "color:#ffffff;\"></p>\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px; color:#ffffff;\"><span "
-#~ "style=\" font-weight:600; text-decoration: underline;\">Внимание:</span> "
-#~ "Изменение размера раздела могут привести к повреждению данных. Убедитесь, "
-#~ "что вы сделали резервную копию данных.<span style=\" font-weight:600;\"> "
-#~ "</span><span style=\" font-weight:600;\">Внимание: эта операция "
-#~ "необратима.</span></p></body></html>"
-
-#~ msgid "User to change password of:"
-#~ msgstr "Пользователь для замены пароля:"
-
-#~ msgid "New password:"
-#~ msgstr "Новый пароль:"
-
-#~ msgid "New password (again):"
-#~ msgstr "Новый пароль (еще раз):"
-
-#~ msgid "Update Password"
-#~ msgstr "Обновить Пароль"
-
-#~ msgid "Not Connected"
-#~ msgstr "Не Соединено"
-
-#~ msgid ""
-#~ "To use PiSi's history feature, you may need to be online. Select "
-#~ "connection profile."
-#~ msgstr ""
-#~ "Чтобы использовать возможность отслеживать историю операций PiSi, вам "
-#~ "необходимо быть в Сети. Выберите способ соединения."
-
-#~ msgid "Select Connection"
-#~ msgstr "Выберите Соединение"
-
-#~ msgid "Operation to undo:"
-#~ msgstr "Операция для отмены:"
-
-#~ msgid "Select the partition Pardus is installed on"
-#~ msgstr "Выберите раздел, на который будет установлен Pardus"
-
-#~ msgid "Select operation and click <b>Next</b>..."
-#~ msgstr "Выберите операцию и нажмите <b>Следующий</b>..."
-
-#~ msgid "Reinstall GRUB (boot problems)"
-#~ msgstr "Установить GRUB (проблемы с загрузкой)"
-
-#~ msgid "PiSi history (undo package operations)"
-#~ msgstr "История операций PiSi (отмена операций с пакетами)"
-
-#~ msgid "Change password (lost password)"
-#~ msgstr "Изменить пароль (потерянный пароль)"
-
-#~ msgid ""
-#~ "<p align=\"left\">System administrator user (root) handles important "
-#~ "system maintanence tasks. Enter a password for this special user and do "
-#~ "not forget this password. Keep in mind that for privacy reasons, you "
-#~ "shouldn't write this password elsewhere.</p>"
-#~ msgstr ""
-#~ "<p align=\"left\">Суперпользователь (root) выполняет важные системные "
-#~ "задания. Введите пароль суперпользователя и не забудьте его. Помните, что "
-#~ "вам не следует писать его где-нибудь еще.</p>"
-
-#~ msgid "System administrator password:"
-#~ msgstr "Пароль суперпользователя:"
-
-#~ msgid "System administrator password (again):"
-#~ msgstr "Пароль суперпользователя (снова):"
-
-#~ msgid "Hostname:"
-#~ msgstr "Имя компьютера:"
-
-#~ msgid "Real Name:"
-#~ msgstr "Реальное Имя:"
-
-#~ msgid "User Name:"
-#~ msgstr "Имя Пользователя:"
-
-#~ msgid "Password:"
-#~ msgstr "Пароль:"
-
-#~ msgid "Password (again):"
-#~ msgstr "Пароль (снова):"
-
-#~ msgid "User ID"
-#~ msgstr "ID Пользователя"
-
-#~ msgid "Give administrator privileges to this user"
-#~ msgstr "Дать права администратора данному пользователю"
-
-#~ msgid "Not recommended"
-#~ msgstr "Не рекомендуется"
-
-#~ msgid "Do not ask any password to this user"
-#~ msgstr "Не спрашивать пароль для этого пользователя"
-
-#~ msgid "Advanced"
-#~ msgstr "Больше"
-
-#~ msgid "Edit Selected User"
-#~ msgstr "Редактировать Выбранного Пользователя"
-
-#~ msgid "Delete Selected User"
-#~ msgstr "Удалить Выбранного Пользователя"
-
-#~ msgid "Auto Login User :"
-#~ msgstr "Пользователь для Авто Загрузки"
-
-#~ msgid "Auto Login Disabled"
-#~ msgstr "Авто Загрузка Выключена"
-
-#~ msgid "Users:"
-#~ msgstr "Пользователи:"
-
-#~ msgid "Create User"
-#~ msgstr "Создать Пользователя"
-
-#~ msgid "Begin Install"
-#~ msgstr "Начать Установку"
-
-#~ msgid ""
-#~ "If you check this, Yalı will install all language packages in this release"
-#~ msgstr ""
-#~ "Если вы выберите это, Yali установит все языковые пакеты в данном выпуске"
-
-#~ msgid "Install all language packages"
-#~ msgstr "Установить все языковые пакеты"
-
-#~ msgid ""
-#~ "All software developed by TUBITAK/UEKAE is licensed under GNU/GPL. Other "
-#~ "software have their corresponding licenses. To install and/or use Pardus, "
-#~ "you must accept them. Do you accept GNU/GPL and other, corresponding "
-#~ "licences?"
-#~ msgstr ""
-#~ "Все ПО, разработанное TUBITAK/UEKAE имеет лицензию GNU/GPL. Другое ПО "
-#~ "проходит по сопровождающим их лицензиям. Чтобы установить и/или "
-#~ "использовать Pardus, вы должны принять их. Вы принимаете GNU/GPL и "
-#~ "другие, сопровождающие, лицензии?"
-
-#~ msgid "Read GPL"
-#~ msgstr "Прочитать GPL"
-
-#~ msgid "Reboot System"
-#~ msgstr "Перезагрузить Систему"
-
-#~ msgid "Yes, I accept."
-#~ msgstr "Да, Я Принимаю."
-
-#~ msgid "No, I don't accept."
-#~ msgstr "Нет, Я не принимаю."
-
-#~ msgid "Debug"
-#~ msgstr "Отладка"
-
-#~ msgid ""
-#~ "Hello, there. The easiest-ever install tool YALI has begun Pardus "
-#~ "installation. It is now time to relax and learn about some of the "
-#~ "features of Pardus 2011 while it is being installed."
-#~ msgstr ""
-#~ "Привет! Самый легкий инструмент установки YALI начал установку Pardus. "
-#~ "Сейчас время расслабиться и узнать побольше о некоторых возможностях "
-#~ "Pardus 2011, пока он будет устанавливаться."
-
-#~ msgid ""
-#~ "Pardus 2011 is a Linux distribution that everybody can easily install and "
-#~ "use. With Pardus 2011, you can do anything that you could otherwise do "
-#~ "with other operating systems. With its fast, secure and stable "
-#~ "infrastructure, Pardus opens the path to software libre."
-#~ msgstr ""
-#~ "Pardus 2011 это дистрибутив Linux, который каждый может легко установить "
-#~ "и использовать. С помощью Pardus 2011 вы можете делать все то, что можете "
-#~ "делать с любой другой ОС. С его быстрой, безопасной и стабильной "
-#~ "инфраструктурой открывается путь к свободе ПО."
-
-#~ msgid ""
-#~ "Pardus 2011 comes preinstalled with the open source desktop environment "
-#~ "KDE 4.2. You will have a much better desktop experience compared to what "
-#~ "you have seen so far. Following the installation, you can choose to use "
-#~ "the classical desktop view that includes icons to your files and folders, "
-#~ "or you can have any number of the preinstalled plasma widgets on your "
-#~ "desktop and add interesting functionality to your view. You can have an "
-#~ "analog clock on your desktop; even more, you can have a real-time weather "
-#~ "report, your notes and RSS feeds right on your desktop."
-#~ msgstr ""
-#~ "Pardus 2011 поставляется вместе с открытой оболочкой рабочего стола KDE "
-#~ "4.2. У вас будет намного лучший опыт работы с рабочим столом, чем вы "
-#~ "когда-либо видели. Сразу за установкой вам будет предложено выбрать между "
-#~ "классическим видом рабочего стола с иконками к вашим файлам и папкам, или "
-#~ "вы сможете получить набор предустановленных Plasma-виджетов и добавить "
-#~ "интересную функциональность. Например, у вас будут аналоговые часы на "
-#~ "рабочем столе и, более того, прогноз погоды в реальном времени, заметки, "
-#~ "записи RSS прямо на рабочем столе. "
-
-#~ msgid ""
-#~ "With the arrival of KDE 4.2, Konqueror is replaced with a new and very "
-#~ "talented file manager, Dolphin. Dolphin is easy to use, and when it comes "
-#~ "to viewing folders, it allows you to sort them in various ways, adding "
-#~ "functionality like grouping and detailed information right on the spot. "
-#~ "Anything you may need on viewing folders, you have it with Dolphin."
-#~ msgstr ""
-#~ "С появлением KDE 4.2, Konqueror был заменен на новый файловый менеджер "
-#~ "Dolphin. Использовать Dolphin очень просто. Когда вы хотите просмотреть "
-#~ "папки, он позволяет вам отсортировать их различным образом, добавляя "
-#~ "такие возможности, как просмотр дополнительной информации прямо \"на ходу"
-#~ "\". Если вам любым образом надо просмотреть ваши папки, вы можете сделать "
-#~ "это с Dolphin."
-
-#~ msgid ""
-#~ "With Pardus 2011, Kpdf is replaced with Okular. Okular supports many file "
-#~ "formats and you can view all your files without any additional software, "
-#~ "take notes on bookmarks on them."
-#~ msgstr ""
-#~ "В Pardus 2011 Kpdf был заменен новым приложением под названием Okular. "
-#~ "Okular позволит вам просмотреть любые файлы без использования какого-либо "
-#~ "дополнительного ПО."
-
-#~ msgid ""
-#~ "Pardus includes many genuine technologies aiming for an easier use and "
-#~ "management. TASMA has been replaced with System Manager in Pardus 2011, "
-#~ "but you will still find all these management tools built into the System "
-#~ "Manager interface."
-#~ msgstr ""
-#~ "Pardus включает в себя много уникальных технологий, созданных для того, "
-#~ "чтобы пользователю было легче использовать и настраивать систему. TASMA "
-#~ "была заменена на System Manager (Параметры системы в русской версии KDE), "
-#~ "однако все элементы управления TASMA встроены в интерфейс System Manager."
-
-#~ msgid ""
-#~ "Kaptan (Turkish for 'Captain') is what welcomes you to your Pardus "
-#~ "installation. Using Kaptan, you can configure your desktop, changing the "
-#~ "taskbar's location, wallpaper and desktop theme, and internet connection "
-#~ "settings. Kaptan also allows you to add the Contribution Repository to "
-#~ "your package management settings. Even more, Kaptan includes options to "
-#~ "set intelligent search and an online Pardus Beginner's Tour."
-#~ msgstr ""
-#~ "Kaptan (в русском переводе Капитан) - это приложение, которое встретит "
-#~ "вас сразу после установки Pardus. Используя Kaptan, вы сможете настроить "
-#~ "ваш рабочий стол, изменяя местоположение панели управления, обои рабочего "
-#~ "стола, тему рабочего стола и настроить соединение с интернетом. Также "
-#~ "Kaptan позволит вам добавить дополнительные репозитории программного "
-#~ "обеспечения. Более того, Kaptan содержит опции для загрузки онлайн тура "
-#~ "ознакомления начинающего пользователя с Pardus."
-
-#~ msgid ""
-#~ "It is possible to install hundreds of software found in Pardus' package "
-#~ "repositories with a single click. Using the Package Manager, you can "
-#~ "install PiSi packages with the click of a button, not having to deal with "
-#~ "screen after screen of detailed configuration options. After package "
-#~ "installations, all you need to do is to start the applications. It is all "
-#~ "that easy!"
-#~ msgstr ""
-#~ "Возможно установить сотни приложений, которые могут быть найдены  в "
-#~ "репозиториях пакетов Pardus'а одним щелчком мыши. Используя менеджер "
-#~ "работы с ПО, вы сможете устанавливать пакеты PiSi одним щелчком мыши, без "
-#~ "сложных систем настроек со сложными опциями конфигурации. После установки "
-#~ "приложения вы можете их запускать. Это действительно так просто!"
-
-#~ msgid ""
-#~ "Adding new users, changing boot order, starting or stopping system "
-#~ "services or rolling your system configuration back to a previous state "
-#~ "has never been easier. You can use the system managers for that and you "
-#~ "can even add to your desktop as widgets managers that you use frequently."
-#~ msgstr ""
-#~ "Добавление новых пользователей, изменение порядка загрузки, старт или "
-#~ "остановка системных служб, восстановление предыдущей конфигурации еще "
-#~ "никогда не были такими простыми. Вы можете использовать программы для "
-#~ "настройки системы для этого и, более того, добавить на рабочий стол в "
-#~ "качестве виджетов те из них, которые вы используете наиболее часто."
-
-#~ msgid ""
-#~ "To connect to a wireless or 'wired' network is as easy as choosing a "
-#~ "connection profile with Pardus 2011. With the network manager's advanced "
-#~ "options, you can have different settings (e.g. static IP, a different DNS "
-#~ "server) for different connections with the profiles you create. Choosing "
-#~ "a different connection profile requires just two clicks."
-#~ msgstr ""
-#~ "Соединение с проводной или беспроводной сетью - это просто выбор профиля "
-#~ "в Pardus 2011. С помощью возможностей менеджера настроек вы можете иметь "
-#~ "различные настройки (например, статический IP-адрес, различные адреса DNS-"
-#~ "серверов) для различных вариантов соединений с теми  профилями, которые "
-#~ "вы создадите. Выбор профиля - это всего два щелчка кнопки мыши."
-
-#~ msgid ""
-#~ "With Pardus 2011, Amarok has not only shed skin, but also changed "
-#~ "internally. It provides much more than listening to music. You now have "
-#~ "the option to read lyrics and learn about the singer or composer through "
-#~ "Wikipedia while listening to a song, or use the intelligent playlist "
-#~ "feature to group songs in various manners. As Amarok works seamlessly "
-#~ "with most player devices, you can drag and drop songs to your players "
-#~ "without the need for any external device drivers."
-#~ msgstr ""
-#~ "В Pardus 2011 Amarok сменил не только свой внешний вид, но и поменялся "
-#~ "изнутри. Он позволяет не только слушать музыку. Теперь вы можете "
-#~ "прочитать текст песни, узнать больше о композиторе и исполнителе через "
-#~ "Wikipedia прямо во время прослушивания песни. Кроме того, вы можете "
-#~ "использовать новые возможности списка воспроизведения. Amarok работает "
-#~ "без проблем с большинством устройств воспроизведения, так что вы можете "
-#~ "переносить песни с одного устройства на другое или в список "
-#~ "воспроизведения без необходимости использовать какие-либо дополнительные "
-#~ "драйвера."
-
-#~ msgid ""
-#~ "Mozilla Firefox is the preferred browser with its speed, security and "
-#~ "flexibility. With its addon support and a *very* rich addon repository, "
-#~ "you can add new functionality to Mozilla Firefox. You will find many of "
-#~ "the most visited websites along with Pardus-related websites in your "
-#~ "bookmarks in its Pardus default installation. Enjoy a fast and secure "
-#~ "internet with the new Mozilla Firefox 3.5."
-#~ msgstr ""
-#~ "Mozilla Firefox - наиболее предпочтительный веб-броузер, благодоря своим "
-#~ "скорости, безопасности и гибкости. С его возможностями поддержки "
-#~ "дополнений и *очень* обширной коллекцией этих дополнений, вы сможете "
-#~ "добавить новую функциональность в Mozilla Firefox. Большинство сайтов, "
-#~ "имеющих отношение к Pardus, вы найдете в вашем списке закладок сразу "
-#~ "после установки Pardus. Наслаждайтесь быстрым и безопасным интернетом "
-#~ "вместе с Mozilla Firefox 3.5"
-
-#~ msgid ""
-#~ "Connecting to your friends and contacts is really easy and seamlessly "
-#~ "integrated into the desktop with Pardus 2011. Using Kontact, you can send "
-#~ "and receive emails, manage your meetings, create address books, takes "
-#~ "notes and follow RSS feeds. Using Kopete, you can connect to popular "
-#~ "networks like MSN and GTalk, and chat online with your friends."
-#~ msgstr ""
-#~ "Общение с друзьями и другие необходимые виды связи гармонично вписаны в "
-#~ "режим работы в Pardus 2011. Используя Kontact, вы сможете посылать и "
-#~ "получать письма, управлять вашими встречами, создавать записные книжки, "
-#~ "отслеживать записи RSS. Используя Kopete, вы сможете общаться в таких "
-#~ "популярных сетях, как ICQ, MSN и другие."
-
-#~ msgid ""
-#~ "World's leading preferred libre office suite OpenOffice.org brings a word "
-#~ "processor, a spreadsheet, a presentation application, database, formula "
-#~ "and drawing tools to your desktop for your office needs at home, at your "
-#~ "workplace or school. With OpenOffice.org, you can view and edit documents "
-#~ "created in other office suites and share your documents with friends and "
-#~ "contacts that are using other office applications."
-#~ msgstr ""
-#~ "Самый известный свободный офисный пакет OpenOffice.org предоставляет "
-#~ "текстовый процессор, приложение для работы с электронными таблицами, "
-#~ "приложение для создания презентаций, для работы с базами данных, "
-#~ "инструменты для создания формул, для рисования для вашего PC как для дома "
-#~ "так и для вашего офиса. С помощью OpenOffice.org вы сможете просматривать "
-#~ "и редактировать документы, созданные в других офисных пакетах. Это "
-#~ "позволит вам вместе работать над документами вместе с вашими друзьями и "
-#~ "партнерами."
-
-#~ msgid ""
-#~ "Gimp is an advanced image editing software. Allowing creation and editing "
-#~ "of common graphics and image file formats, it has abilities that "
-#~ "professional graphics artists and designers need and an ability to "
-#~ "integrate new filters easily with its addon system."
-#~ msgstr ""
-#~ "Gimp - это продвинутый пакет для редактирования изображений. Он позволит "
-#~ "вам создавать и редактировать изображения в большинстве графических "
-#~ "форматов. С его возможностями профессиональные художники и дизайнеры "
-#~ "легко смогут добавлять свои фильтры с помощью системы расширений Gimp'а."
-
-#~ msgid ""
-#~ "Pardus, along with the preinstalled games, has many games in its "
-#~ "repositories, allowing hours of fun with various kinds of games available "
-#~ "through the package manager."
-#~ msgstr ""
-#~ "Pardus, вместе с уже установленными играми, имеет множество игр в своих "
-#~ "репозитариях. Вы сможете отдыхать много часов, потратив совсем немного "
-#~ "времени на установку игр различных жанров через пакетный менеджер."
-
-#~ msgid ""
-#~ "Pardus 2011 is set to support most hardware right away. At the end of the "
-#~ "installation, when you start with Pardus, the graphics card and sound "
-#~ "hardware of your computer will be auto-detected , and the network devices "
-#~ "will be prepared for connections, whether it be wireless or 'wired'. "
-#~ "Adding a printer to your sistem is also really easy. All you need to do "
-#~ "is plug the printer in, and it is set. Pardus will install the correct "
-#~ "driver and set everything accordingly right away."
-#~ msgstr ""
-#~ "Pardus 2011 поддерживает почти любое аппаратное обеспечение прямо сейчас. "
-#~ "В конце установки, когда вы в первый раз запустите Pardus, графическая и "
-#~ "звуковая карты вашего компьютера будут автоматически определены, сетевые "
-#~ "карты будут подготовлены для соединения, независимо от того, являются они "
-#~ "беспроводными или нет. Установка принтера в вашей системе также будет "
-#~ "очень простой. Все, что вам нужно будет сделать это включить его и он "
-#~ "будет установлен. Pardus сам установит правильный драйвер и все настроит "
-#~ "так как нужно."
-
-#~ msgid ""
-#~ "We have a support portal to help improve your Pardus experience and help "
-#~ "with problems you encounter. In the Özgürlükİçin portal, where content is "
-#~ "developed by volunteer contributors, you will find guides, package and "
-#~ "game introductions. If you happen to have any questions, the forum is "
-#~ "waiting for you. If you need support, or if you want to support, your "
-#~ "first stop should be www.ozgurlukicin.com"
-#~ msgstr ""
-#~ "У нас есть портал поддержки для того, чтобы решить ваши проблемы с "
-#~ "системе. На портале Özgürlükİçin, где содержимое разработано нашими "
-#~ "добровольными помощниками, вы найдете руководства и всю необходимую "
-#~ "помощь. Если у вас будут вопросы, наш форум ждет вас. И если вам нужна "
-#~ "поддержка, то ваша первая остановка - это www.ozgurlukicin.com"
-
-#~ msgid "'Install Root' size must be larger than %s MB."
-#~ msgstr "Размер 'Install Root' должен быть больше чем %s MB."
-
-#~ msgid "Can't find a storage device!"
-#~ msgstr "Невозможно найти запоминающее устройство!"
-
-#~ msgid "%0.1f GB free"
-#~ msgstr "%0.1f GB свободно"
-
-#~ msgid "%d MB free"
-#~ msgstr "%d MB свободно"
-
-#~ msgid ""
-#~ "Partition <b>%(partition)s (%(size)s)</b> <b>deleted</b> from device <b>"
-#~ "%(device)s</b>."
-#~ msgstr ""
-#~ "Раздел <b>%(partition)s (%(size)s)</b> <b>удален</b> с устройства <b>"
-#~ "%(device)s</b>."
-
-#~ msgid "There is a request for the same Partition Type."
-#~ msgstr "Есть запрос на тот же самый Тип Раздела."
-
-#~ msgid ""
-#~ "Partition <b>%(partition)s</b> will be <b>formatted</b> as <b>%(fsType)s</"
-#~ "b>."
-#~ msgstr ""
-#~ "Раздел <b>%(partition)s</b> будет <b>отформатирован</b> как <b>%(fsType)"
-#~ "s</b>."
-
-#~ msgid "Partition <b>%(partition)s</b> <b>selected</b> as <b>%(type)s</b>."
-#~ msgstr "Раздел <b>%(partition)s</b> <b>выбран</b> как <b>%(type)s</b>."
-
-#~ msgid ""
-#~ "GPT Disk tables does not support for extended partitions.\n"
-#~ "You need to delete one of primary partition from your disk table !"
-#~ msgstr ""
-#~ "Таблицы GPT не поддерживают расширенные разделы.\n"
-#~ "Вам нужно удалить один из первичных разделов!"
-
-#~ msgid "Too many primary partitions !"
-#~ msgstr "Слишком много первичных разделов !"
-
-#~ msgid ""
-#~ "You need to delete one of the primary or extended(if exists) partition "
-#~ "from your disk table !"
-#~ msgstr ""
-#~ "Вам нужно удалить один из ваших первичных или расширенных (если есть) "
-#~ "разделов с вашего диска !"
-
-#~ msgid ""
-#~ "Partition <b>%(partition)s</b> <b>added</b> to device <b>%(device)s</b> "
-#~ "with <b>%(size)s MB</b> as <b>%(fs)s</b>."
-#~ msgstr ""
-#~ "Раздел <b>%(partition)s</b> <b>добавлен</b> на устройство <b>%(device)s</"
-#~ "b> с <b>%(size)s MB</b> как <b>%(fs)s</b>."
-
-#~ msgid "Delete All Partitions"
-#~ msgstr "Удалить Все Разделы"
-
-#~ msgid "Pardus will install here"
-#~ msgstr "Pardus будет установлен здесь"
-
-#~ msgid "User files will store here"
-#~ msgstr "Пользовательские файлы будут храниться здесь"
-
-#~ msgid "Swap will be here"
-#~ msgstr "Виртуальная память будет размещена здесь"
-
-#~ msgid "Backup or archive files will store here"
-#~ msgstr "Резервные копии или архивные файлы будут храниться здесь"
-
-#~ msgid ""
-#~ "<b>Path:</b> %s<br>\n"
-#~ "                                  <b>Size:</b> %s<br>\n"
-#~ "                                  <b>FileSystem:</b> %s%s"
-#~ msgstr ""
-#~ "<b>Путь:</b> %s<br>\n"
-#~ "                                  <b>Размер:</b> %s<br>\n"
-#~ "                                  <b>Файловая система:</b> %s%s"
-
-#~ msgid "All partitions on device <b>%(device)s</b> has been deleted."
-#~ msgstr "Все разделы на диске <b>%(device)s</b> были удалены."
-
-#~ msgid ""
-#~ "<p><span style=\"color:#FFF\"><b>It seems this partition is not ready for "
-#~ "resizing.</b></span></p>"
-#~ msgstr ""
-#~ "<p><span style=\"color:#FFF\"><b>Кажется, этот раздел не может быть "
-#~ "изменен.</b></span></p>"
-
-#~ msgid "Resizing to %s MB.."
-#~ msgstr "Новый размер: %s MB.."
-
-#~ msgid ""
-#~ "Partition <b>%(partition)s - %(fs)s</b> <b>resized</b> to <b>%(resizeTo)s "
-#~ "MB</b>, old size was <b>%(currentSize)s MB</b>"
-#~ msgstr ""
-#~ "Новый размер <b>%(partition)s - %(fs)s</b> <b>раздела</b> : <b>%(resizeTo)"
-#~ "s MB</b>, старый размер: <b>%(currentSize)s MB</b>"
-
-#~ msgid "(%s) [%s] Size : %s - Free : %s"
-#~ msgstr "(%s) [%s] Размер : %s - Свободно : %s"
-
-#~ msgid "Can't open License file!"
-#~ msgstr "Невозможно открыть файл Лицензии!"
-
-#~ msgid "Can't open Release Notes!"
-#~ msgstr "Невозможно открыть файл описания изменений!"
-
-#~ msgid "Error occured !"
-#~ msgstr "Ошибка!"
-
-#~ msgid "Unhandled exception occured!"
-#~ msgstr "Неизвестная ошибка!"
-
-#~ msgid "Set Administrator"
-#~ msgstr "Установить Суперпользователя"
-
-#~ msgid "Admins have important rights on the system..."
-#~ msgstr "Суперпользователи (root'ы) имеют важные права в системе..."
-
-#~ msgid ""
-#~ "\n"
-#~ "<font size=\"+2\">System administrator password and hostname</font>\n"
-#~ "\n"
-#~ "<font size=\"+1\">\n"
-#~ "<p>\n"
-#~ "You need to define a password for the \"root\" user that has full control "
-#~ "over the system.\n"
-#~ "Your password must be easy to remember (for you) but hard to guess (for "
-#~ "others). \n"
-#~ "You can use lower case or upper case letters, numbers and punctuation "
-#~ "marks in your password. \n"
-#~ "You should take care not to use letters not found in English to avoid "
-#~ "incompatibilities with other systems.\n"
-#~ "</p>\n"
-#~ "<p>\n"
-#~ "Here you can enter a name for your computer in the text box below. As "
-#~ "your computer will be \n"
-#~ "known with this name in the local network, it is advised to enter a "
-#~ "descriptive text.\n"
-#~ "Proceed with the installation after you make your selections.\n"
-#~ "</p>\n"
-#~ "<p>\n"
-#~ "Click Next button to proceed.\n"
-#~ "</p>\n"
-#~ "</font>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<font size=\"+2\">Пароль и имя раздела суперпользователя</font>\n"
-#~ "\n"
-#~ "<font size=\"+1\">\n"
-#~ "<p>\n"
-#~ "Вам нужно установить пароль пользователя \"root\", который будет иметь "
-#~ "полный контроль над системой.\n"
-#~ "Этот пароль следует сделать таким, чтоб вы его помнили, но никто другой "
-#~ "не мог его угадать\n"
-#~ "Вы можете использовать любые буквы и числа, а также знаки пунктуации для "
-#~ "этого пароля. \n"
-#~ "Следует использовать только символы латинского алфавита для избежания "
-#~ "проблем совместимости с другими системами.\n"
-#~ "</p>\n"
-#~ "<p>\n"
-#~ "Здесь вы можете ввести имя вашего компьютера в строке ниже. \n"
-#~ "С этим именем ваш компьютер будет показываться в локальной сети, поэтому "
-#~ "советуем вводить подходящий текст. \n"
-#~ "Продолжите установку, после того, как введете всю необходимую "
-#~ "информацию.\n"
-#~ "</p>\n"
-#~ "<p>\n"
-#~ "Нажмите кнопку Следующий для продолжения\n"
-#~ "</p>\n"
-#~ "</font>\n"
-
-#~ msgid "<center>Caps Lock is on!</center>"
-#~ msgstr "<center>Caps Lock включен!</center>"
-
-#~ msgid "Bootloader Choice"
-#~ msgstr "Выбор Загрузчика"
-
-#~ msgid "Configure the system boot..."
-#~ msgstr "Настроить загрузку системы"
-
-#~ msgid ""
-#~ "\n"
-#~ "<font size=\"+2\">Boot loader setup</font>\n"
-#~ "<font size=\"+1\">\n"
-#~ "<p>\n"
-#~ "Pardus 2011 uses a boot manager called GRUB to start the operating system "
-#~ "you choose.\n"
-#~ "</p>\n"
-#~ "<p>If there are multiple operating systems in your computer, you can "
-#~ "start the one \n"
-#~ "you like using GRUB. Installing GRUB to the beginning of the boot disk is "
-#~ "the advised \n"
-#~ "option to avoid boot problems.  If you are sure you know what you are "
-#~ "doing, \n"
-#~ "you can change boot loader settings.\n"
-#~ "</p>\n"
-#~ "<p>\n"
-#~ "Please refer to Pardus Installing and Using \n"
-#~ "Guide for more information about GRUB boot \n"
-#~ "loader.\n"
-#~ "</p>\n"
-#~ "</font>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<font size=\"+2\">Установка загрузчика</font>\n"
-#~ "<font size=\"+1\">\n"
-#~ "<p>\n"
-#~ "Pardus 2011 использует загрузчик GRUB для старта операционной системы, "
-#~ "которую вы выберете.\n"
-#~ "</p>\n"
-#~ "<p>Если у вас на компьютере установлено несколько ОС, вы можете выбрать "
-#~ "одну из них используя GRUB. \n"
-#~ "Установка GRUB в начале загрузочного диска рекомендуется для того, \n"
-#~ "чтобы избежать проблем с загрузкой. Если вы уверены в том, что вы "
-#~ "делаете, \n"
-#~ "вы можете поменять настройки загрузчика. \n"
-#~ "</p>\n"
-#~ "<p>\n"
-#~ "Пожалуйста, обратитесь к Руководству Пользователя Pardus \n"
-#~ "для получения более подробной информации \n"
-#~ "</p>\n"
-#~ "</font>\n"
-
-#~ msgid "Check your media"
-#~ msgstr "Проверить ваш диск"
-
-#~ msgid "To ignore media corruptions you can check your media integrity..."
-#~ msgstr ""
-#~ "Для того, чтобы избежать проблем с загрузкой, вы можете проверить "
-#~ "целостность данных на вашем носителе"
-
-#~ msgid ""
-#~ "\n"
-#~ "<font size=\"+2\">Check CD Integrity!</font>\n"
-#~ "<font size=\"+1\"><p>\n"
-#~ "You can check if the packages included in the installation CD are saved "
-#~ "correctly into the CD. Performing this test is a highly important step in "
-#~ "making sure for a problem-free installation. If the test fails, try re-"
-#~ "burning the ISO image in a lower (e.g. 12x or less) speed.</p></font>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<font size=\"+2\">Проверить целостность CD</font>\n"
-#~ "<font size=\"+1\"><p>\n"
-#~ "Вы можете проверить, правильно ли сохранились пакеты, включенные в CD "
-#~ "установки. Выполнение этого теста - это очень важный шаг для того, чтобы "
-#~ "избежать проблем с установкой. Если тест провалится, попробуйте прожечь "
-#~ "диск на меньшей (например 12x или меньшей) скорости.</p></font>\n"
-
-#~ msgid "<font color=\"#FFF\">Please wait while checking CD.</font>"
-#~ msgstr ""
-#~ "<font color=\"#FFF\">Пожалуйста подождите, пока проверяется диск.</font>"
-
-#~ msgid "Stop Checking"
-#~ msgstr "Остановить Проверку"
-
-#~ msgid "Set your timezone"
-#~ msgstr "Выбрать ваш часовой пояс"
-
-#~ msgid "You can change your timezone, time or date settings..."
-#~ msgstr ""
-#~ "Вы можете изменить установки вашего часового пояса, времени или даты "
-
-#~ msgid ""
-#~ "\n"
-#~ "<font size=\"+2\">Time Zone settings</font>\n"
-#~ "<font size=\"+1\"><p>Here you can select your location and a timezone; "
-#~ "and set the date and time.\n"
-#~ "Your settings will update your hardware clock. Proceed with the "
-#~ "installation after you make your selections.</p></font>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<font size=\"+2\">Установки Часового Пояса</font>\n"
-#~ "<font size=\"+1\"><p>Здесь вы можете выбрать ваш часовой пояс и "
-#~ "установить дату и время.\n"
-#~ "Ваши установки изменят системные часы. Продолжайте установкупосле того, "
-#~ "как сделаете настройки.</p></font>\n"
-
-#~ msgid "Goodbye from YALI"
-#~ msgstr "До свидания из YALI"
-
-#~ msgid "Enjoy your fresh Pardus !..."
-#~ msgstr "Наслаждайтесь вашей новой системой Pardus!"
-
-#~ msgid ""
-#~ "\n"
-#~ "<font size=\"+2\">Congratulations</font>\n"
-#~ "\n"
-#~ "\n"
-#~ "<font size=\"+1\">\n"
-#~ "<p>\n"
-#~ "You have successfully installed Pardus, a very easy to use desktop system "
-#~ "on\n"
-#~ "your machine. Now you can start playing with your system and stay "
-#~ "productive\n"
-#~ "all the time.\n"
-#~ "</p>\n"
-#~ "<P>\n"
-#~ "Click on the Next button to proceed. One note: You remember your "
-#~ "password,\n"
-#~ "don't you?\n"
-#~ "</p>\n"
-#~ "</font>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<font size=\"+2\">Поздравляем!</font>\n"
-#~ "\n"
-#~ "\n"
-#~ "<font size=\"+1\">\n"
-#~ "<p>\n"
-#~ "Вы успешно установили Pardus - очень легкую в использовании систему\n"
-#~ "на ваш ПК. Сейчас вы можете начать работать в ней и делать все, что "
-#~ "захотите\n"
-#~ "в любое время.\n"
-#~ "</p>\n"
-#~ "<P>\n"
-#~ "Ткните кнопку Дальше для продолжения. Один момент: вы ведь помните\n"
-#~ "ваш пароль, не так ли?\n"
-#~ "</p>\n"
-#~ "</font>\n"
-
-#~ msgid "<b>Rebooting system. Please wait!</b>"
-#~ msgstr "<b>Перезагрузка системы. Пожалуйста подождите!</b>"
-
-#, fuzzy
-#~ msgid "Choose Installation"
-#~ msgstr "Выберете Разбиение диска"
-
-#, fuzzy
-#~ msgid "Auto or Manual installation..."
-#~ msgstr "Автоматическое или ручное создание разделов..."
-
-#, fuzzy
-#~ msgid ""
-#~ "\n"
-#~ "<font size=\"+2\">Automatic Installation</font>\n"
-#~ "<font size=\"+1\">\n"
-#~ "<p>\n"
-#~ "</p>\n"
-#~ "</font>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<font size=\"+2\">История Операций Pisi</font>\n"
-#~ "<font size=\"+1\"></font>\n"
-
-#~ msgid "Installing system..."
-#~ msgstr "Установка системы..."
-
-#~ msgid ""
-#~ "Installing takes approximately 20 minutes depending on your hardware..."
-#~ msgstr ""
-#~ "Установка занимает приблизительно 20 минут в зависимости от "
-#~ "производительности вашего ПК..."
-
-#~ msgid ""
-#~ "\n"
-#~ "<font size=\"+2\">Installation started</font>\n"
-#~ "\n"
-#~ "<font size=\"+1\">\n"
-#~ "\n"
-#~ "<p>\n"
-#~ "Pardus is now being installed on your hard disk. \n"
-#~ "</p>\n"
-#~ "\n"
-#~ "<p>\n"
-#~ "The duration of this operation depends on the \n"
-#~ "capability and power of your system. Meanwhile,\n"
-#~ "you can enjoy some visual elements showing \n"
-#~ "the distinctive properties of Pardus, your \n"
-#~ "new operating system.\n"
-#~ "</p>\n"
-#~ "\n"
-#~ "<p>\n"
-#~ "Have fun!\n"
-#~ "</p>\n"
-#~ "</font>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<font size=\"+2\">Установка началась</font>\n"
-#~ "\n"
-#~ "<font size=\"+1\">\n"
-#~ "\n"
-#~ "<p>\n"
-#~ "Pardus сейчас устанавливается на ваш диск. \n"
-#~ "</p>\n"
-#~ "\n"
-#~ "<p>\n"
-#~ "Длительность этой операции зависит от\n"
-#~ "производительности вашей системы. Тем временем,\n"
-#~ "вы можете ознакомиться с некоторыми \n"
-#~ "возможностями операционной системы Pardus, \n"
-#~ "вашей новой операционной системы. \n"
-#~ "</p>\n"
-#~ "\n"
-#~ "<p>\n"
-#~ "Наслаждайтесь!\n"
-#~ "</p>\n"
-#~ "</font>\n"
-
-#~ msgid "Packages are being installed.."
-#~ msgstr "Пакеты устанавливаются.."
-
-#~ msgid "Package install failed : <b>%s</b>"
-#~ msgstr "Установка пакета не удалась : <b>%s</b>"
-
-#~ msgid "Creating baselayout for your system!"
-#~ msgstr "Создание системы загрузки для вашей системы!"
-
-#~ msgid "Configuring packages.."
-#~ msgstr "Конфигурирование пакетов.."
-
-#~ msgid "Kahya is working..."
-#~ msgstr "Работает Kahya..."
-
-#~ msgid "Kahya will automatically install your system..."
-#~ msgstr "Kahya автоматически установит вашу систему..."
-
-#~ msgid ""
-#~ "\n"
-#~ "<font size=\"+2\">Kicker Check !</font>\n"
-#~ "<p> Some help messages </p>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<font size=\"+2\">Проверка Kicker !</font>\n"
-#~ "<p> Некоторые дополнительные сообщения </p>\n"
-
-#~ msgid "Set your keyboard layout"
-#~ msgstr "Установите вашу раскладку клавиатуры"
-
-#~ msgid "Use your keyboard layout..."
-#~ msgstr "Используйте вашу раскладку клавиатуры..."
-
-#~ msgid ""
-#~ "\n"
-#~ "<font size=\"+2\">Keyboard Setup</font>\n"
-#~ "<font size=\"+1\">\n"
-#~ "<p>\n"
-#~ "Here you can select the type of your keyboard and the language map you "
-#~ "want to use. You can test your selection's result in the test box. \n"
-#~ "Proceed with the installation after you make your selections.\n"
-#~ "</p>\n"
-#~ "</font>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<font size=\"+2\">Настройка Клавиатуры</font>\n"
-#~ "<font size=\"+1\">\n"
-#~ "<p>\n"
-#~ "Здесь вы можете выбрать тип вашей клавиатуры и язык,который хотите "
-#~ "использовать. Чуть ниже вы можете проверить результат. \n"
-#~ "Продолжите установку после того, как сделает свой выбор.\n"
-#~ "</p>\n"
-#~ "</font>\n"
-
-#~ msgid "Auto or Manual partitioning..."
-#~ msgstr "Автоматическое или ручное создание разделов..."
-
-#~ msgid ""
-#~ "\n"
-#~ "<font size=\"+2\">Automatic Partitioning</font>\n"
-#~ "<font size=\"+1\">\n"
-#~ "<p>\n"
-#~ "You can install Pardus if you have an unpartitioned-unused disk space \n"
-#~ "of 4GBs (10 GBs recommended) or an unused-unpartitioned disk. \n"
-#~ "The disk area or partition selected for installation will automatically \n"
-#~ "be formatted. Therefore, it is advised to backup your data to avoid "
-#~ "future problems.\n"
-#~ "</p>\n"
-#~ "<p>Auto-partitioning will automatically format the select disk part/"
-#~ "partition \n"
-#~ "and install Pardus 2011. If you like, you can do the partitioning "
-#~ "manually or make \n"
-#~ "Pardus 2011 create a new partition for installation.</p>\n"
-#~ "<p>\n"
-#~ "Please refer to Pardus Installing and Using Guide for more information\n"
-#~ "about disk partitioning.\n"
-#~ "</p>\n"
-#~ "</font>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<font size=\"+2\">Автоматическое Создание Разделов</font>\n"
-#~ "<font size=\"+1\">\n"
-#~ "<p>\n"
-#~ "Вы можете установить Pardus если у вас есть место на диске,\n"
-#~ " где не созданы никакие разделы, размером более 4Gb (10Gb "
-#~ "рекомендуется).\n"
-#~ "Или вы можете использовать чистый диск, на котором еще не созданы \n"
-#~ "разделы. Область диска или раздел для установки будут автоматически \n"
-#~ "отформатированы. Поэтому рекомендуется создать резервную копию\n"
-#~ "ваших данных для того, что бы избежать в будущем проблем.n</p>\n"
-#~ "<p>Механизм автоматического создания разделов отформатирует выбранную\n"
-#~ "часть диска и установит Pardus 2011. Если хотите, вы можете создать "
-#~ "разделы\n"
-#~ "вручную или указать Pardus 2011 создать новый раздел для установки\n"
-#~ "</p>\n"
-#~ "<p>\n"
-#~ "Пожалуйста, обратитесь к Руководству Пользователя по Установке и "
-#~ "Настройке Pardus\n"
-#~ "за дополнительной информацией о разбиении диска на разделы.\n"
-#~ "</p>\n"
-#~ "</font>\n"
-
-#~ msgid ""
-#~ "It seems that you don't have the required disk space (min. %s) for Pardus "
-#~ "installation."
-#~ msgstr ""
-#~ "Кажется, что у вас не достаточно места на диска (мин. %s) для установки "
-#~ "Pardus."
-
-#~ msgid "You can easily configure your partitions..."
-#~ msgstr "Вы можете легко настроить ваши разделы..."
-
-#~ msgid ""
-#~ "\n"
-#~ "<font size=\"+2\">Partitioning your hard disk</font>\n"
-#~ "<font size=\"+1\">\n"
-#~ "<p>\n"
-#~ "In this screen, you can manually partition your disk. You can select \n"
-#~ "existing partitions and resize or delete them. You can create new \n"
-#~ "partition(s) in the empty parts, make Pardus use them for system files, \n"
-#~ "users' home directories, swap space or general use. The changes that "
-#~ "you \n"
-#~ "make will not be applied until you go on with the installation, \n"
-#~ "which means you can revert if you make any unwanted changes or change "
-#~ "your configuration.\n"
-#~ "</p>\n"
-#~ "<p>\n"
-#~ "Please refer to Pardus Installing and Using Guide for more information\n"
-#~ "about disk partitioning.\n"
-#~ "</p>\n"
-#~ "</font>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<font size=\"+2\">Создание разделов на вашем диске</font>\n"
-#~ "<font size=\"+1\">\n"
-#~ "<p>\n"
-#~ "На этом экране вы можете вручную создать разделы на своем диске.\n"
-#~ "Вы можете выбрать существующие разделы и удалить их или изменить \n"
-#~ "их размер. Вы можете создать новые разделы на свободных участках диска\n"
-#~ "и указать Pardus как их использовать: для системных файлов, ваших "
-#~ "данных,\n"
-#~ "своп-разделов или как-то иначе. Изменения, которые вы сделаете, не "
-#~ "вступят\n"
-#~ "в силу до начала установки. Поэтому вы можете менять свои изменения, в "
-#~ "том\n"
-#~ "случае, если захотите.\n"
-#~ "</p>\n"
-#~ "<p>\n"
-#~ "Пожалуйста, обратитесь к Руководству Пользователя по Установке и "
-#~ "Настройке Pardus\n"
-#~ "за дополнительной информацией о разбиении диска на разделы.\n"
-#~ "</p>\n"
-#~ "</font>\n"
-
-#~ msgid "Rescue Mode"
-#~ msgstr "Режим Восстановления"
-
-#~ msgid "Final step of Rescue operations..."
-#~ msgstr "Последний шаг действий по восстановлению..."
-
-#~ msgid ""
-#~ "\n"
-#~ "<font size=\"+2\">Rescue Mode</font>\n"
-#~ "<font size=\"+1\"><p>Click <b>next</b> to reboot !</p></font>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<font size=\"+2\">Режим Восстановления</font>\n"
-#~ "<font size=\"+1\"><p>Нажмите <b>далее</b> для перезагрузки !</p></font>\n"
-
-#~ msgid "Rescue Mode for Bootlooader"
-#~ msgstr "Режим Восстановления для Загрузчика"
-
-#~ msgid "Rescue Mode for Password Recovery"
-#~ msgstr "Режим Восстановления для Пароля"
-
-#~ msgid "You can recover your password ..."
-#~ msgstr "Вы можете восстановить ваш пароль"
-
-#~ msgid ""
-#~ "\n"
-#~ "<font size=\"+2\">Password Recovery</font>\n"
-#~ "<font size=\"+1\"></font>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<font size=\"+2\">Восстановление Пароля</font>\n"
-#~ "<font size=\"+1\"></font>\n"
-
-#~ msgid "Trying to connect DBUS..."
-#~ msgstr "Попытка соединения с DBUS..."
-
-#~ msgid "Getting user list ..."
-#~ msgstr "Получение списка пользователей..."
-
-#~ msgid "Password changed"
-#~ msgstr "Пароль изменен"
-
-#~ msgid "Rescue Mode for Pisi History"
-#~ msgstr "Режим Восстановления для Истории Операций Pisi."
-
-#~ msgid "You can take back your system ..."
-#~ msgstr "Вы можете восстановить систему..."
-
-#~ msgid ""
-#~ "\n"
-#~ "<font size=\"+2\">Pisi History</font>\n"
-#~ "<font size=\"+1\"></font>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<font size=\"+2\">История Операций Pisi</font>\n"
-#~ "<font size=\"+1\"></font>\n"
-
-#, fuzzy
-#~ msgid "There is no connection"
-#~ msgstr "Выберите Соединение"
-
-#~ msgid ""
-#~ "You can reinstall your Grub or you can take back your system by using "
-#~ "Pisi History..."
-#~ msgstr ""
-#~ "Вы можете заново установить Grub или вы можете восстановить вашу систему, "
-#~ "используя Историю Операций Pisi."
-
-#~ msgid ""
-#~ "\n"
-#~ "<font size=\"+2\">Rescue Mode</font>\n"
-#~ "<font size=\"+1\"><p>This is a rescue mode help document.</p></font>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<font size=\"+2\">Режим Восстановления</font>\n"
-#~ "<font size=\"+1\"><p>Это руководство пользователя по режиму "
-#~ "восстановления.</p></font>\n"
-
-#~ msgid "The last step before install"
-#~ msgstr "Последний шаг перед установкой"
-
-#~ msgid "Summary of your installation..."
-#~ msgstr "Итог инсталляции..."
-
-#~ msgid ""
-#~ "\n"
-#~ "<font size=\"+2\">Install Summary</font>\n"
-#~ "<font size=\"+1\">\n"
-#~ "<p>\n"
-#~ "Here you can see your install options before installation starts.\n"
-#~ "</p>\n"
-#~ "</font>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<font size=\"+2\">Итоги Установки</font>\n"
-#~ "<font size=\"+1\">\n"
-#~ "<p>\n"
-#~ "Здесь вы можете увидеть ваши установки перед началом инсталляции.\n"
-#~ "</p>\n"
-#~ "</font>\n"
-
-#~ msgid "<b><p>This action will reboot your system.</p></b>"
-#~ msgstr "<b><p>Так вы перезагрузите свою систему.</p></b>"
-
-#~ msgid ""
-#~ "Partition <b>%(partition)s</b> <b>added</b> to device <b>%(device)s</b> "
-#~ "with <b>%(size)s MBs</b> as <b>%(fs)s</b>."
-#~ msgstr ""
-#~ "Раздел <b>%(partition)s</b> <b>добавлен</b> на устройство <b>%(device)s</"
-#~ "b> с размером <b>%(size)s MBs</b> как <b>%(fs)s</b>."
-
-#~ msgid "Automatic Partitioning (resize method) selected."
-#~ msgstr "Автоматическое Изменение размеров разделов выбрано."
-
-#~ msgid ""
-#~ "Partition <b>%(partition)s - %(currentFs)s</b> <b>resized</b> to <b>"
-#~ "%(resizeTo)s MBs</b>, previous size was <b>%(currentSize)s MBs</b>."
-#~ msgstr ""
-#~ "Раздел <b>%(partition)s - %(currentFs)s</b> <b>изменил размер</b> на <b>"
-#~ "%(resizeTo)s MB</b>, предыдущий размер был <b>%(currentSize)s MB</b>."
-
-#~ msgid ""
-#~ "Partition <b>%(newPartition)s</b> <b>added</b> to device <b>%(device)s</"
-#~ "b> with <b>%(size)s MBs</b> as <b>%(fs)s</b>."
-#~ msgstr ""
-#~ "Раздел <b>%(newPartition)s</b> <b>добавлен</b> на устройство <b>%(device)"
-#~ "s</b> с размером <b>%(size)s MB</b> как <b>%(fs)s</b>."
-
-#~ msgid ""
-#~ "Partition <b>%(newPartition)s</b> <b>selected</b> as <b>%(type)s</b>."
-#~ msgstr "Раздел <b>%(newPartition)s</b> <b>выбран</b> как <b>%(type)s</b>."
-
-#~ msgid "Before Starting"
-#~ msgstr "Перед Началом"
-
-#~ msgid ""
-#~ "<p><b><u>Warning</u></b>: There is a resizing operation and it may "
-#~ "corrupt your partition,<br>\n"
-#~ "                                        rendering your data unreachable."
-#~ "<br>\n"
-#~ "                                        Make sure that you have a backup "
-#~ "for this partition.<br>\n"
-#~ "                                        <b>Note that this operation "
-#~ "cannot be undone.</b></p>"
-#~ msgstr ""
-#~ "<p><b><u>Внимание</u></b>: Изменение размера может повредить ваш раздел,"
-#~ "<br>\n"
-#~ "                                        Восстановление данных невозможно."
-#~ "<br>\n"
-#~ "                                        Убедитесь, что сделали резервную "
-#~ "копию данного раздела.<br>\n"
-#~ "                                        <b>Учтите, что данная операция не "
-#~ "может быть отменена.</b></p>"
-
-#~ msgid "Writing disk tables..."
-#~ msgstr "Запись дисковых таблиц..."
-
-#~ msgid "Resizing..."
-#~ msgstr "Изменение размера..."
-
-#~ msgid "Set Users"
-#~ msgstr "Установить Пользователей"
-
-#~ msgid "Create users to use Pardus..."
-#~ msgstr "Создать пользователей, которые будут пользоваться Pardus..."
-
-#~ msgid ""
-#~ "\n"
-#~ "<font size=\"+2\">User setup</font>\n"
-#~ "<font size=\"+1\">\n"
-#~ "<p>\n"
-#~ "Pardus 2011 allows multiple users to share the same computer.\n"
-#~ "You can assign management rights to the users you create; you can also\n"
-#~ "configure permissions to users for various operations through User "
-#~ "Manager.\n"
-#~ "</p>\n"
-#~ "<p>\n"
-#~ "To create a new user, fill in the form and press the \"Create User\" "
-#~ "button.\n"
-#~ "If you want a user to be automatically logged in to the system, select\n"
-#~ "the user from the list; if you want to delete a user, \n"
-#~ "select his/her username from the list and press \"Delete Selected User"
-#~ "\".\n"
-#~ "Proceed with the installation after you make your selections.\n"
-#~ "</p>\n"
-#~ "<p>\n"
-#~ "Click Next button to proceed.\n"
-#~ "</p>\n"
-#~ "</font>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<font size=\"+2\">Пользовательские установки</font>\n"
-#~ "<font size=\"+1\">\n"
-#~ "<p>\n"
-#~ "Pardus 2011 позволяет нескольким пользователям работать на одном "
-#~ "компьютере.\n"
-#~ "Вы можете управлять правами пользователей, которых вы создаете. Также "
-#~ "вы \n"
-#~ "можете устанавливать ограничения для пользователей на некоторые операции "
-#~ "через User Manager.\n"
-#~ "</p>\n"
-#~ "<p>\n"
-#~ "Для того, чтобы создать нового пользователя, заполнителя поля и нажмите "
-#~ "кнопку \"Создать Пользователя\".\n"
-#~ "Если вы хотите, чтобы пользователь автоматически загружался, выберете "
-#~ "его\n"
-#~ "из списка. Если вы хотите удалить пользователя\n"
-#~ "выберете его/ее имя из списка и нажмите \"Удалить Выбранного Пользователя"
-#~ "\".\n"
-#~ "После изменений, продолжайте установку.\n"
-#~ "</p>\n"
-#~ "<p>\n"
-#~ "Нажмите Дальше для продолжения.\n"
-#~ "</p>\n"
-#~ "</font>\n"
-
-#~ msgid "Welcome !! "
-#~ msgstr "Добро пожаловать!!"
-
-#~ msgid "Welcome to the Pardus installer..."
-#~ msgstr "Добро пожаловать в установщик Pardus..."
-
-#~ msgid ""
-#~ "\n"
-#~ "<font size=\"+2\">Welcome !</font>\n"
-#~ "<font size=\"+1\"><p>Welcome to Pardus 2011 that contains many easy-to-"
-#~ "use software components. You can do everything you need to, including, "
-#~ "but not limited to, connecting to the Internet, creating documents, "
-#~ "playing games, listening to music using Pardus 2011.</p>\n"
-#~ "<p>This application will help you with the installation of Pardus 2011 to "
-#~ "your computer in few and easy steps and then do what is necessary to "
-#~ "identify and configure your hardware. We advise you to backup your data "
-#~ "in your disk(s) before starting with the installation.</p>\n"
-#~ "<p>You can start the installation process (and step in on a free world) "
-#~ "by pressing the Next button.</p>\n"
-#~ "</font>\n"
-#~ msgstr ""
-#~ "\n"
-#~ "<font size=\"+2\">Добро пожаловать !</font>\n"
-#~ "<font size=\"+1\"><p>Добро пожаловать в Pardus 2011, который содержит в "
-#~ "себе множество программ, легких в использовании. Вы можете делать все, "
-#~ "что вам нужно, включая создание документов, доступ в интернет, играть в "
-#~ "компьютерные игры, слушать музыку и многое другое используя Pardus 2011.</"
-#~ "p>\n"
-#~ "<p>Это приложение поможет вам с установкой Pardus 2011 на ваш компьютер. "
-#~ "Мы советуем вам сделать резервные копии ваших данных перед тем, как "
-#~ "начинать установку.</p>\n"
-#~ "<p>Вы можете начать установку (и сделать шаг в свободный мир)нажав кнопку "
-#~ "\"Далее\".</p>\n"
-#~ "</font>\n"
-
-#~ msgid "Show Help"
-#~ msgstr "Показать помощь"
-
-#~ msgid "Hide Help"
-#~ msgstr "Спрятать Помощь"
-
-#~ msgid "Windows"
-#~ msgstr "Windows"
-
-#~ msgid ""
-#~ "FSCheck found some problems on partition %s and fixed "
-#~ "them.                                      You should restart the machine "
-#~ "before starting the installation process !"
-#~ msgstr ""
-#~ "FSCheck обнаружил некоторые проблемы на разделе %s и исправил "
-#~ "их.                                      Вам следует перезапуститьсвой ПК "
-#~ "перед началом процесса установки !"
-
-#~ msgid "FSCheck failed on %s"
-#~ msgstr "Ошибка FSCheck на %s"
-
-#~ msgid "Partition is not ready for resizing. Check it before installation."
-#~ msgstr "Раздел не готов для изменения. Проверьте его перед установкой."
-
-#~ msgid "Resize failed on %s "
-#~ msgstr "Ошибка изменения размера на %s "
-
-#~ msgid "Backtrace:"
-#~ msgstr "След:"
-
-#~ msgid ""
-#~ "Plugin (%s) not found or error occurred while loading. Switching to "
-#~ "normal installation process."
-#~ msgstr ""
-#~ "Дополнение (%s) не найдено или ошибка произошла во время загрузки. "
-#~ "Переключение к нормальному режиму установки."
-
-#~ msgid "YALI Is Working..."
-#~ msgstr "YALI Работает..."
-
-#~ msgid "Starting for CD Check"
-#~ msgstr "Старт проверки CD"
-
-#~ msgid "Checking: %s"
-#~ msgstr "Проверка: %s"
-
-#~ msgid "Check Failed"
-#~ msgstr "Ошибка проверки"
-
-#~ msgid ""
-#~ "<b><p>Integrity check for packages "
-#~ "failed.                                  It seems that installation CD is "
-#~ "broken.</p></b>"
-#~ msgstr ""
-#~ "<b><p>Ошибка проверки целостности "
-#~ "пакетов.                                  Судя по всему, CD поврежден.</"
-#~ "p></b>"
-
-#~ msgid "Disk analyze started.."
-#~ msgstr "Начат анализ диска.."
-
-#~ msgid "Writing disk tables ..."
-#~ msgstr "Запись таблиц на диск ..."
-
-#~ msgid "Resize Finished ..."
-#~ msgstr "Изменение Размера Завершено ..."
-
-#~ msgid "Creating new partition ..."
-#~ msgstr "Создание нового раздела..."
-
-#~ msgid "Failed to use partition for automatic installation "
-#~ msgstr "Не удалось использовать раздел для автоматической установки"
-
-#~ msgid "Setting misc. package configurations..."
-#~ msgstr "Установка различных конфигураций ПО..."
-
-#~ msgid "unknown"
-#~ msgstr "неизвестный"
-
-#~ msgid "Install Root"
-#~ msgstr "Установить Суперпользователя"
-
-#~ msgid "as Pardus System Files (mandatory)"
-#~ msgstr "как системные файлы Pardus (обязательно)"
-
-#~ msgid "Users' Files"
-#~ msgstr "Файлы Пользователя"
-
-#~ msgid "as User Files (optional)"
-#~ msgstr "как Файлы Пользователя (опционально)"
-
-#~ msgid "Swap"
-#~ msgstr "Своп"
-
-#~ msgid "as Swap Space (optional)"
-#~ msgstr "как место для Свопа (Виртуальной памяти)"
-
-#~ msgid "Archive Partition"
-#~ msgstr "Активный Раздел"
-
-#~ msgid "as Storage Area"
-#~ msgstr "как место хранения"
-
-#~ msgid "User <b>%s</b>'s home directory is being prepared.."
-#~ msgstr "домашняя директория пользователя <b>%s</b> готовится..."
-
-#~ msgid "Not enough free space on %s to create new partition"
-#~ msgstr "Недостаточно свободного места на %s чтобы создать новый раздел"
-
-#~ msgid ""
-#~ "Pardus 2011 also includes other components updated with KDE 4.2. If you "
-#~ "have used Pardus before, you may want to check out the welcome tour to "
-#~ "see what those changes are."
-#~ msgstr ""
-#~ "Pardus 2011 также включает в себя другие компоненты, обновленные в рамках "
-#~ "KDE 4.2. Если вы использовали Pardus раньше, вы возможно захотите "
-#~ "просмотреть наш вводный курс, что узнать о них больше."
