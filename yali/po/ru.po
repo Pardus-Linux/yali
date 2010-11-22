@@ -57,7 +57,7 @@ msgstr "Игнорировать все"
 
 #: yali/gui/interface.py:76 yali/gui/interface.py:131
 msgid "Re-initialize"
-msgstr ""
+msgstr "Инициализировать заново"
 
 #: yali/gui/interface.py:124
 #, python-format
@@ -72,7 +72,7 @@ msgstr "Игнорировать все"
 
 #: yali/gui/interface.py:131
 msgid "Re-initialize all"
-msgstr ""
+msgstr "Инициализировать все заново"
 
 #: yali/gui/lvm_gui.py:50
 msgid "Not enough physical volumes"
@@ -530,7 +530,7 @@ msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:111
 msgid "Partitioning Warnings"
-msgstr ""
+msgstr "Опасность разметки"
 
 #: yali/gui/ScrPartitionManual.py:113 yali/gui/ScrPartitionManual.py:139
 #: yali/gui/YaliDialog.py:220
@@ -610,7 +610,7 @@ msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:166
 msgid "Array"
-msgstr ""
+msgstr "Массив"
 
 #: yali/gui/ScrPartitionManual.py:167
 msgid "Requires at least 2 free Raid formatted partition"
@@ -618,7 +618,7 @@ msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:228
 msgid "Volume Groups"
-msgstr ""
+msgstr "Volume Groups"
 
 #: yali/gui/ScrPartitionManual.py:240 yali/gui/ScrPartitionManual.py:313
 msgid "Free"
@@ -664,7 +664,7 @@ msgstr "Предупреждение: %s."
 
 #: yali/gui/ScrPartitionManual.py:358
 msgid "Modify Partition"
-msgstr ""
+msgstr "Изменить раздел"
 
 #: yali/gui/ScrPartitionManual.py:482
 msgid "Unable To Edit"
@@ -691,7 +691,7 @@ msgid "Press <b>Restart</b> to restart your system."
 msgstr ""
 
 #: yali/gui/ScrRescueGrub.py:87
-#, python-format, fuzzy
+#, python-format
 msgid "%s (Boot Disk)"
 msgstr "%s (Boot Disk)"
 
@@ -737,17 +737,17 @@ msgstr "Получение истории ..."
 
 #: yali/gui/ScrRescuePisi.py:75
 msgid "No connection available"
-msgstr ""
+msgstr "Сеть не подключена"
 
 #: yali/gui/ScrRescuePisi.py:116
 #, python-format
 msgid "Operation %(no)s : %(date)s - %(type)s"
-msgstr ""
+msgstr "Операция %(no)s : %(date)s - %(type)s"
 
 #: yali/gui/ScrRescuePisi.py:170
 #, python-format
 msgid "Connecting to network %s..."
-msgstr ""
+msgstr "Подключение к сети %s..."
 
 #: yali/gui/ScrRescuePisi.py:176 yali/gui/ScrRescuePisi.py:177
 msgid "Connection failed"
@@ -775,7 +775,7 @@ msgstr ""
 
 #: yali/gui/ScrSummary.py:57 yali/gui/ScrSummary.py:212
 msgid "Next"
-msgstr ""
+msgstr "Далее"
 
 #: yali/gui/ScrSummary.py:64
 #, python-format
@@ -802,7 +802,7 @@ msgstr "Установка даты / времени"
 #: yali/gui/ScrSummary.py:99
 #, python-format
 msgid "Selected TimeZone is <b>%s</b>"
-msgstr ""
+msgstr "Выберите часовой поясs <b>%s</b>"
 
 #: yali/gui/ScrSummary.py:105
 msgid "User Settings"
@@ -825,7 +825,7 @@ msgstr "Hostname Настройки"
 #: yali/gui/ScrSummary.py:117
 #, python-format
 msgid "Hostname is set as <b>%s</b>"
-msgstr ""
+msgstr "Имя хоста <b>%s</b>"
 
 #: yali/gui/ScrSummary.py:123
 msgid "Partition Settings"
@@ -873,11 +873,11 @@ msgstr "Настройка начальной загрузчика"
 #: yali/gui/ScrSummary.py:159
 #, python-format
 msgid "GRUB will be installed to <b>%s</b>."
-msgstr ""
+msgstr "GRUB будет установлен <b>%s</b>."
 
 #: yali/gui/ScrSummary.py:161
 msgid "GRUB will not be installed."
-msgstr ""
+msgstr "GRUB не будет установлен."
 
 #: yali/gui/ScrSummary.py:168
 msgid "Package Installation Settings"
@@ -885,7 +885,7 @@ msgstr ""
 
 #: yali/gui/ScrSummary.py:170
 msgid "Auto installation selected."
-msgstr ""
+msgstr "Выбрана автоматическая установка."
 
 #: yali/gui/ScrSummary.py:172
 #, python-format
@@ -894,7 +894,7 @@ msgstr ""
 
 #: yali/gui/ScrSummary.py:176
 msgid "Default Kernel selected"
-msgstr ""
+msgstr "Выбрано ядро по умолчанию"
 
 #: yali/gui/ScrSummary.py:178
 msgid "PAE Kernel selected"
