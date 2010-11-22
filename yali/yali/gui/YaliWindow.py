@@ -355,7 +355,7 @@ class Widget(QWidget):
 class ReleaseNotes(QTextBrowser):
 
     def __init__(self, *args):
-        QTextBrowser.__init__(self, args)
+        QTextBrowser.__init__(self, *args)
 
         self.setStyleSheet("background:white;color:black;")
 
@@ -365,10 +365,10 @@ class ReleaseNotes(QTextBrowser):
             ctx.logger.error(_(msg))
 
     def loadFile(self):
-        rel_path = os.path.join(ctx.consts.source_dir,"release-notes/releasenotes-" + ctx.consts.lang + ".html")
+        releasenotes_path = os.path.join(ctx.consts.source_dir,"release-notes/releasenotes-%s.html" % ctx.consts.lang)
 
-        if not os.path.exists(rel_path):
-            rel_path = os.path.join(ctx.consts.source_dir, "release-notes/releasenotes-en.html")
-        if os.path.exists(rel_path):
-            return rel_path
+        if not os.path.exists(releasenotes_path):
+            releasenotes_path = os.path.join(ctx.consts.source_dir, "release-notes", "releasenotes-en.html")
+        if os.path.exists(releasenotes_path):
+            return releasenotes_path
         raise Exception, _("Release notes could not be loaded.")

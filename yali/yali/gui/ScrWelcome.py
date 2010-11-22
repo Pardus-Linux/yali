@@ -9,6 +9,7 @@
 #
 # Please read the COPYING file.
 #
+import os
 import codecs
 import gettext
 _ = gettext.translation('yali', fallback=True).ugettext
@@ -20,8 +21,6 @@ from yali.gui import ScreenWidget, GUIError
 from yali.gui.YaliDialog import Dialog
 from yali.gui.Ui.welcomewidget import Ui_WelcomeWidget
 
-##
-# Welcome screen is the first screen to be shown.
 class Widget(QWidget, ScreenWidget):
     name = "welcome"
 
@@ -58,22 +57,23 @@ class Widget(QWidget, ScreenWidget):
 class LicenseBrowser(QTextBrowser):
 
     def __init__(self, *args):
-        apply(QTextBrowser.__init__, (self,) + args)
+        QTextBrowser.__init__(self, *args)
 
         self.setStyleSheet("background:white;color:black;")
 
         try:
             self.setText(codecs.open(self.loadFile(), "r", "UTF-8").read())
         except Exception, msg:
-            GUIError, _(msg)
+            GUIError, _("%s") % msg
 
     def loadFile(self):
-        licence = os.path.join(ctx.consts.source_dir, "license/license-" + ctx.consts.lang + ".txt")
+        license = os.path.join(ctx.consts.source_dir, "license", "license-%s.txt" % ctx.consts.lang)
 
-        if not os.path.exists(licence):
-            licence = os.path.join(ctx.consts.source_dir, "license/license-en.txt")
-        if os.path.exists(licence):
-            return licence
+        if not os.path.exists(license):
+            license = os.path.join(ctx.consts.source_dir, "license/license-en.txt")
+
+        if os.path.exists(license):
+            return license
         raise GUIError, _("License text could not be found.")
 
 
