@@ -234,7 +234,12 @@ def writeInitramfsConf(parameters=[]):
     if swapDevices:
         parameters.append("resume=%s" % swapDevices[0].path)
 
-    parameters = " ".join(parameters)
+    if ctx.storage.lvs:
+        parameters.append("lvm=1")
+
+    if ctx.storage.raidArrays:
+        parameters.append("raid=1")
+
     ctx.logger.debug("Configuring initramfs.conf file with parameters:%s" % parameters)
 
     initramfsConf = open(path, 'w')

@@ -101,7 +101,7 @@ background 10333C
 
 title %(release)s
 root %(root)s
-kernel %(root)s%(bootpath)s%(kernel)s %(commands)s mudur=lvm
+kernel %(root)s%(bootpath)s%(kernel)s %(commands)s
 initrd %(root)s%(bootpath)s%(initramfs)s
 
 """
