@@ -363,12 +363,18 @@ def stop_dbus():
 
     # store log content
     ctx.logger.debug("Finalize Chroot called this is the last step for logs ..")
-    shutil.copyfile("/var/log/yali.log", os.path.join(ctx.target_dir, "/var/log", ctx.consts.log_file))
+    try:
+        shutil.copyfile("/var/log/yali.log", os.path.join(ctx.consts.target_dir, "var/log/yaliInstall.log"))
+    except IOError, msg:
+        ctx.logger.debug(_("YALI log file doesn't exists."))
+    except Error, msg:
+        ctx.logger.debug(_("File paths are the same."))
+    else:
+        return True
 
     # store session log as kahya xml
     #open(ctx.consts.session_file,"w").write(str(ctx.installData.sessionLog))
     #os.chmod(ctx.consts.session_file,0600)
-    return True
 
 def reboot():
     run_batch("/tmp/reboot", ["-f"])
