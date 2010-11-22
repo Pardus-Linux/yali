@@ -200,6 +200,8 @@ def getBasePackages():
     systemBase.extend(getPackages("Name", "kernel"))
     systemBase.extend(getPackages("Name", "gfxtheme-pardus-boot"))
     systemBase.extend(getPackages("Name", "gfxtheme-base"))
+    systemBase.extend(getPackages("Name", "device-mapper"))
+    systemBase.extend(getPackages("Name", "lvm2"))
     systemBase.extend(getPackages("Name", "lvm2-static"))
     systemBase.extend(getPackages("Name", "device-mapper-static"))
     systemBase.extend(getPackages("Name", "mdadm-static"))
