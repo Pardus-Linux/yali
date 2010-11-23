@@ -27,7 +27,7 @@ from devices.logicalvolume import LogicalVolume
 from devices.disk import Disk
 from devices.opticaldevice import OpticalDevice
 from devices.partition import Partition
-from library.devicemapper import DeviceMapperError
+from library.devicemapper import DeviceMapperError, name_from_dm_node
 from formats.disklabel import InvalidDiskLabelError, DiskLabelCommitError
 from formats.filesystem import FilesystemError
 from formats.raidmember import RaidMember
