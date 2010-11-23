@@ -22,7 +22,7 @@ from yali.gui.YaliDialog import Dialog
 from yali.gui.Ui.welcomewidget import Ui_WelcomeWidget
 
 class Widget(QWidget, ScreenWidget):
-    name = "welcome"
+    name = "license"
 
     def __init__(self):
         QWidget.__init__(self)

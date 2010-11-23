@@ -16,21 +16,21 @@ class GUIError(yali.Error):
     pass
 
 
-GUI_STEPS = {ctx.STEP_DEFAULT:("welcome", "mediaCheck", "keyboardSetup",
+GUI_STEPS = {ctx.STEP_DEFAULT:("license", "mediaCheck", "keyboardSetup",
                            "timeSetup", "accounts", "admin", "driveSelection",
                            "automaticPartitioning", "manualPartitioning", "bootloadersetup",
                            "collectionSelection", "summary", "packageInstallation", "goodbye"),
-             ctx.STEP_BASE:("welcome", "mediaCheck", "keyboardSetup",
+             ctx.STEP_BASE:("license", "mediaCheck", "keyboardSetup",
                         "timeSetup", "driveSelection", "automaticPartitioning",
                         "manualPartitioning", "bootloadersetup", "collectionSelection",
                         "summary", "packageInstallation", "goodbye"),
-             ctx.STEP_OEM_INSTALL:("welcome", "mediaCheck", "keyboardSetup", "driveSelection",
+             ctx.STEP_OEM_INSTALL:("license", "mediaCheck", "keyboardSetup", "driveSelection",
                                "automaticPartitioning", "manualPartitioning", "bootloadersetup",
                                "collectionSelection", "summary", "packageInstallation", "goodbye"),
-             ctx.STEP_FIRST_BOOT:("welcome", "accounts", "admin", "network", "summary", "goodbye"),
+             ctx.STEP_FIRST_BOOT:("accounts", "admin", "network", "summary", "goodbye"),
              ctx.STEP_RESCUE:("rescue", "grubRescue", "pisiRescue", "passwordRescue", "finishRescue")}
 
-stepToClass = {"welcome":"ScrWelcome",
+stepToClass = {"license":"ScrLicense",
                "mediaCheck":"ScrCheckCD",
                "keyboardSetup":"ScrKeyboard",
                "timeSetup":"ScrDateTime",
