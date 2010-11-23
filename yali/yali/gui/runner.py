@@ -40,9 +40,14 @@ class Runner:
 
     def __init__(self):
         self._application = QApplication(sys.argv)
-
+        self._window = None
         # Main Window Initialized..
-        self._window = yali.gui.YaliWindow.Widget()
+        try:
+            self._window = yali.gui.YaliWindow.Widget()
+        except yali.Error, msg:
+            ctx.logger.debug(msg)
+            sys.exit(1)
+
         ctx.mainScreen = self._window
 
         screens = self._get_screens(ctx.flags.install_type)
