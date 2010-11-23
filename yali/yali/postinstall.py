@@ -268,6 +268,10 @@ def fillFstab():
     ctx.logger.debug("Generating fstab configuration file")
     ctx.storage.storageset.write(ctx.consts.target_dir)
 
+def setupFirstBoot():
+    yali.util.write_config_option(os.path.join(ctx.consts.target_dir, "etc/yali/yali.conf"), "general", "installation", "firstboot")
+    ctx.logger.debug("Setup firstboot")
+
 def setupBootLooder():
     ctx.bootloader.setup()
     ctx.logger.debug("Setup bootloader")

@@ -7,6 +7,7 @@ import subprocess
 import string
 import stat
 import errno
+import ConfigParser
 import gettext
 
 _ = gettext.translation('yali', fallback=True).ugettext
@@ -428,6 +429,15 @@ def writeKeymap(keymap):
         lines.append(l)
 
     open(mudur_file_path, "w").writelines(lines)
+
+def write_config_option(conf_file, section, option, value):
+    configParser = ConfigParser.ConfigParser()
+    configParser.read(conf_file)
+    if not configParser.has_section(section):
+        configParser.add_section(section)
+    configParser.set(section, option, value)
+    with open(conf_file, "w")  as conf:
+        configParser.write(conf)
 
 def parse_branding_screens(release_file):
     try:
