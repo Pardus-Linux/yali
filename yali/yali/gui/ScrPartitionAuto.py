@@ -38,11 +38,13 @@ class Widget(QWidget, ScreenWidget):
         if index == SHRINK_CURRENT:
             resizable_partitions = [partition for partition in self.storage.partitions if partition.exists and
                                                                                          partition.resizable and
-                                                                                         partition.format.resizable]
+                                                                                         partition.format.resizable and
+                                                                                         partition.size > ctx.consts.min_root_size]
             if not len(resizable_partitions):
                 self.intf.messageWindow(_("Warning"),
-                                        _("No partitions are available to resize.Only physical\n"
-                                          "partitions with specific filesystems can be resized."),
+                                        _("No partitions are available to resize. Only physical\n"
+                                          "partitions which size is greater than %s MB can be resized.")
+                                        % ctx.consts.min_root_size,
                                         type="warning", customIcon="error")
                 ctx.mainScreen.disableNext()
         else:

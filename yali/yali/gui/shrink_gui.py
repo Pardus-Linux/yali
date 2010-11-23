@@ -85,7 +85,8 @@ class ShrinkWidget(QtGui.QWidget, Ui_ShrinkPartitionWidget):
         self.connect(self.buttonBox, SIGNAL("rejected()"), self.parent.dialog.reject)
 
         #Force to show max, min values
-        self.partitions.setCurrentIndex(0)
+        #self.partitions.setCurrentIndex(0)
+        self.updateSpin(0)
 
     def updateSpin(self, index):
         request = self.partitions.itemData(index).toPyObject()
