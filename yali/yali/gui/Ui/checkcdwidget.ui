@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>886</width>
+    <width>635</width>
     <height>490</height>
    </rect>
   </property>
@@ -49,6 +49,9 @@
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
+     <property name="lineWidth">
+      <number>0</number>
+     </property>
      <layout class="QGridLayout" name="gridLayout_3">
       <property name="topMargin">
        <number>20</number>
@@ -90,8 +93,11 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="lineWidth">
+         <number>0</number>
+        </property>
         <property name="pixmap">
-         <pixmap resource="../../data.qrc">:/gui/pics/media-optical.png</pixmap>
+         <pixmap>:/gui/pics/media-optical.png</pixmap>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -151,6 +157,9 @@
           <property name="styleSheet">
            <string notr="true"/>
           </property>
+          <property name="lineWidth">
+           <number>0</number>
+          </property>
           <property name="text">
            <string>Here, you can validate the integrity of the installation packages. Although this is an optional step, we highly recommend to do the validation in order to avoid any possible errors during the installation process.</string>
           </property>
@@ -198,16 +207,22 @@
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
+             <property name="lineWidth">
+              <number>0</number>
+             </property>
              <property name="text">
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="../../data.qrc">:/gui/pics/dialog-error.png</pixmap>
+              <pixmap>:/gui/pics/dialog-error.png</pixmap>
              </property>
             </widget>
            </item>
            <item>
             <widget class="QLabel" name="label_8">
+             <property name="lineWidth">
+              <number>0</number>
+             </property>
              <property name="text">
               <string>Validation failed</string>
              </property>
@@ -262,16 +277,22 @@
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
+             <property name="lineWidth">
+              <number>0</number>
+             </property>
              <property name="text">
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="../../data.qrc">:/gui/pics/task-complete.png</pixmap>
+              <pixmap>:/gui/pics/task-complete.png</pixmap>
              </property>
             </widget>
            </item>
            <item>
             <widget class="QLabel" name="label">
+             <property name="lineWidth">
+              <number>0</number>
+             </property>
              <property name="text">
               <string>Validation succeeded</string>
              </property>
@@ -295,6 +316,9 @@
         </item>
         <item>
          <widget class="QGroupBox" name="validationBox">
+          <property name="styleSheet">
+           <string notr="true">#validationBox{border: 0px;}</string>
+          </property>
           <property name="title">
            <string/>
           </property>
@@ -360,14 +384,14 @@
               <string>Validate</string>
              </property>
              <property name="icon">
-              <iconset resource="../../data.qrc">
+              <iconset>
                <normaloff>:/gui/pics/task-accepted.png</normaloff>:/gui/pics/task-accepted.png</iconset>
              </property>
-            <property name="default">
-             <bool>false</bool>
-            </property>
+             <property name="default">
+              <bool>false</bool>
+             </property>
              <property name="flat">
-             <bool>false</bool>
+              <bool>false</bool>
              </property>
             </widget>
            </item>
