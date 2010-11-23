@@ -73,15 +73,18 @@ def get_commands(storage):
 
     return " ".join(_commands).strip()
 
-def get_disk_name(storage, device):
-    return "hd%d" % storage.drives.index(device.name)
+def get_disk_name(storage, device, exists=False):
+    if exists:
+        return "hd%d" % (storage.drives.index(device.name) + 1)
+    else:
+        return "hd%d" % storage.drives.index(device.name)
 
-def get_partition_name(storage, device):
+def get_partition_name(storage, device, exists=False):
     (disk, number) = get_disk_partition(device)
     if number is not None:
-        return "(%s,%d)" % (get_disk_name(storage, disk), number - 1)
+        return "(%s,%d)" % (get_disk_name(storage, disk, exists), number - 1)
     else:
-        return "(%s)" % (get_disk_name(storage, disk))
+        return "(%s)" % (get_disk_name(storage, disk, exists))
 
 def get_disk_partition(device):
     if device.type == "partition":
@@ -152,6 +155,7 @@ class BootLoader(object):
         self._device = None
         self._type = BOOT_TYPE_NONE
         self.grubConf = None
+        self.removableExists = False
 
     def _setPath(self, path):
         self._path = path
@@ -384,8 +388,8 @@ class BootLoader(object):
         stage1Devices = get_physical_devices(self.storage, self.storage.devicetree.getDeviceByName(self.device))
         bootDevices = get_physical_devices(self.storage, self.storage.storageset.bootDevice)
 
-        stage1Path = get_partition_name(self.storage, stage1Devices[0])
-        bootPartitionPath = get_partition_name(self.storage, bootDevices[0])
+        stage1Path = get_partition_name(self.storage, stage1Devices[0], exists=ctx.bootloader.removableExists)
+        bootPartitionPath = get_partition_name(self.storage, bootDevices[0], exists=ctx.bootloader.removableExists)
 
         batch_template = """root %s
 setup %s
