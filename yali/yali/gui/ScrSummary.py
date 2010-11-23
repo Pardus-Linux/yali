@@ -18,6 +18,7 @@ from PyQt4.Qt import QWidget, SIGNAL, QTimer, QString
 import yali.util
 import yali.context as ctx
 import yali.storage
+import yali.users
 from yali.gui import ScreenWidget
 from yali.gui.YaliDialog import QuestionDialog
 from yali.gui.Ui.summarywidget import Ui_SummaryWidget
@@ -120,7 +121,7 @@ class Widget(QWidget, ScreenWidget):
             content.append(end)
 
         # Partition
-        if ctx.storage.clearPartType:
+        if ctx.storage.clearPartType is not None:
             content.append(subject % _("Partition Settings"))
             devices = ""
             for disk in ctx.storage.clearPartDisks:
