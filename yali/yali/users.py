@@ -12,6 +12,8 @@
 # User management module for YALI.
 
 import os
+import re
+import copy
 import string
 import yali.context as ctx
 
@@ -76,20 +78,17 @@ class User:
         conf = os.path.join(ctx.consts.target_dir, 'etc/X11/kdm/kdmrc')
 
         if not os.path.exists(conf):
-            import yali.context as ctx
             ctx.logger.debug("setAutoLogin: Failed, kdmrc not found; possibly KDE is not installed !")
             return False
 
         # We shouldn't use ConfigParser for changing kdmrc: 1- It removes all useful comments 2- KConfig confuses when it sees assignments including space characters like ' = ' 
         # Bugs: #9144 and #10034
 
-        import re
 
         def set_key(section, key, value, rc):
             section_escaped = re.escape(section)
 
             if not re.compile('^%s$' % section_escaped, re.MULTILINE).search(kdmrc):
-                import yali.context as ctx
                 ctx.logger.debug("setAutoLogin: Failed, '%s' section not found in kdmrc." % section)
                 return False
 
@@ -108,7 +107,6 @@ class User:
         section = "[X-:0-Core]"
 
         # Get a deep copy of default option dictionary and add AutoLoginEnable and AutoLoginuser options
-        import copy
         auto_login_defaults = copy.deepcopy(self.auto_login_defaults)
         auto_login_defaults['AutoLoginEnable'] = str(state).lower()
         auto_login_defaults['AutoLoginUser'] = self.username
