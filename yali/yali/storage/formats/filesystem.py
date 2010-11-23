@@ -383,16 +383,14 @@ class Filesystem(Format):
 
         if self._fsckFailed(rc):
             hdr = _("%(type)s filesystem check failure on %(device)s: ") % \
-                   (self.type, self.device,)
+                    {"type":self.type, "device":self.device}
             msg = self._fsckErrorMessage(rc)
             if intf:
-                help = _("Errors like this usually mean there is a problem "
-                         "with the filesystem that will require user "
-                         "interaction to repair.  Before restarting "
-                         "installation, reboot to rescue mode or another "
-                         "system that allows you to repair the filesystem "
-                         "interactively.  Restart installation after you "
-                         "have corrected the problems on the filesystem.")
+                help = _("Errors like this usually mean there is a problem"
+                         "with the\n filesystem that will require user "
+                         "interaction to repair.\n Restart\ninstallation "
+                         "after you have corrected the problems on the "
+                         "filesystem.")
 
                 intf.messageWindow(_("Unrecoverable Error"),
                                    hdr + "\n\n" + msg + "\n\n" + help,
