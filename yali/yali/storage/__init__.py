@@ -41,10 +41,12 @@ def initialize(storage, intf):
         return check
 
 def complete(storage, intf):
+    returncode = False
     try:
         storage.devicetree.teardownAll()
     except DeviceTreeError, msg:
-        return False
+        ctx.logger.debug(_("Failed teardownAll in storage.complete with error:%s") % msg)
+        return returncode
 
     title = None
     message = None
@@ -56,15 +58,17 @@ def complete(storage, intf):
         message = _("There was an error encountered while "
                     "resizing the device %s.") % (device,)
         details = "%s" %(msg,)
+        returncode = False
 
     except FilesystemMigrateError as (msg, device):
         title = _("Migration Failed")
         message = _("An error was encountered while "
                     "migrating filesystem on device %s.") % (device,)
         details = msg
+        returncode = False
     else:
         ctx.logger.debug("Partitioning finished")
-        return True
+        returncode = True
     finally:
         if title:
             rc = intf.detailedMessageWindow(title, message, details,
@@ -72,9 +76,11 @@ def complete(storage, intf):
                                             customButtons = [_("File Bug"), _("Exit installer")])
 
             if not rc:
-                raise
+                raise StorageError(_("Failed in storage.complete with error:%s") % message)
             elif rc:
                 sys.exit(1)
+
+        return returncode
 
 class Storage(object):
     def __init__(self, ignoredDisks=[]):
