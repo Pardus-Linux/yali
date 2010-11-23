@@ -340,102 +340,94 @@ msgid ""
 "\n"
 "className = %s.Widget"
 msgstr ""
+"Ocurrió un error al cargar un componente visual del instalador.\n"
+"\n"
+"className = %s.Widget"
 
 #: yali/gui/runner.py:110
 msgid "Exit"
-msgstr ""
+msgstr "Salir"
 
 #: yali/gui/runner.py:110
 msgid "Retry"
-msgstr ""
+msgstr "Reintentar"
 
 #: yali/gui/ScrAdmin.py:121 yali/gui/ScrRescuePassword.py:96
-#, fuzzy
 msgid "Password is too short."
-msgstr "Contraseña es muy corta!"
+msgstr "Contraseña es demasiado corta."
 
 # favor verificar, hay que ver si entra todo este texto
 #: yali/gui/ScrAdmin.py:124 yali/gui/ScrUsers.py:214
-#, fuzzy
 msgid "Don't use invalid characters"
-msgstr "El nombre de la maquina (hostname) contiene caracteres no válidos!"
+msgstr "Use solamente caracteres válidos"
 
 #: yali/gui/ScrAdmin.py:131
-#, fuzzy
 msgid "Passwords do not match."
-msgstr "Contraseñas no coinciden!"
+msgstr "Contraseñas no coinciden."
 
 #: yali/gui/ScrAdmin.py:136
-#, fuzzy
 msgid "Do not use your username as your password."
-msgstr "No use su nombre de usuario como contraseña !"
+msgstr "No use el nombre de usuario como contraseña."
 
 # favor verificar, hay que ver si entra todo este texto
 #: yali/gui/ScrAdmin.py:146
-#, fuzzy
 msgid "Hostname cannot be longer than 64 characters."
-msgstr "El nombre de la maquina (hostname) contiene caracteres no válidos!"
+msgstr "El nombre de la maquina (hostname) no debe superar 64 caracteres."
 
 # favor verificar, hay que ver si entra todo este texto
 #: yali/gui/ScrAdmin.py:159
-#, fuzzy
 msgid "Hostname contains invalid characters."
-msgstr "El nombre de la maquina (hostname) contiene caracteres no válidos!"
+msgstr "El nombre de la maquina (hostname) contiene caracteres no válidos."
 
 #: yali/gui/ScrCheckCD.py:60
 msgid "Validate"
-msgstr ""
+msgstr "Validar"
 
 #: yali/gui/ScrCheckCD.py:66
-#, fuzzy
 msgid "Starting validation..."
-msgstr "Estableciendo Zona Horaria..."
+msgstr "Iniciando validación..."
 
 #: yali/gui/ScrCheckCD.py:85
 #, python-format
 msgid "Validating %s"
-msgstr ""
+msgstr "Validando %s"
 
 #: yali/gui/ScrCheckCD.py:93
 #, python-format
 msgid "Validation of %s package failed.Please remaster your installation medium andreboot."
-msgstr ""
+msgstr "Validación de %s paquetes fallados.Por favor vuelva a preparar su medio de instalación y bootée de nuevo."
 
 #: yali/gui/ScrCheckCD.py:97
 msgid "Skip Validation"
-msgstr ""
+msgstr "Omitir validación"
 
 #: yali/gui/ScrCheckCD.py:97
 msgid "Skip Package"
-msgstr ""
+msgstr "Omitir paquete"
 
 #: yali/gui/ScrCheckCD.py:97
 msgid "Reboot"
 msgstr "Reiniciar"
 
 #: yali/gui/ScrCheckCD.py:112
-#, fuzzy
 msgid "<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the installation.</b></font>"
-msgstr "<font color=\"#FFF\"><b>Verificación terminada con éxito. Puede avanzar a la siguiente pantalla.</b></font>"
+msgstr "<font color=\"#FFF\"><b>Validación terminada con éxito. Puede avanzar para continuar con la linstalación.</b></font>"
 
 #: yali/gui/ScrDateTime.py:90
-#, fuzzy
 msgid "Adjusting time settings"
-msgstr "Configurando hora del sistema..."
+msgstr "Configurando hora del sistema"
 
 #: yali/gui/ScrDriveSelection.py:113
 msgid "You must select at least one drive to be used for installation."
 msgstr ""
 
 #: yali/gui/ScrGoodbye.py:37
-#, fuzzy
 msgid "Running post-install operations..."
-msgstr "Ejecutando operaciones post-instal.."
+msgstr "Ejecutando operaciones post-instalación..."
 
 #: yali/gui/ScrGoodbye.py:53
-#, fuzzy
 msgid "Press <b>Restart</b> to restart the computer."
-msgstr "Presione el botón <b>Reiniciar</b> para reiniciar el sistema."
+msgstr "Presione <b>Reiniciar</b> para reiniciar el sistema."
 
 #: yali/gui/ScrGoodbye.py:53 yali/gui/ScrRescueFinish.py:78
 #: yali/gui/ScrSummary.py:45
