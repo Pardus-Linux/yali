@@ -205,6 +205,11 @@ def getBasePackages():
     systemBase.extend(getPackages("Name", "lvm2-static"))
     systemBase.extend(getPackages("Name", "device-mapper-static"))
     systemBase.extend(getPackages("Name", "mdadm-static"))
+    if ctx.flags.install_type == ctx.STEP_BASE:
+        systemBase.extend(getPackages("Name", "yali"))
+        systemBase.extend(getPackages("Name", "yali-branding"))
+        systemBase.extend(getPackages("Name", "yali-theme"))
+
     return mergePackagesWithRepoPath(systemBase)
 
 def getHistory(limit=50):
