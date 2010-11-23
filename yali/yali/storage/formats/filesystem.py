@@ -386,7 +386,7 @@ class Filesystem(Format):
                     {"type":self.type, "device":self.device}
             msg = self._fsckErrorMessage(rc)
             if intf:
-                help = _("Errors like this usually mean there is a problem"
+                help = _("Errors like this usually mean there is a problem "
                          "with the\n filesystem that will require user "
                          "interaction to repair.\n Restart\ninstallation "
                          "after you have corrected the problems on the "

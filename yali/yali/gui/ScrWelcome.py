@@ -64,7 +64,7 @@ class LicenseBrowser(QTextBrowser):
         try:
             self.setText(codecs.open(self.loadFile(), "r", "UTF-8").read())
         except Exception, msg:
-            GUIError, _("%s") % msg
+            raise GUIError(msg)
 
     def loadFile(self):
         license = os.path.join(ctx.consts.source_dir, "license", "license-%s.txt" % ctx.consts.lang)
@@ -74,6 +74,6 @@ class LicenseBrowser(QTextBrowser):
 
         if os.path.exists(license):
             return license
-        raise GUIError, _("License text could not be found.")
+        raise GUIError(_("License text could not be found."))
 
 
