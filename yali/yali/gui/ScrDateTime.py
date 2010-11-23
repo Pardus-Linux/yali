@@ -10,7 +10,6 @@
 # Please read the COPYING file.
 #
 
-import os
 import gettext
 _ = gettext.translation('yali', fallback=True).ugettext
 
@@ -79,9 +78,9 @@ class Widget(QWidget, ScreenWidget):
         # What time is it ?
         cur = QTime.currentTime()
 
-        self.fromTimeUpdater = True
+        self.from_time_updater = True
         self.ui.timeEdit.setTime(cur)
-        self.fromTimeUpdater = False
+        self.from_time_updater = False
 
     def shown(self):
         self.timer.start(1000)
