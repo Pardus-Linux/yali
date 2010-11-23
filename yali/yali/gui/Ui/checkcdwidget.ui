@@ -59,6 +59,12 @@
       <property name="bottomMargin">
        <number>20</number>
       </property>
+      <property name="horizontalSpacing">
+       <number>10</number>
+      </property>
+      <property name="verticalSpacing">
+       <number>0</number>
+      </property>
       <item row="0" column="3">
        <spacer name="horizontalSpacer_2">
         <property name="orientation">
@@ -161,7 +167,7 @@
            <number>0</number>
           </property>
           <property name="text">
-           <string>Here, you can validate the integrity of the installation packages. Although this is an optional step, we highly recommend to do the validation in order to avoid any possible errors during the installation process.</string>
+           <string>You can validate the integrity of the installation packages. Although this is an optional step, we highly recommend to do the validation in order to avoid any possible errors during the installation process.</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignVCenter</set>
@@ -388,7 +394,7 @@
                <normaloff>:/gui/pics/task-accepted.png</normaloff>:/gui/pics/task-accepted.png</iconset>
              </property>
              <property name="default">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <property name="flat">
               <bool>false</bool>
