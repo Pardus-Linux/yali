@@ -82,7 +82,7 @@ class Widget(QWidget, ScreenWidget):
         if (ctx.flags.install_type == ctx.STEP_BASE or ctx.flags.install_type == ctx.STEP_DEFAULT) and ctx.bootloader.device:
             base_steps.insert(4, {"text":_("Setup bootloader..."), "operation":yali.postinstall.setupBootLooder})
             base_steps.insert(5, {"text":_("Writing bootloader..."), "operation":yali.postinstall.writeBootLooder})
-            base_steps.append({"text":_("Installing Bootloader..."), "operation":yali.postinstall.installBootloader})
+            base_steps.append({"text":_("Installing bootloader..."), "operation":yali.postinstall.installBootloader})
 
         if ctx.flags.install_type == ctx.STEP_FIRST_BOOT or ctx.flags.install_type == ctx.STEP_DEFAULT:
             steps.append({"text":_("Adding users..."), "operation":yali.postinstall.addUsers})

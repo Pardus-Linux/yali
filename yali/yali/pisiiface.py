@@ -69,7 +69,7 @@ def addRepo(name=None, uri=None):
             pisi.api.add_repo(name, uri)
     except pisi.Error, msg:
         ctx.logger.debug(_("Error occured while %(repo)s repo is adding:%(msg)s") %
-                         {"repo":name, "msg":msgmsg})
+                         {"repo":name, "msg":msg})
 
 def addCdRepo():
     if not repodb.has_repo(ctx.consts.cd_repo_name):
