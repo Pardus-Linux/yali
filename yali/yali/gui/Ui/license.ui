@@ -103,6 +103,18 @@
           </item>
           <item>
            <widget class="QLabel" name="disclamer">
+            <property name="minimumSize">
+             <size>
+              <width>400</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
             <property name="font">
              <font>
               <pointsize>10</pointsize>
@@ -115,13 +127,13 @@
              <number>0</number>
             </property>
             <property name="text">
-             <string>All software produced by TUBITAK/UEKAE - Pardus is licensed under the terms of GNU General Public License (GPL). In order to install and use Pardus, you must accept the terms of GNU GPL.</string>
+             <string>All software by TUBITAK Pardus is licensed under the terms of &lt;a href=&quot;#&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#56a2c0;&quot;&gt;GNU General Public License&lt;/span&gt;&lt;/a&gt; which you must accept in order to install and use Pardus.</string>
             </property>
             <property name="scaledContents">
              <bool>false</bool>
             </property>
             <property name="alignment">
-             <set>Qt::AlignTop</set>
+             <set>Qt::AlignCenter</set>
             </property>
             <property name="wordWrap">
              <bool>true</bool>
@@ -140,35 +152,13 @@
              <number>0</number>
             </property>
             <item>
-             <widget class="QPushButton" name="gplButton">
-              <property name="minimumSize">
-               <size>
-                <width>130</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>10</pointsize>
-               </font>
-              </property>
-              <property name="focusPolicy">
-               <enum>Qt::TabFocus</enum>
-              </property>
-              <property name="text">
-               <string>Read GNU GPL</string>
-              </property>
-              <property name="icon">
-               <iconset>
-                <normaloff>:/gui/pics/favorites.png</normaloff>:/gui/pics/favorites.png</iconset>
-              </property>
-              <property name="flat">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item>
              <widget class="QCheckBox" name="accept">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="font">
                <font>
                 <pointsize>10</pointsize>

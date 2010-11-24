@@ -32,8 +32,8 @@ class Widget(QWidget, ScreenWidget):
         self.connect(self.ui.accept, SIGNAL("toggled(bool)"),
                      self.slotAcceptToggled)
 
-        self.connect(self.ui.gplButton, SIGNAL("clicked()"),
-                     self.showGPL)
+        self.connect(self.ui.disclamer, SIGNAL("linkActivated(QString)"), self.showGPL)
+
 
     def slotAcceptToggled(self, state):
         if state:
