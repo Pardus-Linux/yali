@@ -132,7 +132,7 @@ class Widget(QWidget, ScreenWidget):
                 content.append(item % _("Automatic Partitioning selected."))
                 if ctx.storage.clearPartType == CLEARPART_TYPE_ALL:
                     content.append(item % _("Use All Space"))
-                    content.append(item % _("Removes all partitions on the selected"\
+                    content.append(item % _("Removes all partitions on the selected "\
                                             "%s device(s). This includes partitions "\
                                             "created by other operating systems.") % devices)
                 elif ctx.storage.clearPartType == CLEARPART_TYPE_LINUX:
