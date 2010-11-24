@@ -171,6 +171,8 @@ class Widget(QWidget, ScreenWidget):
 
     def animate(self, value):
         self.ui.scrollArea.setFixedHeight(int(value))
+        self.ui.frame.setMinimumHeight(250)
+
         if self.ui.scrollArea.height() == 0:
             self.ui.scrollArea.hide()
         else:
@@ -178,6 +180,7 @@ class Widget(QWidget, ScreenWidget):
 
         if self.ui.scrollArea.height() == 220:
             self.time_line.setDirection(1)
+            self.ui.frame.setMinimumHeight(420)
         if self.ui.scrollArea.height() == 0:
             self.time_line.setDirection(0)
 
