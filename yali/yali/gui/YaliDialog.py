@@ -132,7 +132,7 @@ class Dialog(QDialog):
         self.content = widget
         self.wlayout.addWidget(self.content)
         if self.isDialog:
-            widget.setStyleSheet("QWidget { background:none }")
+            widget.setStyleSheet("QMessageBox { background:none }")
             self.layout.addItem(QSpacerItem(10, 10, QSizePolicy.Fixed, QSizePolicy.MinimumExpanding))
             self.layout.setContentsMargins(0, 0, 0, 8)
         self.layout.addLayout(self.wlayout)
