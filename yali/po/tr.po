@@ -14,32 +14,35 @@ msgstr ""
 "Project-Id-Version: YALI-tr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-14 22:42+0200\n"
-"PO-Revision-Date: 2011-07-17 01:41+0300\n"
-"Last-Translator: Necmettin Begiter <necmettin.begiter@gmail.com>\n"
+"PO-Revision-Date: 2010-11-24 08:33+0200\n"
+"Last-Translator: Server Acim <serveracim@gmail.com>\n"
 "Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=1; plural=0;\\n\"\n"
 "X-Generator: Lokalize 0.3\n"
 
-#: yali/gui/interface.py:41 yali/gui/interface.py:123
-#: yali/gui/ScrCheckCD.py:92 yali/gui/ScrInstall.py:139
-#: yali/gui/ScrPartitionAuto.py:43 yali/gui/ScrPartitionManual.py:137
-#: yali/gui/YaliWindow.py:175 yali/gui/YaliWindow.py:180
+#: yali/gui/interface.py:41
+#: yali/gui/interface.py:123
+#: yali/gui/ScrCheckCD.py:92
+#: yali/gui/ScrInstall.py:139
+#: yali/gui/ScrPartitionAuto.py:43
+#: yali/gui/ScrPartitionManual.py:137
+#: yali/gui/YaliWindow.py:175
+#: yali/gui/YaliWindow.py:180
 #: yali/gui/YaliWindow.py:185
 msgid "Warning"
 msgstr "Uyarı"
 
 #: yali/gui/interface.py:42
 #, python-format
-msgid ""
-"Disk contains %(members_count)s BIOS RAID metadata, but is not part of any "
-"recognized BIOS RAID sets. Ignoring disk %(members)s.)"
-msgstr ""
+msgid "Disk contains %(members_count)s BIOS RAID metadata, but is not part of any recognized BIOS RAID sets. Ignoring disk %(members)s.)"
+msgstr "Disk içeriğinde %(members_count)s BIOS RAID üstverisi bulunmaktadır, fakat bu üstveri herhangi bir tanımlanmış BIOS RAID ayarlarından birine ait değildir. Disk gözardı ediliyor %(members)s.)"
 
-#: yali/gui/interface.py:66 yali/gui/raid_gui.py:122
+#: yali/gui/interface.py:66
+#: yali/gui/raid_gui.py:122
 #: yali/gui/ScrDriveSelection.py:112
 msgid "Error"
 msgstr "Hata"
@@ -47,51 +50,58 @@ msgstr "Hata"
 #: yali/gui/interface.py:67
 #, python-format
 msgid ""
-"Cannot access the partition table of %(description)s(%(name)s) -- "
-"%(size)-0.fMB\n"
+"Cannot access the partition table of %(description)s(%(name)s) -- %(size)-0.fMB\n"
 "\n"
 "If there already exists a partition table on this device, it will\n"
 " be re-initialized and your existing data will be lost!\n"
 "\n"
 "To re-initialize the current disk press Re-initialize.\n"
 "\n"
-"To re-initialize all disks with unaccessible partition tables press Re-"
-"initialize All"
+"To re-initialize all disks with unaccessible partition tables press Re-initialize All"
 msgstr ""
+"Bölümleme dosyası kabul edilemedi of %(description)s(%(name)s) -- %(size)-0.fMB\n"
+"\n"
+"Eğer bu aygıtta bölümleme tablosu varsa, bu tablo işlemi\n"
+" yeniden başlatılacak ve verilerinizi kaybedeceksiniz!\n"
+"\n"
+"Bu diskteki işlemi baştan başlatmak istiyorsanız İşleme Yeniden Başla'ya tıklayın.\n"
+"\n"
+"Kabul edilmeyen bölümleme tabloları ile birlikte yeniden işleme başlamak için Yeniden Tüm İşlemlere Başla'ya basınız."
 
-#: yali/gui/interface.py:75 yali/gui/interface.py:130
+#: yali/gui/interface.py:75
+#: yali/gui/interface.py:130
 msgid "Ignore"
-msgstr ""
+msgstr "Gözardı Et"
 
 #: yali/gui/interface.py:75
 msgid "Ignore All"
-msgstr ""
+msgstr "Hepsini Gözardı Et"
 
-#: yali/gui/interface.py:76 yali/gui/interface.py:131
+#: yali/gui/interface.py:76
+#: yali/gui/interface.py:131
 msgid "Re-initialize"
-msgstr ""
+msgstr "İşleme Sıfırdan Başla"
 
 #: yali/gui/interface.py:124
 #, python-format
 msgid ""
 "Error processing LVM.\n"
-"There is inconsistent LVM data on %(msg)s.  You can reinitialize all related "
-"PVs (%(pvs)s) which will erase the LVM metadata, or ignore which will "
-"preserve the contents.  This action may also be applied to all other PVs "
-"with inconsistent metadata."
+"There is inconsistent LVM data on %(msg)s.  You can reinitialize all related PVs (%(pvs)s) which will erase the LVM metadata, or ignore which will preserve the contents.  This action may also be applied to all other PVs with inconsistent metadata."
 msgstr ""
+"LVM işlenirken hata.\n"
+"Şurada tutarsız LVM verisi %(msg)s bulundu. Tüm ilgili PVleri (%(pvs)s) başlangıç durumuna getirebilirsiniz ancak bu durumda LVM üstverisi silinecektir veya bu hatayı içeriği korumak adına gözardı edebilirsiniz. Bu eylem tutarsız üstveri içeren diğer tüm PVlere uygulanacaktır."
 
 #: yali/gui/interface.py:130
 msgid "Ignore all"
-msgstr ""
+msgstr "Hepsini Gözardı Et"
 
 #: yali/gui/interface.py:131
 msgid "Re-initialize all"
-msgstr ""
+msgstr "Hepsini yeniden başlangıç durumuna getir"
 
 #: yali/gui/lvm_gui.py:50
 msgid "Not enough physical volumes"
-msgstr ""
+msgstr "Yeterli fiziksel birimler bulunamadı"
 
 #: yali/gui/lvm_gui.py:51
 msgid ""
@@ -100,38 +110,46 @@ msgid ""
 "Create a partition or RAID array of type \"physical volume\n"
 "(LVM)\" and then select the \"LVM\" option again."
 msgstr ""
+"LVM Birim Grubu için en azından bir tane fiziksel birim bölümüne\n"
+"gereksinim bulunmaktadır.\n"
+"Bir bölüm veya RAID dizi türü \"fiziksel birim(LVM)\" \n"
+"oluşturun ve \"LVM\" seçeneğini tekrar seçin."
 
 #: yali/gui/lvm_gui.py:62
 msgid "Make LVM Volume Group"
-msgstr ""
+msgstr "LVM Birim Grubu Oluşturun"
 
 #: yali/gui/lvm_gui.py:65
 #, python-format
 msgid "Edit LVM Volume Group: %s"
-msgstr ""
+msgstr "LVM Birim Grubu'un Düzenleyin: %s"
 
 #: yali/gui/lvm_gui.py:67
 msgid "Edit LVM Volume Group"
-msgstr ""
+msgstr "LVM Birim Grubunu Düzenle"
 
 #: yali/gui/lvm_gui.py:93
 msgid "Invalid Volume Group Name"
-msgstr ""
+msgstr "Geçersiz Birim Grubu Adı"
 
 #: yali/gui/lvm_gui.py:101
 msgid "Name in use"
-msgstr ""
+msgstr "Kullanımda olan isim"
 
 #: yali/gui/lvm_gui.py:102
 #, python-format
 msgid "The volume group name \"%s\" is already in use. Please pick another."
-msgstr ""
+msgstr "Birim grubu adı \"%s\" önceden oluşturulmuş durumda. Lütfen başka bir seçim yapınız."
 
-#: yali/gui/lvm_gui.py:405 yali/gui/lvm_gui.py:435 yali/gui/lvm_gui.py:448
-#: yali/gui/lvm_gui.py:483 yali/gui/lvm_gui.py:689 yali/gui/lvm_gui.py:711
+#: yali/gui/lvm_gui.py:405
+#: yali/gui/lvm_gui.py:435
+#: yali/gui/lvm_gui.py:448
+#: yali/gui/lvm_gui.py:483
+#: yali/gui/lvm_gui.py:689
+#: yali/gui/lvm_gui.py:711
 #: yali/gui/storageGuiHelpers.py:70
 msgid "Not enough space"
-msgstr ""
+msgstr "Yeterli alan yok"
 
 #: yali/gui/lvm_gui.py:406
 msgid ""
@@ -140,10 +158,13 @@ msgid ""
 "logical volumes will be increased to more than the\n"
 "available space."
 msgstr ""
+"Fiziksel boyut oranı değiştirilemez çünkü\n"
+"bu taktirde önceden belirlenmiş olan mantıksal bölümlerin\n"
+"ebadı uygun olan alandan daha fazla oranda arttırılmış olacak."
 
 #: yali/gui/lvm_gui.py:414
 msgid "Confirm Physical Extent Change"
-msgstr ""
+msgstr "Fiziksel Boyut Değişimini Onayla"
 
 #: yali/gui/lvm_gui.py:415
 msgid ""
@@ -155,17 +176,25 @@ msgid ""
 "This change will take effect\n"
 "immediately."
 msgstr ""
+"Fiziksel boyuttaki değerin değişimi\n"
+"varolan mantıksal birimin boyutlarının oranına göre\n"
+"değişiklik gösterecek ve yukarı yuvarkanacaktır"
 
-#: yali/gui/lvm_gui.py:421 yali/gui/lvm_gui.py:468 yali/gui/lvm_gui.py:553
-#: yali/gui/ScrPartitionManual.py:113 yali/gui/ScrPartitionManual.py:129
-#: yali/gui/ScrPartitionManual.py:139 yali/gui/YaliDialog.py:222
+#: yali/gui/lvm_gui.py:421
+#: yali/gui/lvm_gui.py:468
+#: yali/gui/lvm_gui.py:553
+#: yali/gui/ScrPartitionManual.py:113
+#: yali/gui/ScrPartitionManual.py:129
+#: yali/gui/ScrPartitionManual.py:139
+#: yali/gui/YaliDialog.py:222
 msgid "Cancel"
 msgstr "İptal"
 
-#: yali/gui/lvm_gui.py:421 yali/gui/lvm_gui.py:468
+#: yali/gui/lvm_gui.py:421
+#: yali/gui/lvm_gui.py:468
 #: yali/gui/ScrPartitionManual.py:358
 msgid "Continue"
-msgstr ""
+msgstr "Devam Et"
 
 #: yali/gui/lvm_gui.py:436
 #, python-format
@@ -174,36 +203,31 @@ msgid ""
 "the value selected (%(curpe)10.2f MB) is larger than the\n"
 "smallest physical volume (%(maxpvsize)10.2f MB) in the volume group."
 msgstr ""
+"Fiziksel boyut ebadı değiştirilemiyor çünkü\n"
+"seçilen değer (%(curpe)10.2f MB) daha küçük olan\n"
+"ve birim grubuna dahil olan (%(maxpvsize)10.2f MB) fiziksel birinden daha büyüktür."
 
 #: yali/gui/lvm_gui.py:449
 #, python-format
-msgid ""
-"The physical extent size cannot be changed because the value selected "
-"(%(curpe)10.2f MB) is too large compared to the size of the smallest "
-"physical volume (%(maxpvsize)10.2f MB) in the volume group."
-msgstr ""
+msgid "The physical extent size cannot be changed because the value selected (%(curpe)10.2f MB) is too large compared to the size of the smallest physical volume (%(maxpvsize)10.2f MB) in the volume group."
+msgstr "Fiziksel boyut değiştirilemez çünkü seçilen değer (%(curpe)10.2f MB) birim grubuna ait olan daha küçük fiziksel birimin ebadı (%(maxpvsize)10.2f MB) ile kıyaslandığında çok büyüktür."
 
 #: yali/gui/lvm_gui.py:461
 msgid "Too small"
-msgstr ""
+msgstr "Çok küçük"
 
 #: yali/gui/lvm_gui.py:462
-msgid ""
-"This change in the value of the physical extent will waste substantial space "
-"on one or more of the physical volumes in the volume group."
-msgstr ""
+msgid "This change in the value of the physical extent will waste substantial space on one or more of the physical volumes in the volume group."
+msgstr "Fiziksel boyut değerindeki değişiklik, birim grubuna ait olan fiziksel birimler üzerinden yeterli alanın kaybolmasına yol açacaktır."
 
 #: yali/gui/lvm_gui.py:484
 #, python-format
-msgid ""
-"The physical extent size cannot be changed because the resulting maximum "
-"logical volume size (%10.2f MB) is smaller than one or more of "
-"theircurrently defined logical volumes."
-msgstr ""
+msgid "The physical extent size cannot be changed because the resulting maximum logical volume size (%10.2f MB) is smaller than one or more of theircurrently defined logical volumes."
+msgstr "Fiziksel ebat değiştirilemez çünkü önceden tanımlanmış mantıksal birimlerin ebadı, en fazla oluşturulabilecek olan mantıksal birimin boyutundan ebadına göre (%10.2f MB) daha küçüktür."
 
 #: yali/gui/lvm_gui.py:505
 msgid "No free slots"
-msgstr ""
+msgstr "Boş yuva yok"
 
 #: yali/gui/lvm_gui.py:506
 #, python-format
@@ -211,11 +235,12 @@ msgid ""
 "You cannot create more than %d logical volume \n"
 "per volume group."
 msgstr ""
+"Her bir birim grubu için birden fazla %d mantıksal birim\n"
+"oluşturamazsınız."
 
 #: yali/gui/lvm_gui.py:512
-#, fuzzy
 msgid "No free space"
-msgstr "boş alan"
+msgstr "Boş alan yok"
 
 #: yali/gui/lvm_gui.py:513
 msgid ""
@@ -224,10 +249,14 @@ msgid ""
 "the size of one or more of the currently existing logical\n"
 "volumes"
 msgstr ""
+"Birim gurubunda, yeni mantıksal birimler oluşturmaya\n"
+"yetecek alan bulunmamaktadır. Mantıksal birim eklemek için\n"
+"varolan mantıksal birimlerden bir veya birkaçının\n"
+"boyutunu düşürmeniz gerekmektedir."
 
 #: yali/gui/lvm_gui.py:549
 msgid "Confirm Delete"
-msgstr ""
+msgstr "Silmeyi Onayla"
 
 #: yali/gui/lvm_gui.py:550
 #, python-format
@@ -235,124 +264,120 @@ msgid ""
 "Are you sure you want to delete the \n"
 "logical volume \"%s\"?"
 msgstr ""
+"Mantıksal birimi silmek istediğinize\n"
+"emin misiniz \"%s\"?"
 
 #: yali/gui/lvm_gui.py:553
 msgid "Delete"
-msgstr ""
+msgstr "Sil"
 
 #: yali/gui/lvm_gui.py:583
 msgid "Make Logical Volume"
-msgstr ""
+msgstr "Mantıksal Birim Oluştur"
 
 #: yali/gui/lvm_gui.py:585
 #, python-format
 msgid "Edit Logical Volume: %s"
-msgstr ""
+msgstr "Mantıksal Birimi Düzenle: %s"
 
-#: yali/gui/lvm_gui.py:614 yali/gui/partition_gui.py:65
+#: yali/gui/lvm_gui.py:614
+#: yali/gui/partition_gui.py:65
 #: yali/gui/raid_gui.py:79
 msgid "Mount Point Error"
-msgstr ""
+msgstr "Bağlama Noktası Hatası"
 
-#: yali/gui/lvm_gui.py:638 yali/gui/partition_gui.py:80
+#: yali/gui/lvm_gui.py:638
+#: yali/gui/partition_gui.py:80
 #: yali/gui/raid_gui.py:94
 msgid "Mount point in use"
-msgstr ""
+msgstr "Kullanımdaki bağlama noktası"
 
-#: yali/gui/lvm_gui.py:639 yali/gui/partition_gui.py:81
+#: yali/gui/lvm_gui.py:639
+#: yali/gui/partition_gui.py:81
 #: yali/gui/raid_gui.py:95
 #, python-format
 msgid "The mount point \"%s\" is in use. Please pick another."
-msgstr ""
+msgstr "Bağlama noktası \"%s\" kullanımda. Lütfen başka bir yer seçin."
 
 #: yali/gui/lvm_gui.py:649
 msgid "Illegal Logical Volume Name"
-msgstr ""
+msgstr "Geçersiz Mantıksal Birim Adı"
 
 #: yali/gui/lvm_gui.py:661
 msgid "Illegal logical volume name"
-msgstr ""
+msgstr "Geçersiz mantıksal birim adı"
 
 #: yali/gui/lvm_gui.py:662
 #, python-format
 msgid "The logical volume name \"%s\" is already in use. Please pick another."
-msgstr ""
+msgstr "Mantıksal birim adı \"%s\" şu an kullanımda. Lütfen başka bir ad seçin."
 
 #: yali/gui/lvm_gui.py:676
 msgid "Illegal size"
-msgstr ""
+msgstr "Geçersiz boyut"
 
 #: yali/gui/lvm_gui.py:677
 msgid "The requested size as entered is not a valid number greater than 0."
-msgstr ""
+msgstr "Talep edilen boyut 0'dan daha büyük bir geçerli sayı değildir."
 
 #: yali/gui/lvm_gui.py:690
 #, python-format
-msgid ""
-"The current requested size (%(size)10.2f MB) is larger than the maximum "
-"logical volume size (%(maxlv)10.2f MB). To increase this limit you can "
-"create more Physical Volumes from unpartitioned disk space and add them to "
-"this Volume Group."
-msgstr ""
+msgid "The current requested size (%(size)10.2f MB) is larger than the maximum logical volume size (%(maxlv)10.2f MB). To increase this limit you can create more Physical Volumes from unpartitioned disk space and add them to this Volume Group."
+msgstr "İstenen boyut (%(size)10.2f MB) maksimum mantıksal birim boyutundan (%(maxlv)10.2f MB) daha büyüktür. Bu sınırı arttırmak için bölümlenmemiş disk alanında yeni Fiziksel Birimler ekleyebilir ve onları bu birim grubuna ekleyebilirsiniz."
 
 #: yali/gui/lvm_gui.py:712
 #, python-format
-msgid ""
-"The size entered for this logical volume (%(size)d MB) combined with the "
-"size of the other logical volume(s) exceeds the size of the volume group "
-"(%(tmpvgsize)d MB). Please make the volume group larger or make the logical "
-"volume smaller."
-msgstr ""
+msgid "The size entered for this logical volume (%(size)d MB) combined with the size of the other logical volume(s) exceeds the size of the volume group (%(tmpvgsize)d MB). Please make the volume group larger or make the logical volume smaller."
+msgstr "Bu mantıksal biri için girilen boyut (%(size)d MB) diğer mantıksal birim(ler) ile birleştirilmiş olup birim grubunun (%(tmpvgsize)d MB) ebadını aşmaktadır. Lütfen birim grubunu daha büyük tutun veya mantıksal birimin ebadını daha küçük tutun."
 
 #: yali/gui/partition_gui.py:34
-#, fuzzy, python-format
+#, python-format
 msgid "Create Partition on %(path)s (%(model)s)"
-msgstr "Bölümü Sil"
+msgstr "Burada Bölüm Oluştur %(path)s (%(model)s)"
 
 #: yali/gui/partition_gui.py:38
-#, fuzzy, python-format
+#, python-format
 msgid "Edit Partition %s"
-msgstr "Disk bölümü %d"
+msgstr "Disk bölümünü Düzenle %s"
 
 #: yali/gui/partition_gui.py:40
-#, fuzzy
 msgid "Edit Partition"
-msgstr "Bölümü Sil"
+msgstr "Bölümü Düzenle"
 
 #: yali/gui/partition_gui.py:104
 msgid "Error With Request"
-msgstr ""
+msgstr "Hatalı İstek"
 
 #: yali/gui/raid_gui.py:30
 msgid "Invalid Raid Members"
-msgstr ""
+msgstr "Geçersiz Raid Üyeleri"
 
 #: yali/gui/raid_gui.py:31
 msgid ""
-"At least two unused software RAID partitions are needed to create a RAID "
-"device.\n"
+"At least two unused software RAID partitions are needed to create a RAID device.\n"
 "\n"
-"First create at least two partitions of type \"software RAID\", and then "
-"select the \"RAID\" option again."
+"First create at least two partitions of type \"software RAID\", and then select the \"RAID\" option again."
 msgstr ""
+"Bir RAID aygıtı yaratmak için en az kullanılmamış software RAID bölümlerine ihtiyaç var.\n"
+"\n"
+"Önce, \"software RAID\" türünde iyi bölüm oluşturun ve tekrar \"RAID\" seçeneğini işaretleyin. "
 
 #: yali/gui/raid_gui.py:41
 msgid "Make RAID Device"
-msgstr ""
+msgstr "RAID Aygıtı Oluştur"
 
 #: yali/gui/raid_gui.py:44
 #, python-format
 msgid "Edit RAID Device: %s"
-msgstr ""
+msgstr "RAID Aygıtını Düzenleyin: %s"
 
 #: yali/gui/raid_gui.py:46
 msgid "Edit RAID Device"
-msgstr ""
+msgstr "RAID Aygıtını Düzenle"
 
 #: yali/gui/runner.py:105
-#, fuzzy
 msgid "Error!"
-msgstr "Hata !"
+msgstr "Hata!"
 
 #: yali/gui/runner.py:106
 #, python-format
@@ -361,187 +386,165 @@ msgid ""
 "\n"
 "className = %s.Widget"
 msgstr ""
+"Kurulum arayüz bileşeni yüklenmeye çalışılırken bir hata meydana geldi.\n"
+"\n"
+"className = %s.Widget"
 
 #: yali/gui/runner.py:110
 msgid "Exit"
-msgstr ""
+msgstr "Çık"
 
 #: yali/gui/runner.py:110
 msgid "Retry"
 msgstr "Tekrar dene"
 
-#: yali/gui/ScrAdmin.py:121 yali/gui/ScrRescuePassword.py:96
-#, fuzzy
+#: yali/gui/ScrAdmin.py:121
+#: yali/gui/ScrRescuePassword.py:96
 msgid "Password is too short."
-msgstr "Parola çok kısa!"
+msgstr "Parola çok kısa."
 
-#: yali/gui/ScrAdmin.py:124 yali/gui/ScrUsers.py:214
-#, fuzzy
+#: yali/gui/ScrAdmin.py:124
+#: yali/gui/ScrUsers.py:214
 msgid "Don't use invalid characters"
-msgstr "Makine adı geçersiz karakterler içeriyor!"
+msgstr "Geçersiz karakterler kullanmayınız"
 
 #: yali/gui/ScrAdmin.py:131
-#, fuzzy
 msgid "Passwords do not match."
-msgstr "Parolalar aynı değil!"
+msgstr "Parolalar aynı değil."
 
 #: yali/gui/ScrAdmin.py:136
-#, fuzzy
 msgid "Do not use your username as your password."
-msgstr "Kullanıcı adınızı parola olarak kullanmayın !"
+msgstr "Kullanıcı adınızı parola olarak kullanmayın."
 
 #: yali/gui/ScrAdmin.py:146
-#, fuzzy
 msgid "Hostname cannot be longer than 64 characters."
-msgstr "Makine adı geçersiz karakterler içeriyor!"
+msgstr "Makine adı 64 karakterden daha uzun olmamalıdır."
 
 #: yali/gui/ScrAdmin.py:159
-#, fuzzy
 msgid "Hostname contains invalid characters."
-msgstr "Makine adı geçersiz karakterler içeriyor!"
+msgstr "Makine adı geçersiz karakterler içeriyor."
 
 #: yali/gui/ScrCheckCD.py:60
 msgid "Validate"
-msgstr ""
+msgstr "Doğrula"
 
 #: yali/gui/ScrCheckCD.py:66
-#, fuzzy
 msgid "Starting validation..."
-msgstr "Zaman dilimi ayarlanıyor..."
+msgstr "Doğrulama başlatılıyor..."
 
 #: yali/gui/ScrCheckCD.py:85
 #, python-format
 msgid "Validating %s"
-msgstr ""
+msgstr "Doğruluyor %s"
 
 #: yali/gui/ScrCheckCD.py:93
 #, python-format
-msgid ""
-"Validation of %s package failed.Please remaster your installation medium "
-"andreboot."
-msgstr ""
+msgid "Validation of %s package failed.Please remaster your installation medium andreboot."
+msgstr "Paket %s doğrulanamadı. Lütfen kurulum medyasını tekrar oluşturun."
 
 #: yali/gui/ScrCheckCD.py:97
 msgid "Skip Validation"
-msgstr ""
+msgstr "Doğrulamayı Atla"
 
 #: yali/gui/ScrCheckCD.py:97
 msgid "Skip Package"
-msgstr ""
+msgstr "Paketi Atla"
 
 #: yali/gui/ScrCheckCD.py:97
 msgid "Reboot"
 msgstr "Sistemi Yeniden Başlat"
 
 #: yali/gui/ScrCheckCD.py:112
-#, fuzzy
-msgid ""
-"<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the "
-"installation.</b></font>"
-msgstr ""
-"<font color=\"#FFF\"><b>Kontrol başarılı. Bir sonraki ekrana geçebilirsiniz."
-"</b></font>"
+msgid "<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the installation.</b></font>"
+msgstr "<font color=\"#FFF\"><b>Kontrol başarılı. Kuruluma devam edebilirsiniz.</b></font>"
 
 #: yali/gui/ScrDateTime.py:90
-#, fuzzy
 msgid "Adjusting time settings"
-msgstr "Saat ayarlanıyor.."
+msgstr "Saat ayarlanıyor."
 
 #: yali/gui/ScrDriveSelection.py:113
 msgid "You must select at least one drive to be used for installation."
-msgstr ""
+msgstr "Kurulum için en az bir sürücü seçmek zorundasınız."
 
 #: yali/gui/ScrGoodbye.py:37
-#, fuzzy
 msgid "Running post-install operations..."
 msgstr "Kurulum sonrası işlemler gerçekleştiriliyor..."
 
 #: yali/gui/ScrGoodbye.py:53
-#, fuzzy
 msgid "Press <b>Restart</b> to restart the computer."
-msgstr ""
-"Bilgisayarınızı yeniden başlatmak için <b>Sistemi Yeniden Başlat!</b> "
-"düğmesine tıklayın."
+msgstr "Bilgisayarınızı yeniden başlatmak için <b>Sistemi Yeniden Başlat</b> düğmesine tıklayın."
 
-#: yali/gui/ScrGoodbye.py:53 yali/gui/ScrRescueFinish.py:78
+#: yali/gui/ScrGoodbye.py:53
+#: yali/gui/ScrRescueFinish.py:78
 #: yali/gui/ScrSummary.py:45
 msgid "Restart"
-msgstr ""
+msgstr "Yeniden Başlat"
 
-#: yali/gui/ScrGoodbye.py:55 yali/gui/ScrRescueFinish.py:80
+#: yali/gui/ScrGoodbye.py:55
+#: yali/gui/ScrRescueFinish.py:80
 msgid "<b>Please wait while restarting...</b>"
-msgstr ""
+msgstr "<b>Yeniden başlatılırken lütfen bekleyiniz...</b>"
 
-#: yali/gui/ScrGoodbye.py:70 yali/gui/ScrRescuePassword.py:45
+#: yali/gui/ScrGoodbye.py:70
+#: yali/gui/ScrRescuePassword.py:45
 #: yali/gui/ScrRescuePisi.py:38
-#, fuzzy
 msgid "Connecting to D-Bus..."
-msgstr "Bağlantı Durumu:"
+msgstr "D-Bus'a bağlanılıyor..."
 
 #: yali/gui/ScrGoodbye.py:72
-#, fuzzy
 msgid "Setting hostname..."
 msgstr "Makine adı ayarlanıyor..."
 
 #: yali/gui/ScrGoodbye.py:73
-#, fuzzy
 msgid "Setting root password..."
 msgstr "Root parolası ayarlanıyor..."
 
 #: yali/gui/ScrGoodbye.py:75
-#, fuzzy
 msgid "Setting timezone..."
 msgstr "Zaman dilimi ayarlanıyor..."
 
 #: yali/gui/ScrGoodbye.py:76
-#, fuzzy
 msgid "Migrating Xorg configuration..."
-msgstr "X.org yapılandırması aktarılıyor..."
+msgstr "X.org Yapılandırması aktarılıyor..."
 
 #: yali/gui/ScrGoodbye.py:77
-#, fuzzy
 msgid "Setting console keymap..."
 msgstr "Konsol bilgisi yazılıyor..."
 
 #: yali/gui/ScrGoodbye.py:78
-#, fuzzy
 msgid "Copying repository index..."
-msgstr "Pisi index kopyalanıyor..."
+msgstr "Pisi indeksi kopyalanıyor..."
 
 #: yali/gui/ScrGoodbye.py:79
-#, fuzzy
 msgid "Setup bootloader..."
-msgstr "Açılış yöneticinizi onarabilirsiniz..."
+msgstr "Açılış yöneticisi ayarlanıyor..."
 
 #: yali/gui/ScrGoodbye.py:80
-#, fuzzy
 msgid "Writing bootloader..."
-msgstr "Açılış yöneticisi yükleniyor..."
+msgstr "Açılış yöneticisi yazılıyor..."
 
 #: yali/gui/ScrGoodbye.py:81
-#, fuzzy
 msgid "Stopping to D-Bus..."
-msgstr "DBUS Başlatılıyor..."
+msgstr "DBUS Durduruluyor..."
 
-#: yali/gui/ScrGoodbye.py:85 yali/gui/ScrRescueFinish.py:55
-#, fuzzy
+#: yali/gui/ScrGoodbye.py:85
+#: yali/gui/ScrRescueFinish.py:55
 msgid "Installing Bootloader..."
-msgstr "Açılış yöneticisi yükleniyor..."
+msgstr "Açılış yöneticisi Yükleniyor..."
 
 #: yali/gui/ScrGoodbye.py:88
-#, fuzzy
 msgid "Adding users..."
 msgstr "Kullanıcılar ekleniyor..."
 
 #: yali/gui/ScrInstall.py:110
-#, fuzzy, python-format
+#, python-format
 msgid "Installing <b>%(name)s</b><br>%(summary)s"
-msgstr "Kurulan Paket: <b>%s</b><br>%s"
+msgstr "Kuruluyor <b>%(name)s</b><br>%(summary)s"
 
 #: yali/gui/ScrInstall.py:116
-#, fuzzy, python-format
+#, python-format
 msgid "Configuring <b>%s</b>"
-msgstr "Yapılandırılan paket: <b>%s</b>"
+msgstr "Yapılandırılan paket <b>%s</b>"
 
 #: yali/gui/ScrInstall.py:140
 #, python-format
@@ -549,14 +552,15 @@ msgid ""
 "Following error occured while installing packages:\n"
 "<b>%s</b>"
 msgstr ""
+"Paketler kurulurken aşağıdaki hata meydana geldi:\n"
+"<b>%s</b>"
 
 #: yali/gui/ScrInstall.py:141
-#, fuzzy
 msgid "Do you want to retry?"
-msgstr "Tekrar denemek ister misiniz ?"
+msgstr "Tekrar denemek ister misiniz?"
 
 #: yali/gui/ScrInstall.py:198
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "An error occured during the installation of packages.\n"
 "\n"
@@ -572,15 +576,18 @@ msgstr ""
 "Hata:\n"
 "%s\n"
 
-#: yali/gui/ScrKahyaCheck.py:78 yali/gui/ScrRescue.py:49
+#: yali/gui/ScrKahyaCheck.py:78
+#: yali/gui/ScrRescue.py:49
 msgid "No storage device found."
-msgstr ""
+msgstr "Hiç bir yükleme aygıtı bulunamadı."
 
 #: yali/gui/ScrPartitionAuto.py:44
 msgid ""
 "No partitions are available to resize.Only physical\n"
 "partitions with specific filesystems can be resized."
 msgstr ""
+"Yeniden boyutlandırılacak bölüm yok. Sadece özel\n"
+"dosya yapılarına sahip fiziksel bölümler yeniden boyutlandırılabilir."
 
 #: yali/gui/ScrPartitionManual.py:93
 #, python-format
@@ -590,11 +597,13 @@ msgid ""
 "You must correct these errors before\n"
 "you continue your installation of %s."
 msgstr ""
+"Talep ettiğiniz bölümleme şeması\n"
+"aşağıdaki kritik hataların oluşmasına neden oldu.\n"
+"Kurulumunuza %s devam etmeden önce\bu hataları düzeltmeniz gerekecektir."
 
 #: yali/gui/ScrPartitionManual.py:100
-#, fuzzy
 msgid "Partitioning Errors"
-msgstr "Disk Bölümü Ayarları"
+msgstr "Biçimlendirme Hataları"
 
 #: yali/gui/ScrPartitionManual.py:105
 msgid ""
@@ -602,13 +611,17 @@ msgid ""
 "following warnings. Would you like to continue with \n"
 "your requested partitioning scheme?"
 msgstr ""
+"Talep ettiğiniz bölümleme şeması\n"
+"aşağıdaki uyarıların ortaya çıkmasına oldu.\n"
+"Talep ettiğiniz bölümleme şeması ile\n"
+"devam etmek istiyor musunuz?"
 
 #: yali/gui/ScrPartitionManual.py:111
-#, fuzzy
 msgid "Partitioning Warnings"
-msgstr "Disk Bölümü Ayarları"
+msgstr "Bölümleme Uyarıları"
 
-#: yali/gui/ScrPartitionManual.py:113 yali/gui/ScrPartitionManual.py:139
+#: yali/gui/ScrPartitionManual.py:113
+#: yali/gui/ScrPartitionManual.py:139
 #: yali/gui/YaliDialog.py:220
 msgid "Ok"
 msgstr "Tamam"
@@ -619,141 +632,136 @@ msgid ""
 "been selected to be formatted, destroying\n"
 "all data."
 msgstr ""
+"Aşağıdaki aygıtlar biçimlendirilmek üzere\n"
+"seçilmiş durumdadırlar, bu işlem aygıtlardaki\n"
+"verilerin kaybolmasına neden olacaktır."
 
 #: yali/gui/ScrPartitionManual.py:127
-#, fuzzy
 msgid "Format Warnings"
-msgstr "Biçimlendiriliyor..."
+msgstr "Biçimlendirme Uyarıları"
 
 #: yali/gui/ScrPartitionManual.py:129
-#, fuzzy
 msgid "Format"
-msgstr "Biçimlendir:"
+msgstr "Biçimlendir"
 
 #: yali/gui/ScrPartitionManual.py:137
-#, fuzzy
 msgid "All Changes that you made will be removed"
-msgstr "Yaptığınız tüm değişiklikler silinecek."
+msgstr "Yaptığınız tüm değişiklikler silinecek"
 
 #: yali/gui/ScrPartitionManual.py:147
 msgid "Standard"
-msgstr ""
+msgstr "Standart"
 
 #: yali/gui/ScrPartitionManual.py:148
 msgid "LVM"
-msgstr ""
+msgstr "LVM"
 
 #: yali/gui/ScrPartitionManual.py:149
 msgid "RAID"
-msgstr ""
+msgstr "RAID"
 
 #: yali/gui/ScrPartitionManual.py:151
-#, fuzzy
 msgid "Partition"
-msgstr "Disk bölümü %d"
+msgstr "Disk bölümü"
 
 #: yali/gui/ScrPartitionManual.py:152
 msgid "General purpose of partition creation"
-msgstr ""
+msgstr "Bölüm oluşturmanın genel amacı"
 
 #: yali/gui/ScrPartitionManual.py:154
 msgid "Physical Volume"
-msgstr ""
+msgstr "Fiziksel Birim"
 
 #: yali/gui/ScrPartitionManual.py:155
-#, fuzzy
 msgid "Create LVM formatted partition"
-msgstr "Evet, bu disk bölümünü biçimlendir"
+msgstr "LVM olarak biçimlendirilmiş bölüm Oluştur"
 
 #: yali/gui/ScrPartitionManual.py:157
 msgid "Volume Group"
-msgstr ""
+msgstr "Birim Grubu"
 
 #: yali/gui/ScrPartitionManual.py:158
 msgid "Requires at least 1 free LVM formatted partition"
-msgstr ""
+msgstr "En az 1 boş ve biçimlendirilmiş LVM  bölüm gerektirir"
 
 #: yali/gui/ScrPartitionManual.py:160
 msgid "Logical Volume"
-msgstr ""
+msgstr "Mantıksal Birim"
 
 #: yali/gui/ScrPartitionManual.py:161
 msgid "Create Logical Volume on selected Volume Group"
-msgstr ""
+msgstr "Seçili Bölüm Grubu üzerinde Mantıksal Bölüm Oluşturun"
 
 #: yali/gui/ScrPartitionManual.py:163
 msgid "Member"
-msgstr ""
+msgstr "Üye"
 
 #: yali/gui/ScrPartitionManual.py:164
-#, fuzzy
 msgid "Create Raid formatted partition"
-msgstr "Evet, bu disk bölümünü biçimlendir"
+msgstr "Raid olarak biçimlendirilmiş bölüm oluştur"
 
 #: yali/gui/ScrPartitionManual.py:166
 msgid "Array"
-msgstr ""
+msgstr "Dizi"
 
 #: yali/gui/ScrPartitionManual.py:167
 msgid "Requires at least 2 free Raid formatted partition"
-msgstr ""
+msgstr "En az boş ve biçimlendirilmiş 2 Raid bölmesi gerektirir"
 
 #: yali/gui/ScrPartitionManual.py:228
 msgid "Volume Groups"
-msgstr ""
+msgstr "Birim Grupları"
 
-#: yali/gui/ScrPartitionManual.py:240 yali/gui/ScrPartitionManual.py:313
+#: yali/gui/ScrPartitionManual.py:240
+#: yali/gui/ScrPartitionManual.py:313
 msgid "Free"
-msgstr ""
+msgstr "Boş"
 
 #: yali/gui/ScrPartitionManual.py:249
 msgid "Raid Arrays"
-msgstr ""
+msgstr "Raid Dizileri"
 
 #: yali/gui/ScrPartitionManual.py:263
 msgid "Hard Drives"
-msgstr ""
+msgstr "Hard Diskler"
 
 #: yali/gui/ScrPartitionManual.py:290
 msgid "Can't handle more than one extended partition per disk"
-msgstr ""
+msgstr "Disk başına birden fazla uzatılmış bölme oluşturulamaz"
 
 #: yali/gui/ScrPartitionManual.py:297
 msgid "Crossed logical partition before extended"
-msgstr ""
+msgstr "Uzatılmış bölmeden önceki engellenmiş mantıksal bölme"
 
 #: yali/gui/ScrPartitionManual.py:318
 msgid "Extended"
-msgstr ""
+msgstr "Uzatılmış"
 
 #: yali/gui/ScrPartitionManual.py:351
-#, fuzzy
 msgid "Error Partitioning"
-msgstr "Disk Bölümlendirme"
+msgstr "Bölümlendirme Hatası"
 
 #: yali/gui/ScrPartitionManual.py:352
 #, python-format
 msgid "Could not allocate requested partitions: %s."
-msgstr ""
+msgstr "İstenen bölmeler oluşturulamıyor:%s."
 
 #: yali/gui/ScrPartitionManual.py:356
-#, fuzzy
 msgid "Warning Partitioning"
-msgstr "Elle Bölümlendirme"
+msgstr "Bölümlendirme Uyarısı"
 
 #: yali/gui/ScrPartitionManual.py:357
-#, fuzzy, python-format
+#, python-format
 msgid "Warning: %s."
-msgstr "Uyarı !"
+msgstr "Uyarı: %s."
 
 #: yali/gui/ScrPartitionManual.py:358
-#, fuzzy
 msgid "Modify Partition"
-msgstr "Bölümü Yeniden Boyutlandır"
+msgstr "Bölümü Boyutlandır"
 
 #: yali/gui/ScrPartitionManual.py:482
 msgid "Unable To Edit"
-msgstr ""
+msgstr "Düzenleme Yapılamıyor"
 
 #: yali/gui/ScrPartitionManual.py:483
 #, python-format
@@ -762,23 +770,21 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Bu aygıtı düzenleyemezsiniz:\n"
+"\n"
+"%s"
 
 #: yali/gui/ScrRescueFinish.py:58
-#, fuzzy
 msgid "Taking back operation..."
-msgstr "Pisi geri al işlemi..."
+msgstr "İşlem geri alınıyor..."
 
 #: yali/gui/ScrRescueFinish.py:61
-#, fuzzy
 msgid "Running rescue operations..."
 msgstr "Kurtarma işlemleri gerçekleştiriliyor..."
 
 #: yali/gui/ScrRescueFinish.py:78
-#, fuzzy
 msgid "Press <b>Restart</b> to restart your system."
-msgstr ""
-"Bilgisayarınızı yeniden başlatmak için <b>Sistemi Yeniden Başlat!</b> "
-"düğmesine tıklayın."
+msgstr "Bilgisayarınızı yeniden başlatmak için <b>Sistemi Yeniden Başlat</b> düğmesine tıklayın."
 
 #: yali/gui/ScrRescueGrub.py:87
 #, python-format
@@ -786,106 +792,100 @@ msgid "%s (Boot Disk)"
 msgstr "%s (Açılış Diski)"
 
 #: yali/gui/ScrRescuePassword.py:39
-#, fuzzy
 msgid "Caps Lock is on."
-msgstr "Caps Lock açık!"
+msgstr "Caps Lock açık."
 
-#: yali/gui/ScrRescuePassword.py:44 yali/gui/ScrRescuePisi.py:37
-#, fuzzy
+#: yali/gui/ScrRescuePassword.py:44
+#: yali/gui/ScrRescuePisi.py:37
 msgid "Starting D-Bus..."
-msgstr "DBUS Başlatılıyor..."
+msgstr "D-Bus Başlatılıyor..."
 
 #: yali/gui/ScrRescuePassword.py:46
-#, fuzzy
 msgid "Acquiring users..."
 msgstr "Kullanıcılar ekleniyor..."
 
 #: yali/gui/ScrRescuePassword.py:79
 msgid "The password has been successfully reset."
-msgstr ""
+msgstr "Şifre başarıyla sıfırlandı."
 
 #: yali/gui/ScrRescuePassword.py:79
 msgid "Info"
 msgstr "Bilgi"
 
 #: yali/gui/ScrRescuePassword.py:90
-#, fuzzy
 msgid "Do not use your username or real name as your password."
-msgstr "Kullanıcı adınızı parola olarak kullanmayın."
+msgstr "Parola olarak kullanıcı adınızı veya gerçek isminizi kullanmayın."
 
 #: yali/gui/ScrRescuePassword.py:93
-#, fuzzy
 msgid "The passwords do not match."
-msgstr "Parolalar aynı değil!"
+msgstr "Parolalar aynı değil."
 
-#: yali/gui/ScrRescuePassword.py:107 yali/gui/ScrRescuePisi.py:69
+#: yali/gui/ScrRescuePassword.py:107
+#: yali/gui/ScrRescuePisi.py:69
 msgid "Please Wait..."
-msgstr ""
+msgstr "Lütfen Bekleyiniz..."
 
 #: yali/gui/ScrRescuePassword.py:130
 msgid "Super User"
 msgstr "Yetkili Kullanıcı"
 
 #: yali/gui/ScrRescuePisi.py:39
-#, fuzzy
 msgid "Fetching history..."
-msgstr "Geçmiş bilgisi getiriliyor ..."
+msgstr "Geçmiş bilgisi getiriliyor..."
 
 #: yali/gui/ScrRescuePisi.py:75
-#, fuzzy
 msgid "No connection available"
-msgstr "Bağlantı başarısız"
+msgstr "Bağlantı bulunamadı"
 
 #: yali/gui/ScrRescuePisi.py:116
-#, fuzzy, python-format
+#, python-format
 msgid "Operation %(no)s : %(date)s - %(type)s"
-msgstr "İşlem %s : %s - %s"
+msgstr "İşlem %(no)s : %(date)s - %(type)s"
 
 #: yali/gui/ScrRescuePisi.py:170
-#, fuzzy, python-format
+#, python-format
 msgid "Connecting to network %s..."
-msgstr "<b>%s</b> ağına bağlanıyor ..."
+msgstr "%s ağına bağlanıyor ..."
 
-#: yali/gui/ScrRescuePisi.py:176 yali/gui/ScrRescuePisi.py:177
+#: yali/gui/ScrRescuePisi.py:176
+#: yali/gui/ScrRescuePisi.py:177
 msgid "Connection failed"
 msgstr "Bağlantı başarısız"
 
-#: yali/gui/ScrRescuePisi.py:180 yali/gui/ScrRescuePisi.py:181
+#: yali/gui/ScrRescuePisi.py:180
+#: yali/gui/ScrRescuePisi.py:181
 msgid "Connected"
 msgstr "Bağlı"
 
 #: yali/gui/ScrRescue.py:94
-#, fuzzy
 msgid "Mounting disk partition..."
-msgstr "Seçilen disk bölümü bağlanıyor..."
+msgstr "Disk bölümü bağlanıyor..."
 
 #: yali/gui/ScrRescue.py:106
-#, fuzzy
 msgid "YALI could not locate a suitable disk partition on this computer."
-msgstr "Yali sisteminizde kurtarılma için uygun herhangi bir bölüm bulamadı"
+msgstr "YALI sisteminizde uygun herhangi bir bölüm bulamadı."
 
 #: yali/gui/ScrRescue.py:123
-#, fuzzy
 msgid "Please select a disk partition from the list below:"
-msgstr "Lütfen listeden disk bölümünü seçin"
+msgstr "Lütfen aşağıdaki listeden disk bölümünü seçin:"
 
 #: yali/gui/ScrSummary.py:46
 msgid "<b><p>Are you sure you want to restart the computer?</p></b>"
-msgstr ""
+msgstr "<b><p>Bilgisayarı yeniden başlatmak istediğinizden emin misiniz?</p></b>"
 
-#: yali/gui/ScrSummary.py:57 yali/gui/ScrSummary.py:212
+#: yali/gui/ScrSummary.py:57
+#: yali/gui/ScrSummary.py:212
 msgid "Next"
 msgstr "İleri"
 
 #: yali/gui/ScrSummary.py:64
-#, fuzzy, python-format
+#, python-format
 msgid "Installation starts in <b>%s</b> seconds"
-msgstr "Kurulum <b>%s saniye</b> içinde başlayacak."
+msgstr "Kurulumun başlamasına <b>%s</b> saniye kaldı"
 
 #: yali/gui/ScrSummary.py:71
-#, fuzzy
 msgid "Start Installation"
-msgstr "Otomatik Kurulum"
+msgstr "Kurulumu Başlat"
 
 #: yali/gui/ScrSummary.py:89
 msgid "Keyboard Settings"
@@ -910,16 +910,14 @@ msgid "User Settings"
 msgstr "Kullanıcı Ayarları"
 
 #: yali/gui/ScrSummary.py:107
-#, fuzzy, python-format
+#, python-format
 msgid "User %(username)s (<b>%(realname)s</b>) added."
-msgstr "Kullanıcı %s (<b>%s</b>) eklendi."
+msgstr "Kullanıcı %(username)s (<b>%(realname)s</b>) eklendi."
 
 #: yali/gui/ScrSummary.py:109
-#, fuzzy, python-format
-msgid ""
-"User %(username)s (<b>%(realname)s</b>) added with <u>administrator "
-"privileges</u>."
-msgstr "Kullanıcı %s (<b>%s</b>) <u>yönetici hakları ile</u> eklendi."
+#, python-format
+msgid "User %(username)s (<b>%(realname)s</b>) added with <u>administrator privileges</u>."
+msgstr "Kullanıcı %(username)s (<b>%(realname)s</b>) <u>yetkili kullanıcı</u> haklarıyla eklendi."
 
 #: yali/gui/ScrSummary.py:115
 msgid "Hostname Settings"
@@ -939,41 +937,31 @@ msgid "Automatic Partitioning selected."
 msgstr "Otomatik kurulum seçildi."
 
 #: yali/gui/ScrSummary.py:132
-#, fuzzy
 msgid "Use All Space"
-msgstr "Boş Alan"
+msgstr "Boş Alanın Tamamını Kullan"
 
 #: yali/gui/ScrSummary.py:133
 #, python-format
-msgid ""
-"Removes all partitions on the selected%s device(s). This includes partitions "
-"created by other operating systems."
-msgstr ""
+msgid "Removes all partitions on the selected%s device(s). This includes partitions created by other operating systems."
+msgstr "Seçili aygıt veya aygıtlardaki%s tüm bölmeleri kaldırır. Bu işlem diğer işletim sistemleri tarafından oluşturulmuş bölmeleri de kapsar."
 
 #: yali/gui/ScrSummary.py:137
 msgid "Replace Existing Linux System(s)"
-msgstr ""
+msgstr "Var Olan Linux İşletim Sistem(leri)i Üzerine Yükle"
 
 #: yali/gui/ScrSummary.py:138
 #, python-format
-msgid ""
-"Removes all Linux partitions on the selected%s device(s). This does not "
-"remove other partitions you may have on your storage device(s) (such as VFAT "
-"or FAT32)"
-msgstr ""
+msgid "Removes all Linux partitions on the selected%s device(s). This does not remove other partitions you may have on your storage device(s) (such as VFAT or FAT32)"
+msgstr "Seçili aygıt(lardaki)taki%s tüm Linux bölümlerini kaldırır. Bu işlem (VFAT veya FATE32) gibi diğer depolama aygılarındaki diğer bölmeleri kaldırmaz."
 
 #: yali/gui/ScrSummary.py:143
-#, fuzzy
 msgid "Use Free Space"
-msgstr "Boş Alan"
+msgstr "Boş Alanın Kullan"
 
 #: yali/gui/ScrSummary.py:144
 #, python-format
-msgid ""
-"Retains your current data and partitions and uses only the unpartitioned "
-"space on the selected %s device(s), assuming you haveenough free space "
-"available."
-msgstr ""
+msgid "Retains your current data and partitions and uses only the unpartitioned space on the selected %s device(s), assuming you haveenough free space available."
+msgstr "Varolan verinizi ve bölmelerinizi korur ve sadece seçili %s aygıt(lardaki)taki bölümlenmemiş alanları kullanır, yeterli boş alanınızın olduğu hesaba katılır."
 
 #: yali/gui/ScrSummary.py:150
 msgid "Manual Partitioning selected."
@@ -997,14 +985,13 @@ msgid "Package Installation Settings"
 msgstr "Paket Kurulum Ayarları"
 
 #: yali/gui/ScrSummary.py:170
-#, fuzzy
 msgid "Auto installation selected."
-msgstr "Otomatik kurulum koleksiyonu seçildi."
+msgstr "Otomatik kurulum seçildi."
 
 #: yali/gui/ScrSummary.py:172
-#, fuzzy, python-format
+#, python-format
 msgid "Manual Installation ( %s ) selected"
-msgstr "Ayrıntılı Kurulum %s koleksiyonu seçildi"
+msgstr "Elle Kurulum ( %s ) seçildi"
 
 #: yali/gui/ScrSummary.py:176
 msgid "Default Kernel selected"
@@ -1016,7 +1003,7 @@ msgstr "PAE Çekirdek seçildi"
 
 #: yali/gui/ScrSummary.py:195
 msgid "Confirm"
-msgstr ""
+msgstr "Onayla"
 
 #: yali/gui/ScrSummary.py:196
 msgid ""
@@ -1024,91 +1011,86 @@ msgid ""
 "written to disk.  Any data on deleted or reformatted partitions\n"
 "will be lost."
 msgstr ""
+"Seçtiğiniz biçimlendirme seçenekleri şimdi diske yazılmaya\n"
+"başlanacak. Silinen veya yeniden biçimlendirilen bölümlerdeki\n"
+"tüm verileri kaybedeceksiniz."
 
 #: yali/gui/ScrSummary.py:201
 msgid "Write Changes to Disk"
-msgstr ""
+msgstr "Değişiklikleri Diske Yaz"
 
 #: yali/gui/ScrSummary.py:201
-#, fuzzy
 msgid "Go Back"
-msgstr "Geri"
+msgstr "Geri Dön"
 
-#: yali/gui/ScrUsers.py:129 yali/gui/ScrUsers.py:353
-#, fuzzy
+#: yali/gui/ScrUsers.py:129
+#: yali/gui/ScrUsers.py:353
 msgid "Update"
-msgstr "Kullanıcıyı Güncelle"
+msgstr "Güncelle"
 
 #: yali/gui/ScrUsers.py:205
-#, fuzzy
 msgid "Don't use your user name or name as a password"
-msgstr "Kullanıcı adınızı parola olarak kullanmayın."
+msgstr "Şifre olarak kullanıcı adınızı veya gerçek adınızı kullanmayın"
 
 #: yali/gui/ScrUsers.py:208
-#, fuzzy
 msgid "Passwords do not match"
-msgstr "Parolalar aynı değil!"
+msgstr "Parolalar aynı değil"
 
 #: yali/gui/ScrUsers.py:211
-#, fuzzy
 msgid "Password is too short"
-msgstr "Parola çok kısa!"
+msgstr "Parola çok kısa"
 
 #: yali/gui/ScrUsers.py:258
-#, fuzzy
 msgid "This user name is already taken, please choose another one."
-msgstr "Bu kullanıcı adı zaten var, başka bir tane seçin!"
+msgstr "Bu kullanıcı adı zaten var, başka bir tane seçin."
 
 #: yali/gui/ScrUsers.py:262
-#, fuzzy
 msgid "The user name contains invalid characters."
-msgstr "Kullanıcı adı geçersiz karakterler içeriyor!"
+msgstr "Kullanıcı adı geçersiz karakterler içeriyor."
 
 #: yali/gui/ScrUsers.py:265
-#, fuzzy
 msgid "The real name contains invalid characters."
-msgstr "Gerçek İsim bölümü geçersiz karakterler içeriyor!"
+msgstr "Gerçek İsim bölümü geçersiz karakterler içeriyor."
 
 #: yali/gui/ScrUsers.py:268
-#, fuzzy
 msgid "The password contains invalid characters."
-msgstr "Kullanıcı adı geçersiz karakterler içeriyor!"
+msgstr "Şifre geçersiz karakterler içeriyor."
 
 #: yali/gui/ScrUsers.py:276
 msgid "User ID used before, choose another one!"
 msgstr "Kullanıcı ID'si daha önce kullanılmış, başka bir tane seçin!"
 
-#: yali/gui/ScrUsers.py:281 yali/gui/ScrUsers.py:323 yali/gui/ScrUsers.py:401
+#: yali/gui/ScrUsers.py:281
+#: yali/gui/ScrUsers.py:323
+#: yali/gui/ScrUsers.py:401
 msgid "Add"
-msgstr ""
+msgstr "Ekle"
 
 #: yali/gui/ScrWelcome.py:77
 msgid "License text could not be found."
-msgstr ""
+msgstr "Lisans metni bulunamadı."
 
 #: yali/gui/shrink_gui.py:23
-#, fuzzy
 msgid "Partitions to Shrink"
 msgstr "Disk Bölümü Ayarları"
 
 #: yali/gui/shrink_gui.py:47
-#, fuzzy
 msgid "Resize FileSystem Error"
-msgstr "Dosya Sistemi Hatası"
+msgstr "Dosya Sistemi Yeniden Boyutlandırma Hatası"
 
 #: yali/gui/shrink_gui.py:48
 #, python-format
 msgid "%(device)s: %(msg)s"
-msgstr ""
+msgstr "%(device)s: %(msg)s"
 
 #: yali/gui/shrink_gui.py:56
 msgid "Resize Device Error"
-msgstr ""
+msgstr "Aygıtı Yeniden Boyutlandırma Hatası"
 
 #: yali/gui/shrink_gui.py:57
 #, python-format
 msgid "%(name)s: %(msg)s"
-msgstr ""
+msgstr "%(name)s: %(msg)s"
 
 #: yali/gui/storageGuiHelpers.py:71
 msgid ""
@@ -1116,48 +1098,51 @@ msgid ""
 "otherwise the volume group will be too small to\n"
 "hold the currently defined logical volumes."
 msgstr ""
+"Bu fiziksel birimi kaldıramazsınız çünkü\n"
+"o taktirde belirlenen mantıksal birimleri\n"
+"korumak için birim grubunun ebadı\n"
+"çok küçük kalacaktır."
 
 #: yali/gui/storageGuiHelpers.py:188
 msgid "<Not Applicable>"
-msgstr ""
+msgstr "<Uygulanamaz>"
 
 #: yali/gui/storageGuiHelpers.py:451
-#, fuzzy
 msgid "Format as :"
-msgstr "Biçimlendir:"
+msgstr "Biçimlendir :"
 
 #: yali/gui/storageGuiHelpers.py:471
 msgid "Migrate filesystem To :"
-msgstr ""
+msgstr "Dosya sistemlerini Şuraya göç ettirin:"
 
 #: yali/gui/storageGuiHelpers.py:495
-#, fuzzy
 msgid "Resize :"
-msgstr "Yeniden Boyutlandır"
+msgstr "Yeniden Boyutlandır:"
 
 #: yali/gui/storageGuiHelpers.py:537
 msgid "Advanced Size Options"
-msgstr ""
+msgstr "Gelişmiş Boyutlandırma Seçenekleri"
 
 #: yali/gui/storageGuiHelpers.py:539
-#, fuzzy
 msgid "Fixed Size :"
-msgstr "Boyut:"
+msgstr "Boyut :"
 
 #: yali/gui/storageGuiHelpers.py:540
 msgid "Fill to maximum allowable size"
-msgstr ""
+msgstr "İzin verilen alanın tümünü doldur"
 
 #: yali/gui/storageGuiHelpers.py:541
 msgid "Fill all space up to (MB):"
-msgstr ""
+msgstr "Tüm boşluğu doldurun (MB):"
 
-#: yali/gui/YaliDialog.py:220 yali/gui/YaliDialog.py:236
+#: yali/gui/YaliDialog.py:220
+#: yali/gui/YaliDialog.py:236
 #: yali/gui/YaliDialog.py:263
 msgid "Yes"
 msgstr "Evet"
 
-#: yali/gui/YaliDialog.py:222 yali/gui/YaliDialog.py:237
+#: yali/gui/YaliDialog.py:222
+#: yali/gui/YaliDialog.py:237
 #: yali/gui/YaliDialog.py:264
 msgid "No"
 msgstr "Hayır"
@@ -1167,28 +1152,25 @@ msgid "Don't ask again"
 msgstr "Tekrar sorma"
 
 #: yali/gui/YaliDialog.py:247
-#, fuzzy
 msgid "Do you want to continue?"
-msgstr "Devam etmek istiyor musunuz ?"
+msgstr "Devam etmek istiyor musunuz?"
 
 #: yali/gui/YaliDialog.py:262
-#, fuzzy
 msgid "Eject Disc"
-msgstr "CD'yi çıkart"
+msgstr "Diski Çıkart"
 
-#: yali/gui/YaliDialog.py:288 yali/gui/YaliDialog.py:305
+#: yali/gui/YaliDialog.py:288
+#: yali/gui/YaliDialog.py:305
 msgid "OK"
-msgstr ""
+msgstr "TAMAM"
 
 #: yali/gui/YaliDialog.py:289
-#, fuzzy
 msgid "Please insert a new disc and then click OK"
-msgstr "Lütfen yeni bir CD taktıktan sonra Tamam'a basın"
+msgstr "Lütfen yeni bir disk taktıktan sonra Tamam'a basın"
 
 #: yali/gui/YaliDialog.py:291
-#, fuzzy
 msgid "Insert New Disc"
-msgstr "Yeni CD"
+msgstr "Yeni Disk Yerleştirin"
 
 #: yali/gui/YaliDialog.py:303
 msgid "Information"
@@ -1196,38 +1178,41 @@ msgstr "Bilgi"
 
 #: yali/gui/YaliDialog.py:494
 msgid "Error reporting"
-msgstr ""
+msgstr "Hata bildiriyor"
 
 #: yali/gui/YaliWindow.py:58
 msgid "Pixmaps resources file doesn't exists"
-msgstr ""
+msgstr "Piksmap kaynak dosyaları yok"
 
 #: yali/gui/YaliWindow.py:89
 msgid "Style file doesn't exists"
-msgstr ""
+msgstr "Stil dosyası bulunamadı"
 
 #: yali/gui/YaliWindow.py:96
-#, fuzzy
 msgid "Release file doesn't exists"
-msgstr "Sürüm Notları"
+msgstr "Sürüm notları dosyası eksik"
 
 #: yali/gui/YaliWindow.py:104
 msgid "Turn Off Computer"
-msgstr ""
+msgstr "Bilgisayarı Kapat"
 
 #: yali/gui/YaliWindow.py:105
 msgid "Restart Computer"
-msgstr ""
+msgstr "Bilgisayarı Yeniden Başlat"
 
 #: yali/gui/YaliWindow.py:106
 msgid "Restart YALI"
-msgstr ""
+msgstr "YALI'yı Yeniden Başlat"
 
-#: yali/gui/YaliWindow.py:124 yali/gui/YaliWindow.py:141 yali/sysutils.py:53
+#: yali/gui/YaliWindow.py:124
+#: yali/gui/YaliWindow.py:141
+#: yali/sysutils.py:53
 msgid "right"
 msgstr "sağ"
 
-#: yali/gui/YaliWindow.py:140 yali/gui/YaliWindow.py:143 yali/sysutils.py:52
+#: yali/gui/YaliWindow.py:140
+#: yali/gui/YaliWindow.py:143
+#: yali/sysutils.py:52
 msgid "left"
 msgstr "sol"
 
@@ -1236,26 +1221,26 @@ msgid "Mouse Settings"
 msgstr "Fare Ayarları"
 
 #: yali/gui/YaliWindow.py:145
-#, fuzzy, python-format
+#, python-format
 msgid "You just clicked the <b>%s</b> mouse button."
-msgstr "Biraz önce <b>%s</b> tuşu kullandınız."
+msgstr "Biraz önce <b>%s</b> fareye tıkladınız."
 
 #: yali/gui/YaliWindow.py:146
-#, fuzzy, python-format
+#, python-format
 msgid "Do you want to switch to the <b>%s</b> handed configuration?"
-msgstr "<b>%s</b> el için uygun fare ayarlarını kullanmak ister misiniz ?"
+msgstr "<b>%s</b> el için uygun fare ayarlarını kullanmak ister misiniz?"
 
 #: yali/gui/YaliWindow.py:176
 msgid "Are you sure you want to shut down your computer now?"
-msgstr ""
+msgstr "Bilgisayarı şimdi kapatmak istiyor musunuz?"
 
 #: yali/gui/YaliWindow.py:181
 msgid "Are you sure you want to restart your computer now?"
-msgstr ""
+msgstr "Bilgisayarı şimdi yeniden başlatmak istiyor musunuz?"
 
 #: yali/gui/YaliWindow.py:186
 msgid "Are you sure you want to restart the YALI installer now?"
-msgstr ""
+msgstr "YALI kurulum sihirbazını tekrar başlatmak istediğinize emin misiniz?"
 
 #: yali/gui/YaliWindow.py:202
 msgid "Terminal"
@@ -1271,7 +1256,7 @@ msgstr "Sürüm Notları"
 
 #: yali/gui/YaliWindow.py:374
 msgid "Release notes could not be loaded."
-msgstr ""
+msgstr "Sürüm notları yüklenemedi."
 
 #: yali/localedata.py:20
 msgid "Turkish"
@@ -1428,26 +1413,32 @@ msgstr "Sırpça"
 #: yali/postinstall.py:156
 #, python-format
 msgid "Preparing home directory for %s..."
-msgstr ""
+msgstr "%s için ev dizinini hazırlıyor..."
 
-#: yali/util.py:124 yali/util.py:137
+#: yali/util.py:124
+#: yali/util.py:137
 #, python-format
 msgid "Running %s"
-msgstr ""
+msgstr "Çalışıyor %s"
 
-#: yali/util.py:128 yali/util.py:155
+#: yali/util.py:128
+#: yali/util.py:155
 #, python-format
 msgid "return value for \"%(command)s\" is %(return)s"
-msgstr ""
+msgstr "şu değerlere geri dön \"%(command)s\" is %(return)s"
 
-#: yali/util.py:430 yali/util.py:473
+#: yali/util.py:430
+#: yali/util.py:473
 msgid "Release file is missing"
-msgstr ""
+msgstr "Sürüm notları dosyası kayıp"
 
-#: yali/util.py:432 yali/util.py:475
+#: yali/util.py:432
+#: yali/util.py:475
 msgid "Release file is inconsistent"
-msgstr ""
+msgstr "Sürüm notları dosyası uyumsuz"
 
-#: yali/util.py:435 yali/util.py:478
+#: yali/util.py:435
+#: yali/util.py:478
 msgid "Invalid xml file"
-msgstr ""
+msgstr "Geçersiz xml dosyası"
+
