@@ -58,9 +58,9 @@ msgstr ""
 "S'il existe déjà une table de partition sur ce périphérique, il sera\n"
 "ré-initialisé et vos données existantes seront perdues ! \n"
 "\n"
-"Pour re-initialiser le disque actuel, appuyez sur Re-initialiser. \n"
+"Pour ré-initialiser le disque actuel, appuyez sur Re-initialiser. \n"
 "\n"
-"Pour re-initialiser tous les disques avec les tables de partition inaccessibles appuyez sur Re-initialiser tout."
+"Pour ré-initialiser tous les disques avec les tables de partition inaccessibles appuyez sur Ré-initialiser tout."
 
 #: yali/gui/interface.py:75 yali/gui/interface.py:130
 msgid "Ignore"
@@ -72,7 +72,7 @@ msgstr "Ignorer tout"
 
 #: yali/gui/interface.py:76 yali/gui/interface.py:131
 msgid "Re-initialize"
-msgstr "Re-initialiser"
+msgstr "Ré-initialiser"
 
 #: yali/gui/interface.py:124
 #, python-format
@@ -87,7 +87,7 @@ msgstr "Ignorer tout"
 
 #: yali/gui/interface.py:131
 msgid "Re-initialize all"
-msgstr "Re-initialiser tout"
+msgstr "Ré-initialiser tout"
 
 #: yali/gui/lvm_gui.py:50
 msgid "Not enough physical volumes"
