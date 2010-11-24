@@ -86,13 +86,14 @@ class YaliUninstall(Command):
             print "removing: ", yali_dir
             shutil.rmtree(yali_dir)
 
-        data_dir = "/usr/share/yali"
-        if os.path.exists(data_dir):
-            print "removing: ", data_dir
-            shutil.rmtree(data_dir)
+        conf_dir = "/etc/yali"
+        if os.path.exists(conf_dir):
+            print "removing: ", conf_dir
+            shutil.rmtree(conf_dir)
         os.unlink("/usr/bin/yali-bin")
         os.unlink("/usr/bin/start-yali")
         os.unlink("/usr/bin/bindYali")
+        os.unlink("/lib/udev/rules.d/70-yali.rules")
 
 
 class I18nInstall(install):
