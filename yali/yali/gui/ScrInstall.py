@@ -155,7 +155,7 @@ class Widget(QWidget, ScreenWidget):
             description = slide["description"][ctx.consts.lang]
         else:
             description = slide["description"]["en"]
-        self.ui.desc.setText(description)
+        #self.ui.desc.setText(description)
 
     def packageInstallFinished(self):
         yali.postinstall.fillFstab()
