@@ -67,7 +67,7 @@
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap resource="../../data.qrc">:/gui/pics/welcome.png</pixmap>
+           <pixmap resource="../../../../../svn/uludag/trunk/yali-theme-pardus/data.qrc">:/gui/pics/welcome.png</pixmap>
           </property>
           <property name="scaledContents">
            <bool>true</bool>
@@ -115,7 +115,7 @@
              <number>0</number>
             </property>
             <property name="text">
-             <string>All software produced by TUBITAK/UEKAE - Pardus is licensed under the terms of GNU General Public License (GPL). In order to install and use Pardus, you must accept the terms of GNU GPL.</string>
+             <string>There are a few more steps to take before your system is ready to use.The agent will now guide you through some basic configuration.Please click the &quot;Next&quot;  button in the lower corner right to continue.</string>
             </property>
             <property name="scaledContents">
              <bool>false</bool>
@@ -130,59 +130,6 @@
              <number>0</number>
             </property>
            </widget>
-          </item>
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout">
-            <property name="spacing">
-             <number>20</number>
-            </property>
-            <property name="bottomMargin">
-             <number>0</number>
-            </property>
-            <item>
-             <widget class="QPushButton" name="gplButton">
-              <property name="minimumSize">
-               <size>
-                <width>130</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>10</pointsize>
-               </font>
-              </property>
-              <property name="focusPolicy">
-               <enum>Qt::TabFocus</enum>
-              </property>
-              <property name="text">
-               <string>Read GNU GPL</string>
-              </property>
-              <property name="icon">
-               <iconset resource="../../data.qrc">
-                <normaloff>:/gui/pics/favorites.png</normaloff>:/gui/pics/favorites.png</iconset>
-              </property>
-              <property name="flat">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QCheckBox" name="accept">
-              <property name="font">
-               <font>
-                <pointsize>10</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>I understand and accept the terms of GNU GPL</string>
-              </property>
-              <property name="checkable">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-           </layout>
           </item>
           <item>
            <spacer name="verticalSpacer_2">
@@ -236,6 +183,7 @@
  <pixmapfunction>qPixmapFromMimeSource</pixmapfunction>
  <resources>
   <include location="../../data.qrc"/>
+  <include location="../../../../../svn/uludag/trunk/yali-theme-pardus/data.qrc"/>
  </resources>
  <connections/>
 </ui>

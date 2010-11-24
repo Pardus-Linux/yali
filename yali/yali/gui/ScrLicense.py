@@ -19,14 +19,14 @@ from PyQt4.Qt import QWidget, SIGNAL, QTextBrowser
 import yali.context as ctx
 from yali.gui import ScreenWidget, GUIError
 from yali.gui.YaliDialog import Dialog
-from yali.gui.Ui.welcomewidget import Ui_WelcomeWidget
+from yali.gui.Ui.license import Ui_LicenseWidget
 
 class Widget(QWidget, ScreenWidget):
     name = "license"
 
     def __init__(self):
         QWidget.__init__(self)
-        self.ui = Ui_WelcomeWidget()
+        self.ui = Ui_LicenseWidget()
         self.ui.setupUi(self)
 
         self.connect(self.ui.accept, SIGNAL("toggled(bool)"),

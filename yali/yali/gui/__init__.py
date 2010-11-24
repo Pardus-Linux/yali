@@ -27,10 +27,12 @@ GUI_STEPS = {ctx.STEP_DEFAULT:("license", "mediaCheck", "keyboardSetup",
              ctx.STEP_OEM_INSTALL:("license", "mediaCheck", "keyboardSetup", "driveSelection",
                                "automaticPartitioning", "manualPartitioning", "bootloadersetup",
                                "collectionSelection", "summary", "packageInstallation", "goodbye"),
-             ctx.STEP_FIRST_BOOT:("accounts", "admin", "network", "summary", "goodbye"),
+             ctx.STEP_FIRST_BOOT:("welcome", "accounts", "admin", "network", "summary", "goodbye"),
              ctx.STEP_RESCUE:("rescue", "grubRescue", "pisiRescue", "passwordRescue", "finishRescue")}
 
 stepToClass = {"license":"ScrLicense",
+               "network":"ScrNetwork",
+               "welcome":"ScrWelcome",
                "mediaCheck":"ScrCheckCD",
                "keyboardSetup":"ScrKeyboard",
                "timeSetup":"ScrDateTime",
