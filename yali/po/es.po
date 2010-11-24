@@ -2,7 +2,7 @@
 # translation of es.po to
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Klemens Häckel <click3d_at_linuxmail_org>, 2007, 2008.
 # klemens <click3d at linuxmail org>, 2007.
 # Christian Faure <christian.faurebouvard@laposte.net>, 2007.
@@ -13,20 +13,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-14 22:42+0200\n"
+"POT-Creation-Date: 2010-11-24 09:31+0200\n"
 "PO-Revision-Date: 2010-02-22 21:44-0300\n"
 "Last-Translator: \n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.0\n"
 
 #: yali/gui/interface.py:41 yali/gui/interface.py:123
 #: yali/gui/ScrCheckCD.py:92 yali/gui/ScrInstall.py:139
-#: yali/gui/ScrPartitionAuto.py:43 yali/gui/ScrPartitionManual.py:137
+#: yali/gui/ScrPartitionAuto.py:44 yali/gui/ScrPartitionManual.py:137
 #: yali/gui/YaliWindow.py:175 yali/gui/YaliWindow.py:180
 #: yali/gui/YaliWindow.py:185
 msgid "Warning"
@@ -34,7 +34,9 @@ msgstr "Alerta"
 
 #: yali/gui/interface.py:42
 #, python-format
-msgid "Disk contains %(members_count)s BIOS RAID metadata, but is not part of any recognized BIOS RAID sets. Ignoring disk %(members)s.)"
+msgid ""
+"Disk contains %(members_count)s BIOS RAID metadata, but is not part of any "
+"recognized BIOS RAID sets. Ignoring disk %(members)s."
 msgstr ""
 
 #: yali/gui/interface.py:66 yali/gui/raid_gui.py:122
@@ -45,14 +47,16 @@ msgstr "Error"
 #: yali/gui/interface.py:67
 #, python-format
 msgid ""
-"Cannot access the partition table of %(description)s(%(name)s) -- %(size)-0.fMB\n"
+"Cannot access the partition table of %(description)s(%(name)s) -- "
+"%(size)-0.fMB\n"
 "\n"
 "If there already exists a partition table on this device, it will\n"
 " be re-initialized and your existing data will be lost!\n"
 "\n"
 "To re-initialize the current disk press Re-initialize.\n"
 "\n"
-"To re-initialize all disks with unaccessible partition tables press Re-initialize All"
+"To re-initialize all disks with unaccessible partition tables press Re-"
+"initialize All"
 msgstr ""
 
 #: yali/gui/interface.py:75 yali/gui/interface.py:130
@@ -71,7 +75,10 @@ msgstr "Reinicializar"
 #, python-format
 msgid ""
 "Error processing LVM.\n"
-"There is inconsistent LVM data on %(msg)s.  You can reinitialize all related PVs (%(pvs)s) which will erase the LVM metadata, or ignore which will preserve the contents.  This action may also be applied to all other PVs with inconsistent metadata."
+"There is inconsistent LVM data on %(msg)s.  You can reinitialize all related "
+"PVs (%(pvs)s) which will erase the LVM metadata, or ignore which will "
+"preserve the contents.  This action may also be applied to all other PVs "
+"with inconsistent metadata."
 msgstr ""
 
 #: yali/gui/interface.py:130
@@ -122,7 +129,9 @@ msgstr "Nombre está en uso"
 #: yali/gui/lvm_gui.py:102
 #, python-format
 msgid "The volume group name \"%s\" is already in use. Please pick another."
-msgstr "El nombre del grupo de volumenes  \"%s\" ya está en uso. Por favor elija otro."
+msgstr ""
+"El nombre del grupo de volumenes  \"%s\" ya está en uso. Por favor elija "
+"otro."
 
 #: yali/gui/lvm_gui.py:405 yali/gui/lvm_gui.py:435 yali/gui/lvm_gui.py:448
 #: yali/gui/lvm_gui.py:483 yali/gui/lvm_gui.py:689 yali/gui/lvm_gui.py:711
@@ -174,7 +183,10 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:449
 #, python-format
-msgid "The physical extent size cannot be changed because the value selected (%(curpe)10.2f MB) is too large compared to the size of the smallest physical volume (%(maxpvsize)10.2f MB) in the volume group."
+msgid ""
+"The physical extent size cannot be changed because the value selected "
+"(%(curpe)10.2f MB) is too large compared to the size of the smallest "
+"physical volume (%(maxpvsize)10.2f MB) in the volume group."
 msgstr ""
 
 #: yali/gui/lvm_gui.py:461
@@ -182,12 +194,17 @@ msgid "Too small"
 msgstr ""
 
 #: yali/gui/lvm_gui.py:462
-msgid "This change in the value of the physical extent will waste substantial space on one or more of the physical volumes in the volume group."
+msgid ""
+"This change in the value of the physical extent will waste substantial space "
+"on one or more of the physical volumes in the volume group."
 msgstr ""
 
 #: yali/gui/lvm_gui.py:484
 #, python-format
-msgid "The physical extent size cannot be changed because the resulting maximum logical volume size (%10.2f MB) is smaller than one or more of theircurrently defined logical volumes."
+msgid ""
+"The physical extent size cannot be changed because the resulting maximum "
+"logical volume size (%10.2f MB) is smaller than one or more of "
+"theircurrently defined logical volumes."
 msgstr ""
 
 #: yali/gui/lvm_gui.py:505
@@ -277,12 +294,20 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:690
 #, python-format
-msgid "The current requested size (%(size)10.2f MB) is larger than the maximum logical volume size (%(maxlv)10.2f MB). To increase this limit you can create more Physical Volumes from unpartitioned disk space and add them to this Volume Group."
+msgid ""
+"The current requested size (%(size)10.2f MB) is larger than the maximum "
+"logical volume size (%(maxlv)10.2f MB). To increase this limit you can "
+"create more Physical Volumes from unpartitioned disk space and add them to "
+"this Volume Group."
 msgstr ""
 
 #: yali/gui/lvm_gui.py:712
 #, python-format
-msgid "The size entered for this logical volume (%(size)d MB) combined with the size of the other logical volume(s) exceeds the size of the volume group (%(tmpvgsize)d MB). Please make the volume group larger or make the logical volume smaller."
+msgid ""
+"The size entered for this logical volume (%(size)d MB) combined with the "
+"size of the other logical volume(s) exceeds the size of the volume group "
+"(%(tmpvgsize)d MB). Please make the volume group larger or make the logical "
+"volume smaller."
 msgstr ""
 
 #: yali/gui/partition_gui.py:34
@@ -310,9 +335,11 @@ msgstr ""
 
 #: yali/gui/raid_gui.py:31
 msgid ""
-"At least two unused software RAID partitions are needed to create a RAID device.\n"
+"At least two unused software RAID partitions are needed to create a RAID "
+"device.\n"
 "\n"
-"First create at least two partitions of type \"software RAID\", and then select the \"RAID\" option again."
+"First create at least two partitions of type \"software RAID\", and then "
+"select the \"RAID\" option again."
 msgstr ""
 
 #: yali/gui/raid_gui.py:41
@@ -328,12 +355,12 @@ msgstr ""
 msgid "Edit RAID Device"
 msgstr ""
 
-#: yali/gui/runner.py:105
+#: yali/gui/runner.py:110
 #, fuzzy
 msgid "Error!"
 msgstr "Error !"
 
-#: yali/gui/runner.py:106
+#: yali/gui/runner.py:111
 #, python-format
 msgid ""
 "An error occurred when attempting to load an installer interface component.\n"
@@ -344,38 +371,38 @@ msgstr ""
 "\n"
 "className = %s.Widget"
 
-#: yali/gui/runner.py:110
+#: yali/gui/runner.py:115
 msgid "Exit"
 msgstr "Salir"
 
-#: yali/gui/runner.py:110
+#: yali/gui/runner.py:115
 msgid "Retry"
 msgstr "Reintentar"
 
-#: yali/gui/ScrAdmin.py:121 yali/gui/ScrRescuePassword.py:96
+#: yali/gui/ScrAdmin.py:129 yali/gui/ScrRescuePassword.py:96
 msgid "Password is too short."
 msgstr "Contraseña es demasiado corta."
 
 # favor verificar, hay que ver si entra todo este texto
-#: yali/gui/ScrAdmin.py:124 yali/gui/ScrUsers.py:214
+#: yali/gui/ScrAdmin.py:132 yali/gui/ScrUsers.py:222
 msgid "Don't use invalid characters"
 msgstr "Use solamente caracteres válidos"
 
-#: yali/gui/ScrAdmin.py:131
+#: yali/gui/ScrAdmin.py:139
 msgid "Passwords do not match."
 msgstr "Contraseñas no coinciden."
 
-#: yali/gui/ScrAdmin.py:136
+#: yali/gui/ScrAdmin.py:144
 msgid "Do not use your username as your password."
 msgstr "No use el nombre de usuario como contraseña."
 
 # favor verificar, hay que ver si entra todo este texto
-#: yali/gui/ScrAdmin.py:146
+#: yali/gui/ScrAdmin.py:154
 msgid "Hostname cannot be longer than 64 characters."
 msgstr "El nombre de la maquina (hostname) no debe superar 64 caracteres."
 
 # favor verificar, hay que ver si entra todo este texto
-#: yali/gui/ScrAdmin.py:159
+#: yali/gui/ScrAdmin.py:167
 msgid "Hostname contains invalid characters."
 msgstr "El nombre de la maquina (hostname) contiene caracteres no válidos."
 
@@ -394,8 +421,12 @@ msgstr "Validando %s"
 
 #: yali/gui/ScrCheckCD.py:93
 #, python-format
-msgid "Validation of %s package failed.Please remaster your installation medium andreboot."
-msgstr "Validación de %s paquetes fallados.Por favor vuelva a preparar su medio de instalación y bootée de nuevo."
+msgid ""
+"Validation of %s package failed.Please remaster your installation medium "
+"andreboot."
+msgstr ""
+"Validación de %s paquetes fallados.Por favor vuelva a preparar su medio de "
+"instalación y bootée de nuevo."
 
 #: yali/gui/ScrCheckCD.py:97
 msgid "Skip Validation"
@@ -410,10 +441,14 @@ msgid "Reboot"
 msgstr "Reiniciar"
 
 #: yali/gui/ScrCheckCD.py:112
-msgid "<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the installation.</b></font>"
-msgstr "<font color=\"#FFF\"><b>Validación terminada con éxito. Puede avanzar para continuar con la linstalación.</b></font>"
+msgid ""
+"<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the "
+"installation.</b></font>"
+msgstr ""
+"<font color=\"#FFF\"><b>Validación terminada con éxito. Puede avanzar para "
+"continuar con la linstalación.</b></font>"
 
-#: yali/gui/ScrDateTime.py:90
+#: yali/gui/ScrDateTime.py:89
 msgid "Adjusting time settings"
 msgstr "Configurando hora del sistema"
 
@@ -430,7 +465,7 @@ msgid "Press <b>Restart</b> to restart the computer."
 msgstr "Presione <b>Reiniciar</b> para reiniciar el sistema."
 
 #: yali/gui/ScrGoodbye.py:53 yali/gui/ScrRescueFinish.py:78
-#: yali/gui/ScrSummary.py:45
+#: yali/gui/ScrSummary.py:46
 msgid "Restart"
 msgstr ""
 
@@ -477,25 +512,30 @@ msgstr "Copiando índice de Pisi ..."
 
 #: yali/gui/ScrGoodbye.py:79
 #, fuzzy
+msgid "Stopping to D-Bus..."
+msgstr "Iniciando DBUS..."
+
+#: yali/gui/ScrGoodbye.py:83
+#, fuzzy
 msgid "Setup bootloader..."
 msgstr "Puede solucionar problemas de arranque..."
 
-#: yali/gui/ScrGoodbye.py:80
+#: yali/gui/ScrGoodbye.py:84
 #, fuzzy
 msgid "Writing bootloader..."
 msgstr "Instalando Cargador de Arranque.."
 
-#: yali/gui/ScrGoodbye.py:81
+#: yali/gui/ScrGoodbye.py:85
 #, fuzzy
-msgid "Stopping to D-Bus..."
-msgstr "Iniciando DBUS..."
-
-#: yali/gui/ScrGoodbye.py:85 yali/gui/ScrRescueFinish.py:55
-#, fuzzy
-msgid "Installing Bootloader..."
+msgid "Installing bootloader..."
 msgstr "Instalando Cargador de Arranque.."
 
 #: yali/gui/ScrGoodbye.py:88
+#, fuzzy
+msgid "Setup First-Boot..."
+msgstr "Puede solucionar problemas de arranque..."
+
+#: yali/gui/ScrGoodbye.py:91
 #, fuzzy
 msgid "Adding users..."
 msgstr "Agregando usuarios..."
@@ -534,7 +574,8 @@ msgid ""
 msgstr ""
 "Durante la instalación de los paquetes ocurrió un error.\n"
 "\n"
-"Es posible que el CD de Pardus o el lector de CD tenga algún problema o defecto.\n"
+"Es posible que el CD de Pardus o el lector de CD tenga algún problema o "
+"defecto.\n"
 "\n"
 "Error:\n"
 "%s\n"
@@ -543,10 +584,15 @@ msgstr ""
 msgid "No storage device found."
 msgstr ""
 
-#: yali/gui/ScrPartitionAuto.py:44
+#: yali/gui/ScrLicense.py:77
+msgid "License text could not be found."
+msgstr ""
+
+#: yali/gui/ScrPartitionAuto.py:45
+#, python-format
 msgid ""
-"No partitions are available to resize.Only physical\n"
-"partitions with specific filesystems can be resized."
+"No partitions are available to resize. Only physical\n"
+"partitions which size is greater than %s MB can be resized."
 msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:93
@@ -730,6 +776,11 @@ msgid ""
 "%s"
 msgstr ""
 
+#: yali/gui/ScrRescueFinish.py:55
+#, fuzzy
+msgid "Installing Bootloader..."
+msgstr "Instalando Cargador de Arranque.."
+
 #: yali/gui/ScrRescueFinish.py:58
 #, fuzzy
 msgid "Taking back operation..."
@@ -835,212 +886,219 @@ msgstr "Yali no pudo identificar una partición adecuada en sus sistema"
 msgid "Please select a disk partition from the list below:"
 msgstr "Por favor seleccione una partición de la lista."
 
-#: yali/gui/ScrSummary.py:46
+#: yali/gui/ScrSummary.py:47
 msgid "<b><p>Are you sure you want to restart the computer?</p></b>"
 msgstr ""
 
-#: yali/gui/ScrSummary.py:57 yali/gui/ScrSummary.py:212
+#: yali/gui/ScrSummary.py:58 yali/gui/ScrSummary.py:214
 msgid "Next"
 msgstr "Siguiente"
 
-#: yali/gui/ScrSummary.py:64
+#: yali/gui/ScrSummary.py:66
 #, fuzzy, python-format
 msgid "Installation starts in <b>%s</b> seconds"
 msgstr "Instalación comienza en: <b>%s segundos</b>"
 
-#: yali/gui/ScrSummary.py:71
+#: yali/gui/ScrSummary.py:73
 #, fuzzy
 msgid "Start Installation"
 msgstr "Instalación automática"
 
-#: yali/gui/ScrSummary.py:89
+#: yali/gui/ScrSummary.py:91
 msgid "Keyboard Settings"
 msgstr "Teclado"
 
-#: yali/gui/ScrSummary.py:91
+#: yali/gui/ScrSummary.py:93
 #, python-format
 msgid "Selected keyboard layout is <b>%s</b>"
 msgstr "Teclado <b>%s</b> seleccionado"
 
-#: yali/gui/ScrSummary.py:97
+#: yali/gui/ScrSummary.py:99
 msgid "Date/Time Settings"
 msgstr "Configuración Fecha/Hora"
 
-#: yali/gui/ScrSummary.py:99
+#: yali/gui/ScrSummary.py:101
 #, python-format
 msgid "Selected TimeZone is <b>%s</b>"
 msgstr "Zona horaria <b>%s</b>"
 
-#: yali/gui/ScrSummary.py:105
+#: yali/gui/ScrSummary.py:107
 msgid "User Settings"
 msgstr "Usuarios"
 
 # is this grammer right ? "added"
-#: yali/gui/ScrSummary.py:107
+#: yali/gui/ScrSummary.py:109
 #, fuzzy, python-format
 msgid "User %(username)s (<b>%(realname)s</b>) added."
 msgstr "Añadir usuario %s (<b>%s</b>)."
 
-#: yali/gui/ScrSummary.py:109
+#: yali/gui/ScrSummary.py:111
 #, fuzzy, python-format
-msgid "User %(username)s (<b>%(realname)s</b>) added with <u>administrator privileges</u>."
-msgstr "Añadir usuario %s (<b>%s</b>) con <u>privilegios de administración</u>."
+msgid ""
+"User %(username)s (<b>%(realname)s</b>) added with <u>administrator "
+"privileges</u>."
+msgstr ""
+"Añadir usuario %s (<b>%s</b>) con <u>privilegios de administración</u>."
 
-#: yali/gui/ScrSummary.py:115
+#: yali/gui/ScrSummary.py:117
 msgid "Hostname Settings"
 msgstr "Nombre de la Máquina"
 
-#: yali/gui/ScrSummary.py:117
+#: yali/gui/ScrSummary.py:119
 #, python-format
 msgid "Hostname is set as <b>%s</b>"
 msgstr "hostname: <b>%s</b>"
 
-#: yali/gui/ScrSummary.py:123
+#: yali/gui/ScrSummary.py:125
 msgid "Partition Settings"
 msgstr "Particiones"
 
-#: yali/gui/ScrSummary.py:130
+#: yali/gui/ScrSummary.py:132
 msgid "Automatic Partitioning selected."
 msgstr "Particionamiento automático."
 
-#: yali/gui/ScrSummary.py:132
+#: yali/gui/ScrSummary.py:134
 #, fuzzy
 msgid "Use All Space"
 msgstr "Espacio Disponible"
 
-#: yali/gui/ScrSummary.py:133
+#: yali/gui/ScrSummary.py:135
 #, python-format
-msgid "Removes all partitions on the selected%s device(s). This includes partitions created by other operating systems."
+msgid ""
+"Removes all partitions on the selected %s device(s). This includes "
+"partitions created by other operating systems."
 msgstr ""
 
-#: yali/gui/ScrSummary.py:137
+#: yali/gui/ScrSummary.py:139
 msgid "Replace Existing Linux System(s)"
 msgstr ""
 
-#: yali/gui/ScrSummary.py:138
+#: yali/gui/ScrSummary.py:140
 #, python-format
-msgid "Removes all Linux partitions on the selected%s device(s). This does not remove other partitions you may have on your storage device(s) (such as VFAT or FAT32)"
+msgid ""
+"Removes all Linux partitions on the selected%s device(s). This does not "
+"remove other partitions you may have on your storage device(s) (such as VFAT "
+"or FAT32)"
 msgstr ""
 
-#: yali/gui/ScrSummary.py:143
+#: yali/gui/ScrSummary.py:145
 #, fuzzy
 msgid "Use Free Space"
 msgstr "Espacio Disponible"
 
-#: yali/gui/ScrSummary.py:144
+#: yali/gui/ScrSummary.py:146
 #, python-format
-msgid "Retains your current data and partitions and uses only the unpartitioned space on the selected %s device(s), assuming you haveenough free space available."
+msgid ""
+"Retains your current data and partitions and uses only the unpartitioned "
+"space on the selected %s device(s), assuming you haveenough free space "
+"available."
 msgstr ""
 
-#: yali/gui/ScrSummary.py:150
+#: yali/gui/ScrSummary.py:152
 msgid "Manual Partitioning selected."
 msgstr "Particionamiento manual seleccionado."
 
-#: yali/gui/ScrSummary.py:158
+#: yali/gui/ScrSummary.py:160
 msgid "Bootloader Settings"
 msgstr "Cargador de arranque"
 
-#: yali/gui/ScrSummary.py:159
+#: yali/gui/ScrSummary.py:161
 #, python-format
 msgid "GRUB will be installed to <b>%s</b>."
 msgstr "Instalar GRUB en <b>%s</b>."
 
-#: yali/gui/ScrSummary.py:161
+#: yali/gui/ScrSummary.py:163
 msgid "GRUB will not be installed."
 msgstr "GRUB no se instalará."
 
-#: yali/gui/ScrSummary.py:168
+#: yali/gui/ScrSummary.py:170
 msgid "Package Installation Settings"
 msgstr "Configuración de instalación de paquetes"
 
-#: yali/gui/ScrSummary.py:170
+#: yali/gui/ScrSummary.py:172
 #, fuzzy
 msgid "Auto installation selected."
 msgstr "Colección de instalación automática"
 
-#: yali/gui/ScrSummary.py:172
+#: yali/gui/ScrSummary.py:174
 #, fuzzy, python-format
 msgid "Manual Installation ( %s ) selected"
 msgstr "Coleción %s de instalación manual"
 
-#: yali/gui/ScrSummary.py:176
+#: yali/gui/ScrSummary.py:178
 msgid "Default Kernel selected"
 msgstr "Kernel predeterminado"
 
-#: yali/gui/ScrSummary.py:178
+#: yali/gui/ScrSummary.py:180
 msgid "PAE Kernel selected"
 msgstr "PAE Kernel"
 
-#: yali/gui/ScrSummary.py:195
+#: yali/gui/ScrSummary.py:197
 msgid "Confirm"
 msgstr ""
 
-#: yali/gui/ScrSummary.py:196
+#: yali/gui/ScrSummary.py:198
 msgid ""
 "The partitioning options you have selected will now be\n"
 "written to disk.  Any data on deleted or reformatted partitions\n"
 "will be lost."
 msgstr ""
 
-#: yali/gui/ScrSummary.py:201
+#: yali/gui/ScrSummary.py:203
 msgid "Write Changes to Disk"
 msgstr ""
 
-#: yali/gui/ScrSummary.py:201
+#: yali/gui/ScrSummary.py:203
 #, fuzzy
 msgid "Go Back"
 msgstr "Atrás"
 
-#: yali/gui/ScrUsers.py:129 yali/gui/ScrUsers.py:353
+#: yali/gui/ScrUsers.py:129 yali/gui/ScrUsers.py:362
 #, fuzzy
 msgid "Update"
 msgstr "Actualizar Usuario"
 
-#: yali/gui/ScrUsers.py:205
+#: yali/gui/ScrUsers.py:213
 #, fuzzy
 msgid "Don't use your user name or name as a password"
 msgstr "No use su nombre de usuario o su nombre real para la contraseña."
 
-#: yali/gui/ScrUsers.py:208
+#: yali/gui/ScrUsers.py:216
 #, fuzzy
 msgid "Passwords do not match"
 msgstr "Contraseñas no coinciden!"
 
-#: yali/gui/ScrUsers.py:211
+#: yali/gui/ScrUsers.py:219
 #, fuzzy
 msgid "Password is too short"
 msgstr "Contraseña es muy corta!"
 
-#: yali/gui/ScrUsers.py:258
+#: yali/gui/ScrUsers.py:267
 #, fuzzy
 msgid "This user name is already taken, please choose another one."
 msgstr "El nombre del usuario ya existe, por favor elija otro!"
 
-#: yali/gui/ScrUsers.py:262
+#: yali/gui/ScrUsers.py:271
 #, fuzzy
 msgid "The user name contains invalid characters."
 msgstr "El nombre de usuario contiene caracteres no válidos!"
 
-#: yali/gui/ScrUsers.py:265
+#: yali/gui/ScrUsers.py:274
 #, fuzzy
 msgid "The real name contains invalid characters."
 msgstr "Nombre real contiene caracteres no válidos!"
 
-#: yali/gui/ScrUsers.py:268
+#: yali/gui/ScrUsers.py:277
 #, fuzzy
 msgid "The password contains invalid characters."
 msgstr "El nombre de usuario contiene caracteres no válidos!"
 
-#: yali/gui/ScrUsers.py:276
+#: yali/gui/ScrUsers.py:285
 msgid "User ID used before, choose another one!"
 msgstr "ID de usuario ya está en uso, elija otro!"
 
-#: yali/gui/ScrUsers.py:281 yali/gui/ScrUsers.py:323 yali/gui/ScrUsers.py:401
+#: yali/gui/ScrUsers.py:290 yali/gui/ScrUsers.py:332 yali/gui/ScrUsers.py:410
 msgid "Add"
-msgstr ""
-
-#: yali/gui/ScrWelcome.py:77
-msgid "License text could not be found."
 msgstr ""
 
 #: yali/gui/shrink_gui.py:23
@@ -1152,7 +1210,7 @@ msgstr "Inserte CD nuevo"
 msgid "Information"
 msgstr "Información"
 
-#: yali/gui/YaliDialog.py:494
+#: yali/gui/YaliDialog.py:500
 msgid "Error reporting"
 msgstr ""
 
@@ -1389,30 +1447,44 @@ msgstr "Ucraniano"
 msgid "Serbian"
 msgstr "Serbio"
 
+#: yali/pisiiface.py:71
+#, python-format
+msgid "Error occured while %(repo)s repo is adding:%(msg)s"
+msgstr ""
+
 #: yali/postinstall.py:156
 #, python-format
 msgid "Preparing home directory for %s..."
 msgstr ""
 
-#: yali/util.py:124 yali/util.py:137
+#: yali/util.py:125 yali/util.py:138
 #, python-format
 msgid "Running %s"
 msgstr ""
 
-#: yali/util.py:128 yali/util.py:155
+#: yali/util.py:129 yali/util.py:156
 #, python-format
 msgid "return value for \"%(command)s\" is %(return)s"
 msgstr ""
 
-#: yali/util.py:430 yali/util.py:473
+#: yali/util.py:370
+#, fuzzy
+msgid "YALI log file doesn't exists."
+msgstr "Notas de Versión"
+
+#: yali/util.py:372
+msgid "File paths are the same."
+msgstr ""
+
+#: yali/util.py:447 yali/util.py:490
 msgid "Release file is missing"
 msgstr ""
 
-#: yali/util.py:432 yali/util.py:475
+#: yali/util.py:449 yali/util.py:492
 msgid "Release file is inconsistent"
 msgstr ""
 
-#: yali/util.py:435 yali/util.py:478
+#: yali/util.py:452 yali/util.py:495
 msgid "Invalid xml file"
 msgstr ""
 
@@ -1434,8 +1506,13 @@ msgstr ""
 #~ msgid "Real Time Kernel"
 #~ msgstr "Real Time Kernel"
 
-#~ msgid "There appears to be more than one resizeable partition. You can select a partition from the list below or YALI will select one for you."
-#~ msgstr "Aparentemente hay más de una partición con posibilidad para redimensionar. Puede seleccionar una partición de la lista abajo o dejar que YALI seleccione una."
+#~ msgid ""
+#~ "There appears to be more than one resizeable partition. You can select a "
+#~ "partition from the list below or YALI will select one for you."
+#~ msgstr ""
+#~ "Aparentemente hay más de una partición con posibilidad para "
+#~ "redimensionar. Puede seleccionar una partición de la lista abajo o dejar "
+#~ "que YALI seleccione una."
 
 #~ msgid "X"
 #~ msgstr "X"
@@ -1453,67 +1530,113 @@ msgstr ""
 #~ msgstr "Form1"
 
 #~ msgid ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
 #~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><span style=\" font-size:12pt; font-weight:600;\">Partitioning method</span></p></body></html>"
+#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:10pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><span "
+#~ "style=\" font-size:12pt; font-weight:600;\">Partitioning method</span></"
+#~ "p></body></html>"
 #~ msgstr ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
 #~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><span style=\" font-size:12pt; font-weight:600;\">Método de particionamiento:</span></p></body></html>"
+#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:10pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><span "
+#~ "style=\" font-size:12pt; font-weight:600;\">Método de particionamiento:</"
+#~ "span></p></body></html>"
 
-#~ msgid "Please choose a partitioning method and then a device to partition.<br>Device list will be updated based on the selected method."
-#~ msgstr "Por favor elija un método de particionamiento, y luego un dispositivo donde se aplicará. <br>La lista de dispositivos se actualizará según el método seleccionado."
+#~ msgid ""
+#~ "Please choose a partitioning method and then a device to partition."
+#~ "<br>Device list will be updated based on the selected method."
+#~ msgstr ""
+#~ "Por favor elija un método de particionamiento, y luego un dispositivo "
+#~ "donde se aplicará. <br>La lista de dispositivos se actualizará según el "
+#~ "método seleccionado."
 
 #~ msgid "Automatic"
 #~ msgstr "Automático"
 
-#~ msgid "This option will try to find free disk space of suitable size. If no such disk space exists, it will look for resizable partitions"
-#~ msgstr "Esta opción intentará encontrar espacio de tamaño suficiente disponible. Si no existe un espacio adecuado, intentará encontrar particiones que se puedan redimensionar"
+#~ msgid ""
+#~ "This option will try to find free disk space of suitable size. If no such "
+#~ "disk space exists, it will look for resizable partitions"
+#~ msgstr ""
+#~ "Esta opción intentará encontrar espacio de tamaño suficiente disponible. "
+#~ "Si no existe un espacio adecuado, intentará encontrar particiones que se "
+#~ "puedan redimensionar"
 
 #~ msgid "Try to use free space or resize current partitions"
-#~ msgstr "Intentar usar el espacio libre o redimensionar particiones existentes"
+#~ msgstr ""
+#~ "Intentar usar el espacio libre o redimensionar particiones existentes"
 
-#~ msgid "This option will erase the entire disk. All the data on the disk will be lost."
-#~ msgstr "Esta opción eliminará el contenido del disco entero. Todos los datos actualmente almacenados se perderán !"
+#~ msgid ""
+#~ "This option will erase the entire disk. All the data on the disk will be "
+#~ "lost."
+#~ msgstr ""
+#~ "Esta opción eliminará el contenido del disco entero. Todos los datos "
+#~ "actualmente almacenados se perderán !"
 
 #~ msgid "Delete all partitions"
 #~ msgstr "Eliminar todas las particiones"
 
 #~ msgid "This option allows partitioning the disk to your wishes."
-#~ msgstr "Esta opción le permite realizar el particionamiento acorde a sus deseos."
+#~ msgstr ""
+#~ "Esta opción le permite realizar el particionamiento acorde a sus deseos."
 
 #~ msgid "No, I'll partition my disk manually."
 #~ msgstr "No, prefiero particionar manualmente."
 
 #~ msgid ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
 #~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><span style=\" font-size:12pt; font-weight:600;\">Disk selection</span></p></body></html>"
+#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:10pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><span "
+#~ "style=\" font-size:12pt; font-weight:600;\">Disk selection</span></p></"
+#~ "body></html>"
 #~ msgstr ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
 #~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><span style=\" font-size:12pt; font-weight:600;\">Selección de Disco</span></p></body></html>"
+#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:10pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><span "
+#~ "style=\" font-size:12pt; font-weight:600;\">Selección de Disco</span></"
+#~ "p></body></html>"
 
 #~ msgid ""
 #~ "<b>Write boot loader (GRUB) to the master boot record?</b>\n"
 #~ "\n"
 #~ "<p>Your system will not boot without a loader.</p>\n"
 #~ "\n"
-#~ "<p>If you don't install a boot loader or choose to install to root partition, you will have to manually configure already-installed (if any) loader to be able to boot your new Pardus installation.</p>"
+#~ "<p>If you don't install a boot loader or choose to install to root "
+#~ "partition, you will have to manually configure already-installed (if any) "
+#~ "loader to be able to boot your new Pardus installation.</p>"
 #~ msgstr ""
-#~ "<b>Desea instalar el cargador de arranque (GRUB) en el MBR del disco ?</b>\n"
+#~ "<b>Desea instalar el cargador de arranque (GRUB) en el MBR del disco ?</"
+#~ "b>\n"
 #~ "\n"
 #~ "<p>Se necesita un cargador de arranque para iniciar su sistema.</p>\n"
 #~ "\n"
-#~ "<p>Si no instala un cargador de arranque o elige su instalación a la partición raíz (/), tendrá que configurar el cargador de sistema ya instalado (si tiene uno) para poder iniciar la nueva instalación de Pardus.</p>"
+#~ "<p>Si no instala un cargador de arranque o elige su instalación a la "
+#~ "partición raíz (/), tendrá que configurar el cargador de sistema ya "
+#~ "instalado (si tiene uno) para poder iniciar la nueva instalación de "
+#~ "Pardus.</p>"
 
 #~ msgid "Select target to install boot loader"
 #~ msgstr "Seleccione el destino para el cargador de arranque"
@@ -1533,14 +1656,25 @@ msgstr ""
 #~ msgid "Automatically add other operating systems to the GRUB Menu"
 #~ msgstr "Agregar automáticamente otros sistemas operativos al menú de GRUB"
 
-#~ msgid "You can check the integrity of the packages in installation CD. Although this is an optional step, we encourage you to do it in order to avoid any possible errors in the installation process."
-#~ msgstr "Ahora puede verificar la integridad de los paquetes en el CD de instalación. Aunque es una operación opcional, lo recomendamos para evitar errores durante la instalación."
+#~ msgid ""
+#~ "You can check the integrity of the packages in installation CD. Although "
+#~ "this is an optional step, we encourage you to do it in order to avoid any "
+#~ "possible errors in the installation process."
+#~ msgstr ""
+#~ "Ahora puede verificar la integridad de los paquetes en el CD de "
+#~ "instalación. Aunque es una operación opcional, lo recomendamos para "
+#~ "evitar errores durante la instalación."
 
 #~ msgid "Check CD Integrity"
 #~ msgstr "Verificar integridad de CD"
 
-#~ msgid "To use PiSi History support, you may need to be online. You can use a connection profile from the list below."
-#~ msgstr "Para el soporte del histórico de instalaciones PISI puede ser necesario una conexión a internet. Puede elegir uno de los perfiles de conexión de la lista abajo."
+#~ msgid ""
+#~ "To use PiSi History support, you may need to be online. You can use a "
+#~ "connection profile from the list below."
+#~ msgstr ""
+#~ "Para el soporte del histórico de instalaciones PISI puede ser necesario "
+#~ "una conexión a internet. Puede elegir uno de los perfiles de conexión de "
+#~ "la lista abajo."
 
 #~ msgid "Connect"
 #~ msgstr "Conectar"
@@ -1555,17 +1689,29 @@ msgstr ""
 #~ msgstr "Zona horaria"
 
 #~ msgid ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
 #~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Please fill a bug report at <span style=\" font-weight:600;\">http://bugs.pardus.org.tr/</span> attaching the following backtrace.</p></body></html>"
+#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:8pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">Please fill a bug "
+#~ "report at <span style=\" font-weight:600;\">http://bugs.pardus.org.tr/</"
+#~ "span> attaching the following backtrace.</p></body></html>"
 #~ msgstr ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
 #~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Por favor complete un reporte de falla en <span style=\" font-weight:600;\">http://bugs.pardus.org.tr/</span> adjuntando el siguiente trazo inverso.</p></body></html>"
+#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:8pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">Por favor complete un "
+#~ "reporte de falla en <span style=\" font-weight:600;\">http://bugs.pardus."
+#~ "org.tr/</span> adjuntando el siguiente trazo inverso.</p></body></html>"
 
 #~ msgid "Show Backtrace"
 #~ msgstr "Mostrar trazo inverso"
@@ -1619,21 +1765,56 @@ msgstr ""
 #~ msgstr "Aceptar"
 
 #~ msgid ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
 #~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#ffffff;\">Changes will be applied when you click \"</span><span style=\" text-decoration: underline; color:#ffffff;\">Resize</span><span style=\" color:#ffffff;\">\". To cancel the changes, click \"</span><span style=\" text-decoration: underline; color:#ffffff;\">Cancel</span><span style=\" color:#ffffff;\">\".</span></p>\n"
-#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#ffffff;\"></p>\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#ffffff;\"><span style=\" font-weight:600; text-decoration: underline;\">Warning:</span> A resizing operation may corrupt the partition, rendering the data on it unreachable. Make sure that you have backed up the data.<span style=\" font-weight:600;\"> </span><span style=\" font-weight:600;\">Note that this operation cannot be undone.</span></p></body></html>"
+#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:"
+#~ "#ffffff;\">Changes will be applied when you click \"</span><span style=\" "
+#~ "text-decoration: underline; color:#ffffff;\">Resize</span><span style=\" "
+#~ "color:#ffffff;\">\". To cancel the changes, click \"</span><span style=\" "
+#~ "text-decoration: underline; color:#ffffff;\">Cancel</span><span style=\" "
+#~ "color:#ffffff;\">\".</span></p>\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
+#~ "color:#ffffff;\"></p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px; color:#ffffff;\"><span "
+#~ "style=\" font-weight:600; text-decoration: underline;\">Warning:</span> A "
+#~ "resizing operation may corrupt the partition, rendering the data on it "
+#~ "unreachable. Make sure that you have backed up the data.<span style=\" "
+#~ "font-weight:600;\"> </span><span style=\" font-weight:600;\">Note that "
+#~ "this operation cannot be undone.</span></p></body></html>"
 #~ msgstr ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
 #~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#ffffff;\">Cambios se aplicarán cuando presione \"</span><span style=\" text-decoration: underline; color:#ffffff;\">Redimensionar</span><span style=\" color:#ffffff;\">\". Para deshacer los cambios presione\"</span><span style=\" text-decoration: underline; color:#ffffff;\">Cancelar</span><span style=\" color:#ffffff;\">\".</span></p>\n"
-#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#ffffff;\"></p>\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#ffffff;\"><span style=\" font-weight:600; text-decoration: underline;\">Alerta:</span> Una operación de redimensionamiento puede corromper la partición y dejar inaccesible los datos. Asegúrese si dispone de una copia de seguridad de los datos !<span style=\" font-weight:600;\"> </span><span style=\" font-weight:600;\">Esta operación no se puede deshacer !</span></p></body></html>"
+#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:"
+#~ "#ffffff;\">Cambios se aplicarán cuando presione \"</span><span style=\" "
+#~ "text-decoration: underline; color:#ffffff;\">Redimensionar</span><span "
+#~ "style=\" color:#ffffff;\">\". Para deshacer los cambios presione\"</"
+#~ "span><span style=\" text-decoration: underline; color:#ffffff;"
+#~ "\">Cancelar</span><span style=\" color:#ffffff;\">\".</span></p>\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
+#~ "color:#ffffff;\"></p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px; color:#ffffff;\"><span "
+#~ "style=\" font-weight:600; text-decoration: underline;\">Alerta:</span> "
+#~ "Una operación de redimensionamiento puede corromper la partición y dejar "
+#~ "inaccesible los datos. Asegúrese si dispone de una copia de seguridad de "
+#~ "los datos !<span style=\" font-weight:600;\"> </span><span style=\" font-"
+#~ "weight:600;\">Esta operación no se puede deshacer !</span></p></body></"
+#~ "html>"
 
 #~ msgid "User to change password of:"
 #~ msgstr "Seleccione al usuario a quien desea cambiar la contraseña:"
@@ -1650,8 +1831,12 @@ msgstr ""
 #~ msgid "Not Connected"
 #~ msgstr "No Conectado"
 
-#~ msgid "To use PiSi's history feature, you may need to be online. Select connection profile."
-#~ msgstr "Para usar el soporte del histórico de instalaciones PISI puede ser necesario una conexión a internet. Seleccione el perfil de conexión."
+#~ msgid ""
+#~ "To use PiSi's history feature, you may need to be online. Select "
+#~ "connection profile."
+#~ msgstr ""
+#~ "Para usar el soporte del histórico de instalaciones PISI puede ser "
+#~ "necesario una conexión a internet. Seleccione el perfil de conexión."
 
 #~ msgid "Select Connection"
 #~ msgstr "Seleccionar Conexión"
@@ -1674,8 +1859,16 @@ msgstr ""
 #~ msgid "Change password (lost password)"
 #~ msgstr "Cambiar contraseña (contraseña perdida)"
 
-#~ msgid "<p align=\"left\">System administrator user (root) handles important system maintanence tasks. Enter a password for this special user and do not forget this password. Keep in mind that for privacy reasons, you shouldn't write this password elsewhere.</p>"
-#~ msgstr "<p align=\"left\">El usuario root (Administrador del Sistema) ejecuta importantes tareas de mantenimiento del sistema. Ingrese una contarseña para este usuario especial y no la olvide! Por razones de seguridad se recomienda que no anote esta contraseña en ninguna parte.</p>"
+#~ msgid ""
+#~ "<p align=\"left\">System administrator user (root) handles important "
+#~ "system maintanence tasks. Enter a password for this special user and do "
+#~ "not forget this password. Keep in mind that for privacy reasons, you "
+#~ "shouldn't write this password elsewhere.</p>"
+#~ msgstr ""
+#~ "<p align=\"left\">El usuario root (Administrador del Sistema) ejecuta "
+#~ "importantes tareas de mantenimiento del sistema. Ingrese una contarseña "
+#~ "para este usuario especial y no la olvide! Por razones de seguridad se "
+#~ "recomienda que no anote esta contraseña en ninguna parte.</p>"
 
 #~ msgid "System administrator password:"
 #~ msgstr "Contraseña del Administrador:"
@@ -1734,14 +1927,25 @@ msgstr ""
 #~ msgid "Begin Install"
 #~ msgstr "Comenzar instalación"
 
-#~ msgid "If you check this, Yalı will install all language packages in this release"
-#~ msgstr "Si marca aquí, Yali instalará los paquetes de todos los idiomas disponibles en esta versión"
+#~ msgid ""
+#~ "If you check this, Yalı will install all language packages in this release"
+#~ msgstr ""
+#~ "Si marca aquí, Yali instalará los paquetes de todos los idiomas "
+#~ "disponibles en esta versión"
 
 #~ msgid "Install all language packages"
 #~ msgstr "Instalar todos los paquetes de idiomas"
 
-#~ msgid "All software developed by TUBITAK/UEKAE is licensed under GNU/GPL. Other software have their corresponding licenses. To install and/or use Pardus, you must accept them. Do you accept GNU/GPL and other, corresponding licences?"
-#~ msgstr "Todo software desarrollado por TUBITAK/UEKAE está cubierto por la licencia GNU/GPL. Otros software tienen sus licencias respectivas. Al instalar o usar Pardus, debe aceptarlos. Acepta las licencias GNU/GPL y las demás, según corresponde ?"
+#~ msgid ""
+#~ "All software developed by TUBITAK/UEKAE is licensed under GNU/GPL. Other "
+#~ "software have their corresponding licenses. To install and/or use Pardus, "
+#~ "you must accept them. Do you accept GNU/GPL and other, corresponding "
+#~ "licences?"
+#~ msgstr ""
+#~ "Todo software desarrollado por TUBITAK/UEKAE está cubierto por la "
+#~ "licencia GNU/GPL. Otros software tienen sus licencias respectivas. Al "
+#~ "instalar o usar Pardus, debe aceptarlos. Acepta las licencias GNU/GPL y "
+#~ "las demás, según corresponde ?"
 
 #~ msgid "Read GPL"
 #~ msgstr "Leer Licencia GPL"
@@ -1758,59 +1962,255 @@ msgstr ""
 #~ msgid "Debug"
 #~ msgstr "Depurar"
 
-#~ msgid "Hello, there. The easiest-ever install tool YALI has begun Pardus installation. It is now time to relax and learn about some of the features of Pardus 2011 while it is being installed."
-#~ msgstr "Hola, la herramienta de instalación de Pardus más fácil denominado YALI acaba de empezar su proceso de instalación. Ahora es el momento de relajarse y averiguar más acerca de las características de Pardus 2011, mientras procede la instalación."
+#~ msgid ""
+#~ "Hello, there. The easiest-ever install tool YALI has begun Pardus "
+#~ "installation. It is now time to relax and learn about some of the "
+#~ "features of Pardus 2011 while it is being installed."
+#~ msgstr ""
+#~ "Hola, la herramienta de instalación de Pardus más fácil denominado YALI "
+#~ "acaba de empezar su proceso de instalación. Ahora es el momento de "
+#~ "relajarse y averiguar más acerca de las características de Pardus 2011, "
+#~ "mientras procede la instalación."
 
-#~ msgid "Pardus 2011 is a Linux distribution that everybody can easily install and use. With Pardus 2011, you can do anything that you could otherwise do with other operating systems. With its fast, secure and stable infrastructure, Pardus opens the path to software libre."
-#~ msgstr "Pardus 2011 es una distribución de Linux que todos pueden instalar y usar de manera muy fácil. Con Pardus 2011 puede hacer todo lo que podría hacer en otro sistema operativo. Usando la infraestructura rápida, segura y estable de Pardus le abre camino al mundo de la sofware libre."
+#~ msgid ""
+#~ "Pardus 2011 is a Linux distribution that everybody can easily install and "
+#~ "use. With Pardus 2011, you can do anything that you could otherwise do "
+#~ "with other operating systems. With its fast, secure and stable "
+#~ "infrastructure, Pardus opens the path to software libre."
+#~ msgstr ""
+#~ "Pardus 2011 es una distribución de Linux que todos pueden instalar y usar "
+#~ "de manera muy fácil. Con Pardus 2011 puede hacer todo lo que podría hacer "
+#~ "en otro sistema operativo. Usando la infraestructura rápida, segura y "
+#~ "estable de Pardus le abre camino al mundo de la sofware libre."
 
-#~ msgid "Pardus 2011 comes preinstalled with the open source desktop environment KDE 4.2. You will have a much better desktop experience compared to what you have seen so far. Following the installation, you can choose to use the classical desktop view that includes icons to your files and folders, or you can have any number of the preinstalled plasma widgets on your desktop and add interesting functionality to your view. You can have an analog clock on your desktop; even more, you can have a real-time weather report, your notes and RSS feeds right on your desktop."
-#~ msgstr "Pardus 2011 trae preinstalado al escritorio de código abierto KDE 4.2. Va a disfrutar una experiencia de escritorio de excelencia y mucho mejor de lo que está acostumbrado. Siguiendo la instalación puede determinar si desea la vista clásica del escritorio con los iconos para directorios y archivos, o puede colocar algunos de los Widgets Plasma con funcionalidades interesantes y útiles. Puede colocar un reloj analógico en el escritorio; además un reporte de tiempo en tiempo real, notas de anotador, titulares de las últimas noticias RSS, entre otros."
+#~ msgid ""
+#~ "Pardus 2011 comes preinstalled with the open source desktop environment "
+#~ "KDE 4.2. You will have a much better desktop experience compared to what "
+#~ "you have seen so far. Following the installation, you can choose to use "
+#~ "the classical desktop view that includes icons to your files and folders, "
+#~ "or you can have any number of the preinstalled plasma widgets on your "
+#~ "desktop and add interesting functionality to your view. You can have an "
+#~ "analog clock on your desktop; even more, you can have a real-time weather "
+#~ "report, your notes and RSS feeds right on your desktop."
+#~ msgstr ""
+#~ "Pardus 2011 trae preinstalado al escritorio de código abierto KDE 4.2. Va "
+#~ "a disfrutar una experiencia de escritorio de excelencia y mucho mejor de "
+#~ "lo que está acostumbrado. Siguiendo la instalación puede determinar si "
+#~ "desea la vista clásica del escritorio con los iconos para directorios y "
+#~ "archivos, o puede colocar algunos de los Widgets Plasma con "
+#~ "funcionalidades interesantes y útiles. Puede colocar un reloj analógico "
+#~ "en el escritorio; además un reporte de tiempo en tiempo real, notas de "
+#~ "anotador, titulares de las últimas noticias RSS, entre otros."
 
-#~ msgid "With the arrival of KDE 4.2, Konqueror is replaced with a new and very talented file manager, Dolphin. Dolphin is easy to use, and when it comes to viewing folders, it allows you to sort them in various ways, adding functionality like grouping and detailed information right on the spot. Anything you may need on viewing folders, you have it with Dolphin."
-#~ msgstr "Con la versión de KDE 4.2, Konqueror fue reemplazado por un administrador de archivos nuevo y muy funcional, Dolphin. Dolphin es fácil de usar, y en la vista de directorios tiene varias opciones de ordenar, puede agrupar archivos similares, y dar informaciones detalladas al instante. Lo que pueda desear al visualizar contenidos de directorios, se lo facilita Dolphin."
+#~ msgid ""
+#~ "With the arrival of KDE 4.2, Konqueror is replaced with a new and very "
+#~ "talented file manager, Dolphin. Dolphin is easy to use, and when it comes "
+#~ "to viewing folders, it allows you to sort them in various ways, adding "
+#~ "functionality like grouping and detailed information right on the spot. "
+#~ "Anything you may need on viewing folders, you have it with Dolphin."
+#~ msgstr ""
+#~ "Con la versión de KDE 4.2, Konqueror fue reemplazado por un administrador "
+#~ "de archivos nuevo y muy funcional, Dolphin. Dolphin es fácil de usar, y "
+#~ "en la vista de directorios tiene varias opciones de ordenar, puede "
+#~ "agrupar archivos similares, y dar informaciones detalladas al instante. "
+#~ "Lo que pueda desear al visualizar contenidos de directorios, se lo "
+#~ "facilita Dolphin."
 
-#~ msgid "With Pardus 2011, Kpdf is replaced with Okular. Okular supports many file formats and you can view all your files without any additional software, take notes on bookmarks on them."
-#~ msgstr "En Pardus 2011 el visualizador de archivos pdf, Kpdf fue reemplazado por Okular. Okular soporta muchos formatos de archivos, los cuales permite visualizar sin un software adicional, y permite hacer anotaciones y establecer marcadores."
+#~ msgid ""
+#~ "With Pardus 2011, Kpdf is replaced with Okular. Okular supports many file "
+#~ "formats and you can view all your files without any additional software, "
+#~ "take notes on bookmarks on them."
+#~ msgstr ""
+#~ "En Pardus 2011 el visualizador de archivos pdf, Kpdf fue reemplazado por "
+#~ "Okular. Okular soporta muchos formatos de archivos, los cuales permite "
+#~ "visualizar sin un software adicional, y permite hacer anotaciones y "
+#~ "establecer marcadores."
 
-#~ msgid "Pardus includes many genuine technologies aiming for an easier use and management. TASMA has been replaced with System Manager in Pardus 2011, but you will still find all these management tools built into the System Manager interface."
-#~ msgstr "Pardus incluye muchas tecnologías propias diseñadas para facilitar un sencillo uso y administración. TASMA fue reemplazado por el Administrador del Sistema de Pardus 2011, pero todavía va a encontrar todas las herramientas de administración como parte de la interfaz del Administrador del Sistema."
+#~ msgid ""
+#~ "Pardus includes many genuine technologies aiming for an easier use and "
+#~ "management. TASMA has been replaced with System Manager in Pardus 2011, "
+#~ "but you will still find all these management tools built into the System "
+#~ "Manager interface."
+#~ msgstr ""
+#~ "Pardus incluye muchas tecnologías propias diseñadas para facilitar un "
+#~ "sencillo uso y administración. TASMA fue reemplazado por el Administrador "
+#~ "del Sistema de Pardus 2011, pero todavía va a encontrar todas las "
+#~ "herramientas de administración como parte de la interfaz del "
+#~ "Administrador del Sistema."
 
-#~ msgid "Kaptan (Turkish for 'Captain') is what welcomes you to your Pardus installation. Using Kaptan, you can configure your desktop, changing the taskbar's location, wallpaper and desktop theme, and internet connection settings. Kaptan also allows you to add the Contribution Repository to your package management settings. Even more, Kaptan includes options to set intelligent search and an online Pardus Beginner's Tour."
-#~ msgstr "Kaptan (Turco para 'Capitán') le da la bienvenida a Pardus luego de instalarlo. Con Kaptan puede configurar el escritorio, cambiando la ubicación de la barra de tareas, el fondo de escritorio, el tema de las ventanas y la conexión a internet. Kaptan también le permite agregar el repositorio de paquetes 'Contrib' a la configuración del sistema de instalación de paquetes. Además Kaptan incluye opciones para habilitar una búsqueda inteligente de escritorio y un paseo para principiantes de Pardus en línea."
+#~ msgid ""
+#~ "Kaptan (Turkish for 'Captain') is what welcomes you to your Pardus "
+#~ "installation. Using Kaptan, you can configure your desktop, changing the "
+#~ "taskbar's location, wallpaper and desktop theme, and internet connection "
+#~ "settings. Kaptan also allows you to add the Contribution Repository to "
+#~ "your package management settings. Even more, Kaptan includes options to "
+#~ "set intelligent search and an online Pardus Beginner's Tour."
+#~ msgstr ""
+#~ "Kaptan (Turco para 'Capitán') le da la bienvenida a Pardus luego de "
+#~ "instalarlo. Con Kaptan puede configurar el escritorio, cambiando la "
+#~ "ubicación de la barra de tareas, el fondo de escritorio, el tema de las "
+#~ "ventanas y la conexión a internet. Kaptan también le permite agregar el "
+#~ "repositorio de paquetes 'Contrib' a la configuración del sistema de "
+#~ "instalación de paquetes. Además Kaptan incluye opciones para habilitar "
+#~ "una búsqueda inteligente de escritorio y un paseo para principiantes de "
+#~ "Pardus en línea."
 
-#~ msgid "It is possible to install hundreds of software found in Pardus' package repositories with a single click. Using the Package Manager, you can install PiSi packages with the click of a button, not having to deal with screen after screen of detailed configuration options. After package installations, all you need to do is to start the applications. It is all that easy!"
-#~ msgstr "Hay cientos de programas de software disponibles en los repositorios de Pardus, y se pueden elegir e instalar con pocos clics. Usando al Administrador de Paquetes puede instalar paquetes PiSi con el clic del ratón, y no necesita preocuparse de muchas pantallas con los detalles y opciones de configuración. Después de instalar un paquete, todo lo que le resta hacer es usarlo. Así de fácil!"
+#~ msgid ""
+#~ "It is possible to install hundreds of software found in Pardus' package "
+#~ "repositories with a single click. Using the Package Manager, you can "
+#~ "install PiSi packages with the click of a button, not having to deal with "
+#~ "screen after screen of detailed configuration options. After package "
+#~ "installations, all you need to do is to start the applications. It is all "
+#~ "that easy!"
+#~ msgstr ""
+#~ "Hay cientos de programas de software disponibles en los repositorios de "
+#~ "Pardus, y se pueden elegir e instalar con pocos clics. Usando al "
+#~ "Administrador de Paquetes puede instalar paquetes PiSi con el clic del "
+#~ "ratón, y no necesita preocuparse de muchas pantallas con los detalles y "
+#~ "opciones de configuración. Después de instalar un paquete, todo lo que le "
+#~ "resta hacer es usarlo. Así de fácil!"
 
-#~ msgid "Adding new users, changing boot order, starting or stopping system services or rolling your system configuration back to a previous state has never been easier. You can use the system managers for that and you can even add to your desktop as widgets managers that you use frequently."
-#~ msgstr "Nunca fue más sencillo agregar nuevos usuarios, modificando el orden de arranque, iniciar o detener servicios del sistema o deshacer una configuración del sistema y retroceder al sistema a un estado anterior. Para esto puede usar los administradores del sistema, los que incluso puede colocar como un widget en el escritorio, si lo usa a menudo."
+#~ msgid ""
+#~ "Adding new users, changing boot order, starting or stopping system "
+#~ "services or rolling your system configuration back to a previous state "
+#~ "has never been easier. You can use the system managers for that and you "
+#~ "can even add to your desktop as widgets managers that you use frequently."
+#~ msgstr ""
+#~ "Nunca fue más sencillo agregar nuevos usuarios, modificando el orden de "
+#~ "arranque, iniciar o detener servicios del sistema o deshacer una "
+#~ "configuración del sistema y retroceder al sistema a un estado anterior. "
+#~ "Para esto puede usar los administradores del sistema, los que incluso "
+#~ "puede colocar como un widget en el escritorio, si lo usa a menudo."
 
-#~ msgid "To connect to a wireless or 'wired' network is as easy as choosing a connection profile with Pardus 2011. With the network manager's advanced options, you can have different settings (e.g. static IP, a different DNS server) for different connections with the profiles you create. Choosing a different connection profile requires just two clicks."
-#~ msgstr "Establecer una conexión de red inalambrica o 'cableada' es en Pardus 2011 tan fácil como elegir un perfil de conexión. Con las opciones avanzadas del administrador de red puede mantener diferentes configuraciones (p.ej. IP estático, servidor DNS) para diferentes conexiones y los puede guardar en perfiles diferentes. Para cambiar la conexión bastan entonces solo dos clics."
+#~ msgid ""
+#~ "To connect to a wireless or 'wired' network is as easy as choosing a "
+#~ "connection profile with Pardus 2011. With the network manager's advanced "
+#~ "options, you can have different settings (e.g. static IP, a different DNS "
+#~ "server) for different connections with the profiles you create. Choosing "
+#~ "a different connection profile requires just two clicks."
+#~ msgstr ""
+#~ "Establecer una conexión de red inalambrica o 'cableada' es en Pardus 2011 "
+#~ "tan fácil como elegir un perfil de conexión. Con las opciones avanzadas "
+#~ "del administrador de red puede mantener diferentes configuraciones (p.ej. "
+#~ "IP estático, servidor DNS) para diferentes conexiones y los puede guardar "
+#~ "en perfiles diferentes. Para cambiar la conexión bastan entonces solo dos "
+#~ "clics."
 
-#~ msgid "With Pardus 2011, Amarok has not only shed skin, but also changed internally. It provides much more than listening to music. You now have the option to read lyrics and learn about the singer or composer through Wikipedia while listening to a song, or use the intelligent playlist feature to group songs in various manners. As Amarok works seamlessly with most player devices, you can drag and drop songs to your players without the need for any external device drivers."
-#~ msgstr "En Pardus 2011 Amarok no solamente cambió su aspecto, sino también tuvo muchos cambios internos. Se puede hacer mucho más que solamente escuchar música. Ahora tiene la opción, mientras escucha la música, de leer los lyrics, ver informaciones acerca del cantante o compositor a través informaiones de la Wikipedia, o usar la característica de lista de reproducción inteligente para agrupar canciones de varias maneras. Además Amarok funciona directamente con la mayoría de los dispositivos reproductores de música externos, puede simplemente 'drag and drop' las canciones al reproductor, sin necesidad de controladores adicionales."
+#~ msgid ""
+#~ "With Pardus 2011, Amarok has not only shed skin, but also changed "
+#~ "internally. It provides much more than listening to music. You now have "
+#~ "the option to read lyrics and learn about the singer or composer through "
+#~ "Wikipedia while listening to a song, or use the intelligent playlist "
+#~ "feature to group songs in various manners. As Amarok works seamlessly "
+#~ "with most player devices, you can drag and drop songs to your players "
+#~ "without the need for any external device drivers."
+#~ msgstr ""
+#~ "En Pardus 2011 Amarok no solamente cambió su aspecto, sino también tuvo "
+#~ "muchos cambios internos. Se puede hacer mucho más que solamente escuchar "
+#~ "música. Ahora tiene la opción, mientras escucha la música, de leer los "
+#~ "lyrics, ver informaciones acerca del cantante o compositor a través "
+#~ "informaiones de la Wikipedia, o usar la característica de lista de "
+#~ "reproducción inteligente para agrupar canciones de varias maneras. Además "
+#~ "Amarok funciona directamente con la mayoría de los dispositivos "
+#~ "reproductores de música externos, puede simplemente 'drag and drop' las "
+#~ "canciones al reproductor, sin necesidad de controladores adicionales."
 
-#~ msgid "Mozilla Firefox is the preferred browser with its speed, security and flexibility. With its addon support and a *very* rich addon repository, you can add new functionality to Mozilla Firefox. You will find many of the most visited websites along with Pardus-related websites in your bookmarks in its Pardus default installation. Enjoy a fast and secure internet with the new Mozilla Firefox 3.5."
-#~ msgstr "Mozilla Firefox es el navegador preferido por su velocidad, seguridad y flexibilidad. Con el soporte para agregados y un repositorio *MUY* completo de agregados, puede agregar más funcionalidades a Mozilla Firefox. Hay muchos marcadores preestablecidos con enlaces a sitios relacionados con Pardus, y varios otros muy frecuentados. Disfrute una experiencia segura y rápida de internet usando Mozilla Firefox 3.5."
+#~ msgid ""
+#~ "Mozilla Firefox is the preferred browser with its speed, security and "
+#~ "flexibility. With its addon support and a *very* rich addon repository, "
+#~ "you can add new functionality to Mozilla Firefox. You will find many of "
+#~ "the most visited websites along with Pardus-related websites in your "
+#~ "bookmarks in its Pardus default installation. Enjoy a fast and secure "
+#~ "internet with the new Mozilla Firefox 3.5."
+#~ msgstr ""
+#~ "Mozilla Firefox es el navegador preferido por su velocidad, seguridad y "
+#~ "flexibilidad. Con el soporte para agregados y un repositorio *MUY* "
+#~ "completo de agregados, puede agregar más funcionalidades a Mozilla "
+#~ "Firefox. Hay muchos marcadores preestablecidos con enlaces a sitios "
+#~ "relacionados con Pardus, y varios otros muy frecuentados. Disfrute una "
+#~ "experiencia segura y rápida de internet usando Mozilla Firefox 3.5."
 
-#~ msgid "Connecting to your friends and contacts is really easy and seamlessly integrated into the desktop with Pardus 2011. Using Kontact, you can send and receive emails, manage your meetings, create address books, takes notes and follow RSS feeds. Using Kopete, you can connect to popular networks like MSN and GTalk, and chat online with your friends."
-#~ msgstr "Conectar con sus amigos y contactos es realmente sencillo y transparentemente integrado en el escritorio de Pardus 2011. Usando Kontact puede enviar y recibir emails, administrar reuniones, crear agendas de direcciones, tomar notas y seguir noticias con marcadores RSS dinámicos. Con Kopete puede conectarse a redes populares como MSN y GTalk, y chatear en línea con sus amigos."
+#~ msgid ""
+#~ "Connecting to your friends and contacts is really easy and seamlessly "
+#~ "integrated into the desktop with Pardus 2011. Using Kontact, you can send "
+#~ "and receive emails, manage your meetings, create address books, takes "
+#~ "notes and follow RSS feeds. Using Kopete, you can connect to popular "
+#~ "networks like MSN and GTalk, and chat online with your friends."
+#~ msgstr ""
+#~ "Conectar con sus amigos y contactos es realmente sencillo y "
+#~ "transparentemente integrado en el escritorio de Pardus 2011. Usando "
+#~ "Kontact puede enviar y recibir emails, administrar reuniones, crear "
+#~ "agendas de direcciones, tomar notas y seguir noticias con marcadores RSS "
+#~ "dinámicos. Con Kopete puede conectarse a redes populares como MSN y "
+#~ "GTalk, y chatear en línea con sus amigos."
 
-#~ msgid "World's leading preferred libre office suite OpenOffice.org brings a word processor, a spreadsheet, a presentation application, database, formula and drawing tools to your desktop for your office needs at home, at your workplace or school. With OpenOffice.org, you can view and edit documents created in other office suites and share your documents with friends and contacts that are using other office applications."
-#~ msgstr "La suite oficina de preferencia mundial OpenOffice.org le provee aplicaciones de procesador de texto, hoja de cálculo, desarrollo de presentaciones, Base de datos, y herramientas de fórmulas y de dibujo para utilizarlo donde lo requiera, en su casa, en su trabajo o en el colegio. Con OpenOffice.org puede ver y editar documentos que fueron creados en otros programas de oficina y compartirlos con amigos y contactos, aunque ellos usen otros programas."
+#~ msgid ""
+#~ "World's leading preferred libre office suite OpenOffice.org brings a word "
+#~ "processor, a spreadsheet, a presentation application, database, formula "
+#~ "and drawing tools to your desktop for your office needs at home, at your "
+#~ "workplace or school. With OpenOffice.org, you can view and edit documents "
+#~ "created in other office suites and share your documents with friends and "
+#~ "contacts that are using other office applications."
+#~ msgstr ""
+#~ "La suite oficina de preferencia mundial OpenOffice.org le provee "
+#~ "aplicaciones de procesador de texto, hoja de cálculo, desarrollo de "
+#~ "presentaciones, Base de datos, y herramientas de fórmulas y de dibujo "
+#~ "para utilizarlo donde lo requiera, en su casa, en su trabajo o en el "
+#~ "colegio. Con OpenOffice.org puede ver y editar documentos que fueron "
+#~ "creados en otros programas de oficina y compartirlos con amigos y "
+#~ "contactos, aunque ellos usen otros programas."
 
-#~ msgid "Gimp is an advanced image editing software. Allowing creation and editing of common graphics and image file formats, it has abilities that professional graphics artists and designers need and an ability to integrate new filters easily with its addon system."
-#~ msgstr "Gimp es un programa avanzado de edición de imágenes. Con Gimp puede editar todos los formatos de imágenes comunes y tiene funciones avanzadas requeridas por artistas y diseñadores gráficos, además una facilidad de integrar fácilmente filtros adicionales con su sistema de agregados."
+#~ msgid ""
+#~ "Gimp is an advanced image editing software. Allowing creation and editing "
+#~ "of common graphics and image file formats, it has abilities that "
+#~ "professional graphics artists and designers need and an ability to "
+#~ "integrate new filters easily with its addon system."
+#~ msgstr ""
+#~ "Gimp es un programa avanzado de edición de imágenes. Con Gimp puede "
+#~ "editar todos los formatos de imágenes comunes y tiene funciones avanzadas "
+#~ "requeridas por artistas y diseñadores gráficos, además una facilidad de "
+#~ "integrar fácilmente filtros adicionales con su sistema de agregados."
 
-#~ msgid "Pardus, along with the preinstalled games, has many games in its repositories, allowing hours of fun with various kinds of games available through the package manager."
-#~ msgstr "Para Pardus, aparte de los juegos preinstalados, hay muchos más en los repositorios, permitiendo horas de diversión con diferentes tipos de juegos, fácilmente a instalar usando el administrador de paquetes."
+#~ msgid ""
+#~ "Pardus, along with the preinstalled games, has many games in its "
+#~ "repositories, allowing hours of fun with various kinds of games available "
+#~ "through the package manager."
+#~ msgstr ""
+#~ "Para Pardus, aparte de los juegos preinstalados, hay muchos más en los "
+#~ "repositorios, permitiendo horas de diversión con diferentes tipos de "
+#~ "juegos, fácilmente a instalar usando el administrador de paquetes."
 
-#~ msgid "Pardus 2011 is set to support most hardware right away. At the end of the installation, when you start with Pardus, the graphics card and sound hardware of your computer will be auto-detected , and the network devices will be prepared for connections, whether it be wireless or 'wired'. Adding a printer to your sistem is also really easy. All you need to do is plug the printer in, and it is set. Pardus will install the correct driver and set everything accordingly right away."
-#~ msgstr "Pardus 2011 soporta una gran gama de hardware sin complicaciones. Al terminar la instalación, cuando arranca su sistema Pardus, la tarjeta gráfica y el sonido ya van a estar reconocidos automáticamente, y los dispositivos de red estarán listos para conectarse, sea inalambrico o 'cableado'. También agregar una impresora es muy fácil. Todo lo que necesita hacer es conectar a la impresora y listo. Pardus en seguida va a instalar el controlador correcto y realizar la configuración adecuada."
+#~ msgid ""
+#~ "Pardus 2011 is set to support most hardware right away. At the end of the "
+#~ "installation, when you start with Pardus, the graphics card and sound "
+#~ "hardware of your computer will be auto-detected , and the network devices "
+#~ "will be prepared for connections, whether it be wireless or 'wired'. "
+#~ "Adding a printer to your sistem is also really easy. All you need to do "
+#~ "is plug the printer in, and it is set. Pardus will install the correct "
+#~ "driver and set everything accordingly right away."
+#~ msgstr ""
+#~ "Pardus 2011 soporta una gran gama de hardware sin complicaciones. Al "
+#~ "terminar la instalación, cuando arranca su sistema Pardus, la tarjeta "
+#~ "gráfica y el sonido ya van a estar reconocidos automáticamente, y los "
+#~ "dispositivos de red estarán listos para conectarse, sea inalambrico o "
+#~ "'cableado'. También agregar una impresora es muy fácil. Todo lo que "
+#~ "necesita hacer es conectar a la impresora y listo. Pardus en seguida va a "
+#~ "instalar el controlador correcto y realizar la configuración adecuada."
 
-#~ msgid "We have a support portal to help improve your Pardus experience and help with problems you encounter. In the Özgürlükİçin portal, where content is developed by volunteer contributors, you will find guides, package and game introductions. If you happen to have any questions, the forum is waiting for you. If you need support, or if you want to support, your first stop should be www.ozgurlukicin.com"
-#~ msgstr "Tenemos un portal de soporte que puede ayudar a mejorar la experiencia con Pardus y puede apoyarle en las soluciones de eventuales problemas. En el portal de Özgürlükİçin, donde voluntarios están contribuyendo, puede encontrar guías de instrucciones, y presentaciones de programas y juegos. Si tiene preguntas, si necesita soporte, o si quiere ayudar en el soporte, entonces debería intentar primero en www.ozgurlukicin.com"
+#~ msgid ""
+#~ "We have a support portal to help improve your Pardus experience and help "
+#~ "with problems you encounter. In the Özgürlükİçin portal, where content is "
+#~ "developed by volunteer contributors, you will find guides, package and "
+#~ "game introductions. If you happen to have any questions, the forum is "
+#~ "waiting for you. If you need support, or if you want to support, your "
+#~ "first stop should be www.ozgurlukicin.com"
+#~ msgstr ""
+#~ "Tenemos un portal de soporte que puede ayudar a mejorar la experiencia "
+#~ "con Pardus y puede apoyarle en las soluciones de eventuales problemas. En "
+#~ "el portal de Özgürlükİçin, donde voluntarios están contribuyendo, puede "
+#~ "encontrar guías de instrucciones, y presentaciones de programas y juegos. "
+#~ "Si tiene preguntas, si necesita soporte, o si quiere ayudar en el "
+#~ "soporte, entonces debería intentar primero en www.ozgurlukicin.com"
 
 #~ msgid "'Install Root' size must be larger than %s MB."
 #~ msgstr "El tamaño de la partición raíz (/) debe ser mayor a %s MB."
@@ -1824,33 +2224,52 @@ msgstr ""
 #~ msgid "%d MB free"
 #~ msgstr "%d MB libre"
 
-#~ msgid "Partition <b>%(partition)s (%(size)s)</b> <b>deleted</b> from device <b>%(device)s</b>."
-#~ msgstr "Partición <b>%(partition)s (%(size)s)</b> <b>eliminado</b>de dispositivo <b>%(device)s</b>."
+#~ msgid ""
+#~ "Partition <b>%(partition)s (%(size)s)</b> <b>deleted</b> from device <b>"
+#~ "%(device)s</b>."
+#~ msgstr ""
+#~ "Partición <b>%(partition)s (%(size)s)</b> <b>eliminado</b>de dispositivo "
+#~ "<b>%(device)s</b>."
 
 #~ msgid "There is a request for the same Partition Type."
 #~ msgstr "Ya hay una partición especificada para el mismo fin."
 
-#~ msgid "Partition <b>%(partition)s</b> will be <b>formatted</b> as <b>%(fsType)s</b>."
-#~ msgstr "Partición <b>%(partition)s</b> se <b>formateará</b> como <b>%(fsType)s</b>."
+#~ msgid ""
+#~ "Partition <b>%(partition)s</b> will be <b>formatted</b> as <b>%(fsType)s</"
+#~ "b>."
+#~ msgstr ""
+#~ "Partición <b>%(partition)s</b> se <b>formateará</b> como <b>%(fsType)s</"
+#~ "b>."
 
 #~ msgid "Partition <b>%(partition)s</b> <b>selected</b> as <b>%(type)s</b>."
-#~ msgstr "Usar partición <b>%(partition)s</b> <b>seleccionada</b> para <b>%(type)s</b>."
+#~ msgstr ""
+#~ "Usar partición <b>%(partition)s</b> <b>seleccionada</b> para <b>%(type)s</"
+#~ "b>."
 
 #~ msgid ""
 #~ "GPT Disk tables does not support for extended partitions.\n"
 #~ "You need to delete one of primary partition from your disk table !"
 #~ msgstr ""
 #~ "Tablas de particiones GPT no tienen soporte para particiones extendidas.\n"
-#~ "Usted debería eliminar una de las particiones primarias de su lista de particiones !"
+#~ "Usted debería eliminar una de las particiones primarias de su lista de "
+#~ "particiones !"
 
 #~ msgid "Too many primary partitions !"
 #~ msgstr "Demasiadas particiones primarias !"
 
-#~ msgid "You need to delete one of the primary or extended(if exists) partition from your disk table !"
-#~ msgstr "Debe eliminar una de las particiones primarias o extendidos (si hay) de la tabla de particiones !"
+#~ msgid ""
+#~ "You need to delete one of the primary or extended(if exists) partition "
+#~ "from your disk table !"
+#~ msgstr ""
+#~ "Debe eliminar una de las particiones primarias o extendidos (si hay) de "
+#~ "la tabla de particiones !"
 
-#~ msgid "Partition <b>%(partition)s</b> <b>added</b> to device <b>%(device)s</b> with <b>%(size)s MB</b> as <b>%(fs)s</b>."
-#~ msgstr "Partición <b>%(partition)s</b> <b>agregada</b> a dispositivo <b>%(device)s</b> de <b>%(size)s MB</b> como <b>%(fs)s</b>."
+#~ msgid ""
+#~ "Partition <b>%(partition)s</b> <b>added</b> to device <b>%(device)s</b> "
+#~ "with <b>%(size)s MB</b> as <b>%(fs)s</b>."
+#~ msgstr ""
+#~ "Partición <b>%(partition)s</b> <b>agregada</b> a dispositivo <b>%(device)"
+#~ "s</b> de <b>%(size)s MB</b> como <b>%(fs)s</b>."
 
 #~ msgid "Delete All Partitions"
 #~ msgstr "Eliminar todas las particiones"
@@ -1879,14 +2298,22 @@ msgstr ""
 #~ msgid "All partitions on device <b>%(device)s</b> has been deleted."
 #~ msgstr "Se eliminaron todas particiones del dispositivo <b>%(device)s</b>."
 
-#~ msgid "<p><span style=\"color:#FFF\"><b>It seems this partition is not ready for resizing.</b></span></p>"
-#~ msgstr "<p><span style=\"color:#FFF\"><b>Aparentemente esta partición no permite redimensionar.</b></span></p>"
+#~ msgid ""
+#~ "<p><span style=\"color:#FFF\"><b>It seems this partition is not ready for "
+#~ "resizing.</b></span></p>"
+#~ msgstr ""
+#~ "<p><span style=\"color:#FFF\"><b>Aparentemente esta partición no permite "
+#~ "redimensionar.</b></span></p>"
 
 #~ msgid "Resizing to %s MB.."
 #~ msgstr "Redimensionando a %s MB.."
 
-#~ msgid "Partition <b>%(partition)s - %(fs)s</b> <b>resized</b> to <b>%(resizeTo)s MB</b>, old size was <b>%(currentSize)s MB</b>"
-#~ msgstr "Partición <b>%(partition)s - %(fs)s</b> <b>redimensionada</b> a <b>%(resizeTo)s MB</b>, tamaño anterior era <b>%(currentSize)s MB</b>"
+#~ msgid ""
+#~ "Partition <b>%(partition)s - %(fs)s</b> <b>resized</b> to <b>%(resizeTo)s "
+#~ "MB</b>, old size was <b>%(currentSize)s MB</b>"
+#~ msgstr ""
+#~ "Partición <b>%(partition)s - %(fs)s</b> <b>redimensionada</b> a <b>"
+#~ "%(resizeTo)s MB</b>, tamaño anterior era <b>%(currentSize)s MB</b>"
 
 #~ msgid "(%s) [%s] Size : %s - Free : %s"
 #~ msgstr "(%s) [%s] Tamaño : %s - Libre : %s"
@@ -1915,14 +2342,20 @@ msgstr ""
 #~ "\n"
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
-#~ "You need to define a password for the \"root\" user that has full control over the system.\n"
-#~ "Your password must be easy to remember (for you) but hard to guess (for others). \n"
-#~ "You can use lower case or upper case letters, numbers and punctuation marks in your password. \n"
-#~ "You should take care not to use letters not found in English to avoid incompatibilities with other systems.\n"
+#~ "You need to define a password for the \"root\" user that has full control "
+#~ "over the system.\n"
+#~ "Your password must be easy to remember (for you) but hard to guess (for "
+#~ "others). \n"
+#~ "You can use lower case or upper case letters, numbers and punctuation "
+#~ "marks in your password. \n"
+#~ "You should take care not to use letters not found in English to avoid "
+#~ "incompatibilities with other systems.\n"
 #~ "</p>\n"
 #~ "<p>\n"
-#~ "Here you can enter a name for your computer in the text box below. As your computer will be \n"
-#~ "known with this name in the local network, it is advised to enter a descriptive text.\n"
+#~ "Here you can enter a name for your computer in the text box below. As "
+#~ "your computer will be \n"
+#~ "known with this name in the local network, it is advised to enter a "
+#~ "descriptive text.\n"
 #~ "Proceed with the installation after you make your selections.\n"
 #~ "</p>\n"
 #~ "<p>\n"
@@ -1931,19 +2364,27 @@ msgstr ""
 #~ "</font>\n"
 #~ msgstr ""
 #~ "\n"
-#~ "<font size=\"+2\">Contraseña de administrador del sistema y nombre de maquina (host)</font>\n"
+#~ "<font size=\"+2\">Contraseña de administrador del sistema y nombre de "
+#~ "maquina (host)</font>\n"
 #~ "\n"
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
-#~ "Debe definir una contraseña para el usuario \"root\", que tiene el control total sobre el sistema.\n"
-#~ "La contraseña debe ser fácil de recordar (para Usted) pero difícil de adivinar (para otros). \n"
-#~ "Puede utilizar para la contraseña letras en mayusculas y minúsculas, números y punto. \n"
-#~ "Pero debe atender de usar SOLAMENTE las letras que se encuentran en un teclado en inglés.\n"
+#~ "Debe definir una contraseña para el usuario \"root\", que tiene el "
+#~ "control total sobre el sistema.\n"
+#~ "La contraseña debe ser fácil de recordar (para Usted) pero difícil de "
+#~ "adivinar (para otros). \n"
+#~ "Puede utilizar para la contraseña letras en mayusculas y minúsculas, "
+#~ "números y punto. \n"
+#~ "Pero debe atender de usar SOLAMENTE las letras que se encuentran en un "
+#~ "teclado en inglés.\n"
 #~ "</p>\n"
 #~ "<p>\n"
-#~ "En la caja de texto abajo puede ingresar un nombre para su computadora. Ya que con este nombre \n"
-#~ "se identificará su maquina en el entorno de red, conviene ingresar un texto descriptivo.\n"
-#~ "Proceda con la instalación luego de completar los campos según su preferencia.\n"
+#~ "En la caja de texto abajo puede ingresar un nombre para su computadora. "
+#~ "Ya que con este nombre \n"
+#~ "se identificará su maquina en el entorno de red, conviene ingresar un "
+#~ "texto descriptivo.\n"
+#~ "Proceda con la instalación luego de completar los campos según su "
+#~ "preferencia.\n"
 #~ "</p>\n"
 #~ "<p>\n"
 #~ "Presione el botón Siguiente para avanzar.\n"
@@ -1964,11 +2405,15 @@ msgstr ""
 #~ "<font size=\"+2\">Boot loader setup</font>\n"
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
-#~ "Pardus 2011 uses a boot manager called GRUB to start the operating system you choose.\n"
+#~ "Pardus 2011 uses a boot manager called GRUB to start the operating system "
+#~ "you choose.\n"
 #~ "</p>\n"
-#~ "<p>If there are multiple operating systems in your computer, you can start the one \n"
-#~ "you like using GRUB. Installing GRUB to the beginning of the boot disk is the advised \n"
-#~ "option to avoid boot problems.  If you are sure you know what you are doing, \n"
+#~ "<p>If there are multiple operating systems in your computer, you can "
+#~ "start the one \n"
+#~ "you like using GRUB. Installing GRUB to the beginning of the boot disk is "
+#~ "the advised \n"
+#~ "option to avoid boot problems.  If you are sure you know what you are "
+#~ "doing, \n"
 #~ "you can change boot loader settings.\n"
 #~ "</p>\n"
 #~ "<p>\n"
@@ -1983,12 +2428,16 @@ msgstr ""
 #~ "\n"
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
-#~ "Pardus 2011 hace uso del cargador de arranque GRUB, para arrancar (bootear) el sistema operativo de su preferencia. \n"
+#~ "Pardus 2011 hace uso del cargador de arranque GRUB, para arrancar "
+#~ "(bootear) el sistema operativo de su preferencia. \n"
 #~ "</p>\n"
 #~ "<p>\n"
-#~ "Si tiene más de un sistema operativo, GRUB le permite elegir con cual sistema operativo iniciar.\n"
-#~ "Generalmente está recomendado instalar GRUB en el inicio del disco principal. \n"
-#~ "Si sabe lo que está haciendo puede cambiar la configuración del cargador de arranque.</p>\n"
+#~ "Si tiene más de un sistema operativo, GRUB le permite elegir con cual "
+#~ "sistema operativo iniciar.\n"
+#~ "Generalmente está recomendado instalar GRUB en el inicio del disco "
+#~ "principal. \n"
+#~ "Si sabe lo que está haciendo puede cambiar la configuración del cargador "
+#~ "de arranque.</p>\n"
 #~ "\n"
 #~ "<p>\n"
 #~ "Favor recurrir a la documentación - Pardus Installing and Using \n"
@@ -2000,21 +2449,30 @@ msgstr ""
 #~ msgstr "Verifique el CD de instalación"
 
 #~ msgid "To ignore media corruptions you can check your media integrity..."
-#~ msgstr "Para prevenir problemas por corrupción de datos puede verificar el CD.."
+#~ msgstr ""
+#~ "Para prevenir problemas por corrupción de datos puede verificar el CD.."
 
 #~ msgid ""
 #~ "\n"
 #~ "<font size=\"+2\">Check CD Integrity!</font>\n"
 #~ "<font size=\"+1\"><p>\n"
-#~ "You can check if the packages included in the installation CD are saved correctly into the CD. Performing this test is a highly important step in making sure for a problem-free installation. If the test fails, try re-burning the ISO image in a lower (e.g. 12x or less) speed.</p></font>\n"
+#~ "You can check if the packages included in the installation CD are saved "
+#~ "correctly into the CD. Performing this test is a highly important step in "
+#~ "making sure for a problem-free installation. If the test fails, try re-"
+#~ "burning the ISO image in a lower (e.g. 12x or less) speed.</p></font>\n"
 #~ msgstr ""
 #~ "\n"
 #~ "<font size=\"+2\">Comprobar CD!</font>\n"
 #~ "<font size=\"+1\"><p>\n"
-#~ "Puede combrobar si los paquetes del CD están guardados corectamente en el CD. Esta verificación es muy importante para prevenir problemas durante la instalación. Si la falla la comprobación intente volver a grabar el CD a menor velocidad (ej. 12x o menos).</p></font>\n"
+#~ "Puede combrobar si los paquetes del CD están guardados corectamente en el "
+#~ "CD. Esta verificación es muy importante para prevenir problemas durante "
+#~ "la instalación. Si la falla la comprobación intente volver a grabar el CD "
+#~ "a menor velocidad (ej. 12x o menos).</p></font>\n"
 
 #~ msgid "<font color=\"#FFF\">Please wait while checking CD.</font>"
-#~ msgstr "<font color=\"#FFF\">Favor espere mientras se está verificando el CD.</font>"
+#~ msgstr ""
+#~ "<font color=\"#FFF\">Favor espere mientras se está verificando el CD.</"
+#~ "font>"
 
 #~ msgid "Stop Checking"
 #~ msgstr "Detener la Verificación"
@@ -2028,13 +2486,17 @@ msgstr ""
 #~ msgid ""
 #~ "\n"
 #~ "<font size=\"+2\">Time Zone settings</font>\n"
-#~ "<font size=\"+1\"><p>Here you can select your location and a timezone; and set the date and time.\n"
-#~ "Your settings will update your hardware clock. Proceed with the installation after you make your selections.</p></font>\n"
+#~ "<font size=\"+1\"><p>Here you can select your location and a timezone; "
+#~ "and set the date and time.\n"
+#~ "Your settings will update your hardware clock. Proceed with the "
+#~ "installation after you make your selections.</p></font>\n"
 #~ msgstr ""
 #~ "\n"
 #~ "<font size=\"+2\">Configuración de Zona Horaria</font>\n"
-#~ "<font size=\"+1\"><p>Aqui puede establecer su ubicación y su zona horaria; y fijar la fecha y hora.\n"
-#~ "La configuración ajustará el reloj del hardware. Continúe con la instalación luego de realizar los ajustes pertinentes.</p></font>\n"
+#~ "<font size=\"+1\"><p>Aqui puede establecer su ubicación y su zona "
+#~ "horaria; y fijar la fecha y hora.\n"
+#~ "La configuración ajustará el reloj del hardware. Continúe con la "
+#~ "instalación luego de realizar los ajustes pertinentes.</p></font>\n"
 
 #~ msgid "Goodbye from YALI"
 #~ msgstr "Felicidades, fin de instalación con YALI"
@@ -2049,12 +2511,15 @@ msgstr ""
 #~ "\n"
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
-#~ "You have successfully installed Pardus, a very easy to use desktop system on\n"
-#~ "your machine. Now you can start playing with your system and stay productive\n"
+#~ "You have successfully installed Pardus, a very easy to use desktop system "
+#~ "on\n"
+#~ "your machine. Now you can start playing with your system and stay "
+#~ "productive\n"
 #~ "all the time.\n"
 #~ "</p>\n"
 #~ "<P>\n"
-#~ "Click on the Next button to proceed. One note: You remember your password,\n"
+#~ "Click on the Next button to proceed. One note: You remember your "
+#~ "password,\n"
 #~ "don't you?\n"
 #~ "</p>\n"
 #~ "</font>\n"
@@ -2065,12 +2530,15 @@ msgstr ""
 #~ "\n"
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
-#~ "Acaba de instalar exitosamente Pardus Linux, el sistema operativo de escritorio muy fácil de usar en\n"
-#~ "esta maquina. Ahora puede empezar a jugar con el sistema y continuar siendo productivo\n"
+#~ "Acaba de instalar exitosamente Pardus Linux, el sistema operativo de "
+#~ "escritorio muy fácil de usar en\n"
+#~ "esta maquina. Ahora puede empezar a jugar con el sistema y continuar "
+#~ "siendo productivo\n"
 #~ "todo el tiempo.\n"
 #~ "</p>\n"
 #~ "<P>\n"
-#~ "Presione el bóton siguiente para continuar. Una observación: Está recordando la contraseña,\n"
+#~ "Presione el bóton siguiente para continuar. Una observación: Está "
+#~ "recordando la contraseña,\n"
 #~ "verdad ?\n"
 #~ "</p>\n"
 #~ "</font>\n"
@@ -2102,7 +2570,8 @@ msgstr ""
 #~ msgid "Installing system..."
 #~ msgstr "Instalando el sistema.."
 
-#~ msgid "Installing takes approximately 20 minutes depending on your hardware..."
+#~ msgid ""
+#~ "Installing takes approximately 20 minutes depending on your hardware..."
 #~ msgstr "Instalación tarda ca. 20 minutos, dependiendo del equipo.."
 
 #~ msgid ""
@@ -2188,7 +2657,8 @@ msgstr ""
 #~ "<font size=\"+2\">Keyboard Setup</font>\n"
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
-#~ "Here you can select the type of your keyboard and the language map you want to use. You can test your selection's result in the test box. \n"
+#~ "Here you can select the type of your keyboard and the language map you "
+#~ "want to use. You can test your selection's result in the test box. \n"
 #~ "Proceed with the installation after you make your selections.\n"
 #~ "</p>\n"
 #~ "</font>\n"
@@ -2197,7 +2667,9 @@ msgstr ""
 #~ "<font size=\"+2\">Configuración de teclado</font>\n"
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
-#~ "Aqui puede seleccionar el tipo de teclado y la localización que desea utilizar. Puede comprobar el resultado de su selección en la caja de texto. \n"
+#~ "Aqui puede seleccionar el tipo de teclado y la localización que desea "
+#~ "utilizar. Puede comprobar el resultado de su selección en la caja de "
+#~ "texto. \n"
 #~ "Continúe con la instalación luego de establecer su elección.\n"
 #~ "</p>\n"
 #~ "</font>\n"
@@ -2213,10 +2685,13 @@ msgstr ""
 #~ "You can install Pardus if you have an unpartitioned-unused disk space \n"
 #~ "of 4GBs (10 GBs recommended) or an unused-unpartitioned disk. \n"
 #~ "The disk area or partition selected for installation will automatically \n"
-#~ "be formatted. Therefore, it is advised to backup your data to avoid future problems.\n"
+#~ "be formatted. Therefore, it is advised to backup your data to avoid "
+#~ "future problems.\n"
 #~ "</p>\n"
-#~ "<p>Auto-partitioning will automatically format the select disk part/partition \n"
-#~ "and install Pardus 2011. If you like, you can do the partitioning manually or make \n"
+#~ "<p>Auto-partitioning will automatically format the select disk part/"
+#~ "partition \n"
+#~ "and install Pardus 2011. If you like, you can do the partitioning "
+#~ "manually or make \n"
 #~ "Pardus 2011 create a new partition for installation.</p>\n"
 #~ "<p>\n"
 #~ "Please refer to Pardus Installing and Using Guide for more information\n"
@@ -2231,21 +2706,30 @@ msgstr ""
 #~ "<p>\n"
 #~ "Puede instalar Pardus si dispone de un espacio libre en disco\n"
 #~ " de 4GB (10GB recomendado)o una partición entera vacía.\n"
-#~ "El área o la partición seleccionada para la instalación se va a formatear. \n"
-#~ "Le recomendamos realizar una copia de seguridad para prevenir pérdida de los datos.\n"
+#~ "El área o la partición seleccionada para la instalación se va a "
+#~ "formatear. \n"
+#~ "Le recomendamos realizar una copia de seguridad para prevenir pérdida de "
+#~ "los datos.\n"
 #~ "</p>\n"
 #~ "<p>\n"
-#~ "El particionamiento automático formateará el disco o la partición seleccionada e instalará Pardus 2011. \n"
-#~ "Si lo prefiere, puede realizar el particionamiento manualmente o solicitar que\n"
-#~ " Pardus 2011 crea automáticamente una nueva partición para la instalación.</p>\n"
+#~ "El particionamiento automático formateará el disco o la partición "
+#~ "seleccionada e instalará Pardus 2011. \n"
+#~ "Si lo prefiere, puede realizar el particionamiento manualmente o "
+#~ "solicitar que\n"
+#~ " Pardus 2011 crea automáticamente una nueva partición para la instalación."
+#~ "</p>\n"
 #~ "<p>\n"
 #~ "Favor consulte la guía de instalación de pardus por más información\n"
 #~ "acerca de particionamiento de disco.\n"
 #~ "</p>\n"
 #~ "</font>\n"
 
-#~ msgid "It seems that you don't have the required disk space (min. %s) for Pardus installation."
-#~ msgstr "Parece que no dispone de suficiente espacio en disco (min. %s) para la instalación de Pardus."
+#~ msgid ""
+#~ "It seems that you don't have the required disk space (min. %s) for Pardus "
+#~ "installation."
+#~ msgstr ""
+#~ "Parece que no dispone de suficiente espacio en disco (min. %s) para la "
+#~ "instalación de Pardus."
 
 #~ msgid "You can easily configure your partitions..."
 #~ msgstr "Puede configurar sus particiones de manera sencilla..."
@@ -2258,9 +2742,11 @@ msgstr ""
 #~ "In this screen, you can manually partition your disk. You can select \n"
 #~ "existing partitions and resize or delete them. You can create new \n"
 #~ "partition(s) in the empty parts, make Pardus use them for system files, \n"
-#~ "users' home directories, swap space or general use. The changes that you \n"
+#~ "users' home directories, swap space or general use. The changes that "
+#~ "you \n"
 #~ "make will not be applied until you go on with the installation, \n"
-#~ "which means you can revert if you make any unwanted changes or change your configuration.\n"
+#~ "which means you can revert if you make any unwanted changes or change "
+#~ "your configuration.\n"
 #~ "</p>\n"
 #~ "<p>\n"
 #~ "Please refer to Pardus Installing and Using Guide for more information\n"
@@ -2273,14 +2759,19 @@ msgstr ""
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
 #~ "En esta pantalla puede particionar manualmente su disco. Puede \n"
-#~ "seleccionar particiones ya existentes y redimensionar o eliminarlas. Puede \n"
-#~ "crear particiones nuevas en espacios vacíos, y puede indicar para que Pardus los use, \n"
-#~ "para archivos del sistema, directorios home de los usuarios, espacio swap o para datos en general. Los cambios, que realiza aqui, \n"
+#~ "seleccionar particiones ya existentes y redimensionar o eliminarlas. "
+#~ "Puede \n"
+#~ "crear particiones nuevas en espacios vacíos, y puede indicar para que "
+#~ "Pardus los use, \n"
+#~ "para archivos del sistema, directorios home de los usuarios, espacio swap "
+#~ "o para datos en general. Los cambios, que realiza aqui, \n"
 #~ "se aplicarán recién cuando continúa con la instalación, \n"
-#~ "quiere decir que todavia puede deshacer cambios si realizó una configuración no deseada.\n"
+#~ "quiere decir que todavia puede deshacer cambios si realizó una "
+#~ "configuración no deseada.\n"
 #~ "</p>\n"
 #~ "<p>\n"
-#~ "Favor consulte la guía de instalación y uso por más información sobre particionamiento de disco.\n"
+#~ "Favor consulte la guía de instalación y uso por más información sobre "
+#~ "particionamiento de disco.\n"
 #~ "</p>\n"
 #~ "</font>\n"
 
@@ -2297,7 +2788,8 @@ msgstr ""
 #~ msgstr ""
 #~ "\n"
 #~ "<font size=\"+2\">Modo de Rescate</font>\n"
-#~ "<font size=\"+1\"><p>Presione <b>siguiente</b> para reiniciar sistema !</p></font>\n"
+#~ "<font size=\"+1\"><p>Presione <b>siguiente</b> para reiniciar sistema !</"
+#~ "p></font>\n"
 
 #~ msgid "Rescue Mode for Bootlooader"
 #~ msgstr "Modo de rescate del cargador de arranque"
@@ -2344,8 +2836,12 @@ msgstr ""
 #~ msgid "There is no connection"
 #~ msgstr "No hay conexión"
 
-#~ msgid "You can reinstall your Grub or you can take back your system by using Pisi History..."
-#~ msgstr "Puede reinstalar Grub o puede volver atrás al sistema usando el registro histórico de Pisi..."
+#~ msgid ""
+#~ "You can reinstall your Grub or you can take back your system by using "
+#~ "Pisi History..."
+#~ msgstr ""
+#~ "Puede reinstalar Grub o puede volver atrás al sistema usando el registro "
+#~ "histórico de Pisi..."
 
 #~ msgid ""
 #~ "\n"
@@ -2375,27 +2871,42 @@ msgstr ""
 #~ "<font size=\"+2\">Resumen de Instalación</font>\n"
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
-#~ "Aquí puede ver las opciones establecidos para la instalación, para que las pueda verificar antes de iniciar el proceso de la instalación.\n"
+#~ "Aquí puede ver las opciones establecidos para la instalación, para que "
+#~ "las pueda verificar antes de iniciar el proceso de la instalación.\n"
 #~ "</p>\n"
 #~ "</font>\n"
 
 #~ msgid "<b><p>This action will reboot your system.</p></b>"
 #~ msgstr "<b><p>Esta acción reiniciará su sistema.</p></b>"
 
-#~ msgid "Partition <b>%(partition)s</b> <b>added</b> to device <b>%(device)s</b> with <b>%(size)s MBs</b> as <b>%(fs)s</b>."
-#~ msgstr "Partición <b>%(partition)s</b> <b>agregada</b> a dispositivo <b>%(device)s</b> de <b>%(size)s MB</b> como <b>%(fs)s</b>."
+#~ msgid ""
+#~ "Partition <b>%(partition)s</b> <b>added</b> to device <b>%(device)s</b> "
+#~ "with <b>%(size)s MBs</b> as <b>%(fs)s</b>."
+#~ msgstr ""
+#~ "Partición <b>%(partition)s</b> <b>agregada</b> a dispositivo <b>%(device)"
+#~ "s</b> de <b>%(size)s MB</b> como <b>%(fs)s</b>."
 
 #~ msgid "Automatic Partitioning (resize method) selected."
 #~ msgstr "Particionamiento automático (método redimensionar)."
 
-#~ msgid "Partition <b>%(partition)s - %(currentFs)s</b> <b>resized</b> to <b>%(resizeTo)s MBs</b>, previous size was <b>%(currentSize)s MBs</b>."
-#~ msgstr "Partición <b>%(partition)s - %(currentFs)s</b> <b>redimensionada</b> a <b>%(resizeTo)s MB</b>, tamaño anterior era <b>%(currentSize)s MB</b>"
+#~ msgid ""
+#~ "Partition <b>%(partition)s - %(currentFs)s</b> <b>resized</b> to <b>"
+#~ "%(resizeTo)s MBs</b>, previous size was <b>%(currentSize)s MBs</b>."
+#~ msgstr ""
+#~ "Partición <b>%(partition)s - %(currentFs)s</b> <b>redimensionada</b> a <b>"
+#~ "%(resizeTo)s MB</b>, tamaño anterior era <b>%(currentSize)s MB</b>"
 
-#~ msgid "Partition <b>%(newPartition)s</b> <b>added</b> to device <b>%(device)s</b> with <b>%(size)s MBs</b> as <b>%(fs)s</b>."
-#~ msgstr "Partición <b>%(newPartition)s</b> <b>agregada</b> a dispositivo <b>%(device)s</b> con <b>%(size)s MB</b> como <b>%(fs)s</b>."
+#~ msgid ""
+#~ "Partition <b>%(newPartition)s</b> <b>added</b> to device <b>%(device)s</"
+#~ "b> with <b>%(size)s MBs</b> as <b>%(fs)s</b>."
+#~ msgstr ""
+#~ "Partición <b>%(newPartition)s</b> <b>agregada</b> a dispositivo <b>"
+#~ "%(device)s</b> con <b>%(size)s MB</b> como <b>%(fs)s</b>."
 
-#~ msgid "Partition <b>%(newPartition)s</b> <b>selected</b> as <b>%(type)s</b>."
-#~ msgstr "Partición <b>%(newPartition)s</b> <b>se usará</b> para <b>%(type)s</b>."
+#~ msgid ""
+#~ "Partition <b>%(newPartition)s</b> <b>selected</b> as <b>%(type)s</b>."
+#~ msgstr ""
+#~ "Partición <b>%(newPartition)s</b> <b>se usará</b> para <b>%(type)s</b>."
 
 #~ msgid "Real Time Kernel selected"
 #~ msgstr "Real Time Kernel"
@@ -2404,15 +2915,23 @@ msgstr ""
 #~ msgstr "Antes de comenzar la instalación"
 
 #~ msgid ""
-#~ "<p><b><u>Warning</u></b>: There is a resizing operation and it may corrupt your partition,<br>\n"
-#~ "                                        rendering your data unreachable.<br>\n"
-#~ "                                        Make sure that you have a backup for this partition.<br>\n"
-#~ "                                        <b>Note that this operation cannot be undone.</b></p>"
+#~ "<p><b><u>Warning</u></b>: There is a resizing operation and it may "
+#~ "corrupt your partition,<br>\n"
+#~ "                                        rendering your data unreachable."
+#~ "<br>\n"
+#~ "                                        Make sure that you have a backup "
+#~ "for this partition.<br>\n"
+#~ "                                        <b>Note that this operation "
+#~ "cannot be undone.</b></p>"
 #~ msgstr ""
-#~ "<p><b><u>Alerta</u></b>: Está a punto de iniciar una tarea de redimensionamiento de partición,<br>\n"
-#~ "                      Esta operación podría dejar inaccesible sus datos. <br>\n"
-#~ "                                        Asegúrese que tenga una copia de seguridad para esta partición.<br>\n"
-#~ "                                        <b>Tenga en cuenta que esta operación no se puede deshacer !</b></p>"
+#~ "<p><b><u>Alerta</u></b>: Está a punto de iniciar una tarea de "
+#~ "redimensionamiento de partición,<br>\n"
+#~ "                      Esta operación podría dejar inaccesible sus datos. "
+#~ "<br>\n"
+#~ "                                        Asegúrese que tenga una copia de "
+#~ "seguridad para esta partición.<br>\n"
+#~ "                                        <b>Tenga en cuenta que esta "
+#~ "operación no se puede deshacer !</b></p>"
 
 #~ msgid "Writing disk tables..."
 #~ msgstr "Guardando tablas de particiones..."
@@ -2433,13 +2952,16 @@ msgstr ""
 #~ "<p>\n"
 #~ "Pardus 2011 allows multiple users to share the same computer.\n"
 #~ "You can assign management rights to the users you create; you can also\n"
-#~ "configure permissions to users for various operations through User Manager.\n"
+#~ "configure permissions to users for various operations through User "
+#~ "Manager.\n"
 #~ "</p>\n"
 #~ "<p>\n"
-#~ "To create a new user, fill in the form and press the \"Create User\" button.\n"
+#~ "To create a new user, fill in the form and press the \"Create User\" "
+#~ "button.\n"
 #~ "If you want a user to be automatically logged in to the system, select\n"
 #~ "the user from the list; if you want to delete a user, \n"
-#~ "select his/her username from the list and press \"Delete Selected User\".\n"
+#~ "select his/her username from the list and press \"Delete Selected User"
+#~ "\".\n"
 #~ "Proceed with the installation after you make your selections.\n"
 #~ "</p>\n"
 #~ "<p>\n"
@@ -2451,13 +2973,17 @@ msgstr ""
 #~ "<font size=\"+2\">Configuración de Usuarios</font>\n"
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
-#~ "Pardus 2011 permite compartir la misma computadora entre varios usuarios.\n"
+#~ "Pardus 2011 permite compartir la misma computadora entre varios "
+#~ "usuarios.\n"
 #~ "Puede conceder derechos de administración del sistema; También puede\n"
-#~ "configurar permisos para determinadas operaciones en el Administrador de Usuarios.\n"
+#~ "configurar permisos para determinadas operaciones en el Administrador de "
+#~ "Usuarios.\n"
 #~ "</p>\n"
 #~ "<p>\n"
-#~ "Para crear un usuario nuevo, complete los datos del formulario y presione \"Agregar Usuario\".\n"
-#~ "Si desea que el sistema arranque automáticamente con un usuario determinado, seleccione\n"
+#~ "Para crear un usuario nuevo, complete los datos del formulario y presione "
+#~ "\"Agregar Usuario\".\n"
+#~ "Si desea que el sistema arranque automáticamente con un usuario "
+#~ "determinado, seleccione\n"
 #~ "al usuario de la lista; Si desea eliminar un usuario, \n"
 #~ "seleccione su nombre en la lista y presione \"Eliminar\".\n"
 #~ "</p>\n"
@@ -2475,16 +3001,31 @@ msgstr ""
 #~ msgid ""
 #~ "\n"
 #~ "<font size=\"+2\">Welcome !</font>\n"
-#~ "<font size=\"+1\"><p>Welcome to Pardus 2011 that contains many easy-to-use software components. You can do everything you need to, including, but not limited to, connecting to the Internet, creating documents, playing games, listening to music using Pardus 2011.</p>\n"
-#~ "<p>This application will help you with the installation of Pardus 2011 to your computer in few and easy steps and then do what is necessary to identify and configure your hardware. We advise you to backup your data in your disk(s) before starting with the installation.</p>\n"
-#~ "<p>You can start the installation process (and step in on a free world) by pressing the Next button.</p>\n"
+#~ "<font size=\"+1\"><p>Welcome to Pardus 2011 that contains many easy-to-"
+#~ "use software components. You can do everything you need to, including, "
+#~ "but not limited to, connecting to the Internet, creating documents, "
+#~ "playing games, listening to music using Pardus 2011.</p>\n"
+#~ "<p>This application will help you with the installation of Pardus 2011 to "
+#~ "your computer in few and easy steps and then do what is necessary to "
+#~ "identify and configure your hardware. We advise you to backup your data "
+#~ "in your disk(s) before starting with the installation.</p>\n"
+#~ "<p>You can start the installation process (and step in on a free world) "
+#~ "by pressing the Next button.</p>\n"
 #~ "</font>\n"
 #~ msgstr ""
 #~ "\n"
 #~ "<font size=\"+2\">Bienvenido !</font>\n"
-#~ "<font size=\"+1\"><p>Bienvenido a Pardus 2011 que le ofrece muchos componentes de software fáciles de usar. Puede realizar con Pardus 2011 todo tipo de tarea, como por ejemplo conectarse a Internet, crear documentos, jugar, escuchar musica.</p>\n"
-#~ "<p>Éste asistente le guiará durante la instalación de Pardus 2011 en su computadora en algunos pocos y sencillos pasos para luego proceder automáticamente con la detección y configuración de su hardware. Le recomendamos realizar copias de respaldo de sus datos antes de iniciar la instalación.</p>\n"
-#~ "<p>Puede iniciar el proceso de instalación (y hacer un paso al mundo de la libertad) presionando el botón Siguiente.</p>\n"
+#~ "<font size=\"+1\"><p>Bienvenido a Pardus 2011 que le ofrece muchos "
+#~ "componentes de software fáciles de usar. Puede realizar con Pardus 2011 "
+#~ "todo tipo de tarea, como por ejemplo conectarse a Internet, crear "
+#~ "documentos, jugar, escuchar musica.</p>\n"
+#~ "<p>Éste asistente le guiará durante la instalación de Pardus 2011 en su "
+#~ "computadora en algunos pocos y sencillos pasos para luego proceder "
+#~ "automáticamente con la detección y configuración de su hardware. Le "
+#~ "recomendamos realizar copias de respaldo de sus datos antes de iniciar la "
+#~ "instalación.</p>\n"
+#~ "<p>Puede iniciar el proceso de instalación (y hacer un paso al mundo de "
+#~ "la libertad) presionando el botón Siguiente.</p>\n"
 #~ "</font>\n"
 
 #~ msgid "Show Help"
@@ -2496,14 +3037,22 @@ msgstr ""
 #~ msgid "Windows"
 #~ msgstr "Windows"
 
-#~ msgid "FSCheck found some problems on partition %s and fixed them.                                      You should restart the machine before starting the installation process !"
-#~ msgstr "FSCheck encontró algunos problemas en partición %s y los arregló.                                 Es recomendable reiniciar la computadora antes de continuar el proceso de instalación !"
+#~ msgid ""
+#~ "FSCheck found some problems on partition %s and fixed "
+#~ "them.                                      You should restart the machine "
+#~ "before starting the installation process !"
+#~ msgstr ""
+#~ "FSCheck encontró algunos problemas en partición %s y los "
+#~ "arregló.                                 Es recomendable reiniciar la "
+#~ "computadora antes de continuar el proceso de instalación !"
 
 #~ msgid "FSCheck failed on %s"
 #~ msgstr "FSCheck fallado en %s"
 
 #~ msgid "Partition is not ready for resizing. Check it before installation."
-#~ msgstr "No posible redimensionar la partición. Favor verifiquela antes de la instalación."
+#~ msgstr ""
+#~ "No posible redimensionar la partición. Favor verifiquela antes de la "
+#~ "instalación."
 
 #~ msgid ""
 #~ "The filesystem of '%s' partition is NTFS, and this partition \n"
@@ -2522,8 +3071,12 @@ msgstr ""
 #~ msgid "Backtrace:"
 #~ msgstr "Trazo inverso:"
 
-#~ msgid "Plugin (%s) not found or error occurred while loading. Switching to normal installation process."
-#~ msgstr "Error durante la carga del módulo (%s). Cambiando al proceso de instalación normal."
+#~ msgid ""
+#~ "Plugin (%s) not found or error occurred while loading. Switching to "
+#~ "normal installation process."
+#~ msgstr ""
+#~ "Error durante la carga del módulo (%s). Cambiando al proceso de "
+#~ "instalación normal."
 
 #~ msgid "YALI Is Working..."
 #~ msgstr "YALI trabajando..."
@@ -2537,8 +3090,14 @@ msgstr ""
 #~ msgid "Check Failed"
 #~ msgstr "Verificación fallada"
 
-#~ msgid "<b><p>Integrity check for packages failed.                                  It seems that installation CD is broken.</p></b>"
-#~ msgstr "<b><p>Verificación de integridad de paquetes falló.                                   Aparentemente el CD de instalación está defectuoso.</p></b>"
+#~ msgid ""
+#~ "<b><p>Integrity check for packages "
+#~ "failed.                                  It seems that installation CD is "
+#~ "broken.</p></b>"
+#~ msgstr ""
+#~ "<b><p>Verificación de integridad de paquetes "
+#~ "falló.                                   Aparentemente el CD de "
+#~ "instalación está defectuoso.</p></b>"
 
 #~ msgid "Disk analyze started.."
 #~ msgstr "Analisis de disco iniciado.."
@@ -2589,7 +3148,14 @@ msgstr ""
 #~ msgstr "Preparando directorio home de usuario <b>%s</b>.."
 
 #~ msgid "Not enough free space on %s to create new partition"
-#~ msgstr "No hay suficiente espacio libre en %s para crear una partición nueva"
+#~ msgstr ""
+#~ "No hay suficiente espacio libre en %s para crear una partición nueva"
 
-#~ msgid "Pardus 2011 also includes other components updated with KDE 4.2. If you have used Pardus before, you may want to check out the welcome tour to see what those changes are."
-#~ msgstr "Pardus 2011 también incluye más componentes actualizados al KDE 4.2. Si anteriormente ya era usuario de Pardus puede tomar un paseo de bienvenida para ver los cambios."
+#~ msgid ""
+#~ "Pardus 2011 also includes other components updated with KDE 4.2. If you "
+#~ "have used Pardus before, you may want to check out the welcome tour to "
+#~ "see what those changes are."
+#~ msgstr ""
+#~ "Pardus 2011 también incluye más componentes actualizados al KDE 4.2. Si "
+#~ "anteriormente ya era usuario de Pardus puede tomar un paseo de bienvenida "
+#~ "para ver los cambios."

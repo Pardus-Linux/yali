@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sv\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-14 22:42+0200\n"
+"POT-Creation-Date: 2010-11-24 09:31+0200\n"
 "PO-Revision-Date: 2010-01-28 17:46+0100\n"
 "Last-Translator: Patrik Karlsson <patrik@pardus.nu>\n"
 "Language-Team: Swedish <pardus-translators@pardus.org.tr>\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: yali/gui/interface.py:41 yali/gui/interface.py:123
 #: yali/gui/ScrCheckCD.py:92 yali/gui/ScrInstall.py:139
-#: yali/gui/ScrPartitionAuto.py:43 yali/gui/ScrPartitionManual.py:137
+#: yali/gui/ScrPartitionAuto.py:44 yali/gui/ScrPartitionManual.py:137
 #: yali/gui/YaliWindow.py:175 yali/gui/YaliWindow.py:180
 #: yali/gui/YaliWindow.py:185
 msgid "Warning"
@@ -30,7 +30,7 @@ msgstr "Varning"
 #, python-format
 msgid ""
 "Disk contains %(members_count)s BIOS RAID metadata, but is not part of any "
-"recognized BIOS RAID sets. Ignoring disk %(members)s.)"
+"recognized BIOS RAID sets. Ignoring disk %(members)s."
 msgstr ""
 
 #: yali/gui/interface.py:66 yali/gui/raid_gui.py:122
@@ -343,12 +343,12 @@ msgstr ""
 msgid "Edit RAID Device"
 msgstr ""
 
-#: yali/gui/runner.py:105
+#: yali/gui/runner.py:110
 #, fuzzy
 msgid "Error!"
 msgstr "Fel!"
 
-#: yali/gui/runner.py:106
+#: yali/gui/runner.py:111
 #, python-format
 msgid ""
 "An error occurred when attempting to load an installer interface component.\n"
@@ -356,40 +356,40 @@ msgid ""
 "className = %s.Widget"
 msgstr ""
 
-#: yali/gui/runner.py:110
+#: yali/gui/runner.py:115
 msgid "Exit"
 msgstr ""
 
-#: yali/gui/runner.py:110
+#: yali/gui/runner.py:115
 msgid "Retry"
 msgstr "Försök igen"
 
-#: yali/gui/ScrAdmin.py:121 yali/gui/ScrRescuePassword.py:96
+#: yali/gui/ScrAdmin.py:129 yali/gui/ScrRescuePassword.py:96
 #, fuzzy
 msgid "Password is too short."
 msgstr "Lösenordet är för kort!"
 
-#: yali/gui/ScrAdmin.py:124 yali/gui/ScrUsers.py:214
+#: yali/gui/ScrAdmin.py:132 yali/gui/ScrUsers.py:222
 #, fuzzy
 msgid "Don't use invalid characters"
 msgstr "Värddatornamnet innehåller ogiltiga tecken!"
 
-#: yali/gui/ScrAdmin.py:131
+#: yali/gui/ScrAdmin.py:139
 #, fuzzy
 msgid "Passwords do not match."
 msgstr "Lösenorden stämmer inte!"
 
-#: yali/gui/ScrAdmin.py:136
+#: yali/gui/ScrAdmin.py:144
 #, fuzzy
 msgid "Do not use your username as your password."
 msgstr "Använd inte ditt användarnamn som lösenord."
 
-#: yali/gui/ScrAdmin.py:146
+#: yali/gui/ScrAdmin.py:154
 #, fuzzy
 msgid "Hostname cannot be longer than 64 characters."
 msgstr "Värddatornamnet innehåller ogiltiga tecken!"
 
-#: yali/gui/ScrAdmin.py:159
+#: yali/gui/ScrAdmin.py:167
 #, fuzzy
 msgid "Hostname contains invalid characters."
 msgstr "Värddatornamnet innehåller ogiltiga tecken!"
@@ -436,7 +436,7 @@ msgstr ""
 "<font color=\"#FFF\"><b>Kontrollen lyckades. Du kan fortsätta till nästa "
 "steg.</b></font>"
 
-#: yali/gui/ScrDateTime.py:90
+#: yali/gui/ScrDateTime.py:89
 #, fuzzy
 msgid "Adjusting time settings"
 msgstr "Sparar tidsinställningar..."
@@ -456,7 +456,7 @@ msgid "Press <b>Restart</b> to restart the computer."
 msgstr "Klicka på knappen <b>Starta om</b> för att starta om datorn."
 
 #: yali/gui/ScrGoodbye.py:53 yali/gui/ScrRescueFinish.py:78
-#: yali/gui/ScrSummary.py:45
+#: yali/gui/ScrSummary.py:46
 msgid "Restart"
 msgstr ""
 
@@ -502,25 +502,30 @@ msgstr "Kopierar Pisiindex..."
 
 #: yali/gui/ScrGoodbye.py:79
 #, fuzzy
+msgid "Stopping to D-Bus..."
+msgstr "Startar D-Bus..."
+
+#: yali/gui/ScrGoodbye.py:83
+#, fuzzy
 msgid "Setup bootloader..."
 msgstr "Du kan laga din uppstartshanterare..."
 
-#: yali/gui/ScrGoodbye.py:80
+#: yali/gui/ScrGoodbye.py:84
 #, fuzzy
 msgid "Writing bootloader..."
 msgstr "Installerar starthanteraren..."
 
-#: yali/gui/ScrGoodbye.py:81
+#: yali/gui/ScrGoodbye.py:85
 #, fuzzy
-msgid "Stopping to D-Bus..."
-msgstr "Startar D-Bus..."
-
-#: yali/gui/ScrGoodbye.py:85 yali/gui/ScrRescueFinish.py:55
-#, fuzzy
-msgid "Installing Bootloader..."
+msgid "Installing bootloader..."
 msgstr "Installerar starthanteraren..."
 
 #: yali/gui/ScrGoodbye.py:88
+#, fuzzy
+msgid "Setup First-Boot..."
+msgstr "Du kan laga din uppstartshanterare..."
+
+#: yali/gui/ScrGoodbye.py:91
 #, fuzzy
 msgid "Adding users..."
 msgstr "Lägger till användare..."
@@ -568,10 +573,15 @@ msgstr ""
 msgid "No storage device found."
 msgstr ""
 
-#: yali/gui/ScrPartitionAuto.py:44
+#: yali/gui/ScrLicense.py:77
+msgid "License text could not be found."
+msgstr ""
+
+#: yali/gui/ScrPartitionAuto.py:45
+#, python-format
 msgid ""
-"No partitions are available to resize.Only physical\n"
-"partitions with specific filesystems can be resized."
+"No partitions are available to resize. Only physical\n"
+"partitions which size is greater than %s MB can be resized."
 msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:93
@@ -755,6 +765,11 @@ msgid ""
 "%s"
 msgstr ""
 
+#: yali/gui/ScrRescueFinish.py:55
+#, fuzzy
+msgid "Installing Bootloader..."
+msgstr "Installerar starthanteraren..."
+
 #: yali/gui/ScrRescueFinish.py:58
 #, fuzzy
 msgid "Taking back operation..."
@@ -859,92 +874,92 @@ msgstr "Yali kunde inte hitta en lämplig partition på ditt system"
 msgid "Please select a disk partition from the list below:"
 msgstr "Välj en partition ur listan"
 
-#: yali/gui/ScrSummary.py:46
+#: yali/gui/ScrSummary.py:47
 msgid "<b><p>Are you sure you want to restart the computer?</p></b>"
 msgstr ""
 
-#: yali/gui/ScrSummary.py:57 yali/gui/ScrSummary.py:212
+#: yali/gui/ScrSummary.py:58 yali/gui/ScrSummary.py:214
 msgid "Next"
 msgstr "Nästa"
 
-#: yali/gui/ScrSummary.py:64
+#: yali/gui/ScrSummary.py:66
 #, fuzzy, python-format
 msgid "Installation starts in <b>%s</b> seconds"
 msgstr "Installationen startar om <b>%s sekunder</b>"
 
-#: yali/gui/ScrSummary.py:71
+#: yali/gui/ScrSummary.py:73
 #, fuzzy
 msgid "Start Installation"
 msgstr "Automatisk installation"
 
-#: yali/gui/ScrSummary.py:89
+#: yali/gui/ScrSummary.py:91
 msgid "Keyboard Settings"
 msgstr "Tangentbordsinställningar"
 
-#: yali/gui/ScrSummary.py:91
+#: yali/gui/ScrSummary.py:93
 #, python-format
 msgid "Selected keyboard layout is <b>%s</b>"
 msgstr "Vald tangentbordslayout: <b>%s</b>"
 
-#: yali/gui/ScrSummary.py:97
+#: yali/gui/ScrSummary.py:99
 msgid "Date/Time Settings"
 msgstr "Datum- och tidsinställningar"
 
-#: yali/gui/ScrSummary.py:99
+#: yali/gui/ScrSummary.py:101
 #, python-format
 msgid "Selected TimeZone is <b>%s</b>"
 msgstr "Vald tidszon: <b>%s</b>"
 
-#: yali/gui/ScrSummary.py:105
+#: yali/gui/ScrSummary.py:107
 msgid "User Settings"
 msgstr "Användare"
 
-#: yali/gui/ScrSummary.py:107
+#: yali/gui/ScrSummary.py:109
 #, fuzzy, python-format
 msgid "User %(username)s (<b>%(realname)s</b>) added."
 msgstr "Användare %s (<b>%s</b>) tillagd."
 
-#: yali/gui/ScrSummary.py:109
+#: yali/gui/ScrSummary.py:111
 #, fuzzy, python-format
 msgid ""
 "User %(username)s (<b>%(realname)s</b>) added with <u>administrator "
 "privileges</u>."
 msgstr "Användare %s (<b>%s</b>) tillagd med <u>administratörsrättigheter</u>."
 
-#: yali/gui/ScrSummary.py:115
+#: yali/gui/ScrSummary.py:117
 msgid "Hostname Settings"
 msgstr "Värdnamn"
 
-#: yali/gui/ScrSummary.py:117
+#: yali/gui/ScrSummary.py:119
 #, python-format
 msgid "Hostname is set as <b>%s</b>"
 msgstr "Värdnamnet är satt till <b>%s</b>"
 
-#: yali/gui/ScrSummary.py:123
+#: yali/gui/ScrSummary.py:125
 msgid "Partition Settings"
 msgstr "Partitionering"
 
-#: yali/gui/ScrSummary.py:130
+#: yali/gui/ScrSummary.py:132
 msgid "Automatic Partitioning selected."
 msgstr "Automatisk partitionering vald."
 
-#: yali/gui/ScrSummary.py:132
+#: yali/gui/ScrSummary.py:134
 #, fuzzy
 msgid "Use All Space"
 msgstr "Ledigt utrymme"
 
-#: yali/gui/ScrSummary.py:133
+#: yali/gui/ScrSummary.py:135
 #, python-format
 msgid ""
-"Removes all partitions on the selected%s device(s). This includes partitions "
-"created by other operating systems."
+"Removes all partitions on the selected %s device(s). This includes "
+"partitions created by other operating systems."
 msgstr ""
 
-#: yali/gui/ScrSummary.py:137
+#: yali/gui/ScrSummary.py:139
 msgid "Replace Existing Linux System(s)"
 msgstr ""
 
-#: yali/gui/ScrSummary.py:138
+#: yali/gui/ScrSummary.py:140
 #, python-format
 msgid ""
 "Removes all Linux partitions on the selected%s device(s). This does not "
@@ -952,12 +967,12 @@ msgid ""
 "or FAT32)"
 msgstr ""
 
-#: yali/gui/ScrSummary.py:143
+#: yali/gui/ScrSummary.py:145
 #, fuzzy
 msgid "Use Free Space"
 msgstr "Ledigt utrymme"
 
-#: yali/gui/ScrSummary.py:144
+#: yali/gui/ScrSummary.py:146
 #, python-format
 msgid ""
 "Retains your current data and partitions and uses only the unpartitioned "
@@ -965,115 +980,111 @@ msgid ""
 "available."
 msgstr ""
 
-#: yali/gui/ScrSummary.py:150
+#: yali/gui/ScrSummary.py:152
 msgid "Manual Partitioning selected."
 msgstr "Manuell partitionering vald."
 
-#: yali/gui/ScrSummary.py:158
+#: yali/gui/ScrSummary.py:160
 msgid "Bootloader Settings"
 msgstr "Starthanterarens inställningar"
 
-#: yali/gui/ScrSummary.py:159
+#: yali/gui/ScrSummary.py:161
 #, python-format
 msgid "GRUB will be installed to <b>%s</b>."
 msgstr "GRUB kommer att installeras på <b>%s</b>."
 
-#: yali/gui/ScrSummary.py:161
+#: yali/gui/ScrSummary.py:163
 msgid "GRUB will not be installed."
 msgstr "GRUB kommer inte att installeras."
 
-#: yali/gui/ScrSummary.py:168
+#: yali/gui/ScrSummary.py:170
 msgid "Package Installation Settings"
 msgstr "Paketinstallationsinställningar"
 
-#: yali/gui/ScrSummary.py:170
+#: yali/gui/ScrSummary.py:172
 #, fuzzy
 msgid "Auto installation selected."
 msgstr "Automatisk installationssamling vald"
 
-#: yali/gui/ScrSummary.py:172
+#: yali/gui/ScrSummary.py:174
 #, fuzzy, python-format
 msgid "Manual Installation ( %s ) selected"
 msgstr "Manuell installation %s -samling vald"
 
-#: yali/gui/ScrSummary.py:176
+#: yali/gui/ScrSummary.py:178
 msgid "Default Kernel selected"
 msgstr "Förvald kärna vald"
 
-#: yali/gui/ScrSummary.py:178
+#: yali/gui/ScrSummary.py:180
 msgid "PAE Kernel selected"
 msgstr "PAE-kärna vald"
 
-#: yali/gui/ScrSummary.py:195
+#: yali/gui/ScrSummary.py:197
 msgid "Confirm"
 msgstr ""
 
-#: yali/gui/ScrSummary.py:196
+#: yali/gui/ScrSummary.py:198
 msgid ""
 "The partitioning options you have selected will now be\n"
 "written to disk.  Any data on deleted or reformatted partitions\n"
 "will be lost."
 msgstr ""
 
-#: yali/gui/ScrSummary.py:201
+#: yali/gui/ScrSummary.py:203
 msgid "Write Changes to Disk"
 msgstr ""
 
-#: yali/gui/ScrSummary.py:201
+#: yali/gui/ScrSummary.py:203
 #, fuzzy
 msgid "Go Back"
 msgstr "Bakåt"
 
-#: yali/gui/ScrUsers.py:129 yali/gui/ScrUsers.py:353
+#: yali/gui/ScrUsers.py:129 yali/gui/ScrUsers.py:362
 #, fuzzy
 msgid "Update"
 msgstr "Uppdatera användare"
 
-#: yali/gui/ScrUsers.py:205
+#: yali/gui/ScrUsers.py:213
 #, fuzzy
 msgid "Don't use your user name or name as a password"
 msgstr "Använd inte ditt namn eller användarnamn som lösenord."
 
-#: yali/gui/ScrUsers.py:208
+#: yali/gui/ScrUsers.py:216
 #, fuzzy
 msgid "Passwords do not match"
 msgstr "Lösenorden stämmer inte!"
 
-#: yali/gui/ScrUsers.py:211
+#: yali/gui/ScrUsers.py:219
 #, fuzzy
 msgid "Password is too short"
 msgstr "Lösenordet är för kort!"
 
-#: yali/gui/ScrUsers.py:258
+#: yali/gui/ScrUsers.py:267
 #, fuzzy
 msgid "This user name is already taken, please choose another one."
 msgstr "Användarnamnet finns redan, välj ett annat!"
 
-#: yali/gui/ScrUsers.py:262
+#: yali/gui/ScrUsers.py:271
 #, fuzzy
 msgid "The user name contains invalid characters."
 msgstr "Användarnamnet innehåller ogiltiga tecken!"
 
-#: yali/gui/ScrUsers.py:265
+#: yali/gui/ScrUsers.py:274
 #, fuzzy
 msgid "The real name contains invalid characters."
 msgstr "Det verkliga namnet innehåller ogiltiga tecken!"
 
-#: yali/gui/ScrUsers.py:268
+#: yali/gui/ScrUsers.py:277
 #, fuzzy
 msgid "The password contains invalid characters."
 msgstr "Användarnamnet innehåller ogiltiga tecken!"
 
-#: yali/gui/ScrUsers.py:276
+#: yali/gui/ScrUsers.py:285
 msgid "User ID used before, choose another one!"
 msgstr "Användarid upptaget, välj ett annat!"
 
-#: yali/gui/ScrUsers.py:281 yali/gui/ScrUsers.py:323 yali/gui/ScrUsers.py:401
+#: yali/gui/ScrUsers.py:290 yali/gui/ScrUsers.py:332 yali/gui/ScrUsers.py:410
 msgid "Add"
-msgstr ""
-
-#: yali/gui/ScrWelcome.py:77
-msgid "License text could not be found."
 msgstr ""
 
 #: yali/gui/shrink_gui.py:23
@@ -1184,7 +1195,7 @@ msgstr "Sätt i en ny CD"
 msgid "Information"
 msgstr "Information"
 
-#: yali/gui/YaliDialog.py:494
+#: yali/gui/YaliDialog.py:500
 msgid "Error reporting"
 msgstr ""
 
@@ -1415,30 +1426,44 @@ msgstr "Ukrainska"
 msgid "Serbian"
 msgstr "Serbiska"
 
+#: yali/pisiiface.py:71
+#, python-format
+msgid "Error occured while %(repo)s repo is adding:%(msg)s"
+msgstr ""
+
 #: yali/postinstall.py:156
 #, python-format
 msgid "Preparing home directory for %s..."
 msgstr ""
 
-#: yali/util.py:124 yali/util.py:137
+#: yali/util.py:125 yali/util.py:138
 #, python-format
 msgid "Running %s"
 msgstr ""
 
-#: yali/util.py:128 yali/util.py:155
+#: yali/util.py:129 yali/util.py:156
 #, python-format
 msgid "return value for \"%(command)s\" is %(return)s"
 msgstr ""
 
-#: yali/util.py:430 yali/util.py:473
+#: yali/util.py:370
+#, fuzzy
+msgid "YALI log file doesn't exists."
+msgstr "Versionsfakta"
+
+#: yali/util.py:372
+msgid "File paths are the same."
+msgstr ""
+
+#: yali/util.py:447 yali/util.py:490
 msgid "Release file is missing"
 msgstr ""
 
-#: yali/util.py:432 yali/util.py:475
+#: yali/util.py:449 yali/util.py:492
 msgid "Release file is inconsistent"
 msgstr ""
 
-#: yali/util.py:435 yali/util.py:478
+#: yali/util.py:452 yali/util.py:495
 msgid "Invalid xml file"
 msgstr ""
 
