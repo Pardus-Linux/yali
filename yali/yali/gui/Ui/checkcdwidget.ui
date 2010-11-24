@@ -147,8 +147,14 @@
           </property>
           <property name="minimumSize">
            <size>
-            <width>400</width>
+            <width>0</width>
             <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>400</width>
+            <height>16777215</height>
            </size>
           </property>
           <property name="font">
@@ -170,7 +176,7 @@
            <string>You can validate the integrity of the installation packages. Although this is an optional step, we highly recommend to do the validation in order to avoid any possible errors during the installation process.</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignVCenter</set>
+           <set>Qt::AlignCenter</set>
           </property>
           <property name="wordWrap">
            <bool>true</bool>
@@ -182,6 +188,15 @@
         </item>
         <item>
          <widget class="QGroupBox" name="validationFailBox">
+          <property name="maximumSize">
+           <size>
+            <width>400</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border:0px</string>
+          </property>
           <property name="title">
            <string/>
           </property>
@@ -252,6 +267,15 @@
         </item>
         <item>
          <widget class="QGroupBox" name="validationSucceedBox">
+          <property name="maximumSize">
+           <size>
+            <width>400</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border:0px</string>
+          </property>
           <property name="title">
            <string/>
           </property>
@@ -322,6 +346,12 @@
         </item>
         <item>
          <widget class="QGroupBox" name="validationBox">
+          <property name="maximumSize">
+           <size>
+            <width>400</width>
+            <height>16777215</height>
+           </size>
+          </property>
           <property name="styleSheet">
            <string notr="true">#validationBox{border: 0px;}</string>
           </property>
