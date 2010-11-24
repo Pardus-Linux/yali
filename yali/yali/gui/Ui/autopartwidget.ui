@@ -125,7 +125,7 @@ border:0px;
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap resource="../../data.qrc">:/gui/pics/partitionmanager-big.png</pixmap>
+           <pixmap>:/gui/pics/partitionmanager-big.png</pixmap>
           </property>
           <property name="scaledContents">
            <bool>false</bool>
@@ -138,7 +138,7 @@ border:0px;
         <item>
          <widget class="QListWidget" name="autopartType">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
@@ -146,13 +146,13 @@ border:0px;
           <property name="minimumSize">
            <size>
             <width>0</width>
-            <height>200</height>
+            <height>0</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
             <width>16777215</width>
-            <height>200</height>
+            <height>165</height>
            </size>
           </property>
           <property name="styleSheet">
@@ -196,7 +196,7 @@ border:0px
            <bool>false</bool>
           </property>
           <property name="resizeMode">
-           <enum>QListView::Fixed</enum>
+           <enum>QListView::Adjust</enum>
           </property>
           <property name="layoutMode">
            <enum>QListView::SinglePass</enum>
@@ -214,14 +214,14 @@ border:0px
            <number>100</number>
           </property>
           <property name="sortingEnabled">
-           <bool>false</bool>
+           <bool>true</bool>
           </property>
           <item>
            <property name="text">
             <string notr="true">Use All Space</string>
            </property>
            <property name="icon">
-            <iconset resource="../../data.qrc">
+            <iconset>
              <normaloff>:/gui/pics/partscheme-all.png</normaloff>:/gui/pics/partscheme-all.png</iconset>
            </property>
           </item>
@@ -230,7 +230,7 @@ border:0px
             <string notr="true">Shrink Current System</string>
            </property>
            <property name="icon">
-            <iconset resource="../../data.qrc">
+            <iconset>
              <normaloff>:/gui/pics/partscheme-shrink.png</normaloff>:/gui/pics/partscheme-shrink.png</iconset>
            </property>
           </item>
@@ -239,7 +239,7 @@ border:0px
             <string notr="true">Use Free Space</string>
            </property>
            <property name="icon">
-            <iconset resource="../../data.qrc">
+            <iconset>
              <normaloff>:/gui/pics/partscheme-freespace.png</normaloff>:/gui/pics/partscheme-freespace.png</iconset>
            </property>
           </item>
@@ -248,7 +248,7 @@ border:0px
             <string notr="true">Create Custom Layout</string>
            </property>
            <property name="icon">
-            <iconset resource="../../data.qrc">
+            <iconset>
              <normaloff>:/gui/pics/partscheme-all.png</normaloff>:/gui/pics/partscheme-all.png</iconset>
            </property>
           </item>
