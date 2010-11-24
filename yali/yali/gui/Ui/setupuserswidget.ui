@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>771</width>
-    <height>888</height>
+    <height>632</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -212,7 +212,7 @@
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap resource="../../data.qrc">:/gui/pics/system-users.png</pixmap>
+           <pixmap>:/gui/pics/system-users.png</pixmap>
           </property>
          </widget>
         </item>
@@ -282,7 +282,7 @@
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_2">
          <property name="spacing">
-          <number>10</number>
+          <number>8</number>
          </property>
          <property name="margin">
           <number>0</number>
@@ -399,7 +399,7 @@
                <string/>
               </property>
               <property name="pixmap">
-               <pixmap resource="../../data.qrc">:/gui/pics/arrow-right.png</pixmap>
+               <pixmap>:/gui/pics/arrow-right.png</pixmap>
               </property>
              </widget>
             </item>
@@ -512,7 +512,7 @@
                <string/>
               </property>
               <property name="pixmap">
-               <pixmap resource="../../data.qrc">:/gui/pics/arrow-right.png</pixmap>
+               <pixmap>:/gui/pics/arrow-right.png</pixmap>
               </property>
              </widget>
             </item>
@@ -522,7 +522,7 @@
          <item>
           <widget class="QScrollArea" name="scrollArea">
            <property name="sizePolicy">
-            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
@@ -581,7 +581,7 @@
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_3">
                 <property name="spacing">
-                 <number>10</number>
+                 <number>5</number>
                 </property>
                 <property name="margin">
                  <number>0</number>
@@ -684,7 +684,7 @@
                   <property name="sizeHint" stdset="0">
                    <size>
                     <width>20</width>
-                    <height>10</height>
+                    <height>7</height>
                    </size>
                   </property>
                  </spacer>
@@ -831,7 +831,7 @@
                              <string>Add</string>
                             </property>
                             <property name="icon">
-                             <iconset resource="../../data.qrc">
+                             <iconset>
                               <normaloff>:/gui/pics/list-add.png</normaloff>:/gui/pics/list-add.png</iconset>
                             </property>
                             <property name="flat">
@@ -866,7 +866,7 @@
                              <string>Cancel</string>
                             </property>
                             <property name="icon">
-                             <iconset resource="../../data.qrc">
+                             <iconset>
                               <normaloff>:/gui/pics/dialog-cancel.png</normaloff>:/gui/pics/dialog-cancel.png</iconset>
                             </property>
                             <property name="flat">
@@ -889,7 +889,7 @@
                              <string>Edit</string>
                             </property>
                             <property name="icon">
-                             <iconset resource="../../data.qrc">
+                             <iconset>
                               <normaloff>:/gui/pics/document-edit.png</normaloff>:/gui/pics/document-edit.png</iconset>
                             </property>
                             <property name="flat">
@@ -918,7 +918,7 @@
                              <string>Delete</string>
                             </property>
                             <property name="icon">
-                             <iconset resource="../../data.qrc">
+                             <iconset>
                               <normaloff>:/gui/pics/draw-eraser.png</normaloff>:/gui/pics/draw-eraser.png</iconset>
                             </property>
                             <property name="flat">
@@ -1104,7 +1104,7 @@ QPushButton::flat:pressed{
          <string>Advanced</string>
         </property>
         <property name="icon">
-         <iconset resource="../../data.qrc">
+         <iconset>
           <normaloff>:/gui/pics/expand.png</normaloff>:/gui/pics/expand.png</iconset>
         </property>
         <property name="checkable">
