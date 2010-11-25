@@ -96,7 +96,7 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="../../data.qrc">:/gui/pics/preferences-system-time-big.png</pixmap>
+         <pixmap>:/gui/pics/preferences-system-time-big.png</pixmap>
         </property>
        </widget>
       </item>
@@ -200,15 +200,15 @@
               <property name="keyboardTracking">
                <bool>true</bool>
               </property>
-              <property name="calendarPopup">
-               <bool>true</bool>
-              </property>
               <property name="date">
                <date>
                 <year>2000</year>
                 <month>1</month>
                 <day>1</day>
                </date>
+              </property>
+              <property name="calendarPopup">
+               <bool>true</bool>
               </property>
              </widget>
             </item>
