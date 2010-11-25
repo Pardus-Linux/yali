@@ -7,13 +7,22 @@
     <x>0</x>
     <y>0</y>
     <width>436</width>
-    <height>306</height>
+    <height>384</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <layout class="QGridLayout" name="gridLayout">
+   <property name="horizontalSpacing">
+    <number>5</number>
+   </property>
+   <property name="verticalSpacing">
+    <number>10</number>
+   </property>
    <item row="0" column="0">
     <widget class="QLabel" name="label_2">
      <property name="font">
@@ -28,18 +37,19 @@
     <widget class="QComboBox" name="mountpointMenu">
      <property name="minimumSize">
       <size>
-       <width>300</width>
-       <height>0</height>
+       <width>0</width>
+       <height>30</height>
       </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">	color: #333333;  </string>
      </property>
      <property name="editable">
       <bool>true</bool>
      </property>
-     <item>
-      <property name="text">
-       <string/>
-      </property>
-     </item>
+     <property name="currentIndex">
+      <number>-1</number>
+     </property>
     </widget>
    </item>
    <item row="2" column="0">
@@ -159,6 +169,12 @@
      <property name="enabled">
       <bool>false</bool>
      </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
     </widget>
    </item>
    <item row="10" column="0">
@@ -172,6 +188,12 @@
     <widget class="QComboBox" name="migrateCombo">
      <property name="enabled">
       <bool>false</bool>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
      </property>
     </widget>
    </item>
@@ -206,7 +228,17 @@
     </widget>
    </item>
    <item row="1" column="1" colspan="2">
-    <widget class="QComboBox" name="filesystemMenu"/>
+    <widget class="QComboBox" name="filesystemMenu">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#filesystemMenu{color:white}</string>
+     </property>
+    </widget>
    </item>
    <item row="5" column="0" colspan="2">
     <widget class="QCheckBox" name="primaryCheck">
