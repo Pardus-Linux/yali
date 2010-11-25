@@ -303,9 +303,8 @@ msgid "Edit Partition %s"
 msgstr "Partición %d"
 
 #: yali/gui/partition_gui.py:40
-#, fuzzy
 msgid "Edit Partition"
-msgstr "Eliminar Partición"
+msgstr "Modificar Partición"
 
 #: yali/gui/partition_gui.py:104
 msgid "Error With Request"
@@ -313,7 +312,7 @@ msgstr ""
 
 #: yali/gui/raid_gui.py:30
 msgid "Invalid Raid Members"
-msgstr ""
+msgstr "Miembros RAID inválidos"
 
 #: yali/gui/raid_gui.py:31
 msgid ""
@@ -321,24 +320,26 @@ msgid ""
 "\n"
 "First create at least two partitions of type \"software RAID\", and then select the \"RAID\" option again."
 msgstr ""
+"Se requiere al menos dos particiones RAID sin uso para crear un dispositivo RAID.\n"
+"\n"
+"Crea primero al menos dos particiones del tipo \"software RAID\", y vuelva a seleccionar la opción \"RAID\" después."
 
 #: yali/gui/raid_gui.py:41
 msgid "Make RAID Device"
-msgstr ""
+msgstr "Crear dispositivo RAID"
 
 #: yali/gui/raid_gui.py:44
 #, python-format
 msgid "Edit RAID Device: %s"
-msgstr ""
+msgstr "Modificar dispositivo RAID: %s"
 
 #: yali/gui/raid_gui.py:46
 msgid "Edit RAID Device"
-msgstr ""
+msgstr "Modificar dispositivo RAID"
 
 #: yali/gui/runner.py:110
-#, fuzzy
 msgid "Error!"
-msgstr "Error !"
+msgstr "Error!"
 
 #: yali/gui/runner.py:111
 #, python-format
@@ -426,7 +427,7 @@ msgstr "Configurando hora del sistema"
 
 #: yali/gui/ScrDriveSelection.py:113
 msgid "You must select at least one drive to be used for installation."
-msgstr ""
+msgstr "Debe seleccionar al menos una unidad de disco para la instalación."
 
 #: yali/gui/ScrGoodbye.py:37
 msgid "Running post-install operations..."
@@ -439,58 +440,49 @@ msgstr "Presione <b>Reiniciar</b> para reiniciar el sistema."
 #: yali/gui/ScrGoodbye.py:53 yali/gui/ScrRescueFinish.py:78
 #: yali/gui/ScrSummary.py:46
 msgid "Restart"
-msgstr ""
+msgstr "Reiniciar"
 
 #: yali/gui/ScrGoodbye.py:55 yali/gui/ScrRescueFinish.py:80
 msgid "<b>Please wait while restarting...</b>"
-msgstr ""
+msgstr "<b>Por favor espere mientras se reinicia el sistema...</b>"
 
 #: yali/gui/ScrGoodbye.py:70 yali/gui/ScrRescuePassword.py:45
 #: yali/gui/ScrRescuePisi.py:38
-#, fuzzy
 msgid "Connecting to D-Bus..."
-msgstr "Estado de Conexión:"
+msgstr "Conectando a D-Bus..."
 
 #: yali/gui/ScrGoodbye.py:72
-#, fuzzy
 msgid "Setting hostname..."
 msgstr "Estableciendo hostname..."
 
 #: yali/gui/ScrGoodbye.py:73
-#, fuzzy
 msgid "Setting root password..."
-msgstr "Guardando contraseña de Root..."
+msgstr "Estableciendo contraseña de root..."
 
 #: yali/gui/ScrGoodbye.py:75
-#, fuzzy
 msgid "Setting timezone..."
-msgstr "Estableciendo Zona Horaria..."
+msgstr "Estableciendo zona horaria..."
 
 #: yali/gui/ScrGoodbye.py:76
-#, fuzzy
 msgid "Migrating Xorg configuration..."
-msgstr "Migrando configuración X.org ..."
+msgstr "Migrando configuración X.org..."
 
 #: yali/gui/ScrGoodbye.py:77
-#, fuzzy
 msgid "Setting console keymap..."
-msgstr "Guardando datos de consola..."
+msgstr "Estableciendo mapa de caracteres de consola..."
 
 # favor revisar, podria ser catalogo..
 #: yali/gui/ScrGoodbye.py:78
-#, fuzzy
 msgid "Copying repository index..."
-msgstr "Copiando índice de Pisi ..."
+msgstr "Copiando índice de repositorio ..."
 
 #: yali/gui/ScrGoodbye.py:79
-#, fuzzy
 msgid "Stopping to D-Bus..."
-msgstr "Iniciando DBUS..."
+msgstr "Deteniendo DBUS..."
 
 #: yali/gui/ScrGoodbye.py:83
-#, fuzzy
 msgid "Setup bootloader..."
-msgstr "Puede solucionar problemas de arranque..."
+msgstr "Configuración del arranque..."
 
 #: yali/gui/ScrGoodbye.py:84
 #, fuzzy
