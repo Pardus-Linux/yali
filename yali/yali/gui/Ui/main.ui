@@ -150,7 +150,7 @@ background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0
             <string>...</string>
            </property>
            <property name="icon">
-            <iconset resource="../../data.qrc">
+            <iconset>
              <normaloff>:/images/system-shutdown.png</normaloff>:/images/system-shutdown.png</iconset>
            </property>
            <property name="popupMode">
@@ -210,7 +210,7 @@ background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0
             <string>Back</string>
            </property>
            <property name="icon">
-            <iconset resource="../../data.qrc">
+            <iconset>
              <normaloff>:/gui/pics/arrow-left.png</normaloff>:/gui/pics/arrow-left.png</iconset>
            </property>
            <property name="flat">
@@ -239,7 +239,7 @@ background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0
             <string>Next</string>
            </property>
            <property name="icon">
-            <iconset resource="../../data.qrc">
+            <iconset>
              <normaloff>:/gui/pics/arrow-right.png</normaloff>:/gui/pics/arrow-right.png</iconset>
            </property>
            <property name="flat">
@@ -290,24 +290,24 @@ background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0
            </property>
            <property name="minimumSize">
             <size>
-             <width>64</width>
-             <height>64</height>
+             <width>32</width>
+             <height>32</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>64</width>
-             <height>16777215</height>
+             <width>32</width>
+             <height>32</height>
             </size>
            </property>
            <property name="text">
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap resource="../../data.qrc">:/gui/pics/media-optical-small.png</pixmap>
+            <pixmap>:/gui/pics/media-optical-small.png</pixmap>
            </property>
            <property name="scaledContents">
-            <bool>false</bool>
+            <bool>true</bool>
            </property>
            <property name="alignment">
             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -317,25 +317,25 @@ background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0
          <item row="0" column="3">
           <widget class="QLabel" name="label_4">
            <property name="sizePolicy">
-            <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
            <property name="minimumSize">
             <size>
-             <width>87</width>
-             <height>64</height>
+             <width>80</width>
+             <height>36</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>87</width>
-             <height>16777215</height>
+             <width>80</width>
+             <height>36</height>
             </size>
            </property>
            <property name="pixmap">
-            <pixmap resource="../../data.qrc">:/gui/pics/logo-on-black.png</pixmap>
+            <pixmap>:/gui/pics/logo-on-black.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>false</bool>
@@ -403,7 +403,7 @@ background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="../../data.qrc">
+                <iconset>
                  <normaloff>:/gui/pics/system-help.png</normaloff>:/gui/pics/system-help.png</iconset>
                </property>
                <property name="checkable">
@@ -463,7 +463,7 @@ background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>557</width>
+                <width>596</width>
                 <height>129</height>
                </rect>
               </property>
