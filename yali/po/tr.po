@@ -2,7 +2,7 @@
 # translation of tr.po to
 # Copyright (C) 2005-2011
 # This file is distributed under the same license as the yali4 package.
-#
+# 
 # Barış Metin <baris@uludag.org.tr>, 2005.
 # Barış Metin <baris@pardus.org.tr>, 2006.
 # Ali Işıngör <ali@artistanbulpr.com>, 2006.
@@ -17,12 +17,11 @@ msgstr ""
 "PO-Revision-Date: 2010-11-24 08:33+0200\n"
 "Last-Translator: Server Acim <serveracim@gmail.com>\n"
 "Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
-"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\\n\"\n"
-"X-Generator: Lokalize 0.3\n"
+"Language: tr\n"
+"Plural-Forms: nplurals=1; plural=0;\\n\"\\nX-Generator: Lokalize 0.3\n"
 
 #: yali/gui/interface.py:41 yali/gui/interface.py:123
 #: yali/gui/ScrCheckCD.py:92 yali/gui/ScrInstall.py:139
@@ -34,13 +33,8 @@ msgstr "Uyarı"
 
 #: yali/gui/interface.py:42
 #, fuzzy, python-format
-msgid ""
-"Disk contains %(members_count)s BIOS RAID metadata, but is not part of any "
-"recognized BIOS RAID sets. Ignoring disk %(members)s."
-msgstr ""
-"Disk içeriğinde %(members_count)s BIOS RAID üstverisi bulunmaktadır, fakat "
-"bu üstveri herhangi bir tanımlanmış BIOS RAID ayarlarından birine ait "
-"değildir. Disk gözardı ediliyor %(members)s.)"
+msgid "Disk contains %(members_count)s BIOS RAID metadata, but is not part of any recognized BIOS RAID sets. Ignoring disk %(members)s."
+msgstr "Disk içeriğinde %(members_count)s BIOS RAID üstverisi bulunmaktadır, fakat bu üstveri herhangi bir tanımlanmış BIOS RAID ayarlarından birine ait değildir. Disk gözardı ediliyor %(members)s.)"
 
 #: yali/gui/interface.py:66 yali/gui/raid_gui.py:122
 #: yali/gui/ScrDriveSelection.py:112
@@ -50,28 +44,23 @@ msgstr "Hata"
 #: yali/gui/interface.py:67
 #, python-format
 msgid ""
-"Cannot access the partition table of %(description)s(%(name)s) -- "
-"%(size)-0.fMB\n"
+"Cannot access the partition table of %(description)s(%(name)s) -- %(size)-0.fMB\n"
 "\n"
 "If there already exists a partition table on this device, it will\n"
 " be re-initialized and your existing data will be lost!\n"
 "\n"
 "To re-initialize the current disk press Re-initialize.\n"
 "\n"
-"To re-initialize all disks with unaccessible partition tables press Re-"
-"initialize All"
+"To re-initialize all disks with unaccessible partition tables press Re-initialize All"
 msgstr ""
-"Bölümleme dosyası kabul edilemedi of %(description)s(%(name)s) -- "
-"%(size)-0.fMB\n"
+"Bölümleme dosyası kabul edilemedi of %(description)s(%(name)s) -- %(size)-0.fMB\n"
 "\n"
 "Eğer bu aygıtta bölümleme tablosu varsa, bu tablo işlemi\n"
 " yeniden başlatılacak ve verilerinizi kaybedeceksiniz!\n"
 "\n"
-"Bu diskteki işlemi baştan başlatmak istiyorsanız İşleme Yeniden Başla'ya "
-"tıklayın.\n"
+"Bu diskteki işlemi baştan başlatmak istiyorsanız İşleme Yeniden Başla'ya tıklayın.\n"
 "\n"
-"Kabul edilmeyen bölümleme tabloları ile birlikte yeniden işleme başlamak "
-"için Yeniden Tüm İşlemlere Başla'ya basınız."
+"Kabul edilmeyen bölümleme tabloları ile birlikte yeniden işleme başlamak için Yeniden Tüm İşlemlere Başla'ya basınız."
 
 #: yali/gui/interface.py:75 yali/gui/interface.py:130
 msgid "Ignore"
@@ -89,16 +78,10 @@ msgstr "İşleme Sıfırdan Başla"
 #, python-format
 msgid ""
 "Error processing LVM.\n"
-"There is inconsistent LVM data on %(msg)s.  You can reinitialize all related "
-"PVs (%(pvs)s) which will erase the LVM metadata, or ignore which will "
-"preserve the contents.  This action may also be applied to all other PVs "
-"with inconsistent metadata."
+"There is inconsistent LVM data on %(msg)s.  You can reinitialize all related PVs (%(pvs)s) which will erase the LVM metadata, or ignore which will preserve the contents.  This action may also be applied to all other PVs with inconsistent metadata."
 msgstr ""
 "LVM işlenirken hata.\n"
-"Şurada tutarsız LVM verisi %(msg)s bulundu. Tüm ilgili PVleri (%(pvs)s) "
-"başlangıç durumuna getirebilirsiniz ancak bu durumda LVM üstverisi "
-"silinecektir veya bu hatayı içeriği korumak adına gözardı edebilirsiniz. Bu "
-"eylem tutarsız üstveri içeren diğer tüm PVlere uygulanacaktır."
+"Şurada tutarsız LVM verisi %(msg)s bulundu. Tüm ilgili PVleri (%(pvs)s) başlangıç durumuna getirebilirsiniz ancak bu durumda LVM üstverisi silinecektir veya bu hatayı içeriği korumak adına gözardı edebilirsiniz. Bu eylem tutarsız üstveri içeren diğer tüm PVlere uygulanacaktır."
 
 #: yali/gui/interface.py:130
 msgid "Ignore all"
@@ -148,9 +131,7 @@ msgstr "Kullanımda olan isim"
 #: yali/gui/lvm_gui.py:102
 #, python-format
 msgid "The volume group name \"%s\" is already in use. Please pick another."
-msgstr ""
-"Birim grubu adı \"%s\" önceden oluşturulmuş durumda. Lütfen başka bir seçim "
-"yapınız."
+msgstr "Birim grubu adı \"%s\" önceden oluşturulmuş durumda. Lütfen başka bir seçim yapınız."
 
 #: yali/gui/lvm_gui.py:405 yali/gui/lvm_gui.py:435 yali/gui/lvm_gui.py:448
 #: yali/gui/lvm_gui.py:483 yali/gui/lvm_gui.py:689 yali/gui/lvm_gui.py:711
@@ -207,42 +188,25 @@ msgid ""
 msgstr ""
 "Fiziksel boyut ebadı değiştirilemiyor çünkü\n"
 "seçilen değer (%(curpe)10.2f MB) daha küçük olan\n"
-"ve birim grubuna dahil olan (%(maxpvsize)10.2f MB) fiziksel birinden daha "
-"büyüktür."
+"ve birim grubuna dahil olan (%(maxpvsize)10.2f MB) fiziksel birinden daha büyüktür."
 
 #: yali/gui/lvm_gui.py:449
 #, python-format
-msgid ""
-"The physical extent size cannot be changed because the value selected "
-"(%(curpe)10.2f MB) is too large compared to the size of the smallest "
-"physical volume (%(maxpvsize)10.2f MB) in the volume group."
-msgstr ""
-"Fiziksel boyut değiştirilemez çünkü seçilen değer (%(curpe)10.2f MB) birim "
-"grubuna ait olan daha küçük fiziksel birimin ebadı (%(maxpvsize)10.2f MB) "
-"ile kıyaslandığında çok büyüktür."
+msgid "The physical extent size cannot be changed because the value selected (%(curpe)10.2f MB) is too large compared to the size of the smallest physical volume (%(maxpvsize)10.2f MB) in the volume group."
+msgstr "Fiziksel boyut değiştirilemez çünkü seçilen değer (%(curpe)10.2f MB) birim grubuna ait olan daha küçük fiziksel birimin ebadı (%(maxpvsize)10.2f MB) ile kıyaslandığında çok büyüktür."
 
 #: yali/gui/lvm_gui.py:461
 msgid "Too small"
 msgstr "Çok küçük"
 
 #: yali/gui/lvm_gui.py:462
-msgid ""
-"This change in the value of the physical extent will waste substantial space "
-"on one or more of the physical volumes in the volume group."
-msgstr ""
-"Fiziksel boyut değerindeki değişiklik, birim grubuna ait olan fiziksel "
-"birimler üzerinden yeterli alanın kaybolmasına yol açacaktır."
+msgid "This change in the value of the physical extent will waste substantial space on one or more of the physical volumes in the volume group."
+msgstr "Fiziksel boyut değerindeki değişiklik, birim grubuna ait olan fiziksel birimler üzerinden yeterli alanın kaybolmasına yol açacaktır."
 
 #: yali/gui/lvm_gui.py:484
 #, python-format
-msgid ""
-"The physical extent size cannot be changed because the resulting maximum "
-"logical volume size (%10.2f MB) is smaller than one or more of "
-"theircurrently defined logical volumes."
-msgstr ""
-"Fiziksel ebat değiştirilemez çünkü önceden tanımlanmış mantıksal birimlerin "
-"ebadı, en fazla oluşturulabilecek olan mantıksal birimin boyutundan ebadına "
-"göre (%10.2f MB) daha küçüktür."
+msgid "The physical extent size cannot be changed because the resulting maximum logical volume size (%10.2f MB) is smaller than one or more of theircurrently defined logical volumes."
+msgstr "Fiziksel ebat değiştirilemez çünkü önceden tanımlanmış mantıksal birimlerin ebadı, en fazla oluşturulabilecek olan mantıksal birimin boyutundan ebadına göre (%10.2f MB) daha küçüktür."
 
 #: yali/gui/lvm_gui.py:505
 msgid "No free slots"
@@ -326,8 +290,7 @@ msgstr "Geçersiz mantıksal birim adı"
 #: yali/gui/lvm_gui.py:662
 #, python-format
 msgid "The logical volume name \"%s\" is already in use. Please pick another."
-msgstr ""
-"Mantıksal birim adı \"%s\" şu an kullanımda. Lütfen başka bir ad seçin."
+msgstr "Mantıksal birim adı \"%s\" şu an kullanımda. Lütfen başka bir ad seçin."
 
 #: yali/gui/lvm_gui.py:676
 msgid "Illegal size"
@@ -339,29 +302,13 @@ msgstr "Talep edilen boyut 0'dan daha büyük bir geçerli sayı değildir."
 
 #: yali/gui/lvm_gui.py:690
 #, python-format
-msgid ""
-"The current requested size (%(size)10.2f MB) is larger than the maximum "
-"logical volume size (%(maxlv)10.2f MB). To increase this limit you can "
-"create more Physical Volumes from unpartitioned disk space and add them to "
-"this Volume Group."
-msgstr ""
-"İstenen boyut (%(size)10.2f MB) maksimum mantıksal birim boyutundan "
-"(%(maxlv)10.2f MB) daha büyüktür. Bu sınırı arttırmak için bölümlenmemiş "
-"disk alanında yeni Fiziksel Birimler ekleyebilir ve onları bu birim grubuna "
-"ekleyebilirsiniz."
+msgid "The current requested size (%(size)10.2f MB) is larger than the maximum logical volume size (%(maxlv)10.2f MB). To increase this limit you can create more Physical Volumes from unpartitioned disk space and add them to this Volume Group."
+msgstr "İstenen boyut (%(size)10.2f MB) maksimum mantıksal birim boyutundan (%(maxlv)10.2f MB) daha büyüktür. Bu sınırı arttırmak için bölümlenmemiş disk alanında yeni Fiziksel Birimler ekleyebilir ve onları bu birim grubuna ekleyebilirsiniz."
 
 #: yali/gui/lvm_gui.py:712
 #, python-format
-msgid ""
-"The size entered for this logical volume (%(size)d MB) combined with the "
-"size of the other logical volume(s) exceeds the size of the volume group "
-"(%(tmpvgsize)d MB). Please make the volume group larger or make the logical "
-"volume smaller."
-msgstr ""
-"Bu mantıksal biri için girilen boyut (%(size)d MB) diğer mantıksal birim"
-"(ler) ile birleştirilmiş olup birim grubunun (%(tmpvgsize)d MB) ebadını "
-"aşmaktadır. Lütfen birim grubunu daha büyük tutun veya mantıksal birimin "
-"ebadını daha küçük tutun."
+msgid "The size entered for this logical volume (%(size)d MB) combined with the size of the other logical volume(s) exceeds the size of the volume group (%(tmpvgsize)d MB). Please make the volume group larger or make the logical volume smaller."
+msgstr "Bu mantıksal biri için girilen boyut (%(size)d MB) diğer mantıksal birim(ler) ile birleştirilmiş olup birim grubunun (%(tmpvgsize)d MB) ebadını aşmaktadır. Lütfen birim grubunu daha büyük tutun veya mantıksal birimin ebadını daha küçük tutun."
 
 #: yali/gui/partition_gui.py:34
 #, python-format
@@ -387,17 +334,13 @@ msgstr "Geçersiz Raid Üyeleri"
 
 #: yali/gui/raid_gui.py:31
 msgid ""
-"At least two unused software RAID partitions are needed to create a RAID "
-"device.\n"
+"At least two unused software RAID partitions are needed to create a RAID device.\n"
 "\n"
-"First create at least two partitions of type \"software RAID\", and then "
-"select the \"RAID\" option again."
+"First create at least two partitions of type \"software RAID\", and then select the \"RAID\" option again."
 msgstr ""
-"Bir RAID aygıtı yaratmak için en az kullanılmamış software RAID bölümlerine "
-"ihtiyaç var.\n"
+"Bir RAID aygıtı yaratmak için en az kullanılmamış software RAID bölümlerine ihtiyaç var.\n"
 "\n"
-"Önce, \"software RAID\" türünde iyi bölüm oluşturun ve tekrar \"RAID\" "
-"seçeneğini işaretleyin. "
+"Önce, \"software RAID\" türünde iyi bölüm oluşturun ve tekrar \"RAID\" seçeneğini işaretleyin. "
 
 #: yali/gui/raid_gui.py:41
 msgid "Make RAID Device"
@@ -474,9 +417,7 @@ msgstr "Doğruluyor %s"
 
 #: yali/gui/ScrCheckCD.py:93
 #, python-format
-msgid ""
-"Validation of %s package failed.Please remaster your installation medium "
-"andreboot."
+msgid "Validation of %s package failed.Please remaster your installation medium andreboot."
 msgstr "Paket %s doğrulanamadı. Lütfen kurulum medyasını tekrar oluşturun."
 
 #: yali/gui/ScrCheckCD.py:97
@@ -492,12 +433,8 @@ msgid "Reboot"
 msgstr "Sistemi Yeniden Başlat"
 
 #: yali/gui/ScrCheckCD.py:112
-msgid ""
-"<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the "
-"installation.</b></font>"
-msgstr ""
-"<font color=\"#FFF\"><b>Kontrol başarılı. Kuruluma devam edebilirsiniz.</b></"
-"font>"
+msgid "<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the installation.</b></font>"
+msgstr "<font color=\"#FFF\"><b>Kontrol başarılı. Kuruluma devam edebilirsiniz.</b></font>"
 
 #: yali/gui/ScrDateTime.py:89
 msgid "Adjusting time settings"
@@ -513,9 +450,7 @@ msgstr "Kurulum sonrası işlemler gerçekleştiriliyor..."
 
 #: yali/gui/ScrGoodbye.py:53
 msgid "Press <b>Restart</b> to restart the computer."
-msgstr ""
-"Bilgisayarınızı yeniden başlatmak için <b>Sistemi Yeniden Başlat</b> "
-"düğmesine tıklayın."
+msgstr "Bilgisayarınızı yeniden başlatmak için <b>Sistemi Yeniden Başlat</b> düğmesine tıklayın."
 
 #: yali/gui/ScrGoodbye.py:53 yali/gui/ScrRescueFinish.py:78
 #: yali/gui/ScrSummary.py:46
@@ -568,14 +503,12 @@ msgid "Writing bootloader..."
 msgstr "Açılış yöneticisi yazılıyor..."
 
 #: yali/gui/ScrGoodbye.py:85
-#, fuzzy
 msgid "Installing bootloader..."
-msgstr "Açılış yöneticisi Yükleniyor..."
+msgstr "Açılış yöneticisi yükleniyor..."
 
 #: yali/gui/ScrGoodbye.py:88
-#, fuzzy
 msgid "Setup First-Boot..."
-msgstr "Açılış yöneticisi ayarlanıyor..."
+msgstr "İlk Açılış ayarlanıyor..."
 
 #: yali/gui/ScrGoodbye.py:91
 msgid "Adding users..."
@@ -648,7 +581,7 @@ msgid ""
 msgstr ""
 "Talep ettiğiniz bölümleme şeması\n"
 "aşağıdaki kritik hataların oluşmasına neden oldu.\n"
-"Kurulumunuza %s devam etmeden önce\bu hataları düzeltmeniz gerekecektir."
+"Kurulumunuza %s devam etmeden önce\\bu hataları düzeltmeniz gerekecektir."
 
 #: yali/gui/ScrPartitionManual.py:100
 msgid "Partitioning Errors"
@@ -835,9 +768,7 @@ msgstr "Kurtarma işlemleri gerçekleştiriliyor..."
 
 #: yali/gui/ScrRescueFinish.py:78
 msgid "Press <b>Restart</b> to restart your system."
-msgstr ""
-"Bilgisayarınızı yeniden başlatmak için <b>Sistemi Yeniden Başlat</b> "
-"düğmesine tıklayın."
+msgstr "Bilgisayarınızı yeniden başlatmak için <b>Sistemi Yeniden Başlat</b> düğmesine tıklayın."
 
 #: yali/gui/ScrRescueGrub.py:87
 #, python-format
@@ -920,8 +851,7 @@ msgstr "Lütfen aşağıdaki listeden disk bölümünü seçin:"
 
 #: yali/gui/ScrSummary.py:47
 msgid "<b><p>Are you sure you want to restart the computer?</p></b>"
-msgstr ""
-"<b><p>Bilgisayarı yeniden başlatmak istediğinizden emin misiniz?</p></b>"
+msgstr "<b><p>Bilgisayarı yeniden başlatmak istediğinizden emin misiniz?</p></b>"
 
 #: yali/gui/ScrSummary.py:58 yali/gui/ScrSummary.py:214
 msgid "Next"
@@ -965,12 +895,8 @@ msgstr "Kullanıcı %(username)s (<b>%(realname)s</b>) eklendi."
 
 #: yali/gui/ScrSummary.py:111
 #, python-format
-msgid ""
-"User %(username)s (<b>%(realname)s</b>) added with <u>administrator "
-"privileges</u>."
-msgstr ""
-"Kullanıcı %(username)s (<b>%(realname)s</b>) <u>yetkili kullanıcı</u> "
-"haklarıyla eklendi."
+msgid "User %(username)s (<b>%(realname)s</b>) added with <u>administrator privileges</u>."
+msgstr "Kullanıcı %(username)s (<b>%(realname)s</b>) <u>yetkili kullanıcı</u> haklarıyla eklendi."
 
 #: yali/gui/ScrSummary.py:117
 msgid "Hostname Settings"
@@ -995,12 +921,8 @@ msgstr "Boş Alanın Tamamını Kullan"
 
 #: yali/gui/ScrSummary.py:135
 #, fuzzy, python-format
-msgid ""
-"Removes all partitions on the selected %s device(s). This includes "
-"partitions created by other operating systems."
-msgstr ""
-"Seçili aygıt veya aygıtlardaki%s tüm bölmeleri kaldırır. Bu işlem diğer "
-"işletim sistemleri tarafından oluşturulmuş bölmeleri de kapsar."
+msgid "Removes all partitions on the selected %s device(s). This includes partitions created by other operating systems."
+msgstr "Seçili aygıt veya aygıtlardaki%s tüm bölmeleri kaldırır. Bu işlem diğer işletim sistemleri tarafından oluşturulmuş bölmeleri de kapsar."
 
 #: yali/gui/ScrSummary.py:139
 msgid "Replace Existing Linux System(s)"
@@ -1008,13 +930,8 @@ msgstr "Var Olan Linux İşletim Sistem(leri)i Üzerine Yükle"
 
 #: yali/gui/ScrSummary.py:140
 #, python-format
-msgid ""
-"Removes all Linux partitions on the selected%s device(s). This does not "
-"remove other partitions you may have on your storage device(s) (such as VFAT "
-"or FAT32)"
-msgstr ""
-"Seçili aygıt(lardaki)taki%s tüm Linux bölümlerini kaldırır. Bu işlem (VFAT "
-"veya FATE32) gibi diğer depolama aygılarındaki diğer bölmeleri kaldırmaz."
+msgid "Removes all Linux partitions on the selected%s device(s). This does not remove other partitions you may have on your storage device(s) (such as VFAT or FAT32)"
+msgstr "Seçili aygıt(lardaki)taki%s tüm Linux bölümlerini kaldırır. Bu işlem (VFAT veya FATE32) gibi diğer depolama aygılarındaki diğer bölmeleri kaldırmaz."
 
 #: yali/gui/ScrSummary.py:145
 msgid "Use Free Space"
@@ -1022,14 +939,8 @@ msgstr "Boş Alanın Kullan"
 
 #: yali/gui/ScrSummary.py:146
 #, python-format
-msgid ""
-"Retains your current data and partitions and uses only the unpartitioned "
-"space on the selected %s device(s), assuming you haveenough free space "
-"available."
-msgstr ""
-"Varolan verinizi ve bölmelerinizi korur ve sadece seçili %s aygıt(lardaki)"
-"taki bölümlenmemiş alanları kullanır, yeterli boş alanınızın olduğu hesaba "
-"katılır."
+msgid "Retains your current data and partitions and uses only the unpartitioned space on the selected %s device(s), assuming you haveenough free space available."
+msgstr "Varolan verinizi ve bölmelerinizi korur ve sadece seçili %s aygıt(lardaki)taki bölümlenmemiş alanları kullanır, yeterli boş alanınızın olduğu hesaba katılır."
 
 #: yali/gui/ScrSummary.py:152
 msgid "Manual Partitioning selected."
@@ -1485,13 +1396,12 @@ msgid "return value for \"%(command)s\" is %(return)s"
 msgstr "şu değerlere geri dön \"%(command)s\" is %(return)s"
 
 #: yali/util.py:370
-#, fuzzy
 msgid "YALI log file doesn't exists."
-msgstr "Stil dosyası bulunamadı"
+msgstr "YALI log dosyası mevcut değil."
 
 #: yali/util.py:372
 msgid "File paths are the same."
-msgstr ""
+msgstr "Dosya yolları aynı."
 
 #: yali/util.py:447 yali/util.py:490
 msgid "Release file is missing"
