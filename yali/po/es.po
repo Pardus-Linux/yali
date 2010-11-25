@@ -485,34 +485,30 @@ msgid "Setup bootloader..."
 msgstr "Configuración del arranque..."
 
 #: yali/gui/ScrGoodbye.py:84
-#, fuzzy
 msgid "Writing bootloader..."
-msgstr "Instalando Cargador de Arranque.."
+msgstr "Guardando Cargador de Arranque.."
 
 #: yali/gui/ScrGoodbye.py:85
-#, fuzzy
 msgid "Installing bootloader..."
-msgstr "Instalando Cargador de Arranque.."
+msgstr "Instalando Cargador de Arranque..."
 
 #: yali/gui/ScrGoodbye.py:88
-#, fuzzy
 msgid "Setup First-Boot..."
-msgstr "Puede solucionar problemas de arranque..."
+msgstr "Configuración del primer arranque..."
 
 #: yali/gui/ScrGoodbye.py:91
-#, fuzzy
 msgid "Adding users..."
 msgstr "Agregando usuarios..."
 
 #: yali/gui/ScrInstall.py:110
-#, fuzzy, python-format
+#, python-format
 msgid "Installing <b>%(name)s</b><br>%(summary)s"
-msgstr "Instalando: <b>%s</b><br>%s"
+msgstr "Instalando <b>%(name)s</b><br>%(summary)s"
 
 #: yali/gui/ScrInstall.py:116
-#, fuzzy, python-format
+#, python-format
 msgid "Configuring <b>%s</b>"
-msgstr "Configurando paquete: <b>%s</b>"
+msgstr "Configurando <b>%s</b>"
 
 #: yali/gui/ScrInstall.py:140
 #, python-format
@@ -520,14 +516,15 @@ msgid ""
 "Following error occured while installing packages:\n"
 "<b>%s</b>"
 msgstr ""
+"El siguiente error ocurrió durante la instalación de los paquetes:\n"
+"<b>%s</b>"
 
 #: yali/gui/ScrInstall.py:141
-#, fuzzy
 msgid "Do you want to retry?"
-msgstr "Desea intentar de nuevo ?"
+msgstr "Desea intentar de nuevo?"
 
 #: yali/gui/ScrInstall.py:198
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "An error occured during the installation of packages.\n"
 "\n"
@@ -538,18 +535,18 @@ msgid ""
 msgstr ""
 "Durante la instalación de los paquetes ocurrió un error.\n"
 "\n"
-"Es posible que el CD de Pardus o el lector de CD tenga algún problema o defecto.\n"
+"La causa puede ser una corrupción del medio de instalación.\n"
 "\n"
 "Error:\n"
 "%s\n"
 
 #: yali/gui/ScrKahyaCheck.py:78 yali/gui/ScrRescue.py:49
 msgid "No storage device found."
-msgstr ""
+msgstr "Medio de almacenamiento no encontrado."
 
 #: yali/gui/ScrLicense.py:77
 msgid "License text could not be found."
-msgstr ""
+msgstr "Texto de licencia no encontrado."
 
 #: yali/gui/ScrPartitionAuto.py:45
 #, python-format
@@ -557,6 +554,8 @@ msgid ""
 "No partitions are available to resize. Only physical\n"
 "partitions which size is greater than %s MB can be resized."
 msgstr ""
+"no hay particiones para redimensional. Se pueden redimensional únicamente\n"
+"particiones físicas de más de  %s MB."
 
 #: yali/gui/ScrPartitionManual.py:93
 #, python-format
@@ -566,11 +565,13 @@ msgid ""
 "You must correct these errors before\n"
 "you continue your installation of %s."
 msgstr ""
+"El esquema de particiones requerido genera los siguientes  errores críticos.\n"
+"Debe corregir los errores antes de \n"
+"continuar la instalación de %s."
 
 #: yali/gui/ScrPartitionManual.py:100
-#, fuzzy
 msgid "Partitioning Errors"
-msgstr "Particiones"
+msgstr "Errores de particionamiento"
 
 #: yali/gui/ScrPartitionManual.py:105
 msgid ""
@@ -578,11 +579,13 @@ msgid ""
 "following warnings. Would you like to continue with \n"
 "your requested partitioning scheme?"
 msgstr ""
+"El esquema de particiones requerido genera las siguientes \n"
+"alertas. Desea continuar con su esquema de particionamiento \n"
+" de todas formas?"
 
 #: yali/gui/ScrPartitionManual.py:111
-#, fuzzy
 msgid "Partitioning Warnings"
-msgstr "Particiones"
+msgstr "Alertas de particionamiento"
 
 #: yali/gui/ScrPartitionManual.py:113 yali/gui/ScrPartitionManual.py:139
 #: yali/gui/YaliDialog.py:220
@@ -595,11 +598,13 @@ msgid ""
 "been selected to be formatted, destroying\n"
 "all data."
 msgstr ""
+"Están seleccionados para formatear \n"
+"los siguientes dispositivos existentes. Se eliminarán\n"
+"todos los datos."
 
 #: yali/gui/ScrPartitionManual.py:127
-#, fuzzy
 msgid "Format Warnings"
-msgstr "Formateando..."
+msgstr "Alertas de formateo"
 
 #: yali/gui/ScrPartitionManual.py:129
 #, fuzzy
