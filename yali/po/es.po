@@ -914,26 +914,25 @@ msgstr "Usar todo el espacio"
 #: yali/gui/ScrSummary.py:135
 #, python-format
 msgid "Removes all partitions on the selected %s device(s). This includes partitions created by other operating systems."
-msgstr ""
+msgstr "Elimina todas las particiones de los %s dispositivo(s) seleccionados. Tambien afecta particiones creados por otros sistemas operativos."
 
 #: yali/gui/ScrSummary.py:139
 msgid "Replace Existing Linux System(s)"
-msgstr ""
+msgstr "Remmplazar Sistemas Linux existentes"
 
 #: yali/gui/ScrSummary.py:140
 #, python-format
 msgid "Removes all Linux partitions on the selected%s device(s). This does not remove other partitions you may have on your storage device(s) (such as VFAT or FAT32)"
-msgstr ""
+msgstr "Elimina todas las particiones de Linux de los %s dispositivo(s) seleccionados. Otros tipos de particiones no serán afectados, si existen (como VFAT o FAT32)"
 
 #: yali/gui/ScrSummary.py:145
-#, fuzzy
 msgid "Use Free Space"
-msgstr "Espacio Disponible"
+msgstr "Usar espacio disponible"
 
 #: yali/gui/ScrSummary.py:146
 #, python-format
 msgid "Retains your current data and partitions and uses only the unpartitioned space on the selected %s device(s), assuming you haveenough free space available."
-msgstr ""
+msgstr "Mantiene las particiones y sus datos actuales y solamente usa el espacio sin particionar de los %s dispositivos seleccionados, suponiendo que tenga suficiente espacio disponible."
 
 #: yali/gui/ScrSummary.py:152
 msgid "Manual Partitioning selected."
@@ -957,14 +956,13 @@ msgid "Package Installation Settings"
 msgstr "Configuración de instalación de paquetes"
 
 #: yali/gui/ScrSummary.py:172
-#, fuzzy
 msgid "Auto installation selected."
-msgstr "Colección de instalación automática"
+msgstr "Instalación automática"
 
 #: yali/gui/ScrSummary.py:174
-#, fuzzy, python-format
+#, python-format
 msgid "Manual Installation ( %s ) selected"
-msgstr "Coleción %s de instalación manual"
+msgstr "Instalación manual ( %s )"
 
 #: yali/gui/ScrSummary.py:178
 msgid "Default Kernel selected"
@@ -976,7 +974,7 @@ msgstr "PAE Kernel"
 
 #: yali/gui/ScrSummary.py:197
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmar"
 
 #: yali/gui/ScrSummary.py:198
 msgid ""
@@ -984,50 +982,45 @@ msgid ""
 "written to disk.  Any data on deleted or reformatted partitions\n"
 "will be lost."
 msgstr ""
+"Las opciones de particionamiento se guardarán ahora\n"
+"en el disco.  Se perderán todos los datos en las particiones\n"
+"que se eliminan o formatean."
 
 #: yali/gui/ScrSummary.py:203
 msgid "Write Changes to Disk"
-msgstr ""
+msgstr "Guardar cambios en disco"
 
 #: yali/gui/ScrSummary.py:203
-#, fuzzy
 msgid "Go Back"
 msgstr "Atrás"
 
 #: yali/gui/ScrUsers.py:129 yali/gui/ScrUsers.py:362
-#, fuzzy
 msgid "Update"
-msgstr "Actualizar Usuario"
+msgstr "Actualizar"
 
 #: yali/gui/ScrUsers.py:213
-#, fuzzy
 msgid "Don't use your user name or name as a password"
 msgstr "No use su nombre de usuario o su nombre real para la contraseña."
 
 #: yali/gui/ScrUsers.py:216
-#, fuzzy
 msgid "Passwords do not match"
-msgstr "Contraseñas no coinciden!"
+msgstr "Contraseñas no coinciden"
 
 #: yali/gui/ScrUsers.py:219
-#, fuzzy
 msgid "Password is too short"
-msgstr "Contraseña es muy corta!"
+msgstr "Contraseña es demasiado corta"
 
 #: yali/gui/ScrUsers.py:267
-#, fuzzy
 msgid "This user name is already taken, please choose another one."
-msgstr "El nombre del usuario ya existe, por favor elija otro!"
+msgstr "El nombre del usuario ya existe, por favor elija otro."
 
 #: yali/gui/ScrUsers.py:271
-#, fuzzy
 msgid "The user name contains invalid characters."
-msgstr "El nombre de usuario contiene caracteres no válidos!"
+msgstr "El nombre de usuario contiene caracteres no válidos."
 
 #: yali/gui/ScrUsers.py:274
-#, fuzzy
 msgid "The real name contains invalid characters."
-msgstr "Nombre real contiene caracteres no válidos!"
+msgstr "Nombre real contiene caracteres no válidos."
 
 #: yali/gui/ScrUsers.py:277
 #, fuzzy
