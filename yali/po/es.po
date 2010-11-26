@@ -688,7 +688,6 @@ msgid "Free"
 msgstr "Libre"
 
 #: yali/gui/ScrPartitionManual.py:249
-#, fuzzy
 msgid "Raid Arrays"
 msgstr "Raid Arrays"
 
@@ -780,49 +779,45 @@ msgstr ""
 
 #: yali/gui/ScrRescuePassword.py:79
 msgid "The password has been successfully reset."
-msgstr ""
+msgstr "Reset de contraseña exitosa."
 
 #: yali/gui/ScrRescuePassword.py:79
 msgid "Info"
 msgstr "Info"
 
 #: yali/gui/ScrRescuePassword.py:90
-#, fuzzy
 msgid "Do not use your username or real name as your password."
 msgstr "No use su nombre de usuario o su nombre real para la contraseña."
 
 #: yali/gui/ScrRescuePassword.py:93
-#, fuzzy
 msgid "The passwords do not match."
-msgstr "Contraseñas no coinciden!"
+msgstr "Las contraseñas no coinciden."
 
 #: yali/gui/ScrRescuePassword.py:107 yali/gui/ScrRescuePisi.py:69
 msgid "Please Wait..."
-msgstr ""
+msgstr "Por favor espere.."
 
 #: yali/gui/ScrRescuePassword.py:130
 msgid "Super User"
 msgstr "Super Usuario"
 
 #: yali/gui/ScrRescuePisi.py:39
-#, fuzzy
 msgid "Fetching history..."
-msgstr "Obteniendo registro histórico ..."
+msgstr "Obteniendo registro histórico..."
 
 #: yali/gui/ScrRescuePisi.py:75
-#, fuzzy
 msgid "No connection available"
-msgstr "Conexión fallada"
+msgstr "No hay conexión"
 
 #: yali/gui/ScrRescuePisi.py:116
-#, fuzzy, python-format
+#, python-format
 msgid "Operation %(no)s : %(date)s - %(type)s"
-msgstr "Operación %s : %s - %s"
+msgstr "Operación %(no)s : %(date)s - %(type)s"
 
 #: yali/gui/ScrRescuePisi.py:170
-#, fuzzy, python-format
+#, python-format
 msgid "Connecting to network %s..."
-msgstr "Conectando a red <b>%s</b> ..."
+msgstr "Conectando a red %s..."
 
 #: yali/gui/ScrRescuePisi.py:176 yali/gui/ScrRescuePisi.py:177
 msgid "Connection failed"
@@ -834,37 +829,33 @@ msgstr "Conectado"
 
 # favor revisar, montar - conectar - adjuntar (agregando no)
 #: yali/gui/ScrRescue.py:94
-#, fuzzy
 msgid "Mounting disk partition..."
-msgstr "Montando partición seleccionada..."
+msgstr "Montando partición de disco..."
 
 #: yali/gui/ScrRescue.py:106
-#, fuzzy
 msgid "YALI could not locate a suitable disk partition on this computer."
-msgstr "Yali no pudo identificar una partición adecuada en sus sistema"
+msgstr "Yali no pudo identificar una partición adecuada en su sistema."
 
 #: yali/gui/ScrRescue.py:123
-#, fuzzy
 msgid "Please select a disk partition from the list below:"
-msgstr "Por favor seleccione una partición de la lista."
+msgstr "Por favor seleccione una partición de la lista:"
 
 #: yali/gui/ScrSummary.py:47
 msgid "<b><p>Are you sure you want to restart the computer?</p></b>"
-msgstr ""
+msgstr "<b><p>Está seguro que desea reiniciar la computadora?</p></b>"
 
 #: yali/gui/ScrSummary.py:58 yali/gui/ScrSummary.py:214
 msgid "Next"
 msgstr "Siguiente"
 
 #: yali/gui/ScrSummary.py:66
-#, fuzzy, python-format
+#, python-format
 msgid "Installation starts in <b>%s</b> seconds"
-msgstr "Instalación comienza en: <b>%s segundos</b>"
+msgstr "La instalación comienza en <b>%s</b> segundos"
 
 #: yali/gui/ScrSummary.py:73
-#, fuzzy
 msgid "Start Installation"
-msgstr "Instalación automática"
+msgstr "Iniciar Instalación"
 
 #: yali/gui/ScrSummary.py:91
 msgid "Keyboard Settings"
@@ -890,14 +881,14 @@ msgstr "Usuarios"
 
 # is this grammer right ? "added"
 #: yali/gui/ScrSummary.py:109
-#, fuzzy, python-format
+#, python-format
 msgid "User %(username)s (<b>%(realname)s</b>) added."
-msgstr "Añadir usuario %s (<b>%s</b>)."
+msgstr "Usuario %(username)s (<b>%(realname)s</b>) añadido."
 
 #: yali/gui/ScrSummary.py:111
-#, fuzzy, python-format
+#, python-format
 msgid "User %(username)s (<b>%(realname)s</b>) added with <u>administrator privileges</u>."
-msgstr "Añadir usuario %s (<b>%s</b>) con <u>privilegios de administración</u>."
+msgstr "Usuario %(username)s (<b>%(realname)s</b>) añadido con <u>privilegios administrativos</u>."
 
 #: yali/gui/ScrSummary.py:117
 msgid "Hostname Settings"
@@ -917,9 +908,8 @@ msgid "Automatic Partitioning selected."
 msgstr "Particionamiento automático."
 
 #: yali/gui/ScrSummary.py:134
-#, fuzzy
 msgid "Use All Space"
-msgstr "Espacio Disponible"
+msgstr "Usar todo el espacio"
 
 #: yali/gui/ScrSummary.py:135
 #, python-format
