@@ -685,19 +685,20 @@ msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:240 yali/gui/ScrPartitionManual.py:313
 msgid "Free"
-msgstr ""
+msgstr "Libre"
 
 #: yali/gui/ScrPartitionManual.py:249
+#, fuzzy
 msgid "Raid Arrays"
-msgstr ""
+msgstr "Raid Arrays"
 
 #: yali/gui/ScrPartitionManual.py:263
 msgid "Hard Drives"
-msgstr ""
+msgstr "Discos rígidos"
 
 #: yali/gui/ScrPartitionManual.py:290
 msgid "Can't handle more than one extended partition per disk"
-msgstr ""
+msgstr "No se puede crear más de una partición extendida por disco físico"
 
 #: yali/gui/ScrPartitionManual.py:297
 msgid "Crossed logical partition before extended"
@@ -705,36 +706,33 @@ msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:318
 msgid "Extended"
-msgstr ""
+msgstr "Extendido"
 
 #: yali/gui/ScrPartitionManual.py:351
-#, fuzzy
 msgid "Error Partitioning"
-msgstr "Elegir Particionamiento"
+msgstr "Error de Particionamiento"
 
 #: yali/gui/ScrPartitionManual.py:352
 #, python-format
 msgid "Could not allocate requested partitions: %s."
-msgstr ""
+msgstr "No posible alojar particiones: %s."
 
 #: yali/gui/ScrPartitionManual.py:356
-#, fuzzy
 msgid "Warning Partitioning"
-msgstr "Particionamiento Manual"
+msgstr "Alerta de Particionamiento"
 
 #: yali/gui/ScrPartitionManual.py:357
-#, fuzzy, python-format
+#, python-format
 msgid "Warning: %s."
-msgstr "Alerta"
+msgstr "Alerta: %s."
 
 #: yali/gui/ScrPartitionManual.py:358
-#, fuzzy
 msgid "Modify Partition"
-msgstr "Redimensionar Partición"
+msgstr "Modificar Partición"
 
 #: yali/gui/ScrPartitionManual.py:482
 msgid "Unable To Edit"
-msgstr ""
+msgstr "No posible modificar"
 
 #: yali/gui/ScrPartitionManual.py:483
 #, python-format
@@ -743,24 +741,23 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"No se puede modificar esta dispositivo:\n"
+"\n"
+"%s"
 
 #: yali/gui/ScrRescueFinish.py:55
-#, fuzzy
 msgid "Installing Bootloader..."
-msgstr "Instalando Cargador de Arranque.."
+msgstr "Instalando Cargador de Arranque..."
 
 #: yali/gui/ScrRescueFinish.py:58
-#, fuzzy
 msgid "Taking back operation..."
-msgstr "Volviendo atrás operación de Pisi..."
+msgstr "Volviendo atrás operación..."
 
 #: yali/gui/ScrRescueFinish.py:61
-#, fuzzy
 msgid "Running rescue operations..."
-msgstr "Ejecutando operaciones de rescate.."
+msgstr "Ejecutando operaciones de rescate..."
 
 #: yali/gui/ScrRescueFinish.py:78
-#, fuzzy
 msgid "Press <b>Restart</b> to restart your system."
 msgstr "Presione el botón <b>Reiniciar</b> para reiniciar el sistema."
 
@@ -770,19 +767,16 @@ msgid "%s (Boot Disk)"
 msgstr "%s (Disco de Arranque)"
 
 #: yali/gui/ScrRescuePassword.py:39
-#, fuzzy
 msgid "Caps Lock is on."
-msgstr "Mayúsculas están activados!"
+msgstr "Mayúsculas están activados."
 
 #: yali/gui/ScrRescuePassword.py:44 yali/gui/ScrRescuePisi.py:37
-#, fuzzy
 msgid "Starting D-Bus..."
 msgstr "Iniciando DBUS..."
 
 #: yali/gui/ScrRescuePassword.py:46
-#, fuzzy
 msgid "Acquiring users..."
-msgstr "Agregando usuarios..."
+msgstr ""
 
 #: yali/gui/ScrRescuePassword.py:79
 msgid "The password has been successfully reset."
