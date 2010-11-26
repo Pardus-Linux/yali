@@ -39,8 +39,8 @@ class Widget(QWidget, ScreenWidget):
         self.ui.scrollArea.setFixedHeight(0)
 
         # User Icons
-        self.normal_user_icon = QPixmap(":/gui/pics/user_normal.png")
-        self.super_user_icon = QPixmap(":/gui/pics/user_root.png")
+        self.normal_user_icon = QPixmap(":/gui/pics/users.png")
+        self.super_user_icon = QPixmap(":/gui/pics/users.png")
 
 
         # Set disabled the create Button
@@ -335,7 +335,7 @@ class Widget(QWidget, ScreenWidget):
         self.ui.createButton.setText(_("Add"))
 
         icon = QIcon()
-        icon.addPixmap(QPixmap(":/gui/pics/list-add.png"), QIcon.Normal, QIcon.Off)
+        icon.addPixmap(QPixmap(":/gui/pics/user-group-new.png"), QIcon.Normal, QIcon.Off)
         self.ui.createButton.setIcon(icon)
 
         self.ui.cancelButton.hide()
@@ -412,7 +412,7 @@ class Widget(QWidget, ScreenWidget):
             self.checkUsers()
         self.ui.createButton.setText(_("Add"))
         icon = QIcon()
-        icon.addPixmap(QPixmap(":/gui/pics/list-add.png"), QIcon.Normal, QIcon.Off)
+        icon.addPixmap(QPixmap(":/gui/pics/user-group-new.png"), QIcon.Normal, QIcon.Off)
         self.ui.createButton.setIcon(icon)
 
 

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>771</width>
-    <height>632</height>
+    <height>704</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,7 +24,22 @@
 
 #groupBox_3 { 
 	border-top: 0px solid rgba(255,255,255,30);
-}</string>
+}
+
+
+QListView {
+       show-decoration-selected: 1; /* make the selection span the entire width of the view */
+       color: #444444;
+       background-color: qlineargradient(spread:pad, x1:0.5, y1:0, x2:0.516304, y2:0.653, stop:0 rgba(171, 171, 171, 255), stop:1 rgba(255, 255, 255, 220));
+       border-radius: 2px;
+
+	   font-weight: bold;
+ }
+
+
+
+
+</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_4">
    <property name="spacing">
@@ -212,7 +227,7 @@
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap>:/gui/pics/system-users.png</pixmap>
+           <pixmap resource="../../../../yali-theme-pardus/data.qrc">:/gui/pics/system-users.png</pixmap>
           </property>
          </widget>
         </item>
@@ -367,7 +382,7 @@
                <string notr="true"/>
               </property>
               <property name="frame">
-               <bool>false</bool>
+               <bool>true</bool>
               </property>
               <property name="placeholderText">
                <string/>
@@ -399,7 +414,7 @@
                <string/>
               </property>
               <property name="pixmap">
-               <pixmap>:/gui/pics/arrow-right.png</pixmap>
+               <pixmap resource="../../../../yali-theme-pardus/data.qrc">:/gui/pics/arrow-right.png</pixmap>
               </property>
              </widget>
             </item>
@@ -512,7 +527,7 @@
                <string/>
               </property>
               <property name="pixmap">
-               <pixmap>:/gui/pics/arrow-right.png</pixmap>
+               <pixmap resource="../../../../yali-theme-pardus/data.qrc">:/gui/pics/arrow-right.png</pixmap>
               </property>
              </widget>
             </item>
@@ -618,6 +633,12 @@
                       <verstretch>0</verstretch>
                      </sizepolicy>
                     </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>30</height>
+                     </size>
+                    </property>
                     <property name="minimum">
                      <number>1000</number>
                     </property>
@@ -705,10 +726,16 @@
                    <enum>QFrame::Raised</enum>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_5">
+                   <property name="spacing">
+                    <number>0</number>
+                   </property>
+                   <property name="margin">
+                    <number>10</number>
+                   </property>
                    <item>
                     <layout class="QHBoxLayout" name="horizontalLayout_4">
                      <property name="spacing">
-                      <number>0</number>
+                      <number>10</number>
                      </property>
                      <property name="leftMargin">
                       <number>0</number>
@@ -727,24 +754,55 @@
                        <item>
                         <widget class="QListWidget" name="userList">
                          <property name="sizePolicy">
-                          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                            <horstretch>0</horstretch>
                            <verstretch>0</verstretch>
                           </sizepolicy>
                          </property>
                          <property name="minimumSize">
                           <size>
-                           <width>320</width>
-                           <height>0</height>
+                           <width>300</width>
+                           <height>79</height>
                           </size>
                          </property>
                          <property name="maximumSize">
                           <size>
-                           <width>320</width>
-                           <height>100</height>
+                           <width>16777215</width>
+                           <height>79</height>
                           </size>
                          </property>
+                         <property name="frameShape">
+                          <enum>QFrame::StyledPanel</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Plain</enum>
+                         </property>
+                         <property name="alternatingRowColors">
+                          <bool>false</bool>
+                         </property>
+                         <property name="iconSize">
+                          <size>
+                           <width>32</width>
+                           <height>32</height>
+                          </size>
+                         </property>
+                         <property name="currentRow">
+                          <number>-1</number>
+                         </property>
                         </widget>
+                       </item>
+                       <item>
+                        <spacer name="verticalSpacer_20">
+                         <property name="orientation">
+                          <enum>Qt::Vertical</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>20</width>
+                           <height>10</height>
+                          </size>
+                         </property>
+                        </spacer>
                        </item>
                        <item>
                         <widget class="QComboBox" name="autoLogin">
@@ -756,13 +814,13 @@
                          </property>
                          <property name="minimumSize">
                           <size>
-                           <width>320</width>
-                           <height>0</height>
+                           <width>300</width>
+                           <height>30</height>
                           </size>
                          </property>
                          <property name="maximumSize">
                           <size>
-                           <width>320</width>
+                           <width>16777215</width>
                            <height>16777215</height>
                           </size>
                          </property>
@@ -776,6 +834,19 @@
                          </item>
                         </widget>
                        </item>
+                       <item>
+                        <spacer name="verticalSpacer_17">
+                         <property name="orientation">
+                          <enum>Qt::Vertical</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>20</width>
+                           <height>0</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
                       </layout>
                      </item>
                      <item>
@@ -785,6 +856,18 @@
                          <horstretch>0</horstretch>
                          <verstretch>0</verstretch>
                         </sizepolicy>
+                       </property>
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>94</width>
+                         <height>16777215</height>
+                        </size>
                        </property>
                        <property name="frameShape">
                         <enum>QFrame::NoFrame</enum>
@@ -796,16 +879,7 @@
                         <property name="spacing">
                          <number>0</number>
                         </property>
-                        <property name="leftMargin">
-                         <number>0</number>
-                        </property>
-                        <property name="topMargin">
-                         <number>4</number>
-                        </property>
-                        <property name="rightMargin">
-                         <number>0</number>
-                        </property>
-                        <property name="bottomMargin">
+                        <property name="margin">
                          <number>0</number>
                         </property>
                         <item>
@@ -817,41 +891,12 @@
                            <number>0</number>
                           </property>
                           <item>
-                           <widget class="QPushButton" name="createButton">
+                           <widget class="QToolButton" name="createButton">
                             <property name="sizePolicy">
-                             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                               <horstretch>0</horstretch>
                               <verstretch>0</verstretch>
                              </sizepolicy>
-                            </property>
-                            <property name="toolTip">
-                             <string>Add</string>
-                            </property>
-                            <property name="text">
-                             <string>Add</string>
-                            </property>
-                            <property name="icon">
-                             <iconset>
-                              <normaloff>:/gui/pics/list-add.png</normaloff>:/gui/pics/list-add.png</iconset>
-                            </property>
-                            <property name="flat">
-                             <bool>true</bool>
-                            </property>
-                           </widget>
-                          </item>
-                          <item>
-                           <widget class="QPushButton" name="cancelButton">
-                            <property name="sizePolicy">
-                             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                              <horstretch>0</horstretch>
-                              <verstretch>0</verstretch>
-                             </sizepolicy>
-                            </property>
-                            <property name="minimumSize">
-                             <size>
-                              <width>0</width>
-                              <height>0</height>
-                             </size>
                             </property>
                             <property name="maximumSize">
                              <size>
@@ -859,82 +904,117 @@
                               <height>16777215</height>
                              </size>
                             </property>
-                            <property name="toolTip">
-                             <string>Cancel</string>
-                            </property>
                             <property name="text">
-                             <string>Cancel</string>
+                             <string>Add</string>
                             </property>
                             <property name="icon">
-                             <iconset>
-                              <normaloff>:/gui/pics/dialog-cancel.png</normaloff>:/gui/pics/dialog-cancel.png</iconset>
+                             <iconset resource="../../../../yali-theme-pardus/data.qrc">
+                              <normaloff>:/gui/pics/user-group-new.png</normaloff>:/gui/pics/user-group-new.png</iconset>
                             </property>
-                            <property name="flat">
-                             <bool>true</bool>
+                            <property name="popupMode">
+                             <enum>QToolButton::DelayedPopup</enum>
+                            </property>
+                            <property name="toolButtonStyle">
+                             <enum>Qt::ToolButtonTextBesideIcon</enum>
+                            </property>
+                            <property name="autoRaise">
+                             <bool>false</bool>
                             </property>
                            </widget>
                           </item>
                           <item>
-                           <widget class="QPushButton" name="editButton">
+                           <widget class="QToolButton" name="editButton">
                             <property name="sizePolicy">
-                             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                               <horstretch>0</horstretch>
                               <verstretch>0</verstretch>
                              </sizepolicy>
                             </property>
-                            <property name="toolTip">
-                             <string>Edit</string>
-                            </property>
-                            <property name="text">
-                             <string>Edit</string>
-                            </property>
-                            <property name="icon">
-                             <iconset>
-                              <normaloff>:/gui/pics/document-edit.png</normaloff>:/gui/pics/document-edit.png</iconset>
-                            </property>
-                            <property name="flat">
-                             <bool>true</bool>
-                            </property>
-                           </widget>
-                          </item>
-                          <item>
-                           <widget class="QPushButton" name="deleteButton">
-                            <property name="sizePolicy">
-                             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                              <horstretch>0</horstretch>
-                              <verstretch>0</verstretch>
-                             </sizepolicy>
-                            </property>
-                            <property name="minimumSize">
+                            <property name="maximumSize">
                              <size>
-                              <width>0</width>
-                              <height>0</height>
+                              <width>16777215</width>
+                              <height>16777215</height>
                              </size>
                             </property>
-                            <property name="toolTip">
-                             <string>Delete</string>
+                            <property name="text">
+                             <string>Edit</string>
+                            </property>
+                            <property name="icon">
+                             <iconset resource="../../../../yali-theme-pardus/data.qrc">
+                              <normaloff>:/gui/pics/user-group-properties.png</normaloff>:/gui/pics/user-group-properties.png</iconset>
+                            </property>
+                            <property name="toolButtonStyle">
+                             <enum>Qt::ToolButtonTextBesideIcon</enum>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QToolButton" name="deleteButton">
+                            <property name="sizePolicy">
+                             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                             </sizepolicy>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>16777215</width>
+                              <height>16777215</height>
+                             </size>
                             </property>
                             <property name="text">
                              <string>Delete</string>
                             </property>
                             <property name="icon">
-                             <iconset>
-                              <normaloff>:/gui/pics/draw-eraser.png</normaloff>:/gui/pics/draw-eraser.png</iconset>
+                             <iconset resource="../../../../yali-theme-pardus/data.qrc">
+                              <normaloff>:/gui/pics/user-group-delete.png</normaloff>:/gui/pics/user-group-delete.png</iconset>
                             </property>
-                            <property name="flat">
-                             <bool>true</bool>
+                            <property name="popupMode">
+                             <enum>QToolButton::DelayedPopup</enum>
+                            </property>
+                            <property name="toolButtonStyle">
+                             <enum>Qt::ToolButtonTextBesideIcon</enum>
+                            </property>
+                            <property name="autoRaise">
+                             <bool>false</bool>
                             </property>
                            </widget>
                           </item>
                           <item>
-                           <spacer name="verticalSpacer_17">
+                           <widget class="QToolButton" name="cancelButton">
+                            <property name="sizePolicy">
+                             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                             </sizepolicy>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>16777215</width>
+                              <height>16777215</height>
+                             </size>
+                            </property>
+                            <property name="text">
+                             <string>Cancel</string>
+                            </property>
+                            <property name="icon">
+                             <iconset resource="../../../../yali-theme-pardus/data.qrc">
+                              <normaloff>:/gui/pics/dialog-cancel.png</normaloff>:/gui/pics/dialog-cancel.png</iconset>
+                            </property>
+                            <property name="toolButtonStyle">
+                             <enum>Qt::ToolButtonTextBesideIcon</enum>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <spacer name="verticalSpacer_19">
                             <property name="orientation">
                              <enum>Qt::Vertical</enum>
                             </property>
                             <property name="sizeHint" stdset="0">
                              <size>
                               <width>20</width>
-                              <height>40</height>
+                              <height>0</height>
                              </size>
                             </property>
                            </spacer>
@@ -1104,7 +1184,7 @@ QPushButton::flat:pressed{
          <string>Advanced</string>
         </property>
         <property name="icon">
-         <iconset>
+         <iconset resource="../../../../yali-theme-pardus/data.qrc">
           <normaloff>:/gui/pics/expand.png</normaloff>:/gui/pics/expand.png</iconset>
         </property>
         <property name="checkable">
@@ -1149,7 +1229,7 @@ QPushButton::flat:pressed{
  <layoutdefault spacing="6" margin="11"/>
  <pixmapfunction>qPixmapFromMimeSource</pixmapfunction>
  <resources>
-  <include location="../../data.qrc"/>
+  <include location="../../../../yali-theme-pardus/data.qrc"/>
  </resources>
  <connections/>
 </ui>
