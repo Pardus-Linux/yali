@@ -1193,21 +1193,21 @@ msgstr "Acaba de presionar el botón <b>%s</b>."
 # Although there is still some grammer issue (hand and button have different
 # sex in spanish!)
 #: yali/gui/YaliWindow.py:146
-#, fuzzy, python-format
+#, python-format
 msgid "Do you want to switch to the <b>%s</b> handed configuration?"
-msgstr "Desea usar la configuración de ratón para mano <b>%s</b> ?"
+msgstr "Desea cambiar la configuración para la mano <b>%s</b> ?"
 
 #: yali/gui/YaliWindow.py:176
 msgid "Are you sure you want to shut down your computer now?"
-msgstr ""
+msgstr "Está seguro que desea apagar ahora su computadora ?"
 
 #: yali/gui/YaliWindow.py:181
 msgid "Are you sure you want to restart your computer now?"
-msgstr ""
+msgstr "Está seguro que desea reiniciar ahora su computadora ?"
 
 #: yali/gui/YaliWindow.py:186
 msgid "Are you sure you want to restart the YALI installer now?"
-msgstr ""
+msgstr "Está seguro que desea reiniciar ahora el asistente de instalación YALI ?"
 
 #: yali/gui/YaliWindow.py:202
 msgid "Terminal"
@@ -1223,7 +1223,7 @@ msgstr "Notas de Versión"
 
 #: yali/gui/YaliWindow.py:374
 msgid "Release notes could not be loaded."
-msgstr ""
+msgstr "No posible cargar notas de lanzamiento."
 
 #: yali/localedata.py:20
 msgid "Turkish"
@@ -1381,43 +1381,42 @@ msgstr "Serbio"
 #: yali/pisiiface.py:71
 #, python-format
 msgid "Error occured while %(repo)s repo is adding:%(msg)s"
-msgstr ""
+msgstr "Error al agregar repositorio %(repo)s : %(msg)s"
 
 #: yali/postinstall.py:156
 #, python-format
 msgid "Preparing home directory for %s..."
-msgstr ""
+msgstr "Prepaando directorio home de %s..."
 
 #: yali/util.py:125 yali/util.py:138
 #, python-format
 msgid "Running %s"
-msgstr ""
+msgstr "Ejecutando %s"
 
 #: yali/util.py:129 yali/util.py:156
 #, python-format
 msgid "return value for \"%(command)s\" is %(return)s"
-msgstr ""
+msgstr "valor devuelto para \"%(command)s\" es %(return)s"
 
 #: yali/util.py:370
-#, fuzzy
 msgid "YALI log file doesn't exists."
-msgstr "Notas de Versión"
+msgstr "No existe archivo log de YALI"
 
 #: yali/util.py:372
 msgid "File paths are the same."
-msgstr ""
+msgstr "Rutas de archivos son identicos."
 
 #: yali/util.py:447 yali/util.py:490
 msgid "Release file is missing"
-msgstr ""
+msgstr "Archivo de lanzamiento no encontrado"
 
 #: yali/util.py:449 yali/util.py:492
 msgid "Release file is inconsistent"
-msgstr ""
+msgstr "Archivo de lanzamiento está corrupto"
 
 #: yali/util.py:452 yali/util.py:495
 msgid "Invalid xml file"
-msgstr ""
+msgstr "Archivo xml inválido"
 
 #~ msgid "Set connection state."
 #~ msgstr "Establecer estado de conexión."
