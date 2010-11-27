@@ -81,6 +81,8 @@ msgid ""
 "Error processing LVM.\n"
 "There is inconsistent LVM data on %(msg)s.  You can reinitialize all related PVs (%(pvs)s) which will erase the LVM metadata, or ignore which will preserve the contents.  This action may also be applied to all other PVs with inconsistent metadata."
 msgstr ""
+"Error al procesar LVM.\n"
+"Hay datos LVM inconsistentes en %(msg)s.  Puede reinicializar todos los PVs relacionados (%(pvs)s), que elimina los metadata LVM, o omitir para preservar el cntenido actual.  Se puede aplicar la misma acción también a todos los PVs con metadata inconsistenes."
 
 #: yali/gui/interface.py:130
 msgid "Ignore all"
@@ -1133,9 +1135,8 @@ msgid "Please insert a new disc and then click OK"
 msgstr "Por favor inserte un nuevo disco y presione Ok"
 
 #: yali/gui/YaliDialog.py:291
-#, fuzzy
 msgid "Insert New Disc"
-msgstr "Inserte CD nuevo"
+msgstr "Inserte Disco Nuevo"
 
 #: yali/gui/YaliDialog.py:303
 msgid "Information"
@@ -1143,32 +1144,31 @@ msgstr "Información"
 
 #: yali/gui/YaliDialog.py:500
 msgid "Error reporting"
-msgstr ""
+msgstr "Reporte de Errores"
 
 #: yali/gui/YaliWindow.py:58
 msgid "Pixmaps resources file doesn't exists"
-msgstr ""
+msgstr "Archivo pixmap no encontrado"
 
 #: yali/gui/YaliWindow.py:89
 msgid "Style file doesn't exists"
-msgstr ""
+msgstr "Archivo de estilo no encontrado"
 
 #: yali/gui/YaliWindow.py:96
-#, fuzzy
 msgid "Release file doesn't exists"
-msgstr "Notas de Versión"
+msgstr "Notas de Versión no encontrado"
 
 #: yali/gui/YaliWindow.py:104
 msgid "Turn Off Computer"
-msgstr ""
+msgstr "Apagar Computadora"
 
 #: yali/gui/YaliWindow.py:105
 msgid "Restart Computer"
-msgstr ""
+msgstr "Reiniciar Computadora"
 
 #: yali/gui/YaliWindow.py:106
 msgid "Restart YALI"
-msgstr ""
+msgstr "Reiniciar YALI"
 
 #: yali/gui/YaliWindow.py:124 yali/gui/YaliWindow.py:141 yali/sysutils.py:53
 msgid "right"
@@ -1183,9 +1183,9 @@ msgid "Mouse Settings"
 msgstr "Configuración de Ratón"
 
 #: yali/gui/YaliWindow.py:145
-#, fuzzy, python-format
+#, python-format
 msgid "You just clicked the <b>%s</b> mouse button."
-msgstr "Acaba de presionar el botón <b>%s</b>."
+msgstr "Acaba de presionar el botón <b>%s</b> del ratón."
 
 # sorry, in spanish there are special words for right-handed and left-handed.
 # I changed the sentence so i could apply the simple words (right, left) as in
