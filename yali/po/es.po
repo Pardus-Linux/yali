@@ -316,7 +316,7 @@ msgstr "Modificar Partición"
 
 #: yali/gui/partition_gui.py:104
 msgid "Error With Request"
-msgstr ""
+msgstr "Error de Solicitud"
 
 #: yali/gui/raid_gui.py:30
 msgid "Invalid Raid Members"
@@ -615,56 +615,54 @@ msgid "Format Warnings"
 msgstr "Alertas de formateo"
 
 #: yali/gui/ScrPartitionManual.py:129
-#, fuzzy
 msgid "Format"
-msgstr "Formatear :"
+msgstr "Formatear"
 
 #: yali/gui/ScrPartitionManual.py:137
-#, fuzzy
 msgid "All Changes that you made will be removed"
-msgstr "Todos los cambios que realizó se anularán."
+msgstr "Todos los cambios que realizó se eliminarán"
 
 #: yali/gui/ScrPartitionManual.py:147
 msgid "Standard"
-msgstr ""
+msgstr "Estándar"
 
 #: yali/gui/ScrPartitionManual.py:148
+#, fuzzy
 msgid "LVM"
-msgstr ""
+msgstr "LVM"
 
 #: yali/gui/ScrPartitionManual.py:149
+#, fuzzy
 msgid "RAID"
-msgstr ""
+msgstr "RAID"
 
 #: yali/gui/ScrPartitionManual.py:151
-#, fuzzy
 msgid "Partition"
-msgstr "Partición %d"
+msgstr "Partición"
 
 #: yali/gui/ScrPartitionManual.py:152
 msgid "General purpose of partition creation"
-msgstr ""
+msgstr "Concepto general de la creación de particiones"
 
 #: yali/gui/ScrPartitionManual.py:154
 msgid "Physical Volume"
-msgstr ""
+msgstr "Volumen Físico"
 
 #: yali/gui/ScrPartitionManual.py:155
-#, fuzzy
 msgid "Create LVM formatted partition"
-msgstr "Sí, formatear esta partición"
+msgstr "Crear partición de formato LVM"
 
 #: yali/gui/ScrPartitionManual.py:157
 msgid "Volume Group"
-msgstr ""
+msgstr "Grupo de Volumenes"
 
 #: yali/gui/ScrPartitionManual.py:158
 msgid "Requires at least 1 free LVM formatted partition"
-msgstr ""
+msgstr "Require al menos una partición de formato LVM"
 
 #: yali/gui/ScrPartitionManual.py:160
 msgid "Logical Volume"
-msgstr ""
+msgstr "Volumen Logico"
 
 #: yali/gui/ScrPartitionManual.py:161
 msgid "Create Logical Volume on selected Volume Group"
