@@ -627,12 +627,10 @@ msgid "Standard"
 msgstr "Estándar"
 
 #: yali/gui/ScrPartitionManual.py:148
-#, fuzzy
 msgid "LVM"
 msgstr "LVM"
 
 #: yali/gui/ScrPartitionManual.py:149
-#, fuzzy
 msgid "RAID"
 msgstr "RAID"
 
@@ -666,16 +664,15 @@ msgstr "Volumen Logico"
 
 #: yali/gui/ScrPartitionManual.py:161
 msgid "Create Logical Volume on selected Volume Group"
-msgstr ""
+msgstr "Crear volumen lógico en grupo de volumenes seleccionado"
 
 #: yali/gui/ScrPartitionManual.py:163
 msgid "Member"
-msgstr ""
+msgstr "Miembro"
 
 #: yali/gui/ScrPartitionManual.py:164
-#, fuzzy
 msgid "Create Raid formatted partition"
-msgstr "Sí, formatear esta partición"
+msgstr "Crear partición de formato RAID"
 
 #: yali/gui/ScrPartitionManual.py:166
 msgid "Array"
@@ -683,11 +680,11 @@ msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:167
 msgid "Requires at least 2 free Raid formatted partition"
-msgstr ""
+msgstr "Require al menos 2 particiones libres del tipo RAID"
 
 #: yali/gui/ScrPartitionManual.py:228
 msgid "Volume Groups"
-msgstr ""
+msgstr "Grupos de Volumenes"
 
 #: yali/gui/ScrPartitionManual.py:240 yali/gui/ScrPartitionManual.py:313
 msgid "Free"
@@ -1068,6 +1065,9 @@ msgid ""
 "otherwise the volume group will be too small to\n"
 "hold the currently defined logical volumes."
 msgstr ""
+"no puede remover éste volumen físico, porque \n"
+"el tamaño restante es insuficiente\n"
+" para los volumenes lógicos actueles del grupo de volumenes."
 
 #: yali/gui/storageGuiHelpers.py:188
 msgid "<Not Applicable>"
@@ -1129,9 +1129,8 @@ msgid "OK"
 msgstr ""
 
 #: yali/gui/YaliDialog.py:289
-#, fuzzy
 msgid "Please insert a new disc and then click OK"
-msgstr "Por favor inserte un nuevo CD y presione Ok"
+msgstr "Por favor inserte un nuevo disco y presione Ok"
 
 #: yali/gui/YaliDialog.py:291
 #, fuzzy
