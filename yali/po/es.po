@@ -54,6 +54,14 @@ msgid ""
 "\n"
 "To re-initialize all disks with unaccessible partition tables press Re-initialize All"
 msgstr ""
+"Tabla de particiones no accesible de %(description)s(%(name)s) -- %(size)-0.fMB\n"
+"\n"
+"Si ya existe una tabla de particiones en el dispositivo, se \n"
+" re-inicializará y se perderán los datos existentes!\n"
+"\n"
+"Para reinicializar el disco actuel presiones Re-Inicializar.\n"
+"\n"
+"Para reinicializar a todas las particiones cuya tabla de particiones esté inaccesible, presione Re-Inicializar Todos"
 
 #: yali/gui/interface.py:75 yali/gui/interface.py:130
 msgid "Ignore"
@@ -188,7 +196,7 @@ msgstr "Este cambio del valor de extensión física desperdicirá espacio consid
 #: yali/gui/lvm_gui.py:484
 #, python-format
 msgid "The physical extent size cannot be changed because the resulting maximum logical volume size (%10.2f MB) is smaller than one or more of theircurrently defined logical volumes."
-msgstr ""
+msgstr "No se puede cambiar el tamaño físico, porque el tamaño máximo para un volumen lógico (%10.2f MB) sería menor que uno de los volumenes lógicos ya creados."
 
 #: yali/gui/lvm_gui.py:505
 msgid "No free slots"
@@ -248,59 +256,59 @@ msgstr "Modificar Volumen Lógico: %s"
 #: yali/gui/lvm_gui.py:614 yali/gui/partition_gui.py:65
 #: yali/gui/raid_gui.py:79
 msgid "Mount Point Error"
-msgstr ""
+msgstr "Error de punto de montaje"
 
 #: yali/gui/lvm_gui.py:638 yali/gui/partition_gui.py:80
 #: yali/gui/raid_gui.py:94
 msgid "Mount point in use"
-msgstr ""
+msgstr "Punto de montaje en uso"
 
 #: yali/gui/lvm_gui.py:639 yali/gui/partition_gui.py:81
 #: yali/gui/raid_gui.py:95
 #, python-format
 msgid "The mount point \"%s\" is in use. Please pick another."
-msgstr ""
+msgstr "El ppunto de montaje \"%s\" está en uso. Por favor elija otro."
 
 #: yali/gui/lvm_gui.py:649
 msgid "Illegal Logical Volume Name"
-msgstr ""
+msgstr "Nombre de Volumen Lógico no válido"
 
 #: yali/gui/lvm_gui.py:661
 msgid "Illegal logical volume name"
-msgstr ""
+msgstr "Nombre de volumen lógico no válido"
 
 #: yali/gui/lvm_gui.py:662
 #, python-format
 msgid "The logical volume name \"%s\" is already in use. Please pick another."
-msgstr ""
+msgstr "El nombre de volumen logico \"%s\" ya está en uso. Por favor elija otro."
 
 #: yali/gui/lvm_gui.py:676
 msgid "Illegal size"
-msgstr ""
+msgstr "Tamaño no válido"
 
 #: yali/gui/lvm_gui.py:677
 msgid "The requested size as entered is not a valid number greater than 0."
-msgstr ""
+msgstr "El tamaño requerido no es un número válido, mayor de cero."
 
 #: yali/gui/lvm_gui.py:690
 #, python-format
 msgid "The current requested size (%(size)10.2f MB) is larger than the maximum logical volume size (%(maxlv)10.2f MB). To increase this limit you can create more Physical Volumes from unpartitioned disk space and add them to this Volume Group."
-msgstr ""
+msgstr "El tamaño ingresado (%(size)10.2f MB) es mayor que el tamaño máximo de un volumen lógico (%(maxlv)10.2f MB). Para aumentar éste limite puede añadir volumenes físicos al grupo de volumenes lógicos."
 
 #: yali/gui/lvm_gui.py:712
 #, python-format
 msgid "The size entered for this logical volume (%(size)d MB) combined with the size of the other logical volume(s) exceeds the size of the volume group (%(tmpvgsize)d MB). Please make the volume group larger or make the logical volume smaller."
-msgstr ""
+msgstr "El tamaño ingresado del volumen lógico (%(size)d MB) supera el espacio disponible en el grupo de volumenes de (%(tmpvgsize)d MB), teniendo en cuenta los demás volumenes lógicos existentes. Por favor aumente el tamaño del grupo de volumenes o reduzca el volumen lǵico."
 
 #: yali/gui/partition_gui.py:34
-#, fuzzy, python-format
+#, python-format
 msgid "Create Partition on %(path)s (%(model)s)"
-msgstr "Eliminar Partición"
+msgstr "Cerar partición en %(path)s (%(model)s)"
 
 #: yali/gui/partition_gui.py:38
-#, fuzzy, python-format
+#, python-format
 msgid "Edit Partition %s"
-msgstr "Partición %d"
+msgstr "Modificar Partición %s"
 
 #: yali/gui/partition_gui.py:40
 msgid "Edit Partition"
