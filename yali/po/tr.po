@@ -32,9 +32,9 @@ msgid "Warning"
 msgstr "Uyarı"
 
 #: yali/gui/interface.py:42
-#, fuzzy, python-format
+#, python-format
 msgid "Disk contains %(members_count)s BIOS RAID metadata, but is not part of any recognized BIOS RAID sets. Ignoring disk %(members)s."
-msgstr "Disk içeriğinde %(members_count)s BIOS RAID üstverisi bulunmaktadır, fakat bu üstveri herhangi bir tanımlanmış BIOS RAID ayarlarından birine ait değildir. Disk gözardı ediliyor %(members)s.)"
+msgstr "Disk içeriğinde %(members_count)s BIOS RAID üstverisi bulunmaktadır, fakat bu üstveri herhangi bir tanımlanmış BIOS RAID ayarlarından birine ait değildir. Disk gözardı ediliyor %(members)s."
 
 #: yali/gui/interface.py:66 yali/gui/raid_gui.py:122
 #: yali/gui/ScrDriveSelection.py:112
@@ -563,13 +563,13 @@ msgid "License text could not be found."
 msgstr "Lisans metni bulunamadı."
 
 #: yali/gui/ScrPartitionAuto.py:45
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "No partitions are available to resize. Only physical\n"
 "partitions which size is greater than %s MB can be resized."
 msgstr ""
 "Yeniden boyutlandırılacak bölüm yok. Sadece özel\n"
-"dosya yapılarına sahip fiziksel bölümler yeniden boyutlandırılabilir."
+"dosya yapılarına sahip %s MB daha büyük fiziksel bölümler yeniden boyutlandırılabilir."
 
 #: yali/gui/ScrPartitionManual.py:93
 #, python-format
@@ -920,9 +920,9 @@ msgid "Use All Space"
 msgstr "Boş Alanın Tamamını Kullan"
 
 #: yali/gui/ScrSummary.py:135
-#, fuzzy, python-format
+#, python-format
 msgid "Removes all partitions on the selected %s device(s). This includes partitions created by other operating systems."
-msgstr "Seçili aygıt veya aygıtlardaki%s tüm bölmeleri kaldırır. Bu işlem diğer işletim sistemleri tarafından oluşturulmuş bölmeleri de kapsar."
+msgstr "Seçili aygıt veya aygıtlardaki %s tüm bölmeleri kaldırır. Bu işlem diğer işletim sistemleri tarafından oluşturulmuş bölümleri de kapsar."
 
 #: yali/gui/ScrSummary.py:139
 msgid "Replace Existing Linux System(s)"
@@ -1378,7 +1378,7 @@ msgstr "Sırpça"
 #: yali/pisiiface.py:71
 #, python-format
 msgid "Error occured while %(repo)s repo is adding:%(msg)s"
-msgstr ""
+msgstr "%(repo)s eklenirken hata oluştu:%(msg)s"
 
 #: yali/postinstall.py:156
 #, python-format
