@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sv\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-24 09:31+0200\n"
+"POT-Creation-Date: 2010-11-28 15:51+0200\n"
 "PO-Revision-Date: 2010-01-28 17:46+0100\n"
 "Last-Translator: Patrik Karlsson <patrik@pardus.nu>\n"
 "Language-Team: Swedish <pardus-translators@pardus.org.tr>\n"
@@ -369,7 +369,7 @@ msgstr "Försök igen"
 msgid "Password is too short."
 msgstr "Lösenordet är för kort!"
 
-#: yali/gui/ScrAdmin.py:132 yali/gui/ScrUsers.py:222
+#: yali/gui/ScrAdmin.py:132 yali/gui/ScrUsers.py:225
 #, fuzzy
 msgid "Don't use invalid characters"
 msgstr "Värddatornamnet innehåller ogiltiga tecken!"
@@ -1039,51 +1039,51 @@ msgstr ""
 msgid "Go Back"
 msgstr "Bakåt"
 
-#: yali/gui/ScrUsers.py:129 yali/gui/ScrUsers.py:362
+#: yali/gui/ScrUsers.py:129 yali/gui/ScrUsers.py:365
 #, fuzzy
 msgid "Update"
 msgstr "Uppdatera användare"
 
-#: yali/gui/ScrUsers.py:213
+#: yali/gui/ScrUsers.py:216
 #, fuzzy
 msgid "Don't use your user name or name as a password"
 msgstr "Använd inte ditt namn eller användarnamn som lösenord."
 
-#: yali/gui/ScrUsers.py:216
+#: yali/gui/ScrUsers.py:219
 #, fuzzy
 msgid "Passwords do not match"
 msgstr "Lösenorden stämmer inte!"
 
-#: yali/gui/ScrUsers.py:219
+#: yali/gui/ScrUsers.py:222
 #, fuzzy
 msgid "Password is too short"
 msgstr "Lösenordet är för kort!"
 
-#: yali/gui/ScrUsers.py:267
+#: yali/gui/ScrUsers.py:270
 #, fuzzy
 msgid "This user name is already taken, please choose another one."
 msgstr "Användarnamnet finns redan, välj ett annat!"
 
-#: yali/gui/ScrUsers.py:271
+#: yali/gui/ScrUsers.py:274
 #, fuzzy
 msgid "The user name contains invalid characters."
 msgstr "Användarnamnet innehåller ogiltiga tecken!"
 
-#: yali/gui/ScrUsers.py:274
+#: yali/gui/ScrUsers.py:277
 #, fuzzy
 msgid "The real name contains invalid characters."
 msgstr "Det verkliga namnet innehåller ogiltiga tecken!"
 
-#: yali/gui/ScrUsers.py:277
+#: yali/gui/ScrUsers.py:280
 #, fuzzy
 msgid "The password contains invalid characters."
 msgstr "Användarnamnet innehåller ogiltiga tecken!"
 
-#: yali/gui/ScrUsers.py:285
+#: yali/gui/ScrUsers.py:288
 msgid "User ID used before, choose another one!"
 msgstr "Användarid upptaget, välj ett annat!"
 
-#: yali/gui/ScrUsers.py:290 yali/gui/ScrUsers.py:332 yali/gui/ScrUsers.py:410
+#: yali/gui/ScrUsers.py:293 yali/gui/ScrUsers.py:335 yali/gui/ScrUsers.py:413
 msgid "Add"
 msgstr ""
 

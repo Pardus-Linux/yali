@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-24 09:31+0200\n"
+"POT-Creation-Date: 2010-11-28 15:51+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -363,7 +363,7 @@ msgstr ""
 msgid "Password is too short."
 msgstr "  ."
 
-#: yali/gui/ScrAdmin.py:132 yali/gui/ScrUsers.py:222
+#: yali/gui/ScrAdmin.py:132 yali/gui/ScrUsers.py:225
 msgid "Don't use invalid characters"
 msgstr "   "
 
@@ -975,43 +975,43 @@ msgstr "   "
 msgid "Go Back"
 msgstr " "
 
-#: yali/gui/ScrUsers.py:129 yali/gui/ScrUsers.py:362
+#: yali/gui/ScrUsers.py:129 yali/gui/ScrUsers.py:365
 msgid "Update"
 msgstr ""
 
-#: yali/gui/ScrUsers.py:213
+#: yali/gui/ScrUsers.py:216
 msgid "Don't use your user name or name as a password"
 msgstr "       "
 
-#: yali/gui/ScrUsers.py:216
+#: yali/gui/ScrUsers.py:219
 msgid "Passwords do not match"
 msgstr "  "
 
-#: yali/gui/ScrUsers.py:219
+#: yali/gui/ScrUsers.py:222
 msgid "Password is too short"
 msgstr "  "
 
-#: yali/gui/ScrUsers.py:267
+#: yali/gui/ScrUsers.py:270
 msgid "This user name is already taken, please choose another one."
 msgstr "    , ,  ."
 
-#: yali/gui/ScrUsers.py:271
+#: yali/gui/ScrUsers.py:274
 msgid "The user name contains invalid characters."
 msgstr "    ."
 
-#: yali/gui/ScrUsers.py:274
+#: yali/gui/ScrUsers.py:277
 msgid "The real name contains invalid characters."
 msgstr "    ."
 
-#: yali/gui/ScrUsers.py:277
+#: yali/gui/ScrUsers.py:280
 msgid "The password contains invalid characters."
 msgstr "   ."
 
-#: yali/gui/ScrUsers.py:285
+#: yali/gui/ScrUsers.py:288
 msgid "User ID used before, choose another one!"
 msgstr "ID   ,  !"
 
-#: yali/gui/ScrUsers.py:290 yali/gui/ScrUsers.py:332 yali/gui/ScrUsers.py:410
+#: yali/gui/ScrUsers.py:293 yali/gui/ScrUsers.py:335 yali/gui/ScrUsers.py:413
 msgid "Add"
 msgstr ""
 
