@@ -1,0 +1,1434 @@
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Attila Siposs <sipiatti@gmail.com>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-11-24 09:31+0200\n"
+"PO-Revision-Date: 2010-11-28 14:53+0100\n"
+"Last-Translator: Attila Siposs <sipiatti@gmail.com>\n"
+"Language-Team: Hungarian <pardus-translators@pardus.org.tr>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: yali/gui/interface.py:41 yali/gui/interface.py:123
+#: yali/gui/ScrCheckCD.py:92 yali/gui/ScrInstall.py:139
+#: yali/gui/ScrPartitionAuto.py:44 yali/gui/ScrPartitionManual.py:137
+#: yali/gui/YaliWindow.py:175 yali/gui/YaliWindow.py:180
+#: yali/gui/YaliWindow.py:185
+msgid "Warning"
+msgstr "Figyelem"
+
+#: yali/gui/interface.py:42
+#, python-format
+msgid ""
+"Disk contains %(members_count)s BIOS RAID metadata, but is not part of any "
+"recognized BIOS RAID sets. Ignoring disk %(members)s."
+msgstr ""
+"A lemez %(members_count)s BIOS RAID metaadatot tartalmaz, de egyik sem "
+"tagja felismert BIOS RAID készletnek. %(members)s lemez figyelmen kívül "
+"hagyva."
+
+#: yali/gui/interface.py:66 yali/gui/raid_gui.py:122
+#: yali/gui/ScrDriveSelection.py:112
+msgid "Error"
+msgstr "Hiba"
+
+#: yali/gui/interface.py:67
+#, python-format
+msgid ""
+"Cannot access the partition table of %(description)s(%(name)s) -- "
+"%(size)-0.fMB\n"
+"\n"
+"If there already exists a partition table on this device, it will\n"
+" be re-initialized and your existing data will be lost!\n"
+"\n"
+"To re-initialize the current disk press Re-initialize.\n"
+"\n"
+"To re-initialize all disks with unaccessible partition tables press Re-"
+"initialize All"
+msgstr ""
+"A %(description)s(%(name)s) -- %(size)-0.fMB partíciós táblája nem elérhető."
+"\n"
+"\n"
+"Ha az eszközön van partíciós tábla, akkor az újrainicializálásra\n"
+"kerül, és minden adata elveszik!\n"
+"\n"
+"Az újrainicializáláshoz nyomja meg az 'Újrainicializálás' gombot.\n"
+"\n"
+"Az összes nem olvasható partíciós táblájú lemez újrainicializáláshoz "
+"nyomja meg az 'Összes újrainicializálása' gombot."
+
+#: yali/gui/interface.py:75 yali/gui/interface.py:130
+msgid "Ignore"
+msgstr "Mellőzés"
+
+#: yali/gui/interface.py:75
+msgid "Ignore All"
+msgstr "Mindegyik mellőzése"
+
+#: yali/gui/interface.py:76 yali/gui/interface.py:131
+msgid "Re-initialize"
+msgstr "Újrainicializálás"
+
+#: yali/gui/interface.py:124
+#, python-format
+msgid ""
+"Error processing LVM.\n"
+"There is inconsistent LVM data on %(msg)s.  You can reinitialize all related "
+"PVs (%(pvs)s) which will erase the LVM metadata, or ignore which will "
+"preserve the contents.  This action may also be applied to all other PVs "
+"with inconsistent metadata."
+msgstr ""
+"Hiba az LVM feldolgozása közben.\n"
+"Az LVM inkonzisztens adatokat tartalmaz ezen: %(msg)s. Újrainicializálhatja "
+"a vonatkozó köteteket (%(pvs)s), amivel az LVM metaadata törlődik, vagy "
+"mellőzheti, amivel megmarad a tartalma. A művelet az összes többi "
+"inkonzisztens "
+"metaadatot tartalmazó kötetre is kiterjeszthető."
+
+#: yali/gui/interface.py:130
+msgid "Ignore all"
+msgstr "Összes mellőzése"
+
+#: yali/gui/interface.py:131
+msgid "Re-initialize all"
+msgstr "Összes újrainicializálása"
+
+#: yali/gui/lvm_gui.py:50
+msgid "Not enough physical volumes"
+msgstr "Nincs elég fizikai kötet."
+
+#: yali/gui/lvm_gui.py:51
+msgid ""
+"At least one unused physical volume partition is needed to\n"
+"create an LVM Volume Group.\n"
+"Create a partition or RAID array of type \"physical volume\n"
+"(LVM)\" and then select the \"LVM\" option again."
+msgstr ""
+"Legalább egy használaton kívüli fizikai kötet partíció szükséges\n"
+"a logikai kötet létrehozásához.\n"
+"Készítsen egy partíciót vagy RAID tömböt \"fizikai kötet (LVM)\"\n"
+"típusként, ezután válassza újra az \"LVM\" opciót."
+
+#: yali/gui/lvm_gui.py:62
+msgid "Make LVM Volume Group"
+msgstr "LVM VG létrehozása"
+
+#: yali/gui/lvm_gui.py:65
+#, python-format
+msgid "Edit LVM Volume Group: %s"
+msgstr "%s LVM VG módosítása"
+
+#: yali/gui/lvm_gui.py:67
+msgid "Edit LVM Volume Group"
+msgstr "LVM VG módosítása"
+
+#: yali/gui/lvm_gui.py:93
+msgid "Invalid Volume Group Name"
+msgstr "Érvénytelen VG név"
+
+#: yali/gui/lvm_gui.py:101
+msgid "Name in use"
+msgstr "A név használatban van"
+
+#: yali/gui/lvm_gui.py:102
+#, python-format
+msgid "The volume group name \"%s\" is already in use. Please pick another."
+msgstr "A \"%s\" VG név már használatban van. Válasszon másikat."
+
+#: yali/gui/lvm_gui.py:405 yali/gui/lvm_gui.py:435 yali/gui/lvm_gui.py:448
+#: yali/gui/lvm_gui.py:483 yali/gui/lvm_gui.py:689 yali/gui/lvm_gui.py:711
+#: yali/gui/storageGuiHelpers.py:70
+msgid "Not enough space"
+msgstr "Nincs elég szabad terület"
+
+#: yali/gui/lvm_gui.py:406
+msgid ""
+"The physical extent size cannot be changed because\n"
+"otherwise the space required by the currently defined\n"
+"logical volumes will be increased to more than the\n"
+"available space."
+msgstr ""
+"A fizikai extent méret nem módosítható, mert\n"
+"ez esetben a már definiált kötetek mérete meghaladná\n"
+"a rendelkezésre álló területet."
+
+#: yali/gui/lvm_gui.py:414
+msgid "Confirm Physical Extent Change"
+msgstr "Fizikai extent méret megváltoztatásának jóváhagyása"
+
+#: yali/gui/lvm_gui.py:415
+msgid ""
+"This change in the value of the physical extent will\n"
+"require the sizes of the current logical volume requests\n"
+"to be rounded up in size to an integer multiple of\n"
+"the physical extent.\n"
+"\n"
+"This change will take effect\n"
+"immediately."
+msgstr ""
+"Ez változtatás a fizikai extent méretében azt\n"
+"eredményezi, hogy az aktuális logikai kötet mérete\n"
+"a fizikai extentek egész számú többszörösére változzon.\n"
+"\n"
+"A változtatás azonnal életbe lép."
+
+#: yali/gui/lvm_gui.py:421 yali/gui/lvm_gui.py:468 yali/gui/lvm_gui.py:553
+#: yali/gui/ScrPartitionManual.py:113 yali/gui/ScrPartitionManual.py:129
+#: yali/gui/ScrPartitionManual.py:139 yali/gui/YaliDialog.py:222
+msgid "Cancel"
+msgstr "Mégsem"
+
+#: yali/gui/lvm_gui.py:421 yali/gui/lvm_gui.py:468
+#: yali/gui/ScrPartitionManual.py:358
+msgid "Continue"
+msgstr "Folytatás"
+
+#: yali/gui/lvm_gui.py:436
+#, python-format
+msgid ""
+"The physical extent size cannot be changed because\n"
+"the value selected (%(curpe)10.2f MB) is larger than the\n"
+"smallest physical volume (%(maxpvsize)10.2f MB) in the volume group."
+msgstr ""
+"A fizikai extent mérete nem változtatható meg, mert\n"
+"a kiválasztott érték (%(curpe)10.2f MB) nagyobb, mint a\n"
+"legkisebb fizikai kötet (%(maxpvsize)10.2f MB) a VG-ben."
+
+#: yali/gui/lvm_gui.py:449
+#, python-format
+msgid ""
+"The physical extent size cannot be changed because the value selected "
+"(%(curpe)10.2f MB) is too large compared to the size of the smallest "
+"physical volume (%(maxpvsize)10.2f MB) in the volume group."
+msgstr ""
+"A fizikai extent mérete nem változtatható meg, mert\n"
+"a kiválasztott érték (%(curpe)10.2f MB) túl nagy\n"
+"legkisebb fizikai kötet (%(maxpvsize)10.2f MB) méretéhez\n"
+"viszonyítva a VG-n belül."
+
+#: yali/gui/lvm_gui.py:461
+msgid "Too small"
+msgstr "Túl kicsi"
+
+#: yali/gui/lvm_gui.py:462
+msgid ""
+"This change in the value of the physical extent will waste substantial space "
+"on one or more of the physical volumes in the volume group."
+msgstr ""
+"Ez a fizikai extent méret egy vagy több köteten túl sok kihasználatlan "
+"helyfoglaláshoz vezet."
+
+#: yali/gui/lvm_gui.py:484
+#, python-format
+msgid ""
+"The physical extent size cannot be changed because the resulting maximum "
+"logical volume size (%10.2f MB) is smaller than one or more of "
+"theircurrently defined logical volumes."
+msgstr ""
+
+#: yali/gui/lvm_gui.py:505
+msgid "No free slots"
+msgstr "Nincs szabad csatolóhely"
+
+#: yali/gui/lvm_gui.py:506
+#, python-format
+msgid ""
+"You cannot create more than %d logical volume \n"
+"per volume group."
+msgstr ""
+
+#: yali/gui/lvm_gui.py:512
+msgid "No free space"
+msgstr "Nincs szabad hely"
+
+#: yali/gui/lvm_gui.py:513
+msgid ""
+"There is no room left in the volume group to create new\n"
+"logical volumes. To add a logical volume you must reduce\n"
+"the size of one or more of the currently existing logical\n"
+"volumes"
+msgstr ""
+
+#: yali/gui/lvm_gui.py:549
+msgid "Confirm Delete"
+msgstr "Törlés jóváhagyása"
+
+#: yali/gui/lvm_gui.py:550
+#, python-format
+msgid ""
+"Are you sure you want to delete the \n"
+"logical volume \"%s\"?"
+msgstr "Biztosan törli a \"%s\" logikai kötetet?"
+
+#: yali/gui/lvm_gui.py:553
+msgid "Delete"
+msgstr "Törlés"
+
+#: yali/gui/lvm_gui.py:583
+msgid "Make Logical Volume"
+msgstr "Logikai kötet létrehozása"
+
+#: yali/gui/lvm_gui.py:585
+#, python-format
+msgid "Edit Logical Volume: %s"
+msgstr "%s logikai kötet módosítása"
+
+#: yali/gui/lvm_gui.py:614 yali/gui/partition_gui.py:65
+#: yali/gui/raid_gui.py:79
+msgid "Mount Point Error"
+msgstr "Csatolási pont hiba"
+
+#: yali/gui/lvm_gui.py:638 yali/gui/partition_gui.py:80
+#: yali/gui/raid_gui.py:94
+msgid "Mount point in use"
+msgstr "Csatolási pont használatban van"
+
+#: yali/gui/lvm_gui.py:639 yali/gui/partition_gui.py:81
+#: yali/gui/raid_gui.py:95
+#, python-format
+msgid "The mount point \"%s\" is in use. Please pick another."
+msgstr "A \"%s\" csatolási pont már használatban van. Válasszon másikat."
+
+#: yali/gui/lvm_gui.py:649
+msgid "Illegal Logical Volume Name"
+msgstr "Érvénytelen logikai kötet név"
+
+#: yali/gui/lvm_gui.py:661
+msgid "Illegal logical volume name"
+msgstr "Érvénytelen logikai kötet név"
+
+#: yali/gui/lvm_gui.py:662
+#, python-format
+msgid "The logical volume name \"%s\" is already in use. Please pick another."
+msgstr "A \"%s\" logikai kötet név már használatban van. Válasszon másikat."
+
+#: yali/gui/lvm_gui.py:676
+msgid "Illegal size"
+msgstr "Érvénytelen méret"
+
+#: yali/gui/lvm_gui.py:677
+msgid "The requested size as entered is not a valid number greater than 0."
+msgstr ""
+
+#: yali/gui/lvm_gui.py:690
+#, python-format
+msgid ""
+"The current requested size (%(size)10.2f MB) is larger than the maximum "
+"logical volume size (%(maxlv)10.2f MB). To increase this limit you can "
+"create more Physical Volumes from unpartitioned disk space and add them to "
+"this Volume Group."
+msgstr ""
+
+#: yali/gui/lvm_gui.py:712
+#, python-format
+msgid ""
+"The size entered for this logical volume (%(size)d MB) combined with the "
+"size of the other logical volume(s) exceeds the size of the volume group "
+"(%(tmpvgsize)d MB). Please make the volume group larger or make the logical "
+"volume smaller."
+msgstr ""
+
+#: yali/gui/partition_gui.py:34
+#, python-format
+msgid "Create Partition on %(path)s (%(model)s)"
+msgstr ""
+
+#: yali/gui/partition_gui.py:38
+#, python-format
+msgid "Edit Partition %s"
+msgstr "%s partíció módosítása"
+
+#: yali/gui/partition_gui.py:40
+msgid "Edit Partition"
+msgstr "Partíció módosítása"
+
+#: yali/gui/partition_gui.py:104
+msgid "Error With Request"
+msgstr ""
+
+#: yali/gui/raid_gui.py:30
+msgid "Invalid Raid Members"
+msgstr "Érvénytelen Raid tagok"
+
+#: yali/gui/raid_gui.py:31
+msgid ""
+"At least two unused software RAID partitions are needed to create a RAID "
+"device.\n"
+"\n"
+"First create at least two partitions of type \"software RAID\", and then "
+"select the \"RAID\" option again."
+msgstr ""
+
+#: yali/gui/raid_gui.py:41
+msgid "Make RAID Device"
+msgstr ""
+
+#: yali/gui/raid_gui.py:44
+#, python-format
+msgid "Edit RAID Device: %s"
+msgstr ""
+
+#: yali/gui/raid_gui.py:46
+msgid "Edit RAID Device"
+msgstr ""
+
+#: yali/gui/runner.py:110
+msgid "Error!"
+msgstr "Hiba!"
+
+#: yali/gui/runner.py:111
+#, python-format
+msgid ""
+"An error occurred when attempting to load an installer interface component.\n"
+"\n"
+"className = %s.Widget"
+msgstr ""
+
+#: yali/gui/runner.py:115
+msgid "Exit"
+msgstr "Kilépés"
+
+#: yali/gui/runner.py:115
+msgid "Retry"
+msgstr "Újra"
+
+#: yali/gui/ScrAdmin.py:129 yali/gui/ScrRescuePassword.py:96
+msgid "Password is too short."
+msgstr "A jelszó túl rövid."
+
+#: yali/gui/ScrAdmin.py:132 yali/gui/ScrUsers.py:222
+msgid "Don't use invalid characters"
+msgstr "Ne használjon érvénytelen karaktereket"
+
+#: yali/gui/ScrAdmin.py:139
+msgid "Passwords do not match."
+msgstr "A jelszavak nem egyeznek."
+
+#: yali/gui/ScrAdmin.py:144
+msgid "Do not use your username as your password."
+msgstr "Ne használj a felhasználónevét jelszónak."
+
+#: yali/gui/ScrAdmin.py:154
+msgid "Hostname cannot be longer than 64 characters."
+msgstr "A gépnév nem lehet 64 karakternél hosszabb."
+
+#: yali/gui/ScrAdmin.py:167
+msgid "Hostname contains invalid characters."
+msgstr "A gépnév érvénytelen karaktereket tartalmaz."
+
+#: yali/gui/ScrCheckCD.py:60
+msgid "Validate"
+msgstr "Érvényesítés"
+
+#: yali/gui/ScrCheckCD.py:66
+msgid "Starting validation..."
+msgstr "Érvényesítés indítása..."
+
+#: yali/gui/ScrCheckCD.py:85
+#, python-format
+msgid "Validating %s"
+msgstr "Érvényesítés %s"
+
+#: yali/gui/ScrCheckCD.py:93
+#, python-format
+msgid ""
+"Validation of %s package failed.Please remaster your installation medium "
+"andreboot."
+msgstr ""
+
+#: yali/gui/ScrCheckCD.py:97
+msgid "Skip Validation"
+msgstr "Érvényesítés kihagyása"
+
+#: yali/gui/ScrCheckCD.py:97
+msgid "Skip Package"
+msgstr "Csomag kihagyása"
+
+#: yali/gui/ScrCheckCD.py:97
+msgid "Reboot"
+msgstr "Újraindítás"
+
+#: yali/gui/ScrCheckCD.py:112
+msgid ""
+"<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the "
+"installation.</b></font>"
+msgstr ""
+"<font color=\"#FFF\"><b>Az ellenőrzés sikeres volt. Továbbléphet a "
+"telepítésre.</b></font>"
+
+#: yali/gui/ScrDateTime.py:89
+msgid "Adjusting time settings"
+msgstr "Idő beállítása"
+
+#: yali/gui/ScrDriveSelection.py:113
+msgid "You must select at least one drive to be used for installation."
+msgstr ""
+
+#: yali/gui/ScrGoodbye.py:37
+msgid "Running post-install operations..."
+msgstr ""
+
+#: yali/gui/ScrGoodbye.py:53
+msgid "Press <b>Restart</b> to restart the computer."
+msgstr ""
+
+#: yali/gui/ScrGoodbye.py:53 yali/gui/ScrRescueFinish.py:78
+#: yali/gui/ScrSummary.py:46
+msgid "Restart"
+msgstr "Újraindítás"
+
+#: yali/gui/ScrGoodbye.py:55 yali/gui/ScrRescueFinish.py:80
+msgid "<b>Please wait while restarting...</b>"
+msgstr "Újraindítás. Kérem várjon..."
+
+#: yali/gui/ScrGoodbye.py:70 yali/gui/ScrRescuePassword.py:45
+#: yali/gui/ScrRescuePisi.py:38
+msgid "Connecting to D-Bus..."
+msgstr "Csatlakozás a D-BUShoz..."
+
+#: yali/gui/ScrGoodbye.py:72
+msgid "Setting hostname..."
+msgstr "Gépnév beállítása..."
+
+#: yali/gui/ScrGoodbye.py:73
+msgid "Setting root password..."
+msgstr "Rendszergazda jelszó beállítása..."
+
+#: yali/gui/ScrGoodbye.py:75
+msgid "Setting timezone..."
+msgstr "Időzóna beállítása..."
+
+#: yali/gui/ScrGoodbye.py:76
+msgid "Migrating Xorg configuration..."
+msgstr "Xorg beállítások importálása..."
+
+#: yali/gui/ScrGoodbye.py:77
+msgid "Setting console keymap..."
+msgstr "Konzol billentyűkiosztás beállítása..."
+
+#: yali/gui/ScrGoodbye.py:78
+msgid "Copying repository index..."
+msgstr "Tároló index másolása..."
+
+#: yali/gui/ScrGoodbye.py:79
+msgid "Stopping to D-Bus..."
+msgstr "D-BUS leállítása..."
+
+#: yali/gui/ScrGoodbye.py:83
+msgid "Setup bootloader..."
+msgstr "Rendszertöltő telepítése..."
+
+#: yali/gui/ScrGoodbye.py:84
+msgid "Writing bootloader..."
+msgstr "Rendszertöltő kiírása..."
+
+#: yali/gui/ScrGoodbye.py:85
+msgid "Installing bootloader..."
+msgstr "Rendszertöltő telepítése..."
+
+#: yali/gui/ScrGoodbye.py:88
+msgid "Setup First-Boot..."
+msgstr "Első indulás beállítása..."
+
+#: yali/gui/ScrGoodbye.py:91
+msgid "Adding users..."
+msgstr "Felhasználók hozzáadása..."
+
+#: yali/gui/ScrInstall.py:110
+#, python-format
+msgid "Installing <b>%(name)s</b><br>%(summary)s"
+msgstr "Telepítés: <b>%(name)s</b><br>%(summary)s"
+
+#: yali/gui/ScrInstall.py:116
+#, python-format
+msgid "Configuring <b>%s</b>"
+msgstr "Beállítás: <b>%s</b>"
+
+#: yali/gui/ScrInstall.py:140
+#, python-format
+msgid ""
+"Following error occured while installing packages:\n"
+"<b>%s</b>"
+msgstr ""
+"A csomagok telepítésekor az alábbi hibák léptek fel:\n"
+"<b>%s</b>"
+
+#: yali/gui/ScrInstall.py:141
+msgid "Do you want to retry?"
+msgstr "Megpróbálja újra?"
+
+#: yali/gui/ScrInstall.py:198
+#, python-format
+msgid ""
+"An error occured during the installation of packages.\n"
+"\n"
+"This may be caused by a corrupted installation medium.\n"
+"\n"
+"Error:\n"
+"%s\n"
+msgstr ""
+"A csomagok telepítésekor hiba lépett fel.\n"
+"\n"
+"Ezt okozhatja a telepító adathordozó sérülése.\n"
+"\n"
+"Hiba:\n"
+"%s\n"
+
+#: yali/gui/ScrKahyaCheck.py:78 yali/gui/ScrRescue.py:49
+msgid "No storage device found."
+msgstr "Nem található tárolóeszköz."
+
+#: yali/gui/ScrLicense.py:77
+msgid "License text could not be found."
+msgstr "A licensz szövege nem található."
+
+#: yali/gui/ScrPartitionAuto.py:45
+#, python-format
+msgid ""
+"No partitions are available to resize. Only physical\n"
+"partitions which size is greater than %s MB can be resized."
+msgstr ""
+
+#: yali/gui/ScrPartitionManual.py:93
+#, python-format
+msgid ""
+"The partitioning scheme you requested\n"
+"caused the following critical errors.\n"
+"You must correct these errors before\n"
+"you continue your installation of %s."
+msgstr ""
+
+#: yali/gui/ScrPartitionManual.py:100
+msgid "Partitioning Errors"
+msgstr "Partícionálási hibák"
+
+#: yali/gui/ScrPartitionManual.py:105
+msgid ""
+"The partitioning scheme you requested generated the \n"
+"following warnings. Would you like to continue with \n"
+"your requested partitioning scheme?"
+msgstr ""
+
+#: yali/gui/ScrPartitionManual.py:111
+msgid "Partitioning Warnings"
+msgstr "Figyelmeztető üzenetek partícionáláskor"
+
+#: yali/gui/ScrPartitionManual.py:113 yali/gui/ScrPartitionManual.py:139
+#: yali/gui/YaliDialog.py:220
+msgid "Ok"
+msgstr "Ok"
+
+#: yali/gui/ScrPartitionManual.py:119
+msgid ""
+"The following pre-existing devices have\n"
+"been selected to be formatted, destroying\n"
+"all data."
+msgstr ""
+
+#: yali/gui/ScrPartitionManual.py:127
+msgid "Format Warnings"
+msgstr "Formázási figyelmeztetés"
+
+#: yali/gui/ScrPartitionManual.py:129
+msgid "Format"
+msgstr "Formázás"
+
+#: yali/gui/ScrPartitionManual.py:137
+msgid "All Changes that you made will be removed"
+msgstr ""
+
+#: yali/gui/ScrPartitionManual.py:147
+msgid "Standard"
+msgstr "Szabványos"
+
+#: yali/gui/ScrPartitionManual.py:148
+msgid "LVM"
+msgstr "LVM"
+
+#: yali/gui/ScrPartitionManual.py:149
+msgid "RAID"
+msgstr "RAID"
+
+#: yali/gui/ScrPartitionManual.py:151
+msgid "Partition"
+msgstr "Partíció"
+
+#: yali/gui/ScrPartitionManual.py:152
+msgid "General purpose of partition creation"
+msgstr ""
+
+#: yali/gui/ScrPartitionManual.py:154
+msgid "Physical Volume"
+msgstr "Fizikai kötet"
+
+#: yali/gui/ScrPartitionManual.py:155
+msgid "Create LVM formatted partition"
+msgstr ""
+
+#: yali/gui/ScrPartitionManual.py:157
+msgid "Volume Group"
+msgstr "VG"
+
+#: yali/gui/ScrPartitionManual.py:158
+msgid "Requires at least 1 free LVM formatted partition"
+msgstr ""
+
+#: yali/gui/ScrPartitionManual.py:160
+msgid "Logical Volume"
+msgstr "Logikai kötet"
+
+#: yali/gui/ScrPartitionManual.py:161
+msgid "Create Logical Volume on selected Volume Group"
+msgstr ""
+
+#: yali/gui/ScrPartitionManual.py:163
+msgid "Member"
+msgstr ""
+
+#: yali/gui/ScrPartitionManual.py:164
+msgid "Create Raid formatted partition"
+msgstr ""
+
+#: yali/gui/ScrPartitionManual.py:166
+msgid "Array"
+msgstr "Tömb"
+
+#: yali/gui/ScrPartitionManual.py:167
+msgid "Requires at least 2 free Raid formatted partition"
+msgstr ""
+
+#: yali/gui/ScrPartitionManual.py:228
+msgid "Volume Groups"
+msgstr ""
+
+#: yali/gui/ScrPartitionManual.py:240 yali/gui/ScrPartitionManual.py:313
+msgid "Free"
+msgstr ""
+
+#: yali/gui/ScrPartitionManual.py:249
+msgid "Raid Arrays"
+msgstr ""
+
+#: yali/gui/ScrPartitionManual.py:263
+msgid "Hard Drives"
+msgstr ""
+
+#: yali/gui/ScrPartitionManual.py:290
+msgid "Can't handle more than one extended partition per disk"
+msgstr ""
+
+#: yali/gui/ScrPartitionManual.py:297
+msgid "Crossed logical partition before extended"
+msgstr ""
+
+#: yali/gui/ScrPartitionManual.py:318
+msgid "Extended"
+msgstr ""
+
+#: yali/gui/ScrPartitionManual.py:351
+msgid "Error Partitioning"
+msgstr ""
+
+#: yali/gui/ScrPartitionManual.py:352
+#, python-format
+msgid "Could not allocate requested partitions: %s."
+msgstr ""
+
+#: yali/gui/ScrPartitionManual.py:356
+msgid "Warning Partitioning"
+msgstr ""
+
+#: yali/gui/ScrPartitionManual.py:357
+#, python-format
+msgid "Warning: %s."
+msgstr ""
+
+#: yali/gui/ScrPartitionManual.py:358
+msgid "Modify Partition"
+msgstr ""
+
+#: yali/gui/ScrPartitionManual.py:482
+msgid "Unable To Edit"
+msgstr ""
+
+#: yali/gui/ScrPartitionManual.py:483
+#, python-format
+msgid ""
+"You cannot edit this device:\n"
+"\n"
+"%s"
+msgstr ""
+
+#: yali/gui/ScrRescueFinish.py:55
+msgid "Installing Bootloader..."
+msgstr ""
+
+#: yali/gui/ScrRescueFinish.py:58
+msgid "Taking back operation..."
+msgstr ""
+
+#: yali/gui/ScrRescueFinish.py:61
+msgid "Running rescue operations..."
+msgstr ""
+
+#: yali/gui/ScrRescueFinish.py:78
+msgid "Press <b>Restart</b> to restart your system."
+msgstr ""
+
+#: yali/gui/ScrRescueGrub.py:87
+#, python-format
+msgid "%s (Boot Disk)"
+msgstr ""
+
+#: yali/gui/ScrRescuePassword.py:39
+msgid "Caps Lock is on."
+msgstr ""
+
+#: yali/gui/ScrRescuePassword.py:44 yali/gui/ScrRescuePisi.py:37
+msgid "Starting D-Bus..."
+msgstr ""
+
+#: yali/gui/ScrRescuePassword.py:46
+msgid "Acquiring users..."
+msgstr ""
+
+#: yali/gui/ScrRescuePassword.py:79
+msgid "The password has been successfully reset."
+msgstr ""
+
+#: yali/gui/ScrRescuePassword.py:79
+msgid "Info"
+msgstr ""
+
+#: yali/gui/ScrRescuePassword.py:90
+msgid "Do not use your username or real name as your password."
+msgstr ""
+
+#: yali/gui/ScrRescuePassword.py:93
+msgid "The passwords do not match."
+msgstr ""
+
+#: yali/gui/ScrRescuePassword.py:107 yali/gui/ScrRescuePisi.py:69
+msgid "Please Wait..."
+msgstr ""
+
+#: yali/gui/ScrRescuePassword.py:130
+msgid "Super User"
+msgstr ""
+
+#: yali/gui/ScrRescuePisi.py:39
+msgid "Fetching history..."
+msgstr ""
+
+#: yali/gui/ScrRescuePisi.py:75
+msgid "No connection available"
+msgstr ""
+
+#: yali/gui/ScrRescuePisi.py:116
+#, python-format
+msgid "Operation %(no)s : %(date)s - %(type)s"
+msgstr ""
+
+#: yali/gui/ScrRescuePisi.py:170
+#, python-format
+msgid "Connecting to network %s..."
+msgstr ""
+
+#: yali/gui/ScrRescuePisi.py:176 yali/gui/ScrRescuePisi.py:177
+msgid "Connection failed"
+msgstr ""
+
+#: yali/gui/ScrRescuePisi.py:180 yali/gui/ScrRescuePisi.py:181
+msgid "Connected"
+msgstr ""
+
+#: yali/gui/ScrRescue.py:94
+msgid "Mounting disk partition..."
+msgstr ""
+
+#: yali/gui/ScrRescue.py:106
+msgid "YALI could not locate a suitable disk partition on this computer."
+msgstr ""
+
+#: yali/gui/ScrRescue.py:123
+msgid "Please select a disk partition from the list below:"
+msgstr ""
+
+#: yali/gui/ScrSummary.py:47
+msgid "<b><p>Are you sure you want to restart the computer?</p></b>"
+msgstr ""
+
+#: yali/gui/ScrSummary.py:58 yali/gui/ScrSummary.py:214
+msgid "Next"
+msgstr ""
+
+#: yali/gui/ScrSummary.py:66
+#, python-format
+msgid "Installation starts in <b>%s</b> seconds"
+msgstr ""
+
+#: yali/gui/ScrSummary.py:73
+msgid "Start Installation"
+msgstr ""
+
+#: yali/gui/ScrSummary.py:91
+msgid "Keyboard Settings"
+msgstr ""
+
+#: yali/gui/ScrSummary.py:93
+#, python-format
+msgid "Selected keyboard layout is <b>%s</b>"
+msgstr ""
+
+#: yali/gui/ScrSummary.py:99
+msgid "Date/Time Settings"
+msgstr ""
+
+#: yali/gui/ScrSummary.py:101
+#, python-format
+msgid "Selected TimeZone is <b>%s</b>"
+msgstr ""
+
+#: yali/gui/ScrSummary.py:107
+msgid "User Settings"
+msgstr ""
+
+#: yali/gui/ScrSummary.py:109
+#, python-format
+msgid "User %(username)s (<b>%(realname)s</b>) added."
+msgstr ""
+
+#: yali/gui/ScrSummary.py:111
+#, python-format
+msgid ""
+"User %(username)s (<b>%(realname)s</b>) added with <u>administrator "
+"privileges</u>."
+msgstr ""
+
+#: yali/gui/ScrSummary.py:117
+msgid "Hostname Settings"
+msgstr ""
+
+#: yali/gui/ScrSummary.py:119
+#, python-format
+msgid "Hostname is set as <b>%s</b>"
+msgstr ""
+
+#: yali/gui/ScrSummary.py:125
+msgid "Partition Settings"
+msgstr ""
+
+#: yali/gui/ScrSummary.py:132
+msgid "Automatic Partitioning selected."
+msgstr ""
+
+#: yali/gui/ScrSummary.py:134
+msgid "Use All Space"
+msgstr ""
+
+#: yali/gui/ScrSummary.py:135
+#, python-format
+msgid ""
+"Removes all partitions on the selected %s device(s). This includes "
+"partitions created by other operating systems."
+msgstr ""
+
+#: yali/gui/ScrSummary.py:139
+msgid "Replace Existing Linux System(s)"
+msgstr ""
+
+#: yali/gui/ScrSummary.py:140
+#, python-format
+msgid ""
+"Removes all Linux partitions on the selected%s device(s). This does not "
+"remove other partitions you may have on your storage device(s) (such as VFAT "
+"or FAT32)"
+msgstr ""
+
+#: yali/gui/ScrSummary.py:145
+msgid "Use Free Space"
+msgstr ""
+
+#: yali/gui/ScrSummary.py:146
+#, python-format
+msgid ""
+"Retains your current data and partitions and uses only the unpartitioned "
+"space on the selected %s device(s), assuming you haveenough free space "
+"available."
+msgstr ""
+
+#: yali/gui/ScrSummary.py:152
+msgid "Manual Partitioning selected."
+msgstr ""
+
+#: yali/gui/ScrSummary.py:160
+msgid "Bootloader Settings"
+msgstr ""
+
+#: yali/gui/ScrSummary.py:161
+#, python-format
+msgid "GRUB will be installed to <b>%s</b>."
+msgstr ""
+
+#: yali/gui/ScrSummary.py:163
+msgid "GRUB will not be installed."
+msgstr ""
+
+#: yali/gui/ScrSummary.py:170
+msgid "Package Installation Settings"
+msgstr ""
+
+#: yali/gui/ScrSummary.py:172
+msgid "Auto installation selected."
+msgstr ""
+
+#: yali/gui/ScrSummary.py:174
+#, python-format
+msgid "Manual Installation ( %s ) selected"
+msgstr ""
+
+#: yali/gui/ScrSummary.py:178
+msgid "Default Kernel selected"
+msgstr ""
+
+#: yali/gui/ScrSummary.py:180
+msgid "PAE Kernel selected"
+msgstr ""
+
+#: yali/gui/ScrSummary.py:197
+msgid "Confirm"
+msgstr ""
+
+#: yali/gui/ScrSummary.py:198
+msgid ""
+"The partitioning options you have selected will now be\n"
+"written to disk.  Any data on deleted or reformatted partitions\n"
+"will be lost."
+msgstr ""
+
+#: yali/gui/ScrSummary.py:203
+msgid "Write Changes to Disk"
+msgstr ""
+
+#: yali/gui/ScrSummary.py:203
+msgid "Go Back"
+msgstr ""
+
+#: yali/gui/ScrUsers.py:129 yali/gui/ScrUsers.py:362
+msgid "Update"
+msgstr ""
+
+#: yali/gui/ScrUsers.py:213
+msgid "Don't use your user name or name as a password"
+msgstr ""
+
+#: yali/gui/ScrUsers.py:216
+msgid "Passwords do not match"
+msgstr ""
+
+#: yali/gui/ScrUsers.py:219
+msgid "Password is too short"
+msgstr ""
+
+#: yali/gui/ScrUsers.py:267
+msgid "This user name is already taken, please choose another one."
+msgstr ""
+
+#: yali/gui/ScrUsers.py:271
+msgid "The user name contains invalid characters."
+msgstr ""
+
+#: yali/gui/ScrUsers.py:274
+msgid "The real name contains invalid characters."
+msgstr ""
+
+#: yali/gui/ScrUsers.py:277
+msgid "The password contains invalid characters."
+msgstr ""
+
+#: yali/gui/ScrUsers.py:285
+msgid "User ID used before, choose another one!"
+msgstr ""
+
+#: yali/gui/ScrUsers.py:290 yali/gui/ScrUsers.py:332 yali/gui/ScrUsers.py:410
+msgid "Add"
+msgstr ""
+
+#: yali/gui/shrink_gui.py:23
+msgid "Partitions to Shrink"
+msgstr ""
+
+#: yali/gui/shrink_gui.py:47
+msgid "Resize FileSystem Error"
+msgstr ""
+
+#: yali/gui/shrink_gui.py:48
+#, python-format
+msgid "%(device)s: %(msg)s"
+msgstr ""
+
+#: yali/gui/shrink_gui.py:56
+msgid "Resize Device Error"
+msgstr ""
+
+#: yali/gui/shrink_gui.py:57
+#, python-format
+msgid "%(name)s: %(msg)s"
+msgstr ""
+
+#: yali/gui/storageGuiHelpers.py:71
+msgid ""
+"You cannot remove this physical volume because\n"
+"otherwise the volume group will be too small to\n"
+"hold the currently defined logical volumes."
+msgstr ""
+
+#: yali/gui/storageGuiHelpers.py:188
+msgid "<Not Applicable>"
+msgstr ""
+
+#: yali/gui/storageGuiHelpers.py:451
+msgid "Format as :"
+msgstr ""
+
+#: yali/gui/storageGuiHelpers.py:471
+msgid "Migrate filesystem To :"
+msgstr ""
+
+#: yali/gui/storageGuiHelpers.py:495
+msgid "Resize :"
+msgstr ""
+
+#: yali/gui/storageGuiHelpers.py:537
+msgid "Advanced Size Options"
+msgstr ""
+
+#: yali/gui/storageGuiHelpers.py:539
+msgid "Fixed Size :"
+msgstr ""
+
+#: yali/gui/storageGuiHelpers.py:540
+msgid "Fill to maximum allowable size"
+msgstr ""
+
+#: yali/gui/storageGuiHelpers.py:541
+msgid "Fill all space up to (MB):"
+msgstr ""
+
+#: yali/gui/YaliDialog.py:220 yali/gui/YaliDialog.py:236
+#: yali/gui/YaliDialog.py:263
+msgid "Yes"
+msgstr ""
+
+#: yali/gui/YaliDialog.py:222 yali/gui/YaliDialog.py:237
+#: yali/gui/YaliDialog.py:264
+msgid "No"
+msgstr ""
+
+#: yali/gui/YaliDialog.py:242
+msgid "Don't ask again"
+msgstr ""
+
+#: yali/gui/YaliDialog.py:247
+msgid "Do you want to continue?"
+msgstr ""
+
+#: yali/gui/YaliDialog.py:262
+msgid "Eject Disc"
+msgstr ""
+
+#: yali/gui/YaliDialog.py:288 yali/gui/YaliDialog.py:305
+msgid "OK"
+msgstr ""
+
+#: yali/gui/YaliDialog.py:289
+msgid "Please insert a new disc and then click OK"
+msgstr ""
+
+#: yali/gui/YaliDialog.py:291
+msgid "Insert New Disc"
+msgstr ""
+
+#: yali/gui/YaliDialog.py:303
+msgid "Information"
+msgstr ""
+
+#: yali/gui/YaliDialog.py:500
+msgid "Error reporting"
+msgstr ""
+
+#: yali/gui/YaliWindow.py:58
+msgid "Pixmaps resources file doesn't exists"
+msgstr ""
+
+#: yali/gui/YaliWindow.py:89
+msgid "Style file doesn't exists"
+msgstr ""
+
+#: yali/gui/YaliWindow.py:96
+msgid "Release file doesn't exists"
+msgstr ""
+
+#: yali/gui/YaliWindow.py:104
+msgid "Turn Off Computer"
+msgstr ""
+
+#: yali/gui/YaliWindow.py:105
+msgid "Restart Computer"
+msgstr ""
+
+#: yali/gui/YaliWindow.py:106
+msgid "Restart YALI"
+msgstr ""
+
+#: yali/gui/YaliWindow.py:124 yali/gui/YaliWindow.py:141 yali/sysutils.py:53
+msgid "right"
+msgstr ""
+
+#: yali/gui/YaliWindow.py:140 yali/gui/YaliWindow.py:143 yali/sysutils.py:52
+msgid "left"
+msgstr ""
+
+#: yali/gui/YaliWindow.py:144
+msgid "Mouse Settings"
+msgstr ""
+
+#: yali/gui/YaliWindow.py:145
+#, python-format
+msgid "You just clicked the <b>%s</b> mouse button."
+msgstr ""
+
+#: yali/gui/YaliWindow.py:146
+#, python-format
+msgid "Do you want to switch to the <b>%s</b> handed configuration?"
+msgstr ""
+
+#: yali/gui/YaliWindow.py:176
+msgid "Are you sure you want to shut down your computer now?"
+msgstr ""
+
+#: yali/gui/YaliWindow.py:181
+msgid "Are you sure you want to restart your computer now?"
+msgstr ""
+
+#: yali/gui/YaliWindow.py:186
+msgid "Are you sure you want to restart the YALI installer now?"
+msgstr ""
+
+#: yali/gui/YaliWindow.py:202
+msgid "Terminal"
+msgstr ""
+
+#: yali/gui/YaliWindow.py:207
+msgid "Tetris"
+msgstr ""
+
+#: yali/gui/YaliWindow.py:351
+msgid "Release Notes"
+msgstr ""
+
+#: yali/gui/YaliWindow.py:374
+msgid "Release notes could not be loaded."
+msgstr ""
+
+#: yali/localedata.py:20
+msgid "Turkish"
+msgstr ""
+
+#: yali/localedata.py:22
+msgid "Turkish F"
+msgstr ""
+
+#: yali/localedata.py:22
+msgid "Turkish Q"
+msgstr ""
+
+#: yali/localedata.py:31
+msgid "English"
+msgstr ""
+
+#: yali/localedata.py:42
+msgid "English GB"
+msgstr ""
+
+#: yali/localedata.py:52
+msgid "Greek"
+msgstr ""
+
+#: yali/localedata.py:62
+msgid "Afrikaans"
+msgstr ""
+
+#: yali/localedata.py:72
+msgid "Vietnamese"
+msgstr ""
+
+#: yali/localedata.py:82
+msgid "Catalan"
+msgstr ""
+
+#: yali/localedata.py:93
+msgid "Italian"
+msgstr ""
+
+#: yali/localedata.py:104
+msgid "Czech"
+msgstr ""
+
+#: yali/localedata.py:114
+msgid "Welsh"
+msgstr ""
+
+#: yali/localedata.py:124
+msgid "Arabic"
+msgstr ""
+
+#: yali/localedata.py:134
+msgid "Estonian"
+msgstr ""
+
+#: yali/localedata.py:144
+msgid "Spanish"
+msgstr ""
+
+#: yali/localedata.py:155
+msgid "Russian"
+msgstr ""
+
+#: yali/localedata.py:165
+msgid "Dutch"
+msgstr ""
+
+#: yali/localedata.py:176
+msgid "Portuguese"
+msgstr ""
+
+#: yali/localedata.py:187
+msgid "Norwegian"
+msgstr ""
+
+#: yali/localedata.py:197
+msgid "Icelandic"
+msgstr ""
+
+#: yali/localedata.py:207
+msgid "Polish"
+msgstr ""
+
+#: yali/localedata.py:218
+msgid "Belgium"
+msgstr ""
+
+#: yali/localedata.py:228
+msgid "French"
+msgstr ""
+
+#: yali/localedata.py:239
+msgid "Bulgarian"
+msgstr ""
+
+#: yali/localedata.py:249
+msgid "Slovenian"
+msgstr ""
+
+#: yali/localedata.py:259
+msgid "Croatian"
+msgstr ""
+
+#: yali/localedata.py:269
+msgid "German"
+msgstr ""
+
+#: yali/localedata.py:280
+msgid "Danish"
+msgstr ""
+
+#: yali/localedata.py:290
+msgid "Brazilian"
+msgstr ""
+
+#: yali/localedata.py:300
+msgid "Finnish"
+msgstr ""
+
+#: yali/localedata.py:310
+msgid "Hungarian"
+msgstr ""
+
+#: yali/localedata.py:320
+msgid "Japanese"
+msgstr ""
+
+#: yali/localedata.py:330
+msgid "Malayalam"
+msgstr ""
+
+#: yali/localedata.py:340
+msgid "Swedish"
+msgstr ""
+
+#: yali/localedata.py:351
+msgid "Macedonian"
+msgstr ""
+
+#: yali/localedata.py:361
+msgid "Slovak"
+msgstr ""
+
+#: yali/localedata.py:371
+msgid "Ukrainian"
+msgstr ""
+
+#: yali/localedata.py:381
+msgid "Serbian"
+msgstr ""
+
+#: yali/pisiiface.py:71
+#, python-format
+msgid "Error occured while %(repo)s repo is adding:%(msg)s"
+msgstr ""
+
+#: yali/postinstall.py:156
+#, python-format
+msgid "Preparing home directory for %s..."
+msgstr ""
+
+#: yali/util.py:125 yali/util.py:138
+#, python-format
+msgid "Running %s"
+msgstr ""
+
+#: yali/util.py:129 yali/util.py:156
+#, python-format
+msgid "return value for \"%(command)s\" is %(return)s"
+msgstr ""
+
+#: yali/util.py:370
+msgid "YALI log file doesn't exists."
+msgstr ""
+
+#: yali/util.py:372
+msgid "File paths are the same."
+msgstr ""
+
+#: yali/util.py:447 yali/util.py:490
+msgid "Release file is missing"
+msgstr ""
+
+#: yali/util.py:449 yali/util.py:492
+msgid "Release file is inconsistent"
+msgstr ""
+
+#: yali/util.py:452 yali/util.py:495
+msgid "Invalid xml file"
+msgstr ""
+
+
