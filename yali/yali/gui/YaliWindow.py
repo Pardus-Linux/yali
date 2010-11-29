@@ -64,13 +64,18 @@ class HelpWidget(PAbstractBox):
         self.hide()
 
     def showHelp(self):
-        QTimer.singleShot(1, lambda: self.animate(start = MIDRIGHT, stop = MIDCENTER))
+        QTimer.singleShot(1, lambda: self.animate(start = TOPCENTER, stop = TOPCENTER))
 
     def hideHelp(self):
-        if self.isVisible():
             self.animate(start = CURRENT,
-                         stop  = MIDLEFT,
+                         stop  = TOPCENTER,
                          direction = OUT)
+
+    def toggleHelp(self):
+        if self.isVisible():
+            self.hideHelp()
+        else:
+            self.showHelp()
 
     def setHelp(self, help):
         self.ui.helpContent.hide()
@@ -93,6 +98,20 @@ class Widget(QWidget):
 
         self.ui = Ui_YaliMain()
         self.ui.setupUi(self)
+
+
+        """
+
+        self.pds_test = PMessageBox(self)
+        self.pds_test.setMinimumWidth(300)
+        self.pds_test.setStyleSheet("border: 1px solid #222222;border-radius:4px;color: white; font-size: 14pt")
+        self.pds_test.enableOverlay() #animated = True
+        self.pds_test.busy.busy()
+        self.pds_test._disable_parent_in_shown = True
+        self.pds_test.setMessage("PDS'ten selamlar")
+        self.pds_test.animate(start = TOPCENTER, stop = MIDCENTER) # direction = OUT
+
+        """
 
         self.font = 10
         self.animation_type = None
@@ -145,8 +164,7 @@ class Widget(QWidget):
         self.ui.toolButton.setDefaultAction(self.shutdown)
 
         # Main Slots
-        # self.connect(self.help_shortcut, SIGNAL("activated()"), self.slotToggleHelp)
-        self.connect(self.help_shortcut, SIGNAL("activated()"), self.pds_helper.showHelp)
+        self.connect(self.help_shortcut, SIGNAL("activated()"), self.pds_helper.toggleHelp)
         #self.connect(self.debugShortCut,    SIGNAL("activated()"), self.toggleDebug)
         self.connect(self.console_shortcut, SIGNAL("activated()"), self.toggleConsole)
         self.connect(self.cursor_shortcut, SIGNAL("activated()"), self.toggleCursor)
