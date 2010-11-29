@@ -49,13 +49,19 @@ background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0
    <item row="0" column="0">
     <widget class="QWidget" name="Yali" native="true">
      <layout class="QGridLayout" name="gridLayout_2">
+      <property name="verticalSpacing">
+       <number>0</number>
+      </property>
       <property name="margin">
        <number>0</number>
       </property>
       <item row="1" column="0">
        <layout class="QHBoxLayout" name="screenContainer">
+        <property name="spacing">
+         <number>0</number>
+        </property>
         <item>
-         <widget class="QScrollArea" name="scrollArea">
+         <widget class="QScrollArea" name="mainContent">
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -80,7 +86,7 @@ background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0
              <x>0</x>
              <y>0</y>
              <width>748</width>
-             <height>316</height>
+             <height>324</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout">

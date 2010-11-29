@@ -31,6 +31,7 @@ from PyQt4.Qt import QTimer
 from PyQt4.Qt import QGraphicsOpacityEffect
 from PyQt4.Qt import QIcon
 from PyQt4.Qt import QMenu
+from PyQt4.Qt import QSize
 from PyQt4.Qt import QShortcut
 
 import QTermWidget
@@ -41,8 +42,41 @@ import yali.util
 import yali.sysutils
 import yali.context as ctx
 from yali.gui.Ui.main import Ui_YaliMain
+from yali.gui.Ui.help import Ui_Help
 from yali.gui.YaliDialog import Dialog, QuestionDialog, Tetris
 from yali.gui.aspects import enableNavButtonsAspect, disableNavButtonsAspect
+
+from pds.gui import *
+
+class HelpWidget(PAbstractBox):
+
+    def __init__(self, parent):
+        PAbstractBox.__init__(self, parent)
+
+        self.ui = Ui_Help()
+        self.ui.setupUi(self)
+
+        self.ui.buttonHide.clicked.connect(self.hideHelp)
+
+        self._animation = 2
+        self._duration = 500
+
+        self.hide()
+
+    def showHelp(self):
+        QTimer.singleShot(1, lambda: self.animate(start = MIDRIGHT, stop = MIDCENTER))
+
+    def hideHelp(self):
+        if self.isVisible():
+            self.animate(start = CURRENT,
+                         stop  = MIDLEFT,
+                         direction = OUT)
+
+    def setHelp(self, help):
+        self.ui.helpContent.hide()
+        self.ui.helpContent2.setText(help)
+        # self.resize(QSize(1,1))
+        QTimer.singleShot(1, self.adjustSize)
 
 ##
 # Widget for YaliWindow (you can call it MainWindow too ;).
@@ -65,6 +99,8 @@ class Widget(QWidget):
 
         self.screens = None
         self.screens_content = None
+
+        self.pds_helper = HelpWidget(self.ui.mainContent)
 
         # shortcut to open help
         self.help_shortcut = QShortcut(QKeySequence(Qt.Key_F1), self)
@@ -109,7 +145,8 @@ class Widget(QWidget):
         self.ui.toolButton.setDefaultAction(self.shutdown)
 
         # Main Slots
-        self.connect(self.help_shortcut, SIGNAL("activated()"), self.slotToggleHelp)
+        # self.connect(self.help_shortcut, SIGNAL("activated()"), self.slotToggleHelp)
+        self.connect(self.help_shortcut, SIGNAL("activated()"), self.pds_helper.showHelp)
         #self.connect(self.debugShortCut,    SIGNAL("activated()"), self.toggleDebug)
         self.connect(self.console_shortcut, SIGNAL("activated()"), self.toggleConsole)
         self.connect(self.cursor_shortcut, SIGNAL("activated()"), self.toggleCursor)
@@ -256,6 +293,7 @@ class Widget(QWidget):
         if not dry_run:
             ret = widget.execute()
         if ret:
+            self.pds_helper.hideHelp()
             self.stackMove(self.getCurrent(self.step_increment))
             self.step_increment = 1
 
@@ -264,6 +302,7 @@ class Widget(QWidget):
         widget = self.ui.mainStack.currentWidget()
         if widget.backCheck():
             self.stackMove(self.getCurrent(self.step_increment * -1))
+        self.pds_helper.hideHelp()
         self.step_increment = 1
 
     # move to id numbered stack
@@ -285,6 +324,7 @@ class Widget(QWidget):
                 help = self.screens_content[widget.name][2]["en"]
             self.ui.screenName.setText(title)
             self.ui.helpContent.setText(help)
+            self.pds_helper.setHelp(help)
             self.ui.screenIcon.setPixmap(QPixmap(":/gui/pics/%s.png" % (icon)))
 
             ctx.mainScreen.processEvents()
