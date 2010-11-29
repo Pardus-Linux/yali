@@ -12,13 +12,13 @@ msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-28 15:51+0200\n"
-"PO-Revision-Date: 2010-11-26 22:51+0100\n"
+"PO-Revision-Date: 2010-11-29 10:15+0100\n"
 "Last-Translator: Antoon Tolboom <atolboo@gmail.com>\n"
 "Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
-"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
 "X-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
@@ -31,13 +31,13 @@ msgid "Warning"
 msgstr "Waarschuwing"
 
 #: yali/gui/interface.py:42
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Disk contains %(members_count)s BIOS RAID metadata, but is not part of any "
 "recognized BIOS RAID sets. Ignoring disk %(members)s."
 msgstr ""
 "Schijf bevat %(members_count)s BIOS RAID metadata, maar is geen deel van "
-"enig erkende BIOS RAID-set. Schijf %(members)s worden genegeerd.)"
+"enig herkende BIOS RAID-set. Schijf %(members)s worden genegeerd."
 
 #: yali/gui/interface.py:66 yali/gui/raid_gui.py:122
 #: yali/gui/ScrDriveSelection.py:112
@@ -47,8 +47,8 @@ msgstr "Fout"
 #: yali/gui/interface.py:67
 #, python-format
 msgid ""
-"Cannot access the partition table of %(description)s(%(name)s) -- "
-"%(size)-0.fMB\n"
+"Cannot access the partition table of %(description)s(%(name)s) -- %(size)-0."
+"fMB\n"
 "\n"
 "If there already exists a partition table on this device, it will\n"
 " be re-initialized and your existing data will be lost!\n"
@@ -92,11 +92,11 @@ msgid ""
 "with inconsistent metadata."
 msgstr ""
 "Fout bij bewerken LVM.\n"
-"Er zijn niet samenhangend LVM-gegevens op %(msg)s. Alle gerelateerde PV's "
-"(%(pvs)s) kunnen opnieuw geïnitialiseerd worden en dit zal de LVM-"
-"metagegevens wissen, of door het negeren zal de inhoud niet verloren gaan. "
-"Deze bewerking kan ook op alle andere PV's, met niet samenhangende "
-"metagegevens, toegepast worden."
+"Er zijn niet samenhangend LVM-gegevens op %(msg)s. Alle gerelateerde PV's (%"
+"(pvs)s) kunnen opnieuw geïnitialiseerd worden en dit zal de LVM-metagegevens "
+"wissen, of door het negeren zal de inhoud niet verloren gaan. Deze bewerking "
+"kan ook op alle andere PV's, met niet samenhangende metagegevens, toegepast "
+"worden."
 
 #: yali/gui/interface.py:130
 msgid "Ignore all"
@@ -214,9 +214,9 @@ msgstr ""
 #: yali/gui/lvm_gui.py:449
 #, python-format
 msgid ""
-"The physical extent size cannot be changed because the value selected "
-"(%(curpe)10.2f MB) is too large compared to the size of the smallest "
-"physical volume (%(maxpvsize)10.2f MB) in the volume group."
+"The physical extent size cannot be changed because the value selected (%"
+"(curpe)10.2f MB) is too large compared to the size of the smallest physical "
+"volume (%(maxpvsize)10.2f MB) in the volume group."
 msgstr ""
 "De fysieke uitbreidingsgrootte kan niet gewijzigd worden omdat de "
 "geselecteerde waarde (%(curpe)10.2f MB) te groot is in vergelijking met de "
@@ -355,8 +355,8 @@ msgstr ""
 #, python-format
 msgid ""
 "The size entered for this logical volume (%(size)d MB) combined with the "
-"size of the other logical volume(s) exceeds the size of the volume group "
-"(%(tmpvgsize)d MB). Please make the volume group larger or make the logical "
+"size of the other logical volume(s) exceeds the size of the volume group (%"
+"(tmpvgsize)d MB). Please make the volume group larger or make the logical "
 "volume smaller."
 msgstr ""
 "De opgegeven grootte voor het logische volume (%(size)d MB) in combinatie "
@@ -568,12 +568,10 @@ msgid "Writing bootloader..."
 msgstr "Bootlader aan het schrijven..."
 
 #: yali/gui/ScrGoodbye.py:85
-#, fuzzy
 msgid "Installing bootloader..."
 msgstr "Bootlader aan het installeren..."
 
 #: yali/gui/ScrGoodbye.py:88
-#, fuzzy
 msgid "Setup First-Boot..."
 msgstr "Bootlader aan het instellen..."
 
@@ -630,14 +628,13 @@ msgid "License text could not be found."
 msgstr "Tekst van licentie kan niet gevonden worden."
 
 #: yali/gui/ScrPartitionAuto.py:45
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "No partitions are available to resize. Only physical\n"
 "partitions which size is greater than %s MB can be resized."
 msgstr ""
 "Geen partitie beschikbaar om in grootte aan te passen.\n"
-"Uitsluitend fysieke partities met bepaalde bestandsystemen\n"
-"kunnen in grootte aangepast worden."
+"Dit is alleen mogelijk voor fysieke partities groter dan %s MB."
 
 #: yali/gui/ScrPartitionManual.py:93
 #, python-format
@@ -990,7 +987,7 @@ msgid "Use All Space"
 msgstr "Alle ruimte gebruiken"
 
 #: yali/gui/ScrSummary.py:135
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Removes all partitions on the selected %s device(s). This includes "
 "partitions created by other operating systems."
@@ -1463,7 +1460,7 @@ msgstr "Servisch"
 #: yali/pisiiface.py:71
 #, python-format
 msgid "Error occured while %(repo)s repo is adding:%(msg)s"
-msgstr ""
+msgstr "Fout opgetreden tijdens %(repo)s repo is toevoegen van:%(msg)s"
 
 #: yali/postinstall.py:156
 #, python-format
@@ -1481,13 +1478,12 @@ msgid "return value for \"%(command)s\" is %(return)s"
 msgstr "return-waarde voor \"%(command)s\" is %(return)s"
 
 #: yali/util.py:370
-#, fuzzy
 msgid "YALI log file doesn't exists."
-msgstr "Stijlbestand bestaat niet"
+msgstr "Logbestand van YALI bestaat niet."
 
 #: yali/util.py:372
 msgid "File paths are the same."
-msgstr ""
+msgstr "Bestandpaden zijn gelijk."
 
 #: yali/util.py:447 yali/util.py:490
 msgid "Release file is missing"
@@ -2246,8 +2242,8 @@ msgstr "Ongeldig xml-bestand"
 #~ msgstr "%d MB beschikbaar"
 
 #~ msgid ""
-#~ "Partition <b>%(partition)s (%(size)s)</b> <b>deleted</b> from device <b>"
-#~ "%(device)s</b>."
+#~ "Partition <b>%(partition)s (%(size)s)</b> <b>deleted</b> from device <b>%"
+#~ "(device)s</b>."
 #~ msgstr ""
 #~ "Partitie <b>%(partition)s (%(size)s)</b> <b>verwijderd</b> van station <b>"
 #~ "%(device)s</b>."
@@ -2259,8 +2255,8 @@ msgstr "Ongeldig xml-bestand"
 #~ "Partition <b>%(partition)s</b> will be <b>formatted</b> as <b>%(fsType)s</"
 #~ "b>."
 #~ msgstr ""
-#~ "Partitie <b>%(partition)s</b> <b>zal geformateerd worden</b> als <b>"
-#~ "%(fsType)s</b>."
+#~ "Partitie <b>%(partition)s</b> <b>zal geformateerd worden</b> als <b>%"
+#~ "(fsType)s</b>."
 
 #~ msgid "Partition <b>%(partition)s</b> <b>selected</b> as <b>%(type)s</b>."
 #~ msgstr ""
@@ -2901,18 +2897,18 @@ msgstr "Ongeldig xml-bestand"
 #~ msgstr "Automatisch partitioneren (grootte aanpassen methode) geselecteerd."
 
 #~ msgid ""
-#~ "Partition <b>%(partition)s - %(currentFs)s</b> <b>resized</b> to <b>"
-#~ "%(resizeTo)s MBs</b>, previous size was <b>%(currentSize)s MBs</b>."
+#~ "Partition <b>%(partition)s - %(currentFs)s</b> <b>resized</b> to <b>%"
+#~ "(resizeTo)s MBs</b>, previous size was <b>%(currentSize)s MBs</b>."
 #~ msgstr ""
-#~ "Partitie <b>%(partition)s - %(currentFs)s</b> <b>aangepast</b> naar <b>"
-#~ "%(resizeTo)s MB</b>, oude grootte was <b>%(currentSize)s MB</b>."
+#~ "Partitie <b>%(partition)s - %(currentFs)s</b> <b>aangepast</b> naar <b>%"
+#~ "(resizeTo)s MB</b>, oude grootte was <b>%(currentSize)s MB</b>."
 
 #~ msgid ""
 #~ "Partition <b>%(newPartition)s</b> <b>added</b> to device <b>%(device)s</"
 #~ "b> with <b>%(size)s MBs</b> as <b>%(fs)s</b>."
 #~ msgstr ""
-#~ "Partitie <b>%(newPartition)s</b> <b>toegevoegd</b> aan station <b>"
-#~ "%(device)s</b> met <b>%(size)s MB</b> als <b>%(fs)s</b>."
+#~ "Partitie <b>%(newPartition)s</b> <b>toegevoegd</b> aan station <b>%"
+#~ "(device)s</b> met <b>%(size)s MB</b> als <b>%(fs)s</b>."
 
 #~ msgid ""
 #~ "Partition <b>%(newPartition)s</b> <b>selected</b> as <b>%(type)s</b>."
