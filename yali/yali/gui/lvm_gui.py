@@ -604,11 +604,14 @@ class LogicalVolumeEditor:
 
             targetSize = None
             migrate = None
+            format = None
 
             widget = self.dialog.content
 
+            format = self.origrequest.format
+
             mountpoint = str(widget.mountpointMenu.currentText())
-            if widget.mountpointMenu.isEditable() and mountpoint:
+            if mountpoint and widget.mountpointMenu.isEditable():
                 msg = sanityCheckMountPoint(mountpoint)
                 if msg:
                     self.intf.messageWindow(_("Mount Point Error"),
@@ -616,22 +619,30 @@ class LogicalVolumeEditor:
                                             customIcon="error")
                     continue
 
+            if not self.origrequest.exists:
+                format_type = str(widget.filesystemMenu.currentText())
+            else:
+                format_type = str(widget.formatCombo.currentText())
+
+            format_class = formats.getFormat(format_type)
+            if mountpoint and format_class.mountable:
                 used = False
-                for (mp, dev) in self.parent.parent.storage.mountpoints.iteritems():
-                    if (dev.type != "lvmlv" or dev.vg.id != self.origrequest.vg.id) and \
-                        mp == mountpoint and \
-                        self.origrequest.name in [parent.name for parent in dev.parents]:
-                        used = True
-                        break
+
+                current_mountpoint = getattr(format, "mountpoint", None)
 
                 for lv in self.parent.parent.lvs.values():
                     format = lv["format"]
-                    if not format.mountable or mountpoint and \
-                        format.mountpoint == mountpoint:
+                    if not format.mountable or current_mountpoint and \
+                        format.mountpoint == current_mountpoint:
                         continue
 
                     if format.mountpoint == mountpoint:
                         used =True
+                        break
+
+                for (mp, dev) in self.parent.parent.storage.mountpoints.iteritems():
+                    if (dev.type != "lvmlv" or dev.vg.id != self.origrequest.vg.id) and mp == mountpoint:
+                        used = True
                         break
 
                 if used:
@@ -640,6 +651,7 @@ class LogicalVolumeEditor:
                                               "use. Please pick another.") %
                                             (mountpoint,),
                                             customIcon="error")
+                    continue
 
 
             name = str(widget.name.text())
