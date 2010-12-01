@@ -97,6 +97,9 @@ class Filesystem(Format):
 
         self._targetSize = self._size
 
+        if self.supported:
+            self.loadModule()
+
     def __str__(self):
         s = Format.__str__(self)
         s += ("  mountpoint = %(mountpoint)s  mountopts = %(mountopts)s\n"
