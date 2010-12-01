@@ -76,9 +76,6 @@ class HelpWidget(PAbstractBox):
             self.showHelp()
 
     def setHelp(self, help):
-        self.ui.helpContent.hide()
-        self.ui.helpContent2.setText(help)
-        # self.resize(QSize(1,1))
         QTimer.singleShot(1, self.adjustSize)
 
 ##
@@ -330,7 +327,7 @@ class Widget(QWidget):
             else:
                 help = self.screens_content[widget.name][2]["en"]
             self.ui.screenName.setText(title)
-            self.ui.helpContent.setText(help)
+            self.pds_helper.ui.helpContent.setText(help)
             self.pds_helper.setHelp(help)
             self.ui.screenIcon.setPixmap(QPixmap(":/gui/pics/%s.png" % (icon)))
 
