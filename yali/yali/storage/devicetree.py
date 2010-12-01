@@ -1082,7 +1082,7 @@ class DeviceTree(object):
                 # we fall through to handle that.
                 return
 
-        if device.removable and format_type == "iso9660":
+        if not isinstance(device, OpticalDevice) and device.removable and format_type == "iso9660":
             ctx.logger.debug("Removable device %s is iso9660 format. We have to remove from devices index" % device.name)
             if ctx.bootloader:
                 ctx.bootloader.removableExists = True

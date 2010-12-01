@@ -388,8 +388,8 @@ class BootLoader(object):
         stage1Devices = get_physical_devices(self.storage, self.storage.devicetree.getDeviceByName(self.device))
         bootDevices = get_physical_devices(self.storage, self.storage.storageset.bootDevice)
 
-        stage1Path = get_partition_name(self.storage, stage1Devices[0], exists=ctx.bootloader.removableExists)
-        bootPartitionPath = get_partition_name(self.storage, bootDevices[0], exists=ctx.bootloader.removableExists)
+        stage1Path = get_partition_name(self.storage, stage1Devices[0], exists=self.removableExists)
+        bootPartitionPath = get_partition_name(self.storage, bootDevices[0], exists=self.removableExists)
 
         batch_template = """root %s
 setup %s
