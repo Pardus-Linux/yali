@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>704</width>
-    <height>579</height>
+    <height>727</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -102,12 +102,12 @@ border:0px;
        <number>0</number>
       </property>
       <item row="0" column="2">
-       <layout class="QVBoxLayout" name="verticalLayout">
+       <layout class="QHBoxLayout" name="horizontalLayout">
         <property name="spacing">
-         <number>0</number>
+         <number>20</number>
         </property>
         <item>
-         <widget class="QLabel" name="pix">
+         <widget class="QLabel" name="slideImage">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
             <horstretch>0</horstretch>
@@ -116,21 +116,24 @@ border:0px;
           </property>
           <property name="minimumSize">
            <size>
-            <width>0</width>
-            <height>246</height>
+            <width>200</width>
+            <height>200</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>16777215</width>
-            <height>128</height>
+            <width>200</width>
+            <height>200</height>
            </size>
           </property>
           <property name="text">
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap resource="../../data.qrc">:/gui/pics/welcome.png</pixmap>
+           <pixmap>:/gui/pics/welcome.png</pixmap>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -141,44 +144,31 @@ border:0px;
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="info">
+         <widget class="QLabel" name="slideText">
           <property name="minimumSize">
            <size>
-            <width>0</width>
-            <height>75</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Installing Package: </string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignTop</set>
-          </property>
-          <property name="wordWrap">
-           <bool>true</bool>
-          </property>
-          <property name="indent">
-           <number>5</number>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QProgressBar" name="progress">
-          <property name="minimumSize">
-           <size>
-            <width>600</width>
+            <width>400</width>
             <height>0</height>
            </size>
           </property>
-          <property name="value">
-           <number>0</number>
+          <property name="maximumSize">
+           <size>
+            <width>400</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
        </layout>
       </item>
-      <item row="0" column="3">
-       <spacer name="horizontalSpacer_3">
+      <item row="0" column="0">
+       <spacer name="horizontalSpacer_4">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
@@ -190,8 +180,8 @@ border:0px;
         </property>
        </spacer>
       </item>
-      <item row="0" column="0">
-       <spacer name="horizontalSpacer_4">
+      <item row="0" column="3">
+       <spacer name="horizontalSpacer_3">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>

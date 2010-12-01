@@ -119,7 +119,7 @@ class Widget(QWidget):
         self.screens = None
         self.screens_content = None
 
-        self.pds_helper = HelpWidget(self.ui.mainContent)
+        self.pds_helper = HelpWidget(self.ui.scrollAreaWidgetContents)
 
         # shortcut to open help
         self.help_shortcut = QShortcut(QKeySequence(Qt.Key_F1), self)

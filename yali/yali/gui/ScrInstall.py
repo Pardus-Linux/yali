@@ -25,9 +25,46 @@ from yali.gui import ScreenWidget
 from yali.gui.Ui.installwidget import Ui_InstallWidget
 from yali.gui.YaliDialog import EjectAndRetryDialog
 
+from yali.gui.Ui.installprogress import Ui_InstallProgress
+from pds.gui import *
+
 EventPisi, EventSetProgress, EventError, EventAllFinished, EventPackageInstallFinished, EventRetry = range(1001, 1007)
 
 current_object = None
+
+class InstallProgressWidget(PAbstractBox):
+
+    def __init__(self, parent):
+        PAbstractBox.__init__(self, parent)
+
+        self.ui = Ui_InstallProgress()
+        self.ui.setupUi(self)
+
+        self._animation = 2
+        self._duration = 500
+
+    def showInstallProgress(self):
+        QTimer.singleShot(1, lambda: self.animate(start = BOTCENTER, stop = BOTCENTER))
+
+    """
+    def hideHelp(self):
+            self.animate(start = CURRENT,
+                         stop  = TOPCENTER,
+                         direction = OUT)
+    def toggleHelp(self):
+        if self.isVisible():
+            self.hideHelp()
+        else:
+            self.showHelp()
+
+    def setHelp(self, help):
+        self.ui.helpContent.hide()
+        self.ui.helpContent2.setText(help)
+        # self.resize(QSize(1,1))
+        QTimer.singleShot(1, self.adjustSize)
+    """
+
+
 
 def iter_slideshows():
     slideshows = []
@@ -56,11 +93,13 @@ class Widget(QWidget, ScreenWidget):
         self.ui = Ui_InstallWidget()
         self.ui.setupUi(self)
 
+        self.installProgress = InstallProgressWidget(self)
+
         self.timer = QTimer(self)
         QObject.connect(self.timer, SIGNAL("timeout()"), self.changeSlideshows)
 
         if ctx.consts.lang == "tr":
-            self.ui.progress.setFormat("%%p")
+            self.installProgress.ui.progress.setFormat("%%p")
 
         self.iter_slideshows = iter_slideshows()
 
@@ -100,6 +139,8 @@ class Widget(QWidget, ScreenWidget):
         # start 30 seconds
         self.timer.start(1000 * 30)
 
+        self.installProgress.showInstallProgress()
+
     def customEvent(self, qevent):
 
         # EventPisi
@@ -107,21 +148,21 @@ class Widget(QWidget, ScreenWidget):
             package, event = qevent.data()
 
             if event == pisi.ui.installing:
-                self.ui.info.setText(_("Installing <b>%(name)s</b><br>%(summary)s") % {"name":package.name,
+                self.installProgress.ui.info.setText(_("Installing <b>%(name)s</b><br>%(summary)s") % {"name":package.name,
                                                                                        "summary":package.summary})
                 ctx.logger.debug("Pisi: %s installing" % package.name)
                 self.cur += 1
-                self.ui.progress.setValue(self.cur)
+                self.installProgress.ui.progress.setValue(self.cur)
             elif event == pisi.ui.configuring:
-                self.ui.info.setText(_("Configuring <b>%s</b>") % package.name)
+                self.installProgres.ui.info.setText(_("Configuring <b>%s</b>") % package.name)
                 ctx.logger.debug("Pisi: %s configuring" % package.name)
                 self.cur += 1
-                self.ui.progress.setValue(self.cur)
+                self.installProgress.ui.progress.setValue(self.cur)
 
         # EventSetProgress
         elif qevent.eventType() == EventSetProgress:
             total = qevent.data()
-            self.ui.progress.setMaximum(total)
+            self.installProgress.ui.progress.setMaximum(total)
 
         # EventPackageInstallFinished
         elif qevent.eventType() == EventPackageInstallFinished:
@@ -150,12 +191,12 @@ class Widget(QWidget, ScreenWidget):
 
     def changeSlideshows(self):
         slide = self.iter_slideshows.next()
-        self.ui.pix.setPixmap(slide["picture"])
+        self.ui.slideImage.setPixmap(slide["picture"])
         if slide["description"].has_key(ctx.consts.lang):
             description = slide["description"][ctx.consts.lang]
         else:
             description = slide["description"]["en"]
-        #self.ui.desc.setText(description)
+        self.ui.slideText.setText(description)
 
     def packageInstallFinished(self):
         yali.postinstall.fillFstab()
