@@ -216,11 +216,11 @@ text-decoration: normal;
            <number>100</number>
           </property>
           <property name="sortingEnabled">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
           <item>
            <property name="text">
-            <string notr="true">Create Custom Layout</string>
+            <string notr="true">Use All Space</string>
            </property>
            <property name="icon">
             <iconset>
@@ -238,20 +238,20 @@ text-decoration: normal;
           </item>
           <item>
            <property name="text">
-            <string notr="true">Use All Space</string>
-           </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>:/gui/pics/partscheme-all.png</normaloff>:/gui/pics/partscheme-all.png</iconset>
-           </property>
-          </item>
-          <item>
-           <property name="text">
             <string notr="true">Use Free Space</string>
            </property>
            <property name="icon">
             <iconset>
              <normaloff>:/gui/pics/partscheme-freespace.png</normaloff>:/gui/pics/partscheme-freespace.png</iconset>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string notr="true">Create Custom Layout</string>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>:/gui/pics/partscheme-all.png</normaloff>:/gui/pics/partscheme-all.png</iconset>
            </property>
           </item>
          </widget>
