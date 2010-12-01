@@ -26,21 +26,12 @@ from PyQt4.Qt import QApplication
 from PyQt4.Qt import SIGNAL
 from PyQt4.Qt import SLOT
 from PyQt4.Qt import QKeySequence
-from PyQt4.Qt import qApp
 
 import yali
 import yali.util
 import yali.context as ctx
 import yali.gui
 import yali.gui.YaliWindow
-
-STE = QStyleFactory.create('Plastique')
-
-class Style(STE):
-    def drawControl(self, element, option, painter, widget = 0):
-        if element == STE.CE_FocusFrame:
-            return
-        STE.drawControl(self, element, option, painter, widget)
 
 class Runner:
 
@@ -138,8 +129,7 @@ class Runner:
     def run(self):
         # Use default theme;
         # if you use different Qt4 theme our works looks ugly :)
-        #s = Style()
-        #self._application.setStyle(s)
+        self._application.setStyle(QStyleFactory.create('Plastique'))
         self._init_screen()
 
         # For testing..
