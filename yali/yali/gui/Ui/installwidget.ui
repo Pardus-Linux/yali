@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>704</width>
-    <height>727</height>
+    <width>755</width>
+    <height>630</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -109,20 +109,20 @@ border:0px;
         <item>
          <widget class="QLabel" name="slideImage">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
           <property name="minimumSize">
            <size>
-            <width>200</width>
+            <width>266</width>
             <height>200</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>200</width>
+            <width>266</width>
             <height>200</height>
            </size>
           </property>
@@ -145,6 +145,12 @@ border:0px;
         </item>
         <item>
          <widget class="QLabel" name="slideText">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="minimumSize">
            <size>
             <width>400</width>

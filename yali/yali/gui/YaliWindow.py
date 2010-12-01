@@ -56,8 +56,6 @@ class HelpWidget(PAbstractBox):
         self.ui = Ui_Help()
         self.ui.setupUi(self)
 
-        self.ui.buttonHide.clicked.connect(self.hideHelp)
-
         self._animation = 2
         self._duration = 500
 
@@ -98,20 +96,6 @@ class Widget(QWidget):
 
         self.ui = Ui_YaliMain()
         self.ui.setupUi(self)
-
-
-        """
-
-        self.pds_test = PMessageBox(self)
-        self.pds_test.setMinimumWidth(300)
-        self.pds_test.setStyleSheet("border: 1px solid #222222;border-radius:4px;color: white; font-size: 14pt")
-        self.pds_test.enableOverlay() #animated = True
-        self.pds_test.busy.busy()
-        self.pds_test._disable_parent_in_shown = True
-        self.pds_test.setMessage("PDS'ten selamlar")
-        self.pds_test.animate(start = TOPCENTER, stop = MIDCENTER) # direction = OUT
-
-        """
 
         self.font = 10
         self.animation_type = None
@@ -315,6 +299,7 @@ class Widget(QWidget):
             ret = widget.execute()
         if ret:
             self.pds_helper.hideHelp()
+            self.ui.toggleHelp.setChecked(False)
             self.stackMove(self.getCurrent(self.step_increment))
             self.step_increment = 1
 
@@ -324,6 +309,7 @@ class Widget(QWidget):
         if widget.backCheck():
             self.stackMove(self.getCurrent(self.step_increment * -1))
         self.pds_helper.hideHelp()
+        self.ui.toggleHelp.setChecked(False)
         self.step_increment = 1
 
     # move to id numbered stack
