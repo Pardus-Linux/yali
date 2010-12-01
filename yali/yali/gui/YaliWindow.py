@@ -243,12 +243,15 @@ class Widget(QWidget):
                 os.execv("/usr/bin/yali-bin", sys.argv)
 
     def toggleTheme(self):
+        "This easter egg will be implemented later"
+        """
         if self._style == os.path.join(ctx.consts.theme_dir, "%s/style.qss" % ctx.flags.theme):
             if os.path.join(ctx.consts.theme_dir, "%s/style.glass.qss" % ctx.flags.theme):
                 self._style = os.path.join(ctx.consts.theme_dir, "%s/style.glass.qss" % ctx.flags.theme)
         else:
             self._style = os.path.join(ctx.consts.theme_dir, "%s/style.qss" % ctx.flags.theme)
         self.updateStyle()
+        """
 
     def toggleConsole(self):
         if not self.terminal:
