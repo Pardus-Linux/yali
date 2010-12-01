@@ -132,6 +132,12 @@ border:0px;
                 <height>16777215</height>
                </size>
               </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="sortingEnabled">
+               <bool>false</bool>
+              </property>
               <column>
                <property name="text">
                 <string>Device</string>
@@ -261,7 +267,7 @@ border:0px;
   </layout>
  </widget>
  <resources>
-  <include location="../../data.qrc"/>
+  <include location="../../../../yali-theme-pardus/data.qrc"/>
  </resources>
  <connections/>
 </ui>
