@@ -11,22 +11,849 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-28 15:51+0200\n"
+"POT-Creation-Date: 2010-12-01 20:26+0200\n"
 "PO-Revision-Date: 2010-11-29 10:15+0100\n"
 "Last-Translator: Antoon Tolboom <atolboo@gmail.com>\n"
 "Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "X-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
+#: yali/gui/Ui/autoinstallationwidget.py:74 yali/gui/Ui/autopartquestion.py:82
+#: yali/gui/Ui/autopartwidget.py:152 yali/gui/Ui/bg.py:36
+#: yali/gui/Ui/connectionlist.py:74 yali/gui/Ui/createdevicewidget.py:133
+#: yali/gui/Ui/datetimewidget.py:170 yali/gui/Ui/diskItem.py:92
+#: yali/gui/Ui/driveselectionwidget.py:125 yali/gui/Ui/exception.py:62
+#: yali/gui/Ui/goodbyewidget.py:103 yali/gui/Ui/help.py:56
+#: yali/gui/Ui/installprogress.py:60 yali/gui/Ui/logicalvolume.py:133
+#: yali/gui/Ui/manualpartwidget.py:131 yali/gui/Ui/partedit.py:170
+#: yali/gui/Ui/partition.py:143 yali/gui/Ui/partitionshrink.py:62
+#: yali/gui/Ui/raid.py:94 yali/gui/Ui/summarywidget.py:113
+#: yali/gui/Ui/volumegroup.py:95
+msgid "Form"
+msgstr "Form"
+
+#: yali/gui/Ui/autoinstallationwidget.py:75
+msgid "Choose Installation Method"
+msgstr "Installatiemethode kiezen"
+
+#: yali/gui/Ui/autoinstallationwidget.py:76
+#, fuzzy
+msgid "Automatic Installation"
+msgstr "Installatie starten"
+
+#: yali/gui/Ui/autoinstallationwidget.py:77
+#, fuzzy
+msgid "Manual Installation"
+msgstr "Installatie starten"
+
+#: yali/gui/Ui/autoinstallationwidget.py:78
+#, fuzzy
+msgid "Default Kernel"
+msgstr "Standaard Kernel"
+
+#: yali/gui/Ui/autoinstallationwidget.py:79
+msgid "PAE Kernel"
+msgstr "PAE Kernel"
+
+#: yali/gui/Ui/autopartquestion.py:83
+msgid ""
+"There appears to be more than one resizeable partition. You can select a "
+"partition from the list below or YALI will select one for you."
+msgstr ""
+"Het lijkt erop dat er meer dan één partitie is die in grootte aangepast kan "
+"worden. Selecteer een partitie uit onderstaande lijst of YALI zal er een uit "
+"selecteren."
+
+#: yali/gui/Ui/autopartquestion.py:84 yali/gui/Ui/connectionlist.py:76
+#: yali/gui/Ui/dialog.py:65
+msgid "X"
+msgstr "X"
+
+#: yali/gui/Ui/autopartquestion.py:85
+msgid "Automatically choose the partition to resize (recommended)"
+msgstr ""
+"Automatisch de in grootte aan te passen partitie selecteren (aanbevolen)"
+
+#: yali/gui/Ui/autopartquestion.py:86
+msgid "I will choose the target"
+msgstr "Ik zal de bestemming kiezen"
+
+#: yali/gui/Ui/autopartquestion.py:87
+msgid "Use Selected"
+msgstr "Geselecteerde gebruiken"
+
+#: yali/gui/Ui/bootloaderwidget.py:128 yali/gui/Ui/checkcdwidget.py:197
+#: yali/gui/Ui/keyboardwidget.py:127 yali/gui/Ui/kickerwidget.py:30
+#: yali/gui/Ui/license.py:103 yali/gui/Ui/rescuegrubwidget.py:81
+#: yali/gui/Ui/rescuepasswordwidget.py:109 yali/gui/Ui/rescuepisiwidget.py:72
+#: yali/gui/Ui/rescuewidget.py:92 yali/gui/Ui/rootpasswidget.py:128
+#: yali/gui/Ui/setupuserswidget.py:514 yali/gui/Ui/welcome.py:84
+msgid "Form1"
+msgstr "Form1"
+
+#: yali/gui/Ui/bootloaderwidget.py:129
+#, fuzzy
+msgid "Advanced settings"
+msgstr "Geavanceerde afmetingenopties"
+
+#: yali/gui/Ui/bootloaderwidget.py:130
+#, fuzzy
+msgid "Default settings"
+msgstr "Datum/tijd instellingen"
+
+#: yali/gui/Ui/bootloaderwidget.py:131
+msgid "Don't install bootloader"
+msgstr "Installeer geen bootloader"
+
+#: yali/gui/Ui/bootloaderwidget.py:132
+#, fuzzy
+msgid "The partition where Pardus is installed"
+msgstr "Selecteer de partitie waarop Pardus geïnstalleerd is"
+
+#: yali/gui/Ui/bootloaderwidget.py:133
+msgid "The first sector of"
+msgstr ""
+
+#: yali/gui/Ui/checkcdwidget.py:198
+#, fuzzy
+msgid ""
+"You can validate the integrity of the installation packages. Although this "
+"is an optional step, we highly recommend to do the validation in order to "
+"avoid any possible errors during the installation process."
+msgstr ""
+"U kunt de integriteit van de pakketten op de installatie-CD controleren. "
+"Ondanks dat dit een optionele stap is raden wij dit aan om mogelijke fouten "
+"bij de installatie te voorkomen."
+
+#: yali/gui/Ui/checkcdwidget.py:199
+#, fuzzy
+msgid "Validation failed"
+msgstr "Valideren van %s"
+
+#: yali/gui/Ui/checkcdwidget.py:200
+#, fuzzy
+msgid "Validation succeeded"
+msgstr "Valideren van %s"
+
+#: yali/gui/Ui/checkcdwidget.py:201 yali/gui/ScrCheckCD.py:60
+msgid "Validate"
+msgstr "Valideren"
+
+#: yali/gui/Ui/connectionlist.py:75
+#, fuzzy
+msgid ""
+"To use PiSi History support, you may need to be online. You can use a "
+"connection profile from the list below:"
+msgstr ""
+"Om Pisi-geschiedenisbeheer te gebruiken heeft u mogelijk een "
+"internetverbinding nodig. Kies een verbindingsprofiel uit de onderstaande "
+"lijst."
+
+#: yali/gui/Ui/connectionlist.py:77
+msgid "Connect"
+msgstr "Verbinden"
+
+#: yali/gui/Ui/createdevicewidget.py:134
+#, fuzzy
+msgid "Standard Partition"
+msgstr "Partitie bewerken"
+
+#: yali/gui/Ui/createdevicewidget.py:135
+#, fuzzy
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"size:8pt;\">General purpose of partition creation</span></p></body></html>"
+msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dt\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Droid Sans'; font-size:10pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><span style="
+"\" font-size:12pt; font-weight:600;\">Partitiemethode</span></p></body></"
+"html>"
+
+#: yali/gui/Ui/createdevicewidget.py:140 yali/gui/ScrPartitionManual.py:157
+msgid "Volume Group"
+msgstr "Volumegroep"
+
+#: yali/gui/Ui/createdevicewidget.py:141 yali/gui/ScrPartitionManual.py:158
+msgid "Requires at least 1 free LVM formatted partition"
+msgstr "Vereist tenminste 1 vrije LVM geformatteerde partitie"
+
+#: yali/gui/Ui/createdevicewidget.py:142 yali/gui/ScrPartitionManual.py:160
+msgid "Logical Volume"
+msgstr "Logisch volume"
+
+#: yali/gui/Ui/createdevicewidget.py:143 yali/gui/ScrPartitionManual.py:161
+msgid "Create Logical Volume on selected Volume Group"
+msgstr "Logisch volume op geselecteerde volumegroep aanmaken"
+
+#: yali/gui/Ui/createdevicewidget.py:144 yali/gui/ScrPartitionManual.py:154
+msgid "Physical Volume"
+msgstr "Fysiek volume"
+
+#: yali/gui/Ui/createdevicewidget.py:145 yali/gui/ScrPartitionManual.py:155
+msgid "Create LVM formatted partition"
+msgstr "LVM geformatteerde partitie aanmaken"
+
+#: yali/gui/Ui/createdevicewidget.py:146
+#, fuzzy
+msgid "Raid Member"
+msgstr "Ongeldige Raid-onderdelen"
+
+#: yali/gui/Ui/createdevicewidget.py:147 yali/gui/ScrPartitionManual.py:164
+msgid "Create Raid formatted partition"
+msgstr "Raid geformatteerde partitie aanmaken"
+
+#: yali/gui/Ui/createdevicewidget.py:148
+#, fuzzy
+msgid "Raid Array"
+msgstr "Raid-arrays"
+
+#: yali/gui/Ui/createdevicewidget.py:149 yali/gui/ScrPartitionManual.py:167
+msgid "Requires at least 2 free Raid formatted partition"
+msgstr "Vereist tenminste 2 vrije Raid geformatteerde partities"
+
+#: yali/gui/Ui/datetimewidget.py:171
+msgid "Date"
+msgstr ""
+
+#: yali/gui/Ui/datetimewidget.py:172
+#, fuzzy
+msgid "Time"
+msgstr "Tijdzone"
+
+#: yali/gui/Ui/datetimewidget.py:173
+msgid "HH:mm:ss"
+msgstr ""
+
+#: yali/gui/Ui/datetimewidget.py:174
+#, fuzzy
+msgid "Timezone"
+msgstr "Tijdzone"
+
+#: yali/gui/Ui/diskItem.py:93 yali/gui/Ui/diskItem.py:94
+#: yali/gui/Ui/installwidget.py:117
+msgid "TextLabel"
+msgstr ""
+
+#: yali/gui/Ui/exception.py:63
+msgid "font:bold;"
+msgstr ""
+
+#: yali/gui/Ui/exception.py:64
+#, fuzzy
+msgid "Unhandled exception occured"
+msgstr "Onbehandelde fout opgetreden!"
+
+#: yali/gui/Ui/exception.py:65
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Droid Sans'; font-size:8pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Please fill a bug report "
+"at <span style=\" font-weight:600;\">http://bugs.pardus.org.tr/</span> "
+"attaching the following backtrace.</p></body></html>"
+msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Droid Sans'; font-size:8pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Gaarne een bugrapport "
+"invullen op <span style=\" font-weight:600;\">http://bugs.pardus.org.tr/</"
+"span> met de volgende bijgevoegde backtrace.</p></body></html>"
+
+#: yali/gui/Ui/exception.py:70
+msgid "Show Backtrace"
+msgstr "Backtrace tonen"
+
+#: yali/gui/Ui/exception.py:71 yali/gui/ScrCheckCD.py:97
+msgid "Reboot"
+msgstr "Herstarten"
+
+#: yali/gui/Ui/help.py:57
+msgid "help content"
+msgstr ""
+
+#: yali/gui/Ui/installprogress.py:61
+msgid "Installing Package: "
+msgstr "Installeren pakket: "
+
+#: yali/gui/Ui/installwidget.py:116
+msgid "Form3"
+msgstr "Form3"
+
+#: yali/gui/Ui/keyboardwidget.py:128
+#, fuzzy
+msgid "Keyboard Layouts"
+msgstr "Toetsenbordinstellingen"
+
+#: yali/gui/Ui/keyboardwidget.py:129
+#, fuzzy
+msgid "Test Layout"
+msgstr "Test de geselecteerde indeling:"
+
+#: yali/gui/Ui/license.py:104
+msgid ""
+"All software by TUBITAK Pardus is licensed under the terms of <a href=\"#"
+"\"><span style=\" text-decoration: underline; color:#56a2c0;\">GNU General "
+"Public License</span></a> which you must accept in order to install and use "
+"Pardus."
+msgstr ""
+
+#: yali/gui/Ui/license.py:105
+msgid "I understand and accept the terms of GNU GPL"
+msgstr ""
+
+#: yali/gui/Ui/logicalvolume.py:134
+#, fuzzy
+msgid "Logical Volume:"
+msgstr "Logisch volume"
+
+#: yali/gui/Ui/logicalvolume.py:135 yali/gui/Ui/partedit.py:172
+#: yali/gui/Ui/partitionedit.py:136
+msgid "Use :"
+msgstr "Gebruiken als:"
+
+#: yali/gui/Ui/logicalvolume.py:136 yali/gui/Ui/partedit.py:173
+#: yali/gui/Ui/partitionedit.py:137 yali/gui/Ui/partition.py:145
+#, fuzzy
+msgid "Size :"
+msgstr "Grootte wijzigen :"
+
+#: yali/gui/Ui/logicalvolume.py:137 yali/gui/Ui/logicalvolume.py:139
+#: yali/gui/Ui/partedit.py:174 yali/gui/Ui/partitionedit.py:138
+#: yali/gui/Ui/partition.py:146 yali/gui/Ui/partition.py:148
+#: yali/gui/Ui/partitionshrinkwidget.py:92 yali/gui/Ui/partresize.py:97
+msgid " MB"
+msgstr " MB"
+
+#: yali/gui/Ui/logicalvolume.py:138 yali/gui/Ui/partition.py:147
+#: yali/gui/Ui/partresize.py:99
+#, fuzzy
+msgid "Resize"
+msgstr "Grootte wijzigen :"
+
+#: yali/gui/Ui/logicalvolume.py:140 yali/gui/Ui/partedit.py:177
+#: yali/gui/Ui/partitionedit.py:139 yali/gui/Ui/partition.py:151
+msgid "File System :"
+msgstr "Bestandsysteem:"
+
+#: yali/gui/Ui/logicalvolume.py:141 yali/gui/Ui/manualpartwidget.py:137
+#: yali/gui/Ui/partition.py:149 yali/gui/Ui/raid.py:98
+#: yali/gui/ScrPartitionManual.py:129
+msgid "Format"
+msgstr "Formatteren"
+
+#: yali/gui/Ui/logicalvolume.py:142 yali/gui/Ui/partition.py:150
+#: yali/gui/Ui/raid.py:99
+msgid "Migrate"
+msgstr ""
+
+#: yali/gui/Ui/main.py:243
+#, fuzzy
+msgid "Yali"
+msgstr "Yali4"
+
+#: yali/gui/Ui/main.py:244
+msgid "..."
+msgstr ""
+
+#: yali/gui/Ui/main.py:245 yali/gui/YaliWindow.py:395
+msgid "Release Notes"
+msgstr "Uitgavenotities"
+
+#: yali/gui/Ui/main.py:246
+msgid "Previous Screen"
+msgstr "Vorig scherm"
+
+#: yali/gui/Ui/main.py:247
+#, fuzzy
+msgid "Back"
+msgstr "Ga terug"
+
+#: yali/gui/Ui/main.py:248
+msgid "Next Screen"
+msgstr "Volgend scherm"
+
+#: yali/gui/Ui/main.py:249 yali/gui/ScrSummary.py:58
+#: yali/gui/ScrSummary.py:214
+msgid "Next"
+msgstr "Volgende"
+
+#: yali/gui/Ui/main.py:250
+msgid "Screen Name"
+msgstr "Schermnaam"
+
+#: yali/gui/Ui/main.py:251
+msgid ""
+"Welcome to YALI, the Pardus installer. YALI will guide you through the "
+"installation process. Welcome to YALI, the Pardus installer. YALI will guide "
+"you through the installation process.Welcome to YALI, the Pardus installer. "
+"YALI will guide you through the installation process.Welcome to YALI, the "
+"Pardus installer. YALI will guide you through the installation process."
+"Welcome to YALI, the Pardus installer. YALI will guide you through the "
+"installation process.Welcome to YALI, the Pardus installer. YALI will guide "
+"you through the installation process.Welcome to YALI, the Pardus installer. "
+"YALI will guide you through the installation process."
+msgstr ""
+
+#: yali/gui/Ui/manualpartwidget.py:133
+msgid "Device"
+msgstr ""
+
+#: yali/gui/Ui/manualpartwidget.py:134
+#, fuzzy
+msgid "Mount Point"
+msgstr "Aankoppelpunt-fout"
+
+#: yali/gui/Ui/manualpartwidget.py:135
+msgid "Label"
+msgstr ""
+
+#: yali/gui/Ui/manualpartwidget.py:136
+msgid "Type"
+msgstr ""
+
+#: yali/gui/Ui/manualpartwidget.py:138 yali/gui/Ui/volumegroup.py:103
+#, fuzzy
+msgid "Size"
+msgstr "Grootte wijzigen :"
+
+#: yali/gui/Ui/manualpartwidget.py:139
+msgid "New"
+msgstr ""
+
+#: yali/gui/Ui/manualpartwidget.py:140 yali/gui/Ui/setupuserswidget.py:525
+#: yali/gui/Ui/volumegroup.py:105
+msgid "Edit"
+msgstr ""
+
+#: yali/gui/Ui/manualpartwidget.py:141 yali/gui/Ui/setupuserswidget.py:526
+#: yali/gui/Ui/volumegroup.py:106 yali/gui/lvm_gui.py:553
+msgid "Delete"
+msgstr "Verwijderen"
+
+#: yali/gui/Ui/manualpartwidget.py:142
+msgid "Reset"
+msgstr ""
+
+#: yali/gui/Ui/partedit.py:171 yali/gui/Ui/partitionedit.py:135
+msgid "Partition 1 on FUJISTU - /dev/sda1"
+msgstr "Partitie 1 op FUJISTU - /dev/sda1"
+
+#: yali/gui/Ui/partedit.py:175
+#, fuzzy
+msgid "Format :"
+msgstr "Formatteren"
+
+#: yali/gui/Ui/partedit.py:176
+#, fuzzy
+msgid "Yes, format this partition"
+msgstr "LVM geformatteerde partitie aanmaken"
+
+#: yali/gui/Ui/partedit.py:178
+#, fuzzy
+msgid "Delete Partition"
+msgstr "Verwijder alle partities"
+
+#: yali/gui/Ui/partedit.py:179
+#, fuzzy
+msgid "Resize Partition"
+msgstr "Partitie bewerken"
+
+#: yali/gui/Ui/partedit.py:180
+msgid "Changes will be applied after Summary Screen."
+msgstr "Veranderingen zullen toegepast worden na het overzichtscherm."
+
+#: yali/gui/Ui/partedit.py:181
+msgid "Refresh Disks"
+msgstr "Schijven verversen"
+
+#: yali/gui/Ui/partedit.py:182
+msgid "Reset All Changes"
+msgstr "Alle veranderingen ongedaan maken"
+
+#: yali/gui/Ui/partedit.py:183
+msgid "Apply"
+msgstr "Toepassen"
+
+#: yali/gui/Ui/partitionedit.py:134
+#, fuzzy
+msgid "Partition Action"
+msgstr "Partitie instellingen"
+
+#: yali/gui/Ui/partitionedit.py:140
+#, fuzzy
+msgid "Force to be primary partition"
+msgstr "Te veel primaire partities !"
+
+#: yali/gui/Ui/partition.py:144
+#, fuzzy
+msgid "Use as:"
+msgstr "Gebruiken als:"
+
+#: yali/gui/Ui/partition.py:152
+#, fuzzy
+msgid "Force to be a primary partition"
+msgstr "Te veel primaire partities !"
+
+#: yali/gui/Ui/partition.py:153
+msgid "Allowable Drives:"
+msgstr ""
+
+#: yali/gui/Ui/partitionshrink.py:63 yali/gui/Ui/partitionshrinkwidget.py:90
+msgid ""
+"Which partition would you like to shrink to make room for your installation?"
+msgstr ""
+
+#: yali/gui/Ui/partitionshrink.py:64
+msgid "Shrink partition to size (in MB)"
+msgstr ""
+
+#: yali/gui/Ui/partitionshrinkwidget.py:91
+msgid "Shrink partition to size (in MB) :"
+msgstr ""
+
+#: yali/gui/Ui/partitionshrinkwidget.py:93 yali/gui/Ui/partresize.py:98
+#: yali/gui/Ui/setupuserswidget.py:527 yali/gui/lvm_gui.py:421
+#: yali/gui/lvm_gui.py:468 yali/gui/lvm_gui.py:553
+#: yali/gui/ScrPartitionManual.py:113 yali/gui/ScrPartitionManual.py:129
+#: yali/gui/ScrPartitionManual.py:139 yali/gui/YaliDialog.py:222
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: yali/gui/Ui/partitionshrinkwidget.py:94
+msgid "Shrink"
+msgstr ""
+
+#: yali/gui/Ui/partresize.py:90
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:"
+"#ffffff;\">Changes will be applied when you click \"</span><span style=\" "
+"text-decoration: underline; color:#ffffff;\">Resize</span><span style=\" "
+"color:#ffffff;\">\". To cancel the changes, click \"</span><span style=\" "
+"text-decoration: underline; color:#ffffff;\">Cancel</span><span style=\" "
+"color:#ffffff;\">\".</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
+"color:#ffffff;\"></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px; color:#ffffff;\"><span style="
+"\" font-weight:600; text-decoration: underline;\">Warning:</span> A resizing "
+"operation may corrupt the partition, rendering the data on it unreachable. "
+"Make sure that you have backed up the data.<span style=\" font-weight:600;"
+"\"> </span><span style=\" font-weight:600;\">Note that this operation cannot "
+"be undone.</span></p></body></html>"
+msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:"
+"#ffffff;\">Deze instellingen zullen worden toegepast indien u klikt op \"</"
+"span><span style=\" text-decoration: underline; color:#ffffff;\">Grootte "
+"aanpassen</span><span style=\" color:#ffffff;\">\".Als u terug wilt klik op "
+"\"</span><span style=\" text-decoration: underline; color:#ffffff;"
+"\">Annuleren</span><span style=\" color:#ffffff;\">\".</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
+"color:#ffffff;\"></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px; color:#ffffff;\"><span style="
+"\" font-weight:600; text-decoration: underline;\">Waarschuwing:</span> De "
+"grootte aanpassen van uw partitie, kan deze corrupt maken, waardoor uw "
+"gegevens onbereikbaar worden. Zorg ervoor dat u een backup heeft van deze "
+"partitie.<span style=\" font-weight:600;\"> </span><span style=\" font-"
+"weight:600;\">Let op dat deze handeling niet ongedaan kan worden gemaakt</"
+"span></p></body></html>"
+
+#: yali/gui/Ui/raid.py:95
+#, fuzzy
+msgid "Raid Device:"
+msgstr "Ongeldige Raid-onderdelen"
+
+#: yali/gui/Ui/raid.py:96
+msgid "Use:"
+msgstr ""
+
+#: yali/gui/Ui/raid.py:97
+#, fuzzy
+msgid "Filesystem:"
+msgstr "Bestandsysteem:"
+
+#: yali/gui/Ui/raid.py:100
+#, fuzzy
+msgid "Raid Level:"
+msgstr "Ongeldige Raid-onderdelen"
+
+#: yali/gui/Ui/raid.py:101
+#, fuzzy
+msgid "Raid Members:"
+msgstr "Ongeldige Raid-onderdelen"
+
+#: yali/gui/Ui/raid.py:102
+msgid "Number of spares:"
+msgstr ""
+
+#: yali/gui/Ui/rescuegrubwidget.py:82
+#, fuzzy
+msgid "Select where to install the GRUB bootloader"
+msgstr "Selecteer de bestemming waar de bootlader geïnstalleerd wordt"
+
+#: yali/gui/Ui/rescuegrubwidget.py:83
+msgid "First bootable disk (recommended)"
+msgstr "Eerste opstartbare schijf (aanbevolen)"
+
+#: yali/gui/Ui/rescuegrubwidget.py:84
+#, fuzzy
+msgid "Disk partition where Pardus is installed"
+msgstr "Selecteer de partitie waarop Pardus geïnstalleerd is"
+
+#: yali/gui/Ui/rescuegrubwidget.py:85
+msgid "Selected disk below"
+msgstr "Onderstaande geselecteerde schijf"
+
+#: yali/gui/Ui/rescuepasswordwidget.py:110
+msgid "Choose the user you want to reset the password:"
+msgstr ""
+
+#: yali/gui/Ui/rescuepasswordwidget.py:111
+msgid "New password:"
+msgstr "Nieuw wachtwoord:"
+
+#: yali/gui/Ui/rescuepasswordwidget.py:112
+#, fuzzy
+msgid "New password (Again):"
+msgstr "Nieuw wachtwoord (nogmaals):"
+
+#: yali/gui/Ui/rescuepasswordwidget.py:113
+#, fuzzy
+msgid "Reset Password"
+msgstr "Wachtwoord:"
+
+#: yali/gui/Ui/rescuepasswordwidget.py:114
+msgid ""
+"border:1px solid white;\n"
+"border-radius:6px;\n"
+"background-color:white;\n"
+"color:#5A2847;"
+msgstr ""
+
+#: yali/gui/Ui/rescuepisiwidget.py:73
+#, fuzzy
+msgid "<b>Connection status:</b>"
+msgstr "Stel verbindingstatus in."
+
+#: yali/gui/Ui/rescuepisiwidget.py:74
+msgid "Offline"
+msgstr ""
+
+#: yali/gui/Ui/rescuepisiwidget.py:75
+msgid ""
+"To use PiSi's history feature, you may need to be online. Select connection "
+"profile."
+msgstr ""
+"Om Pisi geschiedenisbeheer te kunnen gebruiken heeft u mogelijk een "
+"internetverbinding nodig. Selecteer verbindingsprofiel."
+
+#: yali/gui/Ui/rescuepisiwidget.py:76
+msgid "Select Connection"
+msgstr "Selecteer verbinding"
+
+#: yali/gui/Ui/rescuepisiwidget.py:77
+#, fuzzy
+msgid "Select the operation to undo:"
+msgstr "Operatie om ongedaan te maken:"
+
+#: yali/gui/Ui/rescuewidget.py:93
+msgid "Choose what do you want to do to repair your system:"
+msgstr ""
+
+#: yali/gui/Ui/rescuewidget.py:94
+#, fuzzy
+msgid "Reinstall GRUB bootloader"
+msgstr "GRUB herinstalleren (boot problemen)"
+
+#: yali/gui/Ui/rescuewidget.py:95
+msgid "Return back to a previous system state"
+msgstr ""
+
+#: yali/gui/Ui/rescuewidget.py:96
+#, fuzzy
+msgid "Reset forgotten password"
+msgstr "Systeembeheerwachtwoord aan het instellen..."
+
+#: yali/gui/Ui/rescuewidget.py:97 yali/gui/ScrGoodbye.py:53
+#: yali/gui/ScrRescueFinish.py:78 yali/gui/ScrSummary.py:46
+msgid "Restart"
+msgstr "Herstarten"
+
+#: yali/gui/Ui/rootpasswidget.py:129
+#, fuzzy
+msgid "Administrator password"
+msgstr "Wachtwoord systeembeheerder:"
+
+#: yali/gui/Ui/rootpasswidget.py:130
+#, fuzzy
+msgid "Confirm password"
+msgstr "Nieuw wachtwoord:"
+
+#: yali/gui/Ui/rootpasswidget.py:131
+#, fuzzy
+msgid "Computer Name"
+msgstr "Gebruikersnaam:"
+
+#: yali/gui/Ui/setupuserswidget.py:515
+#, fuzzy
+msgid "User Name"
+msgstr "Gebruikersnaam:"
+
+#: yali/gui/Ui/setupuserswidget.py:516
+#, fuzzy
+msgid "Real Name"
+msgstr "Echte naam:"
+
+#: yali/gui/Ui/setupuserswidget.py:517
+#, fuzzy
+msgid "Password"
+msgstr "Wachtwoord:"
+
+#: yali/gui/Ui/setupuserswidget.py:518
+#, fuzzy
+msgid "Confirm Password"
+msgstr "Wachtwoord:"
+
+#: yali/gui/Ui/setupuserswidget.py:519
+#, fuzzy
+msgid "Custom User ID"
+msgstr "Gebruikers-id"
+
+#: yali/gui/Ui/setupuserswidget.py:520
+msgid "Not recommended"
+msgstr "Niet aanbevolen"
+
+#: yali/gui/Ui/setupuserswidget.py:521
+msgid "Bypass authorization attempts for this user"
+msgstr ""
+
+#: yali/gui/Ui/setupuserswidget.py:522
+msgid "Add user to administrator (wheel) group"
+msgstr ""
+
+#: yali/gui/Ui/setupuserswidget.py:523
+#, fuzzy
+msgid "Select auto login user"
+msgstr "Gebruiker automatisch aanmelden:"
+
+#: yali/gui/Ui/setupuserswidget.py:524 yali/gui/Ui/volumegroup.py:104
+#: yali/gui/ScrUsers.py:293 yali/gui/ScrUsers.py:335 yali/gui/ScrUsers.py:413
+msgid "Add"
+msgstr "Toevoegen"
+
+#: yali/gui/Ui/setupuserswidget.py:528
+msgid "Advanced"
+msgstr "Geavanceerd"
+
+#: yali/gui/Ui/summarywidget.py:114
+msgid ""
+"When checked, YALI will install all of the officially supported language "
+"packages on your system."
+msgstr ""
+
+#: yali/gui/Ui/summarywidget.py:115
+msgid "Install all language packages"
+msgstr "Installeer alle taalpakketten"
+
+#: yali/gui/Ui/volumegroup.py:96
+#, fuzzy
+msgid "Volume Group Name:"
+msgstr "Volumegroep"
+
+#: yali/gui/Ui/volumegroup.py:97
+#, fuzzy
+msgid "Physical Extends"
+msgstr "Fysiek volume"
+
+#: yali/gui/Ui/volumegroup.py:98
+#, fuzzy
+msgid "Physical Volumes to use:"
+msgstr "Fysiek volume"
+
+#: yali/gui/Ui/volumegroup.py:99
+#, fuzzy
+msgid "Total Space:"
+msgstr "Vrije ruimte gebruiken"
+
+#: yali/gui/Ui/volumegroup.py:100
+#, fuzzy
+msgid "Free Space:"
+msgstr "Vrije ruimte gebruiken"
+
+#: yali/gui/Ui/volumegroup.py:101
+#, fuzzy
+msgid "Logical Volumes"
+msgstr "Logisch volume"
+
+#: yali/gui/Ui/volumegroup.py:102
+#, fuzzy
+msgid "Mountpoint"
+msgstr "Aankoppelpunt is in gebruik"
+
+#: yali/gui/Ui/volumegroup.py:107
+#, fuzzy
+msgid "Used Space:"
+msgstr "Alle ruimte gebruiken"
+
+#: yali/gui/Ui/welcome.py:85
+msgid ""
+"There are a few more steps to take before your system is ready to use.The "
+"agent will now guide you through some basic configuration.Please click the "
+"\"Next\"  button in the lower corner right to continue."
+msgstr ""
+
 #: yali/gui/interface.py:41 yali/gui/interface.py:123
-#: yali/gui/ScrCheckCD.py:92 yali/gui/ScrInstall.py:139
+#: yali/gui/ScrCheckCD.py:92 yali/gui/ScrInstall.py:180
 #: yali/gui/ScrPartitionAuto.py:44 yali/gui/ScrPartitionManual.py:137
-#: yali/gui/YaliWindow.py:175 yali/gui/YaliWindow.py:180
-#: yali/gui/YaliWindow.py:185
+#: yali/gui/YaliWindow.py:211 yali/gui/YaliWindow.py:216
+#: yali/gui/YaliWindow.py:221
 msgid "Warning"
 msgstr "Waarschuwing"
 
@@ -47,8 +874,8 @@ msgstr "Fout"
 #: yali/gui/interface.py:67
 #, python-format
 msgid ""
-"Cannot access the partition table of %(description)s(%(name)s) -- %(size)-0."
-"fMB\n"
+"Cannot access the partition table of %(description)s(%(name)s) -- "
+"%(size)-0.fMB\n"
 "\n"
 "If there already exists a partition table on this device, it will\n"
 " be re-initialized and your existing data will be lost!\n"
@@ -92,11 +919,11 @@ msgid ""
 "with inconsistent metadata."
 msgstr ""
 "Fout bij bewerken LVM.\n"
-"Er zijn niet samenhangend LVM-gegevens op %(msg)s. Alle gerelateerde PV's (%"
-"(pvs)s) kunnen opnieuw geïnitialiseerd worden en dit zal de LVM-metagegevens "
-"wissen, of door het negeren zal de inhoud niet verloren gaan. Deze bewerking "
-"kan ook op alle andere PV's, met niet samenhangende metagegevens, toegepast "
-"worden."
+"Er zijn niet samenhangend LVM-gegevens op %(msg)s. Alle gerelateerde PV's "
+"(%(pvs)s) kunnen opnieuw geïnitialiseerd worden en dit zal de LVM-"
+"metagegevens wissen, of door het negeren zal de inhoud niet verloren gaan. "
+"Deze bewerking kan ook op alle andere PV's, met niet samenhangende "
+"metagegevens, toegepast worden."
 
 #: yali/gui/interface.py:130
 msgid "Ignore all"
@@ -188,12 +1015,6 @@ msgstr ""
 "Deze wijziging zal onmiddellijk\n"
 "plaats vinden."
 
-#: yali/gui/lvm_gui.py:421 yali/gui/lvm_gui.py:468 yali/gui/lvm_gui.py:553
-#: yali/gui/ScrPartitionManual.py:113 yali/gui/ScrPartitionManual.py:129
-#: yali/gui/ScrPartitionManual.py:139 yali/gui/YaliDialog.py:222
-msgid "Cancel"
-msgstr "Annuleren"
-
 #: yali/gui/lvm_gui.py:421 yali/gui/lvm_gui.py:468
 #: yali/gui/ScrPartitionManual.py:358
 msgid "Continue"
@@ -214,9 +1035,9 @@ msgstr ""
 #: yali/gui/lvm_gui.py:449
 #, python-format
 msgid ""
-"The physical extent size cannot be changed because the value selected (%"
-"(curpe)10.2f MB) is too large compared to the size of the smallest physical "
-"volume (%(maxpvsize)10.2f MB) in the volume group."
+"The physical extent size cannot be changed because the value selected "
+"(%(curpe)10.2f MB) is too large compared to the size of the smallest "
+"physical volume (%(maxpvsize)10.2f MB) in the volume group."
 msgstr ""
 "De fysieke uitbreidingsgrootte kan niet gewijzigd worden omdat de "
 "geselecteerde waarde (%(curpe)10.2f MB) te groot is in vergelijking met de "
@@ -288,10 +1109,6 @@ msgstr ""
 "Wilt u werkelijk het logische volume\n"
 "\"%s\" verwijderen?"
 
-#: yali/gui/lvm_gui.py:553
-msgid "Delete"
-msgstr "Verwijderen"
-
 #: yali/gui/lvm_gui.py:583
 msgid "Make Logical Volume"
 msgstr "Logisch volume aanmaken"
@@ -355,8 +1172,8 @@ msgstr ""
 #, python-format
 msgid ""
 "The size entered for this logical volume (%(size)d MB) combined with the "
-"size of the other logical volume(s) exceeds the size of the volume group (%"
-"(tmpvgsize)d MB). Please make the volume group larger or make the logical "
+"size of the other logical volume(s) exceeds the size of the volume group "
+"(%(tmpvgsize)d MB). Please make the volume group larger or make the logical "
 "volume smaller."
 msgstr ""
 "De opgegeven grootte voor het logische volume (%(size)d MB) in combinatie "
@@ -461,10 +1278,6 @@ msgstr "De hostnaam kan niet langer dan 64 tekens zijn."
 msgid "Hostname contains invalid characters."
 msgstr "De hostnaam bevat ongeldige tekens."
 
-#: yali/gui/ScrCheckCD.py:60
-msgid "Validate"
-msgstr "Valideren"
-
 #: yali/gui/ScrCheckCD.py:66
 msgid "Starting validation..."
 msgstr "Validatie starten..."
@@ -489,10 +1302,6 @@ msgstr "Validatie overslaan"
 msgid "Skip Package"
 msgstr "Pakket overslaan"
 
-#: yali/gui/ScrCheckCD.py:97
-msgid "Reboot"
-msgstr "Herstarten"
-
 #: yali/gui/ScrCheckCD.py:112
 msgid ""
 "<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the "
@@ -516,11 +1325,6 @@ msgstr "Bezig met post-installatie bewerkingen.."
 #: yali/gui/ScrGoodbye.py:53
 msgid "Press <b>Restart</b> to restart the computer."
 msgstr "Druk op <b>Herstarten</b> om de computer opnieuw op te starten."
-
-#: yali/gui/ScrGoodbye.py:53 yali/gui/ScrRescueFinish.py:78
-#: yali/gui/ScrSummary.py:46
-msgid "Restart"
-msgstr "Herstarten"
 
 #: yali/gui/ScrGoodbye.py:55 yali/gui/ScrRescueFinish.py:80
 msgid "<b>Please wait while restarting...</b>"
@@ -579,17 +1383,17 @@ msgstr "Bootlader aan het instellen..."
 msgid "Adding users..."
 msgstr "Gebruikers toevoegen..."
 
-#: yali/gui/ScrInstall.py:110
+#: yali/gui/ScrInstall.py:151
 #, python-format
 msgid "Installing <b>%(name)s</b><br>%(summary)s"
 msgstr "Installeren van <b>%(name)s</b><br>%(summary)s"
 
-#: yali/gui/ScrInstall.py:116
+#: yali/gui/ScrInstall.py:157
 #, python-format
 msgid "Configuring <b>%s</b>"
 msgstr "Configureren van <b>%s</b>"
 
-#: yali/gui/ScrInstall.py:140
+#: yali/gui/ScrInstall.py:181
 #, python-format
 msgid ""
 "Following error occured while installing packages:\n"
@@ -598,11 +1402,11 @@ msgstr ""
 "Volgende fout is opgetreden tijdens installeren van pakket:\n"
 "<b>%s</b>"
 
-#: yali/gui/ScrInstall.py:141
+#: yali/gui/ScrInstall.py:182
 msgid "Do you want to retry?"
 msgstr "Opnieuw proberen?"
 
-#: yali/gui/ScrInstall.py:198
+#: yali/gui/ScrInstall.py:239
 #, python-format
 msgid ""
 "An error occured during the installation of packages.\n"
@@ -684,10 +1488,6 @@ msgstr ""
 msgid "Format Warnings"
 msgstr "Formatteerwaarschuwingen"
 
-#: yali/gui/ScrPartitionManual.py:129
-msgid "Format"
-msgstr "Formatteren"
-
 #: yali/gui/ScrPartitionManual.py:137
 msgid "All Changes that you made will be removed"
 msgstr "Alle gemaakte wijzigingen zullen verwijderd worden"
@@ -712,45 +1512,13 @@ msgstr "Partitie"
 msgid "General purpose of partition creation"
 msgstr "Algemeen doel van partitie aanmaken"
 
-#: yali/gui/ScrPartitionManual.py:154
-msgid "Physical Volume"
-msgstr "Fysiek volume"
-
-#: yali/gui/ScrPartitionManual.py:155
-msgid "Create LVM formatted partition"
-msgstr "LVM geformatteerde partitie aanmaken"
-
-#: yali/gui/ScrPartitionManual.py:157
-msgid "Volume Group"
-msgstr "Volumegroep"
-
-#: yali/gui/ScrPartitionManual.py:158
-msgid "Requires at least 1 free LVM formatted partition"
-msgstr "Vereist tenminste 1 vrije LVM geformatteerde partitie"
-
-#: yali/gui/ScrPartitionManual.py:160
-msgid "Logical Volume"
-msgstr "Logisch volume"
-
-#: yali/gui/ScrPartitionManual.py:161
-msgid "Create Logical Volume on selected Volume Group"
-msgstr "Logisch volume op geselecteerde volumegroep aanmaken"
-
 #: yali/gui/ScrPartitionManual.py:163
 msgid "Member"
 msgstr "Lid"
 
-#: yali/gui/ScrPartitionManual.py:164
-msgid "Create Raid formatted partition"
-msgstr "Raid geformatteerde partitie aanmaken"
-
 #: yali/gui/ScrPartitionManual.py:166
 msgid "Array"
 msgstr "Array"
-
-#: yali/gui/ScrPartitionManual.py:167
-msgid "Requires at least 2 free Raid formatted partition"
-msgstr "Vereist tenminste 2 vrije Raid geformatteerde partities"
 
 #: yali/gui/ScrPartitionManual.py:228
 msgid "Volume Groups"
@@ -915,10 +1683,6 @@ msgstr "Selecteer een partitie uit onderstaande lijst:"
 #: yali/gui/ScrSummary.py:47
 msgid "<b><p>Are you sure you want to restart the computer?</p></b>"
 msgstr "<b><p>Werkelijk de computer opnieuw opstarten?</p></b>"
-
-#: yali/gui/ScrSummary.py:58 yali/gui/ScrSummary.py:214
-msgid "Next"
-msgstr "Volgende"
 
 #: yali/gui/ScrSummary.py:66
 #, python-format
@@ -1121,10 +1885,6 @@ msgstr "Het wachtwoord bevat ongeldige tekens."
 msgid "User ID used before, choose another one!"
 msgstr "Het gebruiker-id bestaat reeds. Kies een andere!"
 
-#: yali/gui/ScrUsers.py:293 yali/gui/ScrUsers.py:335 yali/gui/ScrUsers.py:413
-msgid "Add"
-msgstr "Toevoegen"
-
 #: yali/gui/shrink_gui.py:23
 msgid "Partitions to Shrink"
 msgstr "Partitie om kleiner te maken"
@@ -1231,77 +1991,73 @@ msgstr "Informatie"
 msgid "Error reporting"
 msgstr "Fout rapporteren"
 
-#: yali/gui/YaliWindow.py:58
+#: yali/gui/YaliWindow.py:92
 msgid "Pixmaps resources file doesn't exists"
 msgstr "Pixmaps-bronbestand bestaat niet"
 
-#: yali/gui/YaliWindow.py:89
+#: yali/gui/YaliWindow.py:125
 msgid "Style file doesn't exists"
 msgstr "Stijlbestand bestaat niet"
 
-#: yali/gui/YaliWindow.py:96
+#: yali/gui/YaliWindow.py:132
 msgid "Release file doesn't exists"
 msgstr "Uitgavebestand bestaat niet"
 
-#: yali/gui/YaliWindow.py:104
+#: yali/gui/YaliWindow.py:140
 msgid "Turn Off Computer"
 msgstr "Computer uitschakelen"
 
-#: yali/gui/YaliWindow.py:105
+#: yali/gui/YaliWindow.py:141
 msgid "Restart Computer"
 msgstr "Computer herstarten"
 
-#: yali/gui/YaliWindow.py:106
+#: yali/gui/YaliWindow.py:142
 msgid "Restart YALI"
 msgstr "YALI herstarten"
 
-#: yali/gui/YaliWindow.py:124 yali/gui/YaliWindow.py:141 yali/sysutils.py:53
+#: yali/gui/YaliWindow.py:160 yali/gui/YaliWindow.py:177 yali/sysutils.py:53
 msgid "right"
 msgstr "rechts"
 
-#: yali/gui/YaliWindow.py:140 yali/gui/YaliWindow.py:143 yali/sysutils.py:52
+#: yali/gui/YaliWindow.py:176 yali/gui/YaliWindow.py:179 yali/sysutils.py:52
 msgid "left"
 msgstr "links"
 
-#: yali/gui/YaliWindow.py:144
+#: yali/gui/YaliWindow.py:180
 msgid "Mouse Settings"
 msgstr "Muisinstellingen"
 
-#: yali/gui/YaliWindow.py:145
+#: yali/gui/YaliWindow.py:181
 #, python-format
 msgid "You just clicked the <b>%s</b> mouse button."
 msgstr "U heeft zojuist op de <b>%s</b>-knop gedrukt."
 
-#: yali/gui/YaliWindow.py:146
+#: yali/gui/YaliWindow.py:182
 #, python-format
 msgid "Do you want to switch to the <b>%s</b> handed configuration?"
 msgstr "Naar de <b>%s</b>-handige configuratie schakelen?"
 
-#: yali/gui/YaliWindow.py:176
+#: yali/gui/YaliWindow.py:212
 msgid "Are you sure you want to shut down your computer now?"
 msgstr "Werkelijk de computer nu uitschakelen?"
 
-#: yali/gui/YaliWindow.py:181
+#: yali/gui/YaliWindow.py:217
 msgid "Are you sure you want to restart your computer now?"
 msgstr "Werkelijk de computer nu herstarten?"
 
-#: yali/gui/YaliWindow.py:186
+#: yali/gui/YaliWindow.py:222
 msgid "Are you sure you want to restart the YALI installer now?"
 msgstr "Werkelijk de YALI-installeerder herstarten?</p></b?"
 
-#: yali/gui/YaliWindow.py:202
+#: yali/gui/YaliWindow.py:241
 msgid "Terminal"
 msgstr "Terminal"
 
-#: yali/gui/YaliWindow.py:207
+#: yali/gui/YaliWindow.py:246
 msgid "Tetris"
 msgstr "Tetris"
 
-#: yali/gui/YaliWindow.py:351
-msgid "Release Notes"
-msgstr "Uitgavenotities"
-
-#: yali/gui/YaliWindow.py:374
+#: yali/gui/YaliWindow.py:418
 msgid "Release notes could not be loaded."
 msgstr "Kan uitgavenotities niet laden."
 
@@ -1497,75 +2253,11 @@ msgstr "Uitgavebestand is niet samenhangend"
 msgid "Invalid xml file"
 msgstr "Ongeldig xml-bestand"
 
-#~ msgid "Set connection state."
-#~ msgstr "Stel verbindingstatus in."
-
-#~ msgid "Form"
-#~ msgstr "Form"
-
-#~ msgid "Choose Installation Method"
-#~ msgstr "Installatiemethode kiezen"
-
 #~ msgid "No, I'll select installation metod manually"
 #~ msgstr "Nee, ik selecteer handmatig de installatiemethode"
 
-#~ msgid "Defaul Kernel"
-#~ msgstr "Standaard Kernel"
-
-#~ msgid "PAE Kernel"
-#~ msgstr "PAE Kernel"
-
 #~ msgid "Real Time Kernel"
 #~ msgstr "Real Time Kernel"
-
-#~ msgid ""
-#~ "There appears to be more than one resizeable partition. You can select a "
-#~ "partition from the list below or YALI will select one for you."
-#~ msgstr ""
-#~ "Het lijkt erop dat er meer dan één partitie is die in grootte aangepast "
-#~ "kan worden. Selecteer een partitie uit onderstaande lijst of YALI zal er "
-#~ "een uit selecteren."
-
-#~ msgid "X"
-#~ msgstr "X"
-
-#~ msgid "Automatically choose the partition to resize (recommended)"
-#~ msgstr ""
-#~ "Automatisch de in grootte aan te passen partitie selecteren (aanbevolen)"
-
-#~ msgid "I will choose the target"
-#~ msgstr "Ik zal de bestemming kiezen"
-
-#~ msgid "Use Selected"
-#~ msgstr "Geselecteerde gebruiken"
-
-#~ msgid "Form1"
-#~ msgstr "Form1"
-
-#~ msgid ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:10pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><span "
-#~ "style=\" font-size:12pt; font-weight:600;\">Partitioning method</span></"
-#~ "p></body></html>"
-#~ msgstr ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dt\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:10pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><span "
-#~ "style=\" font-size:12pt; font-weight:600;\">Partitiemethode</span></p></"
-#~ "body></html>"
 
 #~ msgid ""
 #~ "Please choose a partitioning method and then a device to partition."
@@ -1652,46 +2344,14 @@ msgstr "Ongeldig xml-bestand"
 #~ "(indien aanwezig) handmatig geconfigureerd te worden om de nieuw "
 #~ "geïnstalleerde Pardus op te starten.</p>"
 
-#~ msgid "Select target to install boot loader"
-#~ msgstr "Selecteer de bestemming waar de bootlader geïnstalleerd wordt"
-
-#~ msgid "First bootable disk (recommended)"
-#~ msgstr "Eerste opstartbare schijf (aanbevolen)"
-
 #~ msgid "Pardus installed partition"
 #~ msgstr "Partitie waarop Pardus geïnstalleerd wordt"
-
-#~ msgid "Selected disk below"
-#~ msgstr "Onderstaande geselecteerde schijf"
-
-#~ msgid "Don't install bootloader"
-#~ msgstr "Installeer geen bootloader"
 
 #~ msgid "Automatically add other operating systems to the GRUB Menu"
 #~ msgstr "Automatisch andere besturingssystemen aan het GRUB-menu toevoegen"
 
-#~ msgid ""
-#~ "You can check the integrity of the packages in installation CD. Although "
-#~ "this is an optional step, we encourage you to do it in order to avoid any "
-#~ "possible errors in the installation process."
-#~ msgstr ""
-#~ "U kunt de integriteit van de pakketten op de installatie-CD controleren. "
-#~ "Ondanks dat dit een optionele stap is raden wij dit aan om mogelijke "
-#~ "fouten bij de installatie te voorkomen."
-
 #~ msgid "Check CD Integrity"
 #~ msgstr "Controleer CD integriteit"
-
-#~ msgid ""
-#~ "To use PiSi History support, you may need to be online. You can use a "
-#~ "connection profile from the list below."
-#~ msgstr ""
-#~ "Om Pisi-geschiedenisbeheer te gebruiken heeft u mogelijk een "
-#~ "internetverbinding nodig. Kies een verbindingsprofiel uit de onderstaande "
-#~ "lijst."
-
-#~ msgid "Connect"
-#~ msgstr "Verbinden"
 
 #~ msgid "The current time"
 #~ msgstr "De huidige tijd"
@@ -1699,60 +2359,14 @@ msgstr "Ongeldig xml-bestand"
 #~ msgid ":"
 #~ msgstr ":"
 
-#~ msgid "Time Zone"
-#~ msgstr "Tijdzone"
-
-#~ msgid ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:8pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">Please fill a bug "
-#~ "report at <span style=\" font-weight:600;\">http://bugs.pardus.org.tr/</"
-#~ "span> attaching the following backtrace.</p></body></html>"
-#~ msgstr ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:8pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">Gaarne een bugrapport "
-#~ "invullen op <span style=\" font-weight:600;\">http://bugs.pardus.org.tr/</"
-#~ "span> met de volgende bijgevoegde backtrace.</p></body></html>"
-
-#~ msgid "Show Backtrace"
-#~ msgstr "Backtrace tonen"
-
-#~ msgid "Form3"
-#~ msgstr "Form3"
-
 #~ msgid "pix"
 #~ msgstr "Backtracepix"
 
 #~ msgid "Desc"
 #~ msgstr "Desc"
 
-#~ msgid "Installing Package: "
-#~ msgstr "Installeren pakket: "
-
 #~ msgid "Choose a keyboard layout:"
 #~ msgstr "Selecteer een toetsenbordindeling:"
-
-#~ msgid "Test selected layout:"
-#~ msgstr "Test de geselecteerde indeling:"
-
-#~ msgid "Yali4"
-#~ msgstr "Yali4"
-
-#~ msgid "Screen Name"
-#~ msgstr "Schermnaam"
 
 #~ msgid "Details about the screen"
 #~ msgstr "Details over het scherm"
@@ -1760,97 +2374,8 @@ msgstr "Ongeldig xml-bestand"
 #~ msgid "Toggle Help"
 #~ msgstr "Help omschakelen"
 
-#~ msgid "Previous Screen"
-#~ msgstr "Vorig scherm"
-
-#~ msgid "Next Screen"
-#~ msgstr "Volgend scherm"
-
-#~ msgid "Partition 1 on FUJISTU - /dev/sda1"
-#~ msgstr "Partitie 1 op FUJISTU - /dev/sda1"
-
-#~ msgid "Use :"
-#~ msgstr "Gebruiken als:"
-
-#~ msgid " MB"
-#~ msgstr " MB"
-
-#~ msgid "File System :"
-#~ msgstr "Bestandsysteem:"
-
-#~ msgid "Changes will be applied after Summary Screen."
-#~ msgstr "Veranderingen zullen toegepast worden na het overzichtscherm."
-
-#~ msgid "Refresh Disks"
-#~ msgstr "Schijven verversen"
-
-#~ msgid "Reset All Changes"
-#~ msgstr "Alle veranderingen ongedaan maken"
-
-#~ msgid "Apply"
-#~ msgstr "Toepassen"
-
-#~ msgid ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:"
-#~ "#ffffff;\">Changes will be applied when you click \"</span><span style=\" "
-#~ "text-decoration: underline; color:#ffffff;\">Resize</span><span style=\" "
-#~ "color:#ffffff;\">\". To cancel the changes, click \"</span><span style=\" "
-#~ "text-decoration: underline; color:#ffffff;\">Cancel</span><span style=\" "
-#~ "color:#ffffff;\">\".</span></p>\n"
-#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
-#~ "color:#ffffff;\"></p>\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px; color:#ffffff;\"><span "
-#~ "style=\" font-weight:600; text-decoration: underline;\">Warning:</span> A "
-#~ "resizing operation may corrupt the partition, rendering the data on it "
-#~ "unreachable. Make sure that you have backed up the data.<span style=\" "
-#~ "font-weight:600;\"> </span><span style=\" font-weight:600;\">Note that "
-#~ "this operation cannot be undone.</span></p></body></html>"
-#~ msgstr ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:"
-#~ "#ffffff;\">Deze instellingen zullen worden toegepast indien u klikt op "
-#~ "\"</span><span style=\" text-decoration: underline; color:#ffffff;"
-#~ "\">Grootte aanpassen</span><span style=\" color:#ffffff;\">\".Als u terug "
-#~ "wilt klik op \"</span><span style=\" text-decoration: underline; color:"
-#~ "#ffffff;\">Annuleren</span><span style=\" color:#ffffff;\">\".</span></"
-#~ "p>\n"
-#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
-#~ "color:#ffffff;\"></p>\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px; color:#ffffff;\"><span "
-#~ "style=\" font-weight:600; text-decoration: underline;\">Waarschuwing:</"
-#~ "span> De grootte aanpassen van uw partitie, kan deze corrupt maken, "
-#~ "waardoor uw gegevens onbereikbaar worden. Zorg ervoor dat u een backup "
-#~ "heeft van deze partitie.<span style=\" font-weight:600;\"> </span><span "
-#~ "style=\" font-weight:600;\">Let op dat deze handeling niet ongedaan kan "
-#~ "worden gemaakt</span></p></body></html>"
-
 #~ msgid "User to change password of:"
 #~ msgstr "Gebruiker om wachtwoord te wijzigen:"
-
-#~ msgid "New password:"
-#~ msgstr "Nieuw wachtwoord:"
-
-#~ msgid "New password (again):"
-#~ msgstr "Nieuw wachtwoord (nogmaals):"
 
 #~ msgid "Update Password"
 #~ msgstr "Wachtwoord bijwerken"
@@ -1858,27 +2383,8 @@ msgstr "Ongeldig xml-bestand"
 #~ msgid "Not Connected"
 #~ msgstr "Niet verbonden"
 
-#~ msgid ""
-#~ "To use PiSi's history feature, you may need to be online. Select "
-#~ "connection profile."
-#~ msgstr ""
-#~ "Om Pisi geschiedenisbeheer te kunnen gebruiken heeft u mogelijk een "
-#~ "internetverbinding nodig. Selecteer verbindingsprofiel."
-
-#~ msgid "Select Connection"
-#~ msgstr "Selecteer verbinding"
-
-#~ msgid "Operation to undo:"
-#~ msgstr "Operatie om ongedaan te maken:"
-
-#~ msgid "Select the partition Pardus is installed on"
-#~ msgstr "Selecteer de partitie waarop Pardus geïnstalleerd is"
-
 #~ msgid "Select operation and click <b>Next</b>..."
 #~ msgstr "Selecteer operatie en klik op <b>Volgende</b>..."
-
-#~ msgid "Reinstall GRUB (boot problems)"
-#~ msgstr "GRUB herinstalleren (boot problemen)"
 
 #~ msgid "PiSi history (undo package operations)"
 #~ msgstr "Pisi geschiedenis (pakketoperatie ongedaan maken)"
@@ -1897,50 +2403,26 @@ msgstr "Ongeldig xml-bestand"
 #~ "vergeet dat wachtwoord niet. Let op dat u dit wachtwoord uit "
 #~ "veiligheidsoverwegingen nergens opschrijft.</p>"
 
-#~ msgid "System administrator password:"
-#~ msgstr "Wachtwoord systeembeheerder:"
-
 #~ msgid "System administrator password (again):"
 #~ msgstr "Wachtwoord systeembeheerder (nogmaals):"
 
 #~ msgid "Hostname:"
 #~ msgstr "Hostnaam:"
 
-#~ msgid "Real Name:"
-#~ msgstr "Echte naam:"
-
-#~ msgid "User Name:"
-#~ msgstr "Gebruikersnaam:"
-
-#~ msgid "Password:"
-#~ msgstr "Wachtwoord:"
-
 #~ msgid "Password (again):"
 #~ msgstr "Wachtwoord (nogmaals):"
-
-#~ msgid "User ID"
-#~ msgstr "Gebruikers-id"
 
 #~ msgid "Give administrator privileges to this user"
 #~ msgstr "Geef beheerdersrechten aan deze gebruiker"
 
-#~ msgid "Not recommended"
-#~ msgstr "Niet aanbevolen"
-
 #~ msgid "Do not ask any password to this user"
 #~ msgstr "Vraag geen enkel wachtwoord aan deze gebruiker"
-
-#~ msgid "Advanced"
-#~ msgstr "Geavanceerd"
 
 #~ msgid "Edit Selected User"
 #~ msgstr "Bewerk geselecteerde gebruiker"
 
 #~ msgid "Delete Selected User"
 #~ msgstr "Verwijder geselecteerde gebruiker"
-
-#~ msgid "Auto Login User :"
-#~ msgstr "Gebruiker automatisch aanmelden:"
 
 #~ msgid "Auto Login Disabled"
 #~ msgstr "Niet automatisch aanmelden"
@@ -1957,9 +2439,6 @@ msgstr "Ongeldig xml-bestand"
 #~ msgid ""
 #~ "If you check this, Yalı will install all language packages in this release"
 #~ msgstr "Markeer dit om alle taalpakketten installeren"
-
-#~ msgid "Install all language packages"
-#~ msgstr "Installeer alle taalpakketten"
 
 #~ msgid ""
 #~ "All software developed by TUBITAK/UEKAE is licensed under GNU/GPL. Other "
@@ -2242,8 +2721,8 @@ msgstr "Ongeldig xml-bestand"
 #~ msgstr "%d MB beschikbaar"
 
 #~ msgid ""
-#~ "Partition <b>%(partition)s (%(size)s)</b> <b>deleted</b> from device <b>%"
-#~ "(device)s</b>."
+#~ "Partition <b>%(partition)s (%(size)s)</b> <b>deleted</b> from device <b>"
+#~ "%(device)s</b>."
 #~ msgstr ""
 #~ "Partitie <b>%(partition)s (%(size)s)</b> <b>verwijderd</b> van station <b>"
 #~ "%(device)s</b>."
@@ -2255,8 +2734,8 @@ msgstr "Ongeldig xml-bestand"
 #~ "Partition <b>%(partition)s</b> will be <b>formatted</b> as <b>%(fsType)s</"
 #~ "b>."
 #~ msgstr ""
-#~ "Partitie <b>%(partition)s</b> <b>zal geformateerd worden</b> als <b>%"
-#~ "(fsType)s</b>."
+#~ "Partitie <b>%(partition)s</b> <b>zal geformateerd worden</b> als <b>"
+#~ "%(fsType)s</b>."
 
 #~ msgid "Partition <b>%(partition)s</b> <b>selected</b> as <b>%(type)s</b>."
 #~ msgstr ""
@@ -2268,9 +2747,6 @@ msgstr "Ongeldig xml-bestand"
 #~ msgstr ""
 #~ "GPT schijftabellen geeft geen ondersteuning voor uitgebreide partities.\n"
 #~ "U dient één van de primaire partities van uw schijftabel te verwijderen !"
-
-#~ msgid "Too many primary partitions !"
-#~ msgstr "Te veel primaire partities !"
 
 #~ msgid ""
 #~ "You need to delete one of the primary or extended(if exists) partition "
@@ -2285,9 +2761,6 @@ msgstr "Ongeldig xml-bestand"
 #~ msgstr ""
 #~ "Partitie <b>%(partition)s</b> <b>toegevoegd</b> aan station <b>%(device)"
 #~ "s</b> met <b>%(size)s MB</b> als <b>%(fs)s</b>."
-
-#~ msgid "Delete All Partitions"
-#~ msgstr "Verwijder alle partities"
 
 #~ msgid "Pardus will install here"
 #~ msgstr "Pardus wordt hier geïnstalleerd"
@@ -2341,9 +2814,6 @@ msgstr "Ongeldig xml-bestand"
 
 #~ msgid "Error occured !"
 #~ msgstr "Fout opgetreden !"
-
-#~ msgid "Unhandled exception occured!"
-#~ msgstr "Onbehandelde fout opgetreden!"
 
 #~ msgid "Set Administrator"
 #~ msgstr "Systeembeheerder instellen"
@@ -2897,18 +3367,18 @@ msgstr "Ongeldig xml-bestand"
 #~ msgstr "Automatisch partitioneren (grootte aanpassen methode) geselecteerd."
 
 #~ msgid ""
-#~ "Partition <b>%(partition)s - %(currentFs)s</b> <b>resized</b> to <b>%"
-#~ "(resizeTo)s MBs</b>, previous size was <b>%(currentSize)s MBs</b>."
+#~ "Partition <b>%(partition)s - %(currentFs)s</b> <b>resized</b> to <b>"
+#~ "%(resizeTo)s MBs</b>, previous size was <b>%(currentSize)s MBs</b>."
 #~ msgstr ""
-#~ "Partitie <b>%(partition)s - %(currentFs)s</b> <b>aangepast</b> naar <b>%"
-#~ "(resizeTo)s MB</b>, oude grootte was <b>%(currentSize)s MB</b>."
+#~ "Partitie <b>%(partition)s - %(currentFs)s</b> <b>aangepast</b> naar <b>"
+#~ "%(resizeTo)s MB</b>, oude grootte was <b>%(currentSize)s MB</b>."
 
 #~ msgid ""
 #~ "Partition <b>%(newPartition)s</b> <b>added</b> to device <b>%(device)s</"
 #~ "b> with <b>%(size)s MBs</b> as <b>%(fs)s</b>."
 #~ msgstr ""
-#~ "Partitie <b>%(newPartition)s</b> <b>toegevoegd</b> aan station <b>%"
-#~ "(device)s</b> met <b>%(size)s MB</b> als <b>%(fs)s</b>."
+#~ "Partitie <b>%(newPartition)s</b> <b>toegevoegd</b> aan station <b>"
+#~ "%(device)s</b> met <b>%(size)s MB</b> als <b>%(fs)s</b>."
 
 #~ msgid ""
 #~ "Partition <b>%(newPartition)s</b> <b>selected</b> as <b>%(type)s</b>."

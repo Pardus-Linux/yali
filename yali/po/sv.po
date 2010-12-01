@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sv\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-28 15:51+0200\n"
+"POT-Creation-Date: 2010-12-01 20:26+0200\n"
 "PO-Revision-Date: 2010-01-28 17:46+0100\n"
 "Last-Translator: Patrik Karlsson <patrik@pardus.nu>\n"
 "Language-Team: Swedish <pardus-translators@pardus.org.tr>\n"
@@ -18,11 +18,831 @@ msgstr ""
 "X-Generator: Lokalize 1.0\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
+#: yali/gui/Ui/autoinstallationwidget.py:74 yali/gui/Ui/autopartquestion.py:82
+#: yali/gui/Ui/autopartwidget.py:152 yali/gui/Ui/bg.py:36
+#: yali/gui/Ui/connectionlist.py:74 yali/gui/Ui/createdevicewidget.py:133
+#: yali/gui/Ui/datetimewidget.py:170 yali/gui/Ui/diskItem.py:92
+#: yali/gui/Ui/driveselectionwidget.py:125 yali/gui/Ui/exception.py:62
+#: yali/gui/Ui/goodbyewidget.py:103 yali/gui/Ui/help.py:56
+#: yali/gui/Ui/installprogress.py:60 yali/gui/Ui/logicalvolume.py:133
+#: yali/gui/Ui/manualpartwidget.py:131 yali/gui/Ui/partedit.py:170
+#: yali/gui/Ui/partition.py:143 yali/gui/Ui/partitionshrink.py:62
+#: yali/gui/Ui/raid.py:94 yali/gui/Ui/summarywidget.py:113
+#: yali/gui/Ui/volumegroup.py:95
+msgid "Form"
+msgstr "Form"
+
+#: yali/gui/Ui/autoinstallationwidget.py:75
+msgid "Choose Installation Method"
+msgstr "Välj installationsmetod"
+
+#: yali/gui/Ui/autoinstallationwidget.py:76
+#, fuzzy
+msgid "Automatic Installation"
+msgstr "Automatisk installation"
+
+#: yali/gui/Ui/autoinstallationwidget.py:77
+#, fuzzy
+msgid "Manual Installation"
+msgstr "Automatisk installation"
+
+#: yali/gui/Ui/autoinstallationwidget.py:78
+#, fuzzy
+msgid "Default Kernel"
+msgstr "Förvald kärna"
+
+#: yali/gui/Ui/autoinstallationwidget.py:79
+msgid "PAE Kernel"
+msgstr "PAE-kärna"
+
+#: yali/gui/Ui/autopartquestion.py:83
+msgid ""
+"There appears to be more than one resizeable partition. You can select a "
+"partition from the list below or YALI will select one for you."
+msgstr ""
+"Det verkar som om det finns fler än en partition för storleksändring. Välj "
+"någon partition ur listan eller låt YALI välja åt dig."
+
+#: yali/gui/Ui/autopartquestion.py:84 yali/gui/Ui/connectionlist.py:76
+#: yali/gui/Ui/dialog.py:65
+msgid "X"
+msgstr "X"
+
+#: yali/gui/Ui/autopartquestion.py:85
+msgid "Automatically choose the partition to resize (recommended)"
+msgstr "Välj automatiskt partition för storleksändring (rekommenderas)"
+
+#: yali/gui/Ui/autopartquestion.py:86
+msgid "I will choose the target"
+msgstr "Jag väljer mål"
+
+#: yali/gui/Ui/autopartquestion.py:87
+msgid "Use Selected"
+msgstr "Använd vald"
+
+#: yali/gui/Ui/bootloaderwidget.py:128 yali/gui/Ui/checkcdwidget.py:197
+#: yali/gui/Ui/keyboardwidget.py:127 yali/gui/Ui/kickerwidget.py:30
+#: yali/gui/Ui/license.py:103 yali/gui/Ui/rescuegrubwidget.py:81
+#: yali/gui/Ui/rescuepasswordwidget.py:109 yali/gui/Ui/rescuepisiwidget.py:72
+#: yali/gui/Ui/rescuewidget.py:92 yali/gui/Ui/rootpasswidget.py:128
+#: yali/gui/Ui/setupuserswidget.py:514 yali/gui/Ui/welcome.py:84
+msgid "Form1"
+msgstr "Form1"
+
+#: yali/gui/Ui/bootloaderwidget.py:129
+#, fuzzy
+msgid "Advanced settings"
+msgstr "Sparar tidsinställningar..."
+
+#: yali/gui/Ui/bootloaderwidget.py:130
+#, fuzzy
+msgid "Default settings"
+msgstr "Datum- och tidsinställningar"
+
+#: yali/gui/Ui/bootloaderwidget.py:131
+msgid "Don't install bootloader"
+msgstr "Installera inte starthanterare"
+
+#: yali/gui/Ui/bootloaderwidget.py:132
+#, fuzzy
+msgid "The partition where Pardus is installed"
+msgstr "Välj den partition Pardus är installerad på"
+
+#: yali/gui/Ui/bootloaderwidget.py:133
+msgid "The first sector of"
+msgstr ""
+
+#: yali/gui/Ui/checkcdwidget.py:198
+#, fuzzy
+msgid ""
+"You can validate the integrity of the installation packages. Although this "
+"is an optional step, we highly recommend to do the validation in order to "
+"avoid any possible errors during the installation process."
+msgstr ""
+"Du kan kontrollera paketens integritet på cd-skivan. Även om det här är ett "
+"frivilligt steg uppmuntras du att göra det för att undvika problem under "
+"installationen."
+
+#: yali/gui/Ui/checkcdwidget.py:199
+#, fuzzy
+msgid "Validation failed"
+msgstr "Anslutningen misslyckades"
+
+#: yali/gui/Ui/checkcdwidget.py:200
+#, fuzzy
+msgid "Validation succeeded"
+msgstr "Anslutningen misslyckades"
+
+#: yali/gui/Ui/checkcdwidget.py:201 yali/gui/ScrCheckCD.py:60
+msgid "Validate"
+msgstr ""
+
+#: yali/gui/Ui/connectionlist.py:75
+#, fuzzy
+msgid ""
+"To use PiSi History support, you may need to be online. You can use a "
+"connection profile from the list below:"
+msgstr ""
+"För att använda PiSis Historikhanterare behöver du vara uppkopplad. Du kan "
+"använda en anslutningsprofil ur listan nedan."
+
+#: yali/gui/Ui/connectionlist.py:77
+msgid "Connect"
+msgstr "Anslut"
+
+#: yali/gui/Ui/createdevicewidget.py:134
+#, fuzzy
+msgid "Standard Partition"
+msgstr "Ta bort partition"
+
+#: yali/gui/Ui/createdevicewidget.py:135
+#, fuzzy
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"size:8pt;\">General purpose of partition creation</span></p></body></html>"
+msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Droid Sans'; font-size:10pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><span style="
+"\" font-size:12pt; font-weight:600;\">Partitioneringsmetod</span></p></"
+"body></html>"
+
+#: yali/gui/Ui/createdevicewidget.py:140 yali/gui/ScrPartitionManual.py:157
+msgid "Volume Group"
+msgstr ""
+
+#: yali/gui/Ui/createdevicewidget.py:141 yali/gui/ScrPartitionManual.py:158
+msgid "Requires at least 1 free LVM formatted partition"
+msgstr ""
+
+#: yali/gui/Ui/createdevicewidget.py:142 yali/gui/ScrPartitionManual.py:160
+msgid "Logical Volume"
+msgstr ""
+
+#: yali/gui/Ui/createdevicewidget.py:143 yali/gui/ScrPartitionManual.py:161
+msgid "Create Logical Volume on selected Volume Group"
+msgstr ""
+
+#: yali/gui/Ui/createdevicewidget.py:144 yali/gui/ScrPartitionManual.py:154
+msgid "Physical Volume"
+msgstr ""
+
+#: yali/gui/Ui/createdevicewidget.py:145 yali/gui/ScrPartitionManual.py:155
+#, fuzzy
+msgid "Create LVM formatted partition"
+msgstr "Ja, formatera partitionen"
+
+#: yali/gui/Ui/createdevicewidget.py:146
+#, fuzzy
+msgid "Raid Member"
+msgstr "Enhet:"
+
+#: yali/gui/Ui/createdevicewidget.py:147 yali/gui/ScrPartitionManual.py:164
+#, fuzzy
+msgid "Create Raid formatted partition"
+msgstr "Ja, formatera partitionen"
+
+#: yali/gui/Ui/createdevicewidget.py:148
+msgid "Raid Array"
+msgstr ""
+
+#: yali/gui/Ui/createdevicewidget.py:149 yali/gui/ScrPartitionManual.py:167
+msgid "Requires at least 2 free Raid formatted partition"
+msgstr ""
+
+#: yali/gui/Ui/datetimewidget.py:171
+msgid "Date"
+msgstr ""
+
+#: yali/gui/Ui/datetimewidget.py:172
+#, fuzzy
+msgid "Time"
+msgstr "Tidszon"
+
+#: yali/gui/Ui/datetimewidget.py:173
+msgid "HH:mm:ss"
+msgstr ""
+
+#: yali/gui/Ui/datetimewidget.py:174
+#, fuzzy
+msgid "Timezone"
+msgstr "Tidszon"
+
+#: yali/gui/Ui/diskItem.py:93 yali/gui/Ui/diskItem.py:94
+#: yali/gui/Ui/installwidget.py:117
+msgid "TextLabel"
+msgstr "TextLabel"
+
+#: yali/gui/Ui/exception.py:63
+msgid "font:bold;"
+msgstr ""
+
+#: yali/gui/Ui/exception.py:64
+#, fuzzy
+msgid "Unhandled exception occured"
+msgstr "Ohanterat undantag uppstod!"
+
+#: yali/gui/Ui/exception.py:65
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Droid Sans'; font-size:8pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Please fill a bug report "
+"at <span style=\" font-weight:600;\">http://bugs.pardus.org.tr/</span> "
+"attaching the following backtrace.</p></body></html>"
+msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Droid Sans'; font-size:8pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Vänligen fyll i en "
+"felrapport på <span style=\" font-weight:600;\">http://bugs.pardus.org.tr/</"
+"span> och bifoga följande bakåtspårning.</p></body></html>"
+
+#: yali/gui/Ui/exception.py:70
+msgid "Show Backtrace"
+msgstr "Visa bakåtspårning"
+
+#: yali/gui/Ui/exception.py:71 yali/gui/ScrCheckCD.py:97
+msgid "Reboot"
+msgstr "Starta om"
+
+#: yali/gui/Ui/help.py:57
+msgid "help content"
+msgstr ""
+
+#: yali/gui/Ui/installprogress.py:61
+msgid "Installing Package: "
+msgstr "Installerar paket: "
+
+#: yali/gui/Ui/installwidget.py:116
+msgid "Form3"
+msgstr "Form3"
+
+#: yali/gui/Ui/keyboardwidget.py:128
+#, fuzzy
+msgid "Keyboard Layouts"
+msgstr "Tangentbordsinställningar"
+
+#: yali/gui/Ui/keyboardwidget.py:129
+#, fuzzy
+msgid "Test Layout"
+msgstr "Testa vald tangentbordslayout:"
+
+#: yali/gui/Ui/license.py:104
+msgid ""
+"All software by TUBITAK Pardus is licensed under the terms of <a href=\"#"
+"\"><span style=\" text-decoration: underline; color:#56a2c0;\">GNU General "
+"Public License</span></a> which you must accept in order to install and use "
+"Pardus."
+msgstr ""
+
+#: yali/gui/Ui/license.py:105
+msgid "I understand and accept the terms of GNU GPL"
+msgstr ""
+
+#: yali/gui/Ui/logicalvolume.py:134
+msgid "Logical Volume:"
+msgstr ""
+
+#: yali/gui/Ui/logicalvolume.py:135 yali/gui/Ui/partedit.py:172
+#: yali/gui/Ui/partitionedit.py:136
+msgid "Use :"
+msgstr "Används:"
+
+#: yali/gui/Ui/logicalvolume.py:136 yali/gui/Ui/partedit.py:173
+#: yali/gui/Ui/partitionedit.py:137 yali/gui/Ui/partition.py:145
+#, fuzzy
+msgid "Size :"
+msgstr "Ändra storlek"
+
+#: yali/gui/Ui/logicalvolume.py:137 yali/gui/Ui/logicalvolume.py:139
+#: yali/gui/Ui/partedit.py:174 yali/gui/Ui/partitionedit.py:138
+#: yali/gui/Ui/partition.py:146 yali/gui/Ui/partition.py:148
+#: yali/gui/Ui/partitionshrinkwidget.py:92 yali/gui/Ui/partresize.py:97
+msgid " MB"
+msgstr " MB"
+
+#: yali/gui/Ui/logicalvolume.py:138 yali/gui/Ui/partition.py:147
+#: yali/gui/Ui/partresize.py:99
+#, fuzzy
+msgid "Resize"
+msgstr "Ändra storlek"
+
+#: yali/gui/Ui/logicalvolume.py:140 yali/gui/Ui/partedit.py:177
+#: yali/gui/Ui/partitionedit.py:139 yali/gui/Ui/partition.py:151
+msgid "File System :"
+msgstr "Filsystem:"
+
+#: yali/gui/Ui/logicalvolume.py:141 yali/gui/Ui/manualpartwidget.py:137
+#: yali/gui/Ui/partition.py:149 yali/gui/Ui/raid.py:98
+#: yali/gui/ScrPartitionManual.py:129
+#, fuzzy
+msgid "Format"
+msgstr "Formatera:"
+
+#: yali/gui/Ui/logicalvolume.py:142 yali/gui/Ui/partition.py:150
+#: yali/gui/Ui/raid.py:99
+msgid "Migrate"
+msgstr ""
+
+#: yali/gui/Ui/main.py:243
+#, fuzzy
+msgid "Yali"
+msgstr "Yali4"
+
+#: yali/gui/Ui/main.py:244
+msgid "..."
+msgstr ""
+
+#: yali/gui/Ui/main.py:245 yali/gui/YaliWindow.py:395
+msgid "Release Notes"
+msgstr "Versionsfakta"
+
+#: yali/gui/Ui/main.py:246
+msgid "Previous Screen"
+msgstr "Föregående steg"
+
+#: yali/gui/Ui/main.py:247
+#, fuzzy
+msgid "Back"
+msgstr "Bakåt"
+
+#: yali/gui/Ui/main.py:248
+msgid "Next Screen"
+msgstr "Nästa steg"
+
+#: yali/gui/Ui/main.py:249 yali/gui/ScrSummary.py:58
+#: yali/gui/ScrSummary.py:214
+msgid "Next"
+msgstr "Nästa"
+
+#: yali/gui/Ui/main.py:250
+msgid "Screen Name"
+msgstr "Skärmnamn"
+
+#: yali/gui/Ui/main.py:251
+msgid ""
+"Welcome to YALI, the Pardus installer. YALI will guide you through the "
+"installation process. Welcome to YALI, the Pardus installer. YALI will guide "
+"you through the installation process.Welcome to YALI, the Pardus installer. "
+"YALI will guide you through the installation process.Welcome to YALI, the "
+"Pardus installer. YALI will guide you through the installation process."
+"Welcome to YALI, the Pardus installer. YALI will guide you through the "
+"installation process.Welcome to YALI, the Pardus installer. YALI will guide "
+"you through the installation process.Welcome to YALI, the Pardus installer. "
+"YALI will guide you through the installation process."
+msgstr ""
+
+#: yali/gui/Ui/manualpartwidget.py:133
+#, fuzzy
+msgid "Device"
+msgstr "Enhet:"
+
+#: yali/gui/Ui/manualpartwidget.py:134
+msgid "Mount Point"
+msgstr ""
+
+#: yali/gui/Ui/manualpartwidget.py:135
+#, fuzzy
+msgid "Label"
+msgstr "TextLabel"
+
+#: yali/gui/Ui/manualpartwidget.py:136
+msgid "Type"
+msgstr ""
+
+#: yali/gui/Ui/manualpartwidget.py:138 yali/gui/Ui/volumegroup.py:103
+#, fuzzy
+msgid "Size"
+msgstr "Ändra storlek"
+
+#: yali/gui/Ui/manualpartwidget.py:139
+msgid "New"
+msgstr ""
+
+#: yali/gui/Ui/manualpartwidget.py:140 yali/gui/Ui/setupuserswidget.py:525
+#: yali/gui/Ui/volumegroup.py:105
+msgid "Edit"
+msgstr ""
+
+#: yali/gui/Ui/manualpartwidget.py:141 yali/gui/Ui/setupuserswidget.py:526
+#: yali/gui/Ui/volumegroup.py:106 yali/gui/lvm_gui.py:553
+msgid "Delete"
+msgstr ""
+
+#: yali/gui/Ui/manualpartwidget.py:142
+msgid "Reset"
+msgstr ""
+
+#: yali/gui/Ui/partedit.py:171 yali/gui/Ui/partitionedit.py:135
+msgid "Partition 1 on FUJISTU - /dev/sda1"
+msgstr "Partition 1 på FUJISTU - /dev/sda1"
+
+#: yali/gui/Ui/partedit.py:175
+#, fuzzy
+msgid "Format :"
+msgstr "Formatera:"
+
+#: yali/gui/Ui/partedit.py:176
+#, fuzzy
+msgid "Yes, format this partition"
+msgstr "Ja, formatera partitionen"
+
+#: yali/gui/Ui/partedit.py:178
+#, fuzzy
+msgid "Delete Partition"
+msgstr "Ta bort alla partitioner"
+
+#: yali/gui/Ui/partedit.py:179
+#, fuzzy
+msgid "Resize Partition"
+msgstr "Ta bort partition"
+
+#: yali/gui/Ui/partedit.py:180
+msgid "Changes will be applied after Summary Screen."
+msgstr "Ändringar verkställs efter sammanställningssteget."
+
+#: yali/gui/Ui/partedit.py:181
+msgid "Refresh Disks"
+msgstr "Uppdatera enheter"
+
+#: yali/gui/Ui/partedit.py:182
+msgid "Reset All Changes"
+msgstr "Återställ ändringar"
+
+#: yali/gui/Ui/partedit.py:183
+msgid "Apply"
+msgstr "Verkställ"
+
+#: yali/gui/Ui/partitionedit.py:134
+#, fuzzy
+msgid "Partition Action"
+msgstr "Partitionering"
+
+#: yali/gui/Ui/partitionedit.py:140
+#, fuzzy
+msgid "Force to be primary partition"
+msgstr "För många primära partitioner!"
+
+#: yali/gui/Ui/partition.py:144
+#, fuzzy
+msgid "Use as:"
+msgstr "Används:"
+
+#: yali/gui/Ui/partition.py:152
+#, fuzzy
+msgid "Force to be a primary partition"
+msgstr "För många primära partitioner!"
+
+#: yali/gui/Ui/partition.py:153
+msgid "Allowable Drives:"
+msgstr ""
+
+#: yali/gui/Ui/partitionshrink.py:63 yali/gui/Ui/partitionshrinkwidget.py:90
+msgid ""
+"Which partition would you like to shrink to make room for your installation?"
+msgstr ""
+
+#: yali/gui/Ui/partitionshrink.py:64
+msgid "Shrink partition to size (in MB)"
+msgstr ""
+
+#: yali/gui/Ui/partitionshrinkwidget.py:91
+msgid "Shrink partition to size (in MB) :"
+msgstr ""
+
+#: yali/gui/Ui/partitionshrinkwidget.py:93 yali/gui/Ui/partresize.py:98
+#: yali/gui/Ui/setupuserswidget.py:527 yali/gui/lvm_gui.py:421
+#: yali/gui/lvm_gui.py:468 yali/gui/lvm_gui.py:553
+#: yali/gui/ScrPartitionManual.py:113 yali/gui/ScrPartitionManual.py:129
+#: yali/gui/ScrPartitionManual.py:139 yali/gui/YaliDialog.py:222
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: yali/gui/Ui/partitionshrinkwidget.py:94
+msgid "Shrink"
+msgstr ""
+
+#: yali/gui/Ui/partresize.py:90
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:"
+"#ffffff;\">Changes will be applied when you click \"</span><span style=\" "
+"text-decoration: underline; color:#ffffff;\">Resize</span><span style=\" "
+"color:#ffffff;\">\". To cancel the changes, click \"</span><span style=\" "
+"text-decoration: underline; color:#ffffff;\">Cancel</span><span style=\" "
+"color:#ffffff;\">\".</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
+"color:#ffffff;\"></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px; color:#ffffff;\"><span style="
+"\" font-weight:600; text-decoration: underline;\">Warning:</span> A resizing "
+"operation may corrupt the partition, rendering the data on it unreachable. "
+"Make sure that you have backed up the data.<span style=\" font-weight:600;"
+"\"> </span><span style=\" font-weight:600;\">Note that this operation cannot "
+"be undone.</span></p></body></html>"
+msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:"
+"#ffffff;\">Dessa ändringar verkställs när du klickar \"</span><span style=\" "
+"text-decoration: underline; color:#ffffff;\">Ändra storlek</span><span style="
+"\" color:#ffffff;\">\". Om du vill återgå, klicka \"</span><span style=\" "
+"text-decoration: underline; color:#ffffff;\">Avbryt</span><span style=\" "
+"color:#ffffff;\">\".</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
+"color:#ffffff;\"></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px; color:#ffffff;\"><span style="
+"\" font-weight:600; text-decoration: underline;\">Varning:</span> En "
+"storleksändring kan förstöra din partition och göra dina filer oåtkomliga. "
+"Var säker på att du har en säkerhetskopia av denna partition.<span style=\" "
+"font-weight:600;\"> </span><span style=\" font-weight:600;\">Observera att "
+"denna åtgärd inte kan ångras.</span></p></body></html>"
+
+#: yali/gui/Ui/raid.py:95
+#, fuzzy
+msgid "Raid Device:"
+msgstr "Enhet:"
+
+#: yali/gui/Ui/raid.py:96
+msgid "Use:"
+msgstr ""
+
+#: yali/gui/Ui/raid.py:97
+#, fuzzy
+msgid "Filesystem:"
+msgstr "Filsystem:"
+
+#: yali/gui/Ui/raid.py:100
+#, fuzzy
+msgid "Raid Level:"
+msgstr "Enhet:"
+
+#: yali/gui/Ui/raid.py:101
+#, fuzzy
+msgid "Raid Members:"
+msgstr "Enhet:"
+
+#: yali/gui/Ui/raid.py:102
+msgid "Number of spares:"
+msgstr ""
+
+#: yali/gui/Ui/rescuegrubwidget.py:82
+#, fuzzy
+msgid "Select where to install the GRUB bootloader"
+msgstr "Välj mål för installation av startladdaren:"
+
+#: yali/gui/Ui/rescuegrubwidget.py:83
+msgid "First bootable disk (recommended)"
+msgstr "Första startbara disken (rekommenderas)"
+
+#: yali/gui/Ui/rescuegrubwidget.py:84
+#, fuzzy
+msgid "Disk partition where Pardus is installed"
+msgstr "Välj den partition Pardus är installerad på"
+
+#: yali/gui/Ui/rescuegrubwidget.py:85
+msgid "Selected disk below"
+msgstr "Vald enhet nedan"
+
+#: yali/gui/Ui/rescuepasswordwidget.py:110
+msgid "Choose the user you want to reset the password:"
+msgstr ""
+
+#: yali/gui/Ui/rescuepasswordwidget.py:111
+msgid "New password:"
+msgstr "Nytt lösenord:"
+
+#: yali/gui/Ui/rescuepasswordwidget.py:112
+#, fuzzy
+msgid "New password (Again):"
+msgstr "Nytt lösenord (upprepa):"
+
+#: yali/gui/Ui/rescuepasswordwidget.py:113
+#, fuzzy
+msgid "Reset Password"
+msgstr "Lösenord:"
+
+#: yali/gui/Ui/rescuepasswordwidget.py:114
+msgid ""
+"border:1px solid white;\n"
+"border-radius:6px;\n"
+"background-color:white;\n"
+"color:#5A2847;"
+msgstr ""
+
+#: yali/gui/Ui/rescuepisiwidget.py:73
+#, fuzzy
+msgid "<b>Connection status:</b>"
+msgstr "Välj anslutningstillstånd"
+
+#: yali/gui/Ui/rescuepisiwidget.py:74
+msgid "Offline"
+msgstr ""
+
+#: yali/gui/Ui/rescuepisiwidget.py:75
+msgid ""
+"To use PiSi's history feature, you may need to be online. Select connection "
+"profile."
+msgstr ""
+"För att använda PiSis historik kan du behöva vara uppkopplad. Välj en "
+"anslutningsprofil."
+
+#: yali/gui/Ui/rescuepisiwidget.py:76
+msgid "Select Connection"
+msgstr "Välj anslutning"
+
+#: yali/gui/Ui/rescuepisiwidget.py:77
+#, fuzzy
+msgid "Select the operation to undo:"
+msgstr "Åtgärd att ångra:"
+
+#: yali/gui/Ui/rescuewidget.py:93
+msgid "Choose what do you want to do to repair your system:"
+msgstr ""
+
+#: yali/gui/Ui/rescuewidget.py:94
+#, fuzzy
+msgid "Reinstall GRUB bootloader"
+msgstr "Ominstallera GRUB (startproblem)"
+
+#: yali/gui/Ui/rescuewidget.py:95
+msgid "Return back to a previous system state"
+msgstr ""
+
+#: yali/gui/Ui/rescuewidget.py:96
+#, fuzzy
+msgid "Reset forgotten password"
+msgstr "Sparar lösenord för root..."
+
+#: yali/gui/Ui/rescuewidget.py:97 yali/gui/ScrGoodbye.py:53
+#: yali/gui/ScrRescueFinish.py:78 yali/gui/ScrSummary.py:46
+msgid "Restart"
+msgstr ""
+
+#: yali/gui/Ui/rootpasswidget.py:129
+#, fuzzy
+msgid "Administrator password"
+msgstr "Systemadministratörens lösenord:"
+
+#: yali/gui/Ui/rootpasswidget.py:130
+#, fuzzy
+msgid "Confirm password"
+msgstr "Nytt lösenord:"
+
+#: yali/gui/Ui/rootpasswidget.py:131
+#, fuzzy
+msgid "Computer Name"
+msgstr "Användarnamn:"
+
+#: yali/gui/Ui/setupuserswidget.py:515
+#, fuzzy
+msgid "User Name"
+msgstr "Användarnamn:"
+
+#: yali/gui/Ui/setupuserswidget.py:516
+#, fuzzy
+msgid "Real Name"
+msgstr "Verkligt namn:"
+
+#: yali/gui/Ui/setupuserswidget.py:517
+#, fuzzy
+msgid "Password"
+msgstr "Lösenord:"
+
+#: yali/gui/Ui/setupuserswidget.py:518
+#, fuzzy
+msgid "Confirm Password"
+msgstr "Lösenord:"
+
+#: yali/gui/Ui/setupuserswidget.py:519
+#, fuzzy
+msgid "Custom User ID"
+msgstr "ID:"
+
+#: yali/gui/Ui/setupuserswidget.py:520
+msgid "Not recommended"
+msgstr "Rekommenderas ej"
+
+#: yali/gui/Ui/setupuserswidget.py:521
+msgid "Bypass authorization attempts for this user"
+msgstr ""
+
+#: yali/gui/Ui/setupuserswidget.py:522
+msgid "Add user to administrator (wheel) group"
+msgstr ""
+
+#: yali/gui/Ui/setupuserswidget.py:523
+#, fuzzy
+msgid "Select auto login user"
+msgstr "Automatisk inloggning av användare:"
+
+#: yali/gui/Ui/setupuserswidget.py:524 yali/gui/Ui/volumegroup.py:104
+#: yali/gui/ScrUsers.py:293 yali/gui/ScrUsers.py:335 yali/gui/ScrUsers.py:413
+msgid "Add"
+msgstr ""
+
+#: yali/gui/Ui/setupuserswidget.py:528
+msgid "Advanced"
+msgstr "Avancerat"
+
+#: yali/gui/Ui/summarywidget.py:114
+msgid ""
+"When checked, YALI will install all of the officially supported language "
+"packages on your system."
+msgstr ""
+
+#: yali/gui/Ui/summarywidget.py:115
+msgid "Install all language packages"
+msgstr "Installera alla språkpaket"
+
+#: yali/gui/Ui/volumegroup.py:96
+msgid "Volume Group Name:"
+msgstr ""
+
+#: yali/gui/Ui/volumegroup.py:97
+msgid "Physical Extends"
+msgstr ""
+
+#: yali/gui/Ui/volumegroup.py:98
+msgid "Physical Volumes to use:"
+msgstr ""
+
+#: yali/gui/Ui/volumegroup.py:99
+#, fuzzy
+msgid "Total Space:"
+msgstr "Ledigt utrymme"
+
+#: yali/gui/Ui/volumegroup.py:100
+#, fuzzy
+msgid "Free Space:"
+msgstr "Ledigt utrymme"
+
+#: yali/gui/Ui/volumegroup.py:101
+msgid "Logical Volumes"
+msgstr ""
+
+#: yali/gui/Ui/volumegroup.py:102
+msgid "Mountpoint"
+msgstr ""
+
+#: yali/gui/Ui/volumegroup.py:107
+#, fuzzy
+msgid "Used Space:"
+msgstr "Ledigt utrymme"
+
+#: yali/gui/Ui/welcome.py:85
+msgid ""
+"There are a few more steps to take before your system is ready to use.The "
+"agent will now guide you through some basic configuration.Please click the "
+"\"Next\"  button in the lower corner right to continue."
+msgstr ""
+
 #: yali/gui/interface.py:41 yali/gui/interface.py:123
-#: yali/gui/ScrCheckCD.py:92 yali/gui/ScrInstall.py:139
+#: yali/gui/ScrCheckCD.py:92 yali/gui/ScrInstall.py:180
 #: yali/gui/ScrPartitionAuto.py:44 yali/gui/ScrPartitionManual.py:137
-#: yali/gui/YaliWindow.py:175 yali/gui/YaliWindow.py:180
-#: yali/gui/YaliWindow.py:185
+#: yali/gui/YaliWindow.py:211 yali/gui/YaliWindow.py:216
+#: yali/gui/YaliWindow.py:221
 msgid "Warning"
 msgstr "Varning"
 
@@ -150,12 +970,6 @@ msgid ""
 "immediately."
 msgstr ""
 
-#: yali/gui/lvm_gui.py:421 yali/gui/lvm_gui.py:468 yali/gui/lvm_gui.py:553
-#: yali/gui/ScrPartitionManual.py:113 yali/gui/ScrPartitionManual.py:129
-#: yali/gui/ScrPartitionManual.py:139 yali/gui/YaliDialog.py:222
-msgid "Cancel"
-msgstr "Avbryt"
-
 #: yali/gui/lvm_gui.py:421 yali/gui/lvm_gui.py:468
 #: yali/gui/ScrPartitionManual.py:358
 msgid "Continue"
@@ -228,10 +1042,6 @@ msgstr ""
 msgid ""
 "Are you sure you want to delete the \n"
 "logical volume \"%s\"?"
-msgstr ""
-
-#: yali/gui/lvm_gui.py:553
-msgid "Delete"
 msgstr ""
 
 #: yali/gui/lvm_gui.py:583
@@ -394,10 +1204,6 @@ msgstr "Värddatornamnet innehåller ogiltiga tecken!"
 msgid "Hostname contains invalid characters."
 msgstr "Värddatornamnet innehåller ogiltiga tecken!"
 
-#: yali/gui/ScrCheckCD.py:60
-msgid "Validate"
-msgstr ""
-
 #: yali/gui/ScrCheckCD.py:66
 #, fuzzy
 msgid "Starting validation..."
@@ -422,10 +1228,6 @@ msgstr ""
 #: yali/gui/ScrCheckCD.py:97
 msgid "Skip Package"
 msgstr ""
-
-#: yali/gui/ScrCheckCD.py:97
-msgid "Reboot"
-msgstr "Starta om"
 
 #: yali/gui/ScrCheckCD.py:112
 #, fuzzy
@@ -454,11 +1256,6 @@ msgstr "Kör efterbehandlingsåtgärder..."
 #, fuzzy
 msgid "Press <b>Restart</b> to restart the computer."
 msgstr "Klicka på knappen <b>Starta om</b> för att starta om datorn."
-
-#: yali/gui/ScrGoodbye.py:53 yali/gui/ScrRescueFinish.py:78
-#: yali/gui/ScrSummary.py:46
-msgid "Restart"
-msgstr ""
 
 #: yali/gui/ScrGoodbye.py:55 yali/gui/ScrRescueFinish.py:80
 msgid "<b>Please wait while restarting...</b>"
@@ -530,29 +1327,29 @@ msgstr "Du kan laga din uppstartshanterare..."
 msgid "Adding users..."
 msgstr "Lägger till användare..."
 
-#: yali/gui/ScrInstall.py:110
+#: yali/gui/ScrInstall.py:151
 #, fuzzy, python-format
 msgid "Installing <b>%(name)s</b><br>%(summary)s"
 msgstr "Installerar: <b>%s</b><br>%s"
 
-#: yali/gui/ScrInstall.py:116
+#: yali/gui/ScrInstall.py:157
 #, fuzzy, python-format
 msgid "Configuring <b>%s</b>"
 msgstr "Konfigurerar paket: <b>%s</b>"
 
-#: yali/gui/ScrInstall.py:140
+#: yali/gui/ScrInstall.py:181
 #, python-format
 msgid ""
 "Following error occured while installing packages:\n"
 "<b>%s</b>"
 msgstr ""
 
-#: yali/gui/ScrInstall.py:141
+#: yali/gui/ScrInstall.py:182
 #, fuzzy
 msgid "Do you want to retry?"
 msgstr "Vill du försöka igen?"
 
-#: yali/gui/ScrInstall.py:198
+#: yali/gui/ScrInstall.py:239
 #, fuzzy, python-format
 msgid ""
 "An error occured during the installation of packages.\n"
@@ -627,11 +1424,6 @@ msgstr ""
 msgid "Format Warnings"
 msgstr "Formaterar..."
 
-#: yali/gui/ScrPartitionManual.py:129
-#, fuzzy
-msgid "Format"
-msgstr "Formatera:"
-
 #: yali/gui/ScrPartitionManual.py:137
 #, fuzzy
 msgid "All Changes that you made will be removed"
@@ -658,46 +1450,12 @@ msgstr "Partition %d"
 msgid "General purpose of partition creation"
 msgstr ""
 
-#: yali/gui/ScrPartitionManual.py:154
-msgid "Physical Volume"
-msgstr ""
-
-#: yali/gui/ScrPartitionManual.py:155
-#, fuzzy
-msgid "Create LVM formatted partition"
-msgstr "Ja, formatera partitionen"
-
-#: yali/gui/ScrPartitionManual.py:157
-msgid "Volume Group"
-msgstr ""
-
-#: yali/gui/ScrPartitionManual.py:158
-msgid "Requires at least 1 free LVM formatted partition"
-msgstr ""
-
-#: yali/gui/ScrPartitionManual.py:160
-msgid "Logical Volume"
-msgstr ""
-
-#: yali/gui/ScrPartitionManual.py:161
-msgid "Create Logical Volume on selected Volume Group"
-msgstr ""
-
 #: yali/gui/ScrPartitionManual.py:163
 msgid "Member"
 msgstr ""
 
-#: yali/gui/ScrPartitionManual.py:164
-#, fuzzy
-msgid "Create Raid formatted partition"
-msgstr "Ja, formatera partitionen"
-
 #: yali/gui/ScrPartitionManual.py:166
 msgid "Array"
-msgstr ""
-
-#: yali/gui/ScrPartitionManual.py:167
-msgid "Requires at least 2 free Raid formatted partition"
 msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:228
@@ -877,10 +1635,6 @@ msgstr "Välj en partition ur listan"
 #: yali/gui/ScrSummary.py:47
 msgid "<b><p>Are you sure you want to restart the computer?</p></b>"
 msgstr ""
-
-#: yali/gui/ScrSummary.py:58 yali/gui/ScrSummary.py:214
-msgid "Next"
-msgstr "Nästa"
 
 #: yali/gui/ScrSummary.py:66
 #, fuzzy, python-format
@@ -1083,10 +1837,6 @@ msgstr "Användarnamnet innehåller ogiltiga tecken!"
 msgid "User ID used before, choose another one!"
 msgstr "Användarid upptaget, välj ett annat!"
 
-#: yali/gui/ScrUsers.py:293 yali/gui/ScrUsers.py:335 yali/gui/ScrUsers.py:413
-msgid "Add"
-msgstr ""
-
 #: yali/gui/shrink_gui.py:23
 #, fuzzy
 msgid "Partitions to Shrink"
@@ -1199,78 +1949,74 @@ msgstr "Information"
 msgid "Error reporting"
 msgstr ""
 
-#: yali/gui/YaliWindow.py:58
+#: yali/gui/YaliWindow.py:92
 msgid "Pixmaps resources file doesn't exists"
 msgstr ""
 
-#: yali/gui/YaliWindow.py:89
+#: yali/gui/YaliWindow.py:125
 msgid "Style file doesn't exists"
 msgstr ""
 
-#: yali/gui/YaliWindow.py:96
+#: yali/gui/YaliWindow.py:132
 #, fuzzy
 msgid "Release file doesn't exists"
 msgstr "Versionsfakta"
 
-#: yali/gui/YaliWindow.py:104
+#: yali/gui/YaliWindow.py:140
 msgid "Turn Off Computer"
 msgstr ""
 
-#: yali/gui/YaliWindow.py:105
+#: yali/gui/YaliWindow.py:141
 msgid "Restart Computer"
 msgstr ""
 
-#: yali/gui/YaliWindow.py:106
+#: yali/gui/YaliWindow.py:142
 msgid "Restart YALI"
 msgstr ""
 
-#: yali/gui/YaliWindow.py:124 yali/gui/YaliWindow.py:141 yali/sysutils.py:53
+#: yali/gui/YaliWindow.py:160 yali/gui/YaliWindow.py:177 yali/sysutils.py:53
 msgid "right"
 msgstr "höger"
 
-#: yali/gui/YaliWindow.py:140 yali/gui/YaliWindow.py:143 yali/sysutils.py:52
+#: yali/gui/YaliWindow.py:176 yali/gui/YaliWindow.py:179 yali/sysutils.py:52
 msgid "left"
 msgstr "vänster"
 
-#: yali/gui/YaliWindow.py:144
+#: yali/gui/YaliWindow.py:180
 msgid "Mouse Settings"
 msgstr "Musinställningar"
 
-#: yali/gui/YaliWindow.py:145
+#: yali/gui/YaliWindow.py:181
 #, fuzzy, python-format
 msgid "You just clicked the <b>%s</b> mouse button."
 msgstr "Du använde just <b>%s</b> knapp."
 
-#: yali/gui/YaliWindow.py:146
+#: yali/gui/YaliWindow.py:182
 #, fuzzy, python-format
 msgid "Do you want to switch to the <b>%s</b> handed configuration?"
 msgstr "Vill du använda <b>%s</b>hänta musinställningar?"
 
-#: yali/gui/YaliWindow.py:176
+#: yali/gui/YaliWindow.py:212
 msgid "Are you sure you want to shut down your computer now?"
 msgstr ""
 
-#: yali/gui/YaliWindow.py:181
+#: yali/gui/YaliWindow.py:217
 msgid "Are you sure you want to restart your computer now?"
 msgstr ""
 
-#: yali/gui/YaliWindow.py:186
+#: yali/gui/YaliWindow.py:222
 msgid "Are you sure you want to restart the YALI installer now?"
 msgstr ""
 
-#: yali/gui/YaliWindow.py:202
+#: yali/gui/YaliWindow.py:241
 msgid "Terminal"
 msgstr "Terminal"
 
-#: yali/gui/YaliWindow.py:207
+#: yali/gui/YaliWindow.py:246
 msgid "Tetris"
 msgstr "Tetris"
 
-#: yali/gui/YaliWindow.py:351
-msgid "Release Notes"
-msgstr "Versionsfakta"
-
-#: yali/gui/YaliWindow.py:374
+#: yali/gui/YaliWindow.py:418
 msgid "Release notes could not be loaded."
 msgstr ""
 
@@ -1467,73 +2213,11 @@ msgstr ""
 msgid "Invalid xml file"
 msgstr ""
 
-#~ msgid "Set connection state."
-#~ msgstr "Välj anslutningstillstånd"
-
-#~ msgid "Form"
-#~ msgstr "Form"
-
-#~ msgid "Choose Installation Method"
-#~ msgstr "Välj installationsmetod"
-
 #~ msgid "No, I'll select installation metod manually"
 #~ msgstr "Nej, jag väljer själv installationsmetod"
 
-#~ msgid "Defaul Kernel"
-#~ msgstr "Förvald kärna"
-
-#~ msgid "PAE Kernel"
-#~ msgstr "PAE-kärna"
-
 #~ msgid "Real Time Kernel"
 #~ msgstr "Realtidskärna"
-
-#~ msgid ""
-#~ "There appears to be more than one resizeable partition. You can select a "
-#~ "partition from the list below or YALI will select one for you."
-#~ msgstr ""
-#~ "Det verkar som om det finns fler än en partition för storleksändring. "
-#~ "Välj någon partition ur listan eller låt YALI välja åt dig."
-
-#~ msgid "X"
-#~ msgstr "X"
-
-#~ msgid "Automatically choose the partition to resize (recommended)"
-#~ msgstr "Välj automatiskt partition för storleksändring (rekommenderas)"
-
-#~ msgid "I will choose the target"
-#~ msgstr "Jag väljer mål"
-
-#~ msgid "Use Selected"
-#~ msgstr "Använd vald"
-
-#~ msgid "Form1"
-#~ msgstr "Form1"
-
-#~ msgid ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:10pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><span "
-#~ "style=\" font-size:12pt; font-weight:600;\">Partitioning method</span></"
-#~ "p></body></html>"
-#~ msgstr ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:10pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><span "
-#~ "style=\" font-size:12pt; font-weight:600;\">Partitioneringsmetod</span></"
-#~ "p></body></html>"
 
 #~ msgid ""
 #~ "Please choose a partitioning method and then a device to partition."
@@ -1619,45 +2303,14 @@ msgstr ""
 #~ "till huvudpartitionen måste du konfigurera en befintlig starthanterare\n"
 #~ "för att kunna starta ditt nyinstallerade Pardussystem.</p>"
 
-#~ msgid "Select target to install boot loader"
-#~ msgstr "Välj mål för installation av startladdaren:"
-
-#~ msgid "First bootable disk (recommended)"
-#~ msgstr "Första startbara disken (rekommenderas)"
-
 #~ msgid "Pardus installed partition"
 #~ msgstr "Partition med Pardusinstallation"
-
-#~ msgid "Selected disk below"
-#~ msgstr "Vald enhet nedan"
-
-#~ msgid "Don't install bootloader"
-#~ msgstr "Installera inte starthanterare"
 
 #~ msgid "Automatically add other operating systems to the GRUB Menu"
 #~ msgstr "Lägg automatiskt till andra operativsystem till GRUB-menyn."
 
-#~ msgid ""
-#~ "You can check the integrity of the packages in installation CD. Although "
-#~ "this is an optional step, we encourage you to do it in order to avoid any "
-#~ "possible errors in the installation process."
-#~ msgstr ""
-#~ "Du kan kontrollera paketens integritet på cd-skivan. Även om det här är "
-#~ "ett frivilligt steg uppmuntras du att göra det för att undvika problem "
-#~ "under installationen."
-
 #~ msgid "Check CD Integrity"
 #~ msgstr "Kontrollera cd-skivans integritet"
-
-#~ msgid ""
-#~ "To use PiSi History support, you may need to be online. You can use a "
-#~ "connection profile from the list below."
-#~ msgstr ""
-#~ "För att använda PiSis Historikhanterare behöver du vara uppkopplad. Du "
-#~ "kan använda en anslutningsprofil ur listan nedan."
-
-#~ msgid "Connect"
-#~ msgstr "Anslut"
 
 #~ msgid "The current time"
 #~ msgstr "Aktuell tid"
@@ -1665,60 +2318,14 @@ msgstr ""
 #~ msgid ":"
 #~ msgstr ":"
 
-#~ msgid "Time Zone"
-#~ msgstr "Tidszon"
-
-#~ msgid ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:8pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">Please fill a bug "
-#~ "report at <span style=\" font-weight:600;\">http://bugs.pardus.org.tr/</"
-#~ "span> attaching the following backtrace.</p></body></html>"
-#~ msgstr ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:8pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">Vänligen fyll i en "
-#~ "felrapport på <span style=\" font-weight:600;\">http://bugs.pardus.org.tr/"
-#~ "</span> och bifoga följande bakåtspårning.</p></body></html>"
-
-#~ msgid "Show Backtrace"
-#~ msgstr "Visa bakåtspårning"
-
-#~ msgid "Form3"
-#~ msgstr "Form3"
-
 #~ msgid "pix"
 #~ msgstr "pix"
 
 #~ msgid "Desc"
 #~ msgstr "Desc"
 
-#~ msgid "Installing Package: "
-#~ msgstr "Installerar paket: "
-
 #~ msgid "Choose a keyboard layout:"
 #~ msgstr "Välj tangentbordslayout:"
-
-#~ msgid "Test selected layout:"
-#~ msgstr "Testa vald tangentbordslayout:"
-
-#~ msgid "Yali4"
-#~ msgstr "Yali4"
-
-#~ msgid "Screen Name"
-#~ msgstr "Skärmnamn"
 
 #~ msgid "Details about the screen"
 #~ msgstr "Detaljer om steget"
@@ -1726,95 +2333,8 @@ msgstr ""
 #~ msgid "Toggle Help"
 #~ msgstr "Växla hjälp"
 
-#~ msgid "Previous Screen"
-#~ msgstr "Föregående steg"
-
-#~ msgid "Next Screen"
-#~ msgstr "Nästa steg"
-
-#~ msgid "Partition 1 on FUJISTU - /dev/sda1"
-#~ msgstr "Partition 1 på FUJISTU - /dev/sda1"
-
-#~ msgid "Use :"
-#~ msgstr "Används:"
-
-#~ msgid " MB"
-#~ msgstr " MB"
-
-#~ msgid "File System :"
-#~ msgstr "Filsystem:"
-
-#~ msgid "Changes will be applied after Summary Screen."
-#~ msgstr "Ändringar verkställs efter sammanställningssteget."
-
-#~ msgid "Refresh Disks"
-#~ msgstr "Uppdatera enheter"
-
-#~ msgid "Reset All Changes"
-#~ msgstr "Återställ ändringar"
-
-#~ msgid "Apply"
-#~ msgstr "Verkställ"
-
-#~ msgid ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:"
-#~ "#ffffff;\">Changes will be applied when you click \"</span><span style=\" "
-#~ "text-decoration: underline; color:#ffffff;\">Resize</span><span style=\" "
-#~ "color:#ffffff;\">\". To cancel the changes, click \"</span><span style=\" "
-#~ "text-decoration: underline; color:#ffffff;\">Cancel</span><span style=\" "
-#~ "color:#ffffff;\">\".</span></p>\n"
-#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
-#~ "color:#ffffff;\"></p>\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px; color:#ffffff;\"><span "
-#~ "style=\" font-weight:600; text-decoration: underline;\">Warning:</span> A "
-#~ "resizing operation may corrupt the partition, rendering the data on it "
-#~ "unreachable. Make sure that you have backed up the data.<span style=\" "
-#~ "font-weight:600;\"> </span><span style=\" font-weight:600;\">Note that "
-#~ "this operation cannot be undone.</span></p></body></html>"
-#~ msgstr ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:"
-#~ "#ffffff;\">Dessa ändringar verkställs när du klickar \"</span><span style="
-#~ "\" text-decoration: underline; color:#ffffff;\">Ändra storlek</span><span "
-#~ "style=\" color:#ffffff;\">\". Om du vill återgå, klicka \"</span><span "
-#~ "style=\" text-decoration: underline; color:#ffffff;\">Avbryt</span><span "
-#~ "style=\" color:#ffffff;\">\".</span></p>\n"
-#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
-#~ "color:#ffffff;\"></p>\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px; color:#ffffff;\"><span "
-#~ "style=\" font-weight:600; text-decoration: underline;\">Varning:</span> "
-#~ "En storleksändring kan förstöra din partition och göra dina filer "
-#~ "oåtkomliga. Var säker på att du har en säkerhetskopia av denna partition."
-#~ "<span style=\" font-weight:600;\"> </span><span style=\" font-weight:600;"
-#~ "\">Observera att denna åtgärd inte kan ångras.</span></p></body></html>"
-
 #~ msgid "User to change password of:"
 #~ msgstr "Ändra lösenordet för:"
-
-#~ msgid "New password:"
-#~ msgstr "Nytt lösenord:"
-
-#~ msgid "New password (again):"
-#~ msgstr "Nytt lösenord (upprepa):"
 
 #~ msgid "Update Password"
 #~ msgstr "Uppdatera lösenord"
@@ -1822,27 +2342,8 @@ msgstr ""
 #~ msgid "Not Connected"
 #~ msgstr "Inte ansluten"
 
-#~ msgid ""
-#~ "To use PiSi's history feature, you may need to be online. Select "
-#~ "connection profile."
-#~ msgstr ""
-#~ "För att använda PiSis historik kan du behöva vara uppkopplad. Välj en "
-#~ "anslutningsprofil."
-
-#~ msgid "Select Connection"
-#~ msgstr "Välj anslutning"
-
-#~ msgid "Operation to undo:"
-#~ msgstr "Åtgärd att ångra:"
-
-#~ msgid "Select the partition Pardus is installed on"
-#~ msgstr "Välj den partition Pardus är installerad på"
-
 #~ msgid "Select operation and click <b>Next</b>..."
 #~ msgstr "Välj åtgärd och klicka <b>Nästa</b>..."
-
-#~ msgid "Reinstall GRUB (boot problems)"
-#~ msgstr "Ominstallera GRUB (startproblem)"
 
 #~ msgid "PiSi history (undo package operations)"
 #~ msgstr "Pisi-historik (ångra paketåtgärder)"
@@ -1861,50 +2362,26 @@ msgstr ""
 #~ "användaren och glöm inte bort det här lösenordet. Kom ihåg att du av "
 #~ "säkerhetsskäl inte ska skriva ner det här lösenordet.</p>"
 
-#~ msgid "System administrator password:"
-#~ msgstr "Systemadministratörens lösenord:"
-
 #~ msgid "System administrator password (again):"
 #~ msgstr "Systemadministratörens lösenord (upprepa):"
 
 #~ msgid "Hostname:"
 #~ msgstr "Värdnamn:"
 
-#~ msgid "Real Name:"
-#~ msgstr "Verkligt namn:"
-
-#~ msgid "User Name:"
-#~ msgstr "Användarnamn:"
-
-#~ msgid "Password:"
-#~ msgstr "Lösenord:"
-
 #~ msgid "Password (again):"
 #~ msgstr "Lösenord (upprepa):"
-
-#~ msgid "User ID"
-#~ msgstr "ID:"
 
 #~ msgid "Give administrator privileges to this user"
 #~ msgstr "Ge administratörsrättigheter till den här användaren"
 
-#~ msgid "Not recommended"
-#~ msgstr "Rekommenderas ej"
-
 #~ msgid "Do not ask any password to this user"
 #~ msgstr "Fråga inte efter lösenord för den här användaren."
-
-#~ msgid "Advanced"
-#~ msgstr "Avancerat"
 
 #~ msgid "Edit Selected User"
 #~ msgstr "Redigera vald användare"
 
 #~ msgid "Delete Selected User"
 #~ msgstr "Ta bort vald användare"
-
-#~ msgid "Auto Login User :"
-#~ msgstr "Automatisk inloggning av användare:"
 
 #~ msgid "Auto Login Disabled"
 #~ msgstr "Inaktivera automatisk inloggning"
@@ -1923,9 +2400,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Om du markerar detta kommer Yali att installera alla språk i den här "
 #~ "utgåvan"
-
-#~ msgid "Install all language packages"
-#~ msgstr "Installera alla språkpaket"
 
 #~ msgid ""
 #~ "All software developed by TUBITAK/UEKAE is licensed under GNU/GPL. Other "
@@ -2251,9 +2725,6 @@ msgstr ""
 #~ "Partition <b>%(partition)s</b> <b>skapad</b> på enhet <b>%(device)s</b> "
 #~ "med <b>%(size)s MB</b> som <b>%(fs)s</b>."
 
-#~ msgid "Delete All Partitions"
-#~ msgstr "Ta bort alla partitioner"
-
 #~ msgid "Pardus will install here"
 #~ msgstr "Pardus installeras här"
 
@@ -2306,9 +2777,6 @@ msgstr ""
 
 #~ msgid "Error occured !"
 #~ msgstr "Ett fel uppstod!"
-
-#~ msgid "Unhandled exception occured!"
-#~ msgstr "Ohanterat undantag uppstod!"
 
 #~ msgid "Set Administrator"
 #~ msgstr "Ange administratörslösenordet"
@@ -3275,9 +3743,6 @@ msgstr ""
 #~ msgid "ss"
 #~ msgstr "ss"
 
-#~ msgid "TextLabel"
-#~ msgstr "TextLabel"
-
 #~ msgid "Add More Users"
 #~ msgstr "Lägg till fler användare"
 
@@ -3333,9 +3798,6 @@ msgstr ""
 
 #~ msgid "Accept!"
 #~ msgstr "Accepterar!"
-
-#~ msgid "Too many primary partition !"
-#~ msgstr "För många primära partitioner!"
 
 #~ msgid ""
 #~ "<b>\n"
@@ -3401,9 +3863,6 @@ msgstr ""
 #~ "Här kan du se dina val och granska dem före installationen börjar.\n"
 #~ "</p>\n"
 #~ "</font>\n"
-
-#~ msgid "Device :"
-#~ msgstr "Enhet:"
 
 #~ msgid "/dev/sda1"
 #~ msgstr "/dev/sda1"
