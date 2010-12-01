@@ -217,8 +217,6 @@ class PartitionWidget(QtGui.QWidget, Ui_PartitionWidget):
             storageGuiHelpers.fillFilesystemMenu(self.filesystemMenu, self.origrequest.format,
                                                  availables=restricts)
             QObject.connect(self.filesystemMenu, SIGNAL("currentIndexChanged(int)"), self.formatTypeChanged)
-            default_format = self.filesystemMenu.findText("ext4")
-            self.filesystemMenu.setCurrentIndex(default_format)
             self.resizeRadio.hide()
             self.resizeSlider.hide()
             self.resizeSpin.hide()
