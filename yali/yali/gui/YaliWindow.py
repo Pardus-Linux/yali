@@ -172,7 +172,7 @@ class Widget(QWidget):
         self.connect(self.tetris_shortcut, SIGNAL("activated()"), self.toggleTetris)
         self.connect(self.ui.buttonNext, SIGNAL("clicked()"), self.slotNext)
         self.connect(self.ui.buttonBack, SIGNAL("clicked()"), self.slotBack)
-        self.connect(self.ui.toggleHelp, SIGNAL("clicked()"), self.slotToggleHelp)
+        self.connect(self.ui.toggleHelp, SIGNAL("clicked()"), self.pds_helper.toggleHelp)
         self.connect(self.ui.releaseNotes, SIGNAL("clicked()"), self.showReleaseNotes)
         self.connect(self.menu, SIGNAL("triggered(QAction*)"), self.slotMenu)
 
@@ -244,8 +244,8 @@ class Widget(QWidget):
 
     def toggleTheme(self):
         if self._style == os.path.join(ctx.consts.theme_dir, "%s/style.qss" % ctx.flags.theme):
-            if os.path.join(ctx.consts.theme_dir, "default/style.qss"):
-                self._style = os.path.join(ctx.consts.theme_dir, "default/style.qss")
+            if os.path.join(ctx.consts.theme_dir, "%s/style.glass.qss" % ctx.flags.theme):
+                self._style = os.path.join(ctx.consts.theme_dir, "%s/style.glass.qss" % ctx.flags.theme)
         else:
             self._style = os.path.join(ctx.consts.theme_dir, "%s/style.qss" % ctx.flags.theme)
         self.updateStyle()
