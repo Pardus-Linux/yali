@@ -497,7 +497,7 @@ msgstr "Système de fichiers :"
 
 #: yali/gui/Ui/raid.py:100
 msgid "Raid Level:"
-msgstr "Niveau Raid :"
+msgstr "Niveau de Raid :"
 
 #: yali/gui/Ui/raid.py:101
 #, fuzzy
