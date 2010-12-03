@@ -155,7 +155,7 @@ msgstr ""
 
 #: yali/gui/Ui/createdevicewidget.py:140 yali/gui/ScrPartitionManual.py:157
 msgid "Volume Group"
-msgstr ""
+msgstr "Gruppo del Volume"
 
 #: yali/gui/Ui/createdevicewidget.py:141 yali/gui/ScrPartitionManual.py:158
 msgid "Requires at least 1 free LVM formatted partition"
@@ -163,7 +163,7 @@ msgstr ""
 
 #: yali/gui/Ui/createdevicewidget.py:142 yali/gui/ScrPartitionManual.py:160
 msgid "Logical Volume"
-msgstr ""
+msgstr "Volume logico"
 
 #: yali/gui/Ui/createdevicewidget.py:143 yali/gui/ScrPartitionManual.py:161
 msgid "Create Logical Volume on selected Volume Group"
@@ -174,18 +174,16 @@ msgid "Physical Volume"
 msgstr "Volume Fisico"
 
 #: yali/gui/Ui/createdevicewidget.py:145 yali/gui/ScrPartitionManual.py:155
-#, fuzzy
 msgid "Create LVM formatted partition"
-msgstr "Si, formatta questa partizione"
+msgstr "Crea partizione formattato LVM"
 
 #: yali/gui/Ui/createdevicewidget.py:146
 msgid "Raid Member"
-msgstr ""
+msgstr "Membro Raid"
 
 #: yali/gui/Ui/createdevicewidget.py:147 yali/gui/ScrPartitionManual.py:164
-#, fuzzy
 msgid "Create Raid formatted partition"
-msgstr "Si, formatta questa partizione"
+msgstr "Crea partizione formattato Raid"
 
 #: yali/gui/Ui/createdevicewidget.py:148
 msgid "Raid Array"
@@ -197,7 +195,7 @@ msgstr ""
 
 #: yali/gui/Ui/datetimewidget.py:171
 msgid "Date"
-msgstr ""
+msgstr "Data"
 
 #: yali/gui/Ui/datetimewidget.py:172
 #, fuzzy
