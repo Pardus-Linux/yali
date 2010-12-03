@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: YALI-tr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-12-01 20:26+0200\n"
-"PO-Revision-Date: 2010-11-24 08:33+0200\n"
+"PO-Revision-Date: 2010-12-03 09:39+0200\n"
 "Last-Translator: Server Acim <serveracim@gmail.com>\n"
 "Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
 "Language: tr\n"
@@ -34,34 +34,28 @@ msgstr ""
 #: yali/gui/Ui/partition.py:143 yali/gui/Ui/partitionshrink.py:62
 #: yali/gui/Ui/raid.py:94 yali/gui/Ui/summarywidget.py:113
 #: yali/gui/Ui/volumegroup.py:95
-#, fuzzy
 msgid "Form"
-msgstr "Biçimlendir"
+msgstr "Form"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
-#, fuzzy
 msgid "Choose Installation Method"
-msgstr "Otomatik kurulum seçildi."
+msgstr "Kurulum Yöntemini Seçin"
 
 #: yali/gui/Ui/autoinstallationwidget.py:76
-#, fuzzy
 msgid "Automatic Installation"
-msgstr "Kurulumu Başlat"
+msgstr "Otomatik Kurulum"
 
 #: yali/gui/Ui/autoinstallationwidget.py:77
-#, fuzzy
 msgid "Manual Installation"
-msgstr "Kurulumu Başlat"
+msgstr "Elle Kurulum"
 
 #: yali/gui/Ui/autoinstallationwidget.py:78
-#, fuzzy
 msgid "Default Kernel"
-msgstr "Öntanımlı Çekirdek seçildi"
+msgstr "Öntanımlı Çekirdek"
 
 #: yali/gui/Ui/autoinstallationwidget.py:79
-#, fuzzy
 msgid "PAE Kernel"
-msgstr "PAE Çekirdek seçildi"
+msgstr "PAE Çekirdek"
 
 #: yali/gui/Ui/autopartquestion.py:83
 msgid ""
@@ -72,7 +66,7 @@ msgstr ""
 #: yali/gui/Ui/autopartquestion.py:84 yali/gui/Ui/connectionlist.py:76
 #: yali/gui/Ui/dialog.py:65
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: yali/gui/Ui/autopartquestion.py:85
 msgid "Automatically choose the partition to resize (recommended)"
@@ -83,9 +77,8 @@ msgid "I will choose the target"
 msgstr ""
 
 #: yali/gui/Ui/autopartquestion.py:87
-#, fuzzy
 msgid "Use Selected"
-msgstr "Boş Alanın Kullan"
+msgstr "Seçili Olanı Kullan"
 
 #: yali/gui/Ui/bootloaderwidget.py:128 yali/gui/Ui/checkcdwidget.py:197
 #: yali/gui/Ui/keyboardwidget.py:127 yali/gui/Ui/kickerwidget.py:30
@@ -93,28 +86,24 @@ msgstr "Boş Alanın Kullan"
 #: yali/gui/Ui/rescuepasswordwidget.py:109 yali/gui/Ui/rescuepisiwidget.py:72
 #: yali/gui/Ui/rescuewidget.py:92 yali/gui/Ui/rootpasswidget.py:128
 #: yali/gui/Ui/setupuserswidget.py:514 yali/gui/Ui/welcome.py:84
-#, fuzzy
 msgid "Form1"
-msgstr "Biçimlendir"
+msgstr "Form1"
 
 #: yali/gui/Ui/bootloaderwidget.py:129
-#, fuzzy
 msgid "Advanced settings"
-msgstr "Gelişmiş Boyutlandırma Seçenekleri"
+msgstr "Gelişmiş ayarlar"
 
 #: yali/gui/Ui/bootloaderwidget.py:130
-#, fuzzy
 msgid "Default settings"
-msgstr "Saat/Tarih Ayarları"
+msgstr "Öntanımlı ayarlar"
 
 #: yali/gui/Ui/bootloaderwidget.py:131
-#, fuzzy
 msgid "Don't install bootloader"
-msgstr "Açılış yöneticisi yükleniyor..."
+msgstr "Önyükleyiciyi kurma"
 
 #: yali/gui/Ui/bootloaderwidget.py:132
 msgid "The partition where Pardus is installed"
-msgstr ""
+msgstr "Pardus'un kurulu olduğu bölüm"
 
 #: yali/gui/Ui/bootloaderwidget.py:133
 msgid "The first sector of"
@@ -128,14 +117,12 @@ msgid ""
 msgstr ""
 
 #: yali/gui/Ui/checkcdwidget.py:199
-#, fuzzy
 msgid "Validation failed"
-msgstr "Doğruluyor %s"
+msgstr "Doğrulama başarısız"
 
 #: yali/gui/Ui/checkcdwidget.py:200
-#, fuzzy
 msgid "Validation succeeded"
-msgstr "Doğruluyor %s"
+msgstr "Doğrulama başarılı"
 
 #: yali/gui/Ui/checkcdwidget.py:201 yali/gui/ScrCheckCD.py:60
 msgid "Validate"
@@ -148,14 +135,12 @@ msgid ""
 msgstr ""
 
 #: yali/gui/Ui/connectionlist.py:77
-#, fuzzy
 msgid "Connect"
-msgstr "Bağlı"
+msgstr "Bağlan"
 
 #: yali/gui/Ui/createdevicewidget.py:134
-#, fuzzy
 msgid "Standard Partition"
-msgstr "Bölümü Düzenle"
+msgstr "Standart Bölüm"
 
 #: yali/gui/Ui/createdevicewidget.py:135
 msgid ""
@@ -193,37 +178,35 @@ msgstr "Fiziksel Birim"
 
 #: yali/gui/Ui/createdevicewidget.py:145 yali/gui/ScrPartitionManual.py:155
 msgid "Create LVM formatted partition"
-msgstr "LVM olarak biçimlendirilmiş bölüm Oluştur"
+msgstr "LVM olarak biçimlendirilmiş bölüm oluştur"
 
 #: yali/gui/Ui/createdevicewidget.py:146
-#, fuzzy
 msgid "Raid Member"
-msgstr "Geçersiz Raid Üyeleri"
+msgstr "Raid Üyesi"
 
 #: yali/gui/Ui/createdevicewidget.py:147 yali/gui/ScrPartitionManual.py:164
 msgid "Create Raid formatted partition"
 msgstr "Raid olarak biçimlendirilmiş bölüm oluştur"
 
 #: yali/gui/Ui/createdevicewidget.py:148
-#, fuzzy
 msgid "Raid Array"
-msgstr "Raid Dizileri"
+msgstr "Raid Dizisi"
 
 #: yali/gui/Ui/createdevicewidget.py:149 yali/gui/ScrPartitionManual.py:167
 msgid "Requires at least 2 free Raid formatted partition"
-msgstr "En az boş ve biçimlendirilmiş 2 Raid bölmesi gerektirir"
+msgstr "En az 2 boş ve biçimlendirilmiş Raid bölümü gerektirir"
 
 #: yali/gui/Ui/datetimewidget.py:171
 msgid "Date"
-msgstr ""
+msgstr "Tarih"
 
 #: yali/gui/Ui/datetimewidget.py:172
 msgid "Time"
-msgstr ""
+msgstr "Zaman"
 
 #: yali/gui/Ui/datetimewidget.py:173
 msgid "HH:mm:ss"
-msgstr ""
+msgstr "SS:dd:ss"
 
 #: yali/gui/Ui/datetimewidget.py:174
 msgid "Timezone"
@@ -259,33 +242,31 @@ msgstr ""
 
 #: yali/gui/Ui/exception.py:70
 msgid "Show Backtrace"
-msgstr ""
+msgstr "Geriiz Göster"
 
 #: yali/gui/Ui/exception.py:71 yali/gui/ScrCheckCD.py:97
 msgid "Reboot"
-msgstr "Sistemi Yeniden Başlat"
+msgstr "Yeniden Başlat"
 
 #: yali/gui/Ui/help.py:57
 msgid "help content"
-msgstr ""
+msgstr "yardım içeriği"
 
 #: yali/gui/Ui/installprogress.py:61
 msgid "Installing Package: "
-msgstr ""
+msgstr "Paket Yükleniyor: "
 
 #: yali/gui/Ui/installwidget.py:116
-#, fuzzy
 msgid "Form3"
-msgstr "Biçimlendir"
+msgstr "Form3"
 
 #: yali/gui/Ui/keyboardwidget.py:128
-#, fuzzy
 msgid "Keyboard Layouts"
-msgstr "Klavye Ayarları"
+msgstr "Klavye Yerleşimleri"
 
 #: yali/gui/Ui/keyboardwidget.py:129
 msgid "Test Layout"
-msgstr ""
+msgstr "Yerleşimi Dene"
 
 #: yali/gui/Ui/license.py:104
 msgid ""
@@ -300,39 +281,35 @@ msgid "I understand and accept the terms of GNU GPL"
 msgstr ""
 
 #: yali/gui/Ui/logicalvolume.py:134
-#, fuzzy
 msgid "Logical Volume:"
-msgstr "Mantıksal Birim"
+msgstr "Mantıksal Birim:"
 
 #: yali/gui/Ui/logicalvolume.py:135 yali/gui/Ui/partedit.py:172
 #: yali/gui/Ui/partitionedit.py:136
 msgid "Use :"
-msgstr ""
+msgstr "Kullan :"
 
 #: yali/gui/Ui/logicalvolume.py:136 yali/gui/Ui/partedit.py:173
 #: yali/gui/Ui/partitionedit.py:137 yali/gui/Ui/partition.py:145
-#, fuzzy
 msgid "Size :"
-msgstr "Yeniden Boyutlandır:"
+msgstr "Boyut :"
 
 #: yali/gui/Ui/logicalvolume.py:137 yali/gui/Ui/logicalvolume.py:139
 #: yali/gui/Ui/partedit.py:174 yali/gui/Ui/partitionedit.py:138
 #: yali/gui/Ui/partition.py:146 yali/gui/Ui/partition.py:148
 #: yali/gui/Ui/partitionshrinkwidget.py:92 yali/gui/Ui/partresize.py:97
 msgid " MB"
-msgstr ""
+msgstr " MB"
 
 #: yali/gui/Ui/logicalvolume.py:138 yali/gui/Ui/partition.py:147
 #: yali/gui/Ui/partresize.py:99
-#, fuzzy
 msgid "Resize"
-msgstr "Yeniden Boyutlandır:"
+msgstr "Yeniden Boyutlandır"
 
 #: yali/gui/Ui/logicalvolume.py:140 yali/gui/Ui/partedit.py:177
 #: yali/gui/Ui/partitionedit.py:139 yali/gui/Ui/partition.py:151
-#, fuzzy
 msgid "File System :"
-msgstr "Dosya Sistemi Yeniden Boyutlandırma Hatası"
+msgstr "Dosya Sistemi "
 
 #: yali/gui/Ui/logicalvolume.py:141 yali/gui/Ui/manualpartwidget.py:137
 #: yali/gui/Ui/partition.py:149 yali/gui/Ui/raid.py:98
@@ -347,11 +324,11 @@ msgstr ""
 
 #: yali/gui/Ui/main.py:243
 msgid "Yali"
-msgstr ""
+msgstr "Yali"
 
 #: yali/gui/Ui/main.py:244
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: yali/gui/Ui/main.py:245 yali/gui/YaliWindow.py:395
 msgid "Release Notes"
@@ -359,16 +336,15 @@ msgstr "Sürüm Notları"
 
 #: yali/gui/Ui/main.py:246
 msgid "Previous Screen"
-msgstr ""
+msgstr "Önceki Ekran"
 
 #: yali/gui/Ui/main.py:247
-#, fuzzy
 msgid "Back"
-msgstr "Geri Dön"
+msgstr "Geri"
 
 #: yali/gui/Ui/main.py:248
 msgid "Next Screen"
-msgstr ""
+msgstr "Sonraki Ekran"
 
 #: yali/gui/Ui/main.py:249 yali/gui/ScrSummary.py:58
 #: yali/gui/ScrSummary.py:214
@@ -377,7 +353,7 @@ msgstr "İleri"
 
 #: yali/gui/Ui/main.py:250
 msgid "Screen Name"
-msgstr ""
+msgstr "Ekran Adı"
 
 #: yali/gui/Ui/main.py:251
 msgid ""
@@ -394,34 +370,32 @@ msgstr ""
 
 #: yali/gui/Ui/manualpartwidget.py:133
 msgid "Device"
-msgstr ""
+msgstr "Aygıt"
 
 #: yali/gui/Ui/manualpartwidget.py:134
-#, fuzzy
 msgid "Mount Point"
-msgstr "Bağlama Noktası Hatası"
+msgstr "Bağlama Noktası"
 
 #: yali/gui/Ui/manualpartwidget.py:135
 msgid "Label"
-msgstr ""
+msgstr "Etiket"
 
 #: yali/gui/Ui/manualpartwidget.py:136
 msgid "Type"
-msgstr ""
+msgstr "Tür"
 
 #: yali/gui/Ui/manualpartwidget.py:138 yali/gui/Ui/volumegroup.py:103
-#, fuzzy
 msgid "Size"
-msgstr "Yeniden Boyutlandır:"
+msgstr "Boyut"
 
 #: yali/gui/Ui/manualpartwidget.py:139
 msgid "New"
-msgstr ""
+msgstr "Yeni"
 
 #: yali/gui/Ui/manualpartwidget.py:140 yali/gui/Ui/setupuserswidget.py:525
 #: yali/gui/Ui/volumegroup.py:105
 msgid "Edit"
-msgstr ""
+msgstr "Düzenle"
 
 #: yali/gui/Ui/manualpartwidget.py:141 yali/gui/Ui/setupuserswidget.py:526
 #: yali/gui/Ui/volumegroup.py:106 yali/gui/lvm_gui.py:553
@@ -430,31 +404,27 @@ msgstr "Sil"
 
 #: yali/gui/Ui/manualpartwidget.py:142
 msgid "Reset"
-msgstr ""
+msgstr "Sıfırla"
 
 #: yali/gui/Ui/partedit.py:171 yali/gui/Ui/partitionedit.py:135
 msgid "Partition 1 on FUJISTU - /dev/sda1"
 msgstr ""
 
 #: yali/gui/Ui/partedit.py:175
-#, fuzzy
 msgid "Format :"
-msgstr "Biçimlendir"
+msgstr ""
 
 #: yali/gui/Ui/partedit.py:176
-#, fuzzy
 msgid "Yes, format this partition"
-msgstr "LVM olarak biçimlendirilmiş bölüm Oluştur"
+msgstr "Evet, bu bölümü formatla"
 
 #: yali/gui/Ui/partedit.py:178
-#, fuzzy
 msgid "Delete Partition"
-msgstr "Bölümü Düzenle"
+msgstr "Bölümü Sil"
 
 #: yali/gui/Ui/partedit.py:179
-#, fuzzy
 msgid "Resize Partition"
-msgstr "Bölümü Düzenle"
+msgstr "Bölümü Yeniden Boyutlandır"
 
 #: yali/gui/Ui/partedit.py:180
 msgid "Changes will be applied after Summary Screen."
@@ -462,16 +432,15 @@ msgstr ""
 
 #: yali/gui/Ui/partedit.py:181
 msgid "Refresh Disks"
-msgstr ""
+msgstr "Diskleri Yenile"
 
 #: yali/gui/Ui/partedit.py:182
-#, fuzzy
 msgid "Reset All Changes"
-msgstr "Boş Alanın Tamamını Kullan"
+msgstr "Tüm Değişiklikleri Sıfırla"
 
 #: yali/gui/Ui/partedit.py:183
 msgid "Apply"
-msgstr ""
+msgstr "Uygula"
 
 #: yali/gui/Ui/partitionedit.py:134
 #, fuzzy
@@ -479,13 +448,12 @@ msgid "Partition Action"
 msgstr "Disk Bölümü Ayarları"
 
 #: yali/gui/Ui/partitionedit.py:140
-#, fuzzy
 msgid "Force to be primary partition"
-msgstr "LVM olarak biçimlendirilmiş bölüm Oluştur"
+msgstr "Birincil bölüm olmasına zorla"
 
 #: yali/gui/Ui/partition.py:144
 msgid "Use as:"
-msgstr ""
+msgstr "Farklı kullan:"
 
 #: yali/gui/Ui/partition.py:152
 #, fuzzy
@@ -494,7 +462,7 @@ msgstr "Raid olarak biçimlendirilmiş bölüm oluştur"
 
 #: yali/gui/Ui/partition.py:153
 msgid "Allowable Drives:"
-msgstr ""
+msgstr "İzin Verilen Aygıtlar:"
 
 #: yali/gui/Ui/partitionshrink.py:63 yali/gui/Ui/partitionshrinkwidget.py:90
 msgid ""
@@ -550,18 +518,16 @@ msgid ""
 msgstr ""
 
 #: yali/gui/Ui/raid.py:95
-#, fuzzy
 msgid "Raid Device:"
-msgstr "Geçersiz Raid Üyeleri"
+msgstr "Raid Aygıtı:"
 
 #: yali/gui/Ui/raid.py:96
 msgid "Use:"
-msgstr ""
+msgstr "Kullan:"
 
 #: yali/gui/Ui/raid.py:97
-#, fuzzy
 msgid "Filesystem:"
-msgstr "Dosya Sistemi Yeniden Boyutlandırma Hatası"
+msgstr "Dosya sistemi:"
 
 #: yali/gui/Ui/raid.py:100
 #, fuzzy
@@ -599,18 +565,16 @@ msgid "Choose the user you want to reset the password:"
 msgstr ""
 
 #: yali/gui/Ui/rescuepasswordwidget.py:111
-#, fuzzy
 msgid "New password:"
-msgstr "Onayla"
+msgstr "Yeni parola:"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:112
 msgid "New password (Again):"
 msgstr ""
 
 #: yali/gui/Ui/rescuepasswordwidget.py:113
-#, fuzzy
 msgid "Reset Password"
-msgstr "Root parolası ayarlanıyor..."
+msgstr "Parolayı Sıfırla"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:114
 msgid ""
@@ -626,7 +590,7 @@ msgstr ""
 
 #: yali/gui/Ui/rescuepisiwidget.py:74
 msgid "Offline"
-msgstr ""
+msgstr "Çevrimdışı"
 
 #: yali/gui/Ui/rescuepisiwidget.py:75
 msgid ""
@@ -636,11 +600,11 @@ msgstr ""
 
 #: yali/gui/Ui/rescuepisiwidget.py:76
 msgid "Select Connection"
-msgstr ""
+msgstr "Bağlantı Seç"
 
 #: yali/gui/Ui/rescuepisiwidget.py:77
 msgid "Select the operation to undo:"
-msgstr ""
+msgstr "Geri alınacak işlemi seç:"
 
 #: yali/gui/Ui/rescuewidget.py:93
 msgid "Choose what do you want to do to repair your system:"
@@ -666,36 +630,32 @@ msgid "Restart"
 msgstr "Yeniden Başlat"
 
 #: yali/gui/Ui/rootpasswidget.py:129
-#, fuzzy
 msgid "Administrator password"
-msgstr "Onayla"
+msgstr "Yönetici parolası"
 
 #: yali/gui/Ui/rootpasswidget.py:130
-#, fuzzy
 msgid "Confirm password"
-msgstr "Onayla"
+msgstr "Parolayı tekrar girin"
 
 #: yali/gui/Ui/rootpasswidget.py:131
 msgid "Computer Name"
-msgstr ""
+msgstr "Bilgisayar Adı"
 
 #: yali/gui/Ui/setupuserswidget.py:515
 msgid "User Name"
-msgstr ""
+msgstr "Kullanıcı Adı"
 
 #: yali/gui/Ui/setupuserswidget.py:516
 msgid "Real Name"
-msgstr ""
+msgstr "Gerçek Adınız"
 
 #: yali/gui/Ui/setupuserswidget.py:517
-#, fuzzy
 msgid "Password"
-msgstr "Onayla"
+msgstr "Parola"
 
 #: yali/gui/Ui/setupuserswidget.py:518
-#, fuzzy
 msgid "Confirm Password"
-msgstr "Onayla"
+msgstr "Parolayı Tekrar Girin"
 
 #: yali/gui/Ui/setupuserswidget.py:519
 msgid "Custom User ID"
@@ -703,7 +663,7 @@ msgstr ""
 
 #: yali/gui/Ui/setupuserswidget.py:520
 msgid "Not recommended"
-msgstr ""
+msgstr "Önerilmez"
 
 #: yali/gui/Ui/setupuserswidget.py:521
 msgid "Bypass authorization attempts for this user"
@@ -723,9 +683,8 @@ msgid "Add"
 msgstr "Ekle"
 
 #: yali/gui/Ui/setupuserswidget.py:528
-#, fuzzy
 msgid "Advanced"
-msgstr "Gelişmiş Boyutlandırma Seçenekleri"
+msgstr "Gelişmiş"
 
 #: yali/gui/Ui/summarywidget.py:114
 msgid ""
@@ -735,17 +694,15 @@ msgstr ""
 
 #: yali/gui/Ui/summarywidget.py:115
 msgid "Install all language packages"
-msgstr ""
+msgstr "Tüm dil paketlerini kur"
 
 #: yali/gui/Ui/volumegroup.py:96
-#, fuzzy
 msgid "Volume Group Name:"
-msgstr "Birim Grubu"
+msgstr ""
 
 #: yali/gui/Ui/volumegroup.py:97
-#, fuzzy
 msgid "Physical Extends"
-msgstr "Fiziksel Birim"
+msgstr ""
 
 #: yali/gui/Ui/volumegroup.py:98
 #, fuzzy
@@ -843,7 +800,7 @@ msgstr "Hepsini Gözardı Et"
 
 #: yali/gui/interface.py:76 yali/gui/interface.py:131
 msgid "Re-initialize"
-msgstr "İşleme Sıfırdan Başla"
+msgstr "Yeniden-ilklendir"
 
 #: yali/gui/interface.py:124
 #, python-format
@@ -1191,7 +1148,7 @@ msgstr "Parola çok kısa."
 
 #: yali/gui/ScrAdmin.py:132 yali/gui/ScrUsers.py:225
 msgid "Don't use invalid characters"
-msgstr "Geçersiz karakterler kullanmayınız"
+msgstr "Geçersiz karakterler kullanmayın"
 
 #: yali/gui/ScrAdmin.py:139
 msgid "Passwords do not match."
@@ -1558,7 +1515,7 @@ msgstr "Kullanıcılar ekleniyor..."
 
 #: yali/gui/ScrRescuePassword.py:79
 msgid "The password has been successfully reset."
-msgstr "Şifre başarıyla sıfırlandı."
+msgstr "Parola başarıyla sıfırlandı."
 
 #: yali/gui/ScrRescuePassword.py:79
 msgid "Info"
@@ -1793,7 +1750,7 @@ msgstr "Güncelle"
 
 #: yali/gui/ScrUsers.py:216
 msgid "Don't use your user name or name as a password"
-msgstr "Şifre olarak kullanıcı adınızı veya gerçek adınızı kullanmayın"
+msgstr "Parola olarak kullanıcı adınızı veya gerçek adınızı kullanmayın"
 
 #: yali/gui/ScrUsers.py:219
 msgid "Passwords do not match"
@@ -1817,7 +1774,7 @@ msgstr "Gerçek İsim bölümü geçersiz karakterler içeriyor."
 
 #: yali/gui/ScrUsers.py:280
 msgid "The password contains invalid characters."
-msgstr "Şifre geçersiz karakterler içeriyor."
+msgstr "Parola geçersiz karakterler içeriyor."
 
 #: yali/gui/ScrUsers.py:288
 msgid "User ID used before, choose another one!"
@@ -1866,11 +1823,11 @@ msgstr "Biçimlendir :"
 
 #: yali/gui/storageGuiHelpers.py:471
 msgid "Migrate filesystem To :"
-msgstr "Dosya sistemlerini Şuraya göç ettirin:"
+msgstr "Dosya sistemini şuraya göç ettirin:"
 
 #: yali/gui/storageGuiHelpers.py:495
 msgid "Resize :"
-msgstr "Yeniden Boyutlandır:"
+msgstr "Yeniden Boyutlandır :"
 
 #: yali/gui/storageGuiHelpers.py:537
 msgid "Advanced Size Options"
@@ -1878,7 +1835,7 @@ msgstr "Gelişmiş Boyutlandırma Seçenekleri"
 
 #: yali/gui/storageGuiHelpers.py:539
 msgid "Fixed Size :"
-msgstr "Boyut :"
+msgstr "Sabit Boyut :"
 
 #: yali/gui/storageGuiHelpers.py:540
 msgid "Fill to maximum allowable size"
@@ -1886,7 +1843,7 @@ msgstr "İzin verilen alanın tümünü doldur"
 
 #: yali/gui/storageGuiHelpers.py:541
 msgid "Fill all space up to (MB):"
-msgstr "Tüm boşluğu doldurun (MB):"
+msgstr "Tüm boşluğu doldur (MB):"
 
 #: yali/gui/YaliDialog.py:220 yali/gui/YaliDialog.py:236
 #: yali/gui/YaliDialog.py:263
@@ -1912,11 +1869,11 @@ msgstr "Diski Çıkart"
 
 #: yali/gui/YaliDialog.py:288 yali/gui/YaliDialog.py:305
 msgid "OK"
-msgstr "TAMAM"
+msgstr "Tamam"
 
 #: yali/gui/YaliDialog.py:289
 msgid "Please insert a new disc and then click OK"
-msgstr "Lütfen yeni bir disk taktıktan sonra Tamam'a basın"
+msgstr "Lütfen yeni bir disk taktıktan sonra Tamam'a tıklayın"
 
 #: yali/gui/YaliDialog.py:291
 msgid "Insert New Disc"
@@ -1932,15 +1889,15 @@ msgstr "Hata bildiriyor"
 
 #: yali/gui/YaliWindow.py:92
 msgid "Pixmaps resources file doesn't exists"
-msgstr "Piksmap kaynak dosyaları yok"
+msgstr "Pixmap kaynak dosyası mevcut değil"
 
 #: yali/gui/YaliWindow.py:125
 msgid "Style file doesn't exists"
-msgstr "Stil dosyası bulunamadı"
+msgstr "Stil dosyası mevcut değil"
 
 #: yali/gui/YaliWindow.py:132
 msgid "Release file doesn't exists"
-msgstr "Sürüm notları dosyası eksik"
+msgstr "Sürüm dosyası mevcut değil"
 
 #: yali/gui/YaliWindow.py:140
 msgid "Turn Off Computer"
@@ -1969,7 +1926,7 @@ msgstr "Fare Ayarları"
 #: yali/gui/YaliWindow.py:181
 #, python-format
 msgid "You just clicked the <b>%s</b> mouse button."
-msgstr "Biraz önce <b>%s</b> fareye tıkladınız."
+msgstr "Biraz önce <b>%s</b> fare tuşuna tıkladınız."
 
 #: yali/gui/YaliWindow.py:182
 #, python-format
@@ -1990,7 +1947,7 @@ msgstr "YALI kurulum sihirbazını tekrar başlatmak istediğinize emin misiniz?
 
 #: yali/gui/YaliWindow.py:241
 msgid "Terminal"
-msgstr "Terminal"
+msgstr "Uçbirim"
 
 #: yali/gui/YaliWindow.py:246
 msgid "Tetris"
@@ -2182,11 +2139,11 @@ msgstr "Dosya yolları aynı."
 
 #: yali/util.py:447 yali/util.py:490
 msgid "Release file is missing"
-msgstr "Sürüm notları dosyası kayıp"
+msgstr "Sürüm dosyası kayıp"
 
 #: yali/util.py:449 yali/util.py:492
 msgid "Release file is inconsistent"
-msgstr "Sürüm notları dosyası uyumsuz"
+msgstr "Sürüm dosyası uyumsuz"
 
 #: yali/util.py:452 yali/util.py:495
 msgid "Invalid xml file"
