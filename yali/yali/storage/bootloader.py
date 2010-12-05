@@ -252,7 +252,12 @@ class BootLoader(object):
         with open(os.path.join(ctx.consts.target_dir, self._conf), "w") as grubConfFile:
             grubConfFile.write(s)
 
-        self.writeGrubInstallConf()
+        target_conf_dir = os.path.join(ctx.consts.target_dir, "etc")
+        if os.path.exists(target_conf_dir):
+            ctx.logger.debug("Target grub.conf file is writing")
+            self.writeGrubInstallConf(os.path.join(target_conf_dir, "grub.conf"), removableExists=False)
+
+        self.writeGrubInstallConf("/tmp/batch", removableExists=self.removableExists)
         self.appendOtherSystems()
 
     def appendOtherSystems(self):
@@ -384,21 +389,20 @@ class BootLoader(object):
             for device in devices:
                 deviceMapFile.write("(%s)     %s\n" % (get_disk_name(self.storage, device), device.path))
 
-    def writeGrubInstallConf(self):
+    def writeGrubInstallConf(self, path, removableExists=False):
         stage1Devices = get_physical_devices(self.storage, self.storage.devicetree.getDeviceByName(self.device))
         bootDevices = get_physical_devices(self.storage, self.storage.storageset.bootDevice)
 
-        stage1Path = get_partition_name(self.storage, stage1Devices[0], exists=self.removableExists)
-        bootPartitionPath = get_partition_name(self.storage, bootDevices[0], exists=self.removableExists)
+        stage1Path = get_partition_name(self.storage, stage1Devices[0], exists=removableExists)
+        bootPartitionPath = get_partition_name(self.storage, bootDevices[0], exists=removableExists)
 
         batch_template = """root %s
 setup %s
 quit
 """ % (bootPartitionPath, stage1Path)
 
-        ctx.logger.debug("Batch template: %s" % batch_template)
-        file('/tmp/batch','w').write(batch_template)
-        file('/mnt/target/etc/grub.conf','w').write(batch_template)
+        ctx.logger.debug("Writng Batch template to %s:\n%s" % (path, batch_template))
+        file(path,'w').write(batch_template)
 
 
     def install(self):
