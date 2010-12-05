@@ -216,9 +216,8 @@ msgid "font:bold;"
 msgstr ""
 
 #: yali/gui/Ui/exception.py:64
-#, fuzzy
 msgid "Unhandled exception occured"
-msgstr "Ocurrió un error desconocido !"
+msgstr "Ocurrió un error desconocido"
 
 #: yali/gui/Ui/exception.py:65
 msgid ""
@@ -251,32 +250,28 @@ msgid "Installing Package: "
 msgstr "Instalando Paquete:"
 
 #: yali/gui/Ui/installwidget.py:116
-#, fuzzy
 msgid "Form3"
-msgstr "Formulario"
+msgstr ""
 
 #: yali/gui/Ui/keyboardwidget.py:128
-#, fuzzy
 msgid "Keyboard Layouts"
-msgstr "Teclado"
+msgstr "Disposiciones de Teclado"
 
 #: yali/gui/Ui/keyboardwidget.py:129
-#, fuzzy
 msgid "Test Layout"
-msgstr "Probar el teclado:"
+msgstr "Probar el Teclado"
 
 #: yali/gui/Ui/license.py:104
 msgid "All software by TUBITAK Pardus is licensed under the terms of <a href=\"#\"><span style=\" text-decoration: underline; color:#56a2c0;\">GNU General Public License</span></a> which you must accept in order to install and use Pardus."
-msgstr ""
+msgstr "Todos los software de TUBITAK Pardus están bajo los términos de la licencia <a href=\"#\"><span style=\" text-decoration: underline; color:#56a2c0;\">GNU General Public License</span></a> que debe aceptar para instalar y usar Pardus."
 
 #: yali/gui/Ui/license.py:105
 msgid "I understand and accept the terms of GNU GPL"
-msgstr ""
+msgstr "Entiendo y acepto los términos de GNU GPL"
 
 #: yali/gui/Ui/logicalvolume.py:134
-#, fuzzy
 msgid "Logical Volume:"
-msgstr "Volumen Logico"
+msgstr "Volumen Logico:"
 
 #: yali/gui/Ui/logicalvolume.py:135 yali/gui/Ui/partedit.py:172
 #: yali/gui/Ui/partitionedit.py:136
@@ -285,9 +280,8 @@ msgstr "Usar para :"
 
 #: yali/gui/Ui/logicalvolume.py:136 yali/gui/Ui/partedit.py:173
 #: yali/gui/Ui/partitionedit.py:137 yali/gui/Ui/partition.py:145
-#, fuzzy
 msgid "Size :"
-msgstr "Redimensionar :"
+msgstr "Tamaño:"
 
 #: yali/gui/Ui/logicalvolume.py:137 yali/gui/Ui/logicalvolume.py:139
 #: yali/gui/Ui/partedit.py:174 yali/gui/Ui/partitionedit.py:138
@@ -298,9 +292,8 @@ msgstr " MB"
 
 #: yali/gui/Ui/logicalvolume.py:138 yali/gui/Ui/partition.py:147
 #: yali/gui/Ui/partresize.py:99
-#, fuzzy
 msgid "Resize"
-msgstr "Redimensionar :"
+msgstr "Redimensionar"
 
 #: yali/gui/Ui/logicalvolume.py:140 yali/gui/Ui/partedit.py:177
 #: yali/gui/Ui/partitionedit.py:139 yali/gui/Ui/partition.py:151
@@ -316,7 +309,7 @@ msgstr "Formatear"
 #: yali/gui/Ui/logicalvolume.py:142 yali/gui/Ui/partition.py:150
 #: yali/gui/Ui/raid.py:99
 msgid "Migrate"
-msgstr ""
+msgstr "Migrar"
 
 #: yali/gui/Ui/main.py:243
 msgid "Yali"
@@ -335,9 +328,8 @@ msgid "Previous Screen"
 msgstr "Volver a la pantalla anterior"
 
 #: yali/gui/Ui/main.py:247
-#, fuzzy
 msgid "Back"
-msgstr "Atrás"
+msgstr "Retroceder"
 
 #: yali/gui/Ui/main.py:248
 msgid "Next Screen"
@@ -354,16 +346,15 @@ msgstr "Nombre de pantalla"
 
 #: yali/gui/Ui/main.py:251
 msgid "Welcome to YALI, the Pardus installer. YALI will guide you through the installation process. Welcome to YALI, the Pardus installer. YALI will guide you through the installation process.Welcome to YALI, the Pardus installer. YALI will guide you through the installation process.Welcome to YALI, the Pardus installer. YALI will guide you through the installation process.Welcome to YALI, the Pardus installer. YALI will guide you through the installation process.Welcome to YALI, the Pardus installer. YALI will guide you through the installation process.Welcome to YALI, the Pardus installer. YALI will guide you through the installation process."
-msgstr ""
+msgstr "Bienvenido al asistente de instalación de Pardus, denominado YALI. YALI le guiará a través del proceso de la instalación."
 
 #: yali/gui/Ui/manualpartwidget.py:133
 msgid "Device"
-msgstr ""
+msgstr "Disositivo"
 
 #: yali/gui/Ui/manualpartwidget.py:134
-#, fuzzy
 msgid "Mount Point"
-msgstr "Error de punto de montaje"
+msgstr "Punto de Montaje"
 
 #: yali/gui/Ui/manualpartwidget.py:135
 msgid "Label"
