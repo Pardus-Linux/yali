@@ -219,7 +219,7 @@ class Storage(object):
                                      zeroMbr=self.zeroMbr)
         self.devicetree.populate()
         self.storageset = StorageSet(self.devicetree, ctx.consts.target_dir)
-        self.eddDict = yali.util.get_edd_dict(self.partitioned)
+        self.eddDict = yali.util.get_edd_dict([disk.path for disk in self.partitioned])
 
     def deviceImmutable(self, device, ignoreProtected=False):
         """ Return any reason the device cannot be modified/removed.
