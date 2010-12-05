@@ -102,6 +102,7 @@ def setHostName():
     obj = bus.get_object("tr.org.pardus.comar", "/package/baselayout")
     if ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
         yali.util.run_batch("hostname", [str(ctx.installData.hostName)])
+        obj.setHostName(str(ctx.installData.hostName), dbus_interface="tr.org.pardus.comar.Network.Stack")
     elif ctx.flags.install_type == ctx.STEP_DEFAULT:
         obj.setHostName(str(ctx.installData.hostName), dbus_interface="tr.org.pardus.comar.Network.Stack")
     elif ctx.flags.install_type == ctx.STEP_BASE:
