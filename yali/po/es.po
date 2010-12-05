@@ -688,7 +688,7 @@ msgstr "Espacio Utilizado:"
 
 #: yali/gui/Ui/welcome.py:85
 msgid "There are a few more steps to take before your system is ready to use.The agent will now guide you through some basic configuration.Please click the \"Next\"  button in the lower corner right to continue."
-msgstr ""
+msgstr "Hay algunos pasos más antes de utilizar el sistema. Ahora el asistente le guiará a través ua configuración básica. Por favor persione el botón \"Siguiente\" abajo a la derecha, para continuar."
 
 #: yali/gui/interface.py:41 yali/gui/interface.py:123
 #: yali/gui/ScrCheckCD.py:92 yali/gui/ScrInstall.py:180
