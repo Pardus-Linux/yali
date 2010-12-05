@@ -367,25 +367,24 @@ msgstr "Error de punto de montaje"
 
 #: yali/gui/Ui/manualpartwidget.py:135
 msgid "Label"
-msgstr ""
+msgstr "Etiqueta"
 
 #: yali/gui/Ui/manualpartwidget.py:136
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #: yali/gui/Ui/manualpartwidget.py:138 yali/gui/Ui/volumegroup.py:103
-#, fuzzy
 msgid "Size"
-msgstr "Redimensionar :"
+msgstr "Tamaño"
 
 #: yali/gui/Ui/manualpartwidget.py:139
 msgid "New"
-msgstr ""
+msgstr "Nuevo"
 
 #: yali/gui/Ui/manualpartwidget.py:140 yali/gui/Ui/setupuserswidget.py:525
 #: yali/gui/Ui/volumegroup.py:105
 msgid "Edit"
-msgstr ""
+msgstr "Modificar"
 
 #: yali/gui/Ui/manualpartwidget.py:141 yali/gui/Ui/setupuserswidget.py:526
 #: yali/gui/Ui/volumegroup.py:106 yali/gui/lvm_gui.py:553
@@ -394,31 +393,27 @@ msgstr "Eliminar"
 
 #: yali/gui/Ui/manualpartwidget.py:142
 msgid "Reset"
-msgstr ""
+msgstr "Reestablecer"
 
 #: yali/gui/Ui/partedit.py:171 yali/gui/Ui/partitionedit.py:135
 msgid "Partition 1 on FUJISTU - /dev/sda1"
 msgstr "Partición 1 en FUJISTU - /dev/sda1"
 
 #: yali/gui/Ui/partedit.py:175
-#, fuzzy
 msgid "Format :"
-msgstr "Formatear"
+msgstr "Formato :"
 
 #: yali/gui/Ui/partedit.py:176
-#, fuzzy
 msgid "Yes, format this partition"
-msgstr "Crear partición de formato LVM"
+msgstr "Sí, formatear ésta partición"
 
 #: yali/gui/Ui/partedit.py:178
-#, fuzzy
 msgid "Delete Partition"
-msgstr "Eliminar todas las particiones"
+msgstr "Eliminar Partición"
 
 #: yali/gui/Ui/partedit.py:179
-#, fuzzy
 msgid "Resize Partition"
-msgstr "Modificar Partición"
+msgstr "Redimensionar Partición"
 
 #: yali/gui/Ui/partedit.py:180
 msgid "Changes will be applied after Summary Screen."
@@ -437,40 +432,36 @@ msgid "Apply"
 msgstr "Aceptar"
 
 #: yali/gui/Ui/partitionedit.py:134
-#, fuzzy
 msgid "Partition Action"
-msgstr "Particiones"
+msgstr "Accion sobre la Partición"
 
 #: yali/gui/Ui/partitionedit.py:140
-#, fuzzy
 msgid "Force to be primary partition"
-msgstr "Demasiadas particiones primarias !"
+msgstr "Forzar partición primaria"
 
 #: yali/gui/Ui/partition.py:144
-#, fuzzy
 msgid "Use as:"
-msgstr "Usar para :"
+msgstr "Usar para:"
 
 #: yali/gui/Ui/partition.py:152
-#, fuzzy
 msgid "Force to be a primary partition"
-msgstr "Demasiadas particiones primarias !"
+msgstr "Forzar partición primaria !"
 
 #: yali/gui/Ui/partition.py:153
 msgid "Allowable Drives:"
-msgstr ""
+msgstr "Dispositivos permitidos:"
 
 #: yali/gui/Ui/partitionshrink.py:63 yali/gui/Ui/partitionshrinkwidget.py:90
 msgid "Which partition would you like to shrink to make room for your installation?"
-msgstr ""
+msgstr "Cual partición desea reducir para ganar espacio para la instalación nueva ?"
 
 #: yali/gui/Ui/partitionshrink.py:64
 msgid "Shrink partition to size (in MB)"
-msgstr ""
+msgstr "Reducir partición a (en MB)"
 
 #: yali/gui/Ui/partitionshrinkwidget.py:91
 msgid "Shrink partition to size (in MB) :"
-msgstr ""
+msgstr "Reducir partición a (en MB):"
 
 #: yali/gui/Ui/partitionshrinkwidget.py:93 yali/gui/Ui/partresize.py:98
 #: yali/gui/Ui/setupuserswidget.py:527 yali/gui/lvm_gui.py:421
@@ -482,7 +473,7 @@ msgstr "Cancelar"
 
 #: yali/gui/Ui/partitionshrinkwidget.py:94
 msgid "Shrink"
-msgstr ""
+msgstr "Reducir"
 
 #: yali/gui/Ui/partresize.py:90
 msgid ""
@@ -503,9 +494,8 @@ msgstr ""
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#ffffff;\"><span style=\" font-weight:600; text-decoration: underline;\">Alerta:</span> Una operación de redimensionamiento puede corromper la partición y dejar inaccesible los datos. Asegúrese si dispone de una copia de seguridad de los datos !<span style=\" font-weight:600;\"> </span><span style=\" font-weight:600;\">Esta operación no se puede deshacer !</span></p></body></html>"
 
 #: yali/gui/Ui/raid.py:95
-#, fuzzy
 msgid "Raid Device:"
-msgstr "Miembros RAID inválidos"
+msgstr "Dispositivo RAID:"
 
 #: yali/gui/Ui/raid.py:96
 msgid "Use:"
