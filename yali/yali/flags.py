@@ -36,6 +36,8 @@ class Flags:
             self.__dict__['flags']['install_type'] = 3
         elif options.has_key("rescue") :
             self.__dict__['flags']['install_type'] = 4
+        elif options.has_key("default") :
+            self.__dict__['flags']['install_type'] = 0
 
         if options.has_key("theme"):
             self.__dict__['flags']['theme'] = options["theme"]
