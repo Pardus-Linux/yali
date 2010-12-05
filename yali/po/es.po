@@ -607,34 +607,28 @@ msgid "Confirm password"
 msgstr "Confirmar contraseña"
 
 #: yali/gui/Ui/rootpasswidget.py:131
-#, fuzzy
 msgid "Computer Name"
-msgstr "Nombre de Usuario:"
+msgstr "Nombre de la Computadora"
 
 #: yali/gui/Ui/setupuserswidget.py:515
-#, fuzzy
 msgid "User Name"
-msgstr "Nombre de Usuario:"
+msgstr "Nombre de Usuario"
 
 #: yali/gui/Ui/setupuserswidget.py:516
-#, fuzzy
 msgid "Real Name"
-msgstr "Nombre Real:"
+msgstr "Nombre Real"
 
 #: yali/gui/Ui/setupuserswidget.py:517
-#, fuzzy
 msgid "Password"
-msgstr "Contraseña:"
+msgstr "Contraseña"
 
 #: yali/gui/Ui/setupuserswidget.py:518
-#, fuzzy
 msgid "Confirm Password"
-msgstr "Contraseña:"
+msgstr "Confirmar Contraseña"
 
 #: yali/gui/Ui/setupuserswidget.py:519
-#, fuzzy
 msgid "Custom User ID"
-msgstr "ID de Usuario"
+msgstr "Costomizar ID de Usuario"
 
 #: yali/gui/Ui/setupuserswidget.py:520
 msgid "Not recommended"
@@ -642,16 +636,15 @@ msgstr "No recomendado"
 
 #: yali/gui/Ui/setupuserswidget.py:521
 msgid "Bypass authorization attempts for this user"
-msgstr ""
+msgstr "Omitir intentos de autorización para este usuario"
 
 #: yali/gui/Ui/setupuserswidget.py:522
 msgid "Add user to administrator (wheel) group"
-msgstr ""
+msgstr "Agregar usuario a grupo de administradores (wheel)"
 
 #: yali/gui/Ui/setupuserswidget.py:523
-#, fuzzy
 msgid "Select auto login user"
-msgstr "Iniciar sesión automáticamente como usuario:"
+msgstr "Seleccione usuario para iniciar sesión automáticamente"
 
 #: yali/gui/Ui/setupuserswidget.py:524 yali/gui/Ui/volumegroup.py:104
 #: yali/gui/ScrUsers.py:293 yali/gui/ScrUsers.py:335 yali/gui/ScrUsers.py:413
@@ -664,51 +657,43 @@ msgstr "Avanzado"
 
 #: yali/gui/Ui/summarywidget.py:114
 msgid "When checked, YALI will install all of the officially supported language packages on your system."
-msgstr ""
+msgstr "Si marcado YALI instalará en su sistema los packs de todos los idiomas soportados oficialmente."
 
 #: yali/gui/Ui/summarywidget.py:115
 msgid "Install all language packages"
 msgstr "Instalar todos los paquetes de idiomas"
 
 #: yali/gui/Ui/volumegroup.py:96
-#, fuzzy
 msgid "Volume Group Name:"
-msgstr "Grupo de Volumenes"
+msgstr "Nombre de Grupo de Volumenes:"
 
 #: yali/gui/Ui/volumegroup.py:97
-#, fuzzy
 msgid "Physical Extends"
-msgstr "Volumen Físico"
+msgstr ""
 
 #: yali/gui/Ui/volumegroup.py:98
-#, fuzzy
 msgid "Physical Volumes to use:"
-msgstr "Volumen Físico"
+msgstr "Volumen Físico a usar:"
 
 #: yali/gui/Ui/volumegroup.py:99
-#, fuzzy
 msgid "Total Space:"
-msgstr "Usar espacio disponible"
+msgstr "Espacio Total:"
 
 #: yali/gui/Ui/volumegroup.py:100
-#, fuzzy
 msgid "Free Space:"
-msgstr "Usar espacio disponible"
+msgstr "Espacio disponible:"
 
 #: yali/gui/Ui/volumegroup.py:101
-#, fuzzy
 msgid "Logical Volumes"
-msgstr "Volumen Logico"
+msgstr "Volumens Lógicos"
 
 #: yali/gui/Ui/volumegroup.py:102
-#, fuzzy
 msgid "Mountpoint"
-msgstr "Punto de montaje en uso"
+msgstr "Punto de montaje"
 
 #: yali/gui/Ui/volumegroup.py:107
-#, fuzzy
 msgid "Used Space:"
-msgstr "Usar todo el espacio"
+msgstr "Espacio Utilizado:"
 
 #: yali/gui/Ui/welcome.py:85
 msgid "There are a few more steps to take before your system is ready to use.The agent will now guide you through some basic configuration.Please click the \"Next\"  button in the lower corner right to continue."
