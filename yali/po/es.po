@@ -499,40 +499,35 @@ msgstr "Dispositivo RAID:"
 
 #: yali/gui/Ui/raid.py:96
 msgid "Use:"
-msgstr ""
+msgstr "Usar:"
 
 #: yali/gui/Ui/raid.py:97
-#, fuzzy
 msgid "Filesystem:"
-msgstr "Sistema de Archivos :"
+msgstr "Sistema de Archivos:"
 
 #: yali/gui/Ui/raid.py:100
-#, fuzzy
 msgid "Raid Level:"
-msgstr "Miembros RAID inválidos"
+msgstr "Nivel de RAID:"
 
 #: yali/gui/Ui/raid.py:101
-#, fuzzy
 msgid "Raid Members:"
-msgstr "Miembros RAID inválidos"
+msgstr "Miembros RAID:"
 
 #: yali/gui/Ui/raid.py:102
 msgid "Number of spares:"
 msgstr ""
 
 #: yali/gui/Ui/rescuegrubwidget.py:82
-#, fuzzy
 msgid "Select where to install the GRUB bootloader"
-msgstr "Seleccione el destino para el cargador de arranque"
+msgstr "Seleccione el destino para el cargador de arranque GRUB"
 
 #: yali/gui/Ui/rescuegrubwidget.py:83
 msgid "First bootable disk (recommended)"
 msgstr "Primer disco apto para arranque (recomendado)"
 
 #: yali/gui/Ui/rescuegrubwidget.py:84
-#, fuzzy
 msgid "Disk partition where Pardus is installed"
-msgstr "Seleccione la partición de instalación de Pardus"
+msgstr "Seleccione la partición de disco para la instalación de Pardus"
 
 #: yali/gui/Ui/rescuegrubwidget.py:85
 msgid "Selected disk below"
@@ -540,21 +535,19 @@ msgstr "Disco seleccionado abajo"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:110
 msgid "Choose the user you want to reset the password:"
-msgstr ""
+msgstr "Seleccione al usuario cuya contraseña desea resetear:"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:111
 msgid "New password:"
 msgstr "Contraseña nueva:"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:112
-#, fuzzy
 msgid "New password (Again):"
 msgstr "Repetir Contraseña:"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:113
-#, fuzzy
 msgid "Reset Password"
-msgstr "Contraseña:"
+msgstr "Resetear Contraseña"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:114
 msgid ""
@@ -565,13 +558,12 @@ msgid ""
 msgstr ""
 
 #: yali/gui/Ui/rescuepisiwidget.py:73
-#, fuzzy
 msgid "<b>Connection status:</b>"
-msgstr "Establecer estado de conexión."
+msgstr "<b>Estado de conexión:</b>"
 
 #: yali/gui/Ui/rescuepisiwidget.py:74
 msgid "Offline"
-msgstr ""
+msgstr "Desconectado"
 
 #: yali/gui/Ui/rescuepisiwidget.py:75
 msgid "To use PiSi's history feature, you may need to be online. Select connection profile."
@@ -582,27 +574,24 @@ msgid "Select Connection"
 msgstr "Seleccionar Conexión"
 
 #: yali/gui/Ui/rescuepisiwidget.py:77
-#, fuzzy
 msgid "Select the operation to undo:"
-msgstr "Operación a deshacer:"
+msgstr "Seleccione la operación a deshacer:"
 
 #: yali/gui/Ui/rescuewidget.py:93
 msgid "Choose what do you want to do to repair your system:"
-msgstr ""
+msgstr "Elija de que manera desea reparar el sistema:"
 
 #: yali/gui/Ui/rescuewidget.py:94
-#, fuzzy
 msgid "Reinstall GRUB bootloader"
 msgstr "Reinstalar GRUB (problemas de arranque)"
 
 #: yali/gui/Ui/rescuewidget.py:95
 msgid "Return back to a previous system state"
-msgstr ""
+msgstr "Reestablecer un estado anterior del sistema"
 
 #: yali/gui/Ui/rescuewidget.py:96
-#, fuzzy
 msgid "Reset forgotten password"
-msgstr "Estableciendo contraseña de root..."
+msgstr "Reestablecer contraseña"
 
 #: yali/gui/Ui/rescuewidget.py:97 yali/gui/ScrGoodbye.py:53
 #: yali/gui/ScrRescueFinish.py:78 yali/gui/ScrSummary.py:46
@@ -610,14 +599,12 @@ msgid "Restart"
 msgstr "Reiniciar"
 
 #: yali/gui/Ui/rootpasswidget.py:129
-#, fuzzy
 msgid "Administrator password"
-msgstr "Contraseña del Administrador:"
+msgstr "Contraseña de administrador"
 
 #: yali/gui/Ui/rootpasswidget.py:130
-#, fuzzy
 msgid "Confirm password"
-msgstr "Contraseña nueva:"
+msgstr "Confirmar contraseña"
 
 #: yali/gui/Ui/rootpasswidget.py:131
 #, fuzzy
