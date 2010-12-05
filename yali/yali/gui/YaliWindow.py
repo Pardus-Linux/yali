@@ -65,9 +65,7 @@ class HelpWidget(PAbstractBox):
         QTimer.singleShot(1, lambda: self.animate(start = TOPCENTER, stop = TOPCENTER))
 
     def hideHelp(self):
-            self.animate(start = CURRENT,
-                         stop  = TOPCENTER,
-                         direction = OUT)
+        self.animate(start = CURRENT, stop  = TOPCENTER, direction = OUT)
 
     def toggleHelp(self):
         if self.isVisible():

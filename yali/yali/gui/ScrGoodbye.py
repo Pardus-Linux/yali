@@ -39,8 +39,7 @@ class Widget(QWidget, ScreenWidget):
         self.processPendingActions()
         self.steps.slotRunOperations()
 
-        if not ctx.mainScreen.ui.helpContent.isVisible():
-            ctx.mainScreen.slotToggleHelp()
+        ctx.mainScreen.pds_helper.toggleHelp()
 
         self.ui.label.setPixmap(QPixmap(":/gui/pics/goodbye.png"))
         ctx.interface.informationWindow.hide()
