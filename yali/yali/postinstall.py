@@ -100,7 +100,9 @@ def connectToDBus():
 def setHostName():
     global bus
     obj = bus.get_object("tr.org.pardus.comar", "/package/baselayout")
-    if ctx.flags.install_type == ctx.STEP_FIRST_BOOT or ctx.flags.install_type == ctx.STEP_DEFAULT:
+    if ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
+        yali.util.run_batch("hostname", [str(ctx.installData.hostName)])
+    elif ctx.flags.install_type == ctx.STEP_DEFAULT:
         obj.setHostName(str(ctx.installData.hostName), dbus_interface="tr.org.pardus.comar.Network.Stack")
     elif ctx.flags.install_type == ctx.STEP_BASE:
         obj.setHostName(str(yali.util.product_release()), dbus_interface="tr.org.pardus.comar.Network.Stack")
