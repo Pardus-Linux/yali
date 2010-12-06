@@ -67,11 +67,6 @@ class User:
         not_allowed_chars = '\n' + ':'
         return '' == filter(lambda r: [x for x in not_allowed_chars if x == r], self.realname)
 
-    def passwordIsValid(self):
-        if not len(self.passwd) or filter(lambda x: not x in string.ascii_letters, self.passwd):
-            return False
-        return True
-
     # KDE AutoLogin
     def setAutoLogin(self, state=True):
         """ Sets the KDE's Autologin feature's state """

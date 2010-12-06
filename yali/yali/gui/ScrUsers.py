@@ -276,9 +276,6 @@ class Widget(QWidget, ScreenWidget):
         elif not user.realnameIsValid():
             self.showError(_("The real name contains invalid characters."))
             return False
-        elif not user.passwordIsValid():
-            self.showError(_("The password contains invalid characters."))
-            return False
 
         # Dont check in edit mode
         if self.ui.addMoreUsers.isChecked() and self.ui.userIDCheck.isChecked():
