@@ -72,7 +72,8 @@ class Constants:
         self.__c.session_file = os.path.join(self.__c.target_dir, "root/session.xml")
         self.__c.source_dir = "/mnt/cdrom"
         self.__c.tmp_mnt_dir = "/tmp/check"
-        self.__c.dbus_socket = os.path.join(self.__c.target_dir,"var/run/dbus/system_bus_socket")
+        self.__c.target_dbus_socket = os.path.join(self.__c.target_dir,"var/run/dbus/system_bus_socket")
+        self.__c.dbus_socket = "/var/run/dbus/system_bus_socket"
         self.__c.repo_uri = os.path.join(self.__c.source_dir, "repo/pisi-index.xml.bz2")
         self.__c.pisi_collection_file = os.path.join(self.__c.data_dir, "data/index/collection.xml")
         self.__c.pisi_collection_dir = os.path.join(self.__c.data_dir, "data/index")

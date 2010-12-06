@@ -55,7 +55,9 @@ class Widget(QWidget, ScreenWidget):
     def backCheck(self):
         self.timer.stop()
         ctx.interface.informationWindow.hide()
-        ctx.mainScreen.ui.buttonNext.setText(_("Next"))
+        if ctx.flags.install_type == ctx.STEP_BASE or ctx.flags.install_type == ctx.STEP_DEFAULT:
+            ctx.mainScreen.ui.buttonNext.setText(_("Next"))
+
         if (ctx.flags.install_type == ctx.STEP_BASE or ctx.flags.install_type == ctx.STEP_DEFAULT) \
            and not ctx.flags.collection:
             ctx.mainScreen.step_increment = 2
@@ -70,7 +72,11 @@ class Widget(QWidget, ScreenWidget):
 
     def shown(self):
         #ctx.mainScreen.disableNext()
-        ctx.mainScreen.ui.buttonNext.setText(_("Start Installation"))
+        if ctx.flags.install_type == ctx.STEP_BASE or ctx.flags.install_type == ctx.STEP_DEFAULT:
+            ctx.mainScreen.ui.buttonNext.setText(_("Start Installation"))
+        if ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
+            ctx.mainScreen.ui.buttonNext.setText(_("Apply Settings"))
+
         if ctx.installData.isKahyaUsed:
             self.startBombCounter()
         self.fillContent()
@@ -218,6 +224,7 @@ class Widget(QWidget, ScreenWidget):
             return False
 
         elif ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
+            ctx.mainScreen.ui.buttonNext.setText(_("Next"))
             return True
 
 

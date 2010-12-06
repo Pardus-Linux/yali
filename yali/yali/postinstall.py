@@ -88,7 +88,12 @@ def connectToDBus():
     for i in range(40):
         try:
             ctx.logger.debug("trying to start dbus..")
-            bus = dbus.bus.BusConnection(address_or_type="unix:path=%s" % ctx.consts.dbus_socket)
+            if ctx.flags.install_type == ctx.STEP_BASE or ctx.flags.install_type == ctx.STEP_DEFAULT:
+                bus = dbus.bus.BusConnection(address_or_type="unix:path=%s" % ctx.consts.target_dbus_socket)
+
+            if ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
+                bus = dbus.bus.BusConnection(address_or_type="unix:path=%s" % ctx.consts.dbus_socket)
+
             break
         except dbus.DBusException:
             time.sleep(2)
@@ -105,7 +110,8 @@ def setHostName():
         obj.setHostName(str(ctx.installData.hostName), dbus_interface="tr.org.pardus.comar.Network.Stack")
     elif ctx.flags.install_type == ctx.STEP_DEFAULT:
         obj.setHostName(str(ctx.installData.hostName), dbus_interface="tr.org.pardus.comar.Network.Stack")
-    elif ctx.flags.install_type == ctx.STEP_BASE:
+
+    if ctx.flags.install_type == ctx.STEP_BASE:
         obj.setHostName(str(yali.util.product_release()), dbus_interface="tr.org.pardus.comar.Network.Stack")
 
     ctx.logger.debug("Hostname set as %s" % ctx.installData.hostName)
@@ -113,19 +119,36 @@ def setHostName():
 
 def get_users():
     import comar
-    link = comar.Link(socket=ctx.consts.dbus_socket)
+    link = None
+    if ctx.flags.install_type == ctx.STEP_BASE or ctx.flags.install_type == ctx.STEP_DEFAULT:
+        link = comar.Link(socket=ctx.consts.target_dbus_socket)
+
+    if ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
+        link = comar.Link(socket=ctx.consts.dbus_socket)
+
     users = link.User.Manager["baselayout"].userList()
     return filter(lambda user: user[0]==0 or (user[0]>=1000 and user[0]<=65000), users)
 
 def setUserPass(uid, password):
     import comar
-    link = comar.Link(socket=ctx.consts.dbus_socket)
+    link = None
+    if ctx.flags.install_type == ctx.STEP_BASE or ctx.flags.install_type == ctx.STEP_DEFAULT:
+        link = comar.Link(socket=ctx.consts.target_dbus_socket)
+
+    if ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
+        link = comar.Link(socket=ctx.consts.dbus_socket)
+
     info = link.User.Manager["baselayout"].userInfo(uid)
     return link.User.Manager["baselayout"].setUser(uid, info[1], info[3], info[4], password, info[5])
 
 def getConnectionList():
     import comar
-    link = comar.Link(socket=ctx.consts.dbus_socket)
+    if ctx.flags.install_type == ctx.STEP_BASE or ctx.flags.install_type == ctx.STEP_DEFAULT:
+        link = comar.Link(socket=ctx.consts.target_dbus_socket)
+
+    if ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
+        link = comar.Link(socket=ctx.consts.dbus_socket)
+
     results = {}
     for package in link.Network.Link:
         results[package] = list(link.Network.Link[package].connections())
@@ -133,12 +156,21 @@ def getConnectionList():
 
 def connectTo(package, profile):
     import comar
-    link = comar.Link(socket=ctx.consts.dbus_socket)
+    if ctx.flags.install_type == ctx.STEP_BASE or ctx.flags.install_type == ctx.STEP_DEFAULT:
+        link = comar.Link(socket=ctx.consts.target_dbus_socket)
+
+    if ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
+        link = comar.Link(socket=ctx.consts.dbus_socket)
+
     return link.Network.Link[package].setState(profile, "up")
 
 def addUsers():
     import comar
-    link = comar.Link(socket=ctx.consts.dbus_socket)
+    if ctx.flags.install_type == ctx.STEP_BASE or ctx.flags.install_type == ctx.STEP_DEFAULT:
+        link = comar.Link(socket=ctx.consts.target_dbus_socket)
+
+    if ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
+        link = comar.Link(socket=ctx.consts.dbus_socket)
 
     def setNoPassword(uid):
         link.User.Manager["baselayout"].grantAuthorization(uid, "*")
@@ -153,7 +185,12 @@ def addUsers():
         ctx.logger.debug("New user's id is %s" % uid)
 
         # If new user id is different from old one, we need to run a huge chown for it
-        user_home_dir = os.path.join(ctx.consts.target_dir, 'home', user.username)
+        user_home_dir = ""
+        if ctx.flags.install_type == ctx.STEP_BASE or ctx.flags.install_type == ctx.STEP_DEFAULT:
+            user_home_dir = os.path.join(ctx.consts.target_dir, 'home', user.username)
+        if ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
+            user_home_dir = os.path.join('/home', user.username)
+
         user_home_dir_id = os.stat(user_home_dir)[4]
         if not user_home_dir_id == uid:
             ctx.interface.informationWindow.update(_("Preparing home directory for %s...") % user.username)
@@ -177,8 +214,9 @@ def setRootPassword():
     obj = bus.get_object("tr.org.pardus.comar", "/package/baselayout")
     if ctx.flags.install_type == ctx.STEP_FIRST_BOOT or ctx.flags.install_type == ctx.STEP_DEFAULT:
         obj.setUser(0, "", "", "", str(ctx.installData.rootPassword), "", dbus_interface="tr.org.pardus.comar.User.Manager")
-    elif ctx.flags.install_type == ctx.STEP_BASE:
-        obj.setUser(0, "", "", "", str(""), "", dbus_interface="tr.org.pardus.comar.User.Manager")
+
+    if ctx.flags.install_type == ctx.STEP_BASE:
+        obj.setUser(0, "", "", "", str("pardus"), "", dbus_interface="tr.org.pardus.comar.User.Manager")
 
     return True
 
@@ -303,3 +341,7 @@ def installBootloader():
     else:
         ctx.logger.debug("Bootloader installed")
         return True
+
+
+def cleanup():
+    os.system("pisi rm yali yali-theme-pardus yali-branding-pardus")

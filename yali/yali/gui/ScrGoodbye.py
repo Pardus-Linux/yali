@@ -9,7 +9,7 @@
 #
 # Please read the COPYING file.
 #
-
+import sys
 import time
 import gettext
 _ = gettext.translation('yali', fallback=True).ugettext
@@ -48,22 +48,20 @@ class Widget(QWidget, ScreenWidget):
     def execute(self):
         ctx.mainScreen.disableNext()
 
-        ctx.logger.debug("Show restart dialog.")
-        InfoDialog(_("Press <b>Restart</b> to restart the computer."), _("Restart"))
-
-        ctx.interface.informationWindow.update(_("<b>Please wait while restarting...</b>"))
-
-        # remove cd...
-        # if installation type is First Boot
         if not ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
+            ctx.logger.debug("Show restart dialog.")
+            InfoDialog(_("Press <b>Restart</b> to restart the computer."), _("Restart"))
+            ctx.interface.informationWindow.update(_("<b>Please wait while restarting...</b>"))
             ctx.logger.debug("Trying to eject the CD.")
             yali.util.eject()
+            ctx.logger.debug("Yali, reboot calling..")
+            ctx.mainScreen.processEvents()
+            time.sleep(4)
+            yali.util.reboot()
+        else:
+            sys.exit(0)
 
-        ctx.logger.debug("Yali, reboot calling..")
 
-        ctx.mainScreen.processEvents()
-        time.sleep(4)
-        yali.util.reboot()
 
     def processPendingActions(self):
         self.steps.setOperations([{"text":_("Connecting to D-Bus..."), "operation":yali.postinstall.connectToDBus}])
@@ -88,6 +86,7 @@ class Widget(QWidget, ScreenWidget):
 
         if ctx.flags.install_type == ctx.STEP_FIRST_BOOT or ctx.flags.install_type == ctx.STEP_DEFAULT:
             steps.append({"text":_("Adding users..."), "operation":yali.postinstall.addUsers})
+            steps.append({"text":_("Cleanup systems..."), "operation":yali.postinstall.cleanup})
 
         if ctx.flags.install_type == ctx.STEP_BASE  or ctx.flags.install_type == ctx.STEP_DEFAULT:
             steps.extend(base_steps)
