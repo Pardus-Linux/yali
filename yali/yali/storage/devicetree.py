@@ -16,6 +16,7 @@ from udev import *
 from operations import *
 from library import lvm
 from library import raid
+from library import devicemapper
 from partitioning import shouldClear, CLEARPART_TYPE_ALL, CLEARPART_TYPE_LINUX, CLEARPART_TYPE_NONE
 from devices.device import DeviceNotFoundError, deviceNameToDiskByPath, devicePathToName
 from devices.nodevice import NoDevice
@@ -27,7 +28,6 @@ from devices.logicalvolume import LogicalVolume
 from devices.disk import Disk
 from devices.opticaldevice import OpticalDevice
 from devices.partition import Partition
-from library.devicemapper import DeviceMapperError, name_from_dm_node
 from formats.disklabel import InvalidDiskLabelError, DiskLabelCommitError
 from formats.filesystem import FilesystemError
 from formats.raidmember import RaidMember
@@ -781,7 +781,7 @@ class DeviceTree(object):
         for slave_name in slave_names:
             # if it's a dm-X name, resolve it to a map name
             if slave_name.startswith("dm-"):
-                dev_name = devicemapper.name_from_dm_node(slave_name)
+                dev_name = devicemapper.devicemapper.name_from_dm_node(slave_name)
             else:
                 dev_name = slave_name
             slave_dev = self.getDeviceByName(dev_name)
@@ -834,7 +834,7 @@ class DeviceTree(object):
                     # XXX should we take the name already in use?
                     device = devicemapperdevice
                     break
-            except DeviceMapperError:
+            except devicemapper.DeviceMapperError:
                 # This is a little lame, but the VG device is a DMDevice
                 # and it won't have a dm node. At any rate, this is not
                 # important enough to crash the install.
