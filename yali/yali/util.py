@@ -123,8 +123,10 @@ def get_edd_dict(devices):
 def run_batch(cmd, argv):
     """Run command and report return value and output."""
     ctx.logger.info('Running %s' % "".join(cmd))
-    cmd = "LC_ALL=C %s %s" % (cmd, ' '.join(argv))
-    p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    env = os.environ.copy()
+    env.update({"LC_ALL": "C"})
+    cmd = "%s %s" % (cmd, ' '.join(argv))
+    p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, env=env)
     out, err = p.communicate()
     ctx.logger.debug('return value for "%(command)s" is %(return)s' % {"command":cmd, "return":p.returncode})
     return (p.returncode, out, err)
