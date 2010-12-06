@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\\n\"\\nX-Generator: Lokalize 0.3\\n\n"
+"Plural-Forms: nplurals=1; plural=0;\\n\"\\nX-Generator: Lokalize 0.3\\n\\n\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:74 yali/gui/Ui/autopartquestion.py:82
 #: yali/gui/Ui/autopartwidget.py:152 yali/gui/Ui/bg.py:36
@@ -397,7 +397,7 @@ msgstr "Bölümü Yeniden Boyutlandır"
 
 #: yali/gui/Ui/partedit.py:180
 msgid "Changes will be applied after Summary Screen."
-msgstr ""
+msgstr "Değişiklikler özet ekranından sonra uygulanacak"
 
 #: yali/gui/Ui/partedit.py:181
 msgid "Refresh Disks"
@@ -412,9 +412,8 @@ msgid "Apply"
 msgstr "Uygula"
 
 #: yali/gui/Ui/partitionedit.py:134
-#, fuzzy
 msgid "Partition Action"
-msgstr "Disk Bölümü Ayarları"
+msgstr "Disk bölüm hareketi"
 
 #: yali/gui/Ui/partitionedit.py:140
 msgid "Force to be primary partition"
@@ -425,9 +424,8 @@ msgid "Use as:"
 msgstr "Farklı kullan:"
 
 #: yali/gui/Ui/partition.py:152
-#, fuzzy
 msgid "Force to be a primary partition"
-msgstr "Raid olarak biçimlendirilmiş bölüm oluştur"
+msgstr "Birincil bölüm olmaya zorla"
 
 #: yali/gui/Ui/partition.py:153
 msgid "Allowable Drives:"
