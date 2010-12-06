@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\\n\"\\nX-Generator: Lokalize 1.1\\n\\n\\n\n"
+"Plural-Forms: nplurals=1; plural=0;\\n\"\\nX-Generator: Lokalize 1.1\\n\\n\\n\\n\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:74 yali/gui/Ui/autopartquestion.py:82
 #: yali/gui/Ui/autopartwidget.py:152 yali/gui/Ui/bg.py:36
@@ -60,7 +60,7 @@ msgstr "PAE Çekirdek"
 
 #: yali/gui/Ui/autopartquestion.py:83
 msgid "There appears to be more than one resizeable partition. You can select a partition from the list below or YALI will select one for you."
-msgstr ""
+msgstr "Yeniden boyutlandırabili birden falza disk bölümü görünüyor. Aşağıdaki listeden bir disk bölümü seçebilirsiniz veya YALI sizin için bir tane seçecek."
 
 #: yali/gui/Ui/autopartquestion.py:84 yali/gui/Ui/connectionlist.py:76
 #: yali/gui/Ui/dialog.py:65
@@ -110,7 +110,7 @@ msgstr ""
 
 #: yali/gui/Ui/checkcdwidget.py:198
 msgid "You can validate the integrity of the installation packages. Although this is an optional step, we highly recommend to do the validation in order to avoid any possible errors during the installation process."
-msgstr ""
+msgstr "Kurulum paketlerinin doğruluğunu kontrol edebilirsiniz. Bu seçenek isteğe bağlı olmasına rağmen kurulum sürecinde olası bir hatadan kaçınmak için yapmanızı şiddetle öneriyoruz."
 
 #: yali/gui/Ui/checkcdwidget.py:199
 msgid "Validation failed"
@@ -126,7 +126,7 @@ msgstr "Doğrula"
 
 #: yali/gui/Ui/connectionlist.py:75
 msgid "To use PiSi History support, you may need to be online. You can use a connection profile from the list below:"
-msgstr ""
+msgstr "PİSİ Geçmiş desteği kullanmak için internet bağlantısına ihtiyacınız var. Aşağıdaki listeden bir bağlantı profili kullanabilirsiniz.:"
 
 #: yali/gui/Ui/connectionlist.py:77
 msgid "Connect"
@@ -199,7 +199,7 @@ msgstr "SS:dd:ss"
 
 #: yali/gui/Ui/datetimewidget.py:174
 msgid "Timezone"
-msgstr ""
+msgstr "Zaman Dilimi"
 
 #: yali/gui/Ui/diskItem.py:93 yali/gui/Ui/diskItem.py:94
 #: yali/gui/Ui/installwidget.py:117
@@ -514,7 +514,7 @@ msgstr "Aşağıdaki disk seçildi"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:110
 msgid "Choose the user you want to reset the password:"
-msgstr ""
+msgstr "Şifresini sıfırlamak istediğiniz kullanıcıyı seçiniz:"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:111
 msgid "New password:"
@@ -522,7 +522,7 @@ msgstr "Yeni parola:"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:112
 msgid "New password (Again):"
-msgstr ""
+msgstr "Yeni şifre (Tekrar):"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:113
 msgid "Reset Password"
@@ -615,7 +615,7 @@ msgstr "Önerilmez"
 
 #: yali/gui/Ui/setupuserswidget.py:521
 msgid "Bypass authorization attempts for this user"
-msgstr ""
+msgstr "Bu kullanıcı için yetkilendirme girişimini geç"
 
 #: yali/gui/Ui/setupuserswidget.py:522
 msgid "Add user to administrator (wheel) group"
@@ -636,7 +636,7 @@ msgstr "Gelişmiş"
 
 #: yali/gui/Ui/summarywidget.py:114
 msgid "When checked, YALI will install all of the officially supported language packages on your system."
-msgstr ""
+msgstr "YALI kontrol ettikten sonra sisteminize resmi olarak desteklenen dil paketlerini yükleyecek."
 
 #: yali/gui/Ui/summarywidget.py:115
 msgid "Install all language packages"
