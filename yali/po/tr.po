@@ -2,7 +2,7 @@
 # translation of tr.po to
 # Copyright (C) 2005-2011
 # This file is distributed under the same license as the yali4 package.
-#
+# 
 # Barış Metin <baris@uludag.org.tr>, 2005.
 # Barış Metin <baris@pardus.org.tr>, 2006.
 # Ali Işıngör <ali@artistanbulpr.com>, 2006.
@@ -22,11 +22,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\\n"
-"\"\\n"
-"X-Generator: Lokalize 1.1\n"
-"\\n"
-"\n"
+"Plural-Forms: nplurals=1; plural=0;\\n\"\\nX-Generator: Lokalize 1.1\n"
+"\\n\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:74 yali/gui/Ui/autopartquestion.py:82
 #: yali/gui/Ui/autopartwidget.py:152 yali/gui/Ui/bg.py:36
@@ -73,7 +70,7 @@ msgstr "X"
 
 #: yali/gui/Ui/autopartquestion.py:85
 msgid "Automatically choose the partition to resize (recommended)"
-msgstr ""
+msgstr "Disk boyutunu otomatik olarak seç (önerilen)"
 
 #: yali/gui/Ui/autopartquestion.py:86
 msgid "I will choose the target"
@@ -345,7 +342,7 @@ msgstr "Ekran Adı"
 
 #: yali/gui/Ui/main.py:251
 msgid "Welcome to YALI, the Pardus installer. YALI will guide you through the installation process. Welcome to YALI, the Pardus installer. YALI will guide you through the installation process.Welcome to YALI, the Pardus installer. YALI will guide you through the installation process.Welcome to YALI, the Pardus installer. YALI will guide you through the installation process.Welcome to YALI, the Pardus installer. YALI will guide you through the installation process.Welcome to YALI, the Pardus installer. YALI will guide you through the installation process.Welcome to YALI, the Pardus installer. YALI will guide you through the installation process."
-msgstr ""
+msgstr "Pardus yükleyicisi YALI'ya hoşgeldiniz. YALI yükleme sürecinde size rehberlik edecek. Pardus yükleyicisi YALI'ya hoşgeldiniz. YALI yükleme sürecinde size rehberlik edecek. Pardus yükleyicisi YALI'ya hoşgeldiniz. YALI yükleme sürecinde size rehberlik edecek. Pardus yükleyicisi YALI'ya hoşgeldiniz. YALI yükleme sürecinde size rehberlik edecek. Pardus yükleyicisi YALI'ya hoşgeldiniz. YALI yükleme sürecinde size rehberlik edecek. Pardus yükleyicisi YALI'ya hoşgeldiniz. YALI yükleme sürecinde size rehberlik edecek. "
 
 #: yali/gui/Ui/manualpartwidget.py:133
 msgid "Device"
@@ -489,14 +486,12 @@ msgid "Filesystem:"
 msgstr "Dosya sistemi:"
 
 #: yali/gui/Ui/raid.py:100
-#, fuzzy
 msgid "Raid Level:"
-msgstr "Geçersiz Raid Üyeleri"
+msgstr "Raid seviyesi:"
 
 #: yali/gui/Ui/raid.py:101
-#, fuzzy
 msgid "Raid Members:"
-msgstr "Geçersiz Raid Üyeleri"
+msgstr "Raid üyeleri:"
 
 #: yali/gui/Ui/raid.py:102
 msgid "Number of spares:"
@@ -2012,5 +2007,3 @@ msgstr "Sürüm dosyası uyumsuz"
 #: yali/util.py:452 yali/util.py:495
 msgid "Invalid xml file"
 msgstr "Geçersiz xml dosyası"
-
-
