@@ -22,8 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\\n\"\\nX-Generator: Lokalize 1.1\n"
-"\\n\n"
+"Plural-Forms: nplurals=1; plural=0;\\n\"\\nX-Generator: Lokalize 1.1\\n\\n\\n\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:74 yali/gui/Ui/autopartquestion.py:82
 #: yali/gui/Ui/autopartwidget.py:152 yali/gui/Ui/bg.py:36
@@ -507,11 +506,11 @@ msgstr ""
 
 #: yali/gui/Ui/rescuegrubwidget.py:84
 msgid "Disk partition where Pardus is installed"
-msgstr ""
+msgstr "Pardus'un yükleneceği disk bölümü"
 
 #: yali/gui/Ui/rescuegrubwidget.py:85
 msgid "Selected disk below"
-msgstr ""
+msgstr "Aşağıdaki disk seçildi"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:110
 msgid "Choose the user you want to reset the password:"
@@ -539,7 +538,7 @@ msgstr ""
 
 #: yali/gui/Ui/rescuepisiwidget.py:73
 msgid "<b>Connection status:</b>"
-msgstr ""
+msgstr "<b>Bağlantı durumu:</b>"
 
 #: yali/gui/Ui/rescuepisiwidget.py:74
 msgid "Offline"
@@ -547,7 +546,7 @@ msgstr "Çevrimdışı"
 
 #: yali/gui/Ui/rescuepisiwidget.py:75
 msgid "To use PiSi's history feature, you may need to be online. Select connection profile."
-msgstr ""
+msgstr "PİSİ'nin geçmiş özelliğini kullanabilmek için inernet bağlantısına ihtiyacınız var. Bağlatı profilini seçiniz."
 
 #: yali/gui/Ui/rescuepisiwidget.py:76
 msgid "Select Connection"
@@ -559,21 +558,19 @@ msgstr "Geri alınacak işlemi seç:"
 
 #: yali/gui/Ui/rescuewidget.py:93
 msgid "Choose what do you want to do to repair your system:"
-msgstr ""
+msgstr "Sisteminizde tamir etmek istediğiniz şeyi seçiniz:"
 
 #: yali/gui/Ui/rescuewidget.py:94
-#, fuzzy
 msgid "Reinstall GRUB bootloader"
-msgstr "Açılış yöneticisi yükleniyor..."
+msgstr "GRUB'u yeniden yükle"
 
 #: yali/gui/Ui/rescuewidget.py:95
 msgid "Return back to a previous system state"
-msgstr ""
+msgstr "Önceki sistem konumuna geri dön"
 
 #: yali/gui/Ui/rescuewidget.py:96
-#, fuzzy
 msgid "Reset forgotten password"
-msgstr "Root parolası ayarlanıyor..."
+msgstr "Unutulan şifreleri sıfırla"
 
 #: yali/gui/Ui/rescuewidget.py:97 yali/gui/ScrGoodbye.py:53
 #: yali/gui/ScrRescueFinish.py:78 yali/gui/ScrSummary.py:46
@@ -626,7 +623,7 @@ msgstr ""
 
 #: yali/gui/Ui/setupuserswidget.py:523
 msgid "Select auto login user"
-msgstr ""
+msgstr "Otomatik kullanıcı girişini seç"
 
 #: yali/gui/Ui/setupuserswidget.py:524 yali/gui/Ui/volumegroup.py:104
 #: yali/gui/ScrUsers.py:293 yali/gui/ScrUsers.py:335 yali/gui/ScrUsers.py:413
@@ -647,41 +644,35 @@ msgstr "Tüm dil paketlerini kur"
 
 #: yali/gui/Ui/volumegroup.py:96
 msgid "Volume Group Name:"
-msgstr ""
+msgstr "Birim Grup Adı:"
 
 #: yali/gui/Ui/volumegroup.py:97
 msgid "Physical Extends"
-msgstr ""
+msgstr "Fiziksel Uzantılar"
 
 #: yali/gui/Ui/volumegroup.py:98
-#, fuzzy
 msgid "Physical Volumes to use:"
-msgstr "Fiziksel Birim"
+msgstr "Kullanılacak Fiziksel Birimler:"
 
 #: yali/gui/Ui/volumegroup.py:99
-#, fuzzy
 msgid "Total Space:"
-msgstr "Boş Alanın Kullan"
+msgstr "Toplam Alan:"
 
 #: yali/gui/Ui/volumegroup.py:100
-#, fuzzy
 msgid "Free Space:"
-msgstr "Boş Alanın Kullan"
+msgstr "Boş Alan:"
 
 #: yali/gui/Ui/volumegroup.py:101
-#, fuzzy
 msgid "Logical Volumes"
-msgstr "Mantıksal Birim"
+msgstr "Mantıksal Birimler"
 
 #: yali/gui/Ui/volumegroup.py:102
-#, fuzzy
 msgid "Mountpoint"
-msgstr "Kullanımdaki bağlama noktası"
+msgstr "Bağlama Noktası"
 
 #: yali/gui/Ui/volumegroup.py:107
-#, fuzzy
 msgid "Used Space:"
-msgstr "Boş Alanın Tamamını Kullan"
+msgstr "Kullanılan Alan:"
 
 #: yali/gui/Ui/welcome.py:85
 msgid "There are a few more steps to take before your system is ready to use.The agent will now guide you through some basic configuration.Please click the \"Next\"  button in the lower corner right to continue."
