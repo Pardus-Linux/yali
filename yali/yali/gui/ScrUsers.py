@@ -221,8 +221,6 @@ class Widget(QWidget, ScreenWidget):
         elif len(password) == len(password_confirm) and len(password_confirm) < 4 and not password =='':
             self.showError(_('Password is too short'))
             return
-        elif filter(lambda x: not x in string.ascii_letters, password):
-            self.showError(_("Don't use invalid characters"))
         else:
             ctx.interface.informationWindow.hide()
 
