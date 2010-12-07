@@ -248,7 +248,6 @@ msgid "Form3"
 msgstr ":"
 
 #: yali/gui/Ui/keyboardwidget.py:128
-#, fuzzy
 msgid "Keyboard Layouts"
 msgstr "Раскладки клавиатуры"
 
@@ -259,10 +258,7 @@ msgstr "Проверить раскладку"
 #: yali/gui/Ui/license.py:104
 #, fuzzy
 msgid "All software by TUBITAK Pardus is licensed under the terms of <a href=\"#\"><span style=\" text-decoration: underline; color:#56a2c0;\">GNU General Public License</span></a> which you must accept in order to install and use Pardus."
-msgstr ""
-"Все программное обеспечение TUBITAK Pardus лицензировано под <a href=\"#\"><span style=\" text-decoration: underline; color:#56a2c0;\">GNU General Public License</span></a>, вы должны принять, чтобы установить и использовать Pardus.\r\n"
-"\r\n"
-"Comment krab: перефразировать."
+msgstr "Все программное обеспечение TUBITAK Pardus лицензировано под <a href=\"#\"><span style=\" text-decoration: underline; color:#56a2c0;\">GNU General Public License</span></a>, вы должны принять, чтобы установить и использовать Pardus."
 
 #: yali/gui/Ui/license.py:105
 msgid "I understand and accept the terms of GNU GPL"
@@ -348,39 +344,38 @@ msgid "Screen Name"
 msgstr ""
 
 #: yali/gui/Ui/main.py:251
+#, fuzzy
 msgid "Welcome to YALI, the Pardus installer. YALI will guide you through the installation process. Welcome to YALI, the Pardus installer. YALI will guide you through the installation process.Welcome to YALI, the Pardus installer. YALI will guide you through the installation process.Welcome to YALI, the Pardus installer. YALI will guide you through the installation process.Welcome to YALI, the Pardus installer. YALI will guide you through the installation process.Welcome to YALI, the Pardus installer. YALI will guide you through the installation process.Welcome to YALI, the Pardus installer. YALI will guide you through the installation process."
-msgstr ""
+msgstr "Добро пожаловать в Yali, установщик Pardus. Yali будет помогать вам в процессе установки. Добро пожаловать в Yali, установщик Pardus.Yali будет помогать вам в процессе установки. Добро пожаловать в Yali, установщик Pardus. Yali будет помогать вам в процессе установки.Добро пожаловать в Yali, установщик Pardus. Yali будет помогать вам в процессе установки.Добро пожаловать в Yali, установщик Pardus. Yali будет помогать вам в процессе установки.Добро пожаловать в Yali, установщик Pardus. Yali будет помогать вам в процессе установки.Добро пожаловать в Yali, установщик Pardus. Yali будет помогать вам в процессе установки."
 
 #: yali/gui/Ui/manualpartwidget.py:133
 msgid "Device"
-msgstr ""
+msgstr "Устройство"
 
 #: yali/gui/Ui/manualpartwidget.py:134
-#, fuzzy
 msgid "Mount Point"
-msgstr "  "
+msgstr "Точка монтирования"
 
 #: yali/gui/Ui/manualpartwidget.py:135
 msgid "Label"
-msgstr ""
+msgstr "Метка"
 
 #: yali/gui/Ui/manualpartwidget.py:136
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 #: yali/gui/Ui/manualpartwidget.py:138 yali/gui/Ui/volumegroup.py:103
-#, fuzzy
 msgid "Size"
-msgstr " :"
+msgstr "Размер"
 
 #: yali/gui/Ui/manualpartwidget.py:139
 msgid "New"
-msgstr ""
+msgstr "Новый"
 
 #: yali/gui/Ui/manualpartwidget.py:140 yali/gui/Ui/setupuserswidget.py:525
 #: yali/gui/Ui/volumegroup.py:105
 msgid "Edit"
-msgstr ""
+msgstr "Изменить"
 
 #: yali/gui/Ui/manualpartwidget.py:141 yali/gui/Ui/setupuserswidget.py:526
 #: yali/gui/Ui/volumegroup.py:106 yali/gui/lvm_gui.py:553
@@ -389,31 +384,28 @@ msgstr "Удалить"
 
 #: yali/gui/Ui/manualpartwidget.py:142
 msgid "Reset"
-msgstr ""
+msgstr "Сброс"
 
 #: yali/gui/Ui/partedit.py:171 yali/gui/Ui/partitionedit.py:135
 msgid "Partition 1 on FUJISTU - /dev/sda1"
-msgstr ""
+msgstr "Раздел 1 на FUJISTU - /dev/sda1"
 
 #: yali/gui/Ui/partedit.py:175
 #, fuzzy
 msgid "Format :"
-msgstr ":"
+msgstr "Форматировать:"
 
 #: yali/gui/Ui/partedit.py:176
-#, fuzzy
 msgid "Yes, format this partition"
-msgstr "   LVM"
+msgstr "Сбросить все изменения"
 
 #: yali/gui/Ui/partedit.py:178
-#, fuzzy
 msgid "Delete Partition"
-msgstr " "
+msgstr "Применить"
 
 #: yali/gui/Ui/partedit.py:179
-#, fuzzy
 msgid "Resize Partition"
-msgstr " "
+msgstr ""
 
 #: yali/gui/Ui/partedit.py:180
 msgid "Changes will be applied after Summary Screen."
@@ -421,35 +413,35 @@ msgstr ""
 
 #: yali/gui/Ui/partedit.py:181
 msgid "Refresh Disks"
-msgstr ""
+msgstr "Использовать как:"
 
 #: yali/gui/Ui/partedit.py:182
-#, fuzzy
 msgid "Reset All Changes"
-msgstr "  "
-
-#: yali/gui/Ui/partedit.py:183
-msgid "Apply"
 msgstr ""
 
-#: yali/gui/Ui/partitionedit.py:134
+#: yali/gui/Ui/partedit.py:183
 #, fuzzy
+msgid "Apply"
+msgstr "Допустимые диски:"
+
+#: yali/gui/Ui/partitionedit.py:134
 msgid "Partition Action"
-msgstr " "
+msgstr "Какой раздел Вы хотели бы уменьшить, чтобы освободить место для установки?"
 
 #: yali/gui/Ui/partitionedit.py:140
 #, fuzzy
 msgid "Force to be primary partition"
-msgstr "   LVM"
+msgstr "Уменьшить раздел до размера (в Мб)"
 
 #: yali/gui/Ui/partition.py:144
+#, fuzzy
 msgid "Use as:"
-msgstr ""
+msgstr "Уменьшить раздел до размера (в Мб)"
 
 #: yali/gui/Ui/partition.py:152
 #, fuzzy
 msgid "Force to be a primary partition"
-msgstr "   Raid"
+msgstr "Уменьшить"
 
 #: yali/gui/Ui/partition.py:153
 msgid "Allowable Drives:"
@@ -457,7 +449,7 @@ msgstr ""
 
 #: yali/gui/Ui/partitionshrink.py:63 yali/gui/Ui/partitionshrinkwidget.py:90
 msgid "Which partition would you like to shrink to make room for your installation?"
-msgstr ""
+msgstr "Устройство Raid:"
 
 #: yali/gui/Ui/partitionshrink.py:64
 msgid "Shrink partition to size (in MB)"
@@ -465,7 +457,7 @@ msgstr ""
 
 #: yali/gui/Ui/partitionshrinkwidget.py:91
 msgid "Shrink partition to size (in MB) :"
-msgstr ""
+msgstr "Файловая система:"
 
 #: yali/gui/Ui/partitionshrinkwidget.py:93 yali/gui/Ui/partresize.py:98
 #: yali/gui/Ui/setupuserswidget.py:527 yali/gui/lvm_gui.py:421
@@ -477,7 +469,7 @@ msgstr "Отменить"
 
 #: yali/gui/Ui/partitionshrinkwidget.py:94
 msgid "Shrink"
-msgstr ""
+msgstr "Уровень Raid:"
 
 #: yali/gui/Ui/partresize.py:90
 msgid ""
@@ -497,12 +489,11 @@ msgstr " "
 
 #: yali/gui/Ui/raid.py:96
 msgid "Use:"
-msgstr ""
+msgstr "Выберите место для установки загрузчика GRUB"
 
 #: yali/gui/Ui/raid.py:97
-#, fuzzy
 msgid "Filesystem:"
-msgstr "    "
+msgstr "Первый загрузочный диск (рекомендуется)"
 
 #: yali/gui/Ui/raid.py:100
 #, fuzzy
@@ -548,9 +539,8 @@ msgid "New password (Again):"
 msgstr ""
 
 #: yali/gui/Ui/rescuepasswordwidget.py:113
-#, fuzzy
 msgid "Reset Password"
-msgstr "  ..."
+msgstr "Переустановить загрузчик GRUB"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:114
 msgid ""
@@ -558,45 +548,44 @@ msgid ""
 "border-radius:6px;\n"
 "background-color:white;\n"
 "color:#5A2847;"
-msgstr ""
+msgstr "Вернуться обратно к предыдущему состоянию системы"
 
 #: yali/gui/Ui/rescuepisiwidget.py:73
 msgid "<b>Connection status:</b>"
-msgstr ""
+msgstr "Сброс забытого пароля"
 
 #: yali/gui/Ui/rescuepisiwidget.py:74
 msgid "Offline"
-msgstr ""
+msgstr "Пароль администратора"
 
 #: yali/gui/Ui/rescuepisiwidget.py:75
 msgid "To use PiSi's history feature, you may need to be online. Select connection profile."
-msgstr ""
+msgstr "Подтвердите пароль"
 
 #: yali/gui/Ui/rescuepisiwidget.py:76
 msgid "Select Connection"
-msgstr ""
+msgstr "Имя компьютера"
 
 #: yali/gui/Ui/rescuepisiwidget.py:77
 msgid "Select the operation to undo:"
-msgstr ""
+msgstr "Имя пользователя"
 
 #: yali/gui/Ui/rescuewidget.py:93
 msgid "Choose what do you want to do to repair your system:"
-msgstr ""
+msgstr "Настоящее имя"
 
 #: yali/gui/Ui/rescuewidget.py:94
-#, fuzzy
 msgid "Reinstall GRUB bootloader"
-msgstr "Установка загрузчика ..."
+msgstr "Пароль"
 
 #: yali/gui/Ui/rescuewidget.py:95
 msgid "Return back to a previous system state"
-msgstr ""
+msgstr "Подтвердите пароль"
 
 #: yali/gui/Ui/rescuewidget.py:96
 #, fuzzy
 msgid "Reset forgotten password"
-msgstr "  ..."
+msgstr "Пользовательский User ID"
 
 #: yali/gui/Ui/rescuewidget.py:97 yali/gui/ScrGoodbye.py:53
 #: yali/gui/ScrRescueFinish.py:78 yali/gui/ScrSummary.py:46
@@ -605,15 +594,16 @@ msgstr "Перезапуск"
 
 #: yali/gui/Ui/rootpasswidget.py:129
 msgid "Administrator password"
-msgstr ""
+msgstr "Не рекомендуется"
 
 #: yali/gui/Ui/rootpasswidget.py:130
 msgid "Confirm password"
 msgstr ""
 
 #: yali/gui/Ui/rootpasswidget.py:131
+#, fuzzy
 msgid "Computer Name"
-msgstr ""
+msgstr "Добавить пользователя в администраторскую (wheel) группу"
 
 #: yali/gui/Ui/setupuserswidget.py:515
 msgid "User Name"
@@ -621,19 +611,20 @@ msgstr ""
 
 #: yali/gui/Ui/setupuserswidget.py:516
 msgid "Real Name"
-msgstr ""
+msgstr "Добавить"
 
 #: yali/gui/Ui/setupuserswidget.py:517
 msgid "Password"
 msgstr ""
 
 #: yali/gui/Ui/setupuserswidget.py:518
+#, fuzzy
 msgid "Confirm Password"
-msgstr ""
+msgstr "Если выбрано, Yali будет устанавливать все официально поддерживаемые языковые пакеты в вашу систему."
 
 #: yali/gui/Ui/setupuserswidget.py:519
 msgid "Custom User ID"
-msgstr ""
+msgstr "Установить все языковые пакеты"
 
 #: yali/gui/Ui/setupuserswidget.py:520
 msgid "Not recommended"
@@ -687,31 +678,30 @@ msgstr "Physical Volume"
 #: yali/gui/Ui/volumegroup.py:99
 #, fuzzy
 msgid "Total Space:"
-msgstr "  "
+msgstr "Общее пространство:"
 
 #: yali/gui/Ui/volumegroup.py:100
 #, fuzzy
 msgid "Free Space:"
-msgstr "  "
+msgstr "Свободное пространство:"
 
 #: yali/gui/Ui/volumegroup.py:101
-#, fuzzy
 msgid "Logical Volumes"
-msgstr "Logical Volume"
+msgstr "Логические тома"
 
 #: yali/gui/Ui/volumegroup.py:102
 #, fuzzy
 msgid "Mountpoint"
-msgstr "   "
+msgstr "Точка монтирования"
 
 #: yali/gui/Ui/volumegroup.py:107
-#, fuzzy
 msgid "Used Space:"
-msgstr "  "
+msgstr "Использованное пространство:"
 
 #: yali/gui/Ui/welcome.py:85
+#, fuzzy
 msgid "There are a few more steps to take before your system is ready to use.The agent will now guide you through some basic configuration.Please click the \"Next\"  button in the lower corner right to continue."
-msgstr ""
+msgstr "Есть еще несколько шагов, перед тем как ваша система будет готова к работе.Агент поможет вам провести базовую конфигурацию.Пожалуйста, нажмите \\ \"Вперед\" в нижнем правом углу, чтобы продолжить."
 
 #: yali/gui/interface.py:41 yali/gui/interface.py:123
 #: yali/gui/ScrCheckCD.py:92 yali/gui/ScrInstall.py:180
@@ -1118,7 +1108,7 @@ msgstr "    ..."
 
 #: yali/gui/ScrGoodbye.py:78
 msgid "Copying repository index..."
-msgstr ""
+msgstr "Копирование индекса репозитория..."
 
 #: yali/gui/ScrGoodbye.py:79
 msgid "Stopping to D-Bus..."
@@ -1341,7 +1331,7 @@ msgstr ""
 
 #: yali/gui/ScrRescueFinish.py:78
 msgid "Press <b>Restart</b> to restart your system."
-msgstr ""
+msgstr "Нажмите <b>Перезагрузка,</b> чтобы перезагрузить вашу систему."
 
 #: yali/gui/ScrRescueGrub.py:87
 #, python-format
@@ -1547,11 +1537,12 @@ msgstr "   "
 
 #: yali/gui/ScrSummary.py:180
 msgid "PAE Kernel selected"
-msgstr ""
+msgstr "Выбрано ядро с PAE"
 
 #: yali/gui/ScrSummary.py:197
+#, fuzzy
 msgid "Confirm"
-msgstr ""
+msgstr "Подтвердить"
 
 #: yali/gui/ScrSummary.py:198
 msgid ""
@@ -1569,8 +1560,9 @@ msgid "Go Back"
 msgstr " "
 
 #: yali/gui/ScrUsers.py:129 yali/gui/ScrUsers.py:365
+#, fuzzy
 msgid "Update"
-msgstr ""
+msgstr "Обновление"
 
 #: yali/gui/ScrUsers.py:216
 msgid "Don't use your user name or name as a password"
@@ -1667,13 +1659,15 @@ msgstr "    (MB):"
 
 #: yali/gui/YaliDialog.py:220 yali/gui/YaliDialog.py:236
 #: yali/gui/YaliDialog.py:263
+#, fuzzy
 msgid "Yes"
-msgstr ""
+msgstr "Да"
 
 #: yali/gui/YaliDialog.py:222 yali/gui/YaliDialog.py:237
 #: yali/gui/YaliDialog.py:264
+#, fuzzy
 msgid "No"
-msgstr ""
+msgstr "Нет"
 
 #: yali/gui/YaliDialog.py:242
 msgid "Don't ask again"
@@ -1688,8 +1682,9 @@ msgid "Eject Disc"
 msgstr " "
 
 #: yali/gui/YaliDialog.py:288 yali/gui/YaliDialog.py:305
+#, fuzzy
 msgid "OK"
-msgstr ""
+msgstr "ОК"
 
 #: yali/gui/YaliDialog.py:289
 msgid "Please insert a new disc and then click OK"
