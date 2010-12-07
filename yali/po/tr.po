@@ -2,7 +2,7 @@
 # translation of tr.po to
 # Copyright (C) 2005-2011
 # This file is distributed under the same license as the yali4 package.
-# 
+#
 # Barış Metin <baris@uludag.org.tr>, 2005.
 # Barış Metin <baris@pardus.org.tr>, 2006.
 # Ali Işıngör <ali@artistanbulpr.com>, 2006.
@@ -15,14 +15,20 @@ msgstr ""
 "Project-Id-Version: YALI-tr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-12-01 20:26+0200\n"
-"PO-Revision-Date: 2010-12-06 20:55+0200\n"
+"PO-Revision-Date: 2010-12-07 07:54+0200\n"
 "Last-Translator: Ayhan YALÇINSOY <ayhanyalcinsoy@gmail.com>\n"
 "Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\\n\"\\nX-Generator: Lokalize 1.1\\n\\n\\n\\n\n"
+"Plural-Forms: nplurals=1; plural=0;\\n"
+"\"\\n"
+"X-Generator: Lokalize 1.1\n"
+"\\n"
+"\\n"
+"\\n"
+"\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:74 yali/gui/Ui/autopartquestion.py:82
 #: yali/gui/Ui/autopartwidget.py:152 yali/gui/Ui/bg.py:36
@@ -60,7 +66,7 @@ msgstr "PAE Çekirdek"
 
 #: yali/gui/Ui/autopartquestion.py:83
 msgid "There appears to be more than one resizeable partition. You can select a partition from the list below or YALI will select one for you."
-msgstr "Yeniden boyutlandırabili birden falza disk bölümü görünüyor. Aşağıdaki listeden bir disk bölümü seçebilirsiniz veya YALI sizin için bir tane seçecek."
+msgstr "Yeniden boyutlandırabilir birden fazla disk bölümü görünüyor. Aşağıdaki listeden bir disk bölümü seçebilirsiniz veya YALI sizin için bir tane seçecek."
 
 #: yali/gui/Ui/autopartquestion.py:84 yali/gui/Ui/connectionlist.py:76
 #: yali/gui/Ui/dialog.py:65
@@ -126,7 +132,7 @@ msgstr "Doğrula"
 
 #: yali/gui/Ui/connectionlist.py:75
 msgid "To use PiSi History support, you may need to be online. You can use a connection profile from the list below:"
-msgstr "PİSİ Geçmiş desteği kullanmak için internet bağlantısına ihtiyacınız var. Aşağıdaki listeden bir bağlantı profili kullanabilirsiniz.:"
+msgstr "PİSİ Geçmiş desteği kullanmak için internet bağlantısına ihtiyacınız var. Aşağıdaki listeden bir bağlantı profili kullanabilirsiniz:"
 
 #: yali/gui/Ui/connectionlist.py:77
 msgid "Connect"
@@ -486,7 +492,7 @@ msgstr "Dosya sistemi:"
 
 #: yali/gui/Ui/raid.py:100
 msgid "Raid Level:"
-msgstr "Raid seviyesi:"
+msgstr "Raid Seviyesi:"
 
 #: yali/gui/Ui/raid.py:101
 msgid "Raid Members:"
@@ -514,7 +520,7 @@ msgstr "Aşağıdaki disk seçildi"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:110
 msgid "Choose the user you want to reset the password:"
-msgstr "Şifresini sıfırlamak istediğiniz kullanıcıyı seçiniz:"
+msgstr "Parolasını sıfırlamak istediğiniz kullanıcıyı seçiniz:"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:111
 msgid "New password:"
@@ -522,7 +528,7 @@ msgstr "Yeni parola:"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:112
 msgid "New password (Again):"
-msgstr "Yeni şifre (Tekrar):"
+msgstr "Yeni parola (Tekrar):"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:113
 msgid "Reset Password"
@@ -636,7 +642,7 @@ msgstr "Gelişmiş"
 
 #: yali/gui/Ui/summarywidget.py:114
 msgid "When checked, YALI will install all of the officially supported language packages on your system."
-msgstr "YALI kontrol ettikten sonra sisteminize resmi olarak desteklenen dil paketlerini yükleyecek."
+msgstr "Seçiliyse, YALI resmi olarak desteklenen tüm dilleri sisteminize yükleyecek."
 
 #: yali/gui/Ui/summarywidget.py:115
 msgid "Install all language packages"
@@ -1998,3 +2004,5 @@ msgstr "Sürüm dosyası uyumsuz"
 #: yali/util.py:452 yali/util.py:495
 msgid "Invalid xml file"
 msgstr "Geçersiz xml dosyası"
+
+
