@@ -1,6 +1,6 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Attila Siposs <sipiatti@gmail.com>, 2010.
 msgid ""
 msgstr ""
@@ -10,12 +10,12 @@ msgstr ""
 "PO-Revision-Date: 2010-11-28 14:53+0100\n"
 "Last-Translator: Attila Siposs <sipiatti@gmail.com>\n"
 "Language-Team: Hungarian <pardus-translators@pardus.org.tr>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.0\n"
+"Language: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.0\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:74 yali/gui/Ui/autopartquestion.py:82
 #: yali/gui/Ui/autopartwidget.py:152 yali/gui/Ui/bg.py:36
@@ -30,50 +30,48 @@ msgstr ""
 #: yali/gui/Ui/volumegroup.py:95
 #, fuzzy
 msgid "Form"
-msgstr "Formázás"
+msgstr "Űrlap"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 msgid "Choose Installation Method"
-msgstr ""
+msgstr "Válasszon telepítési módot"
 
 #: yali/gui/Ui/autoinstallationwidget.py:76
 msgid "Automatic Installation"
-msgstr ""
+msgstr "Automatikus telepítés"
 
 #: yali/gui/Ui/autoinstallationwidget.py:77
 msgid "Manual Installation"
-msgstr ""
+msgstr "Kézi telepítés"
 
 #: yali/gui/Ui/autoinstallationwidget.py:78
 msgid "Default Kernel"
-msgstr ""
+msgstr "Alapértelmezett kernel"
 
 #: yali/gui/Ui/autoinstallationwidget.py:79
 msgid "PAE Kernel"
-msgstr ""
+msgstr "PAE kernel"
 
 #: yali/gui/Ui/autopartquestion.py:83
-msgid ""
-"There appears to be more than one resizeable partition. You can select a "
-"partition from the list below or YALI will select one for you."
-msgstr ""
+msgid "There appears to be more than one resizeable partition. You can select a partition from the list below or YALI will select one for you."
+msgstr "Úgy tűnik, több átméretezhető partíció is található. Választhat egyet az alábbi listából, vagy a YALI is választhat egyet."
 
 #: yali/gui/Ui/autopartquestion.py:84 yali/gui/Ui/connectionlist.py:76
 #: yali/gui/Ui/dialog.py:65
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: yali/gui/Ui/autopartquestion.py:85
 msgid "Automatically choose the partition to resize (recommended)"
-msgstr ""
+msgstr "Átméretezhető partíció automatikus kiválasztása (javasolt)"
 
 #: yali/gui/Ui/autopartquestion.py:86
 msgid "I will choose the target"
-msgstr ""
+msgstr "Kiválasztom a célterületet"
 
 #: yali/gui/Ui/autopartquestion.py:87
 msgid "Use Selected"
-msgstr ""
+msgstr "A kiválasztott használata"
 
 #: yali/gui/Ui/bootloaderwidget.py:128 yali/gui/Ui/checkcdwidget.py:197
 #: yali/gui/Ui/keyboardwidget.py:127 yali/gui/Ui/kickerwidget.py:30
@@ -81,58 +79,48 @@ msgstr ""
 #: yali/gui/Ui/rescuepasswordwidget.py:109 yali/gui/Ui/rescuepisiwidget.py:72
 #: yali/gui/Ui/rescuewidget.py:92 yali/gui/Ui/rootpasswidget.py:128
 #: yali/gui/Ui/setupuserswidget.py:514 yali/gui/Ui/welcome.py:84
-#, fuzzy
 msgid "Form1"
-msgstr "Formázás"
+msgstr "1. Űrlap"
 
 #: yali/gui/Ui/bootloaderwidget.py:129
-#, fuzzy
 msgid "Advanced settings"
-msgstr "Idő beállítása"
+msgstr "Kibővített beállítási lehetőségek"
 
 #: yali/gui/Ui/bootloaderwidget.py:130
-#, fuzzy
 msgid "Default settings"
-msgstr "Idő beállítása"
+msgstr "Alapértelmezett beállítások"
 
 #: yali/gui/Ui/bootloaderwidget.py:131
-#, fuzzy
 msgid "Don't install bootloader"
-msgstr "Rendszertöltő telepítése..."
+msgstr "Ne telepítsen rendszerbetöltőt"
 
 #: yali/gui/Ui/bootloaderwidget.py:132
 msgid "The partition where Pardus is installed"
-msgstr ""
+msgstr "A partíció, ahová a Pardus telepítére kerül"
 
 #: yali/gui/Ui/bootloaderwidget.py:133
+#, fuzzy
 msgid "The first sector of"
-msgstr ""
+msgstr "Első szektor"
 
 #: yali/gui/Ui/checkcdwidget.py:198
-msgid ""
-"You can validate the integrity of the installation packages. Although this "
-"is an optional step, we highly recommend to do the validation in order to "
-"avoid any possible errors during the installation process."
-msgstr ""
+msgid "You can validate the integrity of the installation packages. Although this is an optional step, we highly recommend to do the validation in order to avoid any possible errors during the installation process."
+msgstr "Ellenőrizheti a telepítő csomagok épségét. Mindamellett hogy ez egy választható lépés, erősen javasolt a végrehajtása, a későbbi telepés során felmerűlő problémák megelőzése érdekében."
 
 #: yali/gui/Ui/checkcdwidget.py:199
-#, fuzzy
 msgid "Validation failed"
-msgstr "Érvényesítés %s"
+msgstr "Az ellenőrzés sikertelen"
 
 #: yali/gui/Ui/checkcdwidget.py:200
-#, fuzzy
 msgid "Validation succeeded"
-msgstr "Érvényesítés %s"
+msgstr "Az ellenőrzés sikeres"
 
 #: yali/gui/Ui/checkcdwidget.py:201 yali/gui/ScrCheckCD.py:60
 msgid "Validate"
 msgstr "Érvényesítés"
 
 #: yali/gui/Ui/connectionlist.py:75
-msgid ""
-"To use PiSi History support, you may need to be online. You can use a "
-"connection profile from the list below:"
+msgid "To use PiSi History support, you may need to be online. You can use a connection profile from the list below:"
 msgstr ""
 
 #: yali/gui/Ui/connectionlist.py:77
@@ -146,16 +134,11 @@ msgstr "Partíció módosítása"
 
 #: yali/gui/Ui/createdevicewidget.py:135
 msgid ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
-"size:8pt;\">General purpose of partition creation</span></p></body></html>"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">General purpose of partition creation</span></p></body></html>"
 msgstr ""
 
 #: yali/gui/Ui/createdevicewidget.py:140 yali/gui/ScrPartitionManual.py:157
@@ -231,17 +214,11 @@ msgstr ""
 
 #: yali/gui/Ui/exception.py:65
 msgid ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Droid Sans'; font-size:8pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">Please fill a bug report "
-"at <span style=\" font-weight:600;\">http://bugs.pardus.org.tr/</span> "
-"attaching the following backtrace.</p></body></html>"
+"</style></head><body style=\" font-family:'Droid Sans'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Please fill a bug report at <span style=\" font-weight:600;\">http://bugs.pardus.org.tr/</span> attaching the following backtrace.</p></body></html>"
 msgstr ""
 
 #: yali/gui/Ui/exception.py:70
@@ -274,11 +251,7 @@ msgid "Test Layout"
 msgstr ""
 
 #: yali/gui/Ui/license.py:104
-msgid ""
-"All software by TUBITAK Pardus is licensed under the terms of <a href=\"#"
-"\"><span style=\" text-decoration: underline; color:#56a2c0;\">GNU General "
-"Public License</span></a> which you must accept in order to install and use "
-"Pardus."
+msgid "All software by TUBITAK Pardus is licensed under the terms of <a href=\"#\"><span style=\" text-decoration: underline; color:#56a2c0;\">GNU General Public License</span></a> which you must accept in order to install and use Pardus."
 msgstr ""
 
 #: yali/gui/Ui/license.py:105
@@ -362,16 +335,7 @@ msgid "Screen Name"
 msgstr ""
 
 #: yali/gui/Ui/main.py:251
-msgid ""
-"Welcome to YALI, the Pardus installer. YALI will guide you through the "
-"installation process. Welcome to YALI, the Pardus installer. YALI will guide "
-"you through the installation process.Welcome to YALI, the Pardus installer. "
-"YALI will guide you through the installation process.Welcome to YALI, the "
-"Pardus installer. YALI will guide you through the installation process."
-"Welcome to YALI, the Pardus installer. YALI will guide you through the "
-"installation process.Welcome to YALI, the Pardus installer. YALI will guide "
-"you through the installation process.Welcome to YALI, the Pardus installer. "
-"YALI will guide you through the installation process."
+msgid "Welcome to YALI, the Pardus installer. YALI will guide you through the installation process. Welcome to YALI, the Pardus installer. YALI will guide you through the installation process.Welcome to YALI, the Pardus installer. YALI will guide you through the installation process.Welcome to YALI, the Pardus installer. YALI will guide you through the installation process.Welcome to YALI, the Pardus installer. YALI will guide you through the installation process.Welcome to YALI, the Pardus installer. YALI will guide you through the installation process.Welcome to YALI, the Pardus installer. YALI will guide you through the installation process."
 msgstr ""
 
 #: yali/gui/Ui/manualpartwidget.py:133
@@ -474,8 +438,7 @@ msgid "Allowable Drives:"
 msgstr ""
 
 #: yali/gui/Ui/partitionshrink.py:63 yali/gui/Ui/partitionshrinkwidget.py:90
-msgid ""
-"Which partition would you like to shrink to make room for your installation?"
+msgid "Which partition would you like to shrink to make room for your installation?"
 msgstr ""
 
 #: yali/gui/Ui/partitionshrink.py:64
@@ -500,30 +463,13 @@ msgstr ""
 
 #: yali/gui/Ui/partresize.py:90
 msgid ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:"
-"#ffffff;\">Changes will be applied when you click \"</span><span style=\" "
-"text-decoration: underline; color:#ffffff;\">Resize</span><span style=\" "
-"color:#ffffff;\">\". To cancel the changes, click \"</span><span style=\" "
-"text-decoration: underline; color:#ffffff;\">Cancel</span><span style=\" "
-"color:#ffffff;\">\".</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
-"color:#ffffff;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px; color:#ffffff;\"><span style="
-"\" font-weight:600; text-decoration: underline;\">Warning:</span> A resizing "
-"operation may corrupt the partition, rendering the data on it unreachable. "
-"Make sure that you have backed up the data.<span style=\" font-weight:600;"
-"\"> </span><span style=\" font-weight:600;\">Note that this operation cannot "
-"be undone.</span></p></body></html>"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#ffffff;\">Changes will be applied when you click \"</span><span style=\" text-decoration: underline; color:#ffffff;\">Resize</span><span style=\" color:#ffffff;\">\". To cancel the changes, click \"</span><span style=\" text-decoration: underline; color:#ffffff;\">Cancel</span><span style=\" color:#ffffff;\">\".</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#ffffff;\"></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#ffffff;\"><span style=\" font-weight:600; text-decoration: underline;\">Warning:</span> A resizing operation may corrupt the partition, rendering the data on it unreachable. Make sure that you have backed up the data.<span style=\" font-weight:600;\"> </span><span style=\" font-weight:600;\">Note that this operation cannot be undone.</span></p></body></html>"
 msgstr ""
 
 #: yali/gui/Ui/raid.py:95
@@ -604,9 +550,7 @@ msgid "Offline"
 msgstr ""
 
 #: yali/gui/Ui/rescuepisiwidget.py:75
-msgid ""
-"To use PiSi's history feature, you may need to be online. Select connection "
-"profile."
+msgid "To use PiSi's history feature, you may need to be online. Select connection profile."
 msgstr ""
 
 #: yali/gui/Ui/rescuepisiwidget.py:76
@@ -699,9 +643,7 @@ msgid "Advanced"
 msgstr "Idő beállítása"
 
 #: yali/gui/Ui/summarywidget.py:114
-msgid ""
-"When checked, YALI will install all of the officially supported language "
-"packages on your system."
+msgid "When checked, YALI will install all of the officially supported language packages on your system."
 msgstr ""
 
 #: yali/gui/Ui/summarywidget.py:115
@@ -749,10 +691,7 @@ msgid "Used Space:"
 msgstr "Nincs szabad hely"
 
 #: yali/gui/Ui/welcome.py:85
-msgid ""
-"There are a few more steps to take before your system is ready to use.The "
-"agent will now guide you through some basic configuration.Please click the "
-"\"Next\"  button in the lower corner right to continue."
+msgid "There are a few more steps to take before your system is ready to use.The agent will now guide you through some basic configuration.Please click the \"Next\"  button in the lower corner right to continue."
 msgstr ""
 
 #: yali/gui/interface.py:41 yali/gui/interface.py:123
@@ -765,12 +704,8 @@ msgstr "Figyelem"
 
 #: yali/gui/interface.py:42
 #, python-format
-msgid ""
-"Disk contains %(members_count)s BIOS RAID metadata, but is not part of any "
-"recognized BIOS RAID sets. Ignoring disk %(members)s."
-msgstr ""
-"A lemez %(members_count)s BIOS RAID metaadatot tartalmaz, de egyik sem tagja "
-"felismert BIOS RAID készletnek. %(members)s lemez figyelmen kívül hagyva."
+msgid "Disk contains %(members_count)s BIOS RAID metadata, but is not part of any recognized BIOS RAID sets. Ignoring disk %(members)s."
+msgstr "A lemez %(members_count)s BIOS RAID metaadatot tartalmaz, de egyik sem tagja felismert BIOS RAID készletnek. %(members)s lemez figyelmen kívül hagyva."
 
 #: yali/gui/interface.py:66 yali/gui/raid_gui.py:122
 #: yali/gui/ScrDriveSelection.py:112
@@ -780,27 +715,23 @@ msgstr "Hiba"
 #: yali/gui/interface.py:67
 #, python-format
 msgid ""
-"Cannot access the partition table of %(description)s(%(name)s) -- "
-"%(size)-0.fMB\n"
+"Cannot access the partition table of %(description)s(%(name)s) -- %(size)-0.fMB\n"
 "\n"
 "If there already exists a partition table on this device, it will\n"
 " be re-initialized and your existing data will be lost!\n"
 "\n"
 "To re-initialize the current disk press Re-initialize.\n"
 "\n"
-"To re-initialize all disks with unaccessible partition tables press Re-"
-"initialize All"
+"To re-initialize all disks with unaccessible partition tables press Re-initialize All"
 msgstr ""
-"A %(description)s(%(name)s) -- %(size)-0.fMB partíciós táblája nem "
-"elérhető.\n"
+"A %(description)s(%(name)s) -- %(size)-0.fMB partíciós táblája nem elérhető.\n"
 "\n"
 "Ha az eszközön van partíciós tábla, akkor az újrainicializálásra\n"
 "kerül, és minden adata elveszik!\n"
 "\n"
 "Az újrainicializáláshoz nyomja meg az 'Újrainicializálás' gombot.\n"
 "\n"
-"Az összes nem olvasható partíciós táblájú lemez újrainicializáláshoz nyomja "
-"meg az 'Összes újrainicializálása' gombot."
+"Az összes nem olvasható partíciós táblájú lemez újrainicializáláshoz nyomja meg az 'Összes újrainicializálása' gombot."
 
 #: yali/gui/interface.py:75 yali/gui/interface.py:130
 msgid "Ignore"
@@ -818,16 +749,10 @@ msgstr "Újrainicializálás"
 #, python-format
 msgid ""
 "Error processing LVM.\n"
-"There is inconsistent LVM data on %(msg)s.  You can reinitialize all related "
-"PVs (%(pvs)s) which will erase the LVM metadata, or ignore which will "
-"preserve the contents.  This action may also be applied to all other PVs "
-"with inconsistent metadata."
+"There is inconsistent LVM data on %(msg)s.  You can reinitialize all related PVs (%(pvs)s) which will erase the LVM metadata, or ignore which will preserve the contents.  This action may also be applied to all other PVs with inconsistent metadata."
 msgstr ""
 "Hiba az LVM feldolgozása közben.\n"
-"Az LVM inkonzisztens adatokat tartalmaz ezen: %(msg)s. Újrainicializálhatja "
-"a vonatkozó köteteket (%(pvs)s), amivel az LVM metaadata törlődik, vagy "
-"mellőzheti, amivel megmarad a tartalma. A művelet az összes többi "
-"inkonzisztens metaadatot tartalmazó kötetre is kiterjeszthető."
+"Az LVM inkonzisztens adatokat tartalmaz ezen: %(msg)s. Újrainicializálhatja a vonatkozó köteteket (%(pvs)s), amivel az LVM metaadata törlődik, vagy mellőzheti, amivel megmarad a tartalma. A művelet az összes többi inkonzisztens metaadatot tartalmazó kötetre is kiterjeszthető."
 
 #: yali/gui/interface.py:130
 msgid "Ignore all"
@@ -934,10 +859,7 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:449
 #, python-format
-msgid ""
-"The physical extent size cannot be changed because the value selected "
-"(%(curpe)10.2f MB) is too large compared to the size of the smallest "
-"physical volume (%(maxpvsize)10.2f MB) in the volume group."
+msgid "The physical extent size cannot be changed because the value selected (%(curpe)10.2f MB) is too large compared to the size of the smallest physical volume (%(maxpvsize)10.2f MB) in the volume group."
 msgstr ""
 "A fizikai extent mérete nem változtatható meg, mert\n"
 "a kiválasztott érték (%(curpe)10.2f MB) túl nagy\n"
@@ -949,19 +871,12 @@ msgid "Too small"
 msgstr "Túl kicsi"
 
 #: yali/gui/lvm_gui.py:462
-msgid ""
-"This change in the value of the physical extent will waste substantial space "
-"on one or more of the physical volumes in the volume group."
-msgstr ""
-"Ez a fizikai extent méret egy vagy több köteten túl sok kihasználatlan "
-"helyfoglaláshoz vezet."
+msgid "This change in the value of the physical extent will waste substantial space on one or more of the physical volumes in the volume group."
+msgstr "Ez a fizikai extent méret egy vagy több köteten túl sok kihasználatlan helyfoglaláshoz vezet."
 
 #: yali/gui/lvm_gui.py:484
 #, python-format
-msgid ""
-"The physical extent size cannot be changed because the resulting maximum "
-"logical volume size (%10.2f MB) is smaller than one or more of "
-"theircurrently defined logical volumes."
+msgid "The physical extent size cannot be changed because the resulting maximum logical volume size (%10.2f MB) is smaller than one or more of theircurrently defined logical volumes."
 msgstr ""
 
 #: yali/gui/lvm_gui.py:505
@@ -1046,20 +961,12 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:690
 #, python-format
-msgid ""
-"The current requested size (%(size)10.2f MB) is larger than the maximum "
-"logical volume size (%(maxlv)10.2f MB). To increase this limit you can "
-"create more Physical Volumes from unpartitioned disk space and add them to "
-"this Volume Group."
+msgid "The current requested size (%(size)10.2f MB) is larger than the maximum logical volume size (%(maxlv)10.2f MB). To increase this limit you can create more Physical Volumes from unpartitioned disk space and add them to this Volume Group."
 msgstr ""
 
 #: yali/gui/lvm_gui.py:712
 #, python-format
-msgid ""
-"The size entered for this logical volume (%(size)d MB) combined with the "
-"size of the other logical volume(s) exceeds the size of the volume group "
-"(%(tmpvgsize)d MB). Please make the volume group larger or make the logical "
-"volume smaller."
+msgid "The size entered for this logical volume (%(size)d MB) combined with the size of the other logical volume(s) exceeds the size of the volume group (%(tmpvgsize)d MB). Please make the volume group larger or make the logical volume smaller."
 msgstr ""
 
 #: yali/gui/partition_gui.py:34
@@ -1086,11 +993,9 @@ msgstr "Érvénytelen Raid tagok"
 
 #: yali/gui/raid_gui.py:31
 msgid ""
-"At least two unused software RAID partitions are needed to create a RAID "
-"device.\n"
+"At least two unused software RAID partitions are needed to create a RAID device.\n"
 "\n"
-"First create at least two partitions of type \"software RAID\", and then "
-"select the \"RAID\" option again."
+"First create at least two partitions of type \"software RAID\", and then select the \"RAID\" option again."
 msgstr ""
 
 #: yali/gui/raid_gui.py:41
@@ -1161,9 +1066,7 @@ msgstr "Érvényesítés %s"
 
 #: yali/gui/ScrCheckCD.py:93
 #, python-format
-msgid ""
-"Validation of %s package failed.Please remaster your installation medium "
-"andreboot."
+msgid "Validation of %s package failed.Please remaster your installation medium andreboot."
 msgstr ""
 
 #: yali/gui/ScrCheckCD.py:97
@@ -1175,12 +1078,8 @@ msgid "Skip Package"
 msgstr "Csomag kihagyása"
 
 #: yali/gui/ScrCheckCD.py:112
-msgid ""
-"<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the "
-"installation.</b></font>"
-msgstr ""
-"<font color=\"#FFF\"><b>Az ellenőrzés sikeres volt. Továbbléphet a "
-"telepítésre.</b></font>"
+msgid "<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the installation.</b></font>"
+msgstr "<font color=\"#FFF\"><b>Az ellenőrzés sikeres volt. Továbbléphet a telepítésre.</b></font>"
 
 #: yali/gui/ScrDateTime.py:89
 msgid "Adjusting time settings"
@@ -1581,9 +1480,7 @@ msgstr ""
 
 #: yali/gui/ScrSummary.py:111
 #, python-format
-msgid ""
-"User %(username)s (<b>%(realname)s</b>) added with <u>administrator "
-"privileges</u>."
+msgid "User %(username)s (<b>%(realname)s</b>) added with <u>administrator privileges</u>."
 msgstr ""
 
 #: yali/gui/ScrSummary.py:117
@@ -1609,9 +1506,7 @@ msgstr ""
 
 #: yali/gui/ScrSummary.py:135
 #, python-format
-msgid ""
-"Removes all partitions on the selected %s device(s). This includes "
-"partitions created by other operating systems."
+msgid "Removes all partitions on the selected %s device(s). This includes partitions created by other operating systems."
 msgstr ""
 
 #: yali/gui/ScrSummary.py:139
@@ -1620,10 +1515,7 @@ msgstr ""
 
 #: yali/gui/ScrSummary.py:140
 #, python-format
-msgid ""
-"Removes all Linux partitions on the selected%s device(s). This does not "
-"remove other partitions you may have on your storage device(s) (such as VFAT "
-"or FAT32)"
+msgid "Removes all Linux partitions on the selected%s device(s). This does not remove other partitions you may have on your storage device(s) (such as VFAT or FAT32)"
 msgstr ""
 
 #: yali/gui/ScrSummary.py:145
@@ -1632,10 +1524,7 @@ msgstr ""
 
 #: yali/gui/ScrSummary.py:146
 #, python-format
-msgid ""
-"Retains your current data and partitions and uses only the unpartitioned "
-"space on the selected %s device(s), assuming you haveenough free space "
-"available."
+msgid "Retains your current data and partitions and uses only the unpartitioned space on the selected %s device(s), assuming you haveenough free space available."
 msgstr ""
 
 #: yali/gui/ScrSummary.py:152
