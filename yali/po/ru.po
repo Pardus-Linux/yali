@@ -58,20 +58,19 @@ msgstr ""
 #: yali/gui/Ui/autopartquestion.py:84 yali/gui/Ui/connectionlist.py:76
 #: yali/gui/Ui/dialog.py:65
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: yali/gui/Ui/autopartquestion.py:85
 msgid "Automatically choose the partition to resize (recommended)"
-msgstr ""
+msgstr "Автоматически выбрать раздел для изменения размера (рекомендуется)"
 
 #: yali/gui/Ui/autopartquestion.py:86
 msgid "I will choose the target"
-msgstr ""
+msgstr "Я сам выберу разделы"
 
 #: yali/gui/Ui/autopartquestion.py:87
-#, fuzzy
 msgid "Use Selected"
-msgstr "  "
+msgstr "Использовать выбранное"
 
 #: yali/gui/Ui/bootloaderwidget.py:128 yali/gui/Ui/checkcdwidget.py:197
 #: yali/gui/Ui/keyboardwidget.py:127 yali/gui/Ui/kickerwidget.py:30
@@ -84,41 +83,36 @@ msgid "Form1"
 msgstr ":"
 
 #: yali/gui/Ui/bootloaderwidget.py:129
-#, fuzzy
 msgid "Advanced settings"
-msgstr "  "
+msgstr "Дополнительные настройки"
 
 #: yali/gui/Ui/bootloaderwidget.py:130
-#, fuzzy
 msgid "Default settings"
-msgstr "  / "
+msgstr "Настройки по умолчанию"
 
 #: yali/gui/Ui/bootloaderwidget.py:131
-#, fuzzy
 msgid "Don't install bootloader"
-msgstr "Установка загрузчика ..."
+msgstr "Не устанавливать загрузчик"
 
 #: yali/gui/Ui/bootloaderwidget.py:132
 msgid "The partition where Pardus is installed"
-msgstr ""
+msgstr "Раздел на котором установлен Pardus"
 
 #: yali/gui/Ui/bootloaderwidget.py:133
 msgid "The first sector of"
-msgstr ""
+msgstr "Первый сектор на"
 
 #: yali/gui/Ui/checkcdwidget.py:198
 msgid "You can validate the integrity of the installation packages. Although this is an optional step, we highly recommend to do the validation in order to avoid any possible errors during the installation process."
-msgstr ""
+msgstr "Вы можете проверить целостность инсталляционных пакетов. Хотя это необязательный шаг, мы настоятельно рекомендуем сделать проверку, чтобы избежать любых возможных ошибок в процессе установки."
 
 #: yali/gui/Ui/checkcdwidget.py:199
-#, fuzzy
 msgid "Validation failed"
-msgstr " %s"
+msgstr "Проверка завершилась с ошибками"
 
 #: yali/gui/Ui/checkcdwidget.py:200
-#, fuzzy
 msgid "Validation succeeded"
-msgstr " %s"
+msgstr "Проверка завершилась успешно"
 
 #: yali/gui/Ui/checkcdwidget.py:201 yali/gui/ScrCheckCD.py:60
 msgid "Validate"
@@ -129,15 +123,16 @@ msgid "To use PiSi History support, you may need to be online. You can use a con
 msgstr ""
 
 #: yali/gui/Ui/connectionlist.py:77
+#, fuzzy
 msgid "Connect"
-msgstr ""
+msgstr "Подключиться"
 
 #: yali/gui/Ui/createdevicewidget.py:134
-#, fuzzy
 msgid "Standard Partition"
-msgstr " "
+msgstr "Стандартный раздел"
 
 #: yali/gui/Ui/createdevicewidget.py:135
+#, fuzzy
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
@@ -145,6 +140,11 @@ msgid ""
 "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">General purpose of partition creation</span></p></body></html>"
 msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">General purpose of partition creation</span></p></body></html>"
 
 #: yali/gui/Ui/createdevicewidget.py:140 yali/gui/ScrPartitionManual.py:157
 msgid "Volume Group"
@@ -152,7 +152,7 @@ msgstr "Volume Group"
 
 #: yali/gui/Ui/createdevicewidget.py:141 yali/gui/ScrPartitionManual.py:158
 msgid "Requires at least 1 free LVM formatted partition"
-msgstr ""
+msgstr "Требуется по меньшей мере 1 свободный LVM отформатированный раздел"
 
 #: yali/gui/Ui/createdevicewidget.py:142 yali/gui/ScrPartitionManual.py:160
 msgid "Logical Volume"
@@ -250,24 +250,28 @@ msgstr ":"
 #: yali/gui/Ui/keyboardwidget.py:128
 #, fuzzy
 msgid "Keyboard Layouts"
-msgstr " "
+msgstr "Раскладки клавиатуры"
 
 #: yali/gui/Ui/keyboardwidget.py:129
 msgid "Test Layout"
-msgstr ""
+msgstr "Проверить раскладку"
 
 #: yali/gui/Ui/license.py:104
+#, fuzzy
 msgid "All software by TUBITAK Pardus is licensed under the terms of <a href=\"#\"><span style=\" text-decoration: underline; color:#56a2c0;\">GNU General Public License</span></a> which you must accept in order to install and use Pardus."
 msgstr ""
+"Все программное обеспечение TUBITAK Pardus лицензировано под <a href=\"#\"><span style=\" text-decoration: underline; color:#56a2c0;\">GNU General Public License</span></a>, вы должны принять, чтобы установить и использовать Pardus.\r\n"
+"\r\n"
+"Comment krab: перефразировать."
 
 #: yali/gui/Ui/license.py:105
 msgid "I understand and accept the terms of GNU GPL"
-msgstr ""
+msgstr "Я понимаю и соглашаюсь с условиями лицензии GNU GPL"
 
 #: yali/gui/Ui/logicalvolume.py:134
 #, fuzzy
 msgid "Logical Volume:"
-msgstr "Logical Volume"
+msgstr "Логический том:"
 
 #: yali/gui/Ui/logicalvolume.py:135 yali/gui/Ui/partedit.py:172
 #: yali/gui/Ui/partitionedit.py:136
@@ -276,69 +280,68 @@ msgstr ""
 
 #: yali/gui/Ui/logicalvolume.py:136 yali/gui/Ui/partedit.py:173
 #: yali/gui/Ui/partitionedit.py:137 yali/gui/Ui/partition.py:145
-#, fuzzy
 msgid "Size :"
-msgstr " :"
+msgstr "Размер:"
 
 #: yali/gui/Ui/logicalvolume.py:137 yali/gui/Ui/logicalvolume.py:139
 #: yali/gui/Ui/partedit.py:174 yali/gui/Ui/partitionedit.py:138
 #: yali/gui/Ui/partition.py:146 yali/gui/Ui/partition.py:148
 #: yali/gui/Ui/partitionshrinkwidget.py:92 yali/gui/Ui/partresize.py:97
 msgid " MB"
-msgstr ""
+msgstr "МБ"
 
 #: yali/gui/Ui/logicalvolume.py:138 yali/gui/Ui/partition.py:147
 #: yali/gui/Ui/partresize.py:99
-#, fuzzy
 msgid "Resize"
-msgstr " :"
+msgstr "Изменить размер"
 
 #: yali/gui/Ui/logicalvolume.py:140 yali/gui/Ui/partedit.py:177
 #: yali/gui/Ui/partitionedit.py:139 yali/gui/Ui/partition.py:151
-#, fuzzy
 msgid "File System :"
-msgstr "    "
+msgstr "Файловая система:"
 
 #: yali/gui/Ui/logicalvolume.py:141 yali/gui/Ui/manualpartwidget.py:137
 #: yali/gui/Ui/partition.py:149 yali/gui/Ui/raid.py:98
 #: yali/gui/ScrPartitionManual.py:129
 msgid "Format"
-msgstr ""
+msgstr "Форматировать"
 
 #: yali/gui/Ui/logicalvolume.py:142 yali/gui/Ui/partition.py:150
 #: yali/gui/Ui/raid.py:99
+#, fuzzy
 msgid "Migrate"
-msgstr ""
+msgstr "Мигрировать"
 
 #: yali/gui/Ui/main.py:243
 msgid "Yali"
-msgstr ""
+msgstr "Yali"
 
 #: yali/gui/Ui/main.py:244
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: yali/gui/Ui/main.py:245 yali/gui/YaliWindow.py:395
 msgid "Release Notes"
 msgstr "  "
 
 #: yali/gui/Ui/main.py:246
+#, fuzzy
 msgid "Previous Screen"
-msgstr ""
+msgstr "Предыдущий этап"
 
 #: yali/gui/Ui/main.py:247
-#, fuzzy
 msgid "Back"
-msgstr " "
+msgstr "Назад"
 
 #: yali/gui/Ui/main.py:248
+#, fuzzy
 msgid "Next Screen"
-msgstr ""
+msgstr "Следующий этап"
 
 #: yali/gui/Ui/main.py:249 yali/gui/ScrSummary.py:58
 #: yali/gui/ScrSummary.py:214
 msgid "Next"
-msgstr ""
+msgstr "Вперед"
 
 #: yali/gui/Ui/main.py:250
 msgid "Screen Name"
