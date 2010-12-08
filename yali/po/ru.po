@@ -171,9 +171,8 @@ msgid "Create LVM formatted partition"
 msgstr "   LVM"
 
 #: yali/gui/Ui/createdevicewidget.py:146
-#, fuzzy
 msgid "Raid Member"
-msgstr " "
+msgstr ""
 
 #: yali/gui/Ui/createdevicewidget.py:147 yali/gui/ScrPartitionManual.py:164
 msgid "Create Raid formatted partition"
@@ -182,7 +181,7 @@ msgstr "   Raid"
 #: yali/gui/Ui/createdevicewidget.py:148
 #, fuzzy
 msgid "Raid Array"
-msgstr "Raid Arrays"
+msgstr "RAID-массив"
 
 #: yali/gui/Ui/createdevicewidget.py:149 yali/gui/ScrPartitionManual.py:167
 msgid "Requires at least 2 free Raid formatted partition"
@@ -190,28 +189,28 @@ msgstr ""
 
 #: yali/gui/Ui/datetimewidget.py:171
 msgid "Date"
-msgstr ""
+msgstr "Дата"
 
 #: yali/gui/Ui/datetimewidget.py:172
 msgid "Time"
-msgstr ""
+msgstr "Время"
 
 #: yali/gui/Ui/datetimewidget.py:173
 msgid "HH:mm:ss"
-msgstr ""
+msgstr "ЧЧ:мм:сс"
 
 #: yali/gui/Ui/datetimewidget.py:174
 msgid "Timezone"
-msgstr ""
+msgstr "Часовой пояс"
 
 #: yali/gui/Ui/diskItem.py:93 yali/gui/Ui/diskItem.py:94
 #: yali/gui/Ui/installwidget.py:117
 msgid "TextLabel"
-msgstr ""
+msgstr "TextLabel"
 
 #: yali/gui/Ui/exception.py:63
 msgid "font:bold;"
-msgstr ""
+msgstr "font:bold;"
 
 #: yali/gui/Ui/exception.py:64
 msgid "Unhandled exception occured"
@@ -240,7 +239,7 @@ msgstr ""
 
 #: yali/gui/Ui/installprogress.py:61
 msgid "Installing Package: "
-msgstr ""
+msgstr "Установка пакета:"
 
 #: yali/gui/Ui/installwidget.py:116
 #, fuzzy
