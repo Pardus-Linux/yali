@@ -2,7 +2,7 @@
 # translation of tr.po to
 # Copyright (C) 2005-2011
 # This file is distributed under the same license as the yali4 package.
-# 
+#
 # Barış Metin <baris@uludag.org.tr>, 2005.
 # Barış Metin <baris@pardus.org.tr>, 2006.
 # Ali Işıngör <ali@artistanbulpr.com>, 2006.
@@ -15,15 +15,20 @@ msgstr ""
 "Project-Id-Version: YALI-tr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-12-01 20:26+0200\n"
-"PO-Revision-Date: 2010-12-08 13:38+0200\n"
+"PO-Revision-Date: 2010-12-08 14:02+0200\n"
 "Last-Translator: Ayhan YALÇINSOY <ayhanyalcinsoy@gmail.com>\n"
 "Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\\n\"\\nX-Generator: Lokalize 1.1\n"
-"\\n\\n\\n\n"
+"Plural-Forms: nplurals=1; plural=0;\\n"
+"\"\\n"
+"X-Generator: Lokalize 1.1\n"
+"\\n"
+"\\n"
+"\\n"
+"\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:74 yali/gui/Ui/autopartquestion.py:82
 #: yali/gui/Ui/autopartwidget.py:152 yali/gui/Ui/bg.py:36
@@ -682,7 +687,7 @@ msgstr "Kullanılan Alan:"
 
 #: yali/gui/Ui/welcome.py:85
 msgid "There are a few more steps to take before your system is ready to use.The agent will now guide you through some basic configuration.Please click the \"Next\"  button in the lower corner right to continue."
-msgstr "Sisteminiz kullanıma hazır olmadan önce birkaç adım daha var. Kaptan bazı temel yapılandırmalarda size rehberlik edecek. Lütfen devam etmek içi sağ alt köşedeki \"İlerle\" butonuna tıklayınız."
+msgstr "Sisteminiz kullanıma hazır olmadan önce birkaç adım daha var. Kaptan bazı temel yapılandırmalarda size rehberlik edecek. Lütfen devam etmek için sağ alt köşedeki \"İlerle\" butonuna tıklayınız."
 
 #: yali/gui/interface.py:41 yali/gui/interface.py:123
 #: yali/gui/ScrCheckCD.py:92 yali/gui/ScrInstall.py:180
@@ -775,7 +780,7 @@ msgstr "LVM Birim Grubu Oluşturun"
 #: yali/gui/lvm_gui.py:65
 #, python-format
 msgid "Edit LVM Volume Group: %s"
-msgstr "LVM Birim Grubu'un Düzenleyin: %s"
+msgstr "LVM Birim Grubu'nu Düzenleyin: %s"
 
 #: yali/gui/lvm_gui.py:67
 msgid "Edit LVM Volume Group"
@@ -827,7 +832,7 @@ msgid ""
 msgstr ""
 "Fiziksel boyuttaki değerin değişimi\n"
 "varolan mantıksal birimin boyutlarının oranına göre\n"
-"değişiklik gösterecek ve yukarı yuvarkanacaktır"
+"değişiklik gösterecek ve yukarı yuvarlanacaktır"
 
 #: yali/gui/lvm_gui.py:421 yali/gui/lvm_gui.py:468
 #: yali/gui/ScrPartitionManual.py:358
@@ -1529,7 +1534,7 @@ msgstr "Var Olan Linux İşletim Sistem(leri)i Üzerine Yükle"
 #: yali/gui/ScrSummary.py:140
 #, python-format
 msgid "Removes all Linux partitions on the selected%s device(s). This does not remove other partitions you may have on your storage device(s) (such as VFAT or FAT32)"
-msgstr "Seçili aygıt(lardaki)taki%s tüm Linux bölümlerini kaldırır. Bu işlem (VFAT veya FATE32) gibi diğer depolama aygılarındaki diğer bölmeleri kaldırmaz."
+msgstr "Seçili aygıt(lardaki)taki%s tüm Linux bölümlerini kaldırır. Bu işlem (VFAT veya FATE32) gibi diğer depolama aygıtlarındaki diğer bölmeleri kaldırmaz."
 
 #: yali/gui/ScrSummary.py:145
 msgid "Use Free Space"
@@ -2004,3 +2009,5 @@ msgstr "Sürüm dosyası uyumsuz"
 #: yali/util.py:452 yali/util.py:495
 msgid "Invalid xml file"
 msgstr "Geçersiz xml dosyası"
+
+
