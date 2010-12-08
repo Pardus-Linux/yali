@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: YALI-tr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-12-01 20:26+0200\n"
-"PO-Revision-Date: 2010-12-07 22:08+0200\n"
+"PO-Revision-Date: 2010-12-08 13:38+0200\n"
 "Last-Translator: Ayhan YALÇINSOY <ayhanyalcinsoy@gmail.com>\n"
 "Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
@@ -269,7 +269,7 @@ msgstr "Yerleşimi Dene"
 
 #: yali/gui/Ui/license.py:104
 msgid "All software by TUBITAK Pardus is licensed under the terms of <a href=\"#\"><span style=\" text-decoration: underline; color:#56a2c0;\">GNU General Public License</span></a> which you must accept in order to install and use Pardus."
-msgstr "Tüm yazılımlar TUBITAK Pardus tarafından Pardus'u kurmak ve kullanmak için  kabul etmeniz gereken <a href=\"#\"><span style=\" text-decoration: underline; color:#56a2c0;\">GNU Genel Kamu Lisansı</span></a>ile lisanslanmıştır."
+msgstr "Tüm yazılımlar TÜBİTAK Pardus tarafından Pardus'u kurmak ve kullanmak için  kabul etmeniz gereken <a href=\"#\"><span style=\" text-decoration: underline; color:#56a2c0;\">GNU Genel Kamu Lisansı</span></a>ile lisanslanmıştır."
 
 #: yali/gui/Ui/license.py:105
 msgid "I understand and accept the terms of GNU GPL"
@@ -450,15 +450,15 @@ msgstr "İzin Verilen Aygıtlar:"
 
 #: yali/gui/Ui/partitionshrink.py:63 yali/gui/Ui/partitionshrinkwidget.py:90
 msgid "Which partition would you like to shrink to make room for your installation?"
-msgstr "Kurulum için hangi disk bölümünü boyutlandırmak istiyorsunuz?"
+msgstr "Kurulum için hangi disk bölümünü küçültmek istersiniz?"
 
 #: yali/gui/Ui/partitionshrink.py:64
 msgid "Shrink partition to size (in MB)"
-msgstr "Disk bölümünü boyutlandır (MB)"
+msgstr "Disk bölümünü küçült (MB)"
 
 #: yali/gui/Ui/partitionshrinkwidget.py:91
 msgid "Shrink partition to size (in MB) :"
-msgstr "Disk bölümünü boyutlandır (MB) :"
+msgstr "Disk bölümünü küçült (MB) :"
 
 #: yali/gui/Ui/partitionshrinkwidget.py:93 yali/gui/Ui/partresize.py:98
 #: yali/gui/Ui/setupuserswidget.py:527 yali/gui/lvm_gui.py:421
@@ -470,7 +470,7 @@ msgstr "İptal"
 
 #: yali/gui/Ui/partitionshrinkwidget.py:94
 msgid "Shrink"
-msgstr "Boyutlandır"
+msgstr "Küçült"
 
 #: yali/gui/Ui/partresize.py:90
 msgid ""
