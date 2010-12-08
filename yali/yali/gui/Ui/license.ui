@@ -127,7 +127,7 @@
              <number>0</number>
             </property>
             <property name="text">
-             <string>All software by TUBITAK Pardus is licensed under the terms of &lt;a href=&quot;#&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#56a2c0;&quot;&gt;GNU General Public License&lt;/span&gt;&lt;/a&gt; which you must accept in order to install and use Pardus.</string>
+             <string>Before installing Pardus on your computer, please read and accept the terms of free / open source licenses of the softwares included in this installation medium. &lt;a href=&quot;#&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#56a2c0;&quot;&gt;License texts&lt;/span&gt;&lt;/a&gt;</string>
             </property>
             <property name="scaledContents">
              <bool>false</bool>
@@ -165,7 +165,7 @@
                </font>
               </property>
               <property name="text">
-               <string>I understand and accept the terms of GNU GPL</string>
+               <string>I understand and accept the terms</string>
               </property>
               <property name="checkable">
                <bool>true</bool>
