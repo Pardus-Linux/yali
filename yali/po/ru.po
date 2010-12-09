@@ -320,7 +320,6 @@ msgid "Release Notes"
 msgstr "  "
 
 #: yali/gui/Ui/main.py:246
-#, fuzzy
 msgid "Previous Screen"
 msgstr "Предыдущий этап"
 
@@ -329,7 +328,6 @@ msgid "Back"
 msgstr "Назад"
 
 #: yali/gui/Ui/main.py:248
-#, fuzzy
 msgid "Next Screen"
 msgstr "Следующий этап"
 
@@ -390,7 +388,6 @@ msgid "Partition 1 on FUJISTU - /dev/sda1"
 msgstr "Раздел 1 на FUJISTU - /dev/sda1"
 
 #: yali/gui/Ui/partedit.py:175
-#, fuzzy
 msgid "Format :"
 msgstr "Форматировать:"
 
@@ -415,13 +412,13 @@ msgid "Refresh Disks"
 msgstr "Использовать как:"
 
 #: yali/gui/Ui/partedit.py:182
+#, fuzzy
 msgid "Reset All Changes"
-msgstr ""
+msgstr "Сбросить все изменения"
 
 #: yali/gui/Ui/partedit.py:183
-#, fuzzy
 msgid "Apply"
-msgstr "Допустимые диски:"
+msgstr "Применить"
 
 #: yali/gui/Ui/partitionedit.py:134
 msgid "Partition Action"
