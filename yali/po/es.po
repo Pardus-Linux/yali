@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-10 12:56+0200\n"
+"POT-Creation-Date: 2010-12-10 13:56+0200\n"
 "PO-Revision-Date: 2010-02-22 21:44-0300\n"
 "Last-Translator: \n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
@@ -27,7 +27,7 @@ msgstr ""
 #: yali/gui/Ui/autoinstallationwidget.py:74 yali/gui/Ui/autopartquestion.py:82
 #: yali/gui/Ui/autopartwidget.py:140 yali/gui/Ui/bg.py:36
 #: yali/gui/Ui/connectionlist.py:74 yali/gui/Ui/createdevicewidget.py:133
-#: yali/gui/Ui/datetimewidget.py:170 yali/gui/Ui/diskItem.py:92
+#: yali/gui/Ui/datetimewidget.py:171 yali/gui/Ui/diskItem.py:92
 #: yali/gui/Ui/driveselectionwidget.py:125 yali/gui/Ui/exception.py:62
 #: yali/gui/Ui/goodbyewidget.py:103 yali/gui/Ui/help.py:56
 #: yali/gui/Ui/installprogress.py:60 yali/gui/Ui/logicalvolume.py:133
@@ -196,17 +196,13 @@ msgstr "Raid Array"
 msgid "Requires at least 2 free Raid formatted partition"
 msgstr "Require al menos 2 particiones libres del tipo RAID"
 
-#: yali/gui/Ui/datetimewidget.py:171
+#: yali/gui/Ui/datetimewidget.py:172
 msgid "Date"
 msgstr "Fecha"
 
-#: yali/gui/Ui/datetimewidget.py:172
+#: yali/gui/Ui/datetimewidget.py:173
 msgid "Time"
 msgstr "Hora"
-
-#: yali/gui/Ui/datetimewidget.py:173
-msgid "HH:mm:ss"
-msgstr ""
 
 #: yali/gui/Ui/datetimewidget.py:174
 msgid "Timezone"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-10 12:56+0200\n"
+"POT-Creation-Date: 2010-12-10 13:56+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 #: yali/gui/Ui/autoinstallationwidget.py:74 yali/gui/Ui/autopartquestion.py:82
 #: yali/gui/Ui/autopartwidget.py:140 yali/gui/Ui/bg.py:36
 #: yali/gui/Ui/connectionlist.py:74 yali/gui/Ui/createdevicewidget.py:133
-#: yali/gui/Ui/datetimewidget.py:170 yali/gui/Ui/diskItem.py:92
+#: yali/gui/Ui/datetimewidget.py:171 yali/gui/Ui/diskItem.py:92
 #: yali/gui/Ui/driveselectionwidget.py:125 yali/gui/Ui/exception.py:62
 #: yali/gui/Ui/goodbyewidget.py:103 yali/gui/Ui/help.py:56
 #: yali/gui/Ui/installprogress.py:60 yali/gui/Ui/logicalvolume.py:133
@@ -186,17 +186,13 @@ msgstr "RAID-массив"
 msgid "Requires at least 2 free Raid formatted partition"
 msgstr ""
 
-#: yali/gui/Ui/datetimewidget.py:171
+#: yali/gui/Ui/datetimewidget.py:172
 msgid "Date"
 msgstr "Дата"
 
-#: yali/gui/Ui/datetimewidget.py:172
+#: yali/gui/Ui/datetimewidget.py:173
 msgid "Time"
 msgstr "Время"
-
-#: yali/gui/Ui/datetimewidget.py:173
-msgid "HH:mm:ss"
-msgstr "ЧЧ:мм:сс"
 
 #: yali/gui/Ui/datetimewidget.py:174
 msgid "Timezone"
@@ -2001,6 +1997,9 @@ msgstr ""
 #: yali/util.py:454 yali/util.py:497
 msgid "Invalid xml file"
 msgstr ""
+
+#~ msgid "HH:mm:ss"
+#~ msgstr "ЧЧ:мм:сс"
 
 #, fuzzy
 #~ msgid ""
