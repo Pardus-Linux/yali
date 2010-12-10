@@ -103,9 +103,9 @@ gfxmenu %(bootpath)sgrub/message
 background 10333C
 
 title %(release)s
-root %(root)s
-kernel %(root)s%(bootpath)s%(kernel)s %(commands)s
-initrd %(root)s%(bootpath)s%(initramfs)s
+uuid %(uuid)s
+kernel %(bootpath)s%(kernel)s %(commands)s
+initrd %(bootpath)s%(initramfs)s
 
 """
 
@@ -235,19 +235,15 @@ class BootLoader(object):
     def writeGrubConf(self):
         bootDevices = get_physical_devices(self.storage, self.storage.storageset.bootDevice)
         (release, kernel, initramfs ) = get_configs(ctx.consts.target_dir)
-        s = grub_conf % {"root": get_partition_name(self.storage, bootDevices[0]),
+        s = grub_conf % {"uuid": bootDevices[0].fstabSpec.split("=")[1].lower(),
                          "bootpath" : self.path,
                          "release": release,
                          "kernel": kernel,
                          "commands": get_commands(self.storage),
                          "initramfs": initramfs}
-        ctx.logger.debug("root:%s -  bootpath:%s - release:%s - kernel:%s -commands:%s - initramfs:%s" %
-                        (get_partition_name(self.storage, bootDevices[0]),
-                         self.path,
-                         release,
-                         kernel,
-                         get_commands(self.storage),
-                         initramfs))
+        ctx.logger.debug("uuid:%s -  bootpath:%s - release:%s - kernel:%s -commands:%s - initramfs:%s" %
+                        (bootDevices[0].fstabSpec.split("=")[1].lower(), self.path, release, kernel,
+                         get_commands(self.storage), initramfs))
         ctx.logger.debug("conf:%s" % os.path.join(ctx.consts.target_dir, self._conf))
         with open(os.path.join(ctx.consts.target_dir, self._conf), "w") as grubConfFile:
             grubConfFile.write(s)
