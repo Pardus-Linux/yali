@@ -86,6 +86,8 @@ class Widget(QWidget, ScreenWidget):
 
         if ctx.flags.install_type == ctx.STEP_FIRST_BOOT or ctx.flags.install_type == ctx.STEP_DEFAULT:
             steps.append({"text":_("Adding users..."), "operation":yali.postinstall.addUsers})
+
+        if ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
             steps.append({"text":_("Cleanup systems..."), "operation":yali.postinstall.cleanup})
 
         if ctx.flags.install_type == ctx.STEP_BASE  or ctx.flags.install_type == ctx.STEP_DEFAULT:
