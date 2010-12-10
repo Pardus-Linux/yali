@@ -294,16 +294,6 @@ def writeInitramfsConf(parameters=[]):
 
     initramfsConf.close()
 
-##### FIXME: Be sure after storage api rewrite will be finished
-#def setPartitionPrivileges(request, mode, uid, gid):
-#    requestPath =  os.path.join(ctx.consts.target_dir, request.partitionType().mountpoint.lstrip("/"))
-#    ctx.logger.debug("Trying to change privileges %s path" % requestPath)
-#    if os.path.exists(requestPath):
-#        try:
-#            os.chmod(requestPath, mode)
-#            os.chown(requestPath, uid, gid)
-#        except OSError, msg:
-#                ctx.logger.debug("Unexpected error: %s" % msg)
 
 def fillFstab():
     ctx.logger.debug("Generating fstab configuration file")
@@ -322,14 +312,14 @@ def writeBootLooder():
     ctx.logger.debug("Writing grub.conf and devicemap")
 
 def installBootloader():
-    #FIXME:Rewrite this to re-fix with new storage api
     # BUG:#11255 normal user doesn't mount /mnt/archive directory. 
     # We set new formatted partition priveleges as user=root group=disk and change mod as 0770
-    # Check archive partition type
-    #archiveRequest = partrequests.searchPartTypeAndReqType(parttype.archive, request.mountRequestType)
-    #if archiveRequest:
-    #    ctx.logger.debug("Archive type request found!")
-    #    yali.postinstall.setPartitionPrivileges(archiveRequest, 0770, 0, 6)
+    default_mountpoints = ['/', '/boot', '/home', '/tmp', '/var', '/opt']
+    user_defined_mountpoints = [device for mountpoint, device in ctx.storage.mountpoints.items() if mountpoint not in default_mountpoints]
+    if user_defined_mountpoints:
+        ctx.logger.debug("User defined device mountpoints:%s" % [device.format.mountpoint for device in user_defined_mountpoints])
+        for device in user_defined_mountpoints:
+            yali.util.set_partition_privileges(device, 0770, 0, 6)
 
     # Umount system paths
     ctx.storage.storageset.umountFilesystems()

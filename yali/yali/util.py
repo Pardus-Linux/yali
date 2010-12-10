@@ -515,4 +515,13 @@ def parse_branding_slideshows(release_file):
 
     return slideshows
 
+def set_partition_privileges(device, mode, uid, gid):
+    device_path =  os.path.join(ctx.consts.target_dir, device.format.mountpoint.lstrip("/"))
+    ctx.logger.debug("Trying to change privileges %s path" % device_path)
+    if os.path.exists(device_path):
+        try:
+            os.chmod(device_path, mode)
+            os.chown(device_path, uid, gid)
+        except OSError, msg:
+                ctx.logger.debug("Unexpected error: %s" % msg)
 
