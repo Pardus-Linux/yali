@@ -308,9 +308,8 @@ msgid ""
 msgstr ""
 
 #: yali/gui/Ui/license.py:105
-#, fuzzy
 msgid "I understand and accept the terms"
-msgstr "GNU GPL sözleşmesini anladım ve kabul ediyorum"
+msgstr "Sözleşmeleri anladım ve kabul ediyorum"
 
 #: yali/gui/Ui/logicalvolume.py:134
 msgid "Logical Volume:"
@@ -1604,9 +1603,8 @@ msgid "Start Installation"
 msgstr "Kurulumu Başlat"
 
 #: yali/gui/ScrSummary.py:78
-#, fuzzy
 msgid "Apply Settings"
-msgstr "Kullanıcı Ayarları"
+msgstr "Ayarları Uygula"
 
 #: yali/gui/ScrSummary.py:97
 msgid "Keyboard Settings"
