@@ -128,8 +128,6 @@ class Widget(QWidget, ScreenWidget):
             if len(password) < 4:
                 self.intf.informationWindow.update(_('Password is too short.'), type="error")
                 self.pass_valid = False
-            elif filter(lambda x: not x in string.ascii_letters, password):
-                self.intf.informationWindow.update(_("Don't use invalid characters"), type="error")
             else:
                 self.intf.informationWindow.hide()
                 self.pass_valid = True
