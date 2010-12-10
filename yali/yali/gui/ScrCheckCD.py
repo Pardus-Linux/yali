@@ -37,10 +37,12 @@ class Widget(QWidget, ScreenWidget):
         if ctx.consts.lang == "tr":
             self.ui.progressBar.setFormat("%%p")
 
-    def shown(self):
         self.ui.validationSucceedBox.hide()
         self.ui.validationFailBox.hide()
         self.ui.progressBar.hide()
+
+    def shown(self):
+        pass
 
     def slotCheckCD(self):
         if self.check_media_stop:
