@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-10 10:09+0200\n"
+"POT-Creation-Date: 2010-12-10 11:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -141,69 +141,48 @@ msgstr "Подключиться"
 msgid "Standard Partition"
 msgstr "Стандартный раздел"
 
-#: yali/gui/Ui/createdevicewidget.py:135
-#, fuzzy
-msgid ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
-"size:8pt;\">General purpose of partition creation</span></p></body></html>"
-msgstr ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
-"size:8pt;\">General purpose of partition creation</span></p></body></html>"
+#: yali/gui/Ui/createdevicewidget.py:135 yali/gui/ScrPartitionManual.py:152
+msgid "General purpose of partition creation"
+msgstr "  "
 
-#: yali/gui/Ui/createdevicewidget.py:140 yali/gui/ScrPartitionManual.py:157
+#: yali/gui/Ui/createdevicewidget.py:136 yali/gui/ScrPartitionManual.py:157
 msgid "Volume Group"
 msgstr "Volume Group"
 
-#: yali/gui/Ui/createdevicewidget.py:141 yali/gui/ScrPartitionManual.py:158
+#: yali/gui/Ui/createdevicewidget.py:137 yali/gui/ScrPartitionManual.py:158
 msgid "Requires at least 1 free LVM formatted partition"
 msgstr "Требуется по меньшей мере 1 свободный LVM отформатированный раздел"
 
-#: yali/gui/Ui/createdevicewidget.py:142 yali/gui/ScrPartitionManual.py:160
+#: yali/gui/Ui/createdevicewidget.py:138 yali/gui/ScrPartitionManual.py:160
 msgid "Logical Volume"
 msgstr "Logical Volume"
 
-#: yali/gui/Ui/createdevicewidget.py:143 yali/gui/ScrPartitionManual.py:161
+#: yali/gui/Ui/createdevicewidget.py:139 yali/gui/ScrPartitionManual.py:161
 msgid "Create Logical Volume on selected Volume Group"
 msgstr "      "
 
-#: yali/gui/Ui/createdevicewidget.py:144 yali/gui/ScrPartitionManual.py:154
+#: yali/gui/Ui/createdevicewidget.py:140 yali/gui/ScrPartitionManual.py:154
 msgid "Physical Volume"
 msgstr "Physical Volume"
 
-#: yali/gui/Ui/createdevicewidget.py:145 yali/gui/ScrPartitionManual.py:155
+#: yali/gui/Ui/createdevicewidget.py:141 yali/gui/ScrPartitionManual.py:155
 msgid "Create LVM formatted partition"
 msgstr "   LVM"
 
-#: yali/gui/Ui/createdevicewidget.py:146
+#: yali/gui/Ui/createdevicewidget.py:142
 msgid "Raid Member"
 msgstr ""
 
-#: yali/gui/Ui/createdevicewidget.py:147 yali/gui/ScrPartitionManual.py:164
+#: yali/gui/Ui/createdevicewidget.py:143 yali/gui/ScrPartitionManual.py:164
 msgid "Create Raid formatted partition"
 msgstr "   Raid"
 
-#: yali/gui/Ui/createdevicewidget.py:148
+#: yali/gui/Ui/createdevicewidget.py:144
 #, fuzzy
 msgid "Raid Array"
 msgstr "RAID-массив"
 
-#: yali/gui/Ui/createdevicewidget.py:149 yali/gui/ScrPartitionManual.py:167
+#: yali/gui/Ui/createdevicewidget.py:145 yali/gui/ScrPartitionManual.py:167
 msgid "Requires at least 2 free Raid formatted partition"
 msgstr ""
 
@@ -1321,10 +1300,6 @@ msgstr "RAID"
 msgid "Partition"
 msgstr ""
 
-#: yali/gui/ScrPartitionManual.py:152
-msgid "General purpose of partition creation"
-msgstr "  "
-
 #: yali/gui/ScrPartitionManual.py:163
 msgid "Member"
 msgstr ""
@@ -2053,6 +2028,30 @@ msgstr ""
 #: yali/util.py:454 yali/util.py:497
 msgid "Invalid xml file"
 msgstr ""
+
+#, fuzzy
+#~ msgid ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#~ "size:8pt;\">General purpose of partition creation</span></p></body></html>"
+#~ msgstr ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#~ "size:8pt;\">General purpose of partition creation</span></p></body></html>"
 
 #, fuzzy
 #~ msgid ""
