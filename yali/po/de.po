@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-01 20:26+0200\n"
+"POT-Creation-Date: 2010-12-10 10:09+0200\n"
 "PO-Revision-Date: 2010-11-23 21:25+0100\n"
 "Last-Translator: Stefan Wilhelm <sw AT pardususer DOT de>\n"
 "Language-Team: German <de@li.org>\n"
@@ -26,7 +26,7 @@ msgstr ""
 "X-Generator: KBabel 1.11.4\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:74 yali/gui/Ui/autopartquestion.py:82
-#: yali/gui/Ui/autopartwidget.py:152 yali/gui/Ui/bg.py:36
+#: yali/gui/Ui/autopartwidget.py:140 yali/gui/Ui/bg.py:36
 #: yali/gui/Ui/connectionlist.py:74 yali/gui/Ui/createdevicewidget.py:133
 #: yali/gui/Ui/datetimewidget.py:170 yali/gui/Ui/diskItem.py:92
 #: yali/gui/Ui/driveselectionwidget.py:125 yali/gui/Ui/exception.py:62
@@ -97,7 +97,7 @@ msgstr "Ausgewählte verwenden"
 #: yali/gui/Ui/license.py:103 yali/gui/Ui/rescuegrubwidget.py:81
 #: yali/gui/Ui/rescuepasswordwidget.py:109 yali/gui/Ui/rescuepisiwidget.py:72
 #: yali/gui/Ui/rescuewidget.py:92 yali/gui/Ui/rootpasswidget.py:128
-#: yali/gui/Ui/setupuserswidget.py:514 yali/gui/Ui/welcome.py:84
+#: yali/gui/Ui/setupuserswidget.py:488 yali/gui/Ui/welcome.py:84
 msgid "Form1"
 msgstr "Form1"
 
@@ -327,14 +327,14 @@ msgstr "Testen Sie die gewählte Tastatur:"
 
 #: yali/gui/Ui/license.py:104
 msgid ""
-"All software by TUBITAK Pardus is licensed under the terms of <a href=\"#"
-"\"><span style=\" text-decoration: underline; color:#56a2c0;\">GNU General "
-"Public License</span></a> which you must accept in order to install and use "
-"Pardus."
+"Before installing Pardus on your computer, please read and accept the terms "
+"of free / open source licenses of the softwares included in this "
+"installation medium. <a href=\"#\"><span style=\" text-decoration: "
+"underline; color:#56a2c0;\">License texts</span></a>"
 msgstr ""
 
 #: yali/gui/Ui/license.py:105
-msgid "I understand and accept the terms of GNU GPL"
+msgid "I understand and accept the terms"
 msgstr ""
 
 #: yali/gui/Ui/logicalvolume.py:134
@@ -384,53 +384,40 @@ msgstr "Format"
 msgid "Migrate"
 msgstr ""
 
-#: yali/gui/Ui/main.py:243
+#: yali/gui/Ui/main.py:244
 #, fuzzy
 msgid "Yali"
 msgstr "Yali4"
 
-#: yali/gui/Ui/main.py:244
+#: yali/gui/Ui/main.py:245
 msgid "..."
 msgstr ""
 
-#: yali/gui/Ui/main.py:245 yali/gui/YaliWindow.py:395
+#: yali/gui/Ui/main.py:246 yali/gui/YaliWindow.py:393
 msgid "Release Notes"
 msgstr "Versionshinweise"
 
-#: yali/gui/Ui/main.py:246
+#: yali/gui/Ui/main.py:247
 msgid "Previous Screen"
 msgstr "Vorheriges Fenster"
 
-#: yali/gui/Ui/main.py:247
+#: yali/gui/Ui/main.py:248
 #, fuzzy
 msgid "Back"
 msgstr "Zurück"
 
-#: yali/gui/Ui/main.py:248
+#: yali/gui/Ui/main.py:249
 msgid "Next Screen"
 msgstr "Nächstes Fenster"
 
-#: yali/gui/Ui/main.py:249 yali/gui/ScrSummary.py:58
-#: yali/gui/ScrSummary.py:214
+#: yali/gui/Ui/main.py:250 yali/gui/ScrSummary.py:59
+#: yali/gui/ScrSummary.py:220 yali/gui/ScrSummary.py:227
 msgid "Next"
 msgstr "Weiter"
 
-#: yali/gui/Ui/main.py:250
+#: yali/gui/Ui/main.py:251
 msgid "Screen Name"
 msgstr "Anzeigename"
-
-#: yali/gui/Ui/main.py:251
-msgid ""
-"Welcome to YALI, the Pardus installer. YALI will guide you through the "
-"installation process. Welcome to YALI, the Pardus installer. YALI will guide "
-"you through the installation process.Welcome to YALI, the Pardus installer. "
-"YALI will guide you through the installation process.Welcome to YALI, the "
-"Pardus installer. YALI will guide you through the installation process."
-"Welcome to YALI, the Pardus installer. YALI will guide you through the "
-"installation process.Welcome to YALI, the Pardus installer. YALI will guide "
-"you through the installation process.Welcome to YALI, the Pardus installer. "
-"YALI will guide you through the installation process."
-msgstr ""
 
 #: yali/gui/Ui/manualpartwidget.py:133
 msgid "Device"
@@ -458,12 +445,12 @@ msgstr "Größe ändern:"
 msgid "New"
 msgstr ""
 
-#: yali/gui/Ui/manualpartwidget.py:140 yali/gui/Ui/setupuserswidget.py:525
+#: yali/gui/Ui/manualpartwidget.py:140 yali/gui/Ui/setupuserswidget.py:499
 #: yali/gui/Ui/volumegroup.py:105
 msgid "Edit"
 msgstr ""
 
-#: yali/gui/Ui/manualpartwidget.py:141 yali/gui/Ui/setupuserswidget.py:526
+#: yali/gui/Ui/manualpartwidget.py:141 yali/gui/Ui/setupuserswidget.py:500
 #: yali/gui/Ui/volumegroup.py:106 yali/gui/lvm_gui.py:553
 msgid "Delete"
 msgstr "Löschen"
@@ -554,7 +541,7 @@ msgid "Shrink partition to size (in MB) :"
 msgstr ""
 
 #: yali/gui/Ui/partitionshrinkwidget.py:93 yali/gui/Ui/partresize.py:98
-#: yali/gui/Ui/setupuserswidget.py:527 yali/gui/lvm_gui.py:421
+#: yali/gui/Ui/setupuserswidget.py:501 yali/gui/lvm_gui.py:421
 #: yali/gui/lvm_gui.py:468 yali/gui/lvm_gui.py:553
 #: yali/gui/ScrPartitionManual.py:113 yali/gui/ScrPartitionManual.py:129
 #: yali/gui/ScrPartitionManual.py:139 yali/gui/YaliDialog.py:222
@@ -757,54 +744,54 @@ msgstr "Neues Passwort:"
 msgid "Computer Name"
 msgstr "Benutzername:"
 
-#: yali/gui/Ui/setupuserswidget.py:515
+#: yali/gui/Ui/setupuserswidget.py:489
 #, fuzzy
 msgid "User Name"
 msgstr "Benutzername:"
 
-#: yali/gui/Ui/setupuserswidget.py:516
+#: yali/gui/Ui/setupuserswidget.py:490
 #, fuzzy
 msgid "Real Name"
 msgstr "Vollständiger Name:"
 
-#: yali/gui/Ui/setupuserswidget.py:517
+#: yali/gui/Ui/setupuserswidget.py:491
 #, fuzzy
 msgid "Password"
 msgstr "Passwort:"
 
-#: yali/gui/Ui/setupuserswidget.py:518
+#: yali/gui/Ui/setupuserswidget.py:492
 #, fuzzy
 msgid "Confirm Password"
 msgstr "Passwort:"
 
-#: yali/gui/Ui/setupuserswidget.py:519
+#: yali/gui/Ui/setupuserswidget.py:493
 #, fuzzy
 msgid "Custom User ID"
 msgstr "Benutzer ID"
 
-#: yali/gui/Ui/setupuserswidget.py:520
+#: yali/gui/Ui/setupuserswidget.py:494
 msgid "Not recommended"
 msgstr "Nicht empfehlenswert"
 
-#: yali/gui/Ui/setupuserswidget.py:521
+#: yali/gui/Ui/setupuserswidget.py:495
 msgid "Bypass authorization attempts for this user"
 msgstr ""
 
-#: yali/gui/Ui/setupuserswidget.py:522
+#: yali/gui/Ui/setupuserswidget.py:496
 msgid "Add user to administrator (wheel) group"
 msgstr ""
 
-#: yali/gui/Ui/setupuserswidget.py:523
+#: yali/gui/Ui/setupuserswidget.py:497
 #, fuzzy
 msgid "Select auto login user"
 msgstr "Auto-Login-Benutzer:"
 
-#: yali/gui/Ui/setupuserswidget.py:524 yali/gui/Ui/volumegroup.py:104
-#: yali/gui/ScrUsers.py:293 yali/gui/ScrUsers.py:335 yali/gui/ScrUsers.py:413
+#: yali/gui/Ui/setupuserswidget.py:498 yali/gui/Ui/volumegroup.py:104
+#: yali/gui/ScrUsers.py:288 yali/gui/ScrUsers.py:330 yali/gui/ScrUsers.py:408
 msgid "Add"
 msgstr "Hinzufügen"
 
-#: yali/gui/Ui/setupuserswidget.py:528
+#: yali/gui/Ui/setupuserswidget.py:502
 msgid "Advanced"
 msgstr "Erweitert"
 
@@ -860,16 +847,17 @@ msgstr "Gesamten Speicherplatz verwenden"
 
 #: yali/gui/Ui/welcome.py:85
 msgid ""
-"There are a few more steps to take before your system is ready to use.The "
-"agent will now guide you through some basic configuration.Please click the "
-"\"Next\"  button in the lower corner right to continue."
+"Pardus is installed and running successfully... \n"
+"\n"
+"Before you login to system, you need to create your first user and set the "
+"system wide configurations. "
 msgstr ""
 
 #: yali/gui/interface.py:41 yali/gui/interface.py:123
 #: yali/gui/ScrCheckCD.py:92 yali/gui/ScrInstall.py:180
 #: yali/gui/ScrPartitionAuto.py:44 yali/gui/ScrPartitionManual.py:137
-#: yali/gui/YaliWindow.py:211 yali/gui/YaliWindow.py:216
-#: yali/gui/YaliWindow.py:221
+#: yali/gui/YaliWindow.py:209 yali/gui/YaliWindow.py:214
+#: yali/gui/YaliWindow.py:219
 msgid "Warning"
 msgstr "Warnung"
 
@@ -996,7 +984,7 @@ msgstr ""
 "wählen."
 
 #: yali/gui/lvm_gui.py:405 yali/gui/lvm_gui.py:435 yali/gui/lvm_gui.py:448
-#: yali/gui/lvm_gui.py:483 yali/gui/lvm_gui.py:689 yali/gui/lvm_gui.py:711
+#: yali/gui/lvm_gui.py:483 yali/gui/lvm_gui.py:701 yali/gui/lvm_gui.py:723
 #: yali/gui/storageGuiHelpers.py:70
 msgid "Not enough space"
 msgstr "Nicht genügend Speicherplatz"
@@ -1137,48 +1125,48 @@ msgstr "Erstelle Logical Volume"
 msgid "Edit Logical Volume: %s"
 msgstr "Bearbeite Logical Volume: %s"
 
-#: yali/gui/lvm_gui.py:614 yali/gui/partition_gui.py:65
+#: yali/gui/lvm_gui.py:617 yali/gui/partition_gui.py:65
 #: yali/gui/raid_gui.py:79
 msgid "Mount Point Error"
 msgstr "Mount-Point Fehler"
 
-#: yali/gui/lvm_gui.py:638 yali/gui/partition_gui.py:80
+#: yali/gui/lvm_gui.py:649 yali/gui/partition_gui.py:80
 #: yali/gui/raid_gui.py:94
 msgid "Mount point in use"
 msgstr "Mount-Point schon verwendet"
 
-#: yali/gui/lvm_gui.py:639 yali/gui/partition_gui.py:81
+#: yali/gui/lvm_gui.py:650 yali/gui/partition_gui.py:81
 #: yali/gui/raid_gui.py:95
 #, python-format
 msgid "The mount point \"%s\" is in use. Please pick another."
 msgstr ""
 "Ihr Mount-Point \"%s\" wurde schon verwendet. Bitte einen anderen wählen."
 
-#: yali/gui/lvm_gui.py:649
+#: yali/gui/lvm_gui.py:661
 msgid "Illegal Logical Volume Name"
 msgstr "Ungültiger Name des Logical Volumes"
 
-#: yali/gui/lvm_gui.py:661
+#: yali/gui/lvm_gui.py:673
 msgid "Illegal logical volume name"
 msgstr "Ungültiger Name des Logical Volumes"
 
-#: yali/gui/lvm_gui.py:662
+#: yali/gui/lvm_gui.py:674
 #, python-format
 msgid "The logical volume name \"%s\" is already in use. Please pick another."
 msgstr ""
 "Der Name des Logical Volumes \"%s\" wurde schon verwendet. Bitte einen "
 "anderen wählen."
 
-#: yali/gui/lvm_gui.py:676
+#: yali/gui/lvm_gui.py:688
 msgid "Illegal size"
 msgstr "Ungültige Größe"
 
-#: yali/gui/lvm_gui.py:677
+#: yali/gui/lvm_gui.py:689
 msgid "The requested size as entered is not a valid number greater than 0."
 msgstr ""
 "Die eingegebene angeforderte Größe ist keine gültige Zahl größer als 0."
 
-#: yali/gui/lvm_gui.py:690
+#: yali/gui/lvm_gui.py:702
 #, python-format
 msgid ""
 "The current requested size (%(size)10.2f MB) is larger than the maximum "
@@ -1191,7 +1179,7 @@ msgstr ""
 "weitere Physical Volumes aus unbenutzen Speicherplatz erstellen und dieser "
 "Volume-Gruppe hinzufügen."
 
-#: yali/gui/lvm_gui.py:712
+#: yali/gui/lvm_gui.py:724
 #, python-format
 msgid ""
 "The size entered for this logical volume (%(size)d MB) combined with the "
@@ -1285,7 +1273,7 @@ msgstr "Wiederholen"
 msgid "Password is too short."
 msgstr "Das Passwort ist zu kurz."
 
-#: yali/gui/ScrAdmin.py:132 yali/gui/ScrUsers.py:225
+#: yali/gui/ScrAdmin.py:132
 msgid "Don't use invalid characters"
 msgstr "Verwenden Sie keine unzulässige Zeichen"
 
@@ -1356,64 +1344,69 @@ msgstr "Postinstall-Vorgänge werden ausgeführt..."
 msgid "Press <b>Restart</b> to restart the computer."
 msgstr "Klicken Sie auf <b>Neustart</b>, um Ihr System neu zu starten."
 
-#: yali/gui/ScrGoodbye.py:55 yali/gui/ScrRescueFinish.py:80
+#: yali/gui/ScrGoodbye.py:54 yali/gui/ScrRescueFinish.py:80
 msgid "<b>Please wait while restarting...</b>"
 msgstr "<b>Bitte den Neustart abwarten...</b>"
 
-#: yali/gui/ScrGoodbye.py:70 yali/gui/ScrRescuePassword.py:45
+#: yali/gui/ScrGoodbye.py:67 yali/gui/ScrRescuePassword.py:45
 #: yali/gui/ScrRescuePisi.py:38
 msgid "Connecting to D-Bus..."
 msgstr "Verbinde mit DBUS..."
 
-#: yali/gui/ScrGoodbye.py:72
+#: yali/gui/ScrGoodbye.py:69
 msgid "Setting hostname..."
 msgstr "Hostname wird eingestellt..."
 
-#: yali/gui/ScrGoodbye.py:73
+#: yali/gui/ScrGoodbye.py:70
 msgid "Setting root password..."
 msgstr "Root-Passwort wird eingestellt..."
 
-#: yali/gui/ScrGoodbye.py:75
+#: yali/gui/ScrGoodbye.py:72
 msgid "Setting timezone..."
 msgstr "Zeitzone wird eingestellt..."
 
-#: yali/gui/ScrGoodbye.py:76
+#: yali/gui/ScrGoodbye.py:73
 msgid "Migrating Xorg configuration..."
 msgstr "Xorg-Konfiguration wird migriert..."
 
-#: yali/gui/ScrGoodbye.py:77
+#: yali/gui/ScrGoodbye.py:74
 msgid "Setting console keymap..."
 msgstr "Konsolendaten werden eingestellt..."
 
-#: yali/gui/ScrGoodbye.py:78
+#: yali/gui/ScrGoodbye.py:75
 msgid "Copying repository index..."
 msgstr "Depot-Index wird kopiert..."
 
-#: yali/gui/ScrGoodbye.py:79
+#: yali/gui/ScrGoodbye.py:76
 msgid "Stopping to D-Bus..."
 msgstr "Stoppe für DBUS..."
 
-#: yali/gui/ScrGoodbye.py:83
+#: yali/gui/ScrGoodbye.py:80
 msgid "Setup bootloader..."
 msgstr "Boot-Loader einstellen..."
 
-#: yali/gui/ScrGoodbye.py:84
+#: yali/gui/ScrGoodbye.py:81
 msgid "Writing bootloader..."
 msgstr "Boot-Loader wird geschrieben..."
 
-#: yali/gui/ScrGoodbye.py:85
+#: yali/gui/ScrGoodbye.py:82
 #, fuzzy
 msgid "Installing bootloader..."
 msgstr "Installiere Boot-Loader..."
 
-#: yali/gui/ScrGoodbye.py:88
+#: yali/gui/ScrGoodbye.py:85
 #, fuzzy
 msgid "Setup First-Boot..."
 msgstr "Boot-Loader einstellen..."
 
-#: yali/gui/ScrGoodbye.py:91
+#: yali/gui/ScrGoodbye.py:88
 msgid "Adding users..."
 msgstr "Benutzer werden hinzugefügt..."
+
+#: yali/gui/ScrGoodbye.py:89
+#, fuzzy
+msgid "Cleanup systems..."
+msgstr "System wird installiert..."
 
 #: yali/gui/ScrInstall.py:151
 #, python-format
@@ -1725,43 +1718,48 @@ msgstr "Bitte wählen Sie eine Partition aus der Liste aus:"
 msgid "<b><p>Are you sure you want to restart the computer?</p></b>"
 msgstr "<b><p>Wollen Sie den Computer wirklich neu starten?</p></b>"
 
-#: yali/gui/ScrSummary.py:66
+#: yali/gui/ScrSummary.py:68
 #, python-format
 msgid "Installation starts in <b>%s</b> seconds"
 msgstr "Die Installation startet in <b>%s</b> Sekunden"
 
-#: yali/gui/ScrSummary.py:73
+#: yali/gui/ScrSummary.py:76
 msgid "Start Installation"
 msgstr "Installation starten"
 
-#: yali/gui/ScrSummary.py:91
+#: yali/gui/ScrSummary.py:78
+#, fuzzy
+msgid "Apply Settings"
+msgstr "Benutzereinstellungen"
+
+#: yali/gui/ScrSummary.py:97
 msgid "Keyboard Settings"
 msgstr "Tastatureinstellungen"
 
-#: yali/gui/ScrSummary.py:93
+#: yali/gui/ScrSummary.py:99
 #, python-format
 msgid "Selected keyboard layout is <b>%s</b>"
 msgstr "Gewählte Tastaturbelegung ist <b>%s</b>"
 
-#: yali/gui/ScrSummary.py:99
+#: yali/gui/ScrSummary.py:105
 msgid "Date/Time Settings"
 msgstr "Datum/Uhrzeiteinstellungen"
 
-#: yali/gui/ScrSummary.py:101
+#: yali/gui/ScrSummary.py:107
 #, python-format
 msgid "Selected TimeZone is <b>%s</b>"
 msgstr "Gewählte Zeitzone ist <b>%s</b>"
 
-#: yali/gui/ScrSummary.py:107
+#: yali/gui/ScrSummary.py:113
 msgid "User Settings"
 msgstr "Benutzereinstellungen"
 
-#: yali/gui/ScrSummary.py:109
+#: yali/gui/ScrSummary.py:115
 #, python-format
 msgid "User %(username)s (<b>%(realname)s</b>) added."
 msgstr "Benutzer %(username)s (<b>%(realname)s</b>) hinzugefügt."
 
-#: yali/gui/ScrSummary.py:111
+#: yali/gui/ScrSummary.py:117
 #, python-format
 msgid ""
 "User %(username)s (<b>%(realname)s</b>) added with <u>administrator "
@@ -1770,28 +1768,28 @@ msgstr ""
 "Benutzer %(username)s (<b>%(realname)s</b>) hinzugefügt mit "
 "<u>Administratorrechten</u>."
 
-#: yali/gui/ScrSummary.py:117
+#: yali/gui/ScrSummary.py:123
 msgid "Hostname Settings"
 msgstr "Hostnameneinstellungen"
 
-#: yali/gui/ScrSummary.py:119
+#: yali/gui/ScrSummary.py:125
 #, python-format
 msgid "Hostname is set as <b>%s</b>"
 msgstr "Hostname ist festgelegt als <b>%s</b>"
 
-#: yali/gui/ScrSummary.py:125
+#: yali/gui/ScrSummary.py:131
 msgid "Partition Settings"
 msgstr "Partitionseinstellungen"
 
-#: yali/gui/ScrSummary.py:132
+#: yali/gui/ScrSummary.py:138
 msgid "Automatic Partitioning selected."
 msgstr "Automatische Partitionierung ausgewählt."
 
-#: yali/gui/ScrSummary.py:134
+#: yali/gui/ScrSummary.py:140
 msgid "Use All Space"
 msgstr "Gesamten Speicherplatz verwenden"
 
-#: yali/gui/ScrSummary.py:135
+#: yali/gui/ScrSummary.py:141
 #, fuzzy, python-format
 msgid ""
 "Removes all partitions on the selected %s device(s). This includes "
@@ -1800,11 +1798,11 @@ msgstr ""
 "Entfernt alle Partitionen auf den gewählten %s Gerät(en). Das gilt auch für "
 "Partitionen, die von anderen Betriebssystemen erstellt wurden."
 
-#: yali/gui/ScrSummary.py:139
+#: yali/gui/ScrSummary.py:145
 msgid "Replace Existing Linux System(s)"
 msgstr "Ersetze vorhandene Linux System(e)"
 
-#: yali/gui/ScrSummary.py:140
+#: yali/gui/ScrSummary.py:146
 #, python-format
 msgid ""
 "Removes all Linux partitions on the selected%s device(s). This does not "
@@ -1815,11 +1813,11 @@ msgstr ""
 "Einstellung entfernt jedoch nicht andere vorhandene Partitionen auf dem "
 "Speichergerät (z.B. VFAT, FAT32)."
 
-#: yali/gui/ScrSummary.py:145
+#: yali/gui/ScrSummary.py:151
 msgid "Use Free Space"
 msgstr "Freien Speicherplatz verwenden"
 
-#: yali/gui/ScrSummary.py:146
+#: yali/gui/ScrSummary.py:152
 #, python-format
 msgid ""
 "Retains your current data and partitions and uses only the unpartitioned "
@@ -1831,53 +1829,53 @@ msgstr ""
 "der Vorraussetzung, dass Sie genügend freien Speicherplatz zur Verfügung "
 "haben."
 
-#: yali/gui/ScrSummary.py:152
+#: yali/gui/ScrSummary.py:158
 msgid "Manual Partitioning selected."
 msgstr "Manuelle Partitionierung ausgewählt."
 
-#: yali/gui/ScrSummary.py:160
+#: yali/gui/ScrSummary.py:166
 msgid "Bootloader Settings"
 msgstr "Bootloader-Einstellungen"
 
-#: yali/gui/ScrSummary.py:161
+#: yali/gui/ScrSummary.py:167
 #, python-format
 msgid "GRUB will be installed to <b>%s</b>."
 msgstr "GRUB wird installiert nach <b>%s</b>."
 
-#: yali/gui/ScrSummary.py:163
+#: yali/gui/ScrSummary.py:169
 msgid "GRUB will not be installed."
 msgstr "GRUB wird nicht installiert."
 
 # nicht sicher - vielleicht auch möglich: gewählte Paketauswahl
 # -Stefan
-#: yali/gui/ScrSummary.py:170
+#: yali/gui/ScrSummary.py:176
 msgid "Package Installation Settings"
 msgstr "Einstellungen der Paketinstallation"
 
-#: yali/gui/ScrSummary.py:172
+#: yali/gui/ScrSummary.py:178
 msgid "Auto installation selected."
 msgstr "Automatische Installation ausgewählt."
 
-#: yali/gui/ScrSummary.py:174
+#: yali/gui/ScrSummary.py:180
 #, python-format
 msgid "Manual Installation ( %s ) selected"
 msgstr "Manuelle Installation (%s) ausgewählt"
 
-#: yali/gui/ScrSummary.py:178
+#: yali/gui/ScrSummary.py:184
 msgid "Default Kernel selected"
 msgstr "Standard Kernel gewählt"
 
-#: yali/gui/ScrSummary.py:180
+#: yali/gui/ScrSummary.py:186
 msgid "PAE Kernel selected"
 msgstr "PAE Kernel ausgewählt"
 
 # oder: Bestätigung
 # -Stefan
-#: yali/gui/ScrSummary.py:197
+#: yali/gui/ScrSummary.py:203
 msgid "Confirm"
 msgstr "Bestätige"
 
-#: yali/gui/ScrSummary.py:198
+#: yali/gui/ScrSummary.py:204
 msgid ""
 "The partitioning options you have selected will now be\n"
 "written to disk.  Any data on deleted or reformatted partitions\n"
@@ -1887,15 +1885,15 @@ msgstr ""
 "durchgeführt. Alle Daten auf den gelöschten oder formatierten\n"
 "Partitionen können nicht wiederhergestellt werden."
 
-#: yali/gui/ScrSummary.py:203
+#: yali/gui/ScrSummary.py:209
 msgid "Write Changes to Disk"
 msgstr "Schreibe Änderungen auf Festplatte"
 
-#: yali/gui/ScrSummary.py:203
+#: yali/gui/ScrSummary.py:209
 msgid "Go Back"
 msgstr "Zurück"
 
-#: yali/gui/ScrUsers.py:129 yali/gui/ScrUsers.py:365
+#: yali/gui/ScrUsers.py:129 yali/gui/ScrUsers.py:360
 msgid "Update"
 msgstr "Aktualisieren"
 
@@ -1911,24 +1909,20 @@ msgstr "Die Passwörter stimmen nicht überein"
 msgid "Password is too short"
 msgstr "Das Passwort ist zu kurz"
 
-#: yali/gui/ScrUsers.py:270
+#: yali/gui/ScrUsers.py:268
 msgid "This user name is already taken, please choose another one."
 msgstr ""
 "Dieser Benutzername ist bereits vergeben, bitte wählen Sie einen anderen."
 
-#: yali/gui/ScrUsers.py:274
+#: yali/gui/ScrUsers.py:272
 msgid "The user name contains invalid characters."
 msgstr "Der Benutzname enthält unzulässige Zeichen."
 
-#: yali/gui/ScrUsers.py:277
+#: yali/gui/ScrUsers.py:275
 msgid "The real name contains invalid characters."
 msgstr "Der Name enthält unzulässige Zeichen."
 
-#: yali/gui/ScrUsers.py:280
-msgid "The password contains invalid characters."
-msgstr "Das Passwort enthält unzulässige Zeichen."
-
-#: yali/gui/ScrUsers.py:288
+#: yali/gui/ScrUsers.py:283
 msgid "User ID used before, choose another one!"
 msgstr "Die Benutzer-ID ist bereits vergeben, bitte eine andere ID wählen!"
 
@@ -2038,79 +2032,79 @@ msgstr "Information"
 msgid "Error reporting"
 msgstr "Fehler Berichterstattung"
 
-#: yali/gui/YaliWindow.py:92
+#: yali/gui/YaliWindow.py:90
 msgid "Pixmaps resources file doesn't exists"
 msgstr "Quelldatei für Pixmaps existiert nicht"
 
-#: yali/gui/YaliWindow.py:125
+#: yali/gui/YaliWindow.py:123
 msgid "Style file doesn't exists"
 msgstr "Stilbeschreibung nicht vorhanden"
 
-#: yali/gui/YaliWindow.py:132
+#: yali/gui/YaliWindow.py:130
 msgid "Release file doesn't exists"
 msgstr "Versionshinweise existieren nicht"
 
 # auch möglich: Schalte Computer aus
 # -Stefan
-#: yali/gui/YaliWindow.py:140
+#: yali/gui/YaliWindow.py:138
 msgid "Turn Off Computer"
 msgstr "Computer ausschalten"
 
 # auch möglich: Starte Computer neu
 # -Stefan
-#: yali/gui/YaliWindow.py:141
+#: yali/gui/YaliWindow.py:139
 msgid "Restart Computer"
 msgstr "Computer neu starten"
 
-#: yali/gui/YaliWindow.py:142
+#: yali/gui/YaliWindow.py:140
 msgid "Restart YALI"
 msgstr "YALI neu starten"
 
-#: yali/gui/YaliWindow.py:160 yali/gui/YaliWindow.py:177 yali/sysutils.py:53
+#: yali/gui/YaliWindow.py:158 yali/gui/YaliWindow.py:175 yali/sysutils.py:53
 msgid "right"
 msgstr "rechts"
 
-#: yali/gui/YaliWindow.py:176 yali/gui/YaliWindow.py:179 yali/sysutils.py:52
+#: yali/gui/YaliWindow.py:174 yali/gui/YaliWindow.py:177 yali/sysutils.py:52
 msgid "left"
 msgstr "links"
 
-#: yali/gui/YaliWindow.py:180
+#: yali/gui/YaliWindow.py:178
 msgid "Mouse Settings"
 msgstr "Mauseinstellungen"
 
-#: yali/gui/YaliWindow.py:181
+#: yali/gui/YaliWindow.py:179
 #, python-format
 msgid "You just clicked the <b>%s</b> mouse button."
 msgstr "Sie haben soeben die <b>%s</b> Maustaste gedrückt."
 
-#: yali/gui/YaliWindow.py:182
+#: yali/gui/YaliWindow.py:180
 #, python-format
 msgid "Do you want to switch to the <b>%s</b> handed configuration?"
 msgstr "Möchten Sie zur Einstellung für <b>%s</b>händer umstellen?"
 
-#: yali/gui/YaliWindow.py:212
+#: yali/gui/YaliWindow.py:210
 msgid "Are you sure you want to shut down your computer now?"
 msgstr "Sind Sie "
 
-#: yali/gui/YaliWindow.py:217
+#: yali/gui/YaliWindow.py:215
 msgid "Are you sure you want to restart your computer now?"
 msgstr "Sind Sie sicher, dass Sie den Computer jetzt neu starten wollen?"
 
-#: yali/gui/YaliWindow.py:222
+#: yali/gui/YaliWindow.py:220
 msgid "Are you sure you want to restart the YALI installer now?"
 msgstr ""
 "Sind Sie sicher, dass Sie die Installationsroutine YALI jetzt neu starten "
 "wollen?"
 
-#: yali/gui/YaliWindow.py:241
+#: yali/gui/YaliWindow.py:239
 msgid "Terminal"
 msgstr "Terminal"
 
-#: yali/gui/YaliWindow.py:246
+#: yali/gui/YaliWindow.py:244
 msgid "Tetris"
 msgstr "Tetris"
 
-#: yali/gui/YaliWindow.py:418
+#: yali/gui/YaliWindow.py:416
 msgid "Release notes could not be loaded."
 msgstr "Versionshinweise konnten nicht geladen werden."
 
@@ -2271,41 +2265,44 @@ msgstr "Serbisch"
 msgid "Error occured while %(repo)s repo is adding:%(msg)s"
 msgstr ""
 
-#: yali/postinstall.py:156
+#: yali/postinstall.py:196
 #, python-format
 msgid "Preparing home directory for %s..."
 msgstr "Präpariere home-Verzeichnis für %s..."
 
-#: yali/util.py:125 yali/util.py:138
+#: yali/util.py:140
 #, python-format
 msgid "Running %s"
 msgstr "%s läuft"
 
-#: yali/util.py:129 yali/util.py:156
+#: yali/util.py:158
 #, python-format
 msgid "return value for \"%(command)s\" is %(return)s"
 msgstr "Rückgabewert für \"%(command)s\" ist %(return)s"
 
-#: yali/util.py:370
+#: yali/util.py:372
 #, fuzzy
 msgid "YALI log file doesn't exists."
 msgstr "Stilbeschreibung nicht vorhanden"
 
-#: yali/util.py:372
+#: yali/util.py:374
 msgid "File paths are the same."
 msgstr ""
 
-#: yali/util.py:447 yali/util.py:490
+#: yali/util.py:449 yali/util.py:492
 msgid "Release file is missing"
 msgstr "Releasedatei fehlt"
 
-#: yali/util.py:449 yali/util.py:492
+#: yali/util.py:451 yali/util.py:494
 msgid "Release file is inconsistent"
 msgstr "Releasedatei ist widersprüchlich"
 
-#: yali/util.py:452 yali/util.py:495
+#: yali/util.py:454 yali/util.py:497
 msgid "Invalid xml file"
 msgstr "Ungültige XML-Datei"
+
+#~ msgid "The password contains invalid characters."
+#~ msgstr "Das Passwort enthält unzulässige Zeichen."
 
 #, fuzzy
 #~ msgid "No, I'll select installation metod manually"
@@ -3132,9 +3129,6 @@ msgstr "Ungültige XML-Datei"
 #~ "\n"
 #~ "<font size=\"+2\">Pisi Instalationsregister</font>\n"
 #~ "<font size=\"+1\"></font>\n"
-
-#~ msgid "Installing system..."
-#~ msgstr "System wird installiert..."
 
 #~ msgid ""
 #~ "Installing takes approximately 20 minutes depending on your hardware..."
