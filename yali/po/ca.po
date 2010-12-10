@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yali\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-10 11:03+0200\n"
+"POT-Creation-Date: 2010-12-10 12:56+0200\n"
 "PO-Revision-Date: 2007-03-18 14:13+0100\n"
 "Last-Translator: Pau Amaro-Seoane <pau@aei.mpg.de>\n"
 "Language-Team: Catala <pardus-translation-ca@ns1.uludag.org.tr>\n"
@@ -24,7 +24,7 @@ msgstr ""
 #: yali/gui/Ui/driveselectionwidget.py:125 yali/gui/Ui/exception.py:62
 #: yali/gui/Ui/goodbyewidget.py:103 yali/gui/Ui/help.py:56
 #: yali/gui/Ui/installprogress.py:60 yali/gui/Ui/logicalvolume.py:133
-#: yali/gui/Ui/manualpartwidget.py:131 yali/gui/Ui/partedit.py:170
+#: yali/gui/Ui/manualpartwidget.py:131 yali/gui/Ui/partedit.py:171
 #: yali/gui/Ui/partition.py:143 yali/gui/Ui/partitionshrink.py:62
 #: yali/gui/Ui/raid.py:94 yali/gui/Ui/summarywidget.py:113
 #: yali/gui/Ui/volumegroup.py:95
@@ -233,25 +233,16 @@ msgstr "Hi ha hagut un error!"
 
 #: yali/gui/Ui/exception.py:65
 msgid ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Droid Sans'; font-size:8pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">Please fill a bug report "
-"at <span style=\" font-weight:600;\">http://bugs.pardus.org.tr/</span> "
-"attaching the following backtrace.</p></body></html>"
+"Please fill a bug report at http://bugs.pardus.org.tr/ attaching the "
+"following backtrace."
 msgstr ""
 
-#: yali/gui/Ui/exception.py:70
+#: yali/gui/Ui/exception.py:66
 #, fuzzy
 msgid "Show Backtrace"
 msgstr "Traçament d'errors:"
 
-#: yali/gui/Ui/exception.py:71 yali/gui/ScrCheckCD.py:97
+#: yali/gui/Ui/exception.py:67 yali/gui/ScrCheckCD.py:97
 msgid "Reboot"
 msgstr "Reengega"
 
@@ -309,12 +300,12 @@ msgstr "Grandària (MB):"
 #: yali/gui/Ui/logicalvolume.py:137 yali/gui/Ui/logicalvolume.py:139
 #: yali/gui/Ui/partedit.py:174 yali/gui/Ui/partitionedit.py:138
 #: yali/gui/Ui/partition.py:146 yali/gui/Ui/partition.py:148
-#: yali/gui/Ui/partitionshrinkwidget.py:92 yali/gui/Ui/partresize.py:97
+#: yali/gui/Ui/partitionshrinkwidget.py:92 yali/gui/Ui/partresize.py:93
 msgid " MB"
 msgstr ""
 
 #: yali/gui/Ui/logicalvolume.py:138 yali/gui/Ui/partition.py:147
-#: yali/gui/Ui/partresize.py:99
+#: yali/gui/Ui/partresize.py:95
 #, fuzzy
 msgid "Resize"
 msgstr "Modifica la grandària"
@@ -411,10 +402,6 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
-#: yali/gui/Ui/partedit.py:171 yali/gui/Ui/partitionedit.py:135
-msgid "Partition 1 on FUJISTU - /dev/sda1"
-msgstr ""
-
 #: yali/gui/Ui/partedit.py:175
 #, fuzzy
 msgid "Format :"
@@ -454,6 +441,10 @@ msgstr "Fés-ho"
 msgid "Partition Action"
 msgstr "Particions:"
 
+#: yali/gui/Ui/partitionedit.py:135
+msgid "Partition 1 on FUJISTU - /dev/sda1"
+msgstr ""
+
 #: yali/gui/Ui/partitionedit.py:140
 #, fuzzy
 msgid "Force to be primary partition"
@@ -486,7 +477,7 @@ msgstr ""
 msgid "Shrink partition to size (in MB) :"
 msgstr ""
 
-#: yali/gui/Ui/partitionshrinkwidget.py:93 yali/gui/Ui/partresize.py:98
+#: yali/gui/Ui/partitionshrinkwidget.py:93 yali/gui/Ui/partresize.py:94
 #: yali/gui/Ui/setupuserswidget.py:501 yali/gui/lvm_gui.py:421
 #: yali/gui/lvm_gui.py:468 yali/gui/lvm_gui.py:553
 #: yali/gui/ScrPartitionManual.py:113 yali/gui/ScrPartitionManual.py:129
@@ -500,30 +491,12 @@ msgstr ""
 
 #: yali/gui/Ui/partresize.py:90
 msgid ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:"
-"#ffffff;\">Changes will be applied when you click \"</span><span style=\" "
-"text-decoration: underline; color:#ffffff;\">Resize</span><span style=\" "
-"color:#ffffff;\">\". To cancel the changes, click \"</span><span style=\" "
-"text-decoration: underline; color:#ffffff;\">Cancel</span><span style=\" "
-"color:#ffffff;\">\".</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
-"color:#ffffff;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px; color:#ffffff;\"><span style="
-"\" font-weight:600; text-decoration: underline;\">Warning:</span> A resizing "
-"operation may corrupt the partition, rendering the data on it unreachable. "
-"Make sure that you have backed up the data.<span style=\" font-weight:600;"
-"\"> </span><span style=\" font-weight:600;\">Note that this operation cannot "
-"be undone.</span></p></body></html>"
+"Changes will be applied when you click \"Resize\". To cancel the changes, "
+"click <b>\"Cancel\".\n"
+"<br><br>\n"
+"Warning: A resizing operation may corrupt the partition, rendering the data "
+"on it unreachable. Make sure that you have backed up the data. Note that "
+"this operation cannot be undone.<b>"
 msgstr ""
 
 #: yali/gui/Ui/raid.py:95
