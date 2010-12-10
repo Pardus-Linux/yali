@@ -54,7 +54,7 @@
       <string notr="true"/>
      </property>
      <property name="title">
-      <string>Partition 1 on FUJISTU - /dev/sda1</string>
+      <string/>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="0" column="0" rowspan="2">
