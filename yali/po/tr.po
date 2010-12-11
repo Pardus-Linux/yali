@@ -15,14 +15,16 @@ msgstr ""
 "Project-Id-Version: YALI-tr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-12-10 13:56+0200\n"
-"PO-Revision-Date: 2010-12-10 12:23+0200\n"
+"PO-Revision-Date: 2010-12-11 14:48+0200\n"
 "Last-Translator: Ayhan YALÇINSOY <ayhanyalcinsoy@gmail.com>\n"
 "Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
-"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\\n\"\\nX-Generator: Lokalize 1.1\n"
+"Language: tr\n"
+"Plural-Forms: nplurals=1; plural=0;\\n"
+"\"\\n"
+"X-Generator: Lokalize 1.1\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:74 yali/gui/Ui/autopartquestion.py:82
 #: yali/gui/Ui/autopartwidget.py:140 yali/gui/Ui/bg.py:36
@@ -225,6 +227,8 @@ msgid ""
 "Please fill a bug report at http://bugs.pardus.org.tr/ attaching the "
 "following backtrace."
 msgstr ""
+"Lütfen aşağıdaki geriizi ekleyerek http://bugs.pardus.org.tr/ adresindeki "
+"hata raporunu doldurunuz."
 
 #: yali/gui/Ui/exception.py:66
 msgid "Show Backtrace"
@@ -473,6 +477,12 @@ msgid ""
 "on it unreachable. Make sure that you have backed up the data. Note that "
 "this operation cannot be undone.<b>"
 msgstr ""
+"\"Boyutlandır\"ı tıkladığınızda değişikler uygulanmış olacak. İptal etmek "
+"için <b>\"İptal\"</b>e tıklayınız.\n"
+"<br><br>\n"
+"Uyarı: Boyutlandırma faaliyeti disk bölümünü bozabilir, veriler ulaşılamaz "
+"olarak yorumlanabilir. Verilerinizi yedeklediğinizden emin olun. Yapılan "
+"değişiklikler geri alınamaz."
 
 #: yali/gui/Ui/raid.py:95
 msgid "Raid Device:"
@@ -504,7 +514,7 @@ msgstr "GRUB'un nereye yükleneceğini seçin"
 
 #: yali/gui/Ui/rescuegrubwidget.py:83
 msgid "First bootable disk (recommended)"
-msgstr ""
+msgstr "Birinci açılış diski (önerilen)"
 
 #: yali/gui/Ui/rescuegrubwidget.py:84
 msgid "Disk partition where Pardus is installed"
@@ -721,8 +731,8 @@ msgstr "Hata"
 #: yali/gui/interface.py:67
 #, python-format
 msgid ""
-"Cannot access the partition table of %(description)s(%(name)s) -- "
-"%(size)-0.fMB\n"
+"Cannot access the partition table of %(description)s(%(name)s) -- %(size)-0."
+"fMB\n"
 "\n"
 "If there already exists a partition table on this device, it will\n"
 " be re-initialized and your existing data will be lost!\n"
@@ -732,8 +742,8 @@ msgid ""
 "To re-initialize all disks with unaccessible partition tables press Re-"
 "initialize All"
 msgstr ""
-"Bölümleme dosyası kabul edilemedi of %(description)s(%(name)s) -- "
-"%(size)-0.fMB\n"
+"Bölümleme dosyası kabul edilemedi of %(description)s(%(name)s) -- %(size)-0."
+"fMB\n"
 "\n"
 "Eğer bu aygıtta bölümleme tablosu varsa, bu tablo işlemi\n"
 " yeniden başlatılacak ve verilerinizi kaybedeceksiniz!\n"
@@ -878,9 +888,9 @@ msgstr ""
 #: yali/gui/lvm_gui.py:449
 #, python-format
 msgid ""
-"The physical extent size cannot be changed because the value selected "
-"(%(curpe)10.2f MB) is too large compared to the size of the smallest "
-"physical volume (%(maxpvsize)10.2f MB) in the volume group."
+"The physical extent size cannot be changed because the value selected (%"
+"(curpe)10.2f MB) is too large compared to the size of the smallest physical "
+"volume (%(maxpvsize)10.2f MB) in the volume group."
 msgstr ""
 "Fiziksel boyut değiştirilemez çünkü seçilen değer (%(curpe)10.2f MB) birim "
 "grubuna ait olan daha küçük fiziksel birimin ebadı (%(maxpvsize)10.2f MB) "
@@ -1006,17 +1016,17 @@ msgid ""
 "create more Physical Volumes from unpartitioned disk space and add them to "
 "this Volume Group."
 msgstr ""
-"İstenen boyut (%(size)10.2f MB) maksimum mantıksal birim boyutundan "
-"(%(maxlv)10.2f MB) daha büyüktür. Bu sınırı arttırmak için bölümlenmemiş "
-"disk alanında yeni Fiziksel Birimler ekleyebilir ve onları bu birim grubuna "
+"İstenen boyut (%(size)10.2f MB) maksimum mantıksal birim boyutundan (%(maxlv)"
+"10.2f MB) daha büyüktür. Bu sınırı arttırmak için bölümlenmemiş disk "
+"alanında yeni Fiziksel Birimler ekleyebilir ve onları bu birim grubuna "
 "ekleyebilirsiniz."
 
 #: yali/gui/lvm_gui.py:724
 #, python-format
 msgid ""
 "The size entered for this logical volume (%(size)d MB) combined with the "
-"size of the other logical volume(s) exceeds the size of the volume group "
-"(%(tmpvgsize)d MB). Please make the volume group larger or make the logical "
+"size of the other logical volume(s) exceeds the size of the volume group (%"
+"(tmpvgsize)d MB). Please make the volume group larger or make the logical "
 "volume smaller."
 msgstr ""
 "Bu mantıksal biri için girilen boyut (%(size)d MB) diğer mantıksal birim"
@@ -1229,7 +1239,7 @@ msgstr "Kullanıcılar ekleniyor..."
 
 #: yali/gui/ScrGoodbye.py:89
 msgid "Cleanup systems..."
-msgstr ""
+msgstr "Sistemler temizleniyor..."
 
 #: yali/gui/ScrInstall.py:151
 #, python-format
