@@ -121,7 +121,6 @@ msgid "To use PiSi History support, you may need to be online. You can use a con
 msgstr ""
 
 #: yali/gui/Ui/connectionlist.py:77
-#, fuzzy
 msgid "Connect"
 msgstr "Подключиться"
 
@@ -166,7 +165,6 @@ msgid "Create Raid formatted partition"
 msgstr "   Raid"
 
 #: yali/gui/Ui/createdevicewidget.py:144
-#, fuzzy
 msgid "Raid Array"
 msgstr "RAID-массив"
 
@@ -236,7 +234,6 @@ msgid "Before installing Pardus on your computer, please read and accept the ter
 msgstr ""
 
 #: yali/gui/Ui/license.py:105
-#, fuzzy
 msgid "I understand and accept the terms"
 msgstr "Я понимаю и соглашаюсь с условиями лицензии"
 
@@ -279,7 +276,6 @@ msgstr "Форматировать"
 
 #: yali/gui/Ui/logicalvolume.py:142 yali/gui/Ui/partition.py:150
 #: yali/gui/Ui/raid.py:99
-#, fuzzy
 msgid "Migrate"
 msgstr "Мигрировать"
 
@@ -1496,7 +1492,6 @@ msgid "PAE Kernel selected"
 msgstr "Выбрано ядро с PAE"
 
 #: yali/gui/ScrSummary.py:203
-#, fuzzy
 msgid "Confirm"
 msgstr "Подтвердить"
 
@@ -1725,12 +1720,10 @@ msgid "Turkish"
 msgstr "Турецкий"
 
 #: yali/localedata.py:22
-#, fuzzy
 msgid "Turkish F"
 msgstr "Турецкий F"
 
 #: yali/localedata.py:22
-#, fuzzy
 msgid "Turkish Q"
 msgstr "Турецкий Q"
 
@@ -1739,7 +1732,6 @@ msgid "English"
 msgstr "Английский"
 
 #: yali/localedata.py:42
-#, fuzzy
 msgid "English GB"
 msgstr "Английский GB"
 
@@ -1852,7 +1844,6 @@ msgid "Japanese"
 msgstr "Японский"
 
 #: yali/localedata.py:330
-#, fuzzy
 msgid "Malayalam"
 msgstr "Малаялам"
 
