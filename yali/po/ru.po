@@ -28,7 +28,7 @@ msgstr ""
 #: yali/gui/Ui/raid.py:94 yali/gui/Ui/summarywidget.py:113
 #: yali/gui/Ui/volumegroup.py:95
 msgid "Form"
-msgstr ""
+msgstr "Форма"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 msgid "Choose Installation Method"
@@ -52,7 +52,7 @@ msgstr "Ядро с PAE"
 
 #: yali/gui/Ui/autopartquestion.py:83
 msgid "There appears to be more than one resizeable partition. You can select a partition from the list below or YALI will select one for you."
-msgstr ""
+msgstr "Есть более чем один раздел с изменяемым размером. Вы можете выбрать раздел из списка ниже или его выберет YALI"
 
 #: yali/gui/Ui/autopartquestion.py:84 yali/gui/Ui/connectionlist.py:76
 #: yali/gui/Ui/dialog.py:65
@@ -78,7 +78,7 @@ msgstr "Использовать выбранное"
 #: yali/gui/Ui/rescuewidget.py:92 yali/gui/Ui/rootpasswidget.py:128
 #: yali/gui/Ui/setupuserswidget.py:488 yali/gui/Ui/welcome.py:84
 msgid "Form1"
-msgstr ""
+msgstr "Форма1"
 
 #: yali/gui/Ui/bootloaderwidget.py:129
 msgid "Advanced settings"
