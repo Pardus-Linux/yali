@@ -586,11 +586,11 @@ msgstr ""
 
 #: yali/gui/Ui/setupuserswidget.py:496
 msgid "Add user to administrator (wheel) group"
-msgstr ""
+msgstr "Добавить пользователя в группу администраторов(wheel)"
 
 #: yali/gui/Ui/setupuserswidget.py:497
 msgid "Select auto login user"
-msgstr ""
+msgstr "Выберить Авто Логин пользователя"
 
 #: yali/gui/Ui/setupuserswidget.py:498 yali/gui/Ui/volumegroup.py:104
 #: yali/gui/ScrUsers.py:288 yali/gui/ScrUsers.py:330 yali/gui/ScrUsers.py:408
@@ -610,17 +610,14 @@ msgid "Install all language packages"
 msgstr "Установить все языковые пакеты"
 
 #: yali/gui/Ui/volumegroup.py:96
-#, fuzzy
 msgid "Volume Group Name:"
 msgstr "Volume Group"
 
 #: yali/gui/Ui/volumegroup.py:97
-#, fuzzy
 msgid "Physical Extends"
 msgstr "Physical Volume"
 
 #: yali/gui/Ui/volumegroup.py:98
-#, fuzzy
 msgid "Physical Volumes to use:"
 msgstr "Physical Volume"
 
