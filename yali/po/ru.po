@@ -395,7 +395,6 @@ msgid "Force to be primary partition"
 msgstr ""
 
 #: yali/gui/Ui/partition.py:144
-#, fuzzy
 msgid "Use as:"
 msgstr "Использовать как:"
 
@@ -404,7 +403,6 @@ msgid "Force to be a primary partition"
 msgstr ""
 
 #: yali/gui/Ui/partition.py:153
-#, fuzzy
 msgid "Allowable Drives:"
 msgstr "Доступные диски:"
 
@@ -441,7 +439,7 @@ msgstr ""
 
 #: yali/gui/Ui/raid.py:95
 msgid "Raid Device:"
-msgstr ""
+msgstr "Устройство Raid:"
 
 #: yali/gui/Ui/raid.py:96
 msgid "Use:"
@@ -481,7 +479,7 @@ msgstr "На выбранном ниже диске"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:110
 msgid "Choose the user you want to reset the password:"
-msgstr ""
+msgstr "Выберите пользователя для которого вы хотите сбросить пароль:"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:111
 msgid "New password:"
@@ -536,8 +534,9 @@ msgid "Return back to a previous system state"
 msgstr "Подтвердите пароль"
 
 #: yali/gui/Ui/rescuewidget.py:96
+#, fuzzy
 msgid "Reset forgotten password"
-msgstr ""
+msgstr "Сброс забытого пароля"
 
 #: yali/gui/Ui/rescuewidget.py:97 yali/gui/ScrGoodbye.py:53
 #: yali/gui/ScrRescueFinish.py:78 yali/gui/ScrSummary.py:46
@@ -861,7 +860,7 @@ msgstr "   "
 #: yali/gui/raid_gui.py:95
 #, python-format
 msgid "The mount point \"%s\" is in use. Please pick another."
-msgstr ""
+msgstr "Точка монтирования \"%s\" уже используется. Пожалуйста, укажите другую."
 
 #: yali/gui/lvm_gui.py:661
 msgid "Illegal Logical Volume Name"
@@ -990,13 +989,13 @@ msgid "Validating %s"
 msgstr " %s"
 
 #: yali/gui/ScrCheckCD.py:93
-#, python-format
+#, python-format, fuzzy
 msgid "Validation of %s package failed.Please remaster your installation medium andreboot."
-msgstr ""
+msgstr "Проверка пакета %s завершилась с ошибкой. Пожалуйста, замените ваш установочный диск и перезагрузитесь."
 
 #: yali/gui/ScrCheckCD.py:97
 msgid "Skip Validation"
-msgstr ""
+msgstr "Пропустить проверку"
 
 #: yali/gui/ScrCheckCD.py:97
 msgid "Skip Package"
@@ -1081,7 +1080,7 @@ msgstr "  ..."
 
 #: yali/gui/ScrGoodbye.py:89
 msgid "Cleanup systems..."
-msgstr ""
+msgstr "Очистка системы..."
 
 #: yali/gui/ScrInstall.py:151
 #, python-format
