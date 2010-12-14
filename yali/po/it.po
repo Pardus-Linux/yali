@@ -133,7 +133,7 @@ msgstr "Partizione standard"
 
 #: yali/gui/Ui/createdevicewidget.py:135 yali/gui/ScrPartitionManual.py:152
 msgid "General purpose of partition creation"
-msgstr ""
+msgstr "Obiettivo generale della creazione di partizione"
 
 #: yali/gui/Ui/createdevicewidget.py:136 yali/gui/ScrPartitionManual.py:157
 msgid "Volume Group"
@@ -312,7 +312,6 @@ msgid "Next"
 msgstr "Avanti"
 
 #: yali/gui/Ui/main.py:251
-#, fuzzy
 msgid "Screen Name"
 msgstr "Nome utente:"
 
@@ -401,7 +400,6 @@ msgid "Force to be primary partition"
 msgstr "Ci sono troppe partizioni primarie!"
 
 #: yali/gui/Ui/partition.py:144
-#, fuzzy
 msgid "Use as:"
 msgstr "Utilizzo:"
 
