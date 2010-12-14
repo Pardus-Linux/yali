@@ -196,7 +196,7 @@ msgstr ""
 
 #: yali/gui/Ui/exception.py:63
 msgid "font:bold;"
-msgstr ""
+msgstr "carattere:grassetto;"
 
 #: yali/gui/Ui/exception.py:64
 msgid "Unhandled exception occured"
@@ -216,7 +216,7 @@ msgstr "Riavvia"
 
 #: yali/gui/Ui/help.py:57
 msgid "help content"
-msgstr ""
+msgstr "contenuti di aiuto"
 
 #: yali/gui/Ui/installprogress.py:61
 msgid "Installing Package: "
@@ -227,14 +227,12 @@ msgid "Form3"
 msgstr "Form3"
 
 #: yali/gui/Ui/keyboardwidget.py:128
-#, fuzzy
 msgid "Keyboard Layouts"
-msgstr "Impostazioni tastiera"
+msgstr "Disposizioni della Tastiera"
 
 #: yali/gui/Ui/keyboardwidget.py:129
-#, fuzzy
 msgid "Test Layout"
-msgstr "Prova la tastiera scelta qui:"
+msgstr "Prova la Disposizione"
 
 #: yali/gui/Ui/license.py:104
 msgid "Before installing Pardus on your computer, please read and accept the terms of free / open source licenses of the softwares included in this installation medium. <a href=\"#\"><span style=\" text-decoration: underline; color:#56a2c0;\">License texts</span></a>"
@@ -242,7 +240,7 @@ msgstr ""
 
 #: yali/gui/Ui/license.py:105
 msgid "I understand and accept the terms"
-msgstr ""
+msgstr "Capisco e accetto i termini"
 
 #: yali/gui/Ui/logicalvolume.py:134
 #, fuzzy
@@ -256,9 +254,8 @@ msgstr "Utilizzo:"
 
 #: yali/gui/Ui/logicalvolume.py:136 yali/gui/Ui/partedit.py:173
 #: yali/gui/Ui/partitionedit.py:137 yali/gui/Ui/partition.py:145
-#, fuzzy
 msgid "Size :"
-msgstr "Ridimensiona"
+msgstr "Dimensione :"
 
 #: yali/gui/Ui/logicalvolume.py:137 yali/gui/Ui/logicalvolume.py:139
 #: yali/gui/Ui/partedit.py:174 yali/gui/Ui/partitionedit.py:138
