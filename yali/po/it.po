@@ -104,9 +104,8 @@ msgid "The first sector of"
 msgstr ""
 
 #: yali/gui/Ui/checkcdwidget.py:198
-#, fuzzy
 msgid "You can validate the integrity of the installation packages. Although this is an optional step, we highly recommend to do the validation in order to avoid any possible errors during the installation process."
-msgstr "Se vuoi, puoi verificare l'integrità dei pacchetti nel CD di installazione. Anche se questo passaggio è opzionale, noi ti incoraggiamo a farlo per evitare qualsiasi errore durante l'installazione."
+msgstr "Puoi verificare l'integrità dei pacchetti nel CD di installazione. Anche se questo passaggio è opzionale, noi ti incoraggiamo a farlo per evitare qualsiasi errore durante l'installazione."
 
 #: yali/gui/Ui/checkcdwidget.py:199
 msgid "Validation failed"
@@ -118,12 +117,11 @@ msgstr "Validazione fatta"
 
 #: yali/gui/Ui/checkcdwidget.py:201 yali/gui/ScrCheckCD.py:60
 msgid "Validate"
-msgstr ""
+msgstr "Verifica"
 
 #: yali/gui/Ui/connectionlist.py:75
-#, fuzzy
 msgid "To use PiSi History support, you may need to be online. You can use a connection profile from the list below:"
-msgstr "Per usare lo storico delle operazioni effettuate da PiSi hai bisogno di una connessione Internet. Puoi scegliere un profilo per la connesione da questa lista."
+msgstr "Per usare lo storico delle operazioni effettuate da PiSi hai bisogno di una connessione Internet. Puoi scegliere un profilo per la connesione da questa lista:"
 
 #: yali/gui/Ui/connectionlist.py:77
 msgid "Connect"
@@ -243,9 +241,8 @@ msgid "I understand and accept the terms"
 msgstr "Capisco e accetto i termini"
 
 #: yali/gui/Ui/logicalvolume.py:134
-#, fuzzy
 msgid "Logical Volume:"
-msgstr "Volume fisico insufficente"
+msgstr "Volume Logico:"
 
 #: yali/gui/Ui/logicalvolume.py:135 yali/gui/Ui/partedit.py:172
 #: yali/gui/Ui/partitionedit.py:136
@@ -266,7 +263,6 @@ msgstr "MB"
 
 #: yali/gui/Ui/logicalvolume.py:138 yali/gui/Ui/partition.py:147
 #: yali/gui/Ui/partresize.py:95
-#, fuzzy
 msgid "Resize"
 msgstr "Ridimensiona"
 
@@ -288,13 +284,12 @@ msgid "Migrate"
 msgstr ""
 
 #: yali/gui/Ui/main.py:244
-#, fuzzy
 msgid "Yali"
-msgstr "Yali4"
+msgstr "Yali"
 
 #: yali/gui/Ui/main.py:245
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: yali/gui/Ui/main.py:246 yali/gui/YaliWindow.py:393
 msgid "Release Notes"
@@ -305,7 +300,6 @@ msgid "Previous Screen"
 msgstr "Schermata precedente"
 
 #: yali/gui/Ui/main.py:248
-#, fuzzy
 msgid "Back"
 msgstr "Indietro"
 
