@@ -319,7 +319,7 @@ msgstr "Nome utente:"
 
 #: yali/gui/Ui/manualpartwidget.py:133
 msgid "Device"
-msgstr ""
+msgstr "Dispositivo"
 
 #: yali/gui/Ui/manualpartwidget.py:134
 msgid "Mount Point"
@@ -327,25 +327,24 @@ msgstr ""
 
 #: yali/gui/Ui/manualpartwidget.py:135
 msgid "Label"
-msgstr ""
+msgstr "Etichetta"
 
 #: yali/gui/Ui/manualpartwidget.py:136
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #: yali/gui/Ui/manualpartwidget.py:138 yali/gui/Ui/volumegroup.py:103
-#, fuzzy
 msgid "Size"
-msgstr "Ridimensiona"
+msgstr "Dimensione"
 
 #: yali/gui/Ui/manualpartwidget.py:139
 msgid "New"
-msgstr ""
+msgstr "Nuovo"
 
 #: yali/gui/Ui/manualpartwidget.py:140 yali/gui/Ui/setupuserswidget.py:499
 #: yali/gui/Ui/volumegroup.py:105
 msgid "Edit"
-msgstr ""
+msgstr "Modifica"
 
 #: yali/gui/Ui/manualpartwidget.py:141 yali/gui/Ui/setupuserswidget.py:500
 #: yali/gui/Ui/volumegroup.py:106 yali/gui/lvm_gui.py:553
