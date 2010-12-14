@@ -449,12 +449,11 @@ msgstr ""
 
 #: yali/gui/Ui/raid.py:96
 msgid "Use:"
-msgstr ""
+msgstr "Uso:"
 
 #: yali/gui/Ui/raid.py:97
-#, fuzzy
 msgid "Filesystem:"
-msgstr "Filesystem:"
+msgstr "Sistema di File:"
 
 #: yali/gui/Ui/raid.py:100
 msgid "Raid Level:"
@@ -478,9 +477,8 @@ msgid "First bootable disk (recommended)"
 msgstr "Installa nel primo disco avviabile (consigliato)"
 
 #: yali/gui/Ui/rescuegrubwidget.py:84
-#, fuzzy
 msgid "Disk partition where Pardus is installed"
-msgstr "Seleziona la partizione sulla quale è installato Pardus"
+msgstr "La partizione sulla quale è installato Pardus"
 
 #: yali/gui/Ui/rescuegrubwidget.py:85
 msgid "Selected disk below"
@@ -495,14 +493,12 @@ msgid "New password:"
 msgstr "Nuova password:"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:112
-#, fuzzy
 msgid "New password (Again):"
 msgstr "Nuova password (conferma):"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:113
-#, fuzzy
 msgid "Reset Password"
-msgstr "Password:"
+msgstr "Reset Password"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:114
 msgid ""
@@ -530,18 +526,16 @@ msgid "Select Connection"
 msgstr "Seleziona una connessione"
 
 #: yali/gui/Ui/rescuepisiwidget.py:77
-#, fuzzy
 msgid "Select the operation to undo:"
-msgstr "Operazione da annullare"
+msgstr "Seleziona operazione da annullare:"
 
 #: yali/gui/Ui/rescuewidget.py:93
 msgid "Choose what do you want to do to repair your system:"
 msgstr ""
 
 #: yali/gui/Ui/rescuewidget.py:94
-#, fuzzy
 msgid "Reinstall GRUB bootloader"
-msgstr "Reinstalla GRUB (problemi di boot)"
+msgstr "Reinstalla GRUB bootloader"
 
 #: yali/gui/Ui/rescuewidget.py:95
 msgid "Return back to a previous system state"
