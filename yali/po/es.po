@@ -1357,7 +1357,7 @@ msgstr "Iniciando DBUS..."
 
 #: yali/gui/ScrRescuePassword.py:46
 msgid "Acquiring users..."
-msgstr ""
+msgstr "Adquiriendo usuarios.."
 
 #: yali/gui/ScrRescuePassword.py:79
 msgid "The password has been successfully reset."
@@ -1436,9 +1436,8 @@ msgid "Start Installation"
 msgstr "Iniciar Instalación"
 
 #: yali/gui/ScrSummary.py:78
-#, fuzzy
 msgid "Apply Settings"
-msgstr "Usuarios"
+msgstr "Aplicando Configuración"
 
 #: yali/gui/ScrSummary.py:97
 msgid "Keyboard Settings"
