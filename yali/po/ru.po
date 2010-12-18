@@ -52,7 +52,7 @@ msgstr "Ядро с PAE"
 
 #: yali/gui/Ui/autopartquestion.py:83
 msgid "There appears to be more than one resizeable partition. You can select a partition from the list below or YALI will select one for you."
-msgstr "Есть более чем один раздел с изменяемым размером. Вы можете выбрать раздел из списка ниже или его выберет YALI."
+msgstr "Есть более чем один раздел с изменяемым размером. Вы можете выбрать раздел из списка ниже или его выберет YALI"
 
 #: yali/gui/Ui/autopartquestion.py:84 yali/gui/Ui/connectionlist.py:76
 #: yali/gui/Ui/dialog.py:65
@@ -118,7 +118,7 @@ msgstr "Проверка"
 
 #: yali/gui/Ui/connectionlist.py:75
 msgid "To use PiSi History support, you may need to be online. You can use a connection profile from the list below:"
-msgstr ""
+msgstr "Для того, чтобы использовать PiSi History, вам нужно находиться в Сети. Вы можете воспользоваться профилем подключения из списка ниже:"
 
 #: yali/gui/Ui/connectionlist.py:77
 msgid "Connect"
@@ -130,11 +130,11 @@ msgstr "Стандартный раздел"
 
 #: yali/gui/Ui/createdevicewidget.py:135 yali/gui/ScrPartitionManual.py:152
 msgid "General purpose of partition creation"
-msgstr "  "
+msgstr " Общее назначение создания разделов"
 
 #: yali/gui/Ui/createdevicewidget.py:136 yali/gui/ScrPartitionManual.py:157
 msgid "Volume Group"
-msgstr "Volume Group"
+msgstr "Группа Тома"
 
 #: yali/gui/Ui/createdevicewidget.py:137 yali/gui/ScrPartitionManual.py:158
 msgid "Requires at least 1 free LVM formatted partition"
@@ -142,27 +142,27 @@ msgstr "Требуется по меньшей мере 1 свободный LVM
 
 #: yali/gui/Ui/createdevicewidget.py:138 yali/gui/ScrPartitionManual.py:160
 msgid "Logical Volume"
-msgstr "Logical Volume"
+msgstr "Логический Том"
 
 #: yali/gui/Ui/createdevicewidget.py:139 yali/gui/ScrPartitionManual.py:161
 msgid "Create Logical Volume on selected Volume Group"
-msgstr "      "
+msgstr "Создать логическую группу в выбранной группе по размеру"
 
 #: yali/gui/Ui/createdevicewidget.py:140 yali/gui/ScrPartitionManual.py:154
 msgid "Physical Volume"
-msgstr "Physical Volume"
+msgstr "Физический Том"
 
 #: yali/gui/Ui/createdevicewidget.py:141 yali/gui/ScrPartitionManual.py:155
 msgid "Create LVM formatted partition"
-msgstr "   LVM"
+msgstr "LVM"
 
 #: yali/gui/Ui/createdevicewidget.py:142
 msgid "Raid Member"
-msgstr ""
+msgstr "Часть RAID"
 
 #: yali/gui/Ui/createdevicewidget.py:143 yali/gui/ScrPartitionManual.py:164
 msgid "Create Raid formatted partition"
-msgstr "   Raid"
+msgstr "Создать отформатированный раздел RAID"
 
 #: yali/gui/Ui/createdevicewidget.py:144
 msgid "Raid Array"
@@ -170,7 +170,7 @@ msgstr "RAID-массив"
 
 #: yali/gui/Ui/createdevicewidget.py:145 yali/gui/ScrPartitionManual.py:167
 msgid "Requires at least 2 free Raid formatted partition"
-msgstr ""
+msgstr "Требует как минимум 2 свободных отформатированных разделов RAID"
 
 #: yali/gui/Ui/datetimewidget.py:172
 msgid "Date"
@@ -195,15 +195,15 @@ msgstr "font:bold;"
 
 #: yali/gui/Ui/exception.py:64
 msgid "Unhandled exception occured"
-msgstr ""
+msgstr "Получено неизвестное исключение"
 
 #: yali/gui/Ui/exception.py:65
 msgid "Please fill a bug report at http://bugs.pardus.org.tr/ attaching the following backtrace."
-msgstr ""
+msgstr "Пожалуйста, заполните отчет об ошибке на http://bugs.pardus.org.tr/ , подключив к нему следующий протокол сбоя."
 
 #: yali/gui/Ui/exception.py:66
 msgid "Show Backtrace"
-msgstr ""
+msgstr "Показать Протокол сбоя"
 
 #: yali/gui/Ui/exception.py:67 yali/gui/ScrCheckCD.py:97
 msgid "Reboot"
@@ -211,7 +211,7 @@ msgstr "Перезагружать"
 
 #: yali/gui/Ui/help.py:57
 msgid "help content"
-msgstr ""
+msgstr "содержание помощи"
 
 #: yali/gui/Ui/installprogress.py:61
 msgid "Installing Package: "
@@ -219,7 +219,7 @@ msgstr "Установка пакета:"
 
 #: yali/gui/Ui/installwidget.py:116
 msgid "Form3"
-msgstr ""
+msgstr "Form3"
 
 #: yali/gui/Ui/keyboardwidget.py:128
 msgid "Keyboard Layouts"
@@ -231,7 +231,7 @@ msgstr "Проверить раскладку"
 
 #: yali/gui/Ui/license.py:104
 msgid "Before installing Pardus on your computer, please read and accept the terms of free / open source licenses of the softwares included in this installation medium. <a href=\"#\"><span style=\" text-decoration: underline; color:#56a2c0;\">License texts</span></a>"
-msgstr ""
+msgstr "Перед установкой Pardus на свой компьютер, пожалуйста прочтите и примите условия свободных и открых лицензий программного обеспечения, включенного в данную установку.<a href=\"#\"><span style=\" text-decoration: underline; color:#56a2c0;\">License texts</span></a>"
 
 #: yali/gui/Ui/license.py:105
 msgid "I understand and accept the terms"
@@ -244,7 +244,7 @@ msgstr "Логический том:"
 #: yali/gui/Ui/logicalvolume.py:135 yali/gui/Ui/partedit.py:172
 #: yali/gui/Ui/partitionedit.py:136
 msgid "Use :"
-msgstr ""
+msgstr "Использование:"
 
 #: yali/gui/Ui/logicalvolume.py:136 yali/gui/Ui/partedit.py:173
 #: yali/gui/Ui/partitionedit.py:137 yali/gui/Ui/partition.py:145
@@ -581,7 +581,7 @@ msgstr "Не рекомендуется"
 
 #: yali/gui/Ui/setupuserswidget.py:495
 msgid "Bypass authorization attempts for this user"
-msgstr ""
+msgstr "Пропустить авторизацию для этого пользователя"
 
 #: yali/gui/Ui/setupuserswidget.py:496
 msgid "Add user to administrator (wheel) group"
@@ -598,11 +598,11 @@ msgstr "Добавить"
 
 #: yali/gui/Ui/setupuserswidget.py:502
 msgid "Advanced"
-msgstr ""
+msgstr "Продвинутый"
 
 #: yali/gui/Ui/summarywidget.py:114
 msgid "When checked, YALI will install all of the officially supported language packages on your system."
-msgstr ""
+msgstr "Когда выбрано, YALI установит все официально поддерживаемые пакеты переводов для вашей системы"
 
 #: yali/gui/Ui/summarywidget.py:115
 msgid "Install all language packages"
