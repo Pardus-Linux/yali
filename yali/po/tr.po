@@ -1639,7 +1639,7 @@ msgstr ""
 
 #: yali/gui/ScrSummary.py:151
 msgid "Use Free Space"
-msgstr "Boş Alanıı Kullan"
+msgstr "Boş Alanı Kullan"
 
 #: yali/gui/ScrSummary.py:152
 #, python-format
