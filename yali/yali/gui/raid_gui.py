@@ -1,21 +1,17 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-import copy
 import gettext
-__trans = gettext.translation('yali', fallback=True)
-_ = __trans.ugettext
+_ = gettext.translation('yali', fallback=True).ugettext
 
-from PyQt4 import QtGui
-from PyQt4.QtCore import *
+from PyQt4.Qt import QWidget, SIGNAL, QObject, QSize, Qt
 
-import yali.context as ctx
 from yali.gui.YaliDialog import Dialog
 from yali.gui.Ui.raid import Ui_RaidWidget
 from yali.gui import storageGuiHelpers
 from yali.storage import formats
 from yali.storage.library import raid
-from yali.storage.operations import *
-from yali.storage.storageBackendHelpers import queryNoFormatPreExisting, sanityCheckMountPoint, doUIRAIDLVMChecks
+from yali.storage.operations import OperationCreateDevice, OperationDestroyDevice, OperationCreateFormat, OperationMigrateFormat
+from yali.storage.storageBackendHelpers import queryNoFormatPreExisting, sanityCheckMountPoint
 
 class RaidEditor(object):
     def __init__(self, parent, request, isNew=False):
@@ -47,7 +43,7 @@ class RaidEditor(object):
 
         self.dialog = Dialog(title, closeButton=False)
         self.dialog.addWidget(RaidWidget(self, request, isNew))
-        self.dialog.resize(QSize(0,0))
+        self.dialog.resize(QSize(450, 200))
 
     def run(self):
         if self.dialog is None:
@@ -101,7 +97,7 @@ class RaidEditor(object):
             if not self.origrequest.exists:
                 formatType = str(widget.filesystemMenu.currentText())
                 raidminor = widget.raidMinors.itemData(widget.raidMinors.currentIndex()).toInt()[0]
-                raidlevel = widget.raidMinors.itemData(widget.raidLevels.currentIndex()).toInt()[0]
+                raidlevel = widget.raidLevels.itemData(widget.raidLevels.currentIndex()).toInt()[0]
 
                 if not raid.isRaid(raid.RAID0, raidlevel):
                     spares = widget.spareSpin.value()
@@ -147,7 +143,7 @@ class RaidEditor(object):
                                                                          object="format",
                                                                          devid=self.origrequest.id))
                     for operation in cancel:
-                        devicetree.removeOperation(operation)
+                        self.storage.devicetree.removeOperation(operation)
 
                     self.origrequest.format = self.origrequest.originalFormat
 
@@ -171,9 +167,9 @@ class RaidEditor(object):
         if self.dialog:
             self.dialog = None
 
-class RaidWidget(QtGui.QWidget, Ui_RaidWidget):
+class RaidWidget(QWidget, Ui_RaidWidget):
     def __init__(self, parent, request, isNew):
-        QtGui.QWidget.__init__(self, parent.parent)
+        QWidget.__init__(self, parent.parent)
         self.setupUi(self)
         self.parent = parent
         self.origrequest = request
@@ -247,7 +243,7 @@ class RaidWidget(QtGui.QWidget, Ui_RaidWidget):
         if not self.origrequest.exists:
             numparts =  len(availraidparts)
             if self.origrequest.spares:
-                spares = origrequest.spares
+                spares = self.origrequest.spares
             else:
                 spares = 0
 
@@ -256,7 +252,7 @@ class RaidWidget(QtGui.QWidget, Ui_RaidWidget):
             else:
                 maxspares = 0
 
-            self.spareSpin.setRange(0,maxspares)
+            self.spareSpin.setRange(0, maxspares)
             self.spareSpin.setValue(spares)
 
             if maxspares > 0:
@@ -276,9 +272,9 @@ class RaidWidget(QtGui.QWidget, Ui_RaidWidget):
         self.connect(self.buttonBox, SIGNAL("rejected()"), self.parent.dialog.reject)
 
     def raidLevelChanged(self, index):
-        raidlevel = int(self.raidLevels.currentText())
+        raidlevel = self.raidLevels.itemData(index).toInt()[0]
         availraidparts = self.parent.storage.unusedRaidMembers(array=self.origrequest)
-        maxspares = raid.get_raid_max_spares(raidlevel, numparts)
+        maxspares = raid.get_raid_max_spares(raidlevel, availraidparts)
 
         if maxspares > 0 and not raid.isRaid(raid.RAID0, raidlevel):
            value = self.spareSpin.value()
@@ -293,7 +289,7 @@ class RaidWidget(QtGui.QWidget, Ui_RaidWidget):
 
 
     def formatTypeChanged(self, index):
-        format  = formats.getFormat(str(self.sender().itemText(index)))
+        format = formats.getFormat(str(self.sender().itemText(index)))
         if format.mountable:
             self.mountpointMenu.setEnabled(True)
         else:
