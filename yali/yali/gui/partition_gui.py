@@ -41,7 +41,7 @@ class PartitionEditor:
 
         self.dialog = Dialog(title, closeButton=False)
         self.dialog.addWidget(PartitionWidget(self, origrequest, isNew, restricts))
-        self.dialog.resize(QSize(0,0))
+        self.dialog.resize(QSize(350, 175))
 
     def run(self):
         if self.dialog is None:
@@ -272,16 +272,6 @@ class PartitionWidget(QtGui.QWidget, Ui_PartitionWidget):
                 self.resizeRadio.hide()
                 self.resizeSpin.hide()
                 self.resizeSlider.hide()
-
-
-        # Allowable Drives
-        #if not self.origrequest.exists:
-        #    req_disk_names = [d.name for d in self.origrequest.req_disks]
-        #    storageGuiHelpers.fillAllowedDrives(self.drives, self.parent.storage.partitioned, req_disk_names)
-        #else:
-        self.drivesLabel.hide()
-        #self.drivesSpacer.hide()
-        self.drives.hide()
 
         #Size
         if not self.origrequest.exists:
