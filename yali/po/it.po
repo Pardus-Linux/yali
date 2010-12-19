@@ -595,14 +595,13 @@ msgid "Add user to administrator (wheel) group"
 msgstr ""
 
 #: yali/gui/Ui/setupuserswidget.py:497
-#, fuzzy
 msgid "Select auto login user"
-msgstr "Utente per login automatico :"
+msgstr "Utente per login automatico"
 
 #: yali/gui/Ui/setupuserswidget.py:498 yali/gui/Ui/volumegroup.py:104
 #: yali/gui/ScrUsers.py:288 yali/gui/ScrUsers.py:330 yali/gui/ScrUsers.py:408
 msgid "Add"
-msgstr ""
+msgstr "Aggiungi"
 
 #: yali/gui/Ui/setupuserswidget.py:502
 msgid "Advanced"
@@ -625,24 +624,20 @@ msgid "Physical Extends"
 msgstr ""
 
 #: yali/gui/Ui/volumegroup.py:98
-#, fuzzy
 msgid "Physical Volumes to use:"
-msgstr "Volume fisico insufficente"
+msgstr "Volume fisico in uso:"
 
 #: yali/gui/Ui/volumegroup.py:99
-#, fuzzy
 msgid "Total Space:"
-msgstr "Spazio libero"
+msgstr "Spazio Totale:"
 
 #: yali/gui/Ui/volumegroup.py:100
-#, fuzzy
 msgid "Free Space:"
-msgstr "Spazio libero"
+msgstr "Spazio Libero:"
 
 #: yali/gui/Ui/volumegroup.py:101
-#, fuzzy
 msgid "Logical Volumes"
-msgstr "Volume fisico insufficente"
+msgstr "Volumi Logici"
 
 #: yali/gui/Ui/volumegroup.py:102
 msgid "Mountpoint"
