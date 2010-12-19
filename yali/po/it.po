@@ -418,11 +418,11 @@ msgstr ""
 
 #: yali/gui/Ui/partitionshrink.py:64
 msgid "Shrink partition to size (in MB)"
-msgstr ""
+msgstr "Ridurre dimensione della partizione a (in MB)"
 
 #: yali/gui/Ui/partitionshrinkwidget.py:91
 msgid "Shrink partition to size (in MB) :"
-msgstr ""
+msgstr "Ridurre dimensione della partizione a (in MB) :"
 
 #: yali/gui/Ui/partitionshrinkwidget.py:93 yali/gui/Ui/partresize.py:94
 #: yali/gui/Ui/setupuserswidget.py:501 yali/gui/lvm_gui.py:421
@@ -434,7 +434,7 @@ msgstr "Annulla"
 
 #: yali/gui/Ui/partitionshrinkwidget.py:94
 msgid "Shrink"
-msgstr ""
+msgstr "Ridurre"
 
 #: yali/gui/Ui/partresize.py:90
 msgid ""
