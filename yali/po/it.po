@@ -1025,12 +1025,10 @@ msgid "You must select at least one drive to be used for installation."
 msgstr ""
 
 #: yali/gui/ScrGoodbye.py:37
-#, fuzzy
 msgid "Running post-install operations..."
 msgstr "Esecuzione delle procedure post-installazione..."
 
 #: yali/gui/ScrGoodbye.py:53
-#, fuzzy
 msgid "Press <b>Restart</b> to restart the computer."
 msgstr "Premi <b>Riavvia</b> per riavviare il sistema."
 
@@ -1068,9 +1066,8 @@ msgid "Setting console keymap..."
 msgstr "Scrittura dati console..."
 
 #: yali/gui/ScrGoodbye.py:75
-#, fuzzy
 msgid "Copying repository index..."
-msgstr "Copia indice PiSi..."
+msgstr "Copia indice repositorio.."
 
 #: yali/gui/ScrGoodbye.py:76
 #, fuzzy
@@ -1088,9 +1085,8 @@ msgid "Writing bootloader..."
 msgstr "Installazione del bootloader"
 
 #: yali/gui/ScrGoodbye.py:82
-#, fuzzy
 msgid "Installing bootloader..."
-msgstr "Installazione del bootloader"
+msgstr "Installazione del bootloader..."
 
 #: yali/gui/ScrGoodbye.py:85
 #, fuzzy
