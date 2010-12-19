@@ -1620,7 +1620,7 @@ msgid ""
 "Removes all partitions on the selected %s device(s). This includes "
 "partitions created by other operating systems."
 msgstr ""
-"Seçili aygıt veya aygıtlardaki %s tüm bölümleri kaldırır. Bu işlem diğer "
+"%s seçili aygıtındaki(veya aygıtlarındaki) tüm bölümleri kaldırır. Bu işlem diğer "
 "işletim sistemleri tarafından oluşturulmuş bölümleri de kapsar."
 
 #: yali/gui/ScrSummary.py:145
