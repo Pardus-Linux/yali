@@ -481,7 +481,7 @@ msgstr "La partizione sulla quale è installato Pardus"
 
 #: yali/gui/Ui/rescuegrubwidget.py:85
 msgid "Selected disk below"
-msgstr ""
+msgstr "Il disco selezionato sotto"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:110
 msgid "Choose the user you want to reset the password:"
@@ -644,9 +644,8 @@ msgid "Mountpoint"
 msgstr ""
 
 #: yali/gui/Ui/volumegroup.py:107
-#, fuzzy
 msgid "Used Space:"
-msgstr "Spazio libero"
+msgstr "Spazio Usato:"
 
 #: yali/gui/Ui/welcome.py:85
 msgid ""
