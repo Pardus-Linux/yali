@@ -15,9 +15,13 @@ _ = gettext.translation('yali', fallback=True).ugettext
 
 from PyQt4.Qt import QWidget, SIGNAL, QTimer, QDate, QTime
 
+from pds.thread import PThread
+from pds.gui import PMessageBox, MIDCENTER, CURRENT, OUT
+
 import yali.localedata
 import yali.context as ctx
 import yali.postinstall
+import yali.storage
 from yali.gui import ScreenWidget
 from yali.gui.Ui.datetimewidget import Ui_DateTimeWidget
 from yali.timezone import TimeZoneList
@@ -62,6 +66,10 @@ class Widget(QWidget, ScreenWidget):
 
         self.ui.calendarWidget.setDate(QDate.currentDate())
 
+        self.pthread = None
+        self.pds_messagebox = PMessageBox(ctx.mainScreen)
+        self.pds_messagebox.enableOverlay()
+
         self.timer.start(1000)
 
     def dateChanged(self):
@@ -84,6 +92,9 @@ class Widget(QWidget, ScreenWidget):
 
     def shown(self):
         self.timer.start(1000)
+
+        if ctx.flags.install_type == ctx.STEP_BASE:
+            self.pthread = PThread(self, self.startInit, self.initFinished)
 
     def setTime(self):
         ctx.interface.informationWindow.update(_("Adjusting time settings"))
@@ -121,18 +132,29 @@ class Widget(QWidget, ScreenWidget):
                     ctx.mainScreen.step_increment = 2
                 else:
                     ctx.mainScreen.step_increment = 1
+                return True
             else:
-                ctx.storageInitialized = yali.storage.initialize(ctx.storage, ctx.interface)
-                if not ctx.storageInitialized:
-                    return False
-                else:
-                    disks = filter(lambda d: not d.format.hidden, ctx.storage.disks)
-                    if len(disks) == 1:
-                        ctx.storage.clearPartDisks = [disks[0].name]
-                        ctx.mainScreen.step_increment = 2
-                    else:
-                        ctx.mainScreen.step_increment = 1
+                self.pds_messagebox.busy.busy()
+                self.pds_messagebox.setMessage(_("Storage Devices initialising..."))
+                self.pds_messagebox.animate(start=MIDCENTER, stop=MIDCENTER)
+                ctx.mainScreen.step_increment = 0
+                self.pthread.start()
+                return False
 
         return True
 
+    def startInit(self):
+        ctx.storageInitialized = yali.storage.initialize(ctx.storage, ctx.interface)
 
+    def initFinished(self):
+        self.pds_messagebox.animate(start=CURRENT, stop=CURRENT, direction=OUT)
+        disks = filter(lambda d: not d.format.hidden, ctx.storage.disks)
+        if ctx.storageInitialized:
+            if len(disks) == 1:
+                ctx.storage.clearPartDisks = [disks[0].name]
+                ctx.mainScreen.step_increment = 2
+            else:
+                ctx.mainScreen.step_increment = 1
+            ctx.mainScreen.slotNext(dry_run=True)
+        else:
+            ctx.mainScreen.enableBack()

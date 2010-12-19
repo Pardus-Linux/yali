@@ -9,23 +9,22 @@
 #
 # Please read the COPYING file.
 #
-import sys
-import string
 import pardus.xorg
 import gettext
 
 _ = gettext.translation('yali', fallback=True).ugettext
 
 from PyQt4.Qt import QWidget, SIGNAL, QLineEdit
+from pds.thread import PThread
+from pds.gui import PMessageBox, MIDCENTER, CURRENT, OUT
 
 import yali.util
 import yali.postinstall
+import yali.storage
 import yali.context as ctx
 from yali.gui import ScreenWidget
 from yali.gui.Ui.rootpasswidget import Ui_RootPassWidget
 
-##
-# Root password widget
 class Widget(QWidget, ScreenWidget):
     name = "admin"
 
@@ -37,6 +36,10 @@ class Widget(QWidget, ScreenWidget):
 
         self.host_valid = True
         self.pass_valid = False
+
+        self.pthread = None
+        self.pds_messagebox = PMessageBox(ctx.mainScreen)
+        self.pds_messagebox.enableOverlay()
 
         self.connect(self.ui.pass1, SIGNAL("textChanged(const QString &)"),
                      self.slotTextChanged)
@@ -70,6 +73,9 @@ class Widget(QWidget, ScreenWidget):
         self.checkCapsLock()
         self.ui.pass1.setFocus()
 
+        if ctx.flags.install_type == ctx.STEP_DEFAULT:
+            self.pthread = PThread(self, self.startInit, self.initFinished)
+
     def execute(self):
         ctx.installData.rootPassword = unicode(self.ui.pass1.text())
         ctx.installData.hostName = unicode(self.ui.hostname.text())
@@ -84,18 +90,30 @@ class Widget(QWidget, ScreenWidget):
                 else:
                     ctx.mainScreen.step_increment = 1
             else:
-                ctx.storageInitialized = yali.storage.initialize(ctx.storage, ctx.interface)
-                if not ctx.storageInitialized:
-                    return False
-                else:
-                    disks = filter(lambda d: not d.format.hidden, ctx.storage.disks)
-                    if len(disks) == 1:
-                        ctx.storage.clearPartDisks = [disks[0].name]
-                        ctx.mainScreen.step_increment = 2
-                    else:
-                        ctx.mainScreen.step_increment = 1
+                self.pds_messagebox.busy.busy()
+                self.pds_messagebox.setMessage(_("Storage Devices initialising..."))
+                self.pds_messagebox.animate(start=MIDCENTER, stop=MIDCENTER)
+                ctx.mainScreen.step_increment = 0
+                self.pthread.start()
+                return False
 
         return True
+
+    def startInit(self):
+        ctx.storageInitialized = yali.storage.initialize(ctx.storage, ctx.interface)
+
+    def initFinished(self):
+        self.pds_messagebox.animate(start=CURRENT, stop=CURRENT, direction=OUT)
+        disks = filter(lambda d: not d.format.hidden, ctx.storage.disks)
+        if ctx.storageInitialized:
+            if len(disks) == 1:
+                ctx.storage.clearPartDisks = [disks[0].name]
+                ctx.mainScreen.step_increment = 2
+            else:
+                ctx.mainScreen.step_increment = 1
+            ctx.mainScreen.slotNext(dry_run=True)
+        else:
+            ctx.mainScreen.enableBack()
 
     def setCapsLockIcon(self, child):
         if type(child) == QLineEdit:
