@@ -2,11 +2,9 @@
 # -*- coding: utf-8 -*-
 import copy
 import gettext
-__trans = gettext.translation('yali', fallback=True)
-_ = __trans.ugettext
+_ = gettext.translation('yali', fallback=True).ugettext
 
-from PyQt4 import QtGui
-from PyQt4.QtCore import *
+from PyQt4.Qt import QWidget, QTreeWidgetItem, SIGNAL, QObject, QSize
 
 import yali.context as ctx
 from yali.gui.YaliDialog import Dialog
@@ -14,7 +12,7 @@ from yali.gui import storageGuiHelpers
 from yali.gui.Ui.volumegroup import Ui_VolumeGroupWidget
 from yali.gui.Ui.logicalvolume import Ui_LogicalVolumeWidget
 from yali.storage import formats
-from yali.storage.operations import *
+from yali.storage.operations import OperationCreateDevice, OperationDestroyDevice, OperationResizeDevice, OperationMigrateFormat, OperationResizeFormat, OperationCreateFormat, OperationDestroyFormat
 from yali.storage.library import lvm
 from yali.storage.devices.device import Device
 from yali.storage.devices.volumegroup import VolumeGroup
@@ -68,7 +66,7 @@ class LVMEditor(object):
 
         self.dialog = Dialog(title, closeButton=False)
         self.dialog.addWidget(VolumeGroupWidget(self, self.origrequest, isNew=isNew))
-        self.dialog.resize(QSize(0,0))
+        self.dialog.resize(QSize(450, 200))
 
     def run(self):
         if self.dialog is None:
@@ -209,9 +207,9 @@ class LVMEditor(object):
         if self.dialog:
             self.dialog = None
 
-class VolumeGroupWidget(QtGui.QWidget, Ui_VolumeGroupWidget):
+class VolumeGroupWidget(QWidget, Ui_VolumeGroupWidget):
     def __init__(self, parent, request, isNew):
-        QtGui.QWidget.__init__(self, parent.parent)
+        QWidget.__init__(self, parent.parent)
         self.setupUi(self)
         self.origrequest = request
         self.parent = parent
@@ -376,7 +374,7 @@ class VolumeGroupWidget(QtGui.QWidget, Ui_VolumeGroupWidget):
                 # XXX why the suboperation? fudging metadata?
                 size = lvm.clampSize(pv.size, curpe) - (curpe/1024)
 
-                availSpaceMB = availSpace + size
+                availSpace = availSpace + size
 
             ctx.logger.info("computeVolumeGroupSize: size is %s" % (availSpace,))
             return availSpace
@@ -586,7 +584,7 @@ class LogicalVolumeEditor:
 
         self.dialog = Dialog(title, closeButton=False)
         self.dialog.addWidget(LogicalVolumeWidget(self, request, isNew))
-        self.dialog.resize(QSize(0,0))
+        self.dialog.resize(QSize(0, 0))
 
     def run(self):
         if self.dialog is None:
@@ -602,10 +600,7 @@ class LogicalVolumeEditor:
                 self.destroy()
                 return None
 
-            targetSize = None
-            migrate = None
             format = None
-
             widget = self.dialog.content
 
             format = self.origrequest.format
@@ -637,7 +632,7 @@ class LogicalVolumeEditor:
                         continue
 
                     if format.mountpoint == mountpoint:
-                        used =True
+                        used = True
                         break
 
                 for (mp, dev) in self.parent.parent.storage.mountpoints.iteritems():
@@ -780,9 +775,9 @@ class LogicalVolumeEditor:
         if self.dialog:
             self.dialog = None
 
-class LogicalVolumeWidget(QtGui.QWidget, Ui_LogicalVolumeWidget):
+class LogicalVolumeWidget(QWidget, Ui_LogicalVolumeWidget):
     def __init__(self, parent, request, isNew=0):
-        QtGui.QWidget.__init__(self, parent.parent)
+        QWidget.__init__(self, parent.parent)
         self.setupUi(self)
         self.parent = parent
         self.origrequest = request
@@ -884,9 +879,9 @@ class LogicalVolumeWidget(QtGui.QWidget, Ui_LogicalVolumeWidget):
             self.mountpointMenu.setCurrentIndex(0)
 
 
-class LogicalVolumeItem(QtGui.QTreeWidgetItem):
+class LogicalVolumeItem(QTreeWidgetItem):
     def __init__(self, parent, device):
-        QtGui.QTreeWidget.__init__(self, parent)
+        QTreeWidgetItem.__init__(self, parent)
         self._device = device
         self.setText(0, device.lvname)
         mountpoint = getattr(device.format, "mountpoint", "")
