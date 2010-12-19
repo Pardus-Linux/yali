@@ -139,8 +139,8 @@ class Widget(QWidget, ScreenWidget):
                 if ctx.storage.clearPartType == CLEARPART_TYPE_ALL:
                     content.append(item % _("Use All Space"))
                     content.append(item % _("Removes all partitions on the selected "\
-                                            "%s device(s). This includes partitions "\
-                                            "created by other operating systems.") % devices)
+                                            "%s device(s). <b><u>This includes partitions "\
+                                            "created by other operating systems.</u></b>") % devices)
                 elif ctx.storage.clearPartType == CLEARPART_TYPE_LINUX:
                     content.append(item % _("Replace Existing Linux System(s)"))
                     content.append(item % _("Removes all Linux partitions on the selected" \
