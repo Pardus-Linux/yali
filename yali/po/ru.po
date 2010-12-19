@@ -310,7 +310,7 @@ msgstr "Вперед"
 
 #: yali/gui/Ui/main.py:251
 msgid "Screen Name"
-msgstr ""
+msgstr "Имя Страницы"
 
 #: yali/gui/Ui/manualpartwidget.py:133
 msgid "Device"
@@ -364,11 +364,11 @@ msgstr "Применить"
 
 #: yali/gui/Ui/partedit.py:179
 msgid "Resize Partition"
-msgstr ""
+msgstr "Изменить размер раздела"
 
 #: yali/gui/Ui/partedit.py:180
 msgid "Changes will be applied after Summary Screen."
-msgstr ""
+msgstr "Изменения будут применены на окончательной странице."
 
 #: yali/gui/Ui/partedit.py:181
 msgid "Refresh Disks"
@@ -392,7 +392,7 @@ msgstr "Раздел 1 на FUJISTU - /dev/sda1"
 
 #: yali/gui/Ui/partitionedit.py:140
 msgid "Force to be primary partition"
-msgstr ""
+msgstr "Установить как основной раздел"
 
 #: yali/gui/Ui/partition.py:144
 msgid "Use as:"
@@ -400,7 +400,7 @@ msgstr "Использовать как:"
 
 #: yali/gui/Ui/partition.py:152
 msgid "Force to be a primary partition"
-msgstr ""
+msgstr "Установить как основной раздел"
 
 #: yali/gui/Ui/partition.py:153
 msgid "Allowable Drives:"
@@ -412,7 +412,7 @@ msgstr "Устройство Raid:"
 
 #: yali/gui/Ui/partitionshrink.py:64
 msgid "Shrink partition to size (in MB)"
-msgstr ""
+msgstr "Уменьшить размер раздела (в Мб)"
 
 #: yali/gui/Ui/partitionshrinkwidget.py:91
 msgid "Shrink partition to size (in MB) :"
