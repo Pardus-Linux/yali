@@ -427,50 +427,51 @@ class Widget(QWidget, ScreenWidget):
         if len(freeVolumeGroupSpace) > 0:
             activateLogicalVolume = True
 
-        if activatePartition:
-            self.createPartition.setVisible(True)
-            self.createPhysicalVolume.setVisible(True)
-            self.createRaidMember.setVisible(True)
+        self.createPartition.setVisible(activatePartition)
+        self.createPhysicalVolume.setVisible(activatePartition)
+        self.createRaidMember.setVisible(activatePartition)
 
-        if activateVolumeGroup:
-            self.createVolumeGroup.setVisible(True)
-            self.createLogicalVolume.setVisible(True)
+        self.createVolumeGroup.setVisible(activateVolumeGroup)
+        self.createLogicalVolume.setVisible(activateVolumeGroup)
+
+        self.createRaidArray.setVisible(activateRaidArray)
 
         if activateLogicalVolume:
             #FIXME: find way to show only logical volume editor
             pass
 
-        if activateRaidArray:
-            self.createRaidArray.setVisible(True)
 
     def createDevice(self, action):
-        device = self.getCurrentDevice()
 
-        if isinstance(device, parted.partition.Partition):
-            if action == self.createRaidMember:
-                raidmember = self.storage.newPartition(fmt_type="mdmember")
-                self.editPartition(raidmember, isNew=True, partedPartition=device, restricts=["mdmember"])
-                return
-            elif action == self.createPhysicalVolume:
-                physicalvolume = self.storage.newPartition(fmt_type="lvmpv")
-                self.editPartition(physicalvolume, isNew=True, partedPartition=device, restricts=["lvmpv"])
-                return
-            elif action == self.createPartition:
-                format = self.storage.defaultFSType
-                partition = self.storage.newPartition(fmt_type=format)
-                self.editPartition(partition, isNew=True, partedPartition=device)
-                return
-
-        elif action == self.createRaidArray:
+        if action == self.createRaidArray:
             raidarray = self.storage.newRaidArray(fmt_type=self.storage.defaultFSType)
             self.editRaidArray(raidarray, isNew=True)
             return
-
 
         elif action == self.createVolumeGroup:
             vg = self.storage.newVolumeGroup()
             self.editVolumeGroup(vg, isNew=True)
             return
+        else:
+            device = self.getCurrentDevice()
+            if isinstance(device, parted.partition.Partition):
+                if action == self.createRaidMember:
+                    raidmember = self.storage.newPartition(fmt_type="mdmember")
+                    self.editPartition(raidmember, isNew=True, partedPartition=device, restricts=["mdmember"])
+                    return
+                elif action == self.createPhysicalVolume:
+                    physicalvolume = self.storage.newPartition(fmt_type="lvmpv")
+                    self.editPartition(physicalvolume, isNew=True, partedPartition=device, restricts=["lvmpv"])
+                    return
+                elif action == self.createPartition:
+                    format = self.storage.defaultFSType
+                    partition = self.storage.newPartition(fmt_type=format)
+                    self.editPartition(partition, isNew=True, partedPartition=device)
+                    return
+            else:
+                ctx.interface.messageWindow(_("Partition Selection Warning"),
+                                            _("Please select free physical partition to create new device."),
+                                            customIcon="error")
 
 
     def editDevice(self, *args):
@@ -533,12 +534,12 @@ class Widget(QWidget, ScreenWidget):
               will only be relevant when we are createing an LV.
         """
         if lv != None:
-            volumegroupEditor = LVMEditor(self, lv.vg, isNew = False)
+            volumegroupEditor = LVMEditor(self, lv.vg, isNew=False)
             lv = volumegroupEditor.lvs[lv.lvname]
             isNew = False
 
         elif vg != None:
-            volumegroupEditor = LVMEditor(self, vg, isNew = False)
+            volumegroupEditor = LVMEditor(self, vg, isNew=False)
             tempvg = volumegroupEditor.tmpVolumeGroup
             name = self.storage.createSuggestedLogicalVolumeName(tempvg)
             format = formats.getFormat(self.storage.defaultFSType)
@@ -557,7 +558,7 @@ class Widget(QWidget, ScreenWidget):
             return
 
         while True:
-            #volumegroupEditor.editLogicalVolume(lv, isNew = isNew)
+            #volumegroupEditor.editLogicalVolume(lv, isNew=isNew)
             operations = volumegroupEditor.run()
 
             for operation in operations:

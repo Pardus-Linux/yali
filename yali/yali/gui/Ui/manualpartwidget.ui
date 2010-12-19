@@ -196,7 +196,7 @@ border:0px;
                <enum>Qt::LeftToRight</enum>
               </property>
               <property name="text">
-               <string>New</string>
+               <string>Create</string>
               </property>
               <property name="popupMode">
                <enum>QToolButton::InstantPopup</enum>
