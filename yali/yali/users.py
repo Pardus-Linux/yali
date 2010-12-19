@@ -70,7 +70,11 @@ class User:
     # KDE AutoLogin
     def setAutoLogin(self, state=True):
         """ Sets the KDE's Autologin feature's state """
-        conf = os.path.join(ctx.consts.target_dir, 'etc/X11/kdm/kdmrc')
+        conf = ""
+        if ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
+            conf = os.path.join(ctx.consts.root_path, 'etc/X11/kdm/kdmrc')
+        elif ctx.flags.install_type == ctx.STEP_DEFAULT:
+            conf = os.path.join(ctx.consts.target_dir, 'etc/X11/kdm/kdmrc')
 
         if not os.path.exists(conf):
             ctx.logger.debug("setAutoLogin: Failed, kdmrc not found; possibly KDE is not installed !")
