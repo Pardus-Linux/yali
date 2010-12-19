@@ -155,6 +155,7 @@ def fillMountpointMenu(widget, request, excludes=[]):
             else:
                 widget.insertItem(0, mountpoint)
     else:
+        widget.setCurrentIndex(0)
         widget.setEnabled(False)
 
 def createMountpointMenu(parent, request, excludeMountPoints=[]):
