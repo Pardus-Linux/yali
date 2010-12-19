@@ -884,7 +884,7 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:688
 msgid "Illegal size"
-msgstr ""
+msgstr "Dimensione illegale"
 
 #: yali/gui/lvm_gui.py:689
 msgid "The requested size as entered is not a valid number greater than 0."
@@ -944,7 +944,6 @@ msgid "Edit RAID Device"
 msgstr ""
 
 #: yali/gui/runner.py:110
-#, fuzzy
 msgid "Error!"
 msgstr "Errore!"
 
