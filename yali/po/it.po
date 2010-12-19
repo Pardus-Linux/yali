@@ -782,7 +782,7 @@ msgstr ""
 #: yali/gui/lvm_gui.py:421 yali/gui/lvm_gui.py:468
 #: yali/gui/ScrPartitionManual.py:358
 msgid "Continue"
-msgstr ""
+msgstr "Continua"
 
 #: yali/gui/lvm_gui.py:436
 #, python-format
@@ -799,7 +799,7 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:461
 msgid "Too small"
-msgstr ""
+msgstr "Troppo piccolo"
 
 #: yali/gui/lvm_gui.py:462
 msgid "This change in the value of the physical extent will waste substantial space on one or more of the physical volumes in the volume group."
@@ -822,9 +822,8 @@ msgid ""
 msgstr ""
 
 #: yali/gui/lvm_gui.py:512
-#, fuzzy
 msgid "No free space"
-msgstr "spazio libero"
+msgstr "Non c'è spazio libero"
 
 #: yali/gui/lvm_gui.py:513
 msgid ""
@@ -836,7 +835,7 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:549
 msgid "Confirm Delete"
-msgstr ""
+msgstr "Conferma Cancella"
 
 #: yali/gui/lvm_gui.py:550
 #, python-format
