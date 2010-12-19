@@ -468,9 +468,8 @@ msgid "Number of spares:"
 msgstr ""
 
 #: yali/gui/Ui/rescuegrubwidget.py:82
-#, fuzzy
 msgid "Select where to install the GRUB bootloader"
-msgstr "Scegli il disco su cui installare il bootloader:"
+msgstr "Scegli il disco su cui installare il bootloader"
 
 #: yali/gui/Ui/rescuegrubwidget.py:83
 msgid "First bootable disk (recommended)"
@@ -509,9 +508,8 @@ msgid ""
 msgstr ""
 
 #: yali/gui/Ui/rescuepisiwidget.py:73
-#, fuzzy
 msgid "<b>Connection status:</b>"
-msgstr "Imposta lo stato della connessione."
+msgstr "<b>Lo stato della connessione:</b>"
 
 #: yali/gui/Ui/rescuepisiwidget.py:74
 msgid "Offline"
@@ -549,42 +547,35 @@ msgstr "Impostazione della password di root..."
 #: yali/gui/Ui/rescuewidget.py:97 yali/gui/ScrGoodbye.py:53
 #: yali/gui/ScrRescueFinish.py:78 yali/gui/ScrSummary.py:46
 msgid "Restart"
-msgstr ""
+msgstr "Riavvia"
 
 #: yali/gui/Ui/rootpasswidget.py:129
-#, fuzzy
 msgid "Administrator password"
-msgstr "Password dell'amministratore di sistema:"
+msgstr "Password dell'amministratore di sistema"
 
 #: yali/gui/Ui/rootpasswidget.py:130
-#, fuzzy
 msgid "Confirm password"
-msgstr "Nuova password:"
+msgstr "Conferma password"
 
 #: yali/gui/Ui/rootpasswidget.py:131
-#, fuzzy
 msgid "Computer Name"
-msgstr "Nome utente:"
+msgstr "Nome Computer"
 
 #: yali/gui/Ui/setupuserswidget.py:489
-#, fuzzy
 msgid "User Name"
-msgstr "Nome utente:"
+msgstr "Nome Utente"
 
 #: yali/gui/Ui/setupuserswidget.py:490
-#, fuzzy
 msgid "Real Name"
-msgstr "Nome reale:"
+msgstr "Nome Reale"
 
 #: yali/gui/Ui/setupuserswidget.py:491
-#, fuzzy
 msgid "Password"
-msgstr "Password:"
+msgstr "Password"
 
 #: yali/gui/Ui/setupuserswidget.py:492
-#, fuzzy
 msgid "Confirm Password"
-msgstr "Password:"
+msgstr "Conferma Password"
 
 #: yali/gui/Ui/setupuserswidget.py:493
 #, fuzzy
