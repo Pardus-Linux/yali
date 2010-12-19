@@ -964,34 +964,28 @@ msgid "Retry"
 msgstr ""
 
 #: yali/gui/ScrAdmin.py:129 yali/gui/ScrRescuePassword.py:96
-#, fuzzy
 msgid "Password is too short."
-msgstr "<font color=\"#FF6D19\">La password è troppo breve!</font>"
+msgstr "<font color=\"#FF6D19\">La password è troppo breve.</font>"
 
 #: yali/gui/ScrAdmin.py:132
-#, fuzzy
 msgid "Don't use invalid characters"
-msgstr "<font color=\"#FF6D19\">L'hostname contiene caratteri non validi!</font>"
+msgstr "<font color=\"#FF6D19\">Non usare caratteri non validi</font>"
 
 #: yali/gui/ScrAdmin.py:139
-#, fuzzy
 msgid "Passwords do not match."
-msgstr "<font color=\"#FF6D19\">Le password non corrispondono!</font>"
+msgstr "<font color=\"#FF6D19\">Le password non corrispondono.</font>"
 
 #: yali/gui/ScrAdmin.py:144
-#, fuzzy
 msgid "Do not use your username as your password."
-msgstr "<font color=\"#FF6D19\">Non utilizzare il tuo nome utente o il tuo nome come password.</font>"
+msgstr "<font color=\"#FF6D19\">Non utilizzare il tuo nome come password.</font>"
 
 #: yali/gui/ScrAdmin.py:154
-#, fuzzy
 msgid "Hostname cannot be longer than 64 characters."
-msgstr "<font color=\"#FF6D19\">L'hostname contiene caratteri non validi!</font>"
+msgstr "<font color=\"#FF6D19\">L'hostname non può superare 64 caratteri</font>"
 
 #: yali/gui/ScrAdmin.py:167
-#, fuzzy
 msgid "Hostname contains invalid characters."
-msgstr "<font color=\"#FF6D19\">L'hostname contiene caratteri non validi!</font>"
+msgstr "<font color=\"#FF6D19\">L'hostname contiene caratteri non validi</font>"
 
 #: yali/gui/ScrCheckCD.py:66
 #, fuzzy
@@ -1051,12 +1045,10 @@ msgid "Connecting to D-Bus..."
 msgstr "Stato connessione:"
 
 #: yali/gui/ScrGoodbye.py:69
-#, fuzzy
 msgid "Setting hostname..."
-msgstr "Impostazione dell' hostname..."
+msgstr "Impostazione dell'hostname..."
 
 #: yali/gui/ScrGoodbye.py:70
-#, fuzzy
 msgid "Setting root password..."
 msgstr "Impostazione della password di root..."
 
