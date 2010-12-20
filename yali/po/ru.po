@@ -451,11 +451,11 @@ msgstr "Первый загрузочный диск (рекомендуется
 
 #: yali/gui/Ui/raid.py:100
 msgid "Raid Level:"
-msgstr ""
+msgstr "RAID уровень:"
 
 #: yali/gui/Ui/raid.py:101
 msgid "Raid Members:"
-msgstr ""
+msgstr "Raid элементы:"
 
 #: yali/gui/Ui/raid.py:102
 msgid "Number of spares:"
@@ -534,9 +534,8 @@ msgid "Return back to a previous system state"
 msgstr "Подтвердите пароль"
 
 #: yali/gui/Ui/rescuewidget.py:96
-#, fuzzy
 msgid "Reset forgotten password"
-msgstr "Сброс забытого пароля"
+msgstr "Сбросить забытый пароль"
 
 #: yali/gui/Ui/rescuewidget.py:97 yali/gui/ScrGoodbye.py:53
 #: yali/gui/ScrRescueFinish.py:78 yali/gui/ScrSummary.py:46
@@ -989,7 +988,7 @@ msgid "Validating %s"
 msgstr " %s"
 
 #: yali/gui/ScrCheckCD.py:93
-#, python-format, fuzzy
+#, python-format
 msgid "Validation of %s package failed.Please remaster your installation medium andreboot."
 msgstr "Проверка пакета %s завершилась с ошибкой. Пожалуйста, замените ваш установочный диск и перезагрузитесь."
 
@@ -999,11 +998,11 @@ msgstr "Пропустить проверку"
 
 #: yali/gui/ScrCheckCD.py:97
 msgid "Skip Package"
-msgstr ""
+msgstr "Пропустить пакет"
 
 #: yali/gui/ScrCheckCD.py:112
 msgid "<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the installation.</b></font>"
-msgstr ""
+msgstr "<font color=\"#FFF\"><b>Проверка завершилась успешно. Теперь Вы можете продолжить установку.</b></font>"
 
 #: yali/gui/ScrDateTime.py:89
 msgid "Adjusting time settings"
@@ -1189,7 +1188,7 @@ msgstr "RAID"
 
 #: yali/gui/ScrPartitionManual.py:151
 msgid "Partition"
-msgstr ""
+msgstr "Раздел"
 
 #: yali/gui/ScrPartitionManual.py:163
 msgid "Member"
@@ -1197,7 +1196,7 @@ msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:166
 msgid "Array"
-msgstr ""
+msgstr "Массив"
 
 #: yali/gui/ScrPartitionManual.py:228
 msgid "Volume Groups"
@@ -1205,7 +1204,7 @@ msgstr "Volume Groups"
 
 #: yali/gui/ScrPartitionManual.py:240 yali/gui/ScrPartitionManual.py:313
 msgid "Free"
-msgstr ""
+msgstr "Свободно"
 
 #: yali/gui/ScrPartitionManual.py:249
 msgid "Raid Arrays"
@@ -1225,7 +1224,7 @@ msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:318
 msgid "Extended"
-msgstr ""
+msgstr "Расширенный"
 
 #: yali/gui/ScrPartitionManual.py:351
 msgid "Error Partitioning"
@@ -1260,6 +1259,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Вы не можете редактировать это устройство:\n"
+"\n"
+"%s"
 
 #: yali/gui/ScrRescueFinish.py:55
 msgid "Installing Bootloader..."
@@ -1300,7 +1302,7 @@ msgstr "   ."
 
 #: yali/gui/ScrRescuePassword.py:79
 msgid "Info"
-msgstr ""
+msgstr "Информация"
 
 #: yali/gui/ScrRescuePassword.py:90
 msgid "Do not use your username or real name as your password."
@@ -1350,7 +1352,7 @@ msgstr "  ...."
 
 #: yali/gui/ScrRescue.py:106
 msgid "YALI could not locate a suitable disk partition on this computer."
-msgstr ""
+msgstr "YALI не удалось найти подходящий раздел диска на этом компьютере."
 
 #: yali/gui/ScrRescue.py:123
 msgid "Please select a disk partition from the list below:"
@@ -1358,12 +1360,12 @@ msgstr ",     :"
 
 #: yali/gui/ScrSummary.py:47
 msgid "<b><p>Are you sure you want to restart the computer?</p></b>"
-msgstr ""
+msgstr "<b><p>Вы уверены, что вы хотите перезагрузить компьютер?</p></b>"
 
 #: yali/gui/ScrSummary.py:68
 #, python-format
 msgid "Installation starts in <b>%s</b> seconds"
-msgstr ""
+msgstr "Установка начнется через <b>%s</b> секунд"
 
 #: yali/gui/ScrSummary.py:76
 msgid "Start Installation"
@@ -1507,8 +1509,9 @@ msgid "Go Back"
 msgstr " "
 
 #: yali/gui/ScrUsers.py:129 yali/gui/ScrUsers.py:360
+#, fuzzy
 msgid "Update"
-msgstr ""
+msgstr "Обновление"
 
 #: yali/gui/ScrUsers.py:216
 msgid "Don't use your user name or name as a password"
