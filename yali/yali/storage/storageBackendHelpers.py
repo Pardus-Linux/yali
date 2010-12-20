@@ -306,13 +306,13 @@ def confirmResetPartitionState(intf):
 def queryNoFormatPreExisting(intf):
     """Ensure the user wants to use a partition without formatting."""
     txt = _("You have chosen to use a pre-existing "
-            "partition for this installation without formatting it. "
-            "We recommend that you format this partition "
-            "to make sure files from a previous operating system installation "
-            "do not cause problems with this installation of Linux. "
+            "partition for this\ninstallation without formatting it. "
+            "We recommend that you format\nthis partition "
+            "to make sure files from a previous operating system\ninstallation "
+            "do not cause problems with this installation of Linux.\n"
             "However, if this partition contains files that you need "
-            "to keep, such as home directories, then "
-            "continue without formatting this partition.")
+            "to keep,\nsuch as home directories, then "
+            "continue without formatting this\nnpartition.")
     rc = intf.messageWindow(_("Format?"), txt, type = "custom",
             customButtons=[_("Modify Partition"), _("Do Not Format")],
                             customIcon="warning")

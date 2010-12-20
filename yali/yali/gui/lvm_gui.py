@@ -731,9 +731,6 @@ class LogicalVolumeEditor:
                 else:
                     self.origrequest.format = format
             else:
-                formatType = str(widget.formatCombo.currentText())
-                format = formats.getFormat(formatType, mountpoint=mountpoint)
-
                 if widget.formatRadio.isChecked():
                     formatType = str(widget.formatCombo.currentText())
                     format = formats.getFormat(formatType, mountpoint=mountpoint, device=self.origrequest.path)
@@ -747,14 +744,15 @@ class LogicalVolumeEditor:
                 if widget.resizeRadio.isChecked():
                     self.origrequest.targetSize = widget.resizeSpin.value()
 
-                if format.mountable:
-                    format.mountpoint = mountpoint
+                if self.origrequest.format.mountable:
+                    self.origrequest.format.mountpoint = mountpoint
 
-            if format.exists and format.mountable and format.mountpoint:
-                tmpDevice = Device('tmp', format=format)
-                if self.parent.storage.formatByDefault(tmpDevice) and \
-                   not queryNoFormatPreExisting(self.parent.intf):
-                    continue
+                if self.origrequest.format.exists and \
+                    self.origrequest.format.mountable and \
+                    self.origrequest.format.mountpoint:
+                    if self.storage.formatByDefault(self.origrequest) and \
+                       not queryNoFormatPreExisting(self.intf):
+                        continue
 
             # everything ok
             break
