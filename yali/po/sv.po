@@ -15,8 +15,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sv\n"
-"X-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.0\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:74 yali/gui/Ui/autopartquestion.py:82
 #: yali/gui/Ui/autopartwidget.py:140 yali/gui/Ui/bg.py:36
@@ -159,18 +159,16 @@ msgid "Create LVM formatted partition"
 msgstr "Skapa LVM-formatterad partition"
 
 #: yali/gui/Ui/createdevicewidget.py:142
-#, fuzzy
 msgid "Raid Member"
-msgstr "Enhet:"
+msgstr "RAID-medlem"
 
 #: yali/gui/Ui/createdevicewidget.py:143 yali/gui/ScrPartitionManual.py:164
-#, fuzzy
 msgid "Create Raid formatted partition"
-msgstr "Ja, formatera partitionen"
+msgstr "Skapa RAID-formaterad partition"
 
 #: yali/gui/Ui/createdevicewidget.py:144
 msgid "Raid Array"
-msgstr ""
+msgstr "RAID-matris"
 
 #: yali/gui/Ui/createdevicewidget.py:145 yali/gui/ScrPartitionManual.py:167
 msgid "Requires at least 2 free Raid formatted partition"
@@ -203,7 +201,7 @@ msgstr "Ohanterat undantag uppstod"
 
 #: yali/gui/Ui/exception.py:65
 msgid "Please fill a bug report at http://bugs.pardus.org.tr/ attaching the following backtrace."
-msgstr ""
+msgstr "Vänligen fyll i en felrapport på http://bugs.pardus.org.tr/, bifoga följande bakåtspårning."
 
 #: yali/gui/Ui/exception.py:66
 msgid "Show Backtrace"
@@ -412,7 +410,7 @@ msgstr "Tillåtna enheter"
 
 #: yali/gui/Ui/partitionshrink.py:63 yali/gui/Ui/partitionshrinkwidget.py:90
 msgid "Which partition would you like to shrink to make room for your installation?"
-msgstr ""
+msgstr "Vilken partition vill du krympa för att ge plats för din installation?"
 
 #: yali/gui/Ui/partitionshrink.py:64
 msgid "Shrink partition to size (in MB)"
@@ -442,9 +440,8 @@ msgid ""
 msgstr ""
 
 #: yali/gui/Ui/raid.py:95
-#, fuzzy
 msgid "Raid Device:"
-msgstr "Enhet:"
+msgstr "RAID-enhet:"
 
 #: yali/gui/Ui/raid.py:96
 msgid "Use:"
@@ -455,32 +452,28 @@ msgid "Filesystem:"
 msgstr "Filsystem:"
 
 #: yali/gui/Ui/raid.py:100
-#, fuzzy
 msgid "Raid Level:"
-msgstr "Enhet:"
+msgstr "RAID-nivå"
 
 #: yali/gui/Ui/raid.py:101
-#, fuzzy
 msgid "Raid Members:"
-msgstr "Enhet:"
+msgstr "RAID-medlemmar:"
 
 #: yali/gui/Ui/raid.py:102
 msgid "Number of spares:"
 msgstr ""
 
 #: yali/gui/Ui/rescuegrubwidget.py:82
-#, fuzzy
 msgid "Select where to install the GRUB bootloader"
-msgstr "Välj mål för installation av startladdaren:"
+msgstr "Välj mål för installation av startladdaren GRUB"
 
 #: yali/gui/Ui/rescuegrubwidget.py:83
 msgid "First bootable disk (recommended)"
 msgstr "Första startbara disken (rekommenderas)"
 
 #: yali/gui/Ui/rescuegrubwidget.py:84
-#, fuzzy
 msgid "Disk partition where Pardus is installed"
-msgstr "Välj den partition Pardus är installerad på"
+msgstr "Diskpartition där Pardus är installerad"
 
 #: yali/gui/Ui/rescuegrubwidget.py:85
 msgid "Selected disk below"
@@ -488,7 +481,7 @@ msgstr "Vald enhet nedan"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:110
 msgid "Choose the user you want to reset the password:"
-msgstr ""
+msgstr "Välj den användare vars lösenord du vill återställa:"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:111
 msgid "New password:"
@@ -503,7 +496,6 @@ msgid "Reset Password"
 msgstr "Återställ lösenord"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:114
-#, fuzzy
 msgid ""
 "border:1px solid white;\n"
 "border-radius:6px;\n"
@@ -516,13 +508,12 @@ msgstr ""
 "color:#5A2847;"
 
 #: yali/gui/Ui/rescuepisiwidget.py:73
-#, fuzzy
 msgid "<b>Connection status:</b>"
-msgstr "Välj anslutningstillstånd"
+msgstr "<b>Anslutningstillstånd:</b>"
 
 #: yali/gui/Ui/rescuepisiwidget.py:74
 msgid "Offline"
-msgstr ""
+msgstr "Frånkopplad"
 
 #: yali/gui/Ui/rescuepisiwidget.py:75
 msgid "To use PiSi's history feature, you may need to be online. Select connection profile."
@@ -533,13 +524,12 @@ msgid "Select Connection"
 msgstr "Välj anslutning"
 
 #: yali/gui/Ui/rescuepisiwidget.py:77
-#, fuzzy
 msgid "Select the operation to undo:"
-msgstr "Åtgärd att ångra:"
+msgstr "Välj åtgärd att ångra:"
 
 #: yali/gui/Ui/rescuewidget.py:93
 msgid "Choose what do you want to do to repair your system:"
-msgstr ""
+msgstr "Välj vad du reparea på ditt system:"
 
 #: yali/gui/Ui/rescuewidget.py:94
 #, fuzzy
