@@ -1004,11 +1004,11 @@ msgstr ""
 
 #: yali/gui/ScrCheckCD.py:97
 msgid "Skip Validation"
-msgstr ""
+msgstr "Salta Convalida"
 
 #: yali/gui/ScrCheckCD.py:97
 msgid "Skip Package"
-msgstr ""
+msgstr "Salta Pacchetto"
 
 #: yali/gui/ScrCheckCD.py:112
 #, fuzzy
@@ -1016,9 +1016,8 @@ msgid "<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the in
 msgstr "<font color=\"#257216\">Verifica eseguita con successo. Puoi proseguire alla schermata successiva.</font>"
 
 #: yali/gui/ScrDateTime.py:89
-#, fuzzy
 msgid "Adjusting time settings"
-msgstr "Impostazione delle preferenze dell'orario in corso..."
+msgstr "Impostazione delle preferenze dell'orario..."
 
 #: yali/gui/ScrDriveSelection.py:113
 msgid "You must select at least one drive to be used for installation."
@@ -1051,7 +1050,6 @@ msgid "Setting root password..."
 msgstr "Impostazione della password di root..."
 
 #: yali/gui/ScrGoodbye.py:72
-#, fuzzy
 msgid "Setting timezone..."
 msgstr "Impostazione del fuso orario..."
 
@@ -1121,7 +1119,6 @@ msgid ""
 msgstr ""
 
 #: yali/gui/ScrInstall.py:182
-#, fuzzy
 msgid "Do you want to retry?"
 msgstr "Vuoi riprovare?"
 
