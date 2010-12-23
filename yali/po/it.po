@@ -445,7 +445,7 @@ msgstr ""
 
 #: yali/gui/Ui/raid.py:95
 msgid "Raid Device:"
-msgstr ""
+msgstr "Dispositivo Raid:"
 
 #: yali/gui/Ui/raid.py:96
 msgid "Use:"
@@ -457,11 +457,11 @@ msgstr "Sistema di File:"
 
 #: yali/gui/Ui/raid.py:100
 msgid "Raid Level:"
-msgstr ""
+msgstr "Livello Raid:"
 
 #: yali/gui/Ui/raid.py:101
 msgid "Raid Members:"
-msgstr ""
+msgstr "Membri Raid:"
 
 #: yali/gui/Ui/raid.py:102
 msgid "Number of spares:"
