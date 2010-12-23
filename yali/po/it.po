@@ -988,9 +988,8 @@ msgid "Hostname contains invalid characters."
 msgstr "<font color=\"#FF6D19\">L'hostname contiene caratteri non validi</font>"
 
 #: yali/gui/ScrCheckCD.py:66
-#, fuzzy
 msgid "Starting validation..."
-msgstr "Impostazione del fuso orario..."
+msgstr "Comincia la verifica.."
 
 #: yali/gui/ScrCheckCD.py:85
 #, python-format
@@ -1011,9 +1010,8 @@ msgid "Skip Package"
 msgstr "Salta Pacchetto"
 
 #: yali/gui/ScrCheckCD.py:112
-#, fuzzy
 msgid "<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the installation.</b></font>"
-msgstr "<font color=\"#257216\">Verifica eseguita con successo. Puoi proseguire alla schermata successiva.</font>"
+msgstr "<font color=\"#FFF\"><b>Verifica eseguita con successo. Puoi proseguire alla schermata successiva.</b></font>"
 
 #: yali/gui/ScrDateTime.py:89
 msgid "Adjusting time settings"
@@ -1054,7 +1052,6 @@ msgid "Setting timezone..."
 msgstr "Impostazione del fuso orario..."
 
 #: yali/gui/ScrGoodbye.py:73
-#, fuzzy
 msgid "Migrating Xorg configuration..."
 msgstr "Migrazione della configurazione di X.org..."
 
@@ -1097,14 +1094,13 @@ msgid "Adding users..."
 msgstr "Creazione utenti..."
 
 #: yali/gui/ScrGoodbye.py:89
-#, fuzzy
 msgid "Cleanup systems..."
-msgstr "Installazione del sistema in corso..."
+msgstr ""
 
 #: yali/gui/ScrInstall.py:151
-#, fuzzy, python-format
+#, python-format
 msgid "Installing <b>%(name)s</b><br>%(summary)s"
-msgstr "Installazione di: <b>%s</b><br>%s"
+msgstr "Installazione di <b>%(name)s</b><br>%(summary)s"
 
 #: yali/gui/ScrInstall.py:157
 #, fuzzy, python-format
