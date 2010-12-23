@@ -1355,14 +1355,14 @@ msgid "No connection available"
 msgstr "Connessione non esistente"
 
 #: yali/gui/ScrRescuePisi.py:116
-#, fuzzy, python-format
+#, python-format
 msgid "Operation %(no)s : %(date)s - %(type)s"
-msgstr "Operazione %s : %s - %s"
+msgstr "Operazione %(no)s : %(date)s - %(type)s"
 
 #: yali/gui/ScrRescuePisi.py:170
-#, fuzzy, python-format
+#, python-format
 msgid "Connecting to network %s..."
-msgstr "Connessione alla rete <b>%s</b> ..."
+msgstr "Connessione alla rete %s..."
 
 #: yali/gui/ScrRescuePisi.py:176 yali/gui/ScrRescuePisi.py:177
 msgid "Connection failed"
@@ -1504,9 +1504,9 @@ msgid "Auto installation selected."
 msgstr "Installazione automatica selezionata."
 
 #: yali/gui/ScrSummary.py:180
-#, fuzzy, python-format
+#, python-format
 msgid "Manual Installation ( %s ) selected"
-msgstr "Partizionamento manuale selezionato."
+msgstr "Partizionamento manuale di ( %s ) selezionato."
 
 #: yali/gui/ScrSummary.py:184
 msgid "Default Kernel selected"
@@ -1518,7 +1518,7 @@ msgstr "Kernel PAE selezionato"
 
 #: yali/gui/ScrSummary.py:203
 msgid "Confirm"
-msgstr ""
+msgstr "Conferma"
 
 #: yali/gui/ScrSummary.py:204
 msgid ""
@@ -1532,14 +1532,12 @@ msgid "Write Changes to Disk"
 msgstr ""
 
 #: yali/gui/ScrSummary.py:209
-#, fuzzy
 msgid "Go Back"
 msgstr "Indietro"
 
 #: yali/gui/ScrUsers.py:129 yali/gui/ScrUsers.py:360
-#, fuzzy
 msgid "Update"
-msgstr "Aggiorna utente"
+msgstr "Aggiorna"
 
 #: yali/gui/ScrUsers.py:216
 #, fuzzy
