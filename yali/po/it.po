@@ -1335,14 +1335,12 @@ msgid "Info"
 msgstr "Informazioni"
 
 #: yali/gui/ScrRescuePassword.py:90
-#, fuzzy
 msgid "Do not use your username or real name as your password."
-msgstr "<font color=\"#FF6D19\">Non utilizzare il tuo nome utente o il tuo nome come password.</font>"
+msgstr "Non utilizzare il tuo nome utente o il tuo nome come password."
 
 #: yali/gui/ScrRescuePassword.py:93
-#, fuzzy
 msgid "The passwords do not match."
-msgstr "<font color=\"#FF6D19\">Le password non corrispondono!</font>"
+msgstr "Le password non corrispondono."
 
 #: yali/gui/ScrRescuePassword.py:107 yali/gui/ScrRescuePisi.py:69
 msgid "Please Wait..."
@@ -1388,7 +1386,6 @@ msgid "YALI could not locate a suitable disk partition on this computer."
 msgstr "YALI non è riuscito a trovare una partizione adatta nel tuo sistema."
 
 #: yali/gui/ScrRescue.py:123
-#, fuzzy
 msgid "Please select a disk partition from the list below:"
 msgstr "Devi scegliere una partizione dalla lista qui sotto."
 
