@@ -1366,9 +1366,8 @@ msgid "Fetching history..."
 msgstr "Estrazione dello storico..."
 
 #: yali/gui/ScrRescuePisi.py:75
-#, fuzzy
 msgid "No connection available"
-msgstr "Connessione fallita"
+msgstr "Connessione non esistente"
 
 #: yali/gui/ScrRescuePisi.py:116
 #, fuzzy, python-format
@@ -1389,9 +1388,8 @@ msgid "Connected"
 msgstr "Connesso"
 
 #: yali/gui/ScrRescue.py:94
-#, fuzzy
 msgid "Mounting disk partition..."
-msgstr "Sto montando la partizione selezionata..."
+msgstr "Sta montando la partizione del disco..."
 
 #: yali/gui/ScrRescue.py:106
 #, fuzzy
@@ -1408,9 +1406,9 @@ msgid "<b><p>Are you sure you want to restart the computer?</p></b>"
 msgstr ""
 
 #: yali/gui/ScrSummary.py:68
-#, fuzzy, python-format
+#, python-format
 msgid "Installation starts in <b>%s</b> seconds"
-msgstr "L'installazione comincerà in <b>%s secondi</b>"
+msgstr "L'installazione comincerà in <b>%s</b> secondi"
 
 #: yali/gui/ScrSummary.py:76
 msgid "Start Installation"
@@ -1488,9 +1486,8 @@ msgid "Removes all Linux partitions on the selected%s device(s). This does not r
 msgstr ""
 
 #: yali/gui/ScrSummary.py:151
-#, fuzzy
 msgid "Use Free Space"
-msgstr "Spazio libero"
+msgstr "Utilizza Spazio Libero"
 
 #: yali/gui/ScrSummary.py:152
 #, python-format
@@ -1519,9 +1516,8 @@ msgid "Package Installation Settings"
 msgstr "Impostazioni pacchetti"
 
 #: yali/gui/ScrSummary.py:178
-#, fuzzy
 msgid "Auto installation selected."
-msgstr "Installazione automatica"
+msgstr "Installazione automatica selezionata."
 
 #: yali/gui/ScrSummary.py:180
 #, fuzzy, python-format
