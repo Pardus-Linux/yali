@@ -1293,22 +1293,18 @@ msgid ""
 msgstr ""
 
 #: yali/gui/ScrRescueFinish.py:55
-#, fuzzy
 msgid "Installing Bootloader..."
-msgstr "Installazione del bootloader"
+msgstr "Installazione del Bootloader..."
 
 #: yali/gui/ScrRescueFinish.py:58
-#, fuzzy
 msgid "Taking back operation..."
-msgstr "Annullamento delle operazioni di PiSi"
+msgstr "Annullamento delle operazioni..."
 
 #: yali/gui/ScrRescueFinish.py:61
-#, fuzzy
 msgid "Running rescue operations..."
 msgstr "Operazioni di recupero in corso..."
 
 #: yali/gui/ScrRescueFinish.py:78
-#, fuzzy
 msgid "Press <b>Restart</b> to restart your system."
 msgstr "Premi <b>Riavvia</b> per riavviare il sistema."
 
@@ -1318,14 +1314,12 @@ msgid "%s (Boot Disk)"
 msgstr "%s (Disco di Boot)"
 
 #: yali/gui/ScrRescuePassword.py:39
-#, fuzzy
 msgid "Caps Lock is on."
-msgstr "Il blocca maiuscole è attivato!"
+msgstr "Il blocca maiuscole è attivato."
 
 #: yali/gui/ScrRescuePassword.py:44 yali/gui/ScrRescuePisi.py:37
-#, fuzzy
 msgid "Starting D-Bus..."
-msgstr "Avvio DBUS..."
+msgstr "Avvio D-Bus..."
 
 #: yali/gui/ScrRescuePassword.py:46
 #, fuzzy
