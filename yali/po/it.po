@@ -1634,9 +1634,8 @@ msgid "Advanced Size Options"
 msgstr "Impostazioni Avanzate di Dimensione"
 
 #: yali/gui/storageGuiHelpers.py:539
-#, fuzzy
 msgid "Fixed Size :"
-msgstr "Dimensioni:"
+msgstr "Dimensione Fissa :"
 
 #: yali/gui/storageGuiHelpers.py:540
 msgid "Fill to maximum allowable size"
@@ -1694,24 +1693,23 @@ msgstr ""
 
 #: yali/gui/YaliWindow.py:123
 msgid "Style file doesn't exists"
-msgstr ""
+msgstr "Il file dello stile non esiste"
 
 #: yali/gui/YaliWindow.py:130
-#, fuzzy
 msgid "Release file doesn't exists"
-msgstr "Note di rilascio"
+msgstr "Note di rilascio non esiste"
 
 #: yali/gui/YaliWindow.py:138
 msgid "Turn Off Computer"
-msgstr ""
+msgstr "Spegni il Computer"
 
 #: yali/gui/YaliWindow.py:139
 msgid "Restart Computer"
-msgstr ""
+msgstr "Riavvia il Computer"
 
 #: yali/gui/YaliWindow.py:140
 msgid "Restart YALI"
-msgstr ""
+msgstr "Riavvia YALI"
 
 #: yali/gui/YaliWindow.py:158 yali/gui/YaliWindow.py:175 yali/sysutils.py:53
 msgid "right"
@@ -1924,7 +1922,7 @@ msgstr ""
 #: yali/util.py:140
 #, python-format
 msgid "Running %s"
-msgstr ""
+msgstr "%s In Corso"
 
 #: yali/util.py:158
 #, python-format
