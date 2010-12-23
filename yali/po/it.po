@@ -1362,9 +1362,8 @@ msgid "Super User"
 msgstr "Amministratore (root)"
 
 #: yali/gui/ScrRescuePisi.py:39
-#, fuzzy
 msgid "Fetching history..."
-msgstr "Estrazione dello storico PiSi..."
+msgstr "Estrazione dello storico..."
 
 #: yali/gui/ScrRescuePisi.py:75
 #, fuzzy
@@ -1414,14 +1413,12 @@ msgid "Installation starts in <b>%s</b> seconds"
 msgstr "L'installazione comincerà in <b>%s secondi</b>"
 
 #: yali/gui/ScrSummary.py:76
-#, fuzzy
 msgid "Start Installation"
-msgstr "Installazione automatica"
+msgstr "Avvia Installazione"
 
 #: yali/gui/ScrSummary.py:78
-#, fuzzy
 msgid "Apply Settings"
-msgstr "Impostazioni utente"
+msgstr "Esegui Impostazioni"
 
 #: yali/gui/ScrSummary.py:97
 msgid "Keyboard Settings"
@@ -1446,9 +1443,9 @@ msgid "User Settings"
 msgstr "Impostazioni utente"
 
 #: yali/gui/ScrSummary.py:115
-#, fuzzy, python-format
+#, python-format
 msgid "User %(username)s (<b>%(realname)s</b>) added."
-msgstr "Utente %s (<b>%s</b>) aggiunto."
+msgstr "Utente %(username)s (<b>%(realname)s</b>) aggiunto."
 
 #: yali/gui/ScrSummary.py:117
 #, fuzzy, python-format
@@ -1473,9 +1470,8 @@ msgid "Automatic Partitioning selected."
 msgstr "Partizionamento automatico selezionato."
 
 #: yali/gui/ScrSummary.py:140
-#, fuzzy
 msgid "Use All Space"
-msgstr "Spazio libero"
+msgstr "Utilizza Tutto lo Spazio"
 
 #: yali/gui/ScrSummary.py:141
 #, python-format
