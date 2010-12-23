@@ -532,9 +532,8 @@ msgid "Choose what do you want to do to repair your system:"
 msgstr "Välj vad du reparea på ditt system:"
 
 #: yali/gui/Ui/rescuewidget.py:94
-#, fuzzy
 msgid "Reinstall GRUB bootloader"
-msgstr "Ominstallera GRUB (startproblem)"
+msgstr "Ominstallera GRUB startladdare"
 
 #: yali/gui/Ui/rescuewidget.py:95
 msgid "Return back to a previous system state"
@@ -627,9 +626,8 @@ msgid "Physical Volumes to use:"
 msgstr ""
 
 #: yali/gui/Ui/volumegroup.py:99
-#, fuzzy
 msgid "Total Space:"
-msgstr "Ledigt utrymme"
+msgstr "Totalt utrymme:"
 
 #: yali/gui/Ui/volumegroup.py:100
 msgid "Free Space:"
@@ -641,7 +639,7 @@ msgstr "Logiska volymer"
 
 #: yali/gui/Ui/volumegroup.py:102
 msgid "Mountpoint"
-msgstr ""
+msgstr "Monteringsplats"
 
 #: yali/gui/Ui/volumegroup.py:107
 msgid "Used Space:"
@@ -695,7 +693,7 @@ msgstr "Ignorera alla"
 
 #: yali/gui/interface.py:76 yali/gui/interface.py:131
 msgid "Re-initialize"
-msgstr ""
+msgstr "Ominitialisera"
 
 #: yali/gui/interface.py:124
 #, python-format
@@ -710,7 +708,7 @@ msgstr "Ignorera alla"
 
 #: yali/gui/interface.py:131
 msgid "Re-initialize all"
-msgstr ""
+msgstr "Ominitialisera alla"
 
 #: yali/gui/lvm_gui.py:50
 msgid "Not enough physical volumes"
@@ -754,7 +752,7 @@ msgstr ""
 #: yali/gui/lvm_gui.py:483 yali/gui/lvm_gui.py:701 yali/gui/lvm_gui.py:723
 #: yali/gui/storageGuiHelpers.py:70
 msgid "Not enough space"
-msgstr ""
+msgstr "Inte tillräckligt med utrymme"
 
 #: yali/gui/lvm_gui.py:406
 msgid ""
@@ -799,7 +797,7 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:461
 msgid "Too small"
-msgstr ""
+msgstr "För liten"
 
 #: yali/gui/lvm_gui.py:462
 msgid "This change in the value of the physical extent will waste substantial space on one or more of the physical volumes in the volume group."
@@ -822,9 +820,8 @@ msgid ""
 msgstr ""
 
 #: yali/gui/lvm_gui.py:512
-#, fuzzy
 msgid "No free space"
-msgstr "ledigt utrymme"
+msgstr "Inget ledigt utrymme"
 
 #: yali/gui/lvm_gui.py:513
 msgid ""
@@ -885,7 +882,7 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:688
 msgid "Illegal size"
-msgstr ""
+msgstr "Ogiltig storlek"
 
 #: yali/gui/lvm_gui.py:689
 msgid "The requested size as entered is not a valid number greater than 0."
@@ -907,14 +904,13 @@ msgid "Create Partition on %(path)s (%(model)s)"
 msgstr "Ta bort partition"
 
 #: yali/gui/partition_gui.py:38
-#, fuzzy, python-format
+#, python-format
 msgid "Edit Partition %s"
-msgstr "Partition %d"
+msgstr "Redigera partition %s"
 
 #: yali/gui/partition_gui.py:40
-#, fuzzy
 msgid "Edit Partition"
-msgstr "Ta bort partition"
+msgstr "Redigera partition"
 
 #: yali/gui/partition_gui.py:104
 msgid "Error With Request"
@@ -933,7 +929,7 @@ msgstr ""
 
 #: yali/gui/raid_gui.py:41
 msgid "Make RAID Device"
-msgstr ""
+msgstr "Skapa RAID-enhet"
 
 #: yali/gui/raid_gui.py:44
 #, python-format
@@ -989,9 +985,8 @@ msgid "Hostname contains invalid characters."
 msgstr "Värddatornamnet innehåller ogiltiga tecken."
 
 #: yali/gui/ScrCheckCD.py:66
-#, fuzzy
 msgid "Starting validation..."
-msgstr "Sparar tidszon..."
+msgstr "Startar kontroll..."
 
 #: yali/gui/ScrCheckCD.py:85
 #, python-format
@@ -1009,7 +1004,7 @@ msgstr ""
 
 #: yali/gui/ScrCheckCD.py:97
 msgid "Skip Package"
-msgstr ""
+msgstr "Hoppa över paket"
 
 #: yali/gui/ScrCheckCD.py:112
 msgid "<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the installation.</b></font>"
@@ -1021,101 +1016,86 @@ msgstr "Justera tidsinställningar"
 
 #: yali/gui/ScrDriveSelection.py:113
 msgid "You must select at least one drive to be used for installation."
-msgstr ""
+msgstr "Du måste välja minst en enhet för installation"
 
 #: yali/gui/ScrGoodbye.py:37
-#, fuzzy
 msgid "Running post-install operations..."
 msgstr "Kör efterbehandlingsåtgärder..."
 
 #: yali/gui/ScrGoodbye.py:53
-#, fuzzy
 msgid "Press <b>Restart</b> to restart the computer."
 msgstr "Klicka på knappen <b>Starta om</b> för att starta om datorn."
 
 #: yali/gui/ScrGoodbye.py:54 yali/gui/ScrRescueFinish.py:80
 msgid "<b>Please wait while restarting...</b>"
-msgstr ""
+msgstr "<b>Vänligen vänta på omstart...</b>"
 
 #: yali/gui/ScrGoodbye.py:67 yali/gui/ScrRescuePassword.py:45
 #: yali/gui/ScrRescuePisi.py:38
-#, fuzzy
 msgid "Connecting to D-Bus..."
-msgstr "Anslutningsstatus:"
+msgstr "Ansluter till D-Bus..."
 
 #: yali/gui/ScrGoodbye.py:69
-#, fuzzy
 msgid "Setting hostname..."
-msgstr "Sparar värdnamn..."
+msgstr "Ställer in värdnamn..."
 
 #: yali/gui/ScrGoodbye.py:70
-#, fuzzy
 msgid "Setting root password..."
-msgstr "Sparar lösenord för root..."
+msgstr "Ställer in lösenord för root..."
 
 #: yali/gui/ScrGoodbye.py:72
-#, fuzzy
 msgid "Setting timezone..."
-msgstr "Sparar tidszon..."
+msgstr "Ställer in tidszon..."
 
 #: yali/gui/ScrGoodbye.py:73
-#, fuzzy
 msgid "Migrating Xorg configuration..."
 msgstr "Migrerar konfiguration av X.org..."
 
 #: yali/gui/ScrGoodbye.py:74
-#, fuzzy
 msgid "Setting console keymap..."
-msgstr "Skriver konsolldata..."
+msgstr "Ställer in tangentuppsättning för konsoll..."
 
 #: yali/gui/ScrGoodbye.py:75
-#, fuzzy
 msgid "Copying repository index..."
-msgstr "Kopierar Pisiindex..."
+msgstr "Kopierar förrådsindex..."
 
 #: yali/gui/ScrGoodbye.py:76
-#, fuzzy
 msgid "Stopping to D-Bus..."
-msgstr "Startar D-Bus..."
+msgstr "Stoppar D-Bus..."
 
 #: yali/gui/ScrGoodbye.py:80
-#, fuzzy
 msgid "Setup bootloader..."
-msgstr "Du kan laga din uppstartshanterare..."
+msgstr "Ställ in starthanterare..."
 
 #: yali/gui/ScrGoodbye.py:81
-#, fuzzy
 msgid "Writing bootloader..."
-msgstr "Installerar starthanteraren..."
+msgstr "Skriver starthanteraren..."
 
 #: yali/gui/ScrGoodbye.py:82
-#, fuzzy
 msgid "Installing bootloader..."
 msgstr "Installerar starthanteraren..."
 
 #: yali/gui/ScrGoodbye.py:85
-#, fuzzy
 msgid "Setup First-Boot..."
-msgstr "Du kan laga din uppstartshanterare..."
+msgstr "Ställer in första uppstart..."
 
 #: yali/gui/ScrGoodbye.py:88
 msgid "Adding users..."
 msgstr "Lägger till användare..."
 
 #: yali/gui/ScrGoodbye.py:89
-#, fuzzy
 msgid "Cleanup systems..."
-msgstr "Installerar systemet..."
+msgstr "Städar systemet..."
 
 #: yali/gui/ScrInstall.py:151
-#, fuzzy, python-format
+#, python-format
 msgid "Installing <b>%(name)s</b><br>%(summary)s"
-msgstr "Installerar: <b>%s</b><br>%s"
+msgstr "Installerar <b>%(name)s</b><br>%(summary)s"
 
 #: yali/gui/ScrInstall.py:157
-#, fuzzy, python-format
+#, python-format
 msgid "Configuring <b>%s</b>"
-msgstr "Konfigurerar paket: <b>%s</b>"
+msgstr "Konfigurerar <b>%s</b>"
 
 #: yali/gui/ScrInstall.py:181
 #, python-format
@@ -1219,33 +1199,32 @@ msgid "RAID"
 msgstr "RAID"
 
 #: yali/gui/ScrPartitionManual.py:151
-#, fuzzy
 msgid "Partition"
-msgstr "Partition %d"
+msgstr "Partition"
 
 #: yali/gui/ScrPartitionManual.py:163
 msgid "Member"
-msgstr ""
+msgstr "Medlem"
 
 #: yali/gui/ScrPartitionManual.py:166
 msgid "Array"
-msgstr ""
+msgstr "Matris"
 
 #: yali/gui/ScrPartitionManual.py:228
 msgid "Volume Groups"
-msgstr ""
+msgstr "Volymgrupp"
 
 #: yali/gui/ScrPartitionManual.py:240 yali/gui/ScrPartitionManual.py:313
 msgid "Free"
-msgstr ""
+msgstr "Ledigt"
 
 #: yali/gui/ScrPartitionManual.py:249
 msgid "Raid Arrays"
-msgstr ""
+msgstr "RAID-matriser"
 
 #: yali/gui/ScrPartitionManual.py:263
 msgid "Hard Drives"
-msgstr ""
+msgstr "Hårddiskar"
 
 #: yali/gui/ScrPartitionManual.py:290
 msgid "Can't handle more than one extended partition per disk"
@@ -1257,12 +1236,11 @@ msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:318
 msgid "Extended"
-msgstr ""
+msgstr "Utökad"
 
 #: yali/gui/ScrPartitionManual.py:351
-#, fuzzy
 msgid "Error Partitioning"
-msgstr "Välj partitioneringsmetod"
+msgstr "Fel vid partitionering"
 
 #: yali/gui/ScrPartitionManual.py:352
 #, python-format
@@ -1270,9 +1248,8 @@ msgid "Could not allocate requested partitions: %s."
 msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:356
-#, fuzzy
 msgid "Warning Partitioning"
-msgstr "Manuell partitionering"
+msgstr "Varning vid partitionering"
 
 #: yali/gui/ScrPartitionManual.py:357
 #, python-format
@@ -1280,13 +1257,12 @@ msgid "Warning: %s."
 msgstr "Varning: %s."
 
 #: yali/gui/ScrPartitionManual.py:358
-#, fuzzy
 msgid "Modify Partition"
-msgstr "Storleksändra partition"
+msgstr "Ändra partition"
 
 #: yali/gui/ScrPartitionManual.py:482
 msgid "Unable To Edit"
-msgstr ""
+msgstr "Kan inte redigera"
 
 #: yali/gui/ScrPartitionManual.py:483
 #, python-format
@@ -1449,9 +1425,9 @@ msgid "User %(username)s (<b>%(realname)s</b>) added."
 msgstr "Användare %s (<b>%s</b>) tillagd."
 
 #: yali/gui/ScrSummary.py:117
-#, fuzzy, python-format
+#, python-format
 msgid "User %(username)s (<b>%(realname)s</b>) added with <u>administrator privileges</u>."
-msgstr "Användare %s (<b>%s</b>) tillagd med <u>administratörsrättigheter</u>."
+msgstr "Användare %(username)s (<b>%(realname)s</b>) tillagd med  <u>administratörsrättigheter</u>."
 
 #: yali/gui/ScrSummary.py:123
 msgid "Hostname Settings"
@@ -1471,9 +1447,8 @@ msgid "Automatic Partitioning selected."
 msgstr "Automatisk partitionering vald."
 
 #: yali/gui/ScrSummary.py:140
-#, fuzzy
 msgid "Use All Space"
-msgstr "Ledigt utrymme"
+msgstr "Använd allt utrymme"
 
 #: yali/gui/ScrSummary.py:141
 #, python-format
@@ -1482,7 +1457,7 @@ msgstr ""
 
 #: yali/gui/ScrSummary.py:145
 msgid "Replace Existing Linux System(s)"
-msgstr ""
+msgstr "Ersätt befintligt Linuxsystem"
 
 #: yali/gui/ScrSummary.py:146
 #, python-format
@@ -1490,9 +1465,8 @@ msgid "Removes all Linux partitions on the selected%s device(s). This does not r
 msgstr ""
 
 #: yali/gui/ScrSummary.py:151
-#, fuzzy
 msgid "Use Free Space"
-msgstr "Ledigt utrymme"
+msgstr "Använd ledigt utrymme"
 
 #: yali/gui/ScrSummary.py:152
 #, python-format
@@ -1521,14 +1495,13 @@ msgid "Package Installation Settings"
 msgstr "Paketinstallationsinställningar"
 
 #: yali/gui/ScrSummary.py:178
-#, fuzzy
 msgid "Auto installation selected."
-msgstr "Automatisk installationssamling vald"
+msgstr "Automatisk installation vald."
 
 #: yali/gui/ScrSummary.py:180
-#, fuzzy, python-format
+#, python-format
 msgid "Manual Installation ( %s ) selected"
-msgstr "Manuell installation %s -samling vald"
+msgstr "Manuell installation (%s) vald"
 
 #: yali/gui/ScrSummary.py:184
 msgid "Default Kernel selected"
@@ -1551,7 +1524,7 @@ msgstr ""
 
 #: yali/gui/ScrSummary.py:209
 msgid "Write Changes to Disk"
-msgstr ""
+msgstr "Skriver ändringar till disk"
 
 #: yali/gui/ScrSummary.py:209
 msgid "Go Back"
@@ -1562,9 +1535,8 @@ msgid "Update"
 msgstr "Uppdatera"
 
 #: yali/gui/ScrUsers.py:216
-#, fuzzy
 msgid "Don't use your user name or name as a password"
-msgstr "Använd inte ditt namn eller användarnamn som lösenord."
+msgstr "Använd inte ditt namn eller användarnamn som lösenord"
 
 #: yali/gui/ScrUsers.py:219
 msgid "Passwords do not match"
@@ -1591,9 +1563,8 @@ msgid "User ID used before, choose another one!"
 msgstr "Användarid upptaget, välj ett annat!"
 
 #: yali/gui/shrink_gui.py:23
-#, fuzzy
 msgid "Partitions to Shrink"
-msgstr "Partitionering"
+msgstr "Partition att krympa"
 
 #: yali/gui/shrink_gui.py:47
 #, fuzzy
@@ -1603,7 +1574,7 @@ msgstr "Filsystemfel"
 #: yali/gui/shrink_gui.py:48
 #, python-format
 msgid "%(device)s: %(msg)s"
-msgstr ""
+msgstr "%(device)s: %(msg)s"
 
 #: yali/gui/shrink_gui.py:56
 msgid "Resize Device Error"
@@ -1612,7 +1583,7 @@ msgstr ""
 #: yali/gui/shrink_gui.py:57
 #, python-format
 msgid "%(name)s: %(msg)s"
-msgstr ""
+msgstr "%(name)s: %(msg)s"
 
 #: yali/gui/storageGuiHelpers.py:71
 msgid ""
@@ -1623,7 +1594,7 @@ msgstr ""
 
 #: yali/gui/storageGuiHelpers.py:188
 msgid "<Not Applicable>"
-msgstr ""
+msgstr "<Inte tillämpbart>"
 
 #: yali/gui/storageGuiHelpers.py:451
 msgid "Format as :"
@@ -1631,7 +1602,7 @@ msgstr "Formatera som:"
 
 #: yali/gui/storageGuiHelpers.py:471
 msgid "Migrate filesystem To :"
-msgstr ""
+msgstr "Migrera filsystem till:"
 
 #: yali/gui/storageGuiHelpers.py:495
 msgid "Resize :"
