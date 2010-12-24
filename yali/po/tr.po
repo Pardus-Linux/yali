@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: YALI-tr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-12-24 15:08+0200\n"
-"PO-Revision-Date: 2010-12-11 14:48+0200\n"
+"PO-Revision-Date: 2010-12-24 15:48+0200\n"
 "Last-Translator: Koray Löker <loker@pardus.org.tr>\n"
 "Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
 "Language: tr\n"
@@ -87,11 +87,11 @@ msgstr "Seçili Olanı Kullan"
 
 #: yali/gui/Ui/autopartwidget.py:140 yali/gui/ScrSummary.py:140
 msgid "Use All Space"
-msgstr "Boş Alanın Tamamını Kullan"
+msgstr "Diskin Tamamını Kullan"
 
 #: yali/gui/Ui/autopartwidget.py:141
 msgid "Shrink Current System"
-msgstr ""
+msgstr "Kullanılan Sistemi Küçült"
 
 #: yali/gui/Ui/autopartwidget.py:142 yali/gui/ScrSummary.py:151
 msgid "Use Free Space"
@@ -100,7 +100,7 @@ msgstr "Boş Alanı Kullan"
 #: yali/gui/Ui/autopartwidget.py:143
 #, fuzzy
 msgid "Create Custom Layout"
-msgstr "Yerleşimi Dene"
+msgstr "Kendi Düzenini Yarat"
 
 #: yali/gui/Ui/bootloaderwidget.py:128 yali/gui/Ui/checkcdwidget.py:197
 #: yali/gui/Ui/keyboardwidget.py:127 yali/gui/Ui/kickerwidget.py:30
@@ -137,9 +137,8 @@ msgid ""
 "is an optional step, we highly recommend to do the validation in order to "
 "avoid any possible errors during the installation process."
 msgstr ""
-"Kurulum paketlerinin doğruluğunu kontrol edebilirsiniz. Bu seçenek isteğe "
-"bağlı olmasına rağmen kurulum sürecinde olası bir hatadan kaçınmak için "
-"yapmanızı şiddetle öneriyoruz."
+"Kurulum paketlerinin geçerliliğini kontrol edebilirsiniz. Bu seçenek isteğe "
+"bağlı olmasına rağmen olası bir hatadan kaçınmak için yapmanızı ısrarla öneririz."
 
 #: yali/gui/Ui/checkcdwidget.py:199
 msgid "Validation failed"
@@ -191,7 +190,7 @@ msgstr "Seçilen Hacim Grubunda Mantıksal Hacim Oluşturun"
 
 #: yali/gui/Ui/createdevicewidget.py:140 yali/gui/ScrPartitionManual.py:154
 msgid "Physical Volume"
-msgstr "Fiziksel Birim"
+msgstr "Fiziksel Hacim"
 
 #: yali/gui/Ui/createdevicewidget.py:141 yali/gui/ScrPartitionManual.py:155
 msgid "Create LVM formatted partition"
@@ -675,7 +674,7 @@ msgstr "Tüm dil paketlerini kur"
 
 #: yali/gui/Ui/volumegroup.py:96
 msgid "Volume Group Name:"
-msgstr "Birim Grup Adı:"
+msgstr "Hacim Grubu Adı:"
 
 #: yali/gui/Ui/volumegroup.py:97
 msgid "Physical Extends"
@@ -683,7 +682,7 @@ msgstr "Fiziksel Uzantılar"
 
 #: yali/gui/Ui/volumegroup.py:98
 msgid "Physical Volumes to use:"
-msgstr "Kullanılacak Fiziksel Birimler:"
+msgstr "Kullanılacak Fiziksel Hacimler:"
 
 #: yali/gui/Ui/volumegroup.py:99
 msgid "Total Space:"
@@ -803,7 +802,7 @@ msgstr "Hepsini yeniden başlangıç durumuna getir"
 
 #: yali/gui/lvm_gui.py:48
 msgid "Not enough physical volumes"
-msgstr "Yeterli fiziksel birimler bulunamadı"
+msgstr "Yeterli fiziksel hacim bulunamadı"
 
 #: yali/gui/lvm_gui.py:49
 msgid ""
@@ -812,27 +811,26 @@ msgid ""
 "Create a partition or RAID array of type \"physical volume\n"
 "(LVM)\" and then select the \"LVM\" option again."
 msgstr ""
-"LVM Birim Grubu için en azından bir tane fiziksel birim bölümüne\n"
-"gereksinim bulunmaktadır.\n"
-"Bir bölüm veya RAID dizi türü \"fiziksel birim(LVM)\" \n"
-"oluşturun ve \"LVM\" seçeneğini tekrar seçin."
+"LVM Hacim Grubu yaratmak için en az bir fiziksel hacim gerekli.\n"
+"\"Fiziksel hacim (LVM)\" tipinde bir bölüm ya da RAID dizisi\n"
+"oluşturup tekrar deneyin."
 
 #: yali/gui/lvm_gui.py:60
 msgid "Make LVM Volume Group"
-msgstr "LVM Birim Grubu Oluşturun"
+msgstr "LVM Hacim Grubu Oluşturun"
 
 #: yali/gui/lvm_gui.py:63
 #, python-format
 msgid "Edit LVM Volume Group: %s"
-msgstr "LVM Birim Grubu'nu Düzenleyin: %s"
+msgstr "LVM Hacim Grubu'nu Düzenleyin: %s"
 
 #: yali/gui/lvm_gui.py:65
 msgid "Edit LVM Volume Group"
-msgstr "LVM Birim Grubunu Düzenle"
+msgstr "LVM Hacim Grubunu Düzenle"
 
 #: yali/gui/lvm_gui.py:91
 msgid "Invalid Volume Group Name"
-msgstr "Geçersiz Birim Grubu Adı"
+msgstr "Geçersiz Hacim Grubu Adı"
 
 #: yali/gui/lvm_gui.py:99
 msgid "Name in use"
@@ -842,8 +840,7 @@ msgstr "Kullanımda olan isim"
 #, python-format
 msgid "The volume group name \"%s\" is already in use. Please pick another."
 msgstr ""
-"Birim grubu adı \"%s\" önceden oluşturulmuş durumda. Lütfen başka bir seçim "
-"yapınız."
+"Hacim grubu adı \"%s\" kullanımda. Lütfen başka bir seçim yapınız."
 
 #: yali/gui/lvm_gui.py:403 yali/gui/lvm_gui.py:433 yali/gui/lvm_gui.py:446
 #: yali/gui/lvm_gui.py:481 yali/gui/lvm_gui.py:696 yali/gui/lvm_gui.py:718
@@ -892,10 +889,9 @@ msgid ""
 "the value selected (%(curpe)10.2f MB) is larger than the\n"
 "smallest physical volume (%(maxpvsize)10.2f MB) in the volume group."
 msgstr ""
-"Fiziksel boyut ebadı değiştirilemiyor çünkü\n"
-"seçilen değer (%(curpe)10.2f MB) daha küçük olan\n"
-"ve birim grubuna dahil olan (%(maxpvsize)10.2f MB) fiziksel birinden daha "
-"büyüktür."
+"Fiziksel boyut değiştirilemiyor çünkü seçilen değer\n"
+"(%(curpe)10.2f MB) hacim grubundaki en düşük değerden\n"
+"(%(maxpvsize)10.2f MB) büyük."
 
 #: yali/gui/lvm_gui.py:447
 #, python-format
@@ -904,9 +900,8 @@ msgid ""
 "(%(curpe)10.2f MB) is too large compared to the size of the smallest "
 "physical volume (%(maxpvsize)10.2f MB) in the volume group."
 msgstr ""
-"Fiziksel boyut değiştirilemez çünkü seçilen değer (%(curpe)10.2f MB) birim "
-"grubuna ait olan daha küçük fiziksel birimin ebadı (%(maxpvsize)10.2f MB) "
-"ile kıyaslandığında çok büyüktür."
+"Fiziksel boyut değiştirilemiyor, çünkü seçilen değer (%(curpe)10.2f MB) hacim "
+"grubundaki en küçük fiziksel hacme kıyasla (%(maxpvsize)10.2f MB) çok büyük."
 
 #: yali/gui/lvm_gui.py:459
 msgid "Too small"
@@ -917,8 +912,8 @@ msgid ""
 "This change in the value of the physical extent will waste substantial space "
 "on one or more of the physical volumes in the volume group."
 msgstr ""
-"Fiziksel boyut değerindeki değişiklik, birim grubuna ait olan fiziksel "
-"birimler üzerinden yeterli alanın kaybolmasına yol açacaktır."
+"Fiziksel boyut değerindeki değişiklik, hacim grubuna ait olan fiziksel "
+"hacimler üzerinden yeterli alanın kaybolmasına yol açacaktır."
 
 #: yali/gui/lvm_gui.py:482
 #, python-format
@@ -955,10 +950,9 @@ msgid ""
 "the size of one or more of the currently existing logical\n"
 "volumes"
 msgstr ""
-"Birim gurubunda, yeni mantıksal hacimler oluşturmaya\n"
-"yetecek alan bulunmamaktadır. Mantıksal hacim eklemek için\n"
-"varolan mantıksal hacimlerden bir veya birkaçının\n"
-"boyutunu düşürmeniz gerekmektedir."
+"Hacim gurubunda, yeni mantıksal hacim oluşturmaya yetecek\n"
+"alan yok. Mantıksal hacim eklemek için var olan mantıksal\n"
+"hacimlerden bir veya birkaçının boyutunu düşürmeniz gerekli."
 
 #: yali/gui/lvm_gui.py:547
 msgid "Confirm Delete"
@@ -1030,7 +1024,7 @@ msgid ""
 msgstr ""
 "İstenen boyut (%(size)10.2f MB) maksimum mantıksal hacim boyutundan "
 "(%(maxlv)10.2f MB) daha büyüktür. Bu sınırı arttırmak için bölümlenmemiş "
-"disk alanında yeni Fiziksel Birimler ekleyebilir ve onları bu birim grubuna "
+"disk alanında yeni Fiziksel Hacimler ekleyebilir ve onları bu hacim grubuna "
 "ekleyebilirsiniz."
 
 #: yali/gui/lvm_gui.py:719
@@ -1042,8 +1036,8 @@ msgid ""
 "volume smaller."
 msgstr ""
 "Bu mantıksal hacim için girilen boyut (%(size)d MB) diğer mantıksal hacim"
-"(ler) ile birleştirilmiş olup birim grubunun (%(tmpvgsize)d MB) ebadını "
-"aşmaktadır. Lütfen birim grubunu daha büyük tutun veya mantıksal hacmin "
+"(ler) ile birleştirilmiş olup hacim grubunun (%(tmpvgsize)d MB) ebadını "
+"aşmaktadır. Lütfen hacim grubunu daha büyük tutun veya mantıksal hacmin "
 "ebadını daha küçük tutun."
 
 #: yali/gui/partition_gui.py:34
@@ -1391,7 +1385,7 @@ msgstr "Dizi"
 
 #: yali/gui/ScrPartitionManual.py:228
 msgid "Volume Groups"
-msgstr "Birim Grupları"
+msgstr "Hacim Grupları"
 
 #: yali/gui/ScrPartitionManual.py:240 yali/gui/ScrPartitionManual.py:313
 msgid "Free"
@@ -1786,9 +1780,9 @@ msgid ""
 "otherwise the volume group will be too small to\n"
 "hold the currently defined logical volumes."
 msgstr ""
-"Bu fiziksel birimi kaldıramazsınız çünkü\n"
+"Bu fiziksel hacmi kaldıramazsınız çünkü\n"
 "o taktirde belirlenen mantıksal hacimleri\n"
-"korumak için birim grubunun ebadı\n"
+"korumak için hacim grubunun ebadı\n"
 "çok küçük kalacaktır."
 
 #: yali/gui/YaliDialog.py:220 yali/gui/YaliDialog.py:236
