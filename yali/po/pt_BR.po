@@ -1,31 +1,32 @@
 # Translation of pt_BR.po to Brazilian Portuguese
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Pedro Leite <pedro.leite@gmail.com>, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: pt_BR\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-10 13:56+0200\n"
+"POT-Creation-Date: 2010-12-24 15:08+0200\n"
 "PO-Revision-Date: 2007-02-19 22:25-0300\n"
 "Last-Translator: Pedro Leite <pedro.leite@gmail.com>\n"
-"Language-Team: Brazilian Portuguese <http://liste.uludag.org.tr/mailman/listinfo/pardus-translation-ptbr>\n"
+"Language-Team: Brazilian Portuguese <http://liste.uludag.org.tr/mailman/"
+"listinfo/pardus-translation-ptbr>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "X-Generator: KBabel 1.11.4\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:74 yali/gui/Ui/autopartquestion.py:82
-#: yali/gui/Ui/autopartwidget.py:140 yali/gui/Ui/bg.py:36
+#: yali/gui/Ui/autopartwidget.py:136 yali/gui/Ui/bg.py:36
 #: yali/gui/Ui/connectionlist.py:74 yali/gui/Ui/createdevicewidget.py:133
 #: yali/gui/Ui/datetimewidget.py:171 yali/gui/Ui/diskItem.py:92
 #: yali/gui/Ui/driveselectionwidget.py:125 yali/gui/Ui/exception.py:62
 #: yali/gui/Ui/goodbyewidget.py:103 yali/gui/Ui/help.py:56
 #: yali/gui/Ui/installprogress.py:60 yali/gui/Ui/logicalvolume.py:133
 #: yali/gui/Ui/manualpartwidget.py:131 yali/gui/Ui/partedit.py:171
-#: yali/gui/Ui/partition.py:143 yali/gui/Ui/partitionshrink.py:62
+#: yali/gui/Ui/partition.py:137 yali/gui/Ui/partitionshrink.py:62
 #: yali/gui/Ui/raid.py:94 yali/gui/Ui/summarywidget.py:113
 #: yali/gui/Ui/volumegroup.py:95
 #, fuzzy
@@ -53,7 +54,9 @@ msgid "PAE Kernel"
 msgstr "PAE Kernel"
 
 #: yali/gui/Ui/autopartquestion.py:83
-msgid "There appears to be more than one resizeable partition. You can select a partition from the list below or YALI will select one for you."
+msgid ""
+"There appears to be more than one resizeable partition. You can select a "
+"partition from the list below or YALI will select one for you."
 msgstr ""
 
 #: yali/gui/Ui/autopartquestion.py:84 yali/gui/Ui/connectionlist.py:76
@@ -72,6 +75,25 @@ msgstr "Eu irei escolher o alvo"
 #: yali/gui/Ui/autopartquestion.py:87
 msgid "Use Selected"
 msgstr "Usar Selecionado"
+
+#: yali/gui/Ui/autopartwidget.py:140 yali/gui/ScrSummary.py:140
+#, fuzzy
+msgid "Use All Space"
+msgstr "espaço livre"
+
+#: yali/gui/Ui/autopartwidget.py:141
+msgid "Shrink Current System"
+msgstr ""
+
+#: yali/gui/Ui/autopartwidget.py:142 yali/gui/ScrSummary.py:151
+#, fuzzy
+msgid "Use Free Space"
+msgstr "espaço livre"
+
+#: yali/gui/Ui/autopartwidget.py:143
+#, fuzzy
+msgid "Create Custom Layout"
+msgstr "Testar layout selecionado:"
 
 #: yali/gui/Ui/bootloaderwidget.py:128 yali/gui/Ui/checkcdwidget.py:197
 #: yali/gui/Ui/keyboardwidget.py:127 yali/gui/Ui/kickerwidget.py:30
@@ -103,8 +125,14 @@ msgid "The first sector of"
 msgstr "O primeiro setor de"
 
 #: yali/gui/Ui/checkcdwidget.py:198
-msgid "You can validate the integrity of the installation packages. Although this is an optional step, we highly recommend to do the validation in order to avoid any possible errors during the installation process."
-msgstr "Você pode checar a integridade dos pacotes de instalação. Embora esta seja um passo opcional, nós o encorajamos a fazê-lo para evitar quaisquer erros na instalação."
+msgid ""
+"You can validate the integrity of the installation packages. Although this "
+"is an optional step, we highly recommend to do the validation in order to "
+"avoid any possible errors during the installation process."
+msgstr ""
+"Você pode checar a integridade dos pacotes de instalação. Embora esta seja "
+"um passo opcional, nós o encorajamos a fazê-lo para evitar quaisquer erros "
+"na instalação."
 
 #: yali/gui/Ui/checkcdwidget.py:199
 msgid "Validation failed"
@@ -114,13 +142,17 @@ msgstr "Checagem Falhou"
 msgid "Validation succeeded"
 msgstr "Checado com sucesso"
 
-#: yali/gui/Ui/checkcdwidget.py:201 yali/gui/ScrCheckCD.py:60
+#: yali/gui/Ui/checkcdwidget.py:201 yali/gui/ScrCheckCD.py:62
 msgid "Validate"
 msgstr "Validado"
 
 #: yali/gui/Ui/connectionlist.py:75
-msgid "To use PiSi History support, you may need to be online. You can use a connection profile from the list below:"
-msgstr "Para usar o suporte ao PiSi History, você deverá estar conectado à internet. Você pode usar um perfil de conexão da lista abaixo:"
+msgid ""
+"To use PiSi History support, you may need to be online. You can use a "
+"connection profile from the list below:"
+msgstr ""
+"Para usar o suporte ao PiSi History, você deverá estar conectado à internet. "
+"Você pode usar um perfil de conexão da lista abaixo:"
 
 #: yali/gui/Ui/connectionlist.py:77
 msgid "Connect"
@@ -201,14 +233,16 @@ msgid "Unhandled exception occured"
 msgstr "Aconteceu um erro!"
 
 #: yali/gui/Ui/exception.py:65
-msgid "Please fill a bug report at http://bugs.pardus.org.tr/ attaching the following backtrace."
+msgid ""
+"Please fill a bug report at http://bugs.pardus.org.tr/ attaching the "
+"following backtrace."
 msgstr ""
 
 #: yali/gui/Ui/exception.py:66
 msgid "Show Backtrace"
 msgstr "Mostrar Backtrace:"
 
-#: yali/gui/Ui/exception.py:67 yali/gui/ScrCheckCD.py:97
+#: yali/gui/Ui/exception.py:67 yali/gui/ScrCheckCD.py:99
 msgid "Reboot"
 msgstr "Reiniciar"
 
@@ -233,7 +267,11 @@ msgid "Test Layout"
 msgstr "Testar layout selecionado:"
 
 #: yali/gui/Ui/license.py:104
-msgid "Before installing Pardus on your computer, please read and accept the terms of free / open source licenses of the softwares included in this installation medium. <a href=\"#\"><span style=\" text-decoration: underline; color:#56a2c0;\">License texts</span></a>"
+msgid ""
+"Before installing Pardus on your computer, please read and accept the terms "
+"of free / open source licenses of the softwares included in this "
+"installation medium. <a href=\"#\"><span style=\" text-decoration: "
+"underline; color:#56a2c0;\">License texts</span></a>"
 msgstr ""
 
 #: yali/gui/Ui/license.py:105
@@ -250,34 +288,34 @@ msgid "Use :"
 msgstr "Uso:"
 
 #: yali/gui/Ui/logicalvolume.py:136 yali/gui/Ui/partedit.py:173
-#: yali/gui/Ui/partitionedit.py:137 yali/gui/Ui/partition.py:145
+#: yali/gui/Ui/partitionedit.py:137 yali/gui/Ui/partition.py:139
 msgid "Size :"
 msgstr "Tamanho:"
 
 #: yali/gui/Ui/logicalvolume.py:137 yali/gui/Ui/logicalvolume.py:139
 #: yali/gui/Ui/partedit.py:174 yali/gui/Ui/partitionedit.py:138
-#: yali/gui/Ui/partition.py:146 yali/gui/Ui/partition.py:148
+#: yali/gui/Ui/partition.py:140 yali/gui/Ui/partition.py:142
 #: yali/gui/Ui/partitionshrinkwidget.py:92 yali/gui/Ui/partresize.py:93
 msgid " MB"
 msgstr " MB"
 
-#: yali/gui/Ui/logicalvolume.py:138 yali/gui/Ui/partition.py:147
+#: yali/gui/Ui/logicalvolume.py:138 yali/gui/Ui/partition.py:141
 #: yali/gui/Ui/partresize.py:95
 msgid "Resize"
 msgstr "Redimensionar"
 
 #: yali/gui/Ui/logicalvolume.py:140 yali/gui/Ui/partedit.py:177
-#: yali/gui/Ui/partitionedit.py:139 yali/gui/Ui/partition.py:151
+#: yali/gui/Ui/partitionedit.py:139 yali/gui/Ui/partition.py:145
 msgid "File System :"
 msgstr "Sistema de arquivos:"
 
 #: yali/gui/Ui/logicalvolume.py:141 yali/gui/Ui/manualpartwidget.py:137
-#: yali/gui/Ui/partition.py:149 yali/gui/Ui/raid.py:98
+#: yali/gui/Ui/partition.py:143 yali/gui/Ui/raid.py:98
 #: yali/gui/ScrPartitionManual.py:129
 msgid "Format"
 msgstr "Formatar"
 
-#: yali/gui/Ui/logicalvolume.py:142 yali/gui/Ui/partition.py:150
+#: yali/gui/Ui/logicalvolume.py:142 yali/gui/Ui/partition.py:144
 #: yali/gui/Ui/raid.py:99
 msgid "Migrate"
 msgstr "Migrar"
@@ -339,8 +377,9 @@ msgid "Size"
 msgstr "Tamanho (MB):"
 
 #: yali/gui/Ui/manualpartwidget.py:139
-msgid "New"
-msgstr ""
+#, fuzzy
+msgid "Create"
+msgstr "Criar Usuário"
 
 #: yali/gui/Ui/manualpartwidget.py:140 yali/gui/Ui/setupuserswidget.py:499
 #: yali/gui/Ui/volumegroup.py:105
@@ -348,7 +387,7 @@ msgid "Edit"
 msgstr "Editar"
 
 #: yali/gui/Ui/manualpartwidget.py:141 yali/gui/Ui/setupuserswidget.py:500
-#: yali/gui/Ui/volumegroup.py:106 yali/gui/lvm_gui.py:553
+#: yali/gui/Ui/volumegroup.py:106 yali/gui/lvm_gui.py:551
 msgid "Delete"
 msgstr ""
 
@@ -402,20 +441,17 @@ msgstr "Partição 1 em FUJITSU - /dev/sda1"
 msgid "Force to be primary partition"
 msgstr "Forçar para ser partição primária"
 
-#: yali/gui/Ui/partition.py:144
+#: yali/gui/Ui/partition.py:138
 msgid "Use as:"
 msgstr "Usar como:"
 
-#: yali/gui/Ui/partition.py:152
+#: yali/gui/Ui/partition.py:146
 msgid "Force to be a primary partition"
 msgstr "Forçar para ser partição primária"
 
-#: yali/gui/Ui/partition.py:153
-msgid "Allowable Drives:"
-msgstr ""
-
 #: yali/gui/Ui/partitionshrink.py:63 yali/gui/Ui/partitionshrinkwidget.py:90
-msgid "Which partition would you like to shrink to make room for your installation?"
+msgid ""
+"Which partition would you like to shrink to make room for your installation?"
 msgstr ""
 
 #: yali/gui/Ui/partitionshrink.py:64
@@ -427,8 +463,8 @@ msgid "Shrink partition to size (in MB) :"
 msgstr "Encolher partição para tamanho (em MB):"
 
 #: yali/gui/Ui/partitionshrinkwidget.py:93 yali/gui/Ui/partresize.py:94
-#: yali/gui/Ui/setupuserswidget.py:501 yali/gui/lvm_gui.py:421
-#: yali/gui/lvm_gui.py:468 yali/gui/lvm_gui.py:553
+#: yali/gui/Ui/setupuserswidget.py:501 yali/gui/lvm_gui.py:419
+#: yali/gui/lvm_gui.py:466 yali/gui/lvm_gui.py:551
 #: yali/gui/ScrPartitionManual.py:113 yali/gui/ScrPartitionManual.py:129
 #: yali/gui/ScrPartitionManual.py:139 yali/gui/YaliDialog.py:222
 msgid "Cancel"
@@ -440,13 +476,19 @@ msgstr "Encolher"
 
 #: yali/gui/Ui/partresize.py:90
 msgid ""
-"Changes will be applied when you click \"Resize\". To cancel the changes, click <b>\"Cancel\".\n"
+"Changes will be applied when you click \"Resize\". To cancel the changes, "
+"click <b>\"Cancel\".\n"
 "<br><br>\n"
-"Warning: A resizing operation may corrupt the partition, rendering the data on it unreachable. Make sure that you have backed up the data. Note that this operation cannot be undone.<b>"
+"Warning: A resizing operation may corrupt the partition, rendering the data "
+"on it unreachable. Make sure that you have backed up the data. Note that "
+"this operation cannot be undone.<b>"
 msgstr ""
-"Alterações serão aplicadas quando você clicar \"Redimencionar\". Para cancelar as alterações, clique <b>\"Cancelar\".\n"
+"Alterações serão aplicadas quando você clicar \"Redimencionar\". Para "
+"cancelar as alterações, clique <b>\"Cancelar\".\n"
 "<br><br>\n"
-"Perigo: A operação de redimencionamento pode corromper a partição, tornar os dados nela inacessíveis. Tenha certeza de que fez backup dos seus dados. Nota: Esta operação não pode ser desfeita.<b>"
+"Perigo: A operação de redimencionamento pode corromper a partição, tornar os "
+"dados nela inacessíveis. Tenha certeza de que fez backup dos seus dados. "
+"Nota: Esta operação não pode ser desfeita.<b>"
 
 #: yali/gui/Ui/raid.py:95
 msgid "Raid Device:"
@@ -526,7 +568,9 @@ msgid "Offline"
 msgstr "Desconectado"
 
 #: yali/gui/Ui/rescuepisiwidget.py:75
-msgid "To use PiSi's history feature, you may need to be online. Select connection profile."
+msgid ""
+"To use PiSi's history feature, you may need to be online. Select connection "
+"profile."
 msgstr ""
 
 #: yali/gui/Ui/rescuepisiwidget.py:76
@@ -622,7 +666,9 @@ msgid "Advanced"
 msgstr "Nome do host:"
 
 #: yali/gui/Ui/summarywidget.py:114
-msgid "When checked, YALI will install all of the officially supported language packages on your system."
+msgid ""
+"When checked, YALI will install all of the officially supported language "
+"packages on your system."
 msgstr ""
 
 #: yali/gui/Ui/summarywidget.py:115
@@ -667,11 +713,12 @@ msgstr "Espaço ocupado:"
 msgid ""
 "Pardus is installed and running successfully... \n"
 "\n"
-"Before you login to system, you need to create your first user and set the system wide configurations. "
+"Before you login to system, you need to create your first user and set the "
+"system wide configurations. "
 msgstr ""
 
 #: yali/gui/interface.py:41 yali/gui/interface.py:123
-#: yali/gui/ScrCheckCD.py:92 yali/gui/ScrInstall.py:180
+#: yali/gui/ScrCheckCD.py:94 yali/gui/ScrInstall.py:180
 #: yali/gui/ScrPartitionAuto.py:44 yali/gui/ScrPartitionManual.py:137
 #: yali/gui/YaliWindow.py:209 yali/gui/YaliWindow.py:214
 #: yali/gui/YaliWindow.py:219
@@ -680,10 +727,12 @@ msgstr "Alerta"
 
 #: yali/gui/interface.py:42
 #, python-format
-msgid "Disk contains %(members_count)s BIOS RAID metadata, but is not part of any recognized BIOS RAID sets. Ignoring disk %(members)s."
+msgid ""
+"Disk contains %(members_count)s BIOS RAID metadata, but is not part of any "
+"recognized BIOS RAID sets. Ignoring disk %(members)s."
 msgstr ""
 
-#: yali/gui/interface.py:66 yali/gui/raid_gui.py:122
+#: yali/gui/interface.py:66 yali/gui/raid_gui.py:118
 #: yali/gui/ScrDriveSelection.py:112
 msgid "Error"
 msgstr ""
@@ -691,14 +740,16 @@ msgstr ""
 #: yali/gui/interface.py:67
 #, python-format
 msgid ""
-"Cannot access the partition table of %(description)s(%(name)s) -- %(size)-0.fMB\n"
+"Cannot access the partition table of %(description)s(%(name)s) -- "
+"%(size)-0.fMB\n"
 "\n"
 "If there already exists a partition table on this device, it will\n"
 " be re-initialized and your existing data will be lost!\n"
 "\n"
 "To re-initialize the current disk press Re-initialize.\n"
 "\n"
-"To re-initialize all disks with unaccessible partition tables press Re-initialize All"
+"To re-initialize all disks with unaccessible partition tables press Re-"
+"initialize All"
 msgstr ""
 
 #: yali/gui/interface.py:75 yali/gui/interface.py:130
@@ -717,7 +768,10 @@ msgstr ""
 #, python-format
 msgid ""
 "Error processing LVM.\n"
-"There is inconsistent LVM data on %(msg)s.  You can reinitialize all related PVs (%(pvs)s) which will erase the LVM metadata, or ignore which will preserve the contents.  This action may also be applied to all other PVs with inconsistent metadata."
+"There is inconsistent LVM data on %(msg)s.  You can reinitialize all related "
+"PVs (%(pvs)s) which will erase the LVM metadata, or ignore which will "
+"preserve the contents.  This action may also be applied to all other PVs "
+"with inconsistent metadata."
 msgstr ""
 
 #: yali/gui/interface.py:130
@@ -728,11 +782,11 @@ msgstr ""
 msgid "Re-initialize all"
 msgstr ""
 
-#: yali/gui/lvm_gui.py:50
+#: yali/gui/lvm_gui.py:48
 msgid "Not enough physical volumes"
 msgstr ""
 
-#: yali/gui/lvm_gui.py:51
+#: yali/gui/lvm_gui.py:49
 msgid ""
 "At least one unused physical volume partition is needed to\n"
 "create an LVM Volume Group.\n"
@@ -740,39 +794,39 @@ msgid ""
 "(LVM)\" and then select the \"LVM\" option again."
 msgstr ""
 
-#: yali/gui/lvm_gui.py:62
+#: yali/gui/lvm_gui.py:60
 msgid "Make LVM Volume Group"
 msgstr ""
 
-#: yali/gui/lvm_gui.py:65
+#: yali/gui/lvm_gui.py:63
 #, python-format
 msgid "Edit LVM Volume Group: %s"
 msgstr ""
 
-#: yali/gui/lvm_gui.py:67
+#: yali/gui/lvm_gui.py:65
 msgid "Edit LVM Volume Group"
 msgstr ""
 
-#: yali/gui/lvm_gui.py:93
+#: yali/gui/lvm_gui.py:91
 msgid "Invalid Volume Group Name"
 msgstr ""
 
-#: yali/gui/lvm_gui.py:101
+#: yali/gui/lvm_gui.py:99
 msgid "Name in use"
 msgstr ""
 
-#: yali/gui/lvm_gui.py:102
+#: yali/gui/lvm_gui.py:100
 #, python-format
 msgid "The volume group name \"%s\" is already in use. Please pick another."
 msgstr ""
 
-#: yali/gui/lvm_gui.py:405 yali/gui/lvm_gui.py:435 yali/gui/lvm_gui.py:448
-#: yali/gui/lvm_gui.py:483 yali/gui/lvm_gui.py:701 yali/gui/lvm_gui.py:723
+#: yali/gui/lvm_gui.py:403 yali/gui/lvm_gui.py:433 yali/gui/lvm_gui.py:446
+#: yali/gui/lvm_gui.py:481 yali/gui/lvm_gui.py:696 yali/gui/lvm_gui.py:718
 #: yali/gui/storageGuiHelpers.py:70
 msgid "Not enough space"
 msgstr ""
 
-#: yali/gui/lvm_gui.py:406
+#: yali/gui/lvm_gui.py:404
 msgid ""
 "The physical extent size cannot be changed because\n"
 "otherwise the space required by the currently defined\n"
@@ -780,11 +834,11 @@ msgid ""
 "available space."
 msgstr ""
 
-#: yali/gui/lvm_gui.py:414
+#: yali/gui/lvm_gui.py:412
 msgid "Confirm Physical Extent Change"
 msgstr ""
 
-#: yali/gui/lvm_gui.py:415
+#: yali/gui/lvm_gui.py:413
 msgid ""
 "This change in the value of the physical extent will\n"
 "require the sizes of the current logical volume requests\n"
@@ -795,12 +849,12 @@ msgid ""
 "immediately."
 msgstr ""
 
-#: yali/gui/lvm_gui.py:421 yali/gui/lvm_gui.py:468
+#: yali/gui/lvm_gui.py:419 yali/gui/lvm_gui.py:466
 #: yali/gui/ScrPartitionManual.py:358
 msgid "Continue"
 msgstr ""
 
-#: yali/gui/lvm_gui.py:436
+#: yali/gui/lvm_gui.py:434
 #, python-format
 msgid ""
 "The physical extent size cannot be changed because\n"
@@ -808,40 +862,48 @@ msgid ""
 "smallest physical volume (%(maxpvsize)10.2f MB) in the volume group."
 msgstr ""
 
-#: yali/gui/lvm_gui.py:449
+#: yali/gui/lvm_gui.py:447
 #, python-format
-msgid "The physical extent size cannot be changed because the value selected (%(curpe)10.2f MB) is too large compared to the size of the smallest physical volume (%(maxpvsize)10.2f MB) in the volume group."
+msgid ""
+"The physical extent size cannot be changed because the value selected "
+"(%(curpe)10.2f MB) is too large compared to the size of the smallest "
+"physical volume (%(maxpvsize)10.2f MB) in the volume group."
 msgstr ""
 
-#: yali/gui/lvm_gui.py:461
+#: yali/gui/lvm_gui.py:459
 msgid "Too small"
 msgstr ""
 
-#: yali/gui/lvm_gui.py:462
-msgid "This change in the value of the physical extent will waste substantial space on one or more of the physical volumes in the volume group."
+#: yali/gui/lvm_gui.py:460
+msgid ""
+"This change in the value of the physical extent will waste substantial space "
+"on one or more of the physical volumes in the volume group."
 msgstr ""
 
-#: yali/gui/lvm_gui.py:484
+#: yali/gui/lvm_gui.py:482
 #, python-format
-msgid "The physical extent size cannot be changed because the resulting maximum logical volume size (%10.2f MB) is smaller than one or more of theircurrently defined logical volumes."
+msgid ""
+"The physical extent size cannot be changed because the resulting maximum "
+"logical volume size (%10.2f MB) is smaller than one or more of "
+"theircurrently defined logical volumes."
 msgstr ""
 
-#: yali/gui/lvm_gui.py:505
+#: yali/gui/lvm_gui.py:503
 msgid "No free slots"
 msgstr ""
 
-#: yali/gui/lvm_gui.py:506
+#: yali/gui/lvm_gui.py:504
 #, python-format
 msgid ""
 "You cannot create more than %d logical volume \n"
 "per volume group."
 msgstr ""
 
-#: yali/gui/lvm_gui.py:512
+#: yali/gui/lvm_gui.py:510
 msgid "No free space"
 msgstr "Sem espaço Livre"
 
-#: yali/gui/lvm_gui.py:513
+#: yali/gui/lvm_gui.py:511
 msgid ""
 "There is no room left in the volume group to create new\n"
 "logical volumes. To add a logical volume you must reduce\n"
@@ -849,71 +911,79 @@ msgid ""
 "volumes"
 msgstr ""
 
-#: yali/gui/lvm_gui.py:549
+#: yali/gui/lvm_gui.py:547
 msgid "Confirm Delete"
 msgstr ""
 
-#: yali/gui/lvm_gui.py:550
+#: yali/gui/lvm_gui.py:548
 #, python-format
 msgid ""
 "Are you sure you want to delete the \n"
 "logical volume \"%s\"?"
 msgstr ""
 
-#: yali/gui/lvm_gui.py:583
+#: yali/gui/lvm_gui.py:581
 msgid "Make Logical Volume"
 msgstr ""
 
-#: yali/gui/lvm_gui.py:585
+#: yali/gui/lvm_gui.py:583
 #, python-format
 msgid "Edit Logical Volume: %s"
 msgstr ""
 
-#: yali/gui/lvm_gui.py:617 yali/gui/partition_gui.py:65
-#: yali/gui/raid_gui.py:79
+#: yali/gui/lvm_gui.py:612 yali/gui/partition_gui.py:65
+#: yali/gui/raid_gui.py:75
 msgid "Mount Point Error"
 msgstr ""
 
-#: yali/gui/lvm_gui.py:649 yali/gui/partition_gui.py:80
-#: yali/gui/raid_gui.py:94
+#: yali/gui/lvm_gui.py:644 yali/gui/partition_gui.py:80
+#: yali/gui/raid_gui.py:90
 msgid "Mount point in use"
 msgstr ""
 
-#: yali/gui/lvm_gui.py:650 yali/gui/partition_gui.py:81
-#: yali/gui/raid_gui.py:95
+#: yali/gui/lvm_gui.py:645 yali/gui/partition_gui.py:81
+#: yali/gui/raid_gui.py:91
 #, python-format
 msgid "The mount point \"%s\" is in use. Please pick another."
 msgstr ""
 
-#: yali/gui/lvm_gui.py:661
+#: yali/gui/lvm_gui.py:656
 msgid "Illegal Logical Volume Name"
 msgstr ""
 
-#: yali/gui/lvm_gui.py:673
+#: yali/gui/lvm_gui.py:668
 msgid "Illegal logical volume name"
 msgstr ""
 
-#: yali/gui/lvm_gui.py:674
+#: yali/gui/lvm_gui.py:669
 #, python-format
 msgid "The logical volume name \"%s\" is already in use. Please pick another."
 msgstr ""
 
-#: yali/gui/lvm_gui.py:688
+#: yali/gui/lvm_gui.py:683
 msgid "Illegal size"
 msgstr ""
 
-#: yali/gui/lvm_gui.py:689
+#: yali/gui/lvm_gui.py:684
 msgid "The requested size as entered is not a valid number greater than 0."
 msgstr ""
 
-#: yali/gui/lvm_gui.py:702
+#: yali/gui/lvm_gui.py:697
 #, python-format
-msgid "The current requested size (%(size)10.2f MB) is larger than the maximum logical volume size (%(maxlv)10.2f MB). To increase this limit you can create more Physical Volumes from unpartitioned disk space and add them to this Volume Group."
+msgid ""
+"The current requested size (%(size)10.2f MB) is larger than the maximum "
+"logical volume size (%(maxlv)10.2f MB). To increase this limit you can "
+"create more Physical Volumes from unpartitioned disk space and add them to "
+"this Volume Group."
 msgstr ""
 
-#: yali/gui/lvm_gui.py:724
+#: yali/gui/lvm_gui.py:719
 #, python-format
-msgid "The size entered for this logical volume (%(size)d MB) combined with the size of the other logical volume(s) exceeds the size of the volume group (%(tmpvgsize)d MB). Please make the volume group larger or make the logical volume smaller."
+msgid ""
+"The size entered for this logical volume (%(size)d MB) combined with the "
+"size of the other logical volume(s) exceeds the size of the volume group "
+"(%(tmpvgsize)d MB). Please make the volume group larger or make the logical "
+"volume smaller."
 msgstr ""
 
 #: yali/gui/partition_gui.py:34
@@ -934,27 +1004,29 @@ msgstr "Editar Partição"
 msgid "Error With Request"
 msgstr ""
 
-#: yali/gui/raid_gui.py:30
+#: yali/gui/raid_gui.py:26
 msgid "Invalid Raid Members"
 msgstr ""
 
-#: yali/gui/raid_gui.py:31
+#: yali/gui/raid_gui.py:27
 msgid ""
-"At least two unused software RAID partitions are needed to create a RAID device.\n"
+"At least two unused software RAID partitions are needed to create a RAID "
+"device.\n"
 "\n"
-"First create at least two partitions of type \"software RAID\", and then select the \"RAID\" option again."
+"First create at least two partitions of type \"software RAID\", and then "
+"select the \"RAID\" option again."
 msgstr ""
 
-#: yali/gui/raid_gui.py:41
+#: yali/gui/raid_gui.py:37
 msgid "Make RAID Device"
 msgstr ""
 
-#: yali/gui/raid_gui.py:44
+#: yali/gui/raid_gui.py:40
 #, python-format
 msgid "Edit RAID Device: %s"
 msgstr ""
 
-#: yali/gui/raid_gui.py:46
+#: yali/gui/raid_gui.py:42
 msgid "Edit RAID Device"
 msgstr ""
 
@@ -978,57 +1050,63 @@ msgstr ""
 msgid "Retry"
 msgstr ""
 
-#: yali/gui/ScrAdmin.py:129 yali/gui/ScrRescuePassword.py:96
+#: yali/gui/ScrAdmin.py:94 yali/gui/ScrDateTime.py:138
+msgid "Storage Devices initialising..."
+msgstr ""
+
+#: yali/gui/ScrAdmin.py:147 yali/gui/ScrRescuePassword.py:96
 msgid "Password is too short."
 msgstr "Senha muito curta."
 
-#: yali/gui/ScrAdmin.py:132
-msgid "Don't use invalid characters"
-msgstr "Não use caracteres inváridos"
-
-#: yali/gui/ScrAdmin.py:139
+#: yali/gui/ScrAdmin.py:155
 msgid "Passwords do not match."
 msgstr "Senhas não conferem!"
 
-#: yali/gui/ScrAdmin.py:144
+#: yali/gui/ScrAdmin.py:160
 msgid "Do not use your username as your password."
 msgstr "Não use seu nome de usuário como senha."
 
-#: yali/gui/ScrAdmin.py:154
+#: yali/gui/ScrAdmin.py:170
 msgid "Hostname cannot be longer than 64 characters."
 msgstr "Hostname não pode ter mais que 64 caracteres."
 
-#: yali/gui/ScrAdmin.py:167
+#: yali/gui/ScrAdmin.py:183
 msgid "Hostname contains invalid characters."
 msgstr "Hostname contém caracteres inválidos"
 
-#: yali/gui/ScrCheckCD.py:66
+#: yali/gui/ScrCheckCD.py:68
 msgid "Starting validation..."
 msgstr "Iniciando validação..."
 
-#: yali/gui/ScrCheckCD.py:85
+#: yali/gui/ScrCheckCD.py:87
 #, python-format
 msgid "Validating %s"
 msgstr ""
 
-#: yali/gui/ScrCheckCD.py:93
+#: yali/gui/ScrCheckCD.py:95
 #, python-format
-msgid "Validation of %s package failed.Please remaster your installation medium andreboot."
+msgid ""
+"Validation of %s package failed.Please remaster your installation medium "
+"andreboot."
 msgstr ""
 
-#: yali/gui/ScrCheckCD.py:97
+#: yali/gui/ScrCheckCD.py:99
 msgid "Skip Validation"
 msgstr ""
 
-#: yali/gui/ScrCheckCD.py:97
+#: yali/gui/ScrCheckCD.py:99
 msgid "Skip Package"
 msgstr ""
 
-#: yali/gui/ScrCheckCD.py:112
-msgid "<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the installation.</b></font>"
-msgstr "<font color=\"#257216\">Checagem sucedida. Você pode prosseguir com a instalação.</font>"
+#: yali/gui/ScrCheckCD.py:114
+msgid ""
+"<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the "
+"installation.</b></font>"
+msgstr ""
+"<font color=\"#257216\">Checagem sucedida. Você pode prosseguir com a "
+"instalação.</font>"
 
-#: yali/gui/ScrDateTime.py:89
+#: yali/gui/ScrDateTime.py:100
 msgid "Adjusting time settings"
 msgstr "Ajustar configurações de horário"
 
@@ -1106,7 +1184,7 @@ msgstr "Não instalar carregador de boot"
 msgid "Adding users..."
 msgstr ""
 
-#: yali/gui/ScrGoodbye.py:89
+#: yali/gui/ScrGoodbye.py:91
 msgid "Cleanup systems..."
 msgstr "Limpando sistema..."
 
@@ -1288,11 +1366,21 @@ msgstr "Alerta"
 msgid "Modify Partition"
 msgstr "Editar Partição"
 
-#: yali/gui/ScrPartitionManual.py:482
+#: yali/gui/ScrPartitionManual.py:472
+#, fuzzy
+msgid "Partition Selection Warning"
+msgstr "Partições:"
+
+#: yali/gui/ScrPartitionManual.py:473
+#, fuzzy
+msgid "Please select free physical partition to create new device."
+msgstr "Você deve selecionar um tipo de partição da lista abaixo."
+
+#: yali/gui/ScrPartitionManual.py:483
 msgid "Unable To Edit"
 msgstr ""
 
-#: yali/gui/ScrPartitionManual.py:483
+#: yali/gui/ScrPartitionManual.py:484
 #, python-format
 msgid ""
 "You cannot edit this device:\n"
@@ -1456,7 +1544,9 @@ msgstr ""
 
 #: yali/gui/ScrSummary.py:117
 #, python-format
-msgid "User %(username)s (<b>%(realname)s</b>) added with <u>administrator privileges</u>."
+msgid ""
+"User %(username)s (<b>%(realname)s</b>) added with <u>administrator "
+"privileges</u>."
 msgstr ""
 
 #: yali/gui/ScrSummary.py:123
@@ -1479,14 +1569,11 @@ msgstr "Partições:"
 msgid "Automatic Partitioning selected."
 msgstr "Sim, particione e formate automaticamente o disco selecionado!"
 
-#: yali/gui/ScrSummary.py:140
-#, fuzzy
-msgid "Use All Space"
-msgstr "espaço livre"
-
 #: yali/gui/ScrSummary.py:141
 #, python-format
-msgid "Removes all partitions on the selected %s device(s). This includes partitions created by other operating systems."
+msgid ""
+"Removes all partitions on the selected %s device(s). <b><u>This includes "
+"partitions created by other operating systems.</u></b>"
 msgstr ""
 
 #: yali/gui/ScrSummary.py:145
@@ -1495,17 +1582,18 @@ msgstr ""
 
 #: yali/gui/ScrSummary.py:146
 #, python-format
-msgid "Removes all Linux partitions on the selected%s device(s). This does not remove other partitions you may have on your storage device(s) (such as VFAT or FAT32)"
+msgid ""
+"Removes all Linux partitions on the selected%s device(s). This does not "
+"remove other partitions you may have on your storage device(s) (such as VFAT "
+"or FAT32)"
 msgstr ""
-
-#: yali/gui/ScrSummary.py:151
-#, fuzzy
-msgid "Use Free Space"
-msgstr "espaço livre"
 
 #: yali/gui/ScrSummary.py:152
 #, python-format
-msgid "Retains your current data and partitions and uses only the unpartitioned space on the selected %s device(s), assuming you haveenough free space available."
+msgid ""
+"Retains your current data and partitions and uses only the unpartitioned "
+"space on the selected %s device(s), assuming you haveenough free space "
+"available."
 msgstr ""
 
 #: yali/gui/ScrSummary.py:158
@@ -1598,7 +1686,8 @@ msgstr "<font color=\"#FF6D19\">Nome de usuário existe, escolha outro!</font>"
 #: yali/gui/ScrUsers.py:272
 #, fuzzy
 msgid "The user name contains invalid characters."
-msgstr "<font color=\"#FF6D19\">Nome de usuário contém caracteres inválidos!</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Nome de usuário contém caracteres inválidos!</font>"
 
 #: yali/gui/ScrUsers.py:275
 #, fuzzy
@@ -1638,41 +1727,6 @@ msgid ""
 "You cannot remove this physical volume because\n"
 "otherwise the volume group will be too small to\n"
 "hold the currently defined logical volumes."
-msgstr ""
-
-#: yali/gui/storageGuiHelpers.py:188
-msgid "<Not Applicable>"
-msgstr ""
-
-#: yali/gui/storageGuiHelpers.py:451
-#, fuzzy
-msgid "Format as :"
-msgstr "Formatar?"
-
-#: yali/gui/storageGuiHelpers.py:471
-msgid "Migrate filesystem To :"
-msgstr ""
-
-#: yali/gui/storageGuiHelpers.py:495
-#, fuzzy
-msgid "Resize :"
-msgstr "Redimensionar"
-
-#: yali/gui/storageGuiHelpers.py:537
-msgid "Advanced Size Options"
-msgstr ""
-
-#: yali/gui/storageGuiHelpers.py:539
-#, fuzzy
-msgid "Fixed Size :"
-msgstr "Tamanho"
-
-#: yali/gui/storageGuiHelpers.py:540
-msgid "Fill to maximum allowable size"
-msgstr ""
-
-#: yali/gui/storageGuiHelpers.py:541
-msgid "Fill all space up to (MB):"
 msgstr ""
 
 #: yali/gui/YaliDialog.py:220 yali/gui/YaliDialog.py:236
@@ -1984,13 +2038,32 @@ msgstr ""
 msgid "Invalid xml file"
 msgstr ""
 
+#~ msgid "Don't use invalid characters"
+#~ msgstr "Não use caracteres inváridos"
+
+#, fuzzy
+#~ msgid "Format as :"
+#~ msgstr "Formatar?"
+
+#, fuzzy
+#~ msgid "Resize :"
+#~ msgstr "Redimensionar"
+
+#, fuzzy
+#~ msgid "Fixed Size :"
+#~ msgstr "Tamanho"
+
 #~ msgid "The password contains invalid characters."
-#~ msgstr "<font color=\"#FF6D19\">Nome de usuário contém caracteres inválidos!</font>"
+#~ msgstr ""
+#~ "<font color=\"#FF6D19\">Nome de usuário contém caracteres inválidos!</"
+#~ "font>"
 
 #~ msgid "No, I'll select installation metod manually"
 #~ msgstr "Não, eu particionarei meu disco manualmente."
 
-#~ msgid "This option will erase the entire disk. All the data on the disk will be lost."
+#~ msgid ""
+#~ "This option will erase the entire disk. All the data on the disk will be "
+#~ "lost."
 #~ msgstr ""
 #~ "<b>\n"
 #~ "<p>Esta ação usará todo o disco para a instalação do Pardus e\n"
@@ -2014,13 +2087,19 @@ msgstr ""
 #~ "\n"
 #~ "<p>Your system will not boot without a loader.</p>\n"
 #~ "\n"
-#~ "<p>If you don't install a boot loader or choose to install to root partition, you will have to manually configure already-installed (if any) loader to be able to boot your new Pardus installation.</p>"
+#~ "<p>If you don't install a boot loader or choose to install to root "
+#~ "partition, you will have to manually configure already-installed (if any) "
+#~ "loader to be able to boot your new Pardus installation.</p>"
 #~ msgstr ""
-#~ "<b>Você que escrever o carregador de boot (GRUB) na MBR do seu disco rígido?</b>\n"
+#~ "<b>Você que escrever o carregador de boot (GRUB) na MBR do seu disco "
+#~ "rígido?</b>\n"
 #~ "\n"
 #~ "<p>Você precisa de um carregador de boot para o seu sistema Pardus.</p>\n"
 #~ "\n"
-#~ "<p>Se você não instalar um carregador de boot ou escolher instalá-lo na partição raiz, você terá de configurar seu outro carregador de sistema operacional (se tiver um instalado) para iniciar seu novo Pardus instalado.</p>"
+#~ "<p>Se você não instalar um carregador de boot ou escolher instalá-lo na "
+#~ "partição raiz, você terá de configurar seu outro carregador de sistema "
+#~ "operacional (se tiver um instalado) para iniciar seu novo Pardus "
+#~ "instalado.</p>"
 
 #~ msgid "Pardus installed partition"
 #~ msgstr "Instalar na partição raiz"
@@ -2037,8 +2116,17 @@ msgstr ""
 #~ msgid "Update Password"
 #~ msgstr "Criar Usuário"
 
-#~ msgid "<p align=\"left\">System administrator user (root) handles important system maintanence tasks. Enter a password for this special user and do not forget this password. Keep in mind that for privacy reasons, you shouldn't write this password elsewhere.</p>"
-#~ msgstr "<p align=\"left\">Usuário administrador do sistema (root) cuida de tarefas de manutenção do sistema importantes. Por favor digite a senha para este usuário especial a não a esqueça. Note que você não deve escrever esta senha em qualquer outro lugar por questões de privacidade.</p>"
+#~ msgid ""
+#~ "<p align=\"left\">System administrator user (root) handles important "
+#~ "system maintanence tasks. Enter a password for this special user and do "
+#~ "not forget this password. Keep in mind that for privacy reasons, you "
+#~ "shouldn't write this password elsewhere.</p>"
+#~ msgstr ""
+#~ "<p align=\"left\">Usuário administrador do sistema (root) cuida de "
+#~ "tarefas de manutenção do sistema importantes. Por favor digite a senha "
+#~ "para este usuário especial a não a esqueça. Note que você não deve "
+#~ "escrever esta senha em qualquer outro lugar por questões de privacidade.</"
+#~ "p>"
 
 #~ msgid "System administrator password (again):"
 #~ msgstr "Senha do administrador do sistema (novamente):"
@@ -2058,11 +2146,15 @@ msgstr ""
 #~ msgid "Users:"
 #~ msgstr "Usuários:"
 
-#~ msgid "Create User"
-#~ msgstr "Criar Usuário"
-
-#~ msgid "All software developed by TUBITAK/UEKAE is licensed under GNU/GPL. Other software have their corresponding licenses. To install and/or use Pardus, you must accept them. Do you accept GNU/GPL and other, corresponding licences?"
-#~ msgstr "Todos os softwares desenvolvidos por TUBITAK/UEKAE são cobertos pela GNU/GPL. Outros softwares têm suas licenças correspondentes. Instalando ou utilizando o Pardus, você concorda em aceitá-las. Você deseja continuar?"
+#~ msgid ""
+#~ "All software developed by TUBITAK/UEKAE is licensed under GNU/GPL. Other "
+#~ "software have their corresponding licenses. To install and/or use Pardus, "
+#~ "you must accept them. Do you accept GNU/GPL and other, corresponding "
+#~ "licences?"
+#~ msgstr ""
+#~ "Todos os softwares desenvolvidos por TUBITAK/UEKAE são cobertos pela GNU/"
+#~ "GPL. Outros softwares têm suas licenças correspondentes. Instalando ou "
+#~ "utilizando o Pardus, você concorda em aceitá-las. Você deseja continuar?"
 
 #~ msgid "Read GPL"
 #~ msgstr "Ler GPL"
@@ -2108,11 +2200,15 @@ msgstr ""
 #~ "<font size=\"+2\">Boot loader setup</font>\n"
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
-#~ "Pardus 2011 uses a boot manager called GRUB to start the operating system you choose.\n"
+#~ "Pardus 2011 uses a boot manager called GRUB to start the operating system "
+#~ "you choose.\n"
 #~ "</p>\n"
-#~ "<p>If there are multiple operating systems in your computer, you can start the one \n"
-#~ "you like using GRUB. Installing GRUB to the beginning of the boot disk is the advised \n"
-#~ "option to avoid boot problems.  If you are sure you know what you are doing, \n"
+#~ "<p>If there are multiple operating systems in your computer, you can "
+#~ "start the one \n"
+#~ "you like using GRUB. Installing GRUB to the beginning of the boot disk is "
+#~ "the advised \n"
+#~ "option to avoid boot problems.  If you are sure you know what you are "
+#~ "doing, \n"
 #~ "you can change boot loader settings.\n"
 #~ "</p>\n"
 #~ "<p>\n"
@@ -2150,14 +2246,17 @@ msgstr ""
 #~ msgid ""
 #~ "\n"
 #~ "<font size=\"+2\">Time Zone settings</font>\n"
-#~ "<font size=\"+1\"><p>Here you can select your location and a timezone; and set the date and time.\n"
-#~ "Your settings will update your hardware clock. Proceed with the installation after you make your selections.</p></font>\n"
+#~ "<font size=\"+1\"><p>Here you can select your location and a timezone; "
+#~ "and set the date and time.\n"
+#~ "Your settings will update your hardware clock. Proceed with the "
+#~ "installation after you make your selections.</p></font>\n"
 #~ msgstr ""
 #~ "\n"
 #~ "<font size=\"+2\">Checar Integridade do CD!</font>\n"
 #~ "\n"
 #~ "<font size=\"+1\">\n"
-#~ "<p>Nesta tela, você pode checar a integridade dos pacotes no CD de instalação.\n"
+#~ "<p>Nesta tela, você pode checar a integridade dos pacotes no CD de "
+#~ "instalação.\n"
 #~ "</p>\n"
 #~ "\n"
 
@@ -2168,12 +2267,15 @@ msgstr ""
 #~ "\n"
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
-#~ "You have successfully installed Pardus, a very easy to use desktop system on\n"
-#~ "your machine. Now you can start playing with your system and stay productive\n"
+#~ "You have successfully installed Pardus, a very easy to use desktop system "
+#~ "on\n"
+#~ "your machine. Now you can start playing with your system and stay "
+#~ "productive\n"
 #~ "all the time.\n"
 #~ "</p>\n"
 #~ "<P>\n"
-#~ "Click on the Next button to proceed. One note: You remember your password,\n"
+#~ "Click on the Next button to proceed. One note: You remember your "
+#~ "password,\n"
 #~ "don't you?\n"
 #~ "</p>\n"
 #~ "</font>\n"
@@ -2185,17 +2287,21 @@ msgstr ""
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
 #~ "Você instalou o Pardus, um sistema de desktop fácil de usar, com sucesso\n"
-#~ "na sua máquina. Agora você pode começar a utilizar o seu sitema e manter-se\n"
+#~ "na sua máquina. Agora você pode começar a utilizar o seu sitema e manter-"
+#~ "se\n"
 #~ "produtivo todo o tempo.\n"
 #~ "</p>\n"
 #~ "<P>\n"
-#~ "Clique no botão Próximo para prosseguir. Nota: Você se lembra de sua senha,\n"
+#~ "Clique no botão Próximo para prosseguir. Nota: Você se lembra de sua "
+#~ "senha,\n"
 #~ "não?\n"
 #~ "</p>\n"
 #~ "</font>\n"
 
 #~ msgid "<b>Rebooting system. Please wait!</b>"
-#~ msgstr "<b><font size=\"+2\" color=\"#FF6D19\">Reiniciando sistema. Por favor espere!</font></b>"
+#~ msgstr ""
+#~ "<b><font size=\"+2\" color=\"#FF6D19\">Reiniciando sistema. Por favor "
+#~ "espere!</font></b>"
 
 #~ msgid "Choose Installation"
 #~ msgstr "Nome do host:"
@@ -2216,7 +2322,8 @@ msgstr ""
 #~ "\n"
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
-#~ "Dependendo do seu hardware ou esolha, selecione um layout de teclado da lista.\n"
+#~ "Dependendo do seu hardware ou esolha, selecione um layout de teclado da "
+#~ "lista.\n"
 #~ "</p>\n"
 #~ "</font>\n"
 
@@ -2288,10 +2395,13 @@ msgstr ""
 #~ "You can install Pardus if you have an unpartitioned-unused disk space \n"
 #~ "of 4GBs (10 GBs recommended) or an unused-unpartitioned disk. \n"
 #~ "The disk area or partition selected for installation will automatically \n"
-#~ "be formatted. Therefore, it is advised to backup your data to avoid future problems.\n"
+#~ "be formatted. Therefore, it is advised to backup your data to avoid "
+#~ "future problems.\n"
 #~ "</p>\n"
-#~ "<p>Auto-partitioning will automatically format the select disk part/partition \n"
-#~ "and install Pardus 2011. If you like, you can do the partitioning manually or make \n"
+#~ "<p>Auto-partitioning will automatically format the select disk part/"
+#~ "partition \n"
+#~ "and install Pardus 2011. If you like, you can do the partitioning "
+#~ "manually or make \n"
 #~ "Pardus 2011 create a new partition for installation.</p>\n"
 #~ "<p>\n"
 #~ "Please refer to Pardus Installing and Using Guide for more information\n"
@@ -2305,16 +2415,22 @@ msgstr ""
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
 #~ "Pardus pode ser instalado em vários hardwares. Você pode instalar Pardus\n"
-#~ "num disco vazio ou numa partição de disco rídigo. <b>Uma instalação automaticamente\n"
-#~ "destruirá informações salvas anteriormente nas partições selecionadas. </b>\n"
+#~ "num disco vazio ou numa partição de disco rídigo. <b>Uma instalação "
+#~ "automaticamente\n"
+#~ "destruirá informações salvas anteriormente nas partições selecionadas. </"
+#~ "b>\n"
 #~ "</p>\n"
 #~ "<p>\n"
-#~ "Particionamento automático usa todo o seu disco para a instalação do Pardus. \n"
-#~ "A partir desta tela você pode selecionar para particionar automaticamente um\n"
-#~ "de seus discos ou você pode pular esta tela e tentar o particionamento manual.\n"
+#~ "Particionamento automático usa todo o seu disco para a instalação do "
+#~ "Pardus. \n"
+#~ "A partir desta tela você pode selecionar para particionar automaticamente "
+#~ "um\n"
+#~ "de seus discos ou você pode pular esta tela e tentar o particionamento "
+#~ "manual.\n"
 #~ "</p>\n"
 #~ "<p>\n"
-#~ "Por favor, refira-se ao Guia de Uso e Instalação do Pardus para mais informações\n"
+#~ "Por favor, refira-se ao Guia de Uso e Instalação do Pardus para mais "
+#~ "informações\n"
 #~ "sobre particionamento de disco.\n"
 #~ "</p>\n"
 #~ "</font>\n"
@@ -2329,7 +2445,8 @@ msgstr ""
 #~ "\n"
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
-#~ "Dependendo do seu hardware ou esolha, selecione um layout de teclado da lista.\n"
+#~ "Dependendo do seu hardware ou esolha, selecione um layout de teclado da "
+#~ "lista.\n"
 #~ "</p>\n"
 #~ "</font>\n"
 
@@ -2343,7 +2460,8 @@ msgstr ""
 #~ "\n"
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
-#~ "Dependendo do seu hardware ou esolha, selecione um layout de teclado da lista.\n"
+#~ "Dependendo do seu hardware ou esolha, selecione um layout de teclado da "
+#~ "lista.\n"
 #~ "</p>\n"
 #~ "</font>\n"
 
@@ -2360,7 +2478,8 @@ msgstr ""
 #~ "\n"
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
-#~ "Dependendo do seu hardware ou esolha, selecione um layout de teclado da lista.\n"
+#~ "Dependendo do seu hardware ou esolha, selecione um layout de teclado da "
+#~ "lista.\n"
 #~ "</p>\n"
 #~ "</font>\n"
 
@@ -2374,7 +2493,8 @@ msgstr ""
 #~ "\n"
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
-#~ "Dependendo do seu hardware ou esolha, selecione um layout de teclado da lista.\n"
+#~ "Dependendo do seu hardware ou esolha, selecione um layout de teclado da "
+#~ "lista.\n"
 #~ "</p>\n"
 #~ "</font>\n"
 
@@ -2394,7 +2514,8 @@ msgstr ""
 #~ "<font size=\"+2\">Checar Integridade do CD!</font>\n"
 #~ "\n"
 #~ "<font size=\"+1\">\n"
-#~ "<p>Nesta tela, você pode checar a integridade dos pacotes no CD de instalação.\n"
+#~ "<p>Nesta tela, você pode checar a integridade dos pacotes no CD de "
+#~ "instalação.\n"
 #~ "</p>\n"
 #~ "\n"
 
@@ -2425,10 +2546,14 @@ msgstr ""
 #~ msgid "Check Failed"
 #~ msgstr "Checagem Falhou"
 
-#~ msgid "<b><p>Integrity check for packages failed.                                  It seems that installation CD is broken.</p></b>"
+#~ msgid ""
+#~ "<b><p>Integrity check for packages "
+#~ "failed.                                  It seems that installation CD is "
+#~ "broken.</p></b>"
 #~ msgstr ""
 #~ "<b>\n"
-#~ "<p>Checagem de integridade dos pacotes falhou. Parece que o CD de instaação está corrompido.</p>\n"
+#~ "<p>Checagem de integridade dos pacotes falhou. Parece que o CD de "
+#~ "instaação está corrompido.</p>\n"
 #~ "</b>\n"
 
 #~ msgid "Creating new partition ..."
@@ -2496,17 +2621,25 @@ msgstr ""
 #~ msgid "O.K. Go Ahead"
 #~ msgstr "O.K. Seguir Adiante"
 
-#~ msgid "<center><font color=\"#FF6D19\">Password is too short!</font></center>"
+#~ msgid ""
+#~ "<center><font color=\"#FF6D19\">Password is too short!</font></center>"
 #~ msgstr "<font color=\"#FF6D19\">Senhas não conferem!</font>"
 
-#~ msgid "<center><font color=\"#FF6D19\">Passwords do not match!</font></center>"
+#~ msgid ""
+#~ "<center><font color=\"#FF6D19\">Passwords do not match!</font></center>"
 #~ msgstr "<font color=\"#FF6D19\">Senhas não conferem!</font>"
 
-#~ msgid "<center><font color=\"#FF6D19\">Don't use your username as password !</font></center>"
-#~ msgstr "<font color=\"#FF6D19\">Preparando seu disco para instalação!</font>"
+#~ msgid ""
+#~ "<center><font color=\"#FF6D19\">Don't use your username as password !</"
+#~ "font></center>"
+#~ msgstr ""
+#~ "<font color=\"#FF6D19\">Preparando seu disco para instalação!</font>"
 
-#~ msgid "<center><font color=\"#FF6D19\">Hostname contains invalid characters!</font></center>"
-#~ msgstr "<font color=\"#FF6D19\">Nome do host contém caracteres inválidos!</font>"
+#~ msgid ""
+#~ "<center><font color=\"#FF6D19\">Hostname contains invalid characters!</"
+#~ "font></center>"
+#~ msgstr ""
+#~ "<font color=\"#FF6D19\">Nome do host contém caracteres inválidos!</font>"
 
 #~ msgid "The last step before rescue"
 #~ msgstr "Preparar para instalar"
@@ -2516,7 +2649,8 @@ msgstr ""
 #~ "<font size=\"+2\">Rescue Summary</font>\n"
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
-#~ "Here you can see your rescue options and look at them again before rescue operation starts.\n"
+#~ "Here you can see your rescue options and look at them again before rescue "
+#~ "operation starts.\n"
 #~ "</p>\n"
 #~ "</font>\n"
 #~ msgstr ""
@@ -2524,7 +2658,8 @@ msgstr ""
 #~ "<font size=\"+2\">Checar Integridade do CD!</font>\n"
 #~ "\n"
 #~ "<font size=\"+1\">\n"
-#~ "<p>Nesta tela, você pode checar a integridade dos pacotes no CD de instalação.\n"
+#~ "<p>Nesta tela, você pode checar a integridade dos pacotes no CD de "
+#~ "instalação.\n"
 #~ "</p>\n"
 #~ "\n"
 
@@ -2534,19 +2669,20 @@ msgstr ""
 #~ msgid "Yalı found a Pardus installed partition on your system."
 #~ msgstr "Instalar na partição raiz"
 
-#~ msgid "Please select a partition from list."
-#~ msgstr "Você deve selecionar um tipo de partição da lista abaixo."
-
 #~ msgid ""
 #~ "\n"
 #~ "<font size=\"+2\">Boot loader setup</font>\n"
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
-#~ "Pardus 2008 uses a boot manager called GRUB to start the operating system you choose.\n"
+#~ "Pardus 2008 uses a boot manager called GRUB to start the operating system "
+#~ "you choose.\n"
 #~ "</p>\n"
-#~ "<p>If there are multiple operating systems in your computer, you can start the one \n"
-#~ "you like using GRUB. Installing GRUB to the beginning of the boot disk is the advised \n"
-#~ "option to avoid boot problems.  If you are sure you know what you are doing, \n"
+#~ "<p>If there are multiple operating systems in your computer, you can "
+#~ "start the one \n"
+#~ "you like using GRUB. Installing GRUB to the beginning of the boot disk is "
+#~ "the advised \n"
+#~ "option to avoid boot problems.  If you are sure you know what you are "
+#~ "doing, \n"
 #~ "you can change boot loader settings.\n"
 #~ "</p>\n"
 #~ "<p>\n"
@@ -2580,7 +2716,8 @@ msgstr ""
 
 #~ msgid ""
 #~ "<b>\n"
-#~ "<p>This action will use your entire disk for Pardus installation and <br>\n"
+#~ "<p>This action will use your entire disk for Pardus installation and "
+#~ "<br>\n"
 #~ "all your present data on the selected disk will be lost.</p>\n"
 #~ "</b>\n"
 #~ msgstr ""
@@ -2616,7 +2753,8 @@ msgstr ""
 #~ "\n"
 #~ "<font size=\"+1\">\n"
 #~ "\n"
-#~ "<p>Please give a password for the system administrator (i.e root) for your\n"
+#~ "<p>Please give a password for the system administrator (i.e root) for "
+#~ "your\n"
 #~ "system. This password should be unique and private, as it is used to \n"
 #~ "manage your desktop. Choose a password difficult to guess, but easy\n"
 #~ "to remember. \n"
@@ -2627,7 +2765,9 @@ msgstr ""
 #~ "</p>\n"
 #~ "\n"
 #~ "<p>\n"
-#~ "And also set the name that the computer will be identified to the network it belongs. The hostname should be descriptive enough to describe the computer.  \n"
+#~ "And also set the name that the computer will be identified to the network "
+#~ "it belongs. The hostname should be descriptive enough to describe the "
+#~ "computer.  \n"
 #~ "</p>\n"
 #~ "\n"
 #~ "<p>\n"
@@ -2636,13 +2776,16 @@ msgstr ""
 #~ "</font>\n"
 #~ msgstr ""
 #~ "\n"
-#~ "<font size=\"+2\">Senha de administrador do sistema e nome do host</font>\n"
+#~ "<font size=\"+2\">Senha de administrador do sistema e nome do host</"
+#~ "font>\n"
 #~ "\n"
 #~ "<font size=\"+1\">\n"
 #~ "\n"
-#~ "<p>Por favor forneça uma senha para o administrador do sistema (i.e. root)\n"
+#~ "<p>Por favor forneça uma senha para o administrador do sistema (i.e. "
+#~ "root)\n"
 #~ "Esta senha deve ser única e privada, já que será utilizada para \n"
-#~ "gerenciar seu desktop. Escolha uma senha difícil de se adivinhar, mas fácil \n"
+#~ "gerenciar seu desktop. Escolha uma senha difícil de se adivinhar, mas "
+#~ "fácil \n"
 #~ "de se lembrar. \n"
 #~ "</p>\n"
 #~ "<p>\n"
@@ -2651,7 +2794,9 @@ msgstr ""
 #~ "</p>\n"
 #~ "\n"
 #~ "<p>\n"
-#~ "E também modifique o nome com que o computador será identificado na rede à qual ele pertence. O nome do host deve ser informativo o bastante para descrever o computador. \n"
+#~ "E também modifique o nome com que o computador será identificado na rede "
+#~ "à qual ele pertence. O nome do host deve ser informativo o bastante para "
+#~ "descrever o computador. \n"
 #~ "</p>\n"
 #~ "\n"
 #~ "<p>\n"
@@ -2666,7 +2811,8 @@ msgstr ""
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
 #~ "Pardus can be installed on a variety of hardware. You can install Pardus\n"
-#~ "on an empty disk or hard disk partition. <b>An installation will automatically\n"
+#~ "on an empty disk or hard disk partition. <b>An installation will "
+#~ "automatically\n"
 #~ "destroy the previously saved information on selected partitions. </b>\n"
 #~ "</p>\n"
 #~ "<p>\n"
@@ -2703,32 +2849,41 @@ msgstr ""
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
 #~ "Pardus pode ser instalado em vários hardwares. Você pode instalar Pardus\n"
-#~ "num disco vazio ou numa partição de disco rígido. <b>Uma instalação automaticamente\n"
-#~ "destruirá informações salvas anteriormente nas partições selecionadas. </b>\n"
+#~ "num disco vazio ou numa partição de disco rígido. <b>Uma instalação "
+#~ "automaticamente\n"
+#~ "destruirá informações salvas anteriormente nas partições selecionadas. </"
+#~ "b>\n"
 #~ "</p>\n"
 #~ "<p>\n"
-#~ "Para usar o Pardus, você deve criar um sistema de arquivos Linux (para os \n"
+#~ "Para usar o Pardus, você deve criar um sistema de arquivos Linux (para "
+#~ "os \n"
 #~ "arquivos de sistema), o qual é obrigatório e um espaço de troca \n"
 #~ "(para melhorar o desempenho), a qual é opcional. \n"
 #~ "Nós o recomendamos alocar ao menos 4 GBs de área no disco rígido e \n"
-#~ "um espaço de troca (entre 500 MB - 2 GB, de acordo com suas necessidades) por \n"
+#~ "um espaço de troca (entre 500 MB - 2 GB, de acordo com suas necessidades) "
+#~ "por \n"
 #~ "conveniência. Uma partição Linux menor que 3.5 GB não é permitida.\n"
-#~ "Você pode também opcionalmente usar outra partição de disco para armazenar \n"
+#~ "Você pode também opcionalmente usar outra partição de disco para "
+#~ "armazenar \n"
 #~ "os arquivos dos usuários.\n"
 #~ "</p>\n"
 #~ "<p>\n"
-#~ "Você precisa formatar uma partição Linux, se utilizada pela primeira vez.\n"
-#~ "Você pode habilitar a opção 'Usar espaço livre disponível', se o espaço restante \n"
+#~ "Você precisa formatar uma partição Linux, se utilizada pela primeira "
+#~ "vez.\n"
+#~ "Você pode habilitar a opção 'Usar espaço livre disponível', se o espaço "
+#~ "restante \n"
 #~ "do disco rígido for usado automaticamente.\n"
 #~ "</p>\n"
 #~ "<p>\n"
 #~ "A tabela de partição mostra informações sobre o dispositivo, tamanho,\n"
 #~ "tipo de partição e sistema de arquivos. Se a partição será formatada\n"
-#~ "durante o estágio de instalação, então a coluna 'Formatar' correspondente\n"
+#~ "durante o estágio de instalação, então a coluna 'Formatar' "
+#~ "correspondente\n"
 #~ "será habilitada.\n"
 #~ "</p>\n"
 #~ "<p>\n"
-#~ "Por favor, refira-se ao Guia de Uso e Instalação do Pardus para mais informações\n"
+#~ "Por favor, refira-se ao Guia de Uso e Instalação do Pardus para mais "
+#~ "informações\n"
 #~ "sobre particionamento de disco.\n"
 #~ "</p>\n"
 #~ "</font>\n"
@@ -2803,7 +2958,8 @@ msgstr ""
 #~ "<font size=\"+2\">Bem vindo!</font>\n"
 #~ "\n"
 #~ "<font size=\"+1\">\n"
-#~ "<p>Bem vindo ao Pardus, seu novo e prático desktop com uma vasta quantidade \n"
+#~ "<p>Bem vindo ao Pardus, seu novo e prático desktop com uma vasta "
+#~ "quantidade \n"
 #~ "de aplicações adequadas às suas necessidades. Com o Pardus, você pode \n"
 #~ "conectar-se à internet, ler seus e-mails online, trabalhar com \n"
 #~ "documentos, escutar a músicas e reproduzir DVDs. Sua avançada, \n"
@@ -2844,16 +3000,19 @@ msgstr ""
 #~ "Selected disk will be used for Pardus installation.</p>\n"
 #~ "\n"
 #~ "<p><font color=\"#FF6D19\"><b><u>WARNING:</u></b>\n"
-#~ "Automatic partitioning will use your entire disk for Pardus installation.\n"
+#~ "Automatic partitioning will use your entire disk for Pardus "
+#~ "installation.\n"
 #~ "All data on the selected disk will be lost!</font></p>"
 #~ msgstr ""
 #~ "<font size=\"+1\"><b>Selecione o método de particionamento:</b></font>\n"
 #~ "\n"
-#~ "<p>Abaixo, você pode selecionar um disco rígido para particionamento automático.\n"
+#~ "<p>Abaixo, você pode selecionar um disco rígido para particionamento "
+#~ "automático.\n"
 #~ "Selecione o disco que será usado para a instalação do Pardus.</p>\n"
 #~ "\n"
 #~ "<p><font color=\"#FF6D19\"><b><u>ATENÇÃO:</u></b>\n"
-#~ "Particionamento automático usará todo o disco para a instalação do Pardus.\n"
+#~ "Particionamento automático usará todo o disco para a instalação do "
+#~ "Pardus.\n"
 #~ "Todos os dados no disco selecionado serão perdidos!</font></p>"
 
 #~ msgid "Cancel Setup"
@@ -2889,14 +3048,16 @@ msgstr ""
 #~ "</b>\n"
 #~ msgstr ""
 #~ "<b>\n"
-#~ "<p>Por favor, remova o CD do Pardus do drive e aperte o botão Reiniciar.</p>\n"
+#~ "<p>Por favor, remova o CD do Pardus do drive e aperte o botão Reiniciar.</"
+#~ "p>\n"
 #~ "</b>\n"
 
 #~ msgid "Please wait while installing bootloader!"
 #~ msgstr "Por favor, espere enquanto o carregador de boot é instalado!"
 
 #~ msgid "<font color=\"#FF6D19\">Preparing your disk for installation!</font>"
-#~ msgstr "<font color=\"#FF6D19\">Preparando seu disco para instalação!</font>"
+#~ msgstr ""
+#~ "<font color=\"#FF6D19\">Preparando seu disco para instalação!</font>"
 
 #~ msgid "Install to MBR"
 #~ msgstr "Instalar na MBR"

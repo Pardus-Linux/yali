@@ -7,26 +7,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-10 13:56+0200\n"
+"POT-Creation-Date: 2010-12-24 15:08+0200\n"
 "PO-Revision-Date: 2010-12-15 13:19+0100\n"
 "Last-Translator: Siposs Attila <siposs.attila@isd-dunaferr.hu>\n"
 "Language-Team: Hungarian <kde-i18n-doc@kde.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.0\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:74 yali/gui/Ui/autopartquestion.py:82
-#: yali/gui/Ui/autopartwidget.py:140 yali/gui/Ui/bg.py:36
+#: yali/gui/Ui/autopartwidget.py:136 yali/gui/Ui/bg.py:36
 #: yali/gui/Ui/connectionlist.py:74 yali/gui/Ui/createdevicewidget.py:133
 #: yali/gui/Ui/datetimewidget.py:171 yali/gui/Ui/diskItem.py:92
 #: yali/gui/Ui/driveselectionwidget.py:125 yali/gui/Ui/exception.py:62
 #: yali/gui/Ui/goodbyewidget.py:103 yali/gui/Ui/help.py:56
 #: yali/gui/Ui/installprogress.py:60 yali/gui/Ui/logicalvolume.py:133
 #: yali/gui/Ui/manualpartwidget.py:131 yali/gui/Ui/partedit.py:171
-#: yali/gui/Ui/partition.py:143 yali/gui/Ui/partitionshrink.py:62
+#: yali/gui/Ui/partition.py:137 yali/gui/Ui/partitionshrink.py:62
 #: yali/gui/Ui/raid.py:94 yali/gui/Ui/summarywidget.py:113
 #: yali/gui/Ui/volumegroup.py:95
 #, fuzzy
@@ -78,6 +78,23 @@ msgstr "Én választom ki"
 msgid "Use Selected"
 msgstr "Tovább a kiválasztottal"
 
+#: yali/gui/Ui/autopartwidget.py:140 yali/gui/ScrSummary.py:140
+msgid "Use All Space"
+msgstr ""
+
+#: yali/gui/Ui/autopartwidget.py:141
+msgid "Shrink Current System"
+msgstr ""
+
+#: yali/gui/Ui/autopartwidget.py:142 yali/gui/ScrSummary.py:151
+msgid "Use Free Space"
+msgstr ""
+
+#: yali/gui/Ui/autopartwidget.py:143
+#, fuzzy
+msgid "Create Custom Layout"
+msgstr "Kiosztás kipróbálása"
+
 #: yali/gui/Ui/bootloaderwidget.py:128 yali/gui/Ui/checkcdwidget.py:197
 #: yali/gui/Ui/keyboardwidget.py:127 yali/gui/Ui/kickerwidget.py:30
 #: yali/gui/Ui/license.py:103 yali/gui/Ui/rescuegrubwidget.py:81
@@ -126,7 +143,7 @@ msgstr "Az ellenőrzés sikertelen"
 msgid "Validation succeeded"
 msgstr "Az ellenőrzés sikeres"
 
-#: yali/gui/Ui/checkcdwidget.py:201 yali/gui/ScrCheckCD.py:60
+#: yali/gui/Ui/checkcdwidget.py:201 yali/gui/ScrCheckCD.py:62
 msgid "Validate"
 msgstr "Érvényesítés"
 
@@ -220,14 +237,14 @@ msgid ""
 "Please fill a bug report at http://bugs.pardus.org.tr/ attaching the "
 "following backtrace."
 msgstr ""
-"Kérem töltsön ki egy hibajelentést a http://bugs.pardus.org.tr "
-"címen, és csatolja az alábbi nyomkövetési adatokat."
+"Kérem töltsön ki egy hibajelentést a http://bugs.pardus.org.tr címen, és "
+"csatolja az alábbi nyomkövetési adatokat."
 
 #: yali/gui/Ui/exception.py:66
 msgid "Show Backtrace"
 msgstr "Megjelenítés"
 
-#: yali/gui/Ui/exception.py:67 yali/gui/ScrCheckCD.py:97
+#: yali/gui/Ui/exception.py:67 yali/gui/ScrCheckCD.py:99
 msgid "Reboot"
 msgstr "Újraindítás"
 
@@ -259,9 +276,8 @@ msgid ""
 "underline; color:#56a2c0;\">License texts</span></a>"
 msgstr ""
 "A Pardus telepítése előtt kérjük olvassa el, és fogadja el a telepítőn lévő "
-"szabad vagy nyílt forrású szoftverek licenszeit. <a href=\"#\"><span "
-"style=\" text-decoration: "
-"underline; color:#56a2c0;\">License texts</span></a>"
+"szabad vagy nyílt forrású szoftverek licenszeit. <a href=\"#\"><span style="
+"\" text-decoration: underline; color:#56a2c0;\">License texts</span></a>"
 
 #: yali/gui/Ui/license.py:105
 msgid "I understand and accept the terms"
@@ -277,34 +293,34 @@ msgid "Use :"
 msgstr "Foglalt:"
 
 #: yali/gui/Ui/logicalvolume.py:136 yali/gui/Ui/partedit.py:173
-#: yali/gui/Ui/partitionedit.py:137 yali/gui/Ui/partition.py:145
+#: yali/gui/Ui/partitionedit.py:137 yali/gui/Ui/partition.py:139
 msgid "Size :"
 msgstr "Méret:"
 
 #: yali/gui/Ui/logicalvolume.py:137 yali/gui/Ui/logicalvolume.py:139
 #: yali/gui/Ui/partedit.py:174 yali/gui/Ui/partitionedit.py:138
-#: yali/gui/Ui/partition.py:146 yali/gui/Ui/partition.py:148
+#: yali/gui/Ui/partition.py:140 yali/gui/Ui/partition.py:142
 #: yali/gui/Ui/partitionshrinkwidget.py:92 yali/gui/Ui/partresize.py:93
 msgid " MB"
 msgstr " MB"
 
-#: yali/gui/Ui/logicalvolume.py:138 yali/gui/Ui/partition.py:147
+#: yali/gui/Ui/logicalvolume.py:138 yali/gui/Ui/partition.py:141
 #: yali/gui/Ui/partresize.py:95
 msgid "Resize"
 msgstr "Átméretezés"
 
 #: yali/gui/Ui/logicalvolume.py:140 yali/gui/Ui/partedit.py:177
-#: yali/gui/Ui/partitionedit.py:139 yali/gui/Ui/partition.py:151
+#: yali/gui/Ui/partitionedit.py:139 yali/gui/Ui/partition.py:145
 msgid "File System :"
 msgstr "Fájlrendszer"
 
 #: yali/gui/Ui/logicalvolume.py:141 yali/gui/Ui/manualpartwidget.py:137
-#: yali/gui/Ui/partition.py:149 yali/gui/Ui/raid.py:98
+#: yali/gui/Ui/partition.py:143 yali/gui/Ui/raid.py:98
 #: yali/gui/ScrPartitionManual.py:129
 msgid "Format"
 msgstr "Formázás"
 
-#: yali/gui/Ui/logicalvolume.py:142 yali/gui/Ui/partition.py:150
+#: yali/gui/Ui/logicalvolume.py:142 yali/gui/Ui/partition.py:144
 #: yali/gui/Ui/raid.py:99
 msgid "Migrate"
 msgstr "Migrálás"
@@ -363,8 +379,8 @@ msgid "Size"
 msgstr "Méret"
 
 #: yali/gui/Ui/manualpartwidget.py:139
-msgid "New"
-msgstr "Új"
+msgid "Create"
+msgstr ""
 
 #: yali/gui/Ui/manualpartwidget.py:140 yali/gui/Ui/setupuserswidget.py:499
 #: yali/gui/Ui/volumegroup.py:105
@@ -372,7 +388,7 @@ msgid "Edit"
 msgstr "Módosítás"
 
 #: yali/gui/Ui/manualpartwidget.py:141 yali/gui/Ui/setupuserswidget.py:500
-#: yali/gui/Ui/volumegroup.py:106 yali/gui/lvm_gui.py:553
+#: yali/gui/Ui/volumegroup.py:106 yali/gui/lvm_gui.py:551
 msgid "Delete"
 msgstr "Törlés"
 
@@ -424,17 +440,13 @@ msgstr "Partíció 1, FUJISTU - /dev/sda1"
 msgid "Force to be primary partition"
 msgstr "Elsődleges partíció legyen"
 
-#: yali/gui/Ui/partition.py:144
+#: yali/gui/Ui/partition.py:138
 msgid "Use as:"
 msgstr "Használat mint:"
 
-#: yali/gui/Ui/partition.py:152
+#: yali/gui/Ui/partition.py:146
 msgid "Force to be a primary partition"
 msgstr "Elsődleges partíció legyen"
-
-#: yali/gui/Ui/partition.py:153
-msgid "Allowable Drives:"
-msgstr "Elérhető meghajtók"
 
 #: yali/gui/Ui/partitionshrink.py:63 yali/gui/Ui/partitionshrinkwidget.py:90
 msgid ""
@@ -452,8 +464,8 @@ msgid "Shrink partition to size (in MB) :"
 msgstr "Partíció új mérete (MB) :"
 
 #: yali/gui/Ui/partitionshrinkwidget.py:93 yali/gui/Ui/partresize.py:94
-#: yali/gui/Ui/setupuserswidget.py:501 yali/gui/lvm_gui.py:421
-#: yali/gui/lvm_gui.py:468 yali/gui/lvm_gui.py:553
+#: yali/gui/Ui/setupuserswidget.py:501 yali/gui/lvm_gui.py:419
+#: yali/gui/lvm_gui.py:466 yali/gui/lvm_gui.py:551
 #: yali/gui/ScrPartitionManual.py:113 yali/gui/ScrPartitionManual.py:129
 #: yali/gui/ScrPartitionManual.py:139 yali/gui/YaliDialog.py:222
 msgid "Cancel"
@@ -473,12 +485,10 @@ msgid ""
 "this operation cannot be undone.<b>"
 msgstr ""
 "A változtatások alkalmazása az \"Átméretezés\" gombra kattintáskor kezdődik "
-"meg. "
-"Ha meggondolta magát, kattintson a <b>\"Mégsem\"</b> gombra.\n"
+"meg. Ha meggondolta magát, kattintson a <b>\"Mégsem\"</b> gombra.\n"
 "<br><br>\n"
 "FIGYELEM: Az átméretezés során a partíció adatai sérülhetnek. Ellenőrizze, "
-"hogy "
-"készített biztonsági mentést. Ez a művelet nem vonható vissza."
+"hogy készített biztonsági mentést. Ez a művelet nem vonható vissza."
 
 #: yali/gui/Ui/raid.py:95
 msgid "Raid Device:"
@@ -707,7 +717,7 @@ msgid ""
 msgstr ""
 
 #: yali/gui/interface.py:41 yali/gui/interface.py:123
-#: yali/gui/ScrCheckCD.py:92 yali/gui/ScrInstall.py:180
+#: yali/gui/ScrCheckCD.py:94 yali/gui/ScrInstall.py:180
 #: yali/gui/ScrPartitionAuto.py:44 yali/gui/ScrPartitionManual.py:137
 #: yali/gui/YaliWindow.py:209 yali/gui/YaliWindow.py:214
 #: yali/gui/YaliWindow.py:219
@@ -723,7 +733,7 @@ msgstr ""
 "A lemez %(members_count)s BIOS RAID metaadatot tartalmaz, de egyik sem tagja "
 "felismert BIOS RAID készletnek. %(members)s lemez figyelmen kívül hagyva."
 
-#: yali/gui/interface.py:66 yali/gui/raid_gui.py:122
+#: yali/gui/interface.py:66 yali/gui/raid_gui.py:118
 #: yali/gui/ScrDriveSelection.py:112
 msgid "Error"
 msgstr "Hiba"
@@ -731,8 +741,8 @@ msgstr "Hiba"
 #: yali/gui/interface.py:67
 #, python-format
 msgid ""
-"Cannot access the partition table of %(description)s(%(name)s) -- %(size)-0."
-"fMB\n"
+"Cannot access the partition table of %(description)s(%(name)s) -- "
+"%(size)-0.fMB\n"
 "\n"
 "If there already exists a partition table on this device, it will\n"
 " be re-initialized and your existing data will be lost!\n"
@@ -788,11 +798,11 @@ msgstr "Összes mellőzése"
 msgid "Re-initialize all"
 msgstr "Összes újrainicializálása"
 
-#: yali/gui/lvm_gui.py:50
+#: yali/gui/lvm_gui.py:48
 msgid "Not enough physical volumes"
 msgstr "Nincs elég fizikai kötet."
 
-#: yali/gui/lvm_gui.py:51
+#: yali/gui/lvm_gui.py:49
 msgid ""
 "At least one unused physical volume partition is needed to\n"
 "create an LVM Volume Group.\n"
@@ -804,39 +814,39 @@ msgstr ""
 "Készítsen egy partíciót vagy RAID tömböt \"fizikai kötet (LVM)\"\n"
 "típusként, ezután válassza újra az \"LVM\" opciót."
 
-#: yali/gui/lvm_gui.py:62
+#: yali/gui/lvm_gui.py:60
 msgid "Make LVM Volume Group"
 msgstr "LVM VG létrehozása"
 
-#: yali/gui/lvm_gui.py:65
+#: yali/gui/lvm_gui.py:63
 #, python-format
 msgid "Edit LVM Volume Group: %s"
 msgstr "%s LVM VG módosítása"
 
-#: yali/gui/lvm_gui.py:67
+#: yali/gui/lvm_gui.py:65
 msgid "Edit LVM Volume Group"
 msgstr "LVM VG módosítása"
 
-#: yali/gui/lvm_gui.py:93
+#: yali/gui/lvm_gui.py:91
 msgid "Invalid Volume Group Name"
 msgstr "Érvénytelen VG név"
 
-#: yali/gui/lvm_gui.py:101
+#: yali/gui/lvm_gui.py:99
 msgid "Name in use"
 msgstr "A név használatban van"
 
-#: yali/gui/lvm_gui.py:102
+#: yali/gui/lvm_gui.py:100
 #, python-format
 msgid "The volume group name \"%s\" is already in use. Please pick another."
 msgstr "A \"%s\" VG név már használatban van. Válasszon másikat."
 
-#: yali/gui/lvm_gui.py:405 yali/gui/lvm_gui.py:435 yali/gui/lvm_gui.py:448
-#: yali/gui/lvm_gui.py:483 yali/gui/lvm_gui.py:701 yali/gui/lvm_gui.py:723
+#: yali/gui/lvm_gui.py:403 yali/gui/lvm_gui.py:433 yali/gui/lvm_gui.py:446
+#: yali/gui/lvm_gui.py:481 yali/gui/lvm_gui.py:696 yali/gui/lvm_gui.py:718
 #: yali/gui/storageGuiHelpers.py:70
 msgid "Not enough space"
 msgstr "Nincs elég szabad terület"
 
-#: yali/gui/lvm_gui.py:406
+#: yali/gui/lvm_gui.py:404
 msgid ""
 "The physical extent size cannot be changed because\n"
 "otherwise the space required by the currently defined\n"
@@ -847,11 +857,11 @@ msgstr ""
 "ez esetben a már definiált kötetek mérete meghaladná\n"
 "a rendelkezésre álló területet."
 
-#: yali/gui/lvm_gui.py:414
+#: yali/gui/lvm_gui.py:412
 msgid "Confirm Physical Extent Change"
 msgstr "Fizikai extent méret megváltoztatásának jóváhagyása"
 
-#: yali/gui/lvm_gui.py:415
+#: yali/gui/lvm_gui.py:413
 msgid ""
 "This change in the value of the physical extent will\n"
 "require the sizes of the current logical volume requests\n"
@@ -867,12 +877,12 @@ msgstr ""
 "\n"
 "A változtatás azonnal életbe lép."
 
-#: yali/gui/lvm_gui.py:421 yali/gui/lvm_gui.py:468
+#: yali/gui/lvm_gui.py:419 yali/gui/lvm_gui.py:466
 #: yali/gui/ScrPartitionManual.py:358
 msgid "Continue"
 msgstr "Folytatás"
 
-#: yali/gui/lvm_gui.py:436
+#: yali/gui/lvm_gui.py:434
 #, python-format
 msgid ""
 "The physical extent size cannot be changed because\n"
@@ -883,23 +893,23 @@ msgstr ""
 "a kiválasztott érték (%(curpe)10.2f MB) nagyobb, mint a\n"
 "legkisebb fizikai kötet (%(maxpvsize)10.2f MB) a VG-ben."
 
-#: yali/gui/lvm_gui.py:449
+#: yali/gui/lvm_gui.py:447
 #, python-format
 msgid ""
-"The physical extent size cannot be changed because the value selected (%"
-"(curpe)10.2f MB) is too large compared to the size of the smallest physical "
-"volume (%(maxpvsize)10.2f MB) in the volume group."
+"The physical extent size cannot be changed because the value selected "
+"(%(curpe)10.2f MB) is too large compared to the size of the smallest "
+"physical volume (%(maxpvsize)10.2f MB) in the volume group."
 msgstr ""
 "A fizikai extent mérete nem változtatható meg, mert\n"
 "a kiválasztott érték (%(curpe)10.2f MB) túl nagy\n"
 "legkisebb fizikai kötet (%(maxpvsize)10.2f MB) méretéhez\n"
 "viszonyítva a VG-n belül."
 
-#: yali/gui/lvm_gui.py:461
+#: yali/gui/lvm_gui.py:459
 msgid "Too small"
 msgstr "Túl kicsi"
 
-#: yali/gui/lvm_gui.py:462
+#: yali/gui/lvm_gui.py:460
 msgid ""
 "This change in the value of the physical extent will waste substantial space "
 "on one or more of the physical volumes in the volume group."
@@ -907,7 +917,7 @@ msgstr ""
 "Ez a fizikai extent méret egy vagy több köteten túl sok kihasználatlan "
 "helyfoglaláshoz vezet."
 
-#: yali/gui/lvm_gui.py:484
+#: yali/gui/lvm_gui.py:482
 #, python-format
 msgid ""
 "The physical extent size cannot be changed because the resulting maximum "
@@ -915,22 +925,22 @@ msgid ""
 "theircurrently defined logical volumes."
 msgstr ""
 
-#: yali/gui/lvm_gui.py:505
+#: yali/gui/lvm_gui.py:503
 msgid "No free slots"
 msgstr "Nincs szabad csatolóhely"
 
-#: yali/gui/lvm_gui.py:506
+#: yali/gui/lvm_gui.py:504
 #, python-format
 msgid ""
 "You cannot create more than %d logical volume \n"
 "per volume group."
 msgstr ""
 
-#: yali/gui/lvm_gui.py:512
+#: yali/gui/lvm_gui.py:510
 msgid "No free space"
 msgstr "Nincs szabad hely"
 
-#: yali/gui/lvm_gui.py:513
+#: yali/gui/lvm_gui.py:511
 msgid ""
 "There is no room left in the volume group to create new\n"
 "logical volumes. To add a logical volume you must reduce\n"
@@ -938,64 +948,64 @@ msgid ""
 "volumes"
 msgstr ""
 
-#: yali/gui/lvm_gui.py:549
+#: yali/gui/lvm_gui.py:547
 msgid "Confirm Delete"
 msgstr "Törlés jóváhagyása"
 
-#: yali/gui/lvm_gui.py:550
+#: yali/gui/lvm_gui.py:548
 #, python-format
 msgid ""
 "Are you sure you want to delete the \n"
 "logical volume \"%s\"?"
 msgstr "Biztosan törli a \"%s\" logikai kötetet?"
 
-#: yali/gui/lvm_gui.py:583
+#: yali/gui/lvm_gui.py:581
 msgid "Make Logical Volume"
 msgstr "Logikai kötet létrehozása"
 
-#: yali/gui/lvm_gui.py:585
+#: yali/gui/lvm_gui.py:583
 #, python-format
 msgid "Edit Logical Volume: %s"
 msgstr "%s logikai kötet módosítása"
 
-#: yali/gui/lvm_gui.py:617 yali/gui/partition_gui.py:65
-#: yali/gui/raid_gui.py:79
+#: yali/gui/lvm_gui.py:612 yali/gui/partition_gui.py:65
+#: yali/gui/raid_gui.py:75
 msgid "Mount Point Error"
 msgstr "Csatolási pont hiba"
 
-#: yali/gui/lvm_gui.py:649 yali/gui/partition_gui.py:80
-#: yali/gui/raid_gui.py:94
+#: yali/gui/lvm_gui.py:644 yali/gui/partition_gui.py:80
+#: yali/gui/raid_gui.py:90
 msgid "Mount point in use"
 msgstr "Csatolási pont használatban van"
 
-#: yali/gui/lvm_gui.py:650 yali/gui/partition_gui.py:81
-#: yali/gui/raid_gui.py:95
+#: yali/gui/lvm_gui.py:645 yali/gui/partition_gui.py:81
+#: yali/gui/raid_gui.py:91
 #, python-format
 msgid "The mount point \"%s\" is in use. Please pick another."
 msgstr "A \"%s\" csatolási pont már használatban van. Válasszon másikat."
 
-#: yali/gui/lvm_gui.py:661
+#: yali/gui/lvm_gui.py:656
 msgid "Illegal Logical Volume Name"
 msgstr "Érvénytelen logikai kötet név"
 
-#: yali/gui/lvm_gui.py:673
+#: yali/gui/lvm_gui.py:668
 msgid "Illegal logical volume name"
 msgstr "Érvénytelen logikai kötet név"
 
-#: yali/gui/lvm_gui.py:674
+#: yali/gui/lvm_gui.py:669
 #, python-format
 msgid "The logical volume name \"%s\" is already in use. Please pick another."
 msgstr "A \"%s\" logikai kötet név már használatban van. Válasszon másikat."
 
-#: yali/gui/lvm_gui.py:688
+#: yali/gui/lvm_gui.py:683
 msgid "Illegal size"
 msgstr "Érvénytelen méret"
 
-#: yali/gui/lvm_gui.py:689
+#: yali/gui/lvm_gui.py:684
 msgid "The requested size as entered is not a valid number greater than 0."
 msgstr ""
 
-#: yali/gui/lvm_gui.py:702
+#: yali/gui/lvm_gui.py:697
 #, python-format
 msgid ""
 "The current requested size (%(size)10.2f MB) is larger than the maximum "
@@ -1004,12 +1014,12 @@ msgid ""
 "this Volume Group."
 msgstr ""
 
-#: yali/gui/lvm_gui.py:724
+#: yali/gui/lvm_gui.py:719
 #, python-format
 msgid ""
 "The size entered for this logical volume (%(size)d MB) combined with the "
-"size of the other logical volume(s) exceeds the size of the volume group (%"
-"(tmpvgsize)d MB). Please make the volume group larger or make the logical "
+"size of the other logical volume(s) exceeds the size of the volume group "
+"(%(tmpvgsize)d MB). Please make the volume group larger or make the logical "
 "volume smaller."
 msgstr ""
 
@@ -1031,11 +1041,11 @@ msgstr "Partíció módosítása"
 msgid "Error With Request"
 msgstr ""
 
-#: yali/gui/raid_gui.py:30
+#: yali/gui/raid_gui.py:26
 msgid "Invalid Raid Members"
 msgstr "Érvénytelen Raid tagok"
 
-#: yali/gui/raid_gui.py:31
+#: yali/gui/raid_gui.py:27
 msgid ""
 "At least two unused software RAID partitions are needed to create a RAID "
 "device.\n"
@@ -1044,16 +1054,16 @@ msgid ""
 "select the \"RAID\" option again."
 msgstr ""
 
-#: yali/gui/raid_gui.py:41
+#: yali/gui/raid_gui.py:37
 msgid "Make RAID Device"
 msgstr ""
 
-#: yali/gui/raid_gui.py:44
+#: yali/gui/raid_gui.py:40
 #, python-format
 msgid "Edit RAID Device: %s"
 msgstr ""
 
-#: yali/gui/raid_gui.py:46
+#: yali/gui/raid_gui.py:42
 msgid "Edit RAID Device"
 msgstr ""
 
@@ -1077,55 +1087,55 @@ msgstr "Kilépés"
 msgid "Retry"
 msgstr "Újra"
 
-#: yali/gui/ScrAdmin.py:129 yali/gui/ScrRescuePassword.py:96
+#: yali/gui/ScrAdmin.py:94 yali/gui/ScrDateTime.py:138
+msgid "Storage Devices initialising..."
+msgstr ""
+
+#: yali/gui/ScrAdmin.py:147 yali/gui/ScrRescuePassword.py:96
 msgid "Password is too short."
 msgstr "A jelszó túl rövid."
 
-#: yali/gui/ScrAdmin.py:132
-msgid "Don't use invalid characters"
-msgstr "Ne használjon érvénytelen karaktereket"
-
-#: yali/gui/ScrAdmin.py:139
+#: yali/gui/ScrAdmin.py:155
 msgid "Passwords do not match."
 msgstr "A jelszavak nem egyeznek."
 
-#: yali/gui/ScrAdmin.py:144
+#: yali/gui/ScrAdmin.py:160
 msgid "Do not use your username as your password."
 msgstr "Ne használj a felhasználónevét jelszónak."
 
-#: yali/gui/ScrAdmin.py:154
+#: yali/gui/ScrAdmin.py:170
 msgid "Hostname cannot be longer than 64 characters."
 msgstr "A gépnév nem lehet 64 karakternél hosszabb."
 
-#: yali/gui/ScrAdmin.py:167
+#: yali/gui/ScrAdmin.py:183
 msgid "Hostname contains invalid characters."
 msgstr "A gépnév érvénytelen karaktereket tartalmaz."
 
-#: yali/gui/ScrCheckCD.py:66
+#: yali/gui/ScrCheckCD.py:68
 msgid "Starting validation..."
 msgstr "Érvényesítés indítása..."
 
-#: yali/gui/ScrCheckCD.py:85
+#: yali/gui/ScrCheckCD.py:87
 #, python-format
 msgid "Validating %s"
 msgstr "Érvényesítés %s"
 
-#: yali/gui/ScrCheckCD.py:93
+#: yali/gui/ScrCheckCD.py:95
 #, python-format
 msgid ""
 "Validation of %s package failed.Please remaster your installation medium "
 "andreboot."
 msgstr ""
 
-#: yali/gui/ScrCheckCD.py:97
+#: yali/gui/ScrCheckCD.py:99
 msgid "Skip Validation"
 msgstr "Érvényesítés kihagyása"
 
-#: yali/gui/ScrCheckCD.py:97
+#: yali/gui/ScrCheckCD.py:99
 msgid "Skip Package"
 msgstr "Csomag kihagyása"
 
-#: yali/gui/ScrCheckCD.py:112
+#: yali/gui/ScrCheckCD.py:114
 msgid ""
 "<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the "
 "installation.</b></font>"
@@ -1133,7 +1143,7 @@ msgstr ""
 "<font color=\"#FFF\"><b>Az ellenőrzés sikeres volt. Továbbléphet a "
 "telepítésre.</b></font>"
 
-#: yali/gui/ScrDateTime.py:89
+#: yali/gui/ScrDateTime.py:100
 msgid "Adjusting time settings"
 msgstr "Idő beállítása"
 
@@ -1206,7 +1216,7 @@ msgstr "Első indulás beállítása..."
 msgid "Adding users..."
 msgstr "Felhasználók hozzáadása..."
 
-#: yali/gui/ScrGoodbye.py:89
+#: yali/gui/ScrGoodbye.py:91
 msgid "Cleanup systems..."
 msgstr ""
 
@@ -1383,11 +1393,20 @@ msgstr ""
 msgid "Modify Partition"
 msgstr ""
 
-#: yali/gui/ScrPartitionManual.py:482
-msgid "Unable To Edit"
+#: yali/gui/ScrPartitionManual.py:472
+#, fuzzy
+msgid "Partition Selection Warning"
+msgstr "Figyelmeztető üzenetek partícionáláskor"
+
+#: yali/gui/ScrPartitionManual.py:473
+msgid "Please select free physical partition to create new device."
 msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:483
+msgid "Unable To Edit"
+msgstr ""
+
+#: yali/gui/ScrPartitionManual.py:484
 #, python-format
 msgid ""
 "You cannot edit this device:\n"
@@ -1559,15 +1578,11 @@ msgstr ""
 msgid "Automatic Partitioning selected."
 msgstr ""
 
-#: yali/gui/ScrSummary.py:140
-msgid "Use All Space"
-msgstr ""
-
 #: yali/gui/ScrSummary.py:141
 #, python-format
 msgid ""
-"Removes all partitions on the selected %s device(s). This includes "
-"partitions created by other operating systems."
+"Removes all partitions on the selected %s device(s). <b><u>This includes "
+"partitions created by other operating systems.</u></b>"
 msgstr ""
 
 #: yali/gui/ScrSummary.py:145
@@ -1580,10 +1595,6 @@ msgid ""
 "Removes all Linux partitions on the selected%s device(s). This does not "
 "remove other partitions you may have on your storage device(s) (such as VFAT "
 "or FAT32)"
-msgstr ""
-
-#: yali/gui/ScrSummary.py:151
-msgid "Use Free Space"
 msgstr ""
 
 #: yali/gui/ScrSummary.py:152
@@ -1710,38 +1721,6 @@ msgid ""
 "You cannot remove this physical volume because\n"
 "otherwise the volume group will be too small to\n"
 "hold the currently defined logical volumes."
-msgstr ""
-
-#: yali/gui/storageGuiHelpers.py:188
-msgid "<Not Applicable>"
-msgstr ""
-
-#: yali/gui/storageGuiHelpers.py:451
-msgid "Format as :"
-msgstr ""
-
-#: yali/gui/storageGuiHelpers.py:471
-msgid "Migrate filesystem To :"
-msgstr ""
-
-#: yali/gui/storageGuiHelpers.py:495
-msgid "Resize :"
-msgstr ""
-
-#: yali/gui/storageGuiHelpers.py:537
-msgid "Advanced Size Options"
-msgstr ""
-
-#: yali/gui/storageGuiHelpers.py:539
-msgid "Fixed Size :"
-msgstr ""
-
-#: yali/gui/storageGuiHelpers.py:540
-msgid "Fill to maximum allowable size"
-msgstr ""
-
-#: yali/gui/storageGuiHelpers.py:541
-msgid "Fill all space up to (MB):"
 msgstr ""
 
 #: yali/gui/YaliDialog.py:220 yali/gui/YaliDialog.py:236
@@ -2048,3 +2027,11 @@ msgstr ""
 msgid "Invalid xml file"
 msgstr ""
 
+#~ msgid "New"
+#~ msgstr "Új"
+
+#~ msgid "Allowable Drives:"
+#~ msgstr "Elérhető meghajtók"
+
+#~ msgid "Don't use invalid characters"
+#~ msgstr "Ne használjon érvénytelen karaktereket"
