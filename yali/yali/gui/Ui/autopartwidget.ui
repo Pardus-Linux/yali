@@ -208,7 +208,7 @@ text-decoration: normal;
           </property>
           <item>
            <property name="text">
-            <string notr="true">Use All Space</string>
+            <string>Use All Space</string>
            </property>
            <property name="icon">
             <iconset>
@@ -217,7 +217,7 @@ text-decoration: normal;
           </item>
           <item>
            <property name="text">
-            <string notr="true">Shrink Current System</string>
+            <string>Shrink Current System</string>
            </property>
            <property name="icon">
             <iconset>
@@ -226,7 +226,7 @@ text-decoration: normal;
           </item>
           <item>
            <property name="text">
-            <string notr="true">Use Free Space</string>
+            <string>Use Free Space</string>
            </property>
            <property name="icon">
             <iconset>
@@ -235,7 +235,7 @@ text-decoration: normal;
           </item>
           <item>
            <property name="text">
-            <string notr="true">Create Custom Layout</string>
+            <string>Create Custom Layout</string>
            </property>
            <property name="icon">
             <iconset>
