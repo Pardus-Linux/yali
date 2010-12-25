@@ -590,7 +590,6 @@ msgid "Confirm Password"
 msgstr "Conferma Password"
 
 #: yali/gui/Ui/setupuserswidget.py:493
-#, fuzzy
 msgid "Custom User ID"
 msgstr "ID utente:"
 
