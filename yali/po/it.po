@@ -883,11 +883,11 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:656
 msgid "Illegal Logical Volume Name"
-msgstr ""
+msgstr "Nome Non Valido del Volume Logico"
 
 #: yali/gui/lvm_gui.py:668
 msgid "Illegal logical volume name"
-msgstr ""
+msgstr "Nome non valido del volume logico"
 
 #: yali/gui/lvm_gui.py:669
 #, python-format
