@@ -1398,9 +1398,8 @@ msgid "Mounting disk partition..."
 msgstr "Sta montando la partizione del disco..."
 
 #: yali/gui/ScrRescue.py:106
-#, fuzzy
 msgid "YALI could not locate a suitable disk partition on this computer."
-msgstr "YALI non è riuscito a trovare una partizione adatta nel tuo sistema."
+msgstr "YALI non è riuscito a trovare una partizione adatta in questa sistema."
 
 #: yali/gui/ScrRescue.py:123
 msgid "Please select a disk partition from the list below:"
@@ -1553,34 +1552,28 @@ msgid "Update"
 msgstr "Aggiorna"
 
 #: yali/gui/ScrUsers.py:216
-#, fuzzy
 msgid "Don't use your user name or name as a password"
-msgstr "<font color=\"#FF6D19\">Non utilizzare il tuo nome utente o il tuo nome come password.</font>"
+msgstr "Non utilizzare il tuo nome utente o il tuo nome come password"
 
 #: yali/gui/ScrUsers.py:219
-#, fuzzy
 msgid "Passwords do not match"
-msgstr "<font color=\"#FF6D19\">Le password non corrispondono!</font>"
+msgstr "Le password non corrispondono"
 
 #: yali/gui/ScrUsers.py:222
-#, fuzzy
 msgid "Password is too short"
-msgstr "<font color=\"#FF6D19\">La password è troppo breve!</font>"
+msgstr "La password è troppo breve"
 
 #: yali/gui/ScrUsers.py:268
-#, fuzzy
 msgid "This user name is already taken, please choose another one."
-msgstr "<font color=\"#FF6D19\">Questo nome utente esiste già, scegline un altro!</font>"
+msgstr "Questo nome utente esiste già, scegline un altro."
 
 #: yali/gui/ScrUsers.py:272
-#, fuzzy
 msgid "The user name contains invalid characters."
-msgstr "<font color=\"#FF6D19\">Il nome utente contiene caratteri non validi!</font>"
+msgstr "Il nome utente contiene caratteri non validi."
 
 #: yali/gui/ScrUsers.py:275
-#, fuzzy
 msgid "The real name contains invalid characters."
-msgstr "<font color=\"#FF6D19\">Il nome reale contiene caratteri non validi!</font>"
+msgstr "Il nome reale contiene caratteri non validi."
 
 #: yali/gui/ScrUsers.py:283
 msgid "User ID used before, choose another one!"
