@@ -353,9 +353,8 @@ msgid "Size"
 msgstr "Dimensione"
 
 #: yali/gui/Ui/manualpartwidget.py:139
-#, fuzzy
 msgid "Create"
-msgstr "Crea utente"
+msgstr "Crea"
 
 #: yali/gui/Ui/manualpartwidget.py:140 yali/gui/Ui/setupuserswidget.py:499
 #: yali/gui/Ui/volumegroup.py:105
@@ -404,9 +403,8 @@ msgid "Apply"
 msgstr "Applica "
 
 #: yali/gui/Ui/partitionedit.py:134
-#, fuzzy
 msgid "Partition Action"
-msgstr "Impostazioni partizioni"
+msgstr "Azioni di Partizione"
 
 #: yali/gui/Ui/partitionedit.py:135
 msgid "Partition 1 on FUJISTU - /dev/sda1"
