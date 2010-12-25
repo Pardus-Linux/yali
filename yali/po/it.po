@@ -1133,7 +1133,7 @@ msgid "Do you want to retry?"
 msgstr "Vuoi riprovare?"
 
 #: yali/gui/ScrInstall.py:239
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "An error occured during the installation of packages.\n"
 "\n"
@@ -1144,7 +1144,7 @@ msgid ""
 msgstr ""
 "C'è stato un errore durante l'installazione dei pacchetti.\n"
 "\n"
-"Questo potrebbe essere stato causato da un CD di Pardus corrotto o da problemi col drive CD-ROM.\n"
+"Questo potrebbe essere stato causato da un CD di Pardus corrotto.\n"
 "\n"
 "Errore:\n"
 "%s\n"
@@ -1174,9 +1174,8 @@ msgid ""
 msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:100
-#, fuzzy
 msgid "Partitioning Errors"
-msgstr "Impostazioni partizioni"
+msgstr "Errori di Partizionamento"
 
 #: yali/gui/ScrPartitionManual.py:105
 msgid ""
