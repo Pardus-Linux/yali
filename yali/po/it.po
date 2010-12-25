@@ -1698,15 +1698,15 @@ msgstr "Vuoi usare le impostazioni del mouse per  <b>%s</b>"
 
 #: yali/gui/YaliWindow.py:210
 msgid "Are you sure you want to shut down your computer now?"
-msgstr ""
+msgstr "È sicuro di voler spegnere il computer ora?"
 
 #: yali/gui/YaliWindow.py:215
 msgid "Are you sure you want to restart your computer now?"
-msgstr ""
+msgstr "È sicuro di voler riavviare il computer ora?"
 
 #: yali/gui/YaliWindow.py:220
 msgid "Are you sure you want to restart the YALI installer now?"
-msgstr ""
+msgstr "È sicuro di voler riavviare il sistema di installazione YALI ora?"
 
 #: yali/gui/YaliWindow.py:239
 msgid "Terminal"
@@ -1718,7 +1718,7 @@ msgstr "Tetris"
 
 #: yali/gui/YaliWindow.py:416
 msgid "Release notes could not be loaded."
-msgstr ""
+msgstr "Note di rilascio non può essere caricato."
 
 #: yali/localedata.py:20
 msgid "Turkish"
