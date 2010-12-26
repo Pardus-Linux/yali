@@ -218,11 +218,11 @@ msgstr "Zeitzone"
 #: yali/gui/Ui/diskItem.py:93 yali/gui/Ui/diskItem.py:94
 #: yali/gui/Ui/installwidget.py:117
 msgid "TextLabel"
-msgstr ""
+msgstr "TextLabel"
 
 #: yali/gui/Ui/exception.py:63
 msgid "font:bold;"
-msgstr ""
+msgstr "font:bold;"
 
 #: yali/gui/Ui/exception.py:64
 #, fuzzy
@@ -244,7 +244,7 @@ msgstr "Neustart"
 
 #: yali/gui/Ui/help.py:57
 msgid "help content"
-msgstr ""
+msgstr "Hilfetext"
 
 #: yali/gui/Ui/installprogress.py:61
 msgid "Installing Package: "
@@ -260,9 +260,8 @@ msgid "Keyboard Layouts"
 msgstr "Tastatureinstellungen"
 
 #: yali/gui/Ui/keyboardwidget.py:129
-#, fuzzy
 msgid "Test Layout"
-msgstr "Testen Sie die gewählte Tastatur:"
+msgstr "Test Layout"
 
 #: yali/gui/Ui/license.py:104
 msgid "Before installing Pardus on your computer, please read and accept the terms of free / open source licenses of the softwares included in this installation medium. <a href=\"#\"><span style=\" text-decoration: underline; color:#56a2c0;\">License texts</span></a>"
@@ -273,9 +272,8 @@ msgid "I understand and accept the terms"
 msgstr ""
 
 #: yali/gui/Ui/logicalvolume.py:134
-#, fuzzy
 msgid "Logical Volume:"
-msgstr "Logical Volume"
+msgstr "Logical Volume:"
 
 #: yali/gui/Ui/logicalvolume.py:135 yali/gui/Ui/partedit.py:172
 #: yali/gui/Ui/partitionedit.py:136
@@ -284,9 +282,8 @@ msgstr "Verwenden :"
 
 #: yali/gui/Ui/logicalvolume.py:136 yali/gui/Ui/partedit.py:173
 #: yali/gui/Ui/partitionedit.py:137 yali/gui/Ui/partition.py:139
-#, fuzzy
 msgid "Size :"
-msgstr "Größe ändern:"
+msgstr "Größe:"
 
 #: yali/gui/Ui/logicalvolume.py:137 yali/gui/Ui/logicalvolume.py:139
 #: yali/gui/Ui/partedit.py:174 yali/gui/Ui/partitionedit.py:138
@@ -297,9 +294,8 @@ msgstr " MB"
 
 #: yali/gui/Ui/logicalvolume.py:138 yali/gui/Ui/partition.py:141
 #: yali/gui/Ui/partresize.py:95
-#, fuzzy
 msgid "Resize"
-msgstr "Größe ändern:"
+msgstr "Größe ändern"
 
 #: yali/gui/Ui/logicalvolume.py:140 yali/gui/Ui/partedit.py:177
 #: yali/gui/Ui/partitionedit.py:139 yali/gui/Ui/partition.py:145
@@ -320,13 +316,12 @@ msgid "Migrate"
 msgstr ""
 
 #: yali/gui/Ui/main.py:244
-#, fuzzy
 msgid "Yali"
-msgstr "Yali4"
+msgstr "Yali"
 
 #: yali/gui/Ui/main.py:245
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: yali/gui/Ui/main.py:246 yali/gui/YaliWindow.py:393
 msgid "Release Notes"
@@ -337,7 +332,6 @@ msgid "Previous Screen"
 msgstr "Vorheriges Fenster"
 
 #: yali/gui/Ui/main.py:248
-#, fuzzy
 msgid "Back"
 msgstr "Zurück"
 
@@ -356,12 +350,11 @@ msgstr "Anzeigename"
 
 #: yali/gui/Ui/manualpartwidget.py:133
 msgid "Device"
-msgstr ""
+msgstr "Gerät"
 
 #: yali/gui/Ui/manualpartwidget.py:134
-#, fuzzy
 msgid "Mount Point"
-msgstr "Mount-Point Fehler"
+msgstr "Einhängepunkt"
 
 #: yali/gui/Ui/manualpartwidget.py:135
 msgid "Label"
@@ -448,9 +441,8 @@ msgid "Force to be primary partition"
 msgstr "Zu viele primäre Partitionen!"
 
 #: yali/gui/Ui/partition.py:138
-#, fuzzy
 msgid "Use as:"
-msgstr "Verwenden :"
+msgstr "Verwende als:"
 
 #: yali/gui/Ui/partition.py:146
 #, fuzzy
@@ -489,37 +481,32 @@ msgid ""
 msgstr ""
 
 #: yali/gui/Ui/raid.py:95
-#, fuzzy
 msgid "Raid Device:"
-msgstr "Ungültige RAID Mitglieder"
+msgstr "RAID Gerät:"
 
 #: yali/gui/Ui/raid.py:96
 msgid "Use:"
-msgstr ""
+msgstr "Nutze:"
 
 #: yali/gui/Ui/raid.py:97
-#, fuzzy
 msgid "Filesystem:"
-msgstr "Dateisystem :"
+msgstr "Dateisystem:"
 
 #: yali/gui/Ui/raid.py:100
-#, fuzzy
 msgid "Raid Level:"
-msgstr "Ungültige RAID Mitglieder"
+msgstr "RAID Level:"
 
 #: yali/gui/Ui/raid.py:101
-#, fuzzy
 msgid "Raid Members:"
-msgstr "Ungültige RAID Mitglieder"
+msgstr "RAID Mitglieder:"
 
 #: yali/gui/Ui/raid.py:102
 msgid "Number of spares:"
 msgstr ""
 
 #: yali/gui/Ui/rescuegrubwidget.py:82
-#, fuzzy
 msgid "Select where to install the GRUB bootloader"
-msgstr "Ziel für die Installation des Boot-Loaders"
+msgstr "Ziel für den Bootmanager GRUB auswählen"
 
 #: yali/gui/Ui/rescuegrubwidget.py:83
 msgid "First bootable disk (recommended)"
@@ -527,9 +514,8 @@ msgstr "Die erste bootbare Festplatte (empfohlen)"
 
 # zweifel..
 #: yali/gui/Ui/rescuegrubwidget.py:84
-#, fuzzy
 msgid "Disk partition where Pardus is installed"
-msgstr "Partition, auf der Pardus installiert ist"
+msgstr "Partition auf der Pardus installiert ist"
 
 #: yali/gui/Ui/rescuegrubwidget.py:85
 msgid "Selected disk below"
@@ -544,14 +530,12 @@ msgid "New password:"
 msgstr "Neues Passwort:"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:112
-#, fuzzy
 msgid "New password (Again):"
-msgstr "Neues Passwort (wiederholen):"
+msgstr "Neues Paßwort (wiederholen):"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:113
-#, fuzzy
 msgid "Reset Password"
-msgstr "Passwort:"
+msgstr "Paßwort:"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:114
 msgid ""
@@ -560,11 +544,14 @@ msgid ""
 "background-color:white;\n"
 "color:#5A2847;"
 msgstr ""
+"border:1px solid white;\n"
+"border-radius:6px;\n"
+"background-color:white;\n"
+"color:#5A2847;"
 
 #: yali/gui/Ui/rescuepisiwidget.py:73
-#, fuzzy
 msgid "<b>Connection status:</b>"
-msgstr "Verbindung auswählen"
+msgstr "<b>Verbindungsstatus:</b>"
 
 #: yali/gui/Ui/rescuepisiwidget.py:74
 msgid "Offline"
