@@ -346,7 +346,7 @@ msgstr "Weiter"
 
 #: yali/gui/Ui/main.py:251
 msgid "Screen Name"
-msgstr "Anzeigename"
+msgstr "Bildschirmname"
 
 #: yali/gui/Ui/manualpartwidget.py:133
 msgid "Device"
@@ -358,26 +358,24 @@ msgstr "Einhängepunkt"
 
 #: yali/gui/Ui/manualpartwidget.py:135
 msgid "Label"
-msgstr ""
+msgstr "Bezeichnung"
 
 #: yali/gui/Ui/manualpartwidget.py:136
 msgid "Type"
-msgstr ""
+msgstr "Typ"
 
 #: yali/gui/Ui/manualpartwidget.py:138 yali/gui/Ui/volumegroup.py:103
-#, fuzzy
 msgid "Size"
-msgstr "Größe ändern:"
+msgstr "Größe"
 
 #: yali/gui/Ui/manualpartwidget.py:139
-#, fuzzy
 msgid "Create"
-msgstr "Benutzer anlegen"
+msgstr "Erstellen"
 
 #: yali/gui/Ui/manualpartwidget.py:140 yali/gui/Ui/setupuserswidget.py:499
 #: yali/gui/Ui/volumegroup.py:105
 msgid "Edit"
-msgstr ""
+msgstr "Bearbeiten"
 
 #: yali/gui/Ui/manualpartwidget.py:141 yali/gui/Ui/setupuserswidget.py:500
 #: yali/gui/Ui/volumegroup.py:106 yali/gui/lvm_gui.py:551
@@ -385,15 +383,15 @@ msgid "Delete"
 msgstr "Löschen"
 
 #: yali/gui/Ui/manualpartwidget.py:142
+#, fuzzy
 msgid "Reset"
-msgstr ""
+msgstr "Reset"
 
 # oder: Formatiere
 # -Stefan
 #: yali/gui/Ui/partedit.py:175
-#, fuzzy
 msgid "Format :"
-msgstr "Format"
+msgstr "Format:"
 
 #: yali/gui/Ui/partedit.py:176
 #, fuzzy
@@ -471,7 +469,7 @@ msgstr "Abbrechen"
 
 #: yali/gui/Ui/partitionshrinkwidget.py:94
 msgid "Shrink"
-msgstr ""
+msgstr "Verkleinern"
 
 #: yali/gui/Ui/partresize.py:90
 msgid ""
