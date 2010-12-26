@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\\n\"\\nX-Generator: Lokalize 1.1\\n\n"
+"Plural-Forms: nplurals=1; plural=0;\\n\"\\nX-Generator: Lokalize 1.1\\n\\n\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:74 yali/gui/Ui/autopartquestion.py:82
 #: yali/gui/Ui/autopartwidget.py:136 yali/gui/Ui/bg.py:36
@@ -359,7 +359,7 @@ msgstr "Boyut"
 
 #: yali/gui/Ui/manualpartwidget.py:139
 msgid "Create"
-msgstr ""
+msgstr "Oluştur"
 
 #: yali/gui/Ui/manualpartwidget.py:140 yali/gui/Ui/setupuserswidget.py:499
 #: yali/gui/Ui/volumegroup.py:105
@@ -1018,7 +1018,7 @@ msgstr "Tekrar dene"
 
 #: yali/gui/ScrAdmin.py:94 yali/gui/ScrDateTime.py:138
 msgid "Storage Devices initialising..."
-msgstr ""
+msgstr "Depolama Aygıtları başlatılıyor..."
 
 #: yali/gui/ScrAdmin.py:147 yali/gui/ScrRescuePassword.py:96
 msgid "Password is too short."
@@ -1329,14 +1329,12 @@ msgid "Modify Partition"
 msgstr "Bölümü Boyutlandır"
 
 #: yali/gui/ScrPartitionManual.py:472
-#, fuzzy
 msgid "Partition Selection Warning"
-msgstr "Bölümleme Uyarıları"
+msgstr "Disk Bölümü Seçim Uyarısı"
 
 #: yali/gui/ScrPartitionManual.py:473
-#, fuzzy
 msgid "Please select free physical partition to create new device."
-msgstr "Lütfen aşağıdaki listeden disk bölümünü seçin:"
+msgstr "Yeni aygıt oluşturmak için boş bir fiziksel disk bölümü seçiniz."
 
 #: yali/gui/ScrPartitionManual.py:483
 msgid "Unable To Edit"
@@ -1515,9 +1513,9 @@ msgid "Automatic Partitioning selected."
 msgstr "Otomatik kurulum seçildi."
 
 #: yali/gui/ScrSummary.py:141
-#, fuzzy, python-format
+#, python-format
 msgid "Removes all partitions on the selected %s device(s). <b><u>This includes partitions created by other operating systems.</u></b>"
-msgstr "%s seçili aygıtındaki(veya aygıtlarındaki) tüm bölümleri kaldırır. Bu işlem diğer işletim sistemleri tarafından oluşturulmuş bölümleri de kapsar."
+msgstr "%s seçili aygıtındaki(veya aygıtlarındaki) tüm bölümleri kaldırır. <b><u>Bu işlem diğer işletim sistemleri tarafından oluşturulmuş bölümleri de kapsar.</u></b>"
 
 #: yali/gui/ScrSummary.py:145
 msgid "Replace Existing Linux System(s)"
