@@ -143,9 +143,8 @@ msgid "Validate"
 msgstr "Überprüfe"
 
 #: yali/gui/Ui/connectionlist.py:75
-#, fuzzy
 msgid "To use PiSi History support, you may need to be online. You can use a connection profile from the list below:"
-msgstr "Für Vorgänge mit dem PiSi Installationsregister benötigen Sie eine Intenetverbindung. Sie können unten ein Verbindungsprofil auswählen."
+msgstr "Um die Information der PiSI History verwenden zu können, müssen Sie online sind. Sie können ein Verbindungsprofil aus der folgenden Liste verwenden:"
 
 #: yali/gui/Ui/connectionlist.py:77
 msgid "Connect"
@@ -211,7 +210,6 @@ msgid "Time"
 msgstr "Zeit"
 
 #: yali/gui/Ui/datetimewidget.py:174
-#, fuzzy
 msgid "Timezone"
 msgstr "Zeitzone"
 
@@ -225,13 +223,12 @@ msgid "font:bold;"
 msgstr "font:bold;"
 
 #: yali/gui/Ui/exception.py:64
-#, fuzzy
 msgid "Unhandled exception occured"
-msgstr "Ein nicht handelbarer Fehler ist aufgetreten!"
+msgstr "Nicht behandelte Ausnahme aufgetreten"
 
 #: yali/gui/Ui/exception.py:65
 msgid "Please fill a bug report at http://bugs.pardus.org.tr/ attaching the following backtrace."
-msgstr ""
+msgstr "Bitte füllen Sie auf http://bugs.pardus.org.tr/ einen Fehlerbericht aus und fügen Sie die Fehlerausgabe an."
 
 # Zweifel
 #: yali/gui/Ui/exception.py:66
@@ -255,7 +252,6 @@ msgid "Form3"
 msgstr "Form3"
 
 #: yali/gui/Ui/keyboardwidget.py:128
-#, fuzzy
 msgid "Keyboard Layouts"
 msgstr "Tastatureinstellungen"
 
@@ -265,11 +261,11 @@ msgstr "Test Layout"
 
 #: yali/gui/Ui/license.py:104
 msgid "Before installing Pardus on your computer, please read and accept the terms of free / open source licenses of the softwares included in this installation medium. <a href=\"#\"><span style=\" text-decoration: underline; color:#56a2c0;\">License texts</span></a>"
-msgstr ""
+msgstr "Bevor Sie Pardus auf Ihrem Computer installieren, lesen und akzeptieren Sie bitte zuerst die Nutzungsbedingungen der freien und OpenSource Programme auf diesem Installationsmedium. <a href=\"#\"><span style=\" text-decoration: underline; color:#56a2c0;\">Lizenztexte</span></a>"
 
 #: yali/gui/Ui/license.py:105
 msgid "I understand and accept the terms"
-msgstr ""
+msgstr "Ich verstehe und akzeptiere die Bedingungen"
 
 #: yali/gui/Ui/logicalvolume.py:134
 msgid "Logical Volume:"
@@ -313,7 +309,7 @@ msgstr "Format"
 #: yali/gui/Ui/logicalvolume.py:142 yali/gui/Ui/partition.py:144
 #: yali/gui/Ui/raid.py:99
 msgid "Migrate"
-msgstr ""
+msgstr "Migriere"
 
 #: yali/gui/Ui/main.py:244
 msgid "Yali"
@@ -383,7 +379,6 @@ msgid "Delete"
 msgstr "Löschen"
 
 #: yali/gui/Ui/manualpartwidget.py:142
-#, fuzzy
 msgid "Reset"
 msgstr "Reset"
 
@@ -404,9 +399,8 @@ msgid "Delete Partition"
 msgstr "Alle Partitionen löschen"
 
 #: yali/gui/Ui/partedit.py:179
-#, fuzzy
 msgid "Resize Partition"
-msgstr "Partition bearbeiten"
+msgstr "Partitionsgröße ändern"
 
 #: yali/gui/Ui/partedit.py:180
 msgid "Changes will be applied after Summary Screen."
@@ -425,39 +419,36 @@ msgid "Apply"
 msgstr "Übernehmen"
 
 #: yali/gui/Ui/partitionedit.py:134
-#, fuzzy
 msgid "Partition Action"
-msgstr "Partitionseinstellungen"
+msgstr "Partition bearbeiten"
 
 #: yali/gui/Ui/partitionedit.py:135
 msgid "Partition 1 on FUJISTU - /dev/sda1"
 msgstr "Partition 1 auf FUJISTU - /dev/sda1"
 
 #: yali/gui/Ui/partitionedit.py:140
-#, fuzzy
 msgid "Force to be primary partition"
-msgstr "Zu viele primäre Partitionen!"
+msgstr "Als primäre Partition nutzen"
 
 #: yali/gui/Ui/partition.py:138
 msgid "Use as:"
 msgstr "Verwende als:"
 
 #: yali/gui/Ui/partition.py:146
-#, fuzzy
 msgid "Force to be a primary partition"
-msgstr "Zu viele primäre Partitionen!"
+msgstr "Als primäre Partition eintragen"
 
 #: yali/gui/Ui/partitionshrink.py:63 yali/gui/Ui/partitionshrinkwidget.py:90
 msgid "Which partition would you like to shrink to make room for your installation?"
-msgstr ""
+msgstr "Welche Partition wollen Sie verkleinern, um Platz für Ihre Installation zu schaffen?"
 
 #: yali/gui/Ui/partitionshrink.py:64
 msgid "Shrink partition to size (in MB)"
-msgstr ""
+msgstr "Verkleinere die Partition auf die Größe (in MB)"
 
 #: yali/gui/Ui/partitionshrinkwidget.py:91
 msgid "Shrink partition to size (in MB) :"
-msgstr ""
+msgstr "Verkleinere die Partition auf die Größe (in MB):"
 
 #: yali/gui/Ui/partitionshrinkwidget.py:93 yali/gui/Ui/partresize.py:94
 #: yali/gui/Ui/setupuserswidget.py:501 yali/gui/lvm_gui.py:419
@@ -477,6 +468,9 @@ msgid ""
 "<br><br>\n"
 "Warning: A resizing operation may corrupt the partition, rendering the data on it unreachable. Make sure that you have backed up the data. Note that this operation cannot be undone.<b>"
 msgstr ""
+"Die Veränderungen werden durchgeführt nachdem Sie \"Verkleinern\" anklicken. Um die geplanten Änderungen abzubrechen klicken Sie bitte auf <b>\"Abbrechen\".\n"
+"<br><br>\n"
+"Warnung: die Größenänderung einer Partition kann einen Datenverlust verursachen. Stellen Sie sicher, daß Sie ein Datenbackup haben. Beachten Sie, dass dieser Vorgang nicht rückgängig gemacht werden kann.<b>"
 
 #: yali/gui/Ui/raid.py:95
 msgid "Raid Device:"
@@ -500,7 +494,7 @@ msgstr "RAID Mitglieder:"
 
 #: yali/gui/Ui/raid.py:102
 msgid "Number of spares:"
-msgstr ""
+msgstr "Anzahl der Ersatzteile:"
 
 #: yali/gui/Ui/rescuegrubwidget.py:82
 msgid "Select where to install the GRUB bootloader"
@@ -666,44 +660,36 @@ msgid "Install all language packages"
 msgstr "Alle Sprachpakete installieren"
 
 #: yali/gui/Ui/volumegroup.py:96
-#, fuzzy
 msgid "Volume Group Name:"
-msgstr "Volume Gruppe"
+msgstr "Name der Volume Gruppe:"
 
 #: yali/gui/Ui/volumegroup.py:97
-#, fuzzy
 msgid "Physical Extends"
-msgstr "Physical Volume"
+msgstr "Physical Extends"
 
 #: yali/gui/Ui/volumegroup.py:98
-#, fuzzy
 msgid "Physical Volumes to use:"
-msgstr "Physical Volume"
+msgstr "Physical Volumes benutzen:"
 
 #: yali/gui/Ui/volumegroup.py:99
-#, fuzzy
 msgid "Total Space:"
-msgstr "Freien Speicherplatz verwenden"
+msgstr "Gesamter Speicherplatz:"
 
 #: yali/gui/Ui/volumegroup.py:100
-#, fuzzy
 msgid "Free Space:"
-msgstr "Freien Speicherplatz verwenden"
+msgstr "Freier Speicherplatz:"
 
 #: yali/gui/Ui/volumegroup.py:101
-#, fuzzy
 msgid "Logical Volumes"
-msgstr "Logical Volume"
+msgstr "Logical Volumes"
 
 #: yali/gui/Ui/volumegroup.py:102
-#, fuzzy
 msgid "Mountpoint"
-msgstr "Mount-Point schon verwendet"
+msgstr "Einhängepunkt"
 
 #: yali/gui/Ui/volumegroup.py:107
-#, fuzzy
 msgid "Used Space:"
-msgstr "Gesamten Speicherplatz verwenden"
+msgstr "Benutzter Speicherplatz:"
 
 #: yali/gui/Ui/welcome.py:85
 msgid ""
@@ -1525,9 +1511,8 @@ msgid "Start Installation"
 msgstr "Installation starten"
 
 #: yali/gui/ScrSummary.py:78
-#, fuzzy
 msgid "Apply Settings"
-msgstr "Benutzereinstellungen"
+msgstr "Einstellungen übernehmen"
 
 #: yali/gui/ScrSummary.py:97
 msgid "Keyboard Settings"
