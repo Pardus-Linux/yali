@@ -1643,7 +1643,7 @@ msgstr " "
 
 #: yali/gui/YaliWindow.py:139
 msgid "Restart Computer"
-msgstr " "
+msgstr "Перезагрузить компьютер"
 
 #: yali/gui/YaliWindow.py:140
 msgid "Restart YALI"
@@ -1659,7 +1659,7 @@ msgstr "слева"
 
 #: yali/gui/YaliWindow.py:178
 msgid "Mouse Settings"
-msgstr " "
+msgstr "Настройки мыши"
 
 #: yali/gui/YaliWindow.py:179
 #, python-format
@@ -1693,35 +1693,35 @@ msgstr "Тетрис"
 
 #: yali/gui/YaliWindow.py:416
 msgid "Release notes could not be loaded."
-msgstr "      ."
+msgstr "Не удалось загрузить примечания к выпуску."
 
 #: yali/localedata.py:20
 msgid "Turkish"
-msgstr "Турецкий"
+msgstr "Turkish"
 
 #: yali/localedata.py:22
 msgid "Turkish F"
-msgstr "Турецкий F"
+msgstr "Turkish F"
 
 #: yali/localedata.py:22
 msgid "Turkish Q"
-msgstr "Турецкий Q"
+msgstr "Turkish Q"
 
 #: yali/localedata.py:31
 msgid "English"
-msgstr "Английский"
+msgstr "English"
 
 #: yali/localedata.py:42
 msgid "English GB"
-msgstr "Английский GB"
+msgstr "English GB"
 
 #: yali/localedata.py:52
 msgid "Greek"
-msgstr "Греческий"
+msgstr "Greek"
 
 #: yali/localedata.py:62
 msgid "Afrikaans"
-msgstr "Африканский"
+msgstr "Afrikaans"
 
 #: yali/localedata.py:72
 msgid "Vietnamese"
@@ -1805,47 +1805,47 @@ msgstr "German"
 
 #: yali/localedata.py:280
 msgid "Danish"
-msgstr "Датский"
+msgstr "Danish"
 
 #: yali/localedata.py:290
 msgid "Brazilian"
-msgstr "Бразильский"
+msgstr "Brazilian"
 
 #: yali/localedata.py:300
 msgid "Finnish"
-msgstr "Финский"
+msgstr "Finnish"
 
 #: yali/localedata.py:310
 msgid "Hungarian"
-msgstr "Венгерский"
+msgstr "Hungarian"
 
 #: yali/localedata.py:320
 msgid "Japanese"
-msgstr "Японский"
+msgstr "Japanese"
 
 #: yali/localedata.py:330
 msgid "Malayalam"
-msgstr "Малаялам"
+msgstr "Malayalam"
 
 #: yali/localedata.py:340
 msgid "Swedish"
-msgstr "Шведский"
+msgstr "Swedish"
 
 #: yali/localedata.py:351
 msgid "Macedonian"
-msgstr "Македонский"
+msgstr "Macedonian"
 
 #: yali/localedata.py:361
 msgid "Slovak"
-msgstr "Словацкий"
+msgstr "Slovak"
 
 #: yali/localedata.py:371
 msgid "Ukrainian"
-msgstr "Украинский"
+msgstr "Ukrainian"
 
 #: yali/localedata.py:381
 msgid "Serbian"
-msgstr "Сербский"
+msgstr "Serbian"
 
 #: yali/pisiiface.py:71
 #, python-format
