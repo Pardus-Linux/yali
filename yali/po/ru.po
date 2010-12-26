@@ -875,7 +875,7 @@ msgstr "Точка монтирования \"%s\" уже используетс
 
 #: yali/gui/lvm_gui.py:656
 msgid "Illegal Logical Volume Name"
-msgstr ""
+msgstr "Неверное имя логического диска"
 
 #: yali/gui/lvm_gui.py:668
 msgid "Illegal logical volume name"
