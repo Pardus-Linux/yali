@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-12-24 15:08+0200\n"
-"PO-Revision-Date: 2010-12-15 13:19+0100\n"
-"Last-Translator: Siposs Attila <siposs.attila@isd-dunaferr.hu>\n"
-"Language-Team: Hungarian <kde-i18n-doc@kde.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2010-12-26 20:09+0100\n"
+"Last-Translator: Attila Siposs <sipiatti@gmail.com>\n"
+"Language-Team: Hungarian <pardus-translators@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.0\n"
 
@@ -29,7 +29,6 @@ msgstr ""
 #: yali/gui/Ui/partition.py:137 yali/gui/Ui/partitionshrink.py:62
 #: yali/gui/Ui/raid.py:94 yali/gui/Ui/summarywidget.py:113
 #: yali/gui/Ui/volumegroup.py:95
-#, fuzzy
 msgid "Form"
 msgstr "Űrlap"
 
@@ -80,20 +79,19 @@ msgstr "Tovább a kiválasztottal"
 
 #: yali/gui/Ui/autopartwidget.py:140 yali/gui/ScrSummary.py:140
 msgid "Use All Space"
-msgstr ""
+msgstr "Teljes terület használata"
 
 #: yali/gui/Ui/autopartwidget.py:141
 msgid "Shrink Current System"
-msgstr ""
+msgstr "Aktuális rendszer zsugorítása"
 
 #: yali/gui/Ui/autopartwidget.py:142 yali/gui/ScrSummary.py:151
 msgid "Use Free Space"
-msgstr ""
+msgstr "Szabad terület használata"
 
 #: yali/gui/Ui/autopartwidget.py:143
-#, fuzzy
 msgid "Create Custom Layout"
-msgstr "Kiosztás kipróbálása"
+msgstr "Saját beállítások"
 
 #: yali/gui/Ui/bootloaderwidget.py:128 yali/gui/Ui/checkcdwidget.py:197
 #: yali/gui/Ui/keyboardwidget.py:127 yali/gui/Ui/kickerwidget.py:30
@@ -121,7 +119,6 @@ msgid "The partition where Pardus is installed"
 msgstr "A partíció, ahová a Pardus telepítére kerül"
 
 #: yali/gui/Ui/bootloaderwidget.py:133
-#, fuzzy
 msgid "The first sector of"
 msgstr "Első szektor"
 
@@ -380,7 +377,7 @@ msgstr "Méret"
 
 #: yali/gui/Ui/manualpartwidget.py:139
 msgid "Create"
-msgstr ""
+msgstr "Létrehozás"
 
 #: yali/gui/Ui/manualpartwidget.py:140 yali/gui/Ui/setupuserswidget.py:499
 #: yali/gui/Ui/volumegroup.py:105
@@ -528,24 +525,23 @@ msgstr "Pardus rendszerpartíció"
 
 #: yali/gui/Ui/rescuegrubwidget.py:85
 msgid "Selected disk below"
-msgstr ""
+msgstr "Kiválasztott lemez"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:110
 msgid "Choose the user you want to reset the password:"
-msgstr ""
+msgstr "Válassza ki a felhasználót akinek a jelszavát módosítani akarja:"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:111
 msgid "New password:"
-msgstr ""
+msgstr "Új jelszó:"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:112
 msgid "New password (Again):"
-msgstr ""
+msgstr "Új jelszó (újra):"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:113
-#, fuzzy
 msgid "Reset Password"
-msgstr "Rendszergazda jelszó beállítása..."
+msgstr "Jelszó módosítása"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:114
 msgid ""
@@ -554,46 +550,50 @@ msgid ""
 "background-color:white;\n"
 "color:#5A2847;"
 msgstr ""
+"border:1px solid white;\n"
+"border-radius:6px;\n"
+"background-color:white;\n"
+"color:#5A2847;"
 
 #: yali/gui/Ui/rescuepisiwidget.py:73
 msgid "<b>Connection status:</b>"
-msgstr ""
+msgstr "<b>Csatlakozás állapota:</b>"
 
 #: yali/gui/Ui/rescuepisiwidget.py:74
 msgid "Offline"
-msgstr ""
+msgstr "Nincs kapcsolat"
 
 #: yali/gui/Ui/rescuepisiwidget.py:75
 msgid ""
 "To use PiSi's history feature, you may need to be online. Select connection "
 "profile."
 msgstr ""
+"A PiSi előzmények használatához online kell lennie. Válasszon kapcsolati "
+"profilt."
 
 #: yali/gui/Ui/rescuepisiwidget.py:76
 msgid "Select Connection"
-msgstr ""
+msgstr "Kapcsolat kiválasztása"
 
 #: yali/gui/Ui/rescuepisiwidget.py:77
 msgid "Select the operation to undo:"
-msgstr ""
+msgstr "Válassza ki a visszavonandó műveletet:"
 
 #: yali/gui/Ui/rescuewidget.py:93
 msgid "Choose what do you want to do to repair your system:"
-msgstr ""
+msgstr "Válasszon a javítási lehetőségek közül:"
 
 #: yali/gui/Ui/rescuewidget.py:94
-#, fuzzy
 msgid "Reinstall GRUB bootloader"
-msgstr "Rendszertöltő telepítése..."
+msgstr "Rendszertöltő újratelepítése"
 
 #: yali/gui/Ui/rescuewidget.py:95
 msgid "Return back to a previous system state"
-msgstr ""
+msgstr "Visszatérés egy előző rendszerállapothoz"
 
 #: yali/gui/Ui/rescuewidget.py:96
-#, fuzzy
 msgid "Reset forgotten password"
-msgstr "Rendszergazda jelszó beállítása..."
+msgstr "Elfelejtett jelszó"
 
 #: yali/gui/Ui/rescuewidget.py:97 yali/gui/ScrGoodbye.py:53
 #: yali/gui/ScrRescueFinish.py:78 yali/gui/ScrSummary.py:46
@@ -602,111 +602,104 @@ msgstr "Újraindítás"
 
 #: yali/gui/Ui/rootpasswidget.py:129
 msgid "Administrator password"
-msgstr ""
+msgstr "Rendszergazdai jelszó"
 
 #: yali/gui/Ui/rootpasswidget.py:130
 msgid "Confirm password"
-msgstr ""
+msgstr "Jelszó újra"
 
 #: yali/gui/Ui/rootpasswidget.py:131
 msgid "Computer Name"
-msgstr ""
+msgstr "Számítógép neve"
 
 #: yali/gui/Ui/setupuserswidget.py:489
 msgid "User Name"
-msgstr ""
+msgstr "Felhasználónév"
 
 #: yali/gui/Ui/setupuserswidget.py:490
 msgid "Real Name"
-msgstr ""
+msgstr "Valódi név"
 
 #: yali/gui/Ui/setupuserswidget.py:491
 msgid "Password"
-msgstr ""
+msgstr "Jelszó"
 
 #: yali/gui/Ui/setupuserswidget.py:492
 msgid "Confirm Password"
-msgstr ""
+msgstr "Jelszó újra"
 
 #: yali/gui/Ui/setupuserswidget.py:493
 msgid "Custom User ID"
-msgstr ""
+msgstr "Egyedi felhasználó azonosító"
 
 #: yali/gui/Ui/setupuserswidget.py:494
 msgid "Not recommended"
-msgstr ""
+msgstr "Nem ajánlott"
 
 #: yali/gui/Ui/setupuserswidget.py:495
 msgid "Bypass authorization attempts for this user"
-msgstr ""
+msgstr "Bejelentkezés átlépése ennél a felhasználónál"
 
 #: yali/gui/Ui/setupuserswidget.py:496
 msgid "Add user to administrator (wheel) group"
-msgstr ""
+msgstr "Felhasználó hozzáadása az adminisztrátori csoporthoz"
 
 #: yali/gui/Ui/setupuserswidget.py:497
 msgid "Select auto login user"
-msgstr ""
+msgstr "Automatikus bejelentkezés"
 
 #: yali/gui/Ui/setupuserswidget.py:498 yali/gui/Ui/volumegroup.py:104
 #: yali/gui/ScrUsers.py:288 yali/gui/ScrUsers.py:330 yali/gui/ScrUsers.py:408
 msgid "Add"
-msgstr ""
+msgstr "Hozzáadás"
 
 #: yali/gui/Ui/setupuserswidget.py:502
-#, fuzzy
 msgid "Advanced"
-msgstr "Idő beállítása"
+msgstr "Haladó"
 
 #: yali/gui/Ui/summarywidget.py:114
 msgid ""
 "When checked, YALI will install all of the officially supported language "
 "packages on your system."
 msgstr ""
+"Ha ki van választva, a YALI telepíti az összes hivatalosan támogatott nyelvi "
+"csomagot."
 
 #: yali/gui/Ui/summarywidget.py:115
 msgid "Install all language packages"
-msgstr ""
+msgstr "Minden nyelvi csomag telepítése"
 
 #: yali/gui/Ui/volumegroup.py:96
-#, fuzzy
 msgid "Volume Group Name:"
-msgstr "VG"
+msgstr "VG neve:"
 
 #: yali/gui/Ui/volumegroup.py:97
-#, fuzzy
 msgid "Physical Extends"
-msgstr "Fizikai kötet"
+msgstr "Fizikai extentek"
 
 #: yali/gui/Ui/volumegroup.py:98
-#, fuzzy
 msgid "Physical Volumes to use:"
-msgstr "Fizikai kötet"
+msgstr "Használható fizikai kötetek:"
 
 #: yali/gui/Ui/volumegroup.py:99
-#, fuzzy
 msgid "Total Space:"
-msgstr "Nincs szabad hely"
+msgstr "Teljes terület:"
 
 #: yali/gui/Ui/volumegroup.py:100
-#, fuzzy
 msgid "Free Space:"
-msgstr "Nincs szabad hely"
+msgstr "Szabad terület:"
 
 #: yali/gui/Ui/volumegroup.py:101
-#, fuzzy
 msgid "Logical Volumes"
 msgstr "Logikai kötet"
 
 #: yali/gui/Ui/volumegroup.py:102
-#, fuzzy
 msgid "Mountpoint"
-msgstr "Csatolási pont használatban van"
+msgstr "Csatolási pont"
 
 #: yali/gui/Ui/volumegroup.py:107
-#, fuzzy
 msgid "Used Space:"
-msgstr "Nincs szabad hely"
+msgstr "Felhasznált terület:"
 
 #: yali/gui/Ui/welcome.py:85
 msgid ""
@@ -715,6 +708,10 @@ msgid ""
 "Before you login to system, you need to create your first user and set the "
 "system wide configurations. "
 msgstr ""
+"A Pardus telepítése és elindítása sikeres volt... \n"
+"\n"
+"Bejelentkezés előtt létre kell hozni az első felhasználót, valamint "
+"el kell végezni néhány rendszerszintű beállítást."
 
 #: yali/gui/interface.py:41 yali/gui/interface.py:123
 #: yali/gui/ScrCheckCD.py:94 yali/gui/ScrInstall.py:180
@@ -741,8 +738,8 @@ msgstr "Hiba"
 #: yali/gui/interface.py:67
 #, python-format
 msgid ""
-"Cannot access the partition table of %(description)s(%(name)s) -- "
-"%(size)-0.fMB\n"
+"Cannot access the partition table of %(description)s(%(name)s) -- %(size)-0."
+"fMB\n"
 "\n"
 "If there already exists a partition table on this device, it will\n"
 " be re-initialized and your existing data will be lost!\n"
@@ -896,9 +893,9 @@ msgstr ""
 #: yali/gui/lvm_gui.py:447
 #, python-format
 msgid ""
-"The physical extent size cannot be changed because the value selected "
-"(%(curpe)10.2f MB) is too large compared to the size of the smallest "
-"physical volume (%(maxpvsize)10.2f MB) in the volume group."
+"The physical extent size cannot be changed because the value selected (%"
+"(curpe)10.2f MB) is too large compared to the size of the smallest physical "
+"volume (%(maxpvsize)10.2f MB) in the volume group."
 msgstr ""
 "A fizikai extent mérete nem változtatható meg, mert\n"
 "a kiválasztott érték (%(curpe)10.2f MB) túl nagy\n"
@@ -924,6 +921,9 @@ msgid ""
 "logical volume size (%10.2f MB) is smaller than one or more of "
 "theircurrently defined logical volumes."
 msgstr ""
+"A fizikai extent méret nem módosítható, mert az eredményként adódó "
+"maximális logikai kötet mérete (%10.2f MB) kisebb mint egy vagy több "
+"már definiált logikai kötet."
 
 #: yali/gui/lvm_gui.py:503
 msgid "No free slots"
@@ -935,6 +935,8 @@ msgid ""
 "You cannot create more than %d logical volume \n"
 "per volume group."
 msgstr ""
+"Maximum %d logikai kötet hozható létre \n"
+"egy VG-ben."
 
 #: yali/gui/lvm_gui.py:510
 msgid "No free space"
@@ -947,6 +949,9 @@ msgid ""
 "the size of one or more of the currently existing logical\n"
 "volumes"
 msgstr ""
+"Nincs több hely a VG-ben új logikai kötet\n"
+"létrehozására. Új kötet hozzáadásához csökkentse\n"
+"egy vagy több létező logikai kötet méretét."
 
 #: yali/gui/lvm_gui.py:547
 msgid "Confirm Delete"
@@ -1003,7 +1008,7 @@ msgstr "Érvénytelen méret"
 
 #: yali/gui/lvm_gui.py:684
 msgid "The requested size as entered is not a valid number greater than 0."
-msgstr ""
+msgstr "A megadott méret nem egy nullánál nagyobb érvényes szám."
 
 #: yali/gui/lvm_gui.py:697
 #, python-format
@@ -1013,13 +1018,16 @@ msgid ""
 "create more Physical Volumes from unpartitioned disk space and add them to "
 "this Volume Group."
 msgstr ""
+"A megadott méret (%(size)10.2f MB) nagyobb mint a maximális logikai "
+"kötet méret (%(maxlv)10.2f MB). A korlát megemeléséhez készítsen további "
+"fizikai köteteket nem partícionált lemezrészekből, és adja hozzá a VG-hez."
 
 #: yali/gui/lvm_gui.py:719
 #, python-format
 msgid ""
 "The size entered for this logical volume (%(size)d MB) combined with the "
-"size of the other logical volume(s) exceeds the size of the volume group "
-"(%(tmpvgsize)d MB). Please make the volume group larger or make the logical "
+"size of the other logical volume(s) exceeds the size of the volume group (%"
+"(tmpvgsize)d MB). Please make the volume group larger or make the logical "
 "volume smaller."
 msgstr ""
 
