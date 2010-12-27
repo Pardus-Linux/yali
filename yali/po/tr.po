@@ -1121,7 +1121,7 @@ msgstr "Kurulum sonrası işlemler gerçekleştiriliyor..."
 #: yali/gui/ScrGoodbye.py:53
 msgid "Press <b>Restart</b> to restart the computer."
 msgstr ""
-"Bilgisayarınızı yeniden başlatmak için <b>Sistemi Yeniden Başlat</b> "
+"Bilgisayarınızı yeniden başlatmak için <b>Yeniden Başlat</b> "
 "düğmesine tıklayın."
 
 #: yali/gui/ScrGoodbye.py:54 yali/gui/ScrRescueFinish.py:80
