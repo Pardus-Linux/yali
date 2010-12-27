@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-12-24 15:08+0200\n"
-"PO-Revision-Date: 2010-12-26 20:09+0100\n"
+"PO-Revision-Date: 2010-12-27 12:31+0100\n"
 "Last-Translator: Attila Siposs <sipiatti@gmail.com>\n"
 "Language-Team: Hungarian <pardus-translators@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -1030,11 +1030,14 @@ msgid ""
 "(tmpvgsize)d MB). Please make the volume group larger or make the logical "
 "volume smaller."
 msgstr ""
+"A megadott logikai kötet méret (%(size)d MB) a többi logikai kötet méretével "
+"együtt meghaladja a VG méretét (%(tmpvgsize)d MB). Növelje a VG méretét, "
+"vagy adjon meg kisebb logikai kötet méretet."
 
 #: yali/gui/partition_gui.py:34
 #, python-format
 msgid "Create Partition on %(path)s (%(model)s)"
-msgstr ""
+msgstr "Partíció létrehozása %(path)s (%(model)s)"
 
 #: yali/gui/partition_gui.py:38
 #, python-format
@@ -1047,7 +1050,7 @@ msgstr "Partíció módosítása"
 
 #: yali/gui/partition_gui.py:104
 msgid "Error With Request"
-msgstr ""
+msgstr "Hiba történt"
 
 #: yali/gui/raid_gui.py:26
 msgid "Invalid Raid Members"
@@ -1061,19 +1064,24 @@ msgid ""
 "First create at least two partitions of type \"software RAID\", and then "
 "select the \"RAID\" option again."
 msgstr ""
+"Legalább két nem használt szoftver RAID partíció szükséges egy RAID "
+"eszköz létrehozásához.\n"
+"\n"
+"Először készítsen két \"szoftver RAID\" típusú partíciót, majd válassza a "
+"\"RAID\" opciót újra."
 
 #: yali/gui/raid_gui.py:37
 msgid "Make RAID Device"
-msgstr ""
+msgstr "RAID eszköz létrehozása"
 
 #: yali/gui/raid_gui.py:40
 #, python-format
 msgid "Edit RAID Device: %s"
-msgstr ""
+msgstr "RAID eszköz módosítása: %s"
 
 #: yali/gui/raid_gui.py:42
 msgid "Edit RAID Device"
-msgstr ""
+msgstr "RAID eszköz módosítása"
 
 #: yali/gui/runner.py:110
 msgid "Error!"
@@ -1086,6 +1094,9 @@ msgid ""
 "\n"
 "className = %s.Widget"
 msgstr ""
+"Hiba történt az egyik interfész komponens betöltése közben.\n"
+"\n"
+"className = %s.Widget"
 
 #: yali/gui/runner.py:115
 msgid "Exit"
@@ -1097,7 +1108,7 @@ msgstr "Újra"
 
 #: yali/gui/ScrAdmin.py:94 yali/gui/ScrDateTime.py:138
 msgid "Storage Devices initialising..."
-msgstr ""
+msgstr "Tárolóeszközök inicializálása..."
 
 #: yali/gui/ScrAdmin.py:147 yali/gui/ScrRescuePassword.py:96
 msgid "Password is too short."
@@ -1134,6 +1145,8 @@ msgid ""
 "Validation of %s package failed.Please remaster your installation medium "
 "andreboot."
 msgstr ""
+"A %s csomag érvényesítése meghiúsult. Ellenőtizze a telepítő médiát "
+"és indítsa újra a rendszert."
 
 #: yali/gui/ScrCheckCD.py:99
 msgid "Skip Validation"
@@ -1157,15 +1170,15 @@ msgstr "Idő beállítása"
 
 #: yali/gui/ScrDriveSelection.py:113
 msgid "You must select at least one drive to be used for installation."
-msgstr ""
+msgstr "Ki kell választani egy meghajtót a telepítéshez."
 
 #: yali/gui/ScrGoodbye.py:37
 msgid "Running post-install operations..."
-msgstr ""
+msgstr "Telepítési utóműveletek végrehajtása..."
 
 #: yali/gui/ScrGoodbye.py:53
 msgid "Press <b>Restart</b> to restart the computer."
-msgstr ""
+msgstr "Nyomja meg az <b>Újraindítás</b> gombot a számítógép újraindításához."
 
 #: yali/gui/ScrGoodbye.py:54 yali/gui/ScrRescueFinish.py:80
 msgid "<b>Please wait while restarting...</b>"
@@ -1226,7 +1239,7 @@ msgstr "Felhasználók hozzáadása..."
 
 #: yali/gui/ScrGoodbye.py:91
 msgid "Cleanup systems..."
-msgstr ""
+msgstr "Takarítás..."
 
 #: yali/gui/ScrInstall.py:151
 #, python-format
@@ -1282,6 +1295,8 @@ msgid ""
 "No partitions are available to resize. Only physical\n"
 "partitions which size is greater than %s MB can be resized."
 msgstr ""
+"Nincs átméretezhető partíció. Csak %s MB-nál nagyobb\n"
+"fizikai partíciók méretezhetók át."
 
 #: yali/gui/ScrPartitionManual.py:93
 #, python-format
@@ -1291,6 +1306,10 @@ msgid ""
 "You must correct these errors before\n"
 "you continue your installation of %s."
 msgstr ""
+"A választott partícionálási séma kritikus\n"
+"hibákat eredményezett.\n"
+"Ki kell javítani a hibákat a %s telepítésének\n"
+"folytatásához."
 
 #: yali/gui/ScrPartitionManual.py:100
 msgid "Partitioning Errors"
@@ -1302,6 +1321,8 @@ msgid ""
 "following warnings. Would you like to continue with \n"
 "your requested partitioning scheme?"
 msgstr ""
+"A választott partícionálási séma az alábbi figyelmeztetéseket\n"
+"generálta. Folytatni akarja?"
 
 #: yali/gui/ScrPartitionManual.py:111
 msgid "Partitioning Warnings"
@@ -1318,6 +1339,8 @@ msgid ""
 "been selected to be formatted, destroying\n"
 "all data."
 msgstr ""
+"Az alábbi eszközök lettek megjelölve formázásra,\n"
+"minden adat törlődni fog róluk."
 
 #: yali/gui/ScrPartitionManual.py:127
 msgid "Format Warnings"
@@ -1325,7 +1348,7 @@ msgstr "Formázási figyelmeztetés"
 
 #: yali/gui/ScrPartitionManual.py:137
 msgid "All Changes that you made will be removed"
-msgstr ""
+msgstr "Minden eddigi változtatás el lesz távolítva."
 
 #: yali/gui/ScrPartitionManual.py:147
 msgid "Standard"
@@ -1345,7 +1368,7 @@ msgstr "Partíció"
 
 #: yali/gui/ScrPartitionManual.py:163
 msgid "Member"
-msgstr ""
+msgstr "Tag"
 
 #: yali/gui/ScrPartitionManual.py:166
 msgid "Array"
@@ -1353,66 +1376,65 @@ msgstr "Tömb"
 
 #: yali/gui/ScrPartitionManual.py:228
 msgid "Volume Groups"
-msgstr ""
+msgstr "VG"
 
 #: yali/gui/ScrPartitionManual.py:240 yali/gui/ScrPartitionManual.py:313
 msgid "Free"
-msgstr ""
+msgstr "Szabad"
 
 #: yali/gui/ScrPartitionManual.py:249
 msgid "Raid Arrays"
-msgstr ""
+msgstr "RAID tömb"
 
 #: yali/gui/ScrPartitionManual.py:263
 msgid "Hard Drives"
-msgstr ""
+msgstr "Merevlemez"
 
 #: yali/gui/ScrPartitionManual.py:290
 msgid "Can't handle more than one extended partition per disk"
-msgstr ""
+msgstr "Nem kezelhető egynél több kiterjesztett partíció lemezenként"
 
 #: yali/gui/ScrPartitionManual.py:297
 msgid "Crossed logical partition before extended"
-msgstr ""
+msgstr "Keresztezett logikai partíció a kiterjesztés előtt"
 
 #: yali/gui/ScrPartitionManual.py:318
 msgid "Extended"
-msgstr ""
+msgstr "Kiterjesztett"
 
 #: yali/gui/ScrPartitionManual.py:351
 msgid "Error Partitioning"
-msgstr ""
+msgstr "Partícionálási hiba"
 
 #: yali/gui/ScrPartitionManual.py:352
 #, python-format
 msgid "Could not allocate requested partitions: %s."
-msgstr ""
+msgstr "Ez a partíció nem beállítható: %s."
 
 #: yali/gui/ScrPartitionManual.py:356
 msgid "Warning Partitioning"
-msgstr ""
+msgstr "Partícionálási figyelmeztetés"
 
 #: yali/gui/ScrPartitionManual.py:357
 #, python-format
 msgid "Warning: %s."
-msgstr ""
+msgstr "Figyelmeztetés: %s."
 
 #: yali/gui/ScrPartitionManual.py:358
 msgid "Modify Partition"
-msgstr ""
+msgstr "Partíció módosítása"
 
 #: yali/gui/ScrPartitionManual.py:472
-#, fuzzy
 msgid "Partition Selection Warning"
-msgstr "Figyelmeztető üzenetek partícionáláskor"
+msgstr "Partíció kiválasztási figyelmeztetés"
 
 #: yali/gui/ScrPartitionManual.py:473
 msgid "Please select free physical partition to create new device."
-msgstr ""
+msgstr "Új eszköz létrehozásához válasszon egy szabad fizikai partíciót."
 
 #: yali/gui/ScrPartitionManual.py:483
 msgid "Unable To Edit"
-msgstr ""
+msgstr "Nem módosítható"
 
 #: yali/gui/ScrPartitionManual.py:484
 #, python-format
@@ -1421,146 +1443,148 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Ez az eszköz nem módosítható:\n"
+"\n"
+"%s"
 
 #: yali/gui/ScrRescueFinish.py:55
 msgid "Installing Bootloader..."
-msgstr ""
+msgstr "Rendszertöltő telepítése..."
 
 #: yali/gui/ScrRescueFinish.py:58
 msgid "Taking back operation..."
-msgstr ""
+msgstr "Művelet visszavonása..."
 
 #: yali/gui/ScrRescueFinish.py:61
 msgid "Running rescue operations..."
-msgstr ""
+msgstr "Helyreállítási műveletek futtatása..."
 
 #: yali/gui/ScrRescueFinish.py:78
 msgid "Press <b>Restart</b> to restart your system."
-msgstr ""
+msgstr "Nyomja meg az <b>Újraindítás</b> gombot a rendszer újraindításához."
 
 #: yali/gui/ScrRescueGrub.py:87
 #, python-format
 msgid "%s (Boot Disk)"
-msgstr ""
+msgstr "%s (rendszerindító lemez)"
 
 #: yali/gui/ScrRescuePassword.py:39
 msgid "Caps Lock is on."
-msgstr ""
+msgstr "A Caps Lock be van kapcsolva."
 
 #: yali/gui/ScrRescuePassword.py:44 yali/gui/ScrRescuePisi.py:37
 msgid "Starting D-Bus..."
-msgstr ""
+msgstr "D-Bus indítása..."
 
 #: yali/gui/ScrRescuePassword.py:46
 msgid "Acquiring users..."
-msgstr ""
+msgstr "Felhasználók lekérése..."
 
 #: yali/gui/ScrRescuePassword.py:79
 msgid "The password has been successfully reset."
-msgstr ""
+msgstr "A jelszó sikeresen módosítva."
 
 #: yali/gui/ScrRescuePassword.py:79
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 #: yali/gui/ScrRescuePassword.py:90
 msgid "Do not use your username or real name as your password."
-msgstr ""
+msgstr "Ne használja a teljes nevét jelszóként."
 
 #: yali/gui/ScrRescuePassword.py:93
 msgid "The passwords do not match."
-msgstr ""
+msgstr "A jelszavak nem egyeznek."
 
 #: yali/gui/ScrRescuePassword.py:107 yali/gui/ScrRescuePisi.py:69
 msgid "Please Wait..."
-msgstr ""
+msgstr "Kérem várjon..."
 
 #: yali/gui/ScrRescuePassword.py:130
 msgid "Super User"
-msgstr ""
+msgstr "Rendszergazda"
 
 #: yali/gui/ScrRescuePisi.py:39
 msgid "Fetching history..."
-msgstr ""
+msgstr "Előzmények összegyűjtése..."
 
 #: yali/gui/ScrRescuePisi.py:75
 msgid "No connection available"
-msgstr ""
+msgstr "Nincs elérhető kapcsolat"
 
 #: yali/gui/ScrRescuePisi.py:116
 #, python-format
 msgid "Operation %(no)s : %(date)s - %(type)s"
-msgstr ""
+msgstr "Művelet %(no)s : %(date)s - %(type)s"
 
 #: yali/gui/ScrRescuePisi.py:170
 #, python-format
 msgid "Connecting to network %s..."
-msgstr ""
+msgstr "Csatlakozás a %s hálózathoz..."
 
 #: yali/gui/ScrRescuePisi.py:176 yali/gui/ScrRescuePisi.py:177
 msgid "Connection failed"
-msgstr ""
+msgstr "Nem sikerült csatlakozni"
 
 #: yali/gui/ScrRescuePisi.py:180 yali/gui/ScrRescuePisi.py:181
 msgid "Connected"
-msgstr ""
+msgstr "Csatlakozva"
 
 #: yali/gui/ScrRescue.py:94
 msgid "Mounting disk partition..."
-msgstr ""
+msgstr "Partíciók csatolása..."
 
 #: yali/gui/ScrRescue.py:106
 msgid "YALI could not locate a suitable disk partition on this computer."
-msgstr ""
+msgstr "A YALI nem talált megfelelő partíciót a számítógépen."
 
 #: yali/gui/ScrRescue.py:123
 msgid "Please select a disk partition from the list below:"
-msgstr ""
+msgstr "Válasszon egy partíciót az alábbi listáról:"
 
 #: yali/gui/ScrSummary.py:47
 msgid "<b><p>Are you sure you want to restart the computer?</p></b>"
-msgstr ""
+msgstr "<b><p>Biztosan újraindítja a számítógépet?</p></b>"
 
 #: yali/gui/ScrSummary.py:68
 #, python-format
 msgid "Installation starts in <b>%s</b> seconds"
-msgstr ""
+msgstr "A telepítés <b>%s</b> másodpercen belül elindul"
 
 #: yali/gui/ScrSummary.py:76
 msgid "Start Installation"
-msgstr ""
+msgstr "Telepítés indítása"
 
 #: yali/gui/ScrSummary.py:78
-#, fuzzy
 msgid "Apply Settings"
-msgstr "Alapértelmezett beállítások"
+msgstr "Beállítások alkalmazása"
 
 #: yali/gui/ScrSummary.py:97
 msgid "Keyboard Settings"
-msgstr ""
+msgstr "Billentyűzet beállítások"
 
 #: yali/gui/ScrSummary.py:99
 #, python-format
 msgid "Selected keyboard layout is <b>%s</b>"
-msgstr ""
+msgstr "A kiválasztott billentyűzetkiosztás <b>%s</b>"
 
 #: yali/gui/ScrSummary.py:105
 msgid "Date/Time Settings"
-msgstr ""
+msgstr "Dátum/idő beállítása"
 
 #: yali/gui/ScrSummary.py:107
 #, python-format
 msgid "Selected TimeZone is <b>%s</b>"
-msgstr ""
+msgstr "A kiválasztott időzóna <b>%s</b>"
 
 #: yali/gui/ScrSummary.py:113
 msgid "User Settings"
-msgstr ""
+msgstr "Felhasználói beállítások"
 
 #: yali/gui/ScrSummary.py:115
 #, python-format
 msgid "User %(username)s (<b>%(realname)s</b>) added."
-msgstr ""
+msgstr "%(username)s (<b>%(realname)s</b>) felhasználó hozzáadva."
 
 #: yali/gui/ScrSummary.py:117
 #, python-format
@@ -1568,23 +1592,25 @@ msgid ""
 "User %(username)s (<b>%(realname)s</b>) added with <u>administrator "
 "privileges</u>."
 msgstr ""
+"%(username)s (<b>%(realname)s</b>) felhasználó <u>adminisztrátori jogokkal<"
+"/u> hozzáadva."
 
 #: yali/gui/ScrSummary.py:123
 msgid "Hostname Settings"
-msgstr ""
+msgstr "Gépnév beállítása"
 
 #: yali/gui/ScrSummary.py:125
 #, python-format
 msgid "Hostname is set as <b>%s</b>"
-msgstr ""
+msgstr "<b>%s</b> gépnév beállítva"
 
 #: yali/gui/ScrSummary.py:131
 msgid "Partition Settings"
-msgstr ""
+msgstr "Partíció beállítások"
 
 #: yali/gui/ScrSummary.py:138
 msgid "Automatic Partitioning selected."
-msgstr ""
+msgstr "Automatikus partícionálás kiválasztva."
 
 #: yali/gui/ScrSummary.py:141
 #, python-format
@@ -1592,10 +1618,12 @@ msgid ""
 "Removes all partitions on the selected %s device(s). <b><u>This includes "
 "partitions created by other operating systems.</u></b>"
 msgstr ""
+"A %s eszköz(ök)ön minden partíció törlésre kerül. <b><u>Ebbe "
+"beletartoznak a más operációs rendszerek által készített partíciók is</u></b>"
 
 #: yali/gui/ScrSummary.py:145
 msgid "Replace Existing Linux System(s)"
-msgstr ""
+msgstr "Létező linux rendszerek lecserélése"
 
 #: yali/gui/ScrSummary.py:146
 #, python-format
@@ -1604,6 +1632,8 @@ msgid ""
 "remove other partitions you may have on your storage device(s) (such as VFAT "
 "or FAT32)"
 msgstr ""
+"A kiválasztott %s eszköz(ök) minden linux partíciója eltávolításra kerül. Az "
+"eszközön lévő más partíciók (pl. VFAT, FAT32) nem lesznek eltávolítva."
 
 #: yali/gui/ScrSummary.py:152
 #, python-format
@@ -1612,48 +1642,52 @@ msgid ""
 "space on the selected %s device(s), assuming you haveenough free space "
 "available."
 msgstr ""
+"A létező partíciók és adatok megtartása, és csak a kiválasztott %s "
+"eszköz(ök) "
+"nem partícionált részének felhasználása, feltételezve, hogy elegendő szabad "
+"hely áll rendelkezésre."
 
 #: yali/gui/ScrSummary.py:158
 msgid "Manual Partitioning selected."
-msgstr ""
+msgstr "Kézi partícionálás lett kiválasztva."
 
 #: yali/gui/ScrSummary.py:166
 msgid "Bootloader Settings"
-msgstr ""
+msgstr "Rendszertöltő beállítások"
 
 #: yali/gui/ScrSummary.py:167
 #, python-format
 msgid "GRUB will be installed to <b>%s</b>."
-msgstr ""
+msgstr "A GRUB a <b>%s</b>-re kerül."
 
 #: yali/gui/ScrSummary.py:169
 msgid "GRUB will not be installed."
-msgstr ""
+msgstr "A GRUB nem kerül telepítésre."
 
 #: yali/gui/ScrSummary.py:176
 msgid "Package Installation Settings"
-msgstr ""
+msgstr "Csomagtelepítési beállítások"
 
 #: yali/gui/ScrSummary.py:178
 msgid "Auto installation selected."
-msgstr ""
+msgstr "Automatikus telepítés lett kiválasztva."
 
 #: yali/gui/ScrSummary.py:180
 #, python-format
 msgid "Manual Installation ( %s ) selected"
-msgstr ""
+msgstr "Kézi telepítés (%s) lett kiválasztva."
 
 #: yali/gui/ScrSummary.py:184
 msgid "Default Kernel selected"
-msgstr ""
+msgstr "Alapértelmezett kernel kiválasztva."
 
 #: yali/gui/ScrSummary.py:186
 msgid "PAE Kernel selected"
-msgstr ""
+msgstr "PAE kernel kiválasztva."
 
 #: yali/gui/ScrSummary.py:203
 msgid "Confirm"
-msgstr ""
+msgstr "Jóváhagyás"
 
 #: yali/gui/ScrSummary.py:204
 msgid ""
@@ -1661,68 +1695,71 @@ msgid ""
 "written to disk.  Any data on deleted or reformatted partitions\n"
 "will be lost."
 msgstr ""
+"A kiválasztott partícionálási beállítások kiírásra kerülnek\n"
+"a lemezre. A törlendő vagy újraformázandó partíciók minden\n"
+"adata törlődik."
 
 #: yali/gui/ScrSummary.py:209
 msgid "Write Changes to Disk"
-msgstr ""
+msgstr "Változtatások kiírása a lemezre"
 
 #: yali/gui/ScrSummary.py:209
 msgid "Go Back"
-msgstr ""
+msgstr "Vissza"
 
 #: yali/gui/ScrUsers.py:129 yali/gui/ScrUsers.py:360
 msgid "Update"
-msgstr ""
+msgstr "Frissítés"
 
 #: yali/gui/ScrUsers.py:216
 msgid "Don't use your user name or name as a password"
-msgstr ""
+msgstr "Ne használja jelszónak a teljes nevét vagy a felhasználónevét"
 
 #: yali/gui/ScrUsers.py:219
 msgid "Passwords do not match"
-msgstr ""
+msgstr "A jelszavak nem egyeznek"
 
 #: yali/gui/ScrUsers.py:222
 msgid "Password is too short"
-msgstr ""
+msgstr "A jelszó túl rövid"
 
 #: yali/gui/ScrUsers.py:268
 msgid "This user name is already taken, please choose another one."
-msgstr ""
+msgstr "Ez a felhasználónév már foglalt, válasszon másikat."
 
 #: yali/gui/ScrUsers.py:272
 msgid "The user name contains invalid characters."
-msgstr ""
+msgstr "A felhasználónév érvénytelen karaktereket tartalmaz."
 
 #: yali/gui/ScrUsers.py:275
 msgid "The real name contains invalid characters."
-msgstr ""
+msgstr "A teljes név érvénytelen karaktereket tartalmaz."
 
 #: yali/gui/ScrUsers.py:283
 msgid "User ID used before, choose another one!"
-msgstr ""
+msgstr "A felhasználó azonosító már foglalt, válasszon másikat."
 
 #: yali/gui/shrink_gui.py:23
 msgid "Partitions to Shrink"
-msgstr ""
+msgstr "Zsugorítandó partíciók"
 
 #: yali/gui/shrink_gui.py:47
 msgid "Resize FileSystem Error"
-msgstr ""
+msgstr "Fájlrendszer átméretezési hiba"
 
 #: yali/gui/shrink_gui.py:48
 #, python-format
 msgid "%(device)s: %(msg)s"
-msgstr ""
+msgstr "%(device)s: %(msg)s"
 
 #: yali/gui/shrink_gui.py:56
 msgid "Resize Device Error"
-msgstr ""
+msgstr "Eszköz átméretezési hiba"
 
 #: yali/gui/shrink_gui.py:57
 #, python-format
 msgid "%(name)s: %(msg)s"
-msgstr ""
+msgstr "%(name)s: %(msg)s"
 
 #: yali/gui/storageGuiHelpers.py:71
 msgid ""
@@ -1730,310 +1767,312 @@ msgid ""
 "otherwise the volume group will be too small to\n"
 "hold the currently defined logical volumes."
 msgstr ""
+"A fizikai kötet nem távolítható el, mert a VG\n"
+"túl kicsi lesz a jelenlegi logikai kötetekhez."
 
 #: yali/gui/YaliDialog.py:220 yali/gui/YaliDialog.py:236
 #: yali/gui/YaliDialog.py:263
 msgid "Yes"
-msgstr ""
+msgstr "Igen"
 
 #: yali/gui/YaliDialog.py:222 yali/gui/YaliDialog.py:237
 #: yali/gui/YaliDialog.py:264
 msgid "No"
-msgstr ""
+msgstr "Nem"
 
 #: yali/gui/YaliDialog.py:242
 msgid "Don't ask again"
-msgstr ""
+msgstr "Ne kérdezze újra"
 
 #: yali/gui/YaliDialog.py:247
 msgid "Do you want to continue?"
-msgstr ""
+msgstr "Akarja folytatni?"
 
 #: yali/gui/YaliDialog.py:262
 msgid "Eject Disc"
-msgstr ""
+msgstr "Lemez kiadása"
 
 #: yali/gui/YaliDialog.py:288 yali/gui/YaliDialog.py:305
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: yali/gui/YaliDialog.py:289
 msgid "Please insert a new disc and then click OK"
-msgstr ""
+msgstr "Tegyen be egy új lemezt és kattintson az OK-ra."
 
 #: yali/gui/YaliDialog.py:291
 msgid "Insert New Disc"
-msgstr ""
+msgstr "Új lemez behelyezése"
 
 #: yali/gui/YaliDialog.py:303
 msgid "Information"
-msgstr ""
+msgstr "Információ"
 
 #: yali/gui/YaliDialog.py:500
 msgid "Error reporting"
-msgstr ""
+msgstr "Hibajelentés"
 
 #: yali/gui/YaliWindow.py:90
 msgid "Pixmaps resources file doesn't exists"
-msgstr ""
+msgstr "Kép forrásfájlok nem találhatók"
 
 #: yali/gui/YaliWindow.py:123
 msgid "Style file doesn't exists"
-msgstr ""
+msgstr "Stílus fájl nem található"
 
 #: yali/gui/YaliWindow.py:130
 msgid "Release file doesn't exists"
-msgstr ""
+msgstr "Kiadási fájl nem található"
 
 #: yali/gui/YaliWindow.py:138
 msgid "Turn Off Computer"
-msgstr ""
+msgstr "Számítógép kikapcsolása"
 
 #: yali/gui/YaliWindow.py:139
 msgid "Restart Computer"
-msgstr ""
+msgstr "Számítógép újraindítása"
 
 #: yali/gui/YaliWindow.py:140
 msgid "Restart YALI"
-msgstr ""
+msgstr "YALI újraindítása"
 
 #: yali/gui/YaliWindow.py:158 yali/gui/YaliWindow.py:175 yali/sysutils.py:53
 msgid "right"
-msgstr ""
+msgstr "jobb"
 
 #: yali/gui/YaliWindow.py:174 yali/gui/YaliWindow.py:177 yali/sysutils.py:52
 msgid "left"
-msgstr ""
+msgstr "bal"
 
 #: yali/gui/YaliWindow.py:178
 msgid "Mouse Settings"
-msgstr ""
+msgstr "Egér beállítások"
 
 #: yali/gui/YaliWindow.py:179
 #, python-format
 msgid "You just clicked the <b>%s</b> mouse button."
-msgstr ""
+msgstr "A <b>%s</b> egérgombbal kattintott."
 
 #: yali/gui/YaliWindow.py:180
 #, python-format
 msgid "Do you want to switch to the <b>%s</b> handed configuration?"
-msgstr ""
+msgstr "Át akar váltani <b>%s</b>kezes egérre?"
 
 #: yali/gui/YaliWindow.py:210
 msgid "Are you sure you want to shut down your computer now?"
-msgstr ""
+msgstr "Biztosan ki akarja kapcsolni a számítógépet?"
 
 #: yali/gui/YaliWindow.py:215
 msgid "Are you sure you want to restart your computer now?"
-msgstr ""
+msgstr "Biztosan újraindítja a számítógépet?"
 
 #: yali/gui/YaliWindow.py:220
 msgid "Are you sure you want to restart the YALI installer now?"
-msgstr ""
+msgstr "Biztosan újraindítja a YALI telepítőt?"
 
 #: yali/gui/YaliWindow.py:239
 msgid "Terminal"
-msgstr ""
+msgstr "Terminál"
 
 #: yali/gui/YaliWindow.py:244
 msgid "Tetris"
-msgstr ""
+msgstr "Tetris"
 
 #: yali/gui/YaliWindow.py:416
 msgid "Release notes could not be loaded."
-msgstr ""
+msgstr "A kiadási megjegyzések nem tölthetők be."
 
 #: yali/localedata.py:20
 msgid "Turkish"
-msgstr ""
+msgstr "Turkish"
 
 #: yali/localedata.py:22
 msgid "Turkish F"
-msgstr ""
+msgstr "Turkish F"
 
 #: yali/localedata.py:22
 msgid "Turkish Q"
-msgstr ""
+msgstr "Turkish Q"
 
 #: yali/localedata.py:31
 msgid "English"
-msgstr ""
+msgstr "English"
 
 #: yali/localedata.py:42
 msgid "English GB"
-msgstr ""
+msgstr "English GB"
 
 #: yali/localedata.py:52
 msgid "Greek"
-msgstr ""
+msgstr "Greek"
 
 #: yali/localedata.py:62
 msgid "Afrikaans"
-msgstr ""
+msgstr "Afrikaans"
 
 #: yali/localedata.py:72
 msgid "Vietnamese"
-msgstr ""
+msgstr "Vietnamese"
 
 #: yali/localedata.py:82
 msgid "Catalan"
-msgstr ""
+msgstr "Catalan"
 
 #: yali/localedata.py:93
 msgid "Italian"
-msgstr ""
+msgstr "Italian"
 
 #: yali/localedata.py:104
 msgid "Czech"
-msgstr ""
+msgstr "Czech"
 
 #: yali/localedata.py:114
 msgid "Welsh"
-msgstr ""
+msgstr "Welsh"
 
 #: yali/localedata.py:124
 msgid "Arabic"
-msgstr ""
+msgstr "Arabic"
 
 #: yali/localedata.py:134
 msgid "Estonian"
-msgstr ""
+msgstr "Estonian"
 
 #: yali/localedata.py:144
 msgid "Spanish"
-msgstr ""
+msgstr "Spanish"
 
 #: yali/localedata.py:155
 msgid "Russian"
-msgstr ""
+msgstr "Russian"
 
 #: yali/localedata.py:165
 msgid "Dutch"
-msgstr ""
+msgstr "Dutch"
 
 #: yali/localedata.py:176
 msgid "Portuguese"
-msgstr ""
+msgstr "Portuguese"
 
 #: yali/localedata.py:187
 msgid "Norwegian"
-msgstr ""
+msgstr "Norwegian"
 
 #: yali/localedata.py:197
 msgid "Icelandic"
-msgstr ""
+msgstr "Icelandic"
 
 #: yali/localedata.py:207
 msgid "Polish"
-msgstr ""
+msgstr "Polish"
 
 #: yali/localedata.py:218
 msgid "Belgium"
-msgstr ""
+msgstr "Belgium"
 
 #: yali/localedata.py:228
 msgid "French"
-msgstr ""
+msgstr "French"
 
 #: yali/localedata.py:239
 msgid "Bulgarian"
-msgstr ""
+msgstr "Bulgarian"
 
 #: yali/localedata.py:249
 msgid "Slovenian"
-msgstr ""
+msgstr "Slovenian"
 
 #: yali/localedata.py:259
 msgid "Croatian"
-msgstr ""
+msgstr "Croatian"
 
 #: yali/localedata.py:269
 msgid "German"
-msgstr ""
+msgstr "German"
 
 #: yali/localedata.py:280
 msgid "Danish"
-msgstr ""
+msgstr "Danish"
 
 #: yali/localedata.py:290
 msgid "Brazilian"
-msgstr ""
+msgstr "Brazilian"
 
 #: yali/localedata.py:300
 msgid "Finnish"
-msgstr ""
+msgstr "Finnish"
 
 #: yali/localedata.py:310
 msgid "Hungarian"
-msgstr ""
+msgstr "Magyar"
 
 #: yali/localedata.py:320
 msgid "Japanese"
-msgstr ""
+msgstr "Japanese"
 
 #: yali/localedata.py:330
 msgid "Malayalam"
-msgstr ""
+msgstr "Malayalam"
 
 #: yali/localedata.py:340
 msgid "Swedish"
-msgstr ""
+msgstr "Swedish"
 
 #: yali/localedata.py:351
 msgid "Macedonian"
-msgstr ""
+msgstr "Macedonian"
 
 #: yali/localedata.py:361
 msgid "Slovak"
-msgstr ""
+msgstr "Slovak"
 
 #: yali/localedata.py:371
 msgid "Ukrainian"
-msgstr ""
+msgstr "Ukrainian"
 
 #: yali/localedata.py:381
 msgid "Serbian"
-msgstr ""
+msgstr "Serbian"
 
 #: yali/pisiiface.py:71
 #, python-format
 msgid "Error occured while %(repo)s repo is adding:%(msg)s"
-msgstr ""
+msgstr "Hiba lépett fel a %(repo)s tároló hozzáadása közben: %(msg)s"
 
 #: yali/postinstall.py:196
 #, python-format
 msgid "Preparing home directory for %s..."
-msgstr ""
+msgstr "%s saját könyvtárának előkészítése..."
 
 #: yali/util.py:140
 #, python-format
 msgid "Running %s"
-msgstr ""
+msgstr "%s futtatása"
 
 #: yali/util.py:158
 #, python-format
 msgid "return value for \"%(command)s\" is %(return)s"
-msgstr ""
+msgstr "a \"%(command)s\" visszatérési értéke %(return)s"
 
 #: yali/util.py:372
 msgid "YALI log file doesn't exists."
-msgstr ""
+msgstr "YALI naplófájl nem található."
 
 #: yali/util.py:374
 msgid "File paths are the same."
-msgstr ""
+msgstr "AZ elérési utak megegyeznek."
 
 #: yali/util.py:449 yali/util.py:492
 msgid "Release file is missing"
-msgstr ""
+msgstr "Kiadási fájl nem található"
 
 #: yali/util.py:451 yali/util.py:494
 msgid "Release file is inconsistent"
-msgstr ""
+msgstr "A kiadási fájl érvénytelen"
 
 #: yali/util.py:454 yali/util.py:497
 msgid "Invalid xml file"
-msgstr ""
+msgstr "Érvénytelen xml fájl"
 
 #~ msgid "New"
 #~ msgstr "Új"
