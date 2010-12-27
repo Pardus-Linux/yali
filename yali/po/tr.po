@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\\n\"\\nX-Generator: Lokalize 1.1\\n\\n\\n\n"
+"Plural-Forms: nplurals=1; plural=0;\\n\"\\nX-Generator: Lokalize 1.1\\n\\n\\n\\n\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 msgid "Choose Installation Method"
@@ -100,7 +100,7 @@ msgstr "Pardus'un kurulu olduğu bölüm"
 
 #: yali/gui/Ui/bootloaderwidget.py:132
 msgid "The first sector of"
-msgstr ""
+msgstr "İlk sektörü kullanılan"
 
 #: yali/gui/Ui/checkcdwidget.py:198
 msgid "You can validate the integrity of the installation packages. Although this is an optional step, we highly recommend to do the validation in order to avoid any possible errors during the installation process."
@@ -426,7 +426,6 @@ msgid "Raid Members:"
 msgstr "Raid üyeleri:"
 
 #: yali/gui/Ui/raid.py:99
-#, fuzzy
 msgid "Number of spares:"
 msgstr "Birim sayısı:"
 
