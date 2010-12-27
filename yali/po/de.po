@@ -389,14 +389,12 @@ msgid "Format :"
 msgstr "Format:"
 
 #: yali/gui/Ui/partedit.py:176
-#, fuzzy
 msgid "Yes, format this partition"
-msgstr "Erstelle LVM formatierte Partition"
+msgstr "Ja, formatiere diese Partition"
 
 #: yali/gui/Ui/partedit.py:178
-#, fuzzy
 msgid "Delete Partition"
-msgstr "Alle Partitionen löschen"
+msgstr "Partition löschen"
 
 #: yali/gui/Ui/partedit.py:179
 msgid "Resize Partition"
@@ -515,7 +513,7 @@ msgstr "Auf die unten gewählte Festplatte"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:110
 msgid "Choose the user you want to reset the password:"
-msgstr ""
+msgstr "Benutzer auswählen dessen Paßwort zurückgesetzt werden soll:"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:111
 msgid "New password:"
@@ -547,7 +545,7 @@ msgstr "<b>Verbindungsstatus:</b>"
 
 #: yali/gui/Ui/rescuepisiwidget.py:74
 msgid "Offline"
-msgstr ""
+msgstr "Offline"
 
 #: yali/gui/Ui/rescuepisiwidget.py:75
 msgid "To use PiSi's history feature, you may need to be online. Select connection profile."
@@ -558,27 +556,24 @@ msgid "Select Connection"
 msgstr "Verbindung auswählen"
 
 #: yali/gui/Ui/rescuepisiwidget.py:77
-#, fuzzy
 msgid "Select the operation to undo:"
-msgstr "Operation die zurückgenommen werden soll:"
+msgstr "Operation auswählen, die zurückgenommen werden soll:"
 
 #: yali/gui/Ui/rescuewidget.py:93
 msgid "Choose what do you want to do to repair your system:"
-msgstr ""
+msgstr "Bitte auswählen, was Sie unternehmen wollen um das System zu reparieren:"
 
 #: yali/gui/Ui/rescuewidget.py:94
-#, fuzzy
 msgid "Reinstall GRUB bootloader"
-msgstr "GRUB neu installieren (Boot-Probleme)"
+msgstr "Bootmanager GRUB neu installieren"
 
 #: yali/gui/Ui/rescuewidget.py:95
 msgid "Return back to a previous system state"
-msgstr ""
+msgstr "Zu einem vorherigen Systemzustand zurückkehren"
 
 #: yali/gui/Ui/rescuewidget.py:96
-#, fuzzy
 msgid "Reset forgotten password"
-msgstr "Root-Passwort wird eingestellt..."
+msgstr "Vergessenes Paßwort zurücksetzen"
 
 #: yali/gui/Ui/rescuewidget.py:97 yali/gui/ScrGoodbye.py:53
 #: yali/gui/ScrRescueFinish.py:78 yali/gui/ScrSummary.py:46
@@ -586,42 +581,34 @@ msgid "Restart"
 msgstr "Neustart"
 
 #: yali/gui/Ui/rootpasswidget.py:129
-#, fuzzy
 msgid "Administrator password"
-msgstr "Systemadministrator-Passwort:"
+msgstr "Administratorpaßwort"
 
 #: yali/gui/Ui/rootpasswidget.py:130
-#, fuzzy
 msgid "Confirm password"
-msgstr "Neues Passwort:"
+msgstr "Bestätige Paßwort"
 
 #: yali/gui/Ui/rootpasswidget.py:131
-#, fuzzy
 msgid "Computer Name"
-msgstr "Benutzername:"
+msgstr "Computername"
 
 #: yali/gui/Ui/setupuserswidget.py:489
-#, fuzzy
 msgid "User Name"
-msgstr "Benutzername:"
+msgstr "Benutzername"
 
 #: yali/gui/Ui/setupuserswidget.py:490
-#, fuzzy
 msgid "Real Name"
-msgstr "Vollständiger Name:"
+msgstr "Vollständiger Name"
 
 #: yali/gui/Ui/setupuserswidget.py:491
-#, fuzzy
 msgid "Password"
-msgstr "Passwort:"
+msgstr "Paßwort"
 
 #: yali/gui/Ui/setupuserswidget.py:492
-#, fuzzy
 msgid "Confirm Password"
-msgstr "Passwort:"
+msgstr "Bestätige Paßwort"
 
 #: yali/gui/Ui/setupuserswidget.py:493
-#, fuzzy
 msgid "Custom User ID"
 msgstr "Benutzer ID"
 
@@ -631,16 +618,15 @@ msgstr "Nicht empfehlenswert"
 
 #: yali/gui/Ui/setupuserswidget.py:495
 msgid "Bypass authorization attempts for this user"
-msgstr ""
+msgstr "Bypass Authentifizierungsversuch für diesen Nutzer"
 
 #: yali/gui/Ui/setupuserswidget.py:496
 msgid "Add user to administrator (wheel) group"
-msgstr ""
+msgstr "Diesen Nutzer zur Administratorgruppe hinzufügen (wheel)"
 
 #: yali/gui/Ui/setupuserswidget.py:497
-#, fuzzy
 msgid "Select auto login user"
-msgstr "Auto-Login-Benutzer:"
+msgstr "Benutzer für automatischen Login auswählen"
 
 #: yali/gui/Ui/setupuserswidget.py:498 yali/gui/Ui/volumegroup.py:104
 #: yali/gui/ScrUsers.py:288 yali/gui/ScrUsers.py:330 yali/gui/ScrUsers.py:408
@@ -653,7 +639,7 @@ msgstr "Erweitert"
 
 #: yali/gui/Ui/summarywidget.py:114
 msgid "When checked, YALI will install all of the officially supported language packages on your system."
-msgstr ""
+msgstr "Falls sie Option ausgewählt ist, wird YALI die verfügbaren unterstützten Sprachen dem System hinzufügen."
 
 #: yali/gui/Ui/summarywidget.py:115
 msgid "Install all language packages"
@@ -697,6 +683,9 @@ msgid ""
 "\n"
 "Before you login to system, you need to create your first user and set the system wide configurations. "
 msgstr ""
+"Pardus wurde installiert und erfolgreich gestartet... \n"
+"\n"
+"Bevor Sie sich einloggen, müssen Sie einen Benutzer anlegen und das System konfigurieren."
 
 #: yali/gui/interface.py:41 yali/gui/interface.py:123
 #: yali/gui/ScrCheckCD.py:94 yali/gui/ScrInstall.py:180
@@ -1056,7 +1045,7 @@ msgstr "Wiederholen"
 
 #: yali/gui/ScrAdmin.py:94 yali/gui/ScrDateTime.py:138
 msgid "Storage Devices initialising..."
-msgstr ""
+msgstr "Initialisiere Datenträger..."
 
 #: yali/gui/ScrAdmin.py:147 yali/gui/ScrRescuePassword.py:96
 msgid "Password is too short."
@@ -1169,23 +1158,20 @@ msgid "Writing bootloader..."
 msgstr "Boot-Loader wird geschrieben..."
 
 #: yali/gui/ScrGoodbye.py:82
-#, fuzzy
 msgid "Installing bootloader..."
-msgstr "Installiere Boot-Loader..."
+msgstr "Installiere Bootmanager..."
 
 #: yali/gui/ScrGoodbye.py:85
-#, fuzzy
 msgid "Setup First-Boot..."
-msgstr "Boot-Loader einstellen..."
+msgstr "Konfiguriere ersten Systemstart..."
 
 #: yali/gui/ScrGoodbye.py:88
 msgid "Adding users..."
 msgstr "Benutzer werden hinzugefügt..."
 
 #: yali/gui/ScrGoodbye.py:91
-#, fuzzy
 msgid "Cleanup systems..."
-msgstr "System wird installiert..."
+msgstr "Säubere Systeme..."
 
 #: yali/gui/ScrInstall.py:151
 #, python-format
@@ -1236,13 +1222,13 @@ msgid "License text could not be found."
 msgstr "Der Lizenztext wurde nicht gefunden."
 
 #: yali/gui/ScrPartitionAuto.py:45
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "No partitions are available to resize. Only physical\n"
 "partitions which size is greater than %s MB can be resized."
 msgstr ""
-"Keine Partition ist für eine Größenänderung verfügbar. Nur physikalische\n"
-"Partitionen mit bestimmten Dateisystemen können bearbeitet werden."
+"Keine Partition für eine Größenänderung verfügbar. Nur physikalische\n"
+"Partitionen dessen Größe %s MB übersteigen können geändert werden."
 
 #: yali/gui/ScrPartitionManual.py:93
 #, python-format
@@ -1375,14 +1361,12 @@ msgid "Modify Partition"
 msgstr "Partition verändern"
 
 #: yali/gui/ScrPartitionManual.py:472
-#, fuzzy
 msgid "Partition Selection Warning"
-msgstr "Partitionierungswarnungen"
+msgstr "Warnung durch Partitionsauswahl"
 
 #: yali/gui/ScrPartitionManual.py:473
-#, fuzzy
 msgid "Please select free physical partition to create new device."
-msgstr "Bitte wählen Sie eine Partition aus der Liste aus:"
+msgstr "Bitte wählen Sie eine freie physikalische Partition aus, um ein neues Gerät zu erstellen."
 
 #: yali/gui/ScrPartitionManual.py:483
 msgid "Unable To Edit"
@@ -1979,9 +1963,9 @@ msgid "Serbian"
 msgstr "Serbisch"
 
 #: yali/pisiiface.py:71
-#, python-format
+#, python-format, fuzzy
 msgid "Error occured while %(repo)s repo is adding:%(msg)s"
-msgstr ""
+msgstr "Während Fehler while %(repo)s repo is adding:%(msg)s"
 
 #: yali/postinstall.py:196
 #, python-format
@@ -1999,13 +1983,12 @@ msgid "return value for \"%(command)s\" is %(return)s"
 msgstr "Rückgabewert für \"%(command)s\" ist %(return)s"
 
 #: yali/util.py:372
-#, fuzzy
 msgid "YALI log file doesn't exists."
-msgstr "Stilbeschreibung nicht vorhanden"
+msgstr "Die Logdatei von YALI existiert nicht."
 
 #: yali/util.py:374
 msgid "File paths are the same."
-msgstr ""
+msgstr "Die Dateipfade sind identisch."
 
 #: yali/util.py:449 yali/util.py:492
 msgid "Release file is missing"
