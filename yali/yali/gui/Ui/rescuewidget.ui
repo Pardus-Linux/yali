@@ -10,9 +10,6 @@
     <height>563</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>Form1</string>
-  </property>
   <property name="styleSheet">
    <string notr="true"/>
   </property>
@@ -53,7 +50,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="../../data.qrc">:/gui/pics/help-about.png</pixmap>
+        <pixmap>:/gui/pics/help-about.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
