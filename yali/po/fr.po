@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-27 15:16+0200\n"
+"POT-Creation-Date: 2010-12-27 16:13+0200\n"
 "PO-Revision-Date: 2010-01-09 14:51+0100\n"
 "Last-Translator: Philippe Svetoslavsky <philsvet@gmail.com>\n"
 "Language-Team: French <kde-i18n-doc@kde.org>\n"
@@ -2008,21 +2008,6 @@ msgstr "Une erreur s'est produite lors de l'ajout du dépôt %(repo)s : %(msg)s 
 msgid "Preparing home directory for %s..."
 msgstr "Préparation du dossier personnel de %s..."
 
-#: yali/util.py:133 yali/util.py:164
-#, fuzzy, python-format
-msgid "output for \"%(command)s\" is %(output)s"
-msgstr "La valeur de retour pour \"%(command)s\" est %(return)s "
-
-#: yali/util.py:134 yali/util.py:165
-#, fuzzy, python-format
-msgid "error value for \"%(command)s\" is %(error)s"
-msgstr "La valeur de retour pour \"%(command)s\" est %(return)s "
-
-#: yali/util.py:163
-#, python-format
-msgid "return value for \"%(command)s\" is %(return)s"
-msgstr "La valeur de retour pour \"%(command)s\" est %(return)s "
-
 #: yali/util.py:379
 msgid "YALI log file doesn't exists."
 msgstr "Le fichier journal de YALI n'existe pas."
@@ -2042,6 +2027,17 @@ msgstr "Fichier de sortie inconsistant"
 #: yali/util.py:461 yali/util.py:504
 msgid "Invalid xml file"
 msgstr "Fichier xml Invalide"
+
+#, fuzzy
+#~ msgid "output for \"%(command)s\" is %(output)s"
+#~ msgstr "La valeur de retour pour \"%(command)s\" est %(return)s "
+
+#, fuzzy
+#~ msgid "error value for \"%(command)s\" is %(error)s"
+#~ msgstr "La valeur de retour pour \"%(command)s\" est %(return)s "
+
+#~ msgid "return value for \"%(command)s\" is %(return)s"
+#~ msgstr "La valeur de retour pour \"%(command)s\" est %(return)s "
 
 #~ msgid "Form"
 #~ msgstr "Form"

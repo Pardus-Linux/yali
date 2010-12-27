@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-27 15:16+0200\n"
+"POT-Creation-Date: 2010-12-27 16:13+0200\n"
 "PO-Revision-Date: 2010-11-23 21:25+0100\n"
 "Last-Translator: Stefan Wilhelm <sw AT pardususer DOT de>\n"
 "Language-Team: German <de@li.org>\n"
@@ -2050,21 +2050,6 @@ msgstr "Während Fehler while %(repo)s repo is adding:%(msg)s"
 msgid "Preparing home directory for %s..."
 msgstr "Präpariere home-Verzeichnis für %s..."
 
-#: yali/util.py:133 yali/util.py:164
-#, fuzzy, python-format
-msgid "output for \"%(command)s\" is %(output)s"
-msgstr "Rückgabewert für \"%(command)s\" ist %(return)s"
-
-#: yali/util.py:134 yali/util.py:165
-#, fuzzy, python-format
-msgid "error value for \"%(command)s\" is %(error)s"
-msgstr "Rückgabewert für \"%(command)s\" ist %(return)s"
-
-#: yali/util.py:163
-#, python-format
-msgid "return value for \"%(command)s\" is %(return)s"
-msgstr "Rückgabewert für \"%(command)s\" ist %(return)s"
-
 #: yali/util.py:379
 msgid "YALI log file doesn't exists."
 msgstr "Die Logdatei von YALI existiert nicht."
@@ -2084,6 +2069,17 @@ msgstr "Releasedatei ist widersprüchlich"
 #: yali/util.py:461 yali/util.py:504
 msgid "Invalid xml file"
 msgstr "Ungültige XML-Datei"
+
+#, fuzzy
+#~ msgid "output for \"%(command)s\" is %(output)s"
+#~ msgstr "Rückgabewert für \"%(command)s\" ist %(return)s"
+
+#, fuzzy
+#~ msgid "error value for \"%(command)s\" is %(error)s"
+#~ msgstr "Rückgabewert für \"%(command)s\" ist %(return)s"
+
+#~ msgid "return value for \"%(command)s\" is %(return)s"
+#~ msgstr "Rückgabewert für \"%(command)s\" ist %(return)s"
 
 #~ msgid "Form"
 #~ msgstr "Form"
