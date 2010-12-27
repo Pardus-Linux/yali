@@ -127,8 +127,11 @@ def run_batch(cmd, argv):
     env.update({"LC_ALL": "C"})
     cmd = "%s %s" % (cmd, ' '.join(argv))
     p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, env=env)
-    out, err = p.communicate()
+    out, error = p.communicate()
     ctx.logger.debug('return value for "%(command)s" is %(return)s' % {"command":cmd, "return":p.returncode})
+    if ctx.flags.debug:
+        ctx.logger.debug(_('output for "%(command)s" is %(output)s') % {"command":cmd, "output":output})
+        ctx.logger.debug(_('error value for "%(command)s" is %(error)s') % {"command":cmd, "error":error})
     return (p.returncode, out, err)
 
 
@@ -138,6 +141,8 @@ def run_batch(cmd, argv):
 def run_logged(cmd):
     """Run command and get the return value."""
     ctx.logger.info(_('Running %s') % " ".join(cmd))
+    env = os.environ.copy()
+    env.update({"LC_ALL": "C"})
     if ctx.stdout:
         stdout = ctx.stdout
     else:
@@ -148,14 +153,16 @@ def run_logged(cmd):
     if ctx.stderr:
         stderr = ctx.stderr
     else:
-        if ctx.get_option('debug'):
+        if ctx.flags('debug'):
             stderr = None
         else:
             stderr = subprocess.STDOUT
 
-    p = subprocess.Popen(cmd, shell=True, stdout=stdout, stderr=stderr)
-    out, err = p.communicate()
+    p = subprocess.Popen(cmd, shell=True, stdout=stdout, stderr=stderr, env=env)
+    out, error = p.communicate()
     ctx.logger.debug(_('return value for "%(command)s" is %(return)s') % {"command":cmd, "return":p.returncode})
+    ctx.logger.debug(_('output for "%(command)s" is %(output)s') % {"command":cmd, "output":output})
+    ctx.logger.debug(_('error value for "%(command)s" is %(error)s') % {"command":cmd, "error":error})
 
     return p.returncode
 
