@@ -5,32 +5,30 @@ import os
 import block
 import parted
 import gettext
-
-__trans = gettext.translation('yali', fallback=True)
-_ = __trans.ugettext
+_ = gettext.translation('yali', fallback=True).ugettext
 
 import yali
 import yali.context as ctx
-import formats
-from udev import *
-from operations import *
-from library import lvm
-from library import raid
-from library import devicemapper
-from partitioning import shouldClear, CLEARPART_TYPE_ALL, CLEARPART_TYPE_LINUX, CLEARPART_TYPE_NONE
-from devices.device import DeviceNotFoundError, deviceNameToDiskByPath, devicePathToName
-from devices.nodevice import NoDevice
-from devices.devicemapper import DeviceMapper
-from devices.volumegroup import VolumeGroup
-from devices.dmraidarray import DMRaidArray
-from devices.raidarray import RaidArray
-from devices.logicalvolume import LogicalVolume
-from devices.disk import Disk
-from devices.opticaldevice import OpticalDevice
-from devices.partition import Partition
-from formats.disklabel import InvalidDiskLabelError, DiskLabelCommitError
-from formats.filesystem import FilesystemError
-from formats.raidmember import RaidMember
+from yali.storage.udev import *
+from yali.storage.operations import operation_type_from_string, operation_object_from_string, OperationDestroyDevice, OperationCreateDevice, OperationDestroyFormat, OperationCreateFormat
+from yali.storage.library import lvm
+from yali.storage.library import raid
+from yali.storage.library import devicemapper
+from yali.storage.partitioning import shouldClear, CLEARPART_TYPE_ALL, CLEARPART_TYPE_LINUX, CLEARPART_TYPE_NONE
+from yali.storage.devices.device import DeviceError, DeviceNotFoundError, deviceNameToDiskByPath, devicePathToName
+from yali.storage.devices.nodevice import NoDevice
+from yali.storage.devices.devicemapper import DeviceMapper
+from yali.storage.devices.volumegroup import VolumeGroup
+from yali.storage.devices.dmraidarray import DMRaidArray
+from yali.storage.devices.raidarray import RaidArray
+from yali.storage.devices.logicalvolume import LogicalVolume
+from yali.storage.devices.disk import Disk
+from yali.storage.devices.opticaldevice import OpticalDevice
+from yali.storage.devices.partition import Partition
+from yali.storage import formats
+from yali.storage.formats.disklabel import InvalidDiskLabelError, DiskLabelCommitError
+from yali.storage.formats.filesystem import FilesystemError
+from yali.storage.formats.raidmember import RaidMember
 
 class DeviceTreeError(yali.Error):
     pass
@@ -116,7 +114,7 @@ class DeviceTree(object):
             Raise ValueError if the device's identifier is already in the list.
         """
         if device.path in [d.path for d in self._devices] and \
-           not isinstance(newdev, NoDevice):
+           not isinstance(device, NoDevice):
             raise ValueError("device is already in tree")
 
         # make sure this device's parent devices are in the tree already
@@ -781,7 +779,7 @@ class DeviceTree(object):
         for slave_name in slave_names:
             # if it's a dm-X name, resolve it to a map name
             if slave_name.startswith("dm-"):
-                dev_name = devicemapper.devicemapper.name_from_dm_node(slave_name)
+                dev_name = devicemapper.name_from_dm_node(slave_name)
             else:
                 dev_name = slave_name
             slave_dev = self.getDeviceByName(dev_name)
@@ -872,12 +870,12 @@ class DeviceTree(object):
             device = self.getDeviceByName(name)
 
             if device is None:
-                if udev_device_is_multipath_partition(info, self):
-                    diskname = udev_device_get_multipath_partition_disk(info)
+                if udev_device_is_multipath_partition(info):
+                    diskname = udev_device_get_dm_partition_disk(info)
                     disk = self.getDeviceByName(diskname)
                     return self.addPartition(info, disk=disk)
-                elif udev_device_is_dmraid_partition(info, self):
-                    diskname = udev_device_get_dmraid_partition_disk(info)
+                elif udev_device_is_dmraid_partition(info):
+                    diskname = udev_device_get_dm_partition_disk(info)
                     disk = self.getDeviceByName(diskname)
                     return self.addPartition(info, disk=disk)
 
@@ -1832,10 +1830,6 @@ class DeviceTree(object):
         """ List of all devices upon which no other devices exist. """
         leaves = [d for d in self._devices if d.isleaf]
         return leaves
-
-    def getChildren(self, device):
-        """ Return a list of a device's children. """
-        return [c for c in self._devices if device in c.parents]
 
     @property
     def filesystems(self):

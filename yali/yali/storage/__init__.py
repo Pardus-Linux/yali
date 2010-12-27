@@ -3,16 +3,14 @@
 import sys
 import parted
 import gettext
-
-__trans = gettext.translation('yali', fallback=True)
-_ = __trans.ugettext
+_ = gettext.translation('yali', fallback=True).ugettext
 
 import yali
 import yali.util
-from operations import *
 import yali.context as ctx
-from library import lvm
 from yali.baseudev import udev_trigger
+from yali.storage.library import lvm
+from yali.storage.operations import OperationCreateDevice, OperationCreateFormat, OperationDestroyFormat, OperationDestroyDevice, OperationDestroyFormat, OperationCreateFormat
 from yali.storage.devices.device import Device, DeviceError
 from yali.storage.devices.partition import Partition
 from yali.storage.devices.volumegroup import VolumeGroup
@@ -57,7 +55,7 @@ def complete(storage, intf):
         title = _("Resizing Failed")
         message = _("There was an error encountered while "
                     "resizing the device %s.") % (device,)
-        details = "%s" %(msg,)
+        details = "%s" % (msg,)
         returncode = False
 
     except FilesystemMigrateError as (msg, device):
@@ -85,7 +83,7 @@ def complete(storage, intf):
 class Storage(object):
     def __init__(self, ignoredDisks=[]):
         self._nextID = 0
-        self.ignoredDisks = []
+        self.ignoredDisks = ignoredDisks
         self.exclusiveDisks = []
         self.doAutoPart = False
         self.clearPartType = None
@@ -484,7 +482,7 @@ class Storage(object):
     @property
     def unusedRaidMinors(self):
         """ Return a list of unused minors for use in RAID. """
-        raidMinors = range(0,32)
+        raidMinors = range(0, 32)
         for array in self.raidArrays + self.raidContainers:
             if array.minor is not None and array.minor in raidMinors:
                 raidMinors.remove(array.minor)
@@ -682,7 +680,7 @@ class Storage(object):
         """ Return a reasonable, unused VG name. """
         # try to create a volume group name incorporating the hostname
         hostname = ctx.installData.hostName
-        release=open("/etc/pardus-release").read().split()
+        release = open("/etc/pardus-release").read().split()
         releaseHostName = "".join(release[:2]).lower()
         vgnames = [vg.name for vg in self.vgs]
         if hostname is not None and hostname != '':
@@ -765,7 +763,7 @@ class Storage(object):
         errors = []
 
         mustbeonlinuxfs = ['/', '/var', '/tmp', '/usr', '/home', '/usr/share', '/usr/lib']
-        mustbeonroot = ['/bin','/dev','/sbin','/etc','/lib','/root', '/mnt', 'lost+found', '/proc']
+        mustbeonroot = ['/bin', '/dev', '/sbin', '/etc', '/lib', '/root', '/mnt', 'lost+found', '/proc']
 
         filesystems = self.mountpoints
         root = self.storageset.rootDevice
