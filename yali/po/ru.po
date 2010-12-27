@@ -415,7 +415,7 @@ msgstr "Raid элементы:"
 
 #: yali/gui/Ui/raid.py:99
 msgid "Number of spares:"
-msgstr ""
+msgstr "Кол-во резервных:"
 
 #: yali/gui/Ui/rescuegrubwidget.py:82
 msgid "Select where to install the GRUB bootloader"
@@ -593,6 +593,9 @@ msgid ""
 "\n"
 "Before you login to system, you need to create your first user and set the system wide configurations. "
 msgstr ""
+"Pardus установлен и успешно запущен.. \n"
+"\n"
+"Перед входом в систему, вы должны создать вашего первого пользователя и задать общесистемную конфигурацию. "
 
 #: yali/gui/interface.py:41 yali/gui/interface.py:123
 #: yali/gui/ScrCheckCD.py:94 yali/gui/ScrInstall.py:180
@@ -605,7 +608,7 @@ msgstr "Предупреждение"
 #: yali/gui/interface.py:42
 #, python-format
 msgid "Disk contains %(members_count)s BIOS RAID metadata, but is not part of any recognized BIOS RAID sets. Ignoring disk %(members)s."
-msgstr ""
+msgstr "Диск содержит %(members_count)s BIOS RAID метаданных, но они не являются частью какого-либо известного BIOS RAID набора. Пропуск диска %(members)s."
 
 #: yali/gui/interface.py:66 yali/gui/raid_gui.py:118
 #: yali/gui/ScrDriveSelection.py:112
@@ -710,7 +713,7 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:412
 msgid "Confirm Physical Extent Change"
-msgstr ""
+msgstr "Подтвердить физические изменения"
 
 #: yali/gui/lvm_gui.py:413
 msgid ""
@@ -764,6 +767,8 @@ msgid ""
 "You cannot create more than %d logical volume \n"
 "per volume group."
 msgstr ""
+"Вы не можете создать больше %d логических дисков \n"
+"в дисковой группе."
 
 #: yali/gui/lvm_gui.py:510
 msgid "No free space"
@@ -826,7 +831,7 @@ msgstr "Неверное имя логического диска"
 #: yali/gui/lvm_gui.py:669
 #, python-format
 msgid "The logical volume name \"%s\" is already in use. Please pick another."
-msgstr ""
+msgstr "Имя логического диска \"%s\" уже используется. Пожалуйста, выберите другое имя."
 
 #: yali/gui/lvm_gui.py:683
 msgid "Illegal size"
@@ -834,7 +839,7 @@ msgstr "  "
 
 #: yali/gui/lvm_gui.py:684
 msgid "The requested size as entered is not a valid number greater than 0."
-msgstr ""
+msgstr "Требуемый размер, который вы ввели, не является числом большим 0."
 
 #: yali/gui/lvm_gui.py:697
 #, python-format
