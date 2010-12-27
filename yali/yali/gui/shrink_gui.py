@@ -91,8 +91,14 @@ class ShrinkWidget(QtGui.QWidget, Ui_ShrinkPartitionWidget):
     def updateSpin(self, index):
         request = self.partitions.itemData(index).toPyObject()
         try:
-            requestlower = long(math.ceil(request.format.minSize))
-            requestupper = long(math.floor(request.format.currentSize))
+            requestlower = 1
+            requestupper = request.maxSize
+            if request.format.exists:
+                requestlower = request.minSize
+            if request.type == "partition":
+                geomsize = request.partedPartition.geometry.getSize(unit="MB")
+                if (geomsize != 0) and (requestupper > geomsize):
+                    requestupper = geomsize
         except FilesystemError, msg:
             ctx.logger.error("Shrink Widget update spin gives error:%s" % msg)
         else:

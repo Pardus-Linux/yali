@@ -84,7 +84,7 @@ def fillResizablePartitions(widget, storage):
             continue
 
         if partition.resizable and partition.format.resizable:
-            entry = u"%s (%s, %d MB)" % (partition.name, partition.format.name, math.floor(partition.format.size))
+            entry = u"%s (%s, %d MB)" % (partition.name, partition.format.name, math.floor(partition.size))
             widget.addItem(entry, partition)
 
             i += 1
