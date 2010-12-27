@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form1</string>
+   <string/>
   </property>
   <property name="styleSheet">
    <string notr="true">#groupBox { 
@@ -227,7 +227,7 @@ QListView {
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap resource="../../../../yali-theme-pardus/data.qrc">:/gui/pics/system-users.png</pixmap>
+           <pixmap>:/gui/pics/system-users.png</pixmap>
           </property>
          </widget>
         </item>
@@ -414,7 +414,7 @@ QListView {
                <string/>
               </property>
               <property name="pixmap">
-               <pixmap resource="../../../../yali-theme-pardus/data.qrc">:/gui/pics/arrow-right.png</pixmap>
+               <pixmap>:/gui/pics/arrow-right.png</pixmap>
               </property>
              </widget>
             </item>
@@ -527,7 +527,7 @@ QListView {
                <string/>
               </property>
               <property name="pixmap">
-               <pixmap resource="../../../../yali-theme-pardus/data.qrc">:/gui/pics/arrow-right.png</pixmap>
+               <pixmap>:/gui/pics/arrow-right.png</pixmap>
               </property>
              </widget>
             </item>
@@ -908,7 +908,7 @@ QListView {
                              <string>Add</string>
                             </property>
                             <property name="icon">
-                             <iconset resource="../../../../yali-theme-pardus/data.qrc">
+                             <iconset>
                               <normaloff>:/gui/pics/user-group-new.png</normaloff>:/gui/pics/user-group-new.png</iconset>
                             </property>
                             <property name="popupMode">
@@ -940,7 +940,7 @@ QListView {
                              <string>Edit</string>
                             </property>
                             <property name="icon">
-                             <iconset resource="../../../../yali-theme-pardus/data.qrc">
+                             <iconset>
                               <normaloff>:/gui/pics/user-group-properties.png</normaloff>:/gui/pics/user-group-properties.png</iconset>
                             </property>
                             <property name="toolButtonStyle">
@@ -966,7 +966,7 @@ QListView {
                              <string>Delete</string>
                             </property>
                             <property name="icon">
-                             <iconset resource="../../../../yali-theme-pardus/data.qrc">
+                             <iconset>
                               <normaloff>:/gui/pics/user-group-delete.png</normaloff>:/gui/pics/user-group-delete.png</iconset>
                             </property>
                             <property name="popupMode">
@@ -998,7 +998,7 @@ QListView {
                              <string>Cancel</string>
                             </property>
                             <property name="icon">
-                             <iconset resource="../../../../yali-theme-pardus/data.qrc">
+                             <iconset>
                               <normaloff>:/gui/pics/dialog-cancel.png</normaloff>:/gui/pics/dialog-cancel.png</iconset>
                             </property>
                             <property name="toolButtonStyle">
@@ -1158,7 +1158,7 @@ QListView {
          <string>Advanced</string>
         </property>
         <property name="icon">
-         <iconset resource="../../../../yali-theme-pardus/data.qrc">
+         <iconset>
           <normaloff>:/gui/pics/expand.png</normaloff>:/gui/pics/expand.png</iconset>
         </property>
         <property name="checkable">

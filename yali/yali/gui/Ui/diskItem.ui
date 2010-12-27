@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>142</width>
-    <height>182</height>
+    <height>184</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -27,9 +27,6 @@
     <width>16777215</width>
     <height>16777215</height>
    </size>
-  </property>
-  <property name="windowTitle">
-   <string>Form</string>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
@@ -76,7 +73,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="../../data.qrc">:/gui/pics/drive-removable-media-usb-big.png</pixmap>
+        <pixmap>:/gui/pics/drive-removable-media-usb-big.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -112,7 +109,7 @@
       <string notr="true">padding-top: 10px</string>
      </property>
      <property name="text">
-      <string>TextLabel</string>
+      <string/>
      </property>
      <property name="alignment">
       <set>Qt::AlignHCenter|Qt::AlignTop</set>
@@ -145,7 +142,7 @@
       </font>
      </property>
      <property name="text">
-      <string>TextLabel</string>
+      <string/>
      </property>
      <property name="alignment">
       <set>Qt::AlignHCenter|Qt::AlignTop</set>

@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form1</string>
+   <string/>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
@@ -38,7 +38,7 @@
      <item>
       <widget class="QLabel" name="label">
        <property name="text">
-           <string>&lt;b&gt;Connection status:&lt;/b&gt;</string>
+        <string>&lt;b&gt;Connection status:&lt;/b&gt;</string>
        </property>
       </widget>
      </item>

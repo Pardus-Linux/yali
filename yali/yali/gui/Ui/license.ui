@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form1</string>
+   <string/>
   </property>
   <layout class="QGridLayout">
    <property name="margin">
@@ -67,7 +67,7 @@
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap resource="../../../../yali-theme-pardus/data.qrc">:/gui/pics/welcome.png</pixmap>
+           <pixmap>:/gui/pics/welcome.png</pixmap>
           </property>
           <property name="scaledContents">
            <bool>true</bool>

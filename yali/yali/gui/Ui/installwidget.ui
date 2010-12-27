@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form3</string>
+   <string/>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <property name="margin">
@@ -164,7 +164,7 @@ border:0px;
            </size>
           </property>
           <property name="text">
-           <string>TextLabel</string>
+           <string/>
           </property>
           <property name="wordWrap">
            <bool>true</bool>
