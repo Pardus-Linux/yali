@@ -114,7 +114,8 @@ def fillMountpointMenu(widget, request, excludes=[]):
 
     if (request.format.type or request.format.migrate) and \
             request.format.mountable and request.format.mountpoint:
-        mountpoints.append(request.format.mountpoint)
+        if request.format.mountpoint not in mountpoints:
+            mountpoints.append(request.format.mountpoint)
 
     map(widget.addItem, mountpoints)
 
@@ -123,8 +124,6 @@ def fillMountpointMenu(widget, request, excludes=[]):
         if mountpoint:
             if mountpoint in mountpoints:
                widget.setCurrentIndex(widget.findText(mountpoint))
-            else:
-                widget.insertItem(0, mountpoint)
     else:
         widget.setCurrentIndex(0)
         widget.setEnabled(False)
