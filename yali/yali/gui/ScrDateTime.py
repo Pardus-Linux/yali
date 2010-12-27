@@ -67,7 +67,7 @@ class Widget(QWidget, ScreenWidget):
         self.ui.calendarWidget.setDate(QDate.currentDate())
 
         self.pthread = None
-        self.pds_messagebox = PMessageBox(ctx.mainScreen)
+        self.pds_messagebox = PMessageBox(self)
         self.pds_messagebox.enableOverlay()
 
         self.timer.start(1000)
@@ -94,7 +94,10 @@ class Widget(QWidget, ScreenWidget):
         self.timer.start(1000)
 
         if ctx.flags.install_type == ctx.STEP_BASE:
-            self.pthread = PThread(self, self.startInit, self.initFinished)
+            self.pthread = PThread(self, self.startInit, self.dummy)
+
+    def dummy(self):
+        pass
 
     def setTime(self):
         ctx.interface.informationWindow.update(_("Adjusting time settings"))
@@ -134,17 +137,21 @@ class Widget(QWidget, ScreenWidget):
                     ctx.mainScreen.step_increment = 1
                 return True
             else:
-                self.pds_messagebox.busy.busy()
                 self.pds_messagebox.setMessage(_("Storage Devices initialising..."))
                 self.pds_messagebox.animate(start=MIDCENTER, stop=MIDCENTER)
                 ctx.mainScreen.step_increment = 0
                 self.pthread.start()
+                QTimer.singleShot(2, self.startStorageInitialize)
                 return False
 
         return True
 
     def startInit(self):
+        self.pds_messagebox.animate(start=MIDCENTER, stop=MIDCENTER)
+
+    def startStorageInitialize(self):
         ctx.storageInitialized = yali.storage.initialize(ctx.storage, ctx.interface)
+        self.initFinished()
 
     def initFinished(self):
         self.pds_messagebox.animate(start=CURRENT, stop=CURRENT, direction=OUT)

@@ -14,7 +14,7 @@ import gettext
 
 _ = gettext.translation('yali', fallback=True).ugettext
 
-from PyQt4.Qt import QWidget, SIGNAL, QLineEdit
+from PyQt4.Qt import QWidget, SIGNAL, QLineEdit, QTimer
 from pds.thread import PThread
 from pds.gui import PMessageBox, MIDCENTER, CURRENT, OUT
 
@@ -38,7 +38,7 @@ class Widget(QWidget, ScreenWidget):
         self.pass_valid = False
 
         self.pthread = None
-        self.pds_messagebox = PMessageBox(ctx.mainScreen)
+        self.pds_messagebox = PMessageBox(self)
         self.pds_messagebox.enableOverlay()
 
         self.connect(self.ui.pass1, SIGNAL("textChanged(const QString &)"),
@@ -74,7 +74,10 @@ class Widget(QWidget, ScreenWidget):
         self.ui.pass1.setFocus()
 
         if ctx.flags.install_type == ctx.STEP_DEFAULT:
-            self.pthread = PThread(self, self.startInit, self.initFinished)
+            self.pthread = PThread(self, self.startInit, self.dummy)
+
+    def dummy(self):
+        pass
 
     def execute(self):
         ctx.installData.rootPassword = unicode(self.ui.pass1.text())
@@ -90,17 +93,21 @@ class Widget(QWidget, ScreenWidget):
                 else:
                     ctx.mainScreen.step_increment = 1
             else:
-                self.pds_messagebox.busy.busy()
                 self.pds_messagebox.setMessage(_("Storage Devices initialising..."))
                 self.pds_messagebox.animate(start=MIDCENTER, stop=MIDCENTER)
                 ctx.mainScreen.step_increment = 0
                 self.pthread.start()
+                QTimer.singleShot(2, self.startStorageInitialize)
                 return False
 
         return True
 
     def startInit(self):
+        self.pds_messagebox.animate(start=MIDCENTER, stop=MIDCENTER)
+
+    def startStorageInitialize(self):
         ctx.storageInitialized = yali.storage.initialize(ctx.storage, ctx.interface)
+        self.initFinished()
 
     def initFinished(self):
         self.pds_messagebox.animate(start=CURRENT, stop=CURRENT, direction=OUT)
