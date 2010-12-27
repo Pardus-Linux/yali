@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yali\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-24 15:08+0200\n"
+"POT-Creation-Date: 2010-12-27 15:16+0200\n"
 "PO-Revision-Date: 2007-03-18 14:13+0100\n"
 "Last-Translator: Pau Amaro-Seoane <pau@aei.mpg.de>\n"
 "Language-Team: Catala <pardus-translation-ca@ns1.uludag.org.tr>\n"
@@ -16,21 +16,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-
-#: yali/gui/Ui/autoinstallationwidget.py:74 yali/gui/Ui/autopartquestion.py:82
-#: yali/gui/Ui/autopartwidget.py:136 yali/gui/Ui/bg.py:36
-#: yali/gui/Ui/connectionlist.py:74 yali/gui/Ui/createdevicewidget.py:133
-#: yali/gui/Ui/datetimewidget.py:171 yali/gui/Ui/diskItem.py:92
-#: yali/gui/Ui/driveselectionwidget.py:125 yali/gui/Ui/exception.py:62
-#: yali/gui/Ui/goodbyewidget.py:103 yali/gui/Ui/help.py:56
-#: yali/gui/Ui/installprogress.py:60 yali/gui/Ui/logicalvolume.py:133
-#: yali/gui/Ui/manualpartwidget.py:131 yali/gui/Ui/partedit.py:171
-#: yali/gui/Ui/partition.py:137 yali/gui/Ui/partitionshrink.py:62
-#: yali/gui/Ui/raid.py:94 yali/gui/Ui/summarywidget.py:113
-#: yali/gui/Ui/volumegroup.py:95
-#, fuzzy
-msgid "Form"
-msgstr "Format?"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 #, fuzzy
@@ -56,27 +41,27 @@ msgstr "Esborra l'usuari sel·leccionat"
 msgid "PAE Kernel"
 msgstr ""
 
-#: yali/gui/Ui/autopartquestion.py:83
+#: yali/gui/Ui/autopartquestion.py:82
 msgid ""
 "There appears to be more than one resizeable partition. You can select a "
 "partition from the list below or YALI will select one for you."
 msgstr ""
 
-#: yali/gui/Ui/autopartquestion.py:84 yali/gui/Ui/connectionlist.py:76
+#: yali/gui/Ui/autopartquestion.py:83 yali/gui/Ui/connectionlist.py:76
 #: yali/gui/Ui/dialog.py:65
 msgid "X"
 msgstr ""
 
-#: yali/gui/Ui/autopartquestion.py:85
+#: yali/gui/Ui/autopartquestion.py:84
 #, fuzzy
 msgid "Automatically choose the partition to resize (recommended)"
 msgstr "Sí, fés una partició automàtica i formata el disc sel·leccionat!"
 
-#: yali/gui/Ui/autopartquestion.py:86
+#: yali/gui/Ui/autopartquestion.py:85
 msgid "I will choose the target"
 msgstr ""
 
-#: yali/gui/Ui/autopartquestion.py:87
+#: yali/gui/Ui/autopartquestion.py:86
 #, fuzzy
 msgid "Use Selected"
 msgstr "Esborra l'usuari sel·leccionat"
@@ -100,36 +85,26 @@ msgstr "espai lliure"
 msgid "Create Custom Layout"
 msgstr "Comprova el teclat triat:"
 
-#: yali/gui/Ui/bootloaderwidget.py:128 yali/gui/Ui/checkcdwidget.py:197
-#: yali/gui/Ui/keyboardwidget.py:127 yali/gui/Ui/kickerwidget.py:30
-#: yali/gui/Ui/license.py:103 yali/gui/Ui/rescuegrubwidget.py:81
-#: yali/gui/Ui/rescuepasswordwidget.py:109 yali/gui/Ui/rescuepisiwidget.py:72
-#: yali/gui/Ui/rescuewidget.py:92 yali/gui/Ui/rootpasswidget.py:128
-#: yali/gui/Ui/setupuserswidget.py:488 yali/gui/Ui/welcome.py:84
-#, fuzzy
-msgid "Form1"
-msgstr "Format?"
-
-#: yali/gui/Ui/bootloaderwidget.py:129
+#: yali/gui/Ui/bootloaderwidget.py:128
 #, fuzzy
 msgid "Advanced settings"
 msgstr "Nom de l'ordinador:"
 
-#: yali/gui/Ui/bootloaderwidget.py:130
+#: yali/gui/Ui/bootloaderwidget.py:129
 #, fuzzy
 msgid "Default settings"
 msgstr "Nom de l'ordinador:"
 
-#: yali/gui/Ui/bootloaderwidget.py:131
+#: yali/gui/Ui/bootloaderwidget.py:130
 msgid "Don't install bootloader"
 msgstr "No instal·les el carregador de l'engegada"
 
-#: yali/gui/Ui/bootloaderwidget.py:132
+#: yali/gui/Ui/bootloaderwidget.py:131
 #, fuzzy
 msgid "The partition where Pardus is installed"
 msgstr "Instal·la en la partició arrel"
 
-#: yali/gui/Ui/bootloaderwidget.py:133
+#: yali/gui/Ui/bootloaderwidget.py:132
 msgid "The first sector of"
 msgstr ""
 
@@ -232,47 +207,33 @@ msgstr ""
 msgid "Timezone"
 msgstr ""
 
-#: yali/gui/Ui/diskItem.py:93 yali/gui/Ui/diskItem.py:94
-#: yali/gui/Ui/installwidget.py:117
-msgid "TextLabel"
-msgstr ""
-
 #: yali/gui/Ui/exception.py:63
-msgid "font:bold;"
-msgstr ""
-
-#: yali/gui/Ui/exception.py:64
 #, fuzzy
 msgid "Unhandled exception occured"
 msgstr "Hi ha hagut un error!"
 
-#: yali/gui/Ui/exception.py:65
+#: yali/gui/Ui/exception.py:64
 msgid ""
 "Please fill a bug report at http://bugs.pardus.org.tr/ attaching the "
 "following backtrace."
 msgstr ""
+
+#: yali/gui/Ui/exception.py:65 yali/gui/ScrCheckCD.py:99
+msgid "Reboot"
+msgstr "Reengega"
 
 #: yali/gui/Ui/exception.py:66
 #, fuzzy
 msgid "Show Backtrace"
 msgstr "Traçament d'errors:"
 
-#: yali/gui/Ui/exception.py:67 yali/gui/ScrCheckCD.py:99
-msgid "Reboot"
-msgstr "Reengega"
-
-#: yali/gui/Ui/help.py:57
+#: yali/gui/Ui/help.py:56
 msgid "help content"
 msgstr ""
 
-#: yali/gui/Ui/installprogress.py:61
+#: yali/gui/Ui/installprogress.py:60
 msgid "Installing Package: "
 msgstr "S'està efectuant la instal·lació del paquet:"
-
-#: yali/gui/Ui/installwidget.py:116
-#, fuzzy
-msgid "Form3"
-msgstr "Format?"
 
 #: yali/gui/Ui/keyboardwidget.py:128
 #, fuzzy
@@ -296,192 +257,173 @@ msgstr ""
 msgid "I understand and accept the terms"
 msgstr ""
 
-#: yali/gui/Ui/logicalvolume.py:134
+#: yali/gui/Ui/logicalvolume.py:131
 msgid "Logical Volume:"
 msgstr ""
 
-#: yali/gui/Ui/logicalvolume.py:135 yali/gui/Ui/partedit.py:172
+#: yali/gui/Ui/logicalvolume.py:132 yali/gui/Ui/partedit.py:171
 #: yali/gui/Ui/partitionedit.py:136
 #, fuzzy
 msgid "Use :"
 msgstr "Usuaris:"
 
-#: yali/gui/Ui/logicalvolume.py:136 yali/gui/Ui/partedit.py:173
-#: yali/gui/Ui/partitionedit.py:137 yali/gui/Ui/partition.py:139
+#: yali/gui/Ui/logicalvolume.py:133 yali/gui/Ui/partedit.py:172
+#: yali/gui/Ui/partitionedit.py:137 yali/gui/Ui/partition.py:138
 #, fuzzy
 msgid "Size :"
 msgstr "Grandària (MB):"
 
-#: yali/gui/Ui/logicalvolume.py:137 yali/gui/Ui/logicalvolume.py:139
-#: yali/gui/Ui/partedit.py:174 yali/gui/Ui/partitionedit.py:138
-#: yali/gui/Ui/partition.py:140 yali/gui/Ui/partition.py:142
+#: yali/gui/Ui/logicalvolume.py:134 yali/gui/Ui/logicalvolume.py:136
+#: yali/gui/Ui/partedit.py:173 yali/gui/Ui/partitionedit.py:138
+#: yali/gui/Ui/partition.py:139 yali/gui/Ui/partition.py:141
 #: yali/gui/Ui/partitionshrinkwidget.py:92 yali/gui/Ui/partresize.py:93
 msgid " MB"
 msgstr ""
 
-#: yali/gui/Ui/logicalvolume.py:138 yali/gui/Ui/partition.py:141
+#: yali/gui/Ui/logicalvolume.py:135 yali/gui/Ui/partition.py:140
 #: yali/gui/Ui/partresize.py:95
 #, fuzzy
 msgid "Resize"
 msgstr "Modifica la grandària"
 
-#: yali/gui/Ui/logicalvolume.py:140 yali/gui/Ui/partedit.py:177
-#: yali/gui/Ui/partitionedit.py:139 yali/gui/Ui/partition.py:145
+#: yali/gui/Ui/logicalvolume.py:137 yali/gui/Ui/partedit.py:176
+#: yali/gui/Ui/partitionedit.py:139 yali/gui/Ui/partition.py:144
 #, fuzzy
 msgid "File System :"
 msgstr "Sistema de fitxers"
 
-#: yali/gui/Ui/logicalvolume.py:141 yali/gui/Ui/manualpartwidget.py:137
-#: yali/gui/Ui/partition.py:143 yali/gui/Ui/raid.py:98
+#: yali/gui/Ui/logicalvolume.py:138 yali/gui/Ui/manualpartwidget.py:136
+#: yali/gui/Ui/partition.py:142 yali/gui/Ui/raid.py:95
 #: yali/gui/ScrPartitionManual.py:129
 #, fuzzy
 msgid "Format"
 msgstr "Format?"
 
-#: yali/gui/Ui/logicalvolume.py:142 yali/gui/Ui/partition.py:144
-#: yali/gui/Ui/raid.py:99
+#: yali/gui/Ui/logicalvolume.py:139 yali/gui/Ui/partition.py:143
+#: yali/gui/Ui/raid.py:96
 msgid "Migrate"
 msgstr ""
 
-#: yali/gui/Ui/main.py:244
+#: yali/gui/Ui/main.py:246
 msgid "Yali"
 msgstr ""
 
-#: yali/gui/Ui/main.py:245
-msgid "..."
-msgstr ""
-
-#: yali/gui/Ui/main.py:246 yali/gui/YaliWindow.py:393
+#: yali/gui/Ui/main.py:247 yali/gui/YaliWindow.py:393
 msgid "Release Notes"
 msgstr "Notes de la versió"
 
-#: yali/gui/Ui/main.py:247
+#: yali/gui/Ui/main.py:248
 msgid "Previous Screen"
 msgstr ""
 
-#: yali/gui/Ui/main.py:248
+#: yali/gui/Ui/main.py:249
 msgid "Back"
 msgstr ""
 
-#: yali/gui/Ui/main.py:249
+#: yali/gui/Ui/main.py:250
 msgid "Next Screen"
 msgstr ""
 
-#: yali/gui/Ui/main.py:250 yali/gui/ScrSummary.py:59
+#: yali/gui/Ui/main.py:251 yali/gui/ScrSummary.py:59
 #: yali/gui/ScrSummary.py:220 yali/gui/ScrSummary.py:227
 msgid "Next"
 msgstr ""
 
-#: yali/gui/Ui/main.py:251
-#, fuzzy
-msgid "Screen Name"
-msgstr "Nom de l'usuari:"
-
-#: yali/gui/Ui/manualpartwidget.py:133
+#: yali/gui/Ui/manualpartwidget.py:132
 #, fuzzy
 msgid "Device"
 msgstr "Perifèric"
 
-#: yali/gui/Ui/manualpartwidget.py:134
+#: yali/gui/Ui/manualpartwidget.py:133
 msgid "Mount Point"
 msgstr ""
 
-#: yali/gui/Ui/manualpartwidget.py:135
+#: yali/gui/Ui/manualpartwidget.py:134
 msgid "Label"
 msgstr ""
 
-#: yali/gui/Ui/manualpartwidget.py:136
+#: yali/gui/Ui/manualpartwidget.py:135
 msgid "Type"
 msgstr ""
 
-#: yali/gui/Ui/manualpartwidget.py:138 yali/gui/Ui/volumegroup.py:103
+#: yali/gui/Ui/manualpartwidget.py:137 yali/gui/Ui/volumegroup.py:103
 #, fuzzy
 msgid "Size"
 msgstr "Grandària (MB):"
 
-#: yali/gui/Ui/manualpartwidget.py:139
+#: yali/gui/Ui/manualpartwidget.py:138
 #, fuzzy
 msgid "Create"
 msgstr "Crea un usuari"
 
-#: yali/gui/Ui/manualpartwidget.py:140 yali/gui/Ui/setupuserswidget.py:499
+#: yali/gui/Ui/manualpartwidget.py:139 yali/gui/Ui/setupuserswidget.py:499
 #: yali/gui/Ui/volumegroup.py:105
 msgid "Edit"
 msgstr "Edita"
 
-#: yali/gui/Ui/manualpartwidget.py:141 yali/gui/Ui/setupuserswidget.py:500
+#: yali/gui/Ui/manualpartwidget.py:140 yali/gui/Ui/setupuserswidget.py:500
 #: yali/gui/Ui/volumegroup.py:106 yali/gui/lvm_gui.py:551
 msgid "Delete"
 msgstr ""
 
-#: yali/gui/Ui/manualpartwidget.py:142
+#: yali/gui/Ui/manualpartwidget.py:141
 msgid "Reset"
 msgstr ""
 
-#: yali/gui/Ui/partedit.py:175
+#: yali/gui/Ui/partedit.py:174
 #, fuzzy
 msgid "Format :"
 msgstr "Format?"
 
-#: yali/gui/Ui/partedit.py:176
+#: yali/gui/Ui/partedit.py:175
 #, fuzzy
 msgid "Yes, format this partition"
 msgstr "Formata aquesta partició"
 
-#: yali/gui/Ui/partedit.py:178
+#: yali/gui/Ui/partedit.py:177
 msgid "Delete Partition"
 msgstr "Esborra una partició"
 
-#: yali/gui/Ui/partedit.py:179
+#: yali/gui/Ui/partedit.py:178
 msgid "Resize Partition"
 msgstr "Redimensiona una partició"
 
-#: yali/gui/Ui/partedit.py:180
+#: yali/gui/Ui/partedit.py:179
 msgid "Changes will be applied after Summary Screen."
 msgstr ""
 
-#: yali/gui/Ui/partedit.py:181
+#: yali/gui/Ui/partedit.py:180
 msgid "Refresh Disks"
 msgstr ""
 
-#: yali/gui/Ui/partedit.py:182
+#: yali/gui/Ui/partedit.py:181
 msgid "Reset All Changes"
 msgstr "Desfés tots els canvis"
 
-#: yali/gui/Ui/partedit.py:183
+#: yali/gui/Ui/partedit.py:182
 msgid "Apply"
 msgstr "Fés-ho"
-
-#: yali/gui/Ui/partitionedit.py:134
-#, fuzzy
-msgid "Partition Action"
-msgstr "Particions:"
-
-#: yali/gui/Ui/partitionedit.py:135
-msgid "Partition 1 on FUJISTU - /dev/sda1"
-msgstr ""
 
 #: yali/gui/Ui/partitionedit.py:140
 #, fuzzy
 msgid "Force to be primary partition"
 msgstr "Formata aquesta partició"
 
-#: yali/gui/Ui/partition.py:138
-#, fuzzy
-msgid "Use as:"
-msgstr "Usuaris:"
+#: yali/gui/Ui/partition.py:137 yali/gui/Ui/raid.py:93
+msgid "Use:"
+msgstr ""
 
-#: yali/gui/Ui/partition.py:146
+#: yali/gui/Ui/partition.py:145
 #, fuzzy
 msgid "Force to be a primary partition"
 msgstr "Formata aquesta partició"
 
-#: yali/gui/Ui/partitionshrink.py:63 yali/gui/Ui/partitionshrinkwidget.py:90
+#: yali/gui/Ui/partitionshrink.py:62 yali/gui/Ui/partitionshrinkwidget.py:90
 msgid ""
 "Which partition would you like to shrink to make room for your installation?"
 msgstr ""
 
-#: yali/gui/Ui/partitionshrink.py:64
+#: yali/gui/Ui/partitionshrink.py:63
 msgid "Shrink partition to size (in MB)"
 msgstr ""
 
@@ -511,31 +453,27 @@ msgid ""
 "this operation cannot be undone.<b>"
 msgstr ""
 
-#: yali/gui/Ui/raid.py:95
+#: yali/gui/Ui/raid.py:92
 #, fuzzy
 msgid "Raid Device:"
 msgstr "Perifèric"
 
-#: yali/gui/Ui/raid.py:96
-msgid "Use:"
-msgstr ""
-
-#: yali/gui/Ui/raid.py:97
+#: yali/gui/Ui/raid.py:94
 #, fuzzy
 msgid "Filesystem:"
 msgstr "Sistema de fitxers"
 
-#: yali/gui/Ui/raid.py:100
+#: yali/gui/Ui/raid.py:97
 #, fuzzy
 msgid "Raid Level:"
 msgstr "Perifèric"
 
-#: yali/gui/Ui/raid.py:101
+#: yali/gui/Ui/raid.py:98
 #, fuzzy
 msgid "Raid Members:"
 msgstr "Perifèric"
 
-#: yali/gui/Ui/raid.py:102
+#: yali/gui/Ui/raid.py:99
 msgid "Number of spares:"
 msgstr ""
 
@@ -559,32 +497,24 @@ msgstr "Instal·la en la partició arrel"
 msgid "Selected disk below"
 msgstr ""
 
-#: yali/gui/Ui/rescuepasswordwidget.py:110
+#: yali/gui/Ui/rescuepasswordwidget.py:114
 msgid "Choose the user you want to reset the password:"
 msgstr ""
 
-#: yali/gui/Ui/rescuepasswordwidget.py:111
+#: yali/gui/Ui/rescuepasswordwidget.py:115
 #, fuzzy
 msgid "New password:"
 msgstr "Mot de pas:"
 
-#: yali/gui/Ui/rescuepasswordwidget.py:112
+#: yali/gui/Ui/rescuepasswordwidget.py:116
 #, fuzzy
 msgid "New password (Again):"
 msgstr "Mot de pas (una altra vegada);"
 
-#: yali/gui/Ui/rescuepasswordwidget.py:113
+#: yali/gui/Ui/rescuepasswordwidget.py:117
 #, fuzzy
 msgid "Reset Password"
 msgstr "Mot de pas:"
-
-#: yali/gui/Ui/rescuepasswordwidget.py:114
-msgid ""
-"border:1px solid white;\n"
-"border-radius:6px;\n"
-"background-color:white;\n"
-"color:#5A2847;"
-msgstr ""
 
 #: yali/gui/Ui/rescuepisiwidget.py:73
 #, fuzzy
@@ -611,25 +541,25 @@ msgstr "La comprovació ha fallat"
 msgid "Select the operation to undo:"
 msgstr "Instal·la en la partició arrel"
 
-#: yali/gui/Ui/rescuewidget.py:93
+#: yali/gui/Ui/rescuewidget.py:92
 msgid "Choose what do you want to do to repair your system:"
 msgstr ""
 
-#: yali/gui/Ui/rescuewidget.py:94
+#: yali/gui/Ui/rescuewidget.py:93
 #, fuzzy
 msgid "Reinstall GRUB bootloader"
 msgstr "No instal·les el carregador de l'engegada"
 
-#: yali/gui/Ui/rescuewidget.py:95
+#: yali/gui/Ui/rescuewidget.py:94
 msgid "Return back to a previous system state"
 msgstr ""
 
-#: yali/gui/Ui/rescuewidget.py:96
+#: yali/gui/Ui/rescuewidget.py:95
 #, fuzzy
 msgid "Reset forgotten password"
 msgstr "Mot de pas:"
 
-#: yali/gui/Ui/rescuewidget.py:97 yali/gui/ScrGoodbye.py:53
+#: yali/gui/Ui/rescuewidget.py:96 yali/gui/ScrGoodbye.py:53
 #: yali/gui/ScrRescueFinish.py:78 yali/gui/ScrSummary.py:46
 msgid "Restart"
 msgstr ""
@@ -700,13 +630,13 @@ msgstr ""
 msgid "Advanced"
 msgstr "Nom de l'ordinador:"
 
-#: yali/gui/Ui/summarywidget.py:114
+#: yali/gui/Ui/summarywidget.py:113
 msgid ""
 "When checked, YALI will install all of the officially supported language "
 "packages on your system."
 msgstr ""
 
-#: yali/gui/Ui/summarywidget.py:115
+#: yali/gui/Ui/summarywidget.py:114
 #, fuzzy
 msgid "Install all language packages"
 msgstr "S'està efectuant la instal·lació del paquet:"
@@ -805,10 +735,11 @@ msgstr ""
 #, python-format
 msgid ""
 "Error processing LVM.\n"
-"There is inconsistent LVM data on %(msg)s.  You can reinitialize all related "
-"PVs (%(pvs)s) which will erase the LVM metadata, or ignore which will "
-"preserve the contents.  This action may also be applied to all other PVs "
-"with inconsistent metadata."
+"There is inconsistent LVM data on %(msg)s. You\n"
+"can reinitialize all related PVs (%(pvs)s) which will\n"
+"erase the LVM metadata, or ignore which will preserve the\n"
+"contents.  This action may also be applied to all other PVs with\n"
+"inconsistent metadata."
 msgstr ""
 
 #: yali/gui/interface.py:130
@@ -1089,34 +1020,34 @@ msgstr ""
 msgid "Retry"
 msgstr ""
 
-#: yali/gui/ScrAdmin.py:94 yali/gui/ScrDateTime.py:138
+#: yali/gui/ScrAdmin.py:96 yali/gui/ScrDateTime.py:140
 msgid "Storage Devices initialising..."
 msgstr ""
 
-#: yali/gui/ScrAdmin.py:147 yali/gui/ScrRescuePassword.py:96
+#: yali/gui/ScrAdmin.py:154 yali/gui/ScrRescuePassword.py:96
 #, fuzzy
 msgid "Password is too short."
 msgstr "<font color=\"#FF6D19\">Els mots de pas no coinideixen!</font>"
 
-#: yali/gui/ScrAdmin.py:155
+#: yali/gui/ScrAdmin.py:162
 #, fuzzy
 msgid "Passwords do not match."
 msgstr "<font color=\"#FF6D19\">Els mots de pas no coinideixen!</font>"
 
-#: yali/gui/ScrAdmin.py:160
+#: yali/gui/ScrAdmin.py:167
 #, fuzzy
 msgid "Do not use your username as your password."
 msgstr ""
 "<font color=\"#FF6D19\">Preparació del teu disc per a la instal·lació!</font>"
 
-#: yali/gui/ScrAdmin.py:170
+#: yali/gui/ScrAdmin.py:177
 #, fuzzy
 msgid "Hostname cannot be longer than 64 characters."
 msgstr ""
 "<font color=\"#FF6D19\">Ho sent. El nom que has triat per a l'usuari conté "
 "caràcters no vàlids.</font>"
 
-#: yali/gui/ScrAdmin.py:183
+#: yali/gui/ScrAdmin.py:190
 #, fuzzy
 msgid "Hostname contains invalid characters."
 msgstr ""
@@ -1157,7 +1088,7 @@ msgstr ""
 "<font color=\"#257216\">La comprovació ha eixit bé. Pots continuar en la "
 "pròxima pantalla.</font>"
 
-#: yali/gui/ScrDateTime.py:100
+#: yali/gui/ScrDateTime.py:103
 #, fuzzy
 msgid "Adjusting time settings"
 msgstr "Nom de l'ordinador:"
@@ -2071,36 +2002,65 @@ msgstr ""
 msgid "Preparing home directory for %s..."
 msgstr ""
 
-#: yali/util.py:140
+#: yali/util.py:133 yali/util.py:164
 #, python-format
-msgid "Running %s"
+msgid "output for \"%(command)s\" is %(output)s"
 msgstr ""
 
-#: yali/util.py:158
+#: yali/util.py:134 yali/util.py:165
+#, python-format
+msgid "error value for \"%(command)s\" is %(error)s"
+msgstr ""
+
+#: yali/util.py:163
 #, python-format
 msgid "return value for \"%(command)s\" is %(return)s"
 msgstr ""
 
-#: yali/util.py:372
+#: yali/util.py:379
 #, fuzzy
 msgid "YALI log file doesn't exists."
 msgstr "Notes de la versió"
 
-#: yali/util.py:374
+#: yali/util.py:381
 msgid "File paths are the same."
 msgstr ""
 
-#: yali/util.py:449 yali/util.py:492
+#: yali/util.py:456 yali/util.py:499
 msgid "Release file is missing"
 msgstr ""
 
-#: yali/util.py:451 yali/util.py:494
+#: yali/util.py:458 yali/util.py:501
 msgid "Release file is inconsistent"
 msgstr ""
 
-#: yali/util.py:454 yali/util.py:497
+#: yali/util.py:461 yali/util.py:504
 msgid "Invalid xml file"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Form"
+#~ msgstr "Format?"
+
+#, fuzzy
+#~ msgid "Form1"
+#~ msgstr "Format?"
+
+#, fuzzy
+#~ msgid "Form3"
+#~ msgstr "Format?"
+
+#, fuzzy
+#~ msgid "Screen Name"
+#~ msgstr "Nom de l'usuari:"
+
+#, fuzzy
+#~ msgid "Partition Action"
+#~ msgstr "Particions:"
+
+#, fuzzy
+#~ msgid "Use as:"
+#~ msgstr "Usuaris:"
 
 #, fuzzy
 #~ msgid "Don't use invalid characters"

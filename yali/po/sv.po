@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sv\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-24 15:08+0200\n"
+"POT-Creation-Date: 2010-12-27 15:16+0200\n"
 "PO-Revision-Date: 2010-12-17 20:05+0100\n"
 "Last-Translator: Patrik Karlsson <patrik@trixon.se>\n"
 "Language-Team: Swedish <pardus-translators@pardus.org.tr>\n"
@@ -17,20 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.0\n"
-
-#: yali/gui/Ui/autoinstallationwidget.py:74 yali/gui/Ui/autopartquestion.py:82
-#: yali/gui/Ui/autopartwidget.py:136 yali/gui/Ui/bg.py:36
-#: yali/gui/Ui/connectionlist.py:74 yali/gui/Ui/createdevicewidget.py:133
-#: yali/gui/Ui/datetimewidget.py:171 yali/gui/Ui/diskItem.py:92
-#: yali/gui/Ui/driveselectionwidget.py:125 yali/gui/Ui/exception.py:62
-#: yali/gui/Ui/goodbyewidget.py:103 yali/gui/Ui/help.py:56
-#: yali/gui/Ui/installprogress.py:60 yali/gui/Ui/logicalvolume.py:133
-#: yali/gui/Ui/manualpartwidget.py:131 yali/gui/Ui/partedit.py:171
-#: yali/gui/Ui/partition.py:137 yali/gui/Ui/partitionshrink.py:62
-#: yali/gui/Ui/raid.py:94 yali/gui/Ui/summarywidget.py:113
-#: yali/gui/Ui/volumegroup.py:95
-msgid "Form"
-msgstr "Form"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 msgid "Choose Installation Method"
@@ -52,7 +38,7 @@ msgstr "Förvald kärna"
 msgid "PAE Kernel"
 msgstr "PAE-kärna"
 
-#: yali/gui/Ui/autopartquestion.py:83
+#: yali/gui/Ui/autopartquestion.py:82
 msgid ""
 "There appears to be more than one resizeable partition. You can select a "
 "partition from the list below or YALI will select one for you."
@@ -60,20 +46,20 @@ msgstr ""
 "Det verkar som om det finns fler än en partition för storleksändring. Välj "
 "någon partition ur listan eller låt YALI välja åt dig."
 
-#: yali/gui/Ui/autopartquestion.py:84 yali/gui/Ui/connectionlist.py:76
+#: yali/gui/Ui/autopartquestion.py:83 yali/gui/Ui/connectionlist.py:76
 #: yali/gui/Ui/dialog.py:65
 msgid "X"
 msgstr "X"
 
-#: yali/gui/Ui/autopartquestion.py:85
+#: yali/gui/Ui/autopartquestion.py:84
 msgid "Automatically choose the partition to resize (recommended)"
 msgstr "Välj automatiskt partition för storleksändring (rekommenderas)"
 
-#: yali/gui/Ui/autopartquestion.py:86
+#: yali/gui/Ui/autopartquestion.py:85
 msgid "I will choose the target"
 msgstr "Jag väljer mål"
 
-#: yali/gui/Ui/autopartquestion.py:87
+#: yali/gui/Ui/autopartquestion.py:86
 msgid "Use Selected"
 msgstr "Använd vald"
 
@@ -94,32 +80,23 @@ msgstr "Använd ledigt utrymme"
 msgid "Create Custom Layout"
 msgstr "Testa tangentbordslayout"
 
-#: yali/gui/Ui/bootloaderwidget.py:128 yali/gui/Ui/checkcdwidget.py:197
-#: yali/gui/Ui/keyboardwidget.py:127 yali/gui/Ui/kickerwidget.py:30
-#: yali/gui/Ui/license.py:103 yali/gui/Ui/rescuegrubwidget.py:81
-#: yali/gui/Ui/rescuepasswordwidget.py:109 yali/gui/Ui/rescuepisiwidget.py:72
-#: yali/gui/Ui/rescuewidget.py:92 yali/gui/Ui/rootpasswidget.py:128
-#: yali/gui/Ui/setupuserswidget.py:488 yali/gui/Ui/welcome.py:84
-msgid "Form1"
-msgstr "Form1"
-
-#: yali/gui/Ui/bootloaderwidget.py:129
+#: yali/gui/Ui/bootloaderwidget.py:128
 msgid "Advanced settings"
 msgstr "Avancerade inställningar"
 
-#: yali/gui/Ui/bootloaderwidget.py:130
+#: yali/gui/Ui/bootloaderwidget.py:129
 msgid "Default settings"
 msgstr "Standardinställningar"
 
-#: yali/gui/Ui/bootloaderwidget.py:131
+#: yali/gui/Ui/bootloaderwidget.py:130
 msgid "Don't install bootloader"
 msgstr "Installera inte starthanterare"
 
-#: yali/gui/Ui/bootloaderwidget.py:132
+#: yali/gui/Ui/bootloaderwidget.py:131
 msgid "The partition where Pardus is installed"
 msgstr "Den partition Pardus är installerad på"
 
-#: yali/gui/Ui/bootloaderwidget.py:133
+#: yali/gui/Ui/bootloaderwidget.py:132
 msgid "The first sector of"
 msgstr "Den första sektorn på"
 
@@ -217,20 +194,11 @@ msgstr "Tid"
 msgid "Timezone"
 msgstr "Tidszon"
 
-#: yali/gui/Ui/diskItem.py:93 yali/gui/Ui/diskItem.py:94
-#: yali/gui/Ui/installwidget.py:117
-msgid "TextLabel"
-msgstr "TextLabel"
-
 #: yali/gui/Ui/exception.py:63
-msgid "font:bold;"
-msgstr "font:bold;"
-
-#: yali/gui/Ui/exception.py:64
 msgid "Unhandled exception occured"
 msgstr "Ohanterat undantag uppstod"
 
-#: yali/gui/Ui/exception.py:65
+#: yali/gui/Ui/exception.py:64
 msgid ""
 "Please fill a bug report at http://bugs.pardus.org.tr/ attaching the "
 "following backtrace."
@@ -238,25 +206,21 @@ msgstr ""
 "Vänligen fyll i en felrapport på http://bugs.pardus.org.tr/, bifoga följande "
 "bakåtspårning."
 
+#: yali/gui/Ui/exception.py:65 yali/gui/ScrCheckCD.py:99
+msgid "Reboot"
+msgstr "Starta om"
+
 #: yali/gui/Ui/exception.py:66
 msgid "Show Backtrace"
 msgstr "Visa bakåtspårning"
 
-#: yali/gui/Ui/exception.py:67 yali/gui/ScrCheckCD.py:99
-msgid "Reboot"
-msgstr "Starta om"
-
-#: yali/gui/Ui/help.py:57
+#: yali/gui/Ui/help.py:56
 msgid "help content"
 msgstr "hjälpinnehåll"
 
-#: yali/gui/Ui/installprogress.py:61
+#: yali/gui/Ui/installprogress.py:60
 msgid "Installing Package: "
 msgstr "Installerar paket: "
-
-#: yali/gui/Ui/installwidget.py:116
-msgid "Form3"
-msgstr "Form3"
 
 #: yali/gui/Ui/keyboardwidget.py:128
 msgid "Keyboard Layouts"
@@ -278,178 +242,162 @@ msgstr ""
 msgid "I understand and accept the terms"
 msgstr "Jag förstår och accepterar villkoren"
 
-#: yali/gui/Ui/logicalvolume.py:134
+#: yali/gui/Ui/logicalvolume.py:131
 msgid "Logical Volume:"
 msgstr "Logisk volym:"
 
-#: yali/gui/Ui/logicalvolume.py:135 yali/gui/Ui/partedit.py:172
+#: yali/gui/Ui/logicalvolume.py:132 yali/gui/Ui/partedit.py:171
 #: yali/gui/Ui/partitionedit.py:136
 msgid "Use :"
 msgstr "Används:"
 
-#: yali/gui/Ui/logicalvolume.py:136 yali/gui/Ui/partedit.py:173
-#: yali/gui/Ui/partitionedit.py:137 yali/gui/Ui/partition.py:139
+#: yali/gui/Ui/logicalvolume.py:133 yali/gui/Ui/partedit.py:172
+#: yali/gui/Ui/partitionedit.py:137 yali/gui/Ui/partition.py:138
 msgid "Size :"
 msgstr "Storlek:"
 
-#: yali/gui/Ui/logicalvolume.py:137 yali/gui/Ui/logicalvolume.py:139
-#: yali/gui/Ui/partedit.py:174 yali/gui/Ui/partitionedit.py:138
-#: yali/gui/Ui/partition.py:140 yali/gui/Ui/partition.py:142
+#: yali/gui/Ui/logicalvolume.py:134 yali/gui/Ui/logicalvolume.py:136
+#: yali/gui/Ui/partedit.py:173 yali/gui/Ui/partitionedit.py:138
+#: yali/gui/Ui/partition.py:139 yali/gui/Ui/partition.py:141
 #: yali/gui/Ui/partitionshrinkwidget.py:92 yali/gui/Ui/partresize.py:93
 msgid " MB"
 msgstr " MB"
 
-#: yali/gui/Ui/logicalvolume.py:138 yali/gui/Ui/partition.py:141
+#: yali/gui/Ui/logicalvolume.py:135 yali/gui/Ui/partition.py:140
 #: yali/gui/Ui/partresize.py:95
 msgid "Resize"
 msgstr "Ändra storlek"
 
-#: yali/gui/Ui/logicalvolume.py:140 yali/gui/Ui/partedit.py:177
-#: yali/gui/Ui/partitionedit.py:139 yali/gui/Ui/partition.py:145
+#: yali/gui/Ui/logicalvolume.py:137 yali/gui/Ui/partedit.py:176
+#: yali/gui/Ui/partitionedit.py:139 yali/gui/Ui/partition.py:144
 msgid "File System :"
 msgstr "Filsystem:"
 
-#: yali/gui/Ui/logicalvolume.py:141 yali/gui/Ui/manualpartwidget.py:137
-#: yali/gui/Ui/partition.py:143 yali/gui/Ui/raid.py:98
+#: yali/gui/Ui/logicalvolume.py:138 yali/gui/Ui/manualpartwidget.py:136
+#: yali/gui/Ui/partition.py:142 yali/gui/Ui/raid.py:95
 #: yali/gui/ScrPartitionManual.py:129
 msgid "Format"
 msgstr "Formatera"
 
-#: yali/gui/Ui/logicalvolume.py:142 yali/gui/Ui/partition.py:144
-#: yali/gui/Ui/raid.py:99
+#: yali/gui/Ui/logicalvolume.py:139 yali/gui/Ui/partition.py:143
+#: yali/gui/Ui/raid.py:96
 msgid "Migrate"
 msgstr "Migrera"
 
-#: yali/gui/Ui/main.py:244
+#: yali/gui/Ui/main.py:246
 msgid "Yali"
 msgstr "Yali"
 
-#: yali/gui/Ui/main.py:245
-msgid "..."
-msgstr "..."
-
-#: yali/gui/Ui/main.py:246 yali/gui/YaliWindow.py:393
+#: yali/gui/Ui/main.py:247 yali/gui/YaliWindow.py:393
 msgid "Release Notes"
 msgstr "Versionsfakta"
 
-#: yali/gui/Ui/main.py:247
+#: yali/gui/Ui/main.py:248
 msgid "Previous Screen"
 msgstr "Föregående steg"
 
-#: yali/gui/Ui/main.py:248
+#: yali/gui/Ui/main.py:249
 msgid "Back"
 msgstr "Bakåt"
 
-#: yali/gui/Ui/main.py:249
+#: yali/gui/Ui/main.py:250
 msgid "Next Screen"
 msgstr "Nästa steg"
 
-#: yali/gui/Ui/main.py:250 yali/gui/ScrSummary.py:59
+#: yali/gui/Ui/main.py:251 yali/gui/ScrSummary.py:59
 #: yali/gui/ScrSummary.py:220 yali/gui/ScrSummary.py:227
 msgid "Next"
 msgstr "Nästa"
 
-#: yali/gui/Ui/main.py:251
-msgid "Screen Name"
-msgstr "Skärmnamn"
-
-#: yali/gui/Ui/manualpartwidget.py:133
+#: yali/gui/Ui/manualpartwidget.py:132
 msgid "Device"
 msgstr "Enhet"
 
-#: yali/gui/Ui/manualpartwidget.py:134
+#: yali/gui/Ui/manualpartwidget.py:133
 msgid "Mount Point"
 msgstr "Monteringspunkt"
 
-#: yali/gui/Ui/manualpartwidget.py:135
+#: yali/gui/Ui/manualpartwidget.py:134
 msgid "Label"
 msgstr "Label"
 
-#: yali/gui/Ui/manualpartwidget.py:136
+#: yali/gui/Ui/manualpartwidget.py:135
 msgid "Type"
 msgstr "Typ"
 
-#: yali/gui/Ui/manualpartwidget.py:138 yali/gui/Ui/volumegroup.py:103
+#: yali/gui/Ui/manualpartwidget.py:137 yali/gui/Ui/volumegroup.py:103
 msgid "Size"
 msgstr "Storlek"
 
-#: yali/gui/Ui/manualpartwidget.py:139
+#: yali/gui/Ui/manualpartwidget.py:138
 #, fuzzy
 msgid "Create"
 msgstr "Skapa användare"
 
-#: yali/gui/Ui/manualpartwidget.py:140 yali/gui/Ui/setupuserswidget.py:499
+#: yali/gui/Ui/manualpartwidget.py:139 yali/gui/Ui/setupuserswidget.py:499
 #: yali/gui/Ui/volumegroup.py:105
 msgid "Edit"
 msgstr "Redigera"
 
-#: yali/gui/Ui/manualpartwidget.py:141 yali/gui/Ui/setupuserswidget.py:500
+#: yali/gui/Ui/manualpartwidget.py:140 yali/gui/Ui/setupuserswidget.py:500
 #: yali/gui/Ui/volumegroup.py:106 yali/gui/lvm_gui.py:551
 msgid "Delete"
 msgstr "Ta bort"
 
-#: yali/gui/Ui/manualpartwidget.py:142
+#: yali/gui/Ui/manualpartwidget.py:141
 msgid "Reset"
 msgstr "Återställ"
 
-#: yali/gui/Ui/partedit.py:175
+#: yali/gui/Ui/partedit.py:174
 msgid "Format :"
 msgstr "Formatera:"
 
-#: yali/gui/Ui/partedit.py:176
+#: yali/gui/Ui/partedit.py:175
 msgid "Yes, format this partition"
 msgstr "Ja, formatera partitionen"
 
-#: yali/gui/Ui/partedit.py:178
+#: yali/gui/Ui/partedit.py:177
 msgid "Delete Partition"
 msgstr "Ta bort partitionen"
 
-#: yali/gui/Ui/partedit.py:179
+#: yali/gui/Ui/partedit.py:178
 msgid "Resize Partition"
 msgstr "Ändra storlek på partitionen"
 
-#: yali/gui/Ui/partedit.py:180
+#: yali/gui/Ui/partedit.py:179
 msgid "Changes will be applied after Summary Screen."
 msgstr "Ändringar verkställs efter sammanställningssteget."
 
-#: yali/gui/Ui/partedit.py:181
+#: yali/gui/Ui/partedit.py:180
 msgid "Refresh Disks"
 msgstr "Uppdatera enheter"
 
-#: yali/gui/Ui/partedit.py:182
+#: yali/gui/Ui/partedit.py:181
 msgid "Reset All Changes"
 msgstr "Återställ ändringar"
 
-#: yali/gui/Ui/partedit.py:183
+#: yali/gui/Ui/partedit.py:182
 msgid "Apply"
 msgstr "Verkställ"
-
-#: yali/gui/Ui/partitionedit.py:134
-msgid "Partition Action"
-msgstr "Partitionsåtgärd"
-
-#: yali/gui/Ui/partitionedit.py:135
-msgid "Partition 1 on FUJISTU - /dev/sda1"
-msgstr "Partition 1 på FUJISTU - /dev/sda1"
 
 #: yali/gui/Ui/partitionedit.py:140
 msgid "Force to be primary partition"
 msgstr "Tvinga till att bli primär partition"
 
-#: yali/gui/Ui/partition.py:138
-msgid "Use as:"
-msgstr "Använd som"
+#: yali/gui/Ui/partition.py:137 yali/gui/Ui/raid.py:93
+msgid "Use:"
+msgstr "Använd:"
 
-#: yali/gui/Ui/partition.py:146
+#: yali/gui/Ui/partition.py:145
 msgid "Force to be a primary partition"
 msgstr "Tvinga till att bli en primär partition"
 
-#: yali/gui/Ui/partitionshrink.py:63 yali/gui/Ui/partitionshrinkwidget.py:90
+#: yali/gui/Ui/partitionshrink.py:62 yali/gui/Ui/partitionshrinkwidget.py:90
 msgid ""
 "Which partition would you like to shrink to make room for your installation?"
 msgstr "Vilken partition vill du krympa för att ge plats för din installation?"
 
-#: yali/gui/Ui/partitionshrink.py:64
+#: yali/gui/Ui/partitionshrink.py:63
 msgid "Shrink partition to size (in MB)"
 msgstr "Krymp partition till (MiB)"
 
@@ -479,27 +427,23 @@ msgid ""
 "this operation cannot be undone.<b>"
 msgstr ""
 
-#: yali/gui/Ui/raid.py:95
+#: yali/gui/Ui/raid.py:92
 msgid "Raid Device:"
 msgstr "RAID-enhet:"
 
-#: yali/gui/Ui/raid.py:96
-msgid "Use:"
-msgstr "Använd:"
-
-#: yali/gui/Ui/raid.py:97
+#: yali/gui/Ui/raid.py:94
 msgid "Filesystem:"
 msgstr "Filsystem:"
 
-#: yali/gui/Ui/raid.py:100
+#: yali/gui/Ui/raid.py:97
 msgid "Raid Level:"
 msgstr "RAID-nivå"
 
-#: yali/gui/Ui/raid.py:101
+#: yali/gui/Ui/raid.py:98
 msgid "Raid Members:"
 msgstr "RAID-medlemmar:"
 
-#: yali/gui/Ui/raid.py:102
+#: yali/gui/Ui/raid.py:99
 msgid "Number of spares:"
 msgstr ""
 
@@ -519,33 +463,21 @@ msgstr "Diskpartition där Pardus är installerad"
 msgid "Selected disk below"
 msgstr "Vald enhet nedan"
 
-#: yali/gui/Ui/rescuepasswordwidget.py:110
+#: yali/gui/Ui/rescuepasswordwidget.py:114
 msgid "Choose the user you want to reset the password:"
 msgstr "Välj den användare vars lösenord du vill återställa:"
 
-#: yali/gui/Ui/rescuepasswordwidget.py:111
+#: yali/gui/Ui/rescuepasswordwidget.py:115
 msgid "New password:"
 msgstr "Nytt lösenord:"
 
-#: yali/gui/Ui/rescuepasswordwidget.py:112
+#: yali/gui/Ui/rescuepasswordwidget.py:116
 msgid "New password (Again):"
 msgstr "Nytt lösenord (upprepa):"
 
-#: yali/gui/Ui/rescuepasswordwidget.py:113
+#: yali/gui/Ui/rescuepasswordwidget.py:117
 msgid "Reset Password"
 msgstr "Återställ lösenord"
-
-#: yali/gui/Ui/rescuepasswordwidget.py:114
-msgid ""
-"border:1px solid white;\n"
-"border-radius:6px;\n"
-"background-color:white;\n"
-"color:#5A2847;"
-msgstr ""
-"border:1px solid white;\n"
-"border-radius:6px;\n"
-"background-color:white;\n"
-"color:#5A2847;"
 
 #: yali/gui/Ui/rescuepisiwidget.py:73
 msgid "<b>Connection status:</b>"
@@ -571,23 +503,23 @@ msgstr "Välj anslutning"
 msgid "Select the operation to undo:"
 msgstr "Välj åtgärd att ångra:"
 
-#: yali/gui/Ui/rescuewidget.py:93
+#: yali/gui/Ui/rescuewidget.py:92
 msgid "Choose what do you want to do to repair your system:"
 msgstr "Välj vad du reparea på ditt system:"
 
-#: yali/gui/Ui/rescuewidget.py:94
+#: yali/gui/Ui/rescuewidget.py:93
 msgid "Reinstall GRUB bootloader"
 msgstr "Ominstallera GRUB startladdare"
 
-#: yali/gui/Ui/rescuewidget.py:95
+#: yali/gui/Ui/rescuewidget.py:94
 msgid "Return back to a previous system state"
 msgstr ""
 
-#: yali/gui/Ui/rescuewidget.py:96
+#: yali/gui/Ui/rescuewidget.py:95
 msgid "Reset forgotten password"
 msgstr "Återställ bortglömt lösenord"
 
-#: yali/gui/Ui/rescuewidget.py:97 yali/gui/ScrGoodbye.py:53
+#: yali/gui/Ui/rescuewidget.py:96 yali/gui/ScrGoodbye.py:53
 #: yali/gui/ScrRescueFinish.py:78 yali/gui/ScrSummary.py:46
 msgid "Restart"
 msgstr "Starta om"
@@ -649,13 +581,13 @@ msgstr "Lägg till"
 msgid "Advanced"
 msgstr "Avancerat"
 
-#: yali/gui/Ui/summarywidget.py:114
+#: yali/gui/Ui/summarywidget.py:113
 msgid ""
 "When checked, YALI will install all of the officially supported language "
 "packages on your system."
 msgstr ""
 
-#: yali/gui/Ui/summarywidget.py:115
+#: yali/gui/Ui/summarywidget.py:114
 msgid "Install all language packages"
 msgstr "Installera alla språkpaket"
 
@@ -750,10 +682,11 @@ msgstr "Ominitialisera"
 #, python-format
 msgid ""
 "Error processing LVM.\n"
-"There is inconsistent LVM data on %(msg)s.  You can reinitialize all related "
-"PVs (%(pvs)s) which will erase the LVM metadata, or ignore which will "
-"preserve the contents.  This action may also be applied to all other PVs "
-"with inconsistent metadata."
+"There is inconsistent LVM data on %(msg)s. You\n"
+"can reinitialize all related PVs (%(pvs)s) which will\n"
+"erase the LVM metadata, or ignore which will preserve the\n"
+"contents.  This action may also be applied to all other PVs with\n"
+"inconsistent metadata."
 msgstr ""
 
 #: yali/gui/interface.py:130
@@ -1032,27 +965,27 @@ msgstr "Avsluta"
 msgid "Retry"
 msgstr "Försök igen"
 
-#: yali/gui/ScrAdmin.py:94 yali/gui/ScrDateTime.py:138
+#: yali/gui/ScrAdmin.py:96 yali/gui/ScrDateTime.py:140
 msgid "Storage Devices initialising..."
 msgstr ""
 
-#: yali/gui/ScrAdmin.py:147 yali/gui/ScrRescuePassword.py:96
+#: yali/gui/ScrAdmin.py:154 yali/gui/ScrRescuePassword.py:96
 msgid "Password is too short."
 msgstr "Lösenordet är för kort."
 
-#: yali/gui/ScrAdmin.py:155
+#: yali/gui/ScrAdmin.py:162
 msgid "Passwords do not match."
 msgstr "Lösenorden stämmer inte."
 
-#: yali/gui/ScrAdmin.py:160
+#: yali/gui/ScrAdmin.py:167
 msgid "Do not use your username as your password."
 msgstr "Använd inte ditt användarnamn som lösenord."
 
-#: yali/gui/ScrAdmin.py:170
+#: yali/gui/ScrAdmin.py:177
 msgid "Hostname cannot be longer than 64 characters."
 msgstr "Värddatornamnet kan inte vara längre än 64 tecken."
 
-#: yali/gui/ScrAdmin.py:183
+#: yali/gui/ScrAdmin.py:190
 msgid "Hostname contains invalid characters."
 msgstr "Värddatornamnet innehåller ogiltiga tecken."
 
@@ -1088,7 +1021,7 @@ msgstr ""
 "<font color=\"#FFF\"><b>Kontrollen lyckades. Du kan fortsätta med "
 "installationen.</b></font>"
 
-#: yali/gui/ScrDateTime.py:100
+#: yali/gui/ScrDateTime.py:103
 msgid "Adjusting time settings"
 msgstr "Justera tidsinställningar"
 
@@ -1959,36 +1892,85 @@ msgstr ""
 msgid "Preparing home directory for %s..."
 msgstr ""
 
-#: yali/util.py:140
+#: yali/util.py:133 yali/util.py:164
 #, python-format
-msgid "Running %s"
-msgstr "Kör %s"
+msgid "output for \"%(command)s\" is %(output)s"
+msgstr ""
 
-#: yali/util.py:158
+#: yali/util.py:134 yali/util.py:165
+#, python-format
+msgid "error value for \"%(command)s\" is %(error)s"
+msgstr ""
+
+#: yali/util.py:163
 #, python-format
 msgid "return value for \"%(command)s\" is %(return)s"
 msgstr ""
 
-#: yali/util.py:372
+#: yali/util.py:379
 #, fuzzy
 msgid "YALI log file doesn't exists."
 msgstr "Versionsfakta"
 
-#: yali/util.py:374
+#: yali/util.py:381
 msgid "File paths are the same."
 msgstr ""
 
-#: yali/util.py:449 yali/util.py:492
+#: yali/util.py:456 yali/util.py:499
 msgid "Release file is missing"
 msgstr ""
 
-#: yali/util.py:451 yali/util.py:494
+#: yali/util.py:458 yali/util.py:501
 msgid "Release file is inconsistent"
 msgstr ""
 
-#: yali/util.py:454 yali/util.py:497
+#: yali/util.py:461 yali/util.py:504
 msgid "Invalid xml file"
 msgstr ""
+
+#~ msgid "Form"
+#~ msgstr "Form"
+
+#~ msgid "Form1"
+#~ msgstr "Form1"
+
+#~ msgid "TextLabel"
+#~ msgstr "TextLabel"
+
+#~ msgid "font:bold;"
+#~ msgstr "font:bold;"
+
+#~ msgid "Form3"
+#~ msgstr "Form3"
+
+#~ msgid "..."
+#~ msgstr "..."
+
+#~ msgid "Screen Name"
+#~ msgstr "Skärmnamn"
+
+#~ msgid "Partition Action"
+#~ msgstr "Partitionsåtgärd"
+
+#~ msgid "Partition 1 on FUJISTU - /dev/sda1"
+#~ msgstr "Partition 1 på FUJISTU - /dev/sda1"
+
+#~ msgid "Use as:"
+#~ msgstr "Använd som"
+
+#~ msgid ""
+#~ "border:1px solid white;\n"
+#~ "border-radius:6px;\n"
+#~ "background-color:white;\n"
+#~ "color:#5A2847;"
+#~ msgstr ""
+#~ "border:1px solid white;\n"
+#~ "border-radius:6px;\n"
+#~ "background-color:white;\n"
+#~ "color:#5A2847;"
+
+#~ msgid "Running %s"
+#~ msgstr "Kör %s"
 
 #~ msgid "New"
 #~ msgstr "Ny"
