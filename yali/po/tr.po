@@ -2,7 +2,7 @@
 # translation of tr.po to
 # Copyright (C) 2005-2011
 # This file is distributed under the same license as the yali4 package.
-#
+# 
 # Barış Metin <baris@uludag.org.tr>, 2005.
 # Barış Metin <baris@pardus.org.tr>, 2006.
 # Ali Işıngör <ali@artistanbulpr.com>, 2006.
@@ -19,11 +19,11 @@ msgstr ""
 "PO-Revision-Date: 2010-12-24 15:48+0200\n"
 "Last-Translator: Koray Löker <loker@pardus.org.tr>\n"
 "Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
-"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\\n\"\\nX-Generator: Lokalize 1.1\\n\\n\n"
+"Language: tr\n"
+"Plural-Forms: nplurals=1; plural=0;\\n\"\\nX-Generator: Lokalize 1.1\\n\\n\\n\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 msgid "Choose Installation Method"
@@ -46,13 +46,8 @@ msgid "PAE Kernel"
 msgstr "PAE Çekirdek"
 
 #: yali/gui/Ui/autopartquestion.py:82
-msgid ""
-"There appears to be more than one resizeable partition. You can select a "
-"partition from the list below or YALI will select one for you."
-msgstr ""
-"Yeniden boyutlandırabilir birden fazla disk bölümü görünüyor. Aşağıdaki "
-"listeden bir disk bölümü seçebilirsiniz veya YALI sizin için bir tane "
-"seçecek."
+msgid "There appears to be more than one resizeable partition. You can select a partition from the list below or YALI will select one for you."
+msgstr "Yeniden boyutlandırabilir birden fazla disk bölümü görünüyor. Aşağıdaki listeden bir disk bölümü seçebilirsiniz veya YALI sizin için bir tane seçecek."
 
 #: yali/gui/Ui/autopartquestion.py:83 yali/gui/Ui/connectionlist.py:76
 #: yali/gui/Ui/dialog.py:65
@@ -108,14 +103,8 @@ msgid "The first sector of"
 msgstr ""
 
 #: yali/gui/Ui/checkcdwidget.py:198
-msgid ""
-"You can validate the integrity of the installation packages. Although this "
-"is an optional step, we highly recommend to do the validation in order to "
-"avoid any possible errors during the installation process."
-msgstr ""
-"Kurulum paketlerinin geçerliliğini kontrol edebilirsiniz. Bu seçenek isteğe "
-"bağlı olmasına rağmen olası bir hatadan kaçınmak için yapmanızı ısrarla "
-"öneririz."
+msgid "You can validate the integrity of the installation packages. Although this is an optional step, we highly recommend to do the validation in order to avoid any possible errors during the installation process."
+msgstr "Kurulum paketlerinin geçerliliğini kontrol edebilirsiniz. Bu seçenek isteğe bağlı olmasına rağmen olası bir hatadan kaçınmak için yapmanızı ısrarla öneririz."
 
 #: yali/gui/Ui/checkcdwidget.py:199
 msgid "Validation failed"
@@ -130,12 +119,8 @@ msgid "Validate"
 msgstr "Denetle"
 
 #: yali/gui/Ui/connectionlist.py:75
-msgid ""
-"To use PiSi History support, you may need to be online. You can use a "
-"connection profile from the list below:"
-msgstr ""
-"PiSi Geçmiş desteği kullanmak için internet bağlantısına ihtiyacınız var. "
-"Aşağıdaki listeden bir bağlantı profili kullanabilirsiniz:"
+msgid "To use PiSi History support, you may need to be online. You can use a connection profile from the list below:"
+msgstr "PiSi Geçmiş desteği kullanmak için internet bağlantısına ihtiyacınız var. Aşağıdaki listeden bir bağlantı profili kullanabilirsiniz:"
 
 #: yali/gui/Ui/connectionlist.py:77
 msgid "Connect"
@@ -206,12 +191,8 @@ msgid "Unhandled exception occured"
 msgstr "Beklenmeyen istisna oluştu"
 
 #: yali/gui/Ui/exception.py:64
-msgid ""
-"Please fill a bug report at http://bugs.pardus.org.tr/ attaching the "
-"following backtrace."
-msgstr ""
-"Lütfen aşağıdaki geri izi ekleyerek http://hata.pardus.org.tr/ adresinde "
-"yeni bir hata kaydı açın."
+msgid "Please fill a bug report at http://bugs.pardus.org.tr/ attaching the following backtrace."
+msgstr "Lütfen aşağıdaki geri izi ekleyerek http://hata.pardus.org.tr/ adresinde yeni bir hata kaydı açın."
 
 #: yali/gui/Ui/exception.py:65 yali/gui/ScrCheckCD.py:99
 msgid "Reboot"
@@ -238,16 +219,8 @@ msgid "Test Layout"
 msgstr "Yerleşimi Dene"
 
 #: yali/gui/Ui/license.py:104
-msgid ""
-"Before installing Pardus on your computer, please read and accept the terms "
-"of free / open source licenses of the softwares included in this "
-"installation medium. <a href=\"#\"><span style=\" text-decoration: "
-"underline; color:#56a2c0;\">License texts</span></a>"
-msgstr ""
-"Pardus'u bilgisayarınıza kurmadan önce lütfen kurulum medyasında yer alan "
-"yazılımlara ait özgür / açık kaynak lisansları kabul edin. <a href=\"#"
-"\"><span style=\" text-decoration: underline; color:#56a2c0;\">Lisans "
-"metinleri</span></a>"
+msgid "Before installing Pardus on your computer, please read and accept the terms of free / open source licenses of the softwares included in this installation medium. <a href=\"#\"><span style=\" text-decoration: underline; color:#56a2c0;\">License texts</span></a>"
+msgstr "Pardus'u bilgisayarınıza kurmadan önce lütfen kurulum medyasında yer alan yazılımlara ait özgür / açık kaynak lisansları kabul edin. <a href=\"#\"><span style=\" text-decoration: underline; color:#56a2c0;\">Lisans metinleri</span></a>"
 
 #: yali/gui/Ui/license.py:105
 msgid "I understand and accept the terms"
@@ -403,8 +376,7 @@ msgid "Force to be a primary partition"
 msgstr "Birincil bölüm olmaya zorla"
 
 #: yali/gui/Ui/partitionshrink.py:62 yali/gui/Ui/partitionshrinkwidget.py:90
-msgid ""
-"Which partition would you like to shrink to make room for your installation?"
+msgid "Which partition would you like to shrink to make room for your installation?"
 msgstr "Kurulum için hangi disk bölümünü küçültmek istersiniz?"
 
 #: yali/gui/Ui/partitionshrink.py:63
@@ -429,19 +401,13 @@ msgstr "Küçült"
 
 #: yali/gui/Ui/partresize.py:90
 msgid ""
-"Changes will be applied when you click \"Resize\". To cancel the changes, "
-"click <b>\"Cancel\".\n"
+"Changes will be applied when you click \"Resize\". To cancel the changes, click <b>\"Cancel\".\n"
 "<br><br>\n"
-"Warning: A resizing operation may corrupt the partition, rendering the data "
-"on it unreachable. Make sure that you have backed up the data. Note that "
-"this operation cannot be undone.<b>"
+"Warning: A resizing operation may corrupt the partition, rendering the data on it unreachable. Make sure that you have backed up the data. Note that this operation cannot be undone.<b>"
 msgstr ""
-"\"Boyutlandır\"ı tıkladığınızda değişikler uygulanmış olacak. İptal etmek "
-"için <b>\"İptal\"</b>e tıklayınız.\n"
+"\"Boyutlandır\"ı tıkladığınızda değişikler uygulanmış olacak. İptal etmek için <b>\"İptal\"</b>e tıklayınız.\n"
 "<br><br>\n"
-"Uyarı: Boyutlandırma faaliyeti disk bölümünü bozabilir, veriler ulaşılamaz "
-"olarak yorumlanabilir. Verilerinizi yedeklediğinizden emin olun. Yapılan "
-"değişiklikler geri alınamaz."
+"Uyarı: Boyutlandırma faaliyeti disk bölümünü bozabilir, veriler ulaşılamaz olarak yorumlanabilir. Verilerinizi yedeklediğinizden emin olun. Yapılan değişiklikler geri alınamaz."
 
 #: yali/gui/Ui/raid.py:92
 msgid "Raid Device:"
@@ -460,8 +426,9 @@ msgid "Raid Members:"
 msgstr "Raid üyeleri:"
 
 #: yali/gui/Ui/raid.py:99
+#, fuzzy
 msgid "Number of spares:"
-msgstr ""
+msgstr "Birim sayısı:"
 
 #: yali/gui/Ui/rescuegrubwidget.py:82
 msgid "Select where to install the GRUB bootloader"
@@ -504,12 +471,8 @@ msgid "Offline"
 msgstr "Çevrimdışı"
 
 #: yali/gui/Ui/rescuepisiwidget.py:75
-msgid ""
-"To use PiSi's history feature, you may need to be online. Select connection "
-"profile."
-msgstr ""
-"PiSi'nin geçmiş özelliğini kullanabilmek için inernet bağlantısına "
-"ihtiyacınız var. Bağlatı profilini seçiniz."
+msgid "To use PiSi's history feature, you may need to be online. Select connection profile."
+msgstr "PiSi'nin geçmiş özelliğini kullanabilmek için inernet bağlantısına ihtiyacınız var. Bağlatı profilini seçiniz."
 
 #: yali/gui/Ui/rescuepisiwidget.py:76
 msgid "Select Connection"
@@ -598,11 +561,8 @@ msgid "Advanced"
 msgstr "Gelişmiş"
 
 #: yali/gui/Ui/summarywidget.py:113
-msgid ""
-"When checked, YALI will install all of the officially supported language "
-"packages on your system."
-msgstr ""
-"Seçiliyse, YALI resmi olarak desteklenen tüm dilleri sisteminize yükleyecek."
+msgid "When checked, YALI will install all of the officially supported language packages on your system."
+msgstr "Seçiliyse, YALI resmi olarak desteklenen tüm dilleri sisteminize yükleyecek."
 
 #: yali/gui/Ui/summarywidget.py:114
 msgid "Install all language packages"
@@ -644,13 +604,11 @@ msgstr "Kullanılan Alan:"
 msgid ""
 "Pardus is installed and running successfully... \n"
 "\n"
-"Before you login to system, you need to create your first user and set the "
-"system wide configurations. "
+"Before you login to system, you need to create your first user and set the system wide configurations. "
 msgstr ""
 "Pardus başarıyla kuruldu ve çalışmaya başladı... \n"
 "\n"
-" Sisteme giriş yapmak için bir kullanıcı yaratarak, sistem genelinde etkin "
-"ayarları yapmalısınız."
+" Sisteme giriş yapmak için bir kullanıcı yaratarak, sistem genelinde etkin ayarları yapmalısınız."
 
 #: yali/gui/interface.py:41 yali/gui/interface.py:123
 #: yali/gui/ScrCheckCD.py:94 yali/gui/ScrInstall.py:180
@@ -662,13 +620,8 @@ msgstr "Uyarı"
 
 #: yali/gui/interface.py:42
 #, python-format
-msgid ""
-"Disk contains %(members_count)s BIOS RAID metadata, but is not part of any "
-"recognized BIOS RAID sets. Ignoring disk %(members)s."
-msgstr ""
-"Disk içeriğinde %(members_count)s BIOS RAID üstverisi bulunmaktadır, fakat "
-"bu üstveri herhangi bir tanımlanmış BIOS RAID ayarlarından birine ait "
-"değildir. Disk gözardı ediliyor %(members)s."
+msgid "Disk contains %(members_count)s BIOS RAID metadata, but is not part of any recognized BIOS RAID sets. Ignoring disk %(members)s."
+msgstr "Disk içeriğinde %(members_count)s BIOS RAID üstverisi bulunmaktadır, fakat bu üstveri herhangi bir tanımlanmış BIOS RAID ayarlarından birine ait değildir. Disk gözardı ediliyor %(members)s."
 
 #: yali/gui/interface.py:66 yali/gui/raid_gui.py:118
 #: yali/gui/ScrDriveSelection.py:112
@@ -678,28 +631,23 @@ msgstr "Hata"
 #: yali/gui/interface.py:67
 #, python-format
 msgid ""
-"Cannot access the partition table of %(description)s(%(name)s) -- "
-"%(size)-0.fMB\n"
+"Cannot access the partition table of %(description)s(%(name)s) -- %(size)-0.fMB\n"
 "\n"
 "If there already exists a partition table on this device, it will\n"
 " be re-initialized and your existing data will be lost!\n"
 "\n"
 "To re-initialize the current disk press Re-initialize.\n"
 "\n"
-"To re-initialize all disks with unaccessible partition tables press Re-"
-"initialize All"
+"To re-initialize all disks with unaccessible partition tables press Re-initialize All"
 msgstr ""
-"Bölümleme dosyası kabul edilemedi of %(description)s(%(name)s) -- "
-"%(size)-0.fMB\n"
+"Bölümleme dosyası kabul edilemedi of %(description)s(%(name)s) -- %(size)-0.fMB\n"
 "\n"
 "Eğer bu aygıtta bölümleme tablosu varsa, bu tablo işlemi\n"
 " yeniden başlatılacak ve verilerinizi kaybedeceksiniz!\n"
 "\n"
-"Bu diskteki işlemi baştan başlatmak istiyorsanız İşleme Yeniden Başla'ya "
-"tıklayın.\n"
+"Bu diskteki işlemi baştan başlatmak istiyorsanız İşleme Yeniden Başla'ya tıklayın.\n"
 "\n"
-"Kabul edilmeyen bölümleme tabloları ile birlikte yeniden işleme başlamak "
-"için Yeniden Tüm İşlemlere Başla'ya basınız."
+"Kabul edilmeyen bölümleme tabloları ile birlikte yeniden işleme başlamak için Yeniden Tüm İşlemlere Başla'ya basınız."
 
 #: yali/gui/interface.py:75 yali/gui/interface.py:130
 msgid "Ignore"
@@ -724,10 +672,7 @@ msgid ""
 "inconsistent metadata."
 msgstr ""
 "LVM işlenirken hata.\n"
-"Şurada tutarsız LVM verisi %(msg)s bulundu. Tüm ilgili PVleri (%(pvs)s) "
-"başlangıç durumuna getirebilirsiniz ancak bu durumda LVM üstverisi "
-"silinecektir veya bu hatayı içeriği korumak adına gözardı edebilirsiniz. Bu "
-"eylem tutarsız üstveri içeren diğer tüm PVlere uygulanacaktır."
+"Şurada tutarsız LVM verisi %(msg)s bulundu. Tüm ilgili PVleri (%(pvs)s) başlangıç durumuna getirebilirsiniz ancak bu durumda LVM üstverisi silinecektir veya bu hatayı içeriği korumak adına gözardı edebilirsiniz. Bu eylem tutarsız üstveri içeren diğer tüm PVlere uygulanacaktır."
 
 #: yali/gui/interface.py:130
 msgid "Ignore all"
@@ -831,37 +776,21 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:447
 #, python-format
-msgid ""
-"The physical extent size cannot be changed because the value selected "
-"(%(curpe)10.2f MB) is too large compared to the size of the smallest "
-"physical volume (%(maxpvsize)10.2f MB) in the volume group."
-msgstr ""
-"Fiziksel boyut değiştirilemiyor, çünkü seçilen değer (%(curpe)10.2f MB) "
-"hacim grubundaki en küçük fiziksel hacme kıyasla (%(maxpvsize)10.2f MB) çok "
-"büyük."
+msgid "The physical extent size cannot be changed because the value selected (%(curpe)10.2f MB) is too large compared to the size of the smallest physical volume (%(maxpvsize)10.2f MB) in the volume group."
+msgstr "Fiziksel boyut değiştirilemiyor, çünkü seçilen değer (%(curpe)10.2f MB) hacim grubundaki en küçük fiziksel hacme kıyasla (%(maxpvsize)10.2f MB) çok büyük."
 
 #: yali/gui/lvm_gui.py:459
 msgid "Too small"
 msgstr "Çok küçük"
 
 #: yali/gui/lvm_gui.py:460
-msgid ""
-"This change in the value of the physical extent will waste substantial space "
-"on one or more of the physical volumes in the volume group."
-msgstr ""
-"Fiziksel boyut değerindeki değişiklik, hacim grubuna ait olan fiziksel "
-"hacimler üzerinden yeterli alanın kaybolmasına yol açacaktır."
+msgid "This change in the value of the physical extent will waste substantial space on one or more of the physical volumes in the volume group."
+msgstr "Fiziksel boyut değerindeki değişiklik, hacim grubuna ait olan fiziksel hacimler üzerinden yeterli alanın kaybolmasına yol açacaktır."
 
 #: yali/gui/lvm_gui.py:482
 #, python-format
-msgid ""
-"The physical extent size cannot be changed because the resulting maximum "
-"logical volume size (%10.2f MB) is smaller than one or more of "
-"theircurrently defined logical volumes."
-msgstr ""
-"Fiziksel ebat değiştirilemez çünkü önceden tanımlanmış mantıksal hacimlerin "
-"ebadı, en fazla oluşturulabilecek olan mantıksal hacmin boyutundan ebadına "
-"göre (%10.2f MB) daha küçüktür."
+msgid "The physical extent size cannot be changed because the resulting maximum logical volume size (%10.2f MB) is smaller than one or more of theircurrently defined logical volumes."
+msgstr "Fiziksel ebat değiştirilemez çünkü önceden tanımlanmış mantıksal hacimlerin ebadı, en fazla oluşturulabilecek olan mantıksal hacmin boyutundan ebadına göre (%10.2f MB) daha küçüktür."
 
 #: yali/gui/lvm_gui.py:503
 msgid "No free slots"
@@ -940,8 +869,7 @@ msgstr "Geçersiz mantıksal hacim adı"
 #: yali/gui/lvm_gui.py:669
 #, python-format
 msgid "The logical volume name \"%s\" is already in use. Please pick another."
-msgstr ""
-"Mantıksal hacim adı \"%s\" şu an kullanımda. Lütfen başka bir ad seçin."
+msgstr "Mantıksal hacim adı \"%s\" şu an kullanımda. Lütfen başka bir ad seçin."
 
 #: yali/gui/lvm_gui.py:683
 msgid "Illegal size"
@@ -953,29 +881,13 @@ msgstr "Talep edilen boyut 0'dan daha büyük bir geçerli sayı değildir."
 
 #: yali/gui/lvm_gui.py:697
 #, python-format
-msgid ""
-"The current requested size (%(size)10.2f MB) is larger than the maximum "
-"logical volume size (%(maxlv)10.2f MB). To increase this limit you can "
-"create more Physical Volumes from unpartitioned disk space and add them to "
-"this Volume Group."
-msgstr ""
-"İstenen boyut (%(size)10.2f MB) maksimum mantıksal hacim boyutundan "
-"(%(maxlv)10.2f MB) daha büyüktür. Bu sınırı arttırmak için bölümlenmemiş "
-"disk alanında yeni Fiziksel Hacimler ekleyebilir ve onları bu hacim grubuna "
-"ekleyebilirsiniz."
+msgid "The current requested size (%(size)10.2f MB) is larger than the maximum logical volume size (%(maxlv)10.2f MB). To increase this limit you can create more Physical Volumes from unpartitioned disk space and add them to this Volume Group."
+msgstr "İstenen boyut (%(size)10.2f MB) maksimum mantıksal hacim boyutundan (%(maxlv)10.2f MB) daha büyüktür. Bu sınırı arttırmak için bölümlenmemiş disk alanında yeni Fiziksel Hacimler ekleyebilir ve onları bu hacim grubuna ekleyebilirsiniz."
 
 #: yali/gui/lvm_gui.py:719
 #, python-format
-msgid ""
-"The size entered for this logical volume (%(size)d MB) combined with the "
-"size of the other logical volume(s) exceeds the size of the volume group "
-"(%(tmpvgsize)d MB). Please make the volume group larger or make the logical "
-"volume smaller."
-msgstr ""
-"Bu mantıksal hacim için girilen boyut (%(size)d MB) diğer mantıksal hacim"
-"(ler) ile birleştirilmiş olup hacim grubunun (%(tmpvgsize)d MB) ebadını "
-"aşmaktadır. Lütfen hacim grubunu daha büyük tutun veya mantıksal hacmin "
-"ebadını daha küçük tutun."
+msgid "The size entered for this logical volume (%(size)d MB) combined with the size of the other logical volume(s) exceeds the size of the volume group (%(tmpvgsize)d MB). Please make the volume group larger or make the logical volume smaller."
+msgstr "Bu mantıksal hacim için girilen boyut (%(size)d MB) diğer mantıksal hacim(ler) ile birleştirilmiş olup hacim grubunun (%(tmpvgsize)d MB) ebadını aşmaktadır. Lütfen hacim grubunu daha büyük tutun veya mantıksal hacmin ebadını daha küçük tutun."
 
 #: yali/gui/partition_gui.py:34
 #, python-format
@@ -1001,17 +913,13 @@ msgstr "Geçersiz Raid Üyeleri"
 
 #: yali/gui/raid_gui.py:27
 msgid ""
-"At least two unused software RAID partitions are needed to create a RAID "
-"device.\n"
+"At least two unused software RAID partitions are needed to create a RAID device.\n"
 "\n"
-"First create at least two partitions of type \"software RAID\", and then "
-"select the \"RAID\" option again."
+"First create at least two partitions of type \"software RAID\", and then select the \"RAID\" option again."
 msgstr ""
-"Bir RAID aygıtı yaratmak için en az kullanılmamış software RAID bölümlerine "
-"ihtiyaç var.\n"
+"Bir RAID aygıtı yaratmak için en az kullanılmamış software RAID bölümlerine ihtiyaç var.\n"
 "\n"
-"Önce, \"software RAID\" türünde iyi bölüm oluşturun ve tekrar \"RAID\" "
-"seçeneğini işaretleyin. "
+"Önce, \"software RAID\" türünde iyi bölüm oluşturun ve tekrar \"RAID\" seçeneğini işaretleyin. "
 
 #: yali/gui/raid_gui.py:37
 msgid "Make RAID Device"
@@ -1084,9 +992,7 @@ msgstr "Doğruluyor %s"
 
 #: yali/gui/ScrCheckCD.py:95
 #, python-format
-msgid ""
-"Validation of %s package failed.Please remaster your installation medium "
-"andreboot."
+msgid "Validation of %s package failed.Please remaster your installation medium andreboot."
 msgstr "Paket %s doğrulanamadı. Lütfen kurulum medyasını tekrar oluşturun."
 
 #: yali/gui/ScrCheckCD.py:99
@@ -1098,12 +1004,8 @@ msgid "Skip Package"
 msgstr "Paketi Atla"
 
 #: yali/gui/ScrCheckCD.py:114
-msgid ""
-"<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the "
-"installation.</b></font>"
-msgstr ""
-"<font color=\"#FFF\"><b>Kontrol başarılı. Kuruluma devam edebilirsiniz.</b></"
-"font>"
+msgid "<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the installation.</b></font>"
+msgstr "<font color=\"#FFF\"><b>Kontrol başarılı. Kuruluma devam edebilirsiniz.</b></font>"
 
 #: yali/gui/ScrDateTime.py:103
 msgid "Adjusting time settings"
@@ -1119,9 +1021,7 @@ msgstr "Kurulum sonrası işlemler gerçekleştiriliyor..."
 
 #: yali/gui/ScrGoodbye.py:53
 msgid "Press <b>Restart</b> to restart the computer."
-msgstr ""
-"Bilgisayarınızı yeniden başlatmak için <b>Sistemi Yeniden Başlat</b> "
-"düğmesine tıklayın."
+msgstr "Bilgisayarınızı yeniden başlatmak için <b>Sistemi Yeniden Başlat</b> düğmesine tıklayın."
 
 #: yali/gui/ScrGoodbye.py:54 yali/gui/ScrRescueFinish.py:80
 msgid "<b>Please wait while restarting...</b>"
@@ -1239,8 +1139,7 @@ msgid ""
 "partitions which size is greater than %s MB can be resized."
 msgstr ""
 "Yeniden boyutlandırılacak bölüm yok. Sadece özel\n"
-"dosya yapılarına sahip %s MB daha büyük fiziksel bölümler yeniden "
-"boyutlandırılabilir."
+"dosya yapılarına sahip %s MB daha büyük fiziksel bölümler yeniden boyutlandırılabilir."
 
 #: yali/gui/ScrPartitionManual.py:93
 #, python-format
@@ -1407,9 +1306,7 @@ msgstr "Kurtarma işlemleri gerçekleştiriliyor..."
 
 #: yali/gui/ScrRescueFinish.py:78
 msgid "Press <b>Restart</b> to restart your system."
-msgstr ""
-"Bilgisayarınızı yeniden başlatmak için <b>Sistemi Yeniden Başlat</b> "
-"düğmesine tıklayın."
+msgstr "Bilgisayarınızı yeniden başlatmak için <b>Sistemi Yeniden Başlat</b> düğmesine tıklayın."
 
 #: yali/gui/ScrRescueGrub.py:87
 #, python-format
@@ -1492,8 +1389,7 @@ msgstr "Lütfen aşağıdaki listeden disk bölümünü seçin:"
 
 #: yali/gui/ScrSummary.py:47
 msgid "<b><p>Are you sure you want to restart the computer?</p></b>"
-msgstr ""
-"<b><p>Bilgisayarı yeniden başlatmak istediğinizden emin misiniz?</p></b>"
+msgstr "<b><p>Bilgisayarı yeniden başlatmak istediğinizden emin misiniz?</p></b>"
 
 #: yali/gui/ScrSummary.py:68
 #, python-format
@@ -1537,12 +1433,8 @@ msgstr "Kullanıcı %(username)s (<b>%(realname)s</b>) eklendi."
 
 #: yali/gui/ScrSummary.py:117
 #, python-format
-msgid ""
-"User %(username)s (<b>%(realname)s</b>) added with <u>administrator "
-"privileges</u>."
-msgstr ""
-"Kullanıcı %(username)s (<b>%(realname)s</b>) <u>yetkili kullanıcı</u> "
-"haklarıyla eklendi."
+msgid "User %(username)s (<b>%(realname)s</b>) added with <u>administrator privileges</u>."
+msgstr "Kullanıcı %(username)s (<b>%(realname)s</b>) <u>yetkili kullanıcı</u> haklarıyla eklendi."
 
 #: yali/gui/ScrSummary.py:123
 msgid "Hostname Settings"
@@ -1563,13 +1455,8 @@ msgstr "Otomatik kurulum seçildi."
 
 #: yali/gui/ScrSummary.py:141
 #, python-format
-msgid ""
-"Removes all partitions on the selected %s device(s). <b><u>This includes "
-"partitions created by other operating systems.</u></b>"
-msgstr ""
-"%s seçili aygıtındaki(veya aygıtlarındaki) tüm bölümleri kaldırır. <b><u>Bu "
-"işlem diğer işletim sistemleri tarafından oluşturulmuş bölümleri de kapsar.</"
-"u></b>"
+msgid "Removes all partitions on the selected %s device(s). <b><u>This includes partitions created by other operating systems.</u></b>"
+msgstr "%s seçili aygıtındaki(veya aygıtlarındaki) tüm bölümleri kaldırır. <b><u>Bu işlem diğer işletim sistemleri tarafından oluşturulmuş bölümleri de kapsar.</u></b>"
 
 #: yali/gui/ScrSummary.py:145
 msgid "Replace Existing Linux System(s)"
@@ -1577,24 +1464,13 @@ msgstr "Var Olan Linux İşletim Sistem(leri)i Üzerine Yükle"
 
 #: yali/gui/ScrSummary.py:146
 #, python-format
-msgid ""
-"Removes all Linux partitions on the selected%s device(s). This does not "
-"remove other partitions you may have on your storage device(s) (such as VFAT "
-"or FAT32)"
-msgstr ""
-"Seçili aygıt(lardaki)taki%s tüm Linux bölümlerini kaldırır. Bu işlem (VFAT "
-"veya FATE32) gibi diğer depolama aygıtlarındaki diğer bölmeleri kaldırmaz."
+msgid "Removes all Linux partitions on the selected%s device(s). This does not remove other partitions you may have on your storage device(s) (such as VFAT or FAT32)"
+msgstr "Seçili aygıt(lardaki)taki%s tüm Linux bölümlerini kaldırır. Bu işlem (VFAT veya FATE32) gibi diğer depolama aygıtlarındaki diğer bölmeleri kaldırmaz."
 
 #: yali/gui/ScrSummary.py:152
 #, python-format
-msgid ""
-"Retains your current data and partitions and uses only the unpartitioned "
-"space on the selected %s device(s), assuming you haveenough free space "
-"available."
-msgstr ""
-"Varolan verinizi ve bölmelerinizi korur ve sadece seçili %s aygıt(lardaki)"
-"taki bölümlenmemiş alanları kullanır, yeterli boş alanınızın olduğu hesaba "
-"katılır."
+msgid "Retains your current data and partitions and uses only the unpartitioned space on the selected %s device(s), assuming you haveenough free space available."
+msgstr "Varolan verinizi ve bölmelerinizi korur ve sadece seçili %s aygıt(lardaki)taki bölümlenmemiş alanları kullanır, yeterli boş alanınızın olduğu hesaba katılır."
 
 #: yali/gui/ScrSummary.py:158
 msgid "Manual Partitioning selected."
@@ -2094,93 +1970,39 @@ msgstr "Geçersiz xml dosyası"
 #~ msgstr "SS:dd:ss"
 
 #~ msgid ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 #~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:8pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">Please fill a bug "
-#~ "report at <span style=\" font-weight:600;\">http://bugs.pardus.org.tr/</"
-#~ "span> attaching the following backtrace.</p></body></html>"
+#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Please fill a bug report at <span style=\" font-weight:600;\">http://bugs.pardus.org.tr/</span> attaching the following backtrace.</p></body></html>"
 #~ msgstr ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 #~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:8pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">Geri iz takibini "
-#~ "ekleyerek <span style=\" font-weight:600;\">http://bugs.pardus.org.tr/ "
-#~ "adresinde bir hata raporu doldurun. </span></p></body></html>"
+#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Geri iz takibini ekleyerek <span style=\" font-weight:600;\">http://bugs.pardus.org.tr/ adresinde bir hata raporu doldurun. </span></p></body></html>"
 
 #~ msgid ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 #~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
-#~ "size:8pt;\">General purpose of partition creation</span></p></body></html>"
+#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">General purpose of partition creation</span></p></body></html>"
 #~ msgstr ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 #~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
-#~ "size:8pt;\">Disk bölümü oluşturmanın genel amacı</span></p></body></html>"
+#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">Disk bölümü oluşturmanın genel amacı</span></p></body></html>"
 
-#~ msgid ""
-#~ "All software by TUBITAK Pardus is licensed under the terms of <a href=\"#"
-#~ "\"><span style=\" text-decoration: underline; color:#56a2c0;\">GNU "
-#~ "General Public License</span></a> which you must accept in order to "
-#~ "install and use Pardus."
-#~ msgstr ""
-#~ "Tüm yazılımlar TÜBİTAK Pardus tarafından Pardus'u kurmak ve kullanmak "
-#~ "için  kabul etmeniz gereken <a href=\"#\"><span style=\" text-decoration: "
-#~ "underline; color:#56a2c0;\">GNU Genel Kamu Lisansı</span></a>ile "
-#~ "lisanslanmıştır."
+#~ msgid "All software by TUBITAK Pardus is licensed under the terms of <a href=\"#\"><span style=\" text-decoration: underline; color:#56a2c0;\">GNU General Public License</span></a> which you must accept in order to install and use Pardus."
+#~ msgstr "Tüm yazılımlar TÜBİTAK Pardus tarafından Pardus'u kurmak ve kullanmak için  kabul etmeniz gereken <a href=\"#\"><span style=\" text-decoration: underline; color:#56a2c0;\">GNU Genel Kamu Lisansı</span></a>ile lisanslanmıştır."
 
-#~ msgid ""
-#~ "Welcome to YALI, the Pardus installer. YALI will guide you through the "
-#~ "installation process. Welcome to YALI, the Pardus installer. YALI will "
-#~ "guide you through the installation process.Welcome to YALI, the Pardus "
-#~ "installer. YALI will guide you through the installation process.Welcome "
-#~ "to YALI, the Pardus installer. YALI will guide you through the "
-#~ "installation process.Welcome to YALI, the Pardus installer. YALI will "
-#~ "guide you through the installation process.Welcome to YALI, the Pardus "
-#~ "installer. YALI will guide you through the installation process.Welcome "
-#~ "to YALI, the Pardus installer. YALI will guide you through the "
-#~ "installation process."
-#~ msgstr ""
-#~ "Pardus yükleyicisi YALI'ya hoşgeldiniz. YALI yükleme sürecinde size "
-#~ "rehberlik edecek. Pardus yükleyicisi YALI'ya hoşgeldiniz. YALI yükleme "
-#~ "sürecinde size rehberlik edecek. Pardus yükleyicisi YALI'ya hoşgeldiniz. "
-#~ "YALI yükleme sürecinde size rehberlik edecek. Pardus yükleyicisi YALI'ya "
-#~ "hoşgeldiniz. YALI yükleme sürecinde size rehberlik edecek. Pardus "
-#~ "yükleyicisi YALI'ya hoşgeldiniz. YALI yükleme sürecinde size rehberlik "
-#~ "edecek. Pardus yükleyicisi YALI'ya hoşgeldiniz. YALI yükleme sürecinde "
-#~ "size rehberlik edecek. "
+#~ msgid "Welcome to YALI, the Pardus installer. YALI will guide you through the installation process. Welcome to YALI, the Pardus installer. YALI will guide you through the installation process.Welcome to YALI, the Pardus installer. YALI will guide you through the installation process.Welcome to YALI, the Pardus installer. YALI will guide you through the installation process.Welcome to YALI, the Pardus installer. YALI will guide you through the installation process.Welcome to YALI, the Pardus installer. YALI will guide you through the installation process.Welcome to YALI, the Pardus installer. YALI will guide you through the installation process."
+#~ msgstr "Pardus yükleyicisi YALI'ya hoşgeldiniz. YALI yükleme sürecinde size rehberlik edecek. Pardus yükleyicisi YALI'ya hoşgeldiniz. YALI yükleme sürecinde size rehberlik edecek. Pardus yükleyicisi YALI'ya hoşgeldiniz. YALI yükleme sürecinde size rehberlik edecek. Pardus yükleyicisi YALI'ya hoşgeldiniz. YALI yükleme sürecinde size rehberlik edecek. Pardus yükleyicisi YALI'ya hoşgeldiniz. YALI yükleme sürecinde size rehberlik edecek. Pardus yükleyicisi YALI'ya hoşgeldiniz. YALI yükleme sürecinde size rehberlik edecek. "
 
-#~ msgid ""
-#~ "There are a few more steps to take before your system is ready to use.The "
-#~ "agent will now guide you through some basic configuration.Please click "
-#~ "the \"Next\"  button in the lower corner right to continue."
-#~ msgstr ""
-#~ "Sisteminiz kullanıma hazır olmadan önce birkaç adım daha var. Kaptan bazı "
-#~ "temel yapılandırmalarda size rehberlik edecek. Lütfen devam etmek için "
-#~ "sağ alt köşedeki \"İlerle\" butonuna tıklayınız."
+#~ msgid "There are a few more steps to take before your system is ready to use.The agent will now guide you through some basic configuration.Please click the \"Next\"  button in the lower corner right to continue."
+#~ msgstr "Sisteminiz kullanıma hazır olmadan önce birkaç adım daha var. Kaptan bazı temel yapılandırmalarda size rehberlik edecek. Lütfen devam etmek için sağ alt köşedeki \"İlerle\" butonuna tıklayınız."
 
 #~ msgid "The password contains invalid characters."
 #~ msgstr "Parola geçersiz karakterler içeriyor."
