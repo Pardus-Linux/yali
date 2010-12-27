@@ -1146,7 +1146,7 @@ msgstr " ,   ,  "
 
 #: yali/gui/ScrPartitionManual.py:147
 msgid "Standard"
-msgstr ""
+msgstr "Стандартный"
 
 #: yali/gui/ScrPartitionManual.py:148
 msgid "LVM"
@@ -1162,7 +1162,7 @@ msgstr "Раздел"
 
 #: yali/gui/ScrPartitionManual.py:163
 msgid "Member"
-msgstr ""
+msgstr "Участник"
 
 #: yali/gui/ScrPartitionManual.py:166
 msgid "Array"
