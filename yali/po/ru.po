@@ -63,7 +63,7 @@ msgstr "  "
 
 #: yali/gui/Ui/autopartwidget.py:141
 msgid "Shrink Current System"
-msgstr ""
+msgstr "Сократить текущую систему"
 
 #: yali/gui/Ui/autopartwidget.py:142 yali/gui/ScrSummary.py:151
 msgid "Use Free Space"
@@ -396,6 +396,9 @@ msgid ""
 "<br><br>\n"
 "Warning: A resizing operation may corrupt the partition, rendering the data on it unreachable. Make sure that you have backed up the data. Note that this operation cannot be undone.<b>"
 msgstr ""
+"Изменения вступят в силу когда вы нажмете \"Изменить размер\". Для отмены изменений, нажмите <b>\"Отмена\".\n"
+"<br><br>\n"
+"Внимание! Операция изменения размера может повредить раздел, данные могут стать недоступными. Убедитесь в том, что вы сделали резервную копию данных. Заметьте, что данная операция не может быть отменена.<b>"
 
 #: yali/gui/Ui/raid.py:92
 msgid "Raid Device:"
@@ -915,7 +918,7 @@ msgstr "Повторить"
 
 #: yali/gui/ScrAdmin.py:96 yali/gui/ScrDateTime.py:140
 msgid "Storage Devices initialising..."
-msgstr ""
+msgstr "Определение устройств хранения данных..."
 
 #: yali/gui/ScrAdmin.py:154 yali/gui/ScrRescuePassword.py:96
 msgid "Password is too short."
@@ -1073,6 +1076,12 @@ msgid ""
 "Error:\n"
 "%s\n"
 msgstr ""
+"Возникла ошибка в процессе установки пакетов.\n"
+"\n"
+"Причиной этому может служить поврежденный установочный носитель.\n"
+"\n"
+"Ошибка:\n"
+"%s\n"
 
 #: yali/gui/ScrKahyaCheck.py:78 yali/gui/ScrRescue.py:49
 msgid "No storage device found."
@@ -1088,6 +1097,8 @@ msgid ""
 "No partitions are available to resize. Only physical\n"
 "partitions which size is greater than %s MB can be resized."
 msgstr ""
+"Нет разделов, доступных для изменения их размера. Только физические\n"
+"разделы, размер которых более %s MB могут быть доступны для изменения размера."
 
 #: yali/gui/ScrPartitionManual.py:93
 #, python-format
