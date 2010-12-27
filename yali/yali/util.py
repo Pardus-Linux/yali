@@ -140,7 +140,7 @@ def run_batch(cmd, argv):
 # values instead. but this is good enough :)
 def run_logged(cmd):
     """Run command and get the return value."""
-    ctx.logger.info(_('Running %s') % " ".join(cmd))
+    ctx.logger.info('Running %s' % " ".join(cmd))
     env = os.environ.copy()
     env.update({"LC_ALL": "C"})
     if ctx.stdout:

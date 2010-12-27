@@ -352,7 +352,7 @@
                 <string notr="true"/>
                </property>
                <property name="text">
-                <string>Screen Name</string>
+                <string/>
                </property>
                <property name="textFormat">
                 <enum>Qt::RichText</enum>
