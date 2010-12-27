@@ -274,7 +274,7 @@ class RaidWidget(QWidget, Ui_RaidWidget):
     def raidLevelChanged(self, index):
         raidlevel = self.raidLevels.itemData(index).toInt()[0]
         availraidparts = self.parent.storage.unusedRaidMembers(array=self.origrequest)
-        maxspares = raid.get_raid_max_spares(raidlevel, availraidparts)
+        maxspares = raid.get_raid_max_spares(raidlevel, len(availraidparts))
 
         if maxspares > 0 and not raid.isRaid(raid.RAID0, raidlevel):
            value = self.spareSpin.value()
