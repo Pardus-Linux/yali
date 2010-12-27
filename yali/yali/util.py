@@ -130,9 +130,9 @@ def run_batch(cmd, argv):
     out, error = p.communicate()
     ctx.logger.debug('return value for "%(command)s" is %(return)s' % {"command":cmd, "return":p.returncode})
     if ctx.flags.debug:
-        ctx.logger.debug(_('output for "%(command)s" is %(output)s') % {"command":cmd, "output":output})
-        ctx.logger.debug(_('error value for "%(command)s" is %(error)s') % {"command":cmd, "error":error})
-    return (p.returncode, out, err)
+        ctx.logger.debug('output for "%(command)s" is %(output)s' % {"command":cmd, "output":out})
+        ctx.logger.debug('error value for "%(command)s" is %(error)s' % {"command":cmd, "error":error})
+    return (p.returncode, out, error)
 
 
 # TODO: it might be worthwhile to try to remove the
@@ -160,9 +160,9 @@ def run_logged(cmd):
 
     p = subprocess.Popen(cmd, shell=True, stdout=stdout, stderr=stderr, env=env)
     out, error = p.communicate()
-    ctx.logger.debug(_('return value for "%(command)s" is %(return)s') % {"command":cmd, "return":p.returncode})
-    ctx.logger.debug(_('output for "%(command)s" is %(output)s') % {"command":cmd, "output":output})
-    ctx.logger.debug(_('error value for "%(command)s" is %(error)s') % {"command":cmd, "error":error})
+    ctx.logger.debug('return value for "%(command)s" is %(return)s' % {"command":cmd, "return":p.returncode})
+    ctx.logger.debug('output for "%(command)s" is %(output)s' % {"command":cmd, "output":out})
+    ctx.logger.debug('error value for "%(command)s" is %(error)s' % {"command":cmd, "error":error})
 
     return p.returncode
 
