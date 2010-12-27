@@ -26,6 +26,9 @@ class StorageError(yali.Error):
 
 def initialize(storage, intf):
     storage.shutdown()
+    # touch /dev/.in_sysinit so that /lib/udev/rules.d/65-md-incremental.rules
+    # does not mess with any mdraid sets
+    open("/dev/.in_sysinit", "w")
     udev_trigger(subsystem="block", action="change")
     intf.resetInitializeDisk()
     intf.resetReinitInconsistentLVM()
