@@ -1324,7 +1324,7 @@ msgstr "   "
 
 #: yali/gui/ScrRescuePisi.py:180 yali/gui/ScrRescuePisi.py:181
 msgid "Connected"
-msgstr ""
+msgstr "Подключено"
 
 #: yali/gui/ScrRescue.py:94
 msgid "Mounting disk partition..."
