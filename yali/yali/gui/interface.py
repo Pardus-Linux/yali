@@ -122,11 +122,11 @@ class Interface(object):
         na = {'msg': message, 'pvs': ", ".join(pv_names)}
         rc = self.messageWindow(_("Warning"),
                                 _("Error processing LVM.\n"
-                                  "There is inconsistent LVM data on %(msg)s.  You can "
-                                  "reinitialize all related PVs (%(pvs)s) which will erase "
-                                  "the LVM metadata, or ignore which will preserve the "
+                                  "There is inconsistent LVM data on %(msg)s. You\ncan "
+                                  "reinitialize all related PVs (%(pvs)s) which will\nerase "
+                                  "the LVM metadata, or ignore which will preserve the\n"
                                   "contents.  This action may also be applied to all other "
-                                  "PVs with inconsistent metadata.") % na, type="custom",
+                                  "PVs with\ninconsistent metadata.") % na, type="custom",
                                 customButtons = [_("Ignore"), _("Ignore all"),
                                                  _("Re-initialize"), _("Re-initialize all") ],
                                 customIcon="question")
