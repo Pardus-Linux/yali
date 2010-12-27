@@ -179,7 +179,7 @@ def addUsers():
     obj = bus.get_object("tr.org.pardus.comar", "/package/baselayout")
     for user in yali.users.PENDING_USERS:
         ctx.logger.debug("User %s adding to system" % user.username)
-        uid = obj.addUser(-1, user.username,user.realname, "", "",
+        uid = obj.addUser(user.uid, user.username, user.realname, "", "",
                           unicode(user.passwd), user.groups, [], [],
                           dbus_interface="tr.org.pardus.comar.User.Manager")
         ctx.logger.debug("New user's id is %s" % uid)
