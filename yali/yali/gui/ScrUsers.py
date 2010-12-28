@@ -124,7 +124,6 @@ class Widget(QWidget, ScreenWidget):
 
     def execute(self):
         if self.checkUsers():
-            self.refill()
             ctx.installData.autoLoginUser = str(self.ui.autoLogin.currentText())
             if self.ui.createButton.text() == _("Update"):
                 return self.slotCreateUser()
@@ -315,6 +314,7 @@ class Widget(QWidget, ScreenWidget):
         #self.ui.realname.setFocus()
         self.checkUsers()
         self.user_name_changed = False
+        self.refill()
         return True
 
     def slotDeleteUser(self):
