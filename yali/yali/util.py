@@ -138,7 +138,7 @@ def run_batch(cmd, argv):
 # TODO: it might be worthwhile to try to remove the
 # use of ctx.stdout, and use run_batch()'s return
 # values instead. but this is good enough :)
-def run_logged(cmd):
+def run_logged(cmd, argv):
     """Run command and get the return value."""
     ctx.logger.info('Running %s' % " ".join(cmd))
     env = os.environ.copy()
@@ -158,6 +158,7 @@ def run_logged(cmd):
         else:
             stderr = subprocess.STDOUT
 
+    cmd = "%s %s" % (cmd, ' '.join(argv))
     p = subprocess.Popen(cmd, shell=True, stdout=stdout, stderr=stderr, env=env)
     out, error = p.communicate()
     ctx.logger.debug('return value for "%(command)s" is %(return)s' % {"command":cmd, "return":p.returncode})

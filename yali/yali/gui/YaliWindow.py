@@ -317,7 +317,7 @@ class Widget(QWidget):
             widget = self.ui.mainStack.currentWidget()
             # Hack to fix goodbye screen help content
             # BUG:#15860, #15444
-            if widget_id == "goodbye":
+            if widget.name == "goodbye":
                 widget_id = "%s%s" % (widget.name, ctx.flags.install_type)
             else:
                 widget_id = widget.name
