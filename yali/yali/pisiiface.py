@@ -186,6 +186,23 @@ def getPackages(tag=None, value=None, index=None):
                     ret.append("%s,%s" % (package.getTagData("PackageURI"), data))
     return ret
 
+def getPathsByPackageName(packageNames, index=None):
+    if not index:
+        index = os.path.join(ctx.consts.source_dir, "repo/pisi-index.xml.bz2")
+    if index.endswith("bz2"):
+        piksemelObj = piksemel.parseString(bz2.decompress(file(index).read()))
+    else:
+        piksemelObj = piksemel.parseString(lzma.decompress(file(index).read()))
+
+    paths = []
+    for package in piksemelObj.tags("Package"):
+        for node in package.tags("Name"):
+            name = node.firstChild().data()
+            if name in packageNames:
+                uri = package.getTagData("PackageURI")
+                paths.append(os.path.join(ctx.consts.source_dir, 'repo', uri))
+    return paths
+
 def mergePackagesWithRepoPath(packages):
     return map(lambda x: os.path.join(ctx.consts.source_dir, 'repo', x.split(',')[0]), packages)
 
@@ -254,16 +271,6 @@ def getAllPackagesWithPaths(collectionIndex="", use_sort_file=False, ignoreKerne
     else:
         # Get packages with their full paths
         packages = glob.glob('%s/repo/*.pisi' % ctx.consts.source_dir)
-
-    # Make baselayout package first
-    baselayout = None
-    for package in packages:
-        if 'baselayout' in package:
-            baselayout = packages.index(package)
-            break
-
-    if baselayout:
-        packages.insert(0, packages.pop(baselayout))
 
     return packages
 

@@ -71,6 +71,9 @@ def get_commands(storage):
         if is_required(parameter):
             _commands.append(parameter)
 
+    if ctx.blacklistedKernelModules:
+        _commands.append("blacklist=%s" % ",".join(ctx.blacklistedKernelModules))
+
     return " ".join(_commands).strip()
 
 def get_disk_name(storage, device, exists=False):

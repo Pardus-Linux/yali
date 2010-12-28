@@ -297,6 +297,20 @@ class PkgInstaller(Process):
                 ctx.logger.debug(yali.pisiiface.getNotNeededLanguagePackages())
 
 
+        order = self.filterDriverPacks(order)
+        order.sort()
+
+        # Place baselayout package on the top of package list
+        baselayout = None
+        for path in order:
+            if "/baselayout-" in path:
+                baselayout = order.index(path)
+                break
+
+        if baselayout:
+            order.insert(0, order.pop(baselayout))
+
+
         # show progress
         total = len(order)
         ctx.logger.debug("Sending EventSetProgress")
@@ -333,6 +347,40 @@ class PkgInstaller(Process):
         # Package Install finished lets configure them
         data = [EventPackageInstallFinished]
         self.queue.put_nowait(data)
+
+    def filterDriverPacks(self, paths):
+        try:
+            from panda import Panda
+        except ImportError:
+            return paths
+
+        panda = Panda()
+
+        # filter all driver packages
+        foundDriverPackages = set(yali.pisiiface.getPathsByPackageName(panda.get_all_driver_packages()))
+        allPackages = set(paths)
+        packages = allPackages - foundDriverPackages
+
+        # detect hardware
+        neededDriverPackages = set(yali.pisiiface.getPathsByPackageName(panda.get_needed_driver_packages()))
+
+        # if alternatives are available ask to user, otherwise return
+        if neededDriverPackages and neededDriverPackages.issubset(allPackages):
+            rc = ctx.interface.messageWindow(
+                    _("Proprietary Hardware Drivers"),
+                    _("Proprietary drivers are available to make your video card function properly.\n"
+                      "These drivers are developed by the hardware manufacturer and not supported\n"
+                      "by Pardus developers since their source code is not publicly available.\n"
+                      "\n"
+                      "Do you want to install and use these proprietary drivers?"),
+                      type="custom", customIcon="question",
+                      customButtons=[_("Yes"), _("No")])
+
+            if rc == 0:
+                packages.update(neededDriverPackages)
+                ctx.blacklistedKernelModules.append(panda.get_blacklisted_module())
+
+        return list(packages)
 
 class PkgConfigurator(Process):
 
