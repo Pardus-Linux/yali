@@ -105,6 +105,7 @@ class LVMEditor(object):
 
             peSize = widget.physicalExtends.itemData(widget.physicalExtends.currentIndex()).toInt()[0] / 1024.0
 
+            origlvs = self.origrequest.lvs
             if not self.origrequest.exists:
                 ctx.logger.debug("non-existing vg -- setting up lvs, pvs, name, peSize")
                 for lv in self.origrequest.lvs:
@@ -124,7 +125,7 @@ class LVMEditor(object):
                 if self.isNew:
                     operations = [OperationCreateDevice(self.origrequest)]
 
-            for lv in self.origrequest.lvs:
+            for lv in origlvs:
                 ctx.logger.debug("old lv %s..." % lv.lvname)
                 if not lv.exists or lv.lvname not in self.lvs or \
                    (not self.lvs[lv.lvname]['exists'] and lv.exists):
