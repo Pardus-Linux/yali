@@ -411,7 +411,7 @@ class Filesystem(Format):
 
         for module in self._modules:
             try:
-                rc = yali.utils.run_batch("modprobe", [module])
+                rc = yali.util.run_batch("modprobe", [module])
             except Exception as e:
                 ctx.logger.error("Could not load kernel module %s: %s" % (module, e))
                 self._supported = False
