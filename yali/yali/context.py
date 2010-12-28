@@ -17,7 +17,7 @@ flags = yali.flags.Flags()
 consts = yali.constants.Constants()
 installData = yali.installdata.InstallData()
 
-STEP_DEFAULT, STEP_BASE, STEP_OEM_INSTALL, STEP_FIRST_BOOT, STEP_RESCUE = xrange(5)
+STEP_DEFAULT, STEP_BASE, STEP_FIRST_BOOT, STEP_OEM_INSTALL, STEP_RESCUE = xrange(5)
 
 STEP_TYPE_STRINGS = {STEP_DEFAULT:"Default",
                      STEP_BASE:"Base System Installation",

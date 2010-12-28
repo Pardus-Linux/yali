@@ -315,19 +315,29 @@ class Widget(QWidget):
             self.anime.start(50)
             self.ui.mainStack.setCurrentIndex(index)
             widget = self.ui.mainStack.currentWidget()
-            icon = self.screens_content[widget.name][0]
-            if self.screens_content[widget.name][1].has_key(ctx.consts.lang):
-                title = self.screens_content[widget.name][1][ctx.consts.lang]
+            # Hack to fix goodbye screen help content
+            # BUG:#15860, #15444
+            if widget_id == "goodbye":
+                widget_id = "%s%s" % (widget.name, ctx.flags.install_type)
             else:
-                title = self.screens_content[widget.name][1]["en"]
-            if self.screens_content[widget.name][2].has_key(ctx.consts.lang):
-                help = self.screens_content[widget.name][2][ctx.consts.lang]
+                widget_id = widget.name
+
+            widget_icon = self.screens_content[widget_id][0]
+
+            if self.screens_content[widget_id][1].has_key(ctx.consts.lang):
+                widget_title = self.screens_content[widget_id][1][ctx.consts.lang]
             else:
-                help = self.screens_content[widget.name][2]["en"]
-            self.ui.screenName.setText(title)
-            self.pds_helper.ui.helpContent.setText(help)
-            self.pds_helper.setHelp(help)
-            self.ui.screenIcon.setPixmap(QPixmap(":/gui/pics/%s.png" % (icon)))
+                widget_title = self.screens_content[widget_id][1]["en"]
+
+            if self.screens_content[widget_id][2].has_key(ctx.consts.lang):
+                widget_help = self.screens_content[widget_id][2][ctx.consts.lang]
+            else:
+                widget_help = self.screens_content[widget_id][2]["en"]
+
+            self.ui.screenName.setText(widget_title)
+            self.pds_helper.ui.helpContent.setText(widget_help)
+            self.pds_helper.setHelp(widget_help)
+            self.ui.screenIcon.setPixmap(QPixmap(":/gui/pics/%s.png" % (widget_icon)))
 
             ctx.mainScreen.processEvents()
             widget.update()
