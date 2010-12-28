@@ -60,6 +60,7 @@ class Widget(QWidget, ScreenWidget):
             ctx.mainScreen.disableNext()
         else:
             ctx.mainScreen.enableNext()
+        self.update()
 
     def execute(self):
         ctx.logger.info("Manual Partitioning selected...")
