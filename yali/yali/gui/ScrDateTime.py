@@ -80,15 +80,6 @@ class Widget(QWidget, ScreenWidget):
 
         self.timer.start(1000)
 
-    def write(self):
-        f = open("/home/rcakirerk/timezone-translations.py", "w")
-
-        for continent in self.continents:
-            f.write("i18('%s')\n" % continent)
-
-        for country in self.countries:
-            f.writelines("i18('%s')\n" % country)
-
         f.close()
 
     def __initSignals__(self):

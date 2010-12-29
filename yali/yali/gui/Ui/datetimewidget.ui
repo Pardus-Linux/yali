@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>850</width>
+    <width>746</width>
     <height>452</height>
    </rect>
   </property>
@@ -118,8 +118,8 @@
           </property>
           <property name="sizeHint" stdset="0">
            <size>
-            <width>20</width>
-            <height>40</height>
+            <width>303</width>
+            <height>13</height>
            </size>
           </property>
          </spacer>
@@ -286,8 +286,8 @@
           </property>
           <property name="sizeHint" stdset="0">
            <size>
-            <width>20</width>
-            <height>40</height>
+            <width>303</width>
+            <height>13</height>
            </size>
           </property>
          </spacer>
@@ -313,32 +313,38 @@
            </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="timeZoneList">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
+           <widget class="QComboBox" name="continentList">
             <property name="minimumSize">
              <size>
               <width>0</width>
               <height>30</height>
              </size>
             </property>
-            <property name="maximumSize">
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
              <size>
-              <width>16777215</width>
-              <height>30</height>
+              <width>20</width>
+              <height>5</height>
              </size>
             </property>
-            <property name="font">
-             <font>
-              <pointsize>15</pointsize>
-             </font>
-            </property>
-            <property name="editable">
-             <bool>false</bool>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QComboBox" name="countryList">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>30</height>
+             </size>
             </property>
            </widget>
           </item>
@@ -351,8 +357,8 @@
           </property>
           <property name="sizeHint" stdset="0">
            <size>
-            <width>20</width>
-            <height>40</height>
+            <width>303</width>
+            <height>13</height>
            </size>
           </property>
          </spacer>
