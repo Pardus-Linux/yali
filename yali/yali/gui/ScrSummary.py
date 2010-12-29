@@ -218,6 +218,8 @@ class Widget(QWidget, ScreenWidget):
                     ctx.storage.mountFilesystems(readOnly=False, skipRoot=False)
                     ctx.mainScreen.step_increment = 1
                     ctx.mainScreen.ui.buttonNext.setText(_("Next"))
+
+                    self.createPackageList()
                     return True
 
             ctx.mainScreen.enableBack()
@@ -237,4 +239,84 @@ class Widget(QWidget, ScreenWidget):
         #        size = 600
         #    ctx.storage.storageset.createSwapFile(ctx.storage.storageset.rootDevice, ctx.consts.target_dir, size)
 
+    def createPackageList(self):
+        ctx.logger.debug("Generating package list...")
 
+        if ctx.flags.collection:
+            # Get only collection packages with collection Name
+            packages = yali.pisiiface.getAllPackagesWithPaths(
+                        collectionIndex=ctx.installData.autoInstallationCollection.index,
+                        ignoreKernels=True)
+
+            kernelPackages = yali.pisiiface.getNeededKernel(
+                        ctx.installData.autoInstallationKernel,
+                        ctx.installData.autoInstallationCollection.index)
+            packages.extend(kernelPackages)
+
+        else:
+            # Check for just installing system.base packages
+            if ctx.flags.baseonly:
+                packages = yali.pisiiface.getBasePackages()
+            else:
+                packages = yali.pisiiface.getAllPackagesWithPaths()
+
+            # Check for extra languages
+            if not ctx.installData.installAllLangPacks:
+                packages = list(set(packages) - set(yali.pisiiface.getNotNeededLanguagePackages()))
+                ctx.logger.debug("Not needed lang packages will not be installing...")
+
+
+        packages = self.filterDriverPacks(packages)
+        packages.sort()
+
+        # Place baselayout package on the top of package list
+        baselayout = None
+        for path in packages:
+            if "/baselayout-" in path:
+                baselayout = packages.index(path)
+                break
+
+        if baselayout:
+            packages.insert(0, packages.pop(baselayout))
+
+        ctx.packagesToInstall = packages
+
+    def filterDriverPacks(self, paths):
+        try:
+            from panda import Panda
+        except ImportError:
+            ctx.logger.debug("Installing all driver packages since panda module is not installed.")
+            return paths
+
+        panda = Panda()
+
+        # filter all driver packages
+        foundDriverPackages = set(yali.pisiiface.getPathsByPackageName(panda.get_all_driver_packages()))
+        ctx.logger.debug("Found driver packages: %s" % foundDriverPackages)
+
+        allPackages = set(paths)
+        packages = allPackages - foundDriverPackages
+
+        # detect hardware
+        neededDriverPackages = set(yali.pisiiface.getPathsByPackageName(panda.get_needed_driver_packages()))
+        ctx.logger.debug("Known driver packages for this hardware: %s" % neededDriverPackages)
+
+        # if alternatives are available ask to user, otherwise return
+        if neededDriverPackages and neededDriverPackages.issubset(allPackages):
+            answer = ctx.interface.messageWindow(
+                    _("Proprietary Hardware Drivers"),
+                    _("Proprietary drivers are available to make your video card function\n"
+                      "properly. These drivers are developed by the hardware\n"
+                      "manufacturer and not supported by Pardus developers since their\n"
+                      "source code is not publicly available."
+                      "\n\n"
+                      "Do you want to install and use these proprietary drivers?"),
+                      type="custom", customIcon="question",
+                      customButtons=[_("Yes"), _("No")])
+
+            if answer == 0:
+                packages.update(neededDriverPackages)
+                ctx.blacklistedKernelModules.append(panda.get_blacklisted_module())
+                ctx.logger.debug("These driver packages will be installed: %s" % neededDriverPackages)
+
+        return list(packages)

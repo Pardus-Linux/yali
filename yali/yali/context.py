@@ -48,3 +48,5 @@ mainScreen = None
 storageInitialized = False
 
 blacklistedKernelModules = []
+
+packagesToInstall = []

@@ -277,42 +277,12 @@ class PkgInstaller(Process):
         if ctx.flags.collection:
             ctx.logger.debug("DVD Repo adding..")
             yali.pisiiface.addRepo(ctx.consts.dvd_repo_name, ctx.installData.autoInstallationCollection.index)
-            # Get only collection packages with collection Name
-            order = yali.pisiiface.getAllPackagesWithPaths(collectionIndex=ctx.installData.autoInstallationCollection.index, ignoreKernels=True)
-            kernel_packages = yali.pisiiface.getNeededKernel(ctx.installData.autoInstallationKernel, ctx.installData.autoInstallationCollection.index)
-            order.extend(kernel_packages)
         else:
             ctx.logger.debug("CD Repo adding..")
             yali.pisiiface.addCdRepo()
-            # Check for just installing system.base packages
-            if ctx.flags.baseonly:
-                order = yali.pisiiface.getBasePackages()
-            else:
-                order = yali.pisiiface.getAllPackagesWithPaths()
-
-            # Check for extra languages
-            if not ctx.installData.installAllLangPacks:
-                order = list(set(order) - set(yali.pisiiface.getNotNeededLanguagePackages()))
-                ctx.logger.debug("Not needed lang packages will not be installing...")
-                ctx.logger.debug(yali.pisiiface.getNotNeededLanguagePackages())
-
-
-        order = self.filterDriverPacks(order)
-        order.sort()
-
-        # Place baselayout package on the top of package list
-        baselayout = None
-        for path in order:
-            if "/baselayout-" in path:
-                baselayout = order.index(path)
-                break
-
-        if baselayout:
-            order.insert(0, order.pop(baselayout))
-
 
         # show progress
-        total = len(order)
+        total = len(ctx.packagesToInstall)
         ctx.logger.debug("Sending EventSetProgress")
         data = [EventSetProgress, total*2]
         self.queue.put_nowait(data)
@@ -320,7 +290,7 @@ class PkgInstaller(Process):
         try:
             while True:
                 try:
-                    yali.pisiiface.install(order)
+                    yali.pisiiface.install(ctx.packagesToInstall)
                     break # while
                 except Exception, msg:
                     # Lock the mutex
@@ -348,39 +318,6 @@ class PkgInstaller(Process):
         data = [EventPackageInstallFinished]
         self.queue.put_nowait(data)
 
-    def filterDriverPacks(self, paths):
-        try:
-            from panda import Panda
-        except ImportError:
-            return paths
-
-        panda = Panda()
-
-        # filter all driver packages
-        foundDriverPackages = set(yali.pisiiface.getPathsByPackageName(panda.get_all_driver_packages()))
-        allPackages = set(paths)
-        packages = allPackages - foundDriverPackages
-
-        # detect hardware
-        neededDriverPackages = set(yali.pisiiface.getPathsByPackageName(panda.get_needed_driver_packages()))
-
-        # if alternatives are available ask to user, otherwise return
-        if neededDriverPackages and neededDriverPackages.issubset(allPackages):
-            rc = ctx.interface.messageWindow(
-                    _("Proprietary Hardware Drivers"),
-                    _("Proprietary drivers are available to make your video card function properly.\n"
-                      "These drivers are developed by the hardware manufacturer and not supported\n"
-                      "by Pardus developers since their source code is not publicly available.\n"
-                      "\n"
-                      "Do you want to install and use these proprietary drivers?"),
-                      type="custom", customIcon="question",
-                      customButtons=[_("Yes"), _("No")])
-
-            if rc == 0:
-                packages.update(neededDriverPackages)
-                ctx.blacklistedKernelModules.append(panda.get_blacklisted_module())
-
-        return list(packages)
 
 class PkgConfigurator(Process):
 
