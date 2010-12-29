@@ -72,8 +72,6 @@ class Widget(QWidget, ScreenWidget):
 
         self.ui.calendarWidget.setDate(QDate.currentDate())
 
-        self.write()
-
         self.pthread = None
         self.pds_messagebox = PMessageBox(self)
         self.pds_messagebox.enableOverlay()
