@@ -142,7 +142,7 @@ class Dialog(QDialog):
                   ctx.mainScreen.height()/2 - self.height()/2)
 
     def exec_(self):
-        QTimer.singleShot(100, self.setCentered)
+        QTimer.singleShot(0, self.setCentered)
         return QDialog.exec_(self)
 
 class MessageWindow:
