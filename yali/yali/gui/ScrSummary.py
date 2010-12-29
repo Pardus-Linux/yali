@@ -313,7 +313,7 @@ class Widget(QWidget, ScreenWidget):
                       "source code is not publicly available."
                       "<br><br>"
                       "<b>Do you want to install and use these proprietary drivers "
-                      "instead of default drivers?</b></qt>"),
+                      "instead of the default drivers?</b></qt>"),
                       type="custom", customIcon="question",
                       customButtons=[_("Yes"), _("No")])
 
