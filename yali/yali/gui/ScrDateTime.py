@@ -80,8 +80,6 @@ class Widget(QWidget, ScreenWidget):
 
         self.timer.start(1000)
 
-        f.close()
-
     def __initSignals__(self):
         self.connect(self.ui.timeEdit, SIGNAL("timeChanged(QTime)"), self.timerStop)
         self.connect(self.ui.calendarWidget, SIGNAL("selectionChanged()"), self.dateChanged)
