@@ -200,6 +200,10 @@ class Widget(QWidget, ScreenWidget):
             return False
 
         if ctx.flags.install_type == ctx.STEP_BASE or ctx.flags.install_type == ctx.STEP_DEFAULT:
+            ctx.installData.installAllLangPacks = self.ui.installAllLangPacks.isChecked()
+
+            self.createPackageList()
+
             rc = ctx.interface.messageWindow(_("Confirm"),
                                         _("The partitioning options you have selected "
                                           "will now be\nwritten to disk.  Any "
@@ -209,7 +213,6 @@ class Widget(QWidget, ScreenWidget):
                                           customButtons=[_("Write Changes to Disk"), _("Go Back")],
                                           default=1)
 
-            ctx.installData.installAllLangPacks = self.ui.installAllLangPacks.isChecked()
             ctx.mainScreen.processEvents()
 
             if not rc:
@@ -218,8 +221,6 @@ class Widget(QWidget, ScreenWidget):
                     ctx.storage.mountFilesystems(readOnly=False, skipRoot=False)
                     ctx.mainScreen.step_increment = 1
                     ctx.mainScreen.ui.buttonNext.setText(_("Next"))
-
-                    self.createPackageList()
                     return True
 
             ctx.mainScreen.enableBack()
