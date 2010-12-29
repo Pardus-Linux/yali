@@ -197,6 +197,9 @@ def main():
         print "%s must be run as root." % sys.argv[0]
         sys.exit(1)
 
+    # Terminate plymouth daemon if needed
+    if os.path.exists("/bin/plymouth") and not os.system("/bin/plymouth --ping"):
+        os.system("/bin/plymouth quit --retain-splash")
 
     ctx.logger.debug("Yali has been started")
     load_modules()
