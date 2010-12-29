@@ -305,7 +305,7 @@ class Widget(QWidget, ScreenWidget):
         if neededDriverPackages and neededDriverPackages.issubset(allPackages):
             answer = ctx.interface.messageWindow(
                     _("Proprietary Hardware Drivers"),
-                    _("Proprietary drivers are available to make your video card function\n"
+                    _("Proprietary drivers are available that may make your video card function\n"
                       "properly. These drivers are developed by the hardware\n"
                       "manufacturer and not supported by Pardus developers since their\n"
                       "source code is not publicly available."
