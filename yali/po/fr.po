@@ -639,7 +639,7 @@ msgid ""
 msgstr ""
 "Impossible d'accéder à la table de partition de %(description)s(%(name)s) -- %(size)-0.fMo\n"
 "\n"
-"S'il existe déjà une table de partition sur ce périphérique, il sera\n"
+"S'il existe déjà une table de partition sur ce disque dur, il sera\n"
 "ré-initialisé et vos données existantes seront perdues ! \n"
 "\n"
 "Pour ré-initialiser le disque actuel, appuyez sur Re-initialiser. \n"
@@ -913,7 +913,7 @@ msgid ""
 "\n"
 "First create at least two partitions of type \"software RAID\", and then select the \"RAID\" option again."
 msgstr ""
-"Au moins deux partitions RAID logicielles inutilisées sont nécessaires pour créer un périphérique RAID. \n"
+"Au moins deux partitions RAID logicielles inutilisées sont nécessaires pour créer un disque RAID. \n"
 "\n"
 "D'abord, créez au moins deux partitions de type \"RAID logiciel \", puis sélectionnez l'option \"RAID\" à nouveau."
 
@@ -1284,7 +1284,7 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Vous ne pouvez pas modifier ce périphérique :\n"
+"Vous ne pouvez pas modifier ce disque dur :\n"
 "\n"
 "%s"
 
@@ -1452,7 +1452,7 @@ msgstr "Partitionnement automatique sélectionné."
 #: yali/gui/ScrSummary.py:141
 #, python-format
 msgid "Removes all partitions on the selected %s device(s). <b><u>This includes partitions created by other operating systems.</u></b>"
-msgstr "Supprime toutes les partitions sur le disque dur sélectionné %s. Cela inclut les partitions créées par d'autres systèmes d'exploitation."
+msgstr "Supprime toutes les partitions sur le disque dur sélectionné %s. <b><u>Cela inclut les partitions créées par d'autres systèmes d'exploitation.</u></b>"
 
 #: yali/gui/ScrSummary.py:145
 msgid "Replace Existing Linux System(s)"
@@ -1461,12 +1461,12 @@ msgstr "Remplacer des systèmes Linux existants"
 #: yali/gui/ScrSummary.py:146
 #, python-format
 msgid "Removes all Linux partitions on the selected%s device(s). This does not remove other partitions you may have on your storage device(s) (such as VFAT or FAT32)"
-msgstr "Supprime toutes les partitions Linux sur le périphérique sélectionné %s. Cela ne supprime pas les autres partitions (comme VFAT ou FAT32) que vous pourriez avoir sur votre périphérique de stockage."
+msgstr "Supprime toutes les partitions Linux sur le disque dur sélectionné %s. Cela ne supprime pas les autres partitions (comme VFAT ou FAT32) que vous pourriez avoir sur votre périphérique de stockage."
 
 #: yali/gui/ScrSummary.py:152
 #, python-format
 msgid "Retains your current data and partitions and uses only the unpartitioned space on the selected %s device(s), assuming you haveenough free space available."
-msgstr "Conserve vos données et partitions actuelles et utilise uniquement l'espace non partitionné sur le périphérique sélectionné %s, en supposant que vous avez suffisamment d'espace libre disponible."
+msgstr "Conserve vos données et partitions actuelles et utilise uniquement l'espace non partitionné sur le disque dur sélectionné %s, en supposant que vous ayez suffisamment d'espace libre disponible."
 
 #: yali/gui/ScrSummary.py:158
 msgid "Manual Partitioning selected."
