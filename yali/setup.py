@@ -21,7 +21,7 @@ from distutils.command.install import install
 from distutils.spawn import find_executable, spawn
 
 I18N_DOMAIN = "yali"
-I18N_LANGUAGES = ["tr", "nl", "it", "fr", "de", "pt_BR", "es", "pl", "ca", "sv"]
+I18N_LANGUAGES = ["tr", "nl", "it", "fr", "de", "pt_BR", "es", "pl", "ca", "sv", "hu", "ru"]
 
 def qt_ui_files():
     ui_files = "yali/gui/Ui/*.ui"
