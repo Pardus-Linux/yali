@@ -153,7 +153,7 @@ def run_logged(cmd, argv):
     if ctx.stderr:
         stderr = ctx.stderr
     else:
-        if ctx.flags('debug'):
+        if ctx.flags.debug:
             stderr = None
         else:
             stderr = subprocess.STDOUT
@@ -165,7 +165,7 @@ def run_logged(cmd, argv):
     ctx.logger.debug('output for "%(command)s" is %(output)s' % {"command":cmd, "output":out})
     ctx.logger.debug('error value for "%(command)s" is %(error)s' % {"command":cmd, "error":error})
 
-    return p.returncode
+    return (p.returncode, out, error)
 
 efi = None
 def isEfi():

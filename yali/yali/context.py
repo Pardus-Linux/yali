@@ -35,6 +35,10 @@ kernels = {defaultKernel:"kernel.default",
            paeKernel:"kernel.pae",
            rtKernel:"kernel.rt"}
 
+stdout = None
+
+stderr = None
+
 logger = None
 
 storage = None

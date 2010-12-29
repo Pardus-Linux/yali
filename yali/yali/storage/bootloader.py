@@ -405,6 +405,6 @@ quit
 
 
     def install(self):
-        rc = yali.util.run_logged("grub", ["--no-floppy", "--batch < ", "/tmp/batch"])[0]
+        rc = yali.util.run_batch("grub", ["--no-floppy", "--batch < ", "/tmp/batch"])[0]
         yali.util.sync()
         return rc
