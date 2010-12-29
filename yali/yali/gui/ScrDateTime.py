@@ -13,7 +13,7 @@
 import gettext
 _ = gettext.translation('yali', fallback=True).ugettext
 
-from PyQt4.Qt import QWidget, SIGNAL, QTimer, QDate, QTime
+from PyQt4.Qt import QWidget, SIGNAL, QTimer, QDate, QComboBox, QTime
 
 from pds.thread import PThread
 from pds.gui import PMessageBox, MIDCENTER, CURRENT, OUT
@@ -39,38 +39,117 @@ class Widget(QWidget, ScreenWidget):
 
         self.current_zone = ""
 
+        self.tz_dict = {}
+        self.continents = []
+        self.countries = []
+
         for country, data in yali.localedata.locales.items():
             if country == ctx.consts.lang:
                 if data.has_key("timezone"):
                     ctx.installData.timezone = data["timezone"]
 
-        # fill in the timezone list
-        zom = TimeZoneList()
-        zones = [ x.timeZone for x in zom.getEntries() ]
-        zones.sort()
-        for zone in zones:
-            self.pretty_zone_name = "%s - %s" % (zone.split("/")[0], zone.split("/")[1])
-            if zone == ctx.installData.timezone:
-                self.current_zone = self.pretty_zone_name
-            self.ui.timeZoneList.addItem(self.pretty_zone_name, zone)
+        # Append continents and countries the time zone dictionary
+        self.createTZDictionary()
 
+        # Sort continent list
+        self.sortContinents()
 
-        # Select the timeZone
-        self.index = self.ui.timeZoneList.findText(self.current_zone)
-        self.ui.timeZoneList.setCurrentIndex(self.index)
+        # Append sorted continents to combobox
+        self.loadContinents()
 
-        # Widget connections
-        self.connect(self.ui.timeEdit, SIGNAL("timeChanged(QTime)"), self.timerStop)
-        self.connect(self.ui.calendarWidget, SIGNAL("selectionChanged()"), self.dateChanged)
-        self.connect(self.timer, SIGNAL("timeout()"), self.updateClock)
+        # Load current continents country list
+        self.getCountries(self.current_zone["continent"])
+
+        # Highlight the current zone
+        self.index = self.ui.continentList.findText(self.current_zone["continent"])
+        self.ui.continentList.setCurrentIndex(self.index)
+
+        self.index = self.ui.countryList.findText(self.current_zone["country"])
+        self.ui.countryList.setCurrentIndex(self.index)
+
+        # Initialize widget signal and slots
+        self.__initSignals__()
 
         self.ui.calendarWidget.setDate(QDate.currentDate())
+
+        self.write()
 
         self.pthread = None
         self.pds_messagebox = PMessageBox(self)
         self.pds_messagebox.enableOverlay()
 
         self.timer.start(1000)
+
+    def write(self):
+        f = open("/home/rcakirerk/timezone-translations.py", "w")
+
+        for continent in self.continents:
+            f.write("i18('%s')\n" % continent)
+
+        for country in self.countries:
+            f.writelines("i18('%s')\n" % country)
+
+        f.close()
+
+    def __initSignals__(self):
+        self.connect(self.ui.timeEdit, SIGNAL("timeChanged(QTime)"), self.timerStop)
+        self.connect(self.ui.calendarWidget, SIGNAL("selectionChanged()"), self.dateChanged)
+        self.connect(self.timer, SIGNAL("timeout()"), self.updateClock)
+        self.connect(self.ui.continentList, SIGNAL("activated(QString)"), self.getCountries)
+
+    def createTZDictionary(self):
+        tz = TimeZoneList()
+        zones = [ x.timeZone for x in tz.getEntries() ]
+        zones.sort()
+
+        for zone in zones:
+            split = zone.split("/")
+
+            # Human readable continent names
+            continent_pretty_name = split[0].replace("_", " ")
+            continent_pretty_name = continent_pretty_name
+
+            # Some country names can be like Argentina/Catamarca so this fixes the splitting problem
+            # caused by zone.split("/")
+            #
+            # Remove continent info and take the rest as the country name
+            split.pop(0)
+            country_pretty_name = " / ".join(split)
+
+            # Human readable country names
+            country_pretty_name = country_pretty_name.replace("_", " ")
+
+            # Get current zone
+            if zone == ctx.installData.timezone:
+                self.current_zone = { "continent":continent_pretty_name, "country":country_pretty_name}
+
+            # Append to dictionary
+            if self.tz_dict.has_key(continent_pretty_name):
+                self.tz_dict[continent_pretty_name].append([country_pretty_name, zone])
+            else:
+                self.tz_dict[continent_pretty_name] = [[country_pretty_name, zone]]
+
+
+    def sortContinents(self):
+        for continent in self.tz_dict.keys():
+            self.continents.append(continent)
+        self.continents.sort()
+
+    def loadContinents(self):
+        for continent in self.continents:
+            self.ui.continentList.addItem(continent)
+
+    def getCountries(self, continent):
+        # Countries of the selected continent
+        countries = self.tz_dict[str(continent)]
+
+        self.ui.countryList.clear()
+
+        for country, zone in countries:
+            self.ui.countryList.addItem(country, zone)
+            self.countries.append(country)
+
+
 
     def dateChanged(self):
         self.is_date_changed = True
@@ -122,8 +201,8 @@ class Widget(QWidget, ScreenWidget):
             QTimer.singleShot(500, self.setTime)
             self.timer.stop()
 
-        index = self.ui.timeZoneList.currentIndex()
-        ctx.installData.timezone = self.ui.timeZoneList.itemData(index).toString()
+        index = self.ui.countryList.currentIndex()
+        ctx.installData.timezone = self.ui.countryList.itemData(index).toString()
         ctx.logger.debug("Time zone selected as %s " % ctx.installData.timezone)
 
         if ctx.flags.install_type == ctx.STEP_BASE:
