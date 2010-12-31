@@ -15,8 +15,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sv\n"
-"X-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.0\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 msgid "Choose Installation Method"
@@ -254,7 +254,7 @@ msgstr "Filsystem:"
 #: yali/gui/Ui/partition.py:142 yali/gui/Ui/raid.py:95
 #: yali/gui/ScrPartitionManual.py:129
 msgid "Format"
-msgstr "Formatera"
+msgstr "Format"
 
 #: yali/gui/Ui/logicalvolume.py:139 yali/gui/Ui/partition.py:143
 #: yali/gui/Ui/raid.py:96
@@ -326,7 +326,7 @@ msgstr "Återställ"
 
 #: yali/gui/Ui/partedit.py:174
 msgid "Format :"
-msgstr "Formatera:"
+msgstr "Format:"
 
 #: yali/gui/Ui/partedit.py:175
 msgid "Yes, format this partition"
