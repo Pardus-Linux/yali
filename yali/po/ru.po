@@ -1186,7 +1186,7 @@ msgstr " "
 
 #: yali/gui/ScrPartitionManual.py:290
 msgid "Can't handle more than one extended partition per disk"
-msgstr ""
+msgstr "Нельзя иметь больше чем один расширенный раздел на диске"
 
 #: yali/gui/ScrPartitionManual.py:297
 msgid "Crossed logical partition before extended"
@@ -1203,7 +1203,7 @@ msgstr " "
 #: yali/gui/ScrPartitionManual.py:352
 #, python-format
 msgid "Could not allocate requested partitions: %s."
-msgstr ""
+msgstr "Не удалось разместить требуемые разделы: %s."
 
 #: yali/gui/ScrPartitionManual.py:356
 msgid "Warning Partitioning"
@@ -1219,9 +1219,8 @@ msgid "Modify Partition"
 msgstr " "
 
 #: yali/gui/ScrPartitionManual.py:472
-#, fuzzy
 msgid "Partition Selection Warning"
-msgstr " "
+msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:473
 #, fuzzy
@@ -1249,11 +1248,11 @@ msgstr "  ..."
 
 #: yali/gui/ScrRescueFinish.py:58
 msgid "Taking back operation..."
-msgstr ""
+msgstr "Откат операций..."
 
 #: yali/gui/ScrRescueFinish.py:61
 msgid "Running rescue operations..."
-msgstr ""
+msgstr "Запуск восстановительных операций..."
 
 #: yali/gui/ScrRescueFinish.py:78
 msgid "Press <b>Restart</b> to restart your system."
