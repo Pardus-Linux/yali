@@ -619,7 +619,7 @@ msgid "Error"
 msgstr "Ошибка"
 
 #: yali/gui/interface.py:67
-#, python-format
+#, python-format, fuzzy
 msgid ""
 "Cannot access the partition table of %(description)s(%(name)s) -- %(size)-0.fMB\n"
 "\n"
@@ -630,6 +630,14 @@ msgid ""
 "\n"
 "To re-initialize all disks with unaccessible partition tables press Re-initialize All"
 msgstr ""
+"Невозможно получить доступ к таблице разделов %(description)s(%(name)s) -- %(size)-0.fMB\n"
+"\n"
+"Если уже существует таблица разделов на этом устройстве, она будет\n"
+" повторно инициализирована и ваши данные будут потеряны!\n"
+"\n"
+"Для повторного инициализация текущего диска нажмите \"ОБНОВИТЬ?\"\n"
+"\n"
+"Для повторного инициализирования всех дисков с недоступным таблицы разделов нажмите \"ОБНОВИТЬ ВСЁ?\""
 
 #: yali/gui/interface.py:75 yali/gui/interface.py:130
 msgid "Ignore"
@@ -1223,9 +1231,8 @@ msgid "Partition Selection Warning"
 msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:473
-#, fuzzy
 msgid "Please select free physical partition to create new device."
-msgstr ",     :"
+msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:483
 msgid "Unable To Edit"
@@ -1272,8 +1279,9 @@ msgid "Starting D-Bus..."
 msgstr " D-Bus ..."
 
 #: yali/gui/ScrRescuePassword.py:46
+#, fuzzy
 msgid "Acquiring users..."
-msgstr ""
+msgstr "Создание пользователей ..."
 
 #: yali/gui/ScrRescuePassword.py:79
 msgid "The password has been successfully reset."
@@ -1575,8 +1583,9 @@ msgid "Insert New Disc"
 msgstr " \" \""
 
 #: yali/gui/YaliDialog.py:303
+#, fuzzy
 msgid "Information"
-msgstr ""
+msgstr "Информация"
 
 #: yali/gui/YaliDialog.py:500
 msgid "Error reporting"
