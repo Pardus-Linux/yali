@@ -793,12 +793,12 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:581
 msgid "Make Logical Volume"
-msgstr ""
+msgstr "Fai Volume Logico"
 
 #: yali/gui/lvm_gui.py:583
 #, python-format
 msgid "Edit Logical Volume: %s"
-msgstr ""
+msgstr "Modifica Volume Logico: %s"
 
 #: yali/gui/lvm_gui.py:612 yali/gui/partition_gui.py:65
 #: yali/gui/raid_gui.py:75
@@ -848,19 +848,18 @@ msgid "The size entered for this logical volume (%(size)d MB) combined with the 
 msgstr ""
 
 #: yali/gui/partition_gui.py:34
-#, fuzzy, python-format
+#, python-format
 msgid "Create Partition on %(path)s (%(model)s)"
-msgstr "Elimina partizione"
+msgstr "Crea Partizione a %(path)s (%(model)s)"
 
 #: yali/gui/partition_gui.py:38
-#, fuzzy, python-format
+#, python-format
 msgid "Edit Partition %s"
-msgstr "Partizione %d"
+msgstr "Modifica Partizione %s"
 
 #: yali/gui/partition_gui.py:40
-#, fuzzy
 msgid "Edit Partition"
-msgstr "Elimina partizione"
+msgstr "Modifica Partizione"
 
 #: yali/gui/partition_gui.py:104
 msgid "Error With Request"
