@@ -1035,9 +1035,8 @@ msgid "Setup First-Boot..."
 msgstr "Qui puoi riparare il tuo bootloader"
 
 #: yali/gui/ScrGoodbye.py:88
-#, fuzzy
 msgid "Adding users..."
-msgstr "Creazione utenti..."
+msgstr "Aggiunta di utenti..."
 
 #: yali/gui/ScrGoodbye.py:91
 msgid "Cleanup systems..."
@@ -1049,9 +1048,9 @@ msgid "Installing <b>%(name)s</b><br>%(summary)s"
 msgstr "Installazione di <b>%(name)s</b><br>%(summary)s"
 
 #: yali/gui/ScrInstall.py:157
-#, fuzzy, python-format
+#, python-format
 msgid "Configuring <b>%s</b>"
-msgstr "Configurazione pacchetto <b> %s </b>"
+msgstr "Configurando <b> %s </b>"
 
 #: yali/gui/ScrInstall.py:181
 #, python-format
