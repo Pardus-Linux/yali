@@ -661,6 +661,11 @@ msgid ""
 "contents.  This action may also be applied to all other PVs with\n"
 "inconsistent metadata."
 msgstr ""
+"Ошибка обработки LVM.\n"
+"Есть некорректная информация LVM на %(msg)s. Вы\n"
+"можете реинициализировать все связанные PV (%(pvs)s), что сотрет метаданные LVM или игнорировать, что сохранит\n"
+"содержимое. Это действие может быть также проделано с другими PV c\n"
+"некорректными метаданными."
 
 #: yali/gui/interface.py:130
 msgid "Ignore all"
@@ -701,7 +706,7 @@ msgstr "   Volume Group"
 
 #: yali/gui/lvm_gui.py:99
 msgid "Name in use"
-msgstr " "
+msgstr "Имя для использования"
 
 #: yali/gui/lvm_gui.py:100
 #, python-format
@@ -712,7 +717,7 @@ msgstr " volume group  \"%s\"  .   ."
 #: yali/gui/lvm_gui.py:481 yali/gui/lvm_gui.py:696 yali/gui/lvm_gui.py:718
 #: yali/gui/storageGuiHelpers.py:70
 msgid "Not enough space"
-msgstr " "
+msgstr "Не достаточно места"
 
 #: yali/gui/lvm_gui.py:404
 msgid ""
