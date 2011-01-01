@@ -123,7 +123,7 @@ msgstr "Стандартный раздел"
 
 #: yali/gui/Ui/createdevicewidget.py:135 yali/gui/ScrPartitionManual.py:152
 msgid "General purpose of partition creation"
-msgstr " Общее назначение создания разделов"
+msgstr "Общее назначение создания разделов"
 
 #: yali/gui/Ui/createdevicewidget.py:136 yali/gui/ScrPartitionManual.py:157
 msgid "Volume Group"
@@ -187,7 +187,7 @@ msgstr "Пожалуйста, заполните отчет об ошибке н
 
 #: yali/gui/Ui/exception.py:65 yali/gui/ScrCheckCD.py:99
 msgid "Reboot"
-msgstr "Перезагружать"
+msgstr "Перезагрузить"
 
 #: yali/gui/Ui/exception.py:66
 msgid "Show Backtrace"
@@ -265,7 +265,7 @@ msgstr "Yali"
 
 #: yali/gui/Ui/main.py:247 yali/gui/YaliWindow.py:393
 msgid "Release Notes"
-msgstr "Изменения"
+msgstr "Информация о выпуске"
 
 #: yali/gui/Ui/main.py:248
 msgid "Previous Screen"
@@ -328,23 +328,23 @@ msgstr "Форматировать:"
 
 #: yali/gui/Ui/partedit.py:175
 msgid "Yes, format this partition"
-msgstr "Сбросить все изменения"
+msgstr "Да, форматировать этот раздел"
 
 #: yali/gui/Ui/partedit.py:177
 msgid "Delete Partition"
-msgstr "Применить"
+msgstr "Удалить раздел"
 
 #: yali/gui/Ui/partedit.py:178
 msgid "Resize Partition"
-msgstr "Изменить размер раздела"
+msgstr "Изменение размера раздела"
 
 #: yali/gui/Ui/partedit.py:179
 msgid "Changes will be applied after Summary Screen."
-msgstr "Изменения будут применены на окончательной странице."
+msgstr "Изменения будут применены на окончательном этапе."
 
 #: yali/gui/Ui/partedit.py:180
 msgid "Refresh Disks"
-msgstr "Использовать как:"
+msgstr "Обновить диски"
 
 #: yali/gui/Ui/partedit.py:181
 msgid "Reset All Changes"
@@ -360,7 +360,7 @@ msgstr "Установить как основной раздел"
 
 #: yali/gui/Ui/partition.py:137 yali/gui/Ui/raid.py:93
 msgid "Use:"
-msgstr "Выберите место для установки загрузчика GRUB"
+msgstr "Использовать как:"
 
 #: yali/gui/Ui/partition.py:145
 msgid "Force to be a primary partition"
@@ -368,7 +368,7 @@ msgstr "Установить как основной раздел"
 
 #: yali/gui/Ui/partitionshrink.py:62 yali/gui/Ui/partitionshrinkwidget.py:90
 msgid "Which partition would you like to shrink to make room for your installation?"
-msgstr "Устройство Raid:"
+msgstr "Какой раздел Вы хотели бы уменьшить, чтобы освободить место для установки?"
 
 #: yali/gui/Ui/partitionshrink.py:63
 msgid "Shrink partition to size (in MB)"
@@ -376,7 +376,7 @@ msgstr "Уменьшить размер раздела (в Мб)"
 
 #: yali/gui/Ui/partitionshrinkwidget.py:91
 msgid "Shrink partition to size (in MB) :"
-msgstr "Файловая система:"
+msgstr "Уменьшить размер раздела (в Мб):"
 
 #: yali/gui/Ui/partitionshrinkwidget.py:93 yali/gui/Ui/partresize.py:94
 #: yali/gui/Ui/setupuserswidget.py:501 yali/gui/lvm_gui.py:419
@@ -410,13 +410,14 @@ msgstr "Первый загрузочный диск (рекомендуется
 
 #: yali/gui/Ui/raid.py:97
 msgid "Raid Level:"
-msgstr "RAID уровень:"
+msgstr "Raid уровень:"
 
 #: yali/gui/Ui/raid.py:98
 msgid "Raid Members:"
 msgstr "Raid элементы:"
 
 #: yali/gui/Ui/raid.py:99
+#, fuzzy
 msgid "Number of spares:"
 msgstr "Кол-во резервных:"
 
