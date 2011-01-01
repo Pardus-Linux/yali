@@ -59,7 +59,7 @@ msgstr "Использовать выбранное"
 
 #: yali/gui/Ui/autopartwidget.py:140 yali/gui/ScrSummary.py:140
 msgid "Use All Space"
-msgstr "  "
+msgstr "Использовать все пространство."
 
 #: yali/gui/Ui/autopartwidget.py:141
 msgid "Shrink Current System"
@@ -67,7 +67,7 @@ msgstr "Сократить текущую систему"
 
 #: yali/gui/Ui/autopartwidget.py:142 yali/gui/ScrSummary.py:151
 msgid "Use Free Space"
-msgstr "  "
+msgstr "Использовать свободное место"
 
 #: yali/gui/Ui/autopartwidget.py:143
 msgid "Create Custom Layout"
@@ -265,7 +265,7 @@ msgstr "Yali"
 
 #: yali/gui/Ui/main.py:247 yali/gui/YaliWindow.py:393
 msgid "Release Notes"
-msgstr "  "
+msgstr "Изменения"
 
 #: yali/gui/Ui/main.py:248
 msgid "Previous Screen"
@@ -619,7 +619,7 @@ msgid "Error"
 msgstr "Ошибка"
 
 #: yali/gui/interface.py:67
-#, python-format, fuzzy
+#, python-format
 msgid ""
 "Cannot access the partition table of %(description)s(%(name)s) -- %(size)-0.fMB\n"
 "\n"
@@ -635,9 +635,9 @@ msgstr ""
 "Если уже существует таблица разделов на этом устройстве, она будет\n"
 " повторно инициализирована и ваши данные будут потеряны!\n"
 "\n"
-"Для повторного инициализация текущего диска нажмите \"ОБНОВИТЬ?\"\n"
+"Для повторного инициализация текущего диска нажмите Обновить\n"
 "\n"
-"Для повторного инициализирования всех дисков с недоступным таблицы разделов нажмите \"ОБНОВИТЬ ВСЁ?\""
+"Для повторного инициализирования всех дисков с недоступным таблицы разделов нажмите Обновить все"
 
 #: yali/gui/interface.py:75 yali/gui/interface.py:130
 msgid "Ignore"
@@ -645,11 +645,11 @@ msgstr "Игнорировать"
 
 #: yali/gui/interface.py:75
 msgid "Ignore All"
-msgstr " "
+msgstr "Игнорировать все."
 
 #: yali/gui/interface.py:76 yali/gui/interface.py:131
 msgid "Re-initialize"
-msgstr " "
+msgstr "Реинициализировать"
 
 #: yali/gui/interface.py:124
 #, python-format
@@ -664,15 +664,15 @@ msgstr ""
 
 #: yali/gui/interface.py:130
 msgid "Ignore all"
-msgstr " "
+msgstr "Игнорировать все"
 
 #: yali/gui/interface.py:131
 msgid "Re-initialize all"
-msgstr "  "
+msgstr "Реинициализировать все"
 
 #: yali/gui/lvm_gui.py:48
 msgid "Not enough physical volumes"
-msgstr "   "
+msgstr "Не достаточно реальных томов"
 
 #: yali/gui/lvm_gui.py:49
 msgid ""
