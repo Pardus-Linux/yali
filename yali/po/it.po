@@ -977,7 +977,7 @@ msgstr "Premi <b>Riavvia</b> per riavviare il sistema."
 
 #: yali/gui/ScrGoodbye.py:54 yali/gui/ScrRescueFinish.py:80
 msgid "<b>Please wait while restarting...</b>"
-msgstr ""
+msgstr "<b>Si prega di attendere mentre il sistema riavvia...</b>"
 
 #: yali/gui/ScrGoodbye.py:67 yali/gui/ScrRescuePassword.py:45
 #: yali/gui/ScrRescuePisi.py:38
@@ -1116,9 +1116,8 @@ msgid ""
 msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:111
-#, fuzzy
 msgid "Partitioning Warnings"
-msgstr "Impostazioni partizioni"
+msgstr "Avvisi di Partizionamento"
 
 #: yali/gui/ScrPartitionManual.py:113 yali/gui/ScrPartitionManual.py:139
 #: yali/gui/YaliDialog.py:220
@@ -1133,9 +1132,8 @@ msgid ""
 msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:127
-#, fuzzy
 msgid "Format Warnings"
-msgstr "Formattazione in corso..."
+msgstr "Avvisi di Format"
 
 #: yali/gui/ScrPartitionManual.py:137
 msgid "All Changes that you made will be removed"
