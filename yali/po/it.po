@@ -94,7 +94,7 @@ msgstr "La partizione sulla quale è installato Pardus"
 
 #: yali/gui/Ui/bootloaderwidget.py:132
 msgid "The first sector of"
-msgstr ""
+msgstr "Il primo settore di"
 
 #: yali/gui/Ui/checkcdwidget.py:198
 msgid "You can validate the integrity of the installation packages. Although this is an optional step, we highly recommend to do the validation in order to avoid any possible errors during the installation process."
@@ -560,11 +560,11 @@ msgstr "Installa tutti i pacchetti della lingua."
 
 #: yali/gui/Ui/volumegroup.py:96
 msgid "Volume Group Name:"
-msgstr ""
+msgstr "Nome del Grupoo Volume:"
 
 #: yali/gui/Ui/volumegroup.py:97
 msgid "Physical Extends"
-msgstr ""
+msgstr "Estensioni Fisici"
 
 #: yali/gui/Ui/volumegroup.py:98
 msgid "Physical Volumes to use:"
