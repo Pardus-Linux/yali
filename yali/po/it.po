@@ -1223,7 +1223,7 @@ msgstr "Scegli una partizione fisica libera per creare un nuovo dispositivo."
 
 #: yali/gui/ScrPartitionManual.py:483
 msgid "Unable To Edit"
-msgstr ""
+msgstr "Impossibile la Modifica"
 
 #: yali/gui/ScrPartitionManual.py:484
 #, python-format
@@ -1263,13 +1263,12 @@ msgid "Starting D-Bus..."
 msgstr "Avvio D-Bus..."
 
 #: yali/gui/ScrRescuePassword.py:46
-#, fuzzy
 msgid "Acquiring users..."
-msgstr "Creazione utenti..."
+msgstr ""
 
 #: yali/gui/ScrRescuePassword.py:79
 msgid "The password has been successfully reset."
-msgstr ""
+msgstr "La password è stato reimpostato col successo."
 
 #: yali/gui/ScrRescuePassword.py:79
 msgid "Info"
@@ -1504,9 +1503,8 @@ msgid "User ID used before, choose another one!"
 msgstr "ID Utente già in uso, per favore, scegline un altro!"
 
 #: yali/gui/shrink_gui.py:23
-#, fuzzy
 msgid "Partitions to Shrink"
-msgstr "Impostazioni partizioni"
+msgstr ""
 
 #: yali/gui/shrink_gui.py:47
 msgid "Resize FileSystem Error"
@@ -1614,7 +1612,7 @@ msgstr "Impostazioni Mouse"
 #: yali/gui/YaliWindow.py:179
 #, python-format
 msgid "You just clicked the <b>%s</b> mouse button."
-msgstr ""
+msgstr "Hai appena cliccato il pulsante <b>%s</b> del mouse."
 
 #: yali/gui/YaliWindow.py:180
 #, fuzzy, python-format
