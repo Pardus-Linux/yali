@@ -1832,7 +1832,7 @@ msgstr ""
 
 #: yali/util.py:461 yali/util.py:504
 msgid "Invalid xml file"
-msgstr ""
+msgstr "xml file non valida"
 
 #~ msgid "Form"
 #~ msgstr "Form"
