@@ -1201,29 +1201,25 @@ msgid "Could not allocate requested partitions: %s."
 msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:356
-#, fuzzy
 msgid "Warning Partitioning"
-msgstr "Partizionamento manuale..."
+msgstr "Avviso di Partizionamento"
 
 #: yali/gui/ScrPartitionManual.py:357
-#, fuzzy, python-format
+#, python-format
 msgid "Warning: %s."
-msgstr "Avviso"
+msgstr "Avviso: %s."
 
 #: yali/gui/ScrPartitionManual.py:358
-#, fuzzy
 msgid "Modify Partition"
-msgstr "Ridimensiona partizione"
+msgstr "Modifica Partizione"
 
 #: yali/gui/ScrPartitionManual.py:472
-#, fuzzy
 msgid "Partition Selection Warning"
-msgstr "Impostazioni partizioni"
+msgstr "Avviso di Selezione di Partizione"
 
 #: yali/gui/ScrPartitionManual.py:473
-#, fuzzy
 msgid "Please select free physical partition to create new device."
-msgstr "Devi scegliere una partizione dalla lista qui sotto."
+msgstr "Scegli una partizione fisica libera per creare un nuovo dispositivo."
 
 #: yali/gui/ScrPartitionManual.py:483
 msgid "Unable To Edit"
@@ -1289,7 +1285,7 @@ msgstr "Le password non corrispondono."
 
 #: yali/gui/ScrRescuePassword.py:107 yali/gui/ScrRescuePisi.py:69
 msgid "Please Wait..."
-msgstr ""
+msgstr "Si Prega di Attendere..."
 
 #: yali/gui/ScrRescuePassword.py:130
 msgid "Super User"
