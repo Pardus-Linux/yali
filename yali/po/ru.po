@@ -417,7 +417,6 @@ msgid "Raid Members:"
 msgstr "Raid элементы:"
 
 #: yali/gui/Ui/raid.py:99
-#, fuzzy
 msgid "Number of spares:"
 msgstr "Кол-во резервных:"
 
@@ -458,13 +457,12 @@ msgid "<b>Connection status:</b>"
 msgstr "<b>Статус подключения:</b>"
 
 #: yali/gui/Ui/rescuepisiwidget.py:74
-#, fuzzy
 msgid "Offline"
 msgstr "Offline"
 
 #: yali/gui/Ui/rescuepisiwidget.py:75
 msgid "To use PiSi's history feature, you may need to be online. Select connection profile."
-msgstr ""
+msgstr "Для использования истории PiSi вы возможно должны быть в Сети. Выберете профиль соединения."
 
 #: yali/gui/Ui/rescuepisiwidget.py:76
 msgid "Select Connection"
@@ -472,7 +470,7 @@ msgstr "Выберите cоединение"
 
 #: yali/gui/Ui/rescuepisiwidget.py:77
 msgid "Select the operation to undo:"
-msgstr ""
+msgstr "Выберете операцию для отмены:"
 
 #: yali/gui/Ui/rescuewidget.py:92
 msgid "Choose what do you want to do to repair your system:"
