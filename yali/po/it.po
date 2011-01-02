@@ -16,8 +16,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
-"X-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.0\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 msgid "Choose Installation Method"
@@ -138,7 +138,7 @@ msgstr ""
 
 #: yali/gui/Ui/createdevicewidget.py:138 yali/gui/ScrPartitionManual.py:160
 msgid "Logical Volume"
-msgstr "Volume logico"
+msgstr "Volume Logico"
 
 #: yali/gui/Ui/createdevicewidget.py:139 yali/gui/ScrPartitionManual.py:161
 msgid "Create Logical Volume on selected Volume Group"
