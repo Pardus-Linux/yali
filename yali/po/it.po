@@ -16,24 +16,24 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 msgid "Choose Installation Method"
-msgstr "Scegli il metodo di installazione."
+msgstr "Scegli il Metodo di Installazione"
 
 #: yali/gui/Ui/autoinstallationwidget.py:76
 msgid "Automatic Installation"
-msgstr "Installazione automatica"
+msgstr "Installazione Automatica"
 
 #: yali/gui/Ui/autoinstallationwidget.py:77
 msgid "Manual Installation"
-msgstr "Installazione manuale"
+msgstr "Installazione Manuale"
 
 #: yali/gui/Ui/autoinstallationwidget.py:78
 msgid "Default Kernel"
-msgstr "Kernel predefinito"
+msgstr "Kernel Predefinito"
 
 #: yali/gui/Ui/autoinstallationwidget.py:79
 msgid "PAE Kernel"
@@ -560,7 +560,7 @@ msgstr "Installa tutti i pacchetti della lingua."
 
 #: yali/gui/Ui/volumegroup.py:96
 msgid "Volume Group Name:"
-msgstr "Nome del Grupoo Volume:"
+msgstr "Nome del Gruppo Volume:"
 
 #: yali/gui/Ui/volumegroup.py:97
 msgid "Physical Extends"
