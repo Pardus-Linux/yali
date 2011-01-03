@@ -239,12 +239,12 @@ class Widget(QWidget):
         if not self.terminal:
             terminal = QTermWidget.QTermWidget()
             terminal.sendText("export TERM='xterm'\nclear\n")
-            self.terminal = Dialog(_("Terminal"), terminal, self, True, QKeySequence(Qt.Key_F11))
+            self.terminal = Dialog(_("Terminal"), terminal, True, QKeySequence(Qt.Key_F11))
             self.terminal.resize(700, 500)
         self.terminal.exec_()
 
     def toggleTetris(self):
-        self.tetris = Dialog(_("Tetris"), None, self, True, QKeySequence(Qt.Key_F6))
+        self.tetris = Dialog(_("Tetris"), None, True, QKeySequence(Qt.Key_F6))
         _tetris = Tetris(self.tetris)
         self.tetris.addWidget(_tetris)
         self.tetris.resize(240, 500)

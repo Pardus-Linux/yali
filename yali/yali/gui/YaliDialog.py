@@ -90,7 +90,7 @@ class windowTitle(QFrame):
             event.accept()
 
 class Dialog(QDialog):
-    def __init__(self, title, widget = None, closeButton = True, keySequence = None, isDialog = False, icon = None):
+    def __init__(self, title, widget=None, closeButton=True, keySequence=None, isDialog=False, icon=None):
         QDialog.__init__(self, ctx.mainScreen)
         self.setObjectName("dialog")
 
