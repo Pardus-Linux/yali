@@ -30,8 +30,8 @@ class Widget(QWidget, ScreenWidget):
         QWidget.__init__(self)
         self.ui = Ui_AutoPartWidget()
         self.ui.setupUi(self)
-        self.storage = None
-        self.intf = None
+        self.storage = ctx.storage
+        self.intf = ctx.interface
         self.connect(self.ui.autopartType, SIGNAL("currentRowChanged(int)"), self.typeChanged)
 
     def typeChanged(self, index):
@@ -59,8 +59,6 @@ class Widget(QWidget, ScreenWidget):
             self.ui.autopartType.setCurrentRow(USE_ALL_SPACE)
 
     def shown(self):
-        self.storage = ctx.storage
-        self.intf = ctx.interface
         self.setPartitioningType()
 
     def execute(self):
