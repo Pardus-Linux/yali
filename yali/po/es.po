@@ -660,7 +660,7 @@ msgid "Re-initialize"
 msgstr "Reinicializar"
 
 #: yali/gui/interface.py:124
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Error processing LVM.\n"
 "There is inconsistent LVM data on %(msg)s. You\n"
@@ -670,7 +670,11 @@ msgid ""
 "inconsistent metadata."
 msgstr ""
 "Error al procesar LVM.\n"
-"Hay datos LVM inconsistentes en %(msg)s.  Puede reinicializar todos los PVs relacionados (%(pvs)s), que elimina los metadata LVM, o omitir para preservar el cntenido actual.  Se puede aplicar la misma acción también a todos los PVs con metadata inconsistenes."
+"Hay datos LVM inconsistentes en %(msg)s.  Puede \n"
+"reinicializar todos los PVs relacionados (%(pvs)s), lo que \n"
+"elimina los metadata LVM, o omitir para preservar el contenido actual.\n"
+"  Se puede aplicar la misma acción también a todos \n"
+"los PVs con metadata inconsistenes."
 
 #: yali/gui/interface.py:130
 msgid "Ignore all"
@@ -735,6 +739,10 @@ msgid ""
 "logical volumes will be increased to more than the\n"
 "available space."
 msgstr ""
+"El tamaño del physical extent no puede ser cambiado porque\n"
+"el espacio requerido por los volumenes lógicos\n"
+"actualmente configurados superararía \n"
+"el espacio disponible."
 
 #: yali/gui/lvm_gui.py:412
 msgid "Confirm Physical Extent Change"
