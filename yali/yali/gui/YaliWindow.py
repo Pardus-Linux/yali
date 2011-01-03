@@ -152,7 +152,10 @@ class Widget(QWidget):
         self.connect(self.ui.buttonNext, SIGNAL("clicked()"), self.slotNext)
         self.connect(self.ui.buttonBack, SIGNAL("clicked()"), self.slotBack)
         self.connect(self.ui.toggleHelp, SIGNAL("clicked()"), self.pds_helper.toggleHelp)
-        self.connect(self.ui.releaseNotes, SIGNAL("clicked()"), self.showReleaseNotes)
+        if not ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
+            self.connect(self.ui.releaseNotes, SIGNAL("clicked()"), self.showReleaseNotes)
+        else:
+            self.ui.releaseNotes.hide()
         self.connect(self.menu, SIGNAL("triggered(QAction*)"), self.slotMenu)
 
         self.cmb = _("right")
