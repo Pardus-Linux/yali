@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: YALI-tr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-12-27 16:13+0200\n"
-"PO-Revision-Date: 2010-12-24 15:48+0200\n"
+"PO-Revision-Date: 2011-01-03 16:23+0200\n"
 "Last-Translator: Koray Löker <loker@pardus.org.tr>\n"
 "Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
 "Language: tr\n"
@@ -736,7 +736,7 @@ msgstr "Hepsini Gözardı Et"
 
 #: yali/gui/interface.py:131
 msgid "Re-initialize all"
-msgstr "Hepsini yeniden başlangıç durumuna getir"
+msgstr "Tümünü yeniden-ilklendir"
 
 #: yali/gui/lvm_gui.py:48
 msgid "Not enough physical volumes"
