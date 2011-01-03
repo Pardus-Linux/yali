@@ -564,11 +564,11 @@ msgstr "Имя группы томов"
 
 #: yali/gui/Ui/volumegroup.py:97
 msgid "Physical Extends"
-msgstr ""
+msgstr "Физические Расширения"
 
 #: yali/gui/Ui/volumegroup.py:98
 msgid "Physical Volumes to use:"
-msgstr ""
+msgstr "Физические Тома для использования:"
 
 #: yali/gui/Ui/volumegroup.py:99
 msgid "Total Space:"
@@ -762,7 +762,7 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:459
 msgid "Too small"
-msgstr ""
+msgstr "Слишком маленький"
 
 #: yali/gui/lvm_gui.py:460
 msgid "This change in the value of the physical extent will waste substantial space on one or more of the physical volumes in the volume group."
