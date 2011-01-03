@@ -170,12 +170,12 @@ def load_options(argv=None):
     parser.add_option("--system", dest="install_type",
                       action="store_const", const= 1, default=0,
                       help="start system installation")
-    parser.add_option("--oem", dest="install_type",
-                      action="store_const", const=2, default=0,
-                      help="start Yali with oem mode")
     parser.add_option("--firstboot", dest="install_type",
-                      action="store_const", const=3, default=0,
+                      action="store_const", const=2, default=0,
                       help="start with first boot options")
+    parser.add_option("--oem", dest="install_type",
+                      action="store_const", const=3, default=0,
+                      help="start Yali with oem mode")
     parser.add_option("--rescue", dest="install_type",
                       action="store_const", const=4, default=0,
                       help="start Yali with rescue mode")
