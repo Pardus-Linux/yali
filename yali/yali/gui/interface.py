@@ -73,7 +73,7 @@ class Interface(object):
                                   % {'name': name, 'size': size, 'description': description},
                                   type="custom",
                                   customButtons = [_("Ignore"), _("Ignore All"),
-                                                   _("Re-initialize"), ("Re-initialize All") ],
+                                                   _("Re-initialize"), _("Re-initialize All")],
                                   customIcon="question")
         if rc == 0:
             retVal = False
