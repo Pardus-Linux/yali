@@ -261,11 +261,9 @@ class Widget(QWidget, ScreenWidget):
             else:
                 packages = yali.pisiiface.getAllPackagesWithPaths()
 
-            # Check for extra languages
-            if not ctx.installData.installAllLangPacks:
-                packages = list(set(packages) - set(yali.pisiiface.getNotNeededLanguagePackages()))
-                ctx.logger.debug("Not needed lang packages will not be installing...")
-
+        # Check for extra languages
+        packages = list(set(packages) - set(yali.pisiiface.getNotNeededLanguagePackages()))
+        ctx.logger.debug("Not needed lang packages will not be installing...")
 
         packages = self.filterDriverPacks(packages)
         packages.sort()
