@@ -673,20 +673,20 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:60
 msgid "Make LVM Volume Group"
-msgstr ""
+msgstr "Fai Gruppo di Volumi LVM "
 
 #: yali/gui/lvm_gui.py:63
 #, python-format
 msgid "Edit LVM Volume Group: %s"
-msgstr ""
+msgstr "Modifica Gruppo di Volumi LVM: %s"
 
 #: yali/gui/lvm_gui.py:65
 msgid "Edit LVM Volume Group"
-msgstr ""
+msgstr "Modifica Gruppo di Volumi LVM"
 
 #: yali/gui/lvm_gui.py:91
 msgid "Invalid Volume Group Name"
-msgstr ""
+msgstr "Nome Invalido di Gruppo di Volumi"
 
 #: yali/gui/lvm_gui.py:99
 msgid "Name in use"
@@ -695,7 +695,7 @@ msgstr "Nome in uso"
 #: yali/gui/lvm_gui.py:100
 #, python-format
 msgid "The volume group name \"%s\" is already in use. Please pick another."
-msgstr ""
+msgstr "Il Nome di Gruppo di Volumi \"%s\" è già in uso. Si prega di scegliere un altro."
 
 #: yali/gui/lvm_gui.py:403 yali/gui/lvm_gui.py:433 yali/gui/lvm_gui.py:446
 #: yali/gui/lvm_gui.py:481 yali/gui/lvm_gui.py:696 yali/gui/lvm_gui.py:718
@@ -759,7 +759,7 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:503
 msgid "No free slots"
-msgstr ""
+msgstr "Nessun slot disponibile"
 
 #: yali/gui/lvm_gui.py:504
 #, python-format
