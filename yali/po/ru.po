@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
@@ -11,10 +11,10 @@ msgstr ""
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Russian <ru@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 msgid "Choose Installation Method"
@@ -37,12 +37,8 @@ msgid "PAE Kernel"
 msgstr "Ядро с PAE"
 
 #: yali/gui/Ui/autopartquestion.py:82
-msgid ""
-"There appears to be more than one resizeable partition. You can select a "
-"partition from the list below or YALI will select one for you."
-msgstr ""
-"Есть более чем один раздел с изменяемым размером. Вы можете выбрать раздел "
-"из списка ниже или его выберет YALI"
+msgid "There appears to be more than one resizeable partition. You can select a partition from the list below or YALI will select one for you."
+msgstr "Есть более чем один раздел с изменяемым размером. Вы можете выбрать раздел из списка ниже или его выберет YALI"
 
 #: yali/gui/Ui/autopartquestion.py:83 yali/gui/Ui/connectionlist.py:76
 #: yali/gui/Ui/dialog.py:65
@@ -98,14 +94,8 @@ msgid "The first sector of"
 msgstr "Первый сектор на"
 
 #: yali/gui/Ui/checkcdwidget.py:198
-msgid ""
-"You can validate the integrity of the installation packages. Although this "
-"is an optional step, we highly recommend to do the validation in order to "
-"avoid any possible errors during the installation process."
-msgstr ""
-"Вы можете проверить целостность инсталляционных пакетов. Хотя это "
-"необязательный шаг, мы настоятельно рекомендуем сделать проверку, чтобы "
-"избежать любых возможных ошибок в процессе установки."
+msgid "You can validate the integrity of the installation packages. Although this is an optional step, we highly recommend to do the validation in order to avoid any possible errors during the installation process."
+msgstr "Вы можете проверить целостность инсталляционных пакетов. Хотя это необязательный шаг, мы настоятельно рекомендуем сделать проверку, чтобы избежать любых возможных ошибок в процессе установки."
 
 #: yali/gui/Ui/checkcdwidget.py:199
 msgid "Validation failed"
@@ -120,12 +110,8 @@ msgid "Validate"
 msgstr "Проверка"
 
 #: yali/gui/Ui/connectionlist.py:75
-msgid ""
-"To use PiSi History support, you may need to be online. You can use a "
-"connection profile from the list below:"
-msgstr ""
-"Для того, чтобы использовать PiSi History, вам нужно находиться в Сети. Вы "
-"можете воспользоваться профилем подключения из списка ниже:"
+msgid "To use PiSi History support, you may need to be online. You can use a connection profile from the list below:"
+msgstr "Для того, чтобы использовать PiSi History, вам нужно находиться в Сети. Вы можете воспользоваться профилем подключения из списка ниже:"
 
 #: yali/gui/Ui/connectionlist.py:77
 msgid "Connect"
@@ -196,12 +182,8 @@ msgid "Unhandled exception occured"
 msgstr "Получено неизвестное исключение"
 
 #: yali/gui/Ui/exception.py:64
-msgid ""
-"Please fill a bug report at http://bugs.pardus.org.tr/ attaching the "
-"following backtrace."
-msgstr ""
-"Пожалуйста, заполните отчет об ошибке на http://bugs.pardus.org.tr/ , "
-"подключив к нему следующий протокол сбоя."
+msgid "Please fill a bug report at http://bugs.pardus.org.tr/ attaching the following backtrace."
+msgstr "Пожалуйста, заполните отчет об ошибке на http://bugs.pardus.org.tr/ , подключив к нему следующий протокол сбоя."
 
 #: yali/gui/Ui/exception.py:65 yali/gui/ScrCheckCD.py:99
 msgid "Reboot"
@@ -228,16 +210,8 @@ msgid "Test Layout"
 msgstr "Проверить раскладку"
 
 #: yali/gui/Ui/license.py:104
-msgid ""
-"Before installing Pardus on your computer, please read and accept the terms "
-"of free / open source licenses of the softwares included in this "
-"installation medium. <a href=\"#\"><span style=\" text-decoration: "
-"underline; color:#56a2c0;\">License texts</span></a>"
-msgstr ""
-"Перед установкой Pardus на свой компьютер, пожалуйста прочтите и примите "
-"условия свободных и открых лицензий программного обеспечения, включенного в "
-"данную установку.<a href=\"#\"><span style=\" text-decoration: underline; "
-"color:#56a2c0;\">License texts</span></a>"
+msgid "Before installing Pardus on your computer, please read and accept the terms of free / open source licenses of the softwares included in this installation medium. <a href=\"#\"><span style=\" text-decoration: underline; color:#56a2c0;\">License texts</span></a>"
+msgstr "Перед установкой Pardus на свой компьютер, пожалуйста прочтите и примите условия свободных и открых лицензий программного обеспечения, включенного в данную установку.<a href=\"#\"><span style=\" text-decoration: underline; color:#56a2c0;\">License texts</span></a>"
 
 #: yali/gui/Ui/license.py:105
 msgid "I understand and accept the terms"
@@ -393,10 +367,8 @@ msgid "Force to be a primary partition"
 msgstr "Установить как основной раздел"
 
 #: yali/gui/Ui/partitionshrink.py:62 yali/gui/Ui/partitionshrinkwidget.py:90
-msgid ""
-"Which partition would you like to shrink to make room for your installation?"
-msgstr ""
-"Какой раздел Вы хотели бы уменьшить, чтобы освободить место для установки?"
+msgid "Which partition would you like to shrink to make room for your installation?"
+msgstr "Какой раздел Вы хотели бы уменьшить, чтобы освободить место для установки?"
 
 #: yali/gui/Ui/partitionshrink.py:63
 msgid "Shrink partition to size (in MB)"
@@ -415,24 +387,19 @@ msgid "Cancel"
 msgstr "Отменить"
 
 #: yali/gui/Ui/partitionshrinkwidget.py:94
+#, fuzzy
 msgid "Shrink"
-msgstr "Уровень Raid:"
+msgstr "Сократить"
 
 #: yali/gui/Ui/partresize.py:90
 msgid ""
-"Changes will be applied when you click \"Resize\". To cancel the changes, "
-"click <b>\"Cancel\".\n"
+"Changes will be applied when you click \"Resize\". To cancel the changes, click <b>\"Cancel\".\n"
 "<br><br>\n"
-"Warning: A resizing operation may corrupt the partition, rendering the data "
-"on it unreachable. Make sure that you have backed up the data. Note that "
-"this operation cannot be undone.<b>"
+"Warning: A resizing operation may corrupt the partition, rendering the data on it unreachable. Make sure that you have backed up the data. Note that this operation cannot be undone.<b>"
 msgstr ""
-"Изменения вступят в силу когда вы нажмете \"Изменить размер\". Для отмены "
-"изменений, нажмите <b>\"Отмена\".\n"
+"Изменения вступят в силу когда вы нажмете \"Изменить размер\". Для отмены изменений, нажмите <b>\"Отмена\".\n"
 "<br><br>\n"
-"Внимание! Операция изменения размера может повредить раздел, данные могут "
-"стать недоступными. Убедитесь в том, что вы сделали резервную копию данных. "
-"Заметьте, что данная операция не может быть отменена.<b>"
+"Внимание! Операция изменения размера может повредить раздел, данные могут стать недоступными. Убедитесь в том, что вы сделали резервную копию данных. Заметьте, что данная операция не может быть отменена.<b>"
 
 #: yali/gui/Ui/raid.py:92
 msgid "Raid Device:"
@@ -495,16 +462,12 @@ msgid "Offline"
 msgstr "Offline"
 
 #: yali/gui/Ui/rescuepisiwidget.py:75
-msgid ""
-"To use PiSi's history feature, you may need to be online. Select connection "
-"profile."
-msgstr ""
-"Для использования истории PiSi вы возможно должны быть в Сети. Выберете "
-"профиль соединения."
+msgid "To use PiSi's history feature, you may need to be online. Select connection profile."
+msgstr "Для использования истории PiSi вы возможно должны быть в Сети. Выберете профиль соединения."
 
 #: yali/gui/Ui/rescuepisiwidget.py:76
 msgid "Select Connection"
-msgstr "Выберите cоединение"
+msgstr "Выберите соединение"
 
 #: yali/gui/Ui/rescuepisiwidget.py:77
 msgid "Select the operation to undo:"
@@ -589,12 +552,8 @@ msgid "Advanced"
 msgstr "Расширенные"
 
 #: yali/gui/Ui/summarywidget.py:113
-msgid ""
-"When checked, YALI will install all of the officially supported language "
-"packages on your system."
-msgstr ""
-"Когда выбрано, YALI установит все официально поддерживаемые пакеты переводов "
-"для вашей системы"
+msgid "When checked, YALI will install all of the officially supported language packages on your system."
+msgstr "Когда выбрано, YALI установит все официально поддерживаемые пакеты переводов для вашей системы"
 
 #: yali/gui/Ui/summarywidget.py:114
 msgid "Install all language packages"
@@ -636,13 +595,11 @@ msgstr "Использованное пространство:"
 msgid ""
 "Pardus is installed and running successfully... \n"
 "\n"
-"Before you login to system, you need to create your first user and set the "
-"system wide configurations. "
+"Before you login to system, you need to create your first user and set the system wide configurations. "
 msgstr ""
 "Pardus установлен и успешно запущен.. \n"
 "\n"
-"Перед входом в систему, вы должны создать вашего первого пользователя и "
-"задать общесистемную конфигурацию. "
+"Перед входом в систему, вы должны создать вашего первого пользователя и задать общесистемную конфигурацию. "
 
 #: yali/gui/interface.py:41 yali/gui/interface.py:123
 #: yali/gui/ScrCheckCD.py:94 yali/gui/ScrInstall.py:194
@@ -654,12 +611,8 @@ msgstr "Предупреждение"
 
 #: yali/gui/interface.py:42
 #, python-format
-msgid ""
-"Disk contains %(members_count)s BIOS RAID metadata, but is not part of any "
-"recognized BIOS RAID sets. Ignoring disk %(members)s."
-msgstr ""
-"Диск содержит %(members_count)s BIOS RAID метаданных, но они не являются "
-"частью какого-либо известного BIOS RAID набора. Пропуск диска %(members)s."
+msgid "Disk contains %(members_count)s BIOS RAID metadata, but is not part of any recognized BIOS RAID sets. Ignoring disk %(members)s."
+msgstr "Диск содержит %(members_count)s BIOS RAID метаданных, но они не являются частью какого-либо известного BIOS RAID набора. Пропуск диска %(members)s."
 
 #: yali/gui/interface.py:66 yali/gui/raid_gui.py:118
 #: yali/gui/ScrDriveSelection.py:112
@@ -669,27 +622,23 @@ msgstr "Ошибка"
 #: yali/gui/interface.py:67
 #, python-format
 msgid ""
-"Cannot access the partition table of %(description)s(%(name)s) -- "
-"%(size)-0.fMB\n"
+"Cannot access the partition table of %(description)s(%(name)s) -- %(size)-0.fMB\n"
 "\n"
 "If there already exists a partition table on this device, it will\n"
 " be re-initialized and your existing data will be lost!\n"
 "\n"
 "To re-initialize the current disk press Re-initialize.\n"
 "\n"
-"To re-initialize all disks with unaccessible partition tables press Re-"
-"initialize All"
+"To re-initialize all disks with unaccessible partition tables press Re-initialize All"
 msgstr ""
-"Невозможно получить доступ к таблице разделов %(description)s(%(name)s) -- "
-"%(size)-0.fMB\n"
+"Невозможно получить доступ к таблице разделов %(description)s(%(name)s) -- %(size)-0.fMB\n"
 "\n"
 "Если уже существует таблица разделов на этом устройстве, она будет\n"
 " повторно инициализирована и ваши данные будут потеряны!\n"
 "\n"
 "Для повторного инициализация текущего диска нажмите Обновить\n"
 "\n"
-"Для повторного инициализирования всех дисков с недоступным таблицы разделов "
-"нажмите Обновить все"
+"Для повторного инициализирования всех дисков с недоступным таблицы разделов нажмите Обновить все"
 
 #: yali/gui/interface.py:75 yali/gui/interface.py:130
 msgid "Ignore"
@@ -720,8 +669,7 @@ msgid ""
 msgstr ""
 "Ошибка обработки LVM.\n"
 "Есть некорректная информация LVM на %(msg)s. Вы\n"
-"можете реинициализировать все связанные PV (%(pvs)s), что сотрет метаданные "
-"LVM или игнорировать, что сохранит\n"
+"можете реинициализировать все связанные PV (%(pvs)s), что сотрет метаданные LVM или игнорировать, что сохранит\n"
 "содержимое. Это действие может быть также проделано с другими PV c\n"
 "некорректными метаданными."
 
@@ -747,35 +695,36 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:60
 msgid "Make LVM Volume Group"
-msgstr ""
+msgstr "Сделать группу томов LVM"
 
 #: yali/gui/lvm_gui.py:63
 #, python-format
 msgid "Edit LVM Volume Group: %s"
-msgstr ""
+msgstr "Редактировать группу томов LVM: %s"
 
 #: yali/gui/lvm_gui.py:65
 msgid "Edit LVM Volume Group"
-msgstr ""
+msgstr "Редактировать группу томов LVM"
 
 #: yali/gui/lvm_gui.py:91
 msgid "Invalid Volume Group Name"
-msgstr ""
+msgstr "Неверное имя группы томов"
 
 #: yali/gui/lvm_gui.py:99
+#, fuzzy
 msgid "Name in use"
 msgstr "Имя для использования"
 
 #: yali/gui/lvm_gui.py:100
 #, python-format
 msgid "The volume group name \"%s\" is already in use. Please pick another."
-msgstr ""
+msgstr "Имя группы томов \"%s\" уже используется. Пожалуйста, выберите другое."
 
 #: yali/gui/lvm_gui.py:404 yali/gui/lvm_gui.py:434 yali/gui/lvm_gui.py:447
 #: yali/gui/lvm_gui.py:482 yali/gui/lvm_gui.py:697 yali/gui/lvm_gui.py:719
 #: yali/gui/storageGuiHelpers.py:70
 msgid "Not enough space"
-msgstr "Не достаточно места"
+msgstr "Недостаточно места"
 
 #: yali/gui/lvm_gui.py:405
 msgid ""
@@ -815,10 +764,7 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:448
 #, python-format
-msgid ""
-"The physical extent size cannot be changed because the value selected "
-"(%(curpe)10.2f MB) is too large compared to the size of the smallest "
-"physical volume (%(maxpvsize)10.2f MB) in the volume group."
+msgid "The physical extent size cannot be changed because the value selected (%(curpe)10.2f MB) is too large compared to the size of the smallest physical volume (%(maxpvsize)10.2f MB) in the volume group."
 msgstr ""
 
 #: yali/gui/lvm_gui.py:460
@@ -826,22 +772,17 @@ msgid "Too small"
 msgstr "Слишком маленький"
 
 #: yali/gui/lvm_gui.py:461
-msgid ""
-"This change in the value of the physical extent will waste substantial space "
-"on one or more of the physical volumes in the volume group."
+msgid "This change in the value of the physical extent will waste substantial space on one or more of the physical volumes in the volume group."
 msgstr ""
 
 #: yali/gui/lvm_gui.py:483
 #, python-format
-msgid ""
-"The physical extent size cannot be changed because the resulting maximum "
-"logical volume size (%10.2f MB) is smaller than one or more of "
-"theircurrently defined logical volumes."
+msgid "The physical extent size cannot be changed because the resulting maximum logical volume size (%10.2f MB) is smaller than one or more of theircurrently defined logical volumes."
 msgstr ""
 
 #: yali/gui/lvm_gui.py:504
 msgid "No free slots"
-msgstr "  "
+msgstr "Нет свободных слотов"
 
 #: yali/gui/lvm_gui.py:505
 #, python-format
@@ -854,7 +795,7 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:511
 msgid "No free space"
-msgstr "  "
+msgstr "Нет свободного места"
 
 #: yali/gui/lvm_gui.py:512
 msgid ""
@@ -879,29 +820,28 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:582
 msgid "Make Logical Volume"
-msgstr ""
+msgstr "Сделать логический раздел"
 
 #: yali/gui/lvm_gui.py:584
 #, python-format
 msgid "Edit Logical Volume: %s"
-msgstr ""
+msgstr "Редактировать логический раздел: %s"
 
 #: yali/gui/lvm_gui.py:613 yali/gui/partition_gui.py:65
 #: yali/gui/raid_gui.py:75
 msgid "Mount Point Error"
-msgstr ""
+msgstr "Ошибка монтирования"
 
 #: yali/gui/lvm_gui.py:645 yali/gui/partition_gui.py:80
 #: yali/gui/raid_gui.py:90
 msgid "Mount point in use"
-msgstr ""
+msgstr "Точка монтирования уже используется"
 
 #: yali/gui/lvm_gui.py:646 yali/gui/partition_gui.py:81
 #: yali/gui/raid_gui.py:91
 #, python-format
 msgid "The mount point \"%s\" is in use. Please pick another."
-msgstr ""
-"Точка монтирования \"%s\" уже используется. Пожалуйста, укажите другую."
+msgstr "Точка монтирования \"%s\" уже используется. Пожалуйста, укажите другую."
 
 #: yali/gui/lvm_gui.py:657
 msgid "Illegal Logical Volume Name"
@@ -914,9 +854,7 @@ msgstr "Неверное имя логического диска"
 #: yali/gui/lvm_gui.py:670
 #, python-format
 msgid "The logical volume name \"%s\" is already in use. Please pick another."
-msgstr ""
-"Имя логического диска \"%s\" уже используется. Пожалуйста, выберите другое "
-"имя."
+msgstr "Имя логического диска \"%s\" уже используется. Пожалуйста, выберите другое имя."
 
 #: yali/gui/lvm_gui.py:684
 msgid "Illegal size"
@@ -928,20 +866,12 @@ msgstr "Требуемый размер, который вы ввели, не я
 
 #: yali/gui/lvm_gui.py:698
 #, python-format
-msgid ""
-"The current requested size (%(size)10.2f MB) is larger than the maximum "
-"logical volume size (%(maxlv)10.2f MB). To increase this limit you can "
-"create more Physical Volumes from unpartitioned disk space and add them to "
-"this Volume Group."
+msgid "The current requested size (%(size)10.2f MB) is larger than the maximum logical volume size (%(maxlv)10.2f MB). To increase this limit you can create more Physical Volumes from unpartitioned disk space and add them to this Volume Group."
 msgstr ""
 
 #: yali/gui/lvm_gui.py:720
 #, python-format
-msgid ""
-"The size entered for this logical volume (%(size)d MB) combined with the "
-"size of the other logical volume(s) exceeds the size of the volume group "
-"(%(tmpvgsize)d MB). Please make the volume group larger or make the logical "
-"volume smaller."
+msgid "The size entered for this logical volume (%(size)d MB) combined with the size of the other logical volume(s) exceeds the size of the volume group (%(tmpvgsize)d MB). Please make the volume group larger or make the logical volume smaller."
 msgstr ""
 
 #: yali/gui/partition_gui.py:34
@@ -968,11 +898,9 @@ msgstr ""
 
 #: yali/gui/raid_gui.py:27
 msgid ""
-"At least two unused software RAID partitions are needed to create a RAID "
-"device.\n"
+"At least two unused software RAID partitions are needed to create a RAID device.\n"
 "\n"
-"First create at least two partitions of type \"software RAID\", and then "
-"select the \"RAID\" option again."
+"First create at least two partitions of type \"software RAID\", and then select the \"RAID\" option again."
 msgstr ""
 
 #: yali/gui/raid_gui.py:37
@@ -999,6 +927,9 @@ msgid ""
 "\n"
 "className = %s.Widget"
 msgstr ""
+"Произошла ошибка при попытке загрузить компонент интерфейса установки.\n"
+"\n"
+"className = %s.Widget"
 
 #: yali/gui/runner.py:115
 msgid "Exit"
@@ -1043,12 +974,8 @@ msgstr "Проверка %s"
 
 #: yali/gui/ScrCheckCD.py:95
 #, python-format
-msgid ""
-"Validation of %s package failed.Please remaster your installation medium "
-"andreboot."
-msgstr ""
-"Проверка пакета %s завершилась с ошибкой. Пожалуйста, замените ваш "
-"установочный диск и перезагрузитесь."
+msgid "Validation of %s package failed.Please remaster your installation medium andreboot."
+msgstr "Проверка пакета %s завершилась с ошибкой. Пожалуйста, замените ваш установочный диск и перезагрузитесь."
 
 #: yali/gui/ScrCheckCD.py:99
 msgid "Skip Validation"
@@ -1059,12 +986,8 @@ msgid "Skip Package"
 msgstr "Пропустить пакет"
 
 #: yali/gui/ScrCheckCD.py:114
-msgid ""
-"<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the "
-"installation.</b></font>"
-msgstr ""
-"<font color=\"#FFF\"><b>Проверка завершилась успешно. Теперь Вы можете "
-"продолжить установку.</b></font>"
+msgid "<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the installation.</b></font>"
+msgstr "<font color=\"#FFF\"><b>Проверка завершилась успешно. Теперь Вы можете продолжить установку.</b></font>"
 
 #: yali/gui/ScrDateTime.py:169
 #, fuzzy
@@ -1073,11 +996,11 @@ msgstr "Регулировка настроек времени"
 
 #: yali/gui/ScrDriveSelection.py:113
 msgid "You must select at least one drive to be used for installation."
-msgstr ""
+msgstr "Вы должны выбрать хотя бы один из дисков, которые будут использоваться для установки."
 
 #: yali/gui/ScrGoodbye.py:37
 msgid "Running post-install operations..."
-msgstr ""
+msgstr "Запуск после установочных операций..."
 
 #: yali/gui/ScrGoodbye.py:53
 msgid "Press <b>Restart</b> to restart the computer."
@@ -1110,7 +1033,7 @@ msgstr ""
 
 #: yali/gui/ScrGoodbye.py:74
 msgid "Setting console keymap..."
-msgstr ""
+msgstr "Настройка раскладки клавиатуры для консоли..."
 
 #: yali/gui/ScrGoodbye.py:75
 msgid "Copying repository index..."
@@ -1145,7 +1068,7 @@ msgid "Cleanup systems..."
 msgstr "Очистка системы..."
 
 #: yali/gui/ScrInstall.py:160
-#, fuzzy, python-format
+#, python-format
 msgid "Installing <b>%(name)s</b> -- %(summary)s"
 msgstr "Установка <b>%(name)s</b><br>%(summary)s"
 
@@ -1168,7 +1091,7 @@ msgid "Do you want to retry?"
 msgstr "Вы хотите повторить?"
 
 #: yali/gui/ScrInstall.py:253
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "An error occured during the installation of packages.\n"
 "This may be caused by a corrupted installation medium error:\n"
@@ -1183,7 +1106,7 @@ msgstr ""
 
 #: yali/gui/ScrKahyaCheck.py:78 yali/gui/ScrRescue.py:49
 msgid "No storage device found."
-msgstr ""
+msgstr "Устройств хранения данных не найдено."
 
 #: yali/gui/ScrLicense.py:77
 msgid "License text could not be found."
@@ -1196,8 +1119,7 @@ msgid ""
 "partitions which size is greater than %s MB can be resized."
 msgstr ""
 "Нет разделов, доступных для изменения их размера. Только физические\n"
-"разделы, размер которых более %s MB могут быть доступны для изменения "
-"размера."
+"разделы, размер которых более %s MB могут быть доступны для изменения размера."
 
 #: yali/gui/ScrPartitionManual.py:94
 #, python-format
@@ -1383,8 +1305,7 @@ msgstr "Информация"
 
 #: yali/gui/ScrRescuePassword.py:90
 msgid "Do not use your username or real name as your password."
-msgstr ""
-"Не используйте свое имя пользователя или реальное имя в качестве пароля."
+msgstr "Не используйте свое имя пользователя или реальное имя в качестве пароля."
 
 #: yali/gui/ScrRescuePassword.py:93
 msgid "The passwords do not match."
@@ -1482,9 +1403,7 @@ msgstr ""
 
 #: yali/gui/ScrSummary.py:117
 #, python-format
-msgid ""
-"User %(username)s (<b>%(realname)s</b>) added with <u>administrator "
-"privileges</u>."
+msgid "User %(username)s (<b>%(realname)s</b>) added with <u>administrator privileges</u>."
 msgstr ""
 
 #: yali/gui/ScrSummary.py:123
@@ -1506,9 +1425,7 @@ msgstr "Автоматическое разбиение выбрано."
 
 #: yali/gui/ScrSummary.py:141
 #, python-format
-msgid ""
-"Removes all partitions on the selected %s device(s). <b><u>This includes "
-"partitions created by other operating systems.</u></b>"
+msgid "Removes all partitions on the selected %s device(s). <b><u>This includes partitions created by other operating systems.</u></b>"
 msgstr ""
 
 #: yali/gui/ScrSummary.py:145
@@ -1517,18 +1434,12 @@ msgstr "Заменить существующий Linux систему(ы)"
 
 #: yali/gui/ScrSummary.py:146
 #, python-format
-msgid ""
-"Removes all Linux partitions on the selected%s device(s). This does not "
-"remove other partitions you may have on your storage device(s) (such as VFAT "
-"or FAT32)"
+msgid "Removes all Linux partitions on the selected%s device(s). This does not remove other partitions you may have on your storage device(s) (such as VFAT or FAT32)"
 msgstr ""
 
 #: yali/gui/ScrSummary.py:152
 #, python-format
-msgid ""
-"Retains your current data and partitions and uses only the unpartitioned "
-"space on the selected %s device(s), assuming you haveenough free space "
-"available."
+msgid "Retains your current data and partitions and uses only the unpartitioned space on the selected %s device(s), assuming you haveenough free space available."
 msgstr ""
 
 #: yali/gui/ScrSummary.py:158
@@ -1593,12 +1504,7 @@ msgid "Proprietary Hardware Drivers"
 msgstr ""
 
 #: yali/gui/ScrSummary.py:307
-msgid ""
-"<qt>Proprietary drivers are available which may be required to utilize the "
-"full capabilities of your video card. These drivers are developed by the "
-"hardware manufacturer and not supported by Pardus developers since their "
-"source code is not publicly available.<br><br><b>Do you want to install and "
-"use these proprietary drivers instead of the default drivers?</b></qt>"
+msgid "<qt>Proprietary drivers are available which may be required to utilize the full capabilities of your video card. These drivers are developed by the hardware manufacturer and not supported by Pardus developers since their source code is not publicly available.<br><br><b>Do you want to install and use these proprietary drivers instead of the default drivers?</b></qt>"
 msgstr ""
 
 #: yali/gui/ScrSummary.py:316 yali/gui/YaliDialog.py:220
@@ -1978,8 +1884,7 @@ msgstr "Неверный XML-файл"
 #~ msgstr "Имя Страницы"
 
 #~ msgid "Partition Action"
-#~ msgstr ""
-#~ "Какой раздел Вы хотели бы уменьшить, чтобы освободить место для установки?"
+#~ msgstr "Какой раздел Вы хотели бы уменьшить, чтобы освободить место для установки?"
 
 #~ msgid "Partition 1 on FUJISTU - /dev/sda1"
 #~ msgstr "Раздел 1 на FUJISTU - /dev/sda1"
@@ -2022,69 +1927,26 @@ msgstr "Неверный XML-файл"
 #~ msgstr "ЧЧ:мм:сс"
 
 #~ msgid ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 #~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
-#~ "size:8pt;\">General purpose of partition creation</span></p></body></html>"
+#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">General purpose of partition creation</span></p></body></html>"
 #~ msgstr ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 #~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
-#~ "size:8pt;\">General purpose of partition creation</span></p></body></html>"
+#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">General purpose of partition creation</span></p></body></html>"
 
-#~ msgid ""
-#~ "All software by TUBITAK Pardus is licensed under the terms of <a href=\"#"
-#~ "\"><span style=\" text-decoration: underline; color:#56a2c0;\">GNU "
-#~ "General Public License</span></a> which you must accept in order to "
-#~ "install and use Pardus."
-#~ msgstr ""
-#~ "Все программное обеспечение TUBITAK Pardus лицензировано под <a href=\"#"
-#~ "\"><span style=\" text-decoration: underline; color:#56a2c0;\">GNU "
-#~ "General Public License</span></a>, вы должны принять, чтобы установить и "
-#~ "использовать Pardus."
+#~ msgid "All software by TUBITAK Pardus is licensed under the terms of <a href=\"#\"><span style=\" text-decoration: underline; color:#56a2c0;\">GNU General Public License</span></a> which you must accept in order to install and use Pardus."
+#~ msgstr "Все программное обеспечение TUBITAK Pardus лицензировано под <a href=\"#\"><span style=\" text-decoration: underline; color:#56a2c0;\">GNU General Public License</span></a>, вы должны принять, чтобы установить и использовать Pardus."
 
-#~ msgid ""
-#~ "Welcome to YALI, the Pardus installer. YALI will guide you through the "
-#~ "installation process. Welcome to YALI, the Pardus installer. YALI will "
-#~ "guide you through the installation process.Welcome to YALI, the Pardus "
-#~ "installer. YALI will guide you through the installation process.Welcome "
-#~ "to YALI, the Pardus installer. YALI will guide you through the "
-#~ "installation process.Welcome to YALI, the Pardus installer. YALI will "
-#~ "guide you through the installation process.Welcome to YALI, the Pardus "
-#~ "installer. YALI will guide you through the installation process.Welcome "
-#~ "to YALI, the Pardus installer. YALI will guide you through the "
-#~ "installation process."
-#~ msgstr ""
-#~ "Добро пожаловать в Yali, установщик Pardus. Yali будет помогать вам в "
-#~ "процессе установки. Добро пожаловать в Yali, установщик Pardus.Yali будет "
-#~ "помогать вам в процессе установки. Добро пожаловать в Yali, установщик "
-#~ "Pardus. Yali будет помогать вам в процессе установки.Добро пожаловать в "
-#~ "Yali, установщик Pardus. Yali будет помогать вам в процессе установки."
-#~ "Добро пожаловать в Yali, установщик Pardus. Yali будет помогать вам в "
-#~ "процессе установки.Добро пожаловать в Yali, установщик Pardus. Yali будет "
-#~ "помогать вам в процессе установки.Добро пожаловать в Yali, установщик "
-#~ "Pardus. Yali будет помогать вам в процессе установки."
+#~ msgid "Welcome to YALI, the Pardus installer. YALI will guide you through the installation process. Welcome to YALI, the Pardus installer. YALI will guide you through the installation process.Welcome to YALI, the Pardus installer. YALI will guide you through the installation process.Welcome to YALI, the Pardus installer. YALI will guide you through the installation process.Welcome to YALI, the Pardus installer. YALI will guide you through the installation process.Welcome to YALI, the Pardus installer. YALI will guide you through the installation process.Welcome to YALI, the Pardus installer. YALI will guide you through the installation process."
+#~ msgstr "Добро пожаловать в Yali, установщик Pardus. Yali будет помогать вам в процессе установки. Добро пожаловать в Yali, установщик Pardus.Yali будет помогать вам в процессе установки. Добро пожаловать в Yali, установщик Pardus. Yali будет помогать вам в процессе установки.Добро пожаловать в Yali, установщик Pardus. Yali будет помогать вам в процессе установки.Добро пожаловать в Yali, установщик Pardus. Yali будет помогать вам в процессе установки.Добро пожаловать в Yali, установщик Pardus. Yali будет помогать вам в процессе установки.Добро пожаловать в Yali, установщик Pardus. Yali будет помогать вам в процессе установки."
 
-#~ msgid ""
-#~ "There are a few more steps to take before your system is ready to use.The "
-#~ "agent will now guide you through some basic configuration.Please click "
-#~ "the \"Next\"  button in the lower corner right to continue."
-#~ msgstr ""
-#~ "Есть еще несколько шагов, перед тем как ваша система будет готова к "
-#~ "работе.Агент поможет вам провести базовую конфигурацию.Пожалуйста, "
-#~ "нажмите \\ \"Вперед\" в нижнем правом углу, чтобы продолжить."
+#~ msgid "There are a few more steps to take before your system is ready to use.The agent will now guide you through some basic configuration.Please click the \"Next\"  button in the lower corner right to continue."
+#~ msgstr "Есть еще несколько шагов, перед тем как ваша система будет готова к работе.Агент поможет вам провести базовую конфигурацию.Пожалуйста, нажмите \\ \"Вперед\" в нижнем правом углу, чтобы продолжить."
 
 #~ msgid "The password contains invalid characters."
 #~ msgstr "   ."
