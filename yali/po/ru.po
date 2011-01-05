@@ -1317,7 +1317,7 @@ msgstr "Пожалуйста, подождите..."
 
 #: yali/gui/ScrRescuePassword.py:130
 msgid "Super User"
-msgstr ""
+msgstr "Администратор"
 
 #: yali/gui/ScrRescuePisi.py:39
 msgid "Fetching history..."
@@ -1368,7 +1368,7 @@ msgstr "Установка начнется через <b>%s</b> секунд"
 
 #: yali/gui/ScrSummary.py:76
 msgid "Start Installation"
-msgstr ""
+msgstr "Начать установку"
 
 #: yali/gui/ScrSummary.py:78
 msgid "Apply Settings"
@@ -1381,7 +1381,7 @@ msgstr "Настройки клавиатуры"
 #: yali/gui/ScrSummary.py:99
 #, python-format
 msgid "Selected keyboard layout is <b>%s</b>"
-msgstr ""
+msgstr "Выбранная раскладка клавиатуры <b>%s</b>"
 
 #: yali/gui/ScrSummary.py:105
 msgid "Date/Time Settings"
@@ -1390,7 +1390,7 @@ msgstr "Установка даты/времени"
 #: yali/gui/ScrSummary.py:107
 #, python-format
 msgid "Selected TimeZone is <b>%s</b>"
-msgstr ""
+msgstr "Выбранный часовой пояс <b>%s</b>"
 
 #: yali/gui/ScrSummary.py:113
 msgid "User Settings"
@@ -1448,16 +1448,16 @@ msgstr ""
 
 #: yali/gui/ScrSummary.py:166
 msgid "Bootloader Settings"
-msgstr ""
+msgstr "Настройка загрузчика"
 
 #: yali/gui/ScrSummary.py:167
 #, python-format
 msgid "GRUB will be installed to <b>%s</b>."
-msgstr ""
+msgstr "GRUB будет установлен в <b>%s</b>."
 
 #: yali/gui/ScrSummary.py:169
 msgid "GRUB will not be installed."
-msgstr ""
+msgstr "GRUB не будет установлен."
 
 #: yali/gui/ScrSummary.py:176
 msgid "Package Installation Settings"
@@ -1474,7 +1474,7 @@ msgstr ""
 
 #: yali/gui/ScrSummary.py:184
 msgid "Default Kernel selected"
-msgstr ""
+msgstr "Выбрано ядро по умолчанию"
 
 #: yali/gui/ScrSummary.py:186
 msgid "PAE Kernel selected"
@@ -1493,11 +1493,11 @@ msgstr ""
 
 #: yali/gui/ScrSummary.py:213
 msgid "Write Changes to Disk"
-msgstr ""
+msgstr "Записать изменения на диск"
 
 #: yali/gui/ScrSummary.py:213
 msgid "Go Back"
-msgstr ""
+msgstr "Вернуться"
 
 #: yali/gui/ScrSummary.py:306
 msgid "Proprietary Hardware Drivers"
