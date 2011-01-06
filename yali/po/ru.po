@@ -1435,7 +1435,7 @@ msgstr "Заменить существующий Linux систему(ы)"
 #: yali/gui/ScrSummary.py:146
 #, python-format
 msgid "Removes all Linux partitions on the selected%s device(s). This does not remove other partitions you may have on your storage device(s) (such as VFAT or FAT32)"
-msgstr ""
+msgstr "Удаление всех Linux-разделов на выбранном %s устройстве(ах). <b><u>Это не включает в себя удаление других разделов, которые вы могли иметь на вашем устройстве хранения данных (такие как VFAT или FAT32).</u></b>"
 
 #: yali/gui/ScrSummary.py:152
 #, python-format
@@ -1465,12 +1465,12 @@ msgstr "Настройка установки пакетов"
 
 #: yali/gui/ScrSummary.py:178
 msgid "Auto installation selected."
-msgstr ""
+msgstr "Выбрана автоматическая установка."
 
 #: yali/gui/ScrSummary.py:180
 #, python-format
 msgid "Manual Installation ( %s ) selected"
-msgstr ""
+msgstr "Выбрана установка вручную ( %s )"
 
 #: yali/gui/ScrSummary.py:184
 msgid "Default Kernel selected"
