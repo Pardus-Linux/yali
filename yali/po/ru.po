@@ -1622,7 +1622,7 @@ msgstr ""
 
 #: yali/gui/YaliWindow.py:130
 msgid "Release file doesn't exists"
-msgstr ""
+msgstr "Файл Release не существует"
 
 #: yali/gui/YaliWindow.py:138
 msgid "Turn Off Computer"
@@ -1854,11 +1854,11 @@ msgstr ""
 
 #: yali/util.py:457 yali/util.py:500
 msgid "Release file is missing"
-msgstr ""
+msgstr "Файл Release отсутствует"
 
 #: yali/util.py:459 yali/util.py:502
 msgid "Release file is inconsistent"
-msgstr ""
+msgstr "Файл Release не соответствует"
 
 #: yali/util.py:462 yali/util.py:505
 msgid "Invalid xml file"
