@@ -981,9 +981,8 @@ msgstr "<b>Si prega di attendere mentre il sistema riavvia...</b>"
 
 #: yali/gui/ScrGoodbye.py:67 yali/gui/ScrRescuePassword.py:45
 #: yali/gui/ScrRescuePisi.py:38
-#, fuzzy
 msgid "Connecting to D-Bus..."
-msgstr "Stato connessione:"
+msgstr ""
 
 #: yali/gui/ScrGoodbye.py:69
 msgid "Setting hostname..."
@@ -1373,9 +1372,9 @@ msgid "User %(username)s (<b>%(realname)s</b>) added."
 msgstr "Utente %(username)s (<b>%(realname)s</b>) aggiunto."
 
 #: yali/gui/ScrSummary.py:117
-#, fuzzy, python-format
+#, python-format
 msgid "User %(username)s (<b>%(realname)s</b>) added with <u>administrator privileges</u>."
-msgstr "L'utente %s (<b>%s</b>) è stato aggiunto con<u>privilegi di amministratore</u>."
+msgstr "L'utente %(username)s (<b>%(realname)s</b>) è stato aggiunto con <u>privilegi di amministratore</u>."
 
 #: yali/gui/ScrSummary.py:123
 msgid "Hostname Settings"
