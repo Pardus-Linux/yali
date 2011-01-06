@@ -1444,7 +1444,7 @@ msgstr ""
 
 #: yali/gui/ScrSummary.py:158
 msgid "Manual Partitioning selected."
-msgstr ""
+msgstr "Выбрана ручная разметка диска"
 
 #: yali/gui/ScrSummary.py:166
 msgid "Bootloader Settings"
@@ -1461,7 +1461,7 @@ msgstr "GRUB не будет установлен."
 
 #: yali/gui/ScrSummary.py:176
 msgid "Package Installation Settings"
-msgstr ""
+msgstr "Настройка установки пакетов"
 
 #: yali/gui/ScrSummary.py:178
 msgid "Auto installation selected."
