@@ -1139,7 +1139,7 @@ msgid ""
 "The partitioning scheme you requested generated the \n"
 "following warnings. Would you like to continue with \n"
 "your requested partitioning scheme?"
-msgstr ""
+msgstr "Схема разметки содержит предупреждения. Вы хотите продолжить с данной схемой разметки?"
 
 #: yali/gui/ScrPartitionManual.py:112
 msgid "Partitioning Warnings"
@@ -1228,7 +1228,7 @@ msgstr "Не удалось разместить требуемые раздел
 
 #: yali/gui/ScrPartitionManual.py:357
 msgid "Warning Partitioning"
-msgstr ""
+msgstr "Предупреждение разметки"
 
 #: yali/gui/ScrPartitionManual.py:358
 #, python-format
@@ -1241,15 +1241,15 @@ msgstr "Изменить раздел"
 
 #: yali/gui/ScrPartitionManual.py:473
 msgid "Partition Selection Warning"
-msgstr ""
+msgstr "Предупреждение выбора раздела"
 
 #: yali/gui/ScrPartitionManual.py:474
 msgid "Please select free physical partition to create new device."
-msgstr ""
+msgstr "Пожалуйста выберите свободный физический раздел для создания нового устройства."
 
 #: yali/gui/ScrPartitionManual.py:484
 msgid "Unable To Edit"
-msgstr ""
+msgstr "Редактирование невозможно"
 
 #: yali/gui/ScrPartitionManual.py:485
 #, python-format
@@ -1264,7 +1264,7 @@ msgstr ""
 
 #: yali/gui/ScrRescueFinish.py:55
 msgid "Installing Bootloader..."
-msgstr ""
+msgstr "Установка загрузчика..."
 
 #: yali/gui/ScrRescueFinish.py:58
 msgid "Taking back operation..."
@@ -1309,7 +1309,7 @@ msgstr "Не используйте свое имя пользователя и�
 
 #: yali/gui/ScrRescuePassword.py:93
 msgid "The passwords do not match."
-msgstr ""
+msgstr "Пароли не совпадают."
 
 #: yali/gui/ScrRescuePassword.py:107 yali/gui/ScrRescuePisi.py:69
 msgid "Please Wait..."
@@ -1347,7 +1347,7 @@ msgstr "Подключено"
 
 #: yali/gui/ScrRescue.py:94
 msgid "Mounting disk partition..."
-msgstr ""
+msgstr "Монтирование разделов..."
 
 #: yali/gui/ScrRescue.py:106
 msgid "YALI could not locate a suitable disk partition on this computer."
