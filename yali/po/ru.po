@@ -1408,7 +1408,7 @@ msgstr ""
 
 #: yali/gui/ScrSummary.py:123
 msgid "Hostname Settings"
-msgstr ""
+msgstr "Настройка имени хоста"
 
 #: yali/gui/ScrSummary.py:125
 #, python-format
