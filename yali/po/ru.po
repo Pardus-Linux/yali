@@ -1490,6 +1490,8 @@ msgid ""
 "written to disk.  Any data on deleted or reformatted partitions\n"
 "will be lost."
 msgstr ""
+"Параметры разметки, которые вы выбрали, сейчас будут записаны на диск.\n"
+" Любые данные на удаляемом или форматируемом разделе будут потеряны."
 
 #: yali/gui/ScrSummary.py:213
 msgid "Write Changes to Disk"
@@ -1501,7 +1503,7 @@ msgstr "Вернуться"
 
 #: yali/gui/ScrSummary.py:306
 msgid "Proprietary Hardware Drivers"
-msgstr ""
+msgstr "Проприетарные драйвера устройств"
 
 #: yali/gui/ScrSummary.py:307
 msgid "<qt>Proprietary drivers are available which may be required to utilize the full capabilities of your video card. These drivers are developed by the hardware manufacturer and not supported by Pardus developers since their source code is not publicly available.<br><br><b>Do you want to install and use these proprietary drivers instead of the default drivers?</b></qt>"
@@ -1519,7 +1521,7 @@ msgstr "Нет"
 
 #: yali/gui/ScrUsers.py:128 yali/gui/ScrUsers.py:360
 msgid "Update"
-msgstr ""
+msgstr "Обновление"
 
 #: yali/gui/ScrUsers.py:215
 msgid "Don't use your user name or name as a password"
