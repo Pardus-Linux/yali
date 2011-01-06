@@ -1549,11 +1549,11 @@ msgstr "Настоящее имя содержит недопустимые си
 
 #: yali/gui/ScrUsers.py:282
 msgid "User ID used before, choose another one!"
-msgstr ""
+msgstr "Пользовательский ID уже использован, выберите другой!"
 
 #: yali/gui/shrink_gui.py:23
 msgid "Partitions to Shrink"
-msgstr ""
+msgstr "Разделы для уменьшения"
 
 #: yali/gui/shrink_gui.py:47
 msgid "Resize FileSystem Error"
