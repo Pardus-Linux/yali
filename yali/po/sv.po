@@ -15,8 +15,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sv\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 msgid "Choose Installation Method"
@@ -213,7 +213,7 @@ msgstr "Testa tangentbordslayout"
 
 #: yali/gui/Ui/license.py:104
 msgid "Before installing Pardus on your computer, please read and accept the terms of free / open source licenses of the softwares included in this installation medium. <a href=\"#\"><span style=\" text-decoration: underline; color:#56a2c0;\">License texts</span></a>"
-msgstr ""
+msgstr "Innan du installerar Pardus på din dator, läs och acceptera villkoren för fri/öppenkällkodslicens för de program som installeras. <a href=\"#\"><span style=\" text-decoration: underline; color:#56a2c0;\">Licenstext</span></a>"
 
 #: yali/gui/Ui/license.py:105
 msgid "I understand and accept the terms"
@@ -1332,7 +1332,7 @@ msgstr "Installationen startar om <b>%s</b> sekunder"
 
 #: yali/gui/ScrSummary.py:76
 msgid "Start Installation"
-msgstr "Starta installation"
+msgstr "Starta installationen"
 
 #: yali/gui/ScrSummary.py:78
 msgid "Apply Settings"
@@ -1390,7 +1390,7 @@ msgstr "Automatisk partitionering vald."
 #: yali/gui/ScrSummary.py:141
 #, python-format
 msgid "Removes all partitions on the selected %s device(s). <b><u>This includes partitions created by other operating systems.</u></b>"
-msgstr ""
+msgstr "Tar bort alla partitioner på vald %s enhet. <b><u>Detta gäller även partitioner skapade av andra operativsystem.</u></b>"
 
 #: yali/gui/ScrSummary.py:145
 msgid "Replace Existing Linux System(s)"
