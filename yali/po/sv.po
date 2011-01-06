@@ -672,7 +672,7 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:60
 msgid "Make LVM Volume Group"
-msgstr ""
+msgstr "Skapa LVM-grupp"
 
 #: yali/gui/lvm_gui.py:63
 #, python-format
@@ -689,7 +689,7 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:99
 msgid "Name in use"
-msgstr ""
+msgstr "Namnet används"
 
 #: yali/gui/lvm_gui.py:100
 #, python-format
@@ -939,7 +939,7 @@ msgstr "Startar kontroll..."
 #: yali/gui/ScrCheckCD.py:87
 #, python-format
 msgid "Validating %s"
-msgstr ""
+msgstr "Kontrollerar %s"
 
 #: yali/gui/ScrCheckCD.py:95
 #, python-format
@@ -948,7 +948,7 @@ msgstr ""
 
 #: yali/gui/ScrCheckCD.py:99
 msgid "Skip Validation"
-msgstr ""
+msgstr "Hoppa över kontroll"
 
 #: yali/gui/ScrCheckCD.py:99
 msgid "Skip Package"
@@ -1323,7 +1323,7 @@ msgstr "Välj en diskpartition ur listan nedan:"
 
 #: yali/gui/ScrSummary.py:47
 msgid "<b><p>Are you sure you want to restart the computer?</p></b>"
-msgstr ""
+msgstr "<b><p>Är du säker på att du vill starta om datorn?</p></b>"
 
 #: yali/gui/ScrSummary.py:68
 #, python-format
@@ -1564,7 +1564,7 @@ msgstr "Information"
 
 #: yali/gui/YaliDialog.py:500
 msgid "Error reporting"
-msgstr ""
+msgstr "Felrapportering"
 
 #: yali/gui/YaliWindow.py:90
 msgid "Pixmaps resources file doesn't exists"
@@ -1580,11 +1580,11 @@ msgstr "Versionsfaktafilen finns ej"
 
 #: yali/gui/YaliWindow.py:138
 msgid "Turn Off Computer"
-msgstr ""
+msgstr "Stäng av datorn"
 
 #: yali/gui/YaliWindow.py:139
 msgid "Restart Computer"
-msgstr ""
+msgstr "Starta om datorn"
 
 #: yali/gui/YaliWindow.py:140
 msgid "Restart YALI"
@@ -1614,15 +1614,15 @@ msgstr "Vill du växla till <b>%s</b>hänta musinställningar?"
 
 #: yali/gui/YaliWindow.py:210
 msgid "Are you sure you want to shut down your computer now?"
-msgstr ""
+msgstr "Är du säker på att du vill stänga av datorn nu?"
 
 #: yali/gui/YaliWindow.py:215
 msgid "Are you sure you want to restart your computer now?"
-msgstr ""
+msgstr "Är du säker på att du vill starta om datorn nu?"
 
 #: yali/gui/YaliWindow.py:220
 msgid "Are you sure you want to restart the YALI installer now?"
-msgstr ""
+msgstr "Är du säker på att du vill starta om installeraren YALI nu?"
 
 #: yali/gui/YaliWindow.py:239
 msgid "Terminal"
