@@ -859,7 +859,7 @@ msgstr "Имя логического диска \"%s\" уже использу�
 
 #: yali/gui/lvm_gui.py:684
 msgid "Illegal size"
-msgstr ""
+msgstr "Недопустимый размер"
 
 #: yali/gui/lvm_gui.py:685
 msgid "The requested size as entered is not a valid number greater than 0."
@@ -1128,11 +1128,11 @@ msgid ""
 "caused the following critical errors.\n"
 "You must correct these errors before\n"
 "you continue your installation of %s."
-msgstr ""
+msgstr "Схема разметки, предлагаемая вами, вызвала следующие критические ошибки. Вы должны исправить эти ошибки, перед тем как продолжить установку %s."
 
 #: yali/gui/ScrPartitionManual.py:101
 msgid "Partitioning Errors"
-msgstr ""
+msgstr "Ошибки разметки дисков"
 
 #: yali/gui/ScrPartitionManual.py:106
 msgid ""
@@ -1143,7 +1143,7 @@ msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:112
 msgid "Partitioning Warnings"
-msgstr ""
+msgstr "Предупреждения разметки дисков"
 
 #: yali/gui/ScrPartitionManual.py:114 yali/gui/ScrPartitionManual.py:140
 #: yali/gui/YaliDialog.py:220
@@ -1159,11 +1159,11 @@ msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:128
 msgid "Format Warnings"
-msgstr ""
+msgstr "Предупреждения форматирования"
 
 #: yali/gui/ScrPartitionManual.py:138
 msgid "All Changes that you made will be removed"
-msgstr ""
+msgstr "Все изменения, сделанные вами, будут удалены"
 
 #: yali/gui/ScrPartitionManual.py:148
 msgid "Standard"
@@ -1219,7 +1219,7 @@ msgstr "Расширенный"
 
 #: yali/gui/ScrPartitionManual.py:352
 msgid "Error Partitioning"
-msgstr ""
+msgstr "Ошибка разметки"
 
 #: yali/gui/ScrPartitionManual.py:353
 #, python-format
