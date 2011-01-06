@@ -387,7 +387,6 @@ msgid "Cancel"
 msgstr "Отменить"
 
 #: yali/gui/Ui/partitionshrinkwidget.py:94
-#, fuzzy
 msgid "Shrink"
 msgstr "Сократить"
 
@@ -653,7 +652,6 @@ msgid "Re-initialize"
 msgstr "Ре-инициализировать"
 
 #: yali/gui/interface.py:76
-#, fuzzy
 msgid "Re-initialize All"
 msgstr "Ре-инициализировать все"
 
@@ -692,6 +690,10 @@ msgid ""
 "Create a partition or RAID array of type \"physical volume\n"
 "(LVM)\" and then select the \"LVM\" option again."
 msgstr ""
+"По крайней мере один неиспользованный реальный том должен быть\n"
+"создан в группе томов LVM.\n"
+"Создать раздел или массив RAID типа \"реальный том\"\n"
+"(LVM)\" и затем выбрать опцию \"LVM\" заново."
 
 #: yali/gui/lvm_gui.py:60
 msgid "Make LVM Volume Group"
@@ -711,7 +713,6 @@ msgid "Invalid Volume Group Name"
 msgstr "Неверное имя группы томов"
 
 #: yali/gui/lvm_gui.py:99
-#, fuzzy
 msgid "Name in use"
 msgstr "Имя для использования"
 
@@ -890,11 +891,11 @@ msgstr "Изменить раздел"
 
 #: yali/gui/partition_gui.py:104
 msgid "Error With Request"
-msgstr ""
+msgstr "Ошибка с запросом"
 
 #: yali/gui/raid_gui.py:26
 msgid "Invalid Raid Members"
-msgstr ""
+msgstr "Ошибочные члены Raid"
 
 #: yali/gui/raid_gui.py:27
 msgid ""
@@ -990,7 +991,6 @@ msgid "<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the in
 msgstr "<font color=\"#FFF\"><b>Проверка завершилась успешно. Теперь Вы можете продолжить установку.</b></font>"
 
 #: yali/gui/ScrDateTime.py:169
-#, fuzzy
 msgid "Adjusting time settings"
 msgstr "Регулировка настроек времени"
 
@@ -1029,7 +1029,7 @@ msgstr "Настройка часового пояса..."
 
 #: yali/gui/ScrGoodbye.py:73
 msgid "Migrating Xorg configuration..."
-msgstr ""
+msgstr "Перенос конфигурации Xorg"
 
 #: yali/gui/ScrGoodbye.py:74
 msgid "Setting console keymap..."
@@ -1110,7 +1110,7 @@ msgstr "Устройств хранения данных не найдено."
 
 #: yali/gui/ScrLicense.py:77
 msgid "License text could not be found."
-msgstr ""
+msgstr "Текст лицензии не может быть найден."
 
 #: yali/gui/ScrPartitionAuto.py:45
 #, python-format
