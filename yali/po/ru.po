@@ -1413,7 +1413,7 @@ msgstr "Настройка имени хоста"
 #: yali/gui/ScrSummary.py:125
 #, python-format
 msgid "Hostname is set as <b>%s</b>"
-msgstr ""
+msgstr "Имя хоста задано как <b>%s</b>"
 
 #: yali/gui/ScrSummary.py:131
 msgid "Partition Settings"
