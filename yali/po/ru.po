@@ -1426,7 +1426,7 @@ msgstr "Автоматическое разбиение выбрано."
 #: yali/gui/ScrSummary.py:141
 #, python-format
 msgid "Removes all partitions on the selected %s device(s). <b><u>This includes partitions created by other operating systems.</u></b>"
-msgstr ""
+msgstr "Удаление всех разделов на выбранном %s устройстве(ах). <b><u>Включая разделы, созданные другими операционными системами.</u></b>"
 
 #: yali/gui/ScrSummary.py:145
 msgid "Replace Existing Linux System(s)"
