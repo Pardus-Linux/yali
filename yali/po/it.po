@@ -438,7 +438,7 @@ msgstr "Il disco selezionato sotto"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:114
 msgid "Choose the user you want to reset the password:"
-msgstr ""
+msgstr "Scegli l'utente che si desidera reimpostare la password:"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:115
 msgid "New password:"
@@ -482,7 +482,7 @@ msgstr "Reinstalla GRUB bootloader"
 
 #: yali/gui/Ui/rescuewidget.py:94
 msgid "Return back to a previous system state"
-msgstr ""
+msgstr "Torna indietro ad uno stato precedente del sistema"
 
 #: yali/gui/Ui/rescuewidget.py:95
 msgid "Reset forgotten password"
@@ -535,7 +535,7 @@ msgstr ""
 
 #: yali/gui/Ui/setupuserswidget.py:496
 msgid "Add user to administrator (wheel) group"
-msgstr ""
+msgstr "Aggiungi utente al gruppo administrator (wheel)"
 
 #: yali/gui/Ui/setupuserswidget.py:497
 msgid "Select auto login user"
