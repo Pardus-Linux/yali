@@ -734,6 +734,10 @@ msgid ""
 "logical volumes will be increased to more than the\n"
 "available space."
 msgstr ""
+"Реальное место не может быть изменено, потому что\n"
+"место, выделенное для текущих заданных\n"
+"логических разделов будет увеличено больше,\n"
+"чем имеется доступного объема."
 
 #: yali/gui/lvm_gui.py:413
 msgid "Confirm Physical Extent Change"
@@ -1399,12 +1403,12 @@ msgstr "Настройки пользователя"
 #: yali/gui/ScrSummary.py:115
 #, python-format
 msgid "User %(username)s (<b>%(realname)s</b>) added."
-msgstr ""
+msgstr "Пользователь %(username)s (<b>%(realname)s</b>) добавлен."
 
 #: yali/gui/ScrSummary.py:117
 #, python-format
 msgid "User %(username)s (<b>%(realname)s</b>) added with <u>administrator privileges</u>."
-msgstr ""
+msgstr "Пользователь %(username)s (<b>%(realname)s</b>) добавлен с правами <u>суперпользователя</u>."
 
 #: yali/gui/ScrSummary.py:123
 msgid "Hostname Settings"
@@ -1557,7 +1561,7 @@ msgstr "Разделы для уменьшения"
 
 #: yali/gui/shrink_gui.py:47
 msgid "Resize FileSystem Error"
-msgstr ""
+msgstr "Ошибка изменения размера в файловой системе"
 
 #: yali/gui/shrink_gui.py:48
 #, python-format
@@ -1566,7 +1570,7 @@ msgstr "%(device)s: %(msg)s"
 
 #: yali/gui/shrink_gui.py:56
 msgid "Resize Device Error"
-msgstr ""
+msgstr "Ошибка изменения разрамера на устройстве"
 
 #: yali/gui/shrink_gui.py:57
 #, python-format
