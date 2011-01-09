@@ -15,8 +15,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sv\n"
-"X-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.0\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 msgid "Choose Installation Method"
@@ -165,7 +165,7 @@ msgstr "RAID-matris"
 
 #: yali/gui/Ui/createdevicewidget.py:145 yali/gui/ScrPartitionManual.py:167
 msgid "Requires at least 2 free Raid formatted partition"
-msgstr ""
+msgstr "Kräver minst två RAID-formaterade partitioner"
 
 #: yali/gui/Ui/datetimewidget.py:172
 msgid "Date"
@@ -417,7 +417,7 @@ msgstr "RAID-medlemmar:"
 
 #: yali/gui/Ui/raid.py:99
 msgid "Number of spares:"
-msgstr ""
+msgstr "Antal reserver:"
 
 #: yali/gui/Ui/rescuegrubwidget.py:82
 msgid "Select where to install the GRUB bootloader"
@@ -481,7 +481,7 @@ msgstr "Ominstallera GRUB startladdare"
 
 #: yali/gui/Ui/rescuewidget.py:94
 msgid "Return back to a previous system state"
-msgstr ""
+msgstr "Återgå till föregående systemtillstånd"
 
 #: yali/gui/Ui/rescuewidget.py:95
 msgid "Reset forgotten password"
@@ -530,11 +530,11 @@ msgstr "Rekommenderas ej"
 
 #: yali/gui/Ui/setupuserswidget.py:495
 msgid "Bypass authorization attempts for this user"
-msgstr ""
+msgstr "Hoppa över autentiseringsförsök för den här användaren"
 
 #: yali/gui/Ui/setupuserswidget.py:496
 msgid "Add user to administrator (wheel) group"
-msgstr ""
+msgstr "Lägg till användaren till adminsitratörsgruppen (wheel)"
 
 #: yali/gui/Ui/setupuserswidget.py:497
 msgid "Select auto login user"
@@ -551,7 +551,7 @@ msgstr "Avancerat"
 
 #: yali/gui/Ui/summarywidget.py:113
 msgid "When checked, YALI will install all of the officially supported language packages on your system."
-msgstr ""
+msgstr "När vald kommer YALI att installera samtliga officiellt stödda språkpaket på ditt system."
 
 #: yali/gui/Ui/summarywidget.py:114
 msgid "Install all language packages"
@@ -595,6 +595,9 @@ msgid ""
 "\n"
 "Before you login to system, you need to create your first user and set the system wide configurations. "
 msgstr ""
+"Pardus är installerat och körs framgångsrikt...\n"
+"\n"
+"Före du loggar in måste du skapa din förste användare och göra systemomfattande inställningar."
 
 #: yali/gui/interface.py:41 yali/gui/interface.py:123
 #: yali/gui/ScrCheckCD.py:94 yali/gui/ScrInstall.py:180
@@ -660,7 +663,7 @@ msgstr "Ominitialisera alla"
 
 #: yali/gui/lvm_gui.py:48
 msgid "Not enough physical volumes"
-msgstr ""
+msgstr "Inte tillräckligt med fysiska volymer"
 
 #: yali/gui/lvm_gui.py:49
 msgid ""
