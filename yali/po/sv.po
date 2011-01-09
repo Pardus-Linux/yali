@@ -15,8 +15,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sv\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 msgid "Choose Installation Method"
@@ -761,7 +761,7 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:503
 msgid "No free slots"
-msgstr ""
+msgstr "Inga lediga platser"
 
 #: yali/gui/lvm_gui.py:504
 #, python-format
@@ -795,7 +795,7 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:581
 msgid "Make Logical Volume"
-msgstr ""
+msgstr "Skapa logisk volym"
 
 #: yali/gui/lvm_gui.py:583
 #, python-format
@@ -805,18 +805,18 @@ msgstr ""
 #: yali/gui/lvm_gui.py:612 yali/gui/partition_gui.py:65
 #: yali/gui/raid_gui.py:75
 msgid "Mount Point Error"
-msgstr ""
+msgstr "Monteringspunktsfel"
 
 #: yali/gui/lvm_gui.py:644 yali/gui/partition_gui.py:80
 #: yali/gui/raid_gui.py:90
 msgid "Mount point in use"
-msgstr ""
+msgstr "Monteringspunkten används"
 
 #: yali/gui/lvm_gui.py:645 yali/gui/partition_gui.py:81
 #: yali/gui/raid_gui.py:91
 #, python-format
 msgid "The mount point \"%s\" is in use. Please pick another."
-msgstr ""
+msgstr "Monteringspunkten \"%s\" används. Vänligen välj en annan."
 
 #: yali/gui/lvm_gui.py:656
 msgid "Illegal Logical Volume Name"
@@ -865,11 +865,11 @@ msgstr "Redigera partition"
 
 #: yali/gui/partition_gui.py:104
 msgid "Error With Request"
-msgstr ""
+msgstr "Fel vid begäran"
 
 #: yali/gui/raid_gui.py:26
 msgid "Invalid Raid Members"
-msgstr ""
+msgstr "Ogiltig RAID-medlem"
 
 #: yali/gui/raid_gui.py:27
 msgid ""
@@ -885,11 +885,11 @@ msgstr "Skapa RAID-enhet"
 #: yali/gui/raid_gui.py:40
 #, python-format
 msgid "Edit RAID Device: %s"
-msgstr ""
+msgstr "Redigera RAID-enhet: %s"
 
 #: yali/gui/raid_gui.py:42
 msgid "Edit RAID Device"
-msgstr ""
+msgstr "Redigera RAID-enhet"
 
 #: yali/gui/runner.py:110
 msgid "Error!"
@@ -913,7 +913,7 @@ msgstr "Försök igen"
 
 #: yali/gui/ScrAdmin.py:96 yali/gui/ScrDateTime.py:140
 msgid "Storage Devices initialising..."
-msgstr ""
+msgstr "Initialiserar lagringsenheter"
 
 #: yali/gui/ScrAdmin.py:154 yali/gui/ScrRescuePassword.py:96
 msgid "Password is too short."
@@ -1054,6 +1054,8 @@ msgid ""
 "Following error occured while installing packages:\n"
 "<b>%s</b>"
 msgstr ""
+"Följande fel uppstod vid paketinstallation:\n"
+"<b>%s</b>"
 
 #: yali/gui/ScrInstall.py:182
 msgid "Do you want to retry?"
@@ -1078,11 +1080,11 @@ msgstr ""
 
 #: yali/gui/ScrKahyaCheck.py:78 yali/gui/ScrRescue.py:49
 msgid "No storage device found."
-msgstr ""
+msgstr "Inga lagringsenheter funna."
 
 #: yali/gui/ScrLicense.py:77
 msgid "License text could not be found."
-msgstr ""
+msgstr "Kunde inte hitta licenstexten."
 
 #: yali/gui/ScrPartitionAuto.py:45
 #, python-format
@@ -1177,7 +1179,7 @@ msgstr "Hårddiskar"
 
 #: yali/gui/ScrPartitionManual.py:290
 msgid "Can't handle more than one extended partition per disk"
-msgstr ""
+msgstr "Kan inte hantera fler än en utökad partition per disk."
 
 #: yali/gui/ScrPartitionManual.py:297
 msgid "Crossed logical partition before extended"
@@ -1513,7 +1515,7 @@ msgstr "%(device)s: %(msg)s"
 
 #: yali/gui/shrink_gui.py:56
 msgid "Resize Device Error"
-msgstr ""
+msgstr "Fel vid storleksändring av enhet"
 
 #: yali/gui/shrink_gui.py:57
 #, python-format
