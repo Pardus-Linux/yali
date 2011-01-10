@@ -67,7 +67,7 @@ class RaidEditor(object):
             if not raidmembers:
                 continue
 
-            mountpoint = str(widget.mountpointMenu.currentText())
+            mountpoint = unicode(widget.mountpointMenu.currentText())
             active = widget.mountpointMenu.isEnabled()
             if active and mountpoint:
                 msg = sanityCheckMountPoint(mountpoint)

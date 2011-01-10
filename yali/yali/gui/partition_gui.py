@@ -57,7 +57,7 @@ class PartitionEditor:
 
             widget = self.dialog.content
 
-            mountpoint = str(widget.mountpointMenu.currentText())
+            mountpoint = unicode(widget.mountpointMenu.currentText())
             active = widget.mountpointMenu.isEnabled()
             if active and mountpoint:
                 msg = sanityCheckMountPoint(mountpoint)

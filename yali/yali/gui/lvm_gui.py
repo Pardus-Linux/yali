@@ -606,7 +606,7 @@ class LogicalVolumeEditor:
 
             format = self.origrequest.format
 
-            mountpoint = str(widget.mountpointMenu.currentText())
+            mountpoint = unicode(widget.mountpointMenu.currentText())
             if mountpoint and widget.mountpointMenu.isEditable():
                 msg = sanityCheckMountPoint(mountpoint)
                 if msg:
