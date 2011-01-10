@@ -1463,7 +1463,7 @@ msgstr ""
 
 #: yali/gui/ScrSummary.py:209
 msgid "Write Changes to Disk"
-msgstr ""
+msgstr "Scrivi i Cambiamenti su Disco"
 
 #: yali/gui/ScrSummary.py:209
 msgid "Go Back"
@@ -1516,7 +1516,7 @@ msgstr ""
 
 #: yali/gui/shrink_gui.py:56
 msgid "Resize Device Error"
-msgstr ""
+msgstr "Errore di Ridimensionamento del Dispositivo"
 
 #: yali/gui/shrink_gui.py:57
 #, python-format
