@@ -9,7 +9,6 @@
 #
 # Please read the COPYING file.
 #
-import string
 import gettext
 import pardus.xorg
 _ = gettext.translation('yali', fallback=True).ugettext
@@ -207,8 +206,8 @@ class Widget(QWidget, ScreenWidget):
     def slotTextChanged(self):
         username = str(self.ui.username.text())
         realname = unicode(self.ui.realname.text())
-        password = str(self.ui.pass1.text())
-        password_confirm = str(self.ui.pass2.text())
+        password = unicode(self.ui.pass1.text())
+        password_confirm = unicode(self.ui.pass2.text())
 
         if not password == '' and (password.lower() == username.lower() or
                                    password.lower() == realname.lower()):
@@ -364,7 +363,11 @@ class Widget(QWidget, ScreenWidget):
         self.ui.cancelButton.setVisible(self.ui.createButton.isVisible())
 
     def checkUserFields(self):
-        if self.ui.realname.text() and self.ui.username.text() and (str(self.ui.pass1.text()).lower() == str(self.ui.pass2.text()).lower()):
+        username = unicode(self.ui.username.text())
+        realname = unicode(self.ui.realname.text())
+        password = unicode(self.ui.pass1.text())
+        password_confirm = unicode(self.ui.pass2.text())
+        if username and realname and ((len(password) or len(password_confirm)) and password == password_confirm):
             return True
         else:
             return False
