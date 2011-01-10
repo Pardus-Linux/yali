@@ -1329,7 +1329,7 @@ msgstr "Devi scegliere una partizione dalla lista qui sotto."
 
 #: yali/gui/ScrSummary.py:47
 msgid "<b><p>Are you sure you want to restart the computer?</p></b>"
-msgstr ""
+msgstr "<b><p>Sei sicuro di voler riavviare il computer?</p></b>"
 
 #: yali/gui/ScrSummary.py:68
 #, python-format
@@ -1400,7 +1400,7 @@ msgstr ""
 
 #: yali/gui/ScrSummary.py:145
 msgid "Replace Existing Linux System(s)"
-msgstr ""
+msgstr "Sostituisci il Sistema Esistente Linux"
 
 #: yali/gui/ScrSummary.py:146
 #, python-format
@@ -1503,7 +1503,7 @@ msgstr "ID Utente già in uso, per favore, scegline un altro!"
 
 #: yali/gui/shrink_gui.py:23
 msgid "Partitions to Shrink"
-msgstr ""
+msgstr "Partizioni da Ridurre"
 
 #: yali/gui/shrink_gui.py:47
 msgid "Resize FileSystem Error"
@@ -1570,7 +1570,7 @@ msgstr "Informazioni"
 
 #: yali/gui/YaliDialog.py:500
 msgid "Error reporting"
-msgstr ""
+msgstr "Segnalazione di errori"
 
 #: yali/gui/YaliWindow.py:90
 msgid "Pixmaps resources file doesn't exists"
@@ -1614,9 +1614,9 @@ msgid "You just clicked the <b>%s</b> mouse button."
 msgstr "Hai appena cliccato il pulsante <b>%s</b> del mouse."
 
 #: yali/gui/YaliWindow.py:180
-#, fuzzy, python-format
+#, python-format
 msgid "Do you want to switch to the <b>%s</b> handed configuration?"
-msgstr "Vuoi usare le impostazioni del mouse per  <b>%s</b>"
+msgstr "Vuoi passare alla configurazione <b>%s</b>?"
 
 #: yali/gui/YaliWindow.py:210
 msgid "Are you sure you want to shut down your computer now?"
