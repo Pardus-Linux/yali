@@ -6,7 +6,7 @@ index ec433ea..5e65d6a 100644
          elif customIcon == "info":
              icon = "info"
  
-+        text = "<qt>%s</qt>" % text.replace("/n", " ")
++        text = "<qt>%s</qt>" % text.replace("\n", " ")
          self.msgBox.setText(text)
          if detailed:
 +            longText = "<qt>%s</qt>" % longText.replace("/n", " ")
