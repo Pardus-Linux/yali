@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\\n\"\\nX-Generator: Lokalize 1.1\\n\\n\\n\\n\\n\\n\n"
+"Plural-Forms: nplurals=1; plural=0;\\n\"\\nX-Generator: Lokalize 1.1\\n\\n\\n\\n\\n\\n\\n\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 msgid "Choose Installation Method"
@@ -1539,7 +1539,7 @@ msgstr "Üretici Tarafından Desteklenen Donanım Sürücüleri"
 
 #: yali/gui/ScrSummary.py:307
 msgid "<qt>Proprietary drivers are available which may be required to utilize the full capabilities of your video card. These drivers are developed by the hardware manufacturer and not supported by Pardus developers since their source code is not publicly available.<br><br><b>Do you want to install and use these proprietary drivers instead of the default drivers?</b></qt>"
-msgstr ""
+msgstr "<qt>Ekran kartınızın tüm özelliklerini kullanmanızı sağlamak için gerekli olabilecek sahipli sürücüler de bulunuyor. Bu sürücüler donanım üreticileri tarafından sağlanıyor ve kaynak kodu açık olmadığı için Pardus geliştiricileri tarafından destek verilemiyor. <br><br><b>Ön tanımlı sürücüler yerine sahipli sürücüleri kurmak ister misiniz?</b></qt>"
 
 #: yali/gui/ScrSummary.py:316 yali/gui/YaliDialog.py:220
 #: yali/gui/YaliDialog.py:236 yali/gui/YaliDialog.py:263
