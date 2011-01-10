@@ -790,6 +790,8 @@ msgid ""
 "Are you sure you want to delete the \n"
 "logical volume \"%s\"?"
 msgstr ""
+"Sei sicuro di voler eliminare il \n"
+"volume logico \"%s\"?"
 
 #: yali/gui/lvm_gui.py:581
 msgid "Make Logical Volume"
@@ -863,11 +865,11 @@ msgstr "Modifica Partizione"
 
 #: yali/gui/partition_gui.py:104
 msgid "Error With Request"
-msgstr ""
+msgstr "Errore Con la Richiesta"
 
 #: yali/gui/raid_gui.py:26
 msgid "Invalid Raid Members"
-msgstr ""
+msgstr "Membri Invalidi Raid"
 
 #: yali/gui/raid_gui.py:27
 msgid ""
