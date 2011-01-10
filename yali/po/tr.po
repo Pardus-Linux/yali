@@ -2,7 +2,7 @@
 # translation of tr.po to
 # Copyright (C) 2005-2011
 # This file is distributed under the same license as the yali4 package.
-#
+# 
 # Barış Metin <baris@uludag.org.tr>, 2005.
 # Barış Metin <baris@pardus.org.tr>, 2006.
 # Ali Işıngör <ali@artistanbulpr.com>, 2006.
@@ -23,8 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\\n"
-"X-Generator: Lokalize 1.1\n"
+"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 msgid "Choose Installation Method"
@@ -424,7 +423,7 @@ msgstr "Raid Seviyesi:"
 
 #: yali/gui/Ui/raid.py:98
 msgid "Raid Members:"
-msgstr "Raid üyeleri:"
+msgstr "Raid Üyeleri:"
 
 #: yali/gui/Ui/raid.py:99
 msgid "Number of spares:"
