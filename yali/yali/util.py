@@ -420,8 +420,13 @@ def setKeymap(keymap, variant=None, root=False):
         ad = "-variant %s" % variant
     else:
         variant = "\"\""
+
     if not root:
         run_batch("setxkbmap", ["-layout", keymap, ad])
+
+    elif os.path.exists("/usr/libexec/xorg-save-xkb-config.sh"):
+        run_batch("/usr/libexec/xorg-save-xkb-config.sh", [ctx.consts.target_dir])
+
     else:
         chroot("hav call zorg Xorg.Display setKeymap %s %s" % (keymap, variant))
 
