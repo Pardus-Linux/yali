@@ -880,12 +880,12 @@ msgstr ""
 
 #: yali/gui/raid_gui.py:37
 msgid "Make RAID Device"
-msgstr ""
+msgstr "Fai Dispositivo RAID"
 
 #: yali/gui/raid_gui.py:40
 #, python-format
 msgid "Edit RAID Device: %s"
-msgstr ""
+msgstr "Modifica Dispositivo RAID: %s"
 
 #: yali/gui/raid_gui.py:42
 msgid "Edit RAID Device"
