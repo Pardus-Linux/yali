@@ -12,13 +12,13 @@ msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-04 20:16+0200\n"
-"PO-Revision-Date: 2010-12-27 14:54+0100\n"
+"PO-Revision-Date: 2011-01-10 21:29+0100\n"
 "Last-Translator: Antoon Tolboom <atolboo@gmail.com>\n"
 "Language-Team: Dutch <kde-i18n-doc@kde.org>\n"
-"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
 "X-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
@@ -680,8 +680,8 @@ msgstr "Fout"
 #: yali/gui/interface.py:67
 #, python-format
 msgid ""
-"Cannot access the partition table of %(description)s(%(name)s) -- "
-"%(size)-0.fMB\n"
+"Cannot access the partition table of %(description)s(%(name)s) -- %(size)-0."
+"fMB\n"
 "\n"
 "If there already exists a partition table on this device, it will\n"
 " be re-initialized and your existing data will be lost!\n"
@@ -716,7 +716,6 @@ msgid "Re-initialize"
 msgstr "Opnieuw initialiseren"
 
 #: yali/gui/interface.py:76
-#, fuzzy
 msgid "Re-initialize All"
 msgstr "Alle opnieuw initialiseren"
 
@@ -848,9 +847,9 @@ msgstr ""
 #: yali/gui/lvm_gui.py:448
 #, python-format
 msgid ""
-"The physical extent size cannot be changed because the value selected "
-"(%(curpe)10.2f MB) is too large compared to the size of the smallest "
-"physical volume (%(maxpvsize)10.2f MB) in the volume group."
+"The physical extent size cannot be changed because the value selected (%"
+"(curpe)10.2f MB) is too large compared to the size of the smallest physical "
+"volume (%(maxpvsize)10.2f MB) in the volume group."
 msgstr ""
 "De fysieke uitbreidingsgrootte kan niet gewijzigd worden omdat de "
 "geselecteerde waarde (%(curpe)10.2f MB) te groot is in vergelijking met de "
@@ -985,8 +984,8 @@ msgstr ""
 #, python-format
 msgid ""
 "The size entered for this logical volume (%(size)d MB) combined with the "
-"size of the other logical volume(s) exceeds the size of the volume group "
-"(%(tmpvgsize)d MB). Please make the volume group larger or make the logical "
+"size of the other logical volume(s) exceeds the size of the volume group (%"
+"(tmpvgsize)d MB). Please make the volume group larger or make the logical "
 "volume smaller."
 msgstr ""
 "De opgegeven grootte voor het logische volume (%(size)d MB) in combinatie "
@@ -1201,9 +1200,9 @@ msgid "Cleanup systems..."
 msgstr "Systeem opschonen..."
 
 #: yali/gui/ScrInstall.py:160
-#, fuzzy, python-format
+#, python-format
 msgid "Installing <b>%(name)s</b> -- %(summary)s"
-msgstr "Installeren van <b>%(name)s</b><br>%(summary)s"
+msgstr "Installeren van <b>%(name)s</b> -- %(summary)s"
 
 #: yali/gui/ScrInstall.py:169
 #, python-format
@@ -1224,17 +1223,14 @@ msgid "Do you want to retry?"
 msgstr "Opnieuw proberen?"
 
 #: yali/gui/ScrInstall.py:253
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "An error occured during the installation of packages.\n"
 "This may be caused by a corrupted installation medium error:\n"
 "%s\n"
 msgstr ""
 "Er deed zich een fout voor tijdens de installatie van pakketten.\n"
-"\n"
-"Mogelijk veroorzaakt door een beschadigd installatiemedium.\n"
-"\n"
-"Fout:\n"
+"Mogelijk veroorzaakt door een beschadigd installatiemedium fout:\n"
 "%s\n"
 
 #: yali/gui/ScrKahyaCheck.py:78 yali/gui/ScrRescue.py:49
@@ -1666,7 +1662,7 @@ msgstr "Ga terug"
 
 #: yali/gui/ScrSummary.py:306
 msgid "Proprietary Hardware Drivers"
-msgstr ""
+msgstr "Propriëtaire hardware stuurprogramma"
 
 #: yali/gui/ScrSummary.py:307
 msgid ""
@@ -1676,6 +1672,11 @@ msgid ""
 "source code is not publicly available.<br><br><b>Do you want to install and "
 "use these proprietary drivers instead of the default drivers?</b></qt>"
 msgstr ""
+"<qt>Propriëtaire stuurprogramma's zijn beschikbaar om alle mogelijkheden van "
+"de videokaart te gebruiken. Deze zijn door de hardwarefabrikant gemaakt en "
+"worden door de ontwikkelaars van Pardus niet ondersteund omdat de broncode "
+"niet  vrijgegeven is.<br><br><b>Wilt u deze propriëtaire stuurprogramma's "
+"installeren in plaats van het standaard stuurprogramma?"
 
 #: yali/gui/ScrSummary.py:316 yali/gui/YaliDialog.py:220
 #: yali/gui/YaliDialog.py:236 yali/gui/YaliDialog.py:263
@@ -2729,8 +2730,8 @@ msgstr "Ongeldig xml-bestand"
 #~ msgstr "%d MB beschikbaar"
 
 #~ msgid ""
-#~ "Partition <b>%(partition)s (%(size)s)</b> <b>deleted</b> from device <b>"
-#~ "%(device)s</b>."
+#~ "Partition <b>%(partition)s (%(size)s)</b> <b>deleted</b> from device <b>%"
+#~ "(device)s</b>."
 #~ msgstr ""
 #~ "Partitie <b>%(partition)s (%(size)s)</b> <b>verwijderd</b> van station <b>"
 #~ "%(device)s</b>."
@@ -2742,8 +2743,8 @@ msgstr "Ongeldig xml-bestand"
 #~ "Partition <b>%(partition)s</b> will be <b>formatted</b> as <b>%(fsType)s</"
 #~ "b>."
 #~ msgstr ""
-#~ "Partitie <b>%(partition)s</b> <b>zal geformateerd worden</b> als <b>"
-#~ "%(fsType)s</b>."
+#~ "Partitie <b>%(partition)s</b> <b>zal geformateerd worden</b> als <b>%"
+#~ "(fsType)s</b>."
 
 #~ msgid "Partition <b>%(partition)s</b> <b>selected</b> as <b>%(type)s</b>."
 #~ msgstr ""
@@ -3372,18 +3373,18 @@ msgstr "Ongeldig xml-bestand"
 #~ msgstr "Automatisch partitioneren (grootte aanpassen methode) geselecteerd."
 
 #~ msgid ""
-#~ "Partition <b>%(partition)s - %(currentFs)s</b> <b>resized</b> to <b>"
-#~ "%(resizeTo)s MBs</b>, previous size was <b>%(currentSize)s MBs</b>."
+#~ "Partition <b>%(partition)s - %(currentFs)s</b> <b>resized</b> to <b>%"
+#~ "(resizeTo)s MBs</b>, previous size was <b>%(currentSize)s MBs</b>."
 #~ msgstr ""
-#~ "Partitie <b>%(partition)s - %(currentFs)s</b> <b>aangepast</b> naar <b>"
-#~ "%(resizeTo)s MB</b>, oude grootte was <b>%(currentSize)s MB</b>."
+#~ "Partitie <b>%(partition)s - %(currentFs)s</b> <b>aangepast</b> naar <b>%"
+#~ "(resizeTo)s MB</b>, oude grootte was <b>%(currentSize)s MB</b>."
 
 #~ msgid ""
 #~ "Partition <b>%(newPartition)s</b> <b>added</b> to device <b>%(device)s</"
 #~ "b> with <b>%(size)s MBs</b> as <b>%(fs)s</b>."
 #~ msgstr ""
-#~ "Partitie <b>%(newPartition)s</b> <b>toegevoegd</b> aan station <b>"
-#~ "%(device)s</b> met <b>%(size)s MB</b> als <b>%(fs)s</b>."
+#~ "Partitie <b>%(newPartition)s</b> <b>toegevoegd</b> aan station <b>%"
+#~ "(device)s</b> met <b>%(size)s MB</b> als <b>%(fs)s</b>."
 
 #~ msgid ""
 #~ "Partition <b>%(newPartition)s</b> <b>selected</b> as <b>%(type)s</b>."
