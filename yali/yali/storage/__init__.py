@@ -781,9 +781,9 @@ class Storage(object):
             errors.append(_("You have not defined a root partition (/),which is required for installation\n"
                             "of %s to continue." % yali.util.product_name()))
 
-        if root and root.size < 250:
-            warnings.append(_("Your root partition is less than 250 megabytes which is usually too small to\n"
-                              "install %s." % yali.util.product_name()))
+        #if root and root.size < 250:
+        #    warnings.append(_("Your root partition is less than 250 megabytes which is usually too small to\n"
+        #                      "install %s." % yali.util.product_name()))
 
         if (root and
             root.size < ctx.consts.min_root_size):
