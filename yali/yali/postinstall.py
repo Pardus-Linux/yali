@@ -334,4 +334,4 @@ def installBootloader():
 
 
 def cleanup():
-    os.system("pisi rm yali yali-theme-pardus yali-branding-pardus")
+    yali.util.run_batch("pisi", ["rm", "yali", "yali-theme-pardus", "yali-branding-pardus"])
