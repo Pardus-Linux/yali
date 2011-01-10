@@ -371,7 +371,7 @@ msgstr "Forza ad essere partizione primaria"
 
 #: yali/gui/Ui/partitionshrink.py:62 yali/gui/Ui/partitionshrinkwidget.py:90
 msgid "Which partition would you like to shrink to make room for your installation?"
-msgstr ""
+msgstr "Quale partizione vuoi ridurre per fare spazio per l'installazione?"
 
 #: yali/gui/Ui/partitionshrink.py:63
 msgid "Shrink partition to size (in MB)"
@@ -418,7 +418,7 @@ msgstr "Membri Raid:"
 
 #: yali/gui/Ui/raid.py:99
 msgid "Number of spares:"
-msgstr ""
+msgstr "Numero di ricambi:"
 
 #: yali/gui/Ui/rescuegrubwidget.py:82
 msgid "Select where to install the GRUB bootloader"
@@ -552,7 +552,7 @@ msgstr "Avanzato"
 
 #: yali/gui/Ui/summarywidget.py:113
 msgid "When checked, YALI will install all of the officially supported language packages on your system."
-msgstr ""
+msgstr "Quando è selezionata, YALI installerà tutti i pacchetti della lingua supportato."
 
 #: yali/gui/Ui/summarywidget.py:114
 msgid "Install all language packages"
