@@ -1014,12 +1014,11 @@ msgstr "Copia indice repositorio.."
 #: yali/gui/ScrGoodbye.py:76
 #, fuzzy
 msgid "Stopping to D-Bus..."
-msgstr "Avvio DBUS..."
+msgstr "Interruzione a DBUS..."
 
 #: yali/gui/ScrGoodbye.py:80
-#, fuzzy
 msgid "Setup bootloader..."
-msgstr "Qui puoi riparare il tuo bootloader"
+msgstr ""
 
 #: yali/gui/ScrGoodbye.py:81
 #, fuzzy
@@ -1040,7 +1039,7 @@ msgstr "Aggiunta di utenti..."
 
 #: yali/gui/ScrGoodbye.py:91
 msgid "Cleanup systems..."
-msgstr ""
+msgstr "Pulitura dei sistemi..."
 
 #: yali/gui/ScrInstall.py:151
 #, python-format
@@ -1086,7 +1085,7 @@ msgstr "Nessun dispositivo di memorizzazione trovato."
 
 #: yali/gui/ScrLicense.py:77
 msgid "License text could not be found."
-msgstr ""
+msgstr "Testo di licenza non è stato trovato."
 
 #: yali/gui/ScrPartitionAuto.py:45
 #, python-format
