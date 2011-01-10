@@ -889,7 +889,7 @@ msgstr "Modifica Dispositivo RAID: %s"
 
 #: yali/gui/raid_gui.py:42
 msgid "Edit RAID Device"
-msgstr ""
+msgstr "Modifica Dispositivo RAID"
 
 #: yali/gui/runner.py:110
 msgid "Error!"
