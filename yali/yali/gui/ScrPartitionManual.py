@@ -217,6 +217,7 @@ class Widget(QWidget, ScreenWidget):
         item.setType(format.name)
         item.setSize("%Ld" % device.size)
         item.setFormat(formatIcon)
+        item.setExpanded(True)
 
     def populate(self):
         # Clear device tree
@@ -227,6 +228,7 @@ class Widget(QWidget, ScreenWidget):
         if vgs:
             volumeGroupsItem = DeviceTreeItem(self.ui.deviceTree)
             volumeGroupsItem.setName(_("Volume Groups"))
+            volumeGroupsItem.setExpanded(True)
             for vg in vgs:
                 volumeGroupItem = DeviceTreeItem(volumeGroupsItem)
                 self.addDevice(vg, volumeGroupItem)
@@ -248,6 +250,7 @@ class Widget(QWidget, ScreenWidget):
         if raidarrays:
             raidArraysItem = DeviceTreeItem(self.ui.deviceTree)
             raidArraysItem.setName(_("Raid Arrays"))
+            raidArraysItem.setExpanded(True)
             for array in raidarrays:
                 raidArrayItem = DeviceTreeItem(raidArraysItem)
                 self.addDevice(array, raidArrayItem)
@@ -262,8 +265,10 @@ class Widget(QWidget, ScreenWidget):
         # Disk&Partitions
         drivesItem = DeviceTreeItem(self.ui.deviceTree)
         drivesItem.setName(_("Hard Drives"))
+        drivesItem.setExpanded(True)
         for disk in disks:
             diskItem = DeviceTreeItem(drivesItem)
+            diskItem.setExpanded(True)
             diskItem.setName("%s - %s" % (disk.model, disk.name))
             #self.ui.deviceTree.expandItem(diskItem)
             if disk.partitioned:
@@ -331,13 +336,6 @@ class Widget(QWidget, ScreenWidget):
                     partition = partition.nextPartition()
             else:
                 self.addDevice(disk, diskItem)
-
-        #Expands all item in selected device tree item
-        for index in range(self.ui.deviceTree.topLevelItemCount()):
-            self.ui.deviceTree.topLevelItem(index).setExpanded(True)
-            childItem = self.ui.deviceTree.topLevelItem(index)
-            for childIndex in range(childItem.childCount()):
-                childItem.child(childIndex).setExpanded(True)
 
     def refresh(self, justRedraw=None):
         ctx.logger.debug("refresh: justRedraw=%s" % justRedraw)
