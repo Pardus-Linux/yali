@@ -660,9 +660,8 @@ msgid "Re-initialize"
 msgstr "Reinicializar"
 
 #: yali/gui/interface.py:76
-#, fuzzy
 msgid "Re-initialize All"
-msgstr "Reinicializar todos"
+msgstr "Reinicializar Todos"
 
 #: yali/gui/interface.py:124
 #, python-format
