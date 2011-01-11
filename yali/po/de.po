@@ -1002,7 +1002,7 @@ msgstr "Die Paßwörter stimmen nicht überein."
 
 #: yali/gui/ScrAdmin.py:167
 msgid "Do not use your username as your password."
-msgstr "Verwenden Sie nicht Ihren Benutzernamen oder Namen als Paßwort !"
+msgstr "Verwenden Sie nicht Ihren Benutzernamen als Paßwort."
 
 #: yali/gui/ScrAdmin.py:177
 msgid "Hostname cannot be longer than 64 characters."
