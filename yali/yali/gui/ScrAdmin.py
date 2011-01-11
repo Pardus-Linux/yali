@@ -37,7 +37,9 @@ class Widget(QWidget, ScreenWidget):
         self.host_valid = True
         self.pass_valid = False
 
-        self.pthread = None
+        if ctx.flags.install_type == ctx.STEP_DEFAULT:
+            self.pthread = PThread(self, self.startInit, self.dummy)
+
         self.pds_messagebox = PMessageBox(self)
         self.pds_messagebox.enableOverlay()
 
@@ -73,8 +75,6 @@ class Widget(QWidget, ScreenWidget):
         self.checkCapsLock()
         self.ui.pass1.setFocus()
 
-        if ctx.flags.install_type == ctx.STEP_DEFAULT:
-            self.pthread = PThread(self, self.startInit, self.dummy)
 
     def dummy(self):
         pass
