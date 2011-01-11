@@ -479,12 +479,13 @@ class ExceptionWidget(QWidget):
         self.ui.setupUi(self)
         self.ui.traceback.setText(traceback)
         self.ui.traceback.hide()
+        self.ui.rebootButton.hide()
         self.connect(self.ui.showBackTrace, SIGNAL("clicked()"), self.showBackTrace)
         self.connect(self.ui.rebootButton,  SIGNAL("clicked()"), yali.util.reboot)
-        self.ui.rebootButton.setShown(rebootButton)
 
     def showBackTrace(self):
         self.ui.traceback.show()
+        self.ui.rebootButton.show()
         self.ui.showBackTrace.hide()
         self.emit(SIGNAL("resizeDialog(int,int)"), 440, 440)
 
@@ -492,12 +493,7 @@ class ExceptionWindow:
     def __init__(self, error, traceback):
         self.rc = None
         self.dialog = None
-        if isinstance(error, pisi.Error) or issubclass(error, yali.Error):
-            closeButton = False
-        else:
-            closeButton = True
-
-        self.dialog = Dialog(_("Error reporting"), ExceptionWidget(traceback, not closeButton), None, closeButton, icon="error")
+        self.dialog = Dialog(_("Error reporting"), ExceptionWidget(traceback, rebootButton=True), icon="error")
         self.dialog.resize(300,160)
         self.run()
 
