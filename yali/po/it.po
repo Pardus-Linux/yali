@@ -713,7 +713,7 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:412
 msgid "Confirm Physical Extent Change"
-msgstr ""
+msgstr "Conferma il Cambio di Estensione Fisica"
 
 #: yali/gui/lvm_gui.py:413
 msgid ""
