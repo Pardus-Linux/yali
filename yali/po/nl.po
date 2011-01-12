@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-04 20:16+0200\n"
-"PO-Revision-Date: 2011-01-10 21:29+0100\n"
+"PO-Revision-Date: 2011-01-12 12:59+0100\n"
 "Last-Translator: Antoon Tolboom <atolboo@gmail.com>\n"
 "Language-Team: Dutch <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
@@ -552,7 +552,7 @@ msgstr "Wachtwoord bevestigen"
 
 #: yali/gui/Ui/rootpasswidget.py:131
 msgid "Computer Name"
-msgstr "Computernaam"
+msgstr "Hostnaam"
 
 #: yali/gui/Ui/setupuserswidget.py:489
 msgid "User Name"
@@ -580,7 +580,7 @@ msgstr "Niet aanbevolen"
 
 #: yali/gui/Ui/setupuserswidget.py:495
 msgid "Bypass authorization attempts for this user"
-msgstr "Authorisatiebewerkingen van deze gebruiker toestaan"
+msgstr "Authorisatiebewerkingen voor deze gebruiker toestaan"
 
 #: yali/gui/Ui/setupuserswidget.py:496
 msgid "Add user to administrator (wheel) group"
@@ -588,7 +588,7 @@ msgstr "Gebruiker aan beheerdergroep (wheel) toevoegen"
 
 #: yali/gui/Ui/setupuserswidget.py:497
 msgid "Select auto login user"
-msgstr "Selecteer gebruiker voor automatisch aanmelden"
+msgstr "Gebruiker voor automatisch aanmelden selecteren"
 
 #: yali/gui/Ui/setupuserswidget.py:498 yali/gui/Ui/volumegroup.py:104
 #: yali/gui/ScrUsers.py:287 yali/gui/ScrUsers.py:330 yali/gui/ScrUsers.py:408
@@ -1545,7 +1545,7 @@ msgid ""
 "privileges</u>."
 msgstr ""
 "Gebruiker %(username)s (<b>%(realname)s</b>) is toegevoegd met "
-"<u>beheerdersrechten</u>."
+"<u>beheerderrechten</u>."
 
 #: yali/gui/ScrSummary.py:123
 msgid "Hostname Settings"
