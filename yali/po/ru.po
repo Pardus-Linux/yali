@@ -91,7 +91,7 @@ msgstr "Раздел на котором установлен Pardus"
 
 #: yali/gui/Ui/bootloaderwidget.py:132
 msgid "The first sector of"
-msgstr "Первый сектор на"
+msgstr "Первый сектор"
 
 #: yali/gui/Ui/checkcdwidget.py:198
 msgid "You can validate the integrity of the installation packages. Although this is an optional step, we highly recommend to do the validation in order to avoid any possible errors during the installation process."
@@ -183,7 +183,7 @@ msgstr "Получено неизвестное исключение"
 
 #: yali/gui/Ui/exception.py:64
 msgid "Please fill a bug report at http://bugs.pardus.org.tr/ attaching the following backtrace."
-msgstr "Пожалуйста, заполните отчет об ошибке на http://bugs.pardus.org.tr/ , подключив к нему следующий протокол сбоя."
+msgstr "Пожалуйста, заполните отчет об ошибке на http://bugs.pardus.org.tr/ подключив к нему следующий протокол сбоя."
 
 #: yali/gui/Ui/exception.py:65 yali/gui/ScrCheckCD.py:99
 msgid "Reboot"
@@ -191,7 +191,7 @@ msgstr "Перезагрузить"
 
 #: yali/gui/Ui/exception.py:66
 msgid "Show Backtrace"
-msgstr "Показать Протокол сбоя"
+msgstr "Показать протокол сбоя"
 
 #: yali/gui/Ui/help.py:56
 msgid "help content"
@@ -1195,7 +1195,7 @@ msgstr "Массив"
 
 #: yali/gui/ScrPartitionManual.py:229
 msgid "Volume Groups"
-msgstr "Volume Groups"
+msgstr "Группы томов"
 
 #: yali/gui/ScrPartitionManual.py:241 yali/gui/ScrPartitionManual.py:314
 msgid "Free"
@@ -1203,7 +1203,7 @@ msgstr "Свободно"
 
 #: yali/gui/ScrPartitionManual.py:250
 msgid "Raid Arrays"
-msgstr "Raid Arrays"
+msgstr "Raid массивы"
 
 #: yali/gui/ScrPartitionManual.py:264
 msgid "Hard Drives"
@@ -1841,7 +1841,7 @@ msgstr "Serbian"
 #: yali/pisiiface.py:71
 #, python-format
 msgid "Error occured while %(repo)s repo is adding:%(msg)s"
-msgstr "Произошла ошибка, когда добавлялся репозиторий %(repo)s:%(msg)s"
+msgstr "Произошла ошибка при добавлении репозитория %(repo)s:%(msg)s"
 
 #: yali/postinstall.py:196
 #, python-format
