@@ -352,24 +352,12 @@ class BootLoader(object):
                     guestGrubConf.parseConf(path)
                     for entry in guestGrubConf.entries:
                         if entry.getCommand("root"):
+                            rootCommand = entry.getCommand("root")
+                        else:
+                            rootCommand = entry.getCommand("uuid")
+
+                        if rootCommand:
                             entry.title = entry.title + " [ %s ]" % device
-
-                            if entry.getCommand("root"):
-                                rootCommand = entry.getCommand("root")
-                                if rootCommand.value != "":
-                                    rootCommand.value = get_partition_name(self.storage, self.storage.devicetree.getDeviceByPath(device))
-
-                                kernelCommand = entry.getCommand("kernel")
-                                if kernelCommand and rootCommand.value:
-                                    if kernelCommand.value.startswith('('):
-                                        kernelCommand.value = ''.join([rootCommand.value, kernelCommand.value.split(')')[1]])
-
-                                # update device order for initrd command if already defined
-                                initrdCommand = entry.getCommand("initrd")
-                                if initrdCommand and rootCommand.value:
-                                    if initrdCommand.value.startswith('('):
-                                        initrdCommand.value = ''.join([rootCommand.value, initrdCommand.value.split(')')[1]])
-
                             self.grubConf.addEntry(entry)
 
                 self.grubConf.write(os.path.join(ctx.consts.target_dir, self._conf))
@@ -388,6 +376,8 @@ class BootLoader(object):
             for device in devices:
                 deviceMapFile.write("(%s)     %s\n" % (get_disk_name(self.storage, device), device.path))
 
+        yali.util.cp(os.path.join(ctx.consts.target_dir, "boot/grub", self._deviceMap), "/tmp/device.map")
+
     def writeGrubInstallConf(self, path, removableExists=False):
         stage1Devices = get_physical_devices(self.storage, self.storage.devicetree.getDeviceByName(self.device))
         bootDevices = get_physical_devices(self.storage, self.storage.storageset.bootDevice)
@@ -404,7 +394,18 @@ quit
         file(path,'w').write(batch_template)
 
 
-    def install(self):
+    def install(self, batch=True):
+        if batch:
+            return self.install_batch()
+        else:
+            return self.install_devicemap()
+
+    def install_batch(self):
         rc = yali.util.run_batch("grub", ["--no-floppy", "--batch < ", "/tmp/batch"])[0]
+        yali.util.sync()
+        return rc
+
+    def install_devicemap(self):
+        rc = yali.util.run_batch("grub", ["--no-floppy", "--devicemap=/tmp/device.map"])[0]
         yali.util.sync()
         return rc
