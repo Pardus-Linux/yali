@@ -84,13 +84,13 @@ class Widget(QWidget, ScreenWidget):
     def activateChoices(self):
         for choice in self.bootloader.choices.keys():
             if choice == BOOT_TYPE_MBR:
-                self.ui.installMBR.setText("The first sector of")
+                self.ui.installMBR.setText(_("The first sector of"))
                 self.boot_disk = self.bootloader.choices[BOOT_TYPE_MBR][0]
             elif choice == BOOT_TYPE_RAID:
                 self.ui.installPartition.setText("The RAID array where Pardus is installed")
                 self.boot_partition = self.bootloader.choices[BOOT_TYPE_RAID][0]
             elif choice == BOOT_TYPE_PARTITION:
-                self.ui.installPartition.setText("The partition where Pardus is installed")
+                self.ui.installPartition.setText(_("The partition where Pardus is installed"))
                 self.boot_partition = self.bootloader.choices[BOOT_TYPE_PARTITION][0]
 
         if self.boot_disk:

@@ -420,7 +420,7 @@ class RaidArray(Device):
 
         w = None
         if intf:
-            w = intf.progressWindow(("Creating device %s") % (self.path,))
+            w = intf.progressWindow(_("Creating device %s") % (self.path,))
 
         try:
             self.createParents()

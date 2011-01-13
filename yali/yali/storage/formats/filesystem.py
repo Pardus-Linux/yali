@@ -343,7 +343,7 @@ class Filesystem(Format):
                      % (self.device, self.targetSize))
         w = None
         if intf:
-            w = intf.progressWindow(("Resizing filesystem on %s")
+            w = intf.progressWindow(_("Resizing filesystem on %s")
                                     % (self.device,))
 
         try:

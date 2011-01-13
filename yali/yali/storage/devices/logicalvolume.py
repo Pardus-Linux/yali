@@ -1,5 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+import gettext
+
+__trans = gettext.translation('yali', fallback=True)
+_ = __trans.ugettext
 import yali
 import yali.context as ctx
 from yali.util import numeric_type
@@ -210,7 +214,7 @@ class LogicalVolume(DeviceMapper):
 
         w = None
         if intf:
-            w = intf.progressWindow(("Creating device %s") % (self.path,))
+            w = intf.progressWindow(_("Creating device %s") % (self.path,))
         try:
             self.createParents()
             self.setupParents()
