@@ -177,9 +177,10 @@ class Widget(QWidget, ScreenWidget):
         format = device.format
 
         if not format.exists:
-            formatIcon = QIcon(":/images/tick.png")
+            formatIcon = QIcon(":/gui/pics/tick.png")
         else:
-            formatIcon = QIcon(":/images/dialog-error.png")
+            #formatIcon = QIcon(":/gui/pics/dialog-error.png")
+            formatIcon = QIcon("")
 
         # mount point string
         if format.type == "lvmpv":
