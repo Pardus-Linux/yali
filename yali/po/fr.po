@@ -62,7 +62,7 @@ msgstr "Je vais choisir la partition cible moi-même"
 
 #: yali/gui/Ui/autopartquestion.py:86
 msgid "Use Selected"
-msgstr "Utilise ce qui est choisi"
+msgstr "Utiliser ce qui est choisi"
 
 #: yali/gui/Ui/autopartwidget.py:140 yali/gui/ScrSummary.py:140
 msgid "Use All Space"
@@ -74,11 +74,11 @@ msgstr "Réduire la taille du système actuel"
 
 #: yali/gui/Ui/autopartwidget.py:142 yali/gui/ScrSummary.py:151
 msgid "Use Free Space"
-msgstr "Espace Disponible"
+msgstr "Utilser Espace Disponible"
 
 #: yali/gui/Ui/autopartwidget.py:143
 msgid "Create Custom Layout"
-msgstr "Testez la disposition du clavier"
+msgstr "Créer Layout Personnalisé"
 
 #: yali/gui/Ui/bootloaderwidget.py:128
 msgid "Advanced settings"
