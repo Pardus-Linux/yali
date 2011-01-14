@@ -256,7 +256,7 @@ class BootLoader(object):
             ctx.logger.debug("Target grub.conf file is writing")
             self.writeGrubInstallConf(os.path.join(target_conf_dir, "grub.conf"), removableExists=False)
 
-        self.writeGrubInstallConf("/tmp/batch", removableExists=self.removableExists)
+        yali.util.cp(os.path.join(target_conf_dir, "/tmp/batch")
         self.appendOtherSystems()
 
     def appendOtherSystems(self):
@@ -394,7 +394,7 @@ quit
         file(path,'w').write(batch_template)
 
 
-    def install(self, batch=True):
+    def install(self, batch=False):
         if batch:
             return self.install_batch()
         else:
@@ -406,6 +406,6 @@ quit
         return rc
 
     def install_devicemap(self):
-        rc = yali.util.run_batch("grub", ["--no-floppy", "--devicemap=/tmp/device.map"])[0]
+        rc = yali.util.run_batch("grub", ["--no-floppy", "--device-map=/tmp/device.map", "--batch < ", "/tmp/batch"])[0]
         yali.util.sync()
         return rc
