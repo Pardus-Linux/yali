@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>640</width>
-    <height>98</height>
+    <height>113</height>
    </rect>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
@@ -61,11 +61,11 @@
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>0</height>
+          <height>40</height>
          </size>
         </property>
         <property name="text">
-         <string>Installing Package: </string>
+         <string>Installing Package:</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignTop</set>
