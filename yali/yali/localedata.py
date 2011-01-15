@@ -158,7 +158,8 @@ locales = {
         "locale" : "ru_RU.UTF-8",
         "consolekeymap" : "ru",
         "consolefont" : None,
-        "consoletranslation" : None
+        "consoletranslation" : None,
+        "timezone" : "Europe/Moscow"
         },
 
 "nl" : {
@@ -313,7 +314,8 @@ locales = {
         "locale" : "hu_HU.UTF-8",
         "consolekeymap" : "hu",
         "consolefont" : None,
-        "consoletranslation" : None
+        "consoletranslation" : None,
+        "timezone" : "Europe/Budapest"
         },
 
 "ja" : {
