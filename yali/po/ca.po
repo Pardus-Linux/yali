@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yali\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-04 20:16+0200\n"
+"POT-Creation-Date: 2011-01-15 21:11+0200\n"
 "PO-Revision-Date: 2007-03-18 14:13+0100\n"
 "Last-Translator: Pau Amaro-Seoane <pau@aei.mpg.de>\n"
 "Language-Team: Catala <pardus-translation-ca@ns1.uludag.org.tr>\n"
@@ -99,12 +99,12 @@ msgstr "Nom de l'ordinador:"
 msgid "Don't install bootloader"
 msgstr "No instal·les el carregador de l'engegada"
 
-#: yali/gui/Ui/bootloaderwidget.py:131
+#: yali/gui/Ui/bootloaderwidget.py:131 yali/gui/ScrBootloader.py:93
 #, fuzzy
 msgid "The partition where Pardus is installed"
 msgstr "Instal·la en la partició arrel"
 
-#: yali/gui/Ui/bootloaderwidget.py:132
+#: yali/gui/Ui/bootloaderwidget.py:132 yali/gui/ScrBootloader.py:87
 msgid "The first sector of"
 msgstr ""
 
@@ -621,7 +621,7 @@ msgid "Select auto login user"
 msgstr ""
 
 #: yali/gui/Ui/setupuserswidget.py:498 yali/gui/Ui/volumegroup.py:104
-#: yali/gui/ScrUsers.py:287 yali/gui/ScrUsers.py:330 yali/gui/ScrUsers.py:408
+#: yali/gui/ScrUsers.py:286 yali/gui/ScrUsers.py:329 yali/gui/ScrUsers.py:411
 msgid "Add"
 msgstr ""
 
@@ -822,7 +822,7 @@ msgid ""
 msgstr ""
 
 #: yali/gui/lvm_gui.py:420 yali/gui/lvm_gui.py:467
-#: yali/gui/ScrPartitionManual.py:359
+#: yali/gui/ScrPartitionManual.py:358
 msgid "Continue"
 msgstr ""
 
@@ -1302,74 +1302,74 @@ msgstr ""
 msgid "Array"
 msgstr ""
 
-#: yali/gui/ScrPartitionManual.py:229
+#: yali/gui/ScrPartitionManual.py:231
 msgid "Volume Groups"
 msgstr ""
 
-#: yali/gui/ScrPartitionManual.py:241 yali/gui/ScrPartitionManual.py:314
+#: yali/gui/ScrPartitionManual.py:244 yali/gui/ScrPartitionManual.py:320
 msgid "Free"
 msgstr ""
 
-#: yali/gui/ScrPartitionManual.py:250
+#: yali/gui/ScrPartitionManual.py:253
 msgid "Raid Arrays"
 msgstr ""
 
-#: yali/gui/ScrPartitionManual.py:264
+#: yali/gui/ScrPartitionManual.py:268
 msgid "Hard Drives"
 msgstr ""
 
-#: yali/gui/ScrPartitionManual.py:291
+#: yali/gui/ScrPartitionManual.py:297
 msgid "Can't handle more than one extended partition per disk"
 msgstr ""
 
-#: yali/gui/ScrPartitionManual.py:298
+#: yali/gui/ScrPartitionManual.py:304
 msgid "Crossed logical partition before extended"
 msgstr ""
 
-#: yali/gui/ScrPartitionManual.py:319
+#: yali/gui/ScrPartitionManual.py:325
 msgid "Extended"
 msgstr "Extesa"
 
-#: yali/gui/ScrPartitionManual.py:352
+#: yali/gui/ScrPartitionManual.py:351
 #, fuzzy
 msgid "Error Partitioning"
 msgstr "Crea una partició"
 
-#: yali/gui/ScrPartitionManual.py:353
+#: yali/gui/ScrPartitionManual.py:352
 #, python-format
 msgid "Could not allocate requested partitions: %s."
 msgstr ""
 
-#: yali/gui/ScrPartitionManual.py:357
+#: yali/gui/ScrPartitionManual.py:356
 #, fuzzy
 msgid "Warning Partitioning"
 msgstr "Crea una partició"
 
-#: yali/gui/ScrPartitionManual.py:358
+#: yali/gui/ScrPartitionManual.py:357
 #, fuzzy, python-format
 msgid "Warning: %s."
 msgstr "Compte"
 
-#: yali/gui/ScrPartitionManual.py:359
+#: yali/gui/ScrPartitionManual.py:358
 #, fuzzy
 msgid "Modify Partition"
 msgstr "Edita una partició"
 
-#: yali/gui/ScrPartitionManual.py:473
+#: yali/gui/ScrPartitionManual.py:472
 #, fuzzy
 msgid "Partition Selection Warning"
 msgstr "Particions:"
 
-#: yali/gui/ScrPartitionManual.py:474
+#: yali/gui/ScrPartitionManual.py:473
 #, fuzzy
 msgid "Please select free physical partition to create new device."
 msgstr "Cal que tries un tipus de partició d'aquesta llista de sota."
 
-#: yali/gui/ScrPartitionManual.py:484
+#: yali/gui/ScrPartitionManual.py:483
 msgid "Unable To Edit"
 msgstr ""
 
-#: yali/gui/ScrPartitionManual.py:485
+#: yali/gui/ScrPartitionManual.py:484
 #, python-format
 msgid ""
 "You cannot edit this device:\n"
@@ -1671,49 +1671,49 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: yali/gui/ScrUsers.py:128 yali/gui/ScrUsers.py:360
+#: yali/gui/ScrUsers.py:127 yali/gui/ScrUsers.py:359
 #, fuzzy
 msgid "Update"
 msgstr "Crea un usuari"
 
-#: yali/gui/ScrUsers.py:215
+#: yali/gui/ScrUsers.py:214
 #, fuzzy
 msgid "Don't use your user name or name as a password"
 msgstr ""
 "<font color=\"#FF6D19\">Preparació del teu disc per a la instal·lació!</font>"
 
-#: yali/gui/ScrUsers.py:218
+#: yali/gui/ScrUsers.py:217
 #, fuzzy
 msgid "Passwords do not match"
 msgstr "<font color=\"#FF6D19\">Els mots de pas no coinideixen!</font>"
 
-#: yali/gui/ScrUsers.py:221
+#: yali/gui/ScrUsers.py:220
 #, fuzzy
 msgid "Password is too short"
 msgstr "<font color=\"#FF6D19\">Els mots de pas no coinideixen!</font>"
 
-#: yali/gui/ScrUsers.py:267
+#: yali/gui/ScrUsers.py:266
 #, fuzzy
 msgid "This user name is already taken, please choose another one."
 msgstr ""
 "<font color=\"#FF6D19\">Mmmh, aquest usuari (nom) ja existeix. Tria un "
 "d'altre, si et plau.</font>"
 
-#: yali/gui/ScrUsers.py:271
+#: yali/gui/ScrUsers.py:270
 #, fuzzy
 msgid "The user name contains invalid characters."
 msgstr ""
 "<font color=\"#FF6D19\">Ho sent. El nom que has triat per a l'usuari conté "
 "caràcters no vàlids.</font>"
 
-#: yali/gui/ScrUsers.py:274
+#: yali/gui/ScrUsers.py:273
 #, fuzzy
 msgid "The real name contains invalid characters."
 msgstr ""
 "<font color=\"#FF6D19\">Ho sent. El nom autèntic conté caràcters no vàlids.</"
 "font>"
 
-#: yali/gui/ScrUsers.py:282
+#: yali/gui/ScrUsers.py:281
 msgid "User ID used before, choose another one!"
 msgstr ""
 
@@ -1776,7 +1776,7 @@ msgstr ""
 msgid "Information"
 msgstr ""
 
-#: yali/gui/YaliDialog.py:500
+#: yali/gui/YaliDialog.py:496
 msgid "Error reporting"
 msgstr ""
 
@@ -1918,91 +1918,91 @@ msgstr "Castellà"
 msgid "Russian"
 msgstr "Rus"
 
-#: yali/localedata.py:165
+#: yali/localedata.py:166
 msgid "Dutch"
 msgstr "Holandès"
 
-#: yali/localedata.py:176
+#: yali/localedata.py:177
 msgid "Portuguese"
 msgstr "Portuguès"
 
-#: yali/localedata.py:187
+#: yali/localedata.py:188
 msgid "Norwegian"
 msgstr "Noruec"
 
-#: yali/localedata.py:197
+#: yali/localedata.py:198
 msgid "Icelandic"
 msgstr "Islandès"
 
-#: yali/localedata.py:207
+#: yali/localedata.py:208
 msgid "Polish"
 msgstr "Polonès"
 
-#: yali/localedata.py:218
+#: yali/localedata.py:219
 msgid "Belgium"
 msgstr "Belga"
 
-#: yali/localedata.py:228
+#: yali/localedata.py:229
 msgid "French"
 msgstr "Francès"
 
-#: yali/localedata.py:239
+#: yali/localedata.py:240
 msgid "Bulgarian"
 msgstr "Búlgar"
 
-#: yali/localedata.py:249
+#: yali/localedata.py:250
 msgid "Slovenian"
 msgstr "Eslovè"
 
-#: yali/localedata.py:259
+#: yali/localedata.py:260
 msgid "Croatian"
 msgstr "Croata"
 
-#: yali/localedata.py:269
+#: yali/localedata.py:270
 msgid "German"
 msgstr "Alemany"
 
-#: yali/localedata.py:280
+#: yali/localedata.py:281
 msgid "Danish"
 msgstr "Danès"
 
-#: yali/localedata.py:290
+#: yali/localedata.py:291
 msgid "Brazilian"
 msgstr "Brasiler"
 
-#: yali/localedata.py:300
+#: yali/localedata.py:301
 msgid "Finnish"
 msgstr "Finlandès"
 
-#: yali/localedata.py:310
+#: yali/localedata.py:311
 msgid "Hungarian"
 msgstr "Húngar"
 
-#: yali/localedata.py:320
+#: yali/localedata.py:322
 msgid "Japanese"
 msgstr "Japonès"
 
-#: yali/localedata.py:330
+#: yali/localedata.py:332
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: yali/localedata.py:340
+#: yali/localedata.py:342
 msgid "Swedish"
 msgstr "Suec"
 
-#: yali/localedata.py:351
+#: yali/localedata.py:353
 msgid "Macedonian"
 msgstr "Macedoni"
 
-#: yali/localedata.py:361
+#: yali/localedata.py:363
 msgid "Slovak"
 msgstr "Eslovac"
 
-#: yali/localedata.py:371
+#: yali/localedata.py:373
 msgid "Ukrainian"
 msgstr "Ucranià"
 
-#: yali/localedata.py:381
+#: yali/localedata.py:383
 msgid "Serbian"
 msgstr "Serbi"
 
@@ -2025,15 +2025,15 @@ msgstr "Notes de la versió"
 msgid "File paths are the same."
 msgstr ""
 
-#: yali/util.py:457 yali/util.py:500
+#: yali/util.py:462 yali/util.py:505
 msgid "Release file is missing"
 msgstr ""
 
-#: yali/util.py:459 yali/util.py:502
+#: yali/util.py:464 yali/util.py:507
 msgid "Release file is inconsistent"
 msgstr ""
 
-#: yali/util.py:462 yali/util.py:505
+#: yali/util.py:467 yali/util.py:510
 msgid "Invalid xml file"
 msgstr ""
 
