@@ -256,7 +256,7 @@ class BootLoader(object):
             ctx.logger.debug("Target grub.conf file is writing")
             self.writeGrubInstallConf(os.path.join(target_conf_dir, "grub.conf"), removableExists=False)
 
-        yali.util.cp(os.path.join(target_conf_dir, "/tmp/batch")
+        yali.util.cp(os.path.join(target_conf_dir, "/tmp/batch"))
         self.appendOtherSystems()
 
     def appendOtherSystems(self):
