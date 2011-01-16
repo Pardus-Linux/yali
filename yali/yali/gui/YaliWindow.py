@@ -34,7 +34,7 @@ from PyQt4.Qt import QMenu
 from PyQt4.Qt import QSize
 from PyQt4.Qt import QShortcut
 
-import QTermWidget
+from QTermWidget import QTermWidget
 from pyaspects.weaver import weave_object_method
 
 import yali
@@ -237,7 +237,9 @@ class Widget(QWidget):
 
     def toggleConsole(self):
         if not self.terminal:
-            terminal = QTermWidget.QTermWidget()
+            terminal = QTermWidget()
+            terminal.setScrollBarPosition(QTermWidget.ScrollBarRight)
+            terminal.setColorScheme(1)
             terminal.sendText("export TERM='xterm'\nclear\n")
             self.terminal = Dialog(_("Terminal"), terminal, True, QKeySequence(Qt.Key_F11))
             self.terminal.resize(700, 500)
