@@ -1592,9 +1592,8 @@ msgid ""
 "space on the selected %s device(s), assuming you haveenough free space "
 "available."
 msgstr ""
-"Var olan verinizi ve bölmelerinizi korur ve sadece seçili %s aygıt(lardaki)"
-"taki bölümlenmemiş alanları kullanır, yeterli boş alanınızın olduğu hesaba "
-"katılır."
+"Var olan veri ve disk bölümlerini koruyarak seçili aygıt(lar)%s üzerindeki\n"
+"bölümlenmemiş alanları kullanır. Bu işlem, yeterli boş alanın olduğunu var sayar."
 
 #: yali/gui/ScrSummary.py:158
 msgid "Manual Partitioning selected."
