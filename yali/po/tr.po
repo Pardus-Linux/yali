@@ -1593,7 +1593,7 @@ msgid ""
 "available."
 msgstr ""
 "Var olan veri ve disk bölümlerini koruyarak seçili aygıt(lar)%s üzerindeki\n"
-"bölümlenmemiş alanları kullanır. Bu işlem, yeterli boş alanın olduğunu var sayar."
+"bölümlenmemiş alanları kullanır. Yeterli boş alan olduğu var sayılır."
 
 #: yali/gui/ScrSummary.py:158
 msgid "Manual Partitioning selected."
