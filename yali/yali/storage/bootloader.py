@@ -256,7 +256,8 @@ class BootLoader(object):
             ctx.logger.debug("Target grub.conf file is writing")
             self.writeGrubInstallConf(os.path.join(target_conf_dir, "grub.conf"), removableExists=False)
 
-        yali.util.cp(os.path.join(target_conf_dir, "/tmp/batch"))
+        yali.util.cp(os.path.join(target_conf_dir, "grub.conf"), "/tmp/batch")
+        ctx.logger.debug("Target grub.conf file is copying to use with grub")
         self.appendOtherSystems()
 
     def appendOtherSystems(self):
@@ -390,7 +391,7 @@ setup %s
 quit
 """ % (bootPartitionPath, stage1Path)
 
-        ctx.logger.debug("Writng Batch template to %s:\n%s" % (path, batch_template))
+        ctx.logger.debug("Writing Batch template to %s:\n%s" % (path, batch_template))
         file(path,'w').write(batch_template)
 
 
