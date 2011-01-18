@@ -59,15 +59,15 @@
          <widget class="QLabel" name="pix">
           <property name="maximumSize">
            <size>
-            <width>180</width>
-            <height>128</height>
+            <width>222</width>
+            <height>146</height>
            </size>
           </property>
           <property name="text">
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap>:/gui/pics/welcome.png</pixmap>
+           <pixmap resource="../../../../yali-theme-pardus/data.qrc">:/gui/pics/welcome.png</pixmap>
           </property>
           <property name="scaledContents">
            <bool>true</bool>
