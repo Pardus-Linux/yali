@@ -1465,7 +1465,7 @@ msgstr "Удаление всех Linux-разделов на выбранном
 #: yali/gui/ScrSummary.py:152
 #, python-format
 msgid "Retains your current data and partitions and uses only the unpartitioned space on the selected %s device(s), assuming you haveenough free space available."
-msgstr "Сохраняет ваши данные и разделы и использует только неразмеченное пространство на выбранном устройстве(ах), считая, что свободного места достаточно."
+msgstr "Сохраняет ваши данные и разделы и использует только неразмеченное пространство на выбранном  %s устройстве(ах), считая, что свободного места достаточно."
 
 #: yali/gui/ScrSummary.py:158
 msgid "Manual Partitioning selected."
