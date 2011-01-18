@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-18 16:30+0200\n"
-"PO-Revision-Date: 2011-01-18 16:32+0200\n"
+"PO-Revision-Date: 2011-01-18 21:20+0200\n"
 "Last-Translator: Attila Siposs <sipiatti@gmail.com>\n"
 "Language-Team: Hungarian <pardus-translators@pardus.org.tr>\n"
 "Language: \n"
@@ -1567,7 +1567,7 @@ msgstr ""
 "eszközön lévő más partíciók (pl. VFAT, FAT32) nem lesznek eltávolítva."
 
 #: yali/gui/ScrSummary.py:152
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Retains your current data and partitions and uses only the unpartitioned "
 "space on the selected %s device(s), assuming you have enough free space "

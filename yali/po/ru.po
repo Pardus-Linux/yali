@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-18 16:30+0200\n"
-"PO-Revision-Date: 2011-01-18 16:33+0200\n"
+"PO-Revision-Date: 2011-01-18 21:20+0200\n"
 "Last-Translator: Николай Семенов\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: \n"
@@ -1587,7 +1587,7 @@ msgstr ""
 "устройстве хранения данных (такие как VFAT или FAT32).</u></b>"
 
 #: yali/gui/ScrSummary.py:152
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Retains your current data and partitions and uses only the unpartitioned "
 "space on the selected %s device(s), assuming you have enough free space "

@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: YALI-tr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-18 16:30+0200\n"
-"PO-Revision-Date: 2011-01-18 16:33+0200\n"
+"PO-Revision-Date: 2011-01-18 21:20+0200\n"
 "Last-Translator: Koray Löker <loker@pardus.org.tr>\n"
 "Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
 "Language: tr\n"
@@ -1588,13 +1588,13 @@ msgstr ""
 "diskinizdeki (VFAT veya FAT32) gibi diğer disk bölümlerine uygulanmaz."
 
 #: yali/gui/ScrSummary.py:152
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Retains your current data and partitions and uses only the unpartitioned "
 "space on the selected %s device(s), assuming you have enough free space "
 "available."
 msgstr ""
-"Var olan veri ve disk bölümlerini koruyarak seçili aygıt(lar)%s üzerindeki\n"
+"Var olan veri ve disk bölümlerini koruyarak seçili %s aygıt(lar) üzerindeki\n"
 "bölümlenmemiş alanları kullanır. Yeterli boş alan olduğu var sayılır."
 
 #: yali/gui/ScrSummary.py:158
