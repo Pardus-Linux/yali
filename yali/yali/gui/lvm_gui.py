@@ -484,7 +484,7 @@ class VolumeGroupWidget(QWidget, Ui_VolumeGroupWidget):
                                                      "cannot be changed because the "
                                                      "resulting maximum logical "
                                                      "volume size (%10.2f MB) is "
-                                                     "smaller than one or more of their"
+                                                     "smaller than one or more of their "
                                                      "currently defined logical "
                                                      "volumes.") % (maxlv,),
                                                    customIcon="error")

@@ -151,7 +151,7 @@ class Widget(QWidget, ScreenWidget):
                     content.append(item % _("Use Free Space"))
                     content.append(item % _("Retains your current data and partitions" \
                                             " and uses only the unpartitioned space on " \
-                                            "the selected %s device(s), assuming you have"\
+                                            "the selected %s device(s), assuming you have "\
                                             "enough free space available.") % devices)
 
             else:
