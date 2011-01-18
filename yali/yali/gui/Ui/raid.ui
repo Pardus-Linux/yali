@@ -7,10 +7,16 @@
     <x>0</x>
     <y>0</y>
     <width>580</width>
-    <height>611</height>
+    <height>589</height>
    </rect>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <property name="horizontalSpacing">
+    <number>5</number>
+   </property>
+   <property name="verticalSpacing">
+    <number>10</number>
+   </property>
    <item row="0" column="0" colspan="2">
     <widget class="QLabel" name="raidMinorLabel">
      <property name="text">
@@ -18,8 +24,15 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="2">
-    <widget class="QComboBox" name="raidMinors"/>
+   <item row="0" column="2" colspan="2">
+    <widget class="QComboBox" name="raidMinors">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
+    </widget>
    </item>
    <item row="1" column="0" colspan="2">
     <widget class="QLabel" name="label">
@@ -28,8 +41,17 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="2">
+   <item row="1" column="2" colspan="2">
     <widget class="QComboBox" name="mountpointMenu">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #333333</string>
+     </property>
      <property name="editable">
       <bool>true</bool>
      </property>
@@ -47,8 +69,15 @@
      </property>
     </widget>
    </item>
-   <item row="2" column="2">
-    <widget class="QComboBox" name="filesystemMenu"/>
+   <item row="2" column="2" colspan="2">
+    <widget class="QComboBox" name="filesystemMenu">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
+    </widget>
    </item>
    <item row="3" column="0" colspan="2">
     <widget class="QRadioButton" name="formatRadio">
@@ -57,10 +86,16 @@
      </property>
     </widget>
    </item>
-   <item row="3" column="2">
+   <item row="3" column="2" colspan="2">
     <widget class="QComboBox" name="formatCombo">
      <property name="enabled">
       <bool>false</bool>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
      </property>
     </widget>
    </item>
@@ -71,10 +106,16 @@
      </property>
     </widget>
    </item>
-   <item row="4" column="2">
+   <item row="4" column="2" colspan="2">
     <widget class="QComboBox" name="migrateCombo">
      <property name="enabled">
       <bool>false</bool>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
      </property>
     </widget>
    </item>
@@ -85,17 +126,27 @@
      </property>
     </widget>
    </item>
-   <item row="5" column="2">
-    <widget class="QComboBox" name="raidLevels"/>
+   <item row="5" column="2" colspan="2">
+    <widget class="QComboBox" name="raidLevels">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
+    </widget>
    </item>
    <item row="6" column="0" colspan="2">
     <widget class="QLabel" name="label_5">
      <property name="text">
       <string>Raid Members:</string>
      </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     </property>
     </widget>
    </item>
-   <item row="6" column="2">
+   <item row="6" column="2" colspan="2">
     <widget class="QListWidget" name="raidMembers"/>
    </item>
    <item row="7" column="0" colspan="2">
@@ -106,9 +157,16 @@
     </widget>
    </item>
    <item row="7" column="2">
-    <widget class="QSpinBox" name="spareSpin"/>
+    <widget class="QSpinBox" name="spareSpin">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
+    </widget>
    </item>
-   <item row="10" column="1" colspan="2">
+   <item row="10" column="0" colspan="4">
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="standardButtons">
       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
@@ -124,6 +182,19 @@
       <size>
        <width>20</width>
        <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="7" column="3">
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
       </size>
      </property>
     </spacer>

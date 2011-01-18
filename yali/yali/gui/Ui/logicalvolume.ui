@@ -7,10 +7,16 @@
     <x>0</x>
     <y>0</y>
     <width>435</width>
-    <height>255</height>
+    <height>323</height>
    </rect>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <property name="horizontalSpacing">
+    <number>5</number>
+   </property>
+   <property name="verticalSpacing">
+    <number>10</number>
+   </property>
    <item row="0" column="0">
     <widget class="QLabel" name="label">
      <property name="text">
@@ -19,7 +25,14 @@
     </widget>
    </item>
    <item row="0" column="1" colspan="2">
-    <widget class="QLineEdit" name="name"/>
+    <widget class="QLineEdit" name="name">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
+    </widget>
    </item>
    <item row="1" column="0">
     <widget class="QLabel" name="label_2">
@@ -36,8 +49,11 @@
      <property name="minimumSize">
       <size>
        <width>300</width>
-       <height>0</height>
+       <height>30</height>
       </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">	color: #333333;  </string>
      </property>
      <property name="editable">
       <bool>true</bool>
@@ -80,7 +96,7 @@
      <property name="minimumSize">
       <size>
        <width>120</width>
-       <height>0</height>
+       <height>30</height>
       </size>
      </property>
      <property name="suffix">
@@ -137,7 +153,7 @@
      <property name="minimumSize">
       <size>
        <width>120</width>
-       <height>0</height>
+       <height>30</height>
       </size>
      </property>
      <property name="suffix">
@@ -168,7 +184,14 @@
     </widget>
    </item>
    <item row="4" column="1" colspan="2">
-    <widget class="QComboBox" name="filesystemMenu"/>
+    <widget class="QComboBox" name="filesystemMenu">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
+    </widget>
    </item>
    <item row="5" column="0">
     <widget class="QRadioButton" name="formatRadio">
@@ -181,6 +204,12 @@
     <widget class="QComboBox" name="formatCombo">
      <property name="enabled">
       <bool>false</bool>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
      </property>
     </widget>
    </item>
@@ -195,6 +224,12 @@
     <widget class="QComboBox" name="migrateCombo">
      <property name="enabled">
       <bool>false</bool>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
      </property>
     </widget>
    </item>

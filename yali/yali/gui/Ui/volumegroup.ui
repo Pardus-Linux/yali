@@ -14,6 +14,12 @@
    <string/>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <property name="horizontalSpacing">
+    <number>5</number>
+   </property>
+   <property name="verticalSpacing">
+    <number>10</number>
+   </property>
    <item row="0" column="0">
     <widget class="QLabel" name="label">
      <property name="text">
@@ -22,7 +28,14 @@
     </widget>
    </item>
    <item row="0" column="1" colspan="2">
-    <widget class="QLineEdit" name="name"/>
+    <widget class="QLineEdit" name="name">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
+    </widget>
    </item>
    <item row="1" column="0">
     <widget class="QLabel" name="label_2">
@@ -32,7 +45,14 @@
     </widget>
    </item>
    <item row="1" column="1" colspan="2">
-    <widget class="QComboBox" name="physicalExtends"/>
+    <widget class="QComboBox" name="physicalExtends">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
+    </widget>
    </item>
    <item row="2" column="0">
     <widget class="QLabel" name="label_3">
@@ -104,6 +124,10 @@
         <property name="text">
          <string>Add</string>
         </property>
+        <property name="icon">
+         <iconset resource="../../../../yali-theme-pardus/data.qrc">
+          <normaloff>:/gui/pics/list-add.png</normaloff>:/gui/pics/list-add.png</iconset>
+        </property>
        </widget>
       </item>
       <item row="1" column="1">
@@ -111,12 +135,20 @@
         <property name="text">
          <string>Edit</string>
         </property>
+        <property name="icon">
+         <iconset resource="../../../../yali-theme-pardus/data.qrc">
+          <normaloff>:/gui/pics/document-edit.png</normaloff>:/gui/pics/document-edit.png</iconset>
+        </property>
        </widget>
       </item>
       <item row="2" column="1">
        <widget class="QPushButton" name="deleteButton">
         <property name="text">
          <string>Delete</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../../../../yali-theme-pardus/data.qrc">
+          <normaloff>:/gui/pics/draw-eraser.png</normaloff>:/gui/pics/draw-eraser.png</iconset>
         </property>
        </widget>
       </item>
@@ -160,6 +192,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../../../yali-theme-pardus/data.qrc"/>
+ </resources>
  <connections/>
 </ui>

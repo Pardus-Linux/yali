@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>404</width>
-    <height>325</height>
+    <height>314</height>
    </rect>
   </property>
   <property name="styleSheet">
@@ -85,7 +85,7 @@
      <property name="minimumSize">
       <size>
        <width>120</width>
-       <height>0</height>
+       <height>30</height>
       </size>
      </property>
      <property name="suffix">
@@ -142,7 +142,7 @@
      <property name="minimumSize">
       <size>
        <width>120</width>
-       <height>0</height>
+       <height>30</height>
       </size>
      </property>
      <property name="suffix">

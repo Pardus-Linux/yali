@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>765</width>
-    <height>200</height>
+    <height>187</height>
    </rect>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
@@ -54,8 +54,20 @@
       <string/>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
+      <property name="horizontalSpacing">
+       <number>5</number>
+      </property>
+      <property name="verticalSpacing">
+       <number>10</number>
+      </property>
       <item row="0" column="0" rowspan="2">
        <layout class="QGridLayout" name="gridLayout">
+        <property name="horizontalSpacing">
+         <number>5</number>
+        </property>
+        <property name="verticalSpacing">
+         <number>10</number>
+        </property>
         <item row="0" column="0">
          <widget class="QLabel" name="label_2">
           <property name="font">
@@ -71,7 +83,7 @@
           <property name="minimumSize">
            <size>
             <width>300</width>
-            <height>0</height>
+            <height>30</height>
            </size>
           </property>
           <item>
@@ -94,20 +106,7 @@
         <item row="1" column="1">
          <widget class="QSlider" name="partitionSlider">
           <property name="styleSheet">
-           <string notr="true">QSlider::groove:horizontal {
-                     height: 12px;
-                     background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #B1B1B1, stop:1 #FFFFFF);
-                     margin: 2px 0;
-                 }
-
-                 QSlider::handle:horizontal {
-                     background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #5A2848, stop:1 #8f8f8f);
-                     border: 1px solid #5c5c5c;
-                     width: 18px;
-                     margin: 0 0;
-                     border-radius: 2px;
-                 }
-</string>
+           <string notr="true"/>
           </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
@@ -125,7 +124,7 @@
           <property name="minimumSize">
            <size>
             <width>120</width>
-            <height>0</height>
+            <height>30</height>
            </size>
           </property>
           <property name="suffix">
@@ -198,7 +197,14 @@
            </spacer>
           </item>
           <item>
-           <widget class="QComboBox" name="fileSystemBox"/>
+           <widget class="QComboBox" name="fileSystemBox">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>30</height>
+             </size>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -219,6 +225,9 @@
       </item>
       <item row="0" column="3" rowspan="2">
        <layout class="QVBoxLayout">
+        <property name="spacing">
+         <number>5</number>
+        </property>
         <item>
          <widget class="QPushButton" name="deletePartition">
           <property name="minimumSize">

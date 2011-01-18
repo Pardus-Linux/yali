@@ -102,6 +102,12 @@
       </item>
       <item row="2" column="2">
        <widget class="QSpinBox" name="shrinkMB">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>30</height>
+         </size>
+        </property>
         <property name="suffix">
          <string> MB</string>
         </property>
