@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-18 16:30+0200\n"
-"PO-Revision-Date: 2011-01-14 00:18+0300\n"
+"PO-Revision-Date: 2011-01-18 16:33+0200\n"
 "Last-Translator: Николай Семенов\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: \n"
@@ -856,7 +856,7 @@ msgstr ""
 "пространства на одном или нескольких томах в группе томов."
 
 #: yali/gui/lvm_gui.py:483
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "The physical extent size cannot be changed because the resulting maximum "
 "logical volume size (%10.2f MB) is smaller than one or more of their "

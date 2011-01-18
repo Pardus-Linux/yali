@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-18 16:30+0200\n"
-"PO-Revision-Date: 2011-01-12 12:59+0100\n"
+"PO-Revision-Date: 2011-01-18 16:33+0200\n"
 "Last-Translator: Antoon Tolboom <atolboo@gmail.com>\n"
 "Language-Team: Dutch <kde-i18n-doc@kde.org>\n"
 "Language: nl\n"
@@ -869,7 +869,7 @@ msgstr ""
 "ruimte verspillen op een of meer van de fysieke volumes in de volumegroep."
 
 #: yali/gui/lvm_gui.py:483
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "The physical extent size cannot be changed because the resulting maximum "
 "logical volume size (%10.2f MB) is smaller than one or more of their "

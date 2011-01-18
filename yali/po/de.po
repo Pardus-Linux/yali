@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-18 16:30+0200\n"
-"PO-Revision-Date: 2010-11-23 21:25+0100\n"
+"PO-Revision-Date: 2011-01-18 16:32+0200\n"
 "Last-Translator: Stefan Wilhelm <sw AT pardususer DOT de>\n"
 "Language-Team: German <de@li.org>\n"
 "Language: de\n"
@@ -888,7 +888,7 @@ msgstr ""
 "Physical Volumes in der Volume-Gruppe wertvollen Speicherplatz verschwenden."
 
 #: yali/gui/lvm_gui.py:483
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "The physical extent size cannot be changed because the resulting maximum "
 "logical volume size (%10.2f MB) is smaller than one or more of their "

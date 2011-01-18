@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-18 16:30+0200\n"
-"PO-Revision-Date: 2011-01-04 20:21+0100\n"
+"PO-Revision-Date: 2011-01-18 16:32+0200\n"
 "Last-Translator: Attila Siposs <sipiatti@gmail.com>\n"
 "Language-Team: Hungarian <pardus-translators@pardus.org.tr>\n"
 "Language: \n"
@@ -852,7 +852,7 @@ msgstr ""
 "helyfoglaláshoz vezet."
 
 #: yali/gui/lvm_gui.py:483
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "The physical extent size cannot be changed because the resulting maximum "
 "logical volume size (%10.2f MB) is smaller than one or more of their "

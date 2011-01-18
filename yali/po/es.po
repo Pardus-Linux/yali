@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-18 16:30+0200\n"
-"PO-Revision-Date: 2010-02-22 21:44-0300\n"
+"PO-Revision-Date: 2011-01-18 16:32+0200\n"
 "Last-Translator: \n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
 "Language: es\n"
@@ -854,7 +854,7 @@ msgstr ""
 "en uno o varios de los volumenes físicos del grupo de volumenes."
 
 #: yali/gui/lvm_gui.py:483
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "The physical extent size cannot be changed because the resulting maximum "
 "logical volume size (%10.2f MB) is smaller than one or more of their "
