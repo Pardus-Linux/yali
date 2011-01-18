@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: YALI-pl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-15 21:11+0200\n"
+"POT-Creation-Date: 2011-01-18 16:30+0200\n"
 "PO-Revision-Date: 2006-04-08 12:19+0900\n"
 "Last-Translator: Piotr Maliński <riklaunim@gmail.com>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
@@ -109,7 +109,7 @@ msgstr "Zainstaluj w partycji Pardusa"
 msgid "The first sector of"
 msgstr ""
 
-#: yali/gui/Ui/checkcdwidget.py:198
+#: yali/gui/Ui/checkcdwidget.py:197
 #, fuzzy
 msgid ""
 "You can validate the integrity of the installation packages. Although this "
@@ -119,17 +119,17 @@ msgstr ""
 "Możesz sprawdzić spójność pakietów na płycie instalacyjnej. Mimoże jest to "
 "opcjonalne, nalegamy aby to uczynić, by ominąć błędypodczas instalowania."
 
-#: yali/gui/Ui/checkcdwidget.py:199
+#: yali/gui/Ui/checkcdwidget.py:198
 #, fuzzy
 msgid "Validation failed"
 msgstr "Sprawdzanie nieudane"
 
-#: yali/gui/Ui/checkcdwidget.py:200
+#: yali/gui/Ui/checkcdwidget.py:199
 #, fuzzy
 msgid "Validation succeeded"
 msgstr "Sprawdzanie nieudane"
 
-#: yali/gui/Ui/checkcdwidget.py:201 yali/gui/ScrCheckCD.py:62
+#: yali/gui/Ui/checkcdwidget.py:200 yali/gui/ScrCheckCD.py:62
 msgid "Validate"
 msgstr ""
 
@@ -208,22 +208,22 @@ msgstr ""
 msgid "Timezone"
 msgstr ""
 
-#: yali/gui/Ui/exception.py:63
+#: yali/gui/Ui/exception.py:62
 #, fuzzy
 msgid "Unhandled exception occured"
 msgstr "Pojawił się błąd!"
 
-#: yali/gui/Ui/exception.py:64
+#: yali/gui/Ui/exception.py:63
 msgid ""
 "Please fill a bug report at http://bugs.pardus.org.tr/ attaching the "
 "following backtrace."
 msgstr ""
 
-#: yali/gui/Ui/exception.py:65 yali/gui/ScrCheckCD.py:99
+#: yali/gui/Ui/exception.py:64 yali/gui/ScrCheckCD.py:99
 msgid "Reboot"
 msgstr "Restart"
 
-#: yali/gui/Ui/exception.py:66
+#: yali/gui/Ui/exception.py:65
 #, fuzzy
 msgid "Show Backtrace"
 msgstr "Log:"
@@ -258,150 +258,150 @@ msgstr ""
 msgid "I understand and accept the terms"
 msgstr ""
 
-#: yali/gui/Ui/logicalvolume.py:132
+#: yali/gui/Ui/logicalvolume.py:139
 msgid "Logical Volume:"
 msgstr ""
 
-#: yali/gui/Ui/logicalvolume.py:133 yali/gui/Ui/partedit.py:171
+#: yali/gui/Ui/logicalvolume.py:140 yali/gui/Ui/partedit.py:164
 #: yali/gui/Ui/partitionedit.py:136
 #, fuzzy
 msgid "Use :"
 msgstr "Użytkownicy:"
 
-#: yali/gui/Ui/logicalvolume.py:134 yali/gui/Ui/partedit.py:172
+#: yali/gui/Ui/logicalvolume.py:141 yali/gui/Ui/partedit.py:165
 #: yali/gui/Ui/partitionedit.py:137 yali/gui/Ui/partition.py:139
 #, fuzzy
 msgid "Size :"
 msgstr "Rozmiar (MB):"
 
-#: yali/gui/Ui/logicalvolume.py:135 yali/gui/Ui/logicalvolume.py:137
-#: yali/gui/Ui/partedit.py:173 yali/gui/Ui/partitionedit.py:138
+#: yali/gui/Ui/logicalvolume.py:142 yali/gui/Ui/logicalvolume.py:144
+#: yali/gui/Ui/partedit.py:166 yali/gui/Ui/partitionedit.py:138
 #: yali/gui/Ui/partition.py:140 yali/gui/Ui/partition.py:142
-#: yali/gui/Ui/partitionshrinkwidget.py:92 yali/gui/Ui/partresize.py:93
+#: yali/gui/Ui/partitionshrinkwidget.py:93 yali/gui/Ui/partresize.py:93
 msgid " MB"
 msgstr ""
 
-#: yali/gui/Ui/logicalvolume.py:136 yali/gui/Ui/partition.py:141
+#: yali/gui/Ui/logicalvolume.py:143 yali/gui/Ui/partition.py:141
 #: yali/gui/Ui/partresize.py:95
 #, fuzzy
 msgid "Resize"
 msgstr "Zmień Rozmiar"
 
-#: yali/gui/Ui/logicalvolume.py:138 yali/gui/Ui/partedit.py:176
+#: yali/gui/Ui/logicalvolume.py:145 yali/gui/Ui/partedit.py:169
 #: yali/gui/Ui/partitionedit.py:139 yali/gui/Ui/partition.py:145
 #, fuzzy
 msgid "File System :"
 msgstr "System Plików"
 
-#: yali/gui/Ui/logicalvolume.py:139 yali/gui/Ui/manualpartwidget.py:136
-#: yali/gui/Ui/partition.py:143 yali/gui/Ui/raid.py:95
+#: yali/gui/Ui/logicalvolume.py:146 yali/gui/Ui/manualpartwidget.py:161
+#: yali/gui/Ui/partition.py:143 yali/gui/Ui/raid.py:108
 #: yali/gui/ScrPartitionManual.py:130
 #, fuzzy
 msgid "Format"
 msgstr "Formatować?"
 
-#: yali/gui/Ui/logicalvolume.py:140 yali/gui/Ui/partition.py:144
-#: yali/gui/Ui/raid.py:96
+#: yali/gui/Ui/logicalvolume.py:147 yali/gui/Ui/partition.py:144
+#: yali/gui/Ui/raid.py:109
 msgid "Migrate"
 msgstr ""
 
-#: yali/gui/Ui/main.py:246
+#: yali/gui/Ui/main.py:245
 msgid "Yali"
 msgstr ""
 
-#: yali/gui/Ui/main.py:247 yali/gui/YaliWindow.py:406
+#: yali/gui/Ui/main.py:246 yali/gui/YaliWindow.py:408
 msgid "Release Notes"
 msgstr "Notki Wydania"
 
-#: yali/gui/Ui/main.py:248
+#: yali/gui/Ui/main.py:247
 msgid "Previous Screen"
 msgstr ""
 
-#: yali/gui/Ui/main.py:249
+#: yali/gui/Ui/main.py:248
 msgid "Back"
 msgstr ""
 
-#: yali/gui/Ui/main.py:250
+#: yali/gui/Ui/main.py:249
 msgid "Next Screen"
 msgstr ""
 
-#: yali/gui/Ui/main.py:251 yali/gui/ScrSummary.py:59
+#: yali/gui/Ui/main.py:250 yali/gui/ScrSummary.py:59
 #: yali/gui/ScrSummary.py:223 yali/gui/ScrSummary.py:230
 msgid "Next"
 msgstr ""
 
-#: yali/gui/Ui/manualpartwidget.py:132
+#: yali/gui/Ui/manualpartwidget.py:157
 #, fuzzy
 msgid "Device"
 msgstr "Urządzenie"
 
-#: yali/gui/Ui/manualpartwidget.py:133
+#: yali/gui/Ui/manualpartwidget.py:158
 msgid "Mount Point"
 msgstr ""
 
-#: yali/gui/Ui/manualpartwidget.py:134
+#: yali/gui/Ui/manualpartwidget.py:159
 msgid "Label"
 msgstr ""
 
-#: yali/gui/Ui/manualpartwidget.py:135
+#: yali/gui/Ui/manualpartwidget.py:160
 msgid "Type"
 msgstr ""
 
-#: yali/gui/Ui/manualpartwidget.py:137 yali/gui/Ui/volumegroup.py:103
+#: yali/gui/Ui/manualpartwidget.py:162 yali/gui/Ui/volumegroup.py:116
 #, fuzzy
 msgid "Size"
 msgstr "Rozmiar (MB):"
 
-#: yali/gui/Ui/manualpartwidget.py:138
+#: yali/gui/Ui/manualpartwidget.py:163
 #, fuzzy
 msgid "Create"
 msgstr "Utwórz Użytkownika"
 
-#: yali/gui/Ui/manualpartwidget.py:139 yali/gui/Ui/setupuserswidget.py:499
-#: yali/gui/Ui/volumegroup.py:105
+#: yali/gui/Ui/manualpartwidget.py:164 yali/gui/Ui/setupuserswidget.py:499
+#: yali/gui/Ui/volumegroup.py:118
 msgid "Edit"
 msgstr "Edytuj"
 
-#: yali/gui/Ui/manualpartwidget.py:140 yali/gui/Ui/setupuserswidget.py:500
-#: yali/gui/Ui/volumegroup.py:106 yali/gui/lvm_gui.py:552
+#: yali/gui/Ui/manualpartwidget.py:165 yali/gui/Ui/setupuserswidget.py:500
+#: yali/gui/Ui/volumegroup.py:119 yali/gui/lvm_gui.py:552
 msgid "Delete"
 msgstr ""
 
-#: yali/gui/Ui/manualpartwidget.py:141
+#: yali/gui/Ui/manualpartwidget.py:166
 msgid "Reset"
 msgstr ""
 
-#: yali/gui/Ui/partedit.py:174
+#: yali/gui/Ui/partedit.py:167
 #, fuzzy
 msgid "Format :"
 msgstr "Formatować?"
 
-#: yali/gui/Ui/partedit.py:175
+#: yali/gui/Ui/partedit.py:168
 #, fuzzy
 msgid "Yes, format this partition"
 msgstr "Formatuj tą partycję"
 
-#: yali/gui/Ui/partedit.py:177
+#: yali/gui/Ui/partedit.py:170
 msgid "Delete Partition"
 msgstr "Usuń Partycję"
 
-#: yali/gui/Ui/partedit.py:178
+#: yali/gui/Ui/partedit.py:171
 msgid "Resize Partition"
 msgstr "Zmień Rozmiar Partycji"
 
-#: yali/gui/Ui/partedit.py:179
+#: yali/gui/Ui/partedit.py:172
 msgid "Changes will be applied after Summary Screen."
 msgstr ""
 
-#: yali/gui/Ui/partedit.py:180
+#: yali/gui/Ui/partedit.py:173
 msgid "Refresh Disks"
 msgstr ""
 
-#: yali/gui/Ui/partedit.py:181
+#: yali/gui/Ui/partedit.py:174
 msgid "Reset All Changes"
 msgstr "Cofnij wszystkie zmiany"
 
-#: yali/gui/Ui/partedit.py:182
+#: yali/gui/Ui/partedit.py:175
 msgid "Apply"
 msgstr "Zastosuj"
 
@@ -410,7 +410,7 @@ msgstr "Zastosuj"
 msgid "Force to be primary partition"
 msgstr "Formatuj tą partycję"
 
-#: yali/gui/Ui/partition.py:138 yali/gui/Ui/raid.py:93
+#: yali/gui/Ui/partition.py:138 yali/gui/Ui/raid.py:106
 msgid "Use:"
 msgstr ""
 
@@ -419,20 +419,20 @@ msgstr ""
 msgid "Force to be a primary partition"
 msgstr "Formatuj tą partycję"
 
-#: yali/gui/Ui/partitionshrink.py:62 yali/gui/Ui/partitionshrinkwidget.py:90
+#: yali/gui/Ui/partitionshrink.py:64 yali/gui/Ui/partitionshrinkwidget.py:91
 msgid ""
 "Which partition would you like to shrink to make room for your installation?"
 msgstr ""
 
-#: yali/gui/Ui/partitionshrink.py:63
+#: yali/gui/Ui/partitionshrink.py:65
 msgid "Shrink partition to size (in MB)"
 msgstr ""
 
-#: yali/gui/Ui/partitionshrinkwidget.py:91
+#: yali/gui/Ui/partitionshrinkwidget.py:92
 msgid "Shrink partition to size (in MB) :"
 msgstr ""
 
-#: yali/gui/Ui/partitionshrinkwidget.py:93 yali/gui/Ui/partresize.py:94
+#: yali/gui/Ui/partitionshrinkwidget.py:94 yali/gui/Ui/partresize.py:94
 #: yali/gui/Ui/setupuserswidget.py:501 yali/gui/lvm_gui.py:420
 #: yali/gui/lvm_gui.py:467 yali/gui/lvm_gui.py:552
 #: yali/gui/ScrPartitionManual.py:114 yali/gui/ScrPartitionManual.py:130
@@ -440,7 +440,7 @@ msgstr ""
 msgid "Cancel"
 msgstr "Anuluj"
 
-#: yali/gui/Ui/partitionshrinkwidget.py:94
+#: yali/gui/Ui/partitionshrinkwidget.py:95
 msgid "Shrink"
 msgstr ""
 
@@ -454,27 +454,27 @@ msgid ""
 "this operation cannot be undone.<b>"
 msgstr ""
 
-#: yali/gui/Ui/raid.py:92
+#: yali/gui/Ui/raid.py:105
 #, fuzzy
 msgid "Raid Device:"
 msgstr "Urządzenie"
 
-#: yali/gui/Ui/raid.py:94
+#: yali/gui/Ui/raid.py:107
 #, fuzzy
 msgid "Filesystem:"
 msgstr "System Plików"
 
-#: yali/gui/Ui/raid.py:97
+#: yali/gui/Ui/raid.py:110
 #, fuzzy
 msgid "Raid Level:"
 msgstr "Urządzenie"
 
-#: yali/gui/Ui/raid.py:98
+#: yali/gui/Ui/raid.py:111
 #, fuzzy
 msgid "Raid Members:"
 msgstr "Urządzenie"
 
-#: yali/gui/Ui/raid.py:99
+#: yali/gui/Ui/raid.py:112
 msgid "Number of spares:"
 msgstr ""
 
@@ -622,7 +622,7 @@ msgstr ""
 msgid "Select auto login user"
 msgstr "Automatycznie zaloguj użytkownika:"
 
-#: yali/gui/Ui/setupuserswidget.py:498 yali/gui/Ui/volumegroup.py:104
+#: yali/gui/Ui/setupuserswidget.py:498 yali/gui/Ui/volumegroup.py:117
 #: yali/gui/ScrUsers.py:286 yali/gui/ScrUsers.py:329 yali/gui/ScrUsers.py:411
 msgid "Add"
 msgstr ""
@@ -643,37 +643,37 @@ msgstr ""
 msgid "Install all language packages"
 msgstr "Instaluję Pakiety: "
 
-#: yali/gui/Ui/volumegroup.py:96
+#: yali/gui/Ui/volumegroup.py:109
 msgid "Volume Group Name:"
 msgstr ""
 
-#: yali/gui/Ui/volumegroup.py:97
+#: yali/gui/Ui/volumegroup.py:110
 msgid "Physical Extends"
 msgstr ""
 
-#: yali/gui/Ui/volumegroup.py:98
+#: yali/gui/Ui/volumegroup.py:111
 msgid "Physical Volumes to use:"
 msgstr ""
 
-#: yali/gui/Ui/volumegroup.py:99
+#: yali/gui/Ui/volumegroup.py:112
 #, fuzzy
 msgid "Total Space:"
 msgstr "wolne miejsce"
 
-#: yali/gui/Ui/volumegroup.py:100
+#: yali/gui/Ui/volumegroup.py:113
 #, fuzzy
 msgid "Free Space:"
 msgstr "wolne miejsce"
 
-#: yali/gui/Ui/volumegroup.py:101
+#: yali/gui/Ui/volumegroup.py:114
 msgid "Logical Volumes"
 msgstr ""
 
-#: yali/gui/Ui/volumegroup.py:102
+#: yali/gui/Ui/volumegroup.py:115
 msgid "Mountpoint"
 msgstr ""
 
-#: yali/gui/Ui/volumegroup.py:107
+#: yali/gui/Ui/volumegroup.py:120
 #, fuzzy
 msgid "Used Space:"
 msgstr "wolne miejsce"
@@ -859,8 +859,8 @@ msgstr ""
 #, python-format
 msgid ""
 "The physical extent size cannot be changed because the resulting maximum "
-"logical volume size (%10.2f MB) is smaller than one or more of "
-"theircurrently defined logical volumes."
+"logical volume size (%10.2f MB) is smaller than one or more of their "
+"currently defined logical volumes."
 msgstr ""
 
 #: yali/gui/lvm_gui.py:504
@@ -1580,7 +1580,7 @@ msgstr ""
 #, python-format
 msgid ""
 "Retains your current data and partitions and uses only the unpartitioned "
-"space on the selected %s device(s), assuming you haveenough free space "
+"space on the selected %s device(s), assuming you have enough free space "
 "available."
 msgstr ""
 
@@ -1834,16 +1834,16 @@ msgstr ""
 msgid "Are you sure you want to restart the YALI installer now?"
 msgstr ""
 
-#: yali/gui/YaliWindow.py:242
+#: yali/gui/YaliWindow.py:244
 msgid "Terminal"
 msgstr ""
 
-#: yali/gui/YaliWindow.py:247
+#: yali/gui/YaliWindow.py:249
 #, fuzzy
 msgid "Tetris"
 msgstr "Turecki"
 
-#: yali/gui/YaliWindow.py:429
+#: yali/gui/YaliWindow.py:431
 msgid "Release notes could not be loaded."
 msgstr ""
 
