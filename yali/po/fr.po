@@ -1847,6 +1847,9 @@ msgid ""
 "required in all cases, it will significantly improve performance\n"
 "for most installations."
 msgstr ""
+"Vous n'avez pas spécifié de partition de swap. Bien que n'étant pas strictement\n"
+"requise, elle améliorera considérablement la performance\n"
+"de la plupart des installations."
 
 #: yali/storage/__init__.py:814
 #, python-format
