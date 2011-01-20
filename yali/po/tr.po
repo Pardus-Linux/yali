@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\n"
+"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 msgid "Choose Installation Method"
@@ -2303,7 +2303,7 @@ msgstr "%s dosya sistemi kontrol ediliyor"
 #: yali/storage/formats/filesystem.py:388
 #, python-format
 msgid "%(type)s filesystem check failure on %(device)s: "
-msgstr ""
+msgstr "%(device)s aygıtlarında %(type)s dosya sistemi denetimi başarısız oldu."
 
 #: yali/storage/formats/filesystem.py:392
 msgid ""
@@ -2335,7 +2335,7 @@ msgstr "Paylaşımlı kütüphane hatası."
 
 #: yali/storage/formats/filesystem.py:836
 msgid "Recoverable errors have been detected or dosfsck has discovered an internal inconsistency."
-msgstr ""
+msgstr "Onarılabilir hatalara rastlandı ya da dosfsck bir tutarsızlık tespit etti."
 
 #: yali/storage/formats/filesystem.py:838
 msgid "Usage error."
