@@ -2039,7 +2039,7 @@ msgstr "Следующие уже существующие устройства 
 
 #: yali/storage/storageBackendHelpers.py:244
 msgid "Select 'Yes' to continue and format these partitions, or 'No' to go back and change these settings."
-msgstr ""
+msgstr "Выберите 'Да' для продолжения и форматирования этих разделов, или 'Нет' для возврата назад и изменения этих параметров."
 
 #: yali/storage/storageBackendHelpers.py:250
 msgid "Format Warning"
