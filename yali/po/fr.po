@@ -2224,6 +2224,11 @@ msgid ""
 "\n"
 "in your /etc/fstab file is currently in use as a software suspend device, which means your system is hibernating. If you are performing a new install, make sure the installer is set to format all swap devices."
 msgstr ""
+"La swap :\n"
+"\n"
+" %s\n"
+"\n"
+"dans votre fichier /etc/fstab est actuellement utilisé comme partition de suspension, c'est-à-dire d'hibernation du système. Si vous effectuez une nouvelle installation, assurez-vous que l'installeur est réglé de façon à formater la swap."
 
 #: yali/storage/storageset.py:301
 #, python-format
