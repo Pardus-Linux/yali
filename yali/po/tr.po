@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\n"
+"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 msgid "Choose Installation Method"
@@ -1930,6 +1930,8 @@ msgid ""
 "Could not allocate requested partitions: \n"
 "%(msg)s.%(extra)s"
 msgstr ""
+"Disk bölümleri belirlenen şekilde atanamadı: \n"
+"%(msg)s.%(extra)s"
 
 #: yali/storage/partitioning.py:1698
 msgid "Automatic Partitioning Errors"
@@ -2003,6 +2005,9 @@ msgid ""
 "\n"
 "Would you like to format this partition as a swap partition?"
 msgstr ""
+"%s disk bölümü tipi olarak 0x82 (Linux takas) işaretlenmiş ama Linux takas alanı biçimine sahip değil.\n"
+"\n"
+"Bu disk bölümünü takas alanı olacak şekilde biçimlendirmek ister misiniz?"
 
 #: yali/storage/storageBackendHelpers.py:89
 #, python-format
@@ -2310,11 +2315,11 @@ msgstr ""
 
 #: yali/storage/formats/filesystem.py:688
 msgid "File system errors left uncorrected."
-msgstr ""
+msgstr "Dosya sistemi hataları düzeltilmeden bırakıldı."
 
 #: yali/storage/formats/filesystem.py:689
 msgid "Operational error."
-msgstr "İşlevsel hata."
+msgstr "İşlem hatası."
 
 #: yali/storage/formats/filesystem.py:690
 msgid "Usage or syntax error."
