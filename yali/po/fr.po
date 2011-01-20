@@ -2254,6 +2254,11 @@ msgid ""
 "\n"
 "Press OK to exit the installer."
 msgstr ""
+"Erreur d'activation de la partition de swap %(name)s : %(msg)s\n"
+"\n"
+"Cela signifie probablement que cette partition n'a pas été initialisée.\n"
+"\n"
+"Cliquez sur OK pour quitter le programme d'installation."
 
 #: yali/storage/storageset.py:358
 msgid "You have not created a bootable partition."
@@ -2266,7 +2271,7 @@ msgstr "Les partitions amorçables ne peuvent pas être sur un volume logique."
 #: yali/storage/storageset.py:369
 #, python-format
 msgid "Bootable partitions cannot be on an %s filesystem."
-msgstr ""
+msgstr "Les partitions amorçables ne peuvent pas être sur un système de fichiers %s."
 
 #: yali/storage/devices/filedevice.py:94
 #, python-format
@@ -2327,14 +2332,18 @@ msgid ""
 " Restart\n"
 "installation after you have corrected the problems on the filesystem."
 msgstr ""
+"Ce genre d'erreur signifie généralement qu'il y a un problème avec le\n"
+"système de fichiers dont la résolution nécessite une interaction avec l'utilisateur.\n"
+"Redémarrez\n"
+"l'installation après avoir corrigé les problèmes sur le système de fichiers."
 
 #: yali/storage/formats/filesystem.py:688
 msgid "File system errors left uncorrected."
-msgstr ""
+msgstr "Erreurs de système de fichiers laissées non corrigées."
 
 #: yali/storage/formats/filesystem.py:689
 msgid "Operational error."
-msgstr ""
+msgstr "Erreur opérationnelle."
 
 #: yali/storage/formats/filesystem.py:690
 msgid "Usage or syntax error."
