@@ -2194,7 +2194,7 @@ msgstr ""
 
 #: yali/storage/storageset.py:245
 msgid "Skip"
-msgstr ""
+msgstr "Passer"
 
 #: yali/storage/storageset.py:245
 msgid "_Exit"
@@ -2209,6 +2209,11 @@ msgid ""
 "\n"
 "is an old-style Linux swap partition.  If you want to use this device for swap space, you must reformat as a new-style Linux swap partition."
 msgstr ""
+"La swap :\n"
+"\n"
+"%s\n"
+"\n"
+"est une partition de swap à l'ancienne. Si vous souhaitez utiliser cette partition pour l'espace de swap, vous devez la reformater comme une partition de swap Linux moderne."
 
 #: yali/storage/storageset.py:288
 #, python-format
