@@ -1832,6 +1832,8 @@ msgid ""
 "Your %(mount)s partition is less than %(size)s megabytes which is lower than\n"
 "recommended for a normal %(productName)s install."
 msgstr ""
+"Votre partition %(mount)s est inférieure à %(size)s Mo,ce qui inférieur à\n"
+"la taille recommandée pour une installation normale de %(productName)s"
 
 #: yali/storage/__init__.py:805
 msgid ""
@@ -2018,6 +2020,9 @@ msgid ""
 "\n"
 "%(errorstr)s"
 msgstr ""
+"Votre schéma de partitionnement occasionne les erreurs suivantes. Vous devez les corriger avant de poursuivre l'installation de %(productName)s.\n"
+"\n"
+"%(errorstr)s"
 
 #: yali/storage/storageBackendHelpers.py:226
 #, fuzzy
