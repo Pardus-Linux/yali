@@ -1777,9 +1777,8 @@ msgid "Failed in storage.complete with error:%s"
 msgstr "Ошибка в storage.complete:%s"
 
 #: yali/storage/__init__.py:241
-#, fuzzy
 msgid "This partition is holding the data for the hard drive install."
-msgstr "Раздел на котором установлен Pardus"
+msgstr "Этот раздел содержит данные по установке на жесткий диск."
 
 #: yali/storage/__init__.py:244
 msgid "You cannot delete a partition of a LDL formatted DASD."
@@ -1792,12 +1791,12 @@ msgstr ""
 
 #: yali/storage/__init__.py:255
 msgid "This device is part of a RAID device."
-msgstr ""
+msgstr "Это устройство является частью устройства RAID."
 
 #: yali/storage/__init__.py:260
 #, python-format
 msgid "This device is part of the LVM volume group '%s'."
-msgstr ""
+msgstr "Это устройство является частью дисковой группы LVM '%s'."
 
 #: yali/storage/__init__.py:263
 msgid "This device is part of a LVM volume group."
@@ -1846,7 +1845,7 @@ msgstr ""
 #: yali/storage/__init__.py:814
 #, python-format
 msgid "This mount point is invalid. The %s directory must be on the / file system."
-msgstr ""
+msgstr "Это точка монтирования не верна. Директория %s должна быть на файловой системе / ."
 
 #: yali/storage/__init__.py:817
 #, fuzzy, python-format
@@ -1855,7 +1854,7 @@ msgstr "Точка монтирования \"%s\" уже используетс
 
 #: yali/storage/__init__.py:837
 msgid "No Drives Found"
-msgstr ""
+msgstr "Диски не обнаружены"
 
 #: yali/storage/__init__.py:838
 msgid ""
@@ -1871,9 +1870,8 @@ msgid ""
 msgstr ""
 
 #: yali/storage/partitioning.py:1668
-#, fuzzy
 msgid "Warnings During Automatic Partitioning"
-msgstr "Предупреждение разметки"
+msgstr "Предупреждения во время автоматической разметки"
 
 #: yali/storage/partitioning.py:1669
 #, python-format
