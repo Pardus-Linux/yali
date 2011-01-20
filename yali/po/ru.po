@@ -1976,6 +1976,9 @@ msgid ""
 "\n"
 "Would you like to format this partition as a swap partition?"
 msgstr ""
+"%s имеет тип 0x82 (Linux swap), но по всей видимости, не был отформатирован как раздел подкачки Linux.\n"
+"\n"
+"Вы хотите отформатировать этот раздел как раздел подкачки?"
 
 #: yali/storage/storageBackendHelpers.py:89
 #, python-format
