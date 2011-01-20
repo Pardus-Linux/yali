@@ -16,14 +16,14 @@ msgstr ""
 "Project-Id-Version: YALI-tr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-20 14:11+0200\n"
-"PO-Revision-Date: 2011-01-20 17:40+0200\n"
+"PO-Revision-Date: 2011-01-19 11:55+0200\n"
 "Last-Translator: Koray Löker <loker@pardus.org.tr>\n"
 "Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\n"
+"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 msgid "Choose Installation Method"
@@ -1102,7 +1102,7 @@ msgstr "Sistemler temizleniyor..."
 #: yali/gui/ScrInstall.py:160
 #, python-format
 msgid "Installing <b>%(name)s</b> -- %(summary)s"
-msgstr "Kuruluyor: <b>%(name)s</b><br>%(summary)s"
+msgstr "Kuruluyor <b>%(name)s</b><br>%(summary)s"
 
 #: yali/gui/ScrInstall.py:169
 #, python-format
@@ -2053,9 +2053,7 @@ msgid ""
 "The following critical errors exist with your requested partitioning scheme. These errors must be corrected prior to continuing with your install of %(productName)s.\n"
 "\n"
 "%(errorstr)s"
-msgstr "Aşağıdaki kritik hatalar istediğiniz bölümleme şemasında var. Bu hatalar %(productName)s kurulumunu devam edebilmeniz için öncelikle düzeltilmesi gerekir.\n"
-"\n"
-"%(errorstr)s"
+msgstr "Aşağıdaki kritik hatalar İstediğiniz bölümleme şemasında var. Bu hatalar %(productName)s kurulumunu devam edebilmeniz için öncelikle düzeltilmesi gerekir.%(errorstr)s"
 
 #: yali/storage/storageBackendHelpers.py:226
 msgid "Partitioning Warning"
@@ -2252,6 +2250,11 @@ msgid ""
 "\n"
 "Press OK to exit the installer."
 msgstr ""
+"%(name)s swap aygıtı etkinleştirirken hata:%(msg)s\n"
+"\n"
+" Bu çoğunlukla etkinleştirilmeyen swap aygıtınından dolayıdır.\n"
+"\n"
+".Kurulumdan çıkmak için 'OK' tıklayın."
 
 #: yali/storage/storageset.py:358
 msgid "You have not created a bootable partition."
