@@ -1851,7 +1851,7 @@ msgstr ""
 #: yali/storage/__init__.py:814
 #, python-format
 msgid "This mount point is invalid. The %s directory must be on the / file system."
-msgstr ""
+msgstr "Ce point de montage n'est pas valide. Le répertoire %s doit être sur le système de fichiers /."
 
 #: yali/storage/__init__.py:817
 #, python-format
@@ -1996,13 +1996,12 @@ msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:154
 #: yali/storage/storageBackendHelpers.py:161
-#, fuzzy
 msgid "Unable To Delete"
-msgstr "Impossible de modifier"
+msgstr "Impossible de supprimer"
 
 #: yali/storage/storageBackendHelpers.py:155
 msgid "You must first select a partition to delete."
-msgstr ""
+msgstr "Vous devez d'abord sélectionner une partition à supprimer."
 
 #: yali/storage/storageBackendHelpers.py:200
 #, python-format
@@ -2010,7 +2009,6 @@ msgid "The mount point %s is invalid.  Mount points must start with '/' and cann
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:209
-#, fuzzy
 msgid "Error with Partitioning"
 msgstr "Erreur de partitionnement"
 
@@ -2026,12 +2024,11 @@ msgstr ""
 "%(errorstr)s"
 
 #: yali/storage/storageBackendHelpers.py:226
-#, fuzzy
 msgid "Partitioning Warning"
 msgstr "Avertissements de partitionnement "
 
 #: yali/storage/storageBackendHelpers.py:227
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "The following warnings exist with your requested partition scheme.\n"
 "\n"
@@ -2040,8 +2037,8 @@ msgid ""
 "Would you like to continue with your requested partitioning scheme?"
 msgstr ""
 "Le schéma de partitionnement que vous avez demandé a généré les avertissements suivants\n"
-". Souhaitez-vous continuer avec \n"
-"ce schéma de partitionnement ?"
+"%s\n"
+". Souhaitez-vous continuer avec ce schéma de partitionnement ?"
 
 #: yali/storage/storageBackendHelpers.py:241
 #, fuzzy
