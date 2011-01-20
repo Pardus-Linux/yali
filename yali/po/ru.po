@@ -1995,7 +1995,7 @@ msgstr "Удаление не удалось"
 
 #: yali/storage/storageBackendHelpers.py:155
 msgid "You must first select a partition to delete."
-msgstr ""
+msgstr "Сначала вы должны выбрать раздел для удаления."
 
 #: yali/storage/storageBackendHelpers.py:200
 #, python-format
