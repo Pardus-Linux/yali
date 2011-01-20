@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\\n\\n\\n\\n\n"
+"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\\n\\n\\n\\n\\n\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 msgid "Choose Installation Method"
@@ -2051,12 +2051,11 @@ msgid ""
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:226
-#, fuzzy
 msgid "Partitioning Warning"
 msgstr "Bölümleme Uyarıları"
 
 #: yali/storage/storageBackendHelpers.py:227
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "The following warnings exist with your requested partition scheme.\n"
 "\n"
@@ -2064,22 +2063,19 @@ msgid ""
 "\n"
 "Would you like to continue with your requested partitioning scheme?"
 msgstr ""
-"Talep ettiğiniz bölümleme şeması\n"
-"aşağıdaki uyarıların ortaya çıkmasına oldu.\n"
-"Talep ettiğiniz bölümleme şeması ile\n"
-"devam etmek istiyor musunuz?"
+"Tanımladığınız disk düzeniyle ilgili aşağıdaki hatalar ortaya çıktı.\n"
+"\n"
+"%s\n"
+"\n"
+"Yine de tanımladığınız şekilde devam etmek ister misiniz?"
 
 #: yali/storage/storageBackendHelpers.py:241
-#, fuzzy
 msgid "The following pre-existing partitions have been selected to be formatted, destroying all data."
-msgstr ""
-"Aşağıdaki aygıtlar biçimlendirilmek üzere\n"
-"seçilmiş durumdadırlar, bu işlem aygıtlardaki\n"
-"verilerin kaybolmasına neden olacaktır."
+msgstr "Aşağıda önceden bölümlenmiş disk bölümleri biçimlendirilecek ve içindeki tüm veriler silinecek."
 
 #: yali/storage/storageBackendHelpers.py:244
 msgid "Select 'Yes' to continue and format these partitions, or 'No' to go back and change these settings."
-msgstr ""
+msgstr "Bu disk bölümlerini biçimlendirmek için 'Evet' ya da geri dönüp tekrar ayarlamak için 'Hayır' tuşuna basabilirsiniz."
 
 #: yali/storage/storageBackendHelpers.py:250
 msgid "Format Warning"
@@ -2105,12 +2101,12 @@ msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:284
 msgid "You are about to delete a RAID device."
-msgstr ""
+msgstr "Bir RAID aygıtı silmek üzeresiniz."
 
 #: yali/storage/storageBackendHelpers.py:286
 #, python-format
 msgid "You are about to delete the %s partition."
-msgstr ""
+msgstr "%s disk bölümünü silmek üzeresiniz."
 
 #: yali/storage/storageBackendHelpers.py:290
 #, python-format
@@ -2118,9 +2114,8 @@ msgid "You are about to delete the %(type)s %(name)s"
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:300
-#, fuzzy
 msgid "Confirm Reset"
-msgstr "Silmeyi Onayla"
+msgstr "Sıfırlama Onayı"
 
 #: yali/storage/storageBackendHelpers.py:300
 #, fuzzy
@@ -2139,14 +2134,12 @@ msgid ""
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:316
-#, fuzzy
 msgid "Format?"
-msgstr "Biçimlendir"
+msgstr "Biçimlendirilsin mi?"
 
 #: yali/storage/storageBackendHelpers.py:317
-#, fuzzy
 msgid "Do Not Format"
-msgstr "Biçimlendir"
+msgstr "Biçimlendirilmesin"
 
 #: yali/storage/storageBackendHelpers.py:324
 #, python-format
@@ -2155,11 +2148,12 @@ msgid ""
 "single drive.  To do this, select the drive in the 'Allowable Drives'\n"
 "checklist."
 msgstr ""
+"'%s' tipindeki disk bölümleri mutlaka bir tekil diskte olmalı.\n"
+" Bunu yapabilmek için 'Uygun Diskler' listesinden seçebilirsiniz."
 
 #: yali/storage/storageset.py:162 yali/storage/storageset.py:174
-#, fuzzy
 msgid "Invalid mount point"
-msgstr "Geçersiz xml dosyası"
+msgstr "Geçersiz bağlama noktası"
 
 #: yali/storage/storageset.py:163
 #, python-format
