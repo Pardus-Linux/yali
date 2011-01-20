@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\n"
+"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 msgid "Choose Installation Method"
@@ -2135,7 +2135,7 @@ msgid ""
 "However, if this partition contains files that you need to keep,\n"
 "such as home directories, then continue without formatting this\n"
 "npartition."
-msgstr ""
+msgstr "Bu kurulum için biçimlendirme olmadan daha önceden varolan bir bölümü kullanmak için seçtiniz. Bu bölümde daha önceki işletim sistemi kurulumundan dosya kalmamasından emin olmanız için biçimlendirmenizi öneririz. Ancak  bu bölüm kullanıcı dizinleri gibi saklamak istediğiniz dosyalar varsa, biçimlendirmeden devam edebilirsiniz."
 
 #: yali/storage/storageBackendHelpers.py:316
 msgid "Format?"
