@@ -1839,7 +1839,7 @@ msgstr ""
 msgid ""
 "You have not specified a swap partition. Due to the amount of memory\n"
 "present, a swap partition is required to complete installation."
-msgstr ""
+msgstr "Vous n'avez pas spécifié une partition de swap. En raison de la quantité de mémoire\\présente, une partition de swap est nécessaire pour terminer l'installation."
 
 #: yali/storage/__init__.py:808
 msgid ""
