@@ -2188,6 +2188,9 @@ msgid ""
 "\n"
 "Press <Enter> to exit the installer."
 msgstr ""
+"Une erreur s'est produite lors du montage du disque %(path)s en tant que %(mountpoint)s : %(msg)s. Il s'agit d'une erreur fatale et l'installation ne peut pas continuer.\n"
+"\n"
+"Appuyez sur la touche <Entrée> pour quitter l'installeur."
 
 #: yali/storage/storageset.py:245
 msgid "Skip"
