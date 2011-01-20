@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: YALI-tr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-20 14:11+0200\n"
-"PO-Revision-Date: 2011-01-20 15:00+0200\n"
+"PO-Revision-Date: 2011-01-20 15:07+0200\n"
 "Last-Translator: Koray Löker <loker@pardus.org.tr>\n"
 "Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
 "Language: tr\n"
@@ -1199,7 +1199,7 @@ msgstr "Sistemler temizleniyor..."
 #: yali/gui/ScrInstall.py:160
 #, python-format
 msgid "Installing <b>%(name)s</b> -- %(summary)s"
-msgstr "Kuruluyor <b>%(name)s</b><br>%(summary)s"
+msgstr "Kuruluyor: <b>%(name)s</b><br>%(summary)s"
 
 #: yali/gui/ScrInstall.py:169
 #, python-format
