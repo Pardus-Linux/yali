@@ -2025,6 +2025,9 @@ msgid ""
 "\n"
 "%(errorstr)s"
 msgstr ""
+"Следующие критические ошибки существует в вашей схеме разметки. Эти ошибки должны быть исправлены для продолжения установки %(productName)s.\n"
+"\n"
+"%(errorstr)s"
 
 #: yali/storage/storageBackendHelpers.py:226
 msgid "Partitioning Warning"
