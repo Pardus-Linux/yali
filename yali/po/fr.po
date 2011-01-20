@@ -2288,7 +2288,7 @@ msgstr "Création du périphérique %s"
 #: yali/storage/devices/raidarray.py:61
 #, python-format
 msgid "A RAID%(level)d set requires at least %(min_member)d member"
-msgstr ""
+msgstr "Un ensemble RAID %(level)d nécessite au moins %(min_member)d membres."
 
 #: yali/storage/library/lvm.py:265
 #, python-format
