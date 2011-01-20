@@ -1738,7 +1738,7 @@ msgstr "Windows"
 
 #: yali/storage/devicetree.py:1570
 msgid "This partition is part of an inconsistent LVM Volume Group."
-msgstr ""
+msgstr "Этот раздел является частью несовместимой группы томов LVM."
 
 #: yali/storage/__init__.py:49
 #, python-format
@@ -1782,12 +1782,12 @@ msgstr "Этот раздел содержит данные по установ�
 
 #: yali/storage/__init__.py:244
 msgid "You cannot delete a partition of a LDL formatted DASD."
-msgstr ""
+msgstr "Вы не можете удалять раздел LDL, отформатированный DASD."
 
 #: yali/storage/__init__.py:250
 #, python-format
 msgid "This device is part of the RAID device %s, you have to edit or remove the raid partition appropriately!"
-msgstr ""
+msgstr "Этот раздел является частью RAID устройства %s, вы должны редактировать или удалять RAID-разделы надлежащим для этого образом!"
 
 #: yali/storage/__init__.py:255
 msgid "This device is part of a RAID device."
@@ -1807,6 +1807,8 @@ msgid ""
 "This device is an extended partition which contains logical partitions that cannot be deleted:\n"
 "\n"
 msgstr ""
+"Это устройство представляет собой расширенный раздел, содержащий логические разделы, которые не могут быть удалены:\n"
+"\n"
 
 #: yali/storage/__init__.py:781
 #, python-format
