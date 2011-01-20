@@ -1864,6 +1864,9 @@ msgid ""
 "which to create new file systems. Please check your\n"
 "hardware for the cause of this problem."
 msgstr ""
+"Произошла ошибка - не были найдены правильные устройства для создания\n"
+"новых файловых систем. Проверьте оборудование для поиска причин\n"
+"этой проблемы."
 
 #: yali/storage/partitioning.py:1644
 msgid ""
