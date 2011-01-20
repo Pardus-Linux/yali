@@ -2143,6 +2143,8 @@ msgid ""
 "single drive.  To do this, select the drive in the 'Allowable Drives'\n"
 "checklist."
 msgstr ""
+"Les partitions de type '%s' doivent être contenues sur un\n"
+"seul disque dur. Pour ce faire, sélectionnez le disque dans la liste 'Disques disponibles'."
 
 #: yali/storage/storageset.py:162 yali/storage/storageset.py:174
 msgid "Invalid mount point"
@@ -2260,34 +2262,34 @@ msgid "A RAID%(level)d set requires at least %(min_member)d member"
 msgstr ""
 
 #: yali/storage/library/lvm.py:265
-#, fuzzy, python-format
+#, python-format
 msgid "vginfo failed for %s"
-msgstr "Échec de FSCheck à %s"
+msgstr "vginfo a échoué pour %s"
 
 #: yali/storage/library/lvm.py:291
-#, fuzzy, python-format
+#, python-format
 msgid "lvs failed for %s"
-msgstr "Échec de FSCheck à %s"
+msgstr "lvs a échoué pour %s"
 
 #: yali/storage/formats/filesystem.py:229
 #, python-format
 msgid "Unknown return code: %d."
-msgstr ""
+msgstr "Code de retour inconnu : %d."
 
 #: yali/storage/formats/filesystem.py:296
 #, python-format
 msgid "Creating %(type)s filesystem on %(device)s"
-msgstr ""
+msgstr "Création du système de fichiers %(type)s sur %(device)s"
 
 #: yali/storage/formats/filesystem.py:346
-#, fuzzy, python-format
+#, python-format
 msgid "Resizing filesystem on %s"
-msgstr "Migrer vers le système de fichiers :"
+msgstr "Redimensionnement du système de fichiers %s"
 
 #: yali/storage/formats/filesystem.py:376
-#, fuzzy, python-format
+#, python-format
 msgid "Checking filesystem on %s"
-msgstr "Échec de FSCheck à %s"
+msgstr "Vérification du système de fichiers sur %s"
 
 #: yali/storage/formats/filesystem.py:388
 #, python-format
