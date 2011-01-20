@@ -1925,6 +1925,11 @@ msgid ""
 "\n"
 "This can happen if there is not enough space on your hard drive(s) for the installation. %(extra)s"
 msgstr ""
+"Les erreurs suivantes sont survenues avec votre partitionnement :\n"
+"\n"
+"%(errortxt)s\n"
+"\n"
+"Ça peut arriver en cas de manque d'espace libre sur votre disque dur. %(extra)s"
 
 #: yali/storage/partitioning.py:1706 yali/storage/formats/filesystem.py:398
 msgid "Unrecoverable Error"
@@ -2088,9 +2093,8 @@ msgid "You are about to delete the %(type)s %(name)s"
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:300
-#, fuzzy
 msgid "Confirm Reset"
-msgstr "Confirmer la suppression"
+msgstr "Confirmer la réinitialisation"
 
 #: yali/storage/storageBackendHelpers.py:300
 #, fuzzy
