@@ -2239,6 +2239,11 @@ msgid ""
 "\n"
 "does not contain a supported swap volume.  In order to continue installation, you will need to format the device or skip it."
 msgstr ""
+"La partition de swap :\n"
+"\n"
+" %s\n"
+"\n"
+"ne contient pas un volume de swap. Afin de poursuivre l'installation, vous aurez besoin de formater cette partition ou de l'ignorer."
 
 #: yali/storage/storageset.py:312
 #, python-format
