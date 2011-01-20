@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yali\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-20 13:00+0200\n"
+"POT-Creation-Date: 2011-01-20 14:11+0200\n"
 "PO-Revision-Date: 2007-03-18 14:13+0100\n"
 "Last-Translator: Pau Amaro-Seoane <pau@aei.mpg.de>\n"
 "Language-Team: Catala <pardus-translation-ca@ns1.uludag.org.tr>\n"
@@ -2063,7 +2063,7 @@ msgid ""
 "installation. %(extra)s"
 msgstr ""
 
-#: yali/storage/partitioning.py:1706
+#: yali/storage/partitioning.py:1706 yali/storage/formats/filesystem.py:398
 msgid "Unrecoverable Error"
 msgstr ""
 
@@ -2382,6 +2382,96 @@ msgstr ""
 #: yali/storage/storageset.py:369
 #, python-format
 msgid "Bootable partitions cannot be on an %s filesystem."
+msgstr ""
+
+#: yali/storage/devices/filedevice.py:94
+#, python-format
+msgid "Creating file %s"
+msgstr ""
+
+#: yali/storage/devices/logicalvolume.py:217
+#: yali/storage/devices/partition.py:370 yali/storage/devices/raidarray.py:423
+#: yali/storage/devices/volumegroup.py:246
+#, python-format
+msgid "Creating device %s"
+msgstr ""
+
+#: yali/storage/devices/raidarray.py:61
+#, python-format
+msgid "A RAID%(level)d set requires at least %(min_member)d member"
+msgstr ""
+
+#: yali/storage/library/lvm.py:265
+#, fuzzy, python-format
+msgid "vginfo failed for %s"
+msgstr "La comprovació ha fallat"
+
+#: yali/storage/library/lvm.py:291
+#, fuzzy, python-format
+msgid "lvs failed for %s"
+msgstr "La comprovació ha fallat"
+
+#: yali/storage/formats/filesystem.py:229
+#, python-format
+msgid "Unknown return code: %d."
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:296
+#, python-format
+msgid "Creating %(type)s filesystem on %(device)s"
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:346
+#, fuzzy, python-format
+msgid "Resizing filesystem on %s"
+msgstr "Sistema de fitxers"
+
+#: yali/storage/formats/filesystem.py:376
+#, fuzzy, python-format
+msgid "Checking filesystem on %s"
+msgstr "La comprovació ha fallat"
+
+#: yali/storage/formats/filesystem.py:388
+#, python-format
+msgid "%(type)s filesystem check failure on %(device)s: "
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:392
+msgid ""
+"Errors like this usually mean there is a problem with the\n"
+" filesystem that will require user interaction to repair.\n"
+" Restart\n"
+"installation after you have corrected the problems on the filesystem."
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:688
+msgid "File system errors left uncorrected."
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:689
+msgid "Operational error."
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:690
+msgid "Usage or syntax error."
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:691
+msgid "e2fsck cancelled by user request."
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:692
+msgid "Shared library error."
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:836
+msgid ""
+"Recoverable errors have been detected or dosfsck has discovered an internal "
+"inconsistency."
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:838
+msgid "Usage error."
 msgstr ""
 
 #: yali/localedata.py:20
@@ -3115,10 +3205,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Welcome to the Pardus installer..."
 #~ msgstr "Instal·la en la partició arrel"
-
-#, fuzzy
-#~ msgid "FSCheck failed on %s"
-#~ msgstr "La comprovació ha fallat"
 
 #~ msgid "Backtrace:"
 #~ msgstr "Traçament d'errors:"

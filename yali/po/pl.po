@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: YALI-pl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-20 13:00+0200\n"
+"POT-Creation-Date: 2011-01-20 14:11+0200\n"
 "PO-Revision-Date: 2006-04-08 12:19+0900\n"
 "Last-Translator: Piotr Maliński <riklaunim@gmail.com>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
@@ -2057,7 +2057,7 @@ msgid ""
 "installation. %(extra)s"
 msgstr ""
 
-#: yali/storage/partitioning.py:1706
+#: yali/storage/partitioning.py:1706 yali/storage/formats/filesystem.py:398
 msgid "Unrecoverable Error"
 msgstr ""
 
@@ -2374,6 +2374,96 @@ msgstr ""
 #: yali/storage/storageset.py:369
 #, python-format
 msgid "Bootable partitions cannot be on an %s filesystem."
+msgstr ""
+
+#: yali/storage/devices/filedevice.py:94
+#, python-format
+msgid "Creating file %s"
+msgstr ""
+
+#: yali/storage/devices/logicalvolume.py:217
+#: yali/storage/devices/partition.py:370 yali/storage/devices/raidarray.py:423
+#: yali/storage/devices/volumegroup.py:246
+#, python-format
+msgid "Creating device %s"
+msgstr ""
+
+#: yali/storage/devices/raidarray.py:61
+#, python-format
+msgid "A RAID%(level)d set requires at least %(min_member)d member"
+msgstr ""
+
+#: yali/storage/library/lvm.py:265
+#, fuzzy, python-format
+msgid "vginfo failed for %s"
+msgstr "Sprawdzanie nieudane"
+
+#: yali/storage/library/lvm.py:291
+#, fuzzy, python-format
+msgid "lvs failed for %s"
+msgstr "Sprawdzanie nieudane"
+
+#: yali/storage/formats/filesystem.py:229
+#, python-format
+msgid "Unknown return code: %d."
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:296
+#, python-format
+msgid "Creating %(type)s filesystem on %(device)s"
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:346
+#, fuzzy, python-format
+msgid "Resizing filesystem on %s"
+msgstr "System Plików"
+
+#: yali/storage/formats/filesystem.py:376
+#, fuzzy, python-format
+msgid "Checking filesystem on %s"
+msgstr "Sprawdzanie nieudane"
+
+#: yali/storage/formats/filesystem.py:388
+#, python-format
+msgid "%(type)s filesystem check failure on %(device)s: "
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:392
+msgid ""
+"Errors like this usually mean there is a problem with the\n"
+" filesystem that will require user interaction to repair.\n"
+" Restart\n"
+"installation after you have corrected the problems on the filesystem."
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:688
+msgid "File system errors left uncorrected."
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:689
+msgid "Operational error."
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:690
+msgid "Usage or syntax error."
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:691
+msgid "e2fsck cancelled by user request."
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:692
+msgid "Shared library error."
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:836
+msgid ""
+"Recoverable errors have been detected or dosfsck has discovered an internal "
+"inconsistency."
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:838
+msgid "Usage error."
 msgstr ""
 
 #: yali/localedata.py:20
@@ -3127,10 +3217,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Welcome to the Pardus installer..."
 #~ msgstr "Zainstaluj w partycji Pardusa"
-
-#, fuzzy
-#~ msgid "FSCheck failed on %s"
-#~ msgstr "Sprawdzanie nieudane"
 
 #~ msgid "Backtrace:"
 #~ msgstr "Log:"

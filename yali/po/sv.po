@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sv\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-20 13:00+0200\n"
+"POT-Creation-Date: 2011-01-20 14:11+0200\n"
 "PO-Revision-Date: 2010-12-17 20:05+0100\n"
 "Last-Translator: Patrik Karlsson <patrik@trixon.se>\n"
 "Language-Team: Swedish <pardus-translators@pardus.org.tr>\n"
@@ -1943,7 +1943,7 @@ msgid ""
 "installation. %(extra)s"
 msgstr ""
 
-#: yali/storage/partitioning.py:1706
+#: yali/storage/partitioning.py:1706 yali/storage/formats/filesystem.py:398
 msgid "Unrecoverable Error"
 msgstr ""
 
@@ -2262,6 +2262,96 @@ msgstr ""
 msgid "Bootable partitions cannot be on an %s filesystem."
 msgstr ""
 
+#: yali/storage/devices/filedevice.py:94
+#, python-format
+msgid "Creating file %s"
+msgstr ""
+
+#: yali/storage/devices/logicalvolume.py:217
+#: yali/storage/devices/partition.py:370 yali/storage/devices/raidarray.py:423
+#: yali/storage/devices/volumegroup.py:246
+#, python-format
+msgid "Creating device %s"
+msgstr ""
+
+#: yali/storage/devices/raidarray.py:61
+#, python-format
+msgid "A RAID%(level)d set requires at least %(min_member)d member"
+msgstr ""
+
+#: yali/storage/library/lvm.py:265
+#, fuzzy, python-format
+msgid "vginfo failed for %s"
+msgstr "FSCheck misslyckades på %s"
+
+#: yali/storage/library/lvm.py:291
+#, fuzzy, python-format
+msgid "lvs failed for %s"
+msgstr "FSCheck misslyckades på %s"
+
+#: yali/storage/formats/filesystem.py:229
+#, python-format
+msgid "Unknown return code: %d."
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:296
+#, python-format
+msgid "Creating %(type)s filesystem on %(device)s"
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:346
+#, fuzzy, python-format
+msgid "Resizing filesystem on %s"
+msgstr "Migrera filsystem till:"
+
+#: yali/storage/formats/filesystem.py:376
+#, fuzzy, python-format
+msgid "Checking filesystem on %s"
+msgstr "FSCheck misslyckades på %s"
+
+#: yali/storage/formats/filesystem.py:388
+#, python-format
+msgid "%(type)s filesystem check failure on %(device)s: "
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:392
+msgid ""
+"Errors like this usually mean there is a problem with the\n"
+" filesystem that will require user interaction to repair.\n"
+" Restart\n"
+"installation after you have corrected the problems on the filesystem."
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:688
+msgid "File system errors left uncorrected."
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:689
+msgid "Operational error."
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:690
+msgid "Usage or syntax error."
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:691
+msgid "e2fsck cancelled by user request."
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:692
+msgid "Shared library error."
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:836
+msgid ""
+"Recoverable errors have been detected or dosfsck has discovered an internal "
+"inconsistency."
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:838
+msgid "Usage error."
+msgstr ""
+
 #: yali/localedata.py:20
 msgid "Turkish"
 msgstr "Turkiska"
@@ -2499,9 +2589,6 @@ msgstr ""
 
 #~ msgid "<Not Applicable>"
 #~ msgstr "<Inte tillämpbart>"
-
-#~ msgid "Migrate filesystem To :"
-#~ msgstr "Migrera filsystem till:"
 
 #~ msgid "Resize :"
 #~ msgstr "Ändra storlek:"
@@ -3863,9 +3950,6 @@ msgstr ""
 #~ "FSCheck hittade och lagade problem på partitionen "
 #~ "%s.                                      Du bör starta om datorn före du "
 #~ "återupptar installationsprocessen!"
-
-#~ msgid "FSCheck failed on %s"
-#~ msgstr "FSCheck misslyckades på %s"
 
 #~ msgid "Partition is not ready for resizing. Check it before installation."
 #~ msgstr ""
