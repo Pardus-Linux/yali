@@ -1815,7 +1815,7 @@ msgstr ""
 msgid ""
 "You have not defined a root partition (/),which is required for installation\n"
 "of %s to continue."
-msgstr ""
+msgstr "Вы не задали корневой раздел (/), который необходим для продолжения установки %s."
 
 #: yali/storage/__init__.py:790
 #, python-format
