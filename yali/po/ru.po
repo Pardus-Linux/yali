@@ -1938,14 +1938,12 @@ msgid "Error - the volume group name contains illegal characters or spaces.  Acc
 msgstr "Ошибка - имя группы томов содержит недопустимые символы или пробелы. Допустимые символы - буквы, цифры, '.' или '_'."
 
 #: yali/storage/storageBackendHelpers.py:39
-#, fuzzy
 msgid "Please enter a logical volume name."
-msgstr "Неверное имя логического диска"
+msgstr "Пожалуйста, введите имя логического тома."
 
 #: yali/storage/storageBackendHelpers.py:43
-#, fuzzy
 msgid "Logical Volume Names must be less than 128 characters"
-msgstr "Имя хоста не может быть длиннее 64 символов."
+msgstr "Имя логического тома не должно быть длиннее 128 символов."
 
 #: yali/storage/storageBackendHelpers.py:47
 #, python-format
