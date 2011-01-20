@@ -1852,13 +1852,13 @@ msgid "This mount point is invalid. The %s directory must be on the / file syste
 msgstr ""
 
 #: yali/storage/__init__.py:817
-#, fuzzy, python-format
+#, python-format
 msgid "The mount point %s must be on a linux file system."
-msgstr "Le point de montage \"%s\" est utilisé. Merci d'en choisir un autre."
+msgstr "Le point de montage %s doit être sur un système de fichiers Linux."
 
 #: yali/storage/__init__.py:837
 msgid "No Drives Found"
-msgstr ""
+msgstr "Pas de disques trouvés"
 
 #: yali/storage/__init__.py:838
 msgid ""
@@ -1874,9 +1874,8 @@ msgid ""
 msgstr ""
 
 #: yali/storage/partitioning.py:1668
-#, fuzzy
 msgid "Warnings During Automatic Partitioning"
-msgstr "Avertissement de partitionnement"
+msgstr "Avertissements durant le partitionnement automatique"
 
 #: yali/storage/partitioning.py:1669
 #, python-format
@@ -1885,6 +1884,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Les avertissements suivants sont survenus pendant le partitionnement automatique: \n"
+"\n"
+"%s"
 
 #: yali/storage/partitioning.py:1677 yali/storage/partitioning.py:1697
 msgid ""
@@ -1925,17 +1927,16 @@ msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:17
 msgid "Please enter a volume group name."
-msgstr ""
+msgstr "Merci de spécifier un nom de groupe de volumes"
 
 #: yali/storage/storageBackendHelpers.py:21
-#, fuzzy
 msgid "Volume Group Names must be less than 128 characters"
-msgstr "Nom d'hôte ne pouvant excéder 64 caractères."
+msgstr "Les noms de groupes de volumes ne peuvent excéder 128 caractères."
 
 #: yali/storage/storageBackendHelpers.py:24
 #, python-format
 msgid "Error - the volume group name %s is not valid."
-msgstr ""
+msgstr "Erreur - le nom de groupe de volumes %s est invalide."
 
 #: yali/storage/storageBackendHelpers.py:29
 msgid "Error - the volume group name contains illegal characters or spaces.  Acceptable characters are letters, digits, '.' or '_'."
