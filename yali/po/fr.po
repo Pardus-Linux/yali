@@ -1959,7 +1959,7 @@ msgstr "Erreur - le nom de groupe de volumes %s est invalide."
 
 #: yali/storage/storageBackendHelpers.py:29
 msgid "Error - the volume group name contains illegal characters or spaces.  Acceptable characters are letters, digits, '.' or '_'."
-msgstr ""
+msgstr "Erreur - Le nom du groupe volume contient des caractères illégaux ou des espaces. Les caractères acceptés sont les lettres, les chiffres, '.' ou '_'."
 
 #: yali/storage/storageBackendHelpers.py:39
 msgid "Please enter a logical volume name."
