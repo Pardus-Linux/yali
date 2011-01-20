@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\n"
+"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 msgid "Choose Installation Method"
@@ -2165,7 +2165,10 @@ msgid ""
 "An error occurred when trying to create %s.  Some element of this path is not a directory. This is a fatal error and the install cannot continue.\n"
 "\n"
 "Press <Enter> to exit the installer."
-msgstr "%s oluşturmaya çalısırken hata oluştu. Yolun bazı elemanları dizin değil. Bu ölümcül hata ve kurulum devam edemez. Kurulumundan çıkmak için <Enter> basınız."
+msgstr ""
+"%s yaratılırken hata oluştu. Belirtilen yolun bazı elemanları dizin değil. Bu kritik bir hata sebebiyle kurulum devam edemiyor.\n"
+"\n"
+"Kurulumdan çıkmak için <Enter>'a basınız. "
 
 #: yali/storage/storageset.py:175
 #, python-format
@@ -2230,6 +2233,11 @@ msgid ""
 "\n"
 "in your /etc/fstab file is currently in use as a software suspend device, which means your system is hibernating. If you are performing a new install, make sure the installer is set to format all swap devices."
 msgstr ""
+"Takas aygıtı:\n"
+"\n"
+" %s\n"
+"\n"
+" şu anda kullanımda. Sisteminiz uyku moduna geçiyor. Eğer yeni bir kurulum yapıyorsanız, tüm takas aygıtlarınızın biçimlendirilecek şekilde işaretlendiğine emin olun."
 
 #: yali/storage/storageset.py:301
 #, python-format
