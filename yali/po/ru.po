@@ -2240,7 +2240,7 @@ msgstr "Неизвестный код возврата: %d."
 #: yali/storage/formats/filesystem.py:296
 #, python-format
 msgid "Creating %(type)s filesystem on %(device)s"
-msgstr ""
+msgstr "Создание %(type)s файловой системы на %(device)s"
 
 #: yali/storage/formats/filesystem.py:346
 #, python-format
@@ -2250,12 +2250,12 @@ msgstr "Изменение размеров файловой системы на
 #: yali/storage/formats/filesystem.py:376
 #, python-format
 msgid "Checking filesystem on %s"
-msgstr ""
+msgstr "Проверка файловой системы на %s"
 
 #: yali/storage/formats/filesystem.py:388
 #, python-format
 msgid "%(type)s filesystem check failure on %(device)s: "
-msgstr ""
+msgstr "Проверка файловой системы %(type)s не удалась на %(device)s: "
 
 #: yali/storage/formats/filesystem.py:392
 msgid ""
