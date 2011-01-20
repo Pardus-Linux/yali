@@ -2208,14 +2208,14 @@ msgstr ""
 #: yali/storage/devices/filedevice.py:94
 #, python-format
 msgid "Creating file %s"
-msgstr ""
+msgstr "Создание файла %s"
 
 #: yali/storage/devices/logicalvolume.py:217
 #: yali/storage/devices/partition.py:370 yali/storage/devices/raidarray.py:423
 #: yali/storage/devices/volumegroup.py:246
 #, python-format
 msgid "Creating device %s"
-msgstr ""
+msgstr "Создание устройства %s"
 
 #: yali/storage/devices/raidarray.py:61
 #, python-format
@@ -2225,17 +2225,17 @@ msgstr ""
 #: yali/storage/library/lvm.py:265
 #, python-format
 msgid "vginfo failed for %s"
-msgstr ""
+msgstr "vginfo не удалось для %s"
 
 #: yali/storage/library/lvm.py:291
 #, python-format
 msgid "lvs failed for %s"
-msgstr ""
+msgstr "lvs не удалось для %s"
 
 #: yali/storage/formats/filesystem.py:229
 #, python-format
 msgid "Unknown return code: %d."
-msgstr ""
+msgstr "Неизвестный код возврата: %d."
 
 #: yali/storage/formats/filesystem.py:296
 #, python-format
