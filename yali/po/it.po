@@ -809,12 +809,12 @@ msgstr "Modifica Volume Logico: %s"
 #: yali/gui/lvm_gui.py:613 yali/gui/partition_gui.py:65
 #: yali/gui/raid_gui.py:75
 msgid "Mount Point Error"
-msgstr ""
+msgstr "Errore di Punto di Montaggio"
 
 #: yali/gui/lvm_gui.py:645 yali/gui/partition_gui.py:80
 #: yali/gui/raid_gui.py:90
 msgid "Mount point in use"
-msgstr ""
+msgstr "Punto di montaggio in uso"
 
 #: yali/gui/lvm_gui.py:646 yali/gui/partition_gui.py:81
 #: yali/gui/raid_gui.py:91
@@ -1007,27 +1007,24 @@ msgid "Migrating Xorg configuration..."
 msgstr "Migrazione della configurazione di X.org..."
 
 #: yali/gui/ScrGoodbye.py:74
-#, fuzzy
 msgid "Setting console keymap..."
-msgstr "Scrittura dati console..."
+msgstr "Impostazione console keymap..."
 
 #: yali/gui/ScrGoodbye.py:75
 msgid "Copying repository index..."
 msgstr "Copia indice repositorio.."
 
 #: yali/gui/ScrGoodbye.py:76
-#, fuzzy
 msgid "Stopping to D-Bus..."
-msgstr "Interruzione a DBUS..."
+msgstr "Interruzione a D-Bus..."
 
 #: yali/gui/ScrGoodbye.py:80
 msgid "Setup bootloader..."
-msgstr ""
+msgstr "Impostazione del bootloader..."
 
 #: yali/gui/ScrGoodbye.py:81
-#, fuzzy
 msgid "Writing bootloader..."
-msgstr "Installazione del bootloader"
+msgstr "Scirittura del bootloader..."
 
 #: yali/gui/ScrGoodbye.py:82
 msgid "Installing bootloader..."
