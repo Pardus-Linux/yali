@@ -2064,6 +2064,9 @@ msgid ""
 "\n"
 "ALL logical volumes in this volume group will be lost!"
 msgstr ""
+"Вы собираетесь удалить группу томов \"%s\".\n"
+"\n"
+"ВСЕ логические диски в этой группе томов будут потеряны!"
 
 #: yali/storage/storageBackendHelpers.py:281
 #, python-format
@@ -2141,6 +2144,9 @@ msgid ""
 "\n"
 "Press <Enter> to exit the installer."
 msgstr ""
+"Возникла ошибка при попытке создания %(mountpoint)s: %(msg)s. Это критическая ошибка и установка не может быть продолжена.\n"
+"\n"
+"Нажмите <Enter> для выхода из программы установки."
 
 #: yali/storage/storageset.py:190 yali/storage/storageset.py:213
 msgid "Unable to mount filesystem"
