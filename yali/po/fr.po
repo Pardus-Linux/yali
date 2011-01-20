@@ -1871,12 +1871,17 @@ msgid ""
 "which to create new file systems. Please check your\n"
 "hardware for the cause of this problem."
 msgstr ""
+"Une erreur s'est produite - aucun disque valide n'a été trouvé sur \n"
+"lequel créer de nouveaux systèmes de fichiers. Merci de vérifier votre\n"
+"matériel pour résoudre ce problème."
 
 #: yali/storage/partitioning.py:1644
 msgid ""
 "Could not find enough free space for automatic\n"
 "partitioning, please use another partitioning method."
 msgstr ""
+"Impossible de trouver assez d'espace libre pour le partitionnement\n"
+"automatique, Merci d'utiliser une autre méthode de partitionnement."
 
 #: yali/storage/partitioning.py:1668
 msgid "Warnings During Automatic Partitioning"
