@@ -1889,16 +1889,18 @@ msgid ""
 msgstr ""
 
 #: yali/storage/partitioning.py:1679
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Could not allocate requested partitions: \n"
 "%(msg)s.%(extra)s"
-msgstr "Не удалось разместить требуемые разделы: %s."
+msgstr ""
+"Не удалось разместить требуемые разделы:\r\n"
+"\n"
+"%(msg)s.%(extra)s"
 
 #: yali/storage/partitioning.py:1698
-#, fuzzy
 msgid "Automatic Partitioning Errors"
-msgstr "Ошибки разметки дисков"
+msgstr "Ошибки автоматической разметки дисков"
 
 #: yali/storage/partitioning.py:1699
 #, python-format
