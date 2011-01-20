@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\\n\\n\n"
+"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\\n\\n\\n\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 msgid "Choose Installation Method"
@@ -1887,17 +1887,21 @@ msgid ""
 "which to create new file systems. Please check your\n"
 "hardware for the cause of this problem."
 msgstr ""
+"Bir hata ortaya çıktı - yeni dosya sistemi yaratılabilecek\n"
+" herhangi bir geçerli aygıt bulunamadı. Lütfen donanımınızda\n"
+" bununla ilgili bir sorun olup olmadığını kontrol edin."
 
 #: yali/storage/partitioning.py:1644
 msgid ""
 "Could not find enough free space for automatic\n"
 "partitioning, please use another partitioning method."
 msgstr ""
+"Otomatik disk bölümü için yeterli boş disk alanı bulunamadı\n"
+" lütfen başka bir bölümleme yöntemi seçin."
 
 #: yali/storage/partitioning.py:1668
-#, fuzzy
 msgid "Warnings During Automatic Partitioning"
-msgstr "Bölümlendirme Uyarısı"
+msgstr "Otomatik Bölümlendirme İşlemi Uyarıları"
 
 #: yali/storage/partitioning.py:1669
 #, python-format
@@ -1906,6 +1910,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Otomatik bölümlendirme sırasında aşağıdaki hatalar ortaya çıktı:\n"
+"\n"
+"%s"
 
 #: yali/storage/partitioning.py:1677 yali/storage/partitioning.py:1697
 msgid ""
@@ -1913,18 +1920,20 @@ msgid ""
 "\n"
 "Press 'OK' to exit the installer."
 msgstr ""
+"\n"
+"\n"
+"Kurulum sihirbazından çıkmak için 'Tamam' tuşuna tıklayın."
 
 #: yali/storage/partitioning.py:1679
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Could not allocate requested partitions: \n"
 "%(msg)s.%(extra)s"
-msgstr "İstenen disk bölümleri oluşturulamıyor:%s."
+msgstr ""
 
 #: yali/storage/partitioning.py:1698
-#, fuzzy
 msgid "Automatic Partitioning Errors"
-msgstr "Biçimlendirme Hataları"
+msgstr "Otomatik Disk Bölümleme Hataları"
 
 #: yali/storage/partitioning.py:1699
 #, python-format
@@ -1935,56 +1944,57 @@ msgid ""
 "\n"
 "This can happen if there is not enough space on your hard drive(s) for the installation. %(extra)s"
 msgstr ""
+"Disk bölümleme ile ilgili aşağıdaki hatalar ortaya çıktı:\n"
+"\n"
+"%(errortxt)s\n"
+"\n"
+"Yeterli disk alanı olmadığı durumlarda bu sorun yaşanabilir.%(extra)s"
 
 #: yali/storage/partitioning.py:1706 yali/storage/formats/filesystem.py:398
 msgid "Unrecoverable Error"
-msgstr ""
+msgstr "Kurtarılamaz Hata"
 
 #: yali/storage/partitioning.py:1707
 msgid "The system will now reboot."
-msgstr ""
+msgstr "Sistem baştan başlayacak."
 
 #: yali/storage/storageBackendHelpers.py:17
 msgid "Please enter a volume group name."
-msgstr ""
+msgstr "Lütfen hacim grup adı belirleyin."
 
 #: yali/storage/storageBackendHelpers.py:21
-#, fuzzy
 msgid "Volume Group Names must be less than 128 characters"
-msgstr "Makine adı 64 karakterden daha uzun olmamalıdır."
+msgstr "Hacim Grup Adları 128 karakterden az olmalı"
 
 #: yali/storage/storageBackendHelpers.py:24
 #, python-format
 msgid "Error - the volume group name %s is not valid."
-msgstr ""
+msgstr "Hata - hacim grup adı %s geçersiz."
 
 #: yali/storage/storageBackendHelpers.py:29
 msgid "Error - the volume group name contains illegal characters or spaces.  Acceptable characters are letters, digits, '.' or '_'."
-msgstr ""
+msgstr "Hata - hacim grup adında boşluk ya da başka izin verilmeyen karakter kullanılmış. Sadece '.' ya da '_' karakterleri kullanılabilir."
 
 #: yali/storage/storageBackendHelpers.py:39
-#, fuzzy
 msgid "Please enter a logical volume name."
-msgstr "Geçersiz mantıksal hacim adı"
+msgstr "Lütfen bir mantıksal hacim adı girin."
 
 #: yali/storage/storageBackendHelpers.py:43
-#, fuzzy
 msgid "Logical Volume Names must be less than 128 characters"
-msgstr "Makine adı 64 karakterden daha uzun olmamalıdır."
+msgstr "Mantıksal Hacim Adları 128 karakterden az olmalı"
 
 #: yali/storage/storageBackendHelpers.py:47
 #, python-format
 msgid "Error - the logical volume name %s is not valid."
-msgstr ""
+msgstr "Hata - mantıksal hacim adı %s geçersiz."
 
 #: yali/storage/storageBackendHelpers.py:53
 msgid "Error - the logical volume name contains illegal characters or spaces.  Acceptable characters are letters, digits, '.' or '_'."
-msgstr ""
+msgstr "Hata - mantıksal hacim adında boşluk ya da başka izin verilmeyen karakter kullanılmış. Sadece '.' ya da '_' karakterleri kullanılabilir."
 
 #: yali/storage/storageBackendHelpers.py:67
-#, fuzzy
 msgid "Format as Swap?"
-msgstr "Biçimlendir :"
+msgstr "Takas Alanı olarak biçimlendirilsin mi?"
 
 #: yali/storage/storageBackendHelpers.py:68
 #, python-format
