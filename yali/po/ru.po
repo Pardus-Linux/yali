@@ -1887,6 +1887,9 @@ msgid ""
 "\n"
 "Press 'OK' to exit the installer."
 msgstr ""
+"\n"
+"\n"
+"Нажмите 'OK' для выхода из программы установки."
 
 #: yali/storage/partitioning.py:1679
 #, python-format
@@ -1914,7 +1917,7 @@ msgstr ""
 
 #: yali/storage/partitioning.py:1706 yali/storage/formats/filesystem.py:398
 msgid "Unrecoverable Error"
-msgstr ""
+msgstr "Неустранимая ошибка"
 
 #: yali/storage/partitioning.py:1707
 msgid "The system will now reboot."
@@ -1948,11 +1951,11 @@ msgstr "Имя логического тома не должно быть дли
 #: yali/storage/storageBackendHelpers.py:47
 #, python-format
 msgid "Error - the logical volume name %s is not valid."
-msgstr ""
+msgstr "Ошибка - имя логического тома %s не верно задано."
 
 #: yali/storage/storageBackendHelpers.py:53
 msgid "Error - the logical volume name contains illegal characters or spaces.  Acceptable characters are letters, digits, '.' or '_'."
-msgstr ""
+msgstr "Ошибка - имя логического тома содержит недопустимые символы или пробелы. Допустимые символы - буквы, цифры, '.' или '_'."
 
 #: yali/storage/storageBackendHelpers.py:67
 msgid "Format as Swap?"
@@ -1969,7 +1972,7 @@ msgstr ""
 #: yali/storage/storageBackendHelpers.py:89
 #, python-format
 msgid "You are about to delete all partitions on the device '%s'."
-msgstr ""
+msgstr "Вы собираетесь удалить все разделы на устройстве '%s'."
 
 #: yali/storage/storageBackendHelpers.py:139
 msgid "Notice"
