@@ -1822,7 +1822,7 @@ msgstr "Вы не задали корневой раздел (/), который
 msgid ""
 "Your / partition is less than %(min)s MB which is lower than\n"
 "recommended for a normal %(productName)s install."
-msgstr ""
+msgstr "Ваш / раздел меньше чем %(min)s MB, что ниже рекомендуемого размера для нормальной установки %(productName)s ."
 
 #: yali/storage/__init__.py:796
 #, python-format
