@@ -2342,7 +2342,7 @@ msgstr "Ошибка общей библиотеки."
 
 #: yali/storage/formats/filesystem.py:836
 msgid "Recoverable errors have been detected or dosfsck has discovered an internal inconsistency."
-msgstr ""
+msgstr "Обнаружены некритические ошибки или dosfsck обнаружила внутреннюю противоречивость."
 
 #: yali/storage/formats/filesystem.py:838
 msgid "Usage error."
