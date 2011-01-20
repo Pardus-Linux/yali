@@ -2323,7 +2323,7 @@ msgstr "Vérification du système de fichiers sur %s"
 #: yali/storage/formats/filesystem.py:388
 #, python-format
 msgid "%(type)s filesystem check failure on %(device)s: "
-msgstr ""
+msgstr "Échec de la vérification du système de fichiers %(type)s sur %(device)s :"
 
 #: yali/storage/formats/filesystem.py:392
 msgid ""
