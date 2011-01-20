@@ -1741,7 +1741,7 @@ msgstr "Cette partition fait partie d'un groupe de volumes LVM inconsistant."
 #: yali/storage/__init__.py:49
 #, python-format
 msgid "Failed teardownAll in storage.complete with error:%s"
-msgstr ""
+msgstr "Échec de la reconstruction dans storage.complete : %s"
 
 #: yali/storage/__init__.py:58
 msgid "Resizing Failed"
@@ -1976,7 +1976,7 @@ msgstr "Erreur - Le nom de volume logique %s est invalide."
 
 #: yali/storage/storageBackendHelpers.py:53
 msgid "Error - the logical volume name contains illegal characters or spaces.  Acceptable characters are letters, digits, '.' or '_'."
-msgstr ""
+msgstr "Erreur - Le nom du volume logique contient des caractères illégaux ou des espaces. Les caractères acceptés sont les lettres, les chiffres, '.' ou '_'."
 
 #: yali/storage/storageBackendHelpers.py:67
 msgid "Format as Swap?"
@@ -1993,7 +1993,7 @@ msgstr ""
 #: yali/storage/storageBackendHelpers.py:89
 #, python-format
 msgid "You are about to delete all partitions on the device '%s'."
-msgstr ""
+msgstr "Vous êtes sur le point de supprimer toutes les partitions du disque '%s'."
 
 #: yali/storage/storageBackendHelpers.py:139
 msgid "Notice"
@@ -2214,7 +2214,7 @@ msgstr ""
 
 #: yali/storage/storageset.py:358
 msgid "You have not created a bootable partition."
-msgstr ""
+msgstr "Vous avez oublié de créer une partition amorçable."
 
 #: yali/storage/storageset.py:362
 msgid "Bootable partitions cannot be on a logical volume."
