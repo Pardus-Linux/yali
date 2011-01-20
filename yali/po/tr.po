@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\\n\\n\\n\n"
+"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\\n\\n\\n\\n\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 msgid "Choose Installation Method"
@@ -2007,11 +2007,11 @@ msgstr ""
 #: yali/storage/storageBackendHelpers.py:89
 #, python-format
 msgid "You are about to delete all partitions on the device '%s'."
-msgstr ""
+msgstr "'%s' aygıtındaki tüm disk bölümlerini silmek üzeresiniz."
 
 #: yali/storage/storageBackendHelpers.py:139
 msgid "Notice"
-msgstr ""
+msgstr "Uyarı"
 
 #: yali/storage/storageBackendHelpers.py:140
 #, python-format
@@ -2020,24 +2020,25 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Aşağıdaki disk bölümleri silinemedi çünkü hâlâ kullanılıyorlar:\n"
+"\n"
+"%s"
 
 #: yali/storage/storageBackendHelpers.py:154
 #: yali/storage/storageBackendHelpers.py:161
-#, fuzzy
 msgid "Unable To Delete"
-msgstr "Düzenleme Yapılamıyor"
+msgstr "Silinemedi"
 
 #: yali/storage/storageBackendHelpers.py:155
 msgid "You must first select a partition to delete."
-msgstr ""
+msgstr "Silinecek disk bölümünü seçmelisiniz."
 
 #: yali/storage/storageBackendHelpers.py:200
 #, python-format
 msgid "The mount point %s is invalid.  Mount points must start with '/' and cannot end with '/', and must contain printable characters and no spaces."
-msgstr ""
+msgstr "%s bağlama noktası geçersiz. Bağlama noktaları '/' karakteriyle başlamalı, yazılabilir karakterlerden, boşluk içermeyen biçimde olmalı ve '/' karakteriyle bitmemelidir."
 
 #: yali/storage/storageBackendHelpers.py:209
-#, fuzzy
 msgid "Error with Partitioning"
 msgstr "Bölümlendirme Hatası"
 
@@ -2081,7 +2082,6 @@ msgid "Select 'Yes' to continue and format these partitions, or 'No' to go back 
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:250
-#, fuzzy
 msgid "Format Warning"
 msgstr "Biçimlendirme Uyarıları"
 
@@ -2092,13 +2092,16 @@ msgid ""
 "\n"
 "ALL logical volumes in this volume group will be lost!"
 msgstr ""
+"\"%s\" mantıksal grubu silmek üzeresiniz.\n"
+"\n"
+" Bu gruptaki tüm mantıksal hacimler silinir!"
 
 #: yali/storage/storageBackendHelpers.py:281
-#, fuzzy, python-format
+#, python-format
 msgid "You are about to delete the logical volume \"%s\"."
 msgstr ""
-"Mantıksal hacmi silmek istediğinize\n"
-"emin misiniz \"%s\"?"
+"\"%s\" mantıksal hacmi silmek istediğinize\n"
+"emin misiniz?"
 
 #: yali/storage/storageBackendHelpers.py:284
 msgid "You are about to delete a RAID device."
