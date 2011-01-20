@@ -1922,6 +1922,11 @@ msgid ""
 "\n"
 "This can happen if there is not enough space on your hard drive(s) for the installation. %(extra)s"
 msgstr ""
+"Следующие ошибки произошли в процессе разметки:\n"
+"\n"
+"%(errortxt)s\n"
+"\n"
+"Это могло произойти, если не хватает места на жестком диске(ах) для установки. %(extra)s"
 
 #: yali/storage/partitioning.py:1706 yali/storage/formats/filesystem.py:398
 msgid "Unrecoverable Error"
