@@ -2084,13 +2084,14 @@ msgstr "Hacim Grubu Adları 128 karakterden az olmalı"
 #: yali/storage/storageBackendHelpers.py:24
 #, python-format
 msgid "Error - the volume group name %s is not valid."
-msgstr ""
+msgstr "Hata - %s hacim grubu ismi uygun değil."
 
 #: yali/storage/storageBackendHelpers.py:29
 msgid ""
 "Error - the volume group name contains illegal characters or spaces.  "
 "Acceptable characters are letters, digits, '.' or '_'."
-msgstr ""
+msgstr "Hata - hacim grup ismi  geçersiz karakterler ya da boşluklar içeriyor. "
+"Geçerli karakterler harfler, sayılar, '.' ya da '_' 'dır."
 
 #: yali/storage/storageBackendHelpers.py:39
 msgid "Please enter a logical volume name."
@@ -2109,7 +2110,8 @@ msgstr "Hata - mantıksal hacim adı %s geçerli değil."
 msgid ""
 "Error - the logical volume name contains illegal characters or spaces.  "
 "Acceptable characters are letters, digits, '.' or '_'."
-msgstr ""
+msgstr "Hata - mantıksal hacim ismi  geçersiz karakterler ya da boşluklar içeriyor. "
+"Geçerli karakterler harfler, sayılar, '.' ya da '_' 'dır."
 
 #: yali/storage/storageBackendHelpers.py:67
 msgid "Format as Swap?"
