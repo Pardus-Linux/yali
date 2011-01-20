@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\n"
+"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 msgid "Choose Installation Method"
@@ -2237,7 +2237,7 @@ msgstr ""
 "\n"
 " %s\n"
 "\n"
-" şu anda kullanımda. Sisteminiz uyku moduna geçiyor. Eğer yeni bir kurulum yapıyorsanız, tüm takas aygıtlarınızın biçimlendirilecek şekilde işaretlendiğine emin olun."
+" şu an uyku moduna geçmiş bir sistem tarafından kullanımda. Eğer yeni bir kurulum yapıyorsanız, tüm takas aygıtlarınızın biçimlendirilecek şekilde işaretlendiğine emin olun."
 
 #: yali/storage/storageset.py:301
 #, python-format
