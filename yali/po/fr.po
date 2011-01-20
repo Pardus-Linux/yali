@@ -1896,18 +1896,22 @@ msgid ""
 "\n"
 "Press 'OK' to exit the installer."
 msgstr ""
+"\n"
+"\n"
+"Cliquez sur \"OK\" pour quitter l'installeur."
 
 #: yali/storage/partitioning.py:1679
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Could not allocate requested partitions: \n"
 "%(msg)s.%(extra)s"
-msgstr "Impossible d'allouer les partitions demandées : %s."
+msgstr ""
+"Impossible d'allouer les partitions demandées :\n"
+"%(msg)s.%(extra)s"
 
 #: yali/storage/partitioning.py:1698
-#, fuzzy
 msgid "Automatic Partitioning Errors"
-msgstr "Erreurs de partitionnement"
+msgstr "Erreurs de partitionnement automatique"
 
 #: yali/storage/partitioning.py:1699
 #, python-format
@@ -1921,11 +1925,11 @@ msgstr ""
 
 #: yali/storage/partitioning.py:1706 yali/storage/formats/filesystem.py:398
 msgid "Unrecoverable Error"
-msgstr ""
+msgstr "Erreur irrécupérable"
 
 #: yali/storage/partitioning.py:1707
 msgid "The system will now reboot."
-msgstr ""
+msgstr "Le système va maintenant redémarrer."
 
 #: yali/storage/storageBackendHelpers.py:17
 msgid "Please enter a volume group name."
@@ -1945,28 +1949,25 @@ msgid "Error - the volume group name contains illegal characters or spaces.  Acc
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:39
-#, fuzzy
 msgid "Please enter a logical volume name."
-msgstr "Nom de volume logique non autorisé"
+msgstr "Merci de donner un nom de volume logique."
 
 #: yali/storage/storageBackendHelpers.py:43
-#, fuzzy
 msgid "Logical Volume Names must be less than 128 characters"
-msgstr "Nom d'hôte ne pouvant excéder 64 caractères."
+msgstr "Les noms de volumes logiques doivent être inférieurs à 128 caractères"
 
 #: yali/storage/storageBackendHelpers.py:47
 #, python-format
 msgid "Error - the logical volume name %s is not valid."
-msgstr ""
+msgstr "Erreur - Le nom de volume logique %s est invalide."
 
 #: yali/storage/storageBackendHelpers.py:53
 msgid "Error - the logical volume name contains illegal characters or spaces.  Acceptable characters are letters, digits, '.' or '_'."
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:67
-#, fuzzy
 msgid "Format as Swap?"
-msgstr "Formatage en :"
+msgstr "Formater comme Swap ?"
 
 #: yali/storage/storageBackendHelpers.py:68
 #, python-format
