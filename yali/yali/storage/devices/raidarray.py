@@ -58,8 +58,8 @@ class RaidArray(Device):
         # For new arrays check if we have enough members
         if (not exists and parents and
                 len(parents) < raid.get_raid_min_members(self.level)):
-            raise ValueError, _("A RAID%d set requires at least %d member" % 
-                                (self.level, raid.get_raid_min_members(self.level)))
+            raise ValueError, _("A RAID%(level)d set requires at least %(min_member)d member") %
+                                {"level":self.level, "min_member":raid.get_raid_min_members(self.level)}
 
         self.uuid = uuid
         self._totalDevices = numeric_type(totalDevices)
