@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\n"
+"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 msgid "Choose Installation Method"
@@ -2318,7 +2318,7 @@ msgstr ""
 
 #: yali/storage/formats/filesystem.py:690
 msgid "Usage or syntax error."
-msgstr ""
+msgstr "Kullanım ya da söz dizimi hatası."
 
 #: yali/storage/formats/filesystem.py:691
 msgid "e2fsck cancelled by user request."
