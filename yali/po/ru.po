@@ -1765,7 +1765,7 @@ msgstr "Возникла ошибка в процессе перемещения
 
 #: yali/storage/__init__.py:77
 msgid "File Bug"
-msgstr ""
+msgstr "Ошибка файла"
 
 #: yali/storage/__init__.py:77 yali/storage/storageset.py:198
 msgid "Exit installer"
