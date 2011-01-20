@@ -69,7 +69,7 @@ class Widget(QWidget, ScreenWidget):
         ctx.installData.keyData = keymap
         ctx.interface.informationWindow.hide()
         if "," in keymap["xkblayout"]:
-            message = _("Use Ctrl-Shift to toggle between alternative keyboard layouts")
+            message = _("Use Alt-Shift to toggle between alternative keyboard layouts")
             ctx.interface.informationWindow.update(message, type="warning")
         else:
             ctx.interface.informationWindow.hide()

@@ -423,7 +423,7 @@ def setKeymap(keymap, variant=None, root=False):
 
     if not root:
         if "," in keymap:
-            ad += " -option grp:ctrl_shift_toggle"
+            ad += " -option grp:alt_shift_toggle"
         run_batch("setxkbmap", ["-option", "-layout", keymap, ad])
 
     elif os.path.exists("/usr/libexec/xorg-save-xkb-config.sh"):
