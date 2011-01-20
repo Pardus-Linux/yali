@@ -153,7 +153,7 @@ locales = {
 
 "ru" : {
         "name" : _("Russian"),
-        "xkblayout" : "ru",
+        "xkblayout" : "ru,us",
         "xkbvariant" : None,
         "locale" : "ru_RU.UTF-8",
         "consolekeymap" : "ru",
