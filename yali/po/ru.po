@@ -2158,7 +2158,7 @@ msgstr "Не удалось смонтировать файловую систе
 #: yali/storage/storageset.py:191
 #, python-format
 msgid "An error occurred mounting device %(path)s as %(mountpoint)s.  You may continue installation, but there may be problems."
-msgstr ""
+msgstr "Возникла ошибка при монтировании устройства %(path)s как %(mountpoint)s. Вы можете продолжить установку, но могут возникнуть проблемы."
 
 #: yali/storage/storageset.py:214
 #, python-format
