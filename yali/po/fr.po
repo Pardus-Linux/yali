@@ -2194,7 +2194,7 @@ msgstr ""
 
 #: yali/storage/storageset.py:245
 msgid "Skip"
-msgstr "Passer"
+msgstr "Ignorer"
 
 #: yali/storage/storageset.py:245
 msgid "_Exit"
