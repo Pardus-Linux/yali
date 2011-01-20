@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\\n\\n\\n\\n\\n\\n\\n\\n\n"
+"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 msgid "Choose Installation Method"
@@ -2286,14 +2286,14 @@ msgid "Creating %(type)s filesystem on %(device)s"
 msgstr ""
 
 #: yali/storage/formats/filesystem.py:346
-#, fuzzy, python-format
+#, python-format
 msgid "Resizing filesystem on %s"
-msgstr "Dosya sistemini şuraya göç ettirin:"
+msgstr "%s dosya sistemi yeniden boyutlandırılıyor"
 
 #: yali/storage/formats/filesystem.py:376
-#, fuzzy, python-format
+#, python-format
 msgid "Checking filesystem on %s"
-msgstr "Dosya sistemini şuraya göç ettirin:"
+msgstr "%s dosya sistemi kontrol ediliyor"
 
 #: yali/storage/formats/filesystem.py:388
 #, python-format
