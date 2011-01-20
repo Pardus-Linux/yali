@@ -2146,7 +2146,7 @@ msgstr ""
 
 #: yali/storage/storageset.py:245
 msgid "Skip"
-msgstr ""
+msgstr "Пропустить"
 
 #: yali/storage/storageset.py:245
 msgid "_Exit"
@@ -2194,16 +2194,16 @@ msgstr ""
 
 #: yali/storage/storageset.py:358
 msgid "You have not created a bootable partition."
-msgstr ""
+msgstr "Вы не создали загрузочный раздел."
 
 #: yali/storage/storageset.py:362
 msgid "Bootable partitions cannot be on a logical volume."
-msgstr ""
+msgstr "Загрузочные разделы не могут располагаться на логическом томе. "
 
 #: yali/storage/storageset.py:369
 #, python-format
 msgid "Bootable partitions cannot be on an %s filesystem."
-msgstr ""
+msgstr "Загрузочные разделы не могут располагаться на %s файловой системы."
 
 #: yali/storage/devices/filedevice.py:94
 #, python-format
