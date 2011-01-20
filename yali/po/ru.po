@@ -1978,7 +1978,7 @@ msgstr "Вы собираетесь удалить все разделы на у
 
 #: yali/storage/storageBackendHelpers.py:139
 msgid "Notice"
-msgstr ""
+msgstr "Внимание"
 
 #: yali/storage/storageBackendHelpers.py:140
 #, python-format
