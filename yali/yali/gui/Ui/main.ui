@@ -63,7 +63,7 @@
              <x>0</x>
              <y>0</y>
              <width>748</width>
-             <height>393</height>
+             <height>394</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout">
@@ -133,7 +133,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset>
+            <iconset resource="../../../../yali-theme-pardus/data.qrc">
              <normaloff>:/images/system-shutdown.png</normaloff>:/images/system-shutdown.png</iconset>
            </property>
            <property name="popupMode">
@@ -193,7 +193,7 @@
             <string>Back</string>
            </property>
            <property name="icon">
-            <iconset>
+            <iconset resource="../../../../yali-theme-pardus/data.qrc">
              <normaloff>:/gui/pics/arrow-left.png</normaloff>:/gui/pics/arrow-left.png</iconset>
            </property>
            <property name="flat">
@@ -222,7 +222,7 @@
             <string>Next</string>
            </property>
            <property name="icon">
-            <iconset>
+            <iconset resource="../../../../yali-theme-pardus/data.qrc">
              <normaloff>:/gui/pics/arrow-right.png</normaloff>:/gui/pics/arrow-right.png</iconset>
            </property>
            <property name="flat">
@@ -287,7 +287,7 @@
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap>:/gui/pics/media-optical-small.png</pixmap>
+            <pixmap resource="../../../../yali-theme-pardus/data.qrc">:/gui/pics/media-optical-small.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -307,18 +307,18 @@
            </property>
            <property name="minimumSize">
             <size>
-             <width>80</width>
+             <width>134</width>
              <height>36</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>80</width>
+             <width>134</width>
              <height>36</height>
             </size>
            </property>
            <property name="pixmap">
-            <pixmap>:/gui/pics/logo-on-black.png</pixmap>
+            <pixmap resource="../../../../yali-theme-pardus/data.qrc">:/gui/pics/logo-on-black.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>false</bool>
@@ -386,7 +386,7 @@
                 <string/>
                </property>
                <property name="icon">
-                <iconset>
+                <iconset resource="../../../../yali-theme-pardus/data.qrc">
                  <normaloff>:/gui/pics/system-help.png</normaloff>:/gui/pics/system-help.png</iconset>
                </property>
                <property name="checkable">
@@ -446,7 +446,7 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>596</width>
+                <width>542</width>
                 <height>58</height>
                </rect>
               </property>
