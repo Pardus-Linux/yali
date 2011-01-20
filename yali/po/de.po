@@ -1872,6 +1872,8 @@ msgid ""
 "Your / partition is less than %(min)s MB which is lower than\n"
 "recommended for a normal %(productName)s install."
 msgstr ""
+"Ihre / Partition hat weniger als %(min)s MB und ist somit geringer als\n"
+"Empfohlen für eine normale %(productName)s Installation."
 
 #: yali/storage/__init__.py:796
 #, python-format
@@ -1879,12 +1881,16 @@ msgid ""
 "Your %(mount)s partition is less than %(size)s megabytes which is lower than\n"
 "recommended for a normal %(productName)s install."
 msgstr ""
+"Ihre %(mount)s Partition ist kleiner als %(size)s Megabyte und ist somit kleiner als\n"
+"Empfohlen für eine normale %(productName)s Installation."
 
 #: yali/storage/__init__.py:805
 msgid ""
 "You have not specified a swap partition. Due to the amount of memory\n"
 "present, a swap partition is required to complete installation."
 msgstr ""
+"Sie haben keine eine Swap-Partition angegeben. Aufgrund der Größe des Arbeitsspeichers\n"
+"ist eine Swap-Partition erforderlich, um die Installation abzuschließen."
 
 #: yali/storage/__init__.py:808
 msgid ""
@@ -1892,11 +1898,14 @@ msgid ""
 "required in all cases, it will significantly improve performance\n"
 "for most installations."
 msgstr ""
+"Sie haben keine Swap-Partition definiert. Obwohl nicht in jedem\n"
+"Fall zwingend notwendig, würde es bei den meisten Installationen\n"
+"deutlich die Leistung verbessern."
 
 #: yali/storage/__init__.py:814
 #, python-format
 msgid "This mount point is invalid. The %s directory must be on the / file system."
-msgstr ""
+msgstr "Dieser Einhängepunkt ist ungültig. Das %s Verzeichnis muss auf dem / Dateisystem sein."
 
 #: yali/storage/__init__.py:817
 #, python-format
@@ -1913,12 +1922,17 @@ msgid ""
 "which to create new file systems. Please check your\n"
 "hardware for the cause of this problem."
 msgstr ""
+"Ein Fehler ist aufgetreten - kein gültiges Gerät gefunden,\n"
+"um ein neues Dateisystem zu erstellen.\n"
+"Bitte überprüfen Sie Ihre Hardware."
 
 #: yali/storage/partitioning.py:1644
 msgid ""
 "Could not find enough free space for automatic\n"
 "partitioning, please use another partitioning method."
 msgstr ""
+"Konnte nicht genug freien Speicherplatz für die automatische \n"
+"Partitioning finden. Bitte verwenden Sie eine andere Methode."
 
 #: yali/storage/partitioning.py:1668
 msgid "Warnings During Automatic Partitioning"
