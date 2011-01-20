@@ -2292,7 +2292,7 @@ msgid ""
 " filesystem that will require user interaction to repair.\n"
 " Restart\n"
 "installation after you have corrected the problems on the filesystem."
-msgstr ""
+msgstr "Ошибки как эти, обычно означают, что существует проблема с файловой системой, что потребует вмешательства пользователя для ремонта. Перезапустите установку после устранения проблем с файловой системой."
 
 #: yali/storage/formats/filesystem.py:688
 msgid "File system errors left uncorrected."
