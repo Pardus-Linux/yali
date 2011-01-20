@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\n"
+"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 msgid "Choose Installation Method"
@@ -2341,6 +2341,10 @@ msgid ""
 " Restart\n"
 "installation after you have corrected the problems on the filesystem."
 msgstr ""
+"Bunun gibi hatalar genellikle kullanıcının onarması gereken\n"
+"disk problemleri olduğunu gösterir.\n"
+"Disk problemlerini onardıktan sonra lütfen kuruluma\n"
+"tekrar başlayınız."
 
 #: yali/storage/formats/filesystem.py:688
 msgid "File system errors left uncorrected."
