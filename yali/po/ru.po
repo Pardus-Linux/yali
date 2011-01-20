@@ -2009,7 +2009,7 @@ msgstr "Сначала вы должны выбрать раздел для уд
 #: yali/storage/storageBackendHelpers.py:200
 #, python-format
 msgid "The mount point %s is invalid.  Mount points must start with '/' and cannot end with '/', and must contain printable characters and no spaces."
-msgstr ""
+msgstr "Точка монтирования %s не правильная. Точки монтирования должны начинаться с '/' и не должны заканчиваться на '/', содержать только печатные символы, без пробелов."
 
 #: yali/storage/storageBackendHelpers.py:209
 msgid "Error with Partitioning"
