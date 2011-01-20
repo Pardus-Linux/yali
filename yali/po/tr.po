@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: YALI-tr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-20 14:11+0200\n"
-"PO-Revision-Date: 2011-01-19 11:55+0200\n"
+"PO-Revision-Date: 2011-01-20 15:00+0200\n"
 "Last-Translator: Koray Löker <loker@pardus.org.tr>\n"
 "Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
 "Language: tr\n"
@@ -1880,7 +1880,7 @@ msgstr "Windows"
 
 #: yali/storage/devicetree.py:1570
 msgid "This partition is part of an inconsistent LVM Volume Group."
-msgstr ""
+msgstr "Bu disk bölümü tutarsız bir LVM Hacim grubunun bir parçası."
 
 #: yali/storage/__init__.py:49
 #, python-format
@@ -1894,7 +1894,7 @@ msgstr "Yeniden boyutlandırma başarısız oldu"
 #: yali/storage/__init__.py:59
 #, python-format
 msgid "There was an error encountered while resizing the device %s."
-msgstr ""
+msgstr "%s aygıtı yeniden boyutlandırılırken bir hata oluştu."
 
 #: yali/storage/__init__.py:65
 msgid "Migration Failed"
@@ -1903,11 +1903,11 @@ msgstr "Göç başarısız"
 #: yali/storage/__init__.py:66
 #, python-format
 msgid "An error was encountered while migrating filesystem on device %s."
-msgstr ""
+msgstr "%s aygıtındaki dosya sistemi göç ettirilirken bir hata oluştu."
 
 #: yali/storage/__init__.py:77
 msgid "File Bug"
-msgstr ""
+msgstr "Hata Girin"
 
 #: yali/storage/__init__.py:77 yali/storage/storageset.py:198
 msgid "Exit installer"
@@ -1924,7 +1924,7 @@ msgstr "Bu disk bölümü sabit diske kurulum için gerekli veriyi saklıyor."
 
 #: yali/storage/__init__.py:244
 msgid "You cannot delete a partition of a LDL formatted DASD."
-msgstr ""
+msgstr "LDL biçimlendirilmiş DASD bölümünü silemezsiniz."
 
 #: yali/storage/__init__.py:250
 #, python-format
@@ -1932,19 +1932,21 @@ msgid ""
 "This device is part of the RAID device %s, you have to edit or remove the "
 "raid partition appropriately!"
 msgstr ""
+"Bu aygıt %s RAID aygıtının bir parçası, bu yüzden raid bölümünü uygun bir "
+"şekilde düzenlemeli veya kaldırmalısınız!"
 
 #: yali/storage/__init__.py:255
 msgid "This device is part of a RAID device."
-msgstr ""
+msgstr "Bu aygıt bir RAID aygıtının parçası."
 
 #: yali/storage/__init__.py:260
 #, python-format
 msgid "This device is part of the LVM volume group '%s'."
-msgstr ""
+msgstr "Bu aygıt, '%s' LVM hacim grubunun bir parçası."
 
 #: yali/storage/__init__.py:263
 msgid "This device is part of a LVM volume group."
-msgstr ""
+msgstr "Bu aygıt bir LVM hacim grubunun parçası."
 
 #: yali/storage/__init__.py:272
 msgid ""
@@ -1952,6 +1954,9 @@ msgid ""
 "cannot be deleted:\n"
 "\n"
 msgstr ""
+"Bu aygıt, silinmesi mümkün olmayan mantıksal bölümler içeren uzatılmış bir "
+"disk bölümüdür:\n"
+"\n"
 
 #: yali/storage/__init__.py:781
 #, python-format
@@ -1996,13 +2001,13 @@ msgid ""
 msgstr ""
 
 #: yali/storage/__init__.py:817
-#, fuzzy, python-format
+#, python-format
 msgid "The mount point %s must be on a linux file system."
-msgstr "Bağlama noktası \"%s\" kullanımda. Lütfen başka bir yer seçin."
+msgstr "Bağlama noktası %s linux dosya sistemi üzerinde olmalı."
 
 #: yali/storage/__init__.py:837
 msgid "No Drives Found"
-msgstr ""
+msgstr "Sürücü Bulunamadı"
 
 #: yali/storage/__init__.py:838
 msgid ""
@@ -2018,9 +2023,8 @@ msgid ""
 msgstr ""
 
 #: yali/storage/partitioning.py:1668
-#, fuzzy
 msgid "Warnings During Automatic Partitioning"
-msgstr "Bölümlendirme Uyarısı"
+msgstr "Otomatik Bölümlendirme Sırasında Uyarılar"
 
 #: yali/storage/partitioning.py:1669
 #, python-format
@@ -2038,16 +2042,17 @@ msgid ""
 msgstr ""
 
 #: yali/storage/partitioning.py:1679
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Could not allocate requested partitions: \n"
 "%(msg)s.%(extra)s"
-msgstr "İstenen disk bölümleri oluşturulamıyor:%s."
+msgstr ""
+"İstenilen disk bölümleri tahsis edilemedi: \n"
+"%(msg)s.%(extra)s"
 
 #: yali/storage/partitioning.py:1698
-#, fuzzy
 msgid "Automatic Partitioning Errors"
-msgstr "Biçimlendirme Hataları"
+msgstr "Otomatik Bölümlendirme Hataları"
 
 #: yali/storage/partitioning.py:1699
 #, python-format
@@ -2062,20 +2067,19 @@ msgstr ""
 
 #: yali/storage/partitioning.py:1706 yali/storage/formats/filesystem.py:398
 msgid "Unrecoverable Error"
-msgstr ""
+msgstr "Kurtarılamaz Hata"
 
 #: yali/storage/partitioning.py:1707
 msgid "The system will now reboot."
-msgstr ""
+msgstr "Sistem yeniden başlatılacak."
 
 #: yali/storage/storageBackendHelpers.py:17
 msgid "Please enter a volume group name."
-msgstr ""
+msgstr "Lütfen hacim grubu adı girin."
 
 #: yali/storage/storageBackendHelpers.py:21
-#, fuzzy
 msgid "Volume Group Names must be less than 128 characters"
-msgstr "Makine adı 64 karakterden daha uzun olmamalıdır."
+msgstr "Hacim Grubu Adları 128 karakterden az olmalı"
 
 #: yali/storage/storageBackendHelpers.py:24
 #, python-format
@@ -2089,19 +2093,17 @@ msgid ""
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:39
-#, fuzzy
 msgid "Please enter a logical volume name."
-msgstr "Geçersiz mantıksal hacim adı"
+msgstr "Mantıksal hacim adı girin."
 
 #: yali/storage/storageBackendHelpers.py:43
-#, fuzzy
 msgid "Logical Volume Names must be less than 128 characters"
-msgstr "Makine adı 64 karakterden daha uzun olmamalıdır."
+msgstr "Mantıksal Hacim Adları 128 karakterden az olmalı"
 
 #: yali/storage/storageBackendHelpers.py:47
 #, python-format
 msgid "Error - the logical volume name %s is not valid."
-msgstr ""
+msgstr "Hata - mantıksal hacim adı %s geçerli değil."
 
 #: yali/storage/storageBackendHelpers.py:53
 msgid ""
@@ -2110,9 +2112,8 @@ msgid ""
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:67
-#, fuzzy
 msgid "Format as Swap?"
-msgstr "Biçimlendir :"
+msgstr "Takas alanı olarak biçimlendir?"
 
 #: yali/storage/storageBackendHelpers.py:68
 #, python-format
@@ -2126,7 +2127,7 @@ msgstr ""
 #: yali/storage/storageBackendHelpers.py:89
 #, python-format
 msgid "You are about to delete all partitions on the device '%s'."
-msgstr ""
+msgstr "'%s' aygıtındaki tüm disk bölümlerini silmek üzeresiniz."
 
 #: yali/storage/storageBackendHelpers.py:139
 msgid "Notice"
@@ -2142,9 +2143,8 @@ msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:154
 #: yali/storage/storageBackendHelpers.py:161
-#, fuzzy
 msgid "Unable To Delete"
-msgstr "Düzenleme Yapılamıyor"
+msgstr "Silinemiyor"
 
 #: yali/storage/storageBackendHelpers.py:155
 msgid "You must first select a partition to delete."
@@ -2158,7 +2158,6 @@ msgid ""
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:209
-#, fuzzy
 msgid "Error with Partitioning"
 msgstr "Bölümlendirme Hatası"
 
@@ -2173,12 +2172,11 @@ msgid ""
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:226
-#, fuzzy
 msgid "Partitioning Warning"
-msgstr "Bölümleme Uyarıları"
+msgstr "Bölümleme Uyarısı"
 
 #: yali/storage/storageBackendHelpers.py:227
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "The following warnings exist with your requested partition scheme.\n"
 "\n"
@@ -2186,20 +2184,19 @@ msgid ""
 "\n"
 "Would you like to continue with your requested partitioning scheme?"
 msgstr ""
-"Talep ettiğiniz bölümleme şeması\n"
-"aşağıdaki uyarıların ortaya çıkmasına oldu.\n"
-"Talep ettiğiniz bölümleme şeması ile\n"
-"devam etmek istiyor musunuz?"
+"İstediğiniz bölümlendirme şemasında aşağıdaki uyarılar meydana geldi.\n"
+"\n"
+"%s\n"
+"\n"
+"İstediğini bölümlendirme şemasıyla devam etmek istiyor musunuz?"
 
 #: yali/storage/storageBackendHelpers.py:241
-#, fuzzy
 msgid ""
 "The following pre-existing partitions have been selected to be formatted, "
 "destroying all data."
 msgstr ""
-"Aşağıdaki aygıtlar biçimlendirilmek üzere\n"
-"seçilmiş durumdadırlar, bu işlem aygıtlardaki\n"
-"verilerin kaybolmasına neden olacaktır."
+"Aşağıdaki aygıtlar biçimlendirilmek üzere seçilmiş durumdadırlar, bu işlem "
+"aygıtlardaki verilerin kaybolmasına neden olacaktır."
 
 #: yali/storage/storageBackendHelpers.py:244
 msgid ""
@@ -2208,9 +2205,8 @@ msgid ""
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:250
-#, fuzzy
 msgid "Format Warning"
-msgstr "Biçimlendirme Uyarıları"
+msgstr "Biçimlendirme Uyarısı"
 
 #: yali/storage/storageBackendHelpers.py:277
 #, python-format
@@ -2221,20 +2217,18 @@ msgid ""
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:281
-#, fuzzy, python-format
+#, python-format
 msgid "You are about to delete the logical volume \"%s\"."
-msgstr ""
-"Mantıksal hacmi silmek istediğinize\n"
-"emin misiniz \"%s\"?"
+msgstr "\"%s\" mantıksal bölümü silmek üzeresiniz."
 
 #: yali/storage/storageBackendHelpers.py:284
 msgid "You are about to delete a RAID device."
-msgstr ""
+msgstr "Bir RAID aygıtı silmek üzeresiniz."
 
 #: yali/storage/storageBackendHelpers.py:286
 #, python-format
 msgid "You are about to delete the %s partition."
-msgstr ""
+msgstr "%s disk bölümünü silmek üzeresiniz."
 
 #: yali/storage/storageBackendHelpers.py:290
 #, python-format
@@ -2242,15 +2236,13 @@ msgid "You are about to delete the %(type)s %(name)s"
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:300
-#, fuzzy
 msgid "Confirm Reset"
-msgstr "Silmeyi Onayla"
+msgstr "Resetlemeyi Onayla"
 
 #: yali/storage/storageBackendHelpers.py:300
-#, fuzzy
 msgid ""
 "Are you sure you want to reset the partition table to its original state?"
-msgstr "YALI kurulum sihirbazını tekrar başlatmak istediğinize emin misiniz?"
+msgstr "Bölümlendirme tablosunu ilk durumuna getirmek istediğinizden emin misiniz?"
 
 #: yali/storage/storageBackendHelpers.py:308
 msgid ""
@@ -2264,14 +2256,12 @@ msgid ""
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:316
-#, fuzzy
 msgid "Format?"
-msgstr "Biçimlendir"
+msgstr "Biçimlendir?"
 
 #: yali/storage/storageBackendHelpers.py:317
-#, fuzzy
 msgid "Do Not Format"
-msgstr "Biçimlendir"
+msgstr "Biçimlendirme"
 
 #: yali/storage/storageBackendHelpers.py:324
 #, python-format
@@ -2282,9 +2272,8 @@ msgid ""
 msgstr ""
 
 #: yali/storage/storageset.py:162 yali/storage/storageset.py:174
-#, fuzzy
 msgid "Invalid mount point"
-msgstr "Geçersiz xml dosyası"
+msgstr "Geçersiz bağlama noktası"
 
 #: yali/storage/storageset.py:163
 #, python-format
@@ -2329,9 +2318,8 @@ msgid "Skip"
 msgstr ""
 
 #: yali/storage/storageset.py:245
-#, fuzzy
 msgid "_Exit"
-msgstr "Çık"
+msgstr "_Çık"
 
 #: yali/storage/storageset.py:277
 #, python-format
@@ -2428,14 +2416,14 @@ msgid "Creating %(type)s filesystem on %(device)s"
 msgstr ""
 
 #: yali/storage/formats/filesystem.py:346
-#, fuzzy, python-format
+#, python-format
 msgid "Resizing filesystem on %s"
-msgstr "Dosya sistemini şuraya göç ettirin:"
+msgstr "%s üzerindeki dosya sistemi yeniden boyutlandırılıyor"
 
 #: yali/storage/formats/filesystem.py:376
-#, fuzzy, python-format
+#, python-format
 msgid "Checking filesystem on %s"
-msgstr "Dosya sistemini şuraya göç ettirin:"
+msgstr "%s üzerindeki dosya sistemi kontrol ediliyor"
 
 #: yali/storage/formats/filesystem.py:388
 #, python-format
@@ -2456,19 +2444,19 @@ msgstr ""
 
 #: yali/storage/formats/filesystem.py:689
 msgid "Operational error."
-msgstr ""
+msgstr "İşlemsel hata."
 
 #: yali/storage/formats/filesystem.py:690
 msgid "Usage or syntax error."
-msgstr ""
+msgstr "Kullanım veya sözdizimi hatası."
 
 #: yali/storage/formats/filesystem.py:691
 msgid "e2fsck cancelled by user request."
-msgstr ""
+msgstr "e2fsck kullanıcı isteği üzerine iptal edildi."
 
 #: yali/storage/formats/filesystem.py:692
 msgid "Shared library error."
-msgstr ""
+msgstr "Paylaşımlı kitaplık hatası."
 
 #: yali/storage/formats/filesystem.py:836
 msgid ""
@@ -2478,7 +2466,7 @@ msgstr ""
 
 #: yali/storage/formats/filesystem.py:838
 msgid "Usage error."
-msgstr ""
+msgstr "Kullanım hatası."
 
 #: yali/localedata.py:20
 msgid "Turkish"
