@@ -1743,7 +1743,7 @@ msgstr "Этот раздел является частью несовмести
 #: yali/storage/__init__.py:49
 #, python-format
 msgid "Failed teardownAll in storage.complete with error:%s"
-msgstr ""
+msgstr "Неудачный teardownAll в storage.complete с ошибкой:%s"
 
 #: yali/storage/__init__.py:58
 msgid "Resizing Failed"
@@ -1842,7 +1842,7 @@ msgid ""
 "You have not specified a swap partition. Although not strictly\n"
 "required in all cases, it will significantly improve performance\n"
 "for most installations."
-msgstr ""
+msgstr "Вы не задали раздел подкачки. Хоть это и не является крайне обязательным шагом во всех случаях, но это позволит значительно повысить производительность для большинства установок."
 
 #: yali/storage/__init__.py:814
 #, python-format
