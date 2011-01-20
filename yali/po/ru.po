@@ -2029,12 +2029,8 @@ msgstr ""
 "Вы хотите продолжить с данной схемой разметки?"
 
 #: yali/storage/storageBackendHelpers.py:241
-#, fuzzy
 msgid "The following pre-existing partitions have been selected to be formatted, destroying all data."
-msgstr ""
-"Следующие уже существующие устройства\n"
-"были выбраны для форматирования. При этом\n"
-"будут уничтожены все данные."
+msgstr "Следующие уже существующие устройства были выбраны для форматирования. При этом будут уничтожены все данные."
 
 #: yali/storage/storageBackendHelpers.py:244
 msgid "Select 'Yes' to continue and format these partitions, or 'No' to go back and change these settings."
