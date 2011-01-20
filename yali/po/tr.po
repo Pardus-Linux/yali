@@ -2318,7 +2318,7 @@ msgstr ""
 
 #: yali/storage/formats/filesystem.py:690
 msgid "Usage or syntax error."
-msgstr "Kullanım ya da söz dizimi hatası."
+msgstr ""
 
 #: yali/storage/formats/filesystem.py:691
 msgid "e2fsck cancelled by user request."
@@ -2334,7 +2334,7 @@ msgstr ""
 
 #: yali/storage/formats/filesystem.py:838
 msgid "Usage error."
-msgstr ""
+msgstr "Kullanım hatası."
 
 #: yali/localedata.py:20
 msgid "Turkish"
