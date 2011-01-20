@@ -11,14 +11,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-20 13:00+0200\n"
+"POT-Creation-Date: 2011-01-20 18:02+0200\n"
 "PO-Revision-Date: 2011-01-20 16:31+0100\n"
 "Last-Translator: Antoon Tolboom <atolboo@gmail.com>\n"
 "Language-Team: Dutch <kde-i18n-doc@kde.org>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "X-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
@@ -686,8 +686,8 @@ msgstr "Fout"
 #: yali/gui/interface.py:67
 #, python-format
 msgid ""
-"Cannot access the partition table of %(description)s(%(name)s) -- %(size)-0."
-"fMB\n"
+"Cannot access the partition table of %(description)s(%(name)s) -- "
+"%(size)-0.fMB\n"
 "\n"
 "If there already exists a partition table on this device, it will\n"
 " be re-initialized and your existing data will be lost!\n"
@@ -853,9 +853,9 @@ msgstr ""
 #: yali/gui/lvm_gui.py:448
 #, python-format
 msgid ""
-"The physical extent size cannot be changed because the value selected (%"
-"(curpe)10.2f MB) is too large compared to the size of the smallest physical "
-"volume (%(maxpvsize)10.2f MB) in the volume group."
+"The physical extent size cannot be changed because the value selected "
+"(%(curpe)10.2f MB) is too large compared to the size of the smallest "
+"physical volume (%(maxpvsize)10.2f MB) in the volume group."
 msgstr ""
 "De fysieke uitbreidingsgrootte kan niet gewijzigd worden omdat de "
 "geselecteerde waarde (%(curpe)10.2f MB) te groot is in vergelijking met de "
@@ -991,8 +991,8 @@ msgstr ""
 #, python-format
 msgid ""
 "The size entered for this logical volume (%(size)d MB) combined with the "
-"size of the other logical volume(s) exceeds the size of the volume group (%"
-"(tmpvgsize)d MB). Please make the volume group larger or make the logical "
+"size of the other logical volume(s) exceeds the size of the volume group "
+"(%(tmpvgsize)d MB). Please make the volume group larger or make the logical "
 "volume smaller."
 msgstr ""
 "De opgegeven grootte voor het logische volume (%(size)d MB) in combinatie "
@@ -2106,7 +2106,7 @@ msgstr ""
 "Dit kan veroorzaakt worden wanneer er niet voldoend vrije ruimte op de harde "
 "schijf aanwezig is. %(extra)s"
 
-#: yali/storage/partitioning.py:1706
+#: yali/storage/partitioning.py:1706 yali/storage/formats/filesystem.py:398
 msgid "Unrecoverable Error"
 msgstr "Onherstelbare fout"
 
@@ -2221,8 +2221,8 @@ msgstr "Fout tijdens partitioneren"
 #, python-format
 msgid ""
 "The following critical errors exist with your requested partitioning scheme. "
-"These errors must be corrected prior to continuing with your install of %"
-"(productName)s.\n"
+"These errors must be corrected prior to continuing with your install of "
+"%(productName)s.\n"
 "\n"
 "%(errorstr)s"
 msgstr ""
@@ -2430,8 +2430,8 @@ msgstr ""
 "     %s\n"
 "\n"
 "is een oude-stijl swap-partitie voor Linux. Indien deze voor swapruimte "
-"gebruikt dient te gaan worden, formatteer deze dan als nieuwe-stijl "
-"swap-partitie voor Linux."
+"gebruikt dient te gaan worden, formatteer deze dan als nieuwe-stijl swap-"
+"partitie voor Linux."
 
 #: yali/storage/storageset.py:288
 #, python-format
@@ -2482,8 +2482,7 @@ msgstr ""
 "Fout tijdens inschakelen swapruimte %(name)s: %(msg)s\n"
 "\n"
 "Dit wordt hoogstwaarschijnlijk veroorzaakt door een niet geïnitialiseerde "
-"swapruimte./n "
-"\n"
+"swapruimte./n \n"
 "Selecteer 'OK' om de installatie te beëindigen."
 
 #: yali/storage/storageset.py:358
@@ -2498,6 +2497,96 @@ msgstr "Opstartbare partities kunnen niet een logisch volume zijn."
 #, python-format
 msgid "Bootable partitions cannot be on an %s filesystem."
 msgstr "Opstartbare partities kunnen niet een bestandsysteem %s zijn."
+
+#: yali/storage/devices/filedevice.py:94
+#, python-format
+msgid "Creating file %s"
+msgstr ""
+
+#: yali/storage/devices/logicalvolume.py:217
+#: yali/storage/devices/partition.py:370 yali/storage/devices/raidarray.py:423
+#: yali/storage/devices/volumegroup.py:246
+#, python-format
+msgid "Creating device %s"
+msgstr ""
+
+#: yali/storage/devices/raidarray.py:61
+#, python-format
+msgid "A RAID%(level)d set requires at least %(min_member)d member"
+msgstr ""
+
+#: yali/storage/library/lvm.py:265
+#, fuzzy, python-format
+msgid "vginfo failed for %s"
+msgstr "FSCheck is mislukt op %s"
+
+#: yali/storage/library/lvm.py:291
+#, fuzzy, python-format
+msgid "lvs failed for %s"
+msgstr "FSCheck is mislukt op %s"
+
+#: yali/storage/formats/filesystem.py:229
+#, python-format
+msgid "Unknown return code: %d."
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:296
+#, python-format
+msgid "Creating %(type)s filesystem on %(device)s"
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:346
+#, fuzzy, python-format
+msgid "Resizing filesystem on %s"
+msgstr "Bestandsysteem migreren naar:"
+
+#: yali/storage/formats/filesystem.py:376
+#, fuzzy, python-format
+msgid "Checking filesystem on %s"
+msgstr "FSCheck is mislukt op %s"
+
+#: yali/storage/formats/filesystem.py:388
+#, python-format
+msgid "%(type)s filesystem check failure on %(device)s: "
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:392
+msgid ""
+"Errors like this usually mean there is a problem with the\n"
+" filesystem that will require user interaction to repair.\n"
+" Restart\n"
+"installation after you have corrected the problems on the filesystem."
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:688
+msgid "File system errors left uncorrected."
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:689
+msgid "Operational error."
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:690
+msgid "Usage or syntax error."
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:691
+msgid "e2fsck cancelled by user request."
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:692
+msgid "Shared library error."
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:836
+msgid ""
+"Recoverable errors have been detected or dosfsck has discovered an internal "
+"inconsistency."
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:838
+msgid "Usage error."
+msgstr ""
 
 #: yali/localedata.py:20
 msgid "Turkish"
@@ -2745,9 +2834,6 @@ msgstr "Ongeldig xml-bestand"
 
 #~ msgid "<Not Applicable>"
 #~ msgstr "<Not Applicable>"
-
-#~ msgid "Migrate filesystem To :"
-#~ msgstr "Bestandsysteem migreren naar:"
 
 #~ msgid "Resize :"
 #~ msgstr "Grootte wijzigen :"
@@ -3372,8 +3458,8 @@ msgstr "Ongeldig xml-bestand"
 #~ msgstr "%d MB beschikbaar"
 
 #~ msgid ""
-#~ "Partition <b>%(partition)s (%(size)s)</b> <b>deleted</b> from device <b>%"
-#~ "(device)s</b>."
+#~ "Partition <b>%(partition)s (%(size)s)</b> <b>deleted</b> from device <b>"
+#~ "%(device)s</b>."
 #~ msgstr ""
 #~ "Partitie <b>%(partition)s (%(size)s)</b> <b>verwijderd</b> van station <b>"
 #~ "%(device)s</b>."
@@ -3385,8 +3471,8 @@ msgstr "Ongeldig xml-bestand"
 #~ "Partition <b>%(partition)s</b> will be <b>formatted</b> as <b>%(fsType)s</"
 #~ "b>."
 #~ msgstr ""
-#~ "Partitie <b>%(partition)s</b> <b>zal geformateerd worden</b> als <b>%"
-#~ "(fsType)s</b>."
+#~ "Partitie <b>%(partition)s</b> <b>zal geformateerd worden</b> als <b>"
+#~ "%(fsType)s</b>."
 
 #~ msgid "Partition <b>%(partition)s</b> <b>selected</b> as <b>%(type)s</b>."
 #~ msgstr ""
@@ -4015,18 +4101,18 @@ msgstr "Ongeldig xml-bestand"
 #~ msgstr "Automatisch partitioneren (grootte aanpassen methode) geselecteerd."
 
 #~ msgid ""
-#~ "Partition <b>%(partition)s - %(currentFs)s</b> <b>resized</b> to <b>%"
-#~ "(resizeTo)s MBs</b>, previous size was <b>%(currentSize)s MBs</b>."
+#~ "Partition <b>%(partition)s - %(currentFs)s</b> <b>resized</b> to <b>"
+#~ "%(resizeTo)s MBs</b>, previous size was <b>%(currentSize)s MBs</b>."
 #~ msgstr ""
-#~ "Partitie <b>%(partition)s - %(currentFs)s</b> <b>aangepast</b> naar <b>%"
-#~ "(resizeTo)s MB</b>, oude grootte was <b>%(currentSize)s MB</b>."
+#~ "Partitie <b>%(partition)s - %(currentFs)s</b> <b>aangepast</b> naar <b>"
+#~ "%(resizeTo)s MB</b>, oude grootte was <b>%(currentSize)s MB</b>."
 
 #~ msgid ""
 #~ "Partition <b>%(newPartition)s</b> <b>added</b> to device <b>%(device)s</"
 #~ "b> with <b>%(size)s MBs</b> as <b>%(fs)s</b>."
 #~ msgstr ""
-#~ "Partitie <b>%(newPartition)s</b> <b>toegevoegd</b> aan station <b>%"
-#~ "(device)s</b> met <b>%(size)s MB</b> als <b>%(fs)s</b>."
+#~ "Partitie <b>%(newPartition)s</b> <b>toegevoegd</b> aan station <b>"
+#~ "%(device)s</b> met <b>%(size)s MB</b> als <b>%(fs)s</b>."
 
 #~ msgid ""
 #~ "Partition <b>%(newPartition)s</b> <b>selected</b> as <b>%(type)s</b>."
@@ -4170,9 +4256,6 @@ msgstr "Ongeldig xml-bestand"
 #~ "FSCheck heeft enkele problemen op partitie %s gevonden en "
 #~ "gerepareerd.                                 Herstart de computer voordat "
 #~ "je het installatieproces opstart !"
-
-#~ msgid "FSCheck failed on %s"
-#~ msgstr "FSCheck is mislukt op %s"
 
 #~ msgid "Partition is not ready for resizing. Check it before installation."
 #~ msgstr ""
