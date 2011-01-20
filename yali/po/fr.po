@@ -1989,6 +1989,9 @@ msgid ""
 "\n"
 "Would you like to format this partition as a swap partition?"
 msgstr ""
+"%s a une partition de type 0x82 (swap), mais ne semble pas être formaté comme une partition de swap.\n"
+"\n"
+"Voulez-vous formater cette partition comme une partition de swap ?"
 
 #: yali/storage/storageBackendHelpers.py:89
 #, python-format
@@ -1997,7 +2000,7 @@ msgstr "Vous êtes sur le point de supprimer toutes les partitions du disque '%s
 
 #: yali/storage/storageBackendHelpers.py:139
 msgid "Notice"
-msgstr ""
+msgstr "Avis"
 
 #: yali/storage/storageBackendHelpers.py:140
 #, python-format
@@ -2006,6 +2009,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Les partitions suivantes n'ont pas été supprimées car elles sont en cours d'utilisation :\n"
+"\n"
+"%s"
 
 #: yali/storage/storageBackendHelpers.py:154
 #: yali/storage/storageBackendHelpers.py:161
@@ -2019,7 +2025,7 @@ msgstr "Vous devez d'abord sélectionner une partition à supprimer."
 #: yali/storage/storageBackendHelpers.py:200
 #, python-format
 msgid "The mount point %s is invalid.  Mount points must start with '/' and cannot end with '/', and must contain printable characters and no spaces."
-msgstr ""
+msgstr "Le point de montage %s est invalide. Les points de montage doivent commencer par '/', ne peuvent pas se terminer par '/', et doivent contenir des caractères imprimables et pas d'espaces."
 
 #: yali/storage/storageBackendHelpers.py:209
 msgid "Error with Partitioning"
