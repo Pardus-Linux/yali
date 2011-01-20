@@ -1869,7 +1869,7 @@ msgstr ""
 msgid ""
 "Could not find enough free space for automatic\n"
 "partitioning, please use another partitioning method."
-msgstr ""
+msgstr "Не удалось найти достаточно свободного места для автоматической разметки, пожалуйста, используйте другой метод разметки диска."
 
 #: yali/storage/partitioning.py:1668
 msgid "Warnings During Automatic Partitioning"
