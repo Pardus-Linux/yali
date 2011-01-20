@@ -2135,6 +2135,8 @@ msgid ""
 "single drive.  To do this, select the drive in the 'Allowable Drives'\n"
 "checklist."
 msgstr ""
+"Разделы типа '%s' должны быть объединены в один диск. Это производится\n"
+"путем выбора диска в списке 'Доступные диски'."
 
 #: yali/storage/storageset.py:162 yali/storage/storageset.py:174
 msgid "Invalid mount point"
