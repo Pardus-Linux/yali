@@ -2167,6 +2167,14 @@ msgid ""
 "such as home directories, then continue without formatting this\n"
 "npartition."
 msgstr ""
+"Sie wollen eine bestehende Partition für diese Installation\n"
+"verwenden, ohne diese zu formatieren. Wir empfehlen\n"
+"Ihnen diese Partition zu formatieren, um sicher zu stellen,\n"
+"dass keine Dateien von dem vorherigen Betriebssystem\n"
+"bei der neuen Installation Fehler verursachen. Falls\n"
+"diese Partition Dateien enthält, die Sie behalten möchten\n"
+"(z.B. home), dann fahren Sie mit der Installation fort ohne \n"
+"diese Partition zu formatieren."
 
 # oder: Formatiere
 # -Stefan
