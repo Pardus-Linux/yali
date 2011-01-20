@@ -2297,16 +2297,16 @@ msgid "Bootable partitions cannot be on an %s filesystem."
 msgstr "Bootfähige Partitionen können nicht das %s Dateisystem haben."
 
 #: yali/storage/devices/filedevice.py:94
-#, fuzzy, python-format
+#, python-format
 msgid "Creating file %s"
-msgstr "Verbindung fehlgeschlagen"
+msgstr "Erstelle Datei %s"
 
 #: yali/storage/devices/logicalvolume.py:217
 #: yali/storage/devices/partition.py:370 yali/storage/devices/raidarray.py:423
 #: yali/storage/devices/volumegroup.py:246
 #, python-format
 msgid "Creating device %s"
-msgstr ""
+msgstr "Erstelle Gerät %s"
 
 #: yali/storage/devices/raidarray.py:61
 #, python-format
@@ -2316,17 +2316,17 @@ msgstr ""
 #: yali/storage/library/lvm.py:265
 #, python-format
 msgid "vginfo failed for %s"
-msgstr ""
+msgstr "vginfo für %s fehlgeschlagen"
 
 #: yali/storage/library/lvm.py:291
 #, python-format
 msgid "lvs failed for %s"
-msgstr ""
+msgstr "lvs für %s fehlgeschlagen"
 
 #: yali/storage/formats/filesystem.py:229
 #, python-format
 msgid "Unknown return code: %d."
-msgstr ""
+msgstr "Unbekannter Rückgabewert: %d."
 
 #: yali/storage/formats/filesystem.py:296
 #, python-format
@@ -2334,14 +2334,14 @@ msgid "Creating %(type)s filesystem on %(device)s"
 msgstr ""
 
 #: yali/storage/formats/filesystem.py:346
-#, fuzzy, python-format
+#, python-format
 msgid "Resizing filesystem on %s"
-msgstr "Fehler des Dateisystems durch Größenänderung"
+msgstr "Größenänderung des Dateisystems auf %s"
 
 #: yali/storage/formats/filesystem.py:376
-#, fuzzy, python-format
+#, python-format
 msgid "Checking filesystem on %s"
-msgstr "Migriere Dateisystem nach:"
+msgstr "Prüfe Dateisystem auf %s"
 
 #: yali/storage/formats/filesystem.py:388
 #, python-format
