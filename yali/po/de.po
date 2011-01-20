@@ -1899,13 +1899,13 @@ msgid "This mount point is invalid. The %s directory must be on the / file syste
 msgstr ""
 
 #: yali/storage/__init__.py:817
-#, fuzzy, python-format
+#, python-format
 msgid "The mount point %s must be on a linux file system."
-msgstr "Ihr Mount-Point \"%s\" wurde schon verwendet. Bitte einen anderen wählen."
+msgstr "Der Einhängepunkt %s muss auf einem Linux Dateisystem sein."
 
 #: yali/storage/__init__.py:837
 msgid "No Drives Found"
-msgstr ""
+msgstr "Keine Laufwerke gefunden"
 
 #: yali/storage/__init__.py:838
 msgid ""
@@ -1921,9 +1921,8 @@ msgid ""
 msgstr ""
 
 #: yali/storage/partitioning.py:1668
-#, fuzzy
 msgid "Warnings During Automatic Partitioning"
-msgstr "Warnung während Partitionierung"
+msgstr "Warnung während der automatischen Partitionierung"
 
 #: yali/storage/partitioning.py:1669
 #, python-format
@@ -1932,6 +1931,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Während der automatischen Partitionierung sind folgende Fehler aufgetreten:\n"
+"\n"
+"%s"
 
 #: yali/storage/partitioning.py:1677 yali/storage/partitioning.py:1697
 msgid ""
@@ -1939,18 +1941,22 @@ msgid ""
 "\n"
 "Press 'OK' to exit the installer."
 msgstr ""
+"\n"
+"\n"
+"Klicken Sie auf 'OK', um die Installation abzubrechen."
 
 #: yali/storage/partitioning.py:1679
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Could not allocate requested partitions: \n"
 "%(msg)s.%(extra)s"
-msgstr "Konnte geforderte Partition(en) nicht zuweisen: %s."
+msgstr ""
+"Konnte die angeforderte Partition(en) nicht zuweisen:\n"
+"%(msg)s.%(extra)s"
 
 #: yali/storage/partitioning.py:1698
-#, fuzzy
 msgid "Automatic Partitioning Errors"
-msgstr "Partitionierungsfehler"
+msgstr "Fehler bei automatischer Partitionierung"
 
 #: yali/storage/partitioning.py:1699
 #, python-format
@@ -1964,25 +1970,24 @@ msgstr ""
 
 #: yali/storage/partitioning.py:1706
 msgid "Unrecoverable Error"
-msgstr ""
+msgstr "Nicht behebbarer Fehler"
 
 #: yali/storage/partitioning.py:1707
 msgid "The system will now reboot."
-msgstr ""
+msgstr "Das System wird jetzt neu starten."
 
 #: yali/storage/storageBackendHelpers.py:17
 msgid "Please enter a volume group name."
-msgstr ""
+msgstr "Geben Sie bitte einen Namen der Volume Gruppe ein."
 
 #: yali/storage/storageBackendHelpers.py:21
-#, fuzzy
 msgid "Volume Group Names must be less than 128 characters"
-msgstr "Der Hostname darf nicht länger sein als 64 Zeichen."
+msgstr "Namen von Volume Gruppen müssen weniger als 128 Zeichen haben."
 
 #: yali/storage/storageBackendHelpers.py:24
 #, python-format
 msgid "Error - the volume group name %s is not valid."
-msgstr ""
+msgstr "Fehler - der Name der Volume Gruppe %s ist nicht gültig."
 
 #: yali/storage/storageBackendHelpers.py:29
 msgid "Error - the volume group name contains illegal characters or spaces.  Acceptable characters are letters, digits, '.' or '_'."
