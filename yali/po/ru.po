@@ -1882,6 +1882,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Возникли следующие предупреждения в процессе автоматической разметки:\n"
+"\n"
+"%s"
 
 #: yali/storage/partitioning.py:1677 yali/storage/partitioning.py:1697
 msgid ""
@@ -1987,6 +1990,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Следующие разделы не были удалены, потому что они используются в данный момент:\n"
+"\n"
+"%s"
 
 #: yali/storage/storageBackendHelpers.py:154
 #: yali/storage/storageBackendHelpers.py:161
