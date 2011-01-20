@@ -2078,6 +2078,9 @@ msgid ""
 "\n"
 "ALL logical volumes in this volume group will be lost!"
 msgstr ""
+"Vous êtes sur le point de supprimer le groupe de volume \"%s\". \n"
+"\n"
+"TOUS les volumes logiques de ce groupe de volumes seront perdus !"
 
 #: yali/storage/storageBackendHelpers.py:281
 #, python-format
@@ -2224,7 +2227,7 @@ msgstr "Vous avez oublié de créer une partition amorçable."
 
 #: yali/storage/storageset.py:362
 msgid "Bootable partitions cannot be on a logical volume."
-msgstr ""
+msgstr "Les partitions amorçables ne peuvent pas être sur un volume logique."
 
 #: yali/storage/storageset.py:369
 #, python-format
@@ -2234,14 +2237,14 @@ msgstr ""
 #: yali/storage/devices/filedevice.py:94
 #, python-format
 msgid "Creating file %s"
-msgstr ""
+msgstr "Création du fichier %s"
 
 #: yali/storage/devices/logicalvolume.py:217
 #: yali/storage/devices/partition.py:370 yali/storage/devices/raidarray.py:423
 #: yali/storage/devices/volumegroup.py:246
 #, python-format
 msgid "Creating device %s"
-msgstr ""
+msgstr "Création du périphérique %s"
 
 #: yali/storage/devices/raidarray.py:61
 #, python-format
