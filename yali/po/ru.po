@@ -2070,7 +2070,7 @@ msgstr "Вы собираетесь удалить %s раздел."
 #: yali/storage/storageBackendHelpers.py:290
 #, python-format
 msgid "You are about to delete the %(type)s %(name)s"
-msgstr ""
+msgstr "Вы собираетесь удалить %(type)s %(name)s"
 
 #: yali/storage/storageBackendHelpers.py:300
 msgid "Confirm Reset"
