@@ -2061,7 +2061,6 @@ msgid "Select 'Yes' to continue and format these partitions, or 'No' to go back 
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:250
-#, fuzzy
 msgid "Format Warning"
 msgstr "Avertissements de format"
 
@@ -2074,32 +2073,31 @@ msgid ""
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:281
-#, fuzzy, python-format
+#, python-format
 msgid "You are about to delete the logical volume \"%s\"."
-msgstr "Êtes-vous sûr de vouloir supprimer le volume logique \"%s\" ?"
+msgstr "Vous êtes sur le point de supprimer le volume logique \"%s\"."
 
 #: yali/storage/storageBackendHelpers.py:284
 msgid "You are about to delete a RAID device."
-msgstr ""
+msgstr "Vous êtes sur le point de supprimer un disque RAID."
 
 #: yali/storage/storageBackendHelpers.py:286
 #, python-format
 msgid "You are about to delete the %s partition."
-msgstr ""
+msgstr "Vous êtes sur le point de supprimer la partition %s."
 
 #: yali/storage/storageBackendHelpers.py:290
 #, python-format
 msgid "You are about to delete the %(type)s %(name)s"
-msgstr ""
+msgstr "Vous êtes sur le point de supprimer %(name)s %(type)s"
 
 #: yali/storage/storageBackendHelpers.py:300
 msgid "Confirm Reset"
 msgstr "Confirmer la réinitialisation"
 
 #: yali/storage/storageBackendHelpers.py:300
-#, fuzzy
 msgid "Are you sure you want to reset the partition table to its original state?"
-msgstr "Êtes-vous sûr de vouloir redémarrer l'installeur YALI maintenant ?"
+msgstr "Êtes-vous sûr de vouloir réinitialiser la table de partition à son état initial ?"
 
 #: yali/storage/storageBackendHelpers.py:308
 msgid ""
