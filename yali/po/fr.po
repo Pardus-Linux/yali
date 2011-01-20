@@ -2157,6 +2157,9 @@ msgid ""
 "\n"
 "Press <Enter> to exit the installer."
 msgstr ""
+"Une erreur s'est produite en essayant de créer %s. Un élément de ce chemin n'est pas un répertoire. Il s'agit d'une erreur fatale et l'installation ne peut pas continuer.\n"
+"\n"
+"Appuyez sur la touche <Entrée> pour quitter l'installeur."
 
 #: yali/storage/storageset.py:175
 #, python-format
