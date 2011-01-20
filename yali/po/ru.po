@@ -2014,14 +2014,19 @@ msgid "Partitioning Warning"
 msgstr "Предупреждения разметки дисков"
 
 #: yali/storage/storageBackendHelpers.py:227
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "The following warnings exist with your requested partition scheme.\n"
 "\n"
 "%s\n"
 "\n"
 "Would you like to continue with your requested partitioning scheme?"
-msgstr "Схема разметки содержит предупреждения. Вы хотите продолжить с данной схемой разметки?"
+msgstr ""
+"Схема разметки содержит предупреждения. \n"
+"\n"
+"%s\n"
+"\n"
+"Вы хотите продолжить с данной схемой разметки?"
 
 #: yali/storage/storageBackendHelpers.py:241
 #, fuzzy
