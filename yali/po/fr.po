@@ -2179,7 +2179,7 @@ msgstr "Impossible de monter le système de fichiers"
 #: yali/storage/storageset.py:191
 #, python-format
 msgid "An error occurred mounting device %(path)s as %(mountpoint)s.  You may continue installation, but there may be problems."
-msgstr ""
+msgstr "Une erreur s'est produite lors du montage du disque %(path)s en tant que %(mountpoint)s. Vous pouvez continuer l'installation, mais il peut y avoir des problèmes."
 
 #: yali/storage/storageset.py:214
 #, python-format
