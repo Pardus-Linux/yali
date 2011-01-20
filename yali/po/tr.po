@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\\n\\n\\n\\n\\n\\n\\n\n"
+"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\\n\\n\\n\\n\\n\\n\\n\\n\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 msgid "Choose Installation Method"
@@ -2111,7 +2111,7 @@ msgstr "%s disk bölümünü silmek üzeresiniz."
 #: yali/storage/storageBackendHelpers.py:290
 #, python-format
 msgid "You are about to delete the %(type)s %(name)s"
-msgstr ""
+msgstr "%(type)s %(name)s silinmek üzere"
 
 #: yali/storage/storageBackendHelpers.py:300
 msgid "Confirm Reset"
@@ -2177,7 +2177,7 @@ msgstr "Dosya sistemi bağlanamadı"
 #: yali/storage/storageset.py:191
 #, python-format
 msgid "An error occurred mounting device %(path)s as %(mountpoint)s.  You may continue installation, but there may be problems."
-msgstr ""
+msgstr "%(path)s aygıtı %(mountpoint)s noktasına bağlarken hata oldu. Kurulum devam edecek ama sorun çıkabilir."
 
 #: yali/storage/storageset.py:214
 #, python-format
@@ -2251,19 +2251,19 @@ msgstr "Yüklenebilir bölümler %s dosya sistemleri üzerinde olmazlar."
 #: yali/storage/devices/filedevice.py:94
 #, python-format
 msgid "Creating file %s"
-msgstr "%s dosyası yaratılıyor."
+msgstr "%s dosyası yaratılıyor"
 
 #: yali/storage/devices/logicalvolume.py:217
 #: yali/storage/devices/partition.py:370 yali/storage/devices/raidarray.py:423
 #: yali/storage/devices/volumegroup.py:246
 #, python-format
 msgid "Creating device %s"
-msgstr "%s aygıtı yaratılıyor."
+msgstr "%s aygıtı yaratılıyor"
 
 #: yali/storage/devices/raidarray.py:61
 #, python-format
 msgid "A RAID%(level)d set requires at least %(min_member)d member"
-msgstr ""
+msgstr "%(level)d RAID seti en az %(min_member)d üye gerektirir"
 
 #: yali/storage/library/lvm.py:265
 #, python-format
