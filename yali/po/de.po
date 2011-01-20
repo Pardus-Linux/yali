@@ -2135,9 +2135,8 @@ msgid "Confirm Reset"
 msgstr "Reset bestätigen"
 
 #: yali/storage/storageBackendHelpers.py:300
-#, fuzzy
 msgid "Are you sure you want to reset the partition table to its original state?"
-msgstr "Wollen Sie wirklich die Installationsroutine YALI jetzt neu starten?"
+msgstr "Sie sind sicher, dass Sie die Partitionstabelle in seinen ursprünglichen Zustand zurücksetzen wollen?"
 
 #: yali/storage/storageBackendHelpers.py:308
 msgid ""
@@ -2153,16 +2152,14 @@ msgstr ""
 # oder: Formatiere
 # -Stefan
 #: yali/storage/storageBackendHelpers.py:316
-#, fuzzy
 msgid "Format?"
-msgstr "Format"
+msgstr "Formatieren?"
 
 # oder: Formatiere
 # -Stefan
 #: yali/storage/storageBackendHelpers.py:317
-#, fuzzy
 msgid "Do Not Format"
-msgstr "Format"
+msgstr "Nicht formatieren"
 
 #: yali/storage/storageBackendHelpers.py:324
 #, python-format
@@ -2173,9 +2170,8 @@ msgid ""
 msgstr ""
 
 #: yali/storage/storageset.py:162 yali/storage/storageset.py:174
-#, fuzzy
 msgid "Invalid mount point"
-msgstr "Ungültige XML-Datei"
+msgstr "Ungültiger Einhängepunkt"
 
 #: yali/storage/storageset.py:163
 #, python-format
@@ -2195,7 +2191,7 @@ msgstr ""
 
 #: yali/storage/storageset.py:190 yali/storage/storageset.py:213
 msgid "Unable to mount filesystem"
-msgstr ""
+msgstr "Kann Dateisystem nicht einhängen"
 
 #: yali/storage/storageset.py:191
 #, python-format
@@ -2212,14 +2208,13 @@ msgstr ""
 
 #: yali/storage/storageset.py:245
 msgid "Skip"
-msgstr ""
+msgstr "Überspringen"
 
 # oder: Abbruch, Ausgang
 # -Stefan
 #: yali/storage/storageset.py:245
-#, fuzzy
 msgid "_Exit"
-msgstr "Verlassen"
+msgstr "_Exit"
 
 #: yali/storage/storageset.py:277
 #, python-format
@@ -2263,16 +2258,16 @@ msgstr ""
 
 #: yali/storage/storageset.py:358
 msgid "You have not created a bootable partition."
-msgstr ""
+msgstr "Sie haben keine bootfähige Partition erstellt."
 
 #: yali/storage/storageset.py:362
 msgid "Bootable partitions cannot be on a logical volume."
-msgstr ""
+msgstr "Bootfähige Partitionen können nicht Teil eines Logical Volumes sein."
 
 #: yali/storage/storageset.py:369
 #, python-format
 msgid "Bootable partitions cannot be on an %s filesystem."
-msgstr ""
+msgstr "Bootfähige Partitionen können nicht das %s Dateisystem haben."
 
 #: yali/localedata.py:20
 msgid "Turkish"
