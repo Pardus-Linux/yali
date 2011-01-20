@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-20 13:00+0200\n"
+"POT-Creation-Date: 2011-01-20 14:11+0200\n"
 "PO-Revision-Date: 2011-01-18 21:19+0200\n"
 "Last-Translator: Stefan Wilhelm <sw AT pardususer DOT de>\n"
 "Language-Team: German <de@li.org>\n"
@@ -1982,7 +1982,7 @@ msgid ""
 "This can happen if there is not enough space on your hard drive(s) for the installation. %(extra)s"
 msgstr ""
 
-#: yali/storage/partitioning.py:1706
+#: yali/storage/partitioning.py:1706 yali/storage/formats/filesystem.py:398
 msgid "Unrecoverable Error"
 msgstr "Nicht behebbarer Fehler"
 
@@ -2296,6 +2296,99 @@ msgstr "Bootfähige Partitionen können nicht Teil eines Logical Volumes sein."
 msgid "Bootable partitions cannot be on an %s filesystem."
 msgstr "Bootfähige Partitionen können nicht das %s Dateisystem haben."
 
+#: yali/storage/devices/filedevice.py:94
+#, fuzzy, python-format
+msgid "Creating file %s"
+msgstr "Verbindung fehlgeschlagen"
+
+#: yali/storage/devices/logicalvolume.py:217
+#: yali/storage/devices/partition.py:370 yali/storage/devices/raidarray.py:423
+#: yali/storage/devices/volumegroup.py:246
+#, python-format
+msgid "Creating device %s"
+msgstr ""
+
+#: yali/storage/devices/raidarray.py:61
+#, python-format
+msgid "A RAID%(level)d set requires at least %(min_member)d member"
+msgstr ""
+
+#: yali/storage/library/lvm.py:265
+#, python-format
+msgid "vginfo failed for %s"
+msgstr ""
+
+#: yali/storage/library/lvm.py:291
+#, python-format
+msgid "lvs failed for %s"
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:229
+#, python-format
+msgid "Unknown return code: %d."
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:296
+#, python-format
+msgid "Creating %(type)s filesystem on %(device)s"
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:346
+#, fuzzy, python-format
+msgid "Resizing filesystem on %s"
+msgstr "Fehler des Dateisystems durch Größenänderung"
+
+#: yali/storage/formats/filesystem.py:376
+#, fuzzy, python-format
+msgid "Checking filesystem on %s"
+msgstr "Migriere Dateisystem nach:"
+
+#: yali/storage/formats/filesystem.py:388
+#, python-format
+msgid "%(type)s filesystem check failure on %(device)s: "
+msgstr ""
+
+#: yali/storage/formats/filesystem.py:392
+msgid ""
+"Errors like this usually mean there is a problem with the\n"
+" filesystem that will require user interaction to repair.\n"
+" Restart\n"
+"installation after you have corrected the problems on the filesystem."
+msgstr ""
+"Fehler wie dieser bedeuten in der Regel, dass es ein\n"
+"Problem mit dem Dateisystem gibt, der zur Behebung\n"
+"Benutzereingaben benötigt,\n"
+" Starten\n"
+" Sie die Installation erneut, nachdem der Fehler behoben wurde."
+
+#: yali/storage/formats/filesystem.py:688
+msgid "File system errors left uncorrected."
+msgstr "Dateisystemfehler unkorrigiert belassen."
+
+#: yali/storage/formats/filesystem.py:689
+msgid "Operational error."
+msgstr "Operativer Fehler."
+
+#: yali/storage/formats/filesystem.py:690
+msgid "Usage or syntax error."
+msgstr "Nutzer oder Syntax Fehler."
+
+#: yali/storage/formats/filesystem.py:691
+msgid "e2fsck cancelled by user request."
+msgstr "e2fsck vom Benutzer abgebrochen."
+
+#: yali/storage/formats/filesystem.py:692
+msgid "Shared library error."
+msgstr "Fehler der shared library."
+
+#: yali/storage/formats/filesystem.py:836
+msgid "Recoverable errors have been detected or dosfsck has discovered an internal inconsistency."
+msgstr "Korrigierbare Fehler wurden festgestellt, oder dosfsck hat eine interne Inkonsistenz entdeckt."
+
+#: yali/storage/formats/filesystem.py:838
+msgid "Usage error."
+msgstr "Fehlerhafte Benutzung."
+
 #: yali/localedata.py:20
 msgid "Turkish"
 msgstr "Türkisch"
@@ -2536,9 +2629,6 @@ msgstr "Ungültige XML-Datei"
 
 #~ msgid "<Not Applicable>"
 #~ msgstr "<Nicht Ausführbar>"
-
-#~ msgid "Migrate filesystem To :"
-#~ msgstr "Migriere Dateisystem nach:"
 
 #~ msgid "Resize :"
 #~ msgstr "Größe ändern:"
