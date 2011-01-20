@@ -2129,7 +2129,7 @@ msgstr ""
 
 #: yali/storage/storageset.py:190 yali/storage/storageset.py:213
 msgid "Unable to mount filesystem"
-msgstr ""
+msgstr "Не удалось смонтировать файловую систему"
 
 #: yali/storage/storageset.py:191
 #, python-format
