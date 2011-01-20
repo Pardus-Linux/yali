@@ -1829,7 +1829,7 @@ msgstr ""
 msgid ""
 "Your %(mount)s partition is less than %(size)s megabytes which is lower than\n"
 "recommended for a normal %(productName)s install."
-msgstr ""
+msgstr "Ваш %(mount)s раздел меньше чем %(size)s MB, что ниже рекомендуемого размера для нормальной установки %(productName)s ."
 
 #: yali/storage/__init__.py:805
 msgid ""
