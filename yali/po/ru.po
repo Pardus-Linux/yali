@@ -2241,7 +2241,7 @@ msgstr "Создание устройства %s"
 #: yali/storage/devices/raidarray.py:61
 #, python-format
 msgid "A RAID%(level)d set requires at least %(min_member)d member"
-msgstr ""
+msgstr "RAID%(level)d набор требует хотя бы %(min_member)d элемент"
 
 #: yali/storage/library/lvm.py:265
 #, python-format
