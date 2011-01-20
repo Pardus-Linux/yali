@@ -2226,6 +2226,11 @@ msgid ""
 "\n"
 "does not contain a supported swap volume.  In order to continue installation, you will need to format the device or skip it."
 msgstr ""
+"Устройство подкачки:\n"
+"\n"
+" %s\n"
+"\n"
+"не содержит поддерживаемых томов подкачки. Для того, чтобы продолжить установку, вам нужно отформатировать устройство или пропустить его."
 
 #: yali/storage/storageset.py:312
 #, python-format
