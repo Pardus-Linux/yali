@@ -54,10 +54,12 @@ class Widget(QWidget, ScreenWidget):
 
 
         self.ui.keyboard_list.setCurrentIndex(self.default_layout_index)
-        self.slotLayoutChanged()
 
         self.connect(self.ui.keyboard_list, SIGNAL("currentIndexChanged(int)"),
                 self.slotLayoutChanged)
+
+    def shown(self):
+        self.slotLayoutChanged()
 
     def slotLayoutChanged(self):
         index = self.ui.keyboard_list.currentIndex()
@@ -65,6 +67,13 @@ class Widget(QWidget, ScreenWidget):
         # Gökmen's converter
         keymap = dict(map(lambda x: (str(x[0]), unicode(x[1].toString())), keymap.iteritems()))
         ctx.installData.keyData = keymap
+        ctx.interface.informationWindow.hide()
+        if "," in keymap["xkblayout"]:
+            message = _("Use Ctrl-Shift to toggle between alternative keyboard layouts")
+            ctx.interface.informationWindow.update(message, type="warning")
+        else:
+            ctx.interface.informationWindow.hide()
+
         yali.util.setKeymap(keymap["xkblayout"], keymap["xkbvariant"])
 
     def execute(self):
