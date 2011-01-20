@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-20 14:11+0200\n"
-"PO-Revision-Date: 2011-01-18 21:20+0200\n"
+"PO-Revision-Date: 2011-01-20 15:06+0100\n"
 "Last-Translator: Attila Siposs <sipiatti@gmail.com>\n"
 "Language-Team: Hungarian <pardus-translators@pardus.org.tr>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.0\n"
 
@@ -676,8 +676,8 @@ msgstr "Hiba"
 #: yali/gui/interface.py:67
 #, python-format
 msgid ""
-"Cannot access the partition table of %(description)s(%(name)s) -- "
-"%(size)-0.fMB\n"
+"Cannot access the partition table of %(description)s(%(name)s) -- %(size)-0."
+"fMB\n"
 "\n"
 "If there already exists a partition table on this device, it will\n"
 " be re-initialized and your existing data will be lost!\n"
@@ -836,9 +836,9 @@ msgstr ""
 #: yali/gui/lvm_gui.py:448
 #, python-format
 msgid ""
-"The physical extent size cannot be changed because the value selected "
-"(%(curpe)10.2f MB) is too large compared to the size of the smallest "
-"physical volume (%(maxpvsize)10.2f MB) in the volume group."
+"The physical extent size cannot be changed because the value selected (%"
+"(curpe)10.2f MB) is too large compared to the size of the smallest physical "
+"volume (%(maxpvsize)10.2f MB) in the volume group."
 msgstr ""
 "A fizikai extent mérete nem változtatható meg, mert\n"
 "a kiválasztott érték (%(curpe)10.2f MB) túl nagy\n"
@@ -970,8 +970,8 @@ msgstr ""
 #, python-format
 msgid ""
 "The size entered for this logical volume (%(size)d MB) combined with the "
-"size of the other logical volume(s) exceeds the size of the volume group "
-"(%(tmpvgsize)d MB). Please make the volume group larger or make the logical "
+"size of the other logical volume(s) exceeds the size of the volume group (%"
+"(tmpvgsize)d MB). Please make the volume group larger or make the logical "
 "volume smaller."
 msgstr ""
 "A megadott logikai kötet méret (%(size)d MB) a többi logikai kötet méretével "
@@ -1226,6 +1226,7 @@ msgstr "Nem található tárolóeszköz."
 #: yali/gui/ScrKeyboard.py:72
 msgid "Use Alt-Shift to toggle between alternative keyboard layouts"
 msgstr ""
+"Használja az Alt-Shift kombinációt az alternatív kiosztások közti váltáshoz"
 
 #: yali/gui/ScrLicense.py:77
 msgid "License text could not be found."
@@ -1849,61 +1850,59 @@ msgstr "A kiadási megjegyzések nem tölthetők be."
 #: yali/storage/bootloader.py:209 yali/storage/bootloader.py:210
 #, python-format
 msgid "%s"
-msgstr ""
+msgstr "%s"
 
 #: yali/storage/bootloader.py:303 yali/storage/bootloader.py:307
 msgid "Windows"
-msgstr ""
+msgstr "Windows"
 
 #: yali/storage/devicetree.py:1570
 msgid "This partition is part of an inconsistent LVM Volume Group."
-msgstr ""
+msgstr "Ez a partíció egy inkonzisztens LVM része."
 
 #: yali/storage/__init__.py:49
 #, python-format
 msgid "Failed teardownAll in storage.complete with error:%s"
-msgstr ""
+msgstr "A storage.complete-ben a teardownAll meghiúsult. Hiba: %s"
 
 #: yali/storage/__init__.py:58
 msgid "Resizing Failed"
-msgstr ""
+msgstr "Az átméretezés nem sikerült"
 
 #: yali/storage/__init__.py:59
 #, python-format
 msgid "There was an error encountered while resizing the device %s."
-msgstr ""
+msgstr "Hiba történt a %s eszköz átméretezése közben."
 
 #: yali/storage/__init__.py:65
-#, fuzzy
 msgid "Migration Failed"
-msgstr "Az ellenőrzés sikertelen"
+msgstr "Az átmozgatás sikertelen"
 
 #: yali/storage/__init__.py:66
 #, python-format
 msgid "An error was encountered while migrating filesystem on device %s."
-msgstr ""
+msgstr "A %s eszközön a fájlrendszer átalakítása közben hiba lépett fel"
 
 #: yali/storage/__init__.py:77
 msgid "File Bug"
-msgstr ""
+msgstr "Fájl hiba"
 
 #: yali/storage/__init__.py:77 yali/storage/storageset.py:198
 msgid "Exit installer"
-msgstr ""
+msgstr "Kilépés a telepítőből"
 
 #: yali/storage/__init__.py:80
 #, python-format
 msgid "Failed in storage.complete with error:%s"
-msgstr ""
+msgstr "storage.complete meghiúsult. Hiba: %s"
 
 #: yali/storage/__init__.py:241
-#, fuzzy
 msgid "This partition is holding the data for the hard drive install."
-msgstr "A partíció, ahová a Pardus telepítére kerül"
+msgstr "Ez a partíció tartalmazza a merevlemezes telepítés adatait."
 
 #: yali/storage/__init__.py:244
 msgid "You cannot delete a partition of a LDL formatted DASD."
-msgstr ""
+msgstr "Nem törölhet olyan LDL partíciót, amely DASD formázású."
 
 #: yali/storage/__init__.py:250
 #, python-format
@@ -1911,19 +1910,21 @@ msgid ""
 "This device is part of the RAID device %s, you have to edit or remove the "
 "raid partition appropriately!"
 msgstr ""
+"Ez az eszköz a %s RAID eszköz része, változtassa meg a RAID beállításokat, "
+"vagy távolítsa el a raid partíciót!"
 
 #: yali/storage/__init__.py:255
 msgid "This device is part of a RAID device."
-msgstr ""
+msgstr "Ez az eszköz egy RAID része."
 
 #: yali/storage/__init__.py:260
 #, python-format
 msgid "This device is part of the LVM volume group '%s'."
-msgstr ""
+msgstr "Ez az eszköz a '%s' LVM része."
 
 #: yali/storage/__init__.py:263
 msgid "This device is part of a LVM volume group."
-msgstr ""
+msgstr "Ez az eszköz egy LVM része."
 
 #: yali/storage/__init__.py:272
 msgid ""
@@ -1931,6 +1932,9 @@ msgid ""
 "cannot be deleted:\n"
 "\n"
 msgstr ""
+"Ez az eszköz egy kiterjesztett partíció, amely nem törölhető logikai "
+"partíciókat tartalmaz:\n"
+"\n"
 
 #: yali/storage/__init__.py:781
 #, python-format
@@ -1939,6 +1943,9 @@ msgid ""
 "installation\n"
 "of %s to continue."
 msgstr ""
+"Nem adott meg rendszer partíciót (/), amely szükséges a "
+"%s telepítéséhez\n"
+"a folytatáshoz."
 
 #: yali/storage/__init__.py:790
 #, python-format
@@ -1946,6 +1953,8 @@ msgid ""
 "Your / partition is less than %(min)s MB which is lower than\n"
 "recommended for a normal %(productName)s install."
 msgstr ""
+"A / partíció kisebb mint %(min)s MB, ami a javasolt legkisebb\n"
+"meret a %(productName)s telepítéséhez."
 
 #: yali/storage/__init__.py:796
 #, python-format
@@ -1954,12 +1963,16 @@ msgid ""
 "than\n"
 "recommended for a normal %(productName)s install."
 msgstr ""
+"A %(mount)s partíció kisebb mint %(size)s MB, ami a javasolt legkisebb\n"
+"meret a %(productName)s telepítéséhez."
 
 #: yali/storage/__init__.py:805
 msgid ""
 "You have not specified a swap partition. Due to the amount of memory\n"
 "present, a swap partition is required to complete installation."
 msgstr ""
+"Nem adott meg lapozóterületet. A jelenleg használható memória esetén "
+"lapozóterület szükséges a telepítés sikeres befejezéséhez."
 
 #: yali/storage/__init__.py:808
 msgid ""
@@ -1967,21 +1980,26 @@ msgid ""
 "required in all cases, it will significantly improve performance\n"
 "for most installations."
 msgstr ""
+"Nem adott meg lapozóterületet. Habár nem minden esetben\n"
+"elengedhetetlenül, a legtöbbször jelentősen megnöveli a rendszer\n"
+"teljesítményét."
 
 #: yali/storage/__init__.py:814
 #, python-format
 msgid ""
 "This mount point is invalid. The %s directory must be on the / file system."
 msgstr ""
+"Ez a csatolási pont érvénytelen. A %s könyvtárnak a / fájlrendszeren kell "
+"lennie."
 
 #: yali/storage/__init__.py:817
-#, fuzzy, python-format
+#, python-format
 msgid "The mount point %s must be on a linux file system."
-msgstr "A \"%s\" csatolási pont már használatban van. Válasszon másikat."
+msgstr "A %s csatolási pontnak linux fájlrendszeren kell lennie."
 
 #: yali/storage/__init__.py:837
 msgid "No Drives Found"
-msgstr ""
+msgstr "Nem található meghajtó"
 
 #: yali/storage/__init__.py:838
 msgid ""
@@ -1989,17 +2007,21 @@ msgid ""
 "which to create new file systems. Please check your\n"
 "hardware for the cause of this problem."
 msgstr ""
+"Hiba történt - nem található a rendszerben\n"
+"új fájlrendszer létrehozására alkalmas érvényes eszköz.\n"
+"Ellenőrizze a hardvereket a probléma okának megtalálásáért."
 
 #: yali/storage/partitioning.py:1644
 msgid ""
 "Could not find enough free space for automatic\n"
 "partitioning, please use another partitioning method."
 msgstr ""
+"Az automatikus partícionálás végrehajtásához nem\n"
+"található elegendő szabad terület, válasszon másik módot."
 
 #: yali/storage/partitioning.py:1668
-#, fuzzy
 msgid "Warnings During Automatic Partitioning"
-msgstr "Partícionálási figyelmeztetés"
+msgstr "Partícionálási figyelmeztetések"
 
 #: yali/storage/partitioning.py:1669
 #, python-format
@@ -2008,6 +2030,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Az automatikus particionálási művelet a következő\n"
+"figyelmeztetéseket adta:\n"
+"%s"
 
 #: yali/storage/partitioning.py:1677 yali/storage/partitioning.py:1697
 msgid ""
@@ -2015,18 +2040,22 @@ msgid ""
 "\n"
 "Press 'OK' to exit the installer."
 msgstr ""
+"\n"
+"\n"
+"Nyomja meg az OK gombot a kilépéshez."
 
 #: yali/storage/partitioning.py:1679
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Could not allocate requested partitions: \n"
 "%(msg)s.%(extra)s"
-msgstr "Ez a partíció nem beállítható: %s."
+msgstr ""
+"Ez a partíció nem beállítható: \n"
+"%(msg)s.%(extra)s"
 
 #: yali/storage/partitioning.py:1698
-#, fuzzy
 msgid "Automatic Partitioning Errors"
-msgstr "Partícionálási hibák"
+msgstr "Automatikus partícionálási hibák"
 
 #: yali/storage/partitioning.py:1699
 #, python-format
@@ -2038,60 +2067,66 @@ msgid ""
 "This can happen if there is not enough space on your hard drive(s) for the "
 "installation. %(extra)s"
 msgstr ""
+"A particionálás alatt az alábbi hibák merültek fel:\n"
+"\n"
+"%(errortxt)s\n"
+"\n"
+"Ez akkor történhet, ha nincs elég szabad hely a merevlemezen. "
+"%(extra)s"
 
 #: yali/storage/partitioning.py:1706 yali/storage/formats/filesystem.py:398
 msgid "Unrecoverable Error"
-msgstr ""
+msgstr "Helyrehozhatatlan hiba"
 
 #: yali/storage/partitioning.py:1707
 msgid "The system will now reboot."
-msgstr ""
+msgstr "A rendszer újraindul."
 
 #: yali/storage/storageBackendHelpers.py:17
 msgid "Please enter a volume group name."
-msgstr ""
+msgstr "Adjon meg egy VG nevet."
 
 #: yali/storage/storageBackendHelpers.py:21
-#, fuzzy
 msgid "Volume Group Names must be less than 128 characters"
-msgstr "A gépnév nem lehet 64 karakternél hosszabb."
+msgstr "A VG név hossza maximum 128 karakter"
 
 #: yali/storage/storageBackendHelpers.py:24
 #, python-format
 msgid "Error - the volume group name %s is not valid."
-msgstr ""
+msgstr "Hiba - %s VG név nem megfelelő"
 
 #: yali/storage/storageBackendHelpers.py:29
 msgid ""
 "Error - the volume group name contains illegal characters or spaces.  "
 "Acceptable characters are letters, digits, '.' or '_'."
 msgstr ""
+"Hiba - a VG név érvénytelen karaktert vagy szóközt tartalmaz. "
+"Érvényes karakterek: betűk, számok, '.' és '_'."
 
 #: yali/storage/storageBackendHelpers.py:39
-#, fuzzy
 msgid "Please enter a logical volume name."
-msgstr "Érvénytelen logikai kötet név"
+msgstr "Adjon meg egy logikai kötet nevet."
 
 #: yali/storage/storageBackendHelpers.py:43
-#, fuzzy
 msgid "Logical Volume Names must be less than 128 characters"
-msgstr "A gépnév nem lehet 64 karakternél hosszabb."
+msgstr "A logikai kötet neve nem lehet 128 karakternél hosszabb."
 
 #: yali/storage/storageBackendHelpers.py:47
 #, python-format
 msgid "Error - the logical volume name %s is not valid."
-msgstr ""
+msgstr "Hiba - %s logikai kötetnév nem megfelelő"
 
 #: yali/storage/storageBackendHelpers.py:53
 msgid ""
 "Error - the logical volume name contains illegal characters or spaces.  "
 "Acceptable characters are letters, digits, '.' or '_'."
 msgstr ""
+"Hiba - a logikai kötetnév érvénytelen karaktert vagy szóközt tartalmaz. "
+"Érvényes karakterek: betűk, számok, '.' és '_'."
 
 #: yali/storage/storageBackendHelpers.py:67
-#, fuzzy
 msgid "Format as Swap?"
-msgstr "Formázás :"
+msgstr "Formázás lapozóterületként?"
 
 #: yali/storage/storageBackendHelpers.py:68
 #, python-format
@@ -2101,15 +2136,19 @@ msgid ""
 "\n"
 "Would you like to format this partition as a swap partition?"
 msgstr ""
+"%s partíció típusa linux lapozóterület (0x82), de nincs lapozóterületként "
+"megformázva.\n"
+"\n"
+"Meg akarja formázni lapozóterületként?"
 
 #: yali/storage/storageBackendHelpers.py:89
 #, python-format
 msgid "You are about to delete all partitions on the device '%s'."
-msgstr ""
+msgstr "A '%s' eszköz minden partícióját készül törölni."
 
 #: yali/storage/storageBackendHelpers.py:139
 msgid "Notice"
-msgstr ""
+msgstr "Figyelem"
 
 #: yali/storage/storageBackendHelpers.py:140
 #, python-format
@@ -2118,16 +2157,18 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"A következő partíciók nem kerülnek törlésre, mert használatban vannak:\n"
+"\n"
+"%s"
 
 #: yali/storage/storageBackendHelpers.py:154
 #: yali/storage/storageBackendHelpers.py:161
-#, fuzzy
 msgid "Unable To Delete"
-msgstr "Nem módosítható"
+msgstr "Nem törölhető"
 
 #: yali/storage/storageBackendHelpers.py:155
 msgid "You must first select a partition to delete."
-msgstr ""
+msgstr "Először válassza kia törlendő partíciót. "
 
 #: yali/storage/storageBackendHelpers.py:200
 #, python-format
@@ -2135,9 +2176,12 @@ msgid ""
 "The mount point %s is invalid.  Mount points must start with '/' and cannot "
 "end with '/', and must contain printable characters and no spaces."
 msgstr ""
+"A %s csatolási pont érvénytelen. A csatolási pontoknak '/'-rel kell "
+"kezdődniük, "
+"és sohasem végződhetnek '/'-el, csak nyomtatható karaktert tartalmazhat "
+"szóköz nélkül."
 
 #: yali/storage/storageBackendHelpers.py:209
-#, fuzzy
 msgid "Error with Partitioning"
 msgstr "Partícionálási hiba"
 
@@ -2145,19 +2189,23 @@ msgstr "Partícionálási hiba"
 #, python-format
 msgid ""
 "The following critical errors exist with your requested partitioning scheme. "
-"These errors must be corrected prior to continuing with your install of "
-"%(productName)s.\n"
+"These errors must be corrected prior to continuing with your install of %"
+"(productName)s.\n"
 "\n"
 "%(errorstr)s"
 msgstr ""
+"Az alábbi kritikus hibák léptek föl a partícionálási sémában. A "
+"%(productName)s telepítésének folytatásához ezeket a hibákat "
+"ki kell javítani. \n"
+"\n"
+"%(errorstr)s"
 
 #: yali/storage/storageBackendHelpers.py:226
-#, fuzzy
 msgid "Partitioning Warning"
-msgstr "Figyelmeztető üzenetek partícionáláskor"
+msgstr "Partícionálási figyelmeztetések"
 
 #: yali/storage/storageBackendHelpers.py:227
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "The following warnings exist with your requested partition scheme.\n"
 "\n"
@@ -2165,16 +2213,19 @@ msgid ""
 "\n"
 "Would you like to continue with your requested partitioning scheme?"
 msgstr ""
-"A választott partícionálási séma az alábbi figyelmeztetéseket\n"
-"generálta. Folytatni akarja?"
+"A kiválasztott partícionálási sémában a következő figyelmeztetések léptek "
+"fel.\n"
+"\n"
+"%s\n"
+"\n"
+"Kívánja folytatni így?"
 
 #: yali/storage/storageBackendHelpers.py:241
-#, fuzzy
 msgid ""
 "The following pre-existing partitions have been selected to be formatted, "
 "destroying all data."
 msgstr ""
-"Az alábbi eszközök lettek megjelölve formázásra,\n"
+"Az alábbi már létező partíciók lettek megjelölve formázásra,\n"
 "minden adat törlődni fog róluk."
 
 #: yali/storage/storageBackendHelpers.py:244
@@ -2182,9 +2233,11 @@ msgid ""
 "Select 'Yes' to continue and format these partitions, or 'No' to go back and "
 "change these settings."
 msgstr ""
+"Válassza az 'Igen'-t a partíciók formázásához, vagy a 'Nem'-et a "
+"visszalépéshez "
+"és a beállítások megváltoztatásához."
 
 #: yali/storage/storageBackendHelpers.py:250
-#, fuzzy
 msgid "Format Warning"
 msgstr "Formázási figyelmeztetés"
 
@@ -2195,36 +2248,37 @@ msgid ""
 "\n"
 "ALL logical volumes in this volume group will be lost!"
 msgstr ""
+"A \"%s\" VG-t készül törölni.\n"
+"\n"
+"A csoportban az összes logikai kötet el fog veszni!"
 
 #: yali/storage/storageBackendHelpers.py:281
-#, fuzzy, python-format
+#, python-format
 msgid "You are about to delete the logical volume \"%s\"."
 msgstr "Biztosan törli a \"%s\" logikai kötetet?"
 
 #: yali/storage/storageBackendHelpers.py:284
 msgid "You are about to delete a RAID device."
-msgstr ""
+msgstr "RAID eszközt készül törölni."
 
 #: yali/storage/storageBackendHelpers.py:286
 #, python-format
 msgid "You are about to delete the %s partition."
-msgstr ""
+msgstr "A %s partíciót készül törölni."
 
 #: yali/storage/storageBackendHelpers.py:290
 #, python-format
 msgid "You are about to delete the %(type)s %(name)s"
-msgstr ""
+msgstr "Törölni készül ezt: %(type)s %(name)s"
 
 #: yali/storage/storageBackendHelpers.py:300
-#, fuzzy
 msgid "Confirm Reset"
-msgstr "Törlés jóváhagyása"
+msgstr "Visszaállítás jóváhagyása"
 
 #: yali/storage/storageBackendHelpers.py:300
-#, fuzzy
 msgid ""
 "Are you sure you want to reset the partition table to its original state?"
-msgstr "Biztosan újraindítja a YALI telepítőt?"
+msgstr "Biztosan visszaállítja a partíciós táblát az eredeti állapotába?"
 
 #: yali/storage/storageBackendHelpers.py:308
 msgid ""
@@ -2236,16 +2290,19 @@ msgid ""
 "such as home directories, then continue without formatting this\n"
 "npartition."
 msgstr ""
+"Egy már létező partíciót választott a telepítéshez formázás nélkül.\n"
+"Javasoljuk, hogy formázza meg, így elkerülhető, hogy az előző operációs\n"
+"rendszer fájljai zavart okozzanak ezzel a linux telepítéssel.\n"
+"Azonban ha a partíció olyan fájlokat tartalmaz, amit meg kell őriznie, "
+"folytassa formázás nélkül."
 
 #: yali/storage/storageBackendHelpers.py:316
-#, fuzzy
 msgid "Format?"
-msgstr "Formázás"
+msgstr "Formázás?"
 
 #: yali/storage/storageBackendHelpers.py:317
-#, fuzzy
 msgid "Do Not Format"
-msgstr "Formázás"
+msgstr "Nincs formázás"
 
 #: yali/storage/storageBackendHelpers.py:324
 #, python-format
@@ -2254,11 +2311,12 @@ msgid ""
 "single drive.  To do this, select the drive in the 'Allowable Drives'\n"
 "checklist."
 msgstr ""
+"A '%s' típusú partíciók egyetlen meghajtóra korlátozódnak.\n"
+"Válasszon egyet a 'Megengedett meghajtók' listáról."
 
 #: yali/storage/storageset.py:162 yali/storage/storageset.py:174
-#, fuzzy
 msgid "Invalid mount point"
-msgstr "Érvénytelen xml fájl"
+msgstr "Érvénytelen csatolási pont"
 
 #: yali/storage/storageset.py:163
 #, python-format
@@ -2268,6 +2326,11 @@ msgid ""
 "\n"
 "Press <Enter> to exit the installer."
 msgstr ""
+"%s létrehozása közben hiba lépett fel. Az útvonal valamely eleme nem "
+"könyvtár. "
+"Ez súlyos hiba, a telepítés nem folytatható.\n"
+"\n"
+"Nyomja meg az <Enter> gombot a kilépéshez."
 
 #: yali/storage/storageset.py:175
 #, python-format
@@ -2277,10 +2340,14 @@ msgid ""
 "\n"
 "Press <Enter> to exit the installer."
 msgstr ""
+"Hiba lépett fel a %(mountpoint)s létrehozása közben: %(msg)s."
+"Ez súlyos hiba, a telepítés nem folytatható.\n"
+"\n"
+"Nyomja meg az <Enter> gombot a kilépéshez."
 
 #: yali/storage/storageset.py:190 yali/storage/storageset.py:213
 msgid "Unable to mount filesystem"
-msgstr ""
+msgstr "A fájlrendszer nem csatolható"
 
 #: yali/storage/storageset.py:191
 #, python-format
@@ -2288,6 +2355,9 @@ msgid ""
 "An error occurred mounting device %(path)s as %(mountpoint)s.  You may "
 "continue installation, but there may be problems."
 msgstr ""
+"Hiba lépett fel %(path)s eszköz %(mountpoint)s pontba csatolása közben. "
+"Folytathatja "
+"a telepítést, de problémák adódhatnak."
 
 #: yali/storage/storageset.py:214
 #, python-format
@@ -2297,15 +2367,19 @@ msgid ""
 "\n"
 "Press <Enter> to exit the installer."
 msgstr ""
+"Hiba lépett fel a %(path)s eszköz %(mountpoint)s pontba csatolása közben: "
+"%(msg)s."
+"Ez súlyos hiba, a telepítés nem folytatható.\n"
+"\n"
+"Nyomja meg az <Enter> gombot a kilépéshez."
 
 #: yali/storage/storageset.py:245
 msgid "Skip"
-msgstr ""
+msgstr "Kihagyás"
 
 #: yali/storage/storageset.py:245
-#, fuzzy
 msgid "_Exit"
-msgstr "Kilépés"
+msgstr "_Kilépés"
 
 #: yali/storage/storageset.py:277
 #, python-format
@@ -2317,6 +2391,12 @@ msgid ""
 "is an old-style Linux swap partition.  If you want to use this device for "
 "swap space, you must reformat as a new-style Linux swap partition."
 msgstr ""
+"A lapozóterület:\n"
+"\n"
+"      %s\n"
+"\n"
+"régi típusú linux lapozóterület. Ha ezt akarja használni, újra kell "
+"formáznia új típusú linux lapozóterületként."
 
 #: yali/storage/storageset.py:288
 #, python-format
@@ -2329,6 +2409,13 @@ msgid ""
 "which means your system is hibernating. If you are performing a new install, "
 "make sure the installer is set to format all swap devices."
 msgstr ""
+"A lapozóterület:\n"
+"\n"
+"      %s\n"
+"\n"
+"Jelenleg hibernálási területként van beállítva. Ha új telepítést végez, "
+"győződjön "
+"meg róla, hogy minden lapozóterületet formázásra állított be."
 
 #: yali/storage/storageset.py:301
 #, python-format
@@ -2340,6 +2427,12 @@ msgid ""
 "does not contain a supported swap volume.  In order to continue "
 "installation, you will need to format the device or skip it."
 msgstr ""
+"A lapozóterület:\n"
+"\n"
+"      %s\n"
+"\n"
+"Nem tartalmaz támogatott lapozó kötetet. A telepítés folytatásához "
+"vagy formáznia kell, vagy ki kell hagynia."
 
 #: yali/storage/storageset.py:312
 #, python-format
@@ -2350,71 +2443,76 @@ msgid ""
 "\n"
 "Press OK to exit the installer."
 msgstr ""
+"Lapozó eszköz %(name)s aktiválása közben hiba lépett fel: %(msg)s\n"
+"\n"
+"A lapozó eszköz nem lett inicializálva.\n"
+"\n"
+"Nyomja meg az OK gombot a kilépéshez."
 
 #: yali/storage/storageset.py:358
 msgid "You have not created a bootable partition."
-msgstr ""
+msgstr "Nem hozott létre rendszerindító partíciót."
 
 #: yali/storage/storageset.py:362
 msgid "Bootable partitions cannot be on a logical volume."
-msgstr ""
+msgstr "A rendszerindító partíció nem lehet logikai eszközön."
 
 #: yali/storage/storageset.py:369
 #, python-format
 msgid "Bootable partitions cannot be on an %s filesystem."
-msgstr ""
+msgstr "Rendszerindító partíció nem lehet %s fájlrendszeren."
 
 #: yali/storage/devices/filedevice.py:94
 #, python-format
 msgid "Creating file %s"
-msgstr ""
+msgstr "%s fájl létrehozása"
 
 #: yali/storage/devices/logicalvolume.py:217
 #: yali/storage/devices/partition.py:370 yali/storage/devices/raidarray.py:423
 #: yali/storage/devices/volumegroup.py:246
 #, python-format
 msgid "Creating device %s"
-msgstr ""
+msgstr "%s eszköz létrehozása"
 
 #: yali/storage/devices/raidarray.py:61
 #, python-format
 msgid "A RAID%(level)d set requires at least %(min_member)d member"
-msgstr ""
+msgstr "A RAID%(level)d készlet legalább %(min_member)d tagot igényel."
 
 #: yali/storage/library/lvm.py:265
 #, python-format
 msgid "vginfo failed for %s"
-msgstr ""
+msgstr "%s - vginfo nem sikerült"
 
 #: yali/storage/library/lvm.py:291
 #, python-format
 msgid "lvs failed for %s"
-msgstr ""
+msgstr "%s - lvs nem sikerült"
 
 #: yali/storage/formats/filesystem.py:229
 #, python-format
 msgid "Unknown return code: %d."
-msgstr ""
+msgstr "Ismeretlen visszatérési érték: %d"
 
 #: yali/storage/formats/filesystem.py:296
 #, python-format
 msgid "Creating %(type)s filesystem on %(device)s"
-msgstr ""
+msgstr "%(type)s fájlrendszer létrehozása %(device)s eszközön"
 
 #: yali/storage/formats/filesystem.py:346
-#, fuzzy, python-format
+#, python-format
 msgid "Resizing filesystem on %s"
-msgstr "Fájlrendszer átméretezési hiba"
+msgstr "Fájlrendszer átméretezése %s eszközön"
 
 #: yali/storage/formats/filesystem.py:376
 #, python-format
 msgid "Checking filesystem on %s"
-msgstr ""
+msgstr "Fájlrendszer ellenőrzése %s eszközön"
 
 #: yali/storage/formats/filesystem.py:388
 #, python-format
 msgid "%(type)s filesystem check failure on %(device)s: "
-msgstr ""
+msgstr "%(device)s eszközön %(type)s fájlrendszer ellenőrzési hiba: "
 
 #: yali/storage/formats/filesystem.py:392
 msgid ""
@@ -2423,36 +2521,41 @@ msgid ""
 " Restart\n"
 "installation after you have corrected the problems on the filesystem."
 msgstr ""
+"Az ilyen hibák rendszerint azt jelentik, hogy probléma van a\n"
+" fájlrendszerrel, ami felhasználói javítást igényel.\n"
+" Indítsa újra\n"
+"a telepítést a fájlrendszerhibák kijavítása után."
 
 #: yali/storage/formats/filesystem.py:688
 msgid "File system errors left uncorrected."
-msgstr ""
+msgstr "Kijavítatlan fájlrendszerhibák."
 
 #: yali/storage/formats/filesystem.py:689
 msgid "Operational error."
-msgstr ""
+msgstr "Működési hiba."
 
 #: yali/storage/formats/filesystem.py:690
 msgid "Usage or syntax error."
-msgstr ""
+msgstr "Felhasználási vagy szintaktikai hiba."
 
 #: yali/storage/formats/filesystem.py:691
 msgid "e2fsck cancelled by user request."
-msgstr ""
+msgstr "e2fsck felhasználó által megszakítva"
 
 #: yali/storage/formats/filesystem.py:692
 msgid "Shared library error."
-msgstr ""
+msgstr "Megosztott függvénykönyvtár hiba (library error)."
 
 #: yali/storage/formats/filesystem.py:836
 msgid ""
 "Recoverable errors have been detected or dosfsck has discovered an internal "
 "inconsistency."
 msgstr ""
+"Javítható hibát észleltünk, vagy a dosfsck belső inkonzisztenciát észlelt."
 
 #: yali/storage/formats/filesystem.py:838
 msgid "Usage error."
-msgstr ""
+msgstr "Felhasználási hiba."
 
 #: yali/localedata.py:20
 msgid "Turkish"
