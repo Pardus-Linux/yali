@@ -1916,25 +1916,24 @@ msgstr ""
 
 #: yali/storage/partitioning.py:1707
 msgid "The system will now reboot."
-msgstr ""
+msgstr "Сейчас система будет перезагружена."
 
 #: yali/storage/storageBackendHelpers.py:17
 msgid "Please enter a volume group name."
-msgstr ""
+msgstr "Пожалуйста, введите имя группы томов."
 
 #: yali/storage/storageBackendHelpers.py:21
-#, fuzzy
 msgid "Volume Group Names must be less than 128 characters"
-msgstr "Имя хоста не может быть длиннее 64 символов."
+msgstr "Имя группы томов не должно быть длиннее 128 символов."
 
 #: yali/storage/storageBackendHelpers.py:24
 #, python-format
 msgid "Error - the volume group name %s is not valid."
-msgstr ""
+msgstr "Ошибка - имя группы томов %s не правильное."
 
 #: yali/storage/storageBackendHelpers.py:29
 msgid "Error - the volume group name contains illegal characters or spaces.  Acceptable characters are letters, digits, '.' or '_'."
-msgstr ""
+msgstr "Ошибка - имя группы томов содержит недопустимые символы или пробелы. Допустимые символы - буквы, цифры, '.' или '_'."
 
 #: yali/storage/storageBackendHelpers.py:39
 #, fuzzy
