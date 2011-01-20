@@ -2267,23 +2267,23 @@ msgstr ""
 
 #: yali/storage/formats/filesystem.py:688
 msgid "File system errors left uncorrected."
-msgstr ""
+msgstr "Ошибки файловой системы остались неисправленными."
 
 #: yali/storage/formats/filesystem.py:689
 msgid "Operational error."
-msgstr ""
+msgstr "Оперативная ошибка."
 
 #: yali/storage/formats/filesystem.py:690
 msgid "Usage or syntax error."
-msgstr ""
+msgstr "Ошибка использования или синтаксиса."
 
 #: yali/storage/formats/filesystem.py:691
 msgid "e2fsck cancelled by user request."
-msgstr ""
+msgstr "e2fsck завершена пользователем."
 
 #: yali/storage/formats/filesystem.py:692
 msgid "Shared library error."
-msgstr ""
+msgstr "Ошибка общей библиотеки."
 
 #: yali/storage/formats/filesystem.py:836
 msgid "Recoverable errors have been detected or dosfsck has discovered an internal inconsistency."
@@ -2291,7 +2291,7 @@ msgstr ""
 
 #: yali/storage/formats/filesystem.py:838
 msgid "Usage error."
-msgstr ""
+msgstr "Ошибка использования."
 
 #: yali/localedata.py:20
 msgid "Turkish"
