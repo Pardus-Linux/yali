@@ -16,14 +16,14 @@ msgstr ""
 "Project-Id-Version: YALI-tr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-20 14:11+0200\n"
-"PO-Revision-Date: 2011-01-20 16:32+0200\n"
+"PO-Revision-Date: 2011-01-19 11:55+0200\n"
 "Last-Translator: Koray Löker <loker@pardus.org.tr>\n"
 "Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\n"
+"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 msgid "Choose Installation Method"
@@ -2314,19 +2314,19 @@ msgstr ""
 
 #: yali/storage/formats/filesystem.py:689
 msgid "Operational error."
-msgstr ""
+msgstr "İşlevsel hata."
 
 #: yali/storage/formats/filesystem.py:690
 msgid "Usage or syntax error."
-msgstr ""
+msgstr "Kullanım ya da söz dizimi hatası."
 
 #: yali/storage/formats/filesystem.py:691
 msgid "e2fsck cancelled by user request."
-msgstr ""
+msgstr "e2fsck kullanıcı tarafından iptal edildi."
 
 #: yali/storage/formats/filesystem.py:692
 msgid "Shared library error."
-msgstr ""
+msgstr "Paylaşımlı kütüphane hatası."
 
 #: yali/storage/formats/filesystem.py:836
 msgid "Recoverable errors have been detected or dosfsck has discovered an internal inconsistency."
