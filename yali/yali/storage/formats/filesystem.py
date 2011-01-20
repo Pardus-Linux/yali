@@ -293,7 +293,7 @@ class Filesystem(Format):
         argv = self._getFormatOptions(options=options)
         w = None
         if intf:
-            w = intf.progressWindow(_("Creating %(type)s filesystem on %(device)s") % {"type":self.type, "device:"self.device})
+            w = intf.progressWindow(_("Creating %(type)s filesystem on %(device)s") % {"type":self.type, "device":self.device})
 
         try:
             rc = yali.util.run_batch(self.mkfs, argv)[0]
