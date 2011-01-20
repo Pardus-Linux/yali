@@ -2167,6 +2167,9 @@ msgid ""
 "\n"
 "Press <Enter> to exit the installer."
 msgstr ""
+"Возникла ошибка при монтировании устройства %(path)s как %(mountpoint)s: %(msg)s. Это критическая ошибка и установка не может быть продолжена.\n"
+"\n"
+"Нажмите <Enter> для выхода из программы установки."
 
 #: yali/storage/storageset.py:245
 msgid "Skip"
