@@ -1835,7 +1835,7 @@ msgstr "Ваш %(mount)s раздел меньше чем %(size)s MB, что н
 msgid ""
 "You have not specified a swap partition. Due to the amount of memory\n"
 "present, a swap partition is required to complete installation."
-msgstr ""
+msgstr "Вы не задали раздел подкачки. В связи с представленным объемом оперативной памяти, раздел подкачки необходим для успешного завершения установки."
 
 #: yali/storage/__init__.py:808
 msgid ""
