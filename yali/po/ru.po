@@ -2223,6 +2223,11 @@ msgid ""
 "\n"
 "Press OK to exit the installer."
 msgstr ""
+"Ошибка включения устройства подкачки %(name)s: %(msg)s\n"
+"\n"
+"Это скорее всего означает, что это устройство подкачки не было инициализировано.\n"
+"\n"
+"Нажмите OK для выхода из программы установки."
 
 #: yali/storage/storageset.py:358
 msgid "You have not created a bootable partition."
