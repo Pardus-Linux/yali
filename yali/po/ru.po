@@ -2185,6 +2185,11 @@ msgid ""
 "\n"
 "is an old-style Linux swap partition.  If you want to use this device for swap space, you must reformat as a new-style Linux swap partition."
 msgstr ""
+"Устройство :\n"
+"\n"
+" %s\n"
+"\n"
+"является старым типом раздела подкачки Linux. Если вы хотите использовать это устройство как раздел подкачки, вы должна отформатировать его как новый тип раздела подкачки Linux."
 
 #: yali/storage/storageset.py:288
 #, python-format
