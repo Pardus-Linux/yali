@@ -2049,16 +2049,12 @@ msgstr ""
 ". Souhaitez-vous continuer avec ce schéma de partitionnement ?"
 
 #: yali/storage/storageBackendHelpers.py:241
-#, fuzzy
 msgid "The following pre-existing partitions have been selected to be formatted, destroying all data."
-msgstr ""
-"Les appareils suivants ont \n"
-"été choisis pour être formatés, détruisant\n"
-"toutes les données."
+msgstr "Les partitions préexistantes suivantes ont été sélectionnées pour être formatées, en détruisant toutes ses données."
 
 #: yali/storage/storageBackendHelpers.py:244
 msgid "Select 'Yes' to continue and format these partitions, or 'No' to go back and change these settings."
-msgstr ""
+msgstr "Sélectionnez 'Oui' pour continuer et formater ces partitions, ou 'Non' pour revenir en arrière et modifier ces paramètres."
 
 #: yali/storage/storageBackendHelpers.py:250
 msgid "Format Warning"
