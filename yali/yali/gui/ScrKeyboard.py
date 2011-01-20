@@ -77,6 +77,7 @@ class Widget(QWidget, ScreenWidget):
         yali.util.setKeymap(keymap["xkblayout"], keymap["xkbvariant"])
 
     def execute(self):
+        ctx.interface.informationWindow.hide()
         ctx.logger.debug("Selected keymap is : %s" % ctx.installData.keyData["name"])
         return True
 
