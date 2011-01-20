@@ -2060,12 +2060,12 @@ msgstr "Вы собираетесь удалить логический том \
 
 #: yali/storage/storageBackendHelpers.py:284
 msgid "You are about to delete a RAID device."
-msgstr ""
+msgstr "Вы собираетесь удалить RAID устройство."
 
 #: yali/storage/storageBackendHelpers.py:286
 #, python-format
 msgid "You are about to delete the %s partition."
-msgstr ""
+msgstr "Вы собираетесь удалить %s раздел."
 
 #: yali/storage/storageBackendHelpers.py:290
 #, python-format
