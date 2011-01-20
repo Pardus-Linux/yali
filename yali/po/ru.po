@@ -1848,9 +1848,9 @@ msgid "This mount point is invalid. The %s directory must be on the / file syste
 msgstr "Это точка монтирования не верна. Директория %s должна быть на файловой системе / ."
 
 #: yali/storage/__init__.py:817
-#, fuzzy, python-format
+#, python-format
 msgid "The mount point %s must be on a linux file system."
-msgstr "Точка монтирования \"%s\" уже используется. Пожалуйста, укажите другую."
+msgstr "Точка монтирования %s должна располагаться в файловой системе Linux."
 
 #: yali/storage/__init__.py:837
 msgid "No Drives Found"
@@ -1955,9 +1955,8 @@ msgid "Error - the logical volume name contains illegal characters or spaces.  A
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:67
-#, fuzzy
 msgid "Format as Swap?"
-msgstr ":"
+msgstr "Форматировать как раздел подкачки (swap)?"
 
 #: yali/storage/storageBackendHelpers.py:68
 #, python-format
@@ -1986,9 +1985,8 @@ msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:154
 #: yali/storage/storageBackendHelpers.py:161
-#, fuzzy
 msgid "Unable To Delete"
-msgstr "Редактирование невозможно"
+msgstr "Удаление не удалось"
 
 #: yali/storage/storageBackendHelpers.py:155
 msgid "You must first select a partition to delete."
@@ -2000,7 +1998,6 @@ msgid "The mount point %s is invalid.  Mount points must start with '/' and cann
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:209
-#, fuzzy
 msgid "Error with Partitioning"
 msgstr "Ошибка разметки"
 
@@ -2013,7 +2010,6 @@ msgid ""
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:226
-#, fuzzy
 msgid "Partitioning Warning"
 msgstr "Предупреждения разметки дисков"
 
@@ -2040,7 +2036,6 @@ msgid "Select 'Yes' to continue and format these partitions, or 'No' to go back 
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:250
-#, fuzzy
 msgid "Format Warning"
 msgstr "Предупреждения форматирования"
 
@@ -2053,11 +2048,9 @@ msgid ""
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:281
-#, fuzzy, python-format
+#, python-format
 msgid "You are about to delete the logical volume \"%s\"."
-msgstr ""
-"Вы действительно хотите удалить \n"
-"логический диск \"%s\"?"
+msgstr "Вы собираетесь удалить логический том \"%s\"."
 
 #: yali/storage/storageBackendHelpers.py:284
 msgid "You are about to delete a RAID device."
@@ -2074,14 +2067,12 @@ msgid "You are about to delete the %(type)s %(name)s"
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:300
-#, fuzzy
 msgid "Confirm Reset"
-msgstr "Подтвердить удаление"
+msgstr "Подтвердить сброс"
 
 #: yali/storage/storageBackendHelpers.py:300
-#, fuzzy
 msgid "Are you sure you want to reset the partition table to its original state?"
-msgstr "Вы уверены, что хотите перезапустить программу установки YALI сейчас?"
+msgstr "Вы действительно хотите сбросить таблицу разделов в исходное состояние?"
 
 #: yali/storage/storageBackendHelpers.py:308
 msgid ""
@@ -2095,14 +2086,12 @@ msgid ""
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:316
-#, fuzzy
 msgid "Format?"
-msgstr "Форматировать"
+msgstr "Форматировать?"
 
 #: yali/storage/storageBackendHelpers.py:317
-#, fuzzy
 msgid "Do Not Format"
-msgstr "Форматировать"
+msgstr "Не форматировать"
 
 #: yali/storage/storageBackendHelpers.py:324
 #, python-format
@@ -2113,9 +2102,8 @@ msgid ""
 msgstr ""
 
 #: yali/storage/storageset.py:162 yali/storage/storageset.py:174
-#, fuzzy
 msgid "Invalid mount point"
-msgstr "Неверный XML-файл"
+msgstr "Неверная точка монтирования"
 
 #: yali/storage/storageset.py:163
 #, python-format
@@ -2155,9 +2143,8 @@ msgid "Skip"
 msgstr ""
 
 #: yali/storage/storageset.py:245
-#, fuzzy
 msgid "_Exit"
-msgstr "Выход"
+msgstr "_Выход"
 
 #: yali/storage/storageset.py:277
 #, python-format
@@ -2250,9 +2237,9 @@ msgid "Creating %(type)s filesystem on %(device)s"
 msgstr ""
 
 #: yali/storage/formats/filesystem.py:346
-#, fuzzy, python-format
+#, python-format
 msgid "Resizing filesystem on %s"
-msgstr "Ошибка изменения размера в файловой системе"
+msgstr "Изменение размеров файловой системы на %s"
 
 #: yali/storage/formats/filesystem.py:376
 #, python-format
