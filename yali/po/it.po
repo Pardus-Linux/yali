@@ -2038,9 +2038,8 @@ msgid "Format?"
 msgstr "Formattare?"
 
 #: yali/storage/storageBackendHelpers.py:317
-#, fuzzy
 msgid "Do Not Format"
-msgstr "Formattare?"
+msgstr "Non Formattare"
 
 #: yali/storage/storageBackendHelpers.py:324
 #, python-format
@@ -2051,9 +2050,8 @@ msgid ""
 msgstr ""
 
 #: yali/storage/storageset.py:162 yali/storage/storageset.py:174
-#, fuzzy
 msgid "Invalid mount point"
-msgstr "xml file non valida"
+msgstr "Punto di montaggio invalido"
 
 #: yali/storage/storageset.py:163
 #, python-format
@@ -2090,12 +2088,11 @@ msgstr ""
 
 #: yali/storage/storageset.py:245
 msgid "Skip"
-msgstr ""
+msgstr "Salta"
 
 #: yali/storage/storageset.py:245
-#, fuzzy
 msgid "_Exit"
-msgstr "Uscita"
+msgstr "_Uscita"
 
 #: yali/storage/storageset.py:277
 #, python-format
