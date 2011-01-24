@@ -109,21 +109,20 @@ msgstr "Sprawdzanie nieudane"
 
 #: yali/gui/Ui/checkcdwidget.py:200 yali/gui/ScrCheckCD.py:62
 msgid "Validate"
-msgstr ""
+msgstr "Sprawdź"
 
 #: yali/gui/Ui/connectionlist.py:75
 msgid "To use PiSi History support, you may need to be online. You can use a connection profile from the list below:"
 msgstr ""
 
 #: yali/gui/Ui/connectionlist.py:77
-#, fuzzy
 msgid "Connect"
-msgstr "Sprawdzanie nieudane"
+msgstr "Połącz"
 
 #: yali/gui/Ui/createdevicewidget.py:134
 #, fuzzy
 msgid "Standard Partition"
-msgstr "Edytuj Partycję"
+msgstr "Partycja standardowa"
 
 #: yali/gui/Ui/createdevicewidget.py:135 yali/gui/ScrPartitionManual.py:153
 msgid "General purpose of partition creation"
@@ -174,7 +173,7 @@ msgstr ""
 
 #: yali/gui/Ui/datetimewidget.py:168
 msgid "Date"
-msgstr ""
+msgstr "Data"
 
 #: yali/gui/Ui/datetimewidget.py:169
 msgid "Time"
@@ -199,9 +198,8 @@ msgid "Reboot"
 msgstr "Restart"
 
 #: yali/gui/Ui/exception.py:65
-#, fuzzy
 msgid "Show Backtrace"
-msgstr "Log:"
+msgstr ""
 
 #: yali/gui/Ui/help.py:56
 msgid "help content"
@@ -212,12 +210,10 @@ msgid "Installing Package: "
 msgstr "Instaluję Pakiety: "
 
 #: yali/gui/Ui/keyboardwidget.py:128
-#, fuzzy
 msgid "Keyboard Layouts"
-msgstr "Host:"
+msgstr "Układ klawiatury"
 
 #: yali/gui/Ui/keyboardwidget.py:129
-#, fuzzy
 msgid "Test Layout"
 msgstr "Test wybranego układu:"
 
@@ -235,13 +231,11 @@ msgstr ""
 
 #: yali/gui/Ui/logicalvolume.py:140 yali/gui/Ui/partedit.py:164
 #: yali/gui/Ui/partitionedit.py:136
-#, fuzzy
 msgid "Use :"
-msgstr "Użytkownicy:"
+msgstr "Użyj:"
 
 #: yali/gui/Ui/logicalvolume.py:141 yali/gui/Ui/partedit.py:165
 #: yali/gui/Ui/partitionedit.py:137 yali/gui/Ui/partition.py:139
-#, fuzzy
 msgid "Size :"
 msgstr "Rozmiar (MB):"
 
@@ -254,31 +248,28 @@ msgstr ""
 
 #: yali/gui/Ui/logicalvolume.py:143 yali/gui/Ui/partition.py:141
 #: yali/gui/Ui/partresize.py:95
-#, fuzzy
 msgid "Resize"
 msgstr "Zmień Rozmiar"
 
 #: yali/gui/Ui/logicalvolume.py:145 yali/gui/Ui/partedit.py:169
 #: yali/gui/Ui/partitionedit.py:139 yali/gui/Ui/partition.py:145
-#, fuzzy
 msgid "File System :"
 msgstr "System Plików"
 
 #: yali/gui/Ui/logicalvolume.py:146 yali/gui/Ui/manualpartwidget.py:161
 #: yali/gui/Ui/partition.py:143 yali/gui/Ui/raid.py:108
 #: yali/gui/ScrPartitionManual.py:130 yali/storage/storageset.py:245
-#, fuzzy
 msgid "Format"
 msgstr "Formatować?"
 
 #: yali/gui/Ui/logicalvolume.py:147 yali/gui/Ui/partition.py:144
 #: yali/gui/Ui/raid.py:109
 msgid "Migrate"
-msgstr ""
+msgstr "Przenieś"
 
 #: yali/gui/Ui/main.py:245
 msgid "Yali"
-msgstr ""
+msgstr "Yali"
 
 #: yali/gui/Ui/main.py:246 yali/gui/YaliWindow.py:408
 msgid "Release Notes"
@@ -286,29 +277,28 @@ msgstr "Notki Wydania"
 
 #: yali/gui/Ui/main.py:247
 msgid "Previous Screen"
-msgstr ""
+msgstr "Poprzedni"
 
 #: yali/gui/Ui/main.py:248
 msgid "Back"
-msgstr ""
+msgstr "Powrót"
 
 #: yali/gui/Ui/main.py:249
 msgid "Next Screen"
-msgstr ""
+msgstr "Następny"
 
 #: yali/gui/Ui/main.py:250 yali/gui/ScrSummary.py:59
 #: yali/gui/ScrSummary.py:223 yali/gui/ScrSummary.py:230
 msgid "Next"
-msgstr ""
+msgstr "Następny"
 
 #: yali/gui/Ui/manualpartwidget.py:157
-#, fuzzy
 msgid "Device"
 msgstr "Urządzenie"
 
 #: yali/gui/Ui/manualpartwidget.py:158
 msgid "Mount Point"
-msgstr ""
+msgstr "Punkt montowania"
 
 #: yali/gui/Ui/manualpartwidget.py:159
 msgid "Label"
@@ -319,14 +309,12 @@ msgid "Type"
 msgstr ""
 
 #: yali/gui/Ui/manualpartwidget.py:162 yali/gui/Ui/volumegroup.py:116
-#, fuzzy
 msgid "Size"
 msgstr "Rozmiar (MB):"
 
 #: yali/gui/Ui/manualpartwidget.py:163
-#, fuzzy
 msgid "Create"
-msgstr "Utwórz Użytkownika"
+msgstr "Utwórz"
 
 #: yali/gui/Ui/manualpartwidget.py:164 yali/gui/Ui/setupuserswidget.py:499
 #: yali/gui/Ui/volumegroup.py:118
@@ -338,21 +326,19 @@ msgstr "Edytuj"
 #: yali/storage/storageBackendHelpers.py:92
 #: yali/storage/storageBackendHelpers.py:294
 msgid "Delete"
-msgstr ""
+msgstr "Usuń"
 
 #: yali/gui/Ui/manualpartwidget.py:166
 msgid "Reset"
 msgstr ""
 
 #: yali/gui/Ui/partedit.py:167
-#, fuzzy
 msgid "Format :"
-msgstr "Formatować?"
+msgstr "Formatuj:"
 
 #: yali/gui/Ui/partedit.py:168
-#, fuzzy
 msgid "Yes, format this partition"
-msgstr "Formatuj tą partycję"
+msgstr "Tak, sformatują tą partycję"
 
 #: yali/gui/Ui/partedit.py:170
 msgid "Delete Partition"
@@ -368,7 +354,7 @@ msgstr ""
 
 #: yali/gui/Ui/partedit.py:173
 msgid "Refresh Disks"
-msgstr ""
+msgstr "Odśwież dyski"
 
 #: yali/gui/Ui/partedit.py:174
 msgid "Reset All Changes"
@@ -379,18 +365,16 @@ msgid "Apply"
 msgstr "Zastosuj"
 
 #: yali/gui/Ui/partitionedit.py:140
-#, fuzzy
 msgid "Force to be primary partition"
-msgstr "Formatuj tą partycję"
+msgstr ""
 
 #: yali/gui/Ui/partition.py:138 yali/gui/Ui/raid.py:106
 msgid "Use:"
 msgstr ""
 
 #: yali/gui/Ui/partition.py:146
-#, fuzzy
 msgid "Force to be a primary partition"
-msgstr "Formatuj tą partycję"
+msgstr ""
 
 #: yali/gui/Ui/partitionshrink.py:64 yali/gui/Ui/partitionshrinkwidget.py:91
 msgid "Which partition would you like to shrink to make room for your installation?"
@@ -489,73 +473,63 @@ msgid "Reset Password"
 msgstr "Hasło:"
 
 #: yali/gui/Ui/rescuepisiwidget.py:73
-#, fuzzy
 msgid "<b>Connection status:</b>"
-msgstr "Sprawdzanie nieudane"
+msgstr "<b>Stan połączenia:</b>"
 
 #: yali/gui/Ui/rescuepisiwidget.py:74
 msgid "Offline"
-msgstr ""
+msgstr "Rozłączony"
 
 #: yali/gui/Ui/rescuepisiwidget.py:75
 msgid "To use PiSi's history feature, you may need to be online. Select connection profile."
 msgstr ""
 
 #: yali/gui/Ui/rescuepisiwidget.py:76
-#, fuzzy
 msgid "Select Connection"
-msgstr "Sprawdzanie nieudane"
+msgstr "Wybierz Połączenie"
 
 #: yali/gui/Ui/rescuepisiwidget.py:77
-#, fuzzy
 msgid "Select the operation to undo:"
-msgstr "Zainstaluj w partycji Pardusa"
+msgstr ""
 
 #: yali/gui/Ui/rescuewidget.py:92
 msgid "Choose what do you want to do to repair your system:"
 msgstr ""
 
 #: yali/gui/Ui/rescuewidget.py:93
-#, fuzzy
 msgid "Reinstall GRUB bootloader"
-msgstr "Nie instaluj menedżera rozruchu"
+msgstr "Przeinstaluj menedżer rozruchu (GRUB)"
 
 #: yali/gui/Ui/rescuewidget.py:94
 msgid "Return back to a previous system state"
 msgstr ""
 
 #: yali/gui/Ui/rescuewidget.py:95
-#, fuzzy
 msgid "Reset forgotten password"
-msgstr "Hasło:"
+msgstr "Zresetuj zapomniane hasło"
 
 #: yali/gui/Ui/rescuewidget.py:96 yali/gui/ScrGoodbye.py:53
 #: yali/gui/ScrRescueFinish.py:78 yali/gui/ScrSummary.py:46
 msgid "Restart"
-msgstr ""
+msgstr "Uruchom ponownie"
 
 #: yali/gui/Ui/rootpasswidget.py:129
-#, fuzzy
 msgid "Administrator password"
-msgstr "Hasło administratora systemu (ponownie):"
+msgstr "Hasło administratora systemu"
 
 #: yali/gui/Ui/rootpasswidget.py:130
-#, fuzzy
 msgid "Confirm password"
-msgstr "Hasło:"
+msgstr "Potwierdź hasło"
 
 #: yali/gui/Ui/rootpasswidget.py:131
-#, fuzzy
 msgid "Computer Name"
-msgstr "Login:"
+msgstr "Nazwa komputera"
 
 #: yali/gui/Ui/setupuserswidget.py:489
-#, fuzzy
 msgid "User Name"
-msgstr "Login:"
+msgstr "Nazwa użytkownika"
 
 #: yali/gui/Ui/setupuserswidget.py:490
-#, fuzzy
 msgid "Real Name"
 msgstr "Imię i Nazwisko:"
 
@@ -565,14 +539,12 @@ msgid "Password"
 msgstr "Hasło:"
 
 #: yali/gui/Ui/setupuserswidget.py:492
-#, fuzzy
 msgid "Confirm Password"
-msgstr "Hasło:"
+msgstr "Potwierdź hasło"
 
 #: yali/gui/Ui/setupuserswidget.py:493
-#, fuzzy
 msgid "Custom User ID"
-msgstr "Użytkownicy:"
+msgstr ""
 
 #: yali/gui/Ui/setupuserswidget.py:494
 msgid "Not recommended"
@@ -623,14 +595,12 @@ msgid "Physical Volumes to use:"
 msgstr ""
 
 #: yali/gui/Ui/volumegroup.py:112
-#, fuzzy
 msgid "Total Space:"
-msgstr "wolne miejsce"
+msgstr "Całkowita przestrzeń:"
 
 #: yali/gui/Ui/volumegroup.py:113
-#, fuzzy
 msgid "Free Space:"
-msgstr "wolne miejsce"
+msgstr "Wolne miejsce:"
 
 #: yali/gui/Ui/volumegroup.py:114
 msgid "Logical Volumes"
@@ -638,12 +608,11 @@ msgstr ""
 
 #: yali/gui/Ui/volumegroup.py:115
 msgid "Mountpoint"
-msgstr ""
+msgstr "Punkt montowania"
 
 #: yali/gui/Ui/volumegroup.py:120
-#, fuzzy
 msgid "Used Space:"
-msgstr "wolne miejsce"
+msgstr "Wykorzystany obszar:"
 
 #: yali/gui/Ui/welcome.py:85
 msgid ""
@@ -668,7 +637,6 @@ msgstr ""
 #: yali/gui/interface.py:66 yali/gui/raid_gui.py:118
 #: yali/gui/ScrDriveSelection.py:112 yali/storage/storageset.py:246
 #: yali/storage/storageset.py:318
-#, fuzzy
 msgid "Error"
 msgstr "Błąd!"
 
@@ -687,11 +655,11 @@ msgstr ""
 
 #: yali/gui/interface.py:75 yali/gui/interface.py:130
 msgid "Ignore"
-msgstr ""
+msgstr "Ignoruj"
 
 #: yali/gui/interface.py:75
 msgid "Ignore All"
-msgstr ""
+msgstr "Ignoruj wszystkie"
 
 #: yali/gui/interface.py:76 yali/gui/interface.py:131
 msgid "Re-initialize"
@@ -714,7 +682,7 @@ msgstr ""
 
 #: yali/gui/interface.py:130
 msgid "Ignore all"
-msgstr ""
+msgstr "Ignoruj wszystkie"
 
 #: yali/gui/interface.py:131
 msgid "Re-initialize all"
@@ -807,7 +775,7 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:460
 msgid "Too small"
-msgstr ""
+msgstr "Zbyt mały"
 
 #: yali/gui/lvm_gui.py:461
 msgid "This change in the value of the physical extent will waste substantial space on one or more of the physical volumes in the volume group."
@@ -820,7 +788,7 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:504
 msgid "No free slots"
-msgstr ""
+msgstr "Brak wolnych slotów"
 
 #: yali/gui/lvm_gui.py:505
 #, python-format
@@ -830,9 +798,8 @@ msgid ""
 msgstr ""
 
 #: yali/gui/lvm_gui.py:511
-#, fuzzy
 msgid "No free space"
-msgstr "wolne miejsce"
+msgstr "Brak wolnego miejsca"
 
 #: yali/gui/lvm_gui.py:512
 msgid ""
@@ -845,7 +812,7 @@ msgstr ""
 #: yali/gui/lvm_gui.py:548 yali/storage/storageBackendHelpers.py:88
 #: yali/storage/storageBackendHelpers.py:293
 msgid "Confirm Delete"
-msgstr ""
+msgstr "Potwierdź usunięcie"
 
 #: yali/gui/lvm_gui.py:549
 #, python-format
@@ -866,12 +833,12 @@ msgstr ""
 #: yali/gui/lvm_gui.py:613 yali/gui/partition_gui.py:65
 #: yali/gui/raid_gui.py:75
 msgid "Mount Point Error"
-msgstr ""
+msgstr "Błąd punktu montowania"
 
 #: yali/gui/lvm_gui.py:645 yali/gui/partition_gui.py:80
 #: yali/gui/raid_gui.py:90
 msgid "Mount point in use"
-msgstr ""
+msgstr "Punkt montowaniu w użyciu"
 
 #: yali/gui/lvm_gui.py:646 yali/gui/partition_gui.py:81
 #: yali/gui/raid_gui.py:91
@@ -894,7 +861,7 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:684
 msgid "Illegal size"
-msgstr ""
+msgstr "Niedozwolony rozmiar"
 
 #: yali/gui/lvm_gui.py:685
 msgid "The requested size as entered is not a valid number greater than 0."
@@ -953,7 +920,6 @@ msgid "Edit RAID Device"
 msgstr ""
 
 #: yali/gui/runner.py:110
-#, fuzzy
 msgid "Error!"
 msgstr "Błąd!"
 
@@ -967,50 +933,44 @@ msgstr ""
 
 #: yali/gui/runner.py:115
 msgid "Exit"
-msgstr ""
+msgstr "Wyjście"
 
 #: yali/gui/runner.py:115
 msgid "Retry"
-msgstr ""
+msgstr "Spróbuj ponownie"
 
 #: yali/gui/ScrAdmin.py:96 yali/gui/ScrDateTime.py:206
 msgid "Storage Devices initialising..."
 msgstr ""
 
 #: yali/gui/ScrAdmin.py:154 yali/gui/ScrRescuePassword.py:96
-#, fuzzy
 msgid "Password is too short."
-msgstr "<font color=\"#FF6D19\">Hasło jest zbyt krótkie!</font>"
+msgstr "Hasło jest za krótkie."
 
 #: yali/gui/ScrAdmin.py:162
-#, fuzzy
 msgid "Passwords do not match."
-msgstr "<font color=\"#FF6D19\">Hasła nie zgadzają się!</font>"
+msgstr "Hasła nie pasują."
 
 #: yali/gui/ScrAdmin.py:167
-#, fuzzy
 msgid "Do not use your username as your password."
-msgstr "<font color=\"#FF6D19\">Nie używaj Twojego imienia jako hasła.</font>"
+msgstr "Nie używaj nazwy użytkownika jako hasła."
 
 #: yali/gui/ScrAdmin.py:177
-#, fuzzy
 msgid "Hostname cannot be longer than 64 characters."
-msgstr "<font color=\"#FF6D19\">Nazwa użytkownika zawiera niedozwolone znaki!</font>"
+msgstr "Nazwa hosta nie może być dłuższy niż 64 znaki."
 
 #: yali/gui/ScrAdmin.py:190
-#, fuzzy
 msgid "Hostname contains invalid characters."
-msgstr "<font color=\"#FF6D19\">Nazwa użytkownika zawiera niedozwolone znaki!</font>"
+msgstr "Nazwa hosta zawiera nieprawidłowe znaki."
 
 #: yali/gui/ScrCheckCD.py:68
-#, fuzzy
 msgid "Starting validation..."
-msgstr "Formatuję!"
+msgstr "Uruchamianie sprawdzania ..."
 
 #: yali/gui/ScrCheckCD.py:87
 #, python-format
 msgid "Validating %s"
-msgstr ""
+msgstr "Sprawdzono %s"
 
 #: yali/gui/ScrCheckCD.py:95
 #, python-format
@@ -1019,21 +979,19 @@ msgstr ""
 
 #: yali/gui/ScrCheckCD.py:99
 msgid "Skip Validation"
-msgstr ""
+msgstr "Pomiń sprawdzanie"
 
 #: yali/gui/ScrCheckCD.py:99
 msgid "Skip Package"
-msgstr ""
+msgstr "Pomiń pakiet"
 
 #: yali/gui/ScrCheckCD.py:114
-#, fuzzy
 msgid "<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the installation.</b></font>"
-msgstr "<font color=\"#257216\">Sprawdzenie powiodło się. Możesz przejść dalej.</font>"
+msgstr "<font color=\"#FFF\"><b>Sprawdzenie powiodło się. Możesz przejść dalej.</b></font>"
 
 #: yali/gui/ScrDateTime.py:169
-#, fuzzy
 msgid "Adjusting time settings"
-msgstr "Host:"
+msgstr "Regulacja ustawień czasu"
 
 #: yali/gui/ScrDriveSelection.py:113
 msgid "You must select at least one drive to be used for installation."
@@ -1089,19 +1047,16 @@ msgid "Stopping to D-Bus..."
 msgstr "Formatuję!"
 
 #: yali/gui/ScrGoodbye.py:80
-#, fuzzy
 msgid "Setup bootloader..."
-msgstr "Nie instaluj menedżera rozruchu"
+msgstr "Konfiguracja menedżera rozruchu ..."
 
 #: yali/gui/ScrGoodbye.py:81
-#, fuzzy
 msgid "Writing bootloader..."
-msgstr "Nie instaluj menedżera rozruchu"
+msgstr "Zapisywanie menedżera rozruchu ..."
 
 #: yali/gui/ScrGoodbye.py:82
-#, fuzzy
 msgid "Installing bootloader..."
-msgstr "Nie instaluj menedżera rozruchu"
+msgstr "Instalowanie menedżera rozruchu ..."
 
 #: yali/gui/ScrGoodbye.py:85
 #, fuzzy
@@ -1110,7 +1065,7 @@ msgstr "Nie instaluj menedżera rozruchu"
 
 #: yali/gui/ScrGoodbye.py:88
 msgid "Adding users..."
-msgstr ""
+msgstr "Dodawanie użytkowników ..."
 
 #: yali/gui/ScrGoodbye.py:91
 #, fuzzy
@@ -1118,14 +1073,14 @@ msgid "Cleanup systems..."
 msgstr "Instalowanie Systemu"
 
 #: yali/gui/ScrInstall.py:160
-#, fuzzy, python-format
+#, python-format
 msgid "Installing <b>%(name)s</b> -- %(summary)s"
-msgstr "Instaluję: %s<br>%s"
+msgstr "Instaluję <b>%(name)s</b> -- %(summary)s"
 
 #: yali/gui/ScrInstall.py:169
-#, fuzzy, python-format
+#, python-format
 msgid "Configuring <b>%s</b>"
-msgstr "Konfiguruję pakiet: %s"
+msgstr "Konfiguruję <b>%s</b>"
 
 #: yali/gui/ScrInstall.py:195
 #, python-format
@@ -1139,17 +1094,15 @@ msgid "Do you want to retry?"
 msgstr ""
 
 #: yali/gui/ScrInstall.py:253
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "An error occured during the installation of packages.\n"
 "This may be caused by a corrupted installation medium error:\n"
 "%s\n"
 msgstr ""
-"Wystąpił błąd podczas instalacji paczek.\n"
-"\n"
-"Prawdopodobnie to błąd płyty CD Pardusa albo napędu.\n"
-"\n"
-"Błąd:\n"
+"Wystąpił błąd podczas instalacji pakietów.\n"
+" Prawdopodobnie to błąd płyty CD Pardusa albo napędu.\n"
+" Błąd:\n"
 "%s\n"
 
 #: yali/gui/ScrKahyaCheck.py:78 yali/gui/ScrRescue.py:49
@@ -1181,9 +1134,8 @@ msgid ""
 msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:101
-#, fuzzy
 msgid "Partitioning Errors"
-msgstr "Partycje:"
+msgstr "Błędy podczas partycjonowania"
 
 #: yali/gui/ScrPartitionManual.py:106
 msgid ""
@@ -1273,9 +1225,8 @@ msgstr "Rozszerzona"
 
 #: yali/gui/ScrPartitionManual.py:351 yali/storage/partitioning.py:1647
 #: yali/storage/partitioning.py:1678
-#, fuzzy
 msgid "Error Partitioning"
-msgstr "Stwórz Partycję"
+msgstr "Błąd partycjonowania"
 
 #: yali/gui/ScrPartitionManual.py:352
 #, python-format
@@ -1283,14 +1234,13 @@ msgid "Could not allocate requested partitions: %s."
 msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:356
-#, fuzzy
 msgid "Warning Partitioning"
-msgstr "Stwórz Partycję"
+msgstr "Uwagi podczas partycjonowania"
 
 #: yali/gui/ScrPartitionManual.py:357
-#, fuzzy, python-format
+#, python-format
 msgid "Warning: %s."
-msgstr "Uwaga"
+msgstr "Ostrzeżenie: %s."
 
 #: yali/gui/ScrPartitionManual.py:358
 #: yali/storage/storageBackendHelpers.py:317
@@ -1304,9 +1254,8 @@ msgid "Partition Selection Warning"
 msgstr "Partycje:"
 
 #: yali/gui/ScrPartitionManual.py:473
-#, fuzzy
 msgid "Please select free physical partition to create new device."
-msgstr "Musisz wybrać typ partycji z listy poniżej."
+msgstr ""
 
 #: yali/gui/ScrPartitionManual.py:483
 msgid "Unable To Edit"
@@ -1321,9 +1270,8 @@ msgid ""
 msgstr ""
 
 #: yali/gui/ScrRescueFinish.py:55
-#, fuzzy
 msgid "Installing Bootloader..."
-msgstr "Nie instaluj menedżera rozruchu"
+msgstr "Instalowanie menedżera rozruchu ..."
 
 #: yali/gui/ScrRescueFinish.py:58
 #, fuzzy
@@ -1331,9 +1279,8 @@ msgid "Taking back operation..."
 msgstr "Stwórz Nową Partycję"
 
 #: yali/gui/ScrRescueFinish.py:61
-#, fuzzy
 msgid "Running rescue operations..."
-msgstr "Stwórz Nową Partycję"
+msgstr ""
 
 #: yali/gui/ScrRescueFinish.py:78
 msgid "Press <b>Restart</b> to restart your system."
@@ -1345,9 +1292,8 @@ msgid "%s (Boot Disk)"
 msgstr ""
 
 #: yali/gui/ScrRescuePassword.py:39
-#, fuzzy
 msgid "Caps Lock is on."
-msgstr "<font color=\"#FF6D19\">Caps Lock jest włączony!</font>"
+msgstr "Caps Lock jest włączony."
 
 #: yali/gui/ScrRescuePassword.py:44 yali/gui/ScrRescuePisi.py:37
 #, fuzzy
@@ -1390,9 +1336,8 @@ msgid "Fetching history..."
 msgstr ""
 
 #: yali/gui/ScrRescuePisi.py:75
-#, fuzzy
 msgid "No connection available"
-msgstr "Sprawdzanie nieudane"
+msgstr "Brak dostępnych połączeń"
 
 #: yali/gui/ScrRescuePisi.py:116
 #, python-format
@@ -1405,69 +1350,63 @@ msgid "Connecting to network %s..."
 msgstr ""
 
 #: yali/gui/ScrRescuePisi.py:176 yali/gui/ScrRescuePisi.py:177
-#, fuzzy
 msgid "Connection failed"
-msgstr "Sprawdzanie nieudane"
+msgstr "Połączenie nieudane"
 
 #: yali/gui/ScrRescuePisi.py:180 yali/gui/ScrRescuePisi.py:181
 msgid "Connected"
-msgstr ""
+msgstr "Podłączony"
 
 #: yali/gui/ScrRescue.py:94
-#, fuzzy
 msgid "Mounting disk partition..."
-msgstr "Stwórz Nową Partycję"
+msgstr ""
 
 #: yali/gui/ScrRescue.py:106
 msgid "YALI could not locate a suitable disk partition on this computer."
 msgstr ""
 
 #: yali/gui/ScrRescue.py:123
-#, fuzzy
 msgid "Please select a disk partition from the list below:"
-msgstr "Musisz wybrać typ partycji z listy poniżej."
+msgstr ""
 
 #: yali/gui/ScrSummary.py:47
 msgid "<b><p>Are you sure you want to restart the computer?</p></b>"
 msgstr ""
 
 #: yali/gui/ScrSummary.py:68
-#, fuzzy, python-format
+#, python-format
 msgid "Installation starts in <b>%s</b> seconds"
-msgstr "Instaluję: %s<br>%s"
+msgstr "Instalacja rozpocznie się za <b>%s</b> sekundy"
 
 #: yali/gui/ScrSummary.py:76
-#, fuzzy
 msgid "Start Installation"
-msgstr "Stwórz Partycję"
+msgstr "Rozpocznij instalację"
 
 #: yali/gui/ScrSummary.py:78
-#, fuzzy
 msgid "Apply Settings"
-msgstr "Host:"
+msgstr "Akceptuj ustawienia"
 
 #: yali/gui/ScrSummary.py:97
-#, fuzzy
 msgid "Keyboard Settings"
-msgstr "Host:"
+msgstr "Ustawienia klawiatury"
 
 #: yali/gui/ScrSummary.py:99
-#, fuzzy, python-format
+#, python-format
 msgid "Selected keyboard layout is <b>%s</b>"
-msgstr "Wybierz układ klawiatury."
+msgstr "Wybrany układ klawiatury <b>%s</b>"
 
 #: yali/gui/ScrSummary.py:105
 msgid "Date/Time Settings"
-msgstr ""
+msgstr "Ustawienia Daty/Czasu"
 
 #: yali/gui/ScrSummary.py:107
 #, python-format
 msgid "Selected TimeZone is <b>%s</b>"
-msgstr ""
+msgstr "Wybrana strefa czasowa : <b>%s</b>"
 
 #: yali/gui/ScrSummary.py:113
 msgid "User Settings"
-msgstr ""
+msgstr "Ustawienia użytkownika"
 
 #: yali/gui/ScrSummary.py:115
 #, python-format
@@ -1548,14 +1487,13 @@ msgid "Auto installation selected."
 msgstr "Tak, automatycznie spartycjonuj i sformatuj wybrany dysk!"
 
 #: yali/gui/ScrSummary.py:180
-#, fuzzy, python-format
+#, python-format
 msgid "Manual Installation ( %s ) selected"
-msgstr "Stwórz Partycję"
+msgstr ""
 
 #: yali/gui/ScrSummary.py:184
-#, fuzzy
 msgid "Default Kernel selected"
-msgstr "Usuń wybranego użytkownika"
+msgstr ""
 
 #: yali/gui/ScrSummary.py:186
 msgid "PAE Kernel selected"
@@ -1711,9 +1649,8 @@ msgid "Style file doesn't exists"
 msgstr ""
 
 #: yali/gui/YaliWindow.py:130
-#, fuzzy
 msgid "Release file doesn't exists"
-msgstr "Notki Wydania"
+msgstr ""
 
 #: yali/gui/YaliWindow.py:138
 msgid "Turn Off Computer"
@@ -1736,9 +1673,8 @@ msgid "left"
 msgstr ""
 
 #: yali/gui/YaliWindow.py:181
-#, fuzzy
 msgid "Mouse Settings"
-msgstr "Host:"
+msgstr ""
 
 #: yali/gui/YaliWindow.py:182
 #, python-format
@@ -1767,9 +1703,8 @@ msgid "Terminal"
 msgstr ""
 
 #: yali/gui/YaliWindow.py:249
-#, fuzzy
 msgid "Tetris"
-msgstr "Turecki"
+msgstr ""
 
 #: yali/gui/YaliWindow.py:431
 msgid "Release notes could not be loaded."
@@ -1795,9 +1730,8 @@ msgid "Failed teardownAll in storage.complete with error:%s"
 msgstr ""
 
 #: yali/storage/__init__.py:58
-#, fuzzy
 msgid "Resizing Failed"
-msgstr "Sprawdzanie nieudane"
+msgstr ""
 
 #: yali/storage/__init__.py:59
 #, python-format
@@ -1805,9 +1739,8 @@ msgid "There was an error encountered while resizing the device %s."
 msgstr ""
 
 #: yali/storage/__init__.py:65
-#, fuzzy
 msgid "Migration Failed"
-msgstr "Sprawdzanie nieudane"
+msgstr ""
 
 #: yali/storage/__init__.py:66
 #, python-format
@@ -1828,9 +1761,8 @@ msgid "Failed in storage.complete with error:%s"
 msgstr ""
 
 #: yali/storage/__init__.py:241
-#, fuzzy
 msgid "This partition is holding the data for the hard drive install."
-msgstr "Zainstaluj w partycji Pardusa"
+msgstr ""
 
 #: yali/storage/__init__.py:244
 msgid "You cannot delete a partition of a LDL formatted DASD."
@@ -1922,9 +1854,8 @@ msgid ""
 msgstr ""
 
 #: yali/storage/partitioning.py:1668
-#, fuzzy
 msgid "Warnings During Automatic Partitioning"
-msgstr "Stwórz Partycję"
+msgstr ""
 
 #: yali/storage/partitioning.py:1669
 #, python-format
@@ -1949,9 +1880,8 @@ msgid ""
 msgstr ""
 
 #: yali/storage/partitioning.py:1698
-#, fuzzy
 msgid "Automatic Partitioning Errors"
-msgstr "Partycje:"
+msgstr ""
 
 #: yali/storage/partitioning.py:1699
 #, python-format
@@ -1976,9 +1906,8 @@ msgid "Please enter a volume group name."
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:21
-#, fuzzy
 msgid "Volume Group Names must be less than 128 characters"
-msgstr "<font color=\"#FF6D19\">Nazwa użytkownika zawiera niedozwolone znaki!</font>"
+msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:24
 #, python-format
@@ -1994,9 +1923,8 @@ msgid "Please enter a logical volume name."
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:43
-#, fuzzy
 msgid "Logical Volume Names must be less than 128 characters"
-msgstr "<font color=\"#FF6D19\">Nazwa użytkownika zawiera niedozwolone znaki!</font>"
+msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:47
 #, python-format
@@ -2008,9 +1936,8 @@ msgid "Error - the logical volume name contains illegal characters or spaces.  A
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:67
-#, fuzzy
 msgid "Format as Swap?"
-msgstr "Formatować?"
+msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:68
 #, python-format
@@ -2021,9 +1948,9 @@ msgid ""
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:89
-#, fuzzy, python-format
+#, python-format
 msgid "You are about to delete all partitions on the device '%s'."
-msgstr "Zamierzasz usunąć wszyskie partycje z urządzenia '%s'"
+msgstr "Zamierzasz usunąć wszyskie partycje z dysku '%s'"
 
 #: yali/storage/storageBackendHelpers.py:139
 msgid "Notice"
@@ -2043,9 +1970,8 @@ msgid "Unable To Delete"
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:155
-#, fuzzy
 msgid "You must first select a partition to delete."
-msgstr "Zamierzasz usunąć wszyskie partycje z urządzenia '%s'"
+msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:200
 #, python-format
@@ -2053,9 +1979,8 @@ msgid "The mount point %s is invalid.  Mount points must start with '/' and cann
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:209
-#, fuzzy
 msgid "Error with Partitioning"
-msgstr "Stwórz Partycję"
+msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:210
 #, python-format
@@ -2107,9 +2032,8 @@ msgid "You are about to delete the logical volume \"%s\"."
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:284
-#, fuzzy
 msgid "You are about to delete a RAID device."
-msgstr "Zamierzasz usunąć wszyskie partycje z urządzenia '%s'"
+msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:286
 #, fuzzy, python-format
@@ -2142,14 +2066,12 @@ msgid ""
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:316
-#, fuzzy
 msgid "Format?"
-msgstr "Formatować?"
+msgstr "Sformatować?"
 
 #: yali/storage/storageBackendHelpers.py:317
-#, fuzzy
 msgid "Do Not Format"
-msgstr "Formatować?"
+msgstr "Nie formatuj"
 
 #: yali/storage/storageBackendHelpers.py:324
 #, python-format
@@ -2509,9 +2431,8 @@ msgid "Preparing home directory for %s..."
 msgstr ""
 
 #: yali/util.py:380
-#, fuzzy
 msgid "YALI log file doesn't exists."
-msgstr "Notki Wydania"
+msgstr ""
 
 #: yali/util.py:382
 msgid "File paths are the same."
