@@ -530,7 +530,7 @@ msgstr "Подтвердить пароль"
 
 #: yali/gui/Ui/setupuserswidget.py:493
 msgid "Custom User ID"
-msgstr "Установить все языковые пакеты"
+msgstr "ID пользователя"
 
 #: yali/gui/Ui/setupuserswidget.py:494
 msgid "Not recommended"
