@@ -79,10 +79,8 @@ class Widget(QWidget, ScreenWidget):
 
         if ctx.installData.isKahyaUsed:
             self.startBombCounter()
+
         self.fillContent()
-        # FIXME Later
-        self.ui.installAllLangPacks.setChecked(True)
-        self.ui.installAllLangPacks.hide()
 
     def fillContent(self):
         subject = "<p><li><b>%s</b></li><ul>"
@@ -200,14 +198,12 @@ class Widget(QWidget, ScreenWidget):
             return False
 
         if ctx.flags.install_type == ctx.STEP_BASE or ctx.flags.install_type == ctx.STEP_DEFAULT:
-            ctx.installData.installAllLangPacks = self.ui.installAllLangPacks.isChecked()
-
             self.createPackageList()
 
             rc = ctx.interface.messageWindow(_("Confirm"),
                                         _("The partitioning options you have selected "
-                                          "will now be\nwritten to disk.  Any "
-                                          "data on deleted or reformatted partitions\n"
+                                          "will now be written to disk. Any "
+                                          "data on deleted or reformatted partitions "
                                           "will be lost."),
                                           type = "custom", customIcon="question",
                                           customButtons=[_("Write Changes to Disk"), _("Go Back")],

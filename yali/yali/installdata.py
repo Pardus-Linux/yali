@@ -24,4 +24,3 @@ class InstallData:
     repoAddr = None
     timezone = ""
     sessionLog = ""
-    installAllLangPacks = False

@@ -156,16 +156,6 @@ color:white
           </item>
          </layout>
         </item>
-        <item>
-         <widget class="QCheckBox" name="installAllLangPacks">
-          <property name="toolTip">
-           <string>When checked, YALI will install all of the officially supported language packages on your system.</string>
-          </property>
-          <property name="text">
-           <string>Install all language packages</string>
-          </property>
-         </widget>
-        </item>
        </layout>
       </item>
      </layout>
