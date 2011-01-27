@@ -100,7 +100,7 @@ class Dialog(QDialog):
         self.wlayout= QHBoxLayout()
 
         if icon:
-            self.setStyleSheet("""QDialog QLabel{ margin-left:40px;margin-right:10px}
+            self.setStyleSheet("""QDialog QLabel{ margin-left:16px;margin-right:10px}
                                   QDialog#dialog {background-image:url(':/images/%s.png');
                                                   background-repeat:no-repeat;
                                                   background-position: top left; padding-left:500px;} """ % icon)
@@ -184,6 +184,7 @@ class MessageWindow:
         elif customIcon == "info":
             icon = "info"
 
+        text = "<qt>%s</qt>" % text.replace("\n", " ")
         self.msgBox.setText(text)
         if detailed:
             self.msgBox.setDetailedText(unicode(longText))
