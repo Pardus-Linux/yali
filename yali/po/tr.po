@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\n"
+"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\\n\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 msgid "Choose Installation Method"
@@ -247,7 +247,7 @@ msgstr "Boyut :"
 #: yali/gui/Ui/partition.py:140 yali/gui/Ui/partition.py:142
 #: yali/gui/Ui/partitionshrinkwidget.py:93 yali/gui/Ui/partresize.py:93
 msgid " MB"
-msgstr " MB"
+msgstr "MB"
 
 #: yali/gui/Ui/logicalvolume.py:143 yali/gui/Ui/partition.py:141
 #: yali/gui/Ui/partresize.py:95
@@ -341,7 +341,7 @@ msgstr "Biçim:"
 
 #: yali/gui/Ui/partedit.py:168
 msgid "Yes, format this partition"
-msgstr "Evet, bu bölümü formatla"
+msgstr "Evet, bu disk bölümünü biçimlendir"
 
 #: yali/gui/Ui/partedit.py:170
 msgid "Delete Partition"
@@ -538,7 +538,7 @@ msgstr "Parolayı Tekrar Girin"
 
 #: yali/gui/Ui/setupuserswidget.py:493
 msgid "Custom User ID"
-msgstr "Kullanıcı ID'si belirle"
+msgstr "Kullanıcı ID numarasını elle belirle"
 
 #: yali/gui/Ui/setupuserswidget.py:494
 msgid "Not recommended"
