@@ -33,7 +33,8 @@ class Widget(QWidget, ScreenWidget):
 
         index = 0 # comboBox.addItem doesn't increase the currentIndex
         self.default_layout_index = None
-        for country, data in yali.localedata.locales.items():
+        locales = sorted([(country, data) for country, data in yali.localedata.locales.items()])
+        for country, data in locales:
             if data["xkbvariant"]:
                 i = 0
                 for variant in data["xkbvariant"]:
