@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\n"
+"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 msgid "Choose Installation Method"
@@ -546,7 +546,7 @@ msgstr "Önerilmez"
 
 #: yali/gui/Ui/setupuserswidget.py:495
 msgid "Bypass authorization attempts for this user"
-msgstr "Bu kullanıcı için yetkilendirme girişimini geç"
+msgstr "Bu kullanıcı parola sormadan giriş yapsın"
 
 #: yali/gui/Ui/setupuserswidget.py:496
 msgid "Add user to administrator (wheel) group"
