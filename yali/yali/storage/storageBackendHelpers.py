@@ -329,9 +329,9 @@ def questionInitializeDisk(intf, path, description, size, name):
     rc = intf.messageWindow(_("Storage Device Warning"),
                             _("<b>The storage device(%(size)d size of %(description)s on %(name)s) may contain data.</b>"
                               "<br><br>We could not detect partitions on this device."
-                              "<br><br>This could be because the device is <b>blank, unpartioned or virtual.</b>"
-                              " If not, there may be data on the device that can not be recovered"
-                              "if you use it this installation. We can remove the device from this"
+                              "<br><br>This could be because the device is <b>blank, unpartioned or virtual.</b> "
+                              "If not, there may be data on the device that can not be recovered "
+                              "if you use it this installation. We can remove the device from this "
                               "installation to protect data."
                               "<br><br>Are you sure this device does not contain valuable data?")
                               % {'size': size, 'description': description, 'name': name},
