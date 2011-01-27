@@ -569,6 +569,7 @@ class Filesystem(Format):
 
             if not filter(lambda d: os.access("%s/%s" % (d, prog), os.X_OK),
                           os.environ["PATH"].split(":")):
+                ctx.logger.debug("%s program not available in % format type" % (prog, self.type))
                 return False
 
         return True
@@ -975,11 +976,13 @@ register_device_format(XFilesystem)
 class NTFSFilesystem(Filesystem):
     """ ntfs filesystem. """
     _type = "ntfs-3g"
-    #_mkfs = "mkfs.ntfs"
+    _mkfs = "mkfs.ntfs"
     _resizefs = "ntfsresize"
     _fsck = "ntfsresize"
+    _supported = True
     _resizable = True
-    #_formattable = True
+    _formattable = True
+    _formatOptions = ["-Q"]
     _mountOptions = ["defaults", "ro"]
     _checkOptions = ["-c"]
     _infofs = "ntfsinfo"
