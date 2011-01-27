@@ -327,7 +327,7 @@ def doUIRAIDLVMChecks(format, req_disks, storage):
 
 def questionInitializeDisk(intf, path, description, size, name):
     rc = intf.messageWindow(_("Storage Device Warning"),
-                            _("<b>The storage device(%(size)d size of %(description)s on %(name)s) may contain data.</b>"
+                            _("<b>The storage device (%(size)d size of %(description)s on %(name)s) may contain data.</b>"
                               "<br><br>We could not detect partitions on this device."
                               "<br><br>This could be because the device is <b>blank, unpartioned or virtual.</b> "
                               "If not, there may be data on the device that can not be recovered "
@@ -338,7 +338,7 @@ def questionInitializeDisk(intf, path, description, size, name):
                               type="custom", customIcon="warning",
                               customButtons = [_("Yes, destroy data"), _("No, protect data")])
 
-    if rc == 0:
+    if not rc:
         return True
     else:
         return False
@@ -358,7 +358,7 @@ def questionReinitInconsistentLVM(intf, pv_names=None, lv_name=None, vg_name=Non
                             % {'msg': message, 'pvs': ", ".join(pv_names)},
                             type="custom", customIcon="warning",
                             customButtons = [_("Yes, re-initialize"), _("No, protect data")])
-    if rc == 0:
+    if not rc:
         return True
     else:
         return False
