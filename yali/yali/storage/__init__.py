@@ -30,8 +30,6 @@ def initialize(storage, intf):
     # does not mess with any mdraid sets
     open("/dev/.in_sysinit", "w")
     udev_trigger(subsystem="block", action="change")
-    intf.resetInitializeDisk()
-    intf.resetReinitInconsistentLVM()
     lvm.lvm_vg_blacklist = []
     storage.reset()
 

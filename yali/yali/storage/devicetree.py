@@ -10,6 +10,7 @@ _ = gettext.translation('yali', fallback=True).ugettext
 import yali
 import yali.context as ctx
 from yali.storage.udev import *
+from yali.storage.storageBackendHelpers import questionInitializeDisk, questionReinitInconsistentLVM, questionUnusedRaidMembers
 from yali.storage.operations import operation_type_from_string, operation_object_from_string, OperationDestroyDevice, OperationCreateDevice, OperationDestroyFormat, OperationCreateFormat
 from yali.storage.library import lvm
 from yali.storage.library import raid
@@ -1219,10 +1220,8 @@ class DeviceTree(object):
                 bypath = device.name
 
 
-            initcb = lambda: ctx.interface.questionInitializeDisk(bypath,
-                                                                  description,
-                                                                  device.size,
-                                                                  device.name)
+            initcb = lambda: questionInitializeDisk(ctx.interface, bypath, description,
+                                                    device.size, device.name)
 
         try:
             format = formats.getFormat("disklabel",
@@ -1554,9 +1553,7 @@ class DeviceTree(object):
                     paths.append(parent.path)
 
                 # if zeroMbr is true don't ask.
-                if (self.zeroMbr or
-                    ctx.interface.questionReinitInconsistentLVM(pv_names=paths,
-                                                                vg_name=device.name)):
+                if (self.zeroMbr or questionReinitInconsistentLVM(ctx.interface, pv_names=paths, vg_name=device.name)):
                     reinitializeVG(device)
                 else:
                     # The user chose not to reinitialize.
@@ -1584,7 +1581,7 @@ class DeviceTree(object):
             if container.kids == 0:
                 self.unusedRaidMembers.extend(map(lambda m: m.name, container.devices))
 
-        ctx.interface.unusedRaidMembers(self.unusedRaidMembers)
+        questionUnusedRaidMembers(ctx.interface, self.unusedRaidMembers)
 
     def getDependentDevices(self, dep):
         """Return list of devices that depend on.

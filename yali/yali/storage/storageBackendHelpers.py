@@ -325,3 +325,52 @@ def doUIRAIDLVMChecks(format, req_disks, storage):
                       "a\nsingle drive.  To do this, select the "
                       "drive in the 'Allowable Drives'\nchecklist.") % format.name)
 
+def questionInitializeDisk(intf, path, description, size, name):
+    rc = intf.messageWindow(_("Storage Device Warning"),
+                            _("<b>The storage device(%(size)d size of %(description)s on %(name)s) may contain data.</b>"
+                              "<br><br>We could not detect partitions on this device."
+                              "<br><br>This could be because the device is <b>blank, unpartioned or virtual.</b>"
+                              " If not, there may be data on the device that can not be recovered"
+                              "if you use it this installation. We can remove the device from this"
+                              "installation to protect data."
+                              "<br><br>Are you sure this device does not contain valuable data?")
+                              % {'size': size, 'description': description, 'name': name},
+                              type="custom", customIcon="warning",
+                              customButtons = [_("Yes, destroy data"), _("No, protect data")])
+
+    if rc == 0:
+        return True
+    else:
+        return False
+
+def questionReinitInconsistentLVM(intf, pv_names=None, lv_name=None, vg_name=None):
+    if vg_name is not None:
+        message = "Volume Group %s" % vg_name
+    elif lv_name is not None:
+        message = "Logical Volume %s" % lv_name
+
+    rc = self.messageWindow(_("Storage Device Warning"),
+                            _("There is inconsistent LVM data on %(msg)s. You can "
+                              "reinitialize all related PVs (%(pvs)s) which will erase "
+                              "the LVM metadata, or ignore which will preserve the"
+                              "contents.This action may also be applied to all other "
+                              "PVs with inconsistent metadata.")
+                            % {'msg': message, 'pvs': ", ".join(pv_names)},
+                            type="custom", customIcon="warning",
+                            customButtons = [_("Yes, re-initialize"), _("No, protect data")])
+    if rc == 0:
+        return True
+    else:
+        return False
+
+def questionUnusedRaidMembers(intf, unusedRaidMembers):
+    """Warn about unused BIOS RAID members"""
+    unusedRaidMembers = filter(lambda m: m not in intf.warnedUnusedRaidMembers, unusedRaidMembers)
+    if unusedRaidMembers:
+        intf.warnedUnusedRaidMembers.extend(unusedRaidMembers)
+        unusedRaidMembers.sort()
+        intf.messageWindow(_("Storage Device Warning"),
+                           _("Disk contains %(members_count)s BIOS RAID metadata, but is not part of "
+                             "any recognized BIOS RAID sets. Ignoring disk %(members)s.")
+                             % {"members_count":len(unusedRaidMembers), "members":", ".join(unusedRaidMembers)},
+                             customIcon="warning")
