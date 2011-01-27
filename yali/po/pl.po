@@ -2,19 +2,19 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: YALI-pl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-20 14:11+0200\n"
+"POT-Creation-Date: 2011-01-27 20:24+0200\n"
 "PO-Revision-Date: 2006-04-08 12:19+0900\n"
 "Last-Translator: Piotr Maliński <riklaunim@gmail.com>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
+"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pl\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 msgid "Choose Installation Method"
@@ -37,7 +37,9 @@ msgid "PAE Kernel"
 msgstr "Jądro PAE"
 
 #: yali/gui/Ui/autopartquestion.py:82
-msgid "There appears to be more than one resizeable partition. You can select a partition from the list below or YALI will select one for you."
+msgid ""
+"There appears to be more than one resizeable partition. You can select a "
+"partition from the list below or YALI will select one for you."
 msgstr ""
 
 #: yali/gui/Ui/autopartquestion.py:83 yali/gui/Ui/connectionlist.py:76
@@ -57,7 +59,7 @@ msgstr ""
 msgid "Use Selected"
 msgstr "Użyj wybranej"
 
-#: yali/gui/Ui/autopartwidget.py:140 yali/gui/ScrSummary.py:140
+#: yali/gui/Ui/autopartwidget.py:140 yali/gui/ScrSummary.py:138
 msgid "Use All Space"
 msgstr "Użyj całej przestrzeni dyskowej"
 
@@ -65,7 +67,7 @@ msgstr "Użyj całej przestrzeni dyskowej"
 msgid "Shrink Current System"
 msgstr "Zmniejsz obecny system"
 
-#: yali/gui/Ui/autopartwidget.py:142 yali/gui/ScrSummary.py:151
+#: yali/gui/Ui/autopartwidget.py:142 yali/gui/ScrSummary.py:149
 msgid "Use Free Space"
 msgstr "Użyj wolnego miejsca"
 
@@ -94,8 +96,13 @@ msgid "The first sector of"
 msgstr "Pierwszy sektor "
 
 #: yali/gui/Ui/checkcdwidget.py:197
-msgid "You can validate the integrity of the installation packages. Although this is an optional step, we highly recommend to do the validation in order to avoid any possible errors during the installation process."
-msgstr "Możesz sprawdzić spójność pakietów na płycie instalacyjnej. Mimo, że jest to opcjonalne, nalegamy aby to uczynić, by ominąć błędy podczas instalowania."
+msgid ""
+"You can validate the integrity of the installation packages. Although this "
+"is an optional step, we highly recommend to do the validation in order to "
+"avoid any possible errors during the installation process."
+msgstr ""
+"Możesz sprawdzić spójność pakietów na płycie instalacyjnej. Mimo, że jest to "
+"opcjonalne, nalegamy aby to uczynić, by ominąć błędy podczas instalowania."
 
 #: yali/gui/Ui/checkcdwidget.py:198
 msgid "Validation failed"
@@ -110,7 +117,9 @@ msgid "Validate"
 msgstr "Sprawdź"
 
 #: yali/gui/Ui/connectionlist.py:75
-msgid "To use PiSi History support, you may need to be online. You can use a connection profile from the list below:"
+msgid ""
+"To use PiSi History support, you may need to be online. You can use a "
+"connection profile from the list below:"
 msgstr ""
 
 #: yali/gui/Ui/connectionlist.py:77
@@ -182,11 +191,13 @@ msgid "Unhandled exception occured"
 msgstr ""
 
 #: yali/gui/Ui/exception.py:63
-msgid "Please fill a bug report at http://bugs.pardus.org.tr/ attaching the following backtrace."
+msgid ""
+"Please fill a bug report at http://bugs.pardus.org.tr/ attaching the "
+"following backtrace."
 msgstr ""
 
 #: yali/gui/Ui/exception.py:64 yali/gui/ScrCheckCD.py:99
-#: yali/storage/__init__.py:842
+#: yali/storage/__init__.py:840
 msgid "Reboot"
 msgstr "Restart"
 
@@ -211,7 +222,11 @@ msgid "Test Layout"
 msgstr "Test wybranego układu:"
 
 #: yali/gui/Ui/license.py:104
-msgid "Before installing Pardus on your computer, please read and accept the terms of free / open source licenses of the softwares included in this installation medium. <a href=\"#\"><span style=\" text-decoration: underline; color:#56a2c0;\">License texts</span></a>"
+msgid ""
+"Before installing Pardus on your computer, please read and accept the terms "
+"of free / open source licenses of the softwares included in this "
+"installation medium. <a href=\"#\"><span style=\" text-decoration: "
+"underline; color:#56a2c0;\">License texts</span></a>"
 msgstr ""
 
 #: yali/gui/Ui/license.py:105
@@ -281,7 +296,7 @@ msgid "Next Screen"
 msgstr "Następny"
 
 #: yali/gui/Ui/main.py:250 yali/gui/ScrSummary.py:59
-#: yali/gui/ScrSummary.py:223 yali/gui/ScrSummary.py:230
+#: yali/gui/ScrSummary.py:219 yali/gui/ScrSummary.py:226
 msgid "Next"
 msgstr "Następny"
 
@@ -370,7 +385,8 @@ msgid "Force to be a primary partition"
 msgstr ""
 
 #: yali/gui/Ui/partitionshrink.py:64 yali/gui/Ui/partitionshrinkwidget.py:91
-msgid "Which partition would you like to shrink to make room for your installation?"
+msgid ""
+"Which partition would you like to shrink to make room for your installation?"
 msgstr ""
 
 #: yali/gui/Ui/partitionshrink.py:65
@@ -385,8 +401,8 @@ msgstr "Zmniejsz rozmiar partycji do rozmiaru (w MB):"
 #: yali/gui/Ui/setupuserswidget.py:501 yali/gui/lvm_gui.py:420
 #: yali/gui/lvm_gui.py:467 yali/gui/lvm_gui.py:552
 #: yali/gui/ScrPartitionManual.py:114 yali/gui/ScrPartitionManual.py:130
-#: yali/gui/ScrPartitionManual.py:140 yali/gui/YaliDialog.py:222
-#: yali/storage/__init__.py:842 yali/storage/storageBackendHelpers.py:92
+#: yali/gui/ScrPartitionManual.py:140 yali/gui/YaliDialog.py:223
+#: yali/storage/__init__.py:840 yali/storage/storageBackendHelpers.py:92
 #: yali/storage/storageBackendHelpers.py:294
 msgid "Cancel"
 msgstr "Anuluj"
@@ -397,9 +413,12 @@ msgstr "Zmniejsz rozmiar"
 
 #: yali/gui/Ui/partresize.py:90
 msgid ""
-"Changes will be applied when you click \"Resize\". To cancel the changes, click <b>\"Cancel\".\n"
+"Changes will be applied when you click \"Resize\". To cancel the changes, "
+"click <b>\"Cancel\".\n"
 "<br><br>\n"
-"Warning: A resizing operation may corrupt the partition, rendering the data on it unreachable. Make sure that you have backed up the data. Note that this operation cannot be undone.<b>"
+"Warning: A resizing operation may corrupt the partition, rendering the data "
+"on it unreachable. Make sure that you have backed up the data. Note that "
+"this operation cannot be undone.<b>"
 msgstr ""
 
 #: yali/gui/Ui/raid.py:105
@@ -463,7 +482,9 @@ msgid "Offline"
 msgstr "Rozłączony"
 
 #: yali/gui/Ui/rescuepisiwidget.py:75
-msgid "To use PiSi's history feature, you may need to be online. Select connection profile."
+msgid ""
+"To use PiSi's history feature, you may need to be online. Select connection "
+"profile."
 msgstr ""
 
 #: yali/gui/Ui/rescuepisiwidget.py:76
@@ -552,14 +573,6 @@ msgstr "Dodaj"
 msgid "Advanced"
 msgstr "Zaawansowane"
 
-#: yali/gui/Ui/summarywidget.py:113
-msgid "When checked, YALI will install all of the officially supported language packages on your system."
-msgstr ""
-
-#: yali/gui/Ui/summarywidget.py:114
-msgid "Install all language packages"
-msgstr "Instaluję pakiety językowe."
-
 #: yali/gui/Ui/volumegroup.py:109
 msgid "Volume Group Name:"
 msgstr ""
@@ -596,74 +609,8 @@ msgstr "Wykorzystany obszar:"
 msgid ""
 "Pardus is installed and running successfully... \n"
 "\n"
-"Before you login to system, you need to create your first user and set the system wide configurations. "
-msgstr ""
-
-#: yali/gui/interface.py:41 yali/gui/interface.py:123
-#: yali/gui/ScrCheckCD.py:94 yali/gui/ScrInstall.py:194
-#: yali/gui/ScrPartitionAuto.py:44 yali/gui/ScrPartitionManual.py:138
-#: yali/gui/YaliWindow.py:212 yali/gui/YaliWindow.py:217
-#: yali/gui/YaliWindow.py:222
-msgid "Warning"
-msgstr "Uwaga"
-
-#: yali/gui/interface.py:42
-#, python-format
-msgid "Disk contains %(members_count)s BIOS RAID metadata, but is not part of any recognized BIOS RAID sets. Ignoring disk %(members)s."
-msgstr ""
-
-#: yali/gui/interface.py:66 yali/gui/raid_gui.py:118
-#: yali/gui/ScrDriveSelection.py:112 yali/storage/storageset.py:246
-#: yali/storage/storageset.py:318
-msgid "Error"
-msgstr "Błąd!"
-
-#: yali/gui/interface.py:67
-#, python-format
-msgid ""
-"Cannot access the partition table of %(description)s(%(name)s) -- %(size)-0.fMB\n"
-"\n"
-"If there already exists a partition table on this device, it will\n"
-" be re-initialized and your existing data will be lost!\n"
-"\n"
-"To re-initialize the current disk press Re-initialize.\n"
-"\n"
-"To re-initialize all disks with unaccessible partition tables press Re-initialize All"
-msgstr ""
-
-#: yali/gui/interface.py:75 yali/gui/interface.py:130
-msgid "Ignore"
-msgstr "Ignoruj"
-
-#: yali/gui/interface.py:75
-msgid "Ignore All"
-msgstr "Ignoruj wszystkie"
-
-#: yali/gui/interface.py:76 yali/gui/interface.py:131
-msgid "Re-initialize"
-msgstr ""
-
-#: yali/gui/interface.py:76
-msgid "Re-initialize All"
-msgstr ""
-
-#: yali/gui/interface.py:124
-#, python-format
-msgid ""
-"Error processing LVM.\n"
-"There is inconsistent LVM data on %(msg)s. You\n"
-"can reinitialize all related PVs (%(pvs)s) which will\n"
-"erase the LVM metadata, or ignore which will preserve the\n"
-"contents.  This action may also be applied to all other PVs with\n"
-"inconsistent metadata."
-msgstr ""
-
-#: yali/gui/interface.py:130
-msgid "Ignore all"
-msgstr "Ignoruj wszystkie"
-
-#: yali/gui/interface.py:131
-msgid "Re-initialize all"
+"Before you login to system, you need to create your first user and set the "
+"system wide configurations. "
 msgstr ""
 
 #: yali/gui/lvm_gui.py:48
@@ -748,7 +695,10 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:448
 #, python-format
-msgid "The physical extent size cannot be changed because the value selected (%(curpe)10.2f MB) is too large compared to the size of the smallest physical volume (%(maxpvsize)10.2f MB) in the volume group."
+msgid ""
+"The physical extent size cannot be changed because the value selected "
+"(%(curpe)10.2f MB) is too large compared to the size of the smallest "
+"physical volume (%(maxpvsize)10.2f MB) in the volume group."
 msgstr ""
 
 #: yali/gui/lvm_gui.py:460
@@ -756,12 +706,17 @@ msgid "Too small"
 msgstr "Zbyt mały"
 
 #: yali/gui/lvm_gui.py:461
-msgid "This change in the value of the physical extent will waste substantial space on one or more of the physical volumes in the volume group."
+msgid ""
+"This change in the value of the physical extent will waste substantial space "
+"on one or more of the physical volumes in the volume group."
 msgstr ""
 
 #: yali/gui/lvm_gui.py:483
 #, python-format
-msgid "The physical extent size cannot be changed because the resulting maximum logical volume size (%10.2f MB) is smaller than one or more of their currently defined logical volumes."
+msgid ""
+"The physical extent size cannot be changed because the resulting maximum "
+"logical volume size (%10.2f MB) is smaller than one or more of their "
+"currently defined logical volumes."
 msgstr ""
 
 #: yali/gui/lvm_gui.py:504
@@ -847,12 +802,20 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:698
 #, python-format
-msgid "The current requested size (%(size)10.2f MB) is larger than the maximum logical volume size (%(maxlv)10.2f MB). To increase this limit you can create more Physical Volumes from unpartitioned disk space and add them to this Volume Group."
+msgid ""
+"The current requested size (%(size)10.2f MB) is larger than the maximum "
+"logical volume size (%(maxlv)10.2f MB). To increase this limit you can "
+"create more Physical Volumes from unpartitioned disk space and add them to "
+"this Volume Group."
 msgstr ""
 
 #: yali/gui/lvm_gui.py:720
 #, python-format
-msgid "The size entered for this logical volume (%(size)d MB) combined with the size of the other logical volume(s) exceeds the size of the volume group (%(tmpvgsize)d MB). Please make the volume group larger or make the logical volume smaller."
+msgid ""
+"The size entered for this logical volume (%(size)d MB) combined with the "
+"size of the other logical volume(s) exceeds the size of the volume group "
+"(%(tmpvgsize)d MB). Please make the volume group larger or make the logical "
+"volume smaller."
 msgstr ""
 
 #: yali/gui/partition_gui.py:34
@@ -879,9 +842,11 @@ msgstr ""
 
 #: yali/gui/raid_gui.py:27
 msgid ""
-"At least two unused software RAID partitions are needed to create a RAID device.\n"
+"At least two unused software RAID partitions are needed to create a RAID "
+"device.\n"
 "\n"
-"First create at least two partitions of type \"software RAID\", and then select the \"RAID\" option again."
+"First create at least two partitions of type \"software RAID\", and then "
+"select the \"RAID\" option again."
 msgstr ""
 
 #: yali/gui/raid_gui.py:37
@@ -896,6 +861,11 @@ msgstr ""
 #: yali/gui/raid_gui.py:42
 msgid "Edit RAID Device"
 msgstr ""
+
+#: yali/gui/raid_gui.py:118 yali/gui/ScrDriveSelection.py:112
+#: yali/storage/storageset.py:246 yali/storage/storageset.py:318
+msgid "Error"
+msgstr "Błąd!"
 
 #: yali/gui/runner.py:110
 msgid "Error!"
@@ -950,9 +920,18 @@ msgstr "Uruchamianie sprawdzania ..."
 msgid "Validating %s"
 msgstr "Sprawdzono %s"
 
+#: yali/gui/ScrCheckCD.py:94 yali/gui/ScrInstall.py:194
+#: yali/gui/ScrPartitionAuto.py:44 yali/gui/ScrPartitionManual.py:138
+#: yali/gui/YaliWindow.py:212 yali/gui/YaliWindow.py:217
+#: yali/gui/YaliWindow.py:222
+msgid "Warning"
+msgstr "Uwaga"
+
 #: yali/gui/ScrCheckCD.py:95
 #, python-format
-msgid "Validation of %s package failed.Please remaster your installation medium andreboot."
+msgid ""
+"Validation of %s package failed.Please remaster your installation medium "
+"andreboot."
 msgstr ""
 
 #: yali/gui/ScrCheckCD.py:99
@@ -964,8 +943,12 @@ msgid "Skip Package"
 msgstr "Pomiń pakiet"
 
 #: yali/gui/ScrCheckCD.py:114
-msgid "<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the installation.</b></font>"
-msgstr "<font color=\"#FFF\"><b>Sprawdzenie powiodło się. Możesz przejść dalej.</b></font>"
+msgid ""
+"<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the "
+"installation.</b></font>"
+msgstr ""
+"<font color=\"#FFF\"><b>Sprawdzenie powiodło się. Możesz przejść dalej.</b></"
+"font>"
 
 #: yali/gui/ScrDateTime.py:169
 msgid "Adjusting time settings"
@@ -1083,7 +1066,7 @@ msgstr ""
 msgid "No storage device found."
 msgstr ""
 
-#: yali/gui/ScrKeyboard.py:72
+#: yali/gui/ScrKeyboard.py:73
 msgid "Use Alt-Shift to toggle between alternative keyboard layouts"
 msgstr ""
 
@@ -1124,7 +1107,7 @@ msgid "Partitioning Warnings"
 msgstr "Partycje:"
 
 #: yali/gui/ScrPartitionManual.py:114 yali/gui/ScrPartitionManual.py:140
-#: yali/gui/YaliDialog.py:220
+#: yali/gui/YaliDialog.py:221
 msgid "Ok"
 msgstr "Ok"
 
@@ -1360,150 +1343,164 @@ msgstr "Rozpocznij instalację"
 msgid "Apply Settings"
 msgstr "Akceptuj ustawienia"
 
-#: yali/gui/ScrSummary.py:97
+#: yali/gui/ScrSummary.py:95
 msgid "Keyboard Settings"
 msgstr "Ustawienia klawiatury"
 
-#: yali/gui/ScrSummary.py:99
+#: yali/gui/ScrSummary.py:97
 #, python-format
 msgid "Selected keyboard layout is <b>%s</b>"
 msgstr "Wybrany układ klawiatury <b>%s</b>"
 
-#: yali/gui/ScrSummary.py:105
+#: yali/gui/ScrSummary.py:103
 msgid "Date/Time Settings"
 msgstr "Ustawienia Daty/Czasu"
 
-#: yali/gui/ScrSummary.py:107
+#: yali/gui/ScrSummary.py:105
 #, python-format
 msgid "Selected TimeZone is <b>%s</b>"
 msgstr "Wybrana strefa czasowa : <b>%s</b>"
 
-#: yali/gui/ScrSummary.py:113
+#: yali/gui/ScrSummary.py:111
 msgid "User Settings"
 msgstr "Ustawienia użytkownika"
 
-#: yali/gui/ScrSummary.py:115
+#: yali/gui/ScrSummary.py:113
 #, python-format
 msgid "User %(username)s (<b>%(realname)s</b>) added."
 msgstr ""
 
-#: yali/gui/ScrSummary.py:117
+#: yali/gui/ScrSummary.py:115
 #, python-format
-msgid "User %(username)s (<b>%(realname)s</b>) added with <u>administrator privileges</u>."
+msgid ""
+"User %(username)s (<b>%(realname)s</b>) added with <u>administrator "
+"privileges</u>."
 msgstr ""
 
-#: yali/gui/ScrSummary.py:123
+#: yali/gui/ScrSummary.py:121
 #, fuzzy
 msgid "Hostname Settings"
 msgstr "Host:"
 
-#: yali/gui/ScrSummary.py:125
+#: yali/gui/ScrSummary.py:123
 #, python-format
 msgid "Hostname is set as <b>%s</b>"
 msgstr ""
 
-#: yali/gui/ScrSummary.py:131
+#: yali/gui/ScrSummary.py:129
 msgid "Partition Settings"
 msgstr "Ustawienia Patrtycji"
 
-#: yali/gui/ScrSummary.py:138
+#: yali/gui/ScrSummary.py:136
 msgid "Automatic Partitioning selected."
 msgstr "Wybrano automatyczne partycjonowanie."
 
-#: yali/gui/ScrSummary.py:141
+#: yali/gui/ScrSummary.py:139
 #, python-format
-msgid "Removes all partitions on the selected %s device(s). <b><u>This includes partitions created by other operating systems.</u></b>"
+msgid ""
+"Removes all partitions on the selected %s device(s). <b><u>This includes "
+"partitions created by other operating systems.</u></b>"
 msgstr ""
 
-#: yali/gui/ScrSummary.py:145
+#: yali/gui/ScrSummary.py:143
 msgid "Replace Existing Linux System(s)"
 msgstr "Zastąp zainstalowany system Linux"
 
-#: yali/gui/ScrSummary.py:146
+#: yali/gui/ScrSummary.py:144
 #, python-format
-msgid "Removes all Linux partitions on the selected%s device(s). This does not remove other partitions you may have on your storage device(s) (such as VFAT or FAT32)"
+msgid ""
+"Removes all Linux partitions on the selected%s device(s). This does not "
+"remove other partitions you may have on your storage device(s) (such as VFAT "
+"or FAT32)"
 msgstr ""
 
-#: yali/gui/ScrSummary.py:152
+#: yali/gui/ScrSummary.py:150
 #, python-format
-msgid "Retains your current data and partitions and uses only the unpartitioned space on the selected %s device(s), assuming you have enough free space available."
+msgid ""
+"Retains your current data and partitions and uses only the unpartitioned "
+"space on the selected %s device(s), assuming you have enough free space "
+"available."
 msgstr ""
 
-#: yali/gui/ScrSummary.py:158
+#: yali/gui/ScrSummary.py:156
 msgid "Manual Partitioning selected."
 msgstr "Wybrano ręczne partycjonowanie."
 
-#: yali/gui/ScrSummary.py:166
+#: yali/gui/ScrSummary.py:164
 msgid "Bootloader Settings"
 msgstr "Ustawienia programu rozruchowego"
 
-#: yali/gui/ScrSummary.py:167
+#: yali/gui/ScrSummary.py:165
 #, python-format
 msgid "GRUB will be installed to <b>%s</b>."
 msgstr "GRUB zostanie zainstalowany w <b>%s</b>."
 
-#: yali/gui/ScrSummary.py:169
+#: yali/gui/ScrSummary.py:167
 msgid "GRUB will not be installed."
 msgstr "GRUB nie zostać zainstalowany."
 
-#: yali/gui/ScrSummary.py:176
+#: yali/gui/ScrSummary.py:174
 #, fuzzy
 msgid "Package Installation Settings"
 msgstr "Partycje:"
 
-#: yali/gui/ScrSummary.py:178
+#: yali/gui/ScrSummary.py:176
 #, fuzzy
 msgid "Auto installation selected."
 msgstr "Tak, automatycznie spartycjonuj i sformatuj wybrany dysk!"
 
-#: yali/gui/ScrSummary.py:180
+#: yali/gui/ScrSummary.py:178
 #, python-format
 msgid "Manual Installation ( %s ) selected"
 msgstr ""
 
-#: yali/gui/ScrSummary.py:184
+#: yali/gui/ScrSummary.py:182
 msgid "Default Kernel selected"
 msgstr ""
 
-#: yali/gui/ScrSummary.py:186
+#: yali/gui/ScrSummary.py:184
 msgid "PAE Kernel selected"
 msgstr ""
 
-#: yali/gui/ScrSummary.py:207
+#: yali/gui/ScrSummary.py:203
 msgid "Confirm"
 msgstr "Potwierdź"
 
-#: yali/gui/ScrSummary.py:208
+#: yali/gui/ScrSummary.py:204
 msgid ""
-"The partitioning options you have selected will now be\n"
-"written to disk.  Any data on deleted or reformatted partitions\n"
-"will be lost."
+"The partitioning options you have selected will now be written to disk. Any "
+"data on deleted or reformatted partitions will be lost."
 msgstr ""
 
-#: yali/gui/ScrSummary.py:213
+#: yali/gui/ScrSummary.py:209
 msgid "Write Changes to Disk"
 msgstr ""
 
-#: yali/gui/ScrSummary.py:213
+#: yali/gui/ScrSummary.py:209
 msgid "Go Back"
 msgstr "Wróć"
 
-#: yali/gui/ScrSummary.py:306
+#: yali/gui/ScrSummary.py:302
 msgid "Proprietary Hardware Drivers"
 msgstr ""
 
-#: yali/gui/ScrSummary.py:307
-msgid "<qt>Proprietary drivers are available which may be required to utilize the full capabilities of your video card. These drivers are developed by the hardware manufacturer and not supported by Pardus developers since their source code is not publicly available.<br><br><b>Do you want to install and use these proprietary drivers instead of the default drivers?</b></qt>"
+#: yali/gui/ScrSummary.py:303
+msgid ""
+"<qt>Proprietary drivers are available which may be required to utilize the "
+"full capabilities of your video card. These drivers are developed by the "
+"hardware manufacturer and not supported by Pardus developers since their "
+"source code is not publicly available.<br><br><b>Do you want to install and "
+"use these proprietary drivers instead of the default drivers?</b></qt>"
 msgstr ""
 
-#: yali/gui/ScrSummary.py:316 yali/gui/YaliDialog.py:220
-#: yali/gui/YaliDialog.py:236 yali/gui/YaliDialog.py:263
+#: yali/gui/ScrSummary.py:312 yali/gui/YaliDialog.py:221
+#: yali/gui/YaliDialog.py:237 yali/gui/YaliDialog.py:264
 #: yali/storage/storageBackendHelpers.py:302
 msgid "Yes"
 msgstr ""
 
-#: yali/gui/ScrSummary.py:316 yali/gui/YaliDialog.py:222
-#: yali/gui/YaliDialog.py:237 yali/gui/YaliDialog.py:264
+#: yali/gui/ScrSummary.py:312 yali/gui/YaliDialog.py:223
+#: yali/gui/YaliDialog.py:238 yali/gui/YaliDialog.py:265
 #: yali/storage/storageBackendHelpers.py:302
 msgid "No"
 msgstr ""
@@ -1531,17 +1528,20 @@ msgstr "<font color=\"#FF6D19\">Hasło jest zbyt krótkie!</font>"
 #: yali/gui/ScrUsers.py:266
 #, fuzzy
 msgid "This user name is already taken, please choose another one."
-msgstr "<font color=\"#FF6D19\">Taki użytkownik już istnieje, zmień nazwę!</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Taki użytkownik już istnieje, zmień nazwę!</font>"
 
 #: yali/gui/ScrUsers.py:270
 #, fuzzy
 msgid "The user name contains invalid characters."
-msgstr "<font color=\"#FF6D19\">Nazwa użytkownika zawiera niedozwolone znaki!</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Nazwa użytkownika zawiera niedozwolone znaki!</font>"
 
 #: yali/gui/ScrUsers.py:273
 #, fuzzy
 msgid "The real name contains invalid characters."
-msgstr "<font color=\"#FF6D19\">Prawdziwa nazwa zawiera niedozwolone znaki!</font>"
+msgstr ""
+"<font color=\"#FF6D19\">Prawdziwa nazwa zawiera niedozwolone znaki!</font>"
 
 #: yali/gui/ScrUsers.py:281
 msgid "User ID used before, choose another one!"
@@ -1578,35 +1578,35 @@ msgid ""
 "hold the currently defined logical volumes."
 msgstr ""
 
-#: yali/gui/YaliDialog.py:242
+#: yali/gui/YaliDialog.py:243
 msgid "Don't ask again"
 msgstr ""
 
-#: yali/gui/YaliDialog.py:247
+#: yali/gui/YaliDialog.py:248
 msgid "Do you want to continue?"
 msgstr ""
 
-#: yali/gui/YaliDialog.py:262
+#: yali/gui/YaliDialog.py:263
 msgid "Eject Disc"
 msgstr "Wyjmij płytę"
 
-#: yali/gui/YaliDialog.py:288 yali/gui/YaliDialog.py:305
+#: yali/gui/YaliDialog.py:289 yali/gui/YaliDialog.py:306
 msgid "OK"
 msgstr "OK"
 
-#: yali/gui/YaliDialog.py:289
+#: yali/gui/YaliDialog.py:290
 msgid "Please insert a new disc and then click OK"
 msgstr ""
 
-#: yali/gui/YaliDialog.py:291
+#: yali/gui/YaliDialog.py:292
 msgid "Insert New Disc"
 msgstr "Włóż nową płytę"
 
-#: yali/gui/YaliDialog.py:303
+#: yali/gui/YaliDialog.py:304
 msgid "Information"
 msgstr "Informacje"
 
-#: yali/gui/YaliDialog.py:496
+#: yali/gui/YaliDialog.py:497
 msgid "Error reporting"
 msgstr ""
 
@@ -1690,127 +1690,133 @@ msgstr "%s"
 msgid "Windows"
 msgstr "Windows"
 
-#: yali/storage/devicetree.py:1570
+#: yali/storage/devicetree.py:1567
 msgid "This partition is part of an inconsistent LVM Volume Group."
 msgstr ""
 
-#: yali/storage/__init__.py:49
+#: yali/storage/__init__.py:47
 #, python-format
 msgid "Failed teardownAll in storage.complete with error:%s"
 msgstr ""
 
-#: yali/storage/__init__.py:58
+#: yali/storage/__init__.py:56
 msgid "Resizing Failed"
 msgstr "Zmiana rozmiaru nie powiodła się"
 
-#: yali/storage/__init__.py:59
+#: yali/storage/__init__.py:57
 #, python-format
 msgid "There was an error encountered while resizing the device %s."
 msgstr ""
 
-#: yali/storage/__init__.py:65
+#: yali/storage/__init__.py:63
 msgid "Migration Failed"
 msgstr ""
 
-#: yali/storage/__init__.py:66
+#: yali/storage/__init__.py:64
 #, python-format
 msgid "An error was encountered while migrating filesystem on device %s."
 msgstr ""
 
-#: yali/storage/__init__.py:77
+#: yali/storage/__init__.py:75
 msgid "File Bug"
 msgstr ""
 
-#: yali/storage/__init__.py:77 yali/storage/storageset.py:198
+#: yali/storage/__init__.py:75 yali/storage/storageset.py:198
 msgid "Exit installer"
 msgstr ""
 
-#: yali/storage/__init__.py:80
+#: yali/storage/__init__.py:78
 #, python-format
 msgid "Failed in storage.complete with error:%s"
 msgstr ""
 
-#: yali/storage/__init__.py:241
+#: yali/storage/__init__.py:239
 msgid "This partition is holding the data for the hard drive install."
 msgstr ""
 
-#: yali/storage/__init__.py:244
+#: yali/storage/__init__.py:242
 msgid "You cannot delete a partition of a LDL formatted DASD."
 msgstr ""
 
-#: yali/storage/__init__.py:250
+#: yali/storage/__init__.py:248
 #, python-format
-msgid "This device is part of the RAID device %s, you have to edit or remove the raid partition appropriately!"
+msgid ""
+"This device is part of the RAID device %s, you have to edit or remove the "
+"raid partition appropriately!"
 msgstr ""
 
-#: yali/storage/__init__.py:255
+#: yali/storage/__init__.py:253
 msgid "This device is part of a RAID device."
 msgstr ""
 
-#: yali/storage/__init__.py:260
+#: yali/storage/__init__.py:258
 #, python-format
 msgid "This device is part of the LVM volume group '%s'."
 msgstr ""
 
-#: yali/storage/__init__.py:263
+#: yali/storage/__init__.py:261
 msgid "This device is part of a LVM volume group."
 msgstr ""
 
-#: yali/storage/__init__.py:272
+#: yali/storage/__init__.py:270
 msgid ""
-"This device is an extended partition which contains logical partitions that cannot be deleted:\n"
+"This device is an extended partition which contains logical partitions that "
+"cannot be deleted:\n"
 "\n"
 msgstr ""
 
-#: yali/storage/__init__.py:781
+#: yali/storage/__init__.py:779
 #, python-format
 msgid ""
-"You have not defined a root partition (/),which is required for installation\n"
+"You have not defined a root partition (/),which is required for "
+"installation\n"
 "of %s to continue."
 msgstr ""
 
-#: yali/storage/__init__.py:790
+#: yali/storage/__init__.py:788
 #, python-format
 msgid ""
 "Your / partition is less than %(min)s MB which is lower than\n"
 "recommended for a normal %(productName)s install."
 msgstr ""
 
-#: yali/storage/__init__.py:796
+#: yali/storage/__init__.py:794
 #, python-format
 msgid ""
-"Your %(mount)s partition is less than %(size)s megabytes which is lower than\n"
+"Your %(mount)s partition is less than %(size)s megabytes which is lower "
+"than\n"
 "recommended for a normal %(productName)s install."
 msgstr ""
 
-#: yali/storage/__init__.py:805
+#: yali/storage/__init__.py:803
 msgid ""
 "You have not specified a swap partition. Due to the amount of memory\n"
 "present, a swap partition is required to complete installation."
 msgstr ""
 
-#: yali/storage/__init__.py:808
+#: yali/storage/__init__.py:806
 msgid ""
 "You have not specified a swap partition. Although not strictly\n"
 "required in all cases, it will significantly improve performance\n"
 "for most installations."
 msgstr ""
 
-#: yali/storage/__init__.py:814
+#: yali/storage/__init__.py:812
 #, python-format
-msgid "This mount point is invalid. The %s directory must be on the / file system."
+msgid ""
+"This mount point is invalid. The %s directory must be on the / file system."
 msgstr ""
 
-#: yali/storage/__init__.py:817
+#: yali/storage/__init__.py:815
 #, python-format
 msgid "The mount point %s must be on a linux file system."
 msgstr ""
 
-#: yali/storage/__init__.py:837
+#: yali/storage/__init__.py:835
 msgid "No Drives Found"
 msgstr "Nie znaleziono sterówników"
 
-#: yali/storage/__init__.py:838
+#: yali/storage/__init__.py:836
 msgid ""
 "An error has occurred - no valid devices were found on\n"
 "which to create new file systems. Please check your\n"
@@ -1860,7 +1866,8 @@ msgid ""
 "\n"
 "%(errortxt)s\n"
 "\n"
-"This can happen if there is not enough space on your hard drive(s) for the installation. %(extra)s"
+"This can happen if there is not enough space on your hard drive(s) for the "
+"installation. %(extra)s"
 msgstr ""
 
 #: yali/storage/partitioning.py:1706 yali/storage/formats/filesystem.py:398
@@ -1885,7 +1892,9 @@ msgid "Error - the volume group name %s is not valid."
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:29
-msgid "Error - the volume group name contains illegal characters or spaces.  Acceptable characters are letters, digits, '.' or '_'."
+msgid ""
+"Error - the volume group name contains illegal characters or spaces.  "
+"Acceptable characters are letters, digits, '.' or '_'."
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:39
@@ -1902,7 +1911,9 @@ msgid "Error - the logical volume name %s is not valid."
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:53
-msgid "Error - the logical volume name contains illegal characters or spaces.  Acceptable characters are letters, digits, '.' or '_'."
+msgid ""
+"Error - the logical volume name contains illegal characters or spaces.  "
+"Acceptable characters are letters, digits, '.' or '_'."
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:67
@@ -1912,7 +1923,8 @@ msgstr ""
 #: yali/storage/storageBackendHelpers.py:68
 #, python-format
 msgid ""
-"%s has a partition type of 0x82 (Linux swap) but does not appear to be formatted as a Linux swap partition.\n"
+"%s has a partition type of 0x82 (Linux swap) but does not appear to be "
+"formatted as a Linux swap partition.\n"
 "\n"
 "Would you like to format this partition as a swap partition?"
 msgstr ""
@@ -1945,7 +1957,9 @@ msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:200
 #, python-format
-msgid "The mount point %s is invalid.  Mount points must start with '/' and cannot end with '/', and must contain printable characters and no spaces."
+msgid ""
+"The mount point %s is invalid.  Mount points must start with '/' and cannot "
+"end with '/', and must contain printable characters and no spaces."
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:209
@@ -1955,7 +1969,9 @@ msgstr ""
 #: yali/storage/storageBackendHelpers.py:210
 #, python-format
 msgid ""
-"The following critical errors exist with your requested partitioning scheme. These errors must be corrected prior to continuing with your install of %(productName)s.\n"
+"The following critical errors exist with your requested partitioning scheme. "
+"These errors must be corrected prior to continuing with your install of "
+"%(productName)s.\n"
 "\n"
 "%(errorstr)s"
 msgstr ""
@@ -1976,11 +1992,15 @@ msgid ""
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:241
-msgid "The following pre-existing partitions have been selected to be formatted, destroying all data."
+msgid ""
+"The following pre-existing partitions have been selected to be formatted, "
+"destroying all data."
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:244
-msgid "Select 'Yes' to continue and format these partitions, or 'No' to go back and change these settings."
+msgid ""
+"Select 'Yes' to continue and format these partitions, or 'No' to go back and "
+"change these settings."
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:250
@@ -2021,7 +2041,8 @@ msgid "Confirm Reset"
 msgstr "Hasło:"
 
 #: yali/storage/storageBackendHelpers.py:300
-msgid "Are you sure you want to reset the partition table to its original state?"
+msgid ""
+"Are you sure you want to reset the partition table to its original state?"
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:308
@@ -2051,6 +2072,54 @@ msgid ""
 "checklist."
 msgstr ""
 
+#: yali/storage/storageBackendHelpers.py:329
+#: yali/storage/storageBackendHelpers.py:352
+#: yali/storage/storageBackendHelpers.py:372
+#, fuzzy
+msgid "Storage Device Warning"
+msgstr "Formatuję!"
+
+#: yali/storage/storageBackendHelpers.py:330
+#, python-format
+msgid ""
+"<b>The storage device (%(size)d size of %(description)s on %(name)s) may "
+"contain data.</b><br><br>We could not detect partitions on this device."
+"<br><br>This could be because the device is <b>blank, unpartioned or virtual."
+"</b> If not, there may be data on the device that can not be recovered if "
+"you use it this installation. We can remove the device from this "
+"installation to protect data.<br><br>Are you sure this device does not "
+"contain valuable data?"
+msgstr ""
+
+#: yali/storage/storageBackendHelpers.py:339
+msgid "Yes, destroy data"
+msgstr ""
+
+#: yali/storage/storageBackendHelpers.py:339
+#: yali/storage/storageBackendHelpers.py:360
+msgid "No, protect data"
+msgstr ""
+
+#: yali/storage/storageBackendHelpers.py:353
+#, python-format
+msgid ""
+"There is inconsistent LVM data on %(msg)s. You can reinitialize all related "
+"PVs (%(pvs)s) which will erase the LVM metadata, or ignore which will "
+"preserve thecontents.This action may also be applied to all other PVs with "
+"inconsistent metadata."
+msgstr ""
+
+#: yali/storage/storageBackendHelpers.py:360
+msgid "Yes, re-initialize"
+msgstr ""
+
+#: yali/storage/storageBackendHelpers.py:373
+#, python-format
+msgid ""
+"Disk contains %(members_count)s BIOS RAID metadata, but is not part of any "
+"recognized BIOS RAID sets. Ignoring disk %(members)s."
+msgstr ""
+
 #: yali/storage/storageset.py:162 yali/storage/storageset.py:174
 msgid "Invalid mount point"
 msgstr ""
@@ -2058,7 +2127,8 @@ msgstr ""
 #: yali/storage/storageset.py:163
 #, python-format
 msgid ""
-"An error occurred when trying to create %s.  Some element of this path is not a directory. This is a fatal error and the install cannot continue.\n"
+"An error occurred when trying to create %s.  Some element of this path is "
+"not a directory. This is a fatal error and the install cannot continue.\n"
 "\n"
 "Press <Enter> to exit the installer."
 msgstr ""
@@ -2066,7 +2136,8 @@ msgstr ""
 #: yali/storage/storageset.py:175
 #, python-format
 msgid ""
-"An error occurred when trying to create %(mountpoint)s: %(msg)s.  This is a fatal error and the install cannot continue.\n"
+"An error occurred when trying to create %(mountpoint)s: %(msg)s.  This is a "
+"fatal error and the install cannot continue.\n"
 "\n"
 "Press <Enter> to exit the installer."
 msgstr ""
@@ -2077,13 +2148,16 @@ msgstr ""
 
 #: yali/storage/storageset.py:191
 #, python-format
-msgid "An error occurred mounting device %(path)s as %(mountpoint)s.  You may continue installation, but there may be problems."
+msgid ""
+"An error occurred mounting device %(path)s as %(mountpoint)s.  You may "
+"continue installation, but there may be problems."
 msgstr ""
 
 #: yali/storage/storageset.py:214
 #, python-format
 msgid ""
-"An error occurred mounting device %(path)s as %(mountpoint)s: %(msg)s. This is a fatal error and the install cannot continue.\n"
+"An error occurred mounting device %(path)s as %(mountpoint)s: %(msg)s. This "
+"is a fatal error and the install cannot continue.\n"
 "\n"
 "Press <Enter> to exit the installer."
 msgstr ""
@@ -2103,7 +2177,8 @@ msgid ""
 "\n"
 "     %s\n"
 "\n"
-"is an old-style Linux swap partition.  If you want to use this device for swap space, you must reformat as a new-style Linux swap partition."
+"is an old-style Linux swap partition.  If you want to use this device for "
+"swap space, you must reformat as a new-style Linux swap partition."
 msgstr ""
 
 #: yali/storage/storageset.py:288
@@ -2113,7 +2188,9 @@ msgid ""
 "\n"
 "     %s\n"
 "\n"
-"in your /etc/fstab file is currently in use as a software suspend device, which means your system is hibernating. If you are performing a new install, make sure the installer is set to format all swap devices."
+"in your /etc/fstab file is currently in use as a software suspend device, "
+"which means your system is hibernating. If you are performing a new install, "
+"make sure the installer is set to format all swap devices."
 msgstr ""
 
 #: yali/storage/storageset.py:301
@@ -2123,7 +2200,8 @@ msgid ""
 "\n"
 "     %s\n"
 "\n"
-"does not contain a supported swap volume.  In order to continue installation, you will need to format the device or skip it."
+"does not contain a supported swap volume.  In order to continue "
+"installation, you will need to format the device or skip it."
 msgstr ""
 
 #: yali/storage/storageset.py:312
@@ -2209,31 +2287,33 @@ msgid ""
 "installation after you have corrected the problems on the filesystem."
 msgstr ""
 
-#: yali/storage/formats/filesystem.py:688
+#: yali/storage/formats/filesystem.py:689
 msgid "File system errors left uncorrected."
 msgstr ""
 
-#: yali/storage/formats/filesystem.py:689
+#: yali/storage/formats/filesystem.py:690
 msgid "Operational error."
 msgstr ""
 
-#: yali/storage/formats/filesystem.py:690
+#: yali/storage/formats/filesystem.py:691
 msgid "Usage or syntax error."
 msgstr ""
 
-#: yali/storage/formats/filesystem.py:691
+#: yali/storage/formats/filesystem.py:692
 msgid "e2fsck cancelled by user request."
 msgstr ""
 
-#: yali/storage/formats/filesystem.py:692
+#: yali/storage/formats/filesystem.py:693
 msgid "Shared library error."
 msgstr ""
 
-#: yali/storage/formats/filesystem.py:836
-msgid "Recoverable errors have been detected or dosfsck has discovered an internal inconsistency."
+#: yali/storage/formats/filesystem.py:837
+msgid ""
+"Recoverable errors have been detected or dosfsck has discovered an internal "
+"inconsistency."
 msgstr ""
 
-#: yali/storage/formats/filesystem.py:838
+#: yali/storage/formats/filesystem.py:839
 msgid "Usage error."
 msgstr ""
 
@@ -2420,6 +2500,18 @@ msgstr ""
 msgid "Invalid xml file"
 msgstr ""
 
+#~ msgid "Install all language packages"
+#~ msgstr "Instaluję pakiety językowe."
+
+#~ msgid "Ignore"
+#~ msgstr "Ignoruj"
+
+#~ msgid "Ignore All"
+#~ msgstr "Ignoruj wszystkie"
+
+#~ msgid "Ignore all"
+#~ msgstr "Ignoruj wszystkie"
+
 #~ msgid "Form"
 #~ msgstr "Form1"
 
@@ -2439,7 +2531,9 @@ msgstr ""
 #~ msgstr "Użytkownicy:"
 
 #~ msgid "Don't use invalid characters"
-#~ msgstr "<font color=\"#FF6D19\">Nazwa użytkownika zawiera niedozwolone znaki!</font>"
+#~ msgstr ""
+#~ "<font color=\"#FF6D19\">Nazwa użytkownika zawiera niedozwolone znaki!</"
+#~ "font>"
 
 #~ msgid "Resize :"
 #~ msgstr "Zmień Rozmiar"
@@ -2448,12 +2542,16 @@ msgstr ""
 #~ msgstr "Rozmiar"
 
 #~ msgid "The password contains invalid characters."
-#~ msgstr "<font color=\"#FF6D19\">Nazwa użytkownika zawiera niedozwolone znaki!</font>"
+#~ msgstr ""
+#~ "<font color=\"#FF6D19\">Nazwa użytkownika zawiera niedozwolone znaki!</"
+#~ "font>"
 
 #~ msgid "No, I'll select installation metod manually"
 #~ msgstr "Nie, spartycjonuję dysk samodzielnie"
 
-#~ msgid "This option will erase the entire disk. All the data on the disk will be lost."
+#~ msgid ""
+#~ "This option will erase the entire disk. All the data on the disk will be "
+#~ "lost."
 #~ msgstr ""
 #~ "<b>\n"
 #~ "<p>Zostanie wykorzystany cały dysk pod instalację Pardusa i\n"
@@ -2477,13 +2575,18 @@ msgstr ""
 #~ "\n"
 #~ "<p>Your system will not boot without a loader.</p>\n"
 #~ "\n"
-#~ "<p>If you don't install a boot loader or choose to install to root partition, you will have to manually configure already-installed (if any) loader to be able to boot your new Pardus installation.</p>"
+#~ "<p>If you don't install a boot loader or choose to install to root "
+#~ "partition, you will have to manually configure already-installed (if any) "
+#~ "loader to be able to boot your new Pardus installation.</p>"
 #~ msgstr ""
-#~ "<b>Czy chcesz by program rozruchowy (GRUB) został zapisany w master boot record?</b>\n"
+#~ "<b>Czy chcesz by program rozruchowy (GRUB) został zapisany w master boot "
+#~ "record?</b>\n"
 #~ "\n"
 #~ "<p>Program rozruchowy jest potrzebny by załadować system.</p>\n"
 #~ "\n"
-#~ "<p>Jeśli nie instalujesz lub chcesz zainstalować w partycji głównej będziesz musiał skonfigurować program rozruchowy Twojego innego systemuoperacyjnego (jeśli taki posiadasz) by uruchomić\n"
+#~ "<p>Jeśli nie instalujesz lub chcesz zainstalować w partycji głównej "
+#~ "będziesz musiał skonfigurować program rozruchowy Twojego innego "
+#~ "systemuoperacyjnego (jeśli taki posiadasz) by uruchomić\n"
 #~ "Twojego nowo zainstalowanego Pardusa.</p>"
 
 #~ msgid "Pardus installed partition"
@@ -2501,8 +2604,16 @@ msgstr ""
 #~ msgid "Update Password"
 #~ msgstr "Utwórz Użytkownika"
 
-#~ msgid "<p align=\"left\">System administrator user (root) handles important system maintanence tasks. Enter a password for this special user and do not forget this password. Keep in mind that for privacy reasons, you shouldn't write this password elsewhere.</p>"
-#~ msgstr "<p align=\"left\">Użytkownik-administrator systemu (root) zarządza ważnymi zadaniami. Proszę wpisać hasło dla tego specjalnego użytkownika inie zapomnieć go. Nie zapisuj nigdzie hasła ze względów bezpieczeństwa.</p>"
+#~ msgid ""
+#~ "<p align=\"left\">System administrator user (root) handles important "
+#~ "system maintanence tasks. Enter a password for this special user and do "
+#~ "not forget this password. Keep in mind that for privacy reasons, you "
+#~ "shouldn't write this password elsewhere.</p>"
+#~ msgstr ""
+#~ "<p align=\"left\">Użytkownik-administrator systemu (root) zarządza "
+#~ "ważnymi zadaniami. Proszę wpisać hasło dla tego specjalnego użytkownika "
+#~ "inie zapomnieć go. Nie zapisuj nigdzie hasła ze względów bezpieczeństwa.</"
+#~ "p>"
 
 #~ msgid "System administrator password (again):"
 #~ msgstr "Hasło administratora systemu (ponownie):"
@@ -2528,8 +2639,15 @@ msgstr ""
 #~ msgid "Users:"
 #~ msgstr "Użytkownicy:"
 
-#~ msgid "All software developed by TUBITAK/UEKAE is licensed under GNU/GPL. Other software have their corresponding licenses. To install and/or use Pardus, you must accept them. Do you accept GNU/GPL and other, corresponding licences?"
-#~ msgstr "Oprogramowanie tworzone przez TUBITAK/UEKAE podlega licencji GNU/GPL. Pozostałe oprogramowanie podlega właściwym licencjom. Instalując lub używając Pardusa, zgadzasz się na ich akceptację. Czy chcesz kontynuować?"
+#~ msgid ""
+#~ "All software developed by TUBITAK/UEKAE is licensed under GNU/GPL. Other "
+#~ "software have their corresponding licenses. To install and/or use Pardus, "
+#~ "you must accept them. Do you accept GNU/GPL and other, corresponding "
+#~ "licences?"
+#~ msgstr ""
+#~ "Oprogramowanie tworzone przez TUBITAK/UEKAE podlega licencji GNU/GPL. "
+#~ "Pozostałe oprogramowanie podlega właściwym licencjom. Instalując lub "
+#~ "używając Pardusa, zgadzasz się na ich akceptację. Czy chcesz kontynuować?"
 
 #~ msgid "Read GPL"
 #~ msgstr "Przeczytaj GPL"
@@ -2581,11 +2699,15 @@ msgstr ""
 #~ "<font size=\"+2\">Boot loader setup</font>\n"
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
-#~ "Pardus 2011 uses a boot manager called GRUB to start the operating system you choose.\n"
+#~ "Pardus 2011 uses a boot manager called GRUB to start the operating system "
+#~ "you choose.\n"
 #~ "</p>\n"
-#~ "<p>If there are multiple operating systems in your computer, you can start the one \n"
-#~ "you like using GRUB. Installing GRUB to the beginning of the boot disk is the advised \n"
-#~ "option to avoid boot problems.  If you are sure you know what you are doing, \n"
+#~ "<p>If there are multiple operating systems in your computer, you can "
+#~ "start the one \n"
+#~ "you like using GRUB. Installing GRUB to the beginning of the boot disk is "
+#~ "the advised \n"
+#~ "option to avoid boot problems.  If you are sure you know what you are "
+#~ "doing, \n"
 #~ "you can change boot loader settings.\n"
 #~ "</p>\n"
 #~ "<p>\n"
@@ -2618,13 +2740,16 @@ msgstr ""
 #~ "</font>\n"
 
 #~ msgid "<font color=\"#FFF\">Please wait while checking CD.</font>"
-#~ msgstr "<font color=\"#FF6D19\">Proszę zaczekać w trakcie sprawdzania CD.</font>"
+#~ msgstr ""
+#~ "<font color=\"#FF6D19\">Proszę zaczekać w trakcie sprawdzania CD.</font>"
 
 #~ msgid ""
 #~ "\n"
 #~ "<font size=\"+2\">Time Zone settings</font>\n"
-#~ "<font size=\"+1\"><p>Here you can select your location and a timezone; and set the date and time.\n"
-#~ "Your settings will update your hardware clock. Proceed with the installation after you make your selections.</p></font>\n"
+#~ "<font size=\"+1\"><p>Here you can select your location and a timezone; "
+#~ "and set the date and time.\n"
+#~ "Your settings will update your hardware clock. Proceed with the "
+#~ "installation after you make your selections.</p></font>\n"
 #~ msgstr ""
 #~ "\n"
 #~ "<font size=\"+2\">Sprawdź integralność CD!</font>\n"
@@ -2641,12 +2766,15 @@ msgstr ""
 #~ "\n"
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
-#~ "You have successfully installed Pardus, a very easy to use desktop system on\n"
-#~ "your machine. Now you can start playing with your system and stay productive\n"
+#~ "You have successfully installed Pardus, a very easy to use desktop system "
+#~ "on\n"
+#~ "your machine. Now you can start playing with your system and stay "
+#~ "productive\n"
 #~ "all the time.\n"
 #~ "</p>\n"
 #~ "<P>\n"
-#~ "Click on the Next button to proceed. One note: You remember your password,\n"
+#~ "Click on the Next button to proceed. One note: You remember your "
+#~ "password,\n"
 #~ "don't you?\n"
 #~ "</p>\n"
 #~ "</font>\n"
@@ -2658,17 +2786,21 @@ msgstr ""
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
 #~ "Udało Ci się zainstalować Pardusa, bardzo łatwy w użyciu system na\n"
-#~ "Twoim komputerze. Możesz teraz zacząć zabawę z systemem i pozostaćwydajnym\n"
+#~ "Twoim komputerze. Możesz teraz zacząć zabawę z systemem i "
+#~ "pozostaćwydajnym\n"
 #~ "przez cały czas.\n"
 #~ "</p>\n"
 #~ "<P>\n"
-#~ "Kliknij przycisk Dalej by kontynuować. Jedna uwaga: pamiętasz swoje hasło,\n"
+#~ "Kliknij przycisk Dalej by kontynuować. Jedna uwaga: pamiętasz swoje "
+#~ "hasło,\n"
 #~ "prawda?\n"
 #~ "</p>\n"
 #~ "</font>\n"
 
 #~ msgid "<b>Rebooting system. Please wait!</b>"
-#~ msgstr "<b><font size=\"+2\" color=\"#FF6D19\">Restartuję system. Proszę czekać!</font></b>"
+#~ msgstr ""
+#~ "<b><font size=\"+2\" color=\"#FF6D19\">Restartuję system. Proszę czekać!</"
+#~ "font></b>"
 
 #~ msgid "Choose Installation"
 #~ msgstr "Host:"
@@ -2689,7 +2821,8 @@ msgstr ""
 #~ "\n"
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
-#~ "W oparciu o posiadany sprzęt lub własny wybór wskaż układ klawiaturyz listy.\n"
+#~ "W oparciu o posiadany sprzęt lub własny wybór wskaż układ klawiaturyz "
+#~ "listy.\n"
 #~ "</p>\n"
 #~ "</font>\n"
 
@@ -2761,10 +2894,13 @@ msgstr ""
 #~ "You can install Pardus if you have an unpartitioned-unused disk space \n"
 #~ "of 4GBs (10 GBs recommended) or an unused-unpartitioned disk. \n"
 #~ "The disk area or partition selected for installation will automatically \n"
-#~ "be formatted. Therefore, it is advised to backup your data to avoid future problems.\n"
+#~ "be formatted. Therefore, it is advised to backup your data to avoid "
+#~ "future problems.\n"
 #~ "</p>\n"
-#~ "<p>Auto-partitioning will automatically format the select disk part/partition \n"
-#~ "and install Pardus 2011. If you like, you can do the partitioning manually or make \n"
+#~ "<p>Auto-partitioning will automatically format the select disk part/"
+#~ "partition \n"
+#~ "and install Pardus 2011. If you like, you can do the partitioning "
+#~ "manually or make \n"
 #~ "Pardus 2011 create a new partition for installation.</p>\n"
 #~ "<p>\n"
 #~ "Please refer to Pardus Installing and Using Guide for more information\n"
@@ -2792,8 +2928,12 @@ msgstr ""
 #~ "</p>\n"
 #~ "</font>\n"
 
-#~ msgid "It seems that you don't have the required disk space (min. %s) for Pardus installation."
-#~ msgstr "Możliwe, że nie posiadasz wymaganego miejsca na dysku (min. %s) pod instalację Pardusa."
+#~ msgid ""
+#~ "It seems that you don't have the required disk space (min. %s) for Pardus "
+#~ "installation."
+#~ msgstr ""
+#~ "Możliwe, że nie posiadasz wymaganego miejsca na dysku (min. %s) pod "
+#~ "instalację Pardusa."
 
 #~ msgid ""
 #~ "\n"
@@ -2805,7 +2945,8 @@ msgstr ""
 #~ "\n"
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
-#~ "W oparciu o posiadany sprzęt lub własny wybór wskaż układ klawiaturyz listy.\n"
+#~ "W oparciu o posiadany sprzęt lub własny wybór wskaż układ klawiaturyz "
+#~ "listy.\n"
 #~ "</p>\n"
 #~ "</font>\n"
 
@@ -2819,7 +2960,8 @@ msgstr ""
 #~ "\n"
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
-#~ "W oparciu o posiadany sprzęt lub własny wybór wskaż układ klawiaturyz listy.\n"
+#~ "W oparciu o posiadany sprzęt lub własny wybór wskaż układ klawiaturyz "
+#~ "listy.\n"
 #~ "</p>\n"
 #~ "</font>\n"
 
@@ -2836,7 +2978,8 @@ msgstr ""
 #~ "\n"
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
-#~ "W oparciu o posiadany sprzęt lub własny wybór wskaż układ klawiaturyz listy.\n"
+#~ "W oparciu o posiadany sprzęt lub własny wybór wskaż układ klawiaturyz "
+#~ "listy.\n"
 #~ "</p>\n"
 #~ "</font>\n"
 
@@ -2850,7 +2993,8 @@ msgstr ""
 #~ "\n"
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
-#~ "W oparciu o posiadany sprzęt lub własny wybór wskaż układ klawiaturyz listy.\n"
+#~ "W oparciu o posiadany sprzęt lub własny wybór wskaż układ klawiaturyz "
+#~ "listy.\n"
 #~ "</p>\n"
 #~ "</font>\n"
 
@@ -2892,10 +3036,14 @@ msgstr ""
 #~ msgid "Check Failed"
 #~ msgstr "Sprawdzanie nieudane"
 
-#~ msgid "<b><p>Integrity check for packages failed.                                  It seems that installation CD is broken.</p></b>"
+#~ msgid ""
+#~ "<b><p>Integrity check for packages "
+#~ "failed.                                  It seems that installation CD is "
+#~ "broken.</p></b>"
 #~ msgstr ""
 #~ "<b>\n"
-#~ "<p>Sprawdzenie integralności paczek nie powiodło się. Możliwe, że płyta CD jest uszkodzona.</p>\n"
+#~ "<p>Sprawdzenie integralności paczek nie powiodło się. Możliwe, że płyta "
+#~ "CD jest uszkodzona.</p>\n"
 #~ "</b>\n"
 
 #~ msgid "Creating new partition ..."
@@ -2966,17 +3114,25 @@ msgstr ""
 #~ msgid "O.K. Go Ahead"
 #~ msgstr "TAK, Wykonaj"
 
-#~ msgid "<center><font color=\"#FF6D19\">Password is too short!</font></center>"
+#~ msgid ""
+#~ "<center><font color=\"#FF6D19\">Password is too short!</font></center>"
 #~ msgstr "<font color=\"#FF6D19\">Hasło jest zbyt krótkie!</font>"
 
-#~ msgid "<center><font color=\"#FF6D19\">Passwords do not match!</font></center>"
+#~ msgid ""
+#~ "<center><font color=\"#FF6D19\">Passwords do not match!</font></center>"
 #~ msgstr "<font color=\"#FF6D19\">Hasła nie zgadzają się!</font>"
 
-#~ msgid "<center><font color=\"#FF6D19\">Don't use your username as password !</font></center>"
-#~ msgstr "<font color=\"#FF6D19\">Nie używaj Twojego imienia jako hasła.</font>"
+#~ msgid ""
+#~ "<center><font color=\"#FF6D19\">Don't use your username as password !</"
+#~ "font></center>"
+#~ msgstr ""
+#~ "<font color=\"#FF6D19\">Nie używaj Twojego imienia jako hasła.</font>"
 
-#~ msgid "<center><font color=\"#FF6D19\">Hostname contains invalid characters!</font></center>"
-#~ msgstr "<font color=\"#FF6D19\">Nazwa hosta zawiera niepoprawne znaki!</font>"
+#~ msgid ""
+#~ "<center><font color=\"#FF6D19\">Hostname contains invalid characters!</"
+#~ "font></center>"
+#~ msgstr ""
+#~ "<font color=\"#FF6D19\">Nazwa hosta zawiera niepoprawne znaki!</font>"
 
 #~ msgid "The last step before rescue"
 #~ msgstr "Przygotowanie do instalacji"
@@ -2986,7 +3142,8 @@ msgstr ""
 #~ "<font size=\"+2\">Rescue Summary</font>\n"
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
-#~ "Here you can see your rescue options and look at them again before rescue operation starts.\n"
+#~ "Here you can see your rescue options and look at them again before rescue "
+#~ "operation starts.\n"
 #~ "</p>\n"
 #~ "</font>\n"
 #~ msgstr ""
@@ -3009,11 +3166,15 @@ msgstr ""
 #~ "<font size=\"+2\">Boot loader setup</font>\n"
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
-#~ "Pardus 2008 uses a boot manager called GRUB to start the operating system you choose.\n"
+#~ "Pardus 2008 uses a boot manager called GRUB to start the operating system "
+#~ "you choose.\n"
 #~ "</p>\n"
-#~ "<p>If there are multiple operating systems in your computer, you can start the one \n"
-#~ "you like using GRUB. Installing GRUB to the beginning of the boot disk is the advised \n"
-#~ "option to avoid boot problems.  If you are sure you know what you are doing, \n"
+#~ "<p>If there are multiple operating systems in your computer, you can "
+#~ "start the one \n"
+#~ "you like using GRUB. Installing GRUB to the beginning of the boot disk is "
+#~ "the advised \n"
+#~ "option to avoid boot problems.  If you are sure you know what you are "
+#~ "doing, \n"
 #~ "you can change boot loader settings.\n"
 #~ "</p>\n"
 #~ "<p>\n"
@@ -3047,7 +3208,8 @@ msgstr ""
 
 #~ msgid ""
 #~ "<b>\n"
-#~ "<p>This action will use your entire disk for Pardus installation and <br>\n"
+#~ "<p>This action will use your entire disk for Pardus installation and "
+#~ "<br>\n"
 #~ "all your present data on the selected disk will be lost.</p>\n"
 #~ "</b>\n"
 #~ msgstr ""
@@ -3063,10 +3225,12 @@ msgstr ""
 #~ "<b>\n"
 #~ "<p>You have not defined an administrator!</p>\n"
 #~ "\n"
-#~ "<p>A user without administrative rights cannot complete system maintenance \n"
+#~ "<p>A user without administrative rights cannot complete system "
+#~ "maintenance \n"
 #~ "tasks. You are strongly encouraged to define an administrator user.</p>\n"
 #~ "\n"
-#~ "<p>Click \"Cancel\" to define an administrator user (recommended) or \"OK\" to \n"
+#~ "<p>Click \"Cancel\" to define an administrator user (recommended) or \"OK"
+#~ "\" to \n"
 #~ "go to next screen.</p>\n"
 #~ "</b>\n"
 #~ msgstr ""
@@ -3076,7 +3240,8 @@ msgstr ""
 #~ "<p>Użytkownik bez praw adminstratora nie będzie mógł wypełniać ważnych \n"
 #~ "zadań. Usilnie zaleca się stworzenie użytkownika-administratora.</p>\n"
 #~ "\n"
-#~ "<p>Wybierz \"Anuluj\" by wskazać administratora (zalecane) lub \"OK\" by \n"
+#~ "<p>Wybierz \"Anuluj\" by wskazać administratora (zalecane) lub \"OK\" "
+#~ "by \n"
 #~ "przejść do następnego ekranu.</p>\n"
 #~ "</b>\n"
 
@@ -3104,7 +3269,8 @@ msgstr ""
 #~ "\n"
 #~ "<font size=\"+1\">\n"
 #~ "\n"
-#~ "<p>Please give a password for the system administrator (i.e root) for your\n"
+#~ "<p>Please give a password for the system administrator (i.e root) for "
+#~ "your\n"
 #~ "system. This password should be unique and private, as it is used to \n"
 #~ "manage your desktop. Choose a password difficult to guess, but easy\n"
 #~ "to remember. \n"
@@ -3115,7 +3281,9 @@ msgstr ""
 #~ "</p>\n"
 #~ "\n"
 #~ "<p>\n"
-#~ "And also set the name that the computer will be identified to the network it belongs. The hostname should be descriptive enough to describe the computer.  \n"
+#~ "And also set the name that the computer will be identified to the network "
+#~ "it belongs. The hostname should be descriptive enough to describe the "
+#~ "computer.  \n"
 #~ "</p>\n"
 #~ "\n"
 #~ "<p>\n"
@@ -3139,7 +3307,9 @@ msgstr ""
 #~ "</p>\n"
 #~ "\n"
 #~ "<p>\n"
-#~ "Ustaw także nazwę komputera, która będzie go identyfikować w sieci, do którejnależy. Nazwa komputera powinna być wystarczająco opisowa, by rozpoznaćkomputer.  \n"
+#~ "Ustaw także nazwę komputera, która będzie go identyfikować w sieci, do "
+#~ "którejnależy. Nazwa komputera powinna być wystarczająco opisowa, by "
+#~ "rozpoznaćkomputer.  \n"
 #~ "</p>\n"
 #~ "\n"
 #~ "<p>\n"
@@ -3154,7 +3324,8 @@ msgstr ""
 #~ "<font size=\"+1\">\n"
 #~ "<p>\n"
 #~ "Pardus can be installed on a variety of hardware. You can install Pardus\n"
-#~ "on an empty disk or hard disk partition. <b>An installation will automatically\n"
+#~ "on an empty disk or hard disk partition. <b>An installation will "
+#~ "automatically\n"
 #~ "destroy the previously saved information on selected partitions. </b>\n"
 #~ "</p>\n"
 #~ "<p>\n"
@@ -3198,7 +3369,8 @@ msgstr ""
 #~ "Aby korzystać z Pardusa, musisz utworzyć jeden system plików Linuksa\n"
 #~ "(dla danych systemowych), który jest obowiązkowy and oraz partycję swap\n"
 #~ "(dla zwiększenia wydajności), która jest opcjonalna. Partycja swap\n"
-#~ "jest wykorzystywana, gdy potrzeba więcej pamięci, ale brak jej w systemie.\n"
+#~ "jest wykorzystywana, gdy potrzeba więcej pamięci, ale brak jej w "
+#~ "systemie.\n"
 #~ "Zalecamy zarezerwowanie przynajmiej 4GB przestrzeni dyskowej oraz \n"
 #~ "partycji swap (pomiędzy 500 MB - 2 GB, w zależności od potrzeb) dla \n"
 #~ "pewności. Partycja Linuksowa mniejsza niż 3,5GB jest niedozwolona.\n"
@@ -3333,7 +3505,8 @@ msgstr ""
 #~ "Selected disk will be used for Pardus installation.</p>\n"
 #~ "\n"
 #~ "<p><font color=\"#FF6D19\"><b><u>WARNING:</u></b>\n"
-#~ "Automatic partitioning will use your entire disk for Pardus installation.\n"
+#~ "Automatic partitioning will use your entire disk for Pardus "
+#~ "installation.\n"
 #~ "All data on the selected disk will be lost!</font></p>"
 #~ msgstr ""
 #~ "<font size=\"+1\"><b>Wybierz sposób partycjonowania:</b></font>\n"
