@@ -2129,10 +2129,9 @@ msgstr "Speichergeräte Warnung"
 #: yali/storage/storageBackendHelpers.py:330
 #, python-format
 msgid "<b>The storage device (%(size)d size of %(description)s on %(name)s) may contain data.</b><br><br>We could not detect partitions on this device.<br><br>This could be because the device is <b>blank, unpartioned or virtual.</b> If not, there may be data on the device that can not be recovered if you use it this installation. We can remove the device from this installation to protect data.<br><br>Are you sure this device does not contain valuable data?"
-msgstr ""
+msgstr "<b>Das Speichergerät (%(size)d mit der Größe von %(description)s auf %(name)s) kann Daten enthalten. </b><br><br>Wir konnten keine Partitionen auf dem Gerät entdecken.<br><br>Es könnte sein, dass das Gerät <b>leer, unpartioiert oder virtuell</b> ist. Falls nicht und es sind noch Daten vorhanden, können diese nicht mehr hergestellt werden sofern Sie sie zur Installation nutzen. Wie können das Gerät von der Installation entfernen umd die Daten zu schützen.<br><br>Sind Sie sicher, dass dieses Gerät keine wertvollen Daten enthält?"
 
 #: yali/storage/storageBackendHelpers.py:339
-#, fuzzy
 msgid "Yes, destroy data"
 msgstr "Ja, Daten zerstören"
 
@@ -2142,19 +2141,11 @@ msgid "No, protect data"
 msgstr "Nein, Daten schützen"
 
 #: yali/storage/storageBackendHelpers.py:353
-#, fuzzy, python-format
+#, python-format
 msgid "There is inconsistent LVM data on %(msg)s. You can reinitialize all related PVs (%(pvs)s) which will erase the LVM metadata, or ignore which will preserve thecontents.This action may also be applied to all other PVs with inconsistent metadata."
-msgstr ""
-"Fehler während der LVM Verarbeitung.\n"
-"Widersprüchliche LVM Daten auf %(msg)s. Durch neues\n"
-"initialisieren aller zugehörigen PVs (%(pvs)s) können\n"
-"Sie die LVM Metadaten löschen. Durch ein ignorieren\n"
-"wird der Dateninhalt behalten. Die gewählte Aktion\n"
-"wird auch auch auf die anderen PVs mit fehlerhaften\n"
-"Metadateien angewendet."
+msgstr "Widersprüchliche LVM Daten auf %(msg)s. Durch neues initialisieren aller zugehörigen PVs (%(pvs)s) können Sie die LVM Metadaten löschen. Durch das Ignorieren wird der Dateninhalt bewahrt. Die gewählte Aktion wird auch auch auf die anderen PVs mit fehlerhaften Metadaten angewendet."
 
 #: yali/storage/storageBackendHelpers.py:360
-#, fuzzy
 msgid "Yes, re-initialize"
 msgstr "Ja, neu initialisieren"
 
@@ -2174,6 +2165,9 @@ msgid ""
 "\n"
 "Press <Enter> to exit the installer."
 msgstr ""
+"Beim Versuch %s zu erstellen ist ein Fehler aufgetreten.  Einige Elemente dieses Pfades gehören zu keinem Verzeichnis. Dies ist ein fataler Fehler und die Installation kann nicht fortgeführt werden.\n"
+"\n"
+"Drücken Sie <Enter> um die Installation abzubrechen."
 
 #: yali/storage/storageset.py:175
 #, python-format
@@ -2182,6 +2176,9 @@ msgid ""
 "\n"
 "Press <Enter> to exit the installer."
 msgstr ""
+"Bei demEerstellen %(mountpoint)s: %(msg)s ist ein Fehler aufgetreten.  Dies ist ein schwerwiegender Fehler und die Installation kann nicht fortgeführt werden.\n"
+"\n"
+"Drücken Sie die <Enter>-Taste um das Installationsprogramm zu beenden."
 
 #: yali/storage/storageset.py:190 yali/storage/storageset.py:213
 msgid "Unable to mount filesystem"
@@ -2190,7 +2187,7 @@ msgstr "Kann Dateisystem nicht einhängen"
 #: yali/storage/storageset.py:191
 #, python-format
 msgid "An error occurred mounting device %(path)s as %(mountpoint)s.  You may continue installation, but there may be problems."
-msgstr ""
+msgstr "Bei dem Einhängen des Geräts %(path)s bei %(mountpoint)s ist ein Fehler aufgetreten.  Sie können die Installation fortführen, es können aber Probleme auftreten."
 
 #: yali/storage/storageset.py:214
 #, python-format
@@ -2199,6 +2196,9 @@ msgid ""
 "\n"
 "Press <Enter> to exit the installer."
 msgstr ""
+"Während dem Einhängen von dem Gerät %(path)s bei %(mountpoint)s: %(msg)s ist ein Fehler aufgetreten. Dies ist ein schwerwiegender Fehler und die Installation kann nicht fortgeführt werden.\n"
+"\n"
+"Drücken Sie die <Enter>-Taste um das Installationsprogramm zu beenden."
 
 #: yali/storage/storageset.py:245
 msgid "Skip"
@@ -2219,6 +2219,11 @@ msgid ""
 "\n"
 "is an old-style Linux swap partition.  If you want to use this device for swap space, you must reformat as a new-style Linux swap partition."
 msgstr ""
+"Das SWAP-Gerät:\n"
+"\n"
+" %s\n"
+"\n"
+"ist eine Linux SWAP-Partition nach altem Stand. Falls Sie dieses Gerät als SWAP Speicher nutzen wollen, müssen Sie es mit dem neuen Dateisystem für SWAP-Partitionen formatieren."
 
 #: yali/storage/storageset.py:288
 #, python-format
@@ -2229,6 +2234,11 @@ msgid ""
 "\n"
 "in your /etc/fstab file is currently in use as a software suspend device, which means your system is hibernating. If you are performing a new install, make sure the installer is set to format all swap devices."
 msgstr ""
+"Das SWAP-Gerät:\n"
+"\n"
+" %s\n"
+"\n"
+"in Ihrer /etc/fstab Datei wird gerade als Suspend Device verwendet was bedeutet, dass ein System sich im Schlafzustand (hibernate) befindet. Falls Sie eine neue Installation durchführen stellen Sie bitte sicher, dass alle SWAP-Geräte formatiert werden."
 
 #: yali/storage/storageset.py:301
 #, python-format
@@ -2239,6 +2249,11 @@ msgid ""
 "\n"
 "does not contain a supported swap volume.  In order to continue installation, you will need to format the device or skip it."
 msgstr ""
+"Das SWAP-Gerät:\n"
+"\n"
+" %s\n"
+"\n"
+"beinhaltet kein unterstütztes SWAP Volume. Um die Installation fortzuführen, müssen sie das Gerät formatieren oder überspringen."
 
 #: yali/storage/storageset.py:312
 #, python-format
@@ -2249,6 +2264,11 @@ msgid ""
 "\n"
 "Press OK to exit the installer."
 msgstr ""
+"Fehler beim einbinden des SWAP Geräts %(name)s: %(msg)s\n"
+"\n"
+"Dies bedeutet meistens, dass das SWAP Gerät nicht initialisiert wurde.\n"
+"\n"
+"Klicken Sie auf OK, um das Installationsprogramm zu beenden."
 
 #: yali/storage/storageset.py:358
 msgid "You have not created a bootable partition."
