@@ -776,40 +776,36 @@ class Storage(object):
             boot = None
 
         if not root:
-            errors.append(_("You have not defined a root partition (/),which is required for installation\n"
-                            "of %s to continue." % yali.util.product_name()))
-
-        #if root and root.size < 250:
-        #    warnings.append(_("Your root partition is less than 250 megabytes which is usually too small to\n"
-        #                      "install %s." % yali.util.product_name()))
+            errors.append(_("You have not defined a root partition (/),which is required for installation "
+                            "of %s to continue.") % yali.util.product_name())
 
         if (root and
             root.size < ctx.consts.min_root_size):
-            errors.append(_("Your / partition is less than %(min)s MB which is lower than\n"
-                            "recommended for a normal %(productName)s install."
-                            % {'min': ctx.consts.min_root_size, 'productName': yali.util.product_name()}))
+            errors.append(_("Your / partition is less than %(min)s MB which is lower than "
+                            "recommended for a normal %(productName)s install.")
+                            % {'min': ctx.consts.min_root_size, 'productName': yali.util.product_name()})
 
         for (mount, size) in checkSizes:
             if mount in filesystems and filesystems[mount].size < size:
                 warnings.append(_("Your %(mount)s partition is less than %(size)s megabytes which is "
-                                  "lower than\nrecommended for a normal %(productName)s install."
-                                % {'mount': mount, 'size': size, 'productName': yali.util.product_name()}))
+                                  "lower than recommended for a normal %(productName)s install.")
+                                % {'mount': mount, 'size': size, 'productName': yali.util.product_name()})
 
 
         errors.extend(self.storageset.checkBootRequest(boot))
 
         if not swaps:
             if yali.util.memInstalled() < yali.util.EARLY_SWAP_RAM:
-                errors.append(_("You have not specified a swap partition. Due to the amount of memory\n"
+                errors.append(_("You have not specified a swap partition. Due to the amount of memory "
                                 "present, a swap partition is required to complete installation."))
             else:
-                warnings.append(_("You have not specified a swap partition. Although not strictly\n"
-                                  "required in all cases, it will significantly improve performance\n"
+                warnings.append(_("You have not specified a swap partition. Although not strictly "
+                                  "required in all cases, it will significantly improve performance"
                                   "for most installations."))
 
         for (mountpoint, dev) in filesystems.items():
             if mountpoint in mustbeonroot:
-                errors.append(_("This mount point is invalid. The %s directory must be on the / file system." % mountpoint))
+                errors.append(_("This mount point is invalid. The %s directory must be on the / file system.") % mountpoint)
 
             if mountpoint in mustbeonlinuxfs and (not dev.format.mountable or not dev.format.linuxNative):
                 errors.append(_("The mount point %s must be on a linux file system.") % mountpoint)
