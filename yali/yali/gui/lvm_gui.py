@@ -52,7 +52,7 @@ class LVMEditor(object):
                                       "Create a partition or RAID array "
                                       "of type \"physical volume\n(LVM)\" and then "
                                       "select the \"LVM\" option again."),
-                                    customIcon="error")
+                                    type="warning")
             self.dialog = None
             return
 
@@ -86,11 +86,10 @@ class LVMEditor(object):
 
             name =  str(widget.name.text())
             pvs = widget.selectedPhysicalVolumes
-            error = sanityCheckVolumeGroupName(name)
-            if error:
+            msg = sanityCheckVolumeGroupName(name)
+            if msg:
                 self.intf.messageWindow(_("Invalid Volume Group Name"),
-                                        error,
-                                        customIcon="error")
+                                        msg, type="warning")
                 continue
 
             origname = self.origrequest.name
@@ -98,9 +97,8 @@ class LVMEditor(object):
                 if name in [vg.name for vg in self.storage.vgs]:
                     self.intf.messageWindow(_("Name in use"),
                                             _("The volume group name \"%s\" is "
-                                              "already in use. Please pick another."
-                                              % name),
-                                            customIcon="error")
+                                              "already in use. Please pick another.")
+                                              % (name,), type="warning")
                     continue
 
             peSize = widget.physicalExtends.itemData(widget.physicalExtends.currentIndex()).toInt()[0] / 1024.0
@@ -406,7 +404,7 @@ class VolumeGroupWidget(QWidget, Ui_VolumeGroupWidget):
                                                  "otherwise the space required by the currently defined\n"
                                                  "logical volumes will be increased to more than the\n"
                                                  "available space."),
-                                               customIcon="error")
+                                               type="warning")
                 return  0
 
             if resize:
@@ -439,7 +437,7 @@ class VolumeGroupWidget(QWidget, Ui_VolumeGroupWidget):
                                              "(%(maxpvsize)10.2f MB) in the volume "
                                              "group.") %
                                            {'curpe': curpe, 'maxpvsize': maximumPhysicalSize},
-                                             customIcon="error")
+                                           type="warning")
             return 0
 
         # see if new PE will make any PV useless due to overhead
@@ -453,17 +451,17 @@ class VolumeGroupWidget(QWidget, Ui_VolumeGroupWidget):
                                              "(%(maxpvsize)10.2f MB) in the "
                                              "volume group.")
                                            % {'curpe': curpe, 'maxpvsize': maximumPhysicalSize},
-                                           customIcon="error")
+                                           type="warning")
             return 0
 
         if getPhysicalVolumeWastedRatio(curpe) > 0.10:
             rc = self.parent.intf.messageWindow(_("Too small"),
                                                 _("This change in the value of the "
-                                                   "physical extent will waste "
-                                                   "substantial space on one or more "
-                                                   "of the physical volumes in the "
-                                                   "volume group."),
-                                                 type="custom", customIcon="error",
+                                                  "physical extent will waste "
+                                                  "substantial space on one or more "
+                                                  "of the physical volumes in the "
+                                                  "volume group."),
+                                                 type="custom", customIcon="warning",
                                                  customButtons=[_("Cancel"), _("Continue")])
             if not rc:
                 return 0
@@ -487,7 +485,7 @@ class VolumeGroupWidget(QWidget, Ui_VolumeGroupWidget):
                                                      "smaller than one or more of their "
                                                      "currently defined logical "
                                                      "volumes.") % (maxlv,),
-                                                   customIcon="error")
+                                                   type="warning")
                     return 0
 
         # now actually set the VG's extent size
@@ -502,17 +500,19 @@ class VolumeGroupWidget(QWidget, Ui_VolumeGroupWidget):
     def add(self):
         if self.availableLogicalVolumes < 1:
             self.parent.intf.messageWindow(_("No free slots"),
-                                           _("You cannot create more than %d logical volume \n" \
-                                             "per volume group." % lvm.MAX_LV_SLOTS), customIcon="error")
+                                           _("You cannot create more than %d logical volume \n"
+                                             "per volume group.") % (lvm.MAX_LV_SLOTS,),
+                                           type="warning")
             return
 
         (total, used, free) = self.computeSpace()
         if free <= 0:
             self.parent.intf.messageWindow(_("No free space"),
-                                    _("There is no room left in the volume group to create new\n"
-                                      "logical volumes. To add a logical volume you must reduce\n"
-                                      "the size of one or more of the currently existing logical\n"
-                                      "volumes"), customIcon="error")
+                                           _("There is no room left in the volume group to create new\n"
+                                             "logical volumes. To add a logical volume you must reduce\n"
+                                             "the size of one or more of the currently existing logical\n"
+                                             "volumes"),
+                                           type="warning")
             return
 
         tempvg = self.tmpVolumeGroup
@@ -548,8 +548,8 @@ class VolumeGroupWidget(QWidget, Ui_VolumeGroupWidget):
         rc = self.parent.intf.messageWindow(_("Confirm Delete"),
                                             _("Are you sure you want to delete the \n"
                                               "logical volume \"%s\"?") % (item.device.lvname,),
-                                            type="custom",
-                                            customButtons=[_("Delete"), _("Cancel")], customIcon="question")
+                                            type="custom", customIcon="question",
+                                            customButtons=[_("Delete"), _("Cancel")])
         if rc:
             return
         else:
@@ -610,9 +610,8 @@ class LogicalVolumeEditor:
             if mountpoint and widget.mountpointMenu.isEditable():
                 msg = sanityCheckMountPoint(mountpoint)
                 if msg:
-                    self.intf.messageWindow(_("Mount Point Error"),
-                                            msg,
-                                            customIcon="error")
+                    self.intf.messageWindow(_("Mount Point Error"), msg,
+                                            type="error")
                     continue
 
             if not self.origrequest.exists:
@@ -646,16 +645,16 @@ class LogicalVolumeEditor:
                                             _("The mount point \"%s\" is in "
                                               "use. Please pick another.") %
                                             (mountpoint,),
-                                            customIcon="error")
+                                            type="warning")
                     continue
 
 
             name = str(widget.name.text())
             if not self.origrequest.exists:
-                error = sanityCheckLogicalVolumeName(name)
-                if error:
+                msg = sanityCheckLogicalVolumeName(name)
+                if msg:
                     self.intf.messageWindow(_("Illegal Logical Volume Name"),
-                                            error, customIcon="error")
+                                            msg, type="warning")
                     continue
 
             # check that the name is not already in use
@@ -669,7 +668,7 @@ class LogicalVolumeEditor:
                 self.intf.messageWindow(_("Illegal logical volume name"),
                                         _("The logical volume name \"%s\" is "
                                           "already in use. Please pick another.")
-                                        % (name,), customIcon="error")
+                                        % (name,), type="warning")
                 continue
 
 
@@ -682,9 +681,9 @@ class LogicalVolumeEditor:
 
                 if badsize or size <= 0:
                     self.intf.messageWindow(_("Illegal size"),
-                                                   _("The requested size as entered is "
-                                                     "not a valid number greater than 0."),
-                                                   customIcon="error")
+                                            _("The requested size as entered is "
+                                              "not a valid number greater than 0."),
+                                            type="warning")
                     continue
             else:
                 size = self.origrequest.size
@@ -704,7 +703,7 @@ class LogicalVolumeEditor:
                                           "unpartitioned disk space and "
                                           "add them to this Volume Group.")
                                           % {'size': size, 'maxlv': maximumVolumeSize},
-                                        customIcon="error")
+                                        type="warning")
                 continue
 
             # Get format
@@ -727,7 +726,7 @@ class LogicalVolumeEditor:
                                               "group larger or make the "
                                               "logical volume smaller.")
                                               % {'size': size, 'tmpvgsize': self.origrequest.vg.size},
-                                            customIcon="error")
+                                            type="warning")
                     continue
                 else:
                     self.origrequest.format = format

@@ -47,7 +47,7 @@ class ShrinkEditor:
                 self.intf.messageWindow(_("Resize FileSystem Error"),
                                         _("%(device)s: %(msg)s") %
                                         {'device': request.format.device, 'msg': e.message},
-                                        type="warning", customIcon="error")
+                                        type="error")
                 continue
 
             try:
@@ -56,7 +56,7 @@ class ShrinkEditor:
                 self.intf.messageWindow(_("Resize Device Error"),
                                               _("%(name)s: %(msg)s") %
                                                {'name': request.name, 'msg': e.message},
-                                               type="warning", customIcon="error")
+                                               type="warning")
                 continue
 
             # everything ok, fall out of loop

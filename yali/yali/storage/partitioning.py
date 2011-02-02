@@ -1644,7 +1644,7 @@ def doAutoPartition(storage):
             msg = _("Could not find enough free space for automatic\n"
                     "partitioning, please use another partitioning method.")
 
-            ctx.interface.messageWindow(_("Error Partitioning"), msg, customIcon='error')
+            ctx.interface.messageWindow(_("Error Partitioning"), msg, type='error')
 
             storage.reset()
             return False
@@ -1666,8 +1666,9 @@ def doAutoPartition(storage):
 
     except PartitioningWarning as msg:
         ctx.interface.messageWindow(_("Warnings During Automatic Partitioning"),
-                               _("Following warnings occurred during automatic partitioning:\n\n%s") % msg,
-                               customIcon='warning')
+                                    _("Following warnings occurred during automatic "
+                                      "partitioning:\n\n%s") % msg,
+                                    type='warning')
         ctx.logger.warning(msg)
         return False
 
@@ -1676,13 +1677,12 @@ def doAutoPartition(storage):
         storage.reset()
         extra = _("\n\nPress 'OK' to exit the installer.")
         ctx.interface.messageWindow(_("Error Partitioning"),
-                               _("Could not allocate requested partitions: \n"
-                                 "%(msg)s.%(extra)s") %
-                               {'msg': msg, 'extra': extra},
-                               customIcon='error')
+                                    _("Could not allocate requested partitions: \n"
+                                      "%(msg)s.%(extra)s") %
+                                    {'msg': msg, 'extra': extra},
+                                    type='error')
         ctx.logger.warning(msg)
         return None
-        #sys.exit(0)
 
     # sanity check the collection of devices
     #ctx.logger.warning("not sanity checking storage config because I don't know how yet")
@@ -1696,16 +1696,13 @@ def doAutoPartition(storage):
         errortxt = "\n".join(errors)
         extra = _("\n\nPress 'OK' to exit the installer.")
         ctx.interface.messageWindow(_("Automatic Partitioning Errors"),
-                               _("The following errors occurred with your "
-                                 "partitioning:\n\n%(errortxt)s\n\n"
-                                 "This can happen if there is not enough "
-                                 "space on your hard drive(s) for the "
-                                 "installation. %(extra)s") %
-                                {'errortxt': errortxt, 'extra': extra}, customIcon='error')
+                                    _("The following errors occurred with your "
+                                      "partitioning:\n\n%(errortxt)s\n\n"
+                                      "This can happen if there is not enough "
+                                      "space on your hard drive(s) for the "
+                                      "installation. %(extra)s") %
+                                    {'errortxt': errortxt, 'extra': extra},
+                                    type='error')
 
-        ctx.interface.messageWindow(_("Unrecoverable Error"),
-                               _("The system will now reboot."))
-
-        #sys.exit(0)
         storage.reset()
         return None

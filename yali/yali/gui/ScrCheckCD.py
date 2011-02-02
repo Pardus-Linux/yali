@@ -95,7 +95,7 @@ class Widget(QWidget, ScreenWidget):
                                                   _("Validation of %s package failed."
                                                     "Please remaster your installation medium and"
                                                     "reboot.") % pkg_name,
-                                                  type="custom", customIcon="error",
+                                                  type="custom", customIcon="warning",
                                                   customButtons=[_("Skip Validation"), _("Skip Package"), _("Reboot")],
                                                   default=0)
                 flag = 1

@@ -159,6 +159,9 @@ class MessageWindow:
         if type == 'ok':
             buttons = QMessageBox.Ok
             icon = "question"
+        elif type == 'error':
+            icon = "error"
+            buttons =  QMessageBox.Ok
         elif type == 'warning':
             icon = "warning"
             buttons =  QMessageBox.Ok
@@ -173,16 +176,10 @@ class MessageWindow:
             buttons = QMessageBox.Yes | QMessageBox.No
         elif type == 'custom':
             self.doCustom = True
-            icon = "question"
-
-        if customIcon == "warning":
-            icon = "warning"
-        elif customIcon == "question":
-            icon = "question"
-        elif customIcon == "error":
-            icon = "error"
-        elif customIcon == "info":
-            icon = "info"
+            if customIcon:
+                icon = customIcon
+            else:
+                icon = "question"
 
         text = "<qt>%s</qt>" % text.replace("\n", " ")
         self.msgBox.setText(text)

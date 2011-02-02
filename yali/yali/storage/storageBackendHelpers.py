@@ -71,8 +71,7 @@ def checkForSwapNoMatch(intf, storage):
                                       "partition.\n\n"
                                       "Would you like to format this "
                                       "partition as a swap partition?")
-                                    % device.path, type = "yesno",
-                                    customIcon="question")
+                                    % device.path, type = "yesno")
             if rc == 1:
                 format = getFormat("swap", device=device.path)
                 storage.formatDevice(device, format)
@@ -86,10 +85,10 @@ def doClearPartitionedDevice(intf, storage, device, confirm=1, quiet=0):
      """
     if confirm:
         rc = intf.messageWindow(_("Confirm Delete"),
-                _("You are about to delete all partitions on "
-                  "the device '%s'.") % (device.path,),
-                type="custom", customIcon="warning",
-                customButtons=[_("Cancel"), _("Delete")])
+                                _("You are about to delete all partitions on "
+                                  "the device '%s'.") % (device.path,),
+                                type="custom", customIcon="question",
+                                customButtons=[_("Cancel"), _("Delete")])
 
         if not rc:
             return False
@@ -139,7 +138,7 @@ def doClearPartitionedDevice(intf, storage, device, confirm=1, quiet=0):
         intf.messageWindow(_("Notice"),
                            _("The following partitions were not deleted "
                              "because they are in use:\n\n%s") %
-                           remaining, customIcon="warning")
+                           remaining, type="warning")
 
     return True
 
@@ -153,12 +152,12 @@ def doDeleteDevice(intf, storage, device, confirm=1, quiet=0):
     if not device:
         intf.messageWindow(_("Unable To Delete"),
                            _("You must first select a partition to delete."),
-                           customIcon="error")
+                           type="warning")
         return False
 
     reason = storage.deviceImmutable(device)
     if reason:
-        intf.messageWindow(_("Unable To Delete"),reason, customIcon="error")
+        intf.messageWindow(_("Unable To Delete"),reason, type="error")
         return False
 
     if confirm and confirmDelete(intf, device):
@@ -215,7 +214,7 @@ def partitionSanityErrors(intf, errors):
                                   "%(productName)s.\n\n%(errorstr)s") \
                                 % {'productName': productName,
                                    'errorstr': errorstr},
-                                customIcon="error")
+                                type="error")
     return rc
 
 def partitionSanityWarnings(intf, warnings):
@@ -224,12 +223,13 @@ def partitionSanityWarnings(intf, warnings):
     if warnings:
         warningstr = string.join(warnings, "\n\n")
         rc = intf.messageWindow(_("Partitioning Warning"),
-                                     _("The following warnings exist with "
-                                       "your requested partition scheme.\n\n%s"
-                                       "\n\nWould you like to continue with "
-                                       "your requested partitioning "
-                                       "scheme?") % (warningstr),
-                                     type="yesno", customIcon="warning")
+                                _("The following warnings exist with "
+                                  "your requested partition scheme.\n\n%s"
+                                  "\n\nWould you like to continue with "
+                                  "your requested partitioning "
+                                  "scheme?") % (warningstr),
+                                type="custom", customIcon="warning",
+                                customButtons=[_("Yes"), _("No")])
     return rc
 
 
@@ -249,7 +249,8 @@ def partitionPreExistFormatWarnings(intf, warnings):
             commentstr = commentstr + "/dev/%s %s %s\n" % (dev,type,mntpt)
         rc = intf.messageWindow(_("Format Warning"), "%s\n\n%s\n\n%s" %
                                 (labelstr1, labelstr2, commentstr),
-                                type="yesno", customIcon="warning")
+                                type="custom", customIcon="warning",
+                                customButtons=[_("Yes"), _("No")])
     return rc
 
 def getPreExistFormatWarnings(storage):
@@ -314,8 +315,8 @@ def queryNoFormatPreExisting(intf):
             "to keep,\nsuch as home directories, then "
             "continue without formatting this\nnpartition.")
     rc = intf.messageWindow(_("Format?"), txt, type = "custom",
-            customButtons=[_("Modify Partition"), _("Do Not Format")],
-                            customIcon="warning")
+                            customButtons=[_("Modify Partition"), _("Do Not Format")],
+                            customIcon="question")
     return rc
 
 def doUIRAIDLVMChecks(format, req_disks, storage):
@@ -373,4 +374,4 @@ def questionUnusedRaidMembers(intf, unusedRaidMembers):
                            _("Disk contains %(members_count)s BIOS RAID metadata, but is not part of "
                              "any recognized BIOS RAID sets. Ignoring disk %(members)s.")
                              % {"members_count":len(unusedRaidMembers), "members":", ".join(unusedRaidMembers)},
-                             customIcon="warning")
+                             type="warning")

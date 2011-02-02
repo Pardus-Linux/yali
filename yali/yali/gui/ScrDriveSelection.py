@@ -111,7 +111,7 @@ class Widget(QWidget, ScreenWidget):
         if len(self.selected_disks) == 0:
             self.intf.messageWindow(_("Error"),
                                     _("You must select at least one "
-                                      "drive to be used for installation."), customIcon="error")
+                                      "drive to be used for installation."), type="error")
             return False
         else:
             self.selected_disks.sort(self.storage.compareDisks)

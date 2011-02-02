@@ -91,34 +91,34 @@ class Widget(QWidget, ScreenWidget):
     def nextCheck(self):
         (errors, warnings) = self.storage.sanityCheck()
         if errors:
-            detailed =  _("The partitioning scheme you requested\n"
-                          "caused the following critical errors.\n"
-                          "You must correct these errors before\n"
-                          "you continue your installation of %s." %
-                          yali.util.product_name())
+            detailed =  _("The partitioning scheme you requested "
+                          "caused the following critical errors."
+                          "You must correct these errors before "
+                          "you continue your installation of %s.") \
+                         % yali.util.product_name()
 
             comments = "\n\n".join(errors)
             self.intf.detailedMessageWindow(_("Partitioning Errors"),
-                                             detailed, comments, type="ok")
+                                             detailed, comments, type="error")
             return False
 
         if warnings:
-            detailed = _("The partitioning scheme you requested generated the \n"
-                         "following warnings. Would you like to continue with \n"
+            detailed = _("The partitioning scheme you requested generated the "
+                         "following warnings. Would you like to continue with "
                          "your requested partitioning "
                          "scheme?")
 
             comments = "\n\n".join(warnings)
             rc = self.intf.detailedMessageWindow(_("Partitioning Warnings"),
-                                                  detailed, comments, type="custom",
+                                                  detailed, comments, type="custom", customIcon="warning",
                                                   customButtons=[_("Ok"), _("Cancel")], default=1)
-            if rc == 1:
+            if rc:
                 return False
 
         formatWarnings = getPreExistFormatWarnings(self.storage)
         if formatWarnings:
-            detailed = _("The following pre-existing devices have\n"
-                         "been selected to be formatted, destroying\n"
+            detailed = _("The following pre-existing devices have "
+                         "been selected to be formatted, destroying "
                          "all data.")
 
             comments = ""
@@ -126,7 +126,7 @@ class Widget(QWidget, ScreenWidget):
                 comments = comments + "%s         %s         %s\n" % (device, type, mountpoint)
 
             rc = self.intf.detailedMessageWindow(_("Format Warnings"),
-                                                  detailed, comments, type="custom",
+                                                  detailed, comments, type="custom", customIcon="warning",
                                                   customButtons=[_("Format"), _("Cancel")], default=1)
             if rc:
                 return False
@@ -136,7 +136,7 @@ class Widget(QWidget, ScreenWidget):
 
     def backCheck(self):
         rc = self.intf.messageWindow(_("Warning"), _("All Changes that you made will be removed"),
-                                      type="custom", customIcon="question",
+                                      type="custom", customIcon="warning",
                                       customButtons=[_("Ok"), _("Cancel")], default=1)
         if not rc:
             self.storage.reset()
@@ -349,12 +349,12 @@ class Widget(QWidget, ScreenWidget):
                 rc = 0
             except PartitioningError, msg:
                 self.intf.messageWindow(_("Error Partitioning"), 
-                                        _("Could not allocate requested partitions: %s." % msg),
+                                        _("Could not allocate requested partitions: %s.") % msg,
                                         customIcon="error")
                 rc = -1
             except PartitioningWarning, msg:
                 rc = self.intf.messageWindow(_("Warning Partitioning"),
-                                             _("Warning: %s." % msg),
+                                             _("Warning: %s.") % msg,
                                              customButtons=[_("Modify Partition"), _("Continue")],
                                              customIcon="warning")
                 if rc == 1:
@@ -471,7 +471,7 @@ class Widget(QWidget, ScreenWidget):
             else:
                 ctx.interface.messageWindow(_("Partition Selection Warning"),
                                             _("Please select free physical partition to create new device."),
-                                            customIcon="error")
+                                            type="warning")
 
 
     def editDevice(self, *args):
@@ -483,7 +483,7 @@ class Widget(QWidget, ScreenWidget):
                 self.intf.messageWindow(_("Unable To Edit"),
                                        _("You cannot edit this device:\n\n%s")
                                         % reason,
-                                        customIcon="error")
+                                        type="warning")
                 return
 
             if device.type == "mdarray":

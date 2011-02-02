@@ -30,7 +30,7 @@ class RaidEditor(object):
                                      "First create at least two partitions "
                                      "of type \"software RAID\", and then "
                                      "select the \"RAID\" option again."),
-                                    customIcon="error")
+                                    type="error")
             return
 
         if isNew:
@@ -72,9 +72,8 @@ class RaidEditor(object):
             if active and mountpoint:
                 msg = sanityCheckMountPoint(mountpoint)
                 if msg:
-                    self.intf.messageWindow(_("Mount Point Error"),
-                                            msg,
-                                            customIcon="error")
+                    self.intf.messageWindow(_("Mount Point Error"), msg,
+                                            type="error")
                     continue
 
                 used = False
@@ -91,7 +90,7 @@ class RaidEditor(object):
                                             _("The mount point \"%s\" is in "
                                               "use. Please pick another.") %
                                             (mountpoint,),
-                                            customIcon="error")
+                                            type="warning")
                     continue
 
             if not self.origrequest.exists:
@@ -116,7 +115,7 @@ class RaidEditor(object):
                                                         memberDevices=members)
                 except ValueError, e:
                     self.intf.messageWindow(_("Error"), str(e),
-                                            customIcon="error")
+                                            type="error")
                     continue
 
                 if not self.isNew:

@@ -193,8 +193,7 @@ class StorageSet(object):
                                                    "%(mountpoint)s.  You may "
                                                    "continue installation, but "
                                                    "there may be problems.") % na,
-                                                   type="custom",
-                                                   customIcon="warning",
+                                                   type="custom", customIcon="warning",
                                                    customButtons=[_("Exit installer"), _("Continue")])
 
                     if ret == 0:
@@ -242,10 +241,10 @@ class StorageSet(object):
             if not ctx.interface.messageWindow:
                 sys.exit(0)
 
-            buttons = [_("Skip"), _("Format"), _("_Exit")]
+            buttons = [_("Skip"), _("Format"), _("Exit")]
             ret = ctx.interface.messageWindow(_("Error"), msg, type="custom",
                                               customButtons=buttons,
-                                              customIcon="warning")
+                                              customIcon="error")
 
             if ret == 0:
                 self.devicetree._removeDevice(device)
@@ -262,7 +261,7 @@ class StorageSet(object):
                 parent = get_containing_device(targetDir, self.devicetree)
                 if not parent:
                     ctx.logger.error("cannot determine which device contains "
-                              "directory %s" % device.path)
+                                     "directory %s" % device.path)
                     device.parents = []
                     self.devicetree._removeDevice(device)
                     continue

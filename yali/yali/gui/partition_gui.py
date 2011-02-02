@@ -62,9 +62,8 @@ class PartitionEditor:
             if active and mountpoint:
                 msg = sanityCheckMountPoint(mountpoint)
                 if msg:
-                    ctx.interface.messageWindow(_("Mount Point Error"),
-                                            msg,
-                                            customIcon="error")
+                    ctx.interface.messageWindow(_("Mount Point Error"), msg,
+                                                type="warning")
                     continue
 
                 used = False
@@ -78,10 +77,10 @@ class PartitionEditor:
 
                 if used:
                     ctx.interface.messageWindow(_("Mount point in use"),
-                                            _("The mount point \"%s\" is in "
-                                              "use. Please pick another.") %
-                                            (mountpoint,),
-                                            customIcon="error")
+                                                _("The mount point \"%s\" is in "
+                                                  "use. Please pick another.") %
+                                                (mountpoint,),
+                                                type="warning")
                     continue
 
             if not self.origrequest.exists:
@@ -102,7 +101,7 @@ class PartitionEditor:
                 err = doUIRAIDLVMChecks(format, [disk.name], self.storage)
                 if err:
                     self.intf.messageWindow(_("Error With Request"),
-                                            err, customIcon="error")
+                                            err, type="error")
                     continue
 
                 weight = partitioning.weight(mountpoint=mountpoint, fstype=format.type)
