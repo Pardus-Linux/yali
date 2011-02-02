@@ -44,8 +44,7 @@ class Widget(QWidget, ScreenWidget):
                 self.intf.messageWindow(_("Warning"),
                                         _("No partitions are available to resize. Only physical\n"
                                           "partitions which size is greater than %s MB can be resized.")
-                                        % ctx.consts.min_root_size,
-                                        type="warning", customIcon="error")
+                                        % ctx.consts.min_root_size, type="warning")
                 ctx.mainScreen.disableNext()
         else:
             ctx.mainScreen.enableNext()
@@ -64,9 +63,10 @@ class Widget(QWidget, ScreenWidget):
     def execute(self):
         rc = self.nextCheck()
         if rc is None:
-            #FIXME:Unknown bug
-            #sys.exit(0)
-            return True
+            # If return code from nextCheck method is None,
+            # storage backend throws exceptions in doPartitioning method.
+            ctx.mainScreen.enableBack()
+            return False
         else:
             return rc
 
