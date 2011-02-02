@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-
+import math
 import os
 import sys
 import math
@@ -731,6 +731,25 @@ class Ext2Filesystem(Filesystem):
     def doMigrate(self, intf=None):
         Filesystem.doMigrate(self, intf=intf)
         self.tuneFilesystem()
+
+    def _getFormatOptions(self, options=None):
+        argv = []
+        if options and isinstance(options, list):
+            argv.extend(options)
+        argv.extend(self.formatOptions)
+
+        #5616: reserved-blocks-percentage
+        device = ctx.storage.devicetree.getDeviceByName(os.path.basename(self.device))
+        if device.size > 10240: #if bigger than 10 GB
+            reserved_size = 500.0
+        else:
+            reserved_size = 100.0
+
+        reserved_percentage = int(math.ceil(100.0 * reserved_size / device.size))
+        argv.append("-m %d" % reserved_percentage)
+
+        argv.append(self.device)
+        return argv
 
     def doFormat(self, *args, **kwargs):
         Filesystem.doFormat(self, *args, **kwargs)
