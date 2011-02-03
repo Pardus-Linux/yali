@@ -1169,28 +1169,27 @@ msgstr ""
 "boyutlandırılabilir."
 
 #: yali/gui/ScrPartitionManual.py:94
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "The partitioning scheme you requested caused the following critical errors."
 "You must correct these errors before you continue your installation of %s."
 msgstr ""
-"Talep ettiğiniz bölümleme şeması\n"
-"aşağıdaki kritik hataların oluşmasına neden oldu.\n"
-"Kurulumunuza %s devam etmeden önce\\bu hataları düzeltmeniz gerekecektir."
+"Talep ettiğiniz bölümleme şeması "
+"aşağıdaki kritik hataların oluşmasına neden oldu."
+"Kurulumunuza %s devam etmeden önce bu hataları düzeltmeniz gerekecektir."
 
 #: yali/gui/ScrPartitionManual.py:101
 msgid "Partitioning Errors"
 msgstr "Biçimlendirme Hataları"
 
 #: yali/gui/ScrPartitionManual.py:106
-#, fuzzy
 msgid ""
 "The partitioning scheme you requested generated the following warnings. "
 "Would you like to continue with your requested partitioning scheme?"
 msgstr ""
-"Talep ettiğiniz bölümleme şeması\n"
-"aşağıdaki uyarıların ortaya çıkmasına oldu.\n"
-"Talep ettiğiniz bölümleme şeması ile\n"
+"Talep ettiğiniz bölümleme şeması "
+"aşağıdaki uyarıların ortaya çıkmasına oldu."
+"Talep ettiğiniz bölümleme şeması ile "
 "devam etmek istiyor musunuz?"
 
 #: yali/gui/ScrPartitionManual.py:112
@@ -1203,13 +1202,12 @@ msgid "Ok"
 msgstr "Tamam"
 
 #: yali/gui/ScrPartitionManual.py:120
-#, fuzzy
 msgid ""
 "The following pre-existing devices have been selected to be formatted, "
 "destroying all data."
 msgstr ""
-"Aşağıdaki aygıtlar biçimlendirilmek üzere\n"
-"seçilmiş durumdadırlar, bu işlem aygıtlardaki\n"
+"Aşağıdaki aygıtlar biçimlendirilmek üzere "
+"seçilmiş durumdadırlar, bu işlem aygıtlardaki "
 "verilerin kaybolmasına neden olacaktır."
 
 #: yali/gui/ScrPartitionManual.py:128
@@ -1872,46 +1870,44 @@ msgstr ""
 "\n"
 
 #: yali/storage/__init__.py:779
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "You have not defined a root partition (/),which is required for installation "
 "of %s to continue."
-msgstr "Bir kök dosya alanı (/) tanımlanmadı. Bu, %s kurulumu için gerekli."
+msgstr "%s kurulumuna devam etmek için gerekli olan kök dizin bölümünü (/) tanımlanmadınız."
 
 #: yali/storage/__init__.py:784
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Your / partition is less than %(min)s MB which is lower than recommended for "
 "a normal %(productName)s install."
 msgstr ""
-"Kök ( / ) dosya alanı normal bir %(productName)s kurulumu \n"
+"Kök dizin bölünüz ( / ) normal bir %(productName)s kurulumu "
 "için önerilen %(min)s MB boyutun altında."
 
 #: yali/storage/__init__.py:790
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Your %(mount)s partition is less than %(size)s megabytes which is lower than "
 "recommended for a normal %(productName)s install."
 msgstr ""
-"%(mount)s disk bölümü, normal bir %(productName)s \n"
+"%(mount)s disk bölümü, normal bir %(productName)s "
 "kurulumu için önerilen %(size)s megabyte boyutun altında."
 
 #: yali/storage/__init__.py:799
-#, fuzzy
 msgid ""
 "You have not specified a swap partition. Due to the amount of memory "
 "present, a swap partition is required to complete installation."
 msgstr ""
-"Takas alanı belirlenmemiş. Kullanılabilen hafıza ile bir takas alanı\n"
+"Takas alanı belirlenmemiş. Kullanılabilen hafıza ile bir takas alanı "
 " kurulumu tamamlamak için zorunlu görünüyor."
 
 #: yali/storage/__init__.py:802
-#, fuzzy
 msgid ""
 "You have not specified a swap partition. Although not strictly required in "
 "all cases, it will significantly improve performancefor most installations."
 msgstr ""
-"Takas alanı belirlenmemiş. Bu her durumda gerekli olmasa da,\n"
+"Takas alanı belirlenmemiş. Bu her durumda gerekli olmasa da, "
 " bir çok kurulumda performansta ciddi artış sağlayacaktır."
 
 #: yali/storage/__init__.py:808
