@@ -72,7 +72,7 @@ msgstr "Використати вільний простір"
 
 #: yali/gui/Ui/autopartwidget.py:143
 msgid "Create Custom Layout"
-msgstr "Створити вибране компонування"
+msgstr "Створити власне компонування"
 
 #: yali/gui/Ui/bootloaderwidget.py:128
 msgid "Advanced settings"
