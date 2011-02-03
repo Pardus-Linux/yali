@@ -12,13 +12,13 @@ msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-02-03 22:04+0200\n"
-"PO-Revision-Date: 2011-01-31 14:10+0100\n"
+"PO-Revision-Date: 2011-02-03 22:17+0100\n"
 "Last-Translator: Antoon Tolboom <atolboo@gmail.com>\n"
 "Language-Team: Dutch <kde-i18n-doc@kde.org>\n"
-"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
 "X-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
@@ -750,9 +750,9 @@ msgstr ""
 #: yali/gui/lvm_gui.py:446
 #, python-format
 msgid ""
-"The physical extent size cannot be changed because the value selected "
-"(%(curpe)10.2f MB) is too large compared to the size of the smallest "
-"physical volume (%(maxpvsize)10.2f MB) in the volume group."
+"The physical extent size cannot be changed because the value selected (%"
+"(curpe)10.2f MB) is too large compared to the size of the smallest physical "
+"volume (%(maxpvsize)10.2f MB) in the volume group."
 msgstr ""
 "De fysieke uitbreidingsgrootte kan niet gewijzigd worden omdat de "
 "geselecteerde waarde (%(curpe)10.2f MB) te groot is in vergelijking met de "
@@ -888,8 +888,8 @@ msgstr ""
 #, python-format
 msgid ""
 "The size entered for this logical volume (%(size)d MB) combined with the "
-"size of the other logical volume(s) exceeds the size of the volume group "
-"(%(tmpvgsize)d MB). Please make the volume group larger or make the logical "
+"size of the other logical volume(s) exceeds the size of the volume group (%"
+"(tmpvgsize)d MB). Please make the volume group larger or make the logical "
 "volume smaller."
 msgstr ""
 "De opgegeven grootte voor het logische volume (%(size)d MB) in combinatie "
@@ -1172,27 +1172,25 @@ msgstr ""
 "Dit is alleen mogelijk voor fysieke partities groter dan %s MB."
 
 #: yali/gui/ScrPartitionManual.py:94
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "The partitioning scheme you requested caused the following critical errors."
 "You must correct these errors before you continue your installation of %s."
 msgstr ""
-"De gevraagde partitieschema veroorzaakt\n"
-"de volgende kritieke fouten. Los deze fouten\n"
-" op voor het doorgaan met de installatie van %s."
+"Het gevraagde partitieschema veroorzaakt de volgende kritieke fouten. Los "
+"deze fouten op, om door te kunnen gaan met de installatie van %s."
 
 #: yali/gui/ScrPartitionManual.py:101
 msgid "Partitioning Errors"
 msgstr "Partitioneringsfout"
 
 #: yali/gui/ScrPartitionManual.py:106
-#, fuzzy
 msgid ""
 "The partitioning scheme you requested generated the following warnings. "
 "Would you like to continue with your requested partitioning scheme?"
 msgstr ""
-"Het gevraagde partitieschema veroorzaakt de volgende\n"
-"fouten. Doorgaan met het gevraagde partitieschema?"
+"Het gevraagde partitieschema veroorzaakt de volgende waarschuwingen. "
+"Doorgaan met het gevraagde partitieschema?"
 
 #: yali/gui/ScrPartitionManual.py:112
 msgid "Partitioning Warnings"
@@ -1204,14 +1202,12 @@ msgid "Ok"
 msgstr "OK"
 
 #: yali/gui/ScrPartitionManual.py:120
-#, fuzzy
 msgid ""
 "The following pre-existing devices have been selected to be formatted, "
 "destroying all data."
 msgstr ""
-"De volgende reeds bestaande schijven zijn\n"
-"geselecteerd om geformatteerd te worden\n"
-"en daardoor alle gegevens vernietigd worden."
+"De volgende reeds bestaande schijven zijn geselecteerd om geformatteerd te "
+"worden en waardoor alle gegevens vernietigd worden."
 
 #: yali/gui/ScrPartitionManual.py:128
 msgid "Format Warnings"
@@ -1877,53 +1873,49 @@ msgstr ""
 "\n"
 
 #: yali/storage/__init__.py:779
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "You have not defined a root partition (/),which is required for installation "
 "of %s to continue."
 msgstr ""
 "Er is geen root-partitie (/) opgegeven, en deze is noodzakelijk voor de "
-"installatie\n"
-"van %s om door te gaan."
+"installatie van %s om door te gaan."
 
 #: yali/storage/__init__.py:784
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Your / partition is less than %(min)s MB which is lower than recommended for "
 "a normal %(productName)s install."
 msgstr ""
-"De /-partitie is minder dan %(min)s MB en dit is kleiner dan de\n"
-"aanbevolen grootte voor een normale %(productName)s installatie."
+"De /-partitie is minder dan %(min)s MB en dit is kleiner dan de aanbevolen "
+"grootte voor een normale %(productName)s installatie."
 
 #: yali/storage/__init__.py:790
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Your %(mount)s partition is less than %(size)s megabytes which is lower than "
 "recommended for a normal %(productName)s install."
 msgstr ""
-"De %(mount)s partitie is minder dan %(size)s MB en dit is kleiner dan de\n"
+"De %(mount)s partitie is minder dan %(size)s MB en dit is kleiner dan de "
 "aanbevolen grootte voor een normale %(productName)s installatie."
 
 #: yali/storage/__init__.py:799
-#, fuzzy
 msgid ""
 "You have not specified a swap partition. Due to the amount of memory "
 "present, a swap partition is required to complete installation."
 msgstr ""
 "Er is geen swap-partitie gespecificeerd. Vanwege de grootte van het huidig "
-"aanwezige\n"
-"geheugen is een swap-partitie noodzakelijk voor het voltooien van de "
-"installatie."
+"aanwezige geheugen is een swap-partitie noodzakelijk voor het voltooien van "
+"de installatie."
 
 #: yali/storage/__init__.py:802
-#, fuzzy
 msgid ""
 "You have not specified a swap partition. Although not strictly required in "
 "all cases, it will significantly improve performancefor most installations."
 msgstr ""
-"Er is geen swap-partitie gespecificeerd. Alhoewel dit voor alle gevallen\n"
-"niet strikt noodzakelijk is, zal het de prestaties van het systeem voor\n"
-"de meeste installaties belangrijk verbeteren."
+"Er is geen swap-partitie gespecificeerd. Alhoewel dit voor alle gevallen "
+"niet strikt noodzakelijk is, zal het de prestaties van het systeem voor de "
+"meeste installaties belangrijk verbeteren."
 
 #: yali/storage/__init__.py:808
 #, python-format
@@ -2122,8 +2114,8 @@ msgstr "Fout tijdens partitioneren"
 #, python-format
 msgid ""
 "The following critical errors exist with your requested partitioning scheme. "
-"These errors must be corrected prior to continuing with your install of "
-"%(productName)s.\n"
+"These errors must be corrected prior to continuing with your install of %"
+"(productName)s.\n"
 "\n"
 "%(errorstr)s"
 msgstr ""
@@ -2292,11 +2284,11 @@ msgid ""
 "preserve thecontents.This action may also be applied to all other PVs with "
 "inconsistent metadata."
 msgstr ""
-"Er zijn niet samenhangend LVM-gegevens op %(msg)s. Alle gerelateerde PV's "
-"(%(pvs)s) kunnen opnieuw geïnitialiseerd worden en dit zal de LVM-"
-"metagegevens wissen, of door het negeren zal de inhoud niet verloren gaan. "
-"Deze bewerking kan ook op alle andere PV's, met niet samenhangende "
-"metagegevens, toegepast worden."
+"Er zijn niet samenhangend LVM-gegevens op %(msg)s. Alle gerelateerde PV's (%"
+"(pvs)s) kunnen opnieuw geïnitialiseerd worden en dit zal de LVM-metagegevens "
+"wissen, of door het negeren zal de inhoud niet verloren gaan. Deze bewerking "
+"kan ook op alle andere PV's, met niet samenhangende metagegevens, toegepast "
+"worden."
 
 #: yali/storage/storageBackendHelpers.py:361
 msgid "Yes, re-initialize"
@@ -2352,9 +2344,9 @@ msgid ""
 "An error occurred mounting device %(path)s as %(mountpoint)s.  You may "
 "continue installation, but there may be problems."
 msgstr ""
-"Een fout is opgetreden tijdens het aan koppelen van %(path)s als "
-"%(mountpoint)s.  De installatie kan voortgezet worden, maar dit kan "
-"problemen geven."
+"Een fout is opgetreden tijdens het aan koppelen van %(path)s als %"
+"(mountpoint)s.  De installatie kan voortgezet worden, maar dit kan problemen "
+"geven."
 
 #: yali/storage/storageset.py:213
 #, python-format
@@ -2364,9 +2356,9 @@ msgid ""
 "\n"
 "Press <Enter> to exit the installer."
 msgstr ""
-"Een fout is opgetreden tijdens het aankoppelen van %(path)s als "
-"%(mountpoint)s: %(msg)s. Dit is een fatale fout en de installatie kan niet "
-"voortgezet worden.\n"
+"Een fout is opgetreden tijdens het aankoppelen van %(path)s als %(mountpoint)"
+"s: %(msg)s. Dit is een fatale fout en de installatie kan niet voortgezet "
+"worden.\n"
 "\n"
 "Druk <Enter> om de installatie te beëindigen."
 
@@ -2756,8 +2748,8 @@ msgstr "Ongeldig xml-bestand"
 #~ msgstr "Installeer alle taalpakketten"
 
 #~ msgid ""
-#~ "Cannot access the partition table of %(description)s(%(name)s) -- "
-#~ "%(size)-0.fMB\n"
+#~ "Cannot access the partition table of %(description)s(%(name)s) -- %(size)-"
+#~ "0.fMB\n"
 #~ "\n"
 #~ "If there already exists a partition table on this device, it will\n"
 #~ " be re-initialized and your existing data will be lost!\n"
@@ -3482,8 +3474,8 @@ msgstr "Ongeldig xml-bestand"
 #~ msgstr "%d MB beschikbaar"
 
 #~ msgid ""
-#~ "Partition <b>%(partition)s (%(size)s)</b> <b>deleted</b> from device <b>"
-#~ "%(device)s</b>."
+#~ "Partition <b>%(partition)s (%(size)s)</b> <b>deleted</b> from device <b>%"
+#~ "(device)s</b>."
 #~ msgstr ""
 #~ "Partitie <b>%(partition)s (%(size)s)</b> <b>verwijderd</b> van station <b>"
 #~ "%(device)s</b>."
@@ -3495,8 +3487,8 @@ msgstr "Ongeldig xml-bestand"
 #~ "Partition <b>%(partition)s</b> will be <b>formatted</b> as <b>%(fsType)s</"
 #~ "b>."
 #~ msgstr ""
-#~ "Partitie <b>%(partition)s</b> <b>zal geformateerd worden</b> als <b>"
-#~ "%(fsType)s</b>."
+#~ "Partitie <b>%(partition)s</b> <b>zal geformateerd worden</b> als <b>%"
+#~ "(fsType)s</b>."
 
 #~ msgid "Partition <b>%(partition)s</b> <b>selected</b> as <b>%(type)s</b>."
 #~ msgstr ""
@@ -4125,18 +4117,18 @@ msgstr "Ongeldig xml-bestand"
 #~ msgstr "Automatisch partitioneren (grootte aanpassen methode) geselecteerd."
 
 #~ msgid ""
-#~ "Partition <b>%(partition)s - %(currentFs)s</b> <b>resized</b> to <b>"
-#~ "%(resizeTo)s MBs</b>, previous size was <b>%(currentSize)s MBs</b>."
+#~ "Partition <b>%(partition)s - %(currentFs)s</b> <b>resized</b> to <b>%"
+#~ "(resizeTo)s MBs</b>, previous size was <b>%(currentSize)s MBs</b>."
 #~ msgstr ""
-#~ "Partitie <b>%(partition)s - %(currentFs)s</b> <b>aangepast</b> naar <b>"
-#~ "%(resizeTo)s MB</b>, oude grootte was <b>%(currentSize)s MB</b>."
+#~ "Partitie <b>%(partition)s - %(currentFs)s</b> <b>aangepast</b> naar <b>%"
+#~ "(resizeTo)s MB</b>, oude grootte was <b>%(currentSize)s MB</b>."
 
 #~ msgid ""
 #~ "Partition <b>%(newPartition)s</b> <b>added</b> to device <b>%(device)s</"
 #~ "b> with <b>%(size)s MBs</b> as <b>%(fs)s</b>."
 #~ msgstr ""
-#~ "Partitie <b>%(newPartition)s</b> <b>toegevoegd</b> aan station <b>"
-#~ "%(device)s</b> met <b>%(size)s MB</b> als <b>%(fs)s</b>."
+#~ "Partitie <b>%(newPartition)s</b> <b>toegevoegd</b> aan station <b>%"
+#~ "(device)s</b> met <b>%(size)s MB</b> als <b>%(fs)s</b>."
 
 #~ msgid ""
 #~ "Partition <b>%(newPartition)s</b> <b>selected</b> as <b>%(type)s</b>."
