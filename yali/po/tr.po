@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: YALI-tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-27 20:24+0200\n"
+"POT-Creation-Date: 2011-02-03 22:04+0200\n"
 "PO-Revision-Date: 2011-01-21 15:52+0200\n"
 "Last-Translator: Koray Löker <loker@pardus.org.tr>\n"
 "Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
@@ -215,7 +215,7 @@ msgstr ""
 "yeni bir hata kaydı açın."
 
 #: yali/gui/Ui/exception.py:64 yali/gui/ScrCheckCD.py:99
-#: yali/storage/__init__.py:840
+#: yali/storage/__init__.py:836
 msgid "Reboot"
 msgstr "Yeniden Başlat"
 
@@ -288,7 +288,7 @@ msgstr "Dosya Sistemi "
 
 #: yali/gui/Ui/logicalvolume.py:146 yali/gui/Ui/manualpartwidget.py:161
 #: yali/gui/Ui/partition.py:143 yali/gui/Ui/raid.py:108
-#: yali/gui/ScrPartitionManual.py:130 yali/storage/storageset.py:245
+#: yali/gui/ScrPartitionManual.py:130 yali/storage/storageset.py:244
 msgid "Format"
 msgstr "Biçimlendir"
 
@@ -353,8 +353,8 @@ msgstr "Düzenle"
 
 #: yali/gui/Ui/manualpartwidget.py:165 yali/gui/Ui/setupuserswidget.py:500
 #: yali/gui/Ui/volumegroup.py:119 yali/gui/lvm_gui.py:552
-#: yali/storage/storageBackendHelpers.py:92
-#: yali/storage/storageBackendHelpers.py:294
+#: yali/storage/storageBackendHelpers.py:91
+#: yali/storage/storageBackendHelpers.py:295
 msgid "Delete"
 msgstr "Sil"
 
@@ -420,12 +420,12 @@ msgid "Shrink partition to size (in MB) :"
 msgstr "Disk bölümünü küçült (MB) :"
 
 #: yali/gui/Ui/partitionshrinkwidget.py:94 yali/gui/Ui/partresize.py:94
-#: yali/gui/Ui/setupuserswidget.py:501 yali/gui/lvm_gui.py:420
-#: yali/gui/lvm_gui.py:467 yali/gui/lvm_gui.py:552
+#: yali/gui/Ui/setupuserswidget.py:501 yali/gui/lvm_gui.py:418
+#: yali/gui/lvm_gui.py:465 yali/gui/lvm_gui.py:552
 #: yali/gui/ScrPartitionManual.py:114 yali/gui/ScrPartitionManual.py:130
-#: yali/gui/ScrPartitionManual.py:140 yali/gui/YaliDialog.py:223
-#: yali/storage/__init__.py:840 yali/storage/storageBackendHelpers.py:92
-#: yali/storage/storageBackendHelpers.py:294
+#: yali/gui/ScrPartitionManual.py:140 yali/gui/YaliDialog.py:220
+#: yali/storage/__init__.py:836 yali/storage/storageBackendHelpers.py:91
+#: yali/storage/storageBackendHelpers.py:295
 msgid "Cancel"
 msgstr "İptal"
 
@@ -679,22 +679,22 @@ msgstr "LVM Hacim Grubunu Düzenle"
 msgid "Invalid Volume Group Name"
 msgstr "Geçersiz Hacim Grubu Adı"
 
-#: yali/gui/lvm_gui.py:99
+#: yali/gui/lvm_gui.py:98
 msgid "Name in use"
 msgstr "Kullanımda olan isim"
 
-#: yali/gui/lvm_gui.py:100
+#: yali/gui/lvm_gui.py:99
 #, python-format
 msgid "The volume group name \"%s\" is already in use. Please pick another."
 msgstr "Hacim grubu adı \"%s\" kullanımda. Lütfen başka bir seçim yapınız."
 
-#: yali/gui/lvm_gui.py:404 yali/gui/lvm_gui.py:434 yali/gui/lvm_gui.py:447
-#: yali/gui/lvm_gui.py:482 yali/gui/lvm_gui.py:697 yali/gui/lvm_gui.py:719
+#: yali/gui/lvm_gui.py:402 yali/gui/lvm_gui.py:432 yali/gui/lvm_gui.py:445
+#: yali/gui/lvm_gui.py:480 yali/gui/lvm_gui.py:696 yali/gui/lvm_gui.py:718
 #: yali/gui/storageGuiHelpers.py:70
 msgid "Not enough space"
 msgstr "Yeterli alan yok"
 
-#: yali/gui/lvm_gui.py:405
+#: yali/gui/lvm_gui.py:403
 msgid ""
 "The physical extent size cannot be changed because\n"
 "otherwise the space required by the currently defined\n"
@@ -706,11 +706,11 @@ msgstr ""
 "fazla hâle gelecek.\n"
 " "
 
-#: yali/gui/lvm_gui.py:413
+#: yali/gui/lvm_gui.py:411
 msgid "Confirm Physical Extent Change"
 msgstr "Fiziksel Boyut Değişimini Onayla"
 
-#: yali/gui/lvm_gui.py:414
+#: yali/gui/lvm_gui.py:412
 msgid ""
 "This change in the value of the physical extent will\n"
 "require the sizes of the current logical volume requests\n"
@@ -724,12 +724,12 @@ msgstr ""
 "var olan mantıksal hacmin boyutlarının oranına göre\n"
 "değişiklik gösterecek ve yukarı yuvarlanacaktır"
 
-#: yali/gui/lvm_gui.py:420 yali/gui/lvm_gui.py:467
-#: yali/gui/ScrPartitionManual.py:358 yali/storage/storageset.py:198
+#: yali/gui/lvm_gui.py:418 yali/gui/lvm_gui.py:465
+#: yali/gui/ScrPartitionManual.py:358 yali/storage/storageset.py:197
 msgid "Continue"
 msgstr "Devam Et"
 
-#: yali/gui/lvm_gui.py:435
+#: yali/gui/lvm_gui.py:433
 #, python-format
 msgid ""
 "The physical extent size cannot be changed because\n"
@@ -740,7 +740,7 @@ msgstr ""
 "(%(curpe)10.2f MB) hacim grubundaki en düşük değerden\n"
 "(%(maxpvsize)10.2f MB) büyük."
 
-#: yali/gui/lvm_gui.py:448
+#: yali/gui/lvm_gui.py:446
 #, python-format
 msgid ""
 "The physical extent size cannot be changed because the value selected "
@@ -751,11 +751,11 @@ msgstr ""
 "hacim grubundaki en küçük fiziksel hacme kıyasla (%(maxpvsize)10.2f MB) çok "
 "büyük."
 
-#: yali/gui/lvm_gui.py:460
+#: yali/gui/lvm_gui.py:458
 msgid "Too small"
 msgstr "Çok küçük"
 
-#: yali/gui/lvm_gui.py:461
+#: yali/gui/lvm_gui.py:459
 msgid ""
 "This change in the value of the physical extent will waste substantial space "
 "on one or more of the physical volumes in the volume group."
@@ -763,7 +763,7 @@ msgstr ""
 "Fiziksel boyut değerindeki değişiklik, hacim grubuna ait olan fiziksel "
 "hacimler üzerinden yeterli alanın kaybolmasına yol açacaktır."
 
-#: yali/gui/lvm_gui.py:483
+#: yali/gui/lvm_gui.py:481
 #, python-format
 msgid ""
 "The physical extent size cannot be changed because the resulting maximum "
@@ -774,11 +774,11 @@ msgstr ""
 "maksimum büyüklük (%10.2f MB), tanımlanmış olan mantıksal hacimlerden \n"
 "bir ya da bir kaçından daha küçük oluyor."
 
-#: yali/gui/lvm_gui.py:504
+#: yali/gui/lvm_gui.py:502
 msgid "No free slots"
 msgstr "Boş yuva yok"
 
-#: yali/gui/lvm_gui.py:505
+#: yali/gui/lvm_gui.py:503
 #, python-format
 msgid ""
 "You cannot create more than %d logical volume \n"
@@ -787,11 +787,11 @@ msgstr ""
 "hacim grubu başına en fazla %d mantıksal hacim\n"
 "oluşturulabilir."
 
-#: yali/gui/lvm_gui.py:511
+#: yali/gui/lvm_gui.py:510
 msgid "No free space"
 msgstr "Boş alan yok"
 
-#: yali/gui/lvm_gui.py:512
+#: yali/gui/lvm_gui.py:511
 msgid ""
 "There is no room left in the volume group to create new\n"
 "logical volumes. To add a logical volume you must reduce\n"
@@ -802,8 +802,8 @@ msgstr ""
 "alan yok. Mantıksal hacim eklemek için var olan mantıksal\n"
 "hacimlerden bir veya bir kaçının boyutunu düşürmeniz gerekli."
 
-#: yali/gui/lvm_gui.py:548 yali/storage/storageBackendHelpers.py:88
-#: yali/storage/storageBackendHelpers.py:293
+#: yali/gui/lvm_gui.py:548 yali/storage/storageBackendHelpers.py:87
+#: yali/storage/storageBackendHelpers.py:294
 msgid "Confirm Delete"
 msgstr "Silmeyi Onayla"
 
@@ -830,40 +830,40 @@ msgstr "Mantıksal Hacmi Düzenle: %s"
 msgid "Mount Point Error"
 msgstr "Bağlama Noktası Hatası"
 
-#: yali/gui/lvm_gui.py:645 yali/gui/partition_gui.py:80
-#: yali/gui/raid_gui.py:90
+#: yali/gui/lvm_gui.py:644 yali/gui/partition_gui.py:79
+#: yali/gui/raid_gui.py:89
 msgid "Mount point in use"
 msgstr "Kullanımdaki bağlama noktası"
 
-#: yali/gui/lvm_gui.py:646 yali/gui/partition_gui.py:81
-#: yali/gui/raid_gui.py:91
+#: yali/gui/lvm_gui.py:645 yali/gui/partition_gui.py:80
+#: yali/gui/raid_gui.py:90
 #, python-format
 msgid "The mount point \"%s\" is in use. Please pick another."
 msgstr "Bağlama noktası \"%s\" kullanımda. Lütfen başka bir yer seçin."
 
-#: yali/gui/lvm_gui.py:657
+#: yali/gui/lvm_gui.py:656
 msgid "Illegal Logical Volume Name"
 msgstr "Geçersiz Mantıksal Hacim Adı"
 
-#: yali/gui/lvm_gui.py:669
+#: yali/gui/lvm_gui.py:668
 msgid "Illegal logical volume name"
 msgstr "Geçersiz mantıksal hacim adı"
 
-#: yali/gui/lvm_gui.py:670
+#: yali/gui/lvm_gui.py:669
 #, python-format
 msgid "The logical volume name \"%s\" is already in use. Please pick another."
 msgstr ""
 "Mantıksal hacim adı \"%s\" şu an kullanımda. Lütfen başka bir ad seçin."
 
-#: yali/gui/lvm_gui.py:684
+#: yali/gui/lvm_gui.py:683
 msgid "Illegal size"
 msgstr "Geçersiz boyut"
 
-#: yali/gui/lvm_gui.py:685
+#: yali/gui/lvm_gui.py:684
 msgid "The requested size as entered is not a valid number greater than 0."
 msgstr "Talep edilen boyut 0'dan daha büyük bir geçerli sayı değildir."
 
-#: yali/gui/lvm_gui.py:698
+#: yali/gui/lvm_gui.py:697
 #, python-format
 msgid ""
 "The current requested size (%(size)10.2f MB) is larger than the maximum "
@@ -876,7 +876,7 @@ msgstr ""
 "disk alanında yeni Fiziksel Hacimler ekleyebilir ve onları bu hacim grubuna "
 "ekleyebilirsiniz."
 
-#: yali/gui/lvm_gui.py:720
+#: yali/gui/lvm_gui.py:719
 #, python-format
 msgid ""
 "The size entered for this logical volume (%(size)d MB) combined with the "
@@ -903,7 +903,7 @@ msgstr "Disk bölümünü Düzenle %s"
 msgid "Edit Partition"
 msgstr "Bölümü Düzenle"
 
-#: yali/gui/partition_gui.py:104
+#: yali/gui/partition_gui.py:103
 msgid "Error With Request"
 msgstr "Hatalı İstek"
 
@@ -938,8 +938,8 @@ msgstr "RAID Aygıtını Düzenleyin: %s"
 msgid "Edit RAID Device"
 msgstr "RAID Aygıtını Düzenle"
 
-#: yali/gui/raid_gui.py:118 yali/gui/ScrDriveSelection.py:112
-#: yali/storage/storageset.py:246 yali/storage/storageset.py:318
+#: yali/gui/raid_gui.py:117 yali/gui/ScrDriveSelection.py:112
+#: yali/storage/storageset.py:245 yali/storage/storageset.py:317
 msgid "Error"
 msgstr "Hata"
 
@@ -958,7 +958,7 @@ msgstr ""
 "\n"
 "className = %s.Widget"
 
-#: yali/gui/runner.py:115
+#: yali/gui/runner.py:115 yali/storage/storageset.py:244
 msgid "Exit"
 msgstr "Çık"
 
@@ -1169,12 +1169,10 @@ msgstr ""
 "boyutlandırılabilir."
 
 #: yali/gui/ScrPartitionManual.py:94
-#, python-format
+#, fuzzy, python-format
 msgid ""
-"The partitioning scheme you requested\n"
-"caused the following critical errors.\n"
-"You must correct these errors before\n"
-"you continue your installation of %s."
+"The partitioning scheme you requested caused the following critical errors."
+"You must correct these errors before you continue your installation of %s."
 msgstr ""
 "Talep ettiğiniz bölümleme şeması\n"
 "aşağıdaki kritik hataların oluşmasına neden oldu.\n"
@@ -1185,10 +1183,10 @@ msgid "Partitioning Errors"
 msgstr "Biçimlendirme Hataları"
 
 #: yali/gui/ScrPartitionManual.py:106
+#, fuzzy
 msgid ""
-"The partitioning scheme you requested generated the \n"
-"following warnings. Would you like to continue with \n"
-"your requested partitioning scheme?"
+"The partitioning scheme you requested generated the following warnings. "
+"Would you like to continue with your requested partitioning scheme?"
 msgstr ""
 "Talep ettiğiniz bölümleme şeması\n"
 "aşağıdaki uyarıların ortaya çıkmasına oldu.\n"
@@ -1200,15 +1198,15 @@ msgid "Partitioning Warnings"
 msgstr "Bölümleme Uyarıları"
 
 #: yali/gui/ScrPartitionManual.py:114 yali/gui/ScrPartitionManual.py:140
-#: yali/gui/YaliDialog.py:221
+#: yali/gui/YaliDialog.py:218
 msgid "Ok"
 msgstr "Tamam"
 
 #: yali/gui/ScrPartitionManual.py:120
+#, fuzzy
 msgid ""
-"The following pre-existing devices have\n"
-"been selected to be formatted, destroying\n"
-"all data."
+"The following pre-existing devices have been selected to be formatted, "
+"destroying all data."
 msgstr ""
 "Aşağıdaki aygıtlar biçimlendirilmek üzere\n"
 "seçilmiş durumdadırlar, bu işlem aygıtlardaki\n"
@@ -1275,7 +1273,7 @@ msgid "Extended"
 msgstr "Uzatılmış"
 
 #: yali/gui/ScrPartitionManual.py:351 yali/storage/partitioning.py:1647
-#: yali/storage/partitioning.py:1678
+#: yali/storage/partitioning.py:1679
 msgid "Error Partitioning"
 msgstr "Bölümlendirme Hatası"
 
@@ -1294,7 +1292,7 @@ msgid "Warning: %s."
 msgstr "Uyarı: %s."
 
 #: yali/gui/ScrPartitionManual.py:358
-#: yali/storage/storageBackendHelpers.py:317
+#: yali/storage/storageBackendHelpers.py:318
 msgid "Modify Partition"
 msgstr "Bölümü Boyutlandır"
 
@@ -1570,9 +1568,9 @@ msgid ""
 "The partitioning options you have selected will now be written to disk. Any "
 "data on deleted or reformatted partitions will be lost."
 msgstr ""
-"Seçtiğiniz biçimlendirme seçenekleri şimdi diske yazılmaya "
-"başlanacak. Silinen veya yeniden biçimlendirilen bölümlerdeki "
-"tüm verileri kaybedeceksiniz."
+"Seçtiğiniz biçimlendirme seçenekleri şimdi diske yazılmaya başlanacak. "
+"Silinen veya yeniden biçimlendirilen bölümlerdeki tüm verileri "
+"kaybedeceksiniz."
 
 #: yali/gui/ScrSummary.py:209
 msgid "Write Changes to Disk"
@@ -1600,15 +1598,19 @@ msgstr ""
 "geliştiricileri tarafından destek verilemiyor. <br><br><b>Ön tanımlı "
 "sürücüler yerine sahipli sürücüleri kurmak ister misiniz?</b></qt>"
 
-#: yali/gui/ScrSummary.py:312 yali/gui/YaliDialog.py:221
-#: yali/gui/YaliDialog.py:237 yali/gui/YaliDialog.py:264
-#: yali/storage/storageBackendHelpers.py:302
+#: yali/gui/ScrSummary.py:312 yali/gui/YaliDialog.py:218
+#: yali/gui/YaliDialog.py:234 yali/gui/YaliDialog.py:261
+#: yali/storage/storageBackendHelpers.py:232
+#: yali/storage/storageBackendHelpers.py:253
+#: yali/storage/storageBackendHelpers.py:303
 msgid "Yes"
 msgstr "Evet"
 
-#: yali/gui/ScrSummary.py:312 yali/gui/YaliDialog.py:223
-#: yali/gui/YaliDialog.py:238 yali/gui/YaliDialog.py:265
-#: yali/storage/storageBackendHelpers.py:302
+#: yali/gui/ScrSummary.py:312 yali/gui/YaliDialog.py:220
+#: yali/gui/YaliDialog.py:235 yali/gui/YaliDialog.py:262
+#: yali/storage/storageBackendHelpers.py:232
+#: yali/storage/storageBackendHelpers.py:253
+#: yali/storage/storageBackendHelpers.py:303
 msgid "No"
 msgstr "Hayır"
 
@@ -1677,35 +1679,35 @@ msgstr ""
 "korumak için hacim grubunun ebadı\n"
 "çok küçük kalacaktır."
 
-#: yali/gui/YaliDialog.py:243
+#: yali/gui/YaliDialog.py:240
 msgid "Don't ask again"
 msgstr "Tekrar sorma"
 
-#: yali/gui/YaliDialog.py:248
+#: yali/gui/YaliDialog.py:245
 msgid "Do you want to continue?"
 msgstr "Devam etmek istiyor musunuz?"
 
-#: yali/gui/YaliDialog.py:263
+#: yali/gui/YaliDialog.py:260
 msgid "Eject Disc"
 msgstr "Diski Çıkart"
 
-#: yali/gui/YaliDialog.py:289 yali/gui/YaliDialog.py:306
+#: yali/gui/YaliDialog.py:286 yali/gui/YaliDialog.py:303
 msgid "OK"
 msgstr "Tamam"
 
-#: yali/gui/YaliDialog.py:290
+#: yali/gui/YaliDialog.py:287
 msgid "Please insert a new disc and then click OK"
 msgstr "Lütfen yeni bir disk taktıktan sonra Tamam'a tıklayın"
 
-#: yali/gui/YaliDialog.py:292
+#: yali/gui/YaliDialog.py:289
 msgid "Insert New Disc"
 msgstr "Yeni Disk Yerleştirin"
 
-#: yali/gui/YaliDialog.py:304
+#: yali/gui/YaliDialog.py:301
 msgid "Information"
 msgstr "Bilgi"
 
-#: yali/gui/YaliDialog.py:497
+#: yali/gui/YaliDialog.py:494
 msgid "Error reporting"
 msgstr "Hata bildiriyor"
 
@@ -1820,7 +1822,7 @@ msgstr "%s aygıtında dosya sistemi göçü sırasında bir hata oldu."
 msgid "File Bug"
 msgstr "Dosya Hatası"
 
-#: yali/storage/__init__.py:75 yali/storage/storageset.py:198
+#: yali/storage/__init__.py:75 yali/storage/storageset.py:197
 msgid "Exit installer"
 msgstr "Kurulum sihirbazından çık"
 
@@ -1870,66 +1872,65 @@ msgstr ""
 "\n"
 
 #: yali/storage/__init__.py:779
-#, python-format
+#, fuzzy, python-format
 msgid ""
-"You have not defined a root partition (/),which is required for "
-"installation\n"
+"You have not defined a root partition (/),which is required for installation "
 "of %s to continue."
 msgstr "Bir kök dosya alanı (/) tanımlanmadı. Bu, %s kurulumu için gerekli."
 
-#: yali/storage/__init__.py:788
-#, python-format
+#: yali/storage/__init__.py:784
+#, fuzzy, python-format
 msgid ""
-"Your / partition is less than %(min)s MB which is lower than\n"
-"recommended for a normal %(productName)s install."
+"Your / partition is less than %(min)s MB which is lower than recommended for "
+"a normal %(productName)s install."
 msgstr ""
 "Kök ( / ) dosya alanı normal bir %(productName)s kurulumu \n"
 "için önerilen %(min)s MB boyutun altında."
 
-#: yali/storage/__init__.py:794
-#, python-format
+#: yali/storage/__init__.py:790
+#, fuzzy, python-format
 msgid ""
-"Your %(mount)s partition is less than %(size)s megabytes which is lower "
-"than\n"
+"Your %(mount)s partition is less than %(size)s megabytes which is lower than "
 "recommended for a normal %(productName)s install."
 msgstr ""
 "%(mount)s disk bölümü, normal bir %(productName)s \n"
 "kurulumu için önerilen %(size)s megabyte boyutun altında."
 
-#: yali/storage/__init__.py:803
+#: yali/storage/__init__.py:799
+#, fuzzy
 msgid ""
-"You have not specified a swap partition. Due to the amount of memory\n"
+"You have not specified a swap partition. Due to the amount of memory "
 "present, a swap partition is required to complete installation."
 msgstr ""
 "Takas alanı belirlenmemiş. Kullanılabilen hafıza ile bir takas alanı\n"
 " kurulumu tamamlamak için zorunlu görünüyor."
 
-#: yali/storage/__init__.py:806
+#: yali/storage/__init__.py:802
+#, fuzzy
 msgid ""
-"You have not specified a swap partition. Although not strictly\n"
-"required in all cases, it will significantly improve performance\n"
-"for most installations."
+"You have not specified a swap partition. Although not strictly required in "
+"all cases, it will significantly improve performancefor most installations."
 msgstr ""
 "Takas alanı belirlenmemiş. Bu her durumda gerekli olmasa da,\n"
 " bir çok kurulumda performansta ciddi artış sağlayacaktır."
 
-#: yali/storage/__init__.py:812
+#: yali/storage/__init__.py:808
 #, python-format
 msgid ""
 "This mount point is invalid. The %s directory must be on the / file system."
 msgstr ""
 "Bağlama noktası geçersiz. %s dizini kök (/) dosya sisteminde yer almalı."
 
-#: yali/storage/__init__.py:815
+#: yali/storage/__init__.py:811
 #, python-format
 msgid "The mount point %s must be on a linux file system."
 msgstr "%s bağlama noktası linux dosya sistemlerinden biri olmalı."
 
-#: yali/storage/__init__.py:835
+#: yali/storage/__init__.py:831
 msgid "No Drives Found"
 msgstr "Disk bulunamadı"
 
-#: yali/storage/__init__.py:836
+#: yali/storage/__init__.py:832
 msgid ""
 "An error has occurred - no valid devices were found on\n"
 "which to create new file systems. Please check your\n"
@@ -1962,7 +1963,7 @@ msgstr ""
 "\n"
 "%s"
 
-#: yali/storage/partitioning.py:1677 yali/storage/partitioning.py:1697
+#: yali/storage/partitioning.py:1678 yali/storage/partitioning.py:1697
 msgid ""
 "\n"
 "\n"
@@ -1972,7 +1973,7 @@ msgstr ""
 "\n"
 "Kurulum sihirbazından çıkmak için 'Tamam' tuşuna tıklayın."
 
-#: yali/storage/partitioning.py:1679
+#: yali/storage/partitioning.py:1680
 #, python-format
 msgid ""
 "Could not allocate requested partitions: \n"
@@ -2000,14 +2001,6 @@ msgstr ""
 "%(errortxt)s\n"
 "\n"
 "Yeterli disk alanı olmadığı durumlarda bu sorun yaşanabilir.%(extra)s"
-
-#: yali/storage/partitioning.py:1706 yali/storage/formats/filesystem.py:398
-msgid "Unrecoverable Error"
-msgstr "Kurtarılamaz Hata"
-
-#: yali/storage/partitioning.py:1707
-msgid "The system will now reboot."
-msgstr "Sistem baştan başlayacak."
 
 #: yali/storage/storageBackendHelpers.py:17
 msgid "Please enter a volume group name."
@@ -2068,16 +2061,16 @@ msgstr ""
 "\n"
 "Bu disk bölümünü takas alanı olacak şekilde biçimlendirmek ister misiniz?"
 
-#: yali/storage/storageBackendHelpers.py:89
+#: yali/storage/storageBackendHelpers.py:88
 #, python-format
 msgid "You are about to delete all partitions on the device '%s'."
 msgstr "'%s' aygıtındaki tüm disk bölümlerini silmek üzeresiniz."
 
-#: yali/storage/storageBackendHelpers.py:139
+#: yali/storage/storageBackendHelpers.py:138
 msgid "Notice"
 msgstr "Uyarı"
 
-#: yali/storage/storageBackendHelpers.py:140
+#: yali/storage/storageBackendHelpers.py:139
 #, python-format
 msgid ""
 "The following partitions were not deleted because they are in use:\n"
@@ -2088,16 +2081,16 @@ msgstr ""
 "\n"
 "%s"
 
-#: yali/storage/storageBackendHelpers.py:154
-#: yali/storage/storageBackendHelpers.py:161
+#: yali/storage/storageBackendHelpers.py:153
+#: yali/storage/storageBackendHelpers.py:160
 msgid "Unable To Delete"
 msgstr "Silinemedi"
 
-#: yali/storage/storageBackendHelpers.py:155
+#: yali/storage/storageBackendHelpers.py:154
 msgid "You must first select a partition to delete."
 msgstr "Silinecek disk bölümünü seçmelisiniz."
 
-#: yali/storage/storageBackendHelpers.py:200
+#: yali/storage/storageBackendHelpers.py:199
 #, python-format
 msgid ""
 "The mount point %s is invalid.  Mount points must start with '/' and cannot "
@@ -2107,11 +2100,11 @@ msgstr ""
 "yazılabilir karakterlerden, boşluk içermeyen biçimde olmalı ve '/' "
 "karakteriyle bitmemelidir."
 
-#: yali/storage/storageBackendHelpers.py:209
+#: yali/storage/storageBackendHelpers.py:208
 msgid "Error with Partitioning"
 msgstr "Bölümlendirme Hatası"
 
-#: yali/storage/storageBackendHelpers.py:210
+#: yali/storage/storageBackendHelpers.py:209
 #, python-format
 msgid ""
 "The following critical errors exist with your requested partitioning scheme. "
@@ -2124,11 +2117,11 @@ msgstr ""
 "%(productName)s kurulumunu devam edebilmeniz için öncelikle düzeltilmesi "
 "gerekir.%(errorstr)s"
 
-#: yali/storage/storageBackendHelpers.py:226
+#: yali/storage/storageBackendHelpers.py:225
 msgid "Partitioning Warning"
 msgstr "Bölümleme Uyarıları"
 
-#: yali/storage/storageBackendHelpers.py:227
+#: yali/storage/storageBackendHelpers.py:226
 #, python-format
 msgid ""
 "The following warnings exist with your requested partition scheme.\n"
@@ -2163,7 +2156,7 @@ msgstr ""
 msgid "Format Warning"
 msgstr "Biçimlendirme Uyarıları"
 
-#: yali/storage/storageBackendHelpers.py:277
+#: yali/storage/storageBackendHelpers.py:278
 #, python-format
 msgid ""
 "You are about to delete the volume group \"%s\".\n"
@@ -2174,39 +2167,39 @@ msgstr ""
 "\n"
 " Bu gruptaki tüm mantıksal hacimler silinir!"
 
-#: yali/storage/storageBackendHelpers.py:281
+#: yali/storage/storageBackendHelpers.py:282
 #, python-format
 msgid "You are about to delete the logical volume \"%s\"."
 msgstr ""
 "\"%s\" mantıksal hacmi silmek istediğinize\n"
 "emin misiniz?"
 
-#: yali/storage/storageBackendHelpers.py:284
+#: yali/storage/storageBackendHelpers.py:285
 msgid "You are about to delete a RAID device."
 msgstr "Bir RAID aygıtı silmek üzeresiniz."
 
-#: yali/storage/storageBackendHelpers.py:286
+#: yali/storage/storageBackendHelpers.py:287
 #, python-format
 msgid "You are about to delete the %s partition."
 msgstr "%s disk bölümünü silmek üzeresiniz."
 
-#: yali/storage/storageBackendHelpers.py:290
+#: yali/storage/storageBackendHelpers.py:291
 #, python-format
 msgid "You are about to delete the %(type)s %(name)s"
 msgstr "%(type)s %(name)s silinmek üzere"
 
-#: yali/storage/storageBackendHelpers.py:300
+#: yali/storage/storageBackendHelpers.py:301
 msgid "Confirm Reset"
 msgstr "Sıfırlama Onayı"
 
-#: yali/storage/storageBackendHelpers.py:300
+#: yali/storage/storageBackendHelpers.py:301
 msgid ""
 "Are you sure you want to reset the partition table to its original state?"
 msgstr ""
 "Disk bölümü tablosunu sıfırlayarak özgün haline çevirmek istediğinize emin "
 "misiniz?"
 
-#: yali/storage/storageBackendHelpers.py:308
+#: yali/storage/storageBackendHelpers.py:309
 msgid ""
 "You have chosen to use a pre-existing partition for this\n"
 "installation without formatting it. We recommend that you format\n"
@@ -2222,15 +2215,15 @@ msgstr ""
 "bölüm kullanıcı dizinleri gibi saklamak istediğiniz dosyalar varsa, "
 "biçimlendirmeden devam edebilirsiniz."
 
-#: yali/storage/storageBackendHelpers.py:316
+#: yali/storage/storageBackendHelpers.py:317
 msgid "Format?"
 msgstr "Biçimlendirilsin mi?"
 
-#: yali/storage/storageBackendHelpers.py:317
+#: yali/storage/storageBackendHelpers.py:318
 msgid "Do Not Format"
 msgstr "Biçimlendirilmesin"
 
-#: yali/storage/storageBackendHelpers.py:324
+#: yali/storage/storageBackendHelpers.py:325
 #, python-format
 msgid ""
 "Partitions of type '%s' must be constrained to a\n"
@@ -2240,13 +2233,13 @@ msgstr ""
 "'%s' tipindeki disk bölümleri mutlaka bir tekil diskte olmalı.\n"
 " Bunu yapabilmek için 'Uygun Diskler' listesinden seçebilirsiniz."
 
-#: yali/storage/storageBackendHelpers.py:329
-#: yali/storage/storageBackendHelpers.py:352
-#: yali/storage/storageBackendHelpers.py:372
+#: yali/storage/storageBackendHelpers.py:330
+#: yali/storage/storageBackendHelpers.py:353
+#: yali/storage/storageBackendHelpers.py:373
 msgid "Storage Device Warning"
 msgstr "Depolama Aygıtları Uyarısı"
 
-#: yali/storage/storageBackendHelpers.py:330
+#: yali/storage/storageBackendHelpers.py:331
 #, python-format
 msgid ""
 "<b>The storage device (%(size)d size of %(description)s on %(name)s) may "
@@ -2258,16 +2251,16 @@ msgid ""
 "contain valuable data?"
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:339
+#: yali/storage/storageBackendHelpers.py:340
 msgid "Yes, destroy data"
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:339
-#: yali/storage/storageBackendHelpers.py:360
+#: yali/storage/storageBackendHelpers.py:340
+#: yali/storage/storageBackendHelpers.py:361
 msgid "No, protect data"
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:353
+#: yali/storage/storageBackendHelpers.py:354
 #, python-format
 msgid ""
 "There is inconsistent LVM data on %(msg)s. You can reinitialize all related "
@@ -2280,11 +2273,11 @@ msgstr ""
 "bu hatayı içeriği korumak adına gözardı edebilirsiniz. Bu eylem tutarsız üst "
 "veri içeren diğer tüm PVlere uygulanacaktır."
 
-#: yali/storage/storageBackendHelpers.py:360
+#: yali/storage/storageBackendHelpers.py:361
 msgid "Yes, re-initialize"
 msgstr "Evet, Yeniden Başlangıç Durumuna Getir"
 
-#: yali/storage/storageBackendHelpers.py:373
+#: yali/storage/storageBackendHelpers.py:374
 #, python-format
 msgid ""
 "Disk contains %(members_count)s BIOS RAID metadata, but is not part of any "
@@ -2324,7 +2317,7 @@ msgstr ""
 "\n"
 " Kurulum sihirbazından çıkmak için <Enter> tuşuna basın."
 
-#: yali/storage/storageset.py:190 yali/storage/storageset.py:213
+#: yali/storage/storageset.py:190 yali/storage/storageset.py:212
 msgid "Unable to mount filesystem"
 msgstr "Dosya sistemi bağlanamadı"
 
@@ -2337,7 +2330,7 @@ msgstr ""
 "%(path)s aygıtı %(mountpoint)s noktasına bağlarken hata oldu. Kurulum devam "
 "edecek ama sorun çıkabilir."
 
-#: yali/storage/storageset.py:214
+#: yali/storage/storageset.py:213
 #, python-format
 msgid ""
 "An error occurred mounting device %(path)s as %(mountpoint)s: %(msg)s. This "
@@ -2350,15 +2343,11 @@ msgstr ""
 "\n"
 " Kurulum sihirbazından çıkmak için <Enter> tuşuna basın."
 
-#: yali/storage/storageset.py:245
+#: yali/storage/storageset.py:244
 msgid "Skip"
 msgstr "Atla"
 
-#: yali/storage/storageset.py:245
-msgid "_Exit"
-msgstr "Çı_k"
-
-#: yali/storage/storageset.py:277
+#: yali/storage/storageset.py:276
 #, python-format
 msgid ""
 "The swap device:\n"
@@ -2376,7 +2365,7 @@ msgstr ""
 "kullanmak istiyorsanız yeniden, çağdaş bir Linux takas türünde "
 "biçimlendirmelisiniz."
 
-#: yali/storage/storageset.py:288
+#: yali/storage/storageset.py:287
 #, python-format
 msgid ""
 "The swap device:\n"
@@ -2395,7 +2384,7 @@ msgstr ""
 "kurulum yapıyorsanız, tüm takas aygıtlarınızın biçimlendirilecek şekilde "
 "işaretlendiğine emin olun."
 
-#: yali/storage/storageset.py:301
+#: yali/storage/storageset.py:300
 #, python-format
 msgid ""
 "The swap device:\n"
@@ -2412,7 +2401,7 @@ msgstr ""
 " desteklenen swap hacimine sahip değil.Kuruluma devam etmek için, aygıtı "
 "formatlanız ya da atlamanız gerekmekte."
 
-#: yali/storage/storageset.py:312
+#: yali/storage/storageset.py:311
 #, python-format
 msgid ""
 "Error enabling swap device %(name)s: %(msg)s\n"
@@ -2427,15 +2416,15 @@ msgstr ""
 "\n"
 ".Kurulumdan çıkmak için 'OK' tıklayın."
 
-#: yali/storage/storageset.py:358
+#: yali/storage/storageset.py:357
 msgid "You have not created a bootable partition."
 msgstr "Yüklenebilir bölüm yaratmalısınız."
 
-#: yali/storage/storageset.py:362
+#: yali/storage/storageset.py:361
 msgid "Bootable partitions cannot be on a logical volume."
 msgstr "Yüklenebilir bölümler mantıksal hacimler üzerinde olamazlar."
 
-#: yali/storage/storageset.py:369
+#: yali/storage/storageset.py:368
 #, python-format
 msgid "Bootable partitions cannot be on an %s filesystem."
 msgstr "Yüklenebilir bölümler %s dosya sistemleri üzerinde olmazlar."
@@ -2505,6 +2494,10 @@ msgstr ""
 "Disk problemlerini onardıktan sonra lütfen kuruluma\n"
 "tekrar başlayınız."
 
+#: yali/storage/formats/filesystem.py:398
+msgid "Unrecoverable Error"
+msgstr "Kurtarılamaz Hata"
+
 #: yali/storage/formats/filesystem.py:689
 msgid "File system errors left uncorrected."
 msgstr "Dosya sistemi hataları düzeltilmeden bırakıldı."
@@ -2525,14 +2518,14 @@ msgstr "e2fsck kullanıcı tarafından iptal edildi."
 msgid "Shared library error."
 msgstr "Paylaşımlı kütüphane hatası."
 
-#: yali/storage/formats/filesystem.py:837
+#: yali/storage/formats/filesystem.py:856
 msgid ""
 "Recoverable errors have been detected or dosfsck has discovered an internal "
 "inconsistency."
 msgstr ""
 "Onarılabilir hatalara rastlandı ya da dosfsck bir tutarsızlık tespit etti."
 
-#: yali/storage/formats/filesystem.py:839
+#: yali/storage/formats/filesystem.py:858
 msgid "Usage error."
 msgstr "Kullanım hatası."
 
@@ -2693,7 +2686,7 @@ msgstr "Sırpça"
 msgid "Error occured while %(repo)s repo is adding:%(msg)s"
 msgstr "%(repo)s eklenirken hata oluştu:%(msg)s"
 
-#: yali/postinstall.py:196
+#: yali/postinstall.py:197
 #, python-format
 msgid "Preparing home directory for %s..."
 msgstr "%s için ev dizinini hazırlıyor..."
@@ -2717,6 +2710,12 @@ msgstr "Sürüm dosyası uyumsuz"
 #: yali/util.py:469 yali/util.py:512
 msgid "Invalid xml file"
 msgstr "Geçersiz xml dosyası"
+
+#~ msgid "The system will now reboot."
+#~ msgstr "Sistem baştan başlayacak."
+
+#~ msgid "_Exit"
+#~ msgstr "Çı_k"
 
 #~ msgid ""
 #~ "When checked, YALI will install all of the officially supported language "
