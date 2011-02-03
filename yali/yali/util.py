@@ -120,7 +120,7 @@ def get_edd_dict(devices):
                 eddDevices[os.path.basename(mbrs[signature])] = number
     return eddDevices
 
-def run_batch(cmd, argv):
+def run_batch(cmd, argv=[]):
     """Run command and report return value and output."""
     ctx.logger.info('Running %s' % "".join(cmd))
     env = os.environ.copy()
