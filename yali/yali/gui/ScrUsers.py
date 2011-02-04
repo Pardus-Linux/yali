@@ -367,7 +367,9 @@ class Widget(QWidget, ScreenWidget):
         realname = unicode(self.ui.realname.text())
         password = unicode(self.ui.pass1.text())
         password_confirm = unicode(self.ui.pass2.text())
-        if username and realname and ((len(password) or len(password_confirm)) and password == password_confirm):
+        if username and realname and password and password_confirm and \
+        (password == password_confirm) and \
+        (password.lower() != username.lower() and password.lower() != realname.lower()):
             return True
         else:
             return False
