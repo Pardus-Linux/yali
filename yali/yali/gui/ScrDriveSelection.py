@@ -56,7 +56,7 @@ class Widget(QWidget, ScreenWidget):
         self.intf = None
         self.shrink_operations = None
         self.clear_partdisks = None
-        self.selected_disks = None
+        self.selected_disks = []
 
         self.useAllSpace, self.replaceExistingLinux, self.shrinkCurrent, self.useFreeSpace, self.createCustom = range(5)
         self.connect(self.ui.drives, SIGNAL("itemSelectionChanged()"), self.itemStateChanged)
