@@ -1684,25 +1684,28 @@ def doAutoPartition(storage):
         ctx.logger.warning(msg)
         return None
 
-    # sanity check the collection of devices
-    #ctx.logger.warning("not sanity checking storage config because I don't know how yet")
-    # now do a full check of the requests
-    (errors, warnings) = storage.sanityCheck()
-    if warnings:
-        for warning in warnings:
-            ctx.logger.warning(warning)
+    else:
+        # sanity check the collection of devices
+        #ctx.logger.warning("not sanity checking storage config because I don't know how yet")
+        # now do a full check of the requests
+        (errors, warnings) = storage.sanityCheck()
+        if warnings:
+            for warning in warnings:
+                ctx.logger.warning(warning)
 
-    if errors:
-        errortxt = "\n".join(errors)
-        extra = _("\n\nPress 'OK' to exit the installer.")
-        ctx.interface.messageWindow(_("Automatic Partitioning Errors"),
-                                    _("The following errors occurred with your "
-                                      "partitioning:\n\n%(errortxt)s\n\n"
-                                      "This can happen if there is not enough "
-                                      "space on your hard drive(s) for the "
-                                      "installation. %(extra)s") %
-                                    {'errortxt': errortxt, 'extra': extra},
-                                    type='error')
+        if errors:
+            errortxt = "\n".join(errors)
+            extra = _("\n\nPress 'OK' to exit the installer.")
+            ctx.interface.messageWindow(_("Automatic Partitioning Errors"),
+                                        _("The following errors occurred with your "
+                                          "partitioning:\n\n%(errortxt)s\n\n"
+                                          "This can happen if there is not enough "
+                                          "space on your hard drive(s) for the "
+                                          "installation. %(extra)s") %
+                                        {'errortxt': errortxt, 'extra': extra},
+                                        type='error')
 
-        storage.reset()
-        return None
+            storage.reset()
+            return None
+
+        return True
