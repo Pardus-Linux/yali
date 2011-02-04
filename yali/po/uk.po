@@ -7,14 +7,15 @@ msgstr ""
 "Project-Id-Version: uk\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-02-04 14:58+0200\n"
-"PO-Revision-Date: 2011-01-25 04:18+0300\n"
+"PO-Revision-Date: 2011-02-04 23:07+0300\n"
 "Last-Translator: Korostil Daniel <ted.korostiled@gmail.com>\n"
 "Language-Team: translation@linux.org.ua\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: uk\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Virtaal 0.6.1\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
@@ -1382,69 +1383,75 @@ msgstr "Вилучає всі розділи Linux на вибраних %s пр
 #: yali/gui/ScrSummary.py:150
 #, python-format
 msgid "Retains your current data and partitions and uses only the unpartitioned space on the selected %s device(s), assuming you have enough free space available."
-msgstr ""
+msgstr "Зберігає теперішні дані та розділи і використовує лише вільне місце на вибраних %s пристроях, якщо у вас достатньо місця."
 
 #: yali/gui/ScrSummary.py:156
 msgid "Manual Partitioning selected."
-msgstr ""
+msgstr "Вибрано ручне розділення."
 
 #: yali/gui/ScrSummary.py:164
 msgid "Bootloader Settings"
-msgstr ""
+msgstr "Налаштування завантажувача"
 
 #: yali/gui/ScrSummary.py:165
 #, python-format
 msgid "GRUB will be installed to <b>%s</b>."
-msgstr ""
+msgstr "GRUB буде встановлено в <b>%s</b>."
 
 #: yali/gui/ScrSummary.py:167
 msgid "GRUB will not be installed."
-msgstr ""
+msgstr "GRUB не буде встановлено."
 
 #: yali/gui/ScrSummary.py:174
 msgid "Package Installation Settings"
-msgstr ""
+msgstr "Налаштування встановлення пакунка."
 
 #: yali/gui/ScrSummary.py:176
 msgid "Auto installation selected."
-msgstr ""
+msgstr "Вибрано автоматичне встановлення."
 
 #: yali/gui/ScrSummary.py:178
 #, python-format
 msgid "Manual Installation ( %s ) selected"
-msgstr ""
+msgstr "Вибрано ручне встановлення ( %s ) "
 
 #: yali/gui/ScrSummary.py:182
 msgid "Default Kernel selected"
-msgstr ""
+msgstr "Вибрано типове ядро"
 
 #: yali/gui/ScrSummary.py:184
 msgid "PAE Kernel selected"
-msgstr ""
+msgstr "Вибрано ядро PAE"
 
 #: yali/gui/ScrSummary.py:203
 msgid "Confirm"
-msgstr ""
+msgstr "Підтвердження"
 
 #: yali/gui/ScrSummary.py:204
 msgid "The partitioning options you have selected will now be written to disk. Any data on deleted or reformatted partitions will be lost."
 msgstr ""
+"Вибрані параметри розділення буде записано на диск. Будь-які дані на "
+"вилученому або відформатованому розділі буде втрачено."
 
 #: yali/gui/ScrSummary.py:209
 msgid "Write Changes to Disk"
-msgstr ""
+msgstr "Записати зміни на диск"
 
 #: yali/gui/ScrSummary.py:209
 msgid "Go Back"
-msgstr ""
+msgstr "Повернутись назад"
 
 #: yali/gui/ScrSummary.py:302
 msgid "Proprietary Hardware Drivers"
-msgstr ""
+msgstr "Закриті драйвера"
 
 #: yali/gui/ScrSummary.py:303
 msgid "<qt>Proprietary drivers are available which may be required to utilize the full capabilities of your video card. These drivers are developed by the hardware manufacturer and not supported by Pardus developers since their source code is not publicly available.<br><br><b>Do you want to install and use these proprietary drivers instead of the default drivers?</b></qt>"
 msgstr ""
+"<qt>Закриті драйвера можуть бути потрібними для якнайпродуктивнішої роботи з "
+"вашою відеоплатою. Ці драйвера розроблено виробником і не підтримуються "
+"розробниками Pardus, поки їхній код не опубліковано.<br><br><b>Бажаєте "
+"встановити і використовувати закриті дравера замість типових?</b></qt>"
 
 #: yali/gui/ScrSummary.py:312 yali/gui/YaliDialog.py:218
 #: yali/gui/YaliDialog.py:234 yali/gui/YaliDialog.py:261
@@ -1452,7 +1459,7 @@ msgstr ""
 #: yali/storage/storageBackendHelpers.py:253
 #: yali/storage/storageBackendHelpers.py:303
 msgid "Yes"
-msgstr ""
+msgstr "Так"
 
 #: yali/gui/ScrSummary.py:312 yali/gui/YaliDialog.py:220
 #: yali/gui/YaliDialog.py:235 yali/gui/YaliDialog.py:262
@@ -1460,61 +1467,61 @@ msgstr ""
 #: yali/storage/storageBackendHelpers.py:253
 #: yali/storage/storageBackendHelpers.py:303
 msgid "No"
-msgstr ""
+msgstr "Ні"
 
 #: yali/gui/ScrUsers.py:127 yali/gui/ScrUsers.py:359
 msgid "Update"
-msgstr ""
+msgstr "Оновити"
 
 #: yali/gui/ScrUsers.py:214
 msgid "Don't use your user name or name as a password"
-msgstr ""
+msgstr "Не використовуйте ваш псевдонім або ім'я як пароль"
 
 #: yali/gui/ScrUsers.py:217
 msgid "Passwords do not match"
-msgstr ""
+msgstr "Паролі не збігаються"
 
 #: yali/gui/ScrUsers.py:220
 msgid "Password is too short"
-msgstr ""
+msgstr "Пароль надто короткий"
 
 #: yali/gui/ScrUsers.py:266
 msgid "This user name is already taken, please choose another one."
-msgstr ""
+msgstr "Цей псевдонім уже зайнято, будь ласка, виберіть інший."
 
 #: yali/gui/ScrUsers.py:270
 msgid "The user name contains invalid characters."
-msgstr ""
+msgstr "Псевдонім містить неприпустимі символи."
 
 #: yali/gui/ScrUsers.py:273
 msgid "The real name contains invalid characters."
-msgstr ""
+msgstr "Справжнє ім'я містить неприпустимі символи."
 
 #: yali/gui/ScrUsers.py:281
 msgid "User ID used before, choose another one!"
-msgstr ""
+msgstr "ID користувача вже використовувався до того, виберіть інше!"
 
 #: yali/gui/shrink_gui.py:23
 msgid "Partitions to Shrink"
-msgstr ""
+msgstr "Розділи на зменшення"
 
 #: yali/gui/shrink_gui.py:47
 msgid "Resize FileSystem Error"
-msgstr ""
+msgstr "Помилка зміни розміру файлової системи"
 
 #: yali/gui/shrink_gui.py:48
 #, python-format
 msgid "%(device)s: %(msg)s"
-msgstr ""
+msgstr "%(device)s: %(msg)s"
 
 #: yali/gui/shrink_gui.py:56
 msgid "Resize Device Error"
-msgstr ""
+msgstr "Помилка зміни розміру пристрою"
 
 #: yali/gui/shrink_gui.py:57
 #, python-format
 msgid "%(name)s: %(msg)s"
-msgstr ""
+msgstr "%(name)s: %(msg)s"
 
 #: yali/gui/storageGuiHelpers.py:71
 msgid ""
@@ -1522,218 +1529,238 @@ msgid ""
 "otherwise the volume group will be too small to\n"
 "hold the currently defined logical volumes."
 msgstr ""
+"Ви не можете вилучити цей фізичний том, оскільки\n"
+"натомість група томів буде надто маленькою, щоб\n"
+"утримувати теперішні визначені логічні томи."
 
 #: yali/gui/YaliDialog.py:240
 msgid "Don't ask again"
-msgstr ""
+msgstr "Надалі не запитувати"
 
 #: yali/gui/YaliDialog.py:245
 msgid "Do you want to continue?"
-msgstr ""
+msgstr "Продовжити?"
 
 #: yali/gui/YaliDialog.py:260
 msgid "Eject Disc"
-msgstr ""
+msgstr "Витягнути диск"
 
 #: yali/gui/YaliDialog.py:286 yali/gui/YaliDialog.py:303
 msgid "OK"
-msgstr ""
+msgstr "Гаразд"
 
 #: yali/gui/YaliDialog.py:287
 msgid "Please insert a new disc and then click OK"
-msgstr ""
+msgstr "Будь ласка, вставте новий диск і натисніть Гаразд"
 
 #: yali/gui/YaliDialog.py:289
 msgid "Insert New Disc"
-msgstr ""
+msgstr "Вставити новий диск"
 
 #: yali/gui/YaliDialog.py:301
 msgid "Information"
-msgstr ""
+msgstr "Інформація"
 
 #: yali/gui/YaliDialog.py:494
 msgid "Error reporting"
-msgstr ""
+msgstr "Звітування про помилку"
 
 #: yali/gui/YaliWindow.py:90
 msgid "Pixmaps resources file doesn't exists"
-msgstr ""
+msgstr "Файл растрових ресурсів не існує"
 
 #: yali/gui/YaliWindow.py:123
 msgid "Style file doesn't exists"
-msgstr ""
+msgstr "Файл стилю не існує"
 
 #: yali/gui/YaliWindow.py:130
 msgid "Release file doesn't exists"
-msgstr ""
+msgstr "Файл випуску не існує"
 
 #: yali/gui/YaliWindow.py:138
 msgid "Turn Off Computer"
-msgstr ""
+msgstr "Вимкнути комп'ютер"
 
 #: yali/gui/YaliWindow.py:139
 msgid "Restart Computer"
-msgstr ""
+msgstr "Перезапустити комп'ютер"
 
 #: yali/gui/YaliWindow.py:140
 msgid "Restart YALI"
-msgstr ""
+msgstr "Перезапустити YALI"
 
 #: yali/gui/YaliWindow.py:161 yali/gui/YaliWindow.py:178 yali/sysutils.py:53
 msgid "right"
-msgstr ""
+msgstr "праву"
 
 #: yali/gui/YaliWindow.py:177 yali/gui/YaliWindow.py:180 yali/sysutils.py:52
 msgid "left"
-msgstr ""
+msgstr "ліву"
 
 #: yali/gui/YaliWindow.py:181
 msgid "Mouse Settings"
-msgstr ""
+msgstr "Налаштуванн мишки"
 
 #: yali/gui/YaliWindow.py:182
 #, python-format
 msgid "You just clicked the <b>%s</b> mouse button."
-msgstr ""
+msgstr "Ви щойно натиснули <b>%s</b> кнопку миші."
 
 #: yali/gui/YaliWindow.py:183
 #, python-format
 msgid "Do you want to switch to the <b>%s</b> handed configuration?"
-msgstr ""
+msgstr "Перемкнути налаштування на <b>%s</b> руку?"
 
 #: yali/gui/YaliWindow.py:213
 msgid "Are you sure you want to shut down your computer now?"
-msgstr ""
+msgstr "Вимкнути комп'ютер зараз же?"
 
 #: yali/gui/YaliWindow.py:218
 msgid "Are you sure you want to restart your computer now?"
-msgstr ""
+msgstr "Перезапустити комп'ютер зараз же?"
 
 #: yali/gui/YaliWindow.py:223
 msgid "Are you sure you want to restart the YALI installer now?"
-msgstr ""
+msgstr "Перезапустити YALI зараз же?"
 
 #: yali/gui/YaliWindow.py:244
 msgid "Terminal"
-msgstr ""
+msgstr "Термінал"
 
 #: yali/gui/YaliWindow.py:249
 msgid "Tetris"
-msgstr ""
+msgstr "Тетріс"
 
 #: yali/gui/YaliWindow.py:431
 msgid "Release notes could not be loaded."
-msgstr ""
+msgstr "Неможливо завантажити нотатки щодо випуску."
 
 #: yali/storage/bootloader.py:206 yali/storage/bootloader.py:207
 #: yali/storage/bootloader.py:209 yali/storage/bootloader.py:210
 #, python-format
 msgid "%s"
-msgstr ""
+msgstr "%s"
 
 #: yali/storage/bootloader.py:303 yali/storage/bootloader.py:307
 msgid "Windows"
-msgstr ""
+msgstr "Вікна"
 
 #: yali/storage/devicetree.py:1567
 msgid "This partition is part of an inconsistent LVM Volume Group."
-msgstr ""
+msgstr "Це розділ — частина несумісної групи томів LVM."
 
 #: yali/storage/__init__.py:47
 #, python-format
 msgid "Failed teardownAll in storage.complete with error:%s"
-msgstr ""
+msgstr "Помилка: %s"
 
 #: yali/storage/__init__.py:56
 msgid "Resizing Failed"
-msgstr ""
+msgstr "Помилка зміни розміру"
 
 #: yali/storage/__init__.py:57
 #, python-format
 msgid "There was an error encountered while resizing the device %s."
-msgstr ""
+msgstr "Трапилась помилка при зміні розміру пристрою %s."
 
 #: yali/storage/__init__.py:63
 msgid "Migration Failed"
-msgstr ""
+msgstr "Не вдалось мігрувати"
 
 #: yali/storage/__init__.py:64
 #, python-format
 msgid "An error was encountered while migrating filesystem on device %s."
-msgstr ""
+msgstr "Трапилась помилка при міграції файлової системи на пристрій %s."
 
 #: yali/storage/__init__.py:75
 msgid "File Bug"
-msgstr ""
+msgstr "Прикріпити ваду"
 
 #: yali/storage/__init__.py:75 yali/storage/storageset.py:197
 msgid "Exit installer"
-msgstr ""
+msgstr "Вийти з установлення"
 
 #: yali/storage/__init__.py:78
 #, python-format
 msgid "Failed in storage.complete with error:%s"
-msgstr ""
+msgstr "Помилка:%s"
 
 #: yali/storage/__init__.py:239
 msgid "This partition is holding the data for the hard drive install."
-msgstr ""
+msgstr "Цей розділ утримує дані для встановлення на жорсткий диск."
 
 #: yali/storage/__init__.py:242
 msgid "You cannot delete a partition of a LDL formatted DASD."
-msgstr ""
+msgstr "Неможливо вилучити зроділ LDL, форматований DASD."
 
 #: yali/storage/__init__.py:248
 #, python-format
 msgid "This device is part of the RAID device %s, you have to edit or remove the raid partition appropriately!"
 msgstr ""
+"Цей пристрій — частина пристрою RAID %s, потрібно редагувати або вилучити "
+"розділи RAID належно!"
 
 #: yali/storage/__init__.py:253
 msgid "This device is part of a RAID device."
-msgstr ""
+msgstr "Цей пристрій — частина пристрою RAID."
 
 #: yali/storage/__init__.py:258
 #, python-format
 msgid "This device is part of the LVM volume group '%s'."
-msgstr ""
+msgstr "Цей пристрій — частина гурпи томів LVM «%s»."
 
 #: yali/storage/__init__.py:261
 msgid "This device is part of a LVM volume group."
-msgstr ""
+msgstr "Цей пристрій — частина групи томів LVM."
 
 #: yali/storage/__init__.py:270
 msgid ""
 "This device is an extended partition which contains logical partitions that cannot be deleted:\n"
 "\n"
 msgstr ""
+"Цей пристрій є додатковим розділом, який містить логічні розділи, що "
+"неможливо вилучити:\n"
+"\n"
 
 #: yali/storage/__init__.py:779
 #, python-format
 msgid "You have not defined a root partition (/),which is required for installation of %s to continue."
 msgstr ""
+"Не вказано кореневий розділ (/), який потрібен для подальшого встановлення %"
+"s."
 
 #: yali/storage/__init__.py:784
 #, python-format
 msgid "Your / partition is less than %(min)s MB which is lower than recommended for a normal %(productName)s install."
 msgstr ""
+"Ваш кореневий розділ менший за %(min)s МБ, що нижче від рекомендований обсяг "
+"для нормального встановлення %(productName)s."
 
 #: yali/storage/__init__.py:790
 #, python-format
 msgid "Your %(mount)s partition is less than %(size)s megabytes which is lower than recommended for a normal %(productName)s install."
 msgstr ""
+"Розділ %(mount)s має меше за %(size)s МБ, що нижче від рекомендованого для "
+"нормального встановлення %(productName)s."
 
 #: yali/storage/__init__.py:799
 msgid "You have not specified a swap partition. Due to the amount of memory present, a swap partition is required to complete installation."
 msgstr ""
+"Ви не вказали розділ для свопінгу. Розділ для свопінгу потрібний для "
+"завершення встановлення через брак достатнього обсягу пам'яті."
 
 #: yali/storage/__init__.py:802
 msgid "You have not specified a swap partition. Although not strictly required in all cases, it will significantly improve performancefor most installations."
 msgstr ""
+"Не вказано розділу для свопінгу. Хоча це не є обов'язковим узагалі, це "
+"значно покращить продуктивність більшості встановлень."
 
 #: yali/storage/__init__.py:808
 #, python-format
 msgid "This mount point is invalid. The %s directory must be on the / file system."
 msgstr ""
+"Ця точка монтування є неприпустимою. Каталог %s повиннен бути на корені "
+"файлової системи."
 
 #: yali/storage/__init__.py:811
 #, python-format
