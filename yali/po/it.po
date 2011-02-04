@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: File di testo_1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-03 22:04+0200\n"
+"POT-Creation-Date: 2011-02-04 14:58+0200\n"
 "PO-Revision-Date: 2010-04-02 22:14+0200\n"
 "Last-Translator: Davide Siciliano <edivad95@gmail.com>\n"
 "Language-Team: Italian <>\n"
@@ -1819,6 +1819,31 @@ msgid ""
 "hardware for the cause of this problem."
 msgstr ""
 
+#: yali/storage/partitioning.py:703
+msgid "requested size exceeds maximum allowed"
+msgstr ""
+
+#: yali/storage/partitioning.py:911
+#, python-format
+msgid "partition is too %(problem)s for %(format)s formatting"
+msgstr ""
+
+#: yali/storage/partitioning.py:1051
+#, fuzzy
+msgid "not enough free space on disks"
+msgstr "Spazio non sufficente"
+
+#: yali/storage/partitioning.py:1072
+#, fuzzy
+msgid "not enough free space after creating extended partition"
+msgstr ""
+"Non c'è abbastanza spazio libero su %s per creare una nuova partizione!"
+
+#: yali/storage/partitioning.py:1248
+#, fuzzy
+msgid "not enough space for LVM requests"
+msgstr "Spazio non sufficente"
+
 #: yali/storage/partitioning.py:1644
 msgid ""
 "Could not find enough free space for automatic\n"
@@ -1838,7 +1863,7 @@ msgid ""
 "%s"
 msgstr ""
 
-#: yali/storage/partitioning.py:1678 yali/storage/partitioning.py:1697
+#: yali/storage/partitioning.py:1678 yali/storage/partitioning.py:1698
 msgid ""
 "\n"
 "\n"
@@ -1852,12 +1877,12 @@ msgid ""
 "%(msg)s.%(extra)s"
 msgstr ""
 
-#: yali/storage/partitioning.py:1698
+#: yali/storage/partitioning.py:1699
 #, fuzzy
 msgid "Automatic Partitioning Errors"
 msgstr "Errori di Partizionamento"
 
-#: yali/storage/partitioning.py:1699
+#: yali/storage/partitioning.py:1700
 #, python-format
 msgid ""
 "The following errors occurred with your partitioning:\n"
@@ -4026,10 +4051,6 @@ msgstr "xml file non valida"
 
 #~ msgid "User <b>%s</b>'s home directory is being prepared.."
 #~ msgstr "Preparazione in corso della home directory di <b>%s</b>..."
-
-#~ msgid "Not enough free space on %s to create new partition"
-#~ msgstr ""
-#~ "Non c'è abbastanza spazio libero su %s per creare una nuova partizione!"
 
 #~ msgid ""
 #~ "Pardus 2011 also includes other components updated with KDE 4.2. If you "

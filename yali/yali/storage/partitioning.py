@@ -700,7 +700,7 @@ def addPartition(disk, free, part_type, size):
 
     maxLength = disk.partedDisk.maxPartitionLength
     if maxLength and newGeom.length > maxLength:
-        raise PartitioningError("requested size exceeds maximum allowed")
+        raise PartitioningError(_("requested size exceeds maximum allowed"))
 
     # create the partition and add it to the disk
     partition = parted.Partition(disk=disk.partedDisk,
@@ -908,8 +908,8 @@ def allocatePartitions(storage, disks, partitions, freespace):
                 problem = "small"
 
             if problem:
-                raise PartitioningError("partition is too %s for %s formatting"
-                                        % (problem, _part.format.name))
+                raise PartitioningError(_("partition is too %(problem)s for %(format)s formatting")
+                                        % {"problem":problem, "format":_part.format.name})
 
             ctx.logger.debug("checking freespace on %s" % _disk.name)
 
@@ -1048,7 +1048,7 @@ def allocatePartitions(storage, disks, partitions, freespace):
                 break
 
         if free is None:
-            raise PartitioningError("not enough free space on disks")
+            raise PartitioningError(_("not enough free space on disks"))
 
         _disk = use_disk
         disklabel = _disk.format
@@ -1069,8 +1069,8 @@ def allocatePartitions(storage, disks, partitions, freespace):
                                           boot=_part.req_bootable,
                                           grow=_part.req_grow)
             if not free:
-                raise PartitioningError("not enough free space after "
-                                        "creating extended partition")
+                raise PartitioningError(_("not enough free space after "
+                                        "creating extended partition"))
 
         partition = addPartition(disklabel, free, part_type, _part.req_size)
         ctx.logger.debug("created partition %s of %dMB and added it to %s" %
@@ -1245,7 +1245,7 @@ def growLVM(storage):
         if total_free < 0:
             # by now we have allocated the PVs so if there isn't enough
             # space in the VG we have a real problem
-            raise PartitioningError("not enough space for LVM requests")
+            raise PartitioningError(_("not enough space for LVM requests"))
         elif not total_free:
             ctx.logger.debug("vg %s has no free space" % vg.name)
             continue

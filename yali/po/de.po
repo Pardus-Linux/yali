@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-03 22:04+0200\n"
+"POT-Creation-Date: 2011-02-04 14:58+0200\n"
 "PO-Revision-Date: 2011-01-18 21:19+0200\n"
 "Last-Translator: Stefan Wilhelm <sw AT pardususer DOT de>\n"
 "Language-Team: German <de@li.org>\n"
@@ -1998,6 +1998,32 @@ msgstr ""
 "um ein neues Dateisystem zu erstellen.\n"
 "Bitte überprüfen Sie Ihre Hardware."
 
+#: yali/storage/partitioning.py:703
+msgid "requested size exceeds maximum allowed"
+msgstr ""
+
+#: yali/storage/partitioning.py:911
+#, python-format
+msgid "partition is too %(problem)s for %(format)s formatting"
+msgstr ""
+
+#: yali/storage/partitioning.py:1051
+#, fuzzy
+msgid "not enough free space on disks"
+msgstr "Nicht genügend Speicherplatz"
+
+#: yali/storage/partitioning.py:1072
+#, fuzzy
+msgid "not enough free space after creating extended partition"
+msgstr ""
+"Versuchen freien Speicherplatz zu verwenden oder die Grösse der verfügbaren "
+"Partitionen zu ändern"
+
+#: yali/storage/partitioning.py:1248
+#, fuzzy
+msgid "not enough space for LVM requests"
+msgstr "Nicht genügend Speicherplatz"
+
 #: yali/storage/partitioning.py:1644
 msgid ""
 "Could not find enough free space for automatic\n"
@@ -2021,7 +2047,7 @@ msgstr ""
 "\n"
 "%s"
 
-#: yali/storage/partitioning.py:1678 yali/storage/partitioning.py:1697
+#: yali/storage/partitioning.py:1678 yali/storage/partitioning.py:1698
 msgid ""
 "\n"
 "\n"
@@ -2040,11 +2066,11 @@ msgstr ""
 "Konnte die angeforderte Partition(en) nicht zuweisen:\n"
 "%(msg)s.%(extra)s"
 
-#: yali/storage/partitioning.py:1698
+#: yali/storage/partitioning.py:1699
 msgid "Automatic Partitioning Errors"
 msgstr "Fehler bei automatischer Partitionierung"
 
-#: yali/storage/partitioning.py:1699
+#: yali/storage/partitioning.py:1700
 #, python-format
 msgid ""
 "The following errors occurred with your partitioning:\n"
@@ -3052,11 +3078,6 @@ msgstr "Ungültige XML-Datei"
 #~ "Diese Option wird versuchen einen freien Speicherplatz in ausreichender "
 #~ "Grösse zu finden. Wenn kein entsprechender Platz existiert, werden "
 #~ "Partitionen mit Möglichkeit zur Grössenänderung gesucht"
-
-#~ msgid "Try to use free space or resize current partitions"
-#~ msgstr ""
-#~ "Versuchen freien Speicherplatz zu verwenden oder die Grösse der "
-#~ "verfügbaren Partitionen zu ändern"
 
 #~ msgid ""
 #~ "This option will erase the entire disk. All the data on the disk will be "

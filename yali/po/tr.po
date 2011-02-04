@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: YALI-tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-03 22:04+0200\n"
+"POT-Creation-Date: 2011-02-04 14:58+0200\n"
 "PO-Revision-Date: 2011-01-21 15:52+0200\n"
 "Last-Translator: Koray Löker <loker@pardus.org.tr>\n"
 "Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
@@ -1174,9 +1174,8 @@ msgid ""
 "The partitioning scheme you requested caused the following critical errors."
 "You must correct these errors before you continue your installation of %s."
 msgstr ""
-"Talep ettiğiniz bölümleme şeması "
-"aşağıdaki kritik hataların oluşmasına neden oldu."
-"Kurulumunuza %s devam etmeden önce bu hataları düzeltmeniz gerekecektir."
+"Talep ettiğiniz bölümleme şeması aşağıdaki kritik hataların oluşmasına neden "
+"oldu.Kurulumunuza %s devam etmeden önce bu hataları düzeltmeniz gerekecektir."
 
 #: yali/gui/ScrPartitionManual.py:101
 msgid "Partitioning Errors"
@@ -1187,10 +1186,8 @@ msgid ""
 "The partitioning scheme you requested generated the following warnings. "
 "Would you like to continue with your requested partitioning scheme?"
 msgstr ""
-"Talep ettiğiniz bölümleme şeması "
-"aşağıdaki uyarıların ortaya çıkmasına oldu."
-"Talep ettiğiniz bölümleme şeması ile "
-"devam etmek istiyor musunuz?"
+"Talep ettiğiniz bölümleme şeması aşağıdaki uyarıların ortaya çıkmasına oldu."
+"Talep ettiğiniz bölümleme şeması ile devam etmek istiyor musunuz?"
 
 #: yali/gui/ScrPartitionManual.py:112
 msgid "Partitioning Warnings"
@@ -1206,9 +1203,8 @@ msgid ""
 "The following pre-existing devices have been selected to be formatted, "
 "destroying all data."
 msgstr ""
-"Aşağıdaki aygıtlar biçimlendirilmek üzere "
-"seçilmiş durumdadırlar, bu işlem aygıtlardaki "
-"verilerin kaybolmasına neden olacaktır."
+"Aşağıdaki aygıtlar biçimlendirilmek üzere seçilmiş durumdadırlar, bu işlem "
+"aygıtlardaki verilerin kaybolmasına neden olacaktır."
 
 #: yali/gui/ScrPartitionManual.py:128
 msgid "Format Warnings"
@@ -1874,7 +1870,9 @@ msgstr ""
 msgid ""
 "You have not defined a root partition (/),which is required for installation "
 "of %s to continue."
-msgstr "%s kurulumuna devam etmek için gerekli olan kök dizin bölümünü (/) tanımlanmadınız."
+msgstr ""
+"%s kurulumuna devam etmek için gerekli olan kök dizin bölümünü (/) "
+"tanımlanmadınız."
 
 #: yali/storage/__init__.py:784
 #, python-format
@@ -1882,8 +1880,8 @@ msgid ""
 "Your / partition is less than %(min)s MB which is lower than recommended for "
 "a normal %(productName)s install."
 msgstr ""
-"Kök dizin bölünüz ( / ) normal bir %(productName)s kurulumu "
-"için önerilen %(min)s MB boyutun altında."
+"Kök dizin bölünüz ( / ) normal bir %(productName)s kurulumu için önerilen "
+"%(min)s MB boyutun altında."
 
 #: yali/storage/__init__.py:790
 #, python-format
@@ -1891,24 +1889,24 @@ msgid ""
 "Your %(mount)s partition is less than %(size)s megabytes which is lower than "
 "recommended for a normal %(productName)s install."
 msgstr ""
-"%(mount)s disk bölümü, normal bir %(productName)s "
-"kurulumu için önerilen %(size)s megabyte boyutun altında."
+"%(mount)s disk bölümü, normal bir %(productName)s kurulumu için önerilen "
+"%(size)s megabyte boyutun altında."
 
 #: yali/storage/__init__.py:799
 msgid ""
 "You have not specified a swap partition. Due to the amount of memory "
 "present, a swap partition is required to complete installation."
 msgstr ""
-"Takas alanı belirlenmemiş. Kullanılabilen hafıza ile bir takas alanı "
-" kurulumu tamamlamak için zorunlu görünüyor."
+"Takas alanı belirlenmemiş. Kullanılabilen hafıza ile bir takas alanı  "
+"kurulumu tamamlamak için zorunlu görünüyor."
 
 #: yali/storage/__init__.py:802
 msgid ""
 "You have not specified a swap partition. Although not strictly required in "
 "all cases, it will significantly improve performancefor most installations."
 msgstr ""
-"Takas alanı belirlenmemiş. Bu her durumda gerekli olmasa da, "
-" bir çok kurulumda performansta ciddi artış sağlayacaktır."
+"Takas alanı belirlenmemiş. Bu her durumda gerekli olmasa da,  bir çok "
+"kurulumda performansta ciddi artış sağlayacaktır."
 
 #: yali/storage/__init__.py:808
 #, python-format
@@ -1936,6 +1934,29 @@ msgstr ""
 " herhangi bir geçerli aygıt bulunamadı. Lütfen donanımınızda\n"
 " bununla ilgili bir sorun olup olmadığını kontrol edin."
 
+#: yali/storage/partitioning.py:703
+msgid "requested size exceeds maximum allowed"
+msgstr ""
+
+#: yali/storage/partitioning.py:911
+#, python-format
+msgid "partition is too %(problem)s for %(format)s formatting"
+msgstr ""
+
+#: yali/storage/partitioning.py:1051
+#, fuzzy
+msgid "not enough free space on disks"
+msgstr "Yeterli alan yok"
+
+#: yali/storage/partitioning.py:1072
+msgid "not enough free space after creating extended partition"
+msgstr ""
+
+#: yali/storage/partitioning.py:1248
+#, fuzzy
+msgid "not enough space for LVM requests"
+msgstr "Yeterli alan yok"
+
 #: yali/storage/partitioning.py:1644
 msgid ""
 "Could not find enough free space for automatic\n"
@@ -1959,7 +1980,7 @@ msgstr ""
 "\n"
 "%s"
 
-#: yali/storage/partitioning.py:1678 yali/storage/partitioning.py:1697
+#: yali/storage/partitioning.py:1678 yali/storage/partitioning.py:1698
 msgid ""
 "\n"
 "\n"
@@ -1978,11 +1999,11 @@ msgstr ""
 "Disk bölümleri belirlenen şekilde atanamadı: \n"
 "%(msg)s.%(extra)s"
 
-#: yali/storage/partitioning.py:1698
+#: yali/storage/partitioning.py:1699
 msgid "Automatic Partitioning Errors"
 msgstr "Otomatik Disk Bölümleme Hataları"
 
-#: yali/storage/partitioning.py:1699
+#: yali/storage/partitioning.py:1700
 #, python-format
 msgid ""
 "The following errors occurred with your partitioning:\n"

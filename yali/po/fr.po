@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-03 22:04+0200\n"
+"POT-Creation-Date: 2011-02-04 14:58+0200\n"
 "PO-Revision-Date: 2011-01-18 21:19+0200\n"
 "Last-Translator: Philippe Svetoslavsky <philsvet@gmail.com>\n"
 "Language-Team: French <kde-i18n-doc@kde.org>\n"
@@ -1954,6 +1954,30 @@ msgstr ""
 "lequel créer de nouveaux systèmes de fichiers. Merci de vérifier votre\n"
 "matériel pour résoudre ce problème."
 
+#: yali/storage/partitioning.py:703
+msgid "requested size exceeds maximum allowed"
+msgstr ""
+
+#: yali/storage/partitioning.py:911
+#, python-format
+msgid "partition is too %(problem)s for %(format)s formatting"
+msgstr ""
+
+#: yali/storage/partitioning.py:1051
+#, fuzzy
+msgid "not enough free space on disks"
+msgstr "Pas assez d'espace"
+
+#: yali/storage/partitioning.py:1072
+#, fuzzy
+msgid "not enough free space after creating extended partition"
+msgstr "Pas assez d'espace libre sur %s pour créer une nouvelle partition."
+
+#: yali/storage/partitioning.py:1248
+#, fuzzy
+msgid "not enough space for LVM requests"
+msgstr "Pas assez d'espace"
+
 #: yali/storage/partitioning.py:1644
 msgid ""
 "Could not find enough free space for automatic\n"
@@ -1978,7 +2002,7 @@ msgstr ""
 "\n"
 "%s"
 
-#: yali/storage/partitioning.py:1678 yali/storage/partitioning.py:1697
+#: yali/storage/partitioning.py:1678 yali/storage/partitioning.py:1698
 msgid ""
 "\n"
 "\n"
@@ -1997,11 +2021,11 @@ msgstr ""
 "Impossible d'allouer les partitions demandées :\n"
 "%(msg)s.%(extra)s"
 
-#: yali/storage/partitioning.py:1698
+#: yali/storage/partitioning.py:1699
 msgid "Automatic Partitioning Errors"
 msgstr "Erreurs de partitionnement automatique"
 
-#: yali/storage/partitioning.py:1699
+#: yali/storage/partitioning.py:1700
 #, python-format
 msgid ""
 "The following errors occurred with your partitioning:\n"
@@ -4377,9 +4401,6 @@ msgstr "Fichier xml Invalide"
 
 #~ msgid "User <b>%s</b>'s home directory is being prepared.."
 #~ msgstr "Préparation du répertoire personnel de l'utilisateur <b>%s</b>..."
-
-#~ msgid "Not enough free space on %s to create new partition"
-#~ msgstr "Pas assez d'espace libre sur %s pour créer une nouvelle partition."
 
 #~ msgid ""
 #~ "Pardus 2011 also includes other components updated with KDE 4.2. If you "

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yali\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-03 22:04+0200\n"
+"POT-Creation-Date: 2011-02-04 14:58+0200\n"
 "PO-Revision-Date: 2007-03-18 14:13+0100\n"
 "Last-Translator: Pau Amaro-Seoane <pau@aei.mpg.de>\n"
 "Language-Team: Catala <pardus-translation-ca@ns1.uludag.org.tr>\n"
@@ -1940,6 +1940,27 @@ msgid ""
 "hardware for the cause of this problem."
 msgstr ""
 
+#: yali/storage/partitioning.py:703
+msgid "requested size exceeds maximum allowed"
+msgstr ""
+
+#: yali/storage/partitioning.py:911
+#, python-format
+msgid "partition is too %(problem)s for %(format)s formatting"
+msgstr ""
+
+#: yali/storage/partitioning.py:1051
+msgid "not enough free space on disks"
+msgstr ""
+
+#: yali/storage/partitioning.py:1072
+msgid "not enough free space after creating extended partition"
+msgstr ""
+
+#: yali/storage/partitioning.py:1248
+msgid "not enough space for LVM requests"
+msgstr ""
+
 #: yali/storage/partitioning.py:1644
 msgid ""
 "Could not find enough free space for automatic\n"
@@ -1959,7 +1980,7 @@ msgid ""
 "%s"
 msgstr ""
 
-#: yali/storage/partitioning.py:1678 yali/storage/partitioning.py:1697
+#: yali/storage/partitioning.py:1678 yali/storage/partitioning.py:1698
 msgid ""
 "\n"
 "\n"
@@ -1973,12 +1994,12 @@ msgid ""
 "%(msg)s.%(extra)s"
 msgstr ""
 
-#: yali/storage/partitioning.py:1698
+#: yali/storage/partitioning.py:1699
 #, fuzzy
 msgid "Automatic Partitioning Errors"
 msgstr "Particions:"
 
-#: yali/storage/partitioning.py:1699
+#: yali/storage/partitioning.py:1700
 #, python-format
 msgid ""
 "The following errors occurred with your partitioning:\n"

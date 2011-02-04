@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sv\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-03 22:04+0200\n"
+"POT-Creation-Date: 2011-02-04 14:58+0200\n"
 "PO-Revision-Date: 2010-12-17 20:05+0100\n"
 "Last-Translator: Patrik Karlsson <patrik@trixon.se>\n"
 "Language-Team: Swedish <pardus-translators@pardus.org.tr>\n"
@@ -1817,6 +1817,30 @@ msgid ""
 "hardware for the cause of this problem."
 msgstr ""
 
+#: yali/storage/partitioning.py:703
+msgid "requested size exceeds maximum allowed"
+msgstr ""
+
+#: yali/storage/partitioning.py:911
+#, python-format
+msgid "partition is too %(problem)s for %(format)s formatting"
+msgstr ""
+
+#: yali/storage/partitioning.py:1051
+#, fuzzy
+msgid "not enough free space on disks"
+msgstr "Inte tillräckligt med utrymme"
+
+#: yali/storage/partitioning.py:1072
+#, fuzzy
+msgid "not enough free space after creating extended partition"
+msgstr "Inte tillräckligt med ledigt utrymme på %s för att skapa ny partition"
+
+#: yali/storage/partitioning.py:1248
+#, fuzzy
+msgid "not enough space for LVM requests"
+msgstr "Inte tillräckligt med utrymme"
+
 #: yali/storage/partitioning.py:1644
 msgid ""
 "Could not find enough free space for automatic\n"
@@ -1835,7 +1859,7 @@ msgid ""
 "%s"
 msgstr ""
 
-#: yali/storage/partitioning.py:1678 yali/storage/partitioning.py:1697
+#: yali/storage/partitioning.py:1678 yali/storage/partitioning.py:1698
 msgid ""
 "\n"
 "\n"
@@ -1849,11 +1873,11 @@ msgid ""
 "%(msg)s.%(extra)s"
 msgstr ""
 
-#: yali/storage/partitioning.py:1698
+#: yali/storage/partitioning.py:1699
 msgid "Automatic Partitioning Errors"
 msgstr "Fel vid automatisk partitionering"
 
-#: yali/storage/partitioning.py:1699
+#: yali/storage/partitioning.py:1700
 #, python-format
 msgid ""
 "The following errors occurred with your partitioning:\n"
@@ -4025,10 +4049,6 @@ msgstr ""
 
 #~ msgid "User <b>%s</b>'s home directory is being prepared.."
 #~ msgstr "Användare <b>%s</b>s hemkatalog förbereds..."
-
-#~ msgid "Not enough free space on %s to create new partition"
-#~ msgstr ""
-#~ "Inte tillräckligt med ledigt utrymme på %s för att skapa ny partition"
 
 #~ msgid ""
 #~ "Opening '%s' as NTFS failed: The NTFS journal file is unclean. Please "
