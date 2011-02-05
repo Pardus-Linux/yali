@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: uk\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-02-04 14:58+0200\n"
-"PO-Revision-Date: 2011-02-05 20:31+0300\n"
+"PO-Revision-Date: 2011-02-05 22:00+0300\n"
 "Last-Translator: Korostil Daniel <ted.korostiled@gmail.com>\n"
 "Language-Team: translation@linux.org.ua\n"
 "Language: uk\n"
@@ -2081,45 +2081,50 @@ msgstr ""
 #: yali/storage/storageBackendHelpers.py:353
 #: yali/storage/storageBackendHelpers.py:373
 msgid "Storage Device Warning"
-msgstr "Попередження пристроїв зчитування"
+msgstr "Попередження пристрою зберігання інформації"
 
 #: yali/storage/storageBackendHelpers.py:331
 #, python-format
 msgid "<b>The storage device (%(size)d size of %(description)s on %(name)s) may contain data.</b><br><br>We could not detect partitions on this device.<br><br>This could be because the device is <b>blank, unpartioned or virtual.</b> If not, there may be data on the device that can not be recovered if you use it this installation. We can remove the device from this installation to protect data.<br><br>Are you sure this device does not contain valuable data?"
 msgstr ""
+"<b>Пристрій зберіання інформації (розміро %(size)d %(description)s на %"
+"(name)s) може містити дані.</b><br><br>Ми не розпізнали розділи на "
+"пристрої.<br><br>Це може бути через те, що <b>порожній, без розділів або "
+"віртуальний.</b> Якщо ні, на носії можуть бути дані, які неможливо "
+"відтворити при встановленні. Ми можемо вилучити носій з установлення, щоб "
+"захистити дані.<br><br>Упевнені, що цей пристрій не містить важливих даних?"
 
 #: yali/storage/storageBackendHelpers.py:340
 msgid "Yes, destroy data"
-msgstr ""
+msgstr "Так, знищити дані"
 
 #: yali/storage/storageBackendHelpers.py:340
 #: yali/storage/storageBackendHelpers.py:361
 msgid "No, protect data"
-msgstr ""
+msgstr "Ні, захистити дані"
 
 #: yali/storage/storageBackendHelpers.py:354
 #, python-format
 msgid "There is inconsistent LVM data on %(msg)s. You can reinitialize all related PVs (%(pvs)s) which will erase the LVM metadata, or ignore which will preserve thecontents.This action may also be applied to all other PVs with inconsistent metadata."
 msgstr ""
-"Помилка при обробці LVM.\n"
-"Несумісні дані з LVM на %(msg)s. Можете\n"
-"перезапустити всі пов'язані PV (%(pvs)s), які вилучать\n"
-"матадані LVM, або зігноруйте, що збереже вміст.\n"
-"Цю дію можна також застосувати для всіх інших PVs з\n"
-"несумісними метаданими. "
+"Дані на LVM %(msg)s не сходяться. Можете перезапустити всі пов'язані PV (%"
+"(pvs)s), які струть метадані LVM, або знехтувати, що збереже вміст. Ця дія "
+"може також бути застосована для всі інших метаданих PV, які не зійшлись."
 
 #: yali/storage/storageBackendHelpers.py:361
 msgid "Yes, re-initialize"
-msgstr "Перезапустити"
+msgstr "Так, перезапустити"
 
 #: yali/storage/storageBackendHelpers.py:374
 #, python-format
 msgid "Disk contains %(members_count)s BIOS RAID metadata, but is not part of any recognized BIOS RAID sets. Ignoring disk %(members)s."
-msgstr "Диск містить метадані %(members_count)s BIOS RAID, однак це не частина якоїсь встановленої BIOS RAID. Нехтування диском %(members)s."
+msgstr ""
+"Диск містить метадані %(members_count)s BIOS RAID, однак це не частина "
+"якоїсь встановленої BIOS RAID. Нехтування диском %(members)s."
 
 #: yali/storage/storageset.py:162 yali/storage/storageset.py:174
 msgid "Invalid mount point"
-msgstr ""
+msgstr "Неприпустима точка монтування"
 
 #: yali/storage/storageset.py:163
 #, python-format
@@ -2128,6 +2133,10 @@ msgid ""
 "\n"
 "Press <Enter> to exit the installer."
 msgstr ""
+"Виникла помилка при спробі створити %s. Деякі елементи шляху не є каталогом. "
+"Це фатальна помилка і встановлення не можна продовжувати.\n"
+"\n"
+"Натисніть <Enter>, щоб покинути встановлення."
 
 #: yali/storage/storageset.py:175
 #, python-format
@@ -2136,15 +2145,21 @@ msgid ""
 "\n"
 "Press <Enter> to exit the installer."
 msgstr ""
+"Виникла помилка при спробі створити %(mountpoint)s: %(msg)s. Це фатальна "
+"помилка і встановлення не можна продовжувати.\n"
+"\n"
+"Натисніть <Enter>, щоб покинути встановлення."
 
 #: yali/storage/storageset.py:190 yali/storage/storageset.py:212
 msgid "Unable to mount filesystem"
-msgstr ""
+msgstr "Неможливо змонтувати файлову систему"
 
 #: yali/storage/storageset.py:191
 #, python-format
 msgid "An error occurred mounting device %(path)s as %(mountpoint)s.  You may continue installation, but there may be problems."
 msgstr ""
+"Трапилась помилка монтування пристрою %(path)s як %(mountpoint)s. Можете "
+"продовжити встановлення, однак можуть виникнути негаразди. "
 
 #: yali/storage/storageset.py:213
 #, python-format
@@ -2153,10 +2168,14 @@ msgid ""
 "\n"
 "Press <Enter> to exit the installer."
 msgstr ""
+"Виникла помилка при монтуванні пристрою %(path)s як %(mountpoint)s: %(msg)s. "
+"Це фатальна помилка і встановлення не можна продовжувати.\n"
+"\n"
+"Натисніть <Enter>, щоб покинути встановлення."
 
 #: yali/storage/storageset.py:244
 msgid "Skip"
-msgstr ""
+msgstr "Пропустити"
 
 #: yali/storage/storageset.py:276
 #, python-format
@@ -2167,6 +2186,12 @@ msgid ""
 "\n"
 "is an old-style Linux swap partition.  If you want to use this device for swap space, you must reformat as a new-style Linux swap partition."
 msgstr ""
+"Пристрій для свопінгу:\n"
+"\n"
+"     %s\n"
+"\n"
+"старий розділ для свопінгу Linux. Якщо бажаєте використовувати пристрій для "
+"свопінгу, варто переформатувати як новий розділ для свопінгу Linux."
 
 #: yali/storage/storageset.py:287
 #, python-format
@@ -2177,6 +2202,14 @@ msgid ""
 "\n"
 "in your /etc/fstab file is currently in use as a software suspend device, which means your system is hibernating. If you are performing a new install, make sure the installer is set to format all swap devices."
 msgstr ""
+"Пристрій для свопінгу:\n"
+"\n"
+"     %s\n"
+"\n"
+"у вашому файлі /etc/fstab тепер використовується як програма для приспання "
+"пристроїв, тобто ваша система присипляється. Якщо виконали нове "
+"встановлення, переконайтесь, що воно вказало форматувати всі пристрої для "
+"свопінгу."
 
 #: yali/storage/storageset.py:300
 #, python-format
@@ -2187,6 +2220,12 @@ msgid ""
 "\n"
 "does not contain a supported swap volume.  In order to continue installation, you will need to format the device or skip it."
 msgstr ""
+"Пристрій для свопінгу:\n"
+"\n"
+"     %s\n"
+"\n"
+"не містить підтримуваного тома для свопінгу. Щоб продовжити встановлення, "
+"потрібно форматувати пристрій або пропустити це."
 
 #: yali/storage/storageset.py:311
 #, python-format
@@ -2197,71 +2236,76 @@ msgid ""
 "\n"
 "Press OK to exit the installer."
 msgstr ""
+"Помилка ввімкнення пристрою для свопінгу %(name)s: %(msg)s\n"
+"\n"
+"Найімовірніше, пристрій для свопінгу не було запущено.\n"
+"\n"
+"Натисніть «Гаразд», щоб покинути встановлення. "
 
 #: yali/storage/storageset.py:357
 msgid "You have not created a bootable partition."
-msgstr ""
+msgstr "Не створено завантажувального розділу."
 
 #: yali/storage/storageset.py:361
 msgid "Bootable partitions cannot be on a logical volume."
-msgstr ""
+msgstr "Завантажувальний розділ не може бути логічним томом."
 
 #: yali/storage/storageset.py:368
 #, python-format
 msgid "Bootable partitions cannot be on an %s filesystem."
-msgstr ""
+msgstr "Завантажувальний розділ не може бути на файловій системі %s."
 
 #: yali/storage/devices/filedevice.py:94
 #, python-format
 msgid "Creating file %s"
-msgstr ""
+msgstr "Створення файла %s"
 
 #: yali/storage/devices/logicalvolume.py:217
 #: yali/storage/devices/partition.py:370 yali/storage/devices/raidarray.py:423
 #: yali/storage/devices/volumegroup.py:246
 #, python-format
 msgid "Creating device %s"
-msgstr ""
+msgstr "Створення пристрою %s"
 
 #: yali/storage/devices/raidarray.py:61
 #, python-format
 msgid "A RAID%(level)d set requires at least %(min_member)d member"
-msgstr ""
+msgstr "Налаштування RAID%(level)d потребують щонайменше елемент %(min_member)d"
 
 #: yali/storage/library/lvm.py:265
 #, python-format
 msgid "vginfo failed for %s"
-msgstr ""
+msgstr "Помилка vginfo для %s"
 
 #: yali/storage/library/lvm.py:291
 #, python-format
 msgid "lvs failed for %s"
-msgstr ""
+msgstr "Помилка lvs для %s"
 
 #: yali/storage/formats/filesystem.py:229
 #, python-format
 msgid "Unknown return code: %d."
-msgstr ""
+msgstr "Невідомий код повернення: %d."
 
 #: yali/storage/formats/filesystem.py:296
 #, python-format
 msgid "Creating %(type)s filesystem on %(device)s"
-msgstr ""
+msgstr "Створення файлової системи %(type)s на %(device)s"
 
 #: yali/storage/formats/filesystem.py:346
 #, python-format
 msgid "Resizing filesystem on %s"
-msgstr ""
+msgstr "Зміна розміру на %s"
 
 #: yali/storage/formats/filesystem.py:376
 #, python-format
 msgid "Checking filesystem on %s"
-msgstr ""
+msgstr "Перевірка файлової системи на %s"
 
 #: yali/storage/formats/filesystem.py:388
 #, python-format
 msgid "%(type)s filesystem check failure on %(device)s: "
-msgstr ""
+msgstr "Не вдалось перевірити файлову систему %(type)s на %(device)s: "
 
 #: yali/storage/formats/filesystem.py:392
 msgid ""
@@ -2270,220 +2314,224 @@ msgid ""
 " Restart\n"
 "installation after you have corrected the problems on the filesystem."
 msgstr ""
+"Помилки такого типу зазвичай виникають при негараздах з\n"
+" файловою системою, яка потребує взаємодії з користувачем\n"
+" для відновлення. Перезапустіть установлення після\n"
+"виправлення негараздів на файловій системі."
 
 #: yali/storage/formats/filesystem.py:398
 msgid "Unrecoverable Error"
-msgstr ""
+msgstr "Критична помилка"
 
 #: yali/storage/formats/filesystem.py:689
 msgid "File system errors left uncorrected."
-msgstr ""
+msgstr "Помилки файлової системи залишились невиправленими."
 
 #: yali/storage/formats/filesystem.py:690
 msgid "Operational error."
-msgstr ""
+msgstr "Оперативна помилка."
 
 #: yali/storage/formats/filesystem.py:691
 msgid "Usage or syntax error."
-msgstr ""
+msgstr "Помилка використання або синтаксу."
 
 #: yali/storage/formats/filesystem.py:692
 msgid "e2fsck cancelled by user request."
-msgstr ""
+msgstr "e2fsck скасовано за волею користувача."
 
 #: yali/storage/formats/filesystem.py:693
 msgid "Shared library error."
-msgstr ""
+msgstr "Помилка спільної бібліотеки."
 
 #: yali/storage/formats/filesystem.py:856
 msgid "Recoverable errors have been detected or dosfsck has discovered an internal inconsistency."
-msgstr ""
+msgstr "Знайдено виправні помилки або dosfsck виявив внутрішню неузгодженість."
 
 #: yali/storage/formats/filesystem.py:858
 msgid "Usage error."
-msgstr ""
+msgstr "Помилка використання."
 
 #: yali/localedata.py:20
 msgid "Turkish"
-msgstr ""
+msgstr "Турецька"
 
 #: yali/localedata.py:22
 msgid "Turkish F"
-msgstr ""
+msgstr "Турецька F"
 
 #: yali/localedata.py:22
 msgid "Turkish Q"
-msgstr ""
+msgstr "Турецька Q"
 
 #: yali/localedata.py:31
 msgid "English"
-msgstr ""
+msgstr "Англійська"
 
 #: yali/localedata.py:42
 msgid "English GB"
-msgstr ""
+msgstr "Англійська GB"
 
 #: yali/localedata.py:52
 msgid "Greek"
-msgstr ""
+msgstr "Грецький"
 
 #: yali/localedata.py:62
 msgid "Afrikaans"
-msgstr ""
+msgstr "Африкаанс"
 
 #: yali/localedata.py:72
 msgid "Vietnamese"
-msgstr ""
+msgstr "В'єтнамська"
 
 #: yali/localedata.py:82
 msgid "Catalan"
-msgstr ""
+msgstr "Каталонська"
 
 #: yali/localedata.py:93
 msgid "Italian"
-msgstr ""
+msgstr "Італійська"
 
 #: yali/localedata.py:104
 msgid "Czech"
-msgstr ""
+msgstr "Чеська"
 
 #: yali/localedata.py:114
 msgid "Welsh"
-msgstr ""
+msgstr "Валлійська"
 
 #: yali/localedata.py:124
 msgid "Arabic"
-msgstr ""
+msgstr "Арабська"
 
 #: yali/localedata.py:134
 msgid "Estonian"
-msgstr ""
+msgstr "Естонська"
 
 #: yali/localedata.py:144
 msgid "Spanish"
-msgstr ""
+msgstr "Іспанська"
 
 #: yali/localedata.py:155
 msgid "Russian"
-msgstr ""
+msgstr "Російська"
 
 #: yali/localedata.py:166
 msgid "Dutch"
-msgstr ""
+msgstr "Голландська"
 
 #: yali/localedata.py:177
 msgid "Portuguese"
-msgstr ""
+msgstr "Португальска"
 
 #: yali/localedata.py:188
 msgid "Norwegian"
-msgstr ""
+msgstr "Норвезька"
 
 #: yali/localedata.py:198
 msgid "Icelandic"
-msgstr ""
+msgstr "Ісландська"
 
 #: yali/localedata.py:208
 msgid "Polish"
-msgstr ""
+msgstr "Польська"
 
 #: yali/localedata.py:219
 msgid "Belgium"
-msgstr ""
+msgstr "Белгійська"
 
 #: yali/localedata.py:229
 msgid "French"
-msgstr ""
+msgstr "Французька"
 
 #: yali/localedata.py:240
 msgid "Bulgarian"
-msgstr ""
+msgstr "Болгарська"
 
 #: yali/localedata.py:250
 msgid "Slovenian"
-msgstr ""
+msgstr "Словенська"
 
 #: yali/localedata.py:260
 msgid "Croatian"
-msgstr ""
+msgstr "Хорватська"
 
 #: yali/localedata.py:270
 msgid "German"
-msgstr ""
+msgstr "Німецька"
 
 #: yali/localedata.py:281
 msgid "Danish"
-msgstr ""
+msgstr "Данська"
 
 #: yali/localedata.py:291
 msgid "Brazilian"
-msgstr ""
+msgstr "Бразильська"
 
 #: yali/localedata.py:301
 msgid "Finnish"
-msgstr ""
+msgstr "Фінська"
 
 #: yali/localedata.py:311
 msgid "Hungarian"
-msgstr ""
+msgstr "Болгарська"
 
 #: yali/localedata.py:322
 msgid "Japanese"
-msgstr ""
+msgstr "Японська"
 
 #: yali/localedata.py:332
 msgid "Malayalam"
-msgstr ""
+msgstr "Малаяламська"
 
 #: yali/localedata.py:342
 msgid "Swedish"
-msgstr ""
+msgstr "Шведська"
 
 #: yali/localedata.py:353
 msgid "Macedonian"
-msgstr ""
+msgstr "Македонська"
 
 #: yali/localedata.py:363
 msgid "Slovak"
-msgstr ""
+msgstr "Словацька"
 
 #: yali/localedata.py:373
 msgid "Ukrainian"
-msgstr ""
+msgstr "Українська"
 
 #: yali/localedata.py:383
 msgid "Serbian"
-msgstr ""
+msgstr "Сербська"
 
 #: yali/pisiiface.py:71
 #, python-format
 msgid "Error occured while %(repo)s repo is adding:%(msg)s"
-msgstr ""
+msgstr "Трапилась помилка при долучені сховища %(repo)s:%(msg)s"
 
 #: yali/postinstall.py:197
 #, python-format
 msgid "Preparing home directory for %s..."
-msgstr ""
+msgstr "Підготовлення домашнього каталогу для %s..."
 
 #: yali/util.py:380
 msgid "YALI log file doesn't exists."
-msgstr ""
+msgstr "Файл журналу YALI не існує."
 
 #: yali/util.py:382
 msgid "File paths are the same."
-msgstr ""
+msgstr "Шляхи файлів одинакові."
 
 #: yali/util.py:464 yali/util.py:507
 msgid "Release file is missing"
-msgstr ""
+msgstr "Бракує файла випуску "
 
 #: yali/util.py:466 yali/util.py:509
 msgid "Release file is inconsistent"
-msgstr ""
+msgstr "Файл випуску неузгоджений"
 
 #: yali/util.py:469 yali/util.py:512
 msgid "Invalid xml file"
-msgstr ""
+msgstr "Неправильний файл xml"
 
 #~ msgid "When checked, YALI will install all of the officially supported language packages on your system."
 #~ msgstr "Якщо це позначено, YALI встановить усі офіційно підтримувані пакунки мов."
