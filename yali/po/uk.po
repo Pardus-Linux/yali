@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: uk\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-02-04 14:58+0200\n"
-"PO-Revision-Date: 2011-02-04 23:07+0300\n"
+"PO-Revision-Date: 2011-02-05 20:31+0300\n"
 "Last-Translator: Korostil Daniel <ted.korostiled@gmail.com>\n"
 "Language-Team: translation@linux.org.ua\n"
 "Language: uk\n"
@@ -1765,11 +1765,11 @@ msgstr ""
 #: yali/storage/__init__.py:811
 #, python-format
 msgid "The mount point %s must be on a linux file system."
-msgstr ""
+msgstr "Точка монтування %s повинна бути файлова система linux."
 
 #: yali/storage/__init__.py:831
 msgid "No Drives Found"
-msgstr ""
+msgstr "Не знайдено драйвера"
 
 #: yali/storage/__init__.py:832
 msgid ""
@@ -1777,39 +1777,42 @@ msgid ""
 "which to create new file systems. Please check your\n"
 "hardware for the cause of this problem."
 msgstr ""
+"Трапилась помилка — нема прийнятного спритрою, на який\n"
+"можна встановити нову файлову систему. Будь ласка, перевірте\n"
+"апартуру на можливі негаразди."
 
 #: yali/storage/partitioning.py:703
 msgid "requested size exceeds maximum allowed"
-msgstr ""
+msgstr "потрібний розмір перевищує граничну межу"
 
 #: yali/storage/partitioning.py:911
 #, python-format
 msgid "partition is too %(problem)s for %(format)s formatting"
-msgstr ""
+msgstr "розділ надто %(problem)s для форматування %(format)s"
 
 #: yali/storage/partitioning.py:1051
-#, fuzzy
 msgid "not enough free space on disks"
-msgstr "Недостатньо місця"
+msgstr "недостатньо місця на дисках"
 
 #: yali/storage/partitioning.py:1072
 msgid "not enough free space after creating extended partition"
-msgstr ""
+msgstr "недостатньо місця після створення розширених розділів"
 
 #: yali/storage/partitioning.py:1248
-#, fuzzy
 msgid "not enough space for LVM requests"
-msgstr "Недостатньо місця"
+msgstr "недостатньо місця для LVM"
 
 #: yali/storage/partitioning.py:1644
 msgid ""
 "Could not find enough free space for automatic\n"
 "partitioning, please use another partitioning method."
 msgstr ""
+"Неможливо знайти місця для автоматичного розділення,\n"
+"будь ласка, спробуйте інший спосіб. "
 
 #: yali/storage/partitioning.py:1668
 msgid "Warnings During Automatic Partitioning"
-msgstr ""
+msgstr "Попередження протягом автоматичного розділення"
 
 #: yali/storage/partitioning.py:1669
 #, python-format
@@ -1818,6 +1821,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Такі попередження виникли протягом автоматичного розділення:\n"
+"\n"
+"%s"
 
 #: yali/storage/partitioning.py:1678 yali/storage/partitioning.py:1698
 msgid ""
@@ -1825,6 +1831,9 @@ msgid ""
 "\n"
 "Press 'OK' to exit the installer."
 msgstr ""
+"\n"
+"\n"
+"Натисіть «Гаразд», щоб покинути встановлення."
 
 #: yali/storage/partitioning.py:1680
 #, python-format
@@ -1832,10 +1841,12 @@ msgid ""
 "Could not allocate requested partitions: \n"
 "%(msg)s.%(extra)s"
 msgstr ""
+"Неможливо розмістити потрібні розділи: \n"
+"%(msg)s.%(extra)s"
 
 #: yali/storage/partitioning.py:1699
 msgid "Automatic Partitioning Errors"
-msgstr ""
+msgstr "Помилка автоматичного розділення"
 
 #: yali/storage/partitioning.py:1700
 #, python-format
@@ -1846,44 +1857,54 @@ msgid ""
 "\n"
 "This can happen if there is not enough space on your hard drive(s) for the installation. %(extra)s"
 msgstr ""
+"Такі помилки трапились з розділенням:\n"
+"\n"
+"%(errortxt)s\n"
+"\n"
+"Це могло статись через брак місця для встановлення на жорсткому диску. %"
+"(extra)s"
 
 #: yali/storage/storageBackendHelpers.py:17
 msgid "Please enter a volume group name."
-msgstr ""
+msgstr "Будь ласка, введіть назву групи томів."
 
 #: yali/storage/storageBackendHelpers.py:21
 msgid "Volume Group Names must be less than 128 characters"
-msgstr ""
+msgstr "Назва групи томів не повинна перевищувати понад 128 символів"
 
 #: yali/storage/storageBackendHelpers.py:24
 #, python-format
 msgid "Error - the volume group name %s is not valid."
-msgstr ""
+msgstr "Помилка — назва групи томів %s неприпустима."
 
 #: yali/storage/storageBackendHelpers.py:29
 msgid "Error - the volume group name contains illegal characters or spaces.  Acceptable characters are letters, digits, '.' or '_'."
 msgstr ""
+"Помилка — назва гурпи томів містить недозволені символи або пропуски.\n"
+"Дозволені символи — букви, числа, «.» або «_». "
 
 #: yali/storage/storageBackendHelpers.py:39
 msgid "Please enter a logical volume name."
-msgstr ""
+msgstr "Будь ласка, введіть назву логічного тома."
 
 #: yali/storage/storageBackendHelpers.py:43
 msgid "Logical Volume Names must be less than 128 characters"
-msgstr ""
+msgstr "Назва логічного тома не повинна перевищувати понад 128 символів"
 
 #: yali/storage/storageBackendHelpers.py:47
 #, python-format
 msgid "Error - the logical volume name %s is not valid."
-msgstr ""
+msgstr "Помилка — назва логічного тома %s неприпустима."
 
 #: yali/storage/storageBackendHelpers.py:53
 msgid "Error - the logical volume name contains illegal characters or spaces.  Acceptable characters are letters, digits, '.' or '_'."
 msgstr ""
+"Помилка — назва логічного тома містить недозволені символи або пропуски.\n"
+"Дозволені символи — букви, числа, «.» або «_». "
 
 #: yali/storage/storageBackendHelpers.py:67
 msgid "Format as Swap?"
-msgstr ""
+msgstr "Форматувати як Swap?"
 
 #: yali/storage/storageBackendHelpers.py:68
 #, python-format
@@ -1892,15 +1913,19 @@ msgid ""
 "\n"
 "Would you like to format this partition as a swap partition?"
 msgstr ""
+"%s має тип розділу 0x82 (Linux swap), однак не проявляється форматованим як "
+"розділ для свопінгу Linux.\n"
+"\n"
+"Форматувати як розділ для свопінгу?"
 
 #: yali/storage/storageBackendHelpers.py:88
 #, python-format
 msgid "You are about to delete all partitions on the device '%s'."
-msgstr ""
+msgstr "Ви збараєтесь вилучити всі розділи на носії «%s»."
 
 #: yali/storage/storageBackendHelpers.py:138
 msgid "Notice"
-msgstr ""
+msgstr "Повідомлення"
 
 #: yali/storage/storageBackendHelpers.py:139
 #, python-format
@@ -1909,24 +1934,29 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Такі розділи не вилучено, оскільки вони використовуються:\n"
+"\n"
+"%s"
 
 #: yali/storage/storageBackendHelpers.py:153
 #: yali/storage/storageBackendHelpers.py:160
 msgid "Unable To Delete"
-msgstr ""
+msgstr "Неможливо вилучити"
 
 #: yali/storage/storageBackendHelpers.py:154
 msgid "You must first select a partition to delete."
-msgstr ""
+msgstr "Спочатку потрібно вибрати розділ для вилучення."
 
 #: yali/storage/storageBackendHelpers.py:199
 #, python-format
 msgid "The mount point %s is invalid.  Mount points must start with '/' and cannot end with '/', and must contain printable characters and no spaces."
 msgstr ""
+"Точка монтування %s — неприпустима. Точки монтування повинні починатись з "
+"«/», і закінчуватись на «/» і містити друковані символи без пропусків."
 
 #: yali/storage/storageBackendHelpers.py:208
 msgid "Error with Partitioning"
-msgstr ""
+msgstr "Помилка з розділенням"
 
 #: yali/storage/storageBackendHelpers.py:209
 #, python-format
@@ -1935,10 +1965,14 @@ msgid ""
 "\n"
 "%(errorstr)s"
 msgstr ""
+"Ця критична помилка існує у вашій схемі розділення. Такі помилки потрібно "
+"виправляти перед установленням %(productName)s.\n"
+"\n"
+"%(errorstr)s"
 
 #: yali/storage/storageBackendHelpers.py:225
 msgid "Partitioning Warning"
-msgstr ""
+msgstr "Попередження розділення"
 
 #: yali/storage/storageBackendHelpers.py:226
 #, python-format
@@ -1949,18 +1983,25 @@ msgid ""
 "\n"
 "Would you like to continue with your requested partitioning scheme?"
 msgstr ""
+"Це попередження існує у вашій схемі розділення.\n"
+"\n"
+"%s\n"
+"\n"
+"Продовжити за вашою схемою?"
 
 #: yali/storage/storageBackendHelpers.py:241
 msgid "The following pre-existing partitions have been selected to be formatted, destroying all data."
-msgstr ""
+msgstr "Ці розділи було вибрано для форматування, знищивши усі дані."
 
 #: yali/storage/storageBackendHelpers.py:244
 msgid "Select 'Yes' to continue and format these partitions, or 'No' to go back and change these settings."
 msgstr ""
+"Натисніть «Так», щоб продовжити і форматувати ці розділи, або «Ні», щоб "
+"повернутись назад і змінити ці налаштування."
 
 #: yali/storage/storageBackendHelpers.py:250
 msgid "Format Warning"
-msgstr ""
+msgstr "Попередження форматування"
 
 #: yali/storage/storageBackendHelpers.py:278
 #, python-format
@@ -1969,33 +2010,36 @@ msgid ""
 "\n"
 "ALL logical volumes in this volume group will be lost!"
 msgstr ""
+"Ви збираєтесь вилучити групу томів «%s».\n"
+"\n"
+"Усі логічні томи в цій групі буде втрачено!"
 
 #: yali/storage/storageBackendHelpers.py:282
 #, python-format
 msgid "You are about to delete the logical volume \"%s\"."
-msgstr ""
+msgstr "Ви збираєтесь вилучити логічний том «%s»."
 
 #: yali/storage/storageBackendHelpers.py:285
 msgid "You are about to delete a RAID device."
-msgstr ""
+msgstr "Ви збираєтесь вилучити пристрій RAID."
 
 #: yali/storage/storageBackendHelpers.py:287
 #, python-format
 msgid "You are about to delete the %s partition."
-msgstr ""
+msgstr "Ви збираєтесь вилучити розділ %s."
 
 #: yali/storage/storageBackendHelpers.py:291
 #, python-format
 msgid "You are about to delete the %(type)s %(name)s"
-msgstr ""
+msgstr "Ви збираєтесь вилучити %(type)s %(name)s"
 
 #: yali/storage/storageBackendHelpers.py:301
 msgid "Confirm Reset"
-msgstr ""
+msgstr "Підвердити скидання"
 
 #: yali/storage/storageBackendHelpers.py:301
 msgid "Are you sure you want to reset the partition table to its original state?"
-msgstr ""
+msgstr "Скинути таблицю розділів до її первинного стану?"
 
 #: yali/storage/storageBackendHelpers.py:309
 msgid ""
@@ -2007,14 +2051,20 @@ msgid ""
 "such as home directories, then continue without formatting this\n"
 "npartition."
 msgstr ""
+"Ви вибрали використання наявного розідлу для цього \n"
+"встановлення без його форматуванння. Ми радимо віформатувати\n"
+"цей розділ, щоб переконатись, що з файлами з попередньої операційної\n"
+"системи не виникнуть прикростей через це встановлення.\n"
+"Утім, якщо розділи містять файли, які вам потрібно зберегти, як-от,\n"
+"домашній каталог, то продовжіть без форматування цього розділу."
 
 #: yali/storage/storageBackendHelpers.py:317
 msgid "Format?"
-msgstr ""
+msgstr "Форматувати?"
 
 #: yali/storage/storageBackendHelpers.py:318
 msgid "Do Not Format"
-msgstr ""
+msgstr "Не форматувати"
 
 #: yali/storage/storageBackendHelpers.py:325
 #, python-format
@@ -2023,13 +2073,15 @@ msgid ""
 "single drive.  To do this, select the drive in the 'Allowable Drives'\n"
 "checklist."
 msgstr ""
+"Розділи типу «%s» повинні знаходитись у одному носії.\n"
+"Щоб це зробити, виберіть пристрій в переліку\n"
+"«Можливі пристрої»."
 
 #: yali/storage/storageBackendHelpers.py:330
 #: yali/storage/storageBackendHelpers.py:353
 #: yali/storage/storageBackendHelpers.py:373
-#, fuzzy
 msgid "Storage Device Warning"
-msgstr "Запуск пристроїв зчитування…"
+msgstr "Попередження пристроїв зчитування"
 
 #: yali/storage/storageBackendHelpers.py:331
 #, python-format
@@ -2046,7 +2098,7 @@ msgid "No, protect data"
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:354
-#, fuzzy, python-format
+#, python-format
 msgid "There is inconsistent LVM data on %(msg)s. You can reinitialize all related PVs (%(pvs)s) which will erase the LVM metadata, or ignore which will preserve thecontents.This action may also be applied to all other PVs with inconsistent metadata."
 msgstr ""
 "Помилка при обробці LVM.\n"
@@ -2057,7 +2109,6 @@ msgstr ""
 "несумісними метаданими. "
 
 #: yali/storage/storageBackendHelpers.py:361
-#, fuzzy
 msgid "Yes, re-initialize"
 msgstr "Перезапустити"
 
