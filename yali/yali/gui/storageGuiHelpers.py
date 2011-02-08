@@ -15,6 +15,7 @@ from yali.storage.formats import device_formats, get_default_filesystem_type
 
 defaultMountPoints = ['/', '/boot', '/home', '/tmp', '/var', '/opt']
 
+
 class DriveItem(QtGui.QListWidgetItem):
     def __init__(self, parent, drive):
         QtGui.QListWidgetItem.__init__(self, parent)
@@ -117,7 +118,14 @@ def fillMountpointMenu(widget, request, excludes=[]):
         if request.format.mountpoint not in mountpoints:
             mountpoints.append(request.format.mountpoint)
 
-    map(widget.addItem, mountpoints)
+    for mountpoint in mountpoints:
+        if mountpoint in defaultMountPoints:
+            if mountpoint != "/home":
+                widget.addItem(mountpoint, True)
+            else:
+                widget.addItem(mountpoint, False)
+        else:
+            widget.addItem(mountpoint, False)
 
     if (request.format.type or request.format.migrate) and request.format.mountable:
         mountpoint = request.format.mountpoint

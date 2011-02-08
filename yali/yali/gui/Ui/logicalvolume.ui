@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>435</width>
-    <height>323</height>
+    <width>440</width>
+    <height>355</height>
    </rect>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -233,7 +233,7 @@
      </property>
     </widget>
    </item>
-   <item row="7" column="0" colspan="3">
+   <item row="8" column="0" colspan="3">
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -246,10 +246,17 @@
      </property>
     </spacer>
    </item>
-   <item row="8" column="0" colspan="3">
+   <item row="9" column="0" colspan="3">
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="standardButtons">
       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="0">
+    <widget class="QRadioButton" name="radioButton">
+     <property name="text">
+      <string notr="true">HackRadioButton</string>
      </property>
     </widget>
    </item>

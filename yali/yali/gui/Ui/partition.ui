@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>404</width>
-    <height>314</height>
+    <height>315</height>
    </rect>
   </property>
   <property name="styleSheet">
@@ -202,7 +202,7 @@
      </property>
     </widget>
    </item>
-   <item row="9" column="0" colspan="3">
+   <item row="10" column="0" colspan="3">
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -215,7 +215,7 @@
      </property>
     </spacer>
    </item>
-   <item row="10" column="0" colspan="3">
+   <item row="11" column="0" colspan="3">
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="standardButtons">
       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
@@ -249,6 +249,16 @@
     <widget class="QCheckBox" name="primaryCheck">
      <property name="text">
       <string>Force to be a primary partition</string>
+     </property>
+    </widget>
+   </item>
+   <item row="9" column="0">
+    <widget class="QRadioButton" name="radioButton">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="text">
+      <string notr="true">HackRadioButton</string>
      </property>
     </widget>
    </item>

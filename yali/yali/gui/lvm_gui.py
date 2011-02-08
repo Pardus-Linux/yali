@@ -788,7 +788,12 @@ class LogicalVolumeWidget(QWidget, Ui_LogicalVolumeWidget):
                 self.name.setText(self.parent.storage.createSuggestedVolumeGroupName(self.origrequest.vg))
         else:
             self.name.setText(self.origrequest.lvname)
+
         storageGuiHelpers.fillMountpointMenu(self.mountpointMenu, self.origrequest, excludes=["/boot"])
+        QObject.connect(self.mountpointMenu, SIGNAL("currentIndexChanged(int)"), self.mountPointChanged)
+
+        # This empty radioButton is hack about enabling autoExclusive formatRadio according to mountpoint.(#16446)
+        self.radioButton.hide()
 
         # Partition Type
         if not self.origrequest.exists:
@@ -811,6 +816,7 @@ class LogicalVolumeWidget(QWidget, Ui_LogicalVolumeWidget):
                 storageGuiHelpers.fillFilesystemMenu(self.formatCombo, self.origrequest.format,
                                                      ignores= ["software RAID", "physical volume (LVM)","vfat"])
                 self.formatRadio.setChecked(self.origrequest.format.formattable and not self.origrequest.format.exists)
+                QObject.connect(self.formatRadio, SIGNAL("toggled(bool)"), self.formatRadioToggled)
                 QObject.connect(self.formatCombo, SIGNAL("currentIndexChanged(int)"), self.formatTypeChanged)
             else:
                 self.formatRadio.hide()
@@ -868,14 +874,26 @@ class LogicalVolumeWidget(QWidget, Ui_LogicalVolumeWidget):
         self.connect(self.buttonBox, SIGNAL("accepted()"), self.parent.dialog.accept)
         self.connect(self.buttonBox, SIGNAL("rejected()"), self.parent.dialog.reject)
 
-    def formatTypeChanged(self, index):
-        format  = formats.getFormat(str(self.sender().itemText(index)))
+    def enableMountpoint(self, format):
         if format.mountable:
             self.mountpointMenu.setEnabled(True)
         else:
             self.mountpointMenu.setEnabled(False)
             self.mountpointMenu.setCurrentIndex(0)
 
+    def formatRadioToggled(self, checked):
+        if checked:
+            format  = formats.getFormat(str(self.formatCombo.currentText()))
+            self.enableMountpoint(format)
+
+    def formatTypeChanged(self, index):
+        format  = formats.getFormat(str(self.sender().itemText(index)))
+        self.enableMountpoint(format)
+
+    def mountPointChanged(self, index):
+        if self.formatRadio.isVisible():
+            self.radioButton.setChecked(True)
+            self.formatRadio.setChecked(self.mountpointMenu.itemData(index).toBool())
 
 class LogicalVolumeItem(QTreeWidgetItem):
     def __init__(self, parent, device):

@@ -210,7 +210,10 @@ class PartitionWidget(QtGui.QWidget, Ui_PartitionWidget):
 
         # Mount Point entry
         storageGuiHelpers.fillMountpointMenu(self.mountpointMenu, self.origrequest)
+        QObject.connect(self.mountpointMenu, SIGNAL("currentIndexChanged(int)"), self.mountPointChanged)
 
+        # This empty radioButton is hack about enabling autoExclusive formatRadio according to mountpoint.(#16446)
+        self.radioButton.hide()
         if not self.origrequest.exists:
             #Nont existing partition filesystem type
             storageGuiHelpers.fillFilesystemMenu(self.filesystemMenu, self.origrequest.format,
@@ -231,6 +234,7 @@ class PartitionWidget(QtGui.QWidget, Ui_PartitionWidget):
             if self.origrequest.format.formattable or not self.origrequest.format.type:
                 storageGuiHelpers.fillFilesystemMenu(self.formatCombo, self.origrequest.format)
                 self.formatRadio.setChecked(self.origrequest.format.formattable and not self.origrequest.format.exists)
+                QObject.connect(self.formatRadio, SIGNAL("toggled(bool)"), self.formatRadioToggled)
                 QObject.connect(self.formatCombo, SIGNAL("currentIndexChanged(int)"), self.formatTypeChanged)
             else:
                 self.formatRadio.hide()
@@ -298,16 +302,28 @@ class PartitionWidget(QtGui.QWidget, Ui_PartitionWidget):
         self.connect(self.buttonBox, SIGNAL("accepted()"), self.parent.dialog.accept)
         self.connect(self.buttonBox, SIGNAL("rejected()"), self.parent.dialog.reject)
 
-    def formatTypeChanged(self, index):
-        format  = formats.getFormat(str(self.sender().itemText(index)))
+    def enableMountpoint(self, format):
         if format.mountable:
             self.mountpointMenu.setEnabled(True)
         else:
             self.mountpointMenu.setEnabled(False)
             self.mountpointMenu.setCurrentIndex(0)
 
+    def formatRadioToggled(self, checked):
+        if checked:
+            format  = formats.getFormat(str(self.formatCombo.currentText()))
+            self.enableMountpoint(format)
+
+    def formatTypeChanged(self, index):
+        format  = formats.getFormat(str(self.sender().itemText(index)))
+        self.enableMountpoint(format)
+
     def mountPointChanged(self, index):
         if yali.util.isEfi() and self.mountpointMenu.itemText(index) == "/boot/efi":
-            self.filesystemMenu.setCurrentText(self.filesystemMenu.findText(formats.getFormat("efi").name))
+            self.filesystemMenu.setCurrentIndex(self.filesystemMenu.findText(formats.getFormat("efi").name))
         elif self.mountpointMenu.itemText(index) == "/boot":
-            self.filesystemMenu.setCurrentText(self.filesystemMenu.findText(formats.get_default_filesystem_type(boot=True)))
+            self.filesystemMenu.setCurrentIndex(self.filesystemMenu.findText(formats.get_default_filesystem_type(boot=True)))
+
+        if self.formatRadio.isVisible():
+            self.radioButton.setChecked(True)
+            self.formatRadio.setChecked(self.mountpointMenu.itemData(index).toBool())
