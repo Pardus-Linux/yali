@@ -2461,7 +2461,7 @@ msgstr "%s aygıtı yaratılıyor"
 #: yali/storage/devices/raidarray.py:61
 #, python-format
 msgid "A RAID%(level)d set requires at least %(min_member)d member"
-msgstr "%(level)d RAID seti en az %(min_member)d üye gerektirir"
+msgstr "RAID%(level)d seti en az %(min_member)d üye gerektirir"
 
 #: yali/storage/library/lvm.py:265
 #, python-format

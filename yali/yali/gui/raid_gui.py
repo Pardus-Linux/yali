@@ -59,13 +59,6 @@ class RaidEditor(object):
                 return []
 
             widget = self.dialog.content
-            for index in range(widget.raidMembers.count()):
-                if widget.raidMembers.item(index).checkState() == Qt.Checked:
-                    raidmembers.append(widget.raidMembers.item(index).partition)
-
-            # The user has to select some devices to be part of the array.
-            if not raidmembers:
-                continue
 
             mountpoint = unicode(widget.mountpointMenu.currentText())
             active = widget.mountpointMenu.isEnabled()
@@ -93,6 +86,20 @@ class RaidEditor(object):
                                             type="warning")
                     continue
 
+            for index in range(widget.raidMembers.count()):
+                if widget.raidMembers.item(index).checkState() == Qt.Checked:
+                    raidmembers.append(widget.raidMembers.item(index).partition)
+
+            # The user has to select some devices to be part of the array.
+            if not raidmembers:
+                raidlevel = widget.raidLevels.itemData(widget.raidLevels.currentIndex()).toInt()[0]
+                self.intf.messageWindow(_("Invalid Raid Members"),
+                                        _("A RAID%(level)d set requires at least %(min_member)d member")
+                                        % {"level":raidlevel,
+                                           "min_member":raid.get_raid_min_members(raidlevel)},
+                                        type="warning")
+                continue
+
             if not self.origrequest.exists:
                 formatType = str(widget.filesystemMenu.currentText())
                 raidminor = widget.raidMinors.itemData(widget.raidMinors.currentIndex()).toInt()[0]
@@ -113,9 +120,9 @@ class RaidEditor(object):
                                                         parents=raidmembers,
                                                         totalDevices=len(raidmembers),
                                                         memberDevices=members)
-                except ValueError, e:
-                    self.intf.messageWindow(_("Error"), str(e),
-                                            type="error")
+                except ValueError, msg:
+                    self.intf.messageWindow(_("Invalid Raid Members"), unicode(msg),
+                                            type="warning")
                     continue
 
                 if not self.isNew:
