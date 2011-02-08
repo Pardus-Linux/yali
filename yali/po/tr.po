@@ -1949,18 +1949,16 @@ msgid "partition is too %(problem)s for %(format)s formatting"
 msgstr ""
 
 #: yali/storage/partitioning.py:1051
-#, fuzzy
 msgid "not enough free space on disks"
-msgstr "Yeterli alan yok"
+msgstr "diskte yeterli alan yok"
 
 #: yali/storage/partitioning.py:1072
 msgid "not enough free space after creating extended partition"
-msgstr ""
+msgstr "genişletilmiş bölüm yaratıldıktan sonra yeterli alan yok"
 
 #: yali/storage/partitioning.py:1248
-#, fuzzy
 msgid "not enough space for LVM requests"
-msgstr "Yeterli alan yok"
+msgstr "LVM isteği için yeterli alan yok"
 
 #: yali/storage/partitioning.py:1644
 msgid ""
@@ -2447,9 +2445,8 @@ msgid "Bootable partitions cannot be on a logical volume."
 msgstr "Yüklenebilir bölümler mantıksal hacimler üzerinde olamazlar."
 
 #: yali/storage/storageset.py:365
-#, fuzzy
 msgid "Bootable partitions cannot be on a raid array."
-msgstr "Yüklenebilir bölümler mantıksal hacimler üzerinde olamazlar."
+msgstr "Yüklenebilir bölümler raid dizileri üzerinde olamazlar."
 
 #: yali/storage/storageset.py:372
 #, python-format
