@@ -96,7 +96,9 @@ class Widget(QWidget, ScreenWidget):
                 self.storage.clearPartType = CLEARPART_TYPE_NONE
 
             ctx.mainScreen.step_increment = 2
-            self.storage.autoPartitionRequests = defaultPartitioning(self.storage, quiet=0)
+            self.storage.autoPartitionRequests = defaultPartitioning(self.storage,
+                                                                     quiet=0,
+                                                                     asVol=ctx.flags.partitioning_lvm)
 
             try:
                 returncode = doAutoPartition(self.storage)

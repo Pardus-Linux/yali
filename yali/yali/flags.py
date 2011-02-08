@@ -48,6 +48,9 @@ class Flags:
         self.__dict__['flags']['kahya'] = options.has_key("kahyaFile") or \
                                           os.path.exists("/usr/share/yali/data/default.xml")
 
+        if options.has_key("nolvm"):
+            self.__dict__['flags']['partitioning_lvm'] = False
+
         for key in [_key for _key in options.keys() \
                     if _key not in ("live", "system", "firstboot", "oem", "firstboot", "rescue", "theme")]:
             self.__dict__[key] = options[key] if options[key] else True
@@ -56,6 +59,7 @@ class Flags:
         self.__dict__['flags'] = {}
         self.__dict__['flags']['debug'] = False
         self.__dict__['flags']['install_type'] = 0
+        self.__dict__['flags']['partitioning_lvm'] = True
         self.__dict__['flags']['collection'] = False
         self.__dict__['flags']['baseonly'] = False
         self.__dict__['flags']['kahya'] = False
