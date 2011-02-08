@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-04 14:58+0200\n"
+"POT-Creation-Date: 2011-02-08 23:12+0200\n"
 "PO-Revision-Date: 2011-01-18 21:19+0200\n"
 "Last-Translator: Stefan Wilhelm <sw AT pardususer DOT de>\n"
 "Language-Team: German <de@li.org>\n"
@@ -260,46 +260,46 @@ msgstr ""
 msgid "I understand and accept the terms"
 msgstr "Ich verstehe und akzeptiere die Bedingungen"
 
-#: yali/gui/Ui/logicalvolume.py:139
+#: yali/gui/Ui/logicalvolume.py:143
 msgid "Logical Volume:"
 msgstr "Logical Volume:"
 
-#: yali/gui/Ui/logicalvolume.py:140 yali/gui/Ui/partedit.py:164
+#: yali/gui/Ui/logicalvolume.py:144 yali/gui/Ui/partedit.py:164
 #: yali/gui/Ui/partitionedit.py:136
 msgid "Use :"
 msgstr "Verwende:"
 
-#: yali/gui/Ui/logicalvolume.py:141 yali/gui/Ui/partedit.py:165
-#: yali/gui/Ui/partitionedit.py:137 yali/gui/Ui/partition.py:139
+#: yali/gui/Ui/logicalvolume.py:145 yali/gui/Ui/partedit.py:165
+#: yali/gui/Ui/partitionedit.py:137 yali/gui/Ui/partition.py:144
 msgid "Size :"
 msgstr "Größe:"
 
-#: yali/gui/Ui/logicalvolume.py:142 yali/gui/Ui/logicalvolume.py:144
+#: yali/gui/Ui/logicalvolume.py:146 yali/gui/Ui/logicalvolume.py:148
 #: yali/gui/Ui/partedit.py:166 yali/gui/Ui/partitionedit.py:138
-#: yali/gui/Ui/partition.py:140 yali/gui/Ui/partition.py:142
+#: yali/gui/Ui/partition.py:145 yali/gui/Ui/partition.py:147
 #: yali/gui/Ui/partitionshrinkwidget.py:93 yali/gui/Ui/partresize.py:93
 msgid " MB"
 msgstr " MB"
 
-#: yali/gui/Ui/logicalvolume.py:143 yali/gui/Ui/partition.py:141
+#: yali/gui/Ui/logicalvolume.py:147 yali/gui/Ui/partition.py:146
 #: yali/gui/Ui/partresize.py:95
 msgid "Resize"
 msgstr "Größe ändern"
 
-#: yali/gui/Ui/logicalvolume.py:145 yali/gui/Ui/partedit.py:169
-#: yali/gui/Ui/partitionedit.py:139 yali/gui/Ui/partition.py:145
+#: yali/gui/Ui/logicalvolume.py:149 yali/gui/Ui/partedit.py:169
+#: yali/gui/Ui/partitionedit.py:139 yali/gui/Ui/partition.py:150
 msgid "File System :"
 msgstr "Dateisystem:"
 
 # oder: Formatiere
 # -Stefan
-#: yali/gui/Ui/logicalvolume.py:146 yali/gui/Ui/manualpartwidget.py:161
-#: yali/gui/Ui/partition.py:143 yali/gui/Ui/raid.py:108
+#: yali/gui/Ui/logicalvolume.py:150 yali/gui/Ui/manualpartwidget.py:161
+#: yali/gui/Ui/partition.py:148 yali/gui/Ui/raid.py:108
 #: yali/gui/ScrPartitionManual.py:130 yali/storage/storageset.py:244
 msgid "Format"
 msgstr "Format"
 
-#: yali/gui/Ui/logicalvolume.py:147 yali/gui/Ui/partition.py:144
+#: yali/gui/Ui/logicalvolume.py:151 yali/gui/Ui/partition.py:149
 #: yali/gui/Ui/raid.py:109
 msgid "Migrate"
 msgstr "Migriere"
@@ -409,11 +409,11 @@ msgstr "Übernehmen"
 msgid "Force to be primary partition"
 msgstr "Als primäre Partition nutzen"
 
-#: yali/gui/Ui/partition.py:138 yali/gui/Ui/raid.py:106
+#: yali/gui/Ui/partition.py:143 yali/gui/Ui/raid.py:106
 msgid "Use:"
 msgstr "Nutze:"
 
-#: yali/gui/Ui/partition.py:146
+#: yali/gui/Ui/partition.py:151
 msgid "Force to be a primary partition"
 msgstr "Als primäre Partition eintragen"
 
@@ -612,7 +612,7 @@ msgid "Select auto login user"
 msgstr "Benutzer für automatischen Login auswählen"
 
 #: yali/gui/Ui/setupuserswidget.py:498 yali/gui/Ui/volumegroup.py:117
-#: yali/gui/ScrUsers.py:286 yali/gui/ScrUsers.py:329 yali/gui/ScrUsers.py:411
+#: yali/gui/ScrUsers.py:286 yali/gui/ScrUsers.py:329 yali/gui/ScrUsers.py:413
 msgid "Add"
 msgstr "Hinzufügen"
 
@@ -712,7 +712,7 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:402 yali/gui/lvm_gui.py:432 yali/gui/lvm_gui.py:445
 #: yali/gui/lvm_gui.py:480 yali/gui/lvm_gui.py:696 yali/gui/lvm_gui.py:718
-#: yali/gui/storageGuiHelpers.py:70
+#: yali/gui/storageGuiHelpers.py:71
 msgid "Not enough space"
 msgstr "Nicht genügend Speicherplatz"
 
@@ -853,17 +853,17 @@ msgid "Edit Logical Volume: %s"
 msgstr "Bearbeite Logical Volume: %s"
 
 #: yali/gui/lvm_gui.py:613 yali/gui/partition_gui.py:65
-#: yali/gui/raid_gui.py:75
+#: yali/gui/raid_gui.py:68
 msgid "Mount Point Error"
 msgstr "Mount-Point Fehler"
 
 #: yali/gui/lvm_gui.py:644 yali/gui/partition_gui.py:79
-#: yali/gui/raid_gui.py:89
+#: yali/gui/raid_gui.py:82
 msgid "Mount point in use"
 msgstr "Mount-Point schon verwendet"
 
 #: yali/gui/lvm_gui.py:645 yali/gui/partition_gui.py:80
-#: yali/gui/raid_gui.py:90
+#: yali/gui/raid_gui.py:83
 #, python-format
 msgid "The mount point \"%s\" is in use. Please pick another."
 msgstr ""
@@ -939,7 +939,7 @@ msgstr "Partition bearbeiten"
 msgid "Error With Request"
 msgstr "Abfrage fehlerhaft"
 
-#: yali/gui/raid_gui.py:26
+#: yali/gui/raid_gui.py:26 yali/gui/raid_gui.py:96 yali/gui/raid_gui.py:124
 msgid "Invalid Raid Members"
 msgstr "Ungültige RAID Mitglieder"
 
@@ -970,16 +970,16 @@ msgstr "Bearbeite RAID Gerät: %s"
 msgid "Edit RAID Device"
 msgstr "Bearbeite RAID Gerät"
 
-#: yali/gui/raid_gui.py:117 yali/gui/ScrDriveSelection.py:112
-#: yali/storage/storageset.py:245 yali/storage/storageset.py:317
-msgid "Error"
-msgstr "Fehler"
+#: yali/gui/raid_gui.py:97 yali/storage/devices/raidarray.py:61
+#, python-format
+msgid "A RAID%(level)d set requires at least %(min_member)d member"
+msgstr "Ein RAID%(level)d Verbund benötigt zumindest %(min_member)d Mitglieder"
 
-#: yali/gui/runner.py:110
+#: yali/gui/runner.py:116
 msgid "Error!"
 msgstr "Fehler!"
 
-#: yali/gui/runner.py:111
+#: yali/gui/runner.py:117
 #, python-format
 msgid ""
 "An error occurred when attempting to load an installer interface component.\n"
@@ -993,11 +993,11 @@ msgstr ""
 
 # oder: Abbruch, Ausgang
 # -Stefan
-#: yali/gui/runner.py:115 yali/storage/storageset.py:244
+#: yali/gui/runner.py:121 yali/storage/storageset.py:244
 msgid "Exit"
 msgstr "Verlassen"
 
-#: yali/gui/runner.py:115
+#: yali/gui/runner.py:121
 msgid "Retry"
 msgstr "Wiederholen"
 
@@ -1071,6 +1071,11 @@ msgstr ""
 #: yali/gui/ScrDateTime.py:169
 msgid "Adjusting time settings"
 msgstr "Zeiteinstellung wird vorgenommen"
+
+#: yali/gui/ScrDriveSelection.py:112 yali/storage/storageset.py:245
+#: yali/storage/storageset.py:317
+msgid "Error"
+msgstr "Fehler"
 
 #: yali/gui/ScrDriveSelection.py:113
 msgid "You must select at least one drive to be used for installation."
@@ -1714,7 +1719,7 @@ msgstr "Gerätefehler bei Größenänderung"
 msgid "%(name)s: %(msg)s"
 msgstr "%(name)s: %(msg)s"
 
-#: yali/gui/storageGuiHelpers.py:71
+#: yali/gui/storageGuiHelpers.py:72
 msgid ""
 "You cannot remove this physical volume because\n"
 "otherwise the volume group will be too small to\n"
@@ -2530,7 +2535,12 @@ msgstr "Sie haben keine bootfähige Partition erstellt."
 msgid "Bootable partitions cannot be on a logical volume."
 msgstr "Bootfähige Partitionen können nicht Teil eines Logical Volumes sein."
 
-#: yali/storage/storageset.py:368
+#: yali/storage/storageset.py:365
+#, fuzzy
+msgid "Bootable partitions cannot be on a raid array."
+msgstr "Bootfähige Partitionen können nicht Teil eines Logical Volumes sein."
+
+#: yali/storage/storageset.py:372
 #, python-format
 msgid "Bootable partitions cannot be on an %s filesystem."
 msgstr "Bootfähige Partitionen können nicht das %s Dateisystem haben."
@@ -2546,11 +2556,6 @@ msgstr "Erstelle Datei %s"
 #, python-format
 msgid "Creating device %s"
 msgstr "Erstelle Gerät %s"
-
-#: yali/storage/devices/raidarray.py:61
-#, python-format
-msgid "A RAID%(level)d set requires at least %(min_member)d member"
-msgstr "Ein RAID%(level)d Verbund benötigt zumindest %(min_member)d Mitglieder"
 
 #: yali/storage/library/lvm.py:265
 #, python-format

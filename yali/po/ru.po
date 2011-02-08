@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-04 14:58+0200\n"
+"POT-Creation-Date: 2011-02-08 23:12+0200\n"
 "PO-Revision-Date: 2011-01-19 01:37+0300\n"
 "Last-Translator: Alexey Ivanov <alexey.ivanes@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -247,44 +247,44 @@ msgstr ""
 msgid "I understand and accept the terms"
 msgstr "Я понимаю и соглашаюсь с условиями лицензии"
 
-#: yali/gui/Ui/logicalvolume.py:139
+#: yali/gui/Ui/logicalvolume.py:143
 msgid "Logical Volume:"
 msgstr "Логический том:"
 
-#: yali/gui/Ui/logicalvolume.py:140 yali/gui/Ui/partedit.py:164
+#: yali/gui/Ui/logicalvolume.py:144 yali/gui/Ui/partedit.py:164
 #: yali/gui/Ui/partitionedit.py:136
 msgid "Use :"
 msgstr "Использование:"
 
-#: yali/gui/Ui/logicalvolume.py:141 yali/gui/Ui/partedit.py:165
-#: yali/gui/Ui/partitionedit.py:137 yali/gui/Ui/partition.py:139
+#: yali/gui/Ui/logicalvolume.py:145 yali/gui/Ui/partedit.py:165
+#: yali/gui/Ui/partitionedit.py:137 yali/gui/Ui/partition.py:144
 msgid "Size :"
 msgstr "Размер:"
 
-#: yali/gui/Ui/logicalvolume.py:142 yali/gui/Ui/logicalvolume.py:144
+#: yali/gui/Ui/logicalvolume.py:146 yali/gui/Ui/logicalvolume.py:148
 #: yali/gui/Ui/partedit.py:166 yali/gui/Ui/partitionedit.py:138
-#: yali/gui/Ui/partition.py:140 yali/gui/Ui/partition.py:142
+#: yali/gui/Ui/partition.py:145 yali/gui/Ui/partition.py:147
 #: yali/gui/Ui/partitionshrinkwidget.py:93 yali/gui/Ui/partresize.py:93
 msgid " MB"
 msgstr "МБ"
 
-#: yali/gui/Ui/logicalvolume.py:143 yali/gui/Ui/partition.py:141
+#: yali/gui/Ui/logicalvolume.py:147 yali/gui/Ui/partition.py:146
 #: yali/gui/Ui/partresize.py:95
 msgid "Resize"
 msgstr "Изменить размер"
 
-#: yali/gui/Ui/logicalvolume.py:145 yali/gui/Ui/partedit.py:169
-#: yali/gui/Ui/partitionedit.py:139 yali/gui/Ui/partition.py:145
+#: yali/gui/Ui/logicalvolume.py:149 yali/gui/Ui/partedit.py:169
+#: yali/gui/Ui/partitionedit.py:139 yali/gui/Ui/partition.py:150
 msgid "File System :"
 msgstr "Файловая система:"
 
-#: yali/gui/Ui/logicalvolume.py:146 yali/gui/Ui/manualpartwidget.py:161
-#: yali/gui/Ui/partition.py:143 yali/gui/Ui/raid.py:108
+#: yali/gui/Ui/logicalvolume.py:150 yali/gui/Ui/manualpartwidget.py:161
+#: yali/gui/Ui/partition.py:148 yali/gui/Ui/raid.py:108
 #: yali/gui/ScrPartitionManual.py:130 yali/storage/storageset.py:244
 msgid "Format"
 msgstr "Форматировать"
 
-#: yali/gui/Ui/logicalvolume.py:147 yali/gui/Ui/partition.py:144
+#: yali/gui/Ui/logicalvolume.py:151 yali/gui/Ui/partition.py:149
 #: yali/gui/Ui/raid.py:109
 msgid "Migrate"
 msgstr "Мигрировать"
@@ -390,11 +390,11 @@ msgstr "Применить"
 msgid "Force to be primary partition"
 msgstr "Установить как основной раздел"
 
-#: yali/gui/Ui/partition.py:138 yali/gui/Ui/raid.py:106
+#: yali/gui/Ui/partition.py:143 yali/gui/Ui/raid.py:106
 msgid "Use:"
 msgstr "Использовать как:"
 
-#: yali/gui/Ui/partition.py:146
+#: yali/gui/Ui/partition.py:151
 msgid "Force to be a primary partition"
 msgstr "Установить как основной раздел"
 
@@ -588,7 +588,7 @@ msgid "Select auto login user"
 msgstr "Выберите пользователя для автоматической авторизации"
 
 #: yali/gui/Ui/setupuserswidget.py:498 yali/gui/Ui/volumegroup.py:117
-#: yali/gui/ScrUsers.py:286 yali/gui/ScrUsers.py:329 yali/gui/ScrUsers.py:411
+#: yali/gui/ScrUsers.py:286 yali/gui/ScrUsers.py:329 yali/gui/ScrUsers.py:413
 msgid "Add"
 msgstr "Добавить"
 
@@ -684,7 +684,7 @@ msgstr "Имя группы томов \"%s\" уже используется. �
 
 #: yali/gui/lvm_gui.py:402 yali/gui/lvm_gui.py:432 yali/gui/lvm_gui.py:445
 #: yali/gui/lvm_gui.py:480 yali/gui/lvm_gui.py:696 yali/gui/lvm_gui.py:718
-#: yali/gui/storageGuiHelpers.py:70
+#: yali/gui/storageGuiHelpers.py:71
 msgid "Not enough space"
 msgstr "Недостаточно места"
 
@@ -825,17 +825,17 @@ msgid "Edit Logical Volume: %s"
 msgstr "Редактировать логический раздел: %s"
 
 #: yali/gui/lvm_gui.py:613 yali/gui/partition_gui.py:65
-#: yali/gui/raid_gui.py:75
+#: yali/gui/raid_gui.py:68
 msgid "Mount Point Error"
 msgstr "Ошибка монтирования"
 
 #: yali/gui/lvm_gui.py:644 yali/gui/partition_gui.py:79
-#: yali/gui/raid_gui.py:89
+#: yali/gui/raid_gui.py:82
 msgid "Mount point in use"
 msgstr "Точка монтирования уже используется"
 
 #: yali/gui/lvm_gui.py:645 yali/gui/partition_gui.py:80
-#: yali/gui/raid_gui.py:90
+#: yali/gui/raid_gui.py:83
 #, python-format
 msgid "The mount point \"%s\" is in use. Please pick another."
 msgstr ""
@@ -907,7 +907,7 @@ msgstr "Изменить раздел"
 msgid "Error With Request"
 msgstr "Ошибка с запросом"
 
-#: yali/gui/raid_gui.py:26
+#: yali/gui/raid_gui.py:26 yali/gui/raid_gui.py:96 yali/gui/raid_gui.py:124
 msgid "Invalid Raid Members"
 msgstr "Ошибочные члены Raid"
 
@@ -938,16 +938,16 @@ msgstr "Редактировать RAID устройство: %s"
 msgid "Edit RAID Device"
 msgstr "Редактировать RAID устройство"
 
-#: yali/gui/raid_gui.py:117 yali/gui/ScrDriveSelection.py:112
-#: yali/storage/storageset.py:245 yali/storage/storageset.py:317
-msgid "Error"
-msgstr "Ошибка"
+#: yali/gui/raid_gui.py:97 yali/storage/devices/raidarray.py:61
+#, python-format
+msgid "A RAID%(level)d set requires at least %(min_member)d member"
+msgstr "RAID%(level)d набор требует хотя бы %(min_member)d элемент"
 
-#: yali/gui/runner.py:110
+#: yali/gui/runner.py:116
 msgid "Error!"
 msgstr "Ошибка!"
 
-#: yali/gui/runner.py:111
+#: yali/gui/runner.py:117
 #, python-format
 msgid ""
 "An error occurred when attempting to load an installer interface component.\n"
@@ -958,11 +958,11 @@ msgstr ""
 "\n"
 "className = %s.Widget"
 
-#: yali/gui/runner.py:115 yali/storage/storageset.py:244
+#: yali/gui/runner.py:121 yali/storage/storageset.py:244
 msgid "Exit"
 msgstr "Выход"
 
-#: yali/gui/runner.py:115
+#: yali/gui/runner.py:121
 msgid "Retry"
 msgstr "Повторить"
 
@@ -1034,6 +1034,11 @@ msgstr ""
 #: yali/gui/ScrDateTime.py:169
 msgid "Adjusting time settings"
 msgstr "Регулировка настроек времени"
+
+#: yali/gui/ScrDriveSelection.py:112 yali/storage/storageset.py:245
+#: yali/storage/storageset.py:317
+msgid "Error"
+msgstr "Ошибка"
 
 #: yali/gui/ScrDriveSelection.py:113
 msgid "You must select at least one drive to be used for installation."
@@ -1669,7 +1674,7 @@ msgstr "Ошибка изменения разрамера на устройст
 msgid "%(name)s: %(msg)s"
 msgstr "%(name)s: %(msg)s"
 
-#: yali/gui/storageGuiHelpers.py:71
+#: yali/gui/storageGuiHelpers.py:72
 msgid ""
 "You cannot remove this physical volume because\n"
 "otherwise the volume group will be too small to\n"
@@ -2459,7 +2464,12 @@ msgstr "Вы не создали загрузочный раздел."
 msgid "Bootable partitions cannot be on a logical volume."
 msgstr "Загрузочные разделы не могут располагаться на логическом томе. "
 
-#: yali/storage/storageset.py:368
+#: yali/storage/storageset.py:365
+#, fuzzy
+msgid "Bootable partitions cannot be on a raid array."
+msgstr "Загрузочные разделы не могут располагаться на логическом томе. "
+
+#: yali/storage/storageset.py:372
 #, python-format
 msgid "Bootable partitions cannot be on an %s filesystem."
 msgstr "Загрузочные разделы не могут располагаться на %s файловой системы."
@@ -2475,11 +2485,6 @@ msgstr "Создание файла %s"
 #, python-format
 msgid "Creating device %s"
 msgstr "Создание устройства %s"
-
-#: yali/storage/devices/raidarray.py:61
-#, python-format
-msgid "A RAID%(level)d set requires at least %(min_member)d member"
-msgstr "RAID%(level)d набор требует хотя бы %(min_member)d элемент"
 
 #: yali/storage/library/lvm.py:265
 #, python-format
