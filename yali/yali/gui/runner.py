@@ -26,6 +26,9 @@ from PyQt4.Qt import QApplication
 from PyQt4.Qt import SIGNAL
 from PyQt4.Qt import SLOT
 from PyQt4.Qt import QKeySequence
+from PyQt4.Qt import QTranslator
+from PyQt4.Qt import QLocale
+from PyQt4.Qt import QLibraryInfo
 
 import yali
 import yali.util
@@ -47,6 +50,9 @@ class Runner:
         except yali.Error, msg:
             ctx.logger.debug(msg)
             sys.exit(1)
+
+        self._translator = QTranslator()
+        self._translator.load("qt_" + QLocale.system().name(), QLibraryInfo.location(QLibraryInfo.TranslationsPath))
 
         ctx.mainScreen = self._window
 
@@ -131,6 +137,8 @@ class Runner:
         # if you use different Qt4 theme our works looks ugly :)
         self._application.setStyle(QStyleFactory.create('Plastique'))
         self._init_screen()
+
+        self._application.installTranslator(self._translator)
 
         # For testing..
         # self._window.resize(QSize(800,600))
