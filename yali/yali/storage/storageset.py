@@ -360,6 +360,10 @@ class StorageSet(object):
         if request.type == "lvmlv":
             errors.append(_("Bootable partitions cannot be on a logical volume."))
 
+        # can't have bootable partition on Raid Array
+        if request.type == "mdarray":
+            errors.append(_("Bootable partitions cannot be on a raid array."))
+
         # Make sure /boot is on a supported FS type.  This prevents crazy
         # things like boot on vfat.
         if not request.format.bootable or \
