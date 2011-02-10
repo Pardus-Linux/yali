@@ -73,7 +73,7 @@ msgstr "Diskin Tamamını Kullan"
 
 #: yali/gui/Ui/autopartwidget.py:141
 msgid "Shrink Current System"
-msgstr "Kullanılan Sistemi Küçült"
+msgstr "Mevcut Sistemi Küçült"
 
 #: yali/gui/Ui/autopartwidget.py:142 yali/gui/ScrSummary.py:149
 msgid "Use Free Space"
@@ -81,7 +81,7 @@ msgstr "Boş Alanı Kullan"
 
 #: yali/gui/Ui/autopartwidget.py:143
 msgid "Create Custom Layout"
-msgstr "Kendi Düzenini Yarat"
+msgstr "Bölüm Tablosunu Özelleştir"
 
 #: yali/gui/Ui/bootloaderwidget.py:128
 msgid "Advanced settings"
@@ -109,15 +109,15 @@ msgstr "Kurulum paketlerinin geçerliliğini kontrol edebilirsiniz. Bu seçenek 
 
 #: yali/gui/Ui/checkcdwidget.py:198
 msgid "Validation failed"
-msgstr "Geçerlilik denetimi başarısız"
+msgstr "Doğrulama başarısız"
 
 #: yali/gui/Ui/checkcdwidget.py:199
 msgid "Validation succeeded"
-msgstr "Geçerlilik denetimi başarılı"
+msgstr "Doğrulama başarılı"
 
 #: yali/gui/Ui/checkcdwidget.py:200 yali/gui/ScrCheckCD.py:62
 msgid "Validate"
-msgstr "Denetle"
+msgstr "Doğrula"
 
 #: yali/gui/Ui/connectionlist.py:75
 msgid "To use PiSi History support, you may need to be online. You can use a connection profile from the list below:"
@@ -141,7 +141,7 @@ msgstr "Hacim Grubu"
 
 #: yali/gui/Ui/createdevicewidget.py:137 yali/gui/ScrPartitionManual.py:159
 msgid "Requires at least 1 free LVM formatted partition"
-msgstr "En az 1 boş ve biçimlendirilmiş LVM  bölüm gerektirir"
+msgstr "En az 1 boş ve biçimlendirilmiş LVM bölüm gerektirir"
 
 #: yali/gui/Ui/createdevicewidget.py:138 yali/gui/ScrPartitionManual.py:161
 msgid "Logical Volume"
@@ -189,7 +189,7 @@ msgstr "Zaman Dilimi"
 
 #: yali/gui/Ui/exception.py:62
 msgid "Unhandled exception occured"
-msgstr "Beklenmeyen istisna oluştu"
+msgstr "Beklenmeyen hata oluştu"
 
 #: yali/gui/Ui/exception.py:63
 msgid "Please fill a bug report at http://bugs.pardus.org.tr/ attaching the following backtrace."
@@ -1034,12 +1034,12 @@ msgstr "Sistemler temizleniyor..."
 #: yali/gui/ScrInstall.py:160
 #, python-format
 msgid "Installing <b>%(name)s</b> -- %(summary)s"
-msgstr "Kuruluyor: <b>%(name)s</b><br>%(summary)s"
+msgstr "<b>%(name)s</b> paketi kuruluyor<br>%(summary)s"
 
 #: yali/gui/ScrInstall.py:169
 #, python-format
 msgid "Configuring <b>%s</b>"
-msgstr "Yapılandırılan paket <b>%s</b>"
+msgstr "<b>%s</b> paketi yapılandırılıyor"
 
 #: yali/gui/ScrInstall.py:195
 #, python-format
@@ -1603,15 +1603,15 @@ msgstr "Bilgisayarı Yeniden Başlat"
 
 #: yali/gui/YaliWindow.py:140
 msgid "Restart YALI"
-msgstr "YALI'yı Yeniden Başlat"
+msgstr "Kurulumu Yeniden Başlat"
 
 #: yali/gui/YaliWindow.py:161 yali/gui/YaliWindow.py:178 yali/sysutils.py:53
 msgid "right"
-msgstr "sağ"
+msgstr "Sağ"
 
 #: yali/gui/YaliWindow.py:177 yali/gui/YaliWindow.py:180 yali/sysutils.py:52
 msgid "left"
-msgstr "sol"
+msgstr "Sol"
 
 #: yali/gui/YaliWindow.py:181
 msgid "Mouse Settings"
@@ -1620,7 +1620,7 @@ msgstr "Fare Ayarları"
 #: yali/gui/YaliWindow.py:182
 #, python-format
 msgid "You just clicked the <b>%s</b> mouse button."
-msgstr "Biraz önce <b>%s</b> fare tuşuna tıkladınız."
+msgstr "<b>%s</b> fare tuşuna tıkladınız."
 
 #: yali/gui/YaliWindow.py:183
 #, python-format
@@ -1789,7 +1789,7 @@ msgstr "istenilen boyut en büyük değeri geçiyor."
 #: yali/storage/partitioning.py:911
 #, python-format
 msgid "partition is too %(problem)s for %(format)s formatting"
-msgstr ""
+msgstr "bölüm %(format)s biçimlendirme için çok %(problem)s"
 
 #: yali/storage/partitioning.py:1051
 msgid "not enough free space on disks"
@@ -2209,11 +2209,11 @@ msgstr "Yüklenebilir bölüm yaratmalısınız."
 
 #: yali/storage/storageset.py:361
 msgid "Bootable partitions cannot be on a logical volume."
-msgstr "Yüklenebilir bölümler mantıksal hacimler üzerinde olamazlar."
+msgstr "/boot bölümü mantıksal hacim üzerinde olamaz."
 
 #: yali/storage/storageset.py:365
 msgid "Bootable partitions cannot be on a raid array."
-msgstr "Yüklenebilir bölümler raid dizileri üzerinde olamazlar."
+msgstr "/boot bölümü raid dizileri üzerinde olamaz."
 
 #: yali/storage/storageset.py:372
 #, python-format
