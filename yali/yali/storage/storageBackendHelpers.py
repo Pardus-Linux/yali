@@ -328,16 +328,18 @@ def doUIRAIDLVMChecks(format, req_disks, storage):
 
 def questionInitializeDisk(intf, path, description, size, name):
     rc = intf.messageWindow(_("Storage Device Warning"),
-                            _("<b>The storage device (%(size)d size of %(description)s on %(name)s) may contain data.</b>"
-                              "<br><br>We could not detect partitions on this device."
-                              "<br><br>This could be because the device is <b>blank, unpartioned or virtual.</b> "
-                              "If not, there may be data on the device that can not be recovered "
-                              "if you use it this installation. We can remove the device from this "
-                              "installation to protect data."
-                              "<br><br>Are you sure this device does not contain valuable data?")
-                              % {'size': size, 'description': description, 'name': name},
+                            _("The following storage device may contain recoverable data:<br><br>"
+                              "%(description)s (%(size)s MB)<br><br>"
+                              "This device may have data that will be <b>permanently lost</b> if you "
+                              "include it in this installation.<br><br>"
+                              "If you don't care about any data on this device, choose <b>Reset device</b> "
+                              "to include it in the installation process.<br><br>"
+                              "If you don't want the device to be permanently erased, select "
+                              "<b>Ignore device</b> and the device will not be considered as a "
+                              "possible installation target.")
+                              % {'size': size, 'description': description, 'path': path},
                               type="custom", customIcon="warning",
-                              customButtons = [_("Yes, destroy data"), _("No, protect data")])
+                              customButtons = [_("Reset device"), _("Ignore device")])
 
     if not rc:
         return True
