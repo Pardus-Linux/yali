@@ -139,8 +139,8 @@ class Widget(QWidget):
         self.reboot = self.menu.addAction(QIcon(QPixmap(":/images/system-reboot.png")), _("Restart Computer"))
         self.restart = self.menu.addAction(QIcon(QPixmap(":/images/system-yali-reboot.png")), _("Restart YALI"))
         #self.menu.setDefaultAction(self.shutdown)
-        self.ui.toolButton.setMenu(self.menu)
-        self.ui.toolButton.setDefaultAction(self.shutdown)
+        self.ui.system_menu.setMenu(self.menu)
+        self.ui.system_menu.setDefaultAction(self.shutdown)
 
         # Main Slots
         self.connect(self.help_shortcut, SIGNAL("activated()"), self.pds_helper.toggleHelp)
