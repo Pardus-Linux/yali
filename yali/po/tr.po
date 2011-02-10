@@ -2270,16 +2270,21 @@ msgid ""
 "to be permanently erased, select <b>Ignore device</b> and the device will "
 "not be considered as a possible installation target."
 msgstr ""
+"Aşağıdaki aygıt veri içeriyor olabilir:<br><br>"
+"%(description)s (%(size)s MB)<br><br>Bu aygıtı kurulum sürecine dahil ederseniz "
+"içerdiği veriler <b>kalıcı olarak silinecektir.</b><br><br>"
+"Eğer aygıttaki olası verileri önemsemiyorsanız <b>Aygıtı sıfırla</b> "
+"seçeneğini seçebilirsiniz.<br><br>Aygıttaki olası verilerin kalıcı olarak silinmesini "
+"istemiyorsanız, <b>Aygıtı gözardı et</b> seçeneğini seçebilirsiniz. Bu şekilde aygıt "
+"kurulum yapılabilecek diskler arasında gözükmeyecek ve gözardı edilecektir."
 
 #: yali/storage/storageBackendHelpers.py:342
-#, fuzzy
 msgid "Reset device"
-msgstr "Aygıtı Yeniden Boyutlandırma Hatası"
+msgstr "Aygıtı sıfırla"
 
 #: yali/storage/storageBackendHelpers.py:342
-#, fuzzy
 msgid "Ignore device"
-msgstr "Gözardı Et"
+msgstr "Aygıtı gözardı et"
 
 #: yali/storage/storageBackendHelpers.py:356
 #, python-format
