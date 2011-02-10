@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-08 23:12+0200\n"
+"POT-Creation-Date: 2011-02-10 15:32+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -919,7 +919,7 @@ msgstr ""
 msgid "Validating %s"
 msgstr ""
 
-#: yali/gui/ScrCheckCD.py:94 yali/gui/ScrInstall.py:194
+#: yali/gui/ScrCheckCD.py:94 yali/gui/ScrInstall.py:195
 #: yali/gui/ScrPartitionAuto.py:44 yali/gui/ScrPartitionManual.py:138
 #: yali/gui/YaliWindow.py:212 yali/gui/YaliWindow.py:217
 #: yali/gui/YaliWindow.py:222
@@ -1029,28 +1029,28 @@ msgstr ""
 msgid "Cleanup systems..."
 msgstr ""
 
-#: yali/gui/ScrInstall.py:160
+#: yali/gui/ScrInstall.py:161
 #, python-format
 msgid "Installing <b>%(name)s</b> -- %(summary)s"
 msgstr ""
 
-#: yali/gui/ScrInstall.py:169
+#: yali/gui/ScrInstall.py:170
 #, python-format
 msgid "Configuring <b>%s</b>"
 msgstr ""
 
-#: yali/gui/ScrInstall.py:195
+#: yali/gui/ScrInstall.py:196
 #, python-format
 msgid ""
 "Following error occured while installing packages:\n"
 "<b>%s</b>"
 msgstr ""
 
-#: yali/gui/ScrInstall.py:198
+#: yali/gui/ScrInstall.py:199
 msgid "Do you want to retry?"
 msgstr ""
 
-#: yali/gui/ScrInstall.py:253
+#: yali/gui/ScrInstall.py:254
 #, python-format
 msgid ""
 "An error occured during the installation of packages.\n"
@@ -2051,33 +2051,32 @@ msgid ""
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:330
-#: yali/storage/storageBackendHelpers.py:353
-#: yali/storage/storageBackendHelpers.py:373
+#: yali/storage/storageBackendHelpers.py:355
+#: yali/storage/storageBackendHelpers.py:375
 msgid "Storage Device Warning"
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:331
 #, python-format
 msgid ""
-"<b>The storage device (%(size)d size of %(description)s on %(name)s) may "
-"contain data.</b><br><br>We could not detect partitions on this device."
-"<br><br>This could be because the device is <b>blank, unpartioned or virtual."
-"</b> If not, there may be data on the device that can not be recovered if "
-"you use it this installation. We can remove the device from this "
-"installation to protect data.<br><br>Are you sure this device does not "
-"contain valuable data?"
+"The following storage device may contain recoverable data:<br><br>"
+"%(description)s (%(size)s MB)<br><br>This device may have data that will be "
+"<b>permanently lost</b> if you include it in this installation.<br><br>If "
+"you don't care about any data on this device, choose <b>Reset device</b> to "
+"include it in the installation process.<br><br>If you don't want the device "
+"to be permanently erased, select <b>Ignore device</b> and the device will "
+"not be considered as a possible installation target."
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:340
-msgid "Yes, destroy data"
+#: yali/storage/storageBackendHelpers.py:342
+msgid "Reset device"
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:340
-#: yali/storage/storageBackendHelpers.py:361
-msgid "No, protect data"
+#: yali/storage/storageBackendHelpers.py:342
+msgid "Ignore device"
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:354
+#: yali/storage/storageBackendHelpers.py:356
 #, python-format
 msgid ""
 "There is inconsistent LVM data on %(msg)s. You can reinitialize all related "
@@ -2086,11 +2085,15 @@ msgid ""
 "inconsistent metadata."
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:361
+#: yali/storage/storageBackendHelpers.py:363
 msgid "Yes, re-initialize"
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:374
+#: yali/storage/storageBackendHelpers.py:363
+msgid "No, protect data"
+msgstr ""
+
+#: yali/storage/storageBackendHelpers.py:376
 #, python-format
 msgid ""
 "Disk contains %(members_count)s BIOS RAID metadata, but is not part of any "

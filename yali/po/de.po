@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-08 23:12+0200\n"
+"POT-Creation-Date: 2011-02-10 15:32+0200\n"
 "PO-Revision-Date: 2011-01-18 21:19+0200\n"
 "Last-Translator: Stefan Wilhelm <sw AT pardususer DOT de>\n"
 "Language-Team: German <de@li.org>\n"
@@ -1034,7 +1034,7 @@ msgstr "Starte Überprüfung..."
 msgid "Validating %s"
 msgstr "Überprüfe %s"
 
-#: yali/gui/ScrCheckCD.py:94 yali/gui/ScrInstall.py:194
+#: yali/gui/ScrCheckCD.py:94 yali/gui/ScrInstall.py:195
 #: yali/gui/ScrPartitionAuto.py:44 yali/gui/ScrPartitionManual.py:138
 #: yali/gui/YaliWindow.py:212 yali/gui/YaliWindow.py:217
 #: yali/gui/YaliWindow.py:222
@@ -1150,17 +1150,17 @@ msgstr "Benutzer werden hinzugefügt..."
 msgid "Cleanup systems..."
 msgstr "Säubere System..."
 
-#: yali/gui/ScrInstall.py:160
+#: yali/gui/ScrInstall.py:161
 #, python-format
 msgid "Installing <b>%(name)s</b> -- %(summary)s"
 msgstr "Installiere <b>%(name)s</b> -- %(summary)s"
 
-#: yali/gui/ScrInstall.py:169
+#: yali/gui/ScrInstall.py:170
 #, python-format
 msgid "Configuring <b>%s</b>"
 msgstr "Konfiguriere <b>%s</b>"
 
-#: yali/gui/ScrInstall.py:195
+#: yali/gui/ScrInstall.py:196
 #, python-format
 msgid ""
 "Following error occured while installing packages:\n"
@@ -1169,11 +1169,11 @@ msgstr ""
 "Während der Paketinstallation ist folgender Fehler aufgetreten:\n"
 "<b>%s</b>"
 
-#: yali/gui/ScrInstall.py:198
+#: yali/gui/ScrInstall.py:199
 msgid "Do you want to retry?"
 msgstr "Möchten Sie es noch einmal versuchen ?"
 
-#: yali/gui/ScrInstall.py:253
+#: yali/gui/ScrInstall.py:254
 #, python-format
 msgid ""
 "An error occured during the installation of packages.\n"
@@ -2332,41 +2332,34 @@ msgstr ""
 "Sie das Gerät in der 'erlaubten Geräteliste'."
 
 #: yali/storage/storageBackendHelpers.py:330
-#: yali/storage/storageBackendHelpers.py:353
-#: yali/storage/storageBackendHelpers.py:373
+#: yali/storage/storageBackendHelpers.py:355
+#: yali/storage/storageBackendHelpers.py:375
 msgid "Storage Device Warning"
 msgstr "Speichergeräte Warnung"
 
 #: yali/storage/storageBackendHelpers.py:331
 #, python-format
 msgid ""
-"<b>The storage device (%(size)d size of %(description)s on %(name)s) may "
-"contain data.</b><br><br>We could not detect partitions on this device."
-"<br><br>This could be because the device is <b>blank, unpartioned or virtual."
-"</b> If not, there may be data on the device that can not be recovered if "
-"you use it this installation. We can remove the device from this "
-"installation to protect data.<br><br>Are you sure this device does not "
-"contain valuable data?"
+"The following storage device may contain recoverable data:<br><br>"
+"%(description)s (%(size)s MB)<br><br>This device may have data that will be "
+"<b>permanently lost</b> if you include it in this installation.<br><br>If "
+"you don't care about any data on this device, choose <b>Reset device</b> to "
+"include it in the installation process.<br><br>If you don't want the device "
+"to be permanently erased, select <b>Ignore device</b> and the device will "
+"not be considered as a possible installation target."
 msgstr ""
-"<b>Das Speichergerät (%(size)d mit der Größe von %(description)s auf "
-"%(name)s) kann Daten enthalten. </b><br><br>Wir konnten keine Partitionen "
-"auf dem Gerät entdecken.<br><br>Es könnte sein, dass das Gerät <b>leer, "
-"unpartioiert oder virtuell</b> ist. Falls nicht und es sind noch Daten "
-"vorhanden, können diese nicht mehr hergestellt werden sofern Sie sie zur "
-"Installation nutzen. Wie können das Gerät von der Installation entfernen umd "
-"die Daten zu schützen.<br><br>Sind Sie sicher, dass dieses Gerät keine "
-"wertvollen Daten enthält?"
 
-#: yali/storage/storageBackendHelpers.py:340
-msgid "Yes, destroy data"
-msgstr "Ja, Daten zerstören"
+#: yali/storage/storageBackendHelpers.py:342
+#, fuzzy
+msgid "Reset device"
+msgstr "Gerätefehler bei Größenänderung"
 
-#: yali/storage/storageBackendHelpers.py:340
-#: yali/storage/storageBackendHelpers.py:361
-msgid "No, protect data"
-msgstr "Nein, Daten schützen"
+#: yali/storage/storageBackendHelpers.py:342
+#, fuzzy
+msgid "Ignore device"
+msgstr "Ignoriere"
 
-#: yali/storage/storageBackendHelpers.py:354
+#: yali/storage/storageBackendHelpers.py:356
 #, python-format
 msgid ""
 "There is inconsistent LVM data on %(msg)s. You can reinitialize all related "
@@ -2379,11 +2372,15 @@ msgstr ""
 "Ignorieren wird der Dateninhalt bewahrt. Die gewählte Aktion wird auch auch "
 "auf die anderen PVs mit fehlerhaften Metadaten angewendet."
 
-#: yali/storage/storageBackendHelpers.py:361
+#: yali/storage/storageBackendHelpers.py:363
 msgid "Yes, re-initialize"
 msgstr "Ja, neu initialisieren"
 
-#: yali/storage/storageBackendHelpers.py:374
+#: yali/storage/storageBackendHelpers.py:363
+msgid "No, protect data"
+msgstr "Nein, Daten schützen"
+
+#: yali/storage/storageBackendHelpers.py:376
 #, python-format
 msgid ""
 "Disk contains %(members_count)s BIOS RAID metadata, but is not part of any "
@@ -2824,6 +2821,27 @@ msgstr "Releasedatei ist fehlerhaft"
 msgid "Invalid xml file"
 msgstr "Ungültige XML-Datei"
 
+#~ msgid ""
+#~ "<b>The storage device (%(size)d size of %(description)s on %(name)s) may "
+#~ "contain data.</b><br><br>We could not detect partitions on this device."
+#~ "<br><br>This could be because the device is <b>blank, unpartioned or "
+#~ "virtual.</b> If not, there may be data on the device that can not be "
+#~ "recovered if you use it this installation. We can remove the device from "
+#~ "this installation to protect data.<br><br>Are you sure this device does "
+#~ "not contain valuable data?"
+#~ msgstr ""
+#~ "<b>Das Speichergerät (%(size)d mit der Größe von %(description)s auf "
+#~ "%(name)s) kann Daten enthalten. </b><br><br>Wir konnten keine Partitionen "
+#~ "auf dem Gerät entdecken.<br><br>Es könnte sein, dass das Gerät <b>leer, "
+#~ "unpartioiert oder virtuell</b> ist. Falls nicht und es sind noch Daten "
+#~ "vorhanden, können diese nicht mehr hergestellt werden sofern Sie sie zur "
+#~ "Installation nutzen. Wie können das Gerät von der Installation entfernen "
+#~ "umd die Daten zu schützen.<br><br>Sind Sie sicher, dass dieses Gerät "
+#~ "keine wertvollen Daten enthält?"
+
+#~ msgid "Yes, destroy data"
+#~ msgstr "Ja, Daten zerstören"
+
 #~ msgid "The system will now reboot."
 #~ msgstr "Das System wird jetzt neu starten."
 
@@ -2865,9 +2883,6 @@ msgstr "Ungültige XML-Datei"
 #~ "\n"
 #~ "Um alle Datenträger mit ungültiger Partitionstabelle neu zu "
 #~ "initialisieren, einfach \"Alles neu initialisieren\" anklicken.."
-
-#~ msgid "Ignore"
-#~ msgstr "Ignoriere"
 
 #~ msgid "Ignore All"
 #~ msgstr "Alles ignorieren"
