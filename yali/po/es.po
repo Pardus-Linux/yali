@@ -1708,41 +1708,43 @@ msgstr ""
 #: yali/storage/__init__.py:248
 #, python-format
 msgid "This device is part of the RAID device %s, you have to edit or remove the raid partition appropriately!"
-msgstr ""
+msgstr "El dispositivo es parte del conjunto RAID %s, se requiere la modificación o edición de la partición raid adecuadamente!"
 
 #: yali/storage/__init__.py:253
 msgid "This device is part of a RAID device."
-msgstr ""
+msgstr "Este dispositivo es parte del conjunto RAID"
 
 #: yali/storage/__init__.py:258
 #, python-format
 msgid "This device is part of the LVM volume group '%s'."
-msgstr ""
+msgstr "Este dispositivo es parte del grupo de volumenes LVM '%s'."
 
 #: yali/storage/__init__.py:261
 msgid "This device is part of a LVM volume group."
-msgstr ""
+msgstr "Este dispositivo es parte del grupo de volumenes LVM"
 
 #: yali/storage/__init__.py:270
 msgid ""
 "This device is an extended partition which contains logical partitions that cannot be deleted:\n"
 "\n"
 msgstr ""
+"Este dispositivo es una partición extendida con particiones lógicas, que no se pueden eliminar:\n"
+"\n"
 
 #: yali/storage/__init__.py:779
 #, python-format
 msgid "You have not defined a root partition (/),which is required for installation of %s to continue."
-msgstr ""
+msgstr "Se requiere definir una partición root (/) requerida para poder continuar la instalación de %s."
 
 #: yali/storage/__init__.py:784
 #, python-format
 msgid "Your / partition is less than %(min)s MB which is lower than recommended for a normal %(productName)s install."
-msgstr ""
+msgstr "La partición root (/) tiene menos de %(min)s MB, lo que es menor de lo recomendado para la instalación de %(productName)s."
 
 #: yali/storage/__init__.py:790
 #, python-format
 msgid "Your %(mount)s partition is less than %(size)s megabytes which is lower than recommended for a normal %(productName)s install."
-msgstr ""
+msgstr "La partición %(mount)s es menor de %(size)s MB, lo que es menor de lo recomendado para una instalación regular de %(productName)s."
 
 #: yali/storage/__init__.py:799
 msgid "You have not specified a swap partition. Due to the amount of memory present, a swap partition is required to complete installation."
@@ -1764,7 +1766,7 @@ msgstr "El ppunto de montaje \"%s\" está en uso. Por favor elija otro."
 
 #: yali/storage/__init__.py:831
 msgid "No Drives Found"
-msgstr ""
+msgstr "No se encontraron dispositivos"
 
 #: yali/storage/__init__.py:832
 msgid ""
@@ -1772,30 +1774,30 @@ msgid ""
 "which to create new file systems. Please check your\n"
 "hardware for the cause of this problem."
 msgstr ""
+"Ocurrió un error - no se encontraron dispositivos válidos \n"
+"en los cuales se podría crear los nuevos sistemas de archivos requeridos. Por favor \n"
+"verifique su hardware para solucionar el problema."
 
 #: yali/storage/partitioning.py:703
 msgid "requested size exceeds maximum allowed"
-msgstr ""
+msgstr "tamaño requerido supera el máximo permitido"
 
 #: yali/storage/partitioning.py:911
 #, python-format
 msgid "partition is too %(problem)s for %(format)s formatting"
-msgstr ""
+msgstr "partición es demasiado %(problem)s para formatear como %(format)s"
 
 #: yali/storage/partitioning.py:1051
-#, fuzzy
 msgid "not enough free space on disks"
-msgstr "No suficiente espacio"
+msgstr "No suficiente espacio en los discos"
 
 #: yali/storage/partitioning.py:1072
-#, fuzzy
 msgid "not enough free space after creating extended partition"
-msgstr "No hay suficiente espacio libre en %s para crear una partición nueva"
+msgstr "No hay suficiente espacio libre luego de crear la partición extendida"
 
 #: yali/storage/partitioning.py:1248
-#, fuzzy
 msgid "not enough space for LVM requests"
-msgstr "No suficiente espacio"
+msgstr "No hay suficiente espacio para LVM"
 
 #: yali/storage/partitioning.py:1644
 msgid ""
