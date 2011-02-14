@@ -122,7 +122,7 @@ class Widget(QWidget, ScreenWidget):
         # Disable mouse handler
         ctx.mainScreen.dontAskCmbAgain = True
         ctx.mainScreen.theme_shortcut.setEnabled(False)
-        ctx.mainScreen.system_menu.setEnabled(False)
+        ctx.mainScreen.ui.system_menu.setEnabled(False)
 
         # start installer thread
         ctx.logger.debug("PkgInstaller is creating...")
