@@ -12,13 +12,13 @@ msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-02-15 10:22+0200\n"
-"PO-Revision-Date: 2011-02-10 15:28+0100\n"
+"PO-Revision-Date: 2011-02-15 11:36+0100\n"
 "Last-Translator: Antoon Tolboom <atolboo@gmail.com>\n"
 "Language-Team: Dutch <kde-i18n-doc@kde.org>\n"
-"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
 "X-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
@@ -174,7 +174,7 @@ msgstr "LVM geformatteerde partitie aanmaken"
 
 #: yali/gui/Ui/createdevicewidget.py:142
 msgid "Raid Member"
-msgstr "Raid-onderdeel"
+msgstr "Raid-member"
 
 #: yali/gui/Ui/createdevicewidget.py:143 yali/gui/ScrPartitionManual.py:165
 msgid "Create Raid formatted partition"
@@ -323,7 +323,7 @@ msgstr "Volgende"
 
 #: yali/gui/Ui/manualpartwidget.py:157 yali/storage/operations.py:32
 msgid "Device"
-msgstr "Station"
+msgstr "Apparaat"
 
 #: yali/gui/Ui/manualpartwidget.py:158
 msgid "Mount Point"
@@ -453,7 +453,7 @@ msgstr ""
 
 #: yali/gui/Ui/raid.py:105
 msgid "Raid Device:"
-msgstr "Raid-schijf:"
+msgstr "Raid-apparaat:"
 
 #: yali/gui/Ui/raid.py:107
 msgid "Filesystem:"
@@ -465,7 +465,7 @@ msgstr "Raid-niveau:"
 
 #: yali/gui/Ui/raid.py:111
 msgid "Raid Members:"
-msgstr "Raid-onderdelen:"
+msgstr "Raid-members:"
 
 #: yali/gui/Ui/raid.py:112
 msgid "Number of spares:"
@@ -751,9 +751,9 @@ msgstr ""
 #: yali/gui/lvm_gui.py:446
 #, python-format
 msgid ""
-"The physical extent size cannot be changed because the value selected "
-"(%(curpe)10.2f MB) is too large compared to the size of the smallest "
-"physical volume (%(maxpvsize)10.2f MB) in the volume group."
+"The physical extent size cannot be changed because the value selected (%"
+"(curpe)10.2f MB) is too large compared to the size of the smallest physical "
+"volume (%(maxpvsize)10.2f MB) in the volume group."
 msgstr ""
 "De fysieke uitbreidingsgrootte kan niet gewijzigd worden omdat de "
 "geselecteerde waarde (%(curpe)10.2f MB) te groot is in vergelijking met de "
@@ -889,8 +889,8 @@ msgstr ""
 #, python-format
 msgid ""
 "The size entered for this logical volume (%(size)d MB) combined with the "
-"size of the other logical volume(s) exceeds the size of the volume group "
-"(%(tmpvgsize)d MB). Please make the volume group larger or make the logical "
+"size of the other logical volume(s) exceeds the size of the volume group (%"
+"(tmpvgsize)d MB). Please make the volume group larger or make the logical "
 "volume smaller."
 msgstr ""
 "De opgegeven grootte voor het logische volume (%(size)d MB) in combinatie "
@@ -918,7 +918,7 @@ msgstr "Fout bij verzoek"
 
 #: yali/gui/raid_gui.py:26 yali/gui/raid_gui.py:96 yali/gui/raid_gui.py:124
 msgid "Invalid Raid Members"
-msgstr "Ongeldige Raid-onderdelen"
+msgstr "Ongeldige Raid-members"
 
 #: yali/gui/raid_gui.py:27
 msgid ""
@@ -929,23 +929,23 @@ msgid ""
 "select the \"RAID\" option again."
 msgstr ""
 "Ten minste twee ongebruikte software RAID-partities zijn noodzakelijk om een "
-"RAID-schijf aan te maken.\n"
+"RAID-apparaat aan te maken.\n"
 "\n"
 "Maak eerst tenminste twee partities van het type \"software RAID\" aan en "
 "kies daarna opnieuw de optie \"RAID\"."
 
 #: yali/gui/raid_gui.py:37
 msgid "Make RAID Device"
-msgstr "RAID-schijf aanmaken"
+msgstr "RAID-apparaat aanmaken"
 
 #: yali/gui/raid_gui.py:40
 #, python-format
 msgid "Edit RAID Device: %s"
-msgstr "Bewerk RAID-schijf: %s"
+msgstr "Bewerk RAID-apparaat: %s"
 
 #: yali/gui/raid_gui.py:42
 msgid "Edit RAID Device"
-msgstr "RAID-schijf bewerken"
+msgstr "RAID-apparaat bewerken"
 
 #: yali/gui/raid_gui.py:97 yali/storage/devices/raidarray.py:61
 #, python-format
@@ -1046,7 +1046,7 @@ msgstr "Tijdsinstellingen aan het instellen"
 #: yali/gui/ScrDriveSelection.py:96
 #, python-format
 msgid "System Path: %s"
-msgstr ""
+msgstr "Systeempad: %s"
 
 #: yali/gui/ScrDriveSelection.py:112 yali/storage/storageset.py:245
 #: yali/storage/storageset.py:317
@@ -1246,7 +1246,7 @@ msgstr "Partitie"
 
 #: yali/gui/ScrPartitionManual.py:164
 msgid "Member"
-msgstr "Lid"
+msgstr "Member"
 
 #: yali/gui/ScrPartitionManual.py:167
 msgid "Array"
@@ -1814,7 +1814,8 @@ msgstr "Grootte aanpassen is mislukt"
 #, python-format
 msgid "There was an error encountered while resizing the device %s."
 msgstr ""
-"Er is een fout is opgetreden tijdens het aanpassen van de grootte op station "
+"Er is een fout is opgetreden tijdens het aanpassen van de grootte van "
+"apparaat "
 "%s."
 
 #: yali/storage/__init__.py:63
@@ -1826,7 +1827,7 @@ msgstr "Migratie is mislukt"
 msgid "An error was encountered while migrating filesystem on device %s."
 msgstr ""
 "Er is een fout is opgetreden tijdens het migreren van het bestandsysteem op "
-"station %s."
+"apparaat %s."
 
 #: yali/storage/__init__.py:75
 msgid "File Bug"
@@ -1857,12 +1858,12 @@ msgid ""
 "This device is part of the RAID device %s, you have to edit or remove the "
 "raid partition appropriately!"
 msgstr ""
-"Deze schijf maakt deel uit van het RAID-station %s, het is noodzakelijk om "
+"Deze schijf maakt deel uit van het RAID-apparaat %s, het is noodzakelijk om "
 "de RAID-partitie op de juiste manier te bewerken of te verwijderen."
 
 #: yali/storage/__init__.py:253
 msgid "This device is part of a RAID device."
-msgstr "Dit apparaat is deel van een Raid-station."
+msgstr "Dit apparaat is deel van een Raid-apparaat."
 
 #: yali/storage/__init__.py:258
 #, python-format
@@ -1957,11 +1958,11 @@ msgstr ""
 
 #: yali/storage/operations.py:20 yali/storage/operations.py:30
 msgid "None"
-msgstr ""
+msgstr "Geen"
 
 #: yali/storage/operations.py:21
 msgid "Destroy"
-msgstr ""
+msgstr "Vernietigen"
 
 #: yali/storage/partitioning.py:703
 msgid "requested size exceeds maximum allowed"
@@ -2154,8 +2155,8 @@ msgstr "Fout tijdens partitioneren"
 #, python-format
 msgid ""
 "The following critical errors exist with your requested partitioning scheme. "
-"These errors must be corrected prior to continuing with your install of "
-"%(productName)s.\n"
+"These errors must be corrected prior to continuing with your install of %"
+"(productName)s.\n"
 "\n"
 "%(errorstr)s"
 msgstr ""
@@ -2222,7 +2223,7 @@ msgstr "U staat op het punt om het logische volume \"%s\"  te verwijderen."
 
 #: yali/storage/storageBackendHelpers.py:285
 msgid "You are about to delete a RAID device."
-msgstr "U staat op het punt om een RAID-station te verwijderen."
+msgstr "U staat op het punt om een RAID-apparaat te verwijderen."
 
 #: yali/storage/storageBackendHelpers.py:287
 #, python-format
@@ -2290,16 +2291,16 @@ msgstr "Waarschuwing opslagapparaten"
 #: yali/storage/storageBackendHelpers.py:331
 #, python-format
 msgid ""
-"The following storage device may contain recoverable data:<br><br>"
-"%(description)s (%(size)s MB)<br><br>This device may have data that will be "
+"The following storage device may contain recoverable data:<br><br>%"
+"(description)s (%(size)s MB)<br><br>This device may have data that will be "
 "<b>permanently lost</b> if you include it in this installation.<br><br>If "
 "you don't care about any data on this device, choose <b>Reset device</b> to "
 "include it in the installation process.<br><br>If you don't want the device "
 "to be permanently erased, select <b>Ignore device</b> and the device will "
 "not be considered as a possible installation target."
 msgstr ""
-"Het volgende opslagapparaat kan herstelbare gegevens bevatten:<br><br>"
-"%(description)s (%(size)s MB)<br><br>Het apparaat kan gegevens bevatten die "
+"Het volgende opslagapparaat kan herstelbare gegevens bevatten:<br><br>%"
+"(description)s (%(size)s MB)<br><br>Het apparaat kan gegevens bevatten die "
 "<b>definitief verloren</b> gaan bij het gebruiken voor deze installatie."
 "<br><br>In dien de gegevens op het apparaat niet belangrijk zijn, selecteer "
 "<b>Apparaat opnieuw instellen</b> om het in het installatieproces op te "
@@ -2323,11 +2324,11 @@ msgid ""
 "preserve thecontents.This action may also be applied to all other PVs with "
 "inconsistent metadata."
 msgstr ""
-"Er zijn niet samenhangend LVM-gegevens op %(msg)s. Alle gerelateerde PV's "
-"(%(pvs)s) kunnen opnieuw geïnitialiseerd worden en dit zal de LVM-"
-"metagegevens wissen, of door het negeren zal de inhoud niet verloren gaan. "
-"Deze bewerking kan ook op alle andere PV's, met niet samenhangende "
-"metagegevens, toegepast worden."
+"Er zijn niet samenhangend LVM-gegevens op %(msg)s. Alle gerelateerde PV's (%"
+"(pvs)s) kunnen opnieuw geïnitialiseerd worden en dit zal de LVM-metagegevens "
+"wissen, of door het negeren zal de inhoud niet verloren gaan. Deze bewerking "
+"kan ook op alle andere PV's, met niet samenhangende metagegevens, toegepast "
+"worden."
 
 #: yali/storage/storageBackendHelpers.py:363
 msgid "Yes, re-initialize"
@@ -2387,9 +2388,9 @@ msgid ""
 "An error occurred mounting device %(path)s as %(mountpoint)s.  You may "
 "continue installation, but there may be problems."
 msgstr ""
-"Een fout is opgetreden tijdens het aan koppelen van %(path)s als "
-"%(mountpoint)s.  De installatie kan voortgezet worden, maar dit kan "
-"problemen geven."
+"Een fout is opgetreden tijdens het aan koppelen van %(path)s als %"
+"(mountpoint)s.  De installatie kan voortgezet worden, maar dit kan problemen "
+"geven."
 
 #: yali/storage/storageset.py:213
 #, python-format
@@ -2399,9 +2400,9 @@ msgid ""
 "\n"
 "Press <Enter> to exit the installer."
 msgstr ""
-"Een fout is opgetreden tijdens het aankoppelen van %(path)s als "
-"%(mountpoint)s: %(msg)s. Dit is een fatale fout en de installatie kan niet "
-"voortgezet worden.\n"
+"Een fout is opgetreden tijdens het aankoppelen van %(path)s als %(mountpoint)"
+"s: %(msg)s. Dit is een fatale fout en de installatie kan niet voortgezet "
+"worden.\n"
 "\n"
 "Druk <Enter> om de installatie te beëindigen."
 
@@ -2419,7 +2420,7 @@ msgid ""
 "is an old-style Linux swap partition.  If you want to use this device for "
 "swap space, you must reformat as a new-style Linux swap partition."
 msgstr ""
-"Het swap-station:\n"
+"Het swap-apparaat:\n"
 "\n"
 "     %s\n"
 "\n"
@@ -2438,7 +2439,7 @@ msgid ""
 "which means your system is hibernating. If you are performing a new install, "
 "make sure the installer is set to format all swap devices."
 msgstr ""
-"Het swap-station:\n"
+"Het swap-apparaat:\n"
 "\n"
 "     %s\n"
 "\n"
@@ -2457,7 +2458,7 @@ msgid ""
 "does not contain a supported swap volume.  In order to continue "
 "installation, you will need to format the device or skip it."
 msgstr ""
-"Het swap-station:\n"
+"Het swap-apparaat:\n"
 "\n"
 "     %s\n"
 "\n"
@@ -2506,15 +2507,15 @@ msgstr "Aanmaken bestand %s"
 #: yali/storage/devices/volumegroup.py:246
 #, python-format
 msgid "Creating device %s"
-msgstr "Aanmaken station %s"
+msgstr "Aanmaken apparaat %s"
 
 #: yali/storage/devices/volumegroup.py:218
 msgid "device has not been created"
-msgstr ""
+msgstr "apparaat is niet aangemaakt"
 
 #: yali/storage/devices/volumegroup.py:224
 msgid "cannot activate VG with missing PV(s)"
-msgstr ""
+msgstr "kan VG met ontbrekende PV('s) niet activeren"
 
 #: yali/storage/library/lvm.py:265
 #, python-format
@@ -2527,13 +2528,12 @@ msgid "lvs failed for %s"
 msgstr "lvs is mislukt voor %s"
 
 #: yali/storage/formats/disklabel.py:29
-#, fuzzy
 msgid "partition table"
-msgstr "Partitie"
+msgstr "partitietabel"
 
 #: yali/storage/formats/dmraidmember.py:20
 msgid "dm-raid member device"
-msgstr ""
+msgstr "dm-raid memberapparaat"
 
 #: yali/storage/formats/filesystem.py:229
 #, python-format
@@ -2609,13 +2609,12 @@ msgid "Usage error."
 msgstr "Gebruikfout."
 
 #: yali/storage/formats/physicalvolume.py:22
-#, fuzzy
 msgid "physical volume (LVM)"
-msgstr "Fysiek volume"
+msgstr "fysiek volume (LVM)"
 
 #: yali/storage/formats/raidmember.py:22
 msgid "software RAID"
-msgstr ""
+msgstr "software RAID"
 
 #: yali/localedata.py:20
 msgid "Turkish"
@@ -2837,8 +2836,8 @@ msgstr "Ongeldig xml-bestand"
 #~ msgstr "Installeer alle taalpakketten"
 
 #~ msgid ""
-#~ "Cannot access the partition table of %(description)s(%(name)s) -- "
-#~ "%(size)-0.fMB\n"
+#~ "Cannot access the partition table of %(description)s(%(name)s) -- %(size)-"
+#~ "0.fMB\n"
 #~ "\n"
 #~ "If there already exists a partition table on this device, it will\n"
 #~ " be re-initialized and your existing data will be lost!\n"
@@ -3560,8 +3559,8 @@ msgstr "Ongeldig xml-bestand"
 #~ msgstr "%d MB beschikbaar"
 
 #~ msgid ""
-#~ "Partition <b>%(partition)s (%(size)s)</b> <b>deleted</b> from device <b>"
-#~ "%(device)s</b>."
+#~ "Partition <b>%(partition)s (%(size)s)</b> <b>deleted</b> from device <b>%"
+#~ "(device)s</b>."
 #~ msgstr ""
 #~ "Partitie <b>%(partition)s (%(size)s)</b> <b>verwijderd</b> van station <b>"
 #~ "%(device)s</b>."
@@ -3573,8 +3572,8 @@ msgstr "Ongeldig xml-bestand"
 #~ "Partition <b>%(partition)s</b> will be <b>formatted</b> as <b>%(fsType)s</"
 #~ "b>."
 #~ msgstr ""
-#~ "Partitie <b>%(partition)s</b> <b>zal geformateerd worden</b> als <b>"
-#~ "%(fsType)s</b>."
+#~ "Partitie <b>%(partition)s</b> <b>zal geformateerd worden</b> als <b>%"
+#~ "(fsType)s</b>."
 
 #~ msgid "Partition <b>%(partition)s</b> <b>selected</b> as <b>%(type)s</b>."
 #~ msgstr ""
@@ -4203,18 +4202,18 @@ msgstr "Ongeldig xml-bestand"
 #~ msgstr "Automatisch partitioneren (grootte aanpassen methode) geselecteerd."
 
 #~ msgid ""
-#~ "Partition <b>%(partition)s - %(currentFs)s</b> <b>resized</b> to <b>"
-#~ "%(resizeTo)s MBs</b>, previous size was <b>%(currentSize)s MBs</b>."
+#~ "Partition <b>%(partition)s - %(currentFs)s</b> <b>resized</b> to <b>%"
+#~ "(resizeTo)s MBs</b>, previous size was <b>%(currentSize)s MBs</b>."
 #~ msgstr ""
-#~ "Partitie <b>%(partition)s - %(currentFs)s</b> <b>aangepast</b> naar <b>"
-#~ "%(resizeTo)s MB</b>, oude grootte was <b>%(currentSize)s MB</b>."
+#~ "Partitie <b>%(partition)s - %(currentFs)s</b> <b>aangepast</b> naar <b>%"
+#~ "(resizeTo)s MB</b>, oude grootte was <b>%(currentSize)s MB</b>."
 
 #~ msgid ""
 #~ "Partition <b>%(newPartition)s</b> <b>added</b> to device <b>%(device)s</"
 #~ "b> with <b>%(size)s MBs</b> as <b>%(fs)s</b>."
 #~ msgstr ""
-#~ "Partitie <b>%(newPartition)s</b> <b>toegevoegd</b> aan station <b>"
-#~ "%(device)s</b> met <b>%(size)s MB</b> als <b>%(fs)s</b>."
+#~ "Partitie <b>%(newPartition)s</b> <b>toegevoegd</b> aan station <b>%"
+#~ "(device)s</b> met <b>%(size)s MB</b> als <b>%(fs)s</b>."
 
 #~ msgid ""
 #~ "Partition <b>%(newPartition)s</b> <b>selected</b> as <b>%(type)s</b>."
