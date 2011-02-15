@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\\n\\n\\n\\n\\n\n"
+"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\\n\\n\\n\\n\\n\\n\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 msgid "Choose Installation Method"
@@ -2095,7 +2095,7 @@ msgstr "Aygıtı gözardı et"
 #: yali/storage/storageBackendHelpers.py:356
 #, python-format
 msgid "There is inconsistent LVM data on %(msg)s. You can reinitialize all related PVs (%(pvs)s) which will erase the LVM metadata, or ignore which will preserve thecontents.This action may also be applied to all other PVs with inconsistent metadata."
-msgstr "Tutarsız LVM verisi %(msg)s bulundu. Tüm ilgili PVleri (%(pvs)s) başlangıç durumuna getirebilirsiniz ancak bu durumda LVM üst verisi silinecektir veya bu hatayı içeriği korumak adına gözardı edebilirsiniz. Bu eylem tutarsız üst veri içeren diğer tüm PVlere uygulanacaktır."
+msgstr "Tutarsız LVM verisi %(msg)s bulundu. LVM üst verilerinin silinmesini göze alırsanız, ilgili Fiziksel Hacimleri (%(pvs)s) başlangıç durumuna getirebilirsiniz. İçeriği korumak isterseniz, bu hatayı gözardı edebilirsiniz. Bu eylem tutarsız üst veri içeren diğer tüm Fiziksel Hacimlere de uygulanır."
 
 #: yali/storage/storageBackendHelpers.py:363
 msgid "Yes, re-initialize"
@@ -2255,7 +2255,7 @@ msgstr "aygıt oluşturulmadı"
 
 #: yali/storage/devices/volumegroup.py:224
 msgid "cannot activate VG with missing PV(s)"
-msgstr "Fiziksel Grup eksik olduğu için Hacim Grupları etkin hale getirilemedi"
+msgstr "Fiziksel Hacim eksik olduğu için Hacim Grupları etkin hale getirilemedi"
 
 #: yali/storage/library/lvm.py:265
 #, python-format
