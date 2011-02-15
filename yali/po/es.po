@@ -2097,15 +2097,9 @@ msgid "Ignore device"
 msgstr "Ignorar dispositivo"
 
 #: yali/storage/storageBackendHelpers.py:356
-#, fuzzy, python-format
+#, python-format
 msgid "There is inconsistent LVM data on %(msg)s. You can reinitialize all related PVs (%(pvs)s) which will erase the LVM metadata, or ignore which will preserve thecontents.This action may also be applied to all other PVs with inconsistent metadata."
-msgstr ""
-"Error al procesar LVM.\n"
-"Hay datos LVM inconsistentes en %(msg)s.  Puede \n"
-"reinicializar todos los PVs relacionados (%(pvs)s), lo que \n"
-"elimina los metadata LVM, o omitir para preservar el contenido actual.\n"
-"  Se puede aplicar la misma acción también a todos \n"
-"los PVs con metadata inconsistenes."
+msgstr "Hay datos LVM inconsistentes en %(msg)s.  Puede reinicializar a todos los PVs relacionados (%(pvs)s), lo que elimina los metadata LVM, o omitir para preservar el contenido actual.  Se puede aplicar la misma acción también a todos los demás PVs con metadata inconsistenes."
 
 #: yali/storage/storageBackendHelpers.py:363
 msgid "Yes, re-initialize"
@@ -2301,14 +2295,14 @@ msgid "Resizing filesystem on %s"
 msgstr "Redimensionando sistema de archivo en %s"
 
 #: yali/storage/formats/filesystem.py:376
-#, fuzzy, python-format
+#, python-format
 msgid "Checking filesystem on %s"
-msgstr "FSCheck fallado en %s"
+msgstr "Comprobando sistema de archivo en %s"
 
 #: yali/storage/formats/filesystem.py:388
 #, python-format
 msgid "%(type)s filesystem check failure on %(device)s: "
-msgstr ""
+msgstr "Error de comprobación de sistema de archivo %(type)s en %(device)s: "
 
 #: yali/storage/formats/filesystem.py:392
 msgid ""
@@ -2320,40 +2314,39 @@ msgstr ""
 
 #: yali/storage/formats/filesystem.py:398
 msgid "Unrecoverable Error"
-msgstr ""
+msgstr "Error no recuperable"
 
 #: yali/storage/formats/filesystem.py:689
 msgid "File system errors left uncorrected."
-msgstr ""
+msgstr "Errores del sistema del archivo no se corrigieron."
 
 #: yali/storage/formats/filesystem.py:690
 msgid "Operational error."
-msgstr ""
+msgstr "Error de operación."
 
 #: yali/storage/formats/filesystem.py:691
 msgid "Usage or syntax error."
-msgstr ""
+msgstr "Error de sintax o de uso."
 
 #: yali/storage/formats/filesystem.py:692
 msgid "e2fsck cancelled by user request."
-msgstr ""
+msgstr "e2fsck cancelado por el usuario."
 
 #: yali/storage/formats/filesystem.py:693
 msgid "Shared library error."
-msgstr ""
+msgstr "Error de librería compartida."
 
 #: yali/storage/formats/filesystem.py:856
 msgid "Recoverable errors have been detected or dosfsck has discovered an internal inconsistency."
-msgstr ""
+msgstr "Se detectaron errores recuperables o dosfsck encontró una inconsistencia interna."
 
 #: yali/storage/formats/filesystem.py:858
 msgid "Usage error."
-msgstr ""
+msgstr "Error de uso."
 
 #: yali/storage/formats/physicalvolume.py:22
-#, fuzzy
 msgid "physical volume (LVM)"
-msgstr "Volumen Físico"
+msgstr "volumen físico (LVM)"
 
 #: yali/storage/formats/raidmember.py:22
 msgid "software RAID"
