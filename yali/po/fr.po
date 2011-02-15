@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-15 10:22+0200\n"
+"POT-Creation-Date: 2011-02-15 13:55+0200\n"
 "PO-Revision-Date: 2011-01-18 21:19+0200\n"
 "Last-Translator: Philippe Svetoslavsky <philsvet@gmail.com>\n"
 "Language-Team: French <kde-i18n-doc@kde.org>\n"
@@ -1044,7 +1044,7 @@ msgstr "Configuration des paramètres horaires..."
 
 #: yali/gui/ScrDriveSelection.py:96
 #, python-format
-msgid "System Path: %s"
+msgid "Device Path: %s"
 msgstr ""
 
 #: yali/gui/ScrDriveSelection.py:112 yali/storage/storageset.py:245

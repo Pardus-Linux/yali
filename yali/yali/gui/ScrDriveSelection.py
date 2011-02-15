@@ -93,7 +93,7 @@ class Widget(QWidget, ScreenWidget):
                 drive = DriveItem(self.ui.drives, disk, name)
                 item = DrivesListItem(self.ui.drives, drive)
                 item.setStatusTip(disk.name)
-                item.setToolTip(_("System Path: %s") % (disk.name))
+                item.setToolTip(_("Device Path: %s") % (disk.name))
                 self.ui.drives.setGridSize(QSize(drive.width(), drive.height()))
                 self.ui.drives.setItemWidget(item, drive)
 

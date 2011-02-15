@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: File di testo_1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-15 10:22+0200\n"
+"POT-Creation-Date: 2011-02-15 13:55+0200\n"
 "PO-Revision-Date: 2010-04-02 22:14+0200\n"
 "Last-Translator: Davide Siciliano <edivad95@gmail.com>\n"
 "Language-Team: Italian <>\n"
@@ -976,7 +976,7 @@ msgstr "Impostazione delle preferenze dell'orario..."
 
 #: yali/gui/ScrDriveSelection.py:96
 #, python-format
-msgid "System Path: %s"
+msgid "Device Path: %s"
 msgstr ""
 
 #: yali/gui/ScrDriveSelection.py:112 yali/storage/storageset.py:245

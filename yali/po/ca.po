@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yali\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-15 10:22+0200\n"
+"POT-Creation-Date: 2011-02-15 13:55+0200\n"
 "PO-Revision-Date: 2007-03-18 14:13+0100\n"
 "Last-Translator: Pau Amaro-Seoane <pau@aei.mpg.de>\n"
 "Language-Team: Catala <pardus-translation-ca@ns1.uludag.org.tr>\n"
@@ -1037,7 +1037,7 @@ msgstr "Nom de l'ordinador:"
 
 #: yali/gui/ScrDriveSelection.py:96
 #, python-format
-msgid "System Path: %s"
+msgid "Device Path: %s"
 msgstr ""
 
 #: yali/gui/ScrDriveSelection.py:112 yali/storage/storageset.py:245
