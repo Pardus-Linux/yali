@@ -1887,9 +1887,8 @@ msgid "Error - the logical volume name contains illegal characters or spaces.  A
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:67
-#, fuzzy
 msgid "Format as Swap?"
-msgstr "Formatear como:"
+msgstr "Formatear como swap ?"
 
 #: yali/storage/storageBackendHelpers.py:68
 #, python-format
@@ -1902,11 +1901,11 @@ msgstr ""
 #: yali/storage/storageBackendHelpers.py:88
 #, python-format
 msgid "You are about to delete all partitions on the device '%s'."
-msgstr ""
+msgstr "Usted está a punto de eliminar todas las particiones en el dispositivo '%s'."
 
 #: yali/storage/storageBackendHelpers.py:138
 msgid "Notice"
-msgstr ""
+msgstr "Observación"
 
 #: yali/storage/storageBackendHelpers.py:139
 #, python-format
@@ -1915,24 +1914,25 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"No se eliminaron las siguientes particiones porque están en uso:\n"
+"\n"
+"%s"
 
 #: yali/storage/storageBackendHelpers.py:153
 #: yali/storage/storageBackendHelpers.py:160
-#, fuzzy
 msgid "Unable To Delete"
-msgstr "No posible modificar"
+msgstr "No posible eliminar"
 
 #: yali/storage/storageBackendHelpers.py:154
 msgid "You must first select a partition to delete."
-msgstr ""
+msgstr "Debe seleccionar una partición a eliminar."
 
 #: yali/storage/storageBackendHelpers.py:199
 #, python-format
 msgid "The mount point %s is invalid.  Mount points must start with '/' and cannot end with '/', and must contain printable characters and no spaces."
-msgstr ""
+msgstr "El punto de montaje %s no es válido. Puntos de montaje deben empezar con '/' y no deben terminar con '/', no debe contener caracteres especiales o espacios."
 
 #: yali/storage/storageBackendHelpers.py:208
-#, fuzzy
 msgid "Error with Partitioning"
 msgstr "Error de Particionamiento"
 
@@ -1943,14 +1943,16 @@ msgid ""
 "\n"
 "%(errorstr)s"
 msgstr ""
+"Ocurrieron los siguientes errores críticos con el esquema de particionamiento requerido. Debe corregir estos errores antes de continuar con la instalación de %(productName)s.\n"
+"\n"
+"%(errorstr)s"
 
 #: yali/storage/storageBackendHelpers.py:225
-#, fuzzy
 msgid "Partitioning Warning"
-msgstr "Alertas de particionamiento"
+msgstr "Alerta de particionamiento"
 
 #: yali/storage/storageBackendHelpers.py:226
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "The following warnings exist with your requested partition scheme.\n"
 "\n"
@@ -1958,26 +1960,23 @@ msgid ""
 "\n"
 "Would you like to continue with your requested partitioning scheme?"
 msgstr ""
-"El esquema de particiones requerido genera las siguientes \n"
-"alertas. Desea continuar con su esquema de particionamiento \n"
-" de todas formas?"
+"Las siguientes alertas ocurrieron con el esquema de particionamiento requerido.\n"
+"\n"
+"%s\n"
+"\n"
+"Desea continuar con el esquema de particiones indicado?"
 
 #: yali/storage/storageBackendHelpers.py:241
-#, fuzzy
 msgid "The following pre-existing partitions have been selected to be formatted, destroying all data."
-msgstr ""
-"Están seleccionados para formatear \n"
-"los siguientes dispositivos existentes. Se eliminarán\n"
-"todos los datos."
+msgstr "Se seleccionaron las siguientes particiones existentes para formatear, eliminando todos los datos."
 
 #: yali/storage/storageBackendHelpers.py:244
 msgid "Select 'Yes' to continue and format these partitions, or 'No' to go back and change these settings."
-msgstr ""
+msgstr "Presione 'Si' para continuar y formatear estas particiones, o 'No' para retroceder y modificar la configuración."
 
 #: yali/storage/storageBackendHelpers.py:250
-#, fuzzy
 msgid "Format Warning"
-msgstr "Alertas de formateo"
+msgstr "Alerta de formateo"
 
 #: yali/storage/storageBackendHelpers.py:278
 #, python-format
@@ -1986,27 +1985,28 @@ msgid ""
 "\n"
 "ALL logical volumes in this volume group will be lost!"
 msgstr ""
+"Está a punto de eliminar el grupo de volumenes \"%s\".\n"
+"\n"
+"Se perderán los datos de TODOS los volumenes lógicos del grupo!"
 
 #: yali/storage/storageBackendHelpers.py:282
-#, fuzzy, python-format
+#, python-format
 msgid "You are about to delete the logical volume \"%s\"."
-msgstr ""
-"Está seguro que desea eliminar el \n"
-"volumen lógico \"%s\"?"
+msgstr "Está a punto de eliminar el volumen lógico \"%s\"?"
 
 #: yali/storage/storageBackendHelpers.py:285
 msgid "You are about to delete a RAID device."
-msgstr ""
+msgstr "Está a punto de eliminar un dispositivo RAID."
 
 #: yali/storage/storageBackendHelpers.py:287
 #, python-format
 msgid "You are about to delete the %s partition."
-msgstr ""
+msgstr "Está a punto de eliminar la partición %s."
 
 #: yali/storage/storageBackendHelpers.py:291
 #, python-format
 msgid "You are about to delete the %(type)s %(name)s"
-msgstr ""
+msgstr "Está a punto de eliminar %(type)s %(name)s"
 
 #: yali/storage/storageBackendHelpers.py:301
 #, fuzzy
