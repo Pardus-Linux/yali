@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-10 15:32+0200\n"
+"POT-Creation-Date: 2011-02-15 10:22+0200\n"
 "PO-Revision-Date: 2011-01-18 16:32+0200\n"
 "Last-Translator: \n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
@@ -248,7 +248,7 @@ msgid " MB"
 msgstr " MB"
 
 #: yali/gui/Ui/logicalvolume.py:147 yali/gui/Ui/partition.py:146
-#: yali/gui/Ui/partresize.py:95
+#: yali/gui/Ui/partresize.py:95 yali/storage/operations.py:22
 msgid "Resize"
 msgstr "Redimensionar"
 
@@ -259,12 +259,13 @@ msgstr "Sistema de Archivos :"
 
 #: yali/gui/Ui/logicalvolume.py:150 yali/gui/Ui/manualpartwidget.py:161
 #: yali/gui/Ui/partition.py:148 yali/gui/Ui/raid.py:108
-#: yali/gui/ScrPartitionManual.py:130 yali/storage/storageset.py:244
+#: yali/gui/ScrPartitionManual.py:130 yali/storage/operations.py:31
+#: yali/storage/storageset.py:244
 msgid "Format"
 msgstr "Formatear"
 
 #: yali/gui/Ui/logicalvolume.py:151 yali/gui/Ui/partition.py:149
-#: yali/gui/Ui/raid.py:109
+#: yali/gui/Ui/raid.py:109 yali/storage/operations.py:23
 msgid "Migrate"
 msgstr "Migrar"
 
@@ -293,7 +294,7 @@ msgstr "Avanzar a la pantalla siguiente"
 msgid "Next"
 msgstr "Siguiente"
 
-#: yali/gui/Ui/manualpartwidget.py:157
+#: yali/gui/Ui/manualpartwidget.py:157 yali/storage/operations.py:32
 msgid "Device"
 msgstr "Disositivo"
 
@@ -313,7 +314,7 @@ msgstr "Tipo"
 msgid "Size"
 msgstr "Tamaño"
 
-#: yali/gui/Ui/manualpartwidget.py:163
+#: yali/gui/Ui/manualpartwidget.py:163 yali/storage/operations.py:24
 msgid "Create"
 msgstr "Crear "
 
@@ -945,6 +946,11 @@ msgstr "<font color=\"#FFF\"><b>Validación terminada con éxito. Puede avanzar 
 #: yali/gui/ScrDateTime.py:169
 msgid "Adjusting time settings"
 msgstr "Configurando hora del sistema"
+
+#: yali/gui/ScrDriveSelection.py:96
+#, python-format
+msgid "System Path: %s"
+msgstr ""
 
 #: yali/gui/ScrDriveSelection.py:112 yali/storage/storageset.py:245
 #: yali/storage/storageset.py:317
@@ -1778,6 +1784,14 @@ msgstr ""
 "en los cuales se podría crear los nuevos sistemas de archivos requeridos. Por favor \n"
 "verifique su hardware para solucionar el problema."
 
+#: yali/storage/operations.py:20 yali/storage/operations.py:30
+msgid "None"
+msgstr ""
+
+#: yali/storage/operations.py:21
+msgid "Destroy"
+msgstr ""
+
 #: yali/storage/partitioning.py:703
 msgid "requested size exceeds maximum allowed"
 msgstr "tamaño requerido supera el máximo permitido"
@@ -2225,6 +2239,14 @@ msgstr "Creando archivo %s"
 msgid "Creating device %s"
 msgstr "Creando dispositivo %s"
 
+#: yali/storage/devices/volumegroup.py:218
+msgid "device has not been created"
+msgstr ""
+
+#: yali/storage/devices/volumegroup.py:224
+msgid "cannot activate VG with missing PV(s)"
+msgstr ""
+
 #: yali/storage/library/lvm.py:265
 #, python-format
 msgid "vginfo failed for %s"
@@ -2234,6 +2256,15 @@ msgstr "Error de vginfo para %s"
 #, fuzzy, python-format
 msgid "lvs failed for %s"
 msgstr "FSCheck fallado en %s"
+
+#: yali/storage/formats/disklabel.py:29
+#, fuzzy
+msgid "partition table"
+msgstr "Partición"
+
+#: yali/storage/formats/dmraidmember.py:20
+msgid "dm-raid member device"
+msgstr ""
 
 #: yali/storage/formats/filesystem.py:229
 #, python-format
@@ -2298,6 +2329,15 @@ msgstr ""
 
 #: yali/storage/formats/filesystem.py:858
 msgid "Usage error."
+msgstr ""
+
+#: yali/storage/formats/physicalvolume.py:22
+#, fuzzy
+msgid "physical volume (LVM)"
+msgstr "Volumen Físico"
+
+#: yali/storage/formats/raidmember.py:22
+msgid "software RAID"
 msgstr ""
 
 #: yali/localedata.py:20

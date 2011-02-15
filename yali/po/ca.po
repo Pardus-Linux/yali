@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yali\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-10 15:32+0200\n"
+"POT-Creation-Date: 2011-02-15 10:22+0200\n"
 "PO-Revision-Date: 2007-03-18 14:13+0100\n"
 "Last-Translator: Pau Amaro-Seoane <pau@aei.mpg.de>\n"
 "Language-Team: Catala <pardus-translation-ca@ns1.uludag.org.tr>\n"
@@ -282,7 +282,7 @@ msgid " MB"
 msgstr ""
 
 #: yali/gui/Ui/logicalvolume.py:147 yali/gui/Ui/partition.py:146
-#: yali/gui/Ui/partresize.py:95
+#: yali/gui/Ui/partresize.py:95 yali/storage/operations.py:22
 #, fuzzy
 msgid "Resize"
 msgstr "Modifica la grandària"
@@ -295,13 +295,14 @@ msgstr "Sistema de fitxers"
 
 #: yali/gui/Ui/logicalvolume.py:150 yali/gui/Ui/manualpartwidget.py:161
 #: yali/gui/Ui/partition.py:148 yali/gui/Ui/raid.py:108
-#: yali/gui/ScrPartitionManual.py:130 yali/storage/storageset.py:244
+#: yali/gui/ScrPartitionManual.py:130 yali/storage/operations.py:31
+#: yali/storage/storageset.py:244
 #, fuzzy
 msgid "Format"
 msgstr "Format?"
 
 #: yali/gui/Ui/logicalvolume.py:151 yali/gui/Ui/partition.py:149
-#: yali/gui/Ui/raid.py:109
+#: yali/gui/Ui/raid.py:109 yali/storage/operations.py:23
 msgid "Migrate"
 msgstr ""
 
@@ -330,7 +331,7 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: yali/gui/Ui/manualpartwidget.py:157
+#: yali/gui/Ui/manualpartwidget.py:157 yali/storage/operations.py:32
 #, fuzzy
 msgid "Device"
 msgstr "Perifèric"
@@ -352,7 +353,7 @@ msgstr ""
 msgid "Size"
 msgstr "Grandària (MB):"
 
-#: yali/gui/Ui/manualpartwidget.py:163
+#: yali/gui/Ui/manualpartwidget.py:163 yali/storage/operations.py:24
 #, fuzzy
 msgid "Create"
 msgstr "Crea un usuari"
@@ -1033,6 +1034,11 @@ msgstr ""
 #, fuzzy
 msgid "Adjusting time settings"
 msgstr "Nom de l'ordinador:"
+
+#: yali/gui/ScrDriveSelection.py:96
+#, python-format
+msgid "System Path: %s"
+msgstr ""
 
 #: yali/gui/ScrDriveSelection.py:112 yali/storage/storageset.py:245
 #: yali/storage/storageset.py:317
@@ -1945,6 +1951,14 @@ msgid ""
 "hardware for the cause of this problem."
 msgstr ""
 
+#: yali/storage/operations.py:20 yali/storage/operations.py:30
+msgid "None"
+msgstr ""
+
+#: yali/storage/operations.py:21
+msgid "Destroy"
+msgstr ""
+
 #: yali/storage/partitioning.py:703
 msgid "requested size exceeds maximum allowed"
 msgstr ""
@@ -2391,6 +2405,14 @@ msgstr ""
 msgid "Creating device %s"
 msgstr ""
 
+#: yali/storage/devices/volumegroup.py:218
+msgid "device has not been created"
+msgstr ""
+
+#: yali/storage/devices/volumegroup.py:224
+msgid "cannot activate VG with missing PV(s)"
+msgstr ""
+
 #: yali/storage/library/lvm.py:265
 #, fuzzy, python-format
 msgid "vginfo failed for %s"
@@ -2400,6 +2422,15 @@ msgstr "La comprovació ha fallat"
 #, fuzzy, python-format
 msgid "lvs failed for %s"
 msgstr "La comprovació ha fallat"
+
+#: yali/storage/formats/disklabel.py:29
+#, fuzzy
+msgid "partition table"
+msgstr "Tipus de partició"
+
+#: yali/storage/formats/dmraidmember.py:20
+msgid "dm-raid member device"
+msgstr ""
 
 #: yali/storage/formats/filesystem.py:229
 #, python-format
@@ -2466,6 +2497,14 @@ msgstr ""
 
 #: yali/storage/formats/filesystem.py:858
 msgid "Usage error."
+msgstr ""
+
+#: yali/storage/formats/physicalvolume.py:22
+msgid "physical volume (LVM)"
+msgstr ""
+
+#: yali/storage/formats/raidmember.py:22
+msgid "software RAID"
 msgstr ""
 
 #: yali/localedata.py:20
@@ -3721,9 +3760,6 @@ msgstr ""
 
 #~ msgid "YES"
 #~ msgstr "Sí"
-
-#~ msgid "Partition Type"
-#~ msgstr "Tipus de partició"
 
 #~ msgid "Basic setup"
 #~ msgstr "Arranjament bàsic"

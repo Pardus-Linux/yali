@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: uk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-10 15:32+0200\n"
+"POT-Creation-Date: 2011-02-15 10:22+0200\n"
 "PO-Revision-Date: 2011-02-05 22:00+0300\n"
 "Last-Translator: Korostil Daniel <ted.korostiled@gmail.com>\n"
 "Language-Team: translation@linux.org.ua\n"
@@ -268,7 +268,7 @@ msgid " MB"
 msgstr " МБ"
 
 #: yali/gui/Ui/logicalvolume.py:147 yali/gui/Ui/partition.py:146
-#: yali/gui/Ui/partresize.py:95
+#: yali/gui/Ui/partresize.py:95 yali/storage/operations.py:22
 msgid "Resize"
 msgstr "Зміна розміру"
 
@@ -279,12 +279,13 @@ msgstr "Файлова система :"
 
 #: yali/gui/Ui/logicalvolume.py:150 yali/gui/Ui/manualpartwidget.py:161
 #: yali/gui/Ui/partition.py:148 yali/gui/Ui/raid.py:108
-#: yali/gui/ScrPartitionManual.py:130 yali/storage/storageset.py:244
+#: yali/gui/ScrPartitionManual.py:130 yali/storage/operations.py:31
+#: yali/storage/storageset.py:244
 msgid "Format"
 msgstr "Формат"
 
 #: yali/gui/Ui/logicalvolume.py:151 yali/gui/Ui/partition.py:149
-#: yali/gui/Ui/raid.py:109
+#: yali/gui/Ui/raid.py:109 yali/storage/operations.py:23
 msgid "Migrate"
 msgstr "Міграція"
 
@@ -313,7 +314,7 @@ msgstr "Наступне вікно"
 msgid "Next"
 msgstr "Далі"
 
-#: yali/gui/Ui/manualpartwidget.py:157
+#: yali/gui/Ui/manualpartwidget.py:157 yali/storage/operations.py:32
 msgid "Device"
 msgstr "Пристрій"
 
@@ -333,7 +334,7 @@ msgstr "Тип"
 msgid "Size"
 msgstr "Розмір"
 
-#: yali/gui/Ui/manualpartwidget.py:163
+#: yali/gui/Ui/manualpartwidget.py:163 yali/storage/operations.py:24
 msgid "Create"
 msgstr "Створити"
 
@@ -1024,6 +1025,11 @@ msgstr ""
 #: yali/gui/ScrDateTime.py:169
 msgid "Adjusting time settings"
 msgstr "Налаштування часу"
+
+#: yali/gui/ScrDriveSelection.py:96
+#, python-format
+msgid "System Path: %s"
+msgstr ""
 
 #: yali/gui/ScrDriveSelection.py:112 yali/storage/storageset.py:245
 #: yali/storage/storageset.py:317
@@ -1918,6 +1924,14 @@ msgstr ""
 "можна встановити нову файлову систему. Будь ласка, перевірте\n"
 "апартуру на можливі негаразди."
 
+#: yali/storage/operations.py:20 yali/storage/operations.py:30
+msgid "None"
+msgstr ""
+
+#: yali/storage/operations.py:21
+msgid "Destroy"
+msgstr ""
+
 #: yali/storage/partitioning.py:703
 msgid "requested size exceeds maximum allowed"
 msgstr "потрібний розмір перевищує граничну межу"
@@ -2445,6 +2459,14 @@ msgstr "Створення файла %s"
 msgid "Creating device %s"
 msgstr "Створення пристрою %s"
 
+#: yali/storage/devices/volumegroup.py:218
+msgid "device has not been created"
+msgstr ""
+
+#: yali/storage/devices/volumegroup.py:224
+msgid "cannot activate VG with missing PV(s)"
+msgstr ""
+
 #: yali/storage/library/lvm.py:265
 #, python-format
 msgid "vginfo failed for %s"
@@ -2454,6 +2476,15 @@ msgstr "Помилка vginfo для %s"
 #, python-format
 msgid "lvs failed for %s"
 msgstr "Помилка lvs для %s"
+
+#: yali/storage/formats/disklabel.py:29
+#, fuzzy
+msgid "partition table"
+msgstr "Розділ"
+
+#: yali/storage/formats/dmraidmember.py:20
+msgid "dm-raid member device"
+msgstr ""
 
 #: yali/storage/formats/filesystem.py:229
 #, python-format
@@ -2525,6 +2556,15 @@ msgstr "Знайдено виправні помилки або dosfsck вияв
 #: yali/storage/formats/filesystem.py:858
 msgid "Usage error."
 msgstr "Помилка використання."
+
+#: yali/storage/formats/physicalvolume.py:22
+#, fuzzy
+msgid "physical volume (LVM)"
+msgstr "Фізичний том"
+
+#: yali/storage/formats/raidmember.py:22
+msgid "software RAID"
+msgstr ""
 
 #: yali/localedata.py:20
 msgid "Turkish"

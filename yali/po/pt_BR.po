@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt_BR\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-10 15:32+0200\n"
+"POT-Creation-Date: 2011-02-15 10:22+0200\n"
 "PO-Revision-Date: 2007-02-19 22:25-0300\n"
 "Last-Translator: Pedro Leite <pedro.leite@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <http://liste.uludag.org.tr/mailman/"
@@ -264,7 +264,7 @@ msgid " MB"
 msgstr " MB"
 
 #: yali/gui/Ui/logicalvolume.py:147 yali/gui/Ui/partition.py:146
-#: yali/gui/Ui/partresize.py:95
+#: yali/gui/Ui/partresize.py:95 yali/storage/operations.py:22
 msgid "Resize"
 msgstr "Redimensionar"
 
@@ -275,12 +275,13 @@ msgstr "Sistema de arquivos:"
 
 #: yali/gui/Ui/logicalvolume.py:150 yali/gui/Ui/manualpartwidget.py:161
 #: yali/gui/Ui/partition.py:148 yali/gui/Ui/raid.py:108
-#: yali/gui/ScrPartitionManual.py:130 yali/storage/storageset.py:244
+#: yali/gui/ScrPartitionManual.py:130 yali/storage/operations.py:31
+#: yali/storage/storageset.py:244
 msgid "Format"
 msgstr "Formatar"
 
 #: yali/gui/Ui/logicalvolume.py:151 yali/gui/Ui/partition.py:149
-#: yali/gui/Ui/raid.py:109
+#: yali/gui/Ui/raid.py:109 yali/storage/operations.py:23
 msgid "Migrate"
 msgstr "Migrar"
 
@@ -309,7 +310,7 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: yali/gui/Ui/manualpartwidget.py:157
+#: yali/gui/Ui/manualpartwidget.py:157 yali/storage/operations.py:32
 #, fuzzy
 msgid "Device"
 msgstr "Dispositivo"
@@ -331,7 +332,7 @@ msgstr ""
 msgid "Size"
 msgstr "Tamanho (MB):"
 
-#: yali/gui/Ui/manualpartwidget.py:163
+#: yali/gui/Ui/manualpartwidget.py:163 yali/storage/operations.py:24
 #, fuzzy
 msgid "Create"
 msgstr "Criar Usuário"
@@ -981,6 +982,11 @@ msgstr ""
 #: yali/gui/ScrDateTime.py:169
 msgid "Adjusting time settings"
 msgstr "Ajustar configurações de horário"
+
+#: yali/gui/ScrDriveSelection.py:96
+#, python-format
+msgid "System Path: %s"
+msgstr ""
 
 #: yali/gui/ScrDriveSelection.py:112 yali/storage/storageset.py:245
 #: yali/storage/storageset.py:317
@@ -1881,6 +1887,14 @@ msgid ""
 "hardware for the cause of this problem."
 msgstr ""
 
+#: yali/storage/operations.py:20 yali/storage/operations.py:30
+msgid "None"
+msgstr ""
+
+#: yali/storage/operations.py:21
+msgid "Destroy"
+msgstr ""
+
 #: yali/storage/partitioning.py:703
 msgid "requested size exceeds maximum allowed"
 msgstr ""
@@ -2323,6 +2337,14 @@ msgstr ""
 msgid "Creating device %s"
 msgstr ""
 
+#: yali/storage/devices/volumegroup.py:218
+msgid "device has not been created"
+msgstr ""
+
+#: yali/storage/devices/volumegroup.py:224
+msgid "cannot activate VG with missing PV(s)"
+msgstr ""
+
 #: yali/storage/library/lvm.py:265
 #, fuzzy, python-format
 msgid "vginfo failed for %s"
@@ -2332,6 +2354,15 @@ msgstr "Checagem Falhou"
 #, fuzzy, python-format
 msgid "lvs failed for %s"
 msgstr "Checagem Falhou"
+
+#: yali/storage/formats/disklabel.py:29
+#, fuzzy
+msgid "partition table"
+msgstr "Tipo da Partição"
+
+#: yali/storage/formats/dmraidmember.py:20
+msgid "dm-raid member device"
+msgstr ""
 
 #: yali/storage/formats/filesystem.py:229
 #, python-format
@@ -2398,6 +2429,15 @@ msgstr ""
 
 #: yali/storage/formats/filesystem.py:858
 msgid "Usage error."
+msgstr ""
+
+#: yali/storage/formats/physicalvolume.py:22
+#, fuzzy
+msgid "physical volume (LVM)"
+msgstr "Volume Físico"
+
+#: yali/storage/formats/raidmember.py:22
+msgid "software RAID"
 msgstr ""
 
 #: yali/localedata.py:20
@@ -3609,9 +3649,6 @@ msgstr ""
 
 #~ msgid "YES"
 #~ msgstr "SIM"
-
-#~ msgid "Partition Type"
-#~ msgstr "Tipo da Partição"
 
 #~ msgid "Basic setup"
 #~ msgstr "Configuração básica"
