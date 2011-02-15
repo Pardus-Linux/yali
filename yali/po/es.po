@@ -1897,6 +1897,9 @@ msgid ""
 "\n"
 "Would you like to format this partition as a swap partition?"
 msgstr ""
+"%s contiene una partición del tipo 0x82 (Linux swap) pero parece no estar con el formato de Linux swap.\n"
+"\n"
+"Desea formatear esta particion como swap ?"
 
 #: yali/storage/storageBackendHelpers.py:88
 #, python-format
@@ -2026,6 +2029,13 @@ msgid ""
 "such as home directories, then continue without formatting this\n"
 "npartition."
 msgstr ""
+"Eligió una partición existente para la\n"
+"instalación sin formatearlo. Recomendamos que formetée esta\n"
+"partición para asegurar que archivos existentes no\n"
+"causen problemas con la nueva instalación de Linux.\n"
+"Sin embargo, si esta partición contiene archivos que necesita mantener,\n"
+"como los directorios home, puede continuar sin formatear\n"
+" esta partición."
 
 #: yali/storage/storageBackendHelpers.py:317
 msgid "Format?"
@@ -2046,9 +2056,8 @@ msgstr ""
 #: yali/storage/storageBackendHelpers.py:330
 #: yali/storage/storageBackendHelpers.py:355
 #: yali/storage/storageBackendHelpers.py:375
-#, fuzzy
 msgid "Storage Device Warning"
-msgstr "Inicializando dispositivos de almacenamiento..."
+msgstr "Alerta de dispositivo de almacenamiento"
 
 #: yali/storage/storageBackendHelpers.py:331
 #, python-format
@@ -2098,6 +2107,9 @@ msgid ""
 "\n"
 "Press <Enter> to exit the installer."
 msgstr ""
+"Error al crear %s. Una parte de esta ruta no es válida para un directorio. Es un error fatal que impide la instalación.\n"
+"\n"
+"Presione <Enter> para salir del asistende de instalación."
 
 #: yali/storage/storageset.py:175
 #, python-format
@@ -2106,6 +2118,9 @@ msgid ""
 "\n"
 "Press <Enter> to exit the installer."
 msgstr ""
+"Ocurrió un error al crear %(mountpoint)s: %(msg)s.  Es un error fatal que impide la instalación.\n"
+"\n"
+"Presione <Enter> para salir del asistende de instalación."
 
 #: yali/storage/storageset.py:190 yali/storage/storageset.py:212
 msgid "Unable to mount filesystem"
@@ -2129,7 +2144,7 @@ msgstr ""
 
 #: yali/storage/storageset.py:244
 msgid "Skip"
-msgstr ""
+msgstr "Omitir"
 
 #: yali/storage/storageset.py:276
 #, python-format
@@ -2140,6 +2155,11 @@ msgid ""
 "\n"
 "is an old-style Linux swap partition.  If you want to use this device for swap space, you must reformat as a new-style Linux swap partition."
 msgstr ""
+"El disco swap:\n"
+"\n"
+"     %s\n"
+"\n"
+"es una partición de intercambio de Linux de una versión antigua. Si desea usar este espacio como swap, debe reformatearlo en su nueva versión."
 
 #: yali/storage/storageset.py:287
 #, python-format
@@ -2170,40 +2190,45 @@ msgid ""
 "\n"
 "Press OK to exit the installer."
 msgstr ""
+"Error al activar el dispositivo swap %(name)s: %(msg)s\n"
+"\n"
+"Es muy probable que no fue posible formatear el dispositivo swap.\n"
+"\n"
+"Presione OK para salir del asistente de instalación."
 
 #: yali/storage/storageset.py:357
 msgid "You have not created a bootable partition."
-msgstr ""
+msgstr "No creó una partición booteable"
 
 #: yali/storage/storageset.py:361
 msgid "Bootable partitions cannot be on a logical volume."
-msgstr ""
+msgstr "No se puede utilizar un volumen lógico como partición booteable."
 
 #: yali/storage/storageset.py:365
 msgid "Bootable partitions cannot be on a raid array."
-msgstr ""
+msgstr "No se puede utilizar un raid array como partición booteable."
 
 #: yali/storage/storageset.py:372
 #, python-format
 msgid "Bootable partitions cannot be on an %s filesystem."
-msgstr ""
+msgstr "No se puede utilizar el sistema de archivos %s para la partición booteable."
 
 #: yali/storage/devices/filedevice.py:94
 #, python-format
 msgid "Creating file %s"
-msgstr ""
+msgstr "Creando archivo %s"
 
 #: yali/storage/devices/logicalvolume.py:217
 #: yali/storage/devices/partition.py:370 yali/storage/devices/raidarray.py:423
 #: yali/storage/devices/volumegroup.py:246
 #, python-format
 msgid "Creating device %s"
-msgstr ""
+msgstr "Creando dispositivo %s"
 
 #: yali/storage/library/lvm.py:265
-#, fuzzy, python-format
+#, python-format
 msgid "vginfo failed for %s"
-msgstr "FSCheck fallado en %s"
+msgstr "Error de vginfo para %s"
 
 #: yali/storage/library/lvm.py:291
 #, fuzzy, python-format
