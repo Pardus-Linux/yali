@@ -2508,9 +2508,8 @@ msgid "lvs failed for %s"
 msgstr "%s yüzünden lvs başarısız oldu"
 
 #: yali/storage/formats/disklabel.py:29
-#, fuzzy
 msgid "partition table"
-msgstr "Disk bölümü"
+msgstr "bölüm tablosu"
 
 #: yali/storage/formats/dmraidmember.py:20
 msgid "dm-raid member device"
@@ -2590,9 +2589,8 @@ msgid "Usage error."
 msgstr "Kullanım hatası."
 
 #: yali/storage/formats/physicalvolume.py:22
-#, fuzzy
 msgid "physical volume (LVM)"
-msgstr "Fiziksel Hacim"
+msgstr "fiziksel Hacim (LVM)"
 
 #: yali/storage/formats/raidmember.py:22
 msgid "software RAID"
