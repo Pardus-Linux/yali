@@ -215,13 +215,13 @@ class VolumeGroup(DeviceMapper):
                 want all of the LVs activated, just the VG itself.
         """
         if not self.exists:
-            raise DeviceError("device has not been created", self.name)
+            raise DeviceError(_("device has not been created"), self.name)
 
         if self.status:
             return
 
         if not self.complete:
-            raise DeviceError("cannot activate VG with missing PV(s)", self.name)
+            raise DeviceError(_("cannot activate VG with missing PV(s)"), self.name)
 
         self.setupParents(orig=orig)
 
