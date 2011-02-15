@@ -1786,7 +1786,7 @@ msgstr ""
 
 #: yali/storage/operations.py:20 yali/storage/operations.py:30
 msgid "None"
-msgstr ""
+msgstr "Ninguno"
 
 #: yali/storage/operations.py:21
 msgid "Destroy"
@@ -1898,18 +1898,17 @@ msgstr "Por favor ingrese un nombre del volumen lógico."
 
 # favor verificar, hay que ver si entra todo este texto
 #: yali/storage/storageBackendHelpers.py:43
-#, fuzzy
 msgid "Logical Volume Names must be less than 128 characters"
-msgstr "El nombre de la maquina (hostname) no debe superar 64 caracteres."
+msgstr "El nombre del volumen lógico no debe superar 128 caracteres."
 
 #: yali/storage/storageBackendHelpers.py:47
 #, python-format
 msgid "Error - the logical volume name %s is not valid."
-msgstr ""
+msgstr "Error - el nombre del volumen lógico %s no es válido."
 
 #: yali/storage/storageBackendHelpers.py:53
 msgid "Error - the logical volume name contains illegal characters or spaces.  Acceptable characters are letters, digits, '.' or '_'."
-msgstr ""
+msgstr "Error - el nombre del volumen lógico contiene caracteres no permitidos o espacios. Se permiten caracteres, números , '.' o '_'."
 
 #: yali/storage/storageBackendHelpers.py:67
 msgid "Format as Swap?"
@@ -2087,7 +2086,7 @@ msgstr "Alerta de dispositivo de almacenamiento"
 #: yali/storage/storageBackendHelpers.py:331
 #, python-format
 msgid "The following storage device may contain recoverable data:<br><br>%(description)s (%(size)s MB)<br><br>This device may have data that will be <b>permanently lost</b> if you include it in this installation.<br><br>If you don't care about any data on this device, choose <b>Reset device</b> to include it in the installation process.<br><br>If you don't want the device to be permanently erased, select <b>Ignore device</b> and the device will not be considered as a possible installation target."
-msgstr ""
+msgstr "El siguiente dispositivo de almacenamiento podría contener datos recuperables:<br><br>%(description)s (%(size)s MB)<br><br>Los datos de este dispositivo se <b>perderán definitivamente</b> si lo incluye en esta instalación.<br><br>Si no le importan los datos de este dispositivo elija <b>Resetear dispositivo</b> para incluirlo en el proceso de instalación.<br><br>Si no quiere eliminar los datos de este dispositivo seleccione <b>Ignorar dispositivo</b> y el dispositivo no se tendrá en cuenta para la instalación."
 
 #: yali/storage/storageBackendHelpers.py:342
 msgid "Reset device"
@@ -2195,6 +2194,11 @@ msgid ""
 "\n"
 "in your /etc/fstab file is currently in use as a software suspend device, which means your system is hibernating. If you are performing a new install, make sure the installer is set to format all swap devices."
 msgstr ""
+"El dispositivo swap:\n"
+"\n"
+"     %s\n"
+"\n"
+"en su archivo /etc/fstab está actualmente usado como dispositivo de suspensión, quiere decir que su sistema está hibernando. Si está realizando una nueva instalación asegúrese de que el instalador vaya a formatear a todos los dispositivos swap."
 
 #: yali/storage/storageset.py:300
 #, python-format
@@ -2205,6 +2209,11 @@ msgid ""
 "\n"
 "does not contain a supported swap volume.  In order to continue installation, you will need to format the device or skip it."
 msgstr ""
+"El dispositivo swap:\n"
+"\n"
+"     %s\n"
+"\n"
+"no contiene una unidad válida de swap. Para continuar la instalación se requiere formatear el dispositivo o omitirlo."
 
 #: yali/storage/storageset.py:311
 #, python-format
@@ -2252,11 +2261,11 @@ msgstr "Creando dispositivo %s"
 
 #: yali/storage/devices/volumegroup.py:218
 msgid "device has not been created"
-msgstr ""
+msgstr "dispositivo no creado"
 
 #: yali/storage/devices/volumegroup.py:224
 msgid "cannot activate VG with missing PV(s)"
-msgstr ""
+msgstr "no posible activar VG por falta de PV(s)"
 
 #: yali/storage/library/lvm.py:265
 #, python-format
@@ -2264,14 +2273,13 @@ msgid "vginfo failed for %s"
 msgstr "Error de vginfo para %s"
 
 #: yali/storage/library/lvm.py:291
-#, fuzzy, python-format
+#, python-format
 msgid "lvs failed for %s"
-msgstr "FSCheck fallado en %s"
+msgstr "lvs fallado en %s"
 
 #: yali/storage/formats/disklabel.py:29
-#, fuzzy
 msgid "partition table"
-msgstr "Partición"
+msgstr "tabla de particiones"
 
 #: yali/storage/formats/dmraidmember.py:20
 msgid "dm-raid member device"
@@ -2280,17 +2288,17 @@ msgstr ""
 #: yali/storage/formats/filesystem.py:229
 #, python-format
 msgid "Unknown return code: %d."
-msgstr ""
+msgstr "Código de retorno desconocido: %d."
 
 #: yali/storage/formats/filesystem.py:296
 #, python-format
 msgid "Creating %(type)s filesystem on %(device)s"
-msgstr ""
+msgstr "Creando sistema de archivo %(type)s en %(device)s"
 
 #: yali/storage/formats/filesystem.py:346
-#, fuzzy, python-format
+#, python-format
 msgid "Resizing filesystem on %s"
-msgstr "Migrar sistema de archivos a :"
+msgstr "Redimensionando sistema de archivo en %s"
 
 #: yali/storage/formats/filesystem.py:376
 #, fuzzy, python-format
