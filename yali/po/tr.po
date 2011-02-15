@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\\n\\n\\n\\n\n"
+"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\\n\\n\\n\\n\\n\n"
 
 #: yali/gui/Ui/autoinstallationwidget.py:75
 msgid "Choose Installation Method"
@@ -957,7 +957,7 @@ msgstr "Saat ayarlanıyor."
 #: yali/gui/ScrDriveSelection.py:96
 #, python-format
 msgid "Device Path: %s"
-msgstr ""
+msgstr "Aygıt Adresi: %s"
 
 #: yali/gui/ScrDriveSelection.py:112 yali/storage/storageset.py:245
 #: yali/storage/storageset.py:317
