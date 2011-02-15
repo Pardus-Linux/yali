@@ -2009,14 +2009,12 @@ msgid "You are about to delete the %(type)s %(name)s"
 msgstr "Está a punto de eliminar %(type)s %(name)s"
 
 #: yali/storage/storageBackendHelpers.py:301
-#, fuzzy
 msgid "Confirm Reset"
-msgstr "Confirmar eliminar"
+msgstr "Confirmar reset"
 
 #: yali/storage/storageBackendHelpers.py:301
-#, fuzzy
 msgid "Are you sure you want to reset the partition table to its original state?"
-msgstr "Está seguro que desea reiniciar ahora el asistente de instalación YALI ?"
+msgstr "Está seguro que desea resetear la tabla de particiones a su estado original ?"
 
 #: yali/storage/storageBackendHelpers.py:309
 msgid ""
@@ -2030,14 +2028,12 @@ msgid ""
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:317
-#, fuzzy
 msgid "Format?"
-msgstr "Formatear"
+msgstr "Formatear ?"
 
 #: yali/storage/storageBackendHelpers.py:318
-#, fuzzy
 msgid "Do Not Format"
-msgstr "Formatear"
+msgstr "No Formatear"
 
 #: yali/storage/storageBackendHelpers.py:325
 #, python-format
@@ -2060,14 +2056,12 @@ msgid "The following storage device may contain recoverable data:<br><br>%(descr
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:342
-#, fuzzy
 msgid "Reset device"
-msgstr "Error de dispositivo al redimensionar"
+msgstr "Resetear dispositivo"
 
 #: yali/storage/storageBackendHelpers.py:342
-#, fuzzy
 msgid "Ignore device"
-msgstr "Ignorar"
+msgstr "Ignorar dispositivo"
 
 #: yali/storage/storageBackendHelpers.py:356
 #, fuzzy, python-format
@@ -2081,13 +2075,12 @@ msgstr ""
 "los PVs con metadata inconsistenes."
 
 #: yali/storage/storageBackendHelpers.py:363
-#, fuzzy
 msgid "Yes, re-initialize"
-msgstr "Reinicializar"
+msgstr "Si, Reinicializar"
 
 #: yali/storage/storageBackendHelpers.py:363
 msgid "No, protect data"
-msgstr ""
+msgstr "No, proteger los datos"
 
 #: yali/storage/storageBackendHelpers.py:376
 #, python-format
@@ -2095,9 +2088,8 @@ msgid "Disk contains %(members_count)s BIOS RAID metadata, but is not part of an
 msgstr "El disco contiene %(members_count)s metadatos BIOS RAID, pero no es parte de nngún conjunto BIOS RAID conocido. Omitiendo disco %(members)s.)"
 
 #: yali/storage/storageset.py:162 yali/storage/storageset.py:174
-#, fuzzy
 msgid "Invalid mount point"
-msgstr "Archivo xml inválido"
+msgstr "Punto de montaje no válido"
 
 #: yali/storage/storageset.py:163
 #, python-format
@@ -2117,12 +2109,12 @@ msgstr ""
 
 #: yali/storage/storageset.py:190 yali/storage/storageset.py:212
 msgid "Unable to mount filesystem"
-msgstr ""
+msgstr "No posible montar el sistema de archivos"
 
 #: yali/storage/storageset.py:191
 #, python-format
 msgid "An error occurred mounting device %(path)s as %(mountpoint)s.  You may continue installation, but there may be problems."
-msgstr ""
+msgstr "Ocurrió un error al montar dispositivo %(path)s en %(mountpoint)s. Puede continuar con la instalación pero pueden ocurrir problemas."
 
 #: yali/storage/storageset.py:213
 #, python-format
@@ -2131,6 +2123,9 @@ msgid ""
 "\n"
 "Press <Enter> to exit the installer."
 msgstr ""
+"Ocurrió un error al montar dispositivo %(path)s en %(mountpoint)s: %(msg)s. Esto es un error fatal que impide la instalación.\n"
+"\n"
+"Presione <Enter> tpara salir del asistente de instalación."
 
 #: yali/storage/storageset.py:244
 msgid "Skip"
