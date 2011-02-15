@@ -950,7 +950,7 @@ msgstr "Configurando hora del sistema"
 #: yali/gui/ScrDriveSelection.py:96
 #, python-format
 msgid "Device Path: %s"
-msgstr ""
+msgstr "Ruta del dispositivo: %s"
 
 #: yali/gui/ScrDriveSelection.py:112 yali/storage/storageset.py:245
 #: yali/storage/storageset.py:317
@@ -1677,25 +1677,24 @@ msgstr "Redimensionar fallado"
 #: yali/storage/__init__.py:57
 #, python-format
 msgid "There was an error encountered while resizing the device %s."
-msgstr ""
+msgstr "Ocurrió un error al redimensionar dispositivo %s."
 
 #: yali/storage/__init__.py:63
-#, fuzzy
 msgid "Migration Failed"
-msgstr "Validación fallada"
+msgstr "Migración fallada"
 
 #: yali/storage/__init__.py:64
 #, python-format
 msgid "An error was encountered while migrating filesystem on device %s."
-msgstr ""
+msgstr "Ocurrió un error al migrar el sistema de archivos en dispositivo %s."
 
 #: yali/storage/__init__.py:75
 msgid "File Bug"
-msgstr ""
+msgstr "Error de archivo"
 
 #: yali/storage/__init__.py:75 yali/storage/storageset.py:197
 msgid "Exit installer"
-msgstr ""
+msgstr "Salir del instalador"
 
 #: yali/storage/__init__.py:78
 #, python-format
