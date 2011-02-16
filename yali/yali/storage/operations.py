@@ -1,7 +1,5 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-import gettext
-_ = gettext.translation('yali', fallback=True).ugettext
 
 from parted import partitionFlag, PARTITION_LBA
 import yali.baseudev
@@ -17,19 +15,19 @@ OPERATION_TYPE_MIGRATE = 250
 OPERATION_TYPE_CREATE = 100
 
 
-operation_strings = {OPERATION_TYPE_NONE: _("None"),
-                     OPERATION_TYPE_DESTROY: _("Destroy"),
-                     OPERATION_TYPE_RESIZE: _("Resize"),
-                     OPERATION_TYPE_MIGRATE: _("Migrate"),
-                     OPERATION_TYPE_CREATE: _("Create")}
+operation_strings = {OPERATION_TYPE_NONE: "None",
+                  OPERATION_TYPE_DESTROY: "Destroy",
+                  OPERATION_TYPE_RESIZE: "Resize",
+                  OPERATION_TYPE_MIGRATE: "Migrate",
+                  OPERATION_TYPE_CREATE: "Create"}
 
 OPERATION_OBJECT_NONE = 0
 OPERATION_OBJECT_FORMAT = 1
 OPERATION_OBJECT_DEVICE = 2
 
-object_strings = {OPERATION_OBJECT_NONE: _("None"),
-                  OPERATION_OBJECT_FORMAT: _("Format"),
-                  OPERATION_OBJECT_DEVICE: _("Device")}
+object_strings = {OPERATION_OBJECT_NONE: "None",
+                  OPERATION_OBJECT_FORMAT: "Format",
+                  OPERATION_OBJECT_DEVICE: "Device"}
 
 RESIZE_SHRINK = 88
 RESIZE_GROW = 89
