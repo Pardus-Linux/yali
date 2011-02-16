@@ -1544,17 +1544,18 @@ def _createFreeSpacePartitions(storage):
 
             part = part.nextPartition()
 
-    # create a separate pv partition for each disk with free space
     devs = []
-    for disk in disks:
-        fmt_type = "lvmpv"
-        fmt_args = {}
-        part = storage.newPartition(fmt_type=fmt_type,
-                                    fmt_args=fmt_args,
-                                    grow=True,
-                                    disks=[disk])
-        storage.createDevice(part)
-        devs.append(part)
+    if ctx.flags.partitioning_lvm:
+        # create a separate pv partition for each disk with free space
+        for disk in disks:
+            fmt_type = "lvmpv"
+            fmt_args = {}
+            part = storage.newPartition(fmt_type=fmt_type,
+                                        fmt_args=fmt_args,
+                                        grow=True,
+                                        disks=[disk])
+            storage.createDevice(part)
+            devs.append(part)
 
     return (disks, devs)
 
@@ -1658,7 +1659,7 @@ def doAutoPartition(storage):
     try:
         doPartitioning(storage, exclusiveDisks=storage.clearPartDisks)
 
-        if storage.doAutoPart:
+        if storage.doAutoPart and ctx.flags.partitioning_lvm:
             _scheduleLogicalVolumes(storage, devs)
 
         # grow LVs
