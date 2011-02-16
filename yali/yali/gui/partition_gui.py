@@ -35,7 +35,7 @@ class PartitionEditor:
                                                                       "model":partedPartition.disk.device.model}
         else:
             try:
-                title = _("Edit Partition %s" % origrequest.path)
+                title = _("Edit Partition %s") % origrequest.path
             except:
                 title = _("Edit Partition")
 
