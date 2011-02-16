@@ -547,11 +547,11 @@ msgstr "Önerilmez"
 
 #: yali/gui/Ui/setupuserswidget.py:495
 msgid "Bypass authorization attempts for this user"
-msgstr "Bu kullanıcı parola sormadan giriş yapsın"
+msgstr "Yetki gerektiren işlemlerde bu kullanıcıya parola sorma"
 
 #: yali/gui/Ui/setupuserswidget.py:496
 msgid "Add user to administrator (wheel) group"
-msgstr "Kullanıcıyı yönetici yetkilerine sahip gruba (wheel) ekle"
+msgstr "Kullanıcıyı yönetici grubuna (wheel) ekle"
 
 #: yali/gui/Ui/setupuserswidget.py:497
 msgid "Select auto login user"
@@ -828,7 +828,7 @@ msgstr "Burada Bölüm Oluştur %(path)s (%(model)s)"
 #: yali/gui/partition_gui.py:38
 #, python-format
 msgid "Edit Partition %s"
-msgstr "Disk bölümünü Düzenle %s"
+msgstr "%s disk bölümünü düzenle"
 
 #: yali/gui/partition_gui.py:40
 msgid "Edit Partition"
@@ -1456,7 +1456,7 @@ msgstr "Onayla"
 
 #: yali/gui/ScrSummary.py:204
 msgid "The partitioning options you have selected will now be written to disk. Any data on deleted or reformatted partitions will be lost."
-msgstr "Seçtiğiniz biçimlendirme seçenekleri şimdi diske yazılmaya başlanacak. Silinen veya yeniden biçimlendirilen bölümlerdeki tüm verileri kaybedeceksiniz."
+msgstr "Belirlediğiniz biçimlendirme seçenekleri diske uygulanacak. Silinen veya yeniden biçimlendirilen bölümlerdeki tüm verileri kaybedeceksiniz."
 
 #: yali/gui/ScrSummary.py:209
 msgid "Write Changes to Disk"
