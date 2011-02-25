@@ -42,7 +42,7 @@ stepToClass = {"license":"ScrLicense",
                "automaticPartitioning":"ScrPartitionAuto",
                "manualPartitioning":"ScrPartitionManual",
                "bootloadersetup":"ScrBootloader",
-               "collectionSelection":"ScrInstallationAuto",
+               "collectionSelection":"ScrCollection",
                "summary":"ScrSummary",
                "packageInstallation":"ScrInstall",
                "goodbye":"ScrGoodbye"}
