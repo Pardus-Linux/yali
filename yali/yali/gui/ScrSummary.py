@@ -172,16 +172,8 @@ class Widget(QWidget, ScreenWidget):
 
         if ctx.flags.collection:
             content.append(subject % _("Package Installation Settings"))
-            if ctx.installData.autoInstallationMethod == ctx.methodInstallAutomatic:
-                content.append(item % _("Auto installation selected."))
-            else:
-                content.append(item % _("Manual Installation ( %s ) selected" %
-                               ctx.installData.autoInstallationCollection.title))
-
-            if ctx.installData.autoInstallationKernel == ctx.defaultKernel:
-                content.append(item % _("Default Kernel selected"))
-            elif ctx.installData.autoInstallationKernel == ctx.paeKernel:
-                content.append(item % _("PAE Kernel selected"))
+            content.append(item % _("Collection ( %s ) selected" %
+                           ctx.installData.autoCollection.title))
 
             content.append(end)
 
@@ -242,14 +234,7 @@ class Widget(QWidget, ScreenWidget):
         if ctx.flags.collection:
             # Get only collection packages with collection Name
             packages = yali.pisiiface.getAllPackagesWithPaths(
-                        collectionIndex=ctx.installData.autoInstallationCollection.index,
-                        ignoreKernels=True)
-
-            kernelPackages = yali.pisiiface.getNeededKernel(
-                        ctx.installData.autoInstallationKernel,
-                        ctx.installData.autoInstallationCollection.index)
-            packages.extend(kernelPackages)
-
+                        collectionIndex=ctx.installData.autoCollection.index)
         else:
             # Check for just installing system.base packages
             if ctx.flags.baseonly:

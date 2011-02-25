@@ -17,9 +17,7 @@ class InstallData:
     users = []
     isKahyaUsed = False
     autoLoginUser = None
-    autoInstallationKernel = None
-    autoInstallationCollection = None
-    autoInstallationMethod = 0
+    autoCollection = None
     rescuePartition = None
     repoAddr = None
     timezone = ""
