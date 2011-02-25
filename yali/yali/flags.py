@@ -51,6 +51,9 @@ class Flags:
         if options.has_key("nolvm"):
             self.__dict__['flags']['partitioning_lvm'] = False
 
+        if options.has_key("collection"):
+            self.__dict__['flags']['collection'] = True
+
         for key in [_key for _key in options.keys() \
                     if _key not in ("live", "system", "firstboot", "oem", "firstboot", "rescue", "theme")]:
             self.__dict__[key] = options[key] if options[key] else True
