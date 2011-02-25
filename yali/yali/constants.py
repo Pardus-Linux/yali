@@ -78,7 +78,7 @@ class Constants:
         self.__c.pisi_collection_file = os.path.join(self.__c.data_dir, "data/index/collection.xml")
         self.__c.pisi_collection_dir = os.path.join(self.__c.data_dir, "data/index")
         self.__c.cd_repo_name = "pardus-cd"
-        self.__c.dvd_repo_name = "pardus-dvd"
+        self.__c.collection_repo_name = "pardus-collection"
         self.__c.cd_repo_uri = os.path.join(self.__c.source_dir, "repo/pisi-index.xml.bz2")
         self.__c.pardus_repo_name = "pardus-2009"
         self.__c.pardus_repo_uri = "http://packages.pardus.org.tr/pardus-2009/pisi-index.xml.bz2"

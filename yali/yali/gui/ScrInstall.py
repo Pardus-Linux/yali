@@ -276,10 +276,10 @@ class PkgInstaller(Process):
         ctx.logger.debug("Pisi initialize is calling..")
 
         if ctx.flags.collection:
-            ctx.logger.debug("DVD Repo adding..")
-            yali.pisiiface.addRepo(ctx.consts.dvd_repo_name, ctx.installData.autoInstallationCollection.index)
+            ctx.logger.debug("Collection Repo added.")
+            yali.pisiiface.addRepo(ctx.consts.collection_repo_name, ctx.installData.autoCollection.index)
         else:
-            ctx.logger.debug("CD Repo adding..")
+            ctx.logger.debug("CD Repo adding.")
             yali.pisiiface.addCdRepo()
 
         # show progress
@@ -341,9 +341,9 @@ class PkgConfigurator(Process):
             data = [EventError, msg]
             self.queue.put_nowait(data)
 
-       # Remove cd repository and install add real
+       # Remove temporary repository and install add real
         if ctx.flags.collection:
-            yali.pisiiface.switchToPardusRepo(ctx.consts.dvd_repo_name)
+            yali.pisiiface.switchToPardusRepo(ctx.consts.collection_repo_name)
         else:
             yali.pisiiface.switchToPardusRepo(ctx.consts.cd_repo_name)
 
