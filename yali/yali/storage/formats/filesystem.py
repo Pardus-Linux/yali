@@ -739,8 +739,8 @@ class Ext2Filesystem(Filesystem):
         argv.extend(self.formatOptions)
 
         #5616: reserved-blocks-percentage
-        device = ctx.storage.devicetree.getDeviceByName(os.path.basename(self.device))
-        if device.size > 10240: #if bigger than 10 GB
+        device = ctx.storage.devicetree.getDeviceByPath(self.device)
+        if device and device.size > 10240: #if bigger than 10 GB
             reserved_size = 500.0
             reserved_percentage = int(math.ceil(100.0 * reserved_size / device.size))
             argv.append("-m %d" % reserved_percentage)
