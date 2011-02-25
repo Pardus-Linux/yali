@@ -101,3 +101,5 @@ class CollectionListItem(QWidget):
             self.parent.current_choice = self
         elif state == Qt.Unchecked and self.parent.current_choice == self:
             self.parent.current_choice = None
+
+        self.parent.update()
