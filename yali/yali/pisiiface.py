@@ -134,8 +134,8 @@ def getCollection():
             translationsTag = collection.getTag("translations")
             translations["default"] = translationsTag.getAttribute("default")
             for translation in translationsTag.tags("translation"):
-                translations[translation.getAttribute("language")]= (translation.getTagData("title"),
-                                                                     translation.getTagData("description"))
+                translations[translation.getAttribute("language")]= (unicode(translation.getTagData("title")),
+                                                                     unicode(translation.getTagData("description")))
             title, description = __setLocale(id, translations)
             packageCollection.append(PackageCollection(id, title, description, icon, translations, default))
 
