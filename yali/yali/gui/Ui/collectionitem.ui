@@ -34,7 +34,7 @@
         </size>
        </property>
        <property name="text">
-        <string/>
+        <string notr="true"/>
        </property>
        <property name="pixmap">
         <pixmap>../../İndirilenler/pardus_logo.png</pixmap>
@@ -69,7 +69,7 @@
         </font>
        </property>
        <property name="text">
-        <string>Header</string>
+        <string notr="true">Header</string>
        </property>
       </widget>
      </item>
@@ -139,7 +139,7 @@
        <item row="0" column="0">
         <widget class="QLabel" name="description">
          <property name="text">
-          <string>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus a tortor risus, ac imperdiet magna. Vivamus elementum lacinia mauris. Etiam fringilla porta posuere. Sed vulputate bibendum sollicitudin. Praesent in neque non neque pellentesque dictum. Maecenas ut massa augue, in dapibus ipsum. Ut mollis augue eu lorem vulputate interdum. Ut cursus ligula eget urna aliquet suscipit adipiscing massa posuere. In luctus, est ac placerat consequat, neque dolor rhoncus ipsum, vel euismod neque lorem eu erat. Duis nulla nisi, dignissim suscipit commodo id, aliquet at felis. Phasellus pretium ultricies justo, nec ultricies nisl hendrerit ut. Proin consectetur faucibus mauris ac feugiat. Fusce ut ante sit amet mi porta tristique. Curabitur venenatis magna ante. Donec diam velit, cursus in auctor et, ultricies vitae magna. Donec mauris dolor, pharetra id vehicula ut, accumsan non lectus. Proin aliquet turpis in erat convallis eget laoreet turpis rutrum.</string>
+          <string notr="true"/>
          </property>
          <property name="alignment">
           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
