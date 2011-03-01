@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt_BR\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-15 13:55+0200\n"
+"POT-Creation-Date: 2011-03-02 00:16+0200\n"
 "PO-Revision-Date: 2007-02-19 22:25-0300\n"
 "Last-Translator: Pedro Leite <pedro.leite@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <http://liste.uludag.org.tr/mailman/"
@@ -17,26 +17,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-
-#: yali/gui/Ui/autoinstallationwidget.py:75
-msgid "Choose Installation Method"
-msgstr "Escolha o método de instalação"
-
-#: yali/gui/Ui/autoinstallationwidget.py:76
-msgid "Automatic Installation"
-msgstr "Instalação Automática"
-
-#: yali/gui/Ui/autoinstallationwidget.py:77
-msgid "Manual Installation"
-msgstr "Instalação Manual"
-
-#: yali/gui/Ui/autoinstallationwidget.py:78
-msgid "Default Kernel"
-msgstr "Kernel Padrão"
-
-#: yali/gui/Ui/autoinstallationwidget.py:79
-msgid "PAE Kernel"
-msgstr "PAE Kernel"
 
 #: yali/gui/Ui/autopartquestion.py:82
 msgid ""
@@ -121,6 +101,15 @@ msgstr "Checado com sucesso"
 #: yali/gui/Ui/checkcdwidget.py:200 yali/gui/ScrCheckCD.py:62
 msgid "Validate"
 msgstr "Validado"
+
+#: yali/gui/Ui/collectionitem.py:98
+#, fuzzy
+msgid "Form"
+msgstr "Form"
+
+#: yali/gui/Ui/collectionitem.py:99
+msgid "Details"
+msgstr ""
 
 #: yali/gui/Ui/connectionlist.py:75
 msgid ""
@@ -264,7 +253,7 @@ msgid " MB"
 msgstr " MB"
 
 #: yali/gui/Ui/logicalvolume.py:147 yali/gui/Ui/partition.py:146
-#: yali/gui/Ui/partresize.py:95 yali/storage/operations.py:22
+#: yali/gui/Ui/partresize.py:95
 msgid "Resize"
 msgstr "Redimensionar"
 
@@ -275,13 +264,12 @@ msgstr "Sistema de arquivos:"
 
 #: yali/gui/Ui/logicalvolume.py:150 yali/gui/Ui/manualpartwidget.py:161
 #: yali/gui/Ui/partition.py:148 yali/gui/Ui/raid.py:108
-#: yali/gui/ScrPartitionManual.py:130 yali/storage/operations.py:31
-#: yali/storage/storageset.py:244
+#: yali/gui/ScrPartitionManual.py:130 yali/storage/storageset.py:244
 msgid "Format"
 msgstr "Formatar"
 
 #: yali/gui/Ui/logicalvolume.py:151 yali/gui/Ui/partition.py:149
-#: yali/gui/Ui/raid.py:109 yali/storage/operations.py:23
+#: yali/gui/Ui/raid.py:109
 msgid "Migrate"
 msgstr "Migrar"
 
@@ -306,11 +294,11 @@ msgid "Next Screen"
 msgstr ""
 
 #: yali/gui/Ui/main.py:250 yali/gui/ScrSummary.py:59
-#: yali/gui/ScrSummary.py:219 yali/gui/ScrSummary.py:226
+#: yali/gui/ScrSummary.py:211 yali/gui/ScrSummary.py:218
 msgid "Next"
 msgstr ""
 
-#: yali/gui/Ui/manualpartwidget.py:157 yali/storage/operations.py:32
+#: yali/gui/Ui/manualpartwidget.py:157
 #, fuzzy
 msgid "Device"
 msgstr "Dispositivo"
@@ -332,7 +320,7 @@ msgstr ""
 msgid "Size"
 msgstr "Tamanho (MB):"
 
-#: yali/gui/Ui/manualpartwidget.py:163 yali/storage/operations.py:24
+#: yali/gui/Ui/manualpartwidget.py:163
 #, fuzzy
 msgid "Create"
 msgstr "Criar Usuário"
@@ -1221,8 +1209,8 @@ msgstr ""
 msgid "Extended"
 msgstr "Extendida"
 
-#: yali/gui/ScrPartitionManual.py:351 yali/storage/partitioning.py:1647
-#: yali/storage/partitioning.py:1679
+#: yali/gui/ScrPartitionManual.py:351 yali/storage/partitioning.py:1648
+#: yali/storage/partitioning.py:1680
 #, fuzzy
 msgid "Error Partitioning"
 msgstr "Criar Partição"
@@ -1502,48 +1490,34 @@ msgstr ""
 msgid "Package Installation Settings"
 msgstr "Partições:"
 
-#: yali/gui/ScrSummary.py:176
-#, fuzzy
-msgid "Auto installation selected."
-msgstr "Sim, particione e formate automaticamente o disco selecionado!"
-
-#: yali/gui/ScrSummary.py:178
+#: yali/gui/ScrSummary.py:175
 #, fuzzy, python-format
-msgid "Manual Installation ( %s ) selected"
+msgid "Collection ( %s ) selected"
 msgstr "Criar Partição"
 
-#: yali/gui/ScrSummary.py:182
-#, fuzzy
-msgid "Default Kernel selected"
-msgstr "Deletar Usuário Selecionado"
-
-#: yali/gui/ScrSummary.py:184
-msgid "PAE Kernel selected"
-msgstr ""
-
-#: yali/gui/ScrSummary.py:203
+#: yali/gui/ScrSummary.py:195
 msgid "Confirm"
 msgstr ""
 
-#: yali/gui/ScrSummary.py:204
+#: yali/gui/ScrSummary.py:196
 msgid ""
 "The partitioning options you have selected will now be written to disk. Any "
 "data on deleted or reformatted partitions will be lost."
 msgstr ""
 
-#: yali/gui/ScrSummary.py:209
+#: yali/gui/ScrSummary.py:201
 msgid "Write Changes to Disk"
 msgstr ""
 
-#: yali/gui/ScrSummary.py:209
+#: yali/gui/ScrSummary.py:201
 msgid "Go Back"
 msgstr ""
 
-#: yali/gui/ScrSummary.py:302
+#: yali/gui/ScrSummary.py:287
 msgid "Proprietary Hardware Drivers"
 msgstr ""
 
-#: yali/gui/ScrSummary.py:303
+#: yali/gui/ScrSummary.py:288
 msgid ""
 "<qt>Proprietary drivers are available which may be required to utilize the "
 "full capabilities of your video card. These drivers are developed by the "
@@ -1552,7 +1526,7 @@ msgid ""
 "use these proprietary drivers instead of the default drivers?</b></qt>"
 msgstr ""
 
-#: yali/gui/ScrSummary.py:312 yali/gui/YaliDialog.py:218
+#: yali/gui/ScrSummary.py:297 yali/gui/YaliDialog.py:218
 #: yali/gui/YaliDialog.py:234 yali/gui/YaliDialog.py:261
 #: yali/storage/storageBackendHelpers.py:232
 #: yali/storage/storageBackendHelpers.py:253
@@ -1560,7 +1534,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: yali/gui/ScrSummary.py:312 yali/gui/YaliDialog.py:220
+#: yali/gui/ScrSummary.py:297 yali/gui/YaliDialog.py:220
 #: yali/gui/YaliDialog.py:235 yali/gui/YaliDialog.py:262
 #: yali/storage/storageBackendHelpers.py:232
 #: yali/storage/storageBackendHelpers.py:253
@@ -1887,14 +1861,6 @@ msgid ""
 "hardware for the cause of this problem."
 msgstr ""
 
-#: yali/storage/operations.py:20 yali/storage/operations.py:30
-msgid "None"
-msgstr ""
-
-#: yali/storage/operations.py:21
-msgid "Destroy"
-msgstr ""
-
 #: yali/storage/partitioning.py:703
 msgid "requested size exceeds maximum allowed"
 msgstr ""
@@ -1916,18 +1882,18 @@ msgstr ""
 msgid "not enough space for LVM requests"
 msgstr ""
 
-#: yali/storage/partitioning.py:1644
+#: yali/storage/partitioning.py:1645
 msgid ""
 "Could not find enough free space for automatic\n"
 "partitioning, please use another partitioning method."
 msgstr ""
 
-#: yali/storage/partitioning.py:1668
+#: yali/storage/partitioning.py:1669
 #, fuzzy
 msgid "Warnings During Automatic Partitioning"
 msgstr "Criar Partição"
 
-#: yali/storage/partitioning.py:1669
+#: yali/storage/partitioning.py:1670
 #, python-format
 msgid ""
 "Following warnings occurred during automatic partitioning:\n"
@@ -1935,26 +1901,26 @@ msgid ""
 "%s"
 msgstr ""
 
-#: yali/storage/partitioning.py:1678 yali/storage/partitioning.py:1698
+#: yali/storage/partitioning.py:1679 yali/storage/partitioning.py:1699
 msgid ""
 "\n"
 "\n"
 "Press 'OK' to exit the installer."
 msgstr ""
 
-#: yali/storage/partitioning.py:1680
+#: yali/storage/partitioning.py:1681
 #, python-format
 msgid ""
 "Could not allocate requested partitions: \n"
 "%(msg)s.%(extra)s"
 msgstr ""
 
-#: yali/storage/partitioning.py:1699
+#: yali/storage/partitioning.py:1700
 #, fuzzy
 msgid "Automatic Partitioning Errors"
 msgstr "Partições:"
 
-#: yali/storage/partitioning.py:1700
+#: yali/storage/partitioning.py:1701
 #, python-format
 msgid ""
 "The following errors occurred with your partitioning:\n"
@@ -2421,13 +2387,13 @@ msgstr ""
 msgid "Shared library error."
 msgstr ""
 
-#: yali/storage/formats/filesystem.py:856
+#: yali/storage/formats/filesystem.py:853
 msgid ""
 "Recoverable errors have been detected or dosfsck has discovered an internal "
 "inconsistency."
 msgstr ""
 
-#: yali/storage/formats/filesystem.py:858
+#: yali/storage/formats/filesystem.py:855
 msgid "Usage error."
 msgstr ""
 
@@ -2624,13 +2590,32 @@ msgstr ""
 msgid "Invalid xml file"
 msgstr ""
 
+#~ msgid "Choose Installation Method"
+#~ msgstr "Escolha o método de instalação"
+
+#~ msgid "Automatic Installation"
+#~ msgstr "Instalação Automática"
+
+#~ msgid "Manual Installation"
+#~ msgstr "Instalação Manual"
+
+#~ msgid "Default Kernel"
+#~ msgstr "Kernel Padrão"
+
+#~ msgid "PAE Kernel"
+#~ msgstr "PAE Kernel"
+
+#, fuzzy
+#~ msgid "Auto installation selected."
+#~ msgstr "Sim, particione e formate automaticamente o disco selecionado!"
+
+#, fuzzy
+#~ msgid "Default Kernel selected"
+#~ msgstr "Deletar Usuário Selecionado"
+
 #, fuzzy
 #~ msgid "Install all language packages"
 #~ msgstr "Instalando Pacote: "
-
-#, fuzzy
-#~ msgid "Form"
-#~ msgstr "Form"
 
 #~ msgid "Form1"
 #~ msgstr "Form1"

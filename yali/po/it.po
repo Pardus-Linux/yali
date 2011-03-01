@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: File di testo_1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-15 13:55+0200\n"
+"POT-Creation-Date: 2011-03-02 00:16+0200\n"
 "PO-Revision-Date: 2010-04-02 22:14+0200\n"
 "Last-Translator: Davide Siciliano <edivad95@gmail.com>\n"
 "Language-Team: Italian <>\n"
@@ -18,26 +18,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.0\n"
-
-#: yali/gui/Ui/autoinstallationwidget.py:75
-msgid "Choose Installation Method"
-msgstr "Scegli il Metodo di Installazione"
-
-#: yali/gui/Ui/autoinstallationwidget.py:76
-msgid "Automatic Installation"
-msgstr "Installazione Automatica"
-
-#: yali/gui/Ui/autoinstallationwidget.py:77
-msgid "Manual Installation"
-msgstr "Installazione Manuale"
-
-#: yali/gui/Ui/autoinstallationwidget.py:78
-msgid "Default Kernel"
-msgstr "Kernel Predefinito"
-
-#: yali/gui/Ui/autoinstallationwidget.py:79
-msgid "PAE Kernel"
-msgstr "Kernel PAE"
 
 #: yali/gui/Ui/autopartquestion.py:82
 msgid ""
@@ -121,6 +101,14 @@ msgstr "Validazione fatta"
 #: yali/gui/Ui/checkcdwidget.py:200 yali/gui/ScrCheckCD.py:62
 msgid "Validate"
 msgstr "Verifica"
+
+#: yali/gui/Ui/collectionitem.py:98
+msgid "Form"
+msgstr "Form"
+
+#: yali/gui/Ui/collectionitem.py:99
+msgid "Details"
+msgstr ""
 
 #: yali/gui/Ui/connectionlist.py:75
 msgid ""
@@ -264,7 +252,7 @@ msgid " MB"
 msgstr "MB"
 
 #: yali/gui/Ui/logicalvolume.py:147 yali/gui/Ui/partition.py:146
-#: yali/gui/Ui/partresize.py:95 yali/storage/operations.py:22
+#: yali/gui/Ui/partresize.py:95
 msgid "Resize"
 msgstr "Ridimensiona"
 
@@ -275,13 +263,12 @@ msgstr "Filesystem:"
 
 #: yali/gui/Ui/logicalvolume.py:150 yali/gui/Ui/manualpartwidget.py:161
 #: yali/gui/Ui/partition.py:148 yali/gui/Ui/raid.py:108
-#: yali/gui/ScrPartitionManual.py:130 yali/storage/operations.py:31
-#: yali/storage/storageset.py:244
+#: yali/gui/ScrPartitionManual.py:130 yali/storage/storageset.py:244
 msgid "Format"
 msgstr "Formattare?"
 
 #: yali/gui/Ui/logicalvolume.py:151 yali/gui/Ui/partition.py:149
-#: yali/gui/Ui/raid.py:109 yali/storage/operations.py:23
+#: yali/gui/Ui/raid.py:109
 msgid "Migrate"
 msgstr ""
 
@@ -306,11 +293,11 @@ msgid "Next Screen"
 msgstr "Schermata successiva"
 
 #: yali/gui/Ui/main.py:250 yali/gui/ScrSummary.py:59
-#: yali/gui/ScrSummary.py:219 yali/gui/ScrSummary.py:226
+#: yali/gui/ScrSummary.py:211 yali/gui/ScrSummary.py:218
 msgid "Next"
 msgstr "Avanti"
 
-#: yali/gui/Ui/manualpartwidget.py:157 yali/storage/operations.py:32
+#: yali/gui/Ui/manualpartwidget.py:157
 msgid "Device"
 msgstr "Dispositivo"
 
@@ -330,7 +317,7 @@ msgstr "Tipo"
 msgid "Size"
 msgstr "Dimensione"
 
-#: yali/gui/Ui/manualpartwidget.py:163 yali/storage/operations.py:24
+#: yali/gui/Ui/manualpartwidget.py:163
 msgid "Create"
 msgstr "Crea"
 
@@ -1200,8 +1187,8 @@ msgstr ""
 msgid "Extended"
 msgstr ""
 
-#: yali/gui/ScrPartitionManual.py:351 yali/storage/partitioning.py:1647
-#: yali/storage/partitioning.py:1679
+#: yali/gui/ScrPartitionManual.py:351 yali/storage/partitioning.py:1648
+#: yali/storage/partitioning.py:1680
 msgid "Error Partitioning"
 msgstr "Errore di partizionamento"
 
@@ -1460,46 +1447,34 @@ msgstr "GRUB non verrà installato."
 msgid "Package Installation Settings"
 msgstr "Impostazioni pacchetti"
 
-#: yali/gui/ScrSummary.py:176
-msgid "Auto installation selected."
-msgstr "Installazione automatica selezionata."
-
-#: yali/gui/ScrSummary.py:178
-#, python-format
-msgid "Manual Installation ( %s ) selected"
+#: yali/gui/ScrSummary.py:175
+#, fuzzy, python-format
+msgid "Collection ( %s ) selected"
 msgstr "Partizionamento manuale di ( %s ) selezionato."
 
-#: yali/gui/ScrSummary.py:182
-msgid "Default Kernel selected"
-msgstr "Kernel predefinito selezionato"
-
-#: yali/gui/ScrSummary.py:184
-msgid "PAE Kernel selected"
-msgstr "Kernel PAE selezionato"
-
-#: yali/gui/ScrSummary.py:203
+#: yali/gui/ScrSummary.py:195
 msgid "Confirm"
 msgstr "Conferma"
 
-#: yali/gui/ScrSummary.py:204
+#: yali/gui/ScrSummary.py:196
 msgid ""
 "The partitioning options you have selected will now be written to disk. Any "
 "data on deleted or reformatted partitions will be lost."
 msgstr ""
 
-#: yali/gui/ScrSummary.py:209
+#: yali/gui/ScrSummary.py:201
 msgid "Write Changes to Disk"
 msgstr "Scrivi i Cambiamenti su Disco"
 
-#: yali/gui/ScrSummary.py:209
+#: yali/gui/ScrSummary.py:201
 msgid "Go Back"
 msgstr "Indietro"
 
-#: yali/gui/ScrSummary.py:302
+#: yali/gui/ScrSummary.py:287
 msgid "Proprietary Hardware Drivers"
 msgstr ""
 
-#: yali/gui/ScrSummary.py:303
+#: yali/gui/ScrSummary.py:288
 msgid ""
 "<qt>Proprietary drivers are available which may be required to utilize the "
 "full capabilities of your video card. These drivers are developed by the "
@@ -1508,7 +1483,7 @@ msgid ""
 "use these proprietary drivers instead of the default drivers?</b></qt>"
 msgstr ""
 
-#: yali/gui/ScrSummary.py:312 yali/gui/YaliDialog.py:218
+#: yali/gui/ScrSummary.py:297 yali/gui/YaliDialog.py:218
 #: yali/gui/YaliDialog.py:234 yali/gui/YaliDialog.py:261
 #: yali/storage/storageBackendHelpers.py:232
 #: yali/storage/storageBackendHelpers.py:253
@@ -1516,7 +1491,7 @@ msgstr ""
 msgid "Yes"
 msgstr "Sì"
 
-#: yali/gui/ScrSummary.py:312 yali/gui/YaliDialog.py:220
+#: yali/gui/ScrSummary.py:297 yali/gui/YaliDialog.py:220
 #: yali/gui/YaliDialog.py:235 yali/gui/YaliDialog.py:262
 #: yali/storage/storageBackendHelpers.py:232
 #: yali/storage/storageBackendHelpers.py:253
@@ -1830,14 +1805,6 @@ msgid ""
 "hardware for the cause of this problem."
 msgstr ""
 
-#: yali/storage/operations.py:20 yali/storage/operations.py:30
-msgid "None"
-msgstr ""
-
-#: yali/storage/operations.py:21
-msgid "Destroy"
-msgstr ""
-
 #: yali/storage/partitioning.py:703
 msgid "requested size exceeds maximum allowed"
 msgstr ""
@@ -1863,18 +1830,18 @@ msgstr ""
 msgid "not enough space for LVM requests"
 msgstr "Spazio non sufficente"
 
-#: yali/storage/partitioning.py:1644
+#: yali/storage/partitioning.py:1645
 msgid ""
 "Could not find enough free space for automatic\n"
 "partitioning, please use another partitioning method."
 msgstr ""
 
-#: yali/storage/partitioning.py:1668
+#: yali/storage/partitioning.py:1669
 #, fuzzy
 msgid "Warnings During Automatic Partitioning"
 msgstr "Avviso di Partizionamento"
 
-#: yali/storage/partitioning.py:1669
+#: yali/storage/partitioning.py:1670
 #, python-format
 msgid ""
 "Following warnings occurred during automatic partitioning:\n"
@@ -1882,26 +1849,26 @@ msgid ""
 "%s"
 msgstr ""
 
-#: yali/storage/partitioning.py:1678 yali/storage/partitioning.py:1698
+#: yali/storage/partitioning.py:1679 yali/storage/partitioning.py:1699
 msgid ""
 "\n"
 "\n"
 "Press 'OK' to exit the installer."
 msgstr ""
 
-#: yali/storage/partitioning.py:1680
+#: yali/storage/partitioning.py:1681
 #, python-format
 msgid ""
 "Could not allocate requested partitions: \n"
 "%(msg)s.%(extra)s"
 msgstr ""
 
-#: yali/storage/partitioning.py:1699
+#: yali/storage/partitioning.py:1700
 #, fuzzy
 msgid "Automatic Partitioning Errors"
 msgstr "Errori di Partizionamento"
 
-#: yali/storage/partitioning.py:1700
+#: yali/storage/partitioning.py:1701
 #, python-format
 msgid ""
 "The following errors occurred with your partitioning:\n"
@@ -2375,13 +2342,13 @@ msgstr ""
 msgid "Shared library error."
 msgstr ""
 
-#: yali/storage/formats/filesystem.py:856
+#: yali/storage/formats/filesystem.py:853
 msgid ""
 "Recoverable errors have been detected or dosfsck has discovered an internal "
 "inconsistency."
 msgstr ""
 
-#: yali/storage/formats/filesystem.py:858
+#: yali/storage/formats/filesystem.py:855
 msgid "Usage error."
 msgstr ""
 
@@ -2576,6 +2543,30 @@ msgstr "Note di rilascio è inconsistente"
 msgid "Invalid xml file"
 msgstr "xml file non valida"
 
+#~ msgid "Choose Installation Method"
+#~ msgstr "Scegli il Metodo di Installazione"
+
+#~ msgid "Automatic Installation"
+#~ msgstr "Installazione Automatica"
+
+#~ msgid "Manual Installation"
+#~ msgstr "Installazione Manuale"
+
+#~ msgid "Default Kernel"
+#~ msgstr "Kernel Predefinito"
+
+#~ msgid "PAE Kernel"
+#~ msgstr "Kernel PAE"
+
+#~ msgid "Auto installation selected."
+#~ msgstr "Installazione automatica selezionata."
+
+#~ msgid "Default Kernel selected"
+#~ msgstr "Kernel predefinito selezionato"
+
+#~ msgid "PAE Kernel selected"
+#~ msgstr "Kernel PAE selezionato"
+
 #~ msgid "_Exit"
 #~ msgstr "_Uscita"
 
@@ -2600,9 +2591,6 @@ msgstr "xml file non valida"
 
 #~ msgid "Re-initialize all"
 #~ msgstr "Ignora tutto"
-
-#~ msgid "Form"
-#~ msgstr "Form"
 
 #~ msgid "Form1"
 #~ msgstr "Form1"

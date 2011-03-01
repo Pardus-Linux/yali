@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-15 13:55+0200\n"
+"POT-Creation-Date: 2011-03-02 00:16+0200\n"
 "PO-Revision-Date: 2011-01-20 15:06+0100\n"
 "Last-Translator: Attila Siposs <sipiatti@gmail.com>\n"
 "Language-Team: Hungarian <pardus-translators@pardus.org.tr>\n"
@@ -17,26 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.0\n"
-
-#: yali/gui/Ui/autoinstallationwidget.py:75
-msgid "Choose Installation Method"
-msgstr "Válasszon telepítési módot"
-
-#: yali/gui/Ui/autoinstallationwidget.py:76
-msgid "Automatic Installation"
-msgstr "Automatikus telepítés"
-
-#: yali/gui/Ui/autoinstallationwidget.py:77
-msgid "Manual Installation"
-msgstr "Kézi telepítés"
-
-#: yali/gui/Ui/autoinstallationwidget.py:78
-msgid "Default Kernel"
-msgstr "Alapértelmezett kernel"
-
-#: yali/gui/Ui/autoinstallationwidget.py:79
-msgid "PAE Kernel"
-msgstr "PAE kernel"
 
 #: yali/gui/Ui/autopartquestion.py:82
 msgid ""
@@ -120,6 +100,14 @@ msgstr "Az ellenőrzés sikeres"
 #: yali/gui/Ui/checkcdwidget.py:200 yali/gui/ScrCheckCD.py:62
 msgid "Validate"
 msgstr "Érvényesítés"
+
+#: yali/gui/Ui/collectionitem.py:98
+msgid "Form"
+msgstr "Űrlap"
+
+#: yali/gui/Ui/collectionitem.py:99
+msgid "Details"
+msgstr ""
 
 #: yali/gui/Ui/connectionlist.py:75
 msgid ""
@@ -267,7 +255,7 @@ msgid " MB"
 msgstr " MB"
 
 #: yali/gui/Ui/logicalvolume.py:147 yali/gui/Ui/partition.py:146
-#: yali/gui/Ui/partresize.py:95 yali/storage/operations.py:22
+#: yali/gui/Ui/partresize.py:95
 msgid "Resize"
 msgstr "Átméretezés"
 
@@ -278,13 +266,12 @@ msgstr "Fájlrendszer"
 
 #: yali/gui/Ui/logicalvolume.py:150 yali/gui/Ui/manualpartwidget.py:161
 #: yali/gui/Ui/partition.py:148 yali/gui/Ui/raid.py:108
-#: yali/gui/ScrPartitionManual.py:130 yali/storage/operations.py:31
-#: yali/storage/storageset.py:244
+#: yali/gui/ScrPartitionManual.py:130 yali/storage/storageset.py:244
 msgid "Format"
 msgstr "Formázás"
 
 #: yali/gui/Ui/logicalvolume.py:151 yali/gui/Ui/partition.py:149
-#: yali/gui/Ui/raid.py:109 yali/storage/operations.py:23
+#: yali/gui/Ui/raid.py:109
 msgid "Migrate"
 msgstr "Migrálás"
 
@@ -309,11 +296,11 @@ msgid "Next Screen"
 msgstr "Következő képernyő"
 
 #: yali/gui/Ui/main.py:250 yali/gui/ScrSummary.py:59
-#: yali/gui/ScrSummary.py:219 yali/gui/ScrSummary.py:226
+#: yali/gui/ScrSummary.py:211 yali/gui/ScrSummary.py:218
 msgid "Next"
 msgstr "Következő"
 
-#: yali/gui/Ui/manualpartwidget.py:157 yali/storage/operations.py:32
+#: yali/gui/Ui/manualpartwidget.py:157
 msgid "Device"
 msgstr "Eszköz"
 
@@ -333,7 +320,7 @@ msgstr "Típus"
 msgid "Size"
 msgstr "Méret"
 
-#: yali/gui/Ui/manualpartwidget.py:163 yali/storage/operations.py:24
+#: yali/gui/Ui/manualpartwidget.py:163
 msgid "Create"
 msgstr "Létrehozás"
 
@@ -1266,8 +1253,8 @@ msgstr "Keresztezett logikai partíció a kiterjesztés előtt"
 msgid "Extended"
 msgstr "Kiterjesztett"
 
-#: yali/gui/ScrPartitionManual.py:351 yali/storage/partitioning.py:1647
-#: yali/storage/partitioning.py:1679
+#: yali/gui/ScrPartitionManual.py:351 yali/storage/partitioning.py:1648
+#: yali/storage/partitioning.py:1680
 msgid "Error Partitioning"
 msgstr "Partícionálási hiba"
 
@@ -1533,28 +1520,16 @@ msgstr "A GRUB nem kerül telepítésre."
 msgid "Package Installation Settings"
 msgstr "Csomagtelepítési beállítások"
 
-#: yali/gui/ScrSummary.py:176
-msgid "Auto installation selected."
-msgstr "Automatikus telepítés lett kiválasztva."
-
-#: yali/gui/ScrSummary.py:178
-#, python-format
-msgid "Manual Installation ( %s ) selected"
+#: yali/gui/ScrSummary.py:175
+#, fuzzy, python-format
+msgid "Collection ( %s ) selected"
 msgstr "Kézi telepítés (%s) lett kiválasztva."
 
-#: yali/gui/ScrSummary.py:182
-msgid "Default Kernel selected"
-msgstr "Alapértelmezett kernel kiválasztva."
-
-#: yali/gui/ScrSummary.py:184
-msgid "PAE Kernel selected"
-msgstr "PAE kernel kiválasztva."
-
-#: yali/gui/ScrSummary.py:203
+#: yali/gui/ScrSummary.py:195
 msgid "Confirm"
 msgstr "Jóváhagyás"
 
-#: yali/gui/ScrSummary.py:204
+#: yali/gui/ScrSummary.py:196
 #, fuzzy
 msgid ""
 "The partitioning options you have selected will now be written to disk. Any "
@@ -1564,19 +1539,19 @@ msgstr ""
 "a lemezre. A törlendő vagy újraformázandó partíciók minden\n"
 "adata törlődik."
 
-#: yali/gui/ScrSummary.py:209
+#: yali/gui/ScrSummary.py:201
 msgid "Write Changes to Disk"
 msgstr "Változtatások kiírása a lemezre"
 
-#: yali/gui/ScrSummary.py:209
+#: yali/gui/ScrSummary.py:201
 msgid "Go Back"
 msgstr "Vissza"
 
-#: yali/gui/ScrSummary.py:302
+#: yali/gui/ScrSummary.py:287
 msgid "Proprietary Hardware Drivers"
 msgstr "Zárt meghajtó programok"
 
-#: yali/gui/ScrSummary.py:303
+#: yali/gui/ScrSummary.py:288
 msgid ""
 "<qt>Proprietary drivers are available which may be required to utilize the "
 "full capabilities of your video card. These drivers are developed by the "
@@ -1590,7 +1565,7 @@ msgstr ""
 "hozzá támogatást nyújtani.<br><br><b>Szeretné ezeket a meghajtókat "
 "telepíteni és használni az alapértelmezettek helyett?</b></qt>"
 
-#: yali/gui/ScrSummary.py:312 yali/gui/YaliDialog.py:218
+#: yali/gui/ScrSummary.py:297 yali/gui/YaliDialog.py:218
 #: yali/gui/YaliDialog.py:234 yali/gui/YaliDialog.py:261
 #: yali/storage/storageBackendHelpers.py:232
 #: yali/storage/storageBackendHelpers.py:253
@@ -1598,7 +1573,7 @@ msgstr ""
 msgid "Yes"
 msgstr "Igen"
 
-#: yali/gui/ScrSummary.py:312 yali/gui/YaliDialog.py:220
+#: yali/gui/ScrSummary.py:297 yali/gui/YaliDialog.py:220
 #: yali/gui/YaliDialog.py:235 yali/gui/YaliDialog.py:262
 #: yali/storage/storageBackendHelpers.py:232
 #: yali/storage/storageBackendHelpers.py:253
@@ -1934,14 +1909,6 @@ msgstr ""
 "új fájlrendszer létrehozására alkalmas érvényes eszköz.\n"
 "Ellenőrizze a hardvereket a probléma okának megtalálásáért."
 
-#: yali/storage/operations.py:20 yali/storage/operations.py:30
-msgid "None"
-msgstr ""
-
-#: yali/storage/operations.py:21
-msgid "Destroy"
-msgstr ""
-
 #: yali/storage/partitioning.py:703
 msgid "requested size exceeds maximum allowed"
 msgstr ""
@@ -1965,7 +1932,7 @@ msgstr ""
 msgid "not enough space for LVM requests"
 msgstr "Nincs elég szabad terület"
 
-#: yali/storage/partitioning.py:1644
+#: yali/storage/partitioning.py:1645
 msgid ""
 "Could not find enough free space for automatic\n"
 "partitioning, please use another partitioning method."
@@ -1973,11 +1940,11 @@ msgstr ""
 "Az automatikus partícionálás végrehajtásához nem\n"
 "található elegendő szabad terület, válasszon másik módot."
 
-#: yali/storage/partitioning.py:1668
+#: yali/storage/partitioning.py:1669
 msgid "Warnings During Automatic Partitioning"
 msgstr "Partícionálási figyelmeztetések"
 
-#: yali/storage/partitioning.py:1669
+#: yali/storage/partitioning.py:1670
 #, python-format
 msgid ""
 "Following warnings occurred during automatic partitioning:\n"
@@ -1988,7 +1955,7 @@ msgstr ""
 "figyelmeztetéseket adta:\n"
 "%s"
 
-#: yali/storage/partitioning.py:1678 yali/storage/partitioning.py:1698
+#: yali/storage/partitioning.py:1679 yali/storage/partitioning.py:1699
 msgid ""
 "\n"
 "\n"
@@ -1998,7 +1965,7 @@ msgstr ""
 "\n"
 "Nyomja meg az OK gombot a kilépéshez."
 
-#: yali/storage/partitioning.py:1680
+#: yali/storage/partitioning.py:1681
 #, python-format
 msgid ""
 "Could not allocate requested partitions: \n"
@@ -2007,11 +1974,11 @@ msgstr ""
 "Ez a partíció nem beállítható: \n"
 "%(msg)s.%(extra)s"
 
-#: yali/storage/partitioning.py:1699
+#: yali/storage/partitioning.py:1700
 msgid "Automatic Partitioning Errors"
 msgstr "Automatikus partícionálási hibák"
 
-#: yali/storage/partitioning.py:1700
+#: yali/storage/partitioning.py:1701
 #, python-format
 msgid ""
 "The following errors occurred with your partitioning:\n"
@@ -2563,14 +2530,14 @@ msgstr "e2fsck felhasználó által megszakítva"
 msgid "Shared library error."
 msgstr "Megosztott függvénykönyvtár hiba (library error)."
 
-#: yali/storage/formats/filesystem.py:856
+#: yali/storage/formats/filesystem.py:853
 msgid ""
 "Recoverable errors have been detected or dosfsck has discovered an internal "
 "inconsistency."
 msgstr ""
 "Javítható hibát észleltünk, vagy a dosfsck belső inkonzisztenciát észlelt."
 
-#: yali/storage/formats/filesystem.py:858
+#: yali/storage/formats/filesystem.py:855
 msgid "Usage error."
 msgstr "Felhasználási hiba."
 
@@ -2765,6 +2732,30 @@ msgstr "A kiadási fájl érvénytelen"
 msgid "Invalid xml file"
 msgstr "Érvénytelen xml fájl"
 
+#~ msgid "Choose Installation Method"
+#~ msgstr "Válasszon telepítési módot"
+
+#~ msgid "Automatic Installation"
+#~ msgstr "Automatikus telepítés"
+
+#~ msgid "Manual Installation"
+#~ msgstr "Kézi telepítés"
+
+#~ msgid "Default Kernel"
+#~ msgstr "Alapértelmezett kernel"
+
+#~ msgid "PAE Kernel"
+#~ msgstr "PAE kernel"
+
+#~ msgid "Auto installation selected."
+#~ msgstr "Automatikus telepítés lett kiválasztva."
+
+#~ msgid "Default Kernel selected"
+#~ msgstr "Alapértelmezett kernel kiválasztva."
+
+#~ msgid "PAE Kernel selected"
+#~ msgstr "PAE kernel kiválasztva."
+
 #~ msgid "The system will now reboot."
 #~ msgstr "A rendszer újraindul."
 
@@ -2824,9 +2815,6 @@ msgstr "Érvénytelen xml fájl"
 
 #~ msgid "return value for \"%(command)s\" is %(return)s"
 #~ msgstr "a \"%(command)s\" visszatérési értéke %(return)s"
-
-#~ msgid "Form"
-#~ msgstr "Űrlap"
 
 #~ msgid "Form1"
 #~ msgstr "Űrlap 1"

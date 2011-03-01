@@ -11,36 +11,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-15 13:55+0200\n"
+"POT-Creation-Date: 2011-03-02 00:16+0200\n"
 "PO-Revision-Date: 2011-02-15 13:16+0100\n"
 "Last-Translator: Antoon Tolboom <atolboo@gmail.com>\n"
 "Language-Team: Dutch <kde-i18n-doc@kde.org>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "X-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-
-#: yali/gui/Ui/autoinstallationwidget.py:75
-msgid "Choose Installation Method"
-msgstr "Installatiemethode kiezen"
-
-#: yali/gui/Ui/autoinstallationwidget.py:76
-msgid "Automatic Installation"
-msgstr "Automatische installatie"
-
-#: yali/gui/Ui/autoinstallationwidget.py:77
-msgid "Manual Installation"
-msgstr "Handmatige installatie"
-
-#: yali/gui/Ui/autoinstallationwidget.py:78
-msgid "Default Kernel"
-msgstr "Standaard Kernel"
-
-#: yali/gui/Ui/autoinstallationwidget.py:79
-msgid "PAE Kernel"
-msgstr "PAE Kernel"
 
 #: yali/gui/Ui/autopartquestion.py:82
 msgid ""
@@ -126,6 +106,14 @@ msgstr "Validatie is gelukt"
 #: yali/gui/Ui/checkcdwidget.py:200 yali/gui/ScrCheckCD.py:62
 msgid "Validate"
 msgstr "Valideren"
+
+#: yali/gui/Ui/collectionitem.py:98
+msgid "Form"
+msgstr "Form"
+
+#: yali/gui/Ui/collectionitem.py:99
+msgid "Details"
+msgstr ""
 
 #: yali/gui/Ui/connectionlist.py:75
 msgid ""
@@ -275,7 +263,7 @@ msgid " MB"
 msgstr " MB"
 
 #: yali/gui/Ui/logicalvolume.py:147 yali/gui/Ui/partition.py:146
-#: yali/gui/Ui/partresize.py:95 yali/storage/operations.py:22
+#: yali/gui/Ui/partresize.py:95
 msgid "Resize"
 msgstr "Grootte wijzigen"
 
@@ -286,13 +274,12 @@ msgstr "Bestandsysteem:"
 
 #: yali/gui/Ui/logicalvolume.py:150 yali/gui/Ui/manualpartwidget.py:161
 #: yali/gui/Ui/partition.py:148 yali/gui/Ui/raid.py:108
-#: yali/gui/ScrPartitionManual.py:130 yali/storage/operations.py:31
-#: yali/storage/storageset.py:244
+#: yali/gui/ScrPartitionManual.py:130 yali/storage/storageset.py:244
 msgid "Format"
 msgstr "Formatteren"
 
 #: yali/gui/Ui/logicalvolume.py:151 yali/gui/Ui/partition.py:149
-#: yali/gui/Ui/raid.py:109 yali/storage/operations.py:23
+#: yali/gui/Ui/raid.py:109
 msgid "Migrate"
 msgstr "Migreren"
 
@@ -317,11 +304,11 @@ msgid "Next Screen"
 msgstr "Volgend scherm"
 
 #: yali/gui/Ui/main.py:250 yali/gui/ScrSummary.py:59
-#: yali/gui/ScrSummary.py:219 yali/gui/ScrSummary.py:226
+#: yali/gui/ScrSummary.py:211 yali/gui/ScrSummary.py:218
 msgid "Next"
 msgstr "Volgende"
 
-#: yali/gui/Ui/manualpartwidget.py:157 yali/storage/operations.py:32
+#: yali/gui/Ui/manualpartwidget.py:157
 msgid "Device"
 msgstr "Apparaat"
 
@@ -341,7 +328,7 @@ msgstr "Type"
 msgid "Size"
 msgstr "Grootte"
 
-#: yali/gui/Ui/manualpartwidget.py:163 yali/storage/operations.py:24
+#: yali/gui/Ui/manualpartwidget.py:163
 msgid "Create"
 msgstr "Aanmaken"
 
@@ -751,9 +738,9 @@ msgstr ""
 #: yali/gui/lvm_gui.py:446
 #, python-format
 msgid ""
-"The physical extent size cannot be changed because the value selected (%"
-"(curpe)10.2f MB) is too large compared to the size of the smallest physical "
-"volume (%(maxpvsize)10.2f MB) in the volume group."
+"The physical extent size cannot be changed because the value selected "
+"(%(curpe)10.2f MB) is too large compared to the size of the smallest "
+"physical volume (%(maxpvsize)10.2f MB) in the volume group."
 msgstr ""
 "De fysieke uitbreidingsgrootte kan niet gewijzigd worden omdat de "
 "geselecteerde waarde (%(curpe)10.2f MB) te groot is in vergelijking met de "
@@ -889,8 +876,8 @@ msgstr ""
 #, python-format
 msgid ""
 "The size entered for this logical volume (%(size)d MB) combined with the "
-"size of the other logical volume(s) exceeds the size of the volume group (%"
-"(tmpvgsize)d MB). Please make the volume group larger or make the logical "
+"size of the other logical volume(s) exceeds the size of the volume group "
+"(%(tmpvgsize)d MB). Please make the volume group larger or make the logical "
 "volume smaller."
 msgstr ""
 "De opgegeven grootte voor het logische volume (%(size)d MB) in combinatie "
@@ -1280,8 +1267,8 @@ msgstr "Crossed logische partitie voor uitgebreide"
 msgid "Extended"
 msgstr "Uitgebreide"
 
-#: yali/gui/ScrPartitionManual.py:351 yali/storage/partitioning.py:1647
-#: yali/storage/partitioning.py:1679
+#: yali/gui/ScrPartitionManual.py:351 yali/storage/partitioning.py:1648
+#: yali/storage/partitioning.py:1680
 msgid "Error Partitioning"
 msgstr "Partitioneringsfout"
 
@@ -1549,28 +1536,16 @@ msgstr "GRUB zal niet geïnstalleerd worden."
 msgid "Package Installation Settings"
 msgstr "Pakketinstalatie-instellingen"
 
-#: yali/gui/ScrSummary.py:176
-msgid "Auto installation selected."
-msgstr "Automatisch installatie geselecteerd."
-
-#: yali/gui/ScrSummary.py:178
-#, python-format
-msgid "Manual Installation ( %s ) selected"
+#: yali/gui/ScrSummary.py:175
+#, fuzzy, python-format
+msgid "Collection ( %s ) selected"
 msgstr "Handmatig installatie %s geselecteerd"
 
-#: yali/gui/ScrSummary.py:182
-msgid "Default Kernel selected"
-msgstr "Standaard Kernel geselecteerd"
-
-#: yali/gui/ScrSummary.py:184
-msgid "PAE Kernel selected"
-msgstr "PAE Kernel geselecteerd"
-
-#: yali/gui/ScrSummary.py:203
+#: yali/gui/ScrSummary.py:195
 msgid "Confirm"
 msgstr "Bevestigen"
 
-#: yali/gui/ScrSummary.py:204
+#: yali/gui/ScrSummary.py:196
 msgid ""
 "The partitioning options you have selected will now be written to disk. Any "
 "data on deleted or reformatted partitions will be lost."
@@ -1579,19 +1554,19 @@ msgstr ""
 "Alle gegevens op verwijderde of opnieuw geformatteerde partities gaan "
 "verloren."
 
-#: yali/gui/ScrSummary.py:209
+#: yali/gui/ScrSummary.py:201
 msgid "Write Changes to Disk"
 msgstr "Wijzigingen naar schijf schrijven"
 
-#: yali/gui/ScrSummary.py:209
+#: yali/gui/ScrSummary.py:201
 msgid "Go Back"
 msgstr "Ga terug"
 
-#: yali/gui/ScrSummary.py:302
+#: yali/gui/ScrSummary.py:287
 msgid "Proprietary Hardware Drivers"
 msgstr "Propriëtaire hardware stuurprogramma"
 
-#: yali/gui/ScrSummary.py:303
+#: yali/gui/ScrSummary.py:288
 msgid ""
 "<qt>Proprietary drivers are available which may be required to utilize the "
 "full capabilities of your video card. These drivers are developed by the "
@@ -1605,7 +1580,7 @@ msgstr ""
 "niet  vrijgegeven is.<br><br><b>Wilt u deze propriëtaire stuurprogramma's "
 "installeren in plaats van het standaard stuurprogramma?"
 
-#: yali/gui/ScrSummary.py:312 yali/gui/YaliDialog.py:218
+#: yali/gui/ScrSummary.py:297 yali/gui/YaliDialog.py:218
 #: yali/gui/YaliDialog.py:234 yali/gui/YaliDialog.py:261
 #: yali/storage/storageBackendHelpers.py:232
 #: yali/storage/storageBackendHelpers.py:253
@@ -1613,7 +1588,7 @@ msgstr ""
 msgid "Yes"
 msgstr "Ja"
 
-#: yali/gui/ScrSummary.py:312 yali/gui/YaliDialog.py:220
+#: yali/gui/ScrSummary.py:297 yali/gui/YaliDialog.py:220
 #: yali/gui/YaliDialog.py:235 yali/gui/YaliDialog.py:262
 #: yali/storage/storageBackendHelpers.py:232
 #: yali/storage/storageBackendHelpers.py:253
@@ -1955,14 +1930,6 @@ msgstr ""
 "gevonden om een nieuw bestandsysteem aan te maken.\n"
 "Controleer de hardware om dit probleem op te lossen."
 
-#: yali/storage/operations.py:20 yali/storage/operations.py:30
-msgid "None"
-msgstr "Geen"
-
-#: yali/storage/operations.py:21
-msgid "Destroy"
-msgstr "Vernietigen"
-
 #: yali/storage/partitioning.py:703
 msgid "requested size exceeds maximum allowed"
 msgstr "aangevraagde grootte is meer dan de maximale toegestane"
@@ -1984,7 +1951,7 @@ msgstr "niet genoeg vrije ruimte na het aanmaken van uitgebreide partitie"
 msgid "not enough space for LVM requests"
 msgstr "niet genoeg ruimte voor LVM-verzoek(en)"
 
-#: yali/storage/partitioning.py:1644
+#: yali/storage/partitioning.py:1645
 msgid ""
 "Could not find enough free space for automatic\n"
 "partitioning, please use another partitioning method."
@@ -1992,11 +1959,11 @@ msgstr ""
 "Kan voor automatische partitioneren niet genoeg\n"
 "vrije ruimte vinden, selecteer een andere methode."
 
-#: yali/storage/partitioning.py:1668
+#: yali/storage/partitioning.py:1669
 msgid "Warnings During Automatic Partitioning"
 msgstr "Waarschuwingen tijdens automatisch partitioneren"
 
-#: yali/storage/partitioning.py:1669
+#: yali/storage/partitioning.py:1670
 #, python-format
 msgid ""
 "Following warnings occurred during automatic partitioning:\n"
@@ -2007,7 +1974,7 @@ msgstr ""
 "\n"
 "%s"
 
-#: yali/storage/partitioning.py:1678 yali/storage/partitioning.py:1698
+#: yali/storage/partitioning.py:1679 yali/storage/partitioning.py:1699
 msgid ""
 "\n"
 "\n"
@@ -2017,7 +1984,7 @@ msgstr ""
 "\n"
 "Selecteer 'OK' om de installatie te beëindigen."
 
-#: yali/storage/partitioning.py:1680
+#: yali/storage/partitioning.py:1681
 #, python-format
 msgid ""
 "Could not allocate requested partitions: \n"
@@ -2026,11 +1993,11 @@ msgstr ""
 "Kan gevraagde partities niet toewijzen:\n"
 "%(msg)s.%(extra)s"
 
-#: yali/storage/partitioning.py:1699
+#: yali/storage/partitioning.py:1700
 msgid "Automatic Partitioning Errors"
 msgstr "Automatisch partitionerenfout"
 
-#: yali/storage/partitioning.py:1700
+#: yali/storage/partitioning.py:1701
 #, python-format
 msgid ""
 "The following errors occurred with your partitioning:\n"
@@ -2154,8 +2121,8 @@ msgstr "Fout tijdens partitioneren"
 #, python-format
 msgid ""
 "The following critical errors exist with your requested partitioning scheme. "
-"These errors must be corrected prior to continuing with your install of %"
-"(productName)s.\n"
+"These errors must be corrected prior to continuing with your install of "
+"%(productName)s.\n"
 "\n"
 "%(errorstr)s"
 msgstr ""
@@ -2290,16 +2257,16 @@ msgstr "Waarschuwing opslagapparaten"
 #: yali/storage/storageBackendHelpers.py:331
 #, python-format
 msgid ""
-"The following storage device may contain recoverable data:<br><br>%"
-"(description)s (%(size)s MB)<br><br>This device may have data that will be "
+"The following storage device may contain recoverable data:<br><br>"
+"%(description)s (%(size)s MB)<br><br>This device may have data that will be "
 "<b>permanently lost</b> if you include it in this installation.<br><br>If "
 "you don't care about any data on this device, choose <b>Reset device</b> to "
 "include it in the installation process.<br><br>If you don't want the device "
 "to be permanently erased, select <b>Ignore device</b> and the device will "
 "not be considered as a possible installation target."
 msgstr ""
-"Het volgende opslagapparaat kan herstelbare gegevens bevatten:<br><br>%"
-"(description)s (%(size)s MB)<br><br>Het apparaat kan gegevens bevatten die "
+"Het volgende opslagapparaat kan herstelbare gegevens bevatten:<br><br>"
+"%(description)s (%(size)s MB)<br><br>Het apparaat kan gegevens bevatten die "
 "<b>definitief verloren</b> gaan bij het gebruiken voor deze installatie."
 "<br><br>In dien de gegevens op het apparaat niet belangrijk zijn, selecteer "
 "<b>Apparaat opnieuw instellen</b> om het in het installatieproces op te "
@@ -2323,11 +2290,11 @@ msgid ""
 "preserve thecontents.This action may also be applied to all other PVs with "
 "inconsistent metadata."
 msgstr ""
-"Er zijn niet samenhangend LVM-gegevens op %(msg)s. Alle gerelateerde PV's (%"
-"(pvs)s) kunnen opnieuw geïnitialiseerd worden en dit zal de LVM-metagegevens "
-"wissen, of door het negeren zal de inhoud niet verloren gaan. Deze bewerking "
-"kan ook op alle andere PV's, met niet samenhangende metagegevens, toegepast "
-"worden."
+"Er zijn niet samenhangend LVM-gegevens op %(msg)s. Alle gerelateerde PV's "
+"(%(pvs)s) kunnen opnieuw geïnitialiseerd worden en dit zal de LVM-"
+"metagegevens wissen, of door het negeren zal de inhoud niet verloren gaan. "
+"Deze bewerking kan ook op alle andere PV's, met niet samenhangende "
+"metagegevens, toegepast worden."
 
 #: yali/storage/storageBackendHelpers.py:363
 msgid "Yes, re-initialize"
@@ -2387,9 +2354,9 @@ msgid ""
 "An error occurred mounting device %(path)s as %(mountpoint)s.  You may "
 "continue installation, but there may be problems."
 msgstr ""
-"Een fout is opgetreden tijdens het aan koppelen van %(path)s als %"
-"(mountpoint)s.  De installatie kan voortgezet worden, maar dit kan problemen "
-"geven."
+"Een fout is opgetreden tijdens het aan koppelen van %(path)s als "
+"%(mountpoint)s.  De installatie kan voortgezet worden, maar dit kan "
+"problemen geven."
 
 #: yali/storage/storageset.py:213
 #, python-format
@@ -2399,9 +2366,9 @@ msgid ""
 "\n"
 "Press <Enter> to exit the installer."
 msgstr ""
-"Een fout is opgetreden tijdens het aankoppelen van %(path)s als %(mountpoint)"
-"s: %(msg)s. Dit is een fatale fout en de installatie kan niet voortgezet "
-"worden.\n"
+"Een fout is opgetreden tijdens het aankoppelen van %(path)s als "
+"%(mountpoint)s: %(msg)s. Dit is een fatale fout en de installatie kan niet "
+"voortgezet worden.\n"
 "\n"
 "Druk <Enter> om de installatie te beëindigen."
 
@@ -2595,7 +2562,7 @@ msgstr "e2fsck is door gebruiker afgebroken."
 msgid "Shared library error."
 msgstr "Fout gedeelde bibliotheek."
 
-#: yali/storage/formats/filesystem.py:856
+#: yali/storage/formats/filesystem.py:853
 msgid ""
 "Recoverable errors have been detected or dosfsck has discovered an internal "
 "inconsistency."
@@ -2603,7 +2570,7 @@ msgstr ""
 "Herstelbare fouten zijn gedetecteerd of dosfsck heeft een interne "
 "inconsistiteit ontdekt."
 
-#: yali/storage/formats/filesystem.py:858
+#: yali/storage/formats/filesystem.py:855
 msgid "Usage error."
 msgstr "Gebruikfout."
 
@@ -2797,6 +2764,36 @@ msgstr "Uitgavebestand is niet samenhangend"
 msgid "Invalid xml file"
 msgstr "Ongeldig xml-bestand"
 
+#~ msgid "Choose Installation Method"
+#~ msgstr "Installatiemethode kiezen"
+
+#~ msgid "Automatic Installation"
+#~ msgstr "Automatische installatie"
+
+#~ msgid "Manual Installation"
+#~ msgstr "Handmatige installatie"
+
+#~ msgid "Default Kernel"
+#~ msgstr "Standaard Kernel"
+
+#~ msgid "PAE Kernel"
+#~ msgstr "PAE Kernel"
+
+#~ msgid "Auto installation selected."
+#~ msgstr "Automatisch installatie geselecteerd."
+
+#~ msgid "Default Kernel selected"
+#~ msgstr "Standaard Kernel geselecteerd"
+
+#~ msgid "PAE Kernel selected"
+#~ msgstr "PAE Kernel geselecteerd"
+
+#~ msgid "None"
+#~ msgstr "Geen"
+
+#~ msgid "Destroy"
+#~ msgstr "Vernietigen"
+
 #~ msgid ""
 #~ "<b>The storage device (%(size)d size of %(description)s on %(name)s) may "
 #~ "contain data.</b><br><br>We could not detect partitions on this device."
@@ -2835,8 +2832,8 @@ msgstr "Ongeldig xml-bestand"
 #~ msgstr "Installeer alle taalpakketten"
 
 #~ msgid ""
-#~ "Cannot access the partition table of %(description)s(%(name)s) -- %(size)-"
-#~ "0.fMB\n"
+#~ "Cannot access the partition table of %(description)s(%(name)s) -- "
+#~ "%(size)-0.fMB\n"
 #~ "\n"
 #~ "If there already exists a partition table on this device, it will\n"
 #~ " be re-initialized and your existing data will be lost!\n"
@@ -2878,9 +2875,6 @@ msgstr "Ongeldig xml-bestand"
 
 #~ msgid "return value for \"%(command)s\" is %(return)s"
 #~ msgstr "return-waarde voor \"%(command)s\" is %(return)s"
-
-#~ msgid "Form"
-#~ msgstr "Form"
 
 #~ msgid "Form1"
 #~ msgstr "Form1"
@@ -3558,8 +3552,8 @@ msgstr "Ongeldig xml-bestand"
 #~ msgstr "%d MB beschikbaar"
 
 #~ msgid ""
-#~ "Partition <b>%(partition)s (%(size)s)</b> <b>deleted</b> from device <b>%"
-#~ "(device)s</b>."
+#~ "Partition <b>%(partition)s (%(size)s)</b> <b>deleted</b> from device <b>"
+#~ "%(device)s</b>."
 #~ msgstr ""
 #~ "Partitie <b>%(partition)s (%(size)s)</b> <b>verwijderd</b> van station <b>"
 #~ "%(device)s</b>."
@@ -3571,8 +3565,8 @@ msgstr "Ongeldig xml-bestand"
 #~ "Partition <b>%(partition)s</b> will be <b>formatted</b> as <b>%(fsType)s</"
 #~ "b>."
 #~ msgstr ""
-#~ "Partitie <b>%(partition)s</b> <b>zal geformateerd worden</b> als <b>%"
-#~ "(fsType)s</b>."
+#~ "Partitie <b>%(partition)s</b> <b>zal geformateerd worden</b> als <b>"
+#~ "%(fsType)s</b>."
 
 #~ msgid "Partition <b>%(partition)s</b> <b>selected</b> as <b>%(type)s</b>."
 #~ msgstr ""
@@ -4201,18 +4195,18 @@ msgstr "Ongeldig xml-bestand"
 #~ msgstr "Automatisch partitioneren (grootte aanpassen methode) geselecteerd."
 
 #~ msgid ""
-#~ "Partition <b>%(partition)s - %(currentFs)s</b> <b>resized</b> to <b>%"
-#~ "(resizeTo)s MBs</b>, previous size was <b>%(currentSize)s MBs</b>."
+#~ "Partition <b>%(partition)s - %(currentFs)s</b> <b>resized</b> to <b>"
+#~ "%(resizeTo)s MBs</b>, previous size was <b>%(currentSize)s MBs</b>."
 #~ msgstr ""
-#~ "Partitie <b>%(partition)s - %(currentFs)s</b> <b>aangepast</b> naar <b>%"
-#~ "(resizeTo)s MB</b>, oude grootte was <b>%(currentSize)s MB</b>."
+#~ "Partitie <b>%(partition)s - %(currentFs)s</b> <b>aangepast</b> naar <b>"
+#~ "%(resizeTo)s MB</b>, oude grootte was <b>%(currentSize)s MB</b>."
 
 #~ msgid ""
 #~ "Partition <b>%(newPartition)s</b> <b>added</b> to device <b>%(device)s</"
 #~ "b> with <b>%(size)s MBs</b> as <b>%(fs)s</b>."
 #~ msgstr ""
-#~ "Partitie <b>%(newPartition)s</b> <b>toegevoegd</b> aan station <b>%"
-#~ "(device)s</b> met <b>%(size)s MB</b> als <b>%(fs)s</b>."
+#~ "Partitie <b>%(newPartition)s</b> <b>toegevoegd</b> aan station <b>"
+#~ "%(device)s</b> met <b>%(size)s MB</b> als <b>%(fs)s</b>."
 
 #~ msgid ""
 #~ "Partition <b>%(newPartition)s</b> <b>selected</b> as <b>%(type)s</b>."
