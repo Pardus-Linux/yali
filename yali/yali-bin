@@ -163,7 +163,7 @@ def load_options(argv=None):
     parser.add_option("--baseonly", dest="baseonly",
                       action="store_true", default=False,
                       help="install base system packages")
-    parser.add_option("--colllection", dest="collection",
+    parser.add_option("--collection", dest="collection",
                       action="store_true", default=False,
                       help="install collection type package"
                            "installation if collections exist")
