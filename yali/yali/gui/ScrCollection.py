@@ -14,44 +14,40 @@ import platform
 import gettext
 _ = gettext.translation('yali', fallback=True).ugettext
 
-from PyQt4.Qt import QWidget, SIGNAL, QPixmap, Qt, QListWidgetItem, QSize
+from PyQt4.Qt import QWidget, SIGNAL, QPixmap, Qt, QListWidgetItem, QSize, QTimeLine
 
 import yali.pisiiface
 import yali.context as ctx
 from yali.gui import ScreenWidget
-from yali.gui.Ui.collectionselectionwidget import Ui_CollectionSelectionWidget
+from yali.gui.Ui.collectionswidget import Ui_CollectionsWidget
 from yali.gui.Ui.collectionitem import Ui_CollectionItem
 
-class Widget(QWidget, ScreenWidget):
+class Widget(Ui_CollectionsWidget, QWidget, ScreenWidget):
     name = "collectionSelection"
 
     def __init__(self):
         QWidget.__init__(self)
-        self.ui = Ui_CollectionSelectionWidget()
-        self.ui.setupUi(self)
+        self.setupUi(self)
         self.collections = None
-        self.current_choice = None
+        self.current_item = None
+        self.toggled_item = None
+        self.collectionList.currentItemChanged.connect(self.itemChanged)
 
-    def fillCollectionList(self):
-        self.ui.collectionList.clear()
+    def fillCollections(self):
+        self.collectionList.clear()
         self.collections = yali.pisiiface.getCollection()
         selected = None
-        collection_item = None
-        for collection in self.collections:
-            item = QListWidgetItem(self.ui.collectionList)
-            item.setSizeHint(QSize(48, 48))
-            collection_item = CollectionListItem(self, item, collection)
+        for index, collection in enumerate(self.collections):
+            self.addItem(collection)
             if ctx.installData.autoCollection  == collection:
-                self.current_choice = collection_item
-            self.ui.collectionList.setItemWidget(item, collection_item)
+                selected = index
 
-        if not self.current_choice:
-            self.current_choice = self.ui.collectionList.itemWidget(self.ui.collectionList.item(0))
-
-        self.current_choice.setChecked(Qt.Checked)
+        if selected:
+            self.current_item = self.collectionList.item(selected)
+            self.collectionList.setCurrentRow(selected)
 
     def shown(self):
-        self.fillCollectionList()
+        self.fillCollections()
 
         if len(self.collections) == 0:
             ctx.mainScreen.enableBack()
@@ -59,47 +55,66 @@ class Widget(QWidget, ScreenWidget):
             ctx.mainScreen.slotNext()
 
         ctx.mainScreen.disableNext()
-
-        self.update()
+        self.check()
 
     def execute(self):
-        ctx.installData.autoCollection = self.current_choice.collection
-
+        ctx.installData.autoCollection = self.collectionList.itemWidget(self.current_item).collection
         return True
 
-    def update(self):
-        if self.current_choice and self.current_choice.isChecked():
+    def check(self):
+        if self.current_item:
             ctx.mainScreen.enableNext()
         else:
             ctx.mainScreen.disableNext()
 
-class CollectionListItem(QWidget):
-    def __init__(self, parent, item, collection):
+    def itemChanged(self, current, previous):
+        self.current_item = current
+        self.check()
+
+    def addItem(self, collection):
+        item = QListWidgetItem(self.collectionList)
+        item.setSizeHint(QSize(36, 50))
+        self.collectionList.addItem(item)
+        self.collectionList.setItemWidget(item, CollectionItem(self, collection, item))
+
+class CollectionItem(Ui_CollectionItem, QWidget):
+    def __init__(self, parent, collection, item):
         QWidget.__init__(self, parent)
-
-        self.ui = Ui_CollectionItem()
-        self.ui.setupUi(self)
-
-        self.collection = collection
+        self.setupUi(self)
         self.parent = parent
         self.item = item
-        self.ui.labelName.setText(collection.title)
-        self.ui.labelDesc.setText(collection.description)
-        self.ui.labelIcon.setPixmap(QPixmap(collection.icon))
-        self.connect(self.ui.checkBox, SIGNAL("stateChanged(int)"), self.slotSelectCollection)
+        self.collection = collection
+        self.title.setText(collection.title)
+        self.description.setText(collection.description)
+        self.icon.setPixmap(QPixmap(collection.icon))
+        self.collectionContainer.hide()
+        self.detailsButton.clicked.connect(lambda: self.openDetails(item))
+        self.animation = QTimeLine(1000, self)
 
-    def setChecked(self, state):
-        self.ui.checkBox.setCheckState(state)
+    def openDetails(self, item):
+        if not self.animation.state() == QTimeLine.NotRunning:
+            return
 
-    def isChecked(self):
-        return self.ui.checkBox.isChecked()
+        self.detailsButton.setEnabled(False)
 
-    def slotSelectCollection(self, state):
-        if state == Qt.Checked and self.parent.current_choice != self:
-            if self.parent.current_choice:
-                self.parent.current_choice.setChecked(Qt.Unchecked)
-            self.parent.current_choice = self
-        elif state == Qt.Unchecked and self.parent.current_choice == self:
-            self.parent.current_choice = None
+        if self.parent.toggled_item:
+            self.closeDetails(self.parent.toggled_item)
+            if item == self.parent.toggled_item:
+                self.parent.toggled_item = None
+                return
 
-        self.parent.update()
+        #self.animation = QTimeLine(1000, self)
+        self.animation.setFrameRange(36,146)
+        self.animation.frameChanged.connect(lambda x: item.setSizeHint(QSize(32, x)))
+        self.animation.start()
+        self.animation.finished.connect(lambda: self.detailsButton.setEnabled(True))
+        self.collectionContainer.show()
+        self.parent.toggled_item = item
+
+    def closeDetails(self, item):
+        animation = QTimeLine(600, self)
+        animation.setFrameRange(146,50)
+        animation.frameChanged.connect(lambda x: item.setSizeHint(QSize(32, x)))
+        animation.start()
+        animation.finished.connect(lambda: self.parent.collectionList.itemWidget(item).collectionContainer.hide())
+        animation.finished.connect(lambda: self.parent.collectionList.itemWidget(item).detailsButton.setEnabled(True))
