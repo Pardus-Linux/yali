@@ -86,7 +86,10 @@ class CollectionItem(Ui_CollectionItem, QWidget):
         self.collection = collection
         self.title.setText(collection.title)
         self.description.setText(collection.description)
-        self.icon.setPixmap(QPixmap(collection.icon))
+        icon = QPixmap(":/gui/pics/%s" % collection.icon)
+        if icon.isNull():
+            icon = QPixmap(":/gui/pics/systemsettings.png")
+        self.icon.setPixmap(icon)
         self.collectionContainer.hide()
         self.detailsButton.clicked.connect(lambda: self.openDetails(item))
         self.animation = QTimeLine(1000, self)

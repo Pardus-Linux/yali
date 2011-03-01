@@ -29,7 +29,7 @@ class PackageCollection(object):
         self.id = id
         self.title = title
         self.description = description
-        self.icon =  os.path.join(ctx.consts.pisi_collection_dir, icon)
+        self.icon = icon
         self.translations = translations
         self.index =  os.path.join(ctx.consts.source_dir, "repo/%s-index.xml.bz2" % id)
 
