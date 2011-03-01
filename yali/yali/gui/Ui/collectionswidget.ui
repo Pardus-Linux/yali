@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>CollectionSelectionWidget</class>
- <widget class="QWidget" name="CollectionSelectionWidget">
+ <class>CollectionsWidget</class>
+ <widget class="QWidget" name="CollectionsWidget">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1261</width>
-    <height>762</height>
+    <width>624</width>
+    <height>463</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -84,19 +84,15 @@
          <number>10</number>
         </property>
         <item>
-         <widget class="QLabel" name="label">
-          <property name="text">
-           <string>Choose Installation Method</string>
-          </property>
-         </widget>
-        </item>
-        <item>
          <widget class="QListWidget" name="collectionList">
-          <property name="enabled">
-           <bool>true</bool>
+          <property name="iconSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
           </property>
-          <property name="frameShadow">
-           <enum>QFrame::Plain</enum>
+          <property name="uniformItemSizes">
+           <bool>false</bool>
           </property>
          </widget>
         </item>
