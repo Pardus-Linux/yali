@@ -172,8 +172,8 @@ class Widget(QWidget, ScreenWidget):
 
         if ctx.flags.collection:
             content.append(subject % _("Package Installation Settings"))
-            content.append(item % _("Collection ( %s ) selected" %
-                           ctx.installData.autoCollection.title))
+            content.append(item % _("Collection <b>%s</b> selected") %
+                           ctx.installData.autoCollection.title)
 
             content.append(end)
 
