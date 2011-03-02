@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt_BR\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-02 00:16+0200\n"
+"POT-Creation-Date: 2011-03-02 20:57+0200\n"
 "PO-Revision-Date: 2007-02-19 22:25-0300\n"
 "Last-Translator: Pedro Leite <pedro.leite@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <http://liste.uludag.org.tr/mailman/"
@@ -102,14 +102,10 @@ msgstr "Checado com sucesso"
 msgid "Validate"
 msgstr "Validado"
 
-#: yali/gui/Ui/collectionitem.py:98
+#: yali/gui/Ui/collectionitem.py:84
 #, fuzzy
 msgid "Form"
 msgstr "Form"
-
-#: yali/gui/Ui/collectionitem.py:99
-msgid "Details"
-msgstr ""
 
 #: yali/gui/Ui/connectionlist.py:75
 msgid ""
@@ -1492,7 +1488,7 @@ msgstr "Partições:"
 
 #: yali/gui/ScrSummary.py:175
 #, fuzzy, python-format
-msgid "Collection ( %s ) selected"
+msgid "Collection <b>%s</b> selected"
 msgstr "Criar Partição"
 
 #: yali/gui/ScrSummary.py:195

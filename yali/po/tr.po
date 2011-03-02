@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: YALI-tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-02 00:16+0200\n"
+"POT-Creation-Date: 2011-03-02 20:57+0200\n"
 "PO-Revision-Date: 2011-02-16 10:29+0200\n"
 "Last-Translator: Koray Löker <loker@pardus.org.tr>\n"
 "Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
@@ -110,13 +110,9 @@ msgstr "Doğrulama başarılı"
 msgid "Validate"
 msgstr "Doğrula"
 
-#: yali/gui/Ui/collectionitem.py:98
+#: yali/gui/Ui/collectionitem.py:84
 msgid "Form"
 msgstr "Form"
-
-#: yali/gui/Ui/collectionitem.py:99
-msgid "Details"
-msgstr ""
 
 #: yali/gui/Ui/connectionlist.py:75
 msgid ""
@@ -1536,8 +1532,8 @@ msgstr "Paket Kurulum Ayarları"
 
 #: yali/gui/ScrSummary.py:175
 #, python-format
-msgid "Collection ( %s ) selected"
-msgstr "Koleksiyon ( %s ) seçildi"
+msgid "Collection <b>%s</b> selected"
+msgstr "Seçilen koleksiyon <b>%s</b>"
 
 #: yali/gui/ScrSummary.py:195
 msgid "Confirm"

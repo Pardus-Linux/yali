@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-02 00:16+0200\n"
+"POT-Creation-Date: 2011-03-02 20:57+0200\n"
 "PO-Revision-Date: 2011-01-19 01:37+0300\n"
 "Last-Translator: Alexey Ivanov <alexey.ivanes@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -102,13 +102,9 @@ msgstr "Проверка завершилась успешно"
 msgid "Validate"
 msgstr "Проверка"
 
-#: yali/gui/Ui/collectionitem.py:98
+#: yali/gui/Ui/collectionitem.py:84
 msgid "Form"
 msgstr "Форма"
-
-#: yali/gui/Ui/collectionitem.py:99
-msgid "Details"
-msgstr ""
 
 #: yali/gui/Ui/connectionlist.py:75
 msgid ""
@@ -1543,7 +1539,7 @@ msgstr "Настройка установки пакетов"
 
 #: yali/gui/ScrSummary.py:175
 #, fuzzy, python-format
-msgid "Collection ( %s ) selected"
+msgid "Collection <b>%s</b> selected"
 msgstr "Выбрана установка вручную ( %s )"
 
 #: yali/gui/ScrSummary.py:195

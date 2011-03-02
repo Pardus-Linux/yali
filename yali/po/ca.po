@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yali\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-02 00:16+0200\n"
+"POT-Creation-Date: 2011-03-02 20:57+0200\n"
 "PO-Revision-Date: 2007-03-18 14:13+0100\n"
 "Last-Translator: Pau Amaro-Seoane <pau@aei.mpg.de>\n"
 "Language-Team: Catala <pardus-translation-ca@ns1.uludag.org.tr>\n"
@@ -109,14 +109,10 @@ msgstr "La comprovació ha fallat"
 msgid "Validate"
 msgstr ""
 
-#: yali/gui/Ui/collectionitem.py:98
+#: yali/gui/Ui/collectionitem.py:84
 #, fuzzy
 msgid "Form"
 msgstr "Format?"
-
-#: yali/gui/Ui/collectionitem.py:99
-msgid "Details"
-msgstr ""
 
 #: yali/gui/Ui/connectionlist.py:75
 msgid ""
@@ -1546,7 +1542,7 @@ msgstr "Particions:"
 
 #: yali/gui/ScrSummary.py:175
 #, fuzzy, python-format
-msgid "Collection ( %s ) selected"
+msgid "Collection <b>%s</b> selected"
 msgstr "Crea una partició"
 
 #: yali/gui/ScrSummary.py:195

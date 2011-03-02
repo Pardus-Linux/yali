@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-02 00:16+0200\n"
+"POT-Creation-Date: 2011-03-02 20:57+0200\n"
 "PO-Revision-Date: 2011-01-18 21:19+0200\n"
 "Last-Translator: Philippe Svetoslavsky <philsvet@gmail.com>\n"
 "Language-Team: French <kde-i18n-doc@kde.org>\n"
@@ -107,13 +107,9 @@ msgstr "Validation réussie"
 msgid "Validate"
 msgstr "Valider"
 
-#: yali/gui/Ui/collectionitem.py:98
+#: yali/gui/Ui/collectionitem.py:84
 msgid "Form"
 msgstr "Form"
-
-#: yali/gui/Ui/collectionitem.py:99
-msgid "Details"
-msgstr ""
 
 #: yali/gui/Ui/connectionlist.py:75
 msgid ""
@@ -1542,7 +1538,7 @@ msgstr "Paramètres d'installation des paquets"
 
 #: yali/gui/ScrSummary.py:175
 #, fuzzy, python-format
-msgid "Collection ( %s ) selected"
+msgid "Collection <b>%s</b> selected"
 msgstr "Installation manuelle ( %s ) sélectionnée"
 
 #: yali/gui/ScrSummary.py:195

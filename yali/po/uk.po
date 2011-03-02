@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: uk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-02 00:16+0200\n"
+"POT-Creation-Date: 2011-03-02 20:57+0200\n"
 "PO-Revision-Date: 2011-02-05 22:00+0300\n"
 "Last-Translator: Korostil Daniel <ted.korostiled@gmail.com>\n"
 "Language-Team: translation@linux.org.ua\n"
@@ -101,14 +101,10 @@ msgstr "Успішне перевіряння"
 msgid "Validate"
 msgstr "Перевіряння"
 
-#: yali/gui/Ui/collectionitem.py:98
+#: yali/gui/Ui/collectionitem.py:84
 #, fuzzy
 msgid "Form"
 msgstr "Формат"
-
-#: yali/gui/Ui/collectionitem.py:99
-msgid "Details"
-msgstr ""
 
 #: yali/gui/Ui/connectionlist.py:75
 msgid ""
@@ -1518,7 +1514,7 @@ msgstr "Налаштування встановлення пакунка."
 
 #: yali/gui/ScrSummary.py:175
 #, fuzzy, python-format
-msgid "Collection ( %s ) selected"
+msgid "Collection <b>%s</b> selected"
 msgstr "Вибрано ручне встановлення ( %s ) "
 
 #: yali/gui/ScrSummary.py:195
