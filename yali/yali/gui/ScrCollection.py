@@ -48,15 +48,20 @@ class Widget(Ui_CollectionsWidget, QWidget, ScreenWidget):
             if ctx.installData.autoCollection  == collection:
                 selected = index
 
-        if selected:
-            self.current_item = self.collectionList.item(selected)
-            self.collectionList.setCurrentRow(selected)
+        if not selected:
+            selected = 0
+
+        self.current_item = self.collectionList.item(selected)
+        self.collectionList.setCurrentRow(selected)
 
     def shown(self):
         if len(self.collections) == 0:
             ctx.mainScreen.enableBack()
+            return
         elif len(self.collections) == 1:
+            ctx.logger.debug("There is only one collection so skip screen.")
             ctx.mainScreen.slotNext()
+            return
 
         ctx.mainScreen.disableNext()
         if self.current_item:
