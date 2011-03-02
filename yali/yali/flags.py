@@ -30,9 +30,9 @@ class Flags:
                                          os.path.exists("/var/run/pardus/livemedia")
         if options.has_key("system"):
             self.__dict__['flags']['install_type'] = 1
-        elif options.has_key("oem") :
-            self.__dict__['flags']['install_type'] = 2
         elif options.has_key("firstboot"):
+            self.__dict__['flags']['install_type'] = 2
+        elif options.has_key("oem") :
             self.__dict__['flags']['install_type'] = 3
         elif options.has_key("rescue") :
             self.__dict__['flags']['install_type'] = 4
@@ -51,8 +51,8 @@ class Flags:
         if options.has_key("nolvm"):
             self.__dict__['flags']['partitioning_lvm'] = False
 
-        if options.has_key("collection"):
-            self.__dict__['flags']['collection'] = True
+        if options.has_key("nocollection"):
+            self.__dict__['flags']['collection'] = False
 
         for key in [_key for _key in options.keys() \
                     if _key not in ("live", "system", "firstboot", "oem", "firstboot", "rescue", "theme")]:
@@ -63,7 +63,7 @@ class Flags:
         self.__dict__['flags']['debug'] = False
         self.__dict__['flags']['install_type'] = 0
         self.__dict__['flags']['partitioning_lvm'] = True
-        self.__dict__['flags']['collection'] = False
+        self.__dict__['flags']['collection'] = True
         self.__dict__['flags']['baseonly'] = False
         self.__dict__['flags']['kahya'] = False
         self.__dict__['flags']['kahyaFile'] = ""
