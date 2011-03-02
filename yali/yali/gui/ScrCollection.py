@@ -14,7 +14,7 @@ import platform
 import gettext
 _ = gettext.translation('yali', fallback=True).ugettext
 
-from PyQt4.Qt import QWidget, SIGNAL, QPixmap, Qt, QListWidgetItem, QSize, QTimeLine
+from PyQt4.Qt import QWidget, SIGNAL, QPixmap, Qt, QListWidgetItem, QSize, QTimeLine, QTimer
 
 import yali.pisiiface
 import yali.context as ctx
@@ -61,6 +61,8 @@ class Widget(Ui_CollectionsWidget, QWidget, ScreenWidget):
         ctx.mainScreen.disableNext()
         if self.current_item:
             self.openItem(self.current_item)
+        else:
+            self.openItem(self.collectionList.item(0))
         self.check()
 
     def execute(self):
@@ -79,7 +81,7 @@ class Widget(Ui_CollectionsWidget, QWidget, ScreenWidget):
 
     def addItem(self, collection):
         item = QListWidgetItem(self.collectionList)
-        item.setSizeHint(QSize(36, 50))
+        item.setSizeHint(QSize(36, CLOSED_SIZE))
         self.collectionList.addItem(item)
         self.collectionList.setItemWidget(item, CollectionItem(self, collection, item))
 

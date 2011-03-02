@@ -31,13 +31,13 @@
      <property name="minimumSize">
       <size>
        <width>600</width>
-       <height>400</height>
+       <height>270</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
        <width>16777215</width>
-       <height>400</height>
+       <height>270</height>
       </size>
      </property>
      <property name="styleSheet">
@@ -85,11 +85,38 @@
         </property>
         <item>
          <widget class="QListWidget" name="collectionList">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>500</width>
+            <height>230</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>500</width>
+            <height>230</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">#collectionList{background-color: rgba(0,0,0,0);}</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
           <property name="iconSize">
            <size>
             <width>0</width>
             <height>0</height>
            </size>
+          </property>
+          <property name="spacing">
+           <number>2</number>
           </property>
           <property name="uniformItemSizes">
            <bool>false</bool>
