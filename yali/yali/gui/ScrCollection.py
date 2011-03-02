@@ -22,6 +22,10 @@ from yali.gui import ScreenWidget
 from yali.gui.Ui.collectionswidget import Ui_CollectionsWidget
 from yali.gui.Ui.collectionitem import Ui_CollectionItem
 
+CLOSED_SIZE = 36
+ANIMATE_TIME = 400
+EXPANDED_SIZE = 146
+
 class Widget(Ui_CollectionsWidget, QWidget, ScreenWidget):
     name = "collectionSelection"
 
@@ -30,8 +34,10 @@ class Widget(Ui_CollectionsWidget, QWidget, ScreenWidget):
         self.setupUi(self)
         self.collections = None
         self.current_item = None
-        self.toggled_item = None
+        self.last_item = None
+        self.collectionList.itemClicked.connect(self.openItem)
         self.collectionList.currentItemChanged.connect(self.itemChanged)
+        self.fillCollections()
 
     def fillCollections(self):
         self.collectionList.clear()
@@ -47,14 +53,14 @@ class Widget(Ui_CollectionsWidget, QWidget, ScreenWidget):
             self.collectionList.setCurrentRow(selected)
 
     def shown(self):
-        self.fillCollections()
-
         if len(self.collections) == 0:
             ctx.mainScreen.enableBack()
         elif len(self.collections) == 1:
             ctx.mainScreen.slotNext()
 
         ctx.mainScreen.disableNext()
+        if self.current_item:
+            self.openItem(self.current_item)
         self.check()
 
     def execute(self):
@@ -77,6 +83,26 @@ class Widget(Ui_CollectionsWidget, QWidget, ScreenWidget):
         self.collectionList.addItem(item)
         self.collectionList.setItemWidget(item, CollectionItem(self, collection, item))
 
+    def openItem(self, item):
+        if item == self.last_item:
+            return
+
+        if self.last_item:
+            self.closeItem(self.last_item)
+
+        self.animation = QTimeLine(ANIMATE_TIME, self)
+        self.animation.setFrameRange(36, EXPANDED_SIZE)
+        self.animation.frameChanged.connect(lambda x: item.setSizeHint(QSize(32, x)))
+        self.animation.start()
+        self.last_item = item
+        self.animation.finished.connect(lambda: self.collectionList.setCurrentItem(item))
+
+    def closeItem(self, item):
+        animation = QTimeLine(ANIMATE_TIME, self)
+        animation.setFrameRange(146, CLOSED_SIZE)
+        animation.frameChanged.connect(lambda x: item.setSizeHint(QSize(32, x)))
+        animation.start()
+
 class CollectionItem(Ui_CollectionItem, QWidget):
     def __init__(self, parent, collection, item):
         QWidget.__init__(self, parent)
@@ -84,40 +110,9 @@ class CollectionItem(Ui_CollectionItem, QWidget):
         self.parent = parent
         self.item = item
         self.collection = collection
-        self.title.setText(collection.title)
+        self.header.setText(collection.title)
         self.description.setText(collection.description)
         icon = QPixmap(":/gui/pics/%s" % collection.icon)
         if icon.isNull():
             icon = QPixmap(":/gui/pics/systemsettings.png")
         self.icon.setPixmap(icon)
-        self.collectionContainer.hide()
-        self.detailsButton.clicked.connect(lambda: self.openDetails(item))
-        self.animation = QTimeLine(1000, self)
-
-    def openDetails(self, item):
-        if not self.animation.state() == QTimeLine.NotRunning:
-            return
-
-        self.detailsButton.setEnabled(False)
-
-        if self.parent.toggled_item:
-            self.closeDetails(self.parent.toggled_item)
-            if item == self.parent.toggled_item:
-                self.parent.toggled_item = None
-                return
-
-        #self.animation = QTimeLine(1000, self)
-        self.animation.setFrameRange(36,146)
-        self.animation.frameChanged.connect(lambda x: item.setSizeHint(QSize(32, x)))
-        self.animation.start()
-        self.animation.finished.connect(lambda: self.detailsButton.setEnabled(True))
-        self.collectionContainer.show()
-        self.parent.toggled_item = item
-
-    def closeDetails(self, item):
-        animation = QTimeLine(600, self)
-        animation.setFrameRange(146,50)
-        animation.frameChanged.connect(lambda x: item.setSizeHint(QSize(32, x)))
-        animation.start()
-        animation.finished.connect(lambda: self.parent.collectionList.itemWidget(item).collectionContainer.hide())
-        animation.finished.connect(lambda: self.parent.collectionList.itemWidget(item).detailsButton.setEnabled(True))
