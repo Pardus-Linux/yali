@@ -32,16 +32,19 @@ class Widget(Ui_CollectionsWidget, QWidget, ScreenWidget):
     def __init__(self):
         QWidget.__init__(self)
         self.setupUi(self)
-        self.collections = None
-        self.current_item = None
-        self.last_item = None
-        self.collectionList.itemClicked.connect(self.openItem)
-        self.collectionList.currentItemChanged.connect(self.itemChanged)
-        self.fillCollections()
+        self.collections = yali.pisiiface.getCollection()
+        if len(self.collections) == 0:
+            ctx.flags.collection = False
+            ctx.logger.debug("There is no collection so disable collection support.")
+        else:
+            self.fillCollections()
+            self.current_item = None
+            self.last_item = None
+            self.collectionList.itemClicked.connect(self.openItem)
+            self.collectionList.currentItemChanged.connect(self.itemChanged)
 
     def fillCollections(self):
         self.collectionList.clear()
-        self.collections = yali.pisiiface.getCollection()
         selected = None
         for index, collection in enumerate(self.collections):
             self.addItem(collection)
@@ -55,10 +58,7 @@ class Widget(Ui_CollectionsWidget, QWidget, ScreenWidget):
         self.collectionList.setCurrentRow(selected)
 
     def shown(self):
-        if len(self.collections) == 0:
-            ctx.mainScreen.enableBack()
-            return
-        elif len(self.collections) == 1:
+        if len(self.collections) == 1:
             ctx.logger.debug("There is only one collection so skip screen.")
             ctx.mainScreen.slotNext()
             return
