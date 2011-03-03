@@ -19,7 +19,7 @@ class RaidMemberError(yali.Error):
 class RaidMember(Format):
     """ An raid member disk. """
     _type = "mdmember"
-    _name = _("software RAID")
+    _name = "software RAID"
     _udevTypes = ["linux_raid_member"]
     partedFlag = PARTITION_RAID
     _formattable = True                 # can be formatted

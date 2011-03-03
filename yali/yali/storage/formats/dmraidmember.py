@@ -17,7 +17,7 @@ class DMRaidMemberError(yali.Error):
 class DMRaidMember(Format):
     """ A dmraid member disk. """
     _type = "dmraidmember"
-    _name = _("dm-raid member device")
+    _name = "dm-raid member device"
     # XXX This looks like trouble.
     #
     #     Maybe a better approach is a RaidMember format with subclass
