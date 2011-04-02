@@ -54,11 +54,11 @@ msgstr "Réduire la taille du système actuel"
 
 #: yali/gui/Ui/autopartwidget.py:142 yali/gui/ScrSummary.py:149
 msgid "Use Free Space"
-msgstr "Utilser Espace Disponible"
+msgstr "Utiliser l'espace disponible"
 
 #: yali/gui/Ui/autopartwidget.py:143
 msgid "Create Custom Layout"
-msgstr "Créer Layout Personnalisé"
+msgstr "Partitionnement manuel"
 
 #: yali/gui/Ui/bootloaderwidget.py:128
 msgid "Advanced settings"
