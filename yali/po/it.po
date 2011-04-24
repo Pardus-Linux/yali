@@ -1932,9 +1932,8 @@ msgid "Confirm Reset"
 msgstr "Conferma Cancella"
 
 #: yali/storage/storageBackendHelpers.py:301
-#, fuzzy
 msgid "Are you sure you want to reset the partition table to its original state?"
-msgstr "È sicuro di voler riavviare il sistema di installazione YALI ora?"
+msgstr "Sei sicuro di voler ripristinare la tabella delle partizioni al suo stato originale?"
 
 #: yali/storage/storageBackendHelpers.py:309
 msgid ""
@@ -1948,7 +1947,6 @@ msgid ""
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:317
-#, fuzzy
 msgid "Format?"
 msgstr "Formattare?"
 
@@ -1967,9 +1965,8 @@ msgstr ""
 #: yali/storage/storageBackendHelpers.py:330
 #: yali/storage/storageBackendHelpers.py:355
 #: yali/storage/storageBackendHelpers.py:375
-#, fuzzy
 msgid "Storage Device Warning"
-msgstr "Avvisi di Format"
+msgstr "Avvertenza Periferica di archiviazione "
 
 #: yali/storage/storageBackendHelpers.py:331
 #, python-format
@@ -1977,14 +1974,12 @@ msgid "The following storage device may contain recoverable data:<br><br>%(descr
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:342
-#, fuzzy
 msgid "Reset device"
-msgstr "Errore di Ridimensionamento del Dispositivo"
+msgstr "Reset del dispositivo"
 
 #: yali/storage/storageBackendHelpers.py:342
-#, fuzzy
 msgid "Ignore device"
-msgstr "Ignora"
+msgstr "Ignora il dispositivo"
 
 #: yali/storage/storageBackendHelpers.py:356
 #, python-format
@@ -1992,7 +1987,6 @@ msgid "There is inconsistent LVM data on %(msg)s. You can reinitialize all relat
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:363
-#, fuzzy
 msgid "Yes, re-initialize"
 msgstr "Re-inizializzare"
 
