@@ -103,6 +103,7 @@ class Runner:
 
     def _get_screens(self, install_type):
         screens = []
+        ctx.logger.info("Install type is %s" % ctx.STEP_TYPE_STRINGS[install_type])
         for name in yali.gui.GUI_STEPS[install_type]:
             screenClass = None
             moduleName = ""

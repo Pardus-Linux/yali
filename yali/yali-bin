@@ -146,7 +146,6 @@ def init_gui_interface():
 def init_gui_runner():
     from yali.gui.runner import Runner
     gui_runner = Runner()
-    ctx.logger.debug("Install type is %s" % ctx.STEP_TYPE_STRINGS[ctx.flags.install_type])
     gui_runner.run()
 
 def load_options(argv=None):
