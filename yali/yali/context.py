@@ -25,7 +25,7 @@ STEP_TYPE_STRINGS = {STEP_DEFAULT:"Default",
                      STEP_FIRST_BOOT:"First Boot mode",
                      STEP_RESCUE:"System Rescue mode"}
 
-RESCUE_GRUB, RESCUE_PISI, RESCUE_PASSWORD = xrange(3)
+RESCUE_GRUB, RESCUE_PASSWORD, RESCUE_PISI = xrange(3)
 
 # Auto Installation Methods
 methodInstallAutomatic, methodInstallManual = range(2)
@@ -56,8 +56,6 @@ storageInitialized = False
 blacklistedKernelModules = []
 
 packagesToInstall = []
-
-postInstallOperations = []
 
 socket = None
 
