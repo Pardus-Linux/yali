@@ -37,9 +37,9 @@ class Widget(Ui_CollectionsWidget, QWidget, ScreenWidget):
             ctx.flags.collection = False
             ctx.logger.debug("There is no collection so disable collection support.")
         else:
-            self.fillCollections()
             self.current_item = None
             self.last_item = None
+            self.fillCollections()
             self.collectionList.itemClicked.connect(self.openItem)
             self.collectionList.currentItemChanged.connect(self.itemChanged)
 
