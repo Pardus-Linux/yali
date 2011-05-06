@@ -53,7 +53,7 @@ def get_configs(rootpath):
     else:
         return (release, kernel, initramfs)
 
-def get_commands(storage):
+def get_commands(rootDevice, swapDevice=None):
     def is_required(parameter):
         for p in allParameters:
             if parameter.startswith("%s=" % p):
@@ -61,10 +61,10 @@ def get_commands(storage):
         return True
 
     _commands = []
-    _commands.append("root=%s" % (storage.rootDevice.fstabSpec))
+    _commands.append("root=%s" % (rootDevice.fstabSpec))
 
-    if storage.storageset.swapDevices:
-        _commands.append("resume=%s" % storage.storageset.swapDevices[0].path)
+    if swapDevice:
+        _commands.append("resume=%s" % swapDevice.path)
 
     for parameter in [x for x in open("/proc/cmdline", "r").read().split()]:
         if is_required(parameter):
@@ -130,23 +130,17 @@ class BootLoader(object):
     _deviceMap = "device.map"
     def __init__(self, storage=None):
         self.storage = storage
-        self._path = None
-        self._device = None
+        self.path = "/boot/"
+        self._stage1Device = None
+        self._stage2Device = None
+        self._rootDevice = None
+        self._swapDevice = None
         self._type = BOOT_TYPE_NONE
         self.grubConf = None
         self.removableExists = False
 
-    def _setPath(self, path):
-        self._path = path
-
-    def _getPath(self):
-        return self._path
-
-    path = property(lambda f: f._getPath(),
-                    lambda f,d: f._setPath(d))
-
-    def _setDevice(self, device):
-        self._device = device
+    def _setStage1Device(self, device):
+        self._stage1Device = device
 
         if device:
             partition = yali.util.get_disk_partition(self.storage.devicetree.getDeviceByName(device))[1]
@@ -155,11 +149,46 @@ class BootLoader(object):
             else:
                 self._type = BOOT_TYPE_PARTITION
 
-    def _getDevice(self):
-        return self._device
+    def _getStage1Device(self):
+        return self._stage1Device
 
-    device = property(lambda f: f._getDevice(),
-                      lambda f,d: f._setDevice(d))
+    stage1Device = property(lambda f: f._getStage1Device(),
+                            lambda f,d: f._setStage1Device(d))
+
+    def _setStage2Device(self, device):
+        self._stage2Device = device
+
+    def _getStage2Device(self):
+        if not self._stage2Device:
+            self._stage2Device = self.storage.storageset.bootDevice
+
+        return self._stage2Device
+
+    stage2Device = property(lambda f: f._getStage2Device(),
+                            lambda f,d: f._setStage2Device(d))
+
+    def _setRootDevice(self, device):
+        self._rootDevice = device
+
+    def _getRootDevice(self):
+        if not self._rootDevice:
+            self._rootDevice = self.storage.rootDevice
+
+        return self._rootDevice
+
+    rootDevice = property(lambda f: f._getRootDevice(),
+                          lambda f,d: f._setRootDevice(d))
+    def _setSwapDevice(self, device):
+        self._swapDevice = device
+
+    def _getSwapDevice(self):
+        if not self._swapDevice:
+            self._swapDevice = self.storage.swaps[0]
+
+        return self._swapDevice
+
+    swapDevice = property(lambda f: f._getSwapDevice(),
+                          lambda f,d: f._setSwapDevice(d))
 
     def _setBootType(self, type):
         self._type = type
@@ -173,16 +202,15 @@ class BootLoader(object):
     @property
     def choices(self):
         _choices = {}
-        bootDevice = self.storage.storageset.bootDevice
 
-        if not bootDevice:
+        if not self.stage2Device:
             return _choices
 
-        if bootDevice.type == "mdarray":
-            _choices[BOOT_TYPE_RAID] = (bootDevice.name, _("%s" % boot_type_strings[BOOT_TYPE_RAID]))
+        if self.stage2Device.type == "mdarray":
+            _choices[BOOT_TYPE_RAID] = (self.stage2Device.name, _("%s" % boot_type_strings[BOOT_TYPE_RAID]))
             _choices[BOOT_TYPE_MBR] = (self.drives[0], _("%s" % boot_type_strings[BOOT_TYPE_MBR]))
         else:
-            _choices[BOOT_TYPE_PARTITION] = (bootDevice.name, _("%s" % boot_type_strings[BOOT_TYPE_PARTITION]))
+            _choices[BOOT_TYPE_PARTITION] = (self.stage2Device.name, _("%s" % boot_type_strings[BOOT_TYPE_PARTITION]))
             _choices[BOOT_TYPE_MBR] = (self.drives[0], _("%s" % boot_type_strings[BOOT_TYPE_MBR]))
 
         return _choices
@@ -195,34 +223,29 @@ class BootLoader(object):
         drives.sort(cmp=self.storage.compareDisks)
         return drives
 
-    def setup(self):
-        bootDevice = self.storage.storageset.bootDevice
-        if bootDevice.format.mountpoint == "/boot":
-            self.path = "/"
-        else:
-            self.path = "/boot/"
-
     def write(self):
         self.writeGrubConf()
 
         usedDevices = set()
-        usedDevices.update(get_physical_devices(self.storage, self.storage.devicetree.getDeviceByName(self.device)))
-        usedDevices.update(get_physical_devices(self.storage, self.storage.storageset.bootDevice))
+        usedDevices.update(get_physical_devices(self.storage, self.storage.devicetree.getDeviceByName(self.stage1Device)))
+        usedDevices.update(get_physical_devices(self.storage, self.stage2Device))
 
         self.writeDeviceMap(usedDevices)
 
     def writeGrubConf(self):
-        bootDevices = get_physical_devices(self.storage, self.storage.storageset.bootDevice)
+        bootDevices = get_physical_devices(self.storage, self.stage2Device)
+        rootDevice = self.rootDevice
+        swapDevice = self.swapDevice
         (release, kernel, initramfs ) = get_configs(ctx.consts.target_dir)
         s = grub_conf % {"uuid": bootDevices[0].fstabSpec.split("=")[1].lower(),
                          "bootpath" : self.path,
                          "release": release,
                          "kernel": kernel,
-                         "commands": get_commands(self.storage),
+                         "commands": get_commands(rootDevice, swapDevice),
                          "initramfs": initramfs}
         ctx.logger.debug("uuid:%s -  bootpath:%s - release:%s - kernel:%s -commands:%s - initramfs:%s" %
                         (bootDevices[0].fstabSpec.split("=")[1].lower(), self.path, release, kernel,
-                         get_commands(self.storage), initramfs))
+                         get_commands(rootDevice, swapDevice), initramfs))
         ctx.logger.debug("conf:%s" % os.path.join(ctx.consts.target_dir, self._conf))
         with open(os.path.join(ctx.consts.target_dir, self._conf), "w") as grubConfFile:
             grubConfFile.write(s)
@@ -250,7 +273,7 @@ class BootLoader(object):
                         self.appendDOSSystems(partition.path, "ntfs")
 
                 elif partition.format.type in ('ext4', 'ext3', 'reisersfs', 'xfs'):
-                    bootDevice = get_physical_devices(self.storage, self.storage.storageset.bootDevice)[0]
+                    bootDevice = get_physical_devices(self.storage, self.stage2Device)[0]
                     if partition.path != bootDevice.path:
                         self.appendLinuxSystems(partition.path, partition.format.type)
 
@@ -272,7 +295,7 @@ class BootLoader(object):
             if is_exist("boot.ini") or is_exist("command.com") or is_exist("bootmgr"):
                 with open(os.path.join(ctx.consts.target_dir, self._conf), "a") as grubConfFile:
                     windowsBoot = yali.util.grub_partition_name(self.storage, self.storage.devicetree.getDeviceByPath(device))
-                    bootDevice = get_physical_devices(self.storage, self.storage.storageset.bootDevice)[0]
+                    bootDevice = get_physical_devices(self.storage, self.stage2Device)[0]
                     ctx.logger.debug("Windows boot on %s" % windowsBoot)
 
                     if bootDevice.name == self.storage.devicetree.getDeviceByPath(device).parents[0]:
@@ -315,8 +338,8 @@ class BootLoader(object):
         yali.util.cp(os.path.join(ctx.consts.target_dir, "boot/grub", self._deviceMap), "/tmp/device.map")
 
     def writeGrubInstallConf(self, path, removableExists=False):
-        stage1Devices = get_physical_devices(self.storage, self.storage.devicetree.getDeviceByName(self.device))
-        bootDevices = get_physical_devices(self.storage, self.storage.storageset.bootDevice)
+        stage1Devices = get_physical_devices(self.storage, self.storage.devicetree.getDeviceByName(self.stage1Device))
+        bootDevices = get_physical_devices(self.storage, self.stage2Device)
 
         stage1Path = yali.util.grub_partition_name(self.storage, stage1Devices[0], exists=removableExists)
         bootPartitionPath = yali.util.grub_partition_name(self.storage, bootDevices[0], exists=removableExists)
