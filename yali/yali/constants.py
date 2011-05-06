@@ -52,7 +52,7 @@ class Constants:
     __c = _constant()
 
     def __init__(self):
-        self.__c.root_password = "pardus"
+        self.__c.default_password = "pardus"
         self.__c.min_root_size = 3500
         self.__c.root_dir = "/"
         self.__c.conf_dir = "etc/yali"
@@ -70,6 +70,7 @@ class Constants:
         self.__c.log_file = "yali.log"
         self.__c.target_dir = "/mnt/target"
         self.__c.session_file = os.path.join(self.__c.target_dir, "root/session.xml")
+        self.__c.dbus_socket = "var/run/dbus/system_bus_socket"
         self.__c.source_dir = os.path.join(self.__c.root_dir, "mnt/cdrom")
         self.__c.tmp_mnt_dir = os.path.join(self.__c.root_dir,"tmp/check")
         self.__c.repo_uri = os.path.join(self.__c.source_dir, "repo/pisi-index.xml.bz2")
