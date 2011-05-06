@@ -216,7 +216,7 @@ class Widget(QWidget, ScreenWidget):
         self.ui.slideText.setText(description)
 
     def packageInstallFinished(self):
-        yali.postinstall.fillFstab()
+        yali.postinstall.writeFstab()
 
         # Configure Pending...
         # run baselayout's postinstall first
