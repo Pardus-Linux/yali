@@ -15,7 +15,6 @@ _ = gettext.translation('yali', fallback=True).ugettext
 from PyQt4.Qt import QWidget, SIGNAL
 
 import yali.context as ctx
-import yali.postinstall
 from yali.gui import ScreenWidget
 from yali.gui.Ui.bootloaderwidget import Ui_BootLoaderWidget
 from yali.storage.bootloader import BOOT_TYPE_NONE, BOOT_TYPE_PARTITION, BOOT_TYPE_MBR, BOOT_TYPE_RAID
@@ -58,10 +57,12 @@ class Widget(QWidget, ScreenWidget):
         if ctx.storage.doAutoPart:
             ctx.mainScreen.step_increment = 2
             ctx.storage.reset()
+
         return True
 
     def execute(self):
-        self.bootloader.device = self.device
+        self.bootloader.stage1Device = self.device
+
         if self.ui.noInstall.isChecked():
             self.bootloader.bootType = BOOT_TYPE_NONE
         elif self.ui.installPartition.isChecked():
@@ -69,8 +70,11 @@ class Widget(QWidget, ScreenWidget):
         elif self.ui.installMBR.isChecked():
             self.bootloader.bootType = BOOT_TYPE_MBR
 
-        if not ctx.flags.collection:
+        if ctx.flags.install_type == ctx.STEP_RESCUE:
             ctx.mainScreen.step_increment = 2
+        else:
+            if not ctx.flags.collection:
+                ctx.mainScreen.step_increment = 2
 
         return True
 
