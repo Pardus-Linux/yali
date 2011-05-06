@@ -9,20 +9,21 @@ import yali
 import yali.util
 import yali.context as ctx
 from yali.baseudev import udev_trigger
+
+class StorageError(yali.Error):
+    pass
+
 from yali.storage.library import lvm
-from yali.storage.operations import OperationCreateDevice, OperationCreateFormat, OperationDestroyFormat, OperationDestroyDevice, OperationDestroyFormat, OperationCreateFormat
 from yali.storage.devices.device import Device, DeviceError
 from yali.storage.devices.partition import Partition
 from yali.storage.devices.volumegroup import VolumeGroup
 from yali.storage.devices.logicalvolume import LogicalVolume
 from yali.storage.devices.raidarray import RaidArray
-from yali.storage.formats import getFormat, get_default_filesystem_type
+from yali.storage.formats import FormatError, getFormat, get_default_filesystem_type
 from yali.storage.devicetree import DeviceTree, DeviceTreeError
 from yali.storage.storageset import StorageSet
-from yali.storage.formats.filesystem import FilesystemResizeError, FilesystemMigrateError
+from yali.storage.operations import OperationCreateDevice, OperationCreateFormat, OperationDestroyFormat, OperationDestroyDevice, OperationDestroyFormat, OperationCreateFormat
 
-class StorageError(yali.Error):
-    pass
 
 def initialize(storage, intf):
     storage.shutdown()
@@ -52,18 +53,17 @@ def complete(storage, intf):
     details = None
     try:
         storage.doIt()
-    except FilesystemResizeError as (msg, device):
-        title = _("Resizing Failed")
-        message = _("There was an error encountered while "
-                    "resizing the device %s.") % (device,)
-        details = "%s" % (msg,)
-        returncode = False
-
-    except FilesystemMigrateError as (msg, device):
-        title = _("Migration Failed")
-        message = _("An error was encountered while "
-                    "migrating filesystem on device %s.") % (device,)
+    except DeviceError as (msg, device):
+        title = _("Storage Device Error")
+        message = _("Ther was an error was encountered while "
+                    "partitioning on device %s.") % (device,)
         details = msg
+        returncode = False
+    except FormatError as (msg, device):
+        title = _("Storage Format Error")
+        message = _("There was an error encountered while "
+                    "formatting on device %s.") % (device,)
+        details = "%s" % (msg,)
         returncode = False
     else:
         ctx.logger.debug("Partitioning finished")
@@ -71,15 +71,12 @@ def complete(storage, intf):
     finally:
         if title:
             rc = intf.detailedMessageWindow(title, message, details,
-                                            type = "custom",
-                                            customButtons = [_("File Bug"), _("Exit installer")])
-
+                                            type = "custom", customIcon="error",
+                                            customButtons = [_("Exit installer"), _("Ignore")])
             if not rc:
-                raise StorageError(_("Failed in storage.complete with error:%s") % message)
-            elif rc:
                 sys.exit(1)
 
-        return returncode
+    return returncode
 
 class Storage(object):
     def __init__(self, ignoredDisks=[]):
