@@ -160,17 +160,17 @@ class Widget(QWidget, ScreenWidget):
             content.append(end)
 
         # Bootloader
-        if ctx.bootloader.device:
+        if ctx.bootloader.stage1Device:
             content.append(subject % _("Bootloader Settings"))
             grubstr = _("GRUB will be installed to <b>%s</b>.")
             if ctx.bootloader.bootType == BOOT_TYPE_NONE:
                 content.append(item % _("GRUB will not be installed."))
             else:
-                content.append(item % grubstr % ctx.bootloader.device)
+                content.append(item % grubstr % ctx.bootloader.stage1Device)
 
             content.append(end)
 
-        if ctx.flags.collection:
+        if ctx.flags.collection and ctx.installData.autoCollection:
             content.append(subject % _("Package Installation Settings"))
             content.append(item % _("Collection <b>%s</b> selected") %
                            ctx.installData.autoCollection.title)
