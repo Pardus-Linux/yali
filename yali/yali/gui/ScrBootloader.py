@@ -48,6 +48,8 @@ class Widget(QWidget, ScreenWidget):
             self.ui.drives.addItem(item, device)
 
     def shown(self):
+        if ctx.flags.install_type == ctx.STEP_RESCUE:
+            ctx.mainScreen.disableBack()
         self.bootloader = ctx.bootloader
         self.bootloader.storage = ctx.storage
         self.fillDrives()
