@@ -193,7 +193,9 @@ class Widget(QWidget, ScreenWidget):
         ctx.logger.debug("Time zone selected as %s " % ctx.installData.timezone)
 
         if ctx.flags.install_type == ctx.STEP_BASE:
-            #FIXME:Refactor dirty code
+            #FIXME:Refactor hacky code
+            ctx.installData.rootPassword = ctx.consts.default_password
+            ctx.installData.hostName = yali.util.product_release()
             if ctx.storageInitialized:
                 disks = filter(lambda d: not d.format.hidden, ctx.storage.disks)
                 if len(disks) == 1:
