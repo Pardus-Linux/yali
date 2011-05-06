@@ -3,6 +3,7 @@
 import os
 import sys
 import time
+import errno
 import gettext
 
 __trans = gettext.translation('yali', fallback=True)
@@ -289,11 +290,11 @@ class StorageSet(object):
             try:
                 device.format.setup(options=options,
                                     chroot=ctx.consts.target_dir)
-            except OSError as e:
+            except OSError as msg:
                 ctx.logger.error("OSError: (%d) %s" % (e.errno, e.strerror))
 
                 if ctx.interface.messageWindow:
-                    if e.errno == errno.EEXIST:
+                    if msg.errno == errno.EEXIST:
                         ctx.interface.messageWindow(_("Invalid mount point"),
                                                _("An error occurred when trying "
                                                  "to create %s.  Some element of "
@@ -740,7 +741,7 @@ class StorageSet(object):
                     try:
                         self.devicetree._addDevice(device)
                     except ValueError:
-                        self.preserveLines.append(line)
+                        self.preserveLines.append(entry)
 
     def crypttab(self):
         if not self.cryptTab:
