@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import gettext
+_ = gettext.translation('yali', fallback=True).ugettext
 
 import os
 import copy
@@ -24,7 +26,7 @@ class DiskLabelCommitError(DiskLabelError):
 class DiskLabel(Format):
     """ Disklabel """
     _type = "disklabel"
-    _name = "partition table"
+    _name = _("partition table")
     _formattable = True                # can be formatted
     _supported = False                 # is supported
 

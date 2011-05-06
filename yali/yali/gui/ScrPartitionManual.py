@@ -404,7 +404,7 @@ class Widget(QWidget, ScreenWidget):
         availableRaidMembers = len(self.storage.unusedRaidMembers())
         availableMinors = len(self.storage.unusedRaidMinors)
         if (availableMinors > 0
-                and formats.getFormat("software RAID").supported
+                and formats.getFormat("mdmember").supported
                 and availableRaidMembers > 1):
             activateRaidArray = True
 

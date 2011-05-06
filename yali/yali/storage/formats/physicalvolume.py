@@ -19,7 +19,7 @@ class PhysicalVolumeError(yali.Error):
 class PhysicalVolume(Format):
     """ An LVM physical volume. """
     _type = "lvmpv"
-    _name = "physical volume (LVM)"
+    _name = _("physical volume (LVM)")
     _udevTypes = ["LVM2_member"]
     partedFlag = PARTITION_LVM
     _formattable = True                 # can be formatted

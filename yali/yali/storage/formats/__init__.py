@@ -77,10 +77,7 @@ def get_device_format(formatType):
     format = device_formats.get(formatType)
     if not format:
         for device_format in device_formats.values():
-            if formatType and formatType == device_format._name:
-                format = device_format
-                break
-            elif formatType in device_format._udevTypes:
+            if formatType in device_format._udevTypes:
                 format = device_format
                 break
 
