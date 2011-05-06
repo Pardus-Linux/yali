@@ -52,12 +52,12 @@ def load_config(options):
     if parser.has_option("general", "installation"):
         if parser.get("general", "installation") == "system":
             options.install_type = ctx.STEP_BASE
-        elif parser.get("general", "installation") == "oem":
-            options.install_type = ctx.STEP_OEM_INSTALL
         elif parser.get("general", "installation") == "firstboot":
             options.install_type = ctx.STEP_FIRST_BOOT
         elif parser.get("general", "installation") == "rescue":
             options.install_type = ctx.STEP_RESCUE
+        elif parser.get("general", "installation") == "oem":
+            options.install_type = ctx.STEP_OEM_INSTALL
         else:
             options.install_type = ctx.STEP_DEFAULT
 
@@ -173,12 +173,12 @@ def load_options(argv=None):
     parser.add_option("--firstboot", dest="install_type",
                       action="store_const", const=2,
                       help="start with first boot options")
-    parser.add_option("--oem", dest="install_type",
-                      action="store_const", const=3,
-                      help="start Yali with oem mode")
     parser.add_option("--rescue", dest="install_type",
-                      action="store_const", const=4,
+                      action="store_const", const=3,
                       help="start Yali with rescue mode")
+    parser.add_option("--oem", dest="install_type",
+                      action="store_const", const=4,
+                      help="start Yali with oem mode")
     parser.add_option("--kahya", dest="kahya",
                       help="run with Kahya file", metavar="FILE")
     parser.add_option("-s", "--startFrom", dest="startFrom",

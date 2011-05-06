@@ -32,9 +32,9 @@ class Flags:
             self.__dict__['flags']['install_type'] = 1
         elif options.has_key("firstboot"):
             self.__dict__['flags']['install_type'] = 2
-        elif options.has_key("oem") :
-            self.__dict__['flags']['install_type'] = 3
         elif options.has_key("rescue") :
+            self.__dict__['flags']['install_type'] = 3
+        elif options.has_key("oem") :
             self.__dict__['flags']['install_type'] = 4
         elif options.has_key("default") :
             self.__dict__['flags']['install_type'] = 0
