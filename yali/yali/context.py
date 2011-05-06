@@ -58,3 +58,9 @@ blacklistedKernelModules = []
 packagesToInstall = []
 
 postInstallOperations = []
+
+socket = None
+
+link = None
+
+mountCount = {}

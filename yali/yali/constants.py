@@ -52,11 +52,12 @@ class Constants:
     __c = _constant()
 
     def __init__(self):
+        self.__c.root_password = "pardus"
         self.__c.min_root_size = 3500
-        self.__c.root_path = "/"
+        self.__c.root_dir = "/"
         self.__c.conf_dir = "etc/yali"
-        self.__c.conf_file = os.path.join(self.__c.root_path, self.__c.conf_dir, "yali.conf")
-        self.__c.oem_file = os.path.join(self.__c.root_path, self.__c.conf_dir,"oem.xml")
+        self.__c.conf_file = os.path.join(self.__c.root_dir, self.__c.conf_dir, "yali.conf")
+        self.__c.oem_file = os.path.join(self.__c.root_dir, self.__c.conf_dir,"oem.xml")
         self.__c.pardus_release_file = "etc/pardus-release"
         self.__c.data_dir = "/usr/share/yali"
         self.__c.theme_dir = os.path.join(self.__c.data_dir, "theme")
@@ -69,10 +70,8 @@ class Constants:
         self.__c.log_file = "yali.log"
         self.__c.target_dir = "/mnt/target"
         self.__c.session_file = os.path.join(self.__c.target_dir, "root/session.xml")
-        self.__c.source_dir = os.path.join(self.__c.root_path, "mnt/cdrom")
-        self.__c.tmp_mnt_dir = os.path.join(self.__c.root_path,"tmp/check")
-        self.__c.target_dbus_socket = os.path.join(self.__c.target_dir,"var/run/dbus/system_bus_socket")
-        self.__c.dbus_socket = os.path.join(self.__c.root_path,"var/run/dbus/system_bus_socket")
+        self.__c.source_dir = os.path.join(self.__c.root_dir, "mnt/cdrom")
+        self.__c.tmp_mnt_dir = os.path.join(self.__c.root_dir,"tmp/check")
         self.__c.repo_uri = os.path.join(self.__c.source_dir, "repo/pisi-index.xml.bz2")
         self.__c.pisi_collection_file = os.path.join(self.__c.data_dir, "data/index/collection.xml")
         self.__c.pisi_collection_dir = os.path.join(self.__c.data_dir, "data/index")
