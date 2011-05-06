@@ -9,138 +9,103 @@
 #
 # Please read the COPYING file.
 #
-
+import sys
+import os
 import gettext
 _ = gettext.translation('yali', fallback=True).ugettext
 
 from PyQt4.Qt import QWidget, SIGNAL, QListWidgetItem, QIcon
 
+import yali.storage
 import yali.util
-import yali.sysutils
-#import yali.storage
-#import yali.partitiontype as parttype
-#import yali.partitionrequest as request
-
 import yali.context as ctx
-from yali.gui import ScreenWidget, GUIError
+from yali.gui import ScreenWidget
 from yali.gui.Ui.rescuewidget import Ui_RescueWidget
 
-class PartItem(QListWidgetItem):
-    def __init__(self, parent, partition, label, icon):
-        QListWidgetItem.__init__(self, QIcon(":/gui/pics/%s.png" % icon), label, parent)
-        self._part = partition
-
-    def getPartition(self):
-        return self._part
-
-class Widget(QWidget, ScreenWidget):
+class Widget(QWidget, Ui_RescueWidget, ScreenWidget):
     name = "rescue"
 
     def __init__(self):
         QWidget.__init__(self)
-        self.ui = Ui_RescueWidget()
-        self.ui.setupUi(self)
-        self.ui.info.hide()
-        self.radios = [self.ui.useGrub, self.ui.usePisiHs, self.ui.usePassword]
-        self.isSuitableForRescue = True
-
-        # initialize all storage devices
-        if not yali.storage.initDevices():
-            raise GUIError, _("No storage device found.")
-
-        # Get usable partitions for rescue
-        self.partitionList = PardusPartitions(self)
-
-        # Set Radio actions
-        for radio in self.radios:
-            if not self.isSuitableForRescue:
-                radio.hide()
-            else:
-                self.connect(radio, SIGNAL("toggled(bool)"), ctx.mainScreen.enableNext)
-
-        # Reboot Button
-        self.connect(self.ui.rebootButton, SIGNAL("clicked()"), yali.util.reboot)
-
-    def updateNext(self):
-        for radio in self.radios:
-            if radio.isChecked():
-                ctx.mainScreen.enableNext()
-                return
-        ctx.mainScreen.disableNext()
-        ctx.mainScreen.processEvents()
+        self.setupUi(self)
+        self.rescueSystems.setEnabled(False)
+        self.rescueSystems.currentItemChanged.connect(self.rescueItemChanged)
+        self.rescuePisi.hide()
 
     def shown(self):
         ctx.mainScreen.disableBack()
-        self.updateNext()
-        if not self.isSuitableForRescue:
-            self.ui.solutionLabel.hide()
-            ctx.mainScreen.disableNext()
+        ctx.mainScreen.disableNext()
+        self.initializeStorage()
+        if not ctx.installData.rootDevs:
+            self.scanRescueSystems()
+            if len(ctx.installData.rootDevs) == 1:
+                self.rescueSystems.setCurrentRow(0)
+                self.rescueSystems.setEnabled(False)
         else:
-            self.ui.rebootButton.hide()
+            ctx.mainScreen.enableNext()
+
+    def nextCheck(self):
+        active = ctx.storage.storageset.active
+        if not active:
+            try:
+                active = yali.storage.mountExistingSystem(ctx.storage, ctx.interface, ctx.installData.rescueRoot, allowDirty=0)
+            except ValueError as e:
+                ctx.logger.error("Error mounting filesystem: %s" % e)
+                ctx.interface.messageWindow(_("Mount failed"),
+                                            _("The following error occurred when mounting the file "
+                                              "systems listed in /etc/fstab.  Please fix this problem "
+                                              "and try to rescue again.\n%s" % e))
+                active = False
+
+        return active
 
     def execute(self):
-        if self.ui.usePisiHs.isChecked():
-            ctx.rescueMode = "pisi"
-            ctx.mainScreen.step_increment = 2
-        elif self.ui.usePassword.isChecked():
-            ctx.rescueMode = "pass"
-            ctx.mainScreen.step_increment = 3
-        elif self.ui.useGrub.isChecked():
-            ctx.rescueMode = "grub"
+        if self.nextCheck():
+            if self.rescuePisi.isChecked():
+                ctx.installData.rescueMode = ctx.RESCUE_PISI
+            elif self.rescuePassword.isChecked():
+                ctx.installData.rescueMode = ctx.RESCUE_PASSWORD
+            elif self.rescueGrub.isChecked():
+                ctx.installData.rescueMode = ctx.RESCUE_GRUB
 
-        ctx.installData.rescuePartition = self.ui.partitionList.currentItem().getPartition()
-        ctx.logger.debug("Selected Partition for rescue is %s" % ctx.installData.rescuePartition.getPath())
-
-        ctx.interface.informationWindow.update(_("Mounting disk partition..."))
-        # Mount selected partition
-        ctx.partrequests.append(request.MountRequest(ctx.installData.rescuePartition, parttype.root))
-        ctx.partrequests.applyAll()
-        ctx.interface.informationWindow.hide()
-
-        return True
-
-class PardusPartitions:
-    def __init__(self, parentWidget):
-        partitionList, pardusPartitions = self.scanDisks()
-        if len(partitionList) == 0:
-            parentWidget.ui.infoLabel.setText(_("YALI could not locate a suitable disk partition on this computer."))
-            parentWidget.ui.info.show()
-            parentWidget.ui.partitionList.hide()
-            parentWidget.isSuitableForRescue = False
+            ctx.mainScreen.step_increment += ctx.installData.rescueMode
+            ctx.logger.debug("Selected system for rescue is %s" % ctx.installData.rescueRoot.path)
+            return True
         else:
-            for partition in partitionList:
-                if partition in pardusPartitions:
-                    icon = "parduspart"
+            return False
+
+    def rescueItemChanged(self, current, previous):
+        if current and current.device:
+            ctx.installData.rescueRoot = current.device
+        if not ctx.mainScreen.isNextEnabled():
+            ctx.mainScreen.enableNext()
+
+    def initializeStorage(self):
+        if not ctx.storageInitialized:
+            ctx.storageInitialized = yali.storage.initialize(ctx.storage, ctx.interface)
+
+    def scanRescueSystems(self):
+        if ctx.installData.rootDevs is None:
+            ctx.installData.rootDevs = yali.storage.findExistingRootDevices(ctx.storage)
+
+            if not ctx.installData.rootDevs:
+                rc = ctx.interface.messageWindow(_("Cannot Rescue"),
+                                                 _("Your current installation cannot be rescued."),
+                                                 type="custom", customIcon="error",
+                                                 customButtons=[_("Exit"), _("Continue")])
+                if rc == 0:
+                    sys.exit(0)
                 else:
-                    icon = "iconPartition"
-                label = partition.getFSLabel() or ''
-                _info = "%s on %s [%s]" % (partition.getDevice().getModel(),
-                                           partition.getPath(),
-                                           label)
-                PartItem(parentWidget.ui.partitionList, partition, _info, icon)
+                    ctx.mainScreen.disableNext()
+            else:
+                self.rescueSystems.clear()
+                self.rescueSystems.setEnabled(True)
+                for device, release in ctx.installData.rootDevs:
+                    RescueSystem(self.rescueSystems, device, release)
 
-            parentWidget.ui.partitionList.setCurrentItem(parentWidget.ui.partitionList.item(0))
-            parentWidget.ui.infoLabel.setText(_("Please select a disk partition from the list below:"))
-
-    def scanDisks(self):
-        pardusPartitions = []
-        linuxPartitions  = []
-        ctx.logger.debug("Checking for Pardus ...")
-        for disk in yali.storage.devices:
-            for partition in disk.getPartitions():
-                fs = partition.getFSName()
-                label = partition.getFSLabel() or ''
-                if fs in ("ext4", "ext3", "reiserfs", "xfs"):
-                    ctx.logger.debug("Partition found which has usable fs (%s)" % partition.getPath())
-                    linuxPartitions.append(partition)
-                    if label.startswith("PARDUS_ROOT"):
-                        ctx.logger.debug("Pardus Partition found (%s)" % partition.getPath())
-                        pardus_release = yali.sysutils.pardusRelease(partition.getPath(), fs)
-                        if pardus_release:
-                            pardusPartitions.append(partition)
-                        # If it is not a pardus installed partition skip it
-                        #yali.sysutils.umount_()
-
-        return (linuxPartitions, pardusPartitions)
-
-
+class RescueSystem(QListWidgetItem):
+    def __init__(self, parent, device, release):
+        label = "%s on %s" % (release, device.path)
+        QListWidgetItem.__init__(self, QIcon(":/gui/pics/parduspart.png"), label, parent)
+        self.device = device
+        self.release = release

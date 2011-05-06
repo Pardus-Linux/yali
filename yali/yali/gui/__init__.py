@@ -17,18 +17,18 @@ class GUIError(yali.Error):
 
 
 GUI_STEPS = {ctx.STEP_DEFAULT:("license", "mediaCheck", "keyboardSetup",
-                           "timeSetup", "accounts", "admin", "driveSelection",
-                           "automaticPartitioning", "manualPartitioning", "bootloadersetup",
-                           "collectionSelection", "summary", "packageInstallation", "goodbye"),
-             ctx.STEP_BASE:("license", "mediaCheck", "keyboardSetup",
-                        "timeSetup", "driveSelection", "automaticPartitioning",
-                        "manualPartitioning", "bootloadersetup", "collectionSelection",
-                        "summary", "packageInstallation", "goodbye"),
-             ctx.STEP_OEM_INSTALL:("license", "mediaCheck", "keyboardSetup", "driveSelection",
+                               "timeSetup", "accounts", "admin", "driveSelection",
                                "automaticPartitioning", "manualPartitioning", "bootloadersetup",
                                "collectionSelection", "summary", "packageInstallation", "goodbye"),
+             ctx.STEP_BASE:("license", "mediaCheck", "keyboardSetup",
+                            "timeSetup", "driveSelection", "automaticPartitioning",
+                            "manualPartitioning", "bootloadersetup", "collectionSelection",
+                            "summary", "packageInstallation", "goodbye"),
+             ctx.STEP_OEM_INSTALL:("license", "mediaCheck", "keyboardSetup", "driveSelection",
+                                   "automaticPartitioning", "manualPartitioning", "bootloadersetup",
+                                   "collectionSelection", "summary", "packageInstallation", "goodbye"),
              ctx.STEP_FIRST_BOOT:("welcome", "accounts", "admin", "summary", "goodbye"),
-             ctx.STEP_RESCUE:("rescue", "grubRescue", "pisiRescue", "passwordRescue", "finishRescue")}
+             ctx.STEP_RESCUE:("rescue", "bootloadersetup", "passwordRescue", "goodbye")}
 
 stepToClass = {"license":"ScrLicense",
                "network":"ScrNetwork",
@@ -45,13 +45,21 @@ stepToClass = {"license":"ScrLicense",
                "collectionSelection":"ScrCollection",
                "summary":"ScrSummary",
                "packageInstallation":"ScrInstall",
-               "goodbye":"ScrGoodbye"}
+               "goodbye":"ScrGoodbye",
+               "rescue":"ScrRescue",
+               "passwordRescue":"ScrRescuePassword"
+               }
 
 class ScreenWidget:
+    _id = 0
     title = ""
     name = ""
     help = ""
     icon = None
+
+    def __init__(self):
+        self._id = ScreenWidget._id
+        ScreenWidget._id += 1
 
     def shown(self):
         pass
@@ -60,10 +68,10 @@ class ScreenWidget:
         return True
 
     def nextCheck(self):
+        """Calling when Screen nextButton clicked"""
         return True
 
     def backCheck(self):
+        """Calling when Screen backButton clicked"""
         return True
 
-    def update(self):
-        pass

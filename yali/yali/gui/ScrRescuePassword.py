@@ -1,6 +1,5 @@
-# -*- coding: utf-8 -*-
 #
-# Copyright (C) 2009-2010 TUBITAK/UEKAE
+# Copyright (C) 2009-2011 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -8,13 +7,10 @@
 # any later version.
 #
 # Please read the COPYING file.
-#
-
 import os
-import dbus
-import pisi
-import gettext
 import pardus.xorg
+
+import gettext
 _ = gettext.translation('yali', fallback=True).ugettext
 
 from PyQt4.Qt import QWidget, SIGNAL, QListWidgetItem, QIcon
@@ -22,7 +18,6 @@ from PyQt4.Qt import QWidget, SIGNAL, QListWidgetItem, QIcon
 import yali.util
 import yali.postinstall
 import yali.context as ctx
-from yali.gui.YaliDialog import InfoDialog
 from yali.gui import ScreenWidget
 from yali.gui.Ui.rescuepasswordwidget import Ui_RescuePasswordWidget
 
@@ -34,107 +29,120 @@ class Widget(QWidget, ScreenWidget):
         self.ui = Ui_RescuePasswordWidget()
         self.ui.setupUi(self)
 
-        self.ui.pass_error.setVisible(False)
-        self.ui.caps_error.setVisible(False)
-        self.ui.caps_error.setText(_('Caps Lock is on.'))
-
-        self.ui.updatePassword.setEnabled(False)
-
-        self.steps = YaliSteps()
-        self.steps.setOperations([{"text":_("Starting D-Bus..."),"operation":yali.util.start_dbus},
-                                  {"text":_("Connecting to D-Bus..."),"operation":yali.postinstall.connectToDBus},
-                                  {"text":_("Acquiring users..."),"operation":self.fillUserList}])
-
-        self.connect(self.ui.updatePassword, SIGNAL("clicked()"), self.updatePassword)
-        self.connect(self.ui.userList, SIGNAL("itemChanged(QListWidgetItem*)"),
-                     self.resetWidgets)
-        self.connect(self.ui.pass1, SIGNAL("textChanged(const QString &)"),
+        self.connect(self.ui.users, SIGNAL("currentItemChanged(QListWidgetItem*, QListWidgetItem*)"),
+                     self.refresh)
+        self.connect(self.ui.password, SIGNAL("textChanged(const QString &)"),
                      self.slotTextChanged)
-        self.connect(self.ui.pass2, SIGNAL("textChanged(const QString &)"),
+        self.connect(self.ui.confirm, SIGNAL("textChanged(const QString &)"),
                      self.slotTextChanged)
+        self.connect(self.ui.password, SIGNAL("focusInEvent(QFocusEvent*)"),
+                     self.checkCapsLock)
+        self.connect(self.ui.confirm, SIGNAL("focusInEvent(QFocusEvent*)"),
+                     self.checkCapsLock)
+        self.connect(self.ui.resetPassword, SIGNAL("clicked()"), self.slotResetPassword)
 
-    def resetWidgets(self):
-        self.ui.pass1.clear()
-        self.ui.pass2.clear()
-        self.ui.updatePassword.setEnabled(False)
+    def refresh(self, current, previous):
+        self.ui.password.clear()
+        self.ui.confirm.clear()
+        self.ui.resetPassword.setEnabled(False)
 
-    def showError(self,message):
-        self.ui.pass_error.setText("<center>%s</center>" % message)
-        self.ui.pass_error.setVisible(True)
-        self.ui.updatePassword.setEnabled(False)
+    def setCapsLockIcon(self, child):
+        if type(child) == QLineEdit:
+            if pardus.xorg.capslock.isOn():
+                child.setStyleSheet("""QLineEdit {
+                        background-image: url(:/gui/pics/caps.png);
+                        background-repeat: no-repeat;
+                        background-position: right;
+                        padding-right: 35px;
+                        }""")
+            else:
+                child.setStyleSheet("""QLineEdit {
+                        background-image: none;
+                        padding-right: 0px;
+                        }""")
+
 
     def checkCapsLock(self):
-        if pardus.xorg.capslock.isOn():
-            self.ui.caps_error.setVisible(True)
+        for child in self.ui.groupBox.children():
+            self.setCapsLockIcon(child)
+        for child in self.ui.groupBox_2.children():
+            self.setCapsLockIcon(child)
+
+    def showError(self, message):
+        ctx.interface.informationWindow.update(message, type="error")
+        ctx.mainScreen.disableNext()
+
+    def slotResetPassword(self):
+        user = self.ui.users.currentItem().user
+        user.passwd = unicode(self.ui.password.text())
+        user_exist = False
+        for pending_user in yali.users.PENDING_USERS:
+            if pending_user.uid == user.uid:
+                pending_user = user
+                break
         else:
-            self.ui.caps_error.setVisible(False)
+            yali.users.PENDING_USERS.append(user)
 
-    def keyReleaseEvent(self, e):
-        self.checkCapsLock()
-
-    def updatePassword(self):
-        password = unicode(self.ui.pass1.text())
-        uid  = int(self.ui.userList.currentItem().getInfo()[0])
-        yali.postinstall.setUserPass(uid, password)
-        InfoDialog(_("The password has been successfully reset."), title = _("Info"))
-        self.resetWidgets()
+        self.ui.resetPassword.setEnabled(False)
+        ctx.mainScreen.enableNext()
 
     def slotTextChanged(self):
-        p1 = self.ui.pass1.text()
-        p2 = self.ui.pass2.text()
-        if not self.ui.userList.currentItem():
+        self.ui.resetPassword.setEnabled(False)
+        user = self.ui.users.currentItem().user
+        username = user.username
+        realname = user.realname
+        password = unicode(self.ui.password.text())
+        password_confirm = unicode(self.ui.confirm.text())
+
+        if not password == '' and (password.lower() == username.lower() or
+                                   password.lower() == realname.lower()):
+            self.showError(_('Don\'t use your user name or name as a password'))
             return
-        user = self.ui.userList.currentItem().getInfo()
-        if not p1 == '' and (str(p1).lower() == str(user[1]).lower() or \
-                str(p1).lower() == str(user[2]).lower()):
-            self.showError(_('Do not use your username or real name as your password.'))
+        elif password_confirm and password_confirm != password:
+            self.showError(_('Passwords do not match'))
             return
-        elif p2 != p1 and p2:
-            self.showError(_('The passwords do not match.'))
-            return
-        elif len(p1) == len(p2) and len(p2) < 4 and not p1=='':
-            self.showError(_('Password is too short.'))
-            return
-        elif p1 == '' or p2 == '':
-            self.ui.pass_error.setVisible(False)
+        elif len(password) == len(password_confirm) and len(password_confirm) < 4 and not password =='':
+            self.showError(_('Password is too short'))
             return
         else:
-            self.ui.pass_error.setVisible(False)
-            self.ui.updatePassword.setEnabled(True)
+            ctx.interface.informationWindow.hide()
+
+        if password and password_confirm:
+            self.ui.resetPassword.setEnabled(True)
+
+    def fillUsers(self):
+        if not ctx.link:
+            if not os.path.exists(os.path.join(ctx.consts.target_dir, ctx.consts.dbus_socket)):
+                yali.util.start_dbus()
+
+            yali.postinstall.initializeComar()
+
+        self.ui.users.clear()
+        users = yali.postinstall.getUsers()
+        for user in users:
+            RescueUser(self.ui.users, user)
 
     def shown(self):
         ctx.mainScreen.disableBack()
-        ctx.interface.informationWindow.update(_("Please Wait..."))
-        self.steps.slotRunOperations()
-        ctx.interface.informationWindow.hide()
-
-    def fillUserList(self):
-        users = yali.postinstall.getUserList()
-        for user in users:
-            UserItem(self.ui.userList, user)
+        self.fillUsers()
+        self.ui.resetPassword.setEnabled(False)
 
     def execute(self):
         return True
 
     def backCheck(self):
-        ctx.mainScreen.step_increment = 3
+        ctx.mainScreen.step_increment += ctx.installData.rescueMode
         return True
 
-class UserItem(QListWidgetItem):
+class RescueUser(QListWidgetItem):
     def __init__(self, parent, user):
-
-        name = user[2]
-        icon = "normal"
-        if user[2] == "root":
+        if user.username == "root":
             icon = "root"
             name = _("Super User")
+        else:
+            name = user.username
+            icon = "normal"
 
-        QListWidgetItem.__init__(self, QIcon(":/gui/pics/user_%s.png" % icon),
-                                             "%s (%s)" % (name,user[1]),
-                                             parent)
-        self._user = user
-
-    def getInfo(self):
-        return self._user
-
-
+        label = "%s (%s)" % (name, user.realname)
+        QListWidgetItem.__init__(self, QIcon(":/gui/pics/user_%s.png" % icon), label, parent)
+        self.user = user

@@ -51,12 +51,12 @@
         </font>
        </property>
        <property name="text">
-        <string>Offline</string>
+        <string notr="true">Offline</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="buttonSelectConnection">
+      <widget class="QPushButton" name="selectConnection">
        <property name="statusTip">
         <string>To use PiSi's history feature, you may need to be online. Select connection profile.</string>
        </property>
