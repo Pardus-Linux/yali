@@ -1839,3 +1839,79 @@ class DeviceTree(object):
                 filesystems.append(dev.format)
 
         return filesystems
+
+
+    def resolveDevice(self, devspec, blkidTab=None, cryptTab=None):
+        # find device in the tree
+        device = None
+        if devspec.startswith("UUID="):
+            # device-by-uuid
+            uuid = devspec.split("=")[-1]
+            device = self.uuids.get(uuid)
+            if device is None:
+                ctx.logger.error("failed to resolve device %s" % devspec)
+        elif devspec.startswith("LABEL="):
+            # device-by-label
+            label = devspec.split("=")[-1]
+            device = self.labels.get(label)
+            if device is None:
+                ctx.logger.error("failed to resolve device %s" % devspec)
+        elif devspec.startswith("/dev/"):
+            if devspec.startswith("/dev/disk/"):
+                devspec = os.path.realpath(devspec)
+
+                if devspec.startswith("/dev/dm-"):
+                    dm_name = devicemapper.name_from_dm_node(devspec[5:])
+                    if dm_name:
+                        devspec = "/dev/mapper/" + dm_name
+
+            # device path
+            device = self.getDeviceByPath(devspec)
+            if device is None:
+                if blkidTab:
+                    # try to use the blkid.tab to correlate the device
+                    # path with a UUID
+                    blkidTabEnt = blkidTab.get(devspec)
+                    if blkidTabEnt:
+                        ctx.logger.debug("found blkid.tab entry for '%s'" % devspec)
+                        uuid = blkidTabEnt.get("UUID")
+                        if uuid:
+                            device = self.getDeviceByUuid(uuid)
+                            if device:
+                                devstr = device.name
+                            else:
+                                devstr = "None"
+                            ctx.logger.debug("found device '%s' in tree" % devstr)
+                        if device and device.format and \
+                           device.format.type == "luks":
+                            map_name = device.format.mapName
+                            ctx.logger.debug("luks device; map name is '%s'" % map_name)
+                            mapped_dev = self.getDeviceByName(map_name)
+                            if mapped_dev:
+                                device = mapped_dev
+
+                if device is None and cryptTab and \
+                   devspec.startswith("/dev/mapper/"):
+                    # try to use a dm-crypt mapping name to 
+                    # obtain the underlying device, possibly
+                    # using blkid.tab
+                    cryptTabEnt = cryptTab.get(devspec.split("/")[-1])
+                    if cryptTabEnt:
+                        luks_dev = cryptTabEnt['device']
+                        try:
+                            device = self.getChildren(luks_dev)[0]
+                        except IndexError as e:
+                            pass
+                elif device is None:
+                    name = devspec[5:]      # strip off leading "/dev/"
+                    (vg_name, slash, lv_name) = name.partition("/")
+                    if lv_name and not "/" in lv_name:
+                        # looks like we may have one
+                        lv = "%s-%s" % (vg_name, lv_name)
+                        device = self.getDeviceByName(lv)
+
+        if device:
+            ctx.logger.debug("resolved '%s' to '%s' (%s)" % (devspec, device.name, device.type))
+        else:
+            ctx.logger.debug("failed to resolve '%s'" % devspec)
+        return device

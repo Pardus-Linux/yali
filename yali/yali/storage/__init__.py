@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*-
+import os
 import sys
 import parted
 import gettext
@@ -21,7 +21,7 @@ from yali.storage.devices.logicalvolume import LogicalVolume
 from yali.storage.devices.raidarray import RaidArray
 from yali.storage.formats import FormatError, getFormat, get_default_filesystem_type
 from yali.storage.devicetree import DeviceTree, DeviceTreeError
-from yali.storage.storageset import StorageSet
+from yali.storage.storageset import StorageSet, FSTabError
 from yali.storage.operations import OperationCreateDevice, OperationCreateFormat, OperationDestroyFormat, OperationDestroyDevice, OperationDestroyFormat, OperationCreateFormat
 
 
@@ -77,6 +77,106 @@ def complete(storage, intf):
                 sys.exit(1)
 
     return returncode
+
+
+def findExistingRootDevices(storage):
+    """ Return a list of:
+        all root filesystems with release strings in the device tree.
+    """
+    roots = []
+    for device in storage.devicetree.leaves:
+        if not device.format.linuxNative or not device.format.mountable:
+            continue
+
+        if device.protected:
+            # can't upgrade the part holding hd: media so why look at it?
+            continue
+
+        try:
+            device.setup()
+        except DeviceError as e:
+            ctx.logger.warning("setup of %s failed: %s" % (device.name, e))
+            continue
+
+        try:
+            device.format.mount(options="ro", mountpoint=ctx.consts.tmp_mnt_dir)
+        except FormatError as e:
+            ctx.logger.warning("mount of %s as %s failed: %s" % (device.name,
+                                                                 device.format.type, e))
+            device.teardown()
+            continue
+
+        if os.access(os.path.join(ctx.consts.tmp_mnt_dir, "etc/fstab"), os.R_OK):
+            release_str = yali.util.product_name(ctx.consts.tmp_mnt_dir)
+            if release_str:
+                roots.append((device, release_str))
+
+        # this handles unmounting the filesystem
+        device.teardown(recursive=True)
+
+    return roots
+
+def mountExistingSystem(storage, intf, rootDevice, allowDirty=None, warnDirty=None, readOnly=None):
+    """ Mount filesystems specified in rootDevice's /etc/fstab file. """
+    if readOnly:
+        readOnly = "ro"
+    else:
+        readOnly = ""
+
+        rootDevice.setup()
+        rootDevice.format.mount(chroot=ctx.consts.target_dir,
+                                mountpoint="/",
+                                options=readOnly)
+
+    try:
+        storage.storageset.parseFSTab()
+    except FSTabError, msg:
+        ctx.logger.error("Parsing fstab file failed with:%s" % msg)
+        rootDevice.format.unmount()
+        rootDevice.teardown()
+        return False
+    except Exception, msg:
+        ctx.logger.error("Unhandled exception:%s" % msg)
+    else:
+        dirtyDevs = []
+        for device in storage.devices:
+            if not hasattr(device.format, "isDirty"):
+                continue
+
+            try:
+                device.setup()
+            except DeviceError as e:
+                # we'll catch this in the main loop
+                continue
+
+            if device.format.isDirty:
+                ctx.logger.info("%s contains a dirty %s filesystem" % (device.path,
+                                                                       device.format.type))
+                dirtyDevs.append(device.path)
+
+        if not allowDirty and dirtyDevs:
+            intf.messageWindow(_("Dirty File Systems"),
+                               _("The following file systems for your Linux system "
+                                 "were not unmounted cleanly.  Please boot your "
+                                 "Linux installation, let the file systems be "
+                                 "checked and shut down cleanly to rescue.\n"
+                                 "%s") % "\n".join(dirtyDevs), type="custom",
+                               customIcon="warning", customButtons=[_("Ok")])
+            storage.devicetree.teardownAll()
+            return False
+        elif warnDirty and dirtyDevs:
+            rc = intf.messageWindow(_("Dirty File Systems"),
+                                    _("The following file systems for your Linux "
+                                      "system were not unmounted cleanly.  Would "
+                                      "you like to mount them anyway?\n"
+                                      "%s") % "\n".join(dirtyDevs),
+                                    type="yesno")
+            if rc :
+                return False
+
+        storage.storageset.mountFilesystems(readOnly=readOnly, skipRoot=True)
+        return True
+
 
 class Storage(object):
     def __init__(self, ignoredDisks=[]):
@@ -178,9 +278,9 @@ class Storage(object):
                                 skip = True
                                 break
                     if skip:
-                         ctx.logger.info("not setting boot flag on %s as there is"
-                                  "another active partition" % dev.name)
-                         continue
+                        ctx.logger.info("not setting boot flag on %s as there is"
+                                        "another active partition" % dev.name)
+                        continue
                     ctx.logger.info("setting boot flag on %s" % dev.name)
                     dev.bootable = True
                     dev.disk.setup()
@@ -498,10 +598,7 @@ class Storage(object):
             does not necessarily reflect the actual on-disk state of the
             system's disks.
         """
-        devices = self.devicetree.devices
-        swaps = [d for d in devices if d.format.type == "swap"]
-        swaps.sort(key=lambda d: d.name)
-        return swaps
+        return self.storageset.swapDevices
 
     @property
     def mountpoints(self):

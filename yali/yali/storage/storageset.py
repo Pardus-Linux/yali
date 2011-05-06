@@ -10,17 +10,33 @@ _ = __trans.ugettext
 
 import yali.util
 import yali.context as ctx
-from devices import *
-from devicetree import DeviceTree
-from devices.directorydevice import DirectoryDevice
-from devices.filedevice import FileDevice
-from devices.opticaldevice import OpticalDevice
-from devices.nodevice import NoDevice
-from devices.device import DeviceError
-from formats import getFormat
-from formats.filesystem import FilesystemError
-from library import devicemapper
-from library import swap
+from yali.storage import StorageError
+from yali.storage.devices.directorydevice import DirectoryDevice
+from yali.storage.devices.filedevice import FileDevice
+from yali.storage.devices.opticaldevice import OpticalDevice
+from yali.storage.devices.nodevice import NoDevice
+from yali.storage.devices.device import Device, DeviceError
+from yali.storage.formats import getFormat, get_device_format
+from yali.storage.formats.filesystem import FilesystemError
+from yali.storage.library import devicemapper
+from yali.storage.library import swap
+
+from pardus import fstabutils
+
+class StorageSetError(StorageError):
+    pass
+
+class FSTabError(StorageSetError):
+    pass
+
+class FSTabEntryError(StorageSetError):
+    pass
+
+class BlkidTabError(StorageError):
+    pass
+
+class CryptTabError(StorageError):
+    pass
 
 def get_containing_device(path, devicetree):
     """ Return the device that a path resides on. """
@@ -44,6 +60,122 @@ def get_containing_device(path, devicetree):
 
     return devicetree.getDeviceByName(device_name)
 
+class BlkidTab(object):
+    """ Dictionary-like interface to blkid.tab with device path keys """
+    def __init__(self, chroot="/"):
+        self.devices = {}
+        self.path = os.path.join(chroot, "etc/blkid/blkid.tab")
+
+    def parse(self):
+        with open(self.path) as blkidTab:
+            for line in blkidTab.readlines():
+                # this is pretty ugly, but an XML parser is more work than
+                # is justifiable for this purpose
+                if not line.startswith("<device "):
+                    continue
+
+                line = line[len("<device "):-len("</device>\n")]
+                (data, sep, device) = line.partition(">")
+                if not device:
+                    continue
+
+                self.devices[device] = {}
+                for pair in data.split():
+                    try:
+                        (key, value) = pair.split("=")
+                    except ValueError:
+                        continue
+
+                    self.devices[device][key] = value[1:-1] # strip off quotes
+
+    def __getitem__(self, key):
+        return self.devices[key]
+
+    def get(self, key, default=None):
+        return self.devices.get(key, default)
+
+class CryptTab(object):
+    """ Dictionary-like interface to crypttab entries with map name keys """
+    def __init__(self, devicetree, blkidTab=None, chroot=""):
+        self.devicetree = devicetree
+        self.blkidTab = blkidTab
+        self.chroot = chroot
+        self.mappings = {}
+
+    def parse(self, chroot=""):
+        """ Parse /etc/crypttab from an existing installation. """
+        if not chroot or not os.path.isdir(chroot):
+            chroot = ""
+
+        path = "%s/etc/crypttab" % chroot
+        ctx.logger.debug("parsing %s" % path)
+        with open(path) as crypttab:
+            if not self.blkidTab:
+                try:
+                    self.blkidTab = BlkidTab(chroot=chroot)
+                    self.blkidTab.parse()
+                except Exception:
+                    self.blkidTab = None
+
+            for line in crypttab.readlines():
+                (line, pound, comment) = line.partition("#")
+                fields = line.split()
+                if not 2 <= len(fields) <= 4:
+                    continue
+                elif len(fields) == 2:
+                    fields.extend(['none', ''])
+                elif len(fields) == 3:
+                    fields.append('')
+
+                (name, devspec, keyfile, options) = fields
+
+                # resolve devspec to a device in the tree
+                device = self.devicetree.resolveDevice(devspec,
+                                                       blkidTab=self.blkidTab)
+                if device:
+                    self.mappings[name] = {"device": device,
+                                           "keyfile": keyfile,
+                                           "options": options}
+
+    def populate(self):
+        """ Populate the instance based on the device tree's contents. """
+        for device in self.devicetree.devices:
+            # XXX should we put them all in there or just the ones that
+            #     are part of a device containing swap or a filesystem?
+            #
+            #       Put them all in here -- we can filter from FSSet
+            if device.format.type != "luks":
+                continue
+
+            key_file = device.format.keyFile
+            if not key_file:
+                key_file = "none"
+
+            options = device.format.options
+            if not options:
+                options = ""
+
+            self.mappings[device.format.mapName] = {"device": device,
+                                                    "keyfile": key_file,
+                                                    "options": options}
+
+    def crypttab(self):
+        """ Write out /etc/crypttab """
+        crypttab = ""
+        for name in self.mappings:
+            entry = self[name]
+            crypttab += "%s UUID=%s %s %s\n" % (name,
+                                                entry['device'].format.uuid,
+                                                entry['keyfile'],
+                                                entry['options'])
+        return crypttab                       
+
+    def __getitem__(self, key):
+        return self.mappings[key]
+
+    def get(self, key, default=None):
+        return self.mappings.get(key, default)
+
 class StorageSet(object):
     _bootFSTypes = ["ext4", "ext3", "ext2"]
     def __init__(self, devicetree, rootpath):
@@ -55,6 +187,9 @@ class StorageSet(object):
         self._sysfs = None
         self._proc = None
         self._devshm = None
+        self.preserveLines = []
+        self.blkidTab = None
+        self.cryptTab = None
 
     @property
     def devices(self):
@@ -390,8 +525,6 @@ class StorageSet(object):
         else:
             return _mountpoints.get("/boot", _mountpoints.get("/"))
 
-        return _bootDevice
-
     @property
     def rootDevice(self):
         for path in ["/", self.rootpath]:
@@ -407,9 +540,8 @@ class StorageSet(object):
     @property
     def swapDevices(self):
         swaps = []
-        for device in self.devices:
-            if device.format.type == "swap":
-                swaps.append(device)
+        swaps = [d for d in self.devices if d.format.type == "swap"]
+        swaps.sort(key=lambda d: d.name)
         return swaps
 
     def fstab(self):
@@ -458,6 +590,9 @@ class StorageSet(object):
             fstab = fstab + device.fstabComment
             fstab = fstab + format % (devspec, mountpoint, fstype, options, dump, passno)
 
+            for line in self.preserveLines:
+                fstab += line
+
         return fstab
 
     def write(self, installPath):
@@ -469,3 +604,162 @@ class StorageSet(object):
         fstabPath = os.path.normpath("%s/etc/fstab" % installPath)
         fstab = self.fstab()
         open(fstabPath, "w").write(fstab)
+
+    def _parseFSTabEntry(self, entry):
+        if "noauto" in entry.get_fs_mntopts():
+            ctx.logger.error("ignoring noauto entry")
+            raise FSTabEntryError(_("Ignoring noauto entry"))
+
+        devspec =  entry.get_fs_spec()
+        mountpoint = entry.get_fs_file()
+        fstype = entry.get_fs_vfstype()
+        options = entry.get_fs_mntopts()
+        dump = entry.get_fs_freq()
+        passno = entry.get_fs_passno()
+
+        # find device in the tree
+        device = self.devicetree.resolveDevice(devspec,
+                                               cryptTab=self.cryptTab,
+                                               blkidTab=self.blkidTab)
+        if device:
+            # fall through to the bottom of this block
+            pass
+        elif devspec.startswith("/dev/loop"):
+            # FIXME: create devices.LoopDevice
+            ctx.logger.warning("completely ignoring your loop mount")
+        elif ":" in devspec and fstype.startswith("nfs"):
+            # NFS -- preserve but otherwise ignore
+            ctx.logger.info("Skipping unsupported NFS Device.")
+            return None
+        elif devspec.startswith("/") and fstype == "swap":
+            # swap file
+            device = FileDevice(devspec,
+                                parents=get_containing_device(devspec, self.devicetree),
+                                format=getFormat(fstype, device=devspec,exists=True),
+                                exists=True)
+        elif fstype == "bind" or "bind" in options:
+            # bind mount... set fstype so later comparison won't
+            # turn up false positives
+            fstype = "bind"
+
+            # This is probably not going to do anything useful, so we'll
+            # make sure to try again from FSSet.mountFilesystems. The bind
+            # mount targets should be accessible by the time we try to do
+            # the bind mount from there.
+            parents = get_containing_device(devspec, self.devicetree)
+            device = DirectoryDevice(devspec, parents=parents, exists=True)
+            device.format = getFormat("bind",
+                                      device=device.path,
+                                      exists=True)
+        elif mountpoint in ("/proc", "/sys", "/dev/shm", "/dev/pts",
+                            "/selinux", "/proc/bus/usb"):
+            ctx.logger.info("dropping %s mountpoint" % mountpoint)
+            return None
+        else:
+            # nodev filesystem -- preserve or drop completely?
+            format = getFormat(fstype)
+            if devspec == "none" or \
+               isinstance(format, get_device_format("nodev")):
+                device = NoDevice(format=format)
+            else:
+                device = Device(devspec, format=format)
+
+        if device is None:
+            ctx.logger.error("failed to resolve %s (%s) from fstab" % (devspec, fstype))
+            raise FSTabEntryError(_("Failed to resolve %s (%s) from fstab") % (devspec, fstype))
+
+        fmt = getFormat(fstype, device=device.path)
+        if fstype != "auto" and None in (device.format.type, fmt.type):
+            ctx.logger.info("Unrecognized filesystem type for %s (%s)"
+                     % (device.name, fstype))
+            raise FSTabEntryError(_("Unrecognized filesystem type for %s (%s)") % (device.name, fstype))
+
+        # make sure, if we're using a device from the tree, that
+        # the device's format we found matches what's in the fstab
+        ftype = getattr(fmt, "mountType", fmt.type)
+        dtype = getattr(device.format, "mountType", device.format.type)
+        if fstype != "auto" and ftype != dtype:
+            raise StorageSetError(_("Scanned format (%s) differs from fstab format (%s)") % (dtype, ftype))
+        del ftype
+        del dtype
+
+        if device.format.mountable:
+            device.format.mountpoint = mountpoint
+            device.format.options = options
+
+        return device
+
+    def parseFSTab(self, chroot=None):
+        """
+            All storage devices have been scanned, including filesystems
+        """
+
+
+        if not chroot or not os.path.isdir(chroot):
+            chroot = ctx.consts.target_dir
+
+        path = "%s/etc/fstab" % chroot
+        if not os.access(path, os.R_OK):
+            ctx.logger.info("cannot open %s for read" % path)
+            raise FSTabError(_("Cannot open %s for read") % path)
+        blkidTab = BlkidTab(chroot=chroot)
+        try:
+            blkidTab.parse()
+        except Exception as e:
+            ctx.logger.error("Parsing blkid.tab: %s" % e)
+            blkidTab = None
+        else:
+            ctx.logger.debug("blkid.tab devs: %s" % blkidTab.devices.keys())
+
+        cryptTab = CryptTab(self.devicetree, blkidTab=blkidTab, chroot=chroot)
+        try:
+            cryptTab.parse(chroot=chroot)
+            ctx.logger.debug("crypttab maps: %s" % cryptTab.mappings.keys())
+        except Exception as e:
+            ctx.logger.info("error parsing crypttab: %s" % e)
+            cryptTab = None
+
+        self.blkidTab = blkidTab
+        self.cryptTab = cryptTab
+
+        fstab = fstabutils.Fstab(path)
+        for entry in fstab.get_entries():
+
+            try:
+                device = self._parseFSTabEntry(entry)
+            except FSTabEntryError:
+                self.preserveLines.append(entry)
+                continue
+            except Exception as e:
+                raise FSTabError(_("Fstab entry %s is malformed: %s") % (entry.get_fs_spec(), e))
+            else:
+                if not device:
+                    continue
+
+                if device not in self.devicetree.devices:
+                    try:
+                        self.devicetree._addDevice(device)
+                    except ValueError:
+                        self.preserveLines.append(line)
+
+    def crypttab(self):
+        if not self.cryptTab:
+            self.cryptTab = CryptTab(self.devicetree)
+            self.cryptTab.populate()
+
+        devices = self.mountpoints.values() + self.swapDevices
+
+        # prune crypttab -- only mappings required by one or more entries
+        for name in self.cryptTab.mappings.keys():
+            keep = False
+            mapInfo = self.cryptTab[name]
+            cryptoDev = mapInfo['device']
+            for device in devices:
+                if device == cryptoDev or device.dependsOn(cryptoDev):
+                    keep = True
+                    break
+
+            if not keep:
+                del self.cryptTab.mappings[name]
+
+        return self.cryptTab.crypttab()
