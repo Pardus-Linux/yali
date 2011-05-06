@@ -55,7 +55,7 @@ def complete(storage, intf):
         storage.doIt()
     except DeviceError as (msg, device):
         title = _("Storage Device Error")
-        message = _("Ther was an error was encountered while "
+        message = _("There was an error encountered while "
                     "partitioning on device %s.") % (device,)
         details = msg
         returncode = False
