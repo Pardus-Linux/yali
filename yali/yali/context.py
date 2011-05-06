@@ -56,3 +56,5 @@ storageInitialized = False
 blacklistedKernelModules = []
 
 packagesToInstall = []
+
+postInstallOperations = []

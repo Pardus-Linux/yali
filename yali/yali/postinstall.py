@@ -13,7 +13,6 @@
 import os
 import time
 import dbus
-import yali
 import shutil
 import gettext
 
@@ -22,6 +21,28 @@ _ = gettext.translation('yali', fallback=True).ugettext
 import yali.util
 import yali.pisiiface
 import yali.context as ctx
+
+
+class Operation:
+    _id = 0
+    def __init__(self, information, method):
+        self._id = Operation._id
+        Operation._id += 1
+        self.information = information
+        self.method = method
+        self.status = False
+
+    def run(self):
+        ctx.logger.debug("Running postinstall : %s" % self.information)
+        if not ctx.flags.dryRun:
+            self.status = self.method
+        ctx.interface.informationWindow.update(self.information)
+        if self.status:
+            ctx.logger.debug("Operation '%s' finished sucessfully." % self.information)
+        else:
+            ctx.logger.debug("Operation '%s' finished with failure." % self.information)
+        time.sleep(0.5)
+        ctx.interface.informationWindow.hide()
 
 def initbaselayout():
     # create /etc/hosts
@@ -336,3 +357,4 @@ def installBootloader():
 
 def cleanup():
     yali.util.run_batch("pisi", ["rm", "yali", "yali-theme-pardus", "yali-branding-pardus"])
+
