@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 #
 # Copyright (C) 2005-2010 TUBITAK/UEKAE
 #
@@ -19,6 +18,7 @@ import gettext
 _ = gettext.translation('yali', fallback=True).ugettext
 
 import yali.util
+import yali.users
 import yali.pisiiface
 import yali.context as ctx
 
@@ -33,9 +33,9 @@ class Operation:
         self.status = False
 
     def run(self):
-        ctx.logger.debug("Running postinstall : %s" % self.information)
         if not ctx.flags.dryRun:
-            self.status = self.method
+            ctx.logger.debug("Running postinstall : %s" % self.information)
+            self.status = self.method()
         ctx.interface.informationWindow.update(self.information)
         if self.status:
             ctx.logger.debug("Operation '%s' finished sucessfully." % self.information)
@@ -43,6 +43,41 @@ class Operation:
             ctx.logger.debug("Operation '%s' finished with failure." % self.information)
         time.sleep(0.5)
         ctx.interface.informationWindow.hide()
+
+def initializeComar():
+    import comar
+    if ctx.flags.install_type == ctx.STEP_BASE or \
+       ctx.flags.install_type == ctx.STEP_DEFAULT or \
+       ctx.flags.install_type == ctx.STEP_RESCUE:
+        if ctx.storage.storageset.active:
+            ctx.socket = os.path.join(ctx.consts.target_dir, ctx.consts.dbus_socket)
+            if not os.path.exists(ctx.socket):
+                ctx.logger.debug("initializeComar: StorageSet not activated")
+                return False
+        else:
+            ctx.logger.debug("initializeComar: StorageSet not activated")
+            return False
+
+    elif ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
+        ctx.socket = os.path.join(ctx.consts.root_dir, ctx.consts.dbus_socket)
+
+    for i in range(40):
+        try:
+            ctx.logger.info("Trying to activate Comar")
+            ctx.link = comar.Link(socket=ctx.socket)
+        except dbus.DBusException:
+            time.sleep(2)
+            ctx.logger.debug("wait dbus for 2 second")
+        else:
+            if ctx.link:
+                break
+
+    if not ctx.link:
+        ctx.logger.debug("Comar not activated")
+        return False
+
+    ctx.logger.info("Comar activated")
+    return True
 
 def initbaselayout():
     # create /etc/hosts
@@ -72,196 +107,109 @@ def initbaselayout():
     os.system("/bin/mknod %s/dev/random c 1 8" % ctx.consts.target_dir)
     os.system("/bin/mknod %s/dev/urandom c 1 9" % ctx.consts.target_dir)
 
-def setTimeZone():
+def setupTimeZone():
+    if ctx.storage.storageset.active:
+        yali.util.chroot("/usr/sbin/zic -l %s" % ctx.installData.timezone)
+        with open(os.path.join(ctx.consts.target_dir, "etc/timezone"), "w") as timezone:
+            timezone.write("%s" % ctx.installData.timezone)
+        return True
+    else:
+        ctx.logger.debug("setTimeZone: StorageSet not activated")
+        return False
 
-    # New Way; use zic
-    yali.util.chroot("/usr/sbin/zic -l %s" % ctx.installData.timezone)
+def setHostName(chroot=False):
+    if ctx.link and ctx.installData.hostName:
+        ctx.logger.info("Setting hostname %s" % ctx.installData.hostName)
+        ctx.link.Network.Stack["baselayout"].setHostName(unicode(ctx.installData.hostName))
 
-    # Old Way; copy proper timezone file as etc/localtime
-    # os.system("rm -rf %s" % os.path.join(consts.target_dir, "etc/localtime"))
-    # yali.util.cp("usr/share/zoneinfo/%s" % ctx.installData.timezone, "etc/localtime")
+        if not chroot:
+            yali.util.run_batch("hostname", [unicode(ctx.installData.hostName)])
+            ctx.logger.info("Updating environment...")
+        return True
+    else:
+        ctx.logger.debug("Setting hostname execution failed.")
+        return False
 
-    # Write the timezone data into /etc/timezone
-    open(os.path.join(ctx.consts.target_dir, "etc/timezone"), "w").write("%s" % ctx.installData.timezone)
+def getUsers():
+    users = []
+    if ctx.link:
+        ctx.logger.info("Getting users from system")
+        all_users = ctx.link.User.Manager["baselayout"].userList()
+        system_users = filter(lambda user: user[0] == 0 or (user[0] >= 1000 and user[0] <= 65000), all_users)
+        ctx.logger.info("System Users :%s" % system_users)
+        for user in system_users:
+            u = yali.users.User(user[1])
+            u.realname = user[2]
+            u.uid = user[0]
+            users.append(u)
+        return users
 
-    return True
-
-def migrateXorg():
-    def joy(a):
-        return os.path.join(ctx.consts.target_dir,a[1:])
-
-    # copy confs
-    files = ["/etc/X11/xorg.conf",
-             "/etc/hal/fdi/policy/10-keymap.fdi",
-             "/var/lib/zorg/config.xml"]
-
-    for conf in files:
-        if os.path.exists(conf):
-            if not os.path.exists(joy(os.path.dirname(conf))):
-                os.makedirs(joy(os.path.dirname(conf)))
-            ctx.logger.debug("Copying from '%s' to '%s'" % (conf, joy(conf)))
-            shutil.copyfile(conf, joy(conf))
-
-bus = None
-
-def connectToDBus():
-    global bus
-    for i in range(40):
+def setupUsers():
+    for user in yali.users.PENDING_USERS:
+        ctx.logger.info("User %s adding to system" % user.username)
         try:
-            ctx.logger.debug("trying to start dbus..")
-            if ctx.flags.install_type == ctx.STEP_BASE or ctx.flags.install_type == ctx.STEP_DEFAULT:
-                bus = dbus.bus.BusConnection(address_or_type="unix:path=%s" % ctx.consts.target_dbus_socket)
-
-            if ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
-                bus = dbus.bus.BusConnection(address_or_type="unix:path=%s" % ctx.consts.dbus_socket)
-
-            break
+            user_id = ctx.link.User.Manager["baselayout"].addUser(user.uid, user.username, user.realname, "", "",
+                                                                  unicode(user.passwd), user.groups, [], [])
         except dbus.DBusException:
-            time.sleep(2)
-            ctx.logger.debug("wait dbus for 1 second...")
-    if bus:
+            ctx.logger.error("Adding user failed")
+            return False
+        else:
+            ctx.logger.debug("New user's id is %s" % user_id)
+            # Set no password ask for PolicyKit
+            if user.no_password and ctx.link:
+                ctx.link.User.Manager["baselayout"].grantAuthorization(user_id, "*")
+
+            # If new user id is different from old one, we need to run a huge chown for it
+            user_dir = ""
+            if ctx.flags.install_type == ctx.STEP_BASE or ctx.flags.install_type == ctx.STEP_DEFAULT:
+                user_dir = os.path.join(ctx.consts.target_dir, 'home', user.username)
+            if ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
+                user_dir = os.path.join(ctx.consts.root_path, 'home', user.username)
+
+            user_dir_id = os.stat(user_dir)[4]
+            if not user_dir_id == user_id:
+                ctx.interface.informationWindow.update(_("Preparing home directory for %s...") % user.username)
+                yali.util.run_batch("chown", ["-R", "%d:100" % user_id, user_dir])
+                ctx.interface.informationWindow.hide()
+
+            yali.util.run_batch("chmod", ["0711"])
+
+            # Enable auto-login
+            if user.username == ctx.installData.autoLoginUser:
+                user.setAutoLogin()
+
+            return True
+
+def setPassword(uid=0, password=""):
+    if ctx.link:
+        ctx.logger.info("Getting users from system")
+        info = ctx.link.User.Manager["baselayout"].userInfo(uid)
+        ctx.link.User.Manager["baselayout"].setUser(uid, info[1], info[3], info[4], unicode(password), info[5])
         return True
     return False
 
-def setHostName():
-    global bus
-    obj = bus.get_object("tr.org.pardus.comar", "/package/baselayout")
-    if ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
-        yali.util.run_batch("hostname", [str(ctx.installData.hostName)])
-        yali.util.run_batch("update-environment")
-        obj.setHostName(str(ctx.installData.hostName), dbus_interface="tr.org.pardus.comar.Network.Stack")
-    elif ctx.flags.install_type == ctx.STEP_DEFAULT:
-        obj.setHostName(str(ctx.installData.hostName), dbus_interface="tr.org.pardus.comar.Network.Stack")
-
-    if ctx.flags.install_type == ctx.STEP_BASE:
-        obj.setHostName(str(yali.util.product_release()), dbus_interface="tr.org.pardus.comar.Network.Stack")
-
-    ctx.logger.debug("Hostname set as %s" % ctx.installData.hostName)
-    return True
-
-def get_users():
-    import comar
-    link = None
-    if ctx.flags.install_type == ctx.STEP_BASE or ctx.flags.install_type == ctx.STEP_DEFAULT:
-        link = comar.Link(socket=ctx.consts.target_dbus_socket)
-
-    if ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
-        link = comar.Link(socket=ctx.consts.dbus_socket)
-
-    users = link.User.Manager["baselayout"].userList()
-    return filter(lambda user: user[0]==0 or (user[0]>=1000 and user[0]<=65000), users)
-
-def setUserPass(uid, password):
-    import comar
-    link = None
-    if ctx.flags.install_type == ctx.STEP_BASE or ctx.flags.install_type == ctx.STEP_DEFAULT:
-        link = comar.Link(socket=ctx.consts.target_dbus_socket)
-
-    if ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
-        link = comar.Link(socket=ctx.consts.dbus_socket)
-
-    info = link.User.Manager["baselayout"].userInfo(uid)
-    return link.User.Manager["baselayout"].setUser(uid, info[1], info[3], info[4], password, info[5])
-
-def getConnectionList():
-    import comar
-    if ctx.flags.install_type == ctx.STEP_BASE or ctx.flags.install_type == ctx.STEP_DEFAULT:
-        link = comar.Link(socket=ctx.consts.target_dbus_socket)
-
-    if ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
-        link = comar.Link(socket=ctx.consts.dbus_socket)
-
-    results = {}
-    for package in link.Network.Link:
-        results[package] = list(link.Network.Link[package].connections())
-    return results
-
-def connectTo(package, profile):
-    import comar
-    if ctx.flags.install_type == ctx.STEP_BASE or ctx.flags.install_type == ctx.STEP_DEFAULT:
-        link = comar.Link(socket=ctx.consts.target_dbus_socket)
-
-    if ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
-        link = comar.Link(socket=ctx.consts.dbus_socket)
-
-    return link.Network.Link[package].setState(profile, "up")
-
-def addUsers():
-    import comar
-    if ctx.flags.install_type == ctx.STEP_BASE or ctx.flags.install_type == ctx.STEP_DEFAULT:
-        link = comar.Link(socket=ctx.consts.target_dbus_socket)
-
-    if ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
-        link = comar.Link(socket=ctx.consts.dbus_socket)
-
-    def setNoPassword(uid):
-        link.User.Manager["baselayout"].grantAuthorization(uid, "*")
-
-    global bus
-    obj = bus.get_object("tr.org.pardus.comar", "/package/baselayout")
+def setUserPassword():
     for user in yali.users.PENDING_USERS:
-        ctx.logger.debug("User %s adding to system" % user.username)
-        uid = obj.addUser(user.uid, user.username, user.realname, "", "",
-                          unicode(user.passwd), user.groups, [], [],
-                          dbus_interface="tr.org.pardus.comar.User.Manager")
-        ctx.logger.debug("New user's id is %s" % uid)
+        user_id = user.uid
+        user_password = user.passwd
+        setPassword(uid=user_id, password=user_password)
+        return True
+    else:
+        return False
 
-        # If new user id is different from old one, we need to run a huge chown for it
-        user_home_dir = ""
-        if ctx.flags.install_type == ctx.STEP_BASE or ctx.flags.install_type == ctx.STEP_DEFAULT:
-            user_home_dir = os.path.join(ctx.consts.target_dir, 'home', user.username)
-        if ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
-            user_home_dir = os.path.join('/home', user.username)
+def setAdminPassword():
+    return setPassword(uid=0, password=ctx.installData.rootPassword)
 
-        user_home_dir_id = os.stat(user_home_dir)[4]
-        if not user_home_dir_id == uid:
-            ctx.interface.informationWindow.update(_("Preparing home directory for %s...") % user.username)
-            os.system('chown -R %d:%d %s ' % (uid, 100, user_home_dir))
-            ctx.interface.informationWindow.hide()
-
-        os.chmod(user_home_dir, 0711)
-
-        # Enable auto-login
-        if user.username == ctx.installData.autoLoginUser:
-            user.setAutoLogin()
-
-        # Set no password ask for PolicyKit
-        if user.no_password:
-            setNoPassword(uid)
-
-    return True
-
-def setRootPassword():
-    global bus
-    obj = bus.get_object("tr.org.pardus.comar", "/package/baselayout")
-    if ctx.flags.install_type == ctx.STEP_FIRST_BOOT or ctx.flags.install_type == ctx.STEP_DEFAULT:
-        obj.setUser(0, "", "", "", str(ctx.installData.rootPassword), "", dbus_interface="tr.org.pardus.comar.User.Manager")
-
-    if ctx.flags.install_type == ctx.STEP_BASE:
-        obj.setUser(0, "", "", "", str("pardus"), "", dbus_interface="tr.org.pardus.comar.User.Manager")
-
-    return True
-
-def writeConsoleData():
-    keymap = ctx.installData.keyData["consolekeymap"]
-    if isinstance(keymap, list):
-        keymap = keymap[1]
-    yali.util.writeKeymap(ctx.installData.keyData["consolekeymap"])
-    ctx.logger.debug("Keymap stored.")
-    return True
-
-def setKeymap():
+def setKeymapLayout():
+    ctx.logger.info("Setting keymap layout")
     keymap = ctx.installData.keyData
     yali.util.setKeymap(keymap["xkblayout"], keymap["xkbvariant"], root=True)
+    consolekeymap = keymap["consolekeymap"]
+    if isinstance(consolekeymap, list):
+        consolekeymap = consolekeymap[1]
+    yali.util.writeKeymap(consolekeymap)
 
-def migrateXorgConf():
-    # if installation type is not First Boot
-    if not ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
-        migrateXorg()
-        ctx.logger.debug("xorg.conf and other files merged.")
-    return True
-
-def copyPisiIndex():
+def setupRepoIndex():
     target = os.path.join(ctx.consts.target_dir, "var/lib/pisi/index/%s" % ctx.consts.pardus_repo_name)
 
     if os.path.exists(ctx.consts.pisi_index_file):
@@ -287,8 +235,12 @@ def copyPisiIndex():
     yali.pisiiface.regenerateCaches()
     return True
 
-def writeInitramfsConf(parameters=[]):
-    path = os.path.join(ctx.consts.target_dir, "etc/initramfs.conf")
+def writeInitramfsConf():
+    conf_path = os.path.join(ctx.consts.target_dir, "etc/initramfs.conf")
+    if not os.path.exists(os.path.dirname(conf_path)):
+        raise yali.Error("writeInitramfsConf can access %s path" % conf_path)
+
+    parameters = []
     rootDevice = ctx.storage.storageset.rootDevice
     parameters.append("root=%s" % rootDevice.fstabSpec)
 
@@ -303,58 +255,81 @@ def writeInitramfsConf(parameters=[]):
     if ctx.storage.raidArrays:
         parameters.append("raid=1")
 
-    ctx.logger.debug("Configuring initramfs.conf file with parameters:%s" % parameters)
+    ctx.logger.info("Writing initramfs.conf file with %s parameters" % " ".join(parameters))
 
-    initramfsConf = open(path, 'w')
+    with open(conf_path, 'w') as initramfs:
+        for parameter in parameters:
+            try:
+                initramfs.write("%s\n" % parameter)
+            except IOError, msg:
+                raise yali.Error("Unexpected error: %s" % msg)
 
-    for param in parameters:
-        try:
-            initramfsConf.write("%s\n" % param)
-        except IOError, msg:
-            ctx.logger.debug("Unexpected error: %s" % msg)
-            raise IOError
-
-    initramfsConf.close()
-
-
-def fillFstab():
-    ctx.logger.debug("Generating fstab configuration file")
-    ctx.storage.storageset.write(ctx.consts.target_dir)
-
-def setupFirstBoot():
-    yali.util.write_config_option(os.path.join(ctx.consts.target_dir, "etc/yali/yali.conf"), "general", "installation", "firstboot")
-    ctx.logger.debug("Setup firstboot")
-
-def setupBootLooder():
-    ctx.bootloader.setup()
-    ctx.logger.debug("Setup bootloader")
-
-def writeBootLooder():
-    ctx.bootloader.write()
-    ctx.logger.debug("Writing grub.conf and devicemap")
-
-def installBootloader():
-    # BUG:#11255 normal user doesn't mount /mnt/archive directory. 
-    # We set new formatted partition priveleges as user=root group=disk and change mod as 0770
-    default_mountpoints = ['/', '/boot', '/home', '/tmp', '/var', '/opt']
-    user_defined_mountpoints = [device for mountpoint, device in ctx.storage.mountpoints.items() if mountpoint not in default_mountpoints]
-    if user_defined_mountpoints:
-        ctx.logger.debug("User defined device mountpoints:%s" % [device.format.mountpoint for device in user_defined_mountpoints])
-        for device in user_defined_mountpoints:
-            yali.util.set_partition_privileges(device, 0770, 0, 6)
-
-    # Umount system paths
-    ctx.storage.storageset.umountFilesystems()
-    ctx.logger.debug("Unmount system paths")
-    rc = ctx.bootloader.install()
-    if rc:
-        ctx.logger.debug("Bootloader installation failed!")
-        return False
-    else:
-        ctx.logger.debug("Bootloader installed")
+def writeFstab():
+    ctx.logger.info("Generating fstab configuration file")
+    if ctx.storage.storageset.active:
+        ctx.storage.storageset.write(ctx.consts.target_dir)
         return True
 
+    ctx.logger.debug("writeFstab:StorageSet not activated")
+    return False
 
-def cleanup():
+def setupFirstBoot():
+    ctx.logger.info("Generating yali configuration file")
+    if ctx.storage.storageset.active:
+        yali.util.write_config_option(os.path.join(ctx.consts.target_dir, "etc/yali/yali.conf"), "general", "installation", "firstboot")
+        return True
+
+    ctx.logger.debug("setupFirstBoot:StorageSet not activated")
+    return False
+
+def teardownFirstBoot():
     yali.util.run_batch("pisi", ["rm", "yali", "yali-theme-pardus", "yali-branding-pardus"])
+
+def setupPrivileges():
+    # BUG:#11255 normal user doesn't mount /mnt/archive directory. 
+    # We set new formatted partition priveleges as user=root group=disk and change mod as 0770
+    ctx.logger.info("Setting user defined mountpoints privileges")
+    if ctx.storage.storageset.active:
+        default_mountpoints = ['/', '/boot', '/home', '/tmp', '/var', '/opt']
+        user_defined_mountpoints = [device for mountpoint, device in ctx.storage.mountpoints.items() if mountpoint not in default_mountpoints]
+        if user_defined_mountpoints:
+            ctx.logger.debug("User defined mountpoints:%s" % [device.format.mountpoint for device in user_defined_mountpoints])
+            for device in user_defined_mountpoints:
+                yali.util.set_partition_privileges(device, 0770, 0, 6)
+
+    ctx.logger.debug("setupPrivileges:StorageSet not activated")
+    return False
+
+def setupStorage():
+    ctx.storage.storageset.mountFilesystems()
+    return ctx.storage.storageset.active
+
+def teardownStorage():
+    if ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
+        remove = True
+    yali.util.backup_log(remove)
+    ctx.storage.storageset.umountFilesystems()
+    return not ctx.storage.storageset.active
+
+def writeBootLooder():
+    ctx.logger.info("Generating grub configuration file")
+    if ctx.storage.storageset.active:
+        ctx.bootloader.write()
+        return True
+
+    ctx.logger.debug("writeBootLooder:StorageSet not activated")
+    return False
+
+def installBootloader():
+    if len(ctx.mountCount):
+        ctx.logger.debug("StorageSet is already active. Bootloader installBootloader failed")
+        return False
+
+    rc = ctx.bootloader.install()
+    if rc:
+        ctx.logger.debug("Bootloader installation failed")
+        return False
+    else:
+        ctx.logger.info("Bootloader installation succesed")
+        return True
 

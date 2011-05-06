@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 #
 # Copyright (C) 2005-2010 TUBITAK/UEKAE
 #
@@ -18,10 +17,10 @@ from PyQt4.Qt import QWidget, QPixmap
 
 import yali.util
 import yali.context as ctx
+import yali.postinstall
 from yali.gui import ScreenWidget
 from yali.gui.YaliDialog import InfoDialog
 from yali.gui.Ui.goodbyewidget import Ui_GoodByeWidget
-from yali.postinstall import Operation
 
 class Widget(QWidget, ScreenWidget):
     name = "goodbye"
@@ -33,9 +32,10 @@ class Widget(QWidget, ScreenWidget):
 
     def shown(self):
         ctx.mainScreen.disableNext()
-        ctx.interface.informationWindow.update(_("Running post-install operations..."))
         ctx.mainScreen.disableBack()
-        self.processPendingActions()
+
+        ctx.interface.informationWindow.update(_("Running post-install operations..."))
+        self.runOperations()
         ctx.mainScreen.pds_helper.toggleHelp()
         self.ui.label.setPixmap(QPixmap(":/gui/pics/goodbye.png"))
         ctx.interface.informationWindow.hide()
@@ -57,43 +57,44 @@ class Widget(QWidget, ScreenWidget):
         else:
             sys.exit(0)
 
+    def runOperations(self):
+        postInstallOperations = []
+        postInstallOperations.append(yali.postinstall.Operation(_("Initializing COMAR..."), yali.postinstall.initializeComar))
 
+        if not (ctx.flags.install_type == ctx.STEP_RESCUE or ctx.flags.install_type == ctx.STEP_FIRST_BOOTi):
+            postInstallOperations.append(yali.postinstall.Operation(_("Setting timezone..."), yali.postinstall.setupTimeZone))
+            postInstallOperations.append(yali.postinstall.Operation(_("Migrating Xorg configuration..."), yali.postinstall.setKeymapLayout))
+            postInstallOperations.append(yali.postinstall.Operation(_("Copying repository index..."), yali.postinstall.setupRepoIndex))
 
-    def processPendingPostinstallOperations(self):
-        ctx.postInstallOperations.append(Operation(_("Connecting to D-Bus..."), yali.postinstall.connectToDBus))
+        if ctx.flags.install_type == ctx.STEP_DEFAULT or ctx.flags.install_type == ctx.STEP_BASE or ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
+            postInstallOperations.append(yali.postinstall.Operation(_("Setting hostname..."), yali.postinstall.setHostName))
+            postInstallOperations.append(yali.postinstall.Operation(_("Setting root password..."), yali.postinstall.setAdminPassword))
 
-        if not ctx.flags.install_type == ctx.STEP_RESCUE:
-            ctx.postInstallOperations.append(Operation(_("Setting hostname..."), yali.postinstall.setHostName))
-            ctx.postInstallOperations.append(Operation(_("Setting root password..."), yali.postinstall.setRootPassword))
-
-        #FIXME:These are the base operations which have to be.
-        base_operations = [Operation(_("Setting timezone..."), yali.postinstall.setTimeZone),
-                      Operation(_("Migrating Xorg configuration..."), yali.postinstall.setKeymap),
-                      Operation(_("Setting console keymap..."), yali.postinstall.writeConsoleData),
-                      Operation(_("Copying repository index..."), yali.postinstall.copyPisiIndex),
-                      Operation(_("Stopping to D-Bus..."), yali.util.stop_dbus)]
-
-        #FIXME:If user doesn't select any device to install bootloader base_operations order must be like above.
-        #However in the other case installing bootloader operation must execute after stopping dbus.
-        if (ctx.flags.install_type == ctx.STEP_BASE or
-            ctx.flags.install_type == ctx.STEP_DEFAULT or
-            (ctx.flags.install_type == ctx.STEP_RESCUE and ctx.installData.rescueMode == ctx.RESCUE_GRUB)) and ctx.bootloader.device:
-            base_operations.insert(4, Operation(_("Setup bootloader..."), yali.postinstall.setupBootLooder))
-            base_operations.insert(5, Operation(_("Writing bootloader..."), yali.postinstall.writeBootLooder))
-            base_operations.append(Operation(_("Installing bootloader..."), yali.postinstall.installBootloader))
+        if ctx.flags.install_type == ctx.STEP_RESCUE and ctx.installData.rescueMode == ctx.RESCUE_PASSWORD:
+            postInstallOperations.append(yali.postinstall.Operation(_("Resetting user password..."), yali.postinstall.setUserPassword))
 
         if ctx.flags.install_type == ctx.STEP_BASE:
-            ctx.postInstallOperations.append(Operation(_("Setup First-Boot..."), yali.postinstall.setupFirstBoot))
-
-        if ctx.flags.install_type == ctx.STEP_FIRST_BOOT or ctx.flags.install_type == ctx.STEP_DEFAULT:
-            ctx.postInstallOperations.append(Operation(_("Adding users..."), yali.postinstall.addUsers))
+            postInstallOperations.append(yali.postinstall.Operation(_("Setup First-Boot..."), yali.postinstall.setupFirstBoot))
 
         if ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
-            ctx.postInstallOperations.append(Operation(_("Cleanup systems..."), yali.postinstall.cleanup))
+            postInstallOperations.append(yali.postinstall.Operation(_("Teardown First-Boot..."), yali.postinstall.teardownFirstBoot))
 
-        if ctx.flags.install_type == ctx.STEP_BASE  or ctx.flags.install_type == ctx.STEP_DEFAULT:
-            ctx.postInstallOperations.extend(base_ctx.postInstallOperations)
 
-        for operation in ctx.postInstallOperations:
+        if ctx.flags.install_type == ctx.STEP_FIRST_BOOT or ctx.flags.install_type == ctx.STEP_DEFAULT:
+            postInstallOperations.append(yali.postinstall.Operation(_("Adding users..."), yali.postinstall.setupUsers))
+
+        if (ctx.flags.install_type == ctx.STEP_BASE or ctx.flags.install_type == ctx.STEP_DEFAULT or \
+            (ctx.flags.install_type == ctx.STEP_RESCUE and ctx.installData.rescueMode == ctx.RESCUE_GRUB)) and \
+            ctx.bootloader.stage1Device:
+            postInstallOperations.append(yali.postinstall.Operation(_("Writing bootloader..."), yali.postinstall.writeBootLooder))
+            postInstallOperations.append(yali.postinstall.Operation(_("Stopping to D-Bus..."), yali.util.stop_dbus))
+            postInstallOperations.append(yali.postinstall.Operation(_("Teardown storage subsystem..."), yali.postinstall.teardownStorage))
+            postInstallOperations.append(yali.postinstall.Operation(_("Installing bootloader..."), yali.postinstall.installBootloader))
+
+        if ctx.flags.install_type == ctx.STEP_DEFAULT or ctx.flags.install_type == ctx.STEP_BASE or ctx.flags.install_type == ctx.STEP_RESCUE:
+            postInstallOperations.append(yali.postinstall.Operation(_("Stopping to D-Bus..."), yali.util.stop_dbus))
+            postInstallOperations.append(yali.postinstall.Operation(_("Teardown storage subsystem..."), yali.postinstall.teardownStorage))
+
+        for operation in postInstallOperations:
             if not operation.status:
                 operation.run()
