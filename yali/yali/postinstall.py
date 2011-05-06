@@ -89,6 +89,7 @@ def setHostName(chroot=False):
 
         if not chroot:
             yali.util.run_batch("hostname", [unicode(ctx.installData.hostName)])
+            yali.util.run_batch("update-environment", [""])
             ctx.logger.info("Updating environment...")
         return True
     else:
