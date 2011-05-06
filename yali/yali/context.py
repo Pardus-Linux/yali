@@ -25,6 +25,8 @@ STEP_TYPE_STRINGS = {STEP_DEFAULT:"Default",
                      STEP_FIRST_BOOT:"First Boot mode",
                      STEP_RESCUE:"System Rescue mode"}
 
+RESCUE_GRUB, RESCUE_PISI, RESCUE_PASSWORD = xrange(3)
+
 # Auto Installation Methods
 methodInstallAutomatic, methodInstallManual = range(2)
 
