@@ -451,10 +451,10 @@ class StorageSet(object):
                 except DeviceError as (msg, name):
                     if ctx.interface.messageWindow:
                         error = _("Error enabling swap device %(name)s: "
-                                "%(msg)s<br><br>"
-                                "This most likely means this swap "
-                                "device has not been initialized.<br><br>"
-                                "Press OK to exit the installer.") %
+                                  "%(msg)s<br><br>"
+                                  "This most likely means this swap "
+                                  "device has not been initialized.<br><br>"
+                                  "Press OK to exit the installer.") % \
                                 {'name': name, 'msg': msg}
                         ctx.interface.messageWindow(_("Error"),
                                                     error,
