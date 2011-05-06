@@ -99,7 +99,7 @@ class SwapSpace(Format):
     def setup(self, *args, **kwargs):
         """ Open, or set up, a device. """
         if not self.exists:
-            raise SwapSpaceError("format has not been created")
+            raise SwapSpaceError("format has not been created", self.device)
 
         if self.status:
             return
@@ -110,7 +110,7 @@ class SwapSpace(Format):
     def teardown(self, *args, **kwargs):
         """ Close, or tear down, a device. """
         if not self.exists:
-            raise SwapSpaceError("format has not been created")
+            raise SwapSpaceError("format has not been created", self.device)
 
         if self.status:
             try:
@@ -122,12 +122,12 @@ class SwapSpace(Format):
         """ Create the device. """
         force = kwargs.get("force")
         if not force and self.exists:
-            raise SwapSpaceError("format already exists")
+            raise SwapSpaceError("format already exists", self.device)
 
         if force:
             self.teardown()
         elif self.status:
-            raise SwapError("device exists and is active")
+            raise SwapError("device exists and is active", self.device)
 
         try:
             Format.create(self, *args, **kwargs)

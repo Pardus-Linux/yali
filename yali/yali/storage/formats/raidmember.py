@@ -58,7 +58,7 @@ class RaidMember(Format):
     def probe(self):
         """ Probe for any missing information about this format. """
         if not self.exists:
-            raise RaidMemberError("format does not exist")
+            raise RaidMemberError("format does not exist", self.device)
 
         info = raid.mdexamine(self.device)
         if self.uuid is None:
@@ -68,10 +68,10 @@ class RaidMember(Format):
 
     def destroy(self, *args, **kwargs):
         if not self.exists:
-            raise RaidMemberError("format does not exist")
+            raise RaidMemberError("format does not exist", self.device)
 
         if not os.access(self.device, os.W_OK):
-            raise RaidMemberError("device path does not exist")
+            raise RaidMemberError("device path does not exist", self.device)
 
         raid.mddestroy(self.device)
         self.exists = False

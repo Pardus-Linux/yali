@@ -166,7 +166,7 @@ class DiskLabel(Format):
     def setup(self, *args, **kwargs):
         """ Open, or set up, a device. """
         if not self.exists:
-            raise FormatError("format has not been created")
+            raise DiskLabelError("format has not been created", self.device)
 
         if self.status:
             return
@@ -176,15 +176,15 @@ class DiskLabel(Format):
     def teardown(self, *args, **kwargs):
         """ Close, or tear down, a device. """
         if not self.exists:
-            raise FormatError("format has not been created")
+            raise DiskLabelError("format has not been created", self.device)
 
     def create(self, *args, **kwargs):
         """ Create the device. """
         if self.exists:
-            raise FormatError("format already exists")
+            raise DiskLabelError("format already exists", self.device)
 
         if self.status:
-            raise FormatError("device exists and is active")
+            raise DiskLabelError("device exists and is active", self.device)
 
         Format.create(self, *args, **kwargs)
 
@@ -198,10 +198,10 @@ class DiskLabel(Format):
     def destroy(self, *args, **kwargs):
         """ Wipe the disklabel from the device. """
         if not self.exists:
-            raise FormatError("format does not exist")
+            raise DiskLabelError("format does not exist", self.device)
 
         if not os.access(self.device, os.W_OK):
-            raise FormatError("device path does not exist")
+            raise DiskLabelError("device path does not exist", self.device)
 
         self.partedDevice.clobber()
         self.exists = False

@@ -229,35 +229,39 @@ class Filesystem(Format):
 
     def doMigrate(self, intf=None):
         if not self.exists:
-            raise FilesystemError("filesystem has not been created")
+            raise FilesystemMigrateError("filesystem has not been created", self.device)
 
         if not self.migratable or not self.migrate:
             return
 
         if not os.path.exists(self.device):
-            raise FilesystemError("device does not exist")
+            raise FilesystemMigrateError("device does not exist", self.device)
 
         # if journal already exists skip
         if yali.sysutils.ext2HasJournal(self.device):
             ctx.logger.info("Skipping migration of %s, has a journal already." % self.device)
             return
 
+        w = None
+        if intf:
+            w = intf.progressWindow(_("Migrating %s filesystem on %s") % (self.type, self.device))
+
         argv = self._migrateOptions[:]
         argv.append(self.device)
         try:
-            rc = yali.util.run_batch(self.migratefs,
-                                        argv,
-                                        stdout = "/dev/tty5",
-                                        stderr = "/dev/tty5")[0]
+            rc = yali.util.run_batch(self.migratefs, argv)[0]
         except Exception as e:
             raise FilesystemMigrateError("filesystem migration failed: %s" % e, self.device)
+        else:
+            if rc:
+                raise FilesystemMigrateError("filesystem migration failed: %s" % rc, self.device)
 
-        if rc:
-            raise FilesystemMigrateError("filesystem migration failed: %s" % rc, self.device)
-
-        # the other option is to actually replace this instance with an
-        # instance of the new filesystem type.
-        self._type = self.migrationTarget
+            # the other option is to actually replace this instance with an
+            # instance of the new filesystem type.
+            self._type = self.migrationTarget
+        finally:
+            if w:
+                w.pop()
 
     def doFormat(self, *args, **kwargs):
         """ Create the filesystem.
@@ -361,13 +365,13 @@ class Filesystem(Format):
 
     def doCheck(self, intf=None):
         if not self.exists:
-            raise FilesystemError("filesystem has not been created")
+            raise FilesystemError("filesystem has not been created", self.device)
 
         if not self.fsck:
             return
 
         if not os.path.exists(self.device):
-            raise FilesystemError("device does not exist")
+            raise FilesystemError("device does not exist", self.device)
 
         w = None
         if intf:
@@ -377,7 +381,7 @@ class Filesystem(Format):
         try:
             rc = yali.util.run_batch(self.fsck, self._getCheckArgs())[0]
         except Exception as e:
-            raise FilesystemError("filesystem check failed: %s" % e)
+            raise FilesystemError("filesystem check failed: %s" % e, self.device)
         else:
             if self._fsckFailed(rc):
                 hdr = _("%(type)s filesystem check failure on %(device)s: ") % \

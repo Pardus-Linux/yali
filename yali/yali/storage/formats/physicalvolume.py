@@ -60,7 +60,7 @@ class PhysicalVolume(Format):
     def probe(self):
         """ Probe for any missing information about this device. """
         if not self.exists:
-            raise PhysicalVolumeError("format has not been created")
+            raise PhysicalVolumeError("format has not been created", self.device)
 
     def create(self, *args, **kwargs):
         """ Create the format. """
@@ -83,10 +83,10 @@ class PhysicalVolume(Format):
     def destroy(self, *args, **kwargs):
         """ Destroy the format. """
         if not self.exists:
-            raise PhysicalVolumeError("format has not been created")
+            raise PhysicalVolumeError("format has not been created", self.device)
 
         if self.status:
-            raise PhysicalVolumeError("device is active")
+            raise PhysicalVolumeError("device is active", self.device)
 
         # FIXME: verify path exists?
         try:
