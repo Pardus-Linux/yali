@@ -36,7 +36,7 @@ def initialize(storage, intf):
 
     check = storage.checkDisks(intf)
     if check == None:
-        sys.exit(1)
+        sys.exit(2)
     else:
         return check
 
@@ -71,10 +71,10 @@ def complete(storage, intf):
     finally:
         if title:
             rc = intf.detailedMessageWindow(title, message, details,
-                                            type = "custom", customIcon="error",
-                                            customButtons = [_("Exit installer"), _("Ignore")])
+                                            type="custom", customIcon="error",
+                                            customButtons=[_("Exit installer"), _("Ignore")])
             if not rc:
-                sys.exit(1)
+                sys.exit(2)
 
     return returncode
 

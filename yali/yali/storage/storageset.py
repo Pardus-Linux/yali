@@ -296,26 +296,29 @@ class StorageSet(object):
                 if ctx.interface.messageWindow:
                     if msg.errno == errno.EEXIST:
                         ctx.interface.messageWindow(_("Invalid mount point"),
-                                               _("An error occurred when trying "
-                                                 "to create %s.  Some element of "
-                                                 "this path is not a directory. "
-                                                 "This is a fatal error and the "
-                                                 "install cannot continue.\n\n"
-                                                 "Press <Enter> to exit the "
-                                                 "installer.")
-                                                % (device.format.mountpoint,))
+                                                    _("An error occurred when trying "
+                                                      "to create %s.  Some element of "
+                                                      "this path is not a directory. "
+                                                      "This is a fatal error and the "
+                                                      "install cannot continue.\n\n"
+                                                      "Press <Enter> to exit the "
+                                                      "installer.")
+                                                    % (device.format.mountpoint,),
+                                                    type="error")
                     else:
                         na = {'mountpoint': device.format.mountpoint,
                               'msg': e.strerror}
                         ctx.interface.messageWindow(_("Invalid mount point"),
-                                               _("An error occurred when trying "
-                                                 "to create %(mountpoint)s: "
-                                                 "%(msg)s.  This is "
-                                                 "a fatal error and the install "
-                                                 "cannot continue.\n\n"
-                                                 "Press <Enter> to exit the "
-                                                 "installer.") % na)
-                sys.exit(0)
+                                                    _("An error occurred when trying "
+                                                      "to create %(mountpoint)s: "
+                                                      "%(msg)s.  This is "
+                                                      "a fatal error and the install "
+                                                      "cannot continue.\n\n"
+                                                      "Press <Enter> to exit the "
+                                                      "installer.") % na,
+                                                    type="error")
+                    sys.exit(2)
+
 
             except SystemError as (num, msg):
                 ctx.logger.error("SystemError: (%d) %s" % (num, msg) )
@@ -333,11 +336,10 @@ class StorageSet(object):
                                                    customButtons=[_("Exit installer"), _("Continue")])
 
                     if ret == 0:
-                        sys.exit(0)
+                        sys.exit(2)
                     else:
                         continue
 
-                sys.exit(0)
             except FilesystemError as msg:
                 ctx.logger.error("FilesystemError: %s" % msg)
 
@@ -346,14 +348,15 @@ class StorageSet(object):
                           'mountpoint': device.format.mountpoint,
                           'msg': msg}
                     ctx.interface.messageWindow(_("Unable to mount filesystem"),
-                                           _("An error occurred mounting "
-                                             "device %(path)s as %(mountpoint)s: "
-                                             "%(msg)s. This is "
-                                             "a fatal error and the install "
-                                             "cannot continue.\n\n"
-                                             "Press <Enter> to exit the "
-                                             "installer.") % na)
-                sys.exit(0)
+                                                _("An error occurred mounting "
+                                                  "device %(path)s as %(mountpoint)s: "
+                                                  "%(msg)s. This is "
+                                                  "a fatal error and the install "
+                                                  "cannot continue.\n\n"
+                                                  "Press <Enter> to exit the "
+                                                  "installer.") % na,
+                                                type="error")
+                    sys.exit(2)
 
         self.active = True
 
@@ -375,11 +378,14 @@ class StorageSet(object):
     def turnOnSwap(self):
         def swapError(msg, device):
             if not ctx.interface.messageWindow:
-                sys.exit(0)
+                sys.exit(2)
 
-            buttons = [_("Skip"), _("Format"), _("Exit")]
-            ret = ctx.interface.messageWindow(_("Error"), msg, type="custom",
-                                              customButtons=buttons,
+            ret = ctx.interface.messageWindow(_("Error"),
+                                              msg,
+                                              type="custom",
+                                              customButtons=[_("Skip"),
+                                                             _("Format"),
+                                                             _("Exit")],
                                               customIcon="error")
 
             if ret == 0:
@@ -389,7 +395,7 @@ class StorageSet(object):
                 device.format.create(force=True)
                 return True
             else:
-                sys.exit(0)
+                sys.exit(2)
 
         for device in self.swapDevices:
             if isinstance(device, FileDevice):
@@ -444,14 +450,16 @@ class StorageSet(object):
 
                 except DeviceError as (msg, name):
                     if ctx.interface.messageWindow:
-                        err = _("Error enabling swap device %(name)s: "
-                                    "%(msg)s\n\n"
-                                    "This most likely means this swap "
-                                    "device has not been initialized.\n\n"
-                                    "Press OK to exit the installer.") % \
-                                  {'name': name, 'msg': msg}
-                        ctx.interface.messageWindow(_("Error"), err)
-                    sys.exit(0)
+                        error = _("Error enabling swap device %(name)s: "
+                                "%(msg)s<br><br>"
+                                "This most likely means this swap "
+                                "device has not been initialized.<br><br>"
+                                "Press OK to exit the installer.") %
+                                {'name': name, 'msg': msg}
+                        ctx.interface.messageWindow(_("Error"),
+                                                    error,
+                                                    type="error")
+                    sys.exit(2)
 
                 break
 

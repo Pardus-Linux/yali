@@ -397,7 +397,6 @@ class Filesystem(Format):
                     intf.messageWindow(_("Unrecoverable Error"),
                                        hdr + "<br><br>" + msg + "<br><br>" + help,
                                        customIcon='error')
-                    sys.exit(0)
                 else:
                     raise FilesystemError(hdr + msg)
         finally:

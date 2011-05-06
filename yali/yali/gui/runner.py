@@ -121,8 +121,7 @@ class Runner:
                                                  type="custom", customIcon="warning",
                                                  customButtons=[_("Exit"), _("Retry")])
                 if not rc:
-                    import sys
-                    sys.exit(0)
+                    sys.exit(1)
             else:
                 screens.append(screenClass)
 
