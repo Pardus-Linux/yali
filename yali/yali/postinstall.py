@@ -157,11 +157,15 @@ def setAdminPassword():
 def setKeymapLayout():
     ctx.logger.info("Setting keymap layout")
     keymap = ctx.installData.keyData
-    yali.util.setKeymap(keymap["xkblayout"], keymap["xkbvariant"], root=True)
+    # util.setKeymap return 0 if operation success.
+    set_keymap_result = not yali.util.setKeymap(keymap["xkblayout"], keymap["xkbvariant"], root=True)
     consolekeymap = keymap["consolekeymap"]
     if isinstance(consolekeymap, list):
         consolekeymap = consolekeymap[1]
-    yali.util.writeKeymap(consolekeymap)
+    write_keymap_result = yali.util.writeKeymap(consolekeymap)
+
+    return set_keymap_result & write_keymap_result
+
 
 def setupRepoIndex():
     target = os.path.join(ctx.consts.target_dir, "var/lib/pisi/index/%s" % ctx.consts.pardus_repo_name)
@@ -259,9 +263,10 @@ def setupStorage():
     return ctx.storage.storageset.active
 
 def teardownStorage():
+    remove_log = False
     if ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
-        remove = True
-    yali.util.backup_log(remove)
+        remove_log = True
+    yali.util.backup_log(remove_log)
     ctx.storage.storageset.umountFilesystems()
     return not ctx.storage.storageset.active
 
