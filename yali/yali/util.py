@@ -492,29 +492,21 @@ def setKeymap(keymap, variant=None, root=False):
 
     else:
         chroot("hav call zorg Xorg.Display setKeymap %s %s" % (keymap, variant))
-        return 0
 
 def writeKeymap(keymap):
     mudur_file_path = os.path.join(ctx.consts.target_dir, "etc/conf.d/mudur")
+    lines = []
+    for l in open(mudur_file_path, "r").readlines():
+        if l.strip().startswith('keymap=') or l.strip().startswith('# keymap='):
+            l = 'keymap="%s"\n' % keymap
+        if l.strip().startswith('language=') or l.strip().startswith('# language='):
+            if ctx.consts.lang == "pt":
+                l = 'language="pt_BR"\n'
+            else:
+                l = 'language="%s"\n' % ctx.consts.lang
+        lines.append(l)
 
-    if os.path.exists(mudur_file_path):
-        lines = []
-        with open(mudur_file_path, "r") as mudur_conf:
-            for l in mudur_conf.readlines():
-                if l.strip().startswith('keymap=') or l.strip().startswith('# keymap='):
-                    l = 'keymap="%s"\n' % keymap
-                if l.strip().startswith('language=') or l.strip().startswith('# language='):
-                    if ctx.consts.lang == "pt":
-                        l = 'language="pt_BR"\n'
-                    else:
-                        l = 'language="%s"\n' % ctx.consts.lang
-                lines.append(l)
-
-        with open(mudur_file_path, "w") as mudur_conf:
-            mudur_conf.writelines(lines)
-        return True
-
-    return False
+    open(mudur_file_path, "w").writelines(lines)
 
 def write_config_option(conf_file, section, option, value):
     configParser = ConfigParser.ConfigParser()
