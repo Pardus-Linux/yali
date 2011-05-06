@@ -12,6 +12,7 @@
 import os
 from multiprocessing import Process, Queue
 from Queue import Empty
+
 import gettext
 _ = gettext.translation('yali', fallback=True).ugettext
 
@@ -25,7 +26,6 @@ import yali.postinstall
 import yali.context as ctx
 from yali.gui import ScreenWidget
 from yali.gui.Ui.installwidget import Ui_InstallWidget
-from yali.gui.YaliDialog import EjectAndRetryDialog
 
 from yali.gui.Ui.installprogress import Ui_InstallProgress
 from pds.gui import PAbstractBox, BOTCENTER
@@ -189,14 +189,18 @@ class Widget(QWidget, ScreenWidget):
 
             # EventRetry
             elif event == EventRetry:
-                msg = data[1]
+                package = os.path.basename(data[1])
                 self.timer.stop()
                 self.poll_timer.stop()
-                self.retry_answer = EjectAndRetryDialog(_("Warning"),
-                                                        _("Following error occured while "
-                                                          "installing packages:\n"
-                                                          "<b>%s</b>") % msg,
-                                                        _("Do you want to retry?"))
+                rc = ctx.interface.messageWindow(_("Warning"),
+                                                 _("Following error occured while "
+                                                   "installing packages:"
+                                                   "<b>%s</b><br><br>"
+                                                   "Do you want to retry?")
+                                                 % package,
+                                                 type="custom", customIcon="warning",
+                                                 customButtons=[_("Yes"), _("No")])
+                self.retry_answer = not rc
 
                 self.timer.start(1000 * 30)
                 self.poll_timer.start(500)
@@ -305,7 +309,7 @@ class PkgInstaller(Process):
                     self.wait_condition.wait(self.mutex)
                     self.mutex.unlock()
 
-                    if self.retry_answer == "no":
+                    if not self.retry_answer:
                         raise msg
 
         except Exception, msg:
