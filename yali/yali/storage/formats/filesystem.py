@@ -347,15 +347,16 @@ class Filesystem(Format):
             rc = yali.util.run_batch(self.resizefs, self.resizeArgs)[0]
         except Exception as e:
             raise FilesystemResizeError(e, self.device)
+        else:
+            if rc:
+                raise FilesystemResizeError("resize failed: %s" % rc, self.device)
+
+            self.doCheck(intf=intf)
+            self.notifyKernel()
         finally:
             if w:
                 w.pop()
 
-        if rc:
-            raise FilesystemResizeError("resize failed: %s" % rc, self.device)
-
-        self.doCheck(intf=intf)
-        self.notifyKernel()
 
 
     def doCheck(self, intf=None):
@@ -377,27 +378,28 @@ class Filesystem(Format):
             rc = yali.util.run_batch(self.fsck, self._getCheckArgs())[0]
         except Exception as e:
             raise FilesystemError("filesystem check failed: %s" % e)
+        else:
+            if self._fsckFailed(rc):
+                hdr = _("%(type)s filesystem check failure on %(device)s: ") % \
+                        {"type":self.type, "device":self.device}
+                msg = self._fsckErrorMessage(rc)
+                if intf:
+                    help = _("Errors like this usually mean there is a problem "
+                             "with the filesystem that will require user "
+                             "interaction to repair. Restart installation "
+                             "after you have corrected the problems on the "
+                             "filesystem.")
+
+                    intf.messageWindow(_("Unrecoverable Error"),
+                                       hdr + "<br><br>" + msg + "<br><br>" + help,
+                                       customIcon='error')
+                    sys.exit(0)
+                else:
+                    raise FilesystemError(hdr + msg)
         finally:
             if w:
                 w.pop()
 
-        if self._fsckFailed(rc):
-            hdr = _("%(type)s filesystem check failure on %(device)s: ") % \
-                    {"type":self.type, "device":self.device}
-            msg = self._fsckErrorMessage(rc)
-            if intf:
-                help = _("Errors like this usually mean there is a problem "
-                         "with the\n filesystem that will require user "
-                         "interaction to repair.\n Restart\ninstallation "
-                         "after you have corrected the problems on the "
-                         "filesystem.")
-
-                intf.messageWindow(_("Unrecoverable Error"),
-                                   hdr + "\n\n" + msg + "\n\n" + help,
-                                   customIcon='error')
-                sys.exit(0)
-            else:
-                raise FilesystemError(hdr + msg)
 
     def loadModule(self):
         """Load whatever kernel module is required to support this filesystem."""
