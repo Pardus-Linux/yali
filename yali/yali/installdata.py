@@ -12,13 +12,15 @@
 
 class InstallData:
     keyData = None
-    rootPassword = None
+    rootPassword = ""
+    rootDevs = None
     hostName = None
     users = []
     isKahyaUsed = False
     autoLoginUser = None
     autoCollection = None
-    rescuePartition = None
+    rescueMode = None
+    rescueRoot = None
     repoAddr = None
     timezone = ""
     sessionLog = ""
