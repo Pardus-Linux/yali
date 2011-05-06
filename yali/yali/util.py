@@ -1,5 +1,14 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*-
+#
+# Copyright (C) 2011 TUBITAK/UEKAE
+#
+# This program is free software; you can redistribute it and/or modify it under
+# the terms of the GNU General Public License as published by the Free
+# Software Foundation; either version 2 of the License, or (at your option)
+# any later version.
+#
+# Please read the COPYING file.
+#
 import os
 import grp
 import shutil
@@ -15,16 +24,17 @@ _ = gettext.translation('yali', fallback=True).ugettext
 import pisi
 import piksemel
 import yali
+import yali.sysutils
 import yali.localedata
 import yali.context as ctx
-from pardus.diskutils import EDD
+from pardus import diskutils, grubutils
 
 EARLY_SWAP_RAM = 512 * 1024 # 512 MB
 
 def cp(source, destination):
     source = os.path.join(ctx.consts.target_dir, source)
     destination = os.path.join(ctx.consts.target_dir, destination)
-    ctx.logger.debug("Copying from '%s' to '%s'" % (source, destination))
+    ctx.logger.info("Copying from '%s' to '%s'" % (source, destination))
     shutil.copyfile(source, destination)
 
 def touch(path, mode=0644):
@@ -36,10 +46,18 @@ def chgrp(path, group):
     gid = int(grp.getgrnam(group)[2])
     os.chown(f, 0, gid)
 
-def product_name():
-    if os.path.exists(ctx.consts.pardus_release_file):
-        return open(ctx.consts.pardus_release_file,'r').read()
-    return ''
+def product_name(path=None):
+    if not path:
+        path = ctx.consts.root_path
+    filename = os.path.join(path, ctx.consts.pardus_release_file)
+    release_str = ""
+    if os.access(filename, os.R_OK):
+        with open(filename) as release_file:
+            try:
+                release_str = release_file.readline().strip()
+            except (IOError, AttributeError):
+                pass
+    return release_str
 
 def produc_id():
     release = product_name().split()
@@ -48,26 +66,6 @@ def produc_id():
 def product_release():
     release = product_name().split()
     return "".join(release[:2]).lower()
-
-def target_pardus_release(device, file_system):
-    result = False
-    if not os.path.isdir(ctx.consts.tmp_mnt_dir):
-        os.makedirs(ctx.consts.tmp_mnt_dir)
-
-    umount(ctx.consts.tmp_mnt_dir)
-
-    ctx.logger.debug("Mounting %s to %s" % (partition_path, ctx.consts.tmp_mnt_dir))
-
-    try:
-        mount(device, ctx.consts.tmp_mnt_dir, file_system)
-    except:
-        ctx.logger.debug("Mount failed for %s " % device)
-        return False
-
-    fpath = os.path.join(ctx.consts.tmp_mnt_dir, ctx.consts.pardus_release_file)
-    if os.path.exists(fpath):
-        return open(fpath,'r').read().strip()
-    return ''
 
 def is_text_valid(text):
     allowed_chars = string.ascii_letters + string.digits + '.' + '_' + '-'
@@ -110,7 +108,7 @@ def get_edd_dict(devices):
             ctx.logger.error("Inserting EDD Module failed !")
             return eddDevices
 
-    edd = EDD()
+    edd = diskutils.EDD()
     edds = edd.list_edd_signatures()
     mbrs = edd.list_mbr_signatures()
 
@@ -128,7 +126,7 @@ def run_batch(cmd, argv=[]):
     cmd = "%s %s" % (cmd, ' '.join(argv))
     p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, env=env)
     out, error = p.communicate()
-    ctx.logger.debug('return value for "%(command)s" is %(return)s' % {"command":cmd, "return":p.returncode})
+    ctx.logger.info('return value for "%(command)s" is %(return)s' % {"command":cmd, "return":p.returncode})
     if ctx.flags.debug:
         ctx.logger.debug('output for "%(command)s" is %(output)s' % {"command":cmd, "output":out})
         ctx.logger.debug('error value for "%(command)s" is %(error)s' % {"command":cmd, "error":error})
@@ -279,10 +277,8 @@ def swap_amount():
             return int(fields[1])
     return 0
 
-mountCount = {}
-
 def mount(device, location, filesystem, readOnly=False,
-          bindMount=False, remount=False, options=None):
+          bindMount=False, remount=False, options=None, createDir=True):
     flags = None
     location = os.path.normpath(location)
     if not options:
@@ -290,9 +286,13 @@ def mount(device, location, filesystem, readOnly=False,
     else:
         opts = options.split(",")
 
-    if mountCount.has_key(location) and mountCount[location] > 0:
-        mountCount[location] = mountCount[location] + 1
+    if ctx.mountCount.has_key(location) and ctx.mountCount[location] > 0:
+        ctx.mountCount[location] = ctx.mountCount[location] + 1
         return
+
+    if createDir and not os.path.exists(location):
+        ctx.logger.debug("Creating temporary directory %s for %s" % (location, device))
+        os.makedirs(location)
 
     if readOnly or bindMount or remount:
         if readOnly:
@@ -306,7 +306,7 @@ def mount(device, location, filesystem, readOnly=False,
     argv = ["-t", filesystem, device, location, "-o", flags]
     rc = run_batch("mount", argv)[0]
     if not rc:
-        mountCount[location] = 1
+        ctx.mountCount[location] = 1
 
     return rc
 
@@ -316,8 +316,8 @@ def umount(location, removeDir=True):
     if not os.path.isdir(location):
         raise ValueError, "util.umount() can only umount by mount point. %s is not existing directory" % location
 
-    if mountCount.has_key(location) and mountCount[location] > 1:
-        mountCount[location] = mountCount[location] - 1
+    if ctx.mountCount.has_key(location) and ctx.mountCount[location] > 1:
+        ctx.mountCount[location] = ctx.mountCount[location] - 1
         return
 
     ctx.logger.debug("util.umount()- going to unmount %s, removeDir = %s" % (location, removeDir))
@@ -329,8 +329,8 @@ def umount(location, removeDir=True):
         except:
             pass
 
-    if not rc and mountCount.has_key(location):
-        del mountCount[location]
+    if not rc and ctx.mountCount.has_key(location):
+        del ctx.mountCount[location]
 
     return rc
 
@@ -344,7 +344,7 @@ def createAvailableSizeSwapFile(storage):
         if device.format.mountable and device.format.linuxNative:
             if not device.format.status:
                 continue
-            space = sysutils.available_space(ctx.consts.target_dir + device.format.mountpoint)
+            space = yali.sysutils.available_space(ctx.consts.target_dir + device.format.mountpoint)
             if space > 16:
                 info = (device, space)
                 filesystems.append(info)
@@ -355,7 +355,11 @@ def createAvailableSizeSwapFile(storage):
 
 
 def chroot(command):
-    run_batch("chroot", [ctx.consts.target_dir, command])
+    if ctx.storage.storageset.active:
+        run_batch("chroot", [ctx.consts.target_dir, command])
+    else:
+        ctx.logger.error("util.chroot:StorageSet not activated")
+
 
 def start_dbus():
     chroot("/sbin/ldconfig")
@@ -372,20 +376,20 @@ def stop_dbus():
     # kill comar in chroot if any exists
     chroot("/bin/killall comar")
 
-    # store log content
-    ctx.logger.debug("Finalize Chroot called this is the last step for logs ..")
+def backup_log(remove=False):
     try:
+        # store log content
         shutil.copyfile("/var/log/yali.log", os.path.join(ctx.consts.target_dir, "var/log/yaliInstall.log"))
+        if remove:
+            os.remove("/var/log/yali.log")
     except IOError, msg:
-        ctx.logger.debug(_("YALI log file doesn't exists."))
+        ctx.logger.debug("YALI log file doesn't exists.")
+        return False
     except Error, msg:
-        ctx.logger.debug(_("File paths are the same."))
+        ctx.logger.debug("File paths are the same.")
+        return False
     else:
         return True
-
-    # store session log as kahya xml
-    #open(ctx.consts.session_file,"w").write(str(ctx.installData.sessionLog))
-    #os.chmod(ctx.consts.session_file,0600)
 
 def reboot():
     run_batch("/tmp/reboot", ["-f"])
@@ -424,10 +428,10 @@ def setKeymap(keymap, variant=None, root=False):
     if not root:
         if "," in keymap:
             ad += " -option grp:alt_shift_toggle"
-        run_batch("setxkbmap", ["-option", "-layout", keymap, ad])
+        return run_batch("setxkbmap", ["-option", "-layout", keymap, ad])
 
     elif os.path.exists("/usr/libexec/xorg-save-xkb-config.sh"):
-        run_batch("/usr/libexec/xorg-save-xkb-config.sh", [ctx.consts.target_dir])
+        return run_batch("/usr/libexec/xorg-save-xkb-config.sh", [ctx.consts.target_dir])
 
     else:
         chroot("hav call zorg Xorg.Display setKeymap %s %s" % (keymap, variant))
@@ -540,3 +544,61 @@ def set_partition_privileges(device, mode, uid, gid):
         except OSError, msg:
                 ctx.logger.debug("Unexpected error: %s" % msg)
 
+def grub_disk_name(storage, device, exists=False):
+    if exists:
+        return "hd%d" % (storage.drives.index(device.name) + 1)
+    else:
+        return "hd%d" % storage.drives.index(device.name)
+
+def grub_partition_name(storage, device, exists=False):
+    (disk, number) = get_disk_partition(device)
+    if number is not None:
+        return "(%s,%d)" % (grub_disk_name(storage, disk, exists), number - 1)
+    else:
+        return "(%s)" % (grub_disk_name(storage, disk, exists))
+
+def get_disk_partition(device):
+    if device.type == "partition":
+        number = device.partedPartition.number
+        disk = device.disk
+    else:
+        number = None
+        disk = device
+
+    return (disk, number)
+
+def get_grub_conf(device_path, format_type):
+    if os.path.exists(ctx.consts.tmp_mnt_dir):
+        umount(ctx.consts.tmp_mnt_dir)
+
+    grub_conf = None
+    ctx.logger.debug("Mounting %s to %s to check partition" % (device_path, ctx.consts.tmp_mnt_dir))
+    rc = mount(device_path, ctx.consts.tmp_mnt_dir, format_type)
+    if rc:
+        ctx.logger.debug("Mount failed for %s " % device_path)
+    else:
+        is_exist = lambda p, f: os.path.exists(os.path.join(ctx.consts.tmp_mnt_dir, p, f))
+
+        grub_path = None
+        if is_exist("boot/grub", "grub.conf") or is_exist("boot/grub", "menu.lst"):
+            grub_path = "boot/grub"
+        elif is_exist("grub", "grub.conf") or is_exist("grub", "menu.lst"):
+            grub_path = "grub"
+
+        if grub_path:
+            ctx.logger.debug("%s device has bootloader configuration to parse." % device_path)
+            menulst = os.path.join(ctx.consts.tmp_mnt_dir, grub_path, "menu.lst")
+            grubconf = os.path.join(ctx.consts.tmp_mnt_dir, grub_path, "grub.conf")
+            if os.path.islink(menulst):
+                ctx.logger.debug("Additional grub.conf found on device %s" % device_path)
+                grub_path = grubconf
+            else:
+                ctx.logger.debug("Additional menu.lst found on device %s" % device_path)
+                grub_path = menulst
+
+            grub_conf = grubutils.grubConf()
+            grub_conf.parseConf(grub_path)
+
+        umount(ctx.consts.tmp_mnt_dir)
+
+    return grub_conf
