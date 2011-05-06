@@ -352,7 +352,7 @@ def questionReinitInconsistentLVM(intf, pv_names=None, lv_name=None, vg_name=Non
     elif lv_name is not None:
         message = "Logical Volume %s" % lv_name
 
-    rc = self.messageWindow(_("Storage Device Warning"),
+    rc = intf.messageWindow(_("Storage Device Warning"),
                             _("There is inconsistent LVM data on %(msg)s. You can "
                               "reinitialize all related PVs (%(pvs)s) which will erase "
                               "the LVM metadata, or ignore which will preserve the"
