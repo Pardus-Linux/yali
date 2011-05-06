@@ -59,9 +59,8 @@ class Widget(QWidget, ScreenWidget):
 
     def runOperations(self):
         postInstallOperations = []
-        postInstallOperations.append(yali.postinstall.Operation(_("Initializing COMAR..."), yali.postinstall.initializeComar))
 
-        if not (ctx.flags.install_type == ctx.STEP_RESCUE or ctx.flags.install_type == ctx.STEP_FIRST_BOOTi):
+        if not (ctx.flags.install_type == ctx.STEP_RESCUE or ctx.flags.install_type == ctx.STEP_FIRST_BOOT):
             postInstallOperations.append(yali.postinstall.Operation(_("Setting timezone..."), yali.postinstall.setupTimeZone))
             postInstallOperations.append(yali.postinstall.Operation(_("Migrating Xorg configuration..."), yali.postinstall.setKeymapLayout))
             postInstallOperations.append(yali.postinstall.Operation(_("Copying repository index..."), yali.postinstall.setupRepoIndex))

@@ -44,41 +44,6 @@ class Operation:
         time.sleep(0.5)
         ctx.interface.informationWindow.hide()
 
-def initializeComar():
-    import comar
-    if ctx.flags.install_type == ctx.STEP_BASE or \
-       ctx.flags.install_type == ctx.STEP_DEFAULT or \
-       ctx.flags.install_type == ctx.STEP_RESCUE:
-        if ctx.storage.storageset.active:
-            ctx.socket = os.path.join(ctx.consts.target_dir, ctx.consts.dbus_socket)
-            if not os.path.exists(ctx.socket):
-                ctx.logger.debug("initializeComar: StorageSet not activated")
-                return False
-        else:
-            ctx.logger.debug("initializeComar: StorageSet not activated")
-            return False
-
-    elif ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
-        ctx.socket = os.path.join(ctx.consts.root_dir, ctx.consts.dbus_socket)
-
-    for i in range(40):
-        try:
-            ctx.logger.info("Trying to activate Comar")
-            ctx.link = comar.Link(socket=ctx.socket)
-        except dbus.DBusException:
-            time.sleep(2)
-            ctx.logger.debug("wait dbus for 2 second")
-        else:
-            if ctx.link:
-                break
-
-    if not ctx.link:
-        ctx.logger.debug("Comar not activated")
-        return False
-
-    ctx.logger.info("Comar activated")
-    return True
-
 def initbaselayout():
     # create /etc/hosts
     yali.util.cp("usr/share/baselayout/hosts", "etc/hosts")
@@ -118,7 +83,7 @@ def setupTimeZone():
         return False
 
 def setHostName(chroot=False):
-    if ctx.link and ctx.installData.hostName:
+    if yali.util.check_link() and ctx.installData.hostName:
         ctx.logger.info("Setting hostname %s" % ctx.installData.hostName)
         ctx.link.Network.Stack["baselayout"].setHostName(unicode(ctx.installData.hostName))
 
@@ -130,58 +95,47 @@ def setHostName(chroot=False):
         ctx.logger.debug("Setting hostname execution failed.")
         return False
 
-def getUsers():
-    users = []
-    if ctx.link:
-        ctx.logger.info("Getting users from system")
-        all_users = ctx.link.User.Manager["baselayout"].userList()
-        system_users = filter(lambda user: user[0] == 0 or (user[0] >= 1000 and user[0] <= 65000), all_users)
-        ctx.logger.info("System Users :%s" % system_users)
-        for user in system_users:
-            u = yali.users.User(user[1])
-            u.realname = user[2]
-            u.uid = user[0]
-            users.append(u)
-        return users
-
 def setupUsers():
-    for user in yali.users.PENDING_USERS:
-        ctx.logger.info("User %s adding to system" % user.username)
-        try:
-            user_id = ctx.link.User.Manager["baselayout"].addUser(user.uid, user.username, user.realname, "", "",
-                                                                  unicode(user.passwd), user.groups, [], [])
-        except dbus.DBusException:
-            ctx.logger.error("Adding user failed")
-            return False
-        else:
-            ctx.logger.debug("New user's id is %s" % user_id)
-            # Set no password ask for PolicyKit
-            if user.no_password and ctx.link:
-                ctx.link.User.Manager["baselayout"].grantAuthorization(user_id, "*")
+    if yali.util.check_link() and yali.users.PENDING_USERS:
+        for user in yali.users.PENDING_USERS:
+            ctx.logger.info("User %s adding to system" % user.username)
+            try:
+                user_id = ctx.link.User.Manager["baselayout"].addUser(user.uid, user.username, user.realname, "", "",
+                                                                      unicode(user.passwd), user.groups, [], [])
+            except dbus.DBusException:
+                ctx.logger.error("Adding user failed")
+                return False
+            else:
+                ctx.logger.debug("New user's id is %s" % user_id)
+                # Set no password ask for PolicyKit
+                if user.no_password and ctx.link:
+                    ctx.link.User.Manager["baselayout"].grantAuthorization(user_id, "*")
 
-            # If new user id is different from old one, we need to run a huge chown for it
-            user_dir = ""
-            if ctx.flags.install_type == ctx.STEP_BASE or ctx.flags.install_type == ctx.STEP_DEFAULT:
-                user_dir = os.path.join(ctx.consts.target_dir, 'home', user.username)
-            if ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
-                user_dir = os.path.join(ctx.consts.root_path, 'home', user.username)
+                # If new user id is different from old one, we need to run a huge chown for it
+                user_dir = ""
+                if ctx.flags.install_type == ctx.STEP_BASE or ctx.flags.install_type == ctx.STEP_DEFAULT:
+                    user_dir = os.path.join(ctx.consts.target_dir, 'home', user.username)
+                if ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
+                    user_dir = os.path.join(ctx.consts.root_path, 'home', user.username)
 
-            user_dir_id = os.stat(user_dir)[4]
-            if not user_dir_id == user_id:
-                ctx.interface.informationWindow.update(_("Preparing home directory for %s...") % user.username)
-                yali.util.run_batch("chown", ["-R", "%d:100" % user_id, user_dir])
-                ctx.interface.informationWindow.hide()
+                user_dir_id = os.stat(user_dir)[4]
+                if not user_dir_id == user_id:
+                    ctx.interface.informationWindow.update(_("Preparing home directory for %s...") % user.username)
+                    yali.util.run_batch("chown", ["-R", "%d:100" % user_id, user_dir])
+                    ctx.interface.informationWindow.hide()
 
-            yali.util.run_batch("chmod", ["0711"])
+                yali.util.run_batch("chmod", ["0711"])
 
-            # Enable auto-login
-            if user.username == ctx.installData.autoLoginUser:
-                user.setAutoLogin()
+                # Enable auto-login
+                if user.username == ctx.installData.autoLoginUser:
+                    user.setAutoLogin()
 
             return True
 
+        return False
+
 def setPassword(uid=0, password=""):
-    if ctx.link:
+    if yali.util.check_link() and password:
         ctx.logger.info("Getting users from system")
         info = ctx.link.User.Manager["baselayout"].userInfo(uid)
         ctx.link.User.Manager["baselayout"].setUser(uid, info[1], info[3], info[4], unicode(password), info[5])
@@ -189,13 +143,13 @@ def setPassword(uid=0, password=""):
     return False
 
 def setUserPassword():
-    for user in yali.users.PENDING_USERS:
-        user_id = user.uid
-        user_password = user.passwd
-        setPassword(uid=user_id, password=user_password)
+    if yali.util.check_link() and yali.users.PENDING_USERS:
+        for user in yali.users.PENDING_USERS:
+            user_id = user.uid
+            user_password = user.passwd
+            setPassword(uid=user_id, password=user_password)
         return True
-    else:
-        return False
+    return False
 
 def setAdminPassword():
     return setPassword(uid=0, password=ctx.installData.rootPassword)
@@ -332,4 +286,3 @@ def installBootloader():
     else:
         ctx.logger.info("Bootloader installation succesed")
         return True
-

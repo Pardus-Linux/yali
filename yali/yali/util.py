@@ -376,6 +376,63 @@ def stop_dbus():
     # kill comar in chroot if any exists
     chroot("/bin/killall comar")
 
+def comarLinkInitialized():
+    import comar
+    if ctx.flags.install_type == ctx.STEP_BASE or \
+       ctx.flags.install_type == ctx.STEP_DEFAULT or \
+       ctx.flags.install_type == ctx.STEP_RESCUE:
+        if ctx.storage.storageset.active:
+            ctx.socket = os.path.join(ctx.consts.target_dir, ctx.consts.dbus_socket)
+            if not os.path.exists(ctx.socket):
+                ctx.logger.debug("initializeComar: Dbus has not started")
+                start_dbus()
+                ctx.logger.debug("wait 2 second for dbus activation")
+                time.sleep(2)
+        else:
+            ctx.logger.debug("initializeComar: StorageSet not activated")
+            return False
+
+    elif ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
+        ctx.socket = os.path.join(ctx.consts.root_dir, ctx.consts.dbus_socket)
+
+    for i in range(40):
+        try:
+            ctx.logger.info("Trying to activate Comar")
+            ctx.link = comar.Link(socket=ctx.socket)
+        except dbus.DBusException:
+            time.sleep(1)
+            ctx.logger.debug("wait 1 second for dbus activation")
+        else:
+            if ctx.link:
+                break
+
+    if not ctx.link:
+        ctx.logger.debug("Comar not activated")
+        return False
+
+    ctx.logger.info("Comar activated")
+    return True
+
+def check_link():
+    active = True
+    if not ctx.link:
+        active = comarLinkInitialized()
+    return active
+
+def getUsers():
+    users = []
+    if check_link():
+        ctx.logger.info("Getting users from system")
+        all_users = ctx.link.User.Manager["baselayout"].userList()
+        system_users = filter(lambda user: user[0] == 0 or (user[0] >= 1000 and user[0] <= 65000), all_users)
+        ctx.logger.info("System Users :%s" % system_users)
+        for user in system_users:
+            u = yali.users.User(user[1])
+            u.realname = user[2]
+            u.uid = user[0]
+            users.append(u)
+    return users
+
 def backup_log(remove=False):
     try:
         # store log content

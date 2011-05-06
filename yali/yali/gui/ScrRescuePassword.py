@@ -8,6 +8,7 @@
 #
 # Please read the COPYING file.
 import os
+import sys
 import pardus.xorg
 
 import gettext
@@ -111,16 +112,20 @@ class Widget(QWidget, ScreenWidget):
             self.ui.resetPassword.setEnabled(True)
 
     def fillUsers(self):
-        if not ctx.link:
-            if not os.path.exists(os.path.join(ctx.consts.target_dir, ctx.consts.dbus_socket)):
-                yali.util.start_dbus()
-
-            yali.postinstall.initializeComar()
-
-        self.ui.users.clear()
-        users = yali.postinstall.getUsers()
-        for user in users:
-            RescueUser(self.ui.users, user)
+        if yali.util.check_link():
+            self.ui.users.clear()
+            users = yali.postinstall.getUsers()
+            for user in users:
+                RescueUser(self.ui.users, user)
+        else:
+            rc = ctx.interface.messageWindow(_("Cannot Rescue"),
+                                             _("Your current installation cannot be rescued."),
+                                             type="custom", customIcon="warning",
+                                             customButtons=[_("Exit"), _("Continue")])
+            if rc == 0:
+                sys.exit(0)
+            else:
+                ctx.mainScreen.disableNext()
 
     def shown(self):
         ctx.mainScreen.disableBack()
