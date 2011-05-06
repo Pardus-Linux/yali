@@ -375,10 +375,19 @@ class Widget(QWidget):
             weave_object_method(enableNavButtonsAspect, screen, "shown")
             # disable navigation buttons before the execute.
             weave_object_method(disableNavButtonsAspect, screen, "execute")
-            self.ui.mainStack.addWidget(screen())
+            try:
+                self.ui.mainStack.addWidget(screen())
+            except Exception, msg:
+                rc = ctx.interface.messageWindow(_("Error"),
+                                                 _("An error occurred when attempting "
+                                                    "to load screens:%s") % msg,
+                                                 type="custom", customIcon="error",
+                                                 customButtons=[_("Exit")])
+                if not rc:
+                    sys.exit(0)
 
         #weave_all_object_methods(ctx.aspect, self)
-        self.stackMove(0)
+        self.stackMove(ctx.flags.startup)
 
     # Enable/Disable buttons
     def disableNext(self):
