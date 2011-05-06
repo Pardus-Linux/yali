@@ -72,7 +72,7 @@ class User:
         """ Sets the KDE's Autologin feature's state """
         conf = ""
         if ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
-            conf = os.path.join(ctx.consts.root_path, 'etc/X11/kdm/kdmrc')
+            conf = os.path.join(ctx.consts.root_dir, 'etc/X11/kdm/kdmrc')
         elif ctx.flags.install_type == ctx.STEP_DEFAULT:
             conf = os.path.join(ctx.consts.target_dir, 'etc/X11/kdm/kdmrc')
 

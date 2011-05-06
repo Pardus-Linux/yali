@@ -116,7 +116,7 @@ def setupUsers():
                 if ctx.flags.install_type == ctx.STEP_BASE or ctx.flags.install_type == ctx.STEP_DEFAULT:
                     user_dir = os.path.join(ctx.consts.target_dir, 'home', user.username)
                 if ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
-                    user_dir = os.path.join(ctx.consts.root_path, 'home', user.username)
+                    user_dir = os.path.join(ctx.consts.root_dir, 'home', user.username)
 
                 user_dir_id = os.stat(user_dir)[4]
                 if not user_dir_id == user_id:
