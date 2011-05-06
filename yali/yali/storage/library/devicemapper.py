@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 import os
 import block
-import yali
 import yali.util
 import yali.context as ctx
+from yali.storage.library import  LibraryError
 
-class DeviceMapperError(yali.Error):
+class DeviceMapperError(LibraryError):
     pass
 
 def name_from_dm_node(node):

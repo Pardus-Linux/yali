@@ -7,7 +7,6 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-import yali
 import yali.context as ctx
 from yali.util import numeric_type
 from yali.baseudev import udev_settle
@@ -16,7 +15,7 @@ from yali.storage.formats import get_device_format
 from yali.storage.udev import udev_device_get_md_uuid, udev_get_block_device
 from yali.storage.devices.device import Device, DeviceError
 
-class RaidArrayError(yali.Error):
+class RaidArrayError(DeviceError):
     pass
 
 class RaidArray(Device):
@@ -80,7 +79,7 @@ class RaidArray(Device):
 
         self.formatClass = get_device_format("mdmember")
         if not self.formatClass:
-            raise DeviceError("cannot find class for 'mdmember'", self.name)
+            raise RaidArrayError("cannot find class for 'mdmember'", self.name)
 
         if self.exists and self.uuid:
             # this is a hack to work around mdadm's insistence on giving
@@ -170,7 +169,7 @@ class RaidArray(Device):
     def mdadmConfEntry(self):
         """ This array's mdadm.conf entry. """
         if self.level is None or self.memberDevices is None or not self.uuid:
-            raise DeviceError("array is not fully defined", self.name)
+            raise RaidArrayError("array is not fully defined", self.name)
 
         # containers and the sets within must only have a UUID= parameter
         if self.type == "mdcontainer" or self.type == "mdbiosraidarray":
@@ -226,7 +225,7 @@ class RaidArray(Device):
             as it seems problematic.
         """
         if not self.exists:
-            raise DeviceError("device has not been created", self.name)
+            raise RaidArrayError("device has not been created", self.name)
 
         try:
             self.devices[0].setup()
@@ -240,7 +239,7 @@ class RaidArray(Device):
     def updateSysfsPath(self):
         """ Update this device's sysfs path. """
         if not self.exists:
-            raise DeviceError("device has not been created", self.name)
+            raise RaidArrayError("device has not been created", self.name)
 
         if self.status:
             self.sysfsPath = "/devices/virtual/block/%s" % self.name
@@ -254,7 +253,7 @@ class RaidArray(Device):
                 of arrays.
         """
         if not self.exists:
-            raise DeviceError("device has not been created", self.name)
+            raise RaidArrayError("device has not been created", self.name)
 
         if not isinstance(device.format, self.formatClass):
             raise ValueError("invalid device format for raid member")
@@ -341,7 +340,7 @@ class RaidArray(Device):
     def setup(self, intf=None, orig=False):
         """ Open, or set up, a device. """
         if not self.exists:
-            raise DeviceError("device has not been created", self.name)
+            raise RaidArrayError("device has not been created", self.name)
 
         if self.status:
             return
@@ -370,7 +369,7 @@ class RaidArray(Device):
     def teardown(self, recursive=None):
         """ Close, or tear down, a device. """
         if not self.exists and not recursive:
-            raise DeviceError("device has not been created", self.name)
+            raise RaidArrayError("device has not been created", self.name)
 
         if self.status:
             if self.originalFormat.exists:
@@ -416,7 +415,7 @@ class RaidArray(Device):
     def create(self, intf=None):
         """ Create the device. """
         if self.exists:
-            raise DeviceError("device already exists", self.name)
+            raise RaidArrayError("device already exists", self.name)
 
         w = None
         if intf:
@@ -467,7 +466,7 @@ class RaidArray(Device):
     def destroy(self):
         """ Destroy the device. """
         if not self.exists:
-            raise DeviceError("device has not been created", self.name)
+            raise RaidArrayError("device has not been created", self.name)
 
         self.teardown()
 

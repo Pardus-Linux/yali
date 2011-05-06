@@ -7,8 +7,8 @@ import parted
 import gettext
 _ = gettext.translation('yali', fallback=True).ugettext
 
-import yali
 import yali.context as ctx
+from yali.storage import StorageError
 from yali.storage.udev import *
 from yali.storage.storageBackendHelpers import questionInitializeDisk, questionReinitInconsistentLVM, questionUnusedRaidMembers
 from yali.storage.operations import operation_type_from_string, operation_object_from_string, OperationDestroyDevice, OperationCreateDevice, OperationDestroyFormat, OperationCreateFormat
@@ -31,7 +31,7 @@ from yali.storage.formats.disklabel import InvalidDiskLabelError, DiskLabelCommi
 from yali.storage.formats.filesystem import FilesystemError
 from yali.storage.formats.raidmember import RaidMember
 
-class DeviceTreeError(yali.Error):
+class DeviceTreeError(StorageError):
     pass
 
 class DeviceTree(object):
@@ -453,12 +453,14 @@ class DeviceTree(object):
                     self.teardownAll()
                     operation.execute(intf=self.intf)
 
-                udev_settle()
-                for device in self._devices:
-                    # make sure we catch any renumbering parted does
-                    if device.exists and isinstance(device, Partition):
-                        device.updateName()
-                        device.format.device = device.path
+                else:
+                    udev_settle()
+                    for device in self._devices:
+                        # make sure we catch any renumbering parted does
+                        if device.exists and isinstance(device, Partition):
+                            device.updateName()
+                            device.format.device = device.path
+
     def pruneOperations(self):
         """ Prune loops and redundant operations from the queue. """
         # handle device destroy operations

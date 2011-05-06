@@ -1,17 +1,15 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-
 from parted import PARTITION_SWAP, fileSystemType
 import gettext
 
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-import yali
 from yali.storage.library.swap import swapon, swap_off, swap_status, mkswap, SwapError
-from . import Format, register_device_format
+from yali.storage.formats import Format, FormatError, register_device_format
 
-class SwapSpaceError(yali.Error):
+class SwapSpaceError(FormatError):
     pass
 
 class SwapSpace(Format):
@@ -134,8 +132,8 @@ class SwapSpace(Format):
         try:
             Format.create(self, *args, **kwargs)
             mkswap(self.device, label=self.label)
-        except Exception:
-            raise
+        except Exception, msg:
+            raise SwapSpaceError, msg
         else:
             self.exists = True
 

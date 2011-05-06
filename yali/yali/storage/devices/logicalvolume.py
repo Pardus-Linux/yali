@@ -4,7 +4,7 @@ import gettext
 
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
-import yali
+
 import yali.context as ctx
 from yali.util import numeric_type
 from yali.storage.devices.devicemapper import DeviceMapper
@@ -14,7 +14,7 @@ from yali.storage.library import lvm
 from yali.baseudev import udev_settle
 from yali.storage.library import devicemapper
 
-class LogicalVolumeError(yali.Error):
+class LogicalVolumeError(DeviceError):
     pass
 
 class LogicalVolume(DeviceMapper):
@@ -145,7 +145,7 @@ class LogicalVolume(DeviceMapper):
     def getDMNode(self):
         """ Return the dm-X (eg: dm-0) device node for this device. """
         if not self.exists:
-            raise DeviceError("device has not been created", self.name)
+            raise LogicalVolumeError("device has not been created", self.name)
 
         return devicemapper.dm_node_from_name(self.mapName)
 
@@ -167,7 +167,7 @@ class LogicalVolume(DeviceMapper):
     def setup(self, intf=None, orig=False):
         """ Open, or set up, a device. """
         if not self.exists:
-            raise DeviceError("device has not been created", self.name)
+            raise LogicalVolumeError("device has not been created", self.name)
 
         if self.status:
             return
@@ -182,7 +182,7 @@ class LogicalVolume(DeviceMapper):
     def teardown(self, recursive=None):
         """ Close, or tear down, a device. """
         if not self.exists and not recursive:
-            raise DeviceError("device has not been created", self.name)
+            raise LogicalVolumeError("device has not been created", self.name)
 
         if self.status:
             if self.originalFormat.exists:
@@ -210,7 +210,7 @@ class LogicalVolume(DeviceMapper):
     def create(self, intf=None):
         """ Create the device. """
         if self.exists:
-            raise DeviceError("device already exists", self.name)
+            raise LogicalVolumeError("device already exists", self.name)
 
         w = None
         if intf:
@@ -221,8 +221,8 @@ class LogicalVolume(DeviceMapper):
 
             # should we use --zero for safety's sake?
             lvm.lvcreate(self.vg.name, self._name, self.size)
-        except Exception:
-            raise
+        except Exception, msg:
+            raise LogicalVolumeError("Create device failed", self._name)
         else:
             # FIXME set / update self.uuid here
             self.exists = True
@@ -234,7 +234,7 @@ class LogicalVolume(DeviceMapper):
     def destroy(self):
         """ Destroy the device. """
         if not self.exists:
-            raise DeviceError("device has not been created", self.name)
+            raise LogicalVolumeError("device has not been created", self.name)
 
         self.teardown()
         # set up the vg's pvs so lvm can remove the lv
@@ -245,7 +245,7 @@ class LogicalVolume(DeviceMapper):
     def resize(self, intf=None):
         # XXX resize format probably, right?
         if not self.exists:
-            raise DeviceError("device has not been created", self.name)
+            raise LogicalVolumeError("device has not been created", self.name)
 
         # Setup VG parents (in case they are dmraid partitions for example)
         self.vg.setupParents(orig=True)

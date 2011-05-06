@@ -5,7 +5,6 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-import yali
 import yali.context as ctx
 
 from yali.baseudev import udev_settle
@@ -13,7 +12,7 @@ from yali.storage.devices.device import Device, DeviceError
 from yali.storage.devices.devicemapper import DeviceMapper
 from yali.storage.formats import get_device_format
 
-class DMRaidArrayError(yali.Error):
+class DMRaidArrayError(DeviceError):
     pass
 
 class DMRaidArray(DeviceMapper):
@@ -63,7 +62,7 @@ class DMRaidArray(DeviceMapper):
                 of arrays.
         """
         if not self.exists:
-            raise DeviceError("device has not been created", self.name)
+            raise DMRaidArrayError("device has not been created", self.name)
 
         if not isinstance(device.format, self.formatClass):
             raise ValueError("invalid device format for dmraid member")
@@ -103,7 +102,7 @@ class DMRaidArray(DeviceMapper):
     def teardown(self, recursive=None):
         """ Close, or tear down, a device. """
         if not self.exists and not recursive:
-            raise DeviceError("device has not been created", self.name)
+            raise DMRaidArrayError("device has not been created", self.name)
 
         ctx.logger.debug("not tearing down dmraid device %s" % self.name)
 

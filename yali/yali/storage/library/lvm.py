@@ -9,12 +9,12 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-import yali
 import yali.util
+from yali.storage.library import  LibraryError
 
 MAX_LV_SLOTS = 256
 
-class LVMError(yali.Error):
+class LVMError(LibraryError):
     pass
 
 def has_lvm():

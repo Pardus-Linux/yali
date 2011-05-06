@@ -7,11 +7,11 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-import yali
 import yali.util
-import devicemapper
+from yali.storage.library import devicemapper
+from yali.storage.library import  LibraryError
 
-class SwapError(yali.Error):
+class SwapError(LibraryError):
     pass
 
 class OldSwapError(SwapError):

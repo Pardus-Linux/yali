@@ -7,18 +7,17 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-import yali
 import yali.baseudev
 import yali.context as ctx
 from yali.util import numeric_type
 from yali.storage.udev import *
-from yali.storage.devices import AbstractDevice
+from yali.storage.devices import AbstractDevice, AbstractDeviceError
 from yali.storage.formats import getFormat
 
-class DeviceError(yali.Error):
+class DeviceError(AbstractDeviceError):
     pass
 
-class DeviceNotFoundError(yali.Error):
+class DeviceNotFoundError(AbstractDeviceError):
     pass
 
 def devicePathToName(devicePath):

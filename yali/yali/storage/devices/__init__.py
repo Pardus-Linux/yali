@@ -5,12 +5,12 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-import yali
+from yali.storage import StorageError
 
-class NotImplementedError(yali.Error):
+class NotImplementedError(StorageError):
     pass
 
-class AbstractDeviceError(yali.Error):
+class AbstractDeviceError(StorageError):
     pass
 
 class AbstractDevice(object):

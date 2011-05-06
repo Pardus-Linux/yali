@@ -9,16 +9,15 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-import yali
 import yali.baseudev
 import yali.context as ctx
 from yali.util import numeric_type
 from yali.storage.library import devicemapper
-from yali.storage.devices.device import Device, devicePathToName
+from yali.storage.devices.device import Device, DeviceError, devicePathToName
 from yali.storage.formats import Format
 from yali.storage.formats.disklabel import DiskLabelCommitError
 
-class PartitionError(yali.Error):
+class PartitionError(DeviceError):
     pass
 
 class Partition(Device):
@@ -387,8 +386,8 @@ class Partition(Device):
                 # Ensure old metadata which lived in freespace so did not get
                 # explictly destroyed by a destroyformat action gets wiped
                 Format(device=self.path, exists=True).destroy()
-        except Exception:
-            raise
+        except Exception, msg:
+            raise PartitionError("Create device failed!", self.name)
         else:
             self.partedPartition = self.disk.format.partedDisk.getPartitionByPath(self.path)
 

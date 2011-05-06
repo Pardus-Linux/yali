@@ -7,11 +7,10 @@ from parted import PARTITION_RAID
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-import yali
 from yali.storage.library import raid
-from . import Format, register_device_format
+from yali.storage.formats import Format, FormatError, register_device_format
 
-class DMRaidMemberError(yali.Error):
+class DMRaidMemberError(FormatError):
     pass
 
 class DMRaidMember(Format):

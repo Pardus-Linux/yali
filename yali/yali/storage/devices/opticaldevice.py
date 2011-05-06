@@ -8,9 +8,11 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-import yali
 import yali.util
 from device import Device, DeviceError
+
+class OpticalDeviceError(DeviceError):
+    pass
 
 class OpticalDevice(Device):
     """ An optical drive, eg: cdrom, dvd+r, &c.
@@ -32,7 +34,7 @@ class OpticalDevice(Device):
             media.
         """
         if not self.exists:
-            raise DeviceError("device has not been created", self.name)
+            raise OpticalDeviceError("device has not been created", self.name)
 
         try:
             fd = os.open(self.path, os.O_RDONLY)
@@ -50,7 +52,7 @@ class OpticalDevice(Device):
         """ Eject the drawer. """
 
         if not self.exists:
-            raise DeviceError("device has not been created", self.name)
+            raise OpticalDeviceError("device has not been created", self.name)
 
         #try to umount and close device before ejecting
         self.teardown()

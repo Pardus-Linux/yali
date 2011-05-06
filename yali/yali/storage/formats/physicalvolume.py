@@ -1,7 +1,5 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-
-
 import os
 import gettext
 from parted import PARTITION_LVM
@@ -9,11 +7,10 @@ from parted import PARTITION_LVM
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-import yali
 from yali.storage.library import lvm
-from . import Format, register_device_format
+from yali.storage.formats import Format, FormatError, register_device_format
 
-class PhysicalVolumeError(yali.Error):
+class PhysicalVolumeError(FormatError):
     pass
 
 class PhysicalVolume(Format):
@@ -77,8 +74,8 @@ class PhysicalVolume(Format):
             Format.destroy(self, *args, **kwargs)
 
             lvm.pvcreate(self.device)
-        except Exception:
-            raise
+        except Exception, msg:
+            raise PhysicalVolumeError("Create device failed!", self.device)
         else:
             self.exists = True
             self.notifyKernel()

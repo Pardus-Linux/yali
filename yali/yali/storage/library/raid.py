@@ -6,10 +6,10 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-import yali
 import yali.util
+from yali.storage.library import  LibraryError
 
-class RaidError(yali.Error):
+class RaidError(LibraryError):
     pass
 
 # raidlevels constants

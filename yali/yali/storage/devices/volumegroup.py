@@ -7,7 +7,6 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-import yali
 import yali.context as ctx
 from yali.util import numeric_type
 from devicemapper import DeviceMapper
@@ -15,7 +14,7 @@ from device import DeviceError
 from yali.storage.library import lvm
 from yali.storage.formats import get_device_format
 
-class VolumeGroupError(yali.Error):
+class VolumeGroupError(DeviceError):
     pass
 
 class VolumeGroup(DeviceMapper):
@@ -54,7 +53,7 @@ class VolumeGroup(DeviceMapper):
         """
         self.pvClass = get_device_format("lvmpv")
         if not self.pvClass:
-            raise DeviceError("cannot find 'lvmpv' class")
+            raise VolumeGroupError("cannot find 'lvmpv' class")
 
         if isinstance(parents, list):
             for dev in parents:
@@ -124,7 +123,7 @@ class VolumeGroup(DeviceMapper):
     def probe(self):
         """ Probe for any information about this device. """
         if not self.exists:
-            raise DeviceError("device has not been created", self.name)
+            raise VolumeGroupError("device has not been created", self.name)
 
     @property
     def mapName(self):
@@ -140,7 +139,7 @@ class VolumeGroup(DeviceMapper):
     def updateSysfsPath(self):
         """ Update this device's sysfs path. """
         if not self.exists:
-            raise DeviceError("device has not been created", self.name)
+            raise VolumeGroupError("device has not been created", self.name)
 
         self.sysfsPath = ''
 
@@ -173,7 +172,7 @@ class VolumeGroup(DeviceMapper):
                 intended for modification of the VG.
         """
         if not self.exists:
-            raise DeviceError("device does not exist", self.name)
+            raise VolumeGroupError("device does not exist", self.name)
 
         if not isinstance(device.format, self.pvClass):
             raise ValueError("addDevice requires a PV arg")
@@ -215,20 +214,20 @@ class VolumeGroup(DeviceMapper):
                 want all of the LVs activated, just the VG itself.
         """
         if not self.exists:
-            raise DeviceError(_("device has not been created"), self.name)
+            raise VolumeGroupError(_("device has not been created"), self.name)
 
         if self.status:
             return
 
         if not self.complete:
-            raise DeviceError(_("cannot activate VG with missing PV(s)"), self.name)
+            raise VolumeGroupError(_("cannot activate VG with missing PV(s)"), self.name)
 
         self.setupParents(orig=orig)
 
     def teardown(self, recursive=None):
         """ Close, or tear down, a device. """
         if not self.exists and not recursive:
-            raise DeviceError("device has not been created", self.name)
+            raise VolumeGroupError("device has not been created", self.name)
 
         if self.status:
             lvm.vgdeactivate(self.name)
@@ -239,7 +238,7 @@ class VolumeGroup(DeviceMapper):
     def create(self, intf=None):
         """ Create the device. """
         if self.exists:
-            raise DeviceError("device already exists", self.name)
+            raise VolumeGroupError("device already exists", self.name)
 
         w = None
         if intf:
@@ -251,8 +250,8 @@ class VolumeGroup(DeviceMapper):
 
             pv_list = [pv.path for pv in self.parents]
             lvm.vgcreate(self.name, pv_list, self.peSize)
-        except Exception:
-            raise
+        except Exception, msg:
+            raise VolumeGroupError, msg
         else:
             # FIXME set / update self.uuid here
             self.exists = True
@@ -264,7 +263,7 @@ class VolumeGroup(DeviceMapper):
     def destroy(self):
         """ Destroy the device. """
         if not self.exists:
-            raise DeviceError("device has not been created", self.name)
+            raise VolumeGroupError("device has not been created", self.name)
 
         # set up the pvs since lvm needs access to them to do the vgremove
         self.setupParents(orig=True)
@@ -274,14 +273,14 @@ class VolumeGroup(DeviceMapper):
             lvm.vgreduce(self.name, [], rm=True)
             lvm.vgremove(self.name)
         except lvm.LVMError:
-            raise DeviceError("Could not completely remove VG", self.name)
+            raise VolumeGroupError("Could not completely remove VG", self.name)
         finally:
             self.exists = False
 
     def reduce(self, pv_list):
         """ Remove the listed PVs from the VG. """
         if not self.exists:
-            raise DeviceError("device has not been created", self.name)
+            raise VolumeGroupError("device has not been created", self.name)
 
         lvm.vgreduce(self.name, pv_list)
         # XXX do we need to notify the kernel?
@@ -296,7 +295,7 @@ class VolumeGroup(DeviceMapper):
         if not lv.exists and \
            not [pv for pv in self.pvs if getattr(pv, "req_grow", None)] and \
            lv.size > self.freeSpace:
-            raise DeviceError("new lv is too large to fit in free space", self.name)
+            raise VolumeGroupError("new lv is too large to fit in free space", self.name)
 
         ctx.logger.debug("Adding %s/%dMB to %s" % (lv.name, lv.size, self.name))
         self._lvs.append(lv)
@@ -315,7 +314,7 @@ class VolumeGroup(DeviceMapper):
 
         # for the time being we will not allow vgextend
         if self.exists:
-            raise DeviceError("cannot add pv to existing vg", self.name)
+            raise VolumeGroupError("cannot add pv to existing vg", self.name)
 
         self.parents.append(pv)
         pv.addChild()
@@ -330,7 +329,7 @@ class VolumeGroup(DeviceMapper):
 
         # for the time being we will not allow vgreduce
         if self.exists:
-            raise DeviceError("cannot remove pv from existing vg", self.name)
+            raise VolumeGroupError("cannot remove pv from existing vg", self.name)
 
         self.parents.remove(pv)
         pv.removeChild()

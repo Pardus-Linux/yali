@@ -11,13 +11,12 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-import yali
 import yali.util
 import yali.sysutils
 import yali.context as ctx
-from . import Format, register_device_format
+from yali.storage.formats import Format, FormatError, register_device_format
 
-class FilesystemError(yali.Error):
+class FilesystemError(FormatError):
     pass
 
 class FilesystemFormatError(FilesystemError):
@@ -297,22 +296,20 @@ class Filesystem(Format):
 
         try:
             rc = yali.util.run_batch(self.mkfs, argv)[0]
-
         except Exception as e:
             raise FilesystemFormatError(e, self.device)
+        else:
+            if rc:
+                raise FilesystemFormatError("Create format failed: %s" % rc, self.device)
+            else:
+                self.exists = True
+                self.notifyKernel()
+
+                if self.label:
+                    self.writeLabel(self.label)
         finally:
             if w:
                 w.pop()
-
-        if rc:
-            raise FilesystemFormatError("format failed: %s" % rc, self.device)
-
-        self.exists = True
-        self.notifyKernel()
-
-        if self.label:
-            self.writeLabel(self.label)
-
 
     def doResize(self, *args, **kwargs):
         """ Resize this filesystem to new size @newsize.

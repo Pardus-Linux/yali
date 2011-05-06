@@ -6,9 +6,11 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-import yali
-from device import Device
+from device import Device, DeviceError
 from yali.storage.library import devicemapper
+
+class DeviceMapperError(DeviceError):
+    pass
 
 class DeviceMapper(Device):
     """ A device-mapper device """
@@ -73,7 +75,7 @@ class DeviceMapper(Device):
     def updateSysfsPath(self):
         """ Update this device's sysfs path. """
         if not self.exists:
-            raise DeviceError("device has not been created", self.name)
+            raise DeviceMapperError("device has not been created", self.name)
 
         if self.status:
             dm_node = self.getDMNode()
@@ -85,14 +87,14 @@ class DeviceMapper(Device):
     def getDMNode(self):
         """ Return the dm-X (eg: dm-0) device node for this device. """
         if not self.exists:
-            raise DeviceError("device has not been created", self.name)
+            raise DeviceMapperError("device has not been created", self.name)
 
         return devicemapper.dm_node_from_name(self.name)
 
     def _setName(self, name):
         """ Set the device's map name. """
         if self.status:
-            raise DeviceError("cannot rename active device", self.name)
+            raise DeviceMapperError("cannot rename active device", self.name)
 
         self._name = name
 

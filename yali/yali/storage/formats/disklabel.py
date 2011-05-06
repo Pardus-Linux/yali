@@ -9,12 +9,11 @@ import copy
 import parted
 import _ped
 
-import yali
 import yali.baseudev
 import yali.util
-from . import Format, register_device_format
+from yali.storage.formats import Format, FormatError, register_device_format
 
-class DiskLabelError(yali.Error):
+class DiskLabelError(FormatError):
     pass
 
 class InvalidDiskLabelError(DiskLabelError):

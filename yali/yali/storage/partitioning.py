@@ -9,19 +9,19 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-import yali
 import yali.util
 import yali.context as ctx
-from operations import *
-from devices.device import devicePathToName
-from devices.partition import Partition
+from yali.storage import StorageError
+from yali.storage.operations import *
+from yali.storage.devices.device import devicePathToName
+from yali.storage.devices.partition import Partition
 
 CLEARPART_TYPE_ALL, CLEARPART_TYPE_LINUX, CLEARPART_TYPE_NONE = range(3)
 
-class PartitioningError(yali.Error):
+class PartitioningError(StorageError):
     pass
 
-class PartitioningWarning(yali.Error):
+class PartitioningWarning(StorageError):
     pass
 
 class Request(object):

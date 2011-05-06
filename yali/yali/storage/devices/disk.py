@@ -8,10 +8,9 @@ import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
-import yali
-from device import Device
+from device import Device, DeviceError
 
-class DiskError(yali.Error):
+class DiskError(DeviceError):
     pass
 
 class Disk(Device):
