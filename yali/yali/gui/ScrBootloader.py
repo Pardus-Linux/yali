@@ -14,6 +14,7 @@ _ = gettext.translation('yali', fallback=True).ugettext
 
 from PyQt4.Qt import QWidget, SIGNAL
 
+import yali.util
 import yali.context as ctx
 from yali.gui import ScreenWidget
 from yali.gui.Ui.bootloaderwidget import Ui_BootLoaderWidget
@@ -75,7 +76,12 @@ class Widget(QWidget, ScreenWidget):
         if ctx.flags.install_type == ctx.STEP_RESCUE:
             ctx.mainScreen.step_increment = 2
         else:
-            if not ctx.flags.collection:
+            if ctx.flags.collection:
+                ctx.collections = yali.util.get_collections()
+                if len(ctx.collections) <= 1:
+                    ctx.flags.collection = False
+                    ctx.mainScreen.step_increment = 2
+            else:
                 ctx.mainScreen.step_increment = 2
 
         return True

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 #
 # Copyright (C) 2005-2010 TUBITAK/UEKAE
 #
@@ -10,7 +9,6 @@
 # Please read the COPYING file.
 #
 
-import platform
 import gettext
 _ = gettext.translation('yali', fallback=True).ugettext
 
@@ -32,16 +30,11 @@ class Widget(Ui_CollectionsWidget, QWidget, ScreenWidget):
     def __init__(self):
         QWidget.__init__(self)
         self.setupUi(self)
-        self.collections = yali.util.get_collections()
-        if len(self.collections) == 0:
-            ctx.flags.collection = False
-            ctx.logger.debug("There is no collection so disable collection support.")
-        else:
-            self.current_item = None
-            self.last_item = None
-            self.fillCollections()
-            self.collectionList.itemClicked.connect(self.openItem)
-            self.collectionList.currentItemChanged.connect(self.itemChanged)
+        self.collections = None
+        self.current_item = None
+        self.last_item = None
+        self.collectionList.itemClicked.connect(self.openItem)
+        self.collectionList.currentItemChanged.connect(self.itemChanged)
 
     def fillCollections(self):
         self.collectionList.clear()
@@ -55,14 +48,12 @@ class Widget(Ui_CollectionsWidget, QWidget, ScreenWidget):
             selected = 0
 
         self.current_item = self.collectionList.item(selected)
+        self.last_item = self.current_item
         self.collectionList.setCurrentRow(selected)
 
     def shown(self):
-        if len(self.collections) == 1:
-            ctx.logger.debug("There is only one collection so skip screen.")
-            ctx.mainScreen.slotNext()
-            return
-
+        self.collections = ctx.collections
+        self.fillCollections()
         ctx.mainScreen.disableNext()
         if self.current_item:
             self.openItem(self.current_item)

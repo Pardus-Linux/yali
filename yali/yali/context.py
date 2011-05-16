@@ -62,3 +62,5 @@ socket = None
 link = None
 
 mountCount = {}
+
+collections = None
