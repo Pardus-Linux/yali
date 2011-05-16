@@ -162,10 +162,10 @@ def load_options(argv=None):
     parser.add_option("--baseonly", dest="baseonly",
                       action="store_true",
                       help="install base system packages")
-    parser.add_option("--disable-collection", dest="collection",
-                      action="store_false", default=True,
-                      help="install collection type package"
-                           "installation if collections exist")
+    parser.add_option("--enable-collection", dest="collection",
+                      action="store_true", default=False,
+                      help="install collection base installation"
+                           " if collections exist")
     parser.add_option("--system", dest="install_type", default=0,
                       action="store_const", const= 1,
                       help="start system installation")
