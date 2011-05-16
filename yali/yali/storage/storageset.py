@@ -291,7 +291,7 @@ class StorageSet(object):
                 device.format.setup(options=options,
                                     chroot=ctx.consts.target_dir)
             except OSError as msg:
-                ctx.logger.error("OSError: (%d) %s" % (e.errno, e.strerror))
+                ctx.logger.error("OSError: (%d) %s" % (msg.errno, msg.strerror))
 
                 if ctx.interface.messageWindow:
                     if msg.errno == errno.EEXIST:
@@ -307,7 +307,7 @@ class StorageSet(object):
                                                     type="error")
                     else:
                         na = {'mountpoint': device.format.mountpoint,
-                              'msg': e.strerror}
+                              'msg': msg.strerror}
                         ctx.interface.messageWindow(_("Invalid mount point"),
                                                     _("An error occurred when trying "
                                                       "to create %(mountpoint)s: "

@@ -288,7 +288,7 @@ class Widget(QWidget):
 
     # move to id numbered step
     def setCurrent(self, index=None):
-        if id:
+        if index:
             self.stackMove(index)
 
     # execute next step
