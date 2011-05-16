@@ -238,7 +238,7 @@ def main():
         from yali.storage.bootloader import BootLoader
         ctx.bootloader = BootLoader(ctx.storage)
 
-    ctx.flags.parse_kernel_options()
+    ctx.flags.parse_kernel_options(ctx)
 
     init_gui_runner()
 

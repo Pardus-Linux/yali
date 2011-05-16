@@ -1,5 +1,4 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*-
 import os
 from pardus.sysutils import get_kernel_option
 
@@ -22,43 +21,49 @@ class Flags:
         else:
             return val
 
-    def parse_kernel_options(self):
-        """Parse yali= from kernel boot parameters."""
+    def parse_kernel_options(self, ctx):
+       """Parse yali= from kernel boot parameters."""
 
-        options = get_kernel_option("yali")
-        self.__dict__['flags']['live'] = options.has_key("live") or \
-                                         os.path.exists("/var/run/pardus/livemedia")
-        if options.has_key("system"):
-            self.__dict__['flags']['install_type'] = 1
-        elif options.has_key("firstboot"):
-            self.__dict__['flags']['install_type'] = 2
-        elif options.has_key("rescue") :
-            self.__dict__['flags']['install_type'] = 3
-        elif options.has_key("oem") :
-            self.__dict__['flags']['install_type'] = 4
-        elif options.has_key("default") :
-            self.__dict__['flags']['install_type'] = 0
+       options = get_kernel_option("yali")
+       self.__dict__['flags']['live'] = options.has_key("live") or \
+                                        os.path.exists("/var/run/pardus/livemedia")
+       if options.has_key("system"):
+           self.__dict__['flags']['install_type'] = ctx.STEP_BASE
+       elif options.has_key("firstboot"):
+           self.__dict__['flags']['install_type'] = ctx.STEP_FIRST_BOOT
+       elif options.has_key("rescue") :
+           self.__dict__['flags']['install_type'] = ctx.STEP_RESCUE
+       elif options.has_key("oem") :
+           self.__dict__['flags']['install_type'] = ctx.STEP_OEM_INSTALL
+       elif options.has_key("default") :
+           self.__dict__['flags']['install_type'] = ctx.STEP_DEFAULT
 
-        if options.has_key("theme"):
-            self.__dict__['flags']['theme'] = options["theme"]
+       if options.has_key("theme") and \
+       os.path.exists(os.path.join(ctx.consts.theme_dir, options["theme"])):
+           self.__dict__['flags']['theme'] = options["theme"]
 
-        if options.has_key("branding"):
-            self.__dict__['flags']['branding'] = options["branding"]
+       if options.has_key("branding") and \
+       os.path.exists(os.path.join(ctx.consts.theme_dir, options["branding"])):
+           self.__dict__['flags']['branding'] = options["branding"]
 
-        self.__dict__['flags']['kahya'] = options.has_key("kahyaFile") or \
-                                          os.path.exists("/usr/share/yali/data/default.xml")
+       self.__dict__['flags']['kahya'] = options.has_key("kahyaFile") or \
+                                         os.path.exists("/usr/share/yali/data/default.xml")
 
-        if options.has_key("nolvm"):
-            self.__dict__['flags']['partitioning_lvm'] = False
+       if options.has_key("nolvm"):
+           self.__dict__['flags']['partitioning_lvm'] = False
 
-        if options.has_key("collection"):
-            self.__dict__['flags']['collection'] = True
-        elif options.has_key("nocollection"):
-            self.__dict__['flags']['collection'] = False
+       if options.has_key('baseonly') and \
+       self.__dict__['flags']['install_type'] == ctx.STEP_BASE:
+           self.__dict__['flags']['install_type'] = ctx.STEP_DEFAULT
 
-        for key in [_key for _key in options.keys() \
-                    if _key not in ("live", "system", "firstboot", "oem", "firstboot", "rescue", "theme")]:
-            self.__dict__[key] = options[key] if options[key] else True
+       if options.has_key("collection"):
+           self.__dict__['flags']['collection'] = True
+       elif options.has_key("nocollection"):
+           self.__dict__['flags']['collection'] = False
+
+       for key in [_key for _key in options.keys() \
+                   if _key not in ("live", "system", "firstboot", "oem", "firstboot", "rescue", "theme")]:
+           self.__dict__[key] = options[key] if options[key] else True
 
     def __init__(self):
         self.__dict__['flags'] = {}
