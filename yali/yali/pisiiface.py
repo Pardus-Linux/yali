@@ -23,16 +23,6 @@ import yali.context as ctx
 
 repodb = pisi.db.repodb.RepoDB()
 
-class PackageCollection(object):
-    def __init__(self, id, title, description, icon, translations, default=False):
-        self.default = default
-        self.id = id
-        self.title = title
-        self.description = description
-        self.icon = icon
-        self.translations = translations
-        self.index =  os.path.join(ctx.consts.source_dir, "repo/%s-index.xml.bz2" % id)
-
 def initialize(ui, with_comar = False, nodestDir = False):
     options = pisi.config.Options()
     ctx.logger.debug("Pisi initializing..")
@@ -99,47 +89,6 @@ def takeBack(operation):
     os.symlink("/", ctx.consts.target_dir + ctx.consts.target_dir)
     pisi.api.takeback(operation)
     os.unlink(ctx.consts.target_dir + ctx.consts.target_dir)
-
-def getCollection():
-    packageCollection = []
-    default = False
-    piksemelObj = None
-    translations = {}
-
-    def __setLocale(id, translations):
-        title = ""
-        description = ""
-        locale = os.environ["LANG"].split(".")[0]
-        if not translations.has_key(locale):
-            ctx.logger.debug("Collection (%s) has no translation in %s locale. Default language (%s) is setting ..." %
-                                                            (id, locale, translations["default"]))
-            locale = translations["default"]
-
-        title = translations[locale][0]
-        description = translations[locale][1]
-        return (title, description)
-
-    try:
-        piksemelObj = piksemel.parse(ctx.consts.pisi_collection_file)
-    except OSError, msg:
-        ctx.logger.debug("Unexcepted error:%s" % msg)
-    else:
-        for collection in piksemelObj.tags("Collection"):
-            default = collection.getAttribute("default")
-            if default:
-                default = True
-
-            id = collection.getTagData("id")
-            icon = collection.getTagData("icon")
-            translationsTag = collection.getTag("translations")
-            translations["default"] = translationsTag.getAttribute("default")
-            for translation in translationsTag.tags("translation"):
-                translations[translation.getAttribute("language")]= (unicode(translation.getTagData("title")),
-                                                                     unicode(translation.getTagData("description")))
-            title, description = __setLocale(id, translations)
-            packageCollection.append(PackageCollection(id, title, description, icon, translations, default))
-
-    return packageCollection
 
 def getCollectionPackages(collectionIndex, kernels=False):
     ctx.logger.debug("index_path%s" % collectionIndex)

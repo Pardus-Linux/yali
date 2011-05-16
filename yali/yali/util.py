@@ -659,3 +659,54 @@ def get_grub_conf(device_path, format_type):
         umount(ctx.consts.tmp_mnt_dir)
 
     return grub_conf
+
+class PackageCollection(object):
+    def __init__(self, id, title, description, icon, translations, default=False):
+        self.default = default
+        self.id = id
+        self.title = title
+        self.description = description
+        self.icon = icon
+        self.translations = translations
+        self.index =  os.path.join(ctx.consts.source_dir, "repo/%s-index.xml.bz2" % id)
+
+def get_collections():
+    packageCollection = []
+
+    def _setLocale(id, translations):
+        title = ""
+        description = ""
+        locale = os.environ["LANG"].split(".")[0]
+        if not translations.has_key(locale):
+            ctx.logger.debug("Collection (%s) has no translation in %s locale. Default language (%s) is setting ..." %
+                                                            (id, locale, translations["default"]))
+            locale = translations["default"]
+
+        title = translations[locale][0]
+        description = translations[locale][1]
+        return (title, description)
+
+    try:
+        piksemelObj = piksemel.parse(ctx.consts.pisi_collection_file)
+    except OSError, msg:
+        ctx.logger.debug("Unexcepted error:%s" % msg)
+    else:
+        default = False
+        translations = {}
+        for collection in piksemelObj.tags("Collection"):
+            default = collection.getAttribute("default")
+            if default:
+                default = True
+
+            id = collection.getTagData("id")
+            icon = collection.getTagData("icon")
+            translationsTag = collection.getTag("translations")
+            translations["default"] = translationsTag.getAttribute("default")
+            for translation in translationsTag.tags("translation"):
+                translations[translation.getAttribute("language")]= (unicode(translation.getTagData("title")),
+                                                                     unicode(translation.getTagData("description")))
+            title, description = _setLocale(id, translations)
+            packageCollection.append(PackageCollection(id, title, description, icon, translations, default))
+
+    return packageCollection
+

@@ -16,7 +16,7 @@ _ = gettext.translation('yali', fallback=True).ugettext
 
 from PyQt4.Qt import QWidget, SIGNAL, QPixmap, Qt, QListWidgetItem, QSize, QTimeLine, QTimer
 
-import yali.pisiiface
+import yali.util
 import yali.context as ctx
 from yali.gui import ScreenWidget
 from yali.gui.Ui.collectionswidget import Ui_CollectionsWidget
@@ -32,7 +32,7 @@ class Widget(Ui_CollectionsWidget, QWidget, ScreenWidget):
     def __init__(self):
         QWidget.__init__(self)
         self.setupUi(self)
-        self.collections = yali.pisiiface.getCollection()
+        self.collections = yali.util.get_collections()
         if len(self.collections) == 0:
             ctx.flags.collection = False
             ctx.logger.debug("There is no collection so disable collection support.")
