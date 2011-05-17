@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: YALI-tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-17 16:11+0300\n"
+"POT-Creation-Date: 2011-05-17 15:57+0300\n"
 "PO-Revision-Date: 2011-02-16 10:29+0200\n"
 "Last-Translator: Koray Löker <loker@pardus.org.tr>\n"
 "Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
@@ -474,9 +474,8 @@ msgid "Choose the user you want to reset the password:"
 msgstr "Parolasını sıfırlamak istediğiniz kullanıcıyı seçin:"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:124
-#, fuzzy
 msgid "Password:"
-msgstr "Parola"
+msgstr "Parola:"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:125 yali/gui/Ui/setupuserswidget.py:492
 msgid "Confirm Password"
@@ -507,14 +506,12 @@ msgid "Select the operation to undo:"
 msgstr "Geri alınacak işlemi seç:"
 
 #: yali/gui/Ui/rescuewidget.py:114
-#, fuzzy
 msgid "Choose what do you want to do to repair your system"
 msgstr "Sisteminizde tamir etmek istediğiniz şeyi seçin:"
 
 #: yali/gui/Ui/rescuewidget.py:115
-#, fuzzy
 msgid "Reinstall bootloader"
-msgstr "GRUB'u yeniden yükle"
+msgstr "Açılış yöneticisini yeniden yükle"
 
 #: yali/gui/Ui/rescuewidget.py:116
 msgid "Reset forgotten password"
@@ -1063,9 +1060,8 @@ msgid "Setting root password..."
 msgstr "Root parolası ayarlanıyor..."
 
 #: yali/gui/ScrGoodbye.py:73
-#, fuzzy
 msgid "Resetting user password..."
-msgstr "Root parolası ayarlanıyor..."
+msgstr "Kullanıcı parolası ayarlanıyor..."
 
 #: yali/gui/ScrGoodbye.py:76
 msgid "Setup First-Boot..."
@@ -1107,13 +1103,14 @@ msgid "Configuring <b>%s</b>"
 msgstr "<b>%s</b> paketi yapılandırılıyor"
 
 #: yali/gui/ScrInstall.py:196
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Following error occured while installing packages:<b>%s</b><br><br>Do you "
 "want to retry?"
 msgstr ""
-"Paketler kurulurken aşağıdaki hata meydana geldi:\n"
-"<b>%s</b>"
+"Paketler kurulurken aşağıdaki hata meydana geldi:<b>%s</b><br><br>"
+"Tekrar denemek ister misiniz?"
+
 
 #: yali/gui/ScrInstall.py:202 yali/gui/ScrSummary.py:297
 #: yali/gui/YaliDialog.py:218 yali/gui/YaliDialog.py:234
@@ -1330,9 +1327,8 @@ msgid "Cannot Rescue"
 msgstr ""
 
 #: yali/gui/ScrRescuePassword.py:122 yali/gui/ScrRescue.py:93
-#, fuzzy
 msgid "Your current installation cannot be rescued."
-msgstr "Otomatik kurulum seçildi."
+msgstr "Şu anki kurulumunuz kurtarılamaz."
 
 #: yali/gui/ScrRescuePassword.py:146
 msgid "Super User"
@@ -1377,9 +1373,8 @@ msgid "Connected"
 msgstr "Bağlı"
 
 #: yali/gui/ScrRescue.py:54
-#, fuzzy
 msgid "Mount failed"
-msgstr "Bağlantı başarısız"
+msgstr "Bağlama başarısız"
 
 #: yali/gui/ScrRescue.py:55
 #, python-format
@@ -1698,12 +1693,10 @@ msgid "Tetris"
 msgstr "Tetris"
 
 #: yali/gui/YaliWindow.py:382
-#, fuzzy, python-format
+#, python-format
 msgid "An error occurred when attempting to load screens:%s"
 msgstr ""
-"Kurulum arayüz bileşeni yüklenmeye çalışılırken bir hata meydana geldi.\n"
-"\n"
-"className = %s.Widget"
+"Kurulum arayüz bileşeni yüklenmeye çalışılırken bir hata meydana geldi.%s"
 
 #: yali/gui/YaliWindow.py:440
 msgid "Release notes could not be loaded."
@@ -1729,37 +1722,34 @@ msgid "Failed teardownAll in storage.complete with error:%s"
 msgstr "storage.complete  metodunda başarısız teardownAll hatası:%s "
 
 #: yali/storage/__init__.py:57
-#, fuzzy
 msgid "Storage Device Error"
-msgstr "Depolama Aygıtları Uyarısı"
+msgstr "Depolama Aygıtları Hatası"
 
 #: yali/storage/__init__.py:58
-#, fuzzy, python-format
+#, python-format
 msgid "There was an error encountered while partitioning on device %s."
-msgstr "%s aygıtını yeniden boyutlandırırken bir hata oldu."
+msgstr "%s aygıtını bölümlendirirken bir hata oldu."
 
 #: yali/storage/__init__.py:63
 msgid "Storage Format Error"
 msgstr ""
 
 #: yali/storage/__init__.py:64
-#, fuzzy, python-format
+#, python-format
 msgid "There was an error encountered while formatting on device %s."
-msgstr "%s aygıtını yeniden boyutlandırırken bir hata oldu."
+msgstr "%s aygıtını Biçimlendirken bir hata oldu."
 
 #: yali/storage/__init__.py:75 yali/storage/storageset.py:336
 msgid "Exit installer"
 msgstr "Kurulum sihirbazından çık"
 
 #: yali/storage/__init__.py:75
-#, fuzzy
 msgid "Ignore"
-msgstr "Hepsini Gözardı Et"
+msgstr "Gözardı Et"
 
 #: yali/storage/__init__.py:158 yali/storage/__init__.py:168
-#, fuzzy
 msgid "Dirty File Systems"
-msgstr "Dosya Sistemi "
+msgstr "Bozuk Dosya Sistemi "
 
 #: yali/storage/__init__.py:159
 #, python-format
@@ -2381,16 +2371,14 @@ msgstr ""
 "formatlanız ya da atlamanız gerekmekte."
 
 #: yali/storage/storageset.py:453
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Error enabling swap device %(name)s: %(msg)s<br><br>This most likely means "
 "this swap device has not been initialized.<br><br>Press OK to exit the "
 "installer."
 msgstr ""
-"%(name)s swap aygıtı etkinleştirirken hata:%(msg)s\n"
-"\n"
-" Bu çoğunlukla etkinleştirilmeyen swap aygıtınından dolayıdır.\n"
-"\n"
+"%(name)s swap aygıtı etkinleştirirken hata:%(msg)s<br><br>"
+" Bu çoğunlukla etkinleştirilmeyen swap aygıtınından dolayıdır.<br><br>"
 ".Kurulumdan çıkmak için 'OK' tıklayın."
 
 #: yali/storage/storageset.py:501
@@ -2484,9 +2472,9 @@ msgid "Unknown return code: %d."
 msgstr "Bilinmeyen hata kodu: %d"
 
 #: yali/storage/formats/filesystem.py:247
-#, fuzzy, python-format
+#, python-format
 msgid "Migrating %s filesystem on %s"
-msgstr "%s üzerinden dosya sistemi yeniden boyutlandırılıyor"
+msgstr "%s üzerindeki %s dosya sistemi göç ettiriliyor"
 
 #: yali/storage/formats/filesystem.py:299
 #, python-format
@@ -2510,15 +2498,14 @@ msgstr ""
 "%(device)s aygıtlarında %(type)s dosya sistemi denetimi başarısız oldu."
 
 #: yali/storage/formats/filesystem.py:391
-#, fuzzy
 msgid ""
 "Errors like this usually mean there is a problem with the filesystem that "
 "will require user interaction to repair. Restart installation after you have "
 "corrected the problems on the filesystem."
 msgstr ""
 "Bunun gibi hatalar genellikle kullanıcının onarması gereken\n"
-"disk problemleri olduğunu gösterir.\n"
-"Disk problemlerini onardıktan sonra lütfen kuruluma\n"
+"disk problemleri olduğunu gösterir. "
+"Disk problemlerini onardıktan sonra lütfen kuruluma "
 "tekrar başlayınız."
 
 #: yali/storage/formats/filesystem.py:397
