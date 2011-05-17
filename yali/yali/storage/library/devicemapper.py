@@ -9,7 +9,7 @@ from yali.storage.library import  LibraryError
 class DeviceMapperError(LibraryError):
     pass
 
-def name_from_dm_node(node):
+def name_from_dm_node(dm_node):
     name = block.getNameFromDmNode(dm_node)
     if name is not None:
         return name
@@ -20,7 +20,7 @@ def name_from_dm_node(node):
     name = yali.util.run_batch("dmsetup", ["info", "--columns",
                                "--noheadings", "-o", "name",
                                "-j", str(major), "-m", str(minor)])[1]
-    ctx.logger.debug("name_from_dm(%s) returning '%s'" % (node, name.strip()))
+    ctx.logger.debug("name_from_dm(%s) returning '%s'" % (dm_node, name.strip()))
     return name.strip()
 
 def dm_node_from_name(name):

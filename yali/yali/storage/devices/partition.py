@@ -13,8 +13,8 @@ import yali.baseudev
 import yali.context as ctx
 from yali.util import numeric_type
 from yali.storage.library import devicemapper
-from yali.storage.devices.device import Device, DeviceError, devicePathToName
-from yali.storage.formats import Format
+from yali.storage.devices.device import Device, DeviceError, devicePathToName, deviceNameToDiskByPath
+from yali.storage.formats import Format, getFormat
 from yali.storage.formats.disklabel import DiskLabelCommitError
 
 class PartitionError(DeviceError):
@@ -475,7 +475,7 @@ class Partition(Device):
                     try:
                         block.removeDeviceMap(devmap)
                     except Exception as e:
-                        raise PartitionTeardownError("failed to tear down device-mapper partition %s: %s" % (self.name, e))
+                        raise PartitionError("failed to tear down device-mapper partition %s: %s" % (self.name, e))
                 yali.baseudev.udev_settle()
 
         Device.teardown(self, recursive=recursive)

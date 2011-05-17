@@ -48,7 +48,7 @@ class DeviceMapper(Device):
 
     @property
     def dict(self):
-        d = super(DMDevice, self).dict
+        d = super(DeviceMapper, self).dict
         d.update({"target": self.target, "dmUuid": self.dmUuid})
         return d
 

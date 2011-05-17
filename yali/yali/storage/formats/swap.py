@@ -86,7 +86,7 @@ class SwapSpace(Format):
                 try:
                     self.priority = int(arg)
                 except ValueError:
-                    log.info("invalid value for swap priority: %s" % arg)
+                    ctx.logger.info("invalid value for swap priority: %s" % arg)
 
     options = property(_getOptions, _setOptions,
                        doc="The swap device's fstab options string")

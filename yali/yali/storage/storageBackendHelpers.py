@@ -8,6 +8,7 @@ __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext
 
 from formats import getFormat
+import yali.util
 
 def sanityCheckVolumeGroupName(volname):
     """Make sure that the volume group name doesn't contain invalid chars."""
@@ -212,7 +213,7 @@ def partitionSanityErrors(intf, errors):
                                   "These errors must be corrected prior "
                                   "to continuing with your install of "
                                   "%(productName)s.\n\n%(errorstr)s") \
-                                % {'productName': productName,
+                                % {'productName': yali.util.product_name(),
                                    'errorstr': errorstr},
                                 type="error")
     return rc

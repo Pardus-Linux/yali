@@ -16,11 +16,14 @@ import subprocess
 import string
 import stat
 import errno
+import time
+import dbus
 import ConfigParser
 import gettext
 
 _ = gettext.translation('yali', fallback=True).ugettext
 
+import comar
 import pisi
 import piksemel
 import yali
@@ -377,7 +380,6 @@ def stop_dbus():
     chroot("/bin/killall comar")
 
 def comarLinkInitialized():
-    import comar
     if ctx.flags.install_type == ctx.STEP_BASE or \
        ctx.flags.install_type == ctx.STEP_DEFAULT or \
        ctx.flags.install_type == ctx.STEP_RESCUE:
@@ -442,7 +444,7 @@ def backup_log(remove=False):
     except IOError, msg:
         ctx.logger.debug("YALI log file doesn't exists.")
         return False
-    except Error, msg:
+    except Exception, msg:
         ctx.logger.debug("File paths are the same.")
         return False
     else:

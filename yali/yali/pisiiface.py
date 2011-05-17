@@ -58,7 +58,7 @@ def addRepo(name=None, uri=None):
         if name and uri:
             pisi.api.add_repo(name, uri)
     except pisi.Error, msg:
-        ctx.logger.debug(_("Error occured while %(repo)s repo is adding:%(msg)s") %
+        ctx.logger.debug("Error occured while %(repo)s repo is adding:%(msg)s" %
                          {"repo":name, "msg":msg})
 
 def addCdRepo():

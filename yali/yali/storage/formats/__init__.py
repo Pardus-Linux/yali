@@ -98,7 +98,8 @@ def get_default_filesystem_type(boot=None):
         if supported:
             return fstype
 
-    raise FormatError("None of %s is supported by your kernel" % ",".join(fstypes))
+    raise FormatError("None of %s is supported by your kernel" %
+            ",".join(default_fstypes))
 
 class FormatError(yali.Error):
     pass
@@ -216,7 +217,7 @@ class Format(object):
             self.device = device
 
         if not os.path.exists(self.device):
-            raise FormatCreateError("invalid device specification", self.device)
+            raise FormatError("invalid device specification", self.device)
 
     def destroy(self, *args, **kwargs):
         # zero out the 1MB at the beginning and end of the device in the
@@ -249,7 +250,7 @@ class Format(object):
 
     def setup(self, *args, **kwargs):
         if not self.exists:
-            raise FormatSetupError("format has not been created")
+            raise FormatError("format has not been created")
 
         if self.status:
             return
@@ -260,7 +261,7 @@ class Format(object):
             self.device = device
 
         if not self.device or not os.path.exists(self.device):
-            raise FormatSetupError("invalid device specification")
+            raise FormatError("invalid device specification")
 
     def teardown(self, *args, **kwargs):
         ctx.logger.debug("Format teardown method call")

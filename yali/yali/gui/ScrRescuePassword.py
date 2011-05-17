@@ -14,7 +14,7 @@ import pardus.xorg
 import gettext
 _ = gettext.translation('yali', fallback=True).ugettext
 
-from PyQt4.Qt import QWidget, SIGNAL, QListWidgetItem, QIcon
+from PyQt4.Qt import QWidget, SIGNAL, QListWidgetItem, QIcon, QLineEdit
 
 import yali.util
 import yali.postinstall

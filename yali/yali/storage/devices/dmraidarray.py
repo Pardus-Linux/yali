@@ -47,7 +47,7 @@ class DMRaidArray(DeviceMapper):
 
         self.formatClass = get_device_format("dmraidmember")
         if not self.formatClass:
-            raise StorageError("cannot find class for 'dmraidmember'")
+            raise DMRaidArrayError("cannot find class for 'dmraidmember'")
 
         self._raidSet = raidSet
 

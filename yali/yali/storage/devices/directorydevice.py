@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-
+import os
 import gettext
 __trans = gettext.translation('yali', fallback=True)
 _ = __trans.ugettext

@@ -9,7 +9,7 @@ _ = __trans.ugettext
 
 import yali.baseudev
 import yali.context as ctx
-from yali.util import numeric_type
+import yali.util
 from yali.storage.udev import *
 from yali.storage.devices import AbstractDevice, AbstractDeviceError
 from yali.storage.formats import getFormat
@@ -85,9 +85,9 @@ class Device(AbstractDevice):
 
         self.uuid = None
         self._format = None
-        self._size = numeric_type(size)
-        self.major = numeric_type(major)
-        self.minor = numeric_type(minor)
+        self._size = yali.util.numeric_type(size)
+        self.major = yali.util.numeric_type(major)
+        self.minor = yali.util.numeric_type(minor)
         self._serial = serial
         self._vendor = vendor
         self._model = model
@@ -174,9 +174,9 @@ class Device(AbstractDevice):
 
         path = os.path.normpath("/sys/%s" % self.sysfsPath)
         try:
-            notify_kernel(path, action="change")
+            yali.util.notify_kernel(path, action="change")
         except Exception, e:
-            log.warning("failed to notify kernel of change: %s" % e)
+            ctx.logger.warning("failed to notify kernel of change: %s" % e)
 
     @property
     def fstabSpec(self):
