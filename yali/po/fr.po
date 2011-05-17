@@ -2120,14 +2120,9 @@ msgstr ""
 "ne contient pas un volume de swap. Afin de poursuivre l'installation, vous aurez besoin de formater cette partition ou de l'ignorer."
 
 #: yali/storage/storageset.py:453
-#, fuzzy, python-format
+#, python-format
 msgid "Error enabling swap device %(name)s: %(msg)s<br><br>This most likely means this swap device has not been initialized.<br><br>Press OK to exit the installer."
-msgstr ""
-"Erreur d'activation de la partition de swap %(name)s : %(msg)s\n"
-"\n"
-"Cela signifie probablement que cette partition n'a pas été initialisée.\n"
-"\n"
-"Cliquez sur OK pour quitter le programme d'installation."
+msgstr "Erreur d'activation de la partition de swap %(name)s : %(msg)s<br><br>Cela signifie probablement que cette partition n'a pas été initialisée.<br><br>Cliquez sur OK pour quitter le programme d'installation."
 
 #: yali/storage/storageset.py:501
 msgid "You have not created a bootable partition."
@@ -2148,32 +2143,32 @@ msgstr "Les partitions amorçables ne peuvent pas être sur un système de fichi
 
 #: yali/storage/storageset.py:620
 msgid "Ignoring noauto entry"
-msgstr ""
+msgstr "Ne tenant pas compte de l'entrée noauto"
 
 #: yali/storage/storageset.py:678
 #, python-format
 msgid "Failed to resolve %s (%s) from fstab"
-msgstr ""
+msgstr "Échec de la résolution %s (%s) à partir de fstab"
 
 #: yali/storage/storageset.py:684
 #, python-format
 msgid "Unrecognized filesystem type for %s (%s)"
-msgstr ""
+msgstr "Type de système de fichiers non reconnus pour %s (%s)"
 
 #: yali/storage/storageset.py:691
 #, python-format
 msgid "Scanned format (%s) differs from fstab format (%s)"
-msgstr ""
+msgstr "Format numérisé (%s) différent du format fstab (%s)"
 
 #: yali/storage/storageset.py:713
 #, python-format
 msgid "Cannot open %s for read"
-msgstr ""
+msgstr "Impossible d'ouvrir %s pour la lecture"
 
 #: yali/storage/storageset.py:743
 #, python-format
 msgid "Fstab entry %s is malformed: %s"
-msgstr ""
+msgstr "L'entrée %s dans fstab est incorrecte : %s"
 
 #: yali/storage/devices/filedevice.py:93
 #, python-format
@@ -2219,9 +2214,9 @@ msgid "Unknown return code: %d."
 msgstr "Code de retour inconnu : %d."
 
 #: yali/storage/formats/filesystem.py:247
-#, fuzzy, python-format
+#, python-format
 msgid "Migrating %s filesystem on %s"
-msgstr "Redimensionnement du système de fichiers %s"
+msgstr "Migration du système de fichiers %s sur %s"
 
 #: yali/storage/formats/filesystem.py:299
 #, python-format
@@ -2244,13 +2239,8 @@ msgid "%(type)s filesystem check failure on %(device)s: "
 msgstr "Échec de la vérification du système de fichiers %(type)s sur %(device)s :"
 
 #: yali/storage/formats/filesystem.py:391
-#, fuzzy
 msgid "Errors like this usually mean there is a problem with the filesystem that will require user interaction to repair. Restart installation after you have corrected the problems on the filesystem."
-msgstr ""
-"Ce genre d'erreur signifie généralement qu'il y a un problème avec le\n"
-"système de fichiers dont la résolution nécessite une interaction avec l'utilisateur.\n"
-"Redémarrez\n"
-"l'installation après avoir corrigé les problèmes sur le système de fichiers."
+msgstr "Ce genre d'erreur signifie généralement qu'il y a un problème avec le système de fichiers dont la résolution nécessite une interaction avec l'utilisateur. Redémarrez l'installation après avoir corrigé les problèmes sur le système de fichiers."
 
 #: yali/storage/formats/filesystem.py:397
 msgid "Unrecoverable Error"
