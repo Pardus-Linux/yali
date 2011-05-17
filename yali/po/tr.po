@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: YALI-tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-02 20:57+0200\n"
+"POT-Creation-Date: 2011-05-17 16:11+0300\n"
 "PO-Revision-Date: 2011-02-16 10:29+0200\n"
 "Last-Translator: Koray Löker <loker@pardus.org.tr>\n"
 "Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
@@ -80,11 +80,11 @@ msgstr "Öntanımlı ayarlar"
 msgid "Don't install bootloader"
 msgstr "Önyükleyici kurma"
 
-#: yali/gui/Ui/bootloaderwidget.py:131 yali/gui/ScrBootloader.py:93
+#: yali/gui/Ui/bootloaderwidget.py:131 yali/gui/ScrBootloader.py:105
 msgid "The partition where Pardus is installed"
 msgstr "Pardus'un kurulu olduğu bölüm"
 
-#: yali/gui/Ui/bootloaderwidget.py:132 yali/gui/ScrBootloader.py:87
+#: yali/gui/Ui/bootloaderwidget.py:132 yali/gui/ScrBootloader.py:99
 msgid "The first sector of"
 msgstr "İlk sektörü kullanılan"
 
@@ -199,7 +199,7 @@ msgstr ""
 "yeni bir hata kaydı açın."
 
 #: yali/gui/Ui/exception.py:64 yali/gui/ScrCheckCD.py:99
-#: yali/storage/__init__.py:836
+#: yali/storage/__init__.py:930
 msgid "Reboot"
 msgstr "Yeniden Başlat"
 
@@ -207,11 +207,11 @@ msgstr "Yeniden Başlat"
 msgid "Show Backtrace"
 msgstr "Geri izi Göster"
 
-#: yali/gui/Ui/help.py:56
+#: yali/gui/Ui/help.py:57
 msgid "help content"
 msgstr "yardım içeriği"
 
-#: yali/gui/Ui/installprogress.py:60
+#: yali/gui/Ui/installprogress.py:61
 msgid "Installing Package: "
 msgstr "Paket Yükleniyor: "
 
@@ -272,7 +272,7 @@ msgstr "Dosya Sistemi "
 
 #: yali/gui/Ui/logicalvolume.py:150 yali/gui/Ui/manualpartwidget.py:161
 #: yali/gui/Ui/partition.py:148 yali/gui/Ui/raid.py:108
-#: yali/gui/ScrPartitionManual.py:130 yali/storage/storageset.py:244
+#: yali/gui/ScrPartitionManual.py:130 yali/storage/storageset.py:387
 msgid "Format"
 msgstr "Biçimlendir"
 
@@ -281,27 +281,27 @@ msgstr "Biçimlendir"
 msgid "Migrate"
 msgstr "Göç"
 
-#: yali/gui/Ui/main.py:245
+#: yali/gui/Ui/main.py:246
 msgid "Yali"
 msgstr "Yalı"
 
-#: yali/gui/Ui/main.py:246 yali/gui/YaliWindow.py:408
+#: yali/gui/Ui/main.py:247 yali/gui/YaliWindow.py:417
 msgid "Release Notes"
 msgstr "Sürüm Notları"
 
-#: yali/gui/Ui/main.py:247
+#: yali/gui/Ui/main.py:248
 msgid "Previous Screen"
 msgstr "Önceki Ekran"
 
-#: yali/gui/Ui/main.py:248
+#: yali/gui/Ui/main.py:249
 msgid "Back"
 msgstr "Geri"
 
-#: yali/gui/Ui/main.py:249
+#: yali/gui/Ui/main.py:250
 msgid "Next Screen"
 msgstr "Sonraki Ekran"
 
-#: yali/gui/Ui/main.py:250 yali/gui/ScrSummary.py:59
+#: yali/gui/Ui/main.py:251 yali/gui/ScrSummary.py:59
 #: yali/gui/ScrSummary.py:211 yali/gui/ScrSummary.py:218
 msgid "Next"
 msgstr "İleri"
@@ -408,7 +408,7 @@ msgstr "Disk bölümünü küçült (MB) :"
 #: yali/gui/lvm_gui.py:465 yali/gui/lvm_gui.py:552
 #: yali/gui/ScrPartitionManual.py:114 yali/gui/ScrPartitionManual.py:130
 #: yali/gui/ScrPartitionManual.py:140 yali/gui/YaliDialog.py:220
-#: yali/storage/__init__.py:836 yali/storage/storageBackendHelpers.py:91
+#: yali/storage/__init__.py:930 yali/storage/storageBackendHelpers.py:91
 #: yali/storage/storageBackendHelpers.py:295
 msgid "Cancel"
 msgstr "İptal"
@@ -469,29 +469,26 @@ msgstr "Pardus'un yükleneceği disk bölümü"
 msgid "Selected disk below"
 msgstr "Aşağıdaki disk seçildi"
 
-#: yali/gui/Ui/rescuepasswordwidget.py:114
+#: yali/gui/Ui/rescuepasswordwidget.py:123
 msgid "Choose the user you want to reset the password:"
 msgstr "Parolasını sıfırlamak istediğiniz kullanıcıyı seçin:"
 
-#: yali/gui/Ui/rescuepasswordwidget.py:115
-msgid "New password:"
-msgstr "Yeni parola:"
+#: yali/gui/Ui/rescuepasswordwidget.py:124
+#, fuzzy
+msgid "Password:"
+msgstr "Parola"
 
-#: yali/gui/Ui/rescuepasswordwidget.py:116
-msgid "New password (Again):"
-msgstr "Yeni parola (Tekrar):"
+#: yali/gui/Ui/rescuepasswordwidget.py:125 yali/gui/Ui/setupuserswidget.py:492
+msgid "Confirm Password"
+msgstr "Parolayı Tekrar Girin"
 
-#: yali/gui/Ui/rescuepasswordwidget.py:117
+#: yali/gui/Ui/rescuepasswordwidget.py:126
 msgid "Reset Password"
 msgstr "Parolayı Sıfırla"
 
-#: yali/gui/Ui/rescuepisiwidget.py:73
+#: yali/gui/Ui/rescuepisiwidget.py:74
 msgid "<b>Connection status:</b>"
 msgstr "<b>Bağlantı durumu:</b>"
-
-#: yali/gui/Ui/rescuepisiwidget.py:74
-msgid "Offline"
-msgstr "Çevrimdışı"
 
 #: yali/gui/Ui/rescuepisiwidget.py:75
 msgid ""
@@ -509,26 +506,23 @@ msgstr "Bağlantı Seç"
 msgid "Select the operation to undo:"
 msgstr "Geri alınacak işlemi seç:"
 
-#: yali/gui/Ui/rescuewidget.py:92
-msgid "Choose what do you want to do to repair your system:"
+#: yali/gui/Ui/rescuewidget.py:114
+#, fuzzy
+msgid "Choose what do you want to do to repair your system"
 msgstr "Sisteminizde tamir etmek istediğiniz şeyi seçin:"
 
-#: yali/gui/Ui/rescuewidget.py:93
-msgid "Reinstall GRUB bootloader"
+#: yali/gui/Ui/rescuewidget.py:115
+#, fuzzy
+msgid "Reinstall bootloader"
 msgstr "GRUB'u yeniden yükle"
 
-#: yali/gui/Ui/rescuewidget.py:94
-msgid "Return back to a previous system state"
-msgstr "Önceki sistem konumuna geri dön"
-
-#: yali/gui/Ui/rescuewidget.py:95
+#: yali/gui/Ui/rescuewidget.py:116
 msgid "Reset forgotten password"
 msgstr "Unutulan şifreleri sıfırla"
 
-#: yali/gui/Ui/rescuewidget.py:96 yali/gui/ScrGoodbye.py:53
-#: yali/gui/ScrRescueFinish.py:78 yali/gui/ScrSummary.py:46
-msgid "Restart"
-msgstr "Yeniden Başlat"
+#: yali/gui/Ui/rescuewidget.py:117
+msgid "Return back to a previous system state"
+msgstr "Önceki sistem konumuna geri dön"
 
 #: yali/gui/Ui/rootpasswidget.py:129
 msgid "Administrator password"
@@ -553,10 +547,6 @@ msgstr "Gerçek Adınız"
 #: yali/gui/Ui/setupuserswidget.py:491
 msgid "Password"
 msgstr "Parola"
-
-#: yali/gui/Ui/setupuserswidget.py:492
-msgid "Confirm Password"
-msgstr "Parolayı Tekrar Girin"
 
 #: yali/gui/Ui/setupuserswidget.py:493
 msgid "Custom User ID"
@@ -709,7 +699,8 @@ msgstr ""
 "değişiklik gösterecek ve yukarı yuvarlanacaktır"
 
 #: yali/gui/lvm_gui.py:418 yali/gui/lvm_gui.py:465
-#: yali/gui/ScrPartitionManual.py:358 yali/storage/storageset.py:197
+#: yali/gui/ScrPartitionManual.py:358 yali/gui/ScrRescuePassword.py:124
+#: yali/gui/ScrRescue.py:95 yali/storage/storageset.py:336
 msgid "Continue"
 msgstr "Devam Et"
 
@@ -922,16 +913,16 @@ msgstr "RAID Aygıtını Düzenleyin: %s"
 msgid "Edit RAID Device"
 msgstr "RAID Aygıtını Düzenle"
 
-#: yali/gui/raid_gui.py:97 yali/storage/devices/raidarray.py:61
+#: yali/gui/raid_gui.py:97 yali/storage/devices/raidarray.py:60
 #, python-format
 msgid "A RAID%(level)d set requires at least %(min_member)d member"
 msgstr "RAID%(level)d seti en az %(min_member)d üye gerektirir"
 
-#: yali/gui/runner.py:116
+#: yali/gui/runner.py:117
 msgid "Error!"
 msgstr "Hata!"
 
-#: yali/gui/runner.py:117
+#: yali/gui/runner.py:118
 #, python-format
 msgid ""
 "An error occurred when attempting to load an installer interface component.\n"
@@ -942,19 +933,21 @@ msgstr ""
 "\n"
 "className = %s.Widget"
 
-#: yali/gui/runner.py:121 yali/storage/storageset.py:244
+#: yali/gui/runner.py:122 yali/gui/ScrRescuePassword.py:124
+#: yali/gui/ScrRescue.py:95 yali/gui/YaliWindow.py:385
+#: yali/storage/storageset.py:388
 msgid "Exit"
 msgstr "Çık"
 
-#: yali/gui/runner.py:121
+#: yali/gui/runner.py:122
 msgid "Retry"
 msgstr "Tekrar dene"
 
-#: yali/gui/ScrAdmin.py:96 yali/gui/ScrDateTime.py:206
+#: yali/gui/ScrAdmin.py:96 yali/gui/ScrDateTime.py:208
 msgid "Storage Devices initialising..."
 msgstr "Depolama Aygıtları başlatılıyor..."
 
-#: yali/gui/ScrAdmin.py:154 yali/gui/ScrRescuePassword.py:96
+#: yali/gui/ScrAdmin.py:154
 msgid "Password is too short."
 msgstr "Parola çok kısa."
 
@@ -1022,8 +1015,8 @@ msgstr "Saat ayarlanıyor."
 msgid "Device Path: %s"
 msgstr "Aygıt Adresi: %s"
 
-#: yali/gui/ScrDriveSelection.py:112 yali/storage/storageset.py:245
-#: yali/storage/storageset.py:317
+#: yali/gui/ScrDriveSelection.py:112 yali/gui/YaliWindow.py:381
+#: yali/storage/storageset.py:383 yali/storage/storageset.py:459
 msgid "Error"
 msgstr "Hata"
 
@@ -1035,20 +1028,31 @@ msgstr "Kurulum için en az bir sürücü seçmek zorundasınız."
 msgid "Running post-install operations..."
 msgstr "Kurulum sonrası işlemler gerçekleştiriliyor..."
 
-#: yali/gui/ScrGoodbye.py:53
+#: yali/gui/ScrGoodbye.py:49
 msgid "Press <b>Restart</b> to restart the computer."
 msgstr ""
 "Bilgisayarınızı yeniden başlatmak için <b>Yeniden Başlat</b> düğmesine "
 "tıklayın."
 
-#: yali/gui/ScrGoodbye.py:54 yali/gui/ScrRescueFinish.py:80
+#: yali/gui/ScrGoodbye.py:49 yali/gui/ScrSummary.py:46
+msgid "Restart"
+msgstr "Yeniden Başlat"
+
+#: yali/gui/ScrGoodbye.py:50
 msgid "<b>Please wait while restarting...</b>"
 msgstr "<b>Yeniden başlatılırken lütfen bekleyin...</b>"
 
-#: yali/gui/ScrGoodbye.py:67 yali/gui/ScrRescuePassword.py:45
-#: yali/gui/ScrRescuePisi.py:38
-msgid "Connecting to D-Bus..."
-msgstr "D-Bus'a bağlanılıyor..."
+#: yali/gui/ScrGoodbye.py:64
+msgid "Setting timezone..."
+msgstr "Zaman dilimi ayarlanıyor..."
+
+#: yali/gui/ScrGoodbye.py:65
+msgid "Migrating Xorg configuration..."
+msgstr "X.org Yapılandırması aktarılıyor..."
+
+#: yali/gui/ScrGoodbye.py:66
+msgid "Copying repository index..."
+msgstr "Pisi indeksi kopyalanıyor..."
 
 #: yali/gui/ScrGoodbye.py:69
 msgid "Setting hostname..."
@@ -1058,49 +1062,39 @@ msgstr "Makine adı ayarlanıyor..."
 msgid "Setting root password..."
 msgstr "Root parolası ayarlanıyor..."
 
-#: yali/gui/ScrGoodbye.py:72
-msgid "Setting timezone..."
-msgstr "Zaman dilimi ayarlanıyor..."
-
 #: yali/gui/ScrGoodbye.py:73
-msgid "Migrating Xorg configuration..."
-msgstr "X.org Yapılandırması aktarılıyor..."
-
-#: yali/gui/ScrGoodbye.py:74
-msgid "Setting console keymap..."
-msgstr "Konsol bilgisi yazılıyor..."
-
-#: yali/gui/ScrGoodbye.py:75
-msgid "Copying repository index..."
-msgstr "Pisi indeksi kopyalanıyor..."
+#, fuzzy
+msgid "Resetting user password..."
+msgstr "Root parolası ayarlanıyor..."
 
 #: yali/gui/ScrGoodbye.py:76
-msgid "Stopping to D-Bus..."
-msgstr "DBUS Durduruluyor..."
-
-#: yali/gui/ScrGoodbye.py:80
-msgid "Setup bootloader..."
-msgstr "Açılış yöneticisi ayarlanıyor..."
-
-#: yali/gui/ScrGoodbye.py:81
-msgid "Writing bootloader..."
-msgstr "Açılış yöneticisi yazılıyor..."
-
-#: yali/gui/ScrGoodbye.py:82
-msgid "Installing bootloader..."
-msgstr "Açılış yöneticisi yükleniyor..."
-
-#: yali/gui/ScrGoodbye.py:85
 msgid "Setup First-Boot..."
 msgstr "İlk Açılış ayarlanıyor..."
 
-#: yali/gui/ScrGoodbye.py:88
+#: yali/gui/ScrGoodbye.py:79
+#, fuzzy
+msgid "Teardown First-Boot..."
+msgstr "İlk Açılış ayarlanıyor..."
+
+#: yali/gui/ScrGoodbye.py:83
 msgid "Adding users..."
 msgstr "Kullanıcılar ekleniyor..."
 
+#: yali/gui/ScrGoodbye.py:88
+msgid "Writing bootloader..."
+msgstr "Açılış yöneticisi yazılıyor..."
+
+#: yali/gui/ScrGoodbye.py:89 yali/gui/ScrGoodbye.py:94
+msgid "Stopping to D-Bus..."
+msgstr "DBUS Durduruluyor..."
+
+#: yali/gui/ScrGoodbye.py:90 yali/gui/ScrGoodbye.py:95
+msgid "Teardown storage subsystem..."
+msgstr ""
+
 #: yali/gui/ScrGoodbye.py:91
-msgid "Cleanup systems..."
-msgstr "Sistemler temizleniyor..."
+msgid "Installing bootloader..."
+msgstr "Açılış yöneticisi yükleniyor..."
 
 #: yali/gui/ScrInstall.py:161
 #, python-format
@@ -1113,19 +1107,31 @@ msgid "Configuring <b>%s</b>"
 msgstr "<b>%s</b> paketi yapılandırılıyor"
 
 #: yali/gui/ScrInstall.py:196
-#, python-format
+#, fuzzy, python-format
 msgid ""
-"Following error occured while installing packages:\n"
-"<b>%s</b>"
+"Following error occured while installing packages:<b>%s</b><br><br>Do you "
+"want to retry?"
 msgstr ""
 "Paketler kurulurken aşağıdaki hata meydana geldi:\n"
 "<b>%s</b>"
 
-#: yali/gui/ScrInstall.py:199
-msgid "Do you want to retry?"
-msgstr "Tekrar denemek ister misiniz?"
+#: yali/gui/ScrInstall.py:202 yali/gui/ScrSummary.py:297
+#: yali/gui/YaliDialog.py:218 yali/gui/YaliDialog.py:234
+#: yali/storage/storageBackendHelpers.py:232
+#: yali/storage/storageBackendHelpers.py:253
+#: yali/storage/storageBackendHelpers.py:303
+msgid "Yes"
+msgstr "Evet"
 
-#: yali/gui/ScrInstall.py:254
+#: yali/gui/ScrInstall.py:202 yali/gui/ScrSummary.py:297
+#: yali/gui/YaliDialog.py:220 yali/gui/YaliDialog.py:235
+#: yali/storage/storageBackendHelpers.py:232
+#: yali/storage/storageBackendHelpers.py:253
+#: yali/storage/storageBackendHelpers.py:303
+msgid "No"
+msgstr "Hayır"
+
+#: yali/gui/ScrInstall.py:258
 #, python-format
 msgid ""
 "An error occured during the installation of packages.\n"
@@ -1139,7 +1145,7 @@ msgstr ""
 "Hata:\n"
 "%s\n"
 
-#: yali/gui/ScrKahyaCheck.py:78 yali/gui/ScrRescue.py:49
+#: yali/gui/ScrKahyaCheck.py:78
 msgid "No storage device found."
 msgstr "Hiç bir yükleme aygıtı bulunamadı."
 
@@ -1188,7 +1194,7 @@ msgid "Partitioning Warnings"
 msgstr "Bölümleme Uyarıları"
 
 #: yali/gui/ScrPartitionManual.py:114 yali/gui/ScrPartitionManual.py:140
-#: yali/gui/YaliDialog.py:218
+#: yali/gui/YaliDialog.py:218 yali/storage/__init__.py:164
 msgid "Ok"
 msgstr "Tamam"
 
@@ -1307,68 +1313,46 @@ msgstr ""
 "\n"
 "%s"
 
-#: yali/gui/ScrRescueFinish.py:55
-msgid "Installing Bootloader..."
-msgstr "Açılış yöneticisi Yükleniyor..."
+#: yali/gui/ScrRescuePassword.py:100 yali/gui/ScrUsers.py:214
+msgid "Don't use your user name or name as a password"
+msgstr "Parola olarak kullanıcı adınızı veya gerçek adınızı kullanmayın"
 
-#: yali/gui/ScrRescueFinish.py:58
-msgid "Taking back operation..."
-msgstr "İşlem geri alınıyor..."
+#: yali/gui/ScrRescuePassword.py:103 yali/gui/ScrUsers.py:217
+msgid "Passwords do not match"
+msgstr "Parolalar aynı değil"
 
-#: yali/gui/ScrRescueFinish.py:61
-msgid "Running rescue operations..."
-msgstr "Kurtarma işlemleri gerçekleştiriliyor..."
+#: yali/gui/ScrRescuePassword.py:106 yali/gui/ScrUsers.py:220
+msgid "Password is too short"
+msgstr "Parola çok kısa"
 
-#: yali/gui/ScrRescueFinish.py:78
-msgid "Press <b>Restart</b> to restart your system."
+#: yali/gui/ScrRescuePassword.py:121 yali/gui/ScrRescue.py:92
+msgid "Cannot Rescue"
 msgstr ""
-"Bilgisayarınızı yeniden başlatmak için <b>Sistemi Yeniden Başlat</b> "
-"düğmesine tıklayın."
 
-#: yali/gui/ScrRescueGrub.py:87
-#, python-format
-msgid "%s (Boot Disk)"
-msgstr "%s (Açılış Diski)"
+#: yali/gui/ScrRescuePassword.py:122 yali/gui/ScrRescue.py:93
+#, fuzzy
+msgid "Your current installation cannot be rescued."
+msgstr "Otomatik kurulum seçildi."
 
-#: yali/gui/ScrRescuePassword.py:39
-msgid "Caps Lock is on."
-msgstr "Caps Lock açık."
+#: yali/gui/ScrRescuePassword.py:146
+msgid "Super User"
+msgstr "Yetkili Kullanıcı"
 
-#: yali/gui/ScrRescuePassword.py:44 yali/gui/ScrRescuePisi.py:37
+#: yali/gui/ScrRescuePisi.py:37
 msgid "Starting D-Bus..."
 msgstr "D-Bus Başlatılıyor..."
 
-#: yali/gui/ScrRescuePassword.py:46
-msgid "Acquiring users..."
-msgstr "Kullanıcılar ekleniyor..."
-
-#: yali/gui/ScrRescuePassword.py:79
-msgid "The password has been successfully reset."
-msgstr "Parola başarıyla sıfırlandı."
-
-#: yali/gui/ScrRescuePassword.py:79
-msgid "Info"
-msgstr "Bilgi"
-
-#: yali/gui/ScrRescuePassword.py:90
-msgid "Do not use your username or real name as your password."
-msgstr "Parola olarak kullanıcı adınız ya da gerçek adınızı kullanmayın."
-
-#: yali/gui/ScrRescuePassword.py:93
-msgid "The passwords do not match."
-msgstr "Parolalar aynı değil."
-
-#: yali/gui/ScrRescuePassword.py:107 yali/gui/ScrRescuePisi.py:69
-msgid "Please Wait..."
-msgstr "Lütfen Bekleyin..."
-
-#: yali/gui/ScrRescuePassword.py:130
-msgid "Super User"
-msgstr "Yetkili Kullanıcı"
+#: yali/gui/ScrRescuePisi.py:38
+msgid "Connecting to D-Bus..."
+msgstr "D-Bus'a bağlanılıyor..."
 
 #: yali/gui/ScrRescuePisi.py:39
 msgid "Fetching history..."
 msgstr "Geçmiş bilgisi getiriliyor..."
+
+#: yali/gui/ScrRescuePisi.py:69
+msgid "Please Wait..."
+msgstr "Lütfen Bekleyin..."
 
 #: yali/gui/ScrRescuePisi.py:75
 msgid "No connection available"
@@ -1392,17 +1376,18 @@ msgstr "Bağlantı başarısız"
 msgid "Connected"
 msgstr "Bağlı"
 
-#: yali/gui/ScrRescue.py:94
-msgid "Mounting disk partition..."
-msgstr "Disk bölümü bağlanıyor..."
+#: yali/gui/ScrRescue.py:54
+#, fuzzy
+msgid "Mount failed"
+msgstr "Bağlantı başarısız"
 
-#: yali/gui/ScrRescue.py:106
-msgid "YALI could not locate a suitable disk partition on this computer."
-msgstr "YALI sisteminizde uygun herhangi bir bölüm bulamadı."
-
-#: yali/gui/ScrRescue.py:123
-msgid "Please select a disk partition from the list below:"
-msgstr "Lütfen aşağıdaki listeden disk bölümünü seçin:"
+#: yali/gui/ScrRescue.py:55
+#, python-format
+msgid ""
+"The following error occurred when mounting the file systems listed in /etc/"
+"fstab.  Please fix this problem and try to rescue again.\n"
+"%s"
+msgstr ""
 
 #: yali/gui/ScrSummary.py:47
 msgid "<b><p>Are you sure you want to restart the computer?</p></b>"
@@ -1573,37 +1558,9 @@ msgstr ""
 "geliştiricileri tarafından destek verilemiyor. <br><br><b>Ön tanımlı "
 "sürücüler yerine sahipli sürücüleri kurmak ister misiniz?</b></qt>"
 
-#: yali/gui/ScrSummary.py:297 yali/gui/YaliDialog.py:218
-#: yali/gui/YaliDialog.py:234 yali/gui/YaliDialog.py:261
-#: yali/storage/storageBackendHelpers.py:232
-#: yali/storage/storageBackendHelpers.py:253
-#: yali/storage/storageBackendHelpers.py:303
-msgid "Yes"
-msgstr "Evet"
-
-#: yali/gui/ScrSummary.py:297 yali/gui/YaliDialog.py:220
-#: yali/gui/YaliDialog.py:235 yali/gui/YaliDialog.py:262
-#: yali/storage/storageBackendHelpers.py:232
-#: yali/storage/storageBackendHelpers.py:253
-#: yali/storage/storageBackendHelpers.py:303
-msgid "No"
-msgstr "Hayır"
-
 #: yali/gui/ScrUsers.py:127 yali/gui/ScrUsers.py:359
 msgid "Update"
 msgstr "Güncelle"
-
-#: yali/gui/ScrUsers.py:214
-msgid "Don't use your user name or name as a password"
-msgstr "Parola olarak kullanıcı adınızı veya gerçek adınızı kullanmayın"
-
-#: yali/gui/ScrUsers.py:217
-msgid "Passwords do not match"
-msgstr "Parolalar aynı değil"
-
-#: yali/gui/ScrUsers.py:220
-msgid "Password is too short"
-msgstr "Parola çok kısa"
 
 #: yali/gui/ScrUsers.py:266
 msgid "This user name is already taken, please choose another one."
@@ -1663,26 +1620,14 @@ msgid "Do you want to continue?"
 msgstr "Devam etmek istiyor musunuz?"
 
 #: yali/gui/YaliDialog.py:260
-msgid "Eject Disc"
-msgstr "Diski Çıkart"
-
-#: yali/gui/YaliDialog.py:286 yali/gui/YaliDialog.py:303
-msgid "OK"
-msgstr "Tamam"
-
-#: yali/gui/YaliDialog.py:287
-msgid "Please insert a new disc and then click OK"
-msgstr "Lütfen yeni bir disk taktıktan sonra Tamam'a tıklayın"
-
-#: yali/gui/YaliDialog.py:289
-msgid "Insert New Disc"
-msgstr "Yeni Disk Yerleştirin"
-
-#: yali/gui/YaliDialog.py:301
 msgid "Information"
 msgstr "Bilgi"
 
-#: yali/gui/YaliDialog.py:494
+#: yali/gui/YaliDialog.py:262
+msgid "OK"
+msgstr "Tamam"
+
+#: yali/gui/YaliDialog.py:453
 msgid "Error reporting"
 msgstr "Hata bildiriyor"
 
@@ -1752,69 +1697,96 @@ msgstr "Uçbirim"
 msgid "Tetris"
 msgstr "Tetris"
 
-#: yali/gui/YaliWindow.py:431
+#: yali/gui/YaliWindow.py:382
+#, fuzzy, python-format
+msgid "An error occurred when attempting to load screens:%s"
+msgstr ""
+"Kurulum arayüz bileşeni yüklenmeye çalışılırken bir hata meydana geldi.\n"
+"\n"
+"className = %s.Widget"
+
+#: yali/gui/YaliWindow.py:440
 msgid "Release notes could not be loaded."
 msgstr "Sürüm notları yüklenemedi."
 
-#: yali/storage/bootloader.py:206 yali/storage/bootloader.py:207
-#: yali/storage/bootloader.py:209 yali/storage/bootloader.py:210
+#: yali/storage/bootloader.py:210 yali/storage/bootloader.py:211
+#: yali/storage/bootloader.py:213 yali/storage/bootloader.py:214
 #, python-format
 msgid "%s"
 msgstr "%s"
 
-#: yali/storage/bootloader.py:303 yali/storage/bootloader.py:307
+#: yali/storage/bootloader.py:302 yali/storage/bootloader.py:306
 msgid "Windows"
 msgstr "Windows"
 
-#: yali/storage/devicetree.py:1567
+#: yali/storage/devicetree.py:1569
 msgid "This partition is part of an inconsistent LVM Volume Group."
 msgstr "Bu disk bölümü tutarsız bir LVM Hacim Grubunun parçası."
 
-#: yali/storage/__init__.py:47
+#: yali/storage/__init__.py:48
 #, python-format
 msgid "Failed teardownAll in storage.complete with error:%s"
 msgstr "storage.complete  metodunda başarısız teardownAll hatası:%s "
 
-#: yali/storage/__init__.py:56
-msgid "Resizing Failed"
-msgstr "Yeniden boyutlandırma başarısız oldu"
-
 #: yali/storage/__init__.py:57
-#, python-format
-msgid "There was an error encountered while resizing the device %s."
+#, fuzzy
+msgid "Storage Device Error"
+msgstr "Depolama Aygıtları Uyarısı"
+
+#: yali/storage/__init__.py:58
+#, fuzzy, python-format
+msgid "There was an error encountered while partitioning on device %s."
 msgstr "%s aygıtını yeniden boyutlandırırken bir hata oldu."
 
 #: yali/storage/__init__.py:63
-msgid "Migration Failed"
-msgstr "Göç başarısız"
+msgid "Storage Format Error"
+msgstr ""
 
 #: yali/storage/__init__.py:64
-#, python-format
-msgid "An error was encountered while migrating filesystem on device %s."
-msgstr "%s aygıtında dosya sistemi göçü sırasında bir hata oldu."
+#, fuzzy, python-format
+msgid "There was an error encountered while formatting on device %s."
+msgstr "%s aygıtını yeniden boyutlandırırken bir hata oldu."
 
-#: yali/storage/__init__.py:75
-msgid "File Bug"
-msgstr "Dosya Hatası"
-
-#: yali/storage/__init__.py:75 yali/storage/storageset.py:197
+#: yali/storage/__init__.py:75 yali/storage/storageset.py:336
 msgid "Exit installer"
 msgstr "Kurulum sihirbazından çık"
 
-#: yali/storage/__init__.py:78
-#, python-format
-msgid "Failed in storage.complete with error:%s"
-msgstr "Depolama sorunu %s hatası döndü."
+#: yali/storage/__init__.py:75
+#, fuzzy
+msgid "Ignore"
+msgstr "Hepsini Gözardı Et"
 
-#: yali/storage/__init__.py:239
+#: yali/storage/__init__.py:158 yali/storage/__init__.py:168
+#, fuzzy
+msgid "Dirty File Systems"
+msgstr "Dosya Sistemi "
+
+#: yali/storage/__init__.py:159
+#, python-format
+msgid ""
+"The following file systems for your Linux system were not unmounted "
+"cleanly.  Please boot your Linux installation, let the file systems be "
+"checked and shut down cleanly to rescue.\n"
+"%s"
+msgstr ""
+
+#: yali/storage/__init__.py:169
+#, python-format
+msgid ""
+"The following file systems for your Linux system were not unmounted "
+"cleanly.  Would you like to mount them anyway?\n"
+"%s"
+msgstr ""
+
+#: yali/storage/__init__.py:336
 msgid "This partition is holding the data for the hard drive install."
 msgstr "Bu disk bölümü sabit diske kurulum için gerekli veriyi saklıyor."
 
-#: yali/storage/__init__.py:242
+#: yali/storage/__init__.py:339
 msgid "You cannot delete a partition of a LDL formatted DASD."
 msgstr "LDL biçimli bir DASD bölümünü silemezsiniz."
 
-#: yali/storage/__init__.py:248
+#: yali/storage/__init__.py:345
 #, python-format
 msgid ""
 "This device is part of the RAID device %s, you have to edit or remove the "
@@ -1823,20 +1795,20 @@ msgstr ""
 "Bu aygıt %s RAID aygıtının parçası. Raid bölümlerinin kendi yöntemleriyle "
 "düzenlenmesi ya da silinmesi gerekir!"
 
-#: yali/storage/__init__.py:253
+#: yali/storage/__init__.py:350
 msgid "This device is part of a RAID device."
 msgstr "Bu aygıt bir RAID aygıtının parçası."
 
-#: yali/storage/__init__.py:258
+#: yali/storage/__init__.py:355
 #, python-format
 msgid "This device is part of the LVM volume group '%s'."
 msgstr "Bu aygıt '%s' LVM hacim grubunun parçası."
 
-#: yali/storage/__init__.py:261
+#: yali/storage/__init__.py:358
 msgid "This device is part of a LVM volume group."
 msgstr "Bu aygıt bir LVM hacim grubu parçası."
 
-#: yali/storage/__init__.py:270
+#: yali/storage/__init__.py:367
 msgid ""
 "This device is an extended partition which contains logical partitions that "
 "cannot be deleted:\n"
@@ -1846,7 +1818,7 @@ msgstr ""
 "bölümü:\n"
 "\n"
 
-#: yali/storage/__init__.py:779
+#: yali/storage/__init__.py:873
 #, python-format
 msgid ""
 "You have not defined a root partition (/),which is required for installation "
@@ -1855,7 +1827,7 @@ msgstr ""
 "%s kurulumuna devam etmek için gerekli olan kök dizin bölümünü (/) "
 "tanımlanmadınız."
 
-#: yali/storage/__init__.py:784
+#: yali/storage/__init__.py:878
 #, python-format
 msgid ""
 "Your / partition is less than %(min)s MB which is lower than recommended for "
@@ -1864,7 +1836,7 @@ msgstr ""
 "Kök dizin bölünüz ( / ) normal bir %(productName)s kurulumu için önerilen "
 "%(min)s MB boyutun altında."
 
-#: yali/storage/__init__.py:790
+#: yali/storage/__init__.py:884
 #, python-format
 msgid ""
 "Your %(mount)s partition is less than %(size)s megabytes which is lower than "
@@ -1873,7 +1845,7 @@ msgstr ""
 "%(mount)s disk bölümü, normal bir %(productName)s kurulumu için önerilen "
 "%(size)s megabyte boyutun altında."
 
-#: yali/storage/__init__.py:799
+#: yali/storage/__init__.py:893
 msgid ""
 "You have not specified a swap partition. Due to the amount of memory "
 "present, a swap partition is required to complete installation."
@@ -1881,7 +1853,7 @@ msgstr ""
 "Takas alanı belirlenmemiş. Kullanılabilen hafıza ile bir takas alanı  "
 "kurulumu tamamlamak için zorunlu görünüyor."
 
-#: yali/storage/__init__.py:802
+#: yali/storage/__init__.py:896
 msgid ""
 "You have not specified a swap partition. Although not strictly required in "
 "all cases, it will significantly improve performancefor most installations."
@@ -1889,23 +1861,23 @@ msgstr ""
 "Takas alanı belirlenmemiş. Bu her durumda gerekli olmasa da,  bir çok "
 "kurulumda performansta ciddi artış sağlayacaktır."
 
-#: yali/storage/__init__.py:808
+#: yali/storage/__init__.py:902
 #, python-format
 msgid ""
 "This mount point is invalid. The %s directory must be on the / file system."
 msgstr ""
 "Bağlama noktası geçersiz. %s dizini kök (/) dosya sisteminde yer almalı."
 
-#: yali/storage/__init__.py:811
+#: yali/storage/__init__.py:905
 #, python-format
 msgid "The mount point %s must be on a linux file system."
 msgstr "%s bağlama noktası linux dosya sistemlerinden biri olmalı."
 
-#: yali/storage/__init__.py:831
+#: yali/storage/__init__.py:925
 msgid "No Drives Found"
 msgstr "Disk bulunamadı"
 
-#: yali/storage/__init__.py:832
+#: yali/storage/__init__.py:926
 msgid ""
 "An error has occurred - no valid devices were found on\n"
 "which to create new file systems. Please check your\n"
@@ -2294,11 +2266,11 @@ msgstr ""
 "bu üst veri herhangi bir tanımlanmış BIOS RAID ayarlarından birine ait "
 "değildir. Disk gözardı ediliyor %(members)s."
 
-#: yali/storage/storageset.py:162 yali/storage/storageset.py:174
+#: yali/storage/storageset.py:298 yali/storage/storageset.py:311
 msgid "Invalid mount point"
 msgstr "Geçersiz bağlama noktası"
 
-#: yali/storage/storageset.py:163
+#: yali/storage/storageset.py:299
 #, python-format
 msgid ""
 "An error occurred when trying to create %s.  Some element of this path is "
@@ -2311,7 +2283,7 @@ msgstr ""
 "\n"
 "Kurulumdan çıkmak için <Enter>'a basınız. "
 
-#: yali/storage/storageset.py:175
+#: yali/storage/storageset.py:312
 #, python-format
 msgid ""
 "An error occurred when trying to create %(mountpoint)s: %(msg)s.  This is a "
@@ -2324,11 +2296,11 @@ msgstr ""
 "\n"
 " Kurulum sihirbazından çıkmak için <Enter> tuşuna basın."
 
-#: yali/storage/storageset.py:190 yali/storage/storageset.py:212
+#: yali/storage/storageset.py:329 yali/storage/storageset.py:350
 msgid "Unable to mount filesystem"
 msgstr "Dosya sistemi bağlanamadı"
 
-#: yali/storage/storageset.py:191
+#: yali/storage/storageset.py:330
 #, python-format
 msgid ""
 "An error occurred mounting device %(path)s as %(mountpoint)s.  You may "
@@ -2337,7 +2309,7 @@ msgstr ""
 "%(path)s aygıtı %(mountpoint)s noktasına bağlarken hata oldu. Kurulum devam "
 "edecek ama sorun çıkabilir."
 
-#: yali/storage/storageset.py:213
+#: yali/storage/storageset.py:351
 #, python-format
 msgid ""
 "An error occurred mounting device %(path)s as %(mountpoint)s: %(msg)s. This "
@@ -2350,11 +2322,11 @@ msgstr ""
 "\n"
 " Kurulum sihirbazından çıkmak için <Enter> tuşuna basın."
 
-#: yali/storage/storageset.py:244
+#: yali/storage/storageset.py:386
 msgid "Skip"
 msgstr "Atla"
 
-#: yali/storage/storageset.py:276
+#: yali/storage/storageset.py:418
 #, python-format
 msgid ""
 "The swap device:\n"
@@ -2372,7 +2344,7 @@ msgstr ""
 "kullanmak istiyorsanız yeniden, çağdaş bir Linux takas türünde "
 "biçimlendirmelisiniz."
 
-#: yali/storage/storageset.py:287
+#: yali/storage/storageset.py:429
 #, python-format
 msgid ""
 "The swap device:\n"
@@ -2391,7 +2363,7 @@ msgstr ""
 "kurulum yapıyorsanız, tüm takas aygıtlarınızın biçimlendirilecek şekilde "
 "işaretlendiğine emin olun."
 
-#: yali/storage/storageset.py:300
+#: yali/storage/storageset.py:442
 #, python-format
 msgid ""
 "The swap device:\n"
@@ -2408,14 +2380,12 @@ msgstr ""
 " desteklenen swap hacimine sahip değil.Kuruluma devam etmek için, aygıtı "
 "formatlanız ya da atlamanız gerekmekte."
 
-#: yali/storage/storageset.py:311
-#, python-format
+#: yali/storage/storageset.py:453
+#, fuzzy, python-format
 msgid ""
-"Error enabling swap device %(name)s: %(msg)s\n"
-"\n"
-"This most likely means this swap device has not been initialized.\n"
-"\n"
-"Press OK to exit the installer."
+"Error enabling swap device %(name)s: %(msg)s<br><br>This most likely means "
+"this swap device has not been initialized.<br><br>Press OK to exit the "
+"installer."
 msgstr ""
 "%(name)s swap aygıtı etkinleştirirken hata:%(msg)s\n"
 "\n"
@@ -2423,40 +2393,69 @@ msgstr ""
 "\n"
 ".Kurulumdan çıkmak için 'OK' tıklayın."
 
-#: yali/storage/storageset.py:357
+#: yali/storage/storageset.py:501
 msgid "You have not created a bootable partition."
 msgstr "Yüklenebilir bölüm yaratmalısınız."
 
-#: yali/storage/storageset.py:361
+#: yali/storage/storageset.py:505
 msgid "Bootable partitions cannot be on a logical volume."
 msgstr "/boot bölümü mantıksal hacim üzerinde olamaz."
 
-#: yali/storage/storageset.py:365
+#: yali/storage/storageset.py:509
 msgid "Bootable partitions cannot be on a raid array."
 msgstr "/boot bölümü raid dizileri üzerinde olamaz."
 
-#: yali/storage/storageset.py:372
+#: yali/storage/storageset.py:516
 #, python-format
 msgid "Bootable partitions cannot be on an %s filesystem."
 msgstr "Yüklenebilir bölümler %s dosya sistemleri üzerinde olmazlar."
 
-#: yali/storage/devices/filedevice.py:94
+#: yali/storage/storageset.py:620
+msgid "Ignoring noauto entry"
+msgstr ""
+
+#: yali/storage/storageset.py:678
+#, python-format
+msgid "Failed to resolve %s (%s) from fstab"
+msgstr ""
+
+#: yali/storage/storageset.py:684
+#, python-format
+msgid "Unrecognized filesystem type for %s (%s)"
+msgstr ""
+
+#: yali/storage/storageset.py:691
+#, python-format
+msgid "Scanned format (%s) differs from fstab format (%s)"
+msgstr ""
+
+#: yali/storage/storageset.py:713
+#, python-format
+msgid "Cannot open %s for read"
+msgstr ""
+
+#: yali/storage/storageset.py:743
+#, python-format
+msgid "Fstab entry %s is malformed: %s"
+msgstr ""
+
+#: yali/storage/devices/filedevice.py:93
 #, python-format
 msgid "Creating file %s"
 msgstr "%s dosyası yaratılıyor"
 
 #: yali/storage/devices/logicalvolume.py:217
-#: yali/storage/devices/partition.py:370 yali/storage/devices/raidarray.py:423
-#: yali/storage/devices/volumegroup.py:246
+#: yali/storage/devices/partition.py:369 yali/storage/devices/raidarray.py:422
+#: yali/storage/devices/volumegroup.py:245
 #, python-format
 msgid "Creating device %s"
 msgstr "%s aygıtı yaratılıyor"
 
-#: yali/storage/devices/volumegroup.py:218
+#: yali/storage/devices/volumegroup.py:217
 msgid "device has not been created"
 msgstr "aygıt oluşturulmadı"
 
-#: yali/storage/devices/volumegroup.py:224
+#: yali/storage/devices/volumegroup.py:223
 msgid "cannot activate VG with missing PV(s)"
 msgstr ""
 "Fiziksel Hacim eksik olduğu için Hacim Grupları etkin hale getirilemedi"
@@ -2471,92 +2470,97 @@ msgstr "%s yüzünden vginfo başarısız oldu"
 msgid "lvs failed for %s"
 msgstr "%s yüzünden lvs başarısız oldu"
 
-#: yali/storage/formats/disklabel.py:29
+#: yali/storage/formats/disklabel.py:28
 msgid "partition table"
 msgstr "bölüm tablosu"
 
-#: yali/storage/formats/dmraidmember.py:20
+#: yali/storage/formats/dmraidmember.py:19
 msgid "dm-raid member device"
 msgstr "dm-raid bileşeni"
 
-#: yali/storage/formats/filesystem.py:229
+#: yali/storage/formats/filesystem.py:228
 #, python-format
 msgid "Unknown return code: %d."
 msgstr "Bilinmeyen hata kodu: %d"
 
-#: yali/storage/formats/filesystem.py:296
+#: yali/storage/formats/filesystem.py:247
+#, fuzzy, python-format
+msgid "Migrating %s filesystem on %s"
+msgstr "%s üzerinden dosya sistemi yeniden boyutlandırılıyor"
+
+#: yali/storage/formats/filesystem.py:299
 #, python-format
 msgid "Creating %(type)s filesystem on %(device)s"
 msgstr "%(type)s dosya sistemi %(device)s aygıtı üzerinde yaratılıyor."
 
-#: yali/storage/formats/filesystem.py:346
+#: yali/storage/formats/filesystem.py:347
 #, python-format
 msgid "Resizing filesystem on %s"
 msgstr "%s üzerinden dosya sistemi yeniden boyutlandırılıyor"
 
-#: yali/storage/formats/filesystem.py:376
+#: yali/storage/formats/filesystem.py:378
 #, python-format
 msgid "Checking filesystem on %s"
 msgstr "%s dosya sistemi kontrol ediliyor"
 
-#: yali/storage/formats/filesystem.py:388
+#: yali/storage/formats/filesystem.py:387
 #, python-format
 msgid "%(type)s filesystem check failure on %(device)s: "
 msgstr ""
 "%(device)s aygıtlarında %(type)s dosya sistemi denetimi başarısız oldu."
 
-#: yali/storage/formats/filesystem.py:392
+#: yali/storage/formats/filesystem.py:391
+#, fuzzy
 msgid ""
-"Errors like this usually mean there is a problem with the\n"
-" filesystem that will require user interaction to repair.\n"
-" Restart\n"
-"installation after you have corrected the problems on the filesystem."
+"Errors like this usually mean there is a problem with the filesystem that "
+"will require user interaction to repair. Restart installation after you have "
+"corrected the problems on the filesystem."
 msgstr ""
 "Bunun gibi hatalar genellikle kullanıcının onarması gereken\n"
 "disk problemleri olduğunu gösterir.\n"
 "Disk problemlerini onardıktan sonra lütfen kuruluma\n"
 "tekrar başlayınız."
 
-#: yali/storage/formats/filesystem.py:398
+#: yali/storage/formats/filesystem.py:397
 msgid "Unrecoverable Error"
 msgstr "Kurtarılamaz Hata"
 
-#: yali/storage/formats/filesystem.py:689
+#: yali/storage/formats/filesystem.py:691
 msgid "File system errors left uncorrected."
 msgstr "Dosya sistemi hataları düzeltilmeden bırakıldı."
 
-#: yali/storage/formats/filesystem.py:690
+#: yali/storage/formats/filesystem.py:692
 msgid "Operational error."
 msgstr "İşlem hatası."
 
-#: yali/storage/formats/filesystem.py:691
+#: yali/storage/formats/filesystem.py:693
 msgid "Usage or syntax error."
 msgstr "Kullanım ya da söz dizimi hatası."
 
-#: yali/storage/formats/filesystem.py:692
+#: yali/storage/formats/filesystem.py:694
 msgid "e2fsck cancelled by user request."
 msgstr "e2fsck kullanıcı tarafından iptal edildi."
 
-#: yali/storage/formats/filesystem.py:693
+#: yali/storage/formats/filesystem.py:695
 msgid "Shared library error."
 msgstr "Paylaşımlı kütüphane hatası."
 
-#: yali/storage/formats/filesystem.py:853
+#: yali/storage/formats/filesystem.py:855
 msgid ""
 "Recoverable errors have been detected or dosfsck has discovered an internal "
 "inconsistency."
 msgstr ""
 "Onarılabilir hatalara rastlandı ya da dosfsck bir tutarsızlık tespit etti."
 
-#: yali/storage/formats/filesystem.py:855
+#: yali/storage/formats/filesystem.py:857
 msgid "Usage error."
 msgstr "Kullanım hatası."
 
-#: yali/storage/formats/physicalvolume.py:22
+#: yali/storage/formats/physicalvolume.py:19
 msgid "physical volume (LVM)"
 msgstr "fiziksel Hacim (LVM)"
 
-#: yali/storage/formats/raidmember.py:22
+#: yali/storage/formats/raidmember.py:21
 msgid "software RAID"
 msgstr "yazılım destekli RAID"
 
@@ -2712,35 +2716,122 @@ msgstr "Ukraynaca"
 msgid "Serbian"
 msgstr "Sırpça"
 
-#: yali/pisiiface.py:71
+#: yali/pisiiface.py:61
 #, python-format
 msgid "Error occured while %(repo)s repo is adding:%(msg)s"
 msgstr "%(repo)s eklenirken hata oluştu:%(msg)s"
 
-#: yali/postinstall.py:197
+#: yali/postinstall.py:123
 #, python-format
 msgid "Preparing home directory for %s..."
 msgstr "%s için ev dizinini hazırlıyor..."
 
-#: yali/util.py:380
-msgid "YALI log file doesn't exists."
-msgstr "YALI log dosyası mevcut değil."
-
-#: yali/util.py:382
-msgid "File paths are the same."
-msgstr "Dosya yolları aynı."
-
-#: yali/util.py:464 yali/util.py:507
+#: yali/util.py:525 yali/util.py:568
 msgid "Release file is missing"
 msgstr "Sürüm dosyası kayıp"
 
-#: yali/util.py:466 yali/util.py:509
+#: yali/util.py:527 yali/util.py:570
 msgid "Release file is inconsistent"
 msgstr "Sürüm dosyası uyumsuz"
 
-#: yali/util.py:469 yali/util.py:512
+#: yali/util.py:530 yali/util.py:573
 msgid "Invalid xml file"
 msgstr "Geçersiz xml dosyası"
+
+#~ msgid "New password:"
+#~ msgstr "Yeni parola:"
+
+#~ msgid "New password (Again):"
+#~ msgstr "Yeni parola (Tekrar):"
+
+#~ msgid "Offline"
+#~ msgstr "Çevrimdışı"
+
+#~ msgid "Setting console keymap..."
+#~ msgstr "Konsol bilgisi yazılıyor..."
+
+#~ msgid "Setup bootloader..."
+#~ msgstr "Açılış yöneticisi ayarlanıyor..."
+
+#~ msgid "Cleanup systems..."
+#~ msgstr "Sistemler temizleniyor..."
+
+#~ msgid "Do you want to retry?"
+#~ msgstr "Tekrar denemek ister misiniz?"
+
+#~ msgid "Installing Bootloader..."
+#~ msgstr "Açılış yöneticisi Yükleniyor..."
+
+#~ msgid "Taking back operation..."
+#~ msgstr "İşlem geri alınıyor..."
+
+#~ msgid "Running rescue operations..."
+#~ msgstr "Kurtarma işlemleri gerçekleştiriliyor..."
+
+#~ msgid "Press <b>Restart</b> to restart your system."
+#~ msgstr ""
+#~ "Bilgisayarınızı yeniden başlatmak için <b>Sistemi Yeniden Başlat</b> "
+#~ "düğmesine tıklayın."
+
+#~ msgid "%s (Boot Disk)"
+#~ msgstr "%s (Açılış Diski)"
+
+#~ msgid "Caps Lock is on."
+#~ msgstr "Caps Lock açık."
+
+#~ msgid "Acquiring users..."
+#~ msgstr "Kullanıcılar ekleniyor..."
+
+#~ msgid "The password has been successfully reset."
+#~ msgstr "Parola başarıyla sıfırlandı."
+
+#~ msgid "Info"
+#~ msgstr "Bilgi"
+
+#~ msgid "Do not use your username or real name as your password."
+#~ msgstr "Parola olarak kullanıcı adınız ya da gerçek adınızı kullanmayın."
+
+#~ msgid "The passwords do not match."
+#~ msgstr "Parolalar aynı değil."
+
+#~ msgid "Mounting disk partition..."
+#~ msgstr "Disk bölümü bağlanıyor..."
+
+#~ msgid "YALI could not locate a suitable disk partition on this computer."
+#~ msgstr "YALI sisteminizde uygun herhangi bir bölüm bulamadı."
+
+#~ msgid "Please select a disk partition from the list below:"
+#~ msgstr "Lütfen aşağıdaki listeden disk bölümünü seçin:"
+
+#~ msgid "Eject Disc"
+#~ msgstr "Diski Çıkart"
+
+#~ msgid "Please insert a new disc and then click OK"
+#~ msgstr "Lütfen yeni bir disk taktıktan sonra Tamam'a tıklayın"
+
+#~ msgid "Insert New Disc"
+#~ msgstr "Yeni Disk Yerleştirin"
+
+#~ msgid "Resizing Failed"
+#~ msgstr "Yeniden boyutlandırma başarısız oldu"
+
+#~ msgid "Migration Failed"
+#~ msgstr "Göç başarısız"
+
+#~ msgid "An error was encountered while migrating filesystem on device %s."
+#~ msgstr "%s aygıtında dosya sistemi göçü sırasında bir hata oldu."
+
+#~ msgid "File Bug"
+#~ msgstr "Dosya Hatası"
+
+#~ msgid "Failed in storage.complete with error:%s"
+#~ msgstr "Depolama sorunu %s hatası döndü."
+
+#~ msgid "YALI log file doesn't exists."
+#~ msgstr "YALI log dosyası mevcut değil."
+
+#~ msgid "File paths are the same."
+#~ msgstr "Dosya yolları aynı."
 
 #~ msgid "Choose Installation Method"
 #~ msgstr "Kurulum Yöntemini Seçin"
@@ -2756,9 +2847,6 @@ msgstr "Geçersiz xml dosyası"
 
 #~ msgid "PAE Kernel"
 #~ msgstr "PAE Çekirdek"
-
-#~ msgid "Auto installation selected."
-#~ msgstr "Otomatik kurulum seçildi."
 
 #~ msgid "Default Kernel selected"
 #~ msgstr "Öntanımlı Çekirdek seçildi"
@@ -2814,9 +2902,6 @@ msgstr "Geçersiz xml dosyası"
 #~ "\n"
 #~ "İşlemi erişilemeyen disklerin tamamı için yapmak istiyorsanız \n"
 #~ "Tümünü Yeniden Başlangıç Durumuna Getir'e tıklayın."
-
-#~ msgid "Ignore All"
-#~ msgstr "Hepsini Gözardı Et"
 
 #~ msgid "Re-initialize All"
 #~ msgstr "Tümünü Yeniden Başlangıç Durumuna Getir"

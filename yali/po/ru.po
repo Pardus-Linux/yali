@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-02 20:57+0200\n"
+"POT-Creation-Date: 2011-05-17 16:11+0300\n"
 "PO-Revision-Date: 2011-01-19 01:37+0300\n"
 "Last-Translator: Alexey Ivanov <alexey.ivanes@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -72,11 +72,11 @@ msgstr "Настройки по умолчанию"
 msgid "Don't install bootloader"
 msgstr "Не устанавливать загрузчик"
 
-#: yali/gui/Ui/bootloaderwidget.py:131 yali/gui/ScrBootloader.py:93
+#: yali/gui/Ui/bootloaderwidget.py:131 yali/gui/ScrBootloader.py:105
 msgid "The partition where Pardus is installed"
 msgstr "Раздел на котором установлен Pardus"
 
-#: yali/gui/Ui/bootloaderwidget.py:132 yali/gui/ScrBootloader.py:87
+#: yali/gui/Ui/bootloaderwidget.py:132 yali/gui/ScrBootloader.py:99
 msgid "The first sector of"
 msgstr "Первый сектор"
 
@@ -191,7 +191,7 @@ msgstr ""
 "подключив к нему следующий протокол сбоя."
 
 #: yali/gui/Ui/exception.py:64 yali/gui/ScrCheckCD.py:99
-#: yali/storage/__init__.py:836
+#: yali/storage/__init__.py:930
 msgid "Reboot"
 msgstr "Перезагрузить"
 
@@ -199,11 +199,11 @@ msgstr "Перезагрузить"
 msgid "Show Backtrace"
 msgstr "Показать протокол сбоя"
 
-#: yali/gui/Ui/help.py:56
+#: yali/gui/Ui/help.py:57
 msgid "help content"
 msgstr "содержание помощи"
 
-#: yali/gui/Ui/installprogress.py:60
+#: yali/gui/Ui/installprogress.py:61
 msgid "Installing Package: "
 msgstr "Установка пакета:"
 
@@ -264,7 +264,7 @@ msgstr "Файловая система:"
 
 #: yali/gui/Ui/logicalvolume.py:150 yali/gui/Ui/manualpartwidget.py:161
 #: yali/gui/Ui/partition.py:148 yali/gui/Ui/raid.py:108
-#: yali/gui/ScrPartitionManual.py:130 yali/storage/storageset.py:244
+#: yali/gui/ScrPartitionManual.py:130 yali/storage/storageset.py:387
 msgid "Format"
 msgstr "Форматировать"
 
@@ -273,27 +273,27 @@ msgstr "Форматировать"
 msgid "Migrate"
 msgstr "Мигрировать"
 
-#: yali/gui/Ui/main.py:245
+#: yali/gui/Ui/main.py:246
 msgid "Yali"
 msgstr "Yali"
 
-#: yali/gui/Ui/main.py:246 yali/gui/YaliWindow.py:408
+#: yali/gui/Ui/main.py:247 yali/gui/YaliWindow.py:417
 msgid "Release Notes"
 msgstr "Информация о выпуске"
 
-#: yali/gui/Ui/main.py:247
+#: yali/gui/Ui/main.py:248
 msgid "Previous Screen"
 msgstr "Предыдущий этап"
 
-#: yali/gui/Ui/main.py:248
+#: yali/gui/Ui/main.py:249
 msgid "Back"
 msgstr "Назад"
 
-#: yali/gui/Ui/main.py:249
+#: yali/gui/Ui/main.py:250
 msgid "Next Screen"
 msgstr "Следующий этап"
 
-#: yali/gui/Ui/main.py:250 yali/gui/ScrSummary.py:59
+#: yali/gui/Ui/main.py:251 yali/gui/ScrSummary.py:59
 #: yali/gui/ScrSummary.py:211 yali/gui/ScrSummary.py:218
 msgid "Next"
 msgstr "Вперед"
@@ -401,7 +401,7 @@ msgstr "Уменьшить размер раздела (в Мб):"
 #: yali/gui/lvm_gui.py:465 yali/gui/lvm_gui.py:552
 #: yali/gui/ScrPartitionManual.py:114 yali/gui/ScrPartitionManual.py:130
 #: yali/gui/ScrPartitionManual.py:140 yali/gui/YaliDialog.py:220
-#: yali/storage/__init__.py:836 yali/storage/storageBackendHelpers.py:91
+#: yali/storage/__init__.py:930 yali/storage/storageBackendHelpers.py:91
 #: yali/storage/storageBackendHelpers.py:295
 msgid "Cancel"
 msgstr "Отменить"
@@ -462,29 +462,26 @@ msgstr "Раздел диска, где установлен Pardus"
 msgid "Selected disk below"
 msgstr "На выбранном ниже диске"
 
-#: yali/gui/Ui/rescuepasswordwidget.py:114
+#: yali/gui/Ui/rescuepasswordwidget.py:123
 msgid "Choose the user you want to reset the password:"
 msgstr "Выберите пользователя для которого вы хотите сбросить пароль:"
 
-#: yali/gui/Ui/rescuepasswordwidget.py:115
-msgid "New password:"
-msgstr "Новый пароль:"
+#: yali/gui/Ui/rescuepasswordwidget.py:124
+#, fuzzy
+msgid "Password:"
+msgstr "Пароль"
 
-#: yali/gui/Ui/rescuepasswordwidget.py:116
-msgid "New password (Again):"
-msgstr "Новый пароль (еще раз):"
+#: yali/gui/Ui/rescuepasswordwidget.py:125 yali/gui/Ui/setupuserswidget.py:492
+msgid "Confirm Password"
+msgstr "Подтвердить пароль"
 
-#: yali/gui/Ui/rescuepasswordwidget.py:117
+#: yali/gui/Ui/rescuepasswordwidget.py:126
 msgid "Reset Password"
 msgstr "Сброс пароля"
 
-#: yali/gui/Ui/rescuepisiwidget.py:73
+#: yali/gui/Ui/rescuepisiwidget.py:74
 msgid "<b>Connection status:</b>"
 msgstr "<b>Статус подключения:</b>"
-
-#: yali/gui/Ui/rescuepisiwidget.py:74
-msgid "Offline"
-msgstr "Offline"
 
 #: yali/gui/Ui/rescuepisiwidget.py:75
 msgid ""
@@ -502,26 +499,23 @@ msgstr "Выберите соединение"
 msgid "Select the operation to undo:"
 msgstr "Выберете операцию для отмены:"
 
-#: yali/gui/Ui/rescuewidget.py:92
-msgid "Choose what do you want to do to repair your system:"
+#: yali/gui/Ui/rescuewidget.py:114
+#, fuzzy
+msgid "Choose what do you want to do to repair your system"
 msgstr "Выберите то, что вы хотите сделать для восстановления системы:"
 
-#: yali/gui/Ui/rescuewidget.py:93
-msgid "Reinstall GRUB bootloader"
+#: yali/gui/Ui/rescuewidget.py:115
+#, fuzzy
+msgid "Reinstall bootloader"
 msgstr "Переустановить загрузчик GRUB"
 
-#: yali/gui/Ui/rescuewidget.py:94
-msgid "Return back to a previous system state"
-msgstr "Вернуться обратно к предыдущему состоянию системы"
-
-#: yali/gui/Ui/rescuewidget.py:95
+#: yali/gui/Ui/rescuewidget.py:116
 msgid "Reset forgotten password"
 msgstr "Сбросить забытый пароль"
 
-#: yali/gui/Ui/rescuewidget.py:96 yali/gui/ScrGoodbye.py:53
-#: yali/gui/ScrRescueFinish.py:78 yali/gui/ScrSummary.py:46
-msgid "Restart"
-msgstr "Перезапуск"
+#: yali/gui/Ui/rescuewidget.py:117
+msgid "Return back to a previous system state"
+msgstr "Вернуться обратно к предыдущему состоянию системы"
 
 #: yali/gui/Ui/rootpasswidget.py:129
 msgid "Administrator password"
@@ -546,10 +540,6 @@ msgstr "Настоящее имя"
 #: yali/gui/Ui/setupuserswidget.py:491
 msgid "Password"
 msgstr "Пароль"
-
-#: yali/gui/Ui/setupuserswidget.py:492
-msgid "Confirm Password"
-msgstr "Подтвердить пароль"
 
 #: yali/gui/Ui/setupuserswidget.py:493
 msgid "Custom User ID"
@@ -707,7 +697,8 @@ msgstr ""
 "немедленно."
 
 #: yali/gui/lvm_gui.py:418 yali/gui/lvm_gui.py:465
-#: yali/gui/ScrPartitionManual.py:358 yali/storage/storageset.py:197
+#: yali/gui/ScrPartitionManual.py:358 yali/gui/ScrRescuePassword.py:124
+#: yali/gui/ScrRescue.py:95 yali/storage/storageset.py:336
 msgid "Continue"
 msgstr "Продолжить"
 
@@ -922,16 +913,16 @@ msgstr "Редактировать RAID устройство: %s"
 msgid "Edit RAID Device"
 msgstr "Редактировать RAID устройство"
 
-#: yali/gui/raid_gui.py:97 yali/storage/devices/raidarray.py:61
+#: yali/gui/raid_gui.py:97 yali/storage/devices/raidarray.py:60
 #, python-format
 msgid "A RAID%(level)d set requires at least %(min_member)d member"
 msgstr "RAID%(level)d набор требует хотя бы %(min_member)d элемент"
 
-#: yali/gui/runner.py:116
+#: yali/gui/runner.py:117
 msgid "Error!"
 msgstr "Ошибка!"
 
-#: yali/gui/runner.py:117
+#: yali/gui/runner.py:118
 #, python-format
 msgid ""
 "An error occurred when attempting to load an installer interface component.\n"
@@ -942,19 +933,21 @@ msgstr ""
 "\n"
 "className = %s.Widget"
 
-#: yali/gui/runner.py:121 yali/storage/storageset.py:244
+#: yali/gui/runner.py:122 yali/gui/ScrRescuePassword.py:124
+#: yali/gui/ScrRescue.py:95 yali/gui/YaliWindow.py:385
+#: yali/storage/storageset.py:388
 msgid "Exit"
 msgstr "Выход"
 
-#: yali/gui/runner.py:121
+#: yali/gui/runner.py:122
 msgid "Retry"
 msgstr "Повторить"
 
-#: yali/gui/ScrAdmin.py:96 yali/gui/ScrDateTime.py:206
+#: yali/gui/ScrAdmin.py:96 yali/gui/ScrDateTime.py:208
 msgid "Storage Devices initialising..."
 msgstr "Определение устройств хранения данных..."
 
-#: yali/gui/ScrAdmin.py:154 yali/gui/ScrRescuePassword.py:96
+#: yali/gui/ScrAdmin.py:154
 msgid "Password is too short."
 msgstr "Пароль слишком короткий."
 
@@ -1024,8 +1017,8 @@ msgstr "Регулировка настроек времени"
 msgid "Device Path: %s"
 msgstr ""
 
-#: yali/gui/ScrDriveSelection.py:112 yali/storage/storageset.py:245
-#: yali/storage/storageset.py:317
+#: yali/gui/ScrDriveSelection.py:112 yali/gui/YaliWindow.py:381
+#: yali/storage/storageset.py:383 yali/storage/storageset.py:459
 msgid "Error"
 msgstr "Ошибка"
 
@@ -1039,18 +1032,29 @@ msgstr ""
 msgid "Running post-install operations..."
 msgstr "Запуск после установочных операций..."
 
-#: yali/gui/ScrGoodbye.py:53
+#: yali/gui/ScrGoodbye.py:49
 msgid "Press <b>Restart</b> to restart the computer."
 msgstr "Нажмите <b>Перезагрузка</b> чтобы перезагрузить компьютер."
 
-#: yali/gui/ScrGoodbye.py:54 yali/gui/ScrRescueFinish.py:80
+#: yali/gui/ScrGoodbye.py:49 yali/gui/ScrSummary.py:46
+msgid "Restart"
+msgstr "Перезапуск"
+
+#: yali/gui/ScrGoodbye.py:50
 msgid "<b>Please wait while restarting...</b>"
 msgstr "<b>Пожалуйста, подождите, идет перезагрузка...</b>"
 
-#: yali/gui/ScrGoodbye.py:67 yali/gui/ScrRescuePassword.py:45
-#: yali/gui/ScrRescuePisi.py:38
-msgid "Connecting to D-Bus..."
-msgstr "Подключение к D-Bus ..."
+#: yali/gui/ScrGoodbye.py:64
+msgid "Setting timezone..."
+msgstr "Настройка часового пояса..."
+
+#: yali/gui/ScrGoodbye.py:65
+msgid "Migrating Xorg configuration..."
+msgstr "Перенос конфигурации Xorg"
+
+#: yali/gui/ScrGoodbye.py:66
+msgid "Copying repository index..."
+msgstr "Копирование индекса репозитория..."
 
 #: yali/gui/ScrGoodbye.py:69
 msgid "Setting hostname..."
@@ -1060,49 +1064,39 @@ msgstr "Настройка имя хоста..."
 msgid "Setting root password..."
 msgstr "Настройка пароля администрация..."
 
-#: yali/gui/ScrGoodbye.py:72
-msgid "Setting timezone..."
-msgstr "Настройка часового пояса..."
-
 #: yali/gui/ScrGoodbye.py:73
-msgid "Migrating Xorg configuration..."
-msgstr "Перенос конфигурации Xorg"
-
-#: yali/gui/ScrGoodbye.py:74
-msgid "Setting console keymap..."
-msgstr "Настройка раскладки клавиатуры для консоли..."
-
-#: yali/gui/ScrGoodbye.py:75
-msgid "Copying repository index..."
-msgstr "Копирование индекса репозитория..."
+#, fuzzy
+msgid "Resetting user password..."
+msgstr "Настройка пароля администрация..."
 
 #: yali/gui/ScrGoodbye.py:76
-msgid "Stopping to D-Bus..."
-msgstr "Остановка D-Bus..."
-
-#: yali/gui/ScrGoodbye.py:80
-msgid "Setup bootloader..."
-msgstr "Установка загрузчика..."
-
-#: yali/gui/ScrGoodbye.py:81
-msgid "Writing bootloader..."
-msgstr "Запись загрузчика..."
-
-#: yali/gui/ScrGoodbye.py:82
-msgid "Installing bootloader..."
-msgstr "Установка загрузчика..."
-
-#: yali/gui/ScrGoodbye.py:85
 msgid "Setup First-Boot..."
 msgstr "Установка первой загрузки..."
 
-#: yali/gui/ScrGoodbye.py:88
+#: yali/gui/ScrGoodbye.py:79
+#, fuzzy
+msgid "Teardown First-Boot..."
+msgstr "Установка первой загрузки..."
+
+#: yali/gui/ScrGoodbye.py:83
 msgid "Adding users..."
 msgstr "Добавление пользователей..."
 
+#: yali/gui/ScrGoodbye.py:88
+msgid "Writing bootloader..."
+msgstr "Запись загрузчика..."
+
+#: yali/gui/ScrGoodbye.py:89 yali/gui/ScrGoodbye.py:94
+msgid "Stopping to D-Bus..."
+msgstr "Остановка D-Bus..."
+
+#: yali/gui/ScrGoodbye.py:90 yali/gui/ScrGoodbye.py:95
+msgid "Teardown storage subsystem..."
+msgstr ""
+
 #: yali/gui/ScrGoodbye.py:91
-msgid "Cleanup systems..."
-msgstr "Очистка системы..."
+msgid "Installing bootloader..."
+msgstr "Установка загрузчика..."
 
 #: yali/gui/ScrInstall.py:161
 #, python-format
@@ -1115,19 +1109,31 @@ msgid "Configuring <b>%s</b>"
 msgstr "Настройка <b>%s</b>"
 
 #: yali/gui/ScrInstall.py:196
-#, python-format
+#, fuzzy, python-format
 msgid ""
-"Following error occured while installing packages:\n"
-"<b>%s</b>"
+"Following error occured while installing packages:<b>%s</b><br><br>Do you "
+"want to retry?"
 msgstr ""
 "Произошла ошибка во время установки пакетов:\n"
 "<b>%s</b>"
 
-#: yali/gui/ScrInstall.py:199
-msgid "Do you want to retry?"
-msgstr "Вы хотите повторить?"
+#: yali/gui/ScrInstall.py:202 yali/gui/ScrSummary.py:297
+#: yali/gui/YaliDialog.py:218 yali/gui/YaliDialog.py:234
+#: yali/storage/storageBackendHelpers.py:232
+#: yali/storage/storageBackendHelpers.py:253
+#: yali/storage/storageBackendHelpers.py:303
+msgid "Yes"
+msgstr "Да"
 
-#: yali/gui/ScrInstall.py:254
+#: yali/gui/ScrInstall.py:202 yali/gui/ScrSummary.py:297
+#: yali/gui/YaliDialog.py:220 yali/gui/YaliDialog.py:235
+#: yali/storage/storageBackendHelpers.py:232
+#: yali/storage/storageBackendHelpers.py:253
+#: yali/storage/storageBackendHelpers.py:303
+msgid "No"
+msgstr "Нет"
+
+#: yali/gui/ScrInstall.py:258
 #, python-format
 msgid ""
 "An error occured during the installation of packages.\n"
@@ -1141,7 +1147,7 @@ msgstr ""
 "Ошибка:\n"
 "%s\n"
 
-#: yali/gui/ScrKahyaCheck.py:78 yali/gui/ScrRescue.py:49
+#: yali/gui/ScrKahyaCheck.py:78
 msgid "No storage device found."
 msgstr "Устройств хранения данных не найдено."
 
@@ -1192,7 +1198,7 @@ msgid "Partitioning Warnings"
 msgstr "Предупреждения разметки дисков"
 
 #: yali/gui/ScrPartitionManual.py:114 yali/gui/ScrPartitionManual.py:140
-#: yali/gui/YaliDialog.py:218
+#: yali/gui/YaliDialog.py:218 yali/storage/__init__.py:164
 msgid "Ok"
 msgstr "Ok"
 
@@ -1315,67 +1321,46 @@ msgstr ""
 "\n"
 "%s"
 
-#: yali/gui/ScrRescueFinish.py:55
-msgid "Installing Bootloader..."
-msgstr "Установка загрузчика..."
+#: yali/gui/ScrRescuePassword.py:100 yali/gui/ScrUsers.py:214
+msgid "Don't use your user name or name as a password"
+msgstr "Не используйте ваше имя пользователя или логин как пароль"
 
-#: yali/gui/ScrRescueFinish.py:58
-msgid "Taking back operation..."
-msgstr "Откат операций..."
+#: yali/gui/ScrRescuePassword.py:103 yali/gui/ScrUsers.py:217
+msgid "Passwords do not match"
+msgstr "Пароли не совпадают"
 
-#: yali/gui/ScrRescueFinish.py:61
-msgid "Running rescue operations..."
-msgstr "Запуск восстановительных операций..."
+#: yali/gui/ScrRescuePassword.py:106 yali/gui/ScrUsers.py:220
+msgid "Password is too short"
+msgstr "Пароль слишком короткий"
 
-#: yali/gui/ScrRescueFinish.py:78
-msgid "Press <b>Restart</b> to restart your system."
-msgstr "Нажмите <b>Перезагрузка,</b> чтобы перезагрузить вашу систему."
+#: yali/gui/ScrRescuePassword.py:121 yali/gui/ScrRescue.py:92
+msgid "Cannot Rescue"
+msgstr ""
 
-#: yali/gui/ScrRescueGrub.py:87
-#, python-format
-msgid "%s (Boot Disk)"
-msgstr "%s (Boot Disk)"
+#: yali/gui/ScrRescuePassword.py:122 yali/gui/ScrRescue.py:93
+#, fuzzy
+msgid "Your current installation cannot be rescued."
+msgstr "Выбрана автоматическая установка."
 
-#: yali/gui/ScrRescuePassword.py:39
-msgid "Caps Lock is on."
-msgstr "Caps Lock включен."
+#: yali/gui/ScrRescuePassword.py:146
+msgid "Super User"
+msgstr "Администратор"
 
-#: yali/gui/ScrRescuePassword.py:44 yali/gui/ScrRescuePisi.py:37
+#: yali/gui/ScrRescuePisi.py:37
 msgid "Starting D-Bus..."
 msgstr "Запуск D-Bus..."
 
-#: yali/gui/ScrRescuePassword.py:46
-msgid "Acquiring users..."
-msgstr "Создание пользователей..."
-
-#: yali/gui/ScrRescuePassword.py:79
-msgid "The password has been successfully reset."
-msgstr "Пароль был успешно сброшен."
-
-#: yali/gui/ScrRescuePassword.py:79
-msgid "Info"
-msgstr "Информация"
-
-#: yali/gui/ScrRescuePassword.py:90
-msgid "Do not use your username or real name as your password."
-msgstr ""
-"Не используйте свое имя пользователя или реальное имя в качестве пароля."
-
-#: yali/gui/ScrRescuePassword.py:93
-msgid "The passwords do not match."
-msgstr "Пароли не совпадают."
-
-#: yali/gui/ScrRescuePassword.py:107 yali/gui/ScrRescuePisi.py:69
-msgid "Please Wait..."
-msgstr "Пожалуйста, подождите..."
-
-#: yali/gui/ScrRescuePassword.py:130
-msgid "Super User"
-msgstr "Администратор"
+#: yali/gui/ScrRescuePisi.py:38
+msgid "Connecting to D-Bus..."
+msgstr "Подключение к D-Bus ..."
 
 #: yali/gui/ScrRescuePisi.py:39
 msgid "Fetching history..."
 msgstr "Получение истории ..."
+
+#: yali/gui/ScrRescuePisi.py:69
+msgid "Please Wait..."
+msgstr "Пожалуйста, подождите..."
 
 #: yali/gui/ScrRescuePisi.py:75
 msgid "No connection available"
@@ -1399,17 +1384,18 @@ msgstr "Не удалось установить соединение"
 msgid "Connected"
 msgstr "Подключено"
 
-#: yali/gui/ScrRescue.py:94
-msgid "Mounting disk partition..."
-msgstr "Монтирование разделов..."
+#: yali/gui/ScrRescue.py:54
+#, fuzzy
+msgid "Mount failed"
+msgstr "Не удалось установить соединение"
 
-#: yali/gui/ScrRescue.py:106
-msgid "YALI could not locate a suitable disk partition on this computer."
-msgstr "YALI не удалось найти подходящий раздел диска на этом компьютере."
-
-#: yali/gui/ScrRescue.py:123
-msgid "Please select a disk partition from the list below:"
-msgstr "Пожалуйста, выберите раздел диска из списка:"
+#: yali/gui/ScrRescue.py:55
+#, python-format
+msgid ""
+"The following error occurred when mounting the file systems listed in /etc/"
+"fstab.  Please fix this problem and try to rescue again.\n"
+"%s"
+msgstr ""
 
 #: yali/gui/ScrSummary.py:47
 msgid "<b><p>Are you sure you want to restart the computer?</p></b>"
@@ -1581,37 +1567,9 @@ msgstr ""
 "<br><br><b>Вы хотите установить и использовать эти драйвера вместо драйверов "
 "по умолчанию?</b></qt>"
 
-#: yali/gui/ScrSummary.py:297 yali/gui/YaliDialog.py:218
-#: yali/gui/YaliDialog.py:234 yali/gui/YaliDialog.py:261
-#: yali/storage/storageBackendHelpers.py:232
-#: yali/storage/storageBackendHelpers.py:253
-#: yali/storage/storageBackendHelpers.py:303
-msgid "Yes"
-msgstr "Да"
-
-#: yali/gui/ScrSummary.py:297 yali/gui/YaliDialog.py:220
-#: yali/gui/YaliDialog.py:235 yali/gui/YaliDialog.py:262
-#: yali/storage/storageBackendHelpers.py:232
-#: yali/storage/storageBackendHelpers.py:253
-#: yali/storage/storageBackendHelpers.py:303
-msgid "No"
-msgstr "Нет"
-
 #: yali/gui/ScrUsers.py:127 yali/gui/ScrUsers.py:359
 msgid "Update"
 msgstr "Обновление"
-
-#: yali/gui/ScrUsers.py:214
-msgid "Don't use your user name or name as a password"
-msgstr "Не используйте ваше имя пользователя или логин как пароль"
-
-#: yali/gui/ScrUsers.py:217
-msgid "Passwords do not match"
-msgstr "Пароли не совпадают"
-
-#: yali/gui/ScrUsers.py:220
-msgid "Password is too short"
-msgstr "Пароль слишком короткий"
 
 #: yali/gui/ScrUsers.py:266
 msgid "This user name is already taken, please choose another one."
@@ -1670,26 +1628,14 @@ msgid "Do you want to continue?"
 msgstr "Вы хотите продолжить?"
 
 #: yali/gui/YaliDialog.py:260
-msgid "Eject Disc"
-msgstr "Извлечь диск"
-
-#: yali/gui/YaliDialog.py:286 yali/gui/YaliDialog.py:303
-msgid "OK"
-msgstr "ОК"
-
-#: yali/gui/YaliDialog.py:287
-msgid "Please insert a new disc and then click OK"
-msgstr "Пожалуйста, вставьте новый диск и нажмите кнопку ОК"
-
-#: yali/gui/YaliDialog.py:289
-msgid "Insert New Disc"
-msgstr "Вставить новый диск"
-
-#: yali/gui/YaliDialog.py:301
 msgid "Information"
 msgstr "Информация"
 
-#: yali/gui/YaliDialog.py:494
+#: yali/gui/YaliDialog.py:262
+msgid "OK"
+msgstr "ОК"
+
+#: yali/gui/YaliDialog.py:453
 msgid "Error reporting"
 msgstr "Сообщить об ошибке"
 
@@ -1759,69 +1705,96 @@ msgstr "Терминал"
 msgid "Tetris"
 msgstr "Тетрис"
 
-#: yali/gui/YaliWindow.py:431
+#: yali/gui/YaliWindow.py:382
+#, fuzzy, python-format
+msgid "An error occurred when attempting to load screens:%s"
+msgstr ""
+"Произошла ошибка при попытке загрузить компонент интерфейса установки.\n"
+"\n"
+"className = %s.Widget"
+
+#: yali/gui/YaliWindow.py:440
 msgid "Release notes could not be loaded."
 msgstr "Не удалось загрузить примечания к выпуску."
 
-#: yali/storage/bootloader.py:206 yali/storage/bootloader.py:207
-#: yali/storage/bootloader.py:209 yali/storage/bootloader.py:210
+#: yali/storage/bootloader.py:210 yali/storage/bootloader.py:211
+#: yali/storage/bootloader.py:213 yali/storage/bootloader.py:214
 #, python-format
 msgid "%s"
 msgstr "%s"
 
-#: yali/storage/bootloader.py:303 yali/storage/bootloader.py:307
+#: yali/storage/bootloader.py:302 yali/storage/bootloader.py:306
 msgid "Windows"
 msgstr "Windows"
 
-#: yali/storage/devicetree.py:1567
+#: yali/storage/devicetree.py:1569
 msgid "This partition is part of an inconsistent LVM Volume Group."
 msgstr "Этот раздел является частью несовместимой группы томов LVM."
 
-#: yali/storage/__init__.py:47
+#: yali/storage/__init__.py:48
 #, python-format
 msgid "Failed teardownAll in storage.complete with error:%s"
 msgstr "Неудачный teardownAll в storage.complete с ошибкой:%s"
 
-#: yali/storage/__init__.py:56
-msgid "Resizing Failed"
-msgstr "Изменение размеров не удалось"
-
 #: yali/storage/__init__.py:57
-#, python-format
-msgid "There was an error encountered while resizing the device %s."
+#, fuzzy
+msgid "Storage Device Error"
+msgstr "Определение устройств хранения данных..."
+
+#: yali/storage/__init__.py:58
+#, fuzzy, python-format
+msgid "There was an error encountered while partitioning on device %s."
 msgstr "Возникла ошибка в процессе изменения размеры устройства %s."
 
 #: yali/storage/__init__.py:63
-msgid "Migration Failed"
-msgstr "Перемещение не удалось"
+msgid "Storage Format Error"
+msgstr ""
 
 #: yali/storage/__init__.py:64
-#, python-format
-msgid "An error was encountered while migrating filesystem on device %s."
-msgstr "Возникла ошибка в процессе перемещения файловой системы устройства %s."
+#, fuzzy, python-format
+msgid "There was an error encountered while formatting on device %s."
+msgstr "Возникла ошибка в процессе изменения размеры устройства %s."
 
-#: yali/storage/__init__.py:75
-msgid "File Bug"
-msgstr "Ошибка файла"
-
-#: yali/storage/__init__.py:75 yali/storage/storageset.py:197
+#: yali/storage/__init__.py:75 yali/storage/storageset.py:336
 msgid "Exit installer"
 msgstr "Выход из установки"
 
-#: yali/storage/__init__.py:78
-#, python-format
-msgid "Failed in storage.complete with error:%s"
-msgstr "Ошибка в storage.complete:%s"
+#: yali/storage/__init__.py:75
+#, fuzzy
+msgid "Ignore"
+msgstr "Игнорировать все"
 
-#: yali/storage/__init__.py:239
+#: yali/storage/__init__.py:158 yali/storage/__init__.py:168
+#, fuzzy
+msgid "Dirty File Systems"
+msgstr "Файловая система:"
+
+#: yali/storage/__init__.py:159
+#, python-format
+msgid ""
+"The following file systems for your Linux system were not unmounted "
+"cleanly.  Please boot your Linux installation, let the file systems be "
+"checked and shut down cleanly to rescue.\n"
+"%s"
+msgstr ""
+
+#: yali/storage/__init__.py:169
+#, python-format
+msgid ""
+"The following file systems for your Linux system were not unmounted "
+"cleanly.  Would you like to mount them anyway?\n"
+"%s"
+msgstr ""
+
+#: yali/storage/__init__.py:336
 msgid "This partition is holding the data for the hard drive install."
 msgstr "Этот раздел содержит данные по установке на жесткий диск."
 
-#: yali/storage/__init__.py:242
+#: yali/storage/__init__.py:339
 msgid "You cannot delete a partition of a LDL formatted DASD."
 msgstr "Вы не можете удалять раздел LDL, отформатированный DASD."
 
-#: yali/storage/__init__.py:248
+#: yali/storage/__init__.py:345
 #, python-format
 msgid ""
 "This device is part of the RAID device %s, you have to edit or remove the "
@@ -1830,20 +1803,20 @@ msgstr ""
 "Этот раздел является частью RAID устройства %s, вы должны редактировать или "
 "удалять RAID-разделы надлежащим для этого образом!"
 
-#: yali/storage/__init__.py:253
+#: yali/storage/__init__.py:350
 msgid "This device is part of a RAID device."
 msgstr "Это устройство является частью устройства RAID."
 
-#: yali/storage/__init__.py:258
+#: yali/storage/__init__.py:355
 #, python-format
 msgid "This device is part of the LVM volume group '%s'."
 msgstr "Это устройство является частью дисковой группы LVM '%s'."
 
-#: yali/storage/__init__.py:261
+#: yali/storage/__init__.py:358
 msgid "This device is part of a LVM volume group."
 msgstr "Это устройство является частью дисковой группы LVM."
 
-#: yali/storage/__init__.py:270
+#: yali/storage/__init__.py:367
 msgid ""
 "This device is an extended partition which contains logical partitions that "
 "cannot be deleted:\n"
@@ -1853,7 +1826,7 @@ msgstr ""
 "разделы, которые не могут быть удалены:\n"
 "\n"
 
-#: yali/storage/__init__.py:779
+#: yali/storage/__init__.py:873
 #, fuzzy, python-format
 msgid ""
 "You have not defined a root partition (/),which is required for installation "
@@ -1862,7 +1835,7 @@ msgstr ""
 "Вы не задали корневой раздел (/), который необходим для продолжения "
 "установки %s."
 
-#: yali/storage/__init__.py:784
+#: yali/storage/__init__.py:878
 #, fuzzy, python-format
 msgid ""
 "Your / partition is less than %(min)s MB which is lower than recommended for "
@@ -1871,7 +1844,7 @@ msgstr ""
 "Ваш / раздел меньше чем %(min)s MB, что ниже рекомендуемого размера для "
 "нормальной установки %(productName)s ."
 
-#: yali/storage/__init__.py:790
+#: yali/storage/__init__.py:884
 #, fuzzy, python-format
 msgid ""
 "Your %(mount)s partition is less than %(size)s megabytes which is lower than "
@@ -1880,7 +1853,7 @@ msgstr ""
 "Ваш %(mount)s раздел меньше чем %(size)s MB, что ниже рекомендуемого размера "
 "для нормальной установки %(productName)s ."
 
-#: yali/storage/__init__.py:799
+#: yali/storage/__init__.py:893
 #, fuzzy
 msgid ""
 "You have not specified a swap partition. Due to the amount of memory "
@@ -1889,7 +1862,7 @@ msgstr ""
 "Вы не задали раздел подкачки. В связи с представленным объемом оперативной "
 "памяти, раздел подкачки необходим для успешного завершения установки."
 
-#: yali/storage/__init__.py:802
+#: yali/storage/__init__.py:896
 #, fuzzy
 msgid ""
 "You have not specified a swap partition. Although not strictly required in "
@@ -1899,7 +1872,7 @@ msgstr ""
 "шагом во всех случаях, но это позволит значительно повысить "
 "производительность для большинства установок."
 
-#: yali/storage/__init__.py:808
+#: yali/storage/__init__.py:902
 #, python-format
 msgid ""
 "This mount point is invalid. The %s directory must be on the / file system."
@@ -1907,16 +1880,16 @@ msgstr ""
 "Это точка монтирования не верна. Директория %s должна быть на файловой "
 "системе / ."
 
-#: yali/storage/__init__.py:811
+#: yali/storage/__init__.py:905
 #, python-format
 msgid "The mount point %s must be on a linux file system."
 msgstr "Точка монтирования %s должна располагаться в файловой системе Linux."
 
-#: yali/storage/__init__.py:831
+#: yali/storage/__init__.py:925
 msgid "No Drives Found"
 msgstr "Диски не обнаружены"
 
-#: yali/storage/__init__.py:832
+#: yali/storage/__init__.py:926
 msgid ""
 "An error has occurred - no valid devices were found on\n"
 "which to create new file systems. Please check your\n"
@@ -2304,11 +2277,11 @@ msgstr ""
 "Диск содержит %(members_count)s BIOS RAID метаданных, но они не являются "
 "частью какого-либо известного BIOS RAID набора. Пропуск диска %(members)s."
 
-#: yali/storage/storageset.py:162 yali/storage/storageset.py:174
+#: yali/storage/storageset.py:298 yali/storage/storageset.py:311
 msgid "Invalid mount point"
 msgstr "Неверная точка монтирования"
 
-#: yali/storage/storageset.py:163
+#: yali/storage/storageset.py:299
 #, python-format
 msgid ""
 "An error occurred when trying to create %s.  Some element of this path is "
@@ -2322,7 +2295,7 @@ msgstr ""
 "\n"
 " Нажмите <Enter> для выхода из программы установки."
 
-#: yali/storage/storageset.py:175
+#: yali/storage/storageset.py:312
 #, python-format
 msgid ""
 "An error occurred when trying to create %(mountpoint)s: %(msg)s.  This is a "
@@ -2335,11 +2308,11 @@ msgstr ""
 "\n"
 "Нажмите <Enter> для выхода из программы установки."
 
-#: yali/storage/storageset.py:190 yali/storage/storageset.py:212
+#: yali/storage/storageset.py:329 yali/storage/storageset.py:350
 msgid "Unable to mount filesystem"
 msgstr "Не удалось смонтировать файловую систему"
 
-#: yali/storage/storageset.py:191
+#: yali/storage/storageset.py:330
 #, python-format
 msgid ""
 "An error occurred mounting device %(path)s as %(mountpoint)s.  You may "
@@ -2348,7 +2321,7 @@ msgstr ""
 "Возникла ошибка при монтировании устройства %(path)s как %(mountpoint)s. Вы "
 "можете продолжить установку, но могут возникнуть проблемы."
 
-#: yali/storage/storageset.py:213
+#: yali/storage/storageset.py:351
 #, python-format
 msgid ""
 "An error occurred mounting device %(path)s as %(mountpoint)s: %(msg)s. This "
@@ -2361,11 +2334,11 @@ msgstr ""
 "\n"
 "Нажмите <Enter> для выхода из программы установки."
 
-#: yali/storage/storageset.py:244
+#: yali/storage/storageset.py:386
 msgid "Skip"
 msgstr "Пропустить"
 
-#: yali/storage/storageset.py:276
+#: yali/storage/storageset.py:418
 #, python-format
 msgid ""
 "The swap device:\n"
@@ -2383,7 +2356,7 @@ msgstr ""
 "это устройство как раздел подкачки, вы должна отформатировать его как новый "
 "тип раздела подкачки Linux."
 
-#: yali/storage/storageset.py:287
+#: yali/storage/storageset.py:429
 #, python-format
 msgid ""
 "The swap device:\n"
@@ -2402,7 +2375,7 @@ msgstr ""
 "системы. При выполнении новой установки, убедитесь, что установщик "
 "отформатирует все устройства подкачки."
 
-#: yali/storage/storageset.py:300
+#: yali/storage/storageset.py:442
 #, python-format
 msgid ""
 "The swap device:\n"
@@ -2419,14 +2392,12 @@ msgstr ""
 "не содержит поддерживаемых томов подкачки. Для того, чтобы продолжить "
 "установку, вам нужно отформатировать устройство или пропустить его."
 
-#: yali/storage/storageset.py:311
-#, python-format
+#: yali/storage/storageset.py:453
+#, fuzzy, python-format
 msgid ""
-"Error enabling swap device %(name)s: %(msg)s\n"
-"\n"
-"This most likely means this swap device has not been initialized.\n"
-"\n"
-"Press OK to exit the installer."
+"Error enabling swap device %(name)s: %(msg)s<br><br>This most likely means "
+"this swap device has not been initialized.<br><br>Press OK to exit the "
+"installer."
 msgstr ""
 "Ошибка включения устройства подкачки %(name)s: %(msg)s\n"
 "\n"
@@ -2435,41 +2406,70 @@ msgstr ""
 "\n"
 "Нажмите OK для выхода из программы установки."
 
-#: yali/storage/storageset.py:357
+#: yali/storage/storageset.py:501
 msgid "You have not created a bootable partition."
 msgstr "Вы не создали загрузочный раздел."
 
-#: yali/storage/storageset.py:361
+#: yali/storage/storageset.py:505
 msgid "Bootable partitions cannot be on a logical volume."
 msgstr "Загрузочные разделы не могут располагаться на логическом томе. "
 
-#: yali/storage/storageset.py:365
+#: yali/storage/storageset.py:509
 #, fuzzy
 msgid "Bootable partitions cannot be on a raid array."
 msgstr "Загрузочные разделы не могут располагаться на логическом томе. "
 
-#: yali/storage/storageset.py:372
+#: yali/storage/storageset.py:516
 #, python-format
 msgid "Bootable partitions cannot be on an %s filesystem."
 msgstr "Загрузочные разделы не могут располагаться на %s файловой системы."
 
-#: yali/storage/devices/filedevice.py:94
+#: yali/storage/storageset.py:620
+msgid "Ignoring noauto entry"
+msgstr ""
+
+#: yali/storage/storageset.py:678
+#, python-format
+msgid "Failed to resolve %s (%s) from fstab"
+msgstr ""
+
+#: yali/storage/storageset.py:684
+#, python-format
+msgid "Unrecognized filesystem type for %s (%s)"
+msgstr ""
+
+#: yali/storage/storageset.py:691
+#, python-format
+msgid "Scanned format (%s) differs from fstab format (%s)"
+msgstr ""
+
+#: yali/storage/storageset.py:713
+#, python-format
+msgid "Cannot open %s for read"
+msgstr ""
+
+#: yali/storage/storageset.py:743
+#, python-format
+msgid "Fstab entry %s is malformed: %s"
+msgstr ""
+
+#: yali/storage/devices/filedevice.py:93
 #, python-format
 msgid "Creating file %s"
 msgstr "Создание файла %s"
 
 #: yali/storage/devices/logicalvolume.py:217
-#: yali/storage/devices/partition.py:370 yali/storage/devices/raidarray.py:423
-#: yali/storage/devices/volumegroup.py:246
+#: yali/storage/devices/partition.py:369 yali/storage/devices/raidarray.py:422
+#: yali/storage/devices/volumegroup.py:245
 #, python-format
 msgid "Creating device %s"
 msgstr "Создание устройства %s"
 
-#: yali/storage/devices/volumegroup.py:218
+#: yali/storage/devices/volumegroup.py:217
 msgid "device has not been created"
 msgstr ""
 
-#: yali/storage/devices/volumegroup.py:224
+#: yali/storage/devices/volumegroup.py:223
 msgid "cannot activate VG with missing PV(s)"
 msgstr ""
 
@@ -2483,76 +2483,81 @@ msgstr "vginfo не удалось для %s"
 msgid "lvs failed for %s"
 msgstr "lvs не удалось для %s"
 
-#: yali/storage/formats/disklabel.py:29
+#: yali/storage/formats/disklabel.py:28
 #, fuzzy
 msgid "partition table"
 msgstr "Раздел"
 
-#: yali/storage/formats/dmraidmember.py:20
+#: yali/storage/formats/dmraidmember.py:19
 msgid "dm-raid member device"
 msgstr ""
 
-#: yali/storage/formats/filesystem.py:229
+#: yali/storage/formats/filesystem.py:228
 #, python-format
 msgid "Unknown return code: %d."
 msgstr "Неизвестный код возврата: %d."
 
-#: yali/storage/formats/filesystem.py:296
+#: yali/storage/formats/filesystem.py:247
+#, fuzzy, python-format
+msgid "Migrating %s filesystem on %s"
+msgstr "Изменение размеров файловой системы на %s"
+
+#: yali/storage/formats/filesystem.py:299
 #, python-format
 msgid "Creating %(type)s filesystem on %(device)s"
 msgstr "Создание %(type)s файловой системы на %(device)s"
 
-#: yali/storage/formats/filesystem.py:346
+#: yali/storage/formats/filesystem.py:347
 #, python-format
 msgid "Resizing filesystem on %s"
 msgstr "Изменение размеров файловой системы на %s"
 
-#: yali/storage/formats/filesystem.py:376
+#: yali/storage/formats/filesystem.py:378
 #, python-format
 msgid "Checking filesystem on %s"
 msgstr "Проверка файловой системы на %s"
 
-#: yali/storage/formats/filesystem.py:388
+#: yali/storage/formats/filesystem.py:387
 #, python-format
 msgid "%(type)s filesystem check failure on %(device)s: "
 msgstr "Проверка файловой системы %(type)s не удалась на %(device)s: "
 
-#: yali/storage/formats/filesystem.py:392
+#: yali/storage/formats/filesystem.py:391
+#, fuzzy
 msgid ""
-"Errors like this usually mean there is a problem with the\n"
-" filesystem that will require user interaction to repair.\n"
-" Restart\n"
-"installation after you have corrected the problems on the filesystem."
+"Errors like this usually mean there is a problem with the filesystem that "
+"will require user interaction to repair. Restart installation after you have "
+"corrected the problems on the filesystem."
 msgstr ""
 "Ошибки как эти, обычно означают, что существует проблема с файловой "
 "системой, что потребует вмешательства пользователя для ремонта. "
 "Перезапустите установку после устранения проблем с файловой системой."
 
-#: yali/storage/formats/filesystem.py:398
+#: yali/storage/formats/filesystem.py:397
 msgid "Unrecoverable Error"
 msgstr "Неустранимая ошибка"
 
-#: yali/storage/formats/filesystem.py:689
+#: yali/storage/formats/filesystem.py:691
 msgid "File system errors left uncorrected."
 msgstr "Ошибки файловой системы остались неисправленными."
 
-#: yali/storage/formats/filesystem.py:690
+#: yali/storage/formats/filesystem.py:692
 msgid "Operational error."
 msgstr "Оперативная ошибка."
 
-#: yali/storage/formats/filesystem.py:691
+#: yali/storage/formats/filesystem.py:693
 msgid "Usage or syntax error."
 msgstr "Ошибка использования или синтаксиса."
 
-#: yali/storage/formats/filesystem.py:692
+#: yali/storage/formats/filesystem.py:694
 msgid "e2fsck cancelled by user request."
 msgstr "e2fsck завершена пользователем."
 
-#: yali/storage/formats/filesystem.py:693
+#: yali/storage/formats/filesystem.py:695
 msgid "Shared library error."
 msgstr "Ошибка общей библиотеки."
 
-#: yali/storage/formats/filesystem.py:853
+#: yali/storage/formats/filesystem.py:855
 msgid ""
 "Recoverable errors have been detected or dosfsck has discovered an internal "
 "inconsistency."
@@ -2560,16 +2565,16 @@ msgstr ""
 "Обнаружены некритические ошибки или dosfsck обнаружила внутреннюю "
 "противоречивость."
 
-#: yali/storage/formats/filesystem.py:855
+#: yali/storage/formats/filesystem.py:857
 msgid "Usage error."
 msgstr "Ошибка использования."
 
-#: yali/storage/formats/physicalvolume.py:22
+#: yali/storage/formats/physicalvolume.py:19
 #, fuzzy
 msgid "physical volume (LVM)"
 msgstr "Физический том"
 
-#: yali/storage/formats/raidmember.py:22
+#: yali/storage/formats/raidmember.py:21
 msgid "software RAID"
 msgstr ""
 
@@ -2725,35 +2730,122 @@ msgstr "Ukrainian"
 msgid "Serbian"
 msgstr "Serbian"
 
-#: yali/pisiiface.py:71
+#: yali/pisiiface.py:61
 #, python-format
 msgid "Error occured while %(repo)s repo is adding:%(msg)s"
 msgstr "Произошла ошибка при добавлении репозитория %(repo)s:%(msg)s"
 
-#: yali/postinstall.py:197
+#: yali/postinstall.py:123
 #, python-format
 msgid "Preparing home directory for %s..."
 msgstr "Подготовка домашнего каталога для %s..."
 
-#: yali/util.py:380
-msgid "YALI log file doesn't exists."
-msgstr "Файл журнала YALI не существует."
-
-#: yali/util.py:382
-msgid "File paths are the same."
-msgstr "Пути файла аналогичны."
-
-#: yali/util.py:464 yali/util.py:507
+#: yali/util.py:525 yali/util.py:568
 msgid "Release file is missing"
 msgstr "Файл Release отсутствует"
 
-#: yali/util.py:466 yali/util.py:509
+#: yali/util.py:527 yali/util.py:570
 msgid "Release file is inconsistent"
 msgstr "Файл Release не соответствует"
 
-#: yali/util.py:469 yali/util.py:512
+#: yali/util.py:530 yali/util.py:573
 msgid "Invalid xml file"
 msgstr "Неверный XML-файл"
+
+#~ msgid "New password:"
+#~ msgstr "Новый пароль:"
+
+#~ msgid "New password (Again):"
+#~ msgstr "Новый пароль (еще раз):"
+
+#~ msgid "Offline"
+#~ msgstr "Offline"
+
+#~ msgid "Setting console keymap..."
+#~ msgstr "Настройка раскладки клавиатуры для консоли..."
+
+#~ msgid "Setup bootloader..."
+#~ msgstr "Установка загрузчика..."
+
+#~ msgid "Cleanup systems..."
+#~ msgstr "Очистка системы..."
+
+#~ msgid "Do you want to retry?"
+#~ msgstr "Вы хотите повторить?"
+
+#~ msgid "Installing Bootloader..."
+#~ msgstr "Установка загрузчика..."
+
+#~ msgid "Taking back operation..."
+#~ msgstr "Откат операций..."
+
+#~ msgid "Running rescue operations..."
+#~ msgstr "Запуск восстановительных операций..."
+
+#~ msgid "Press <b>Restart</b> to restart your system."
+#~ msgstr "Нажмите <b>Перезагрузка,</b> чтобы перезагрузить вашу систему."
+
+#~ msgid "%s (Boot Disk)"
+#~ msgstr "%s (Boot Disk)"
+
+#~ msgid "Caps Lock is on."
+#~ msgstr "Caps Lock включен."
+
+#~ msgid "Acquiring users..."
+#~ msgstr "Создание пользователей..."
+
+#~ msgid "The password has been successfully reset."
+#~ msgstr "Пароль был успешно сброшен."
+
+#~ msgid "Info"
+#~ msgstr "Информация"
+
+#~ msgid "Do not use your username or real name as your password."
+#~ msgstr ""
+#~ "Не используйте свое имя пользователя или реальное имя в качестве пароля."
+
+#~ msgid "The passwords do not match."
+#~ msgstr "Пароли не совпадают."
+
+#~ msgid "Mounting disk partition..."
+#~ msgstr "Монтирование разделов..."
+
+#~ msgid "YALI could not locate a suitable disk partition on this computer."
+#~ msgstr "YALI не удалось найти подходящий раздел диска на этом компьютере."
+
+#~ msgid "Please select a disk partition from the list below:"
+#~ msgstr "Пожалуйста, выберите раздел диска из списка:"
+
+#~ msgid "Eject Disc"
+#~ msgstr "Извлечь диск"
+
+#~ msgid "Please insert a new disc and then click OK"
+#~ msgstr "Пожалуйста, вставьте новый диск и нажмите кнопку ОК"
+
+#~ msgid "Insert New Disc"
+#~ msgstr "Вставить новый диск"
+
+#~ msgid "Resizing Failed"
+#~ msgstr "Изменение размеров не удалось"
+
+#~ msgid "Migration Failed"
+#~ msgstr "Перемещение не удалось"
+
+#~ msgid "An error was encountered while migrating filesystem on device %s."
+#~ msgstr ""
+#~ "Возникла ошибка в процессе перемещения файловой системы устройства %s."
+
+#~ msgid "File Bug"
+#~ msgstr "Ошибка файла"
+
+#~ msgid "Failed in storage.complete with error:%s"
+#~ msgstr "Ошибка в storage.complete:%s"
+
+#~ msgid "YALI log file doesn't exists."
+#~ msgstr "Файл журнала YALI не существует."
+
+#~ msgid "File paths are the same."
+#~ msgstr "Пути файла аналогичны."
 
 #~ msgid "Choose Installation Method"
 #~ msgstr "Выберите способ установки"
@@ -2769,9 +2861,6 @@ msgstr "Неверный XML-файл"
 
 #~ msgid "PAE Kernel"
 #~ msgstr "Ядро с PAE"
-
-#~ msgid "Auto installation selected."
-#~ msgstr "Выбрана автоматическая установка."
 
 #~ msgid "Default Kernel selected"
 #~ msgstr "Выбрано ядро по умолчанию"
@@ -2820,9 +2909,6 @@ msgstr "Неверный XML-файл"
 #~ "\n"
 #~ "Для повторного инициализирования всех дисков с недоступным таблицы "
 #~ "разделов нажмите Обновить все"
-
-#~ msgid "Ignore All"
-#~ msgstr "Игнорировать все"
 
 #~ msgid "Re-initialize All"
 #~ msgstr "Ре-инициализировать все"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-02 20:57+0200\n"
+"POT-Creation-Date: 2011-05-17 16:11+0300\n"
 "PO-Revision-Date: 2011-01-20 15:06+0100\n"
 "Last-Translator: Attila Siposs <sipiatti@gmail.com>\n"
 "Language-Team: Hungarian <pardus-translators@pardus.org.tr>\n"
@@ -71,11 +71,11 @@ msgstr "Alapértelmezett beállítások"
 msgid "Don't install bootloader"
 msgstr "Ne telepítsen rendszerbetöltőt"
 
-#: yali/gui/Ui/bootloaderwidget.py:131 yali/gui/ScrBootloader.py:93
+#: yali/gui/Ui/bootloaderwidget.py:131 yali/gui/ScrBootloader.py:105
 msgid "The partition where Pardus is installed"
 msgstr "A partíció, ahová a Pardus telepítére kerül"
 
-#: yali/gui/Ui/bootloaderwidget.py:132 yali/gui/ScrBootloader.py:87
+#: yali/gui/Ui/bootloaderwidget.py:132 yali/gui/ScrBootloader.py:99
 msgid "The first sector of"
 msgstr "Első szektor"
 
@@ -190,7 +190,7 @@ msgstr ""
 "csatolja az alábbi nyomkövetési adatokat."
 
 #: yali/gui/Ui/exception.py:64 yali/gui/ScrCheckCD.py:99
-#: yali/storage/__init__.py:836
+#: yali/storage/__init__.py:930
 msgid "Reboot"
 msgstr "Újraindítás"
 
@@ -198,11 +198,11 @@ msgstr "Újraindítás"
 msgid "Show Backtrace"
 msgstr "Megjelenítés"
 
-#: yali/gui/Ui/help.py:56
+#: yali/gui/Ui/help.py:57
 msgid "help content"
 msgstr "Súgó"
 
-#: yali/gui/Ui/installprogress.py:60
+#: yali/gui/Ui/installprogress.py:61
 msgid "Installing Package: "
 msgstr "Telepítés, csomag:"
 
@@ -262,7 +262,7 @@ msgstr "Fájlrendszer"
 
 #: yali/gui/Ui/logicalvolume.py:150 yali/gui/Ui/manualpartwidget.py:161
 #: yali/gui/Ui/partition.py:148 yali/gui/Ui/raid.py:108
-#: yali/gui/ScrPartitionManual.py:130 yali/storage/storageset.py:244
+#: yali/gui/ScrPartitionManual.py:130 yali/storage/storageset.py:387
 msgid "Format"
 msgstr "Formázás"
 
@@ -271,27 +271,27 @@ msgstr "Formázás"
 msgid "Migrate"
 msgstr "Migrálás"
 
-#: yali/gui/Ui/main.py:245
+#: yali/gui/Ui/main.py:246
 msgid "Yali"
 msgstr "Yali"
 
-#: yali/gui/Ui/main.py:246 yali/gui/YaliWindow.py:408
+#: yali/gui/Ui/main.py:247 yali/gui/YaliWindow.py:417
 msgid "Release Notes"
 msgstr "Kiadási megjegyzések"
 
-#: yali/gui/Ui/main.py:247
+#: yali/gui/Ui/main.py:248
 msgid "Previous Screen"
 msgstr "Előző képernyő"
 
-#: yali/gui/Ui/main.py:248
+#: yali/gui/Ui/main.py:249
 msgid "Back"
 msgstr "Vissza"
 
-#: yali/gui/Ui/main.py:249
+#: yali/gui/Ui/main.py:250
 msgid "Next Screen"
 msgstr "Következő képernyő"
 
-#: yali/gui/Ui/main.py:250 yali/gui/ScrSummary.py:59
+#: yali/gui/Ui/main.py:251 yali/gui/ScrSummary.py:59
 #: yali/gui/ScrSummary.py:211 yali/gui/ScrSummary.py:218
 msgid "Next"
 msgstr "Következő"
@@ -400,7 +400,7 @@ msgstr "Partíció új mérete (MB) :"
 #: yali/gui/lvm_gui.py:465 yali/gui/lvm_gui.py:552
 #: yali/gui/ScrPartitionManual.py:114 yali/gui/ScrPartitionManual.py:130
 #: yali/gui/ScrPartitionManual.py:140 yali/gui/YaliDialog.py:220
-#: yali/storage/__init__.py:836 yali/storage/storageBackendHelpers.py:91
+#: yali/storage/__init__.py:930 yali/storage/storageBackendHelpers.py:91
 #: yali/storage/storageBackendHelpers.py:295
 msgid "Cancel"
 msgstr "Mégsem"
@@ -460,29 +460,26 @@ msgstr "Pardus rendszerpartíció"
 msgid "Selected disk below"
 msgstr "Kiválasztott lemez"
 
-#: yali/gui/Ui/rescuepasswordwidget.py:114
+#: yali/gui/Ui/rescuepasswordwidget.py:123
 msgid "Choose the user you want to reset the password:"
 msgstr "Válassza ki a felhasználót akinek a jelszavát módosítani akarja:"
 
-#: yali/gui/Ui/rescuepasswordwidget.py:115
-msgid "New password:"
-msgstr "Új jelszó:"
+#: yali/gui/Ui/rescuepasswordwidget.py:124
+#, fuzzy
+msgid "Password:"
+msgstr "Jelszó"
 
-#: yali/gui/Ui/rescuepasswordwidget.py:116
-msgid "New password (Again):"
-msgstr "Új jelszó (újra):"
+#: yali/gui/Ui/rescuepasswordwidget.py:125 yali/gui/Ui/setupuserswidget.py:492
+msgid "Confirm Password"
+msgstr "Jelszó újra"
 
-#: yali/gui/Ui/rescuepasswordwidget.py:117
+#: yali/gui/Ui/rescuepasswordwidget.py:126
 msgid "Reset Password"
 msgstr "Jelszó módosítása"
 
-#: yali/gui/Ui/rescuepisiwidget.py:73
+#: yali/gui/Ui/rescuepisiwidget.py:74
 msgid "<b>Connection status:</b>"
 msgstr "<b>Csatlakozás állapota:</b>"
-
-#: yali/gui/Ui/rescuepisiwidget.py:74
-msgid "Offline"
-msgstr "Nincs kapcsolat"
 
 #: yali/gui/Ui/rescuepisiwidget.py:75
 msgid ""
@@ -500,26 +497,23 @@ msgstr "Kapcsolat kiválasztása"
 msgid "Select the operation to undo:"
 msgstr "Válassza ki a visszavonandó műveletet:"
 
-#: yali/gui/Ui/rescuewidget.py:92
-msgid "Choose what do you want to do to repair your system:"
+#: yali/gui/Ui/rescuewidget.py:114
+#, fuzzy
+msgid "Choose what do you want to do to repair your system"
 msgstr "Válasszon a javítási lehetőségek közül:"
 
-#: yali/gui/Ui/rescuewidget.py:93
-msgid "Reinstall GRUB bootloader"
+#: yali/gui/Ui/rescuewidget.py:115
+#, fuzzy
+msgid "Reinstall bootloader"
 msgstr "Rendszertöltő újratelepítése"
 
-#: yali/gui/Ui/rescuewidget.py:94
-msgid "Return back to a previous system state"
-msgstr "Visszatérés egy előző rendszerállapothoz"
-
-#: yali/gui/Ui/rescuewidget.py:95
+#: yali/gui/Ui/rescuewidget.py:116
 msgid "Reset forgotten password"
 msgstr "Elfelejtett jelszó"
 
-#: yali/gui/Ui/rescuewidget.py:96 yali/gui/ScrGoodbye.py:53
-#: yali/gui/ScrRescueFinish.py:78 yali/gui/ScrSummary.py:46
-msgid "Restart"
-msgstr "Újraindítás"
+#: yali/gui/Ui/rescuewidget.py:117
+msgid "Return back to a previous system state"
+msgstr "Visszatérés egy előző rendszerállapothoz"
 
 #: yali/gui/Ui/rootpasswidget.py:129
 msgid "Administrator password"
@@ -544,10 +538,6 @@ msgstr "Valódi név"
 #: yali/gui/Ui/setupuserswidget.py:491
 msgid "Password"
 msgstr "Jelszó"
-
-#: yali/gui/Ui/setupuserswidget.py:492
-msgid "Confirm Password"
-msgstr "Jelszó újra"
 
 #: yali/gui/Ui/setupuserswidget.py:493
 msgid "Custom User ID"
@@ -702,7 +692,8 @@ msgstr ""
 "A változtatás azonnal életbe lép."
 
 #: yali/gui/lvm_gui.py:418 yali/gui/lvm_gui.py:465
-#: yali/gui/ScrPartitionManual.py:358 yali/storage/storageset.py:197
+#: yali/gui/ScrPartitionManual.py:358 yali/gui/ScrRescuePassword.py:124
+#: yali/gui/ScrRescue.py:95 yali/storage/storageset.py:336
 msgid "Continue"
 msgstr "Folytatás"
 
@@ -911,16 +902,16 @@ msgstr "RAID eszköz módosítása: %s"
 msgid "Edit RAID Device"
 msgstr "RAID eszköz módosítása"
 
-#: yali/gui/raid_gui.py:97 yali/storage/devices/raidarray.py:61
+#: yali/gui/raid_gui.py:97 yali/storage/devices/raidarray.py:60
 #, python-format
 msgid "A RAID%(level)d set requires at least %(min_member)d member"
 msgstr "A RAID%(level)d készlet legalább %(min_member)d tagot igényel."
 
-#: yali/gui/runner.py:116
+#: yali/gui/runner.py:117
 msgid "Error!"
 msgstr "Hiba!"
 
-#: yali/gui/runner.py:117
+#: yali/gui/runner.py:118
 #, python-format
 msgid ""
 "An error occurred when attempting to load an installer interface component.\n"
@@ -931,19 +922,21 @@ msgstr ""
 "\n"
 "className = %s.Widget"
 
-#: yali/gui/runner.py:121 yali/storage/storageset.py:244
+#: yali/gui/runner.py:122 yali/gui/ScrRescuePassword.py:124
+#: yali/gui/ScrRescue.py:95 yali/gui/YaliWindow.py:385
+#: yali/storage/storageset.py:388
 msgid "Exit"
 msgstr "Kilépés"
 
-#: yali/gui/runner.py:121
+#: yali/gui/runner.py:122
 msgid "Retry"
 msgstr "Újra"
 
-#: yali/gui/ScrAdmin.py:96 yali/gui/ScrDateTime.py:206
+#: yali/gui/ScrAdmin.py:96 yali/gui/ScrDateTime.py:208
 msgid "Storage Devices initialising..."
 msgstr "Tárolóeszközök inicializálása..."
 
-#: yali/gui/ScrAdmin.py:154 yali/gui/ScrRescuePassword.py:96
+#: yali/gui/ScrAdmin.py:154
 msgid "Password is too short."
 msgstr "A jelszó túl rövid."
 
@@ -1013,8 +1006,8 @@ msgstr "Idő beállítása"
 msgid "Device Path: %s"
 msgstr ""
 
-#: yali/gui/ScrDriveSelection.py:112 yali/storage/storageset.py:245
-#: yali/storage/storageset.py:317
+#: yali/gui/ScrDriveSelection.py:112 yali/gui/YaliWindow.py:381
+#: yali/storage/storageset.py:383 yali/storage/storageset.py:459
 msgid "Error"
 msgstr "Hiba"
 
@@ -1026,18 +1019,29 @@ msgstr "Ki kell választani egy meghajtót a telepítéshez."
 msgid "Running post-install operations..."
 msgstr "Telepítési utóműveletek végrehajtása..."
 
-#: yali/gui/ScrGoodbye.py:53
+#: yali/gui/ScrGoodbye.py:49
 msgid "Press <b>Restart</b> to restart the computer."
 msgstr "Nyomja meg az <b>Újraindítás</b> gombot a számítógép újraindításához."
 
-#: yali/gui/ScrGoodbye.py:54 yali/gui/ScrRescueFinish.py:80
+#: yali/gui/ScrGoodbye.py:49 yali/gui/ScrSummary.py:46
+msgid "Restart"
+msgstr "Újraindítás"
+
+#: yali/gui/ScrGoodbye.py:50
 msgid "<b>Please wait while restarting...</b>"
 msgstr "Újraindítás. Kérem várjon..."
 
-#: yali/gui/ScrGoodbye.py:67 yali/gui/ScrRescuePassword.py:45
-#: yali/gui/ScrRescuePisi.py:38
-msgid "Connecting to D-Bus..."
-msgstr "Csatlakozás a D-BUShoz..."
+#: yali/gui/ScrGoodbye.py:64
+msgid "Setting timezone..."
+msgstr "Időzóna beállítása..."
+
+#: yali/gui/ScrGoodbye.py:65
+msgid "Migrating Xorg configuration..."
+msgstr "Xorg beállítások importálása..."
+
+#: yali/gui/ScrGoodbye.py:66
+msgid "Copying repository index..."
+msgstr "Tároló index másolása..."
 
 #: yali/gui/ScrGoodbye.py:69
 msgid "Setting hostname..."
@@ -1047,49 +1051,39 @@ msgstr "Gépnév beállítása..."
 msgid "Setting root password..."
 msgstr "Rendszergazda jelszó beállítása..."
 
-#: yali/gui/ScrGoodbye.py:72
-msgid "Setting timezone..."
-msgstr "Időzóna beállítása..."
-
 #: yali/gui/ScrGoodbye.py:73
-msgid "Migrating Xorg configuration..."
-msgstr "Xorg beállítások importálása..."
-
-#: yali/gui/ScrGoodbye.py:74
-msgid "Setting console keymap..."
-msgstr "Konzol billentyűkiosztás beállítása..."
-
-#: yali/gui/ScrGoodbye.py:75
-msgid "Copying repository index..."
-msgstr "Tároló index másolása..."
+#, fuzzy
+msgid "Resetting user password..."
+msgstr "Rendszergazda jelszó beállítása..."
 
 #: yali/gui/ScrGoodbye.py:76
-msgid "Stopping to D-Bus..."
-msgstr "D-BUS leállítása..."
-
-#: yali/gui/ScrGoodbye.py:80
-msgid "Setup bootloader..."
-msgstr "Rendszertöltő telepítése..."
-
-#: yali/gui/ScrGoodbye.py:81
-msgid "Writing bootloader..."
-msgstr "Rendszertöltő kiírása..."
-
-#: yali/gui/ScrGoodbye.py:82
-msgid "Installing bootloader..."
-msgstr "Rendszertöltő telepítése..."
-
-#: yali/gui/ScrGoodbye.py:85
 msgid "Setup First-Boot..."
 msgstr "Első indulás beállítása..."
 
-#: yali/gui/ScrGoodbye.py:88
+#: yali/gui/ScrGoodbye.py:79
+#, fuzzy
+msgid "Teardown First-Boot..."
+msgstr "Első indulás beállítása..."
+
+#: yali/gui/ScrGoodbye.py:83
 msgid "Adding users..."
 msgstr "Felhasználók hozzáadása..."
 
+#: yali/gui/ScrGoodbye.py:88
+msgid "Writing bootloader..."
+msgstr "Rendszertöltő kiírása..."
+
+#: yali/gui/ScrGoodbye.py:89 yali/gui/ScrGoodbye.py:94
+msgid "Stopping to D-Bus..."
+msgstr "D-BUS leállítása..."
+
+#: yali/gui/ScrGoodbye.py:90 yali/gui/ScrGoodbye.py:95
+msgid "Teardown storage subsystem..."
+msgstr ""
+
 #: yali/gui/ScrGoodbye.py:91
-msgid "Cleanup systems..."
-msgstr "Takarítás..."
+msgid "Installing bootloader..."
+msgstr "Rendszertöltő telepítése..."
 
 #: yali/gui/ScrInstall.py:161
 #, python-format
@@ -1102,19 +1096,31 @@ msgid "Configuring <b>%s</b>"
 msgstr "Beállítás: <b>%s</b>"
 
 #: yali/gui/ScrInstall.py:196
-#, python-format
+#, fuzzy, python-format
 msgid ""
-"Following error occured while installing packages:\n"
-"<b>%s</b>"
+"Following error occured while installing packages:<b>%s</b><br><br>Do you "
+"want to retry?"
 msgstr ""
 "A csomagok telepítésekor az alábbi hibák léptek fel:\n"
 "<b>%s</b>"
 
-#: yali/gui/ScrInstall.py:199
-msgid "Do you want to retry?"
-msgstr "Megpróbálja újra?"
+#: yali/gui/ScrInstall.py:202 yali/gui/ScrSummary.py:297
+#: yali/gui/YaliDialog.py:218 yali/gui/YaliDialog.py:234
+#: yali/storage/storageBackendHelpers.py:232
+#: yali/storage/storageBackendHelpers.py:253
+#: yali/storage/storageBackendHelpers.py:303
+msgid "Yes"
+msgstr "Igen"
 
-#: yali/gui/ScrInstall.py:254
+#: yali/gui/ScrInstall.py:202 yali/gui/ScrSummary.py:297
+#: yali/gui/YaliDialog.py:220 yali/gui/YaliDialog.py:235
+#: yali/storage/storageBackendHelpers.py:232
+#: yali/storage/storageBackendHelpers.py:253
+#: yali/storage/storageBackendHelpers.py:303
+msgid "No"
+msgstr "Nem"
+
+#: yali/gui/ScrInstall.py:258
 #, python-format
 msgid ""
 "An error occured during the installation of packages.\n"
@@ -1125,7 +1131,7 @@ msgstr ""
 "Ezt okozhatja a telepítő adathordozó sérülése.\n"
 "%s\n"
 
-#: yali/gui/ScrKahyaCheck.py:78 yali/gui/ScrRescue.py:49
+#: yali/gui/ScrKahyaCheck.py:78
 msgid "No storage device found."
 msgstr "Nem található tárolóeszköz."
 
@@ -1176,7 +1182,7 @@ msgid "Partitioning Warnings"
 msgstr "Figyelmeztető üzenetek partícionáláskor"
 
 #: yali/gui/ScrPartitionManual.py:114 yali/gui/ScrPartitionManual.py:140
-#: yali/gui/YaliDialog.py:218
+#: yali/gui/YaliDialog.py:218 yali/storage/__init__.py:164
 msgid "Ok"
 msgstr "Ok"
 
@@ -1296,66 +1302,46 @@ msgstr ""
 "\n"
 "%s"
 
-#: yali/gui/ScrRescueFinish.py:55
-msgid "Installing Bootloader..."
-msgstr "Rendszertöltő telepítése..."
+#: yali/gui/ScrRescuePassword.py:100 yali/gui/ScrUsers.py:214
+msgid "Don't use your user name or name as a password"
+msgstr "Ne használja jelszónak a teljes nevét vagy a felhasználónevét"
 
-#: yali/gui/ScrRescueFinish.py:58
-msgid "Taking back operation..."
-msgstr "Művelet visszavonása..."
+#: yali/gui/ScrRescuePassword.py:103 yali/gui/ScrUsers.py:217
+msgid "Passwords do not match"
+msgstr "A jelszavak nem egyeznek"
 
-#: yali/gui/ScrRescueFinish.py:61
-msgid "Running rescue operations..."
-msgstr "Helyreállítási műveletek futtatása..."
+#: yali/gui/ScrRescuePassword.py:106 yali/gui/ScrUsers.py:220
+msgid "Password is too short"
+msgstr "A jelszó túl rövid"
 
-#: yali/gui/ScrRescueFinish.py:78
-msgid "Press <b>Restart</b> to restart your system."
-msgstr "Nyomja meg az <b>Újraindítás</b> gombot a rendszer újraindításához."
+#: yali/gui/ScrRescuePassword.py:121 yali/gui/ScrRescue.py:92
+msgid "Cannot Rescue"
+msgstr ""
 
-#: yali/gui/ScrRescueGrub.py:87
-#, python-format
-msgid "%s (Boot Disk)"
-msgstr "%s (rendszerindító lemez)"
+#: yali/gui/ScrRescuePassword.py:122 yali/gui/ScrRescue.py:93
+#, fuzzy
+msgid "Your current installation cannot be rescued."
+msgstr "Automatikus telepítés lett kiválasztva."
 
-#: yali/gui/ScrRescuePassword.py:39
-msgid "Caps Lock is on."
-msgstr "A Caps Lock be van kapcsolva."
+#: yali/gui/ScrRescuePassword.py:146
+msgid "Super User"
+msgstr "Rendszergazda"
 
-#: yali/gui/ScrRescuePassword.py:44 yali/gui/ScrRescuePisi.py:37
+#: yali/gui/ScrRescuePisi.py:37
 msgid "Starting D-Bus..."
 msgstr "D-Bus indítása..."
 
-#: yali/gui/ScrRescuePassword.py:46
-msgid "Acquiring users..."
-msgstr "Felhasználók lekérése..."
-
-#: yali/gui/ScrRescuePassword.py:79
-msgid "The password has been successfully reset."
-msgstr "A jelszó sikeresen módosítva."
-
-#: yali/gui/ScrRescuePassword.py:79
-msgid "Info"
-msgstr "Info"
-
-#: yali/gui/ScrRescuePassword.py:90
-msgid "Do not use your username or real name as your password."
-msgstr "Ne használja a teljes nevét jelszóként."
-
-#: yali/gui/ScrRescuePassword.py:93
-msgid "The passwords do not match."
-msgstr "A jelszavak nem egyeznek."
-
-#: yali/gui/ScrRescuePassword.py:107 yali/gui/ScrRescuePisi.py:69
-msgid "Please Wait..."
-msgstr "Kérem várjon..."
-
-#: yali/gui/ScrRescuePassword.py:130
-msgid "Super User"
-msgstr "Rendszergazda"
+#: yali/gui/ScrRescuePisi.py:38
+msgid "Connecting to D-Bus..."
+msgstr "Csatlakozás a D-BUShoz..."
 
 #: yali/gui/ScrRescuePisi.py:39
 msgid "Fetching history..."
 msgstr "Előzmények összegyűjtése..."
+
+#: yali/gui/ScrRescuePisi.py:69
+msgid "Please Wait..."
+msgstr "Kérem várjon..."
 
 #: yali/gui/ScrRescuePisi.py:75
 msgid "No connection available"
@@ -1379,17 +1365,18 @@ msgstr "Nem sikerült csatlakozni"
 msgid "Connected"
 msgstr "Csatlakozva"
 
-#: yali/gui/ScrRescue.py:94
-msgid "Mounting disk partition..."
-msgstr "Partíciók csatolása..."
+#: yali/gui/ScrRescue.py:54
+#, fuzzy
+msgid "Mount failed"
+msgstr "Nem sikerült csatlakozni"
 
-#: yali/gui/ScrRescue.py:106
-msgid "YALI could not locate a suitable disk partition on this computer."
-msgstr "A YALI nem talált megfelelő partíciót a számítógépen."
-
-#: yali/gui/ScrRescue.py:123
-msgid "Please select a disk partition from the list below:"
-msgstr "Válasszon egy partíciót az alábbi listáról:"
+#: yali/gui/ScrRescue.py:55
+#, python-format
+msgid ""
+"The following error occurred when mounting the file systems listed in /etc/"
+"fstab.  Please fix this problem and try to rescue again.\n"
+"%s"
+msgstr ""
 
 #: yali/gui/ScrSummary.py:47
 msgid "<b><p>Are you sure you want to restart the computer?</p></b>"
@@ -1561,37 +1548,9 @@ msgstr ""
 "hozzá támogatást nyújtani.<br><br><b>Szeretné ezeket a meghajtókat "
 "telepíteni és használni az alapértelmezettek helyett?</b></qt>"
 
-#: yali/gui/ScrSummary.py:297 yali/gui/YaliDialog.py:218
-#: yali/gui/YaliDialog.py:234 yali/gui/YaliDialog.py:261
-#: yali/storage/storageBackendHelpers.py:232
-#: yali/storage/storageBackendHelpers.py:253
-#: yali/storage/storageBackendHelpers.py:303
-msgid "Yes"
-msgstr "Igen"
-
-#: yali/gui/ScrSummary.py:297 yali/gui/YaliDialog.py:220
-#: yali/gui/YaliDialog.py:235 yali/gui/YaliDialog.py:262
-#: yali/storage/storageBackendHelpers.py:232
-#: yali/storage/storageBackendHelpers.py:253
-#: yali/storage/storageBackendHelpers.py:303
-msgid "No"
-msgstr "Nem"
-
 #: yali/gui/ScrUsers.py:127 yali/gui/ScrUsers.py:359
 msgid "Update"
 msgstr "Frissítés"
-
-#: yali/gui/ScrUsers.py:214
-msgid "Don't use your user name or name as a password"
-msgstr "Ne használja jelszónak a teljes nevét vagy a felhasználónevét"
-
-#: yali/gui/ScrUsers.py:217
-msgid "Passwords do not match"
-msgstr "A jelszavak nem egyeznek"
-
-#: yali/gui/ScrUsers.py:220
-msgid "Password is too short"
-msgstr "A jelszó túl rövid"
 
 #: yali/gui/ScrUsers.py:266
 msgid "This user name is already taken, please choose another one."
@@ -1649,26 +1608,14 @@ msgid "Do you want to continue?"
 msgstr "Akarja folytatni?"
 
 #: yali/gui/YaliDialog.py:260
-msgid "Eject Disc"
-msgstr "Lemez kiadása"
-
-#: yali/gui/YaliDialog.py:286 yali/gui/YaliDialog.py:303
-msgid "OK"
-msgstr "OK"
-
-#: yali/gui/YaliDialog.py:287
-msgid "Please insert a new disc and then click OK"
-msgstr "Tegyen be egy új lemezt és kattintson az OK-ra."
-
-#: yali/gui/YaliDialog.py:289
-msgid "Insert New Disc"
-msgstr "Új lemez behelyezése"
-
-#: yali/gui/YaliDialog.py:301
 msgid "Information"
 msgstr "Információ"
 
-#: yali/gui/YaliDialog.py:494
+#: yali/gui/YaliDialog.py:262
+msgid "OK"
+msgstr "OK"
+
+#: yali/gui/YaliDialog.py:453
 msgid "Error reporting"
 msgstr "Hibajelentés"
 
@@ -1738,69 +1685,96 @@ msgstr "Terminál"
 msgid "Tetris"
 msgstr "Tetris"
 
-#: yali/gui/YaliWindow.py:431
+#: yali/gui/YaliWindow.py:382
+#, fuzzy, python-format
+msgid "An error occurred when attempting to load screens:%s"
+msgstr ""
+"Hiba történt az egyik interfész komponens betöltése közben.\n"
+"\n"
+"className = %s.Widget"
+
+#: yali/gui/YaliWindow.py:440
 msgid "Release notes could not be loaded."
 msgstr "A kiadási megjegyzések nem tölthetők be."
 
-#: yali/storage/bootloader.py:206 yali/storage/bootloader.py:207
-#: yali/storage/bootloader.py:209 yali/storage/bootloader.py:210
+#: yali/storage/bootloader.py:210 yali/storage/bootloader.py:211
+#: yali/storage/bootloader.py:213 yali/storage/bootloader.py:214
 #, python-format
 msgid "%s"
 msgstr "%s"
 
-#: yali/storage/bootloader.py:303 yali/storage/bootloader.py:307
+#: yali/storage/bootloader.py:302 yali/storage/bootloader.py:306
 msgid "Windows"
 msgstr "Windows"
 
-#: yali/storage/devicetree.py:1567
+#: yali/storage/devicetree.py:1569
 msgid "This partition is part of an inconsistent LVM Volume Group."
 msgstr "Ez a partíció egy inkonzisztens LVM része."
 
-#: yali/storage/__init__.py:47
+#: yali/storage/__init__.py:48
 #, python-format
 msgid "Failed teardownAll in storage.complete with error:%s"
 msgstr "A storage.complete-ben a teardownAll meghiúsult. Hiba: %s"
 
-#: yali/storage/__init__.py:56
-msgid "Resizing Failed"
-msgstr "Az átméretezés nem sikerült"
-
 #: yali/storage/__init__.py:57
-#, python-format
-msgid "There was an error encountered while resizing the device %s."
+#, fuzzy
+msgid "Storage Device Error"
+msgstr "Tárolóeszközök inicializálása..."
+
+#: yali/storage/__init__.py:58
+#, fuzzy, python-format
+msgid "There was an error encountered while partitioning on device %s."
 msgstr "Hiba történt a %s eszköz átméretezése közben."
 
 #: yali/storage/__init__.py:63
-msgid "Migration Failed"
-msgstr "Az átmozgatás sikertelen"
+msgid "Storage Format Error"
+msgstr ""
 
 #: yali/storage/__init__.py:64
-#, python-format
-msgid "An error was encountered while migrating filesystem on device %s."
-msgstr "A %s eszközön a fájlrendszer átalakítása közben hiba lépett fel"
+#, fuzzy, python-format
+msgid "There was an error encountered while formatting on device %s."
+msgstr "Hiba történt a %s eszköz átméretezése közben."
 
-#: yali/storage/__init__.py:75
-msgid "File Bug"
-msgstr "Fájl hiba"
-
-#: yali/storage/__init__.py:75 yali/storage/storageset.py:197
+#: yali/storage/__init__.py:75 yali/storage/storageset.py:336
 msgid "Exit installer"
 msgstr "Kilépés a telepítőből"
 
-#: yali/storage/__init__.py:78
-#, python-format
-msgid "Failed in storage.complete with error:%s"
-msgstr "storage.complete meghiúsult. Hiba: %s"
+#: yali/storage/__init__.py:75
+#, fuzzy
+msgid "Ignore"
+msgstr "Mindegyik mellőzése"
 
-#: yali/storage/__init__.py:239
+#: yali/storage/__init__.py:158 yali/storage/__init__.py:168
+#, fuzzy
+msgid "Dirty File Systems"
+msgstr "Fájlrendszer"
+
+#: yali/storage/__init__.py:159
+#, python-format
+msgid ""
+"The following file systems for your Linux system were not unmounted "
+"cleanly.  Please boot your Linux installation, let the file systems be "
+"checked and shut down cleanly to rescue.\n"
+"%s"
+msgstr ""
+
+#: yali/storage/__init__.py:169
+#, python-format
+msgid ""
+"The following file systems for your Linux system were not unmounted "
+"cleanly.  Would you like to mount them anyway?\n"
+"%s"
+msgstr ""
+
+#: yali/storage/__init__.py:336
 msgid "This partition is holding the data for the hard drive install."
 msgstr "Ez a partíció tartalmazza a merevlemezes telepítés adatait."
 
-#: yali/storage/__init__.py:242
+#: yali/storage/__init__.py:339
 msgid "You cannot delete a partition of a LDL formatted DASD."
 msgstr "Nem törölhet olyan LDL partíciót, amely DASD formázású."
 
-#: yali/storage/__init__.py:248
+#: yali/storage/__init__.py:345
 #, python-format
 msgid ""
 "This device is part of the RAID device %s, you have to edit or remove the "
@@ -1809,20 +1783,20 @@ msgstr ""
 "Ez az eszköz a %s RAID eszköz része, változtassa meg a RAID beállításokat, "
 "vagy távolítsa el a raid partíciót!"
 
-#: yali/storage/__init__.py:253
+#: yali/storage/__init__.py:350
 msgid "This device is part of a RAID device."
 msgstr "Ez az eszköz egy RAID része."
 
-#: yali/storage/__init__.py:258
+#: yali/storage/__init__.py:355
 #, python-format
 msgid "This device is part of the LVM volume group '%s'."
 msgstr "Ez az eszköz a '%s' LVM része."
 
-#: yali/storage/__init__.py:261
+#: yali/storage/__init__.py:358
 msgid "This device is part of a LVM volume group."
 msgstr "Ez az eszköz egy LVM része."
 
-#: yali/storage/__init__.py:270
+#: yali/storage/__init__.py:367
 msgid ""
 "This device is an extended partition which contains logical partitions that "
 "cannot be deleted:\n"
@@ -1832,7 +1806,7 @@ msgstr ""
 "partíciókat tartalmaz:\n"
 "\n"
 
-#: yali/storage/__init__.py:779
+#: yali/storage/__init__.py:873
 #, fuzzy, python-format
 msgid ""
 "You have not defined a root partition (/),which is required for installation "
@@ -1841,7 +1815,7 @@ msgstr ""
 "Nem adott meg rendszer partíciót (/), amely szükséges a %s telepítéséhez\n"
 "a folytatáshoz."
 
-#: yali/storage/__init__.py:784
+#: yali/storage/__init__.py:878
 #, fuzzy, python-format
 msgid ""
 "Your / partition is less than %(min)s MB which is lower than recommended for "
@@ -1850,7 +1824,7 @@ msgstr ""
 "A / partíció kisebb mint %(min)s MB, ami a javasolt legkisebb\n"
 "meret a %(productName)s telepítéséhez."
 
-#: yali/storage/__init__.py:790
+#: yali/storage/__init__.py:884
 #, fuzzy, python-format
 msgid ""
 "Your %(mount)s partition is less than %(size)s megabytes which is lower than "
@@ -1859,7 +1833,7 @@ msgstr ""
 "A %(mount)s partíció kisebb mint %(size)s MB, ami a javasolt legkisebb\n"
 "meret a %(productName)s telepítéséhez."
 
-#: yali/storage/__init__.py:799
+#: yali/storage/__init__.py:893
 #, fuzzy
 msgid ""
 "You have not specified a swap partition. Due to the amount of memory "
@@ -1868,7 +1842,7 @@ msgstr ""
 "Nem adott meg lapozóterületet. A jelenleg használható memória esetén "
 "lapozóterület szükséges a telepítés sikeres befejezéséhez."
 
-#: yali/storage/__init__.py:802
+#: yali/storage/__init__.py:896
 #, fuzzy
 msgid ""
 "You have not specified a swap partition. Although not strictly required in "
@@ -1878,7 +1852,7 @@ msgstr ""
 "elengedhetetlenül, a legtöbbször jelentősen megnöveli a rendszer\n"
 "teljesítményét."
 
-#: yali/storage/__init__.py:808
+#: yali/storage/__init__.py:902
 #, python-format
 msgid ""
 "This mount point is invalid. The %s directory must be on the / file system."
@@ -1886,16 +1860,16 @@ msgstr ""
 "Ez a csatolási pont érvénytelen. A %s könyvtárnak a / fájlrendszeren kell "
 "lennie."
 
-#: yali/storage/__init__.py:811
+#: yali/storage/__init__.py:905
 #, python-format
 msgid "The mount point %s must be on a linux file system."
 msgstr "A %s csatolási pontnak linux fájlrendszeren kell lennie."
 
-#: yali/storage/__init__.py:831
+#: yali/storage/__init__.py:925
 msgid "No Drives Found"
 msgstr "Nem található meghajtó"
 
-#: yali/storage/__init__.py:832
+#: yali/storage/__init__.py:926
 msgid ""
 "An error has occurred - no valid devices were found on\n"
 "which to create new file systems. Please check your\n"
@@ -2281,11 +2255,11 @@ msgstr ""
 "A lemez %(members_count)s BIOS RAID metaadatot tartalmaz, de egyik sem tagja "
 "felismert BIOS RAID készletnek. %(members)s lemez figyelmen kívül hagyva."
 
-#: yali/storage/storageset.py:162 yali/storage/storageset.py:174
+#: yali/storage/storageset.py:298 yali/storage/storageset.py:311
 msgid "Invalid mount point"
 msgstr "Érvénytelen csatolási pont"
 
-#: yali/storage/storageset.py:163
+#: yali/storage/storageset.py:299
 #, python-format
 msgid ""
 "An error occurred when trying to create %s.  Some element of this path is "
@@ -2298,7 +2272,7 @@ msgstr ""
 "\n"
 "Nyomja meg az <Enter> gombot a kilépéshez."
 
-#: yali/storage/storageset.py:175
+#: yali/storage/storageset.py:312
 #, python-format
 msgid ""
 "An error occurred when trying to create %(mountpoint)s: %(msg)s.  This is a "
@@ -2311,11 +2285,11 @@ msgstr ""
 "\n"
 "Nyomja meg az <Enter> gombot a kilépéshez."
 
-#: yali/storage/storageset.py:190 yali/storage/storageset.py:212
+#: yali/storage/storageset.py:329 yali/storage/storageset.py:350
 msgid "Unable to mount filesystem"
 msgstr "A fájlrendszer nem csatolható"
 
-#: yali/storage/storageset.py:191
+#: yali/storage/storageset.py:330
 #, python-format
 msgid ""
 "An error occurred mounting device %(path)s as %(mountpoint)s.  You may "
@@ -2324,7 +2298,7 @@ msgstr ""
 "Hiba lépett fel %(path)s eszköz %(mountpoint)s pontba csatolása közben. "
 "Folytathatja a telepítést, de problémák adódhatnak."
 
-#: yali/storage/storageset.py:213
+#: yali/storage/storageset.py:351
 #, python-format
 msgid ""
 "An error occurred mounting device %(path)s as %(mountpoint)s: %(msg)s. This "
@@ -2337,11 +2311,11 @@ msgstr ""
 "\n"
 "Nyomja meg az <Enter> gombot a kilépéshez."
 
-#: yali/storage/storageset.py:244
+#: yali/storage/storageset.py:386
 msgid "Skip"
 msgstr "Kihagyás"
 
-#: yali/storage/storageset.py:276
+#: yali/storage/storageset.py:418
 #, python-format
 msgid ""
 "The swap device:\n"
@@ -2358,7 +2332,7 @@ msgstr ""
 "régi típusú linux lapozóterület. Ha ezt akarja használni, újra kell "
 "formáznia új típusú linux lapozóterületként."
 
-#: yali/storage/storageset.py:287
+#: yali/storage/storageset.py:429
 #, python-format
 msgid ""
 "The swap device:\n"
@@ -2376,7 +2350,7 @@ msgstr ""
 "Jelenleg hibernálási területként van beállítva. Ha új telepítést végez, "
 "győződjön meg róla, hogy minden lapozóterületet formázásra állított be."
 
-#: yali/storage/storageset.py:300
+#: yali/storage/storageset.py:442
 #, python-format
 msgid ""
 "The swap device:\n"
@@ -2393,14 +2367,12 @@ msgstr ""
 "Nem tartalmaz támogatott lapozó kötetet. A telepítés folytatásához vagy "
 "formáznia kell, vagy ki kell hagynia."
 
-#: yali/storage/storageset.py:311
-#, python-format
+#: yali/storage/storageset.py:453
+#, fuzzy, python-format
 msgid ""
-"Error enabling swap device %(name)s: %(msg)s\n"
-"\n"
-"This most likely means this swap device has not been initialized.\n"
-"\n"
-"Press OK to exit the installer."
+"Error enabling swap device %(name)s: %(msg)s<br><br>This most likely means "
+"this swap device has not been initialized.<br><br>Press OK to exit the "
+"installer."
 msgstr ""
 "Lapozó eszköz %(name)s aktiválása közben hiba lépett fel: %(msg)s\n"
 "\n"
@@ -2408,41 +2380,70 @@ msgstr ""
 "\n"
 "Nyomja meg az OK gombot a kilépéshez."
 
-#: yali/storage/storageset.py:357
+#: yali/storage/storageset.py:501
 msgid "You have not created a bootable partition."
 msgstr "Nem hozott létre rendszerindító partíciót."
 
-#: yali/storage/storageset.py:361
+#: yali/storage/storageset.py:505
 msgid "Bootable partitions cannot be on a logical volume."
 msgstr "A rendszerindító partíció nem lehet logikai eszközön."
 
-#: yali/storage/storageset.py:365
+#: yali/storage/storageset.py:509
 #, fuzzy
 msgid "Bootable partitions cannot be on a raid array."
 msgstr "A rendszerindító partíció nem lehet logikai eszközön."
 
-#: yali/storage/storageset.py:372
+#: yali/storage/storageset.py:516
 #, python-format
 msgid "Bootable partitions cannot be on an %s filesystem."
 msgstr "Rendszerindító partíció nem lehet %s fájlrendszeren."
 
-#: yali/storage/devices/filedevice.py:94
+#: yali/storage/storageset.py:620
+msgid "Ignoring noauto entry"
+msgstr ""
+
+#: yali/storage/storageset.py:678
+#, python-format
+msgid "Failed to resolve %s (%s) from fstab"
+msgstr ""
+
+#: yali/storage/storageset.py:684
+#, python-format
+msgid "Unrecognized filesystem type for %s (%s)"
+msgstr ""
+
+#: yali/storage/storageset.py:691
+#, python-format
+msgid "Scanned format (%s) differs from fstab format (%s)"
+msgstr ""
+
+#: yali/storage/storageset.py:713
+#, python-format
+msgid "Cannot open %s for read"
+msgstr ""
+
+#: yali/storage/storageset.py:743
+#, python-format
+msgid "Fstab entry %s is malformed: %s"
+msgstr ""
+
+#: yali/storage/devices/filedevice.py:93
 #, python-format
 msgid "Creating file %s"
 msgstr "%s fájl létrehozása"
 
 #: yali/storage/devices/logicalvolume.py:217
-#: yali/storage/devices/partition.py:370 yali/storage/devices/raidarray.py:423
-#: yali/storage/devices/volumegroup.py:246
+#: yali/storage/devices/partition.py:369 yali/storage/devices/raidarray.py:422
+#: yali/storage/devices/volumegroup.py:245
 #, python-format
 msgid "Creating device %s"
 msgstr "%s eszköz létrehozása"
 
-#: yali/storage/devices/volumegroup.py:218
+#: yali/storage/devices/volumegroup.py:217
 msgid "device has not been created"
 msgstr ""
 
-#: yali/storage/devices/volumegroup.py:224
+#: yali/storage/devices/volumegroup.py:223
 msgid "cannot activate VG with missing PV(s)"
 msgstr ""
 
@@ -2456,93 +2457,98 @@ msgstr "%s - vginfo nem sikerült"
 msgid "lvs failed for %s"
 msgstr "%s - lvs nem sikerült"
 
-#: yali/storage/formats/disklabel.py:29
+#: yali/storage/formats/disklabel.py:28
 #, fuzzy
 msgid "partition table"
 msgstr "Partíció"
 
-#: yali/storage/formats/dmraidmember.py:20
+#: yali/storage/formats/dmraidmember.py:19
 msgid "dm-raid member device"
 msgstr ""
 
-#: yali/storage/formats/filesystem.py:229
+#: yali/storage/formats/filesystem.py:228
 #, python-format
 msgid "Unknown return code: %d."
 msgstr "Ismeretlen visszatérési érték: %d"
 
-#: yali/storage/formats/filesystem.py:296
+#: yali/storage/formats/filesystem.py:247
+#, fuzzy, python-format
+msgid "Migrating %s filesystem on %s"
+msgstr "Fájlrendszer átméretezése %s eszközön"
+
+#: yali/storage/formats/filesystem.py:299
 #, python-format
 msgid "Creating %(type)s filesystem on %(device)s"
 msgstr "%(type)s fájlrendszer létrehozása %(device)s eszközön"
 
-#: yali/storage/formats/filesystem.py:346
+#: yali/storage/formats/filesystem.py:347
 #, python-format
 msgid "Resizing filesystem on %s"
 msgstr "Fájlrendszer átméretezése %s eszközön"
 
-#: yali/storage/formats/filesystem.py:376
+#: yali/storage/formats/filesystem.py:378
 #, python-format
 msgid "Checking filesystem on %s"
 msgstr "Fájlrendszer ellenőrzése %s eszközön"
 
-#: yali/storage/formats/filesystem.py:388
+#: yali/storage/formats/filesystem.py:387
 #, python-format
 msgid "%(type)s filesystem check failure on %(device)s: "
 msgstr "%(device)s eszközön %(type)s fájlrendszer ellenőrzési hiba: "
 
-#: yali/storage/formats/filesystem.py:392
+#: yali/storage/formats/filesystem.py:391
+#, fuzzy
 msgid ""
-"Errors like this usually mean there is a problem with the\n"
-" filesystem that will require user interaction to repair.\n"
-" Restart\n"
-"installation after you have corrected the problems on the filesystem."
+"Errors like this usually mean there is a problem with the filesystem that "
+"will require user interaction to repair. Restart installation after you have "
+"corrected the problems on the filesystem."
 msgstr ""
 "Az ilyen hibák rendszerint azt jelentik, hogy probléma van a\n"
 " fájlrendszerrel, ami felhasználói javítást igényel.\n"
 " Indítsa újra\n"
 "a telepítést a fájlrendszerhibák kijavítása után."
 
-#: yali/storage/formats/filesystem.py:398
+#: yali/storage/formats/filesystem.py:397
 msgid "Unrecoverable Error"
 msgstr "Helyrehozhatatlan hiba"
 
-#: yali/storage/formats/filesystem.py:689
+#: yali/storage/formats/filesystem.py:691
 msgid "File system errors left uncorrected."
 msgstr "Kijavítatlan fájlrendszerhibák."
 
-#: yali/storage/formats/filesystem.py:690
+#: yali/storage/formats/filesystem.py:692
 msgid "Operational error."
 msgstr "Működési hiba."
 
-#: yali/storage/formats/filesystem.py:691
+#: yali/storage/formats/filesystem.py:693
 msgid "Usage or syntax error."
 msgstr "Felhasználási vagy szintaktikai hiba."
 
-#: yali/storage/formats/filesystem.py:692
+#: yali/storage/formats/filesystem.py:694
 msgid "e2fsck cancelled by user request."
 msgstr "e2fsck felhasználó által megszakítva"
 
-#: yali/storage/formats/filesystem.py:693
+#: yali/storage/formats/filesystem.py:695
 msgid "Shared library error."
 msgstr "Megosztott függvénykönyvtár hiba (library error)."
 
-#: yali/storage/formats/filesystem.py:853
+#: yali/storage/formats/filesystem.py:855
 msgid ""
 "Recoverable errors have been detected or dosfsck has discovered an internal "
 "inconsistency."
 msgstr ""
 "Javítható hibát észleltünk, vagy a dosfsck belső inkonzisztenciát észlelt."
 
-#: yali/storage/formats/filesystem.py:855
+#: yali/storage/formats/filesystem.py:857
 msgid "Usage error."
 msgstr "Felhasználási hiba."
 
-#: yali/storage/formats/physicalvolume.py:22
+#: yali/storage/formats/physicalvolume.py:19
 #, fuzzy
 msgid "physical volume (LVM)"
 msgstr "Fizikai kötet"
 
-#: yali/storage/formats/raidmember.py:22
+#: yali/storage/formats/raidmember.py:21
 msgid "software RAID"
 msgstr ""
 
@@ -2698,35 +2704,120 @@ msgstr "Ukrainian"
 msgid "Serbian"
 msgstr "Serbian"
 
-#: yali/pisiiface.py:71
+#: yali/pisiiface.py:61
 #, python-format
 msgid "Error occured while %(repo)s repo is adding:%(msg)s"
 msgstr "Hiba lépett fel a %(repo)s tároló hozzáadása közben: %(msg)s"
 
-#: yali/postinstall.py:197
+#: yali/postinstall.py:123
 #, python-format
 msgid "Preparing home directory for %s..."
 msgstr "%s saját könyvtárának előkészítése..."
 
-#: yali/util.py:380
-msgid "YALI log file doesn't exists."
-msgstr "YALI naplófájl nem található."
-
-#: yali/util.py:382
-msgid "File paths are the same."
-msgstr "AZ elérési utak megegyeznek."
-
-#: yali/util.py:464 yali/util.py:507
+#: yali/util.py:525 yali/util.py:568
 msgid "Release file is missing"
 msgstr "Kiadási fájl nem található"
 
-#: yali/util.py:466 yali/util.py:509
+#: yali/util.py:527 yali/util.py:570
 msgid "Release file is inconsistent"
 msgstr "A kiadási fájl érvénytelen"
 
-#: yali/util.py:469 yali/util.py:512
+#: yali/util.py:530 yali/util.py:573
 msgid "Invalid xml file"
 msgstr "Érvénytelen xml fájl"
+
+#~ msgid "New password:"
+#~ msgstr "Új jelszó:"
+
+#~ msgid "New password (Again):"
+#~ msgstr "Új jelszó (újra):"
+
+#~ msgid "Offline"
+#~ msgstr "Nincs kapcsolat"
+
+#~ msgid "Setting console keymap..."
+#~ msgstr "Konzol billentyűkiosztás beállítása..."
+
+#~ msgid "Setup bootloader..."
+#~ msgstr "Rendszertöltő telepítése..."
+
+#~ msgid "Cleanup systems..."
+#~ msgstr "Takarítás..."
+
+#~ msgid "Do you want to retry?"
+#~ msgstr "Megpróbálja újra?"
+
+#~ msgid "Installing Bootloader..."
+#~ msgstr "Rendszertöltő telepítése..."
+
+#~ msgid "Taking back operation..."
+#~ msgstr "Művelet visszavonása..."
+
+#~ msgid "Running rescue operations..."
+#~ msgstr "Helyreállítási műveletek futtatása..."
+
+#~ msgid "Press <b>Restart</b> to restart your system."
+#~ msgstr "Nyomja meg az <b>Újraindítás</b> gombot a rendszer újraindításához."
+
+#~ msgid "%s (Boot Disk)"
+#~ msgstr "%s (rendszerindító lemez)"
+
+#~ msgid "Caps Lock is on."
+#~ msgstr "A Caps Lock be van kapcsolva."
+
+#~ msgid "Acquiring users..."
+#~ msgstr "Felhasználók lekérése..."
+
+#~ msgid "The password has been successfully reset."
+#~ msgstr "A jelszó sikeresen módosítva."
+
+#~ msgid "Info"
+#~ msgstr "Info"
+
+#~ msgid "Do not use your username or real name as your password."
+#~ msgstr "Ne használja a teljes nevét jelszóként."
+
+#~ msgid "The passwords do not match."
+#~ msgstr "A jelszavak nem egyeznek."
+
+#~ msgid "Mounting disk partition..."
+#~ msgstr "Partíciók csatolása..."
+
+#~ msgid "YALI could not locate a suitable disk partition on this computer."
+#~ msgstr "A YALI nem talált megfelelő partíciót a számítógépen."
+
+#~ msgid "Please select a disk partition from the list below:"
+#~ msgstr "Válasszon egy partíciót az alábbi listáról:"
+
+#~ msgid "Eject Disc"
+#~ msgstr "Lemez kiadása"
+
+#~ msgid "Please insert a new disc and then click OK"
+#~ msgstr "Tegyen be egy új lemezt és kattintson az OK-ra."
+
+#~ msgid "Insert New Disc"
+#~ msgstr "Új lemez behelyezése"
+
+#~ msgid "Resizing Failed"
+#~ msgstr "Az átméretezés nem sikerült"
+
+#~ msgid "Migration Failed"
+#~ msgstr "Az átmozgatás sikertelen"
+
+#~ msgid "An error was encountered while migrating filesystem on device %s."
+#~ msgstr "A %s eszközön a fájlrendszer átalakítása közben hiba lépett fel"
+
+#~ msgid "File Bug"
+#~ msgstr "Fájl hiba"
+
+#~ msgid "Failed in storage.complete with error:%s"
+#~ msgstr "storage.complete meghiúsult. Hiba: %s"
+
+#~ msgid "YALI log file doesn't exists."
+#~ msgstr "YALI naplófájl nem található."
+
+#~ msgid "File paths are the same."
+#~ msgstr "AZ elérési utak megegyeznek."
 
 #~ msgid "Choose Installation Method"
 #~ msgstr "Válasszon telepítési módot"
@@ -2742,9 +2833,6 @@ msgstr "Érvénytelen xml fájl"
 
 #~ msgid "PAE Kernel"
 #~ msgstr "PAE kernel"
-
-#~ msgid "Auto installation selected."
-#~ msgstr "Automatikus telepítés lett kiválasztva."
 
 #~ msgid "Default Kernel selected"
 #~ msgstr "Alapértelmezett kernel kiválasztva."
@@ -2790,9 +2878,6 @@ msgstr "Érvénytelen xml fájl"
 #~ "\n"
 #~ "Az összes nem olvasható partíciós táblájú lemez újrainicializáláshoz "
 #~ "nyomja meg az 'Összes újrainicializálása' gombot."
-
-#~ msgid "Ignore All"
-#~ msgstr "Mindegyik mellőzése"
 
 #~ msgid "Re-initialize All"
 #~ msgstr "Összes újrainicializálása"
