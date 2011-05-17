@@ -259,6 +259,7 @@ def setupStorage():
     return ctx.storage.storageset.active
 
 def teardownStorage():
+    remove = False
     if ctx.flags.install_type == ctx.STEP_FIRST_BOOT:
         remove = True
     yali.util.backup_log(remove)

@@ -655,6 +655,8 @@ def get_grub_conf(device_path, format_type):
 
             grub_conf = grubutils.grubConf()
             grub_conf.parseConf(grub_path)
+        else:
+            ctx.logger.debug("%s device has not any bootloader configuration to parse." % device_path)
 
         umount(ctx.consts.tmp_mnt_dir)
 

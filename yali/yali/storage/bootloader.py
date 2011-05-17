@@ -312,7 +312,7 @@ class BootLoader(object):
 
     def appendLinuxSystems(self, device, formatType):
         additional_conf = yali.util.get_grub_conf(device, formatType)
-        if grub_conf and len(additional_conf.entries):
+        if additional_conf and len(additional_conf.entries):
             self.grubConf = grubutils.grubConf()
             self.grubConf.parseConf(os.path.join(ctx.consts.target_dir, self._conf))
             for entry in additional_conf.entries:
