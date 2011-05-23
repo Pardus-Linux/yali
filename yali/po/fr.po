@@ -981,7 +981,7 @@ msgstr "Configuration du premier démarrage..."
 
 #: yali/gui/ScrGoodbye.py:79
 msgid "Teardown First-Boot..."
-msgstr ""
+msgstr "Désactivation de la configuration de premier démarrage..."
 
 #: yali/gui/ScrGoodbye.py:83
 msgid "Adding users..."
@@ -997,7 +997,7 @@ msgstr "Arrêt de D-Bus..."
 
 #: yali/gui/ScrGoodbye.py:90 yali/gui/ScrGoodbye.py:95
 msgid "Teardown storage subsystem..."
-msgstr ""
+msgstr "Désactivation du sous-système de stockage..."
 
 #: yali/gui/ScrGoodbye.py:91
 msgid "Installing bootloader..."
