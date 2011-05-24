@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\\n\n"
+"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\\n\\n\n"
 
 #: yali/gui/Ui/autopartquestion.py:82
 msgid "There appears to be more than one resizeable partition. You can select a partition from the list below or YALI will select one for you."
@@ -2146,7 +2146,7 @@ msgstr "Yüklenebilir bölümler %s dosya sistemleri üzerinde olmazlar."
 
 #: yali/storage/storageset.py:620
 msgid "Ignoring noauto entry"
-msgstr ""
+msgstr "Kendiliğinden girdileri engelliyor"
 
 #: yali/storage/storageset.py:678
 #, python-format
@@ -2156,7 +2156,7 @@ msgstr ""
 #: yali/storage/storageset.py:684
 #, python-format
 msgid "Unrecognized filesystem type for %s (%s)"
-msgstr ""
+msgstr "%s için tanımlanamayan dosyalama düzeni biçimi (%s)"
 
 #: yali/storage/storageset.py:691
 #, python-format
