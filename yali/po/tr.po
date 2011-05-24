@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\\n\\n\n"
+"Plural-Forms: nplurals=1; plural=0;\\nX-Generator: Lokalize 1.1\\n\\n\\n\\n\n"
 
 #: yali/gui/Ui/autopartquestion.py:82
 msgid "There appears to be more than one resizeable partition. You can select a partition from the list below or YALI will select one for you."
@@ -1003,8 +1003,9 @@ msgid "Stopping to D-Bus..."
 msgstr "DBUS Durduruluyor..."
 
 #: yali/gui/ScrGoodbye.py:90 yali/gui/ScrGoodbye.py:95
+#, fuzzy
 msgid "Teardown storage subsystem..."
-msgstr ""
+msgstr "Depolama alt düzeni yıkılıyor..."
 
 #: yali/gui/ScrGoodbye.py:91
 msgid "Installing bootloader..."
@@ -1281,6 +1282,8 @@ msgid ""
 "The following error occurred when mounting the file systems listed in /etc/fstab.  Please fix this problem and try to rescue again.\n"
 "%s"
 msgstr ""
+"/etc/fstab içinde belirtilmiş dosya düzeni bağlanırken bahsi geçen hata oluştu. Lütfen, hatayı düzeltiniz ve kurtarmayı tekrar deneyinizi.\n"
+"%s"
 
 #: yali/gui/ScrSummary.py:47
 msgid "<b><p>Are you sure you want to restart the computer?</p></b>"
@@ -1624,6 +1627,8 @@ msgid ""
 "The following file systems for your Linux system were not unmounted cleanly.  Please boot your Linux installation, let the file systems be checked and shut down cleanly to rescue.\n"
 "%s"
 msgstr ""
+"Linux işletim düzeniniz için takip edilen dosyalama düzeni temiz bir şekilde ayrılamadı. Lütfen Linux kurulumunuzu yeniden başlatın. Dosya düzenlerinizin denetlenmesine ve kurtarılmak üzere düzgünce kapatılmasına izin verin.\n"
+"%s"
 
 #: yali/storage/__init__.py:169
 #, python-format
@@ -1631,6 +1636,8 @@ msgid ""
 "The following file systems for your Linux system were not unmounted cleanly.  Would you like to mount them anyway?\n"
 "%s"
 msgstr ""
+"Linux işletim düzeniniz için takip edilen dosya düzeni temiz bir şekilde ayrılamadı. Genede ayırma işlemini gerçekleştirmek ister misiniz?\n"
+"%s"
 
 #: yali/storage/__init__.py:336
 msgid "This partition is holding the data for the hard drive install."
@@ -2151,7 +2158,7 @@ msgstr "Kendiliğinden girdileri engelliyor"
 #: yali/storage/storageset.py:678
 #, python-format
 msgid "Failed to resolve %s (%s) from fstab"
-msgstr ""
+msgstr "fstab içindeki %s (%s) için çözümleme işlemi başarısız"
 
 #: yali/storage/storageset.py:684
 #, python-format
@@ -2161,7 +2168,7 @@ msgstr "%s için tanımlanamayan dosyalama düzeni biçimi (%s)"
 #: yali/storage/storageset.py:691
 #, python-format
 msgid "Scanned format (%s) differs from fstab format (%s)"
-msgstr ""
+msgstr "Taranmış olan biçim (%s) fstab biçiminden (%s) farklılık gösteriyor"
 
 #: yali/storage/storageset.py:713
 #, python-format
