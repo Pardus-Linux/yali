@@ -138,7 +138,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QLabel" name="textLabel2">
+         <widget class="QLabel" name="checkLabel">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
             <horstretch>0</horstretch>

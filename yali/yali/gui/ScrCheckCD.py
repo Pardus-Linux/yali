@@ -79,6 +79,8 @@ class Widget(QWidget, ScreenWidget):
 
         self.ui.progressBar.setMaximum(len(pkg_names))
 
+        self.ui.checkLabel.setText(_("Package validation is in progress. "
+                                     "Please wait until it is completed."))
         cur = 0
         flag = 0
         for pkg_name in pkg_names:
@@ -109,7 +111,6 @@ class Widget(QWidget, ScreenWidget):
                 else:
                     yali.util.reboot()
 
-
         if not self.check_media_stop and flag == 0:
             ctx.interface.informationWindow.update(_('<font color="#FFF"><b>Validation succeeded. You can proceed with the installation.</b></font>'))
             self.ui.validationSucceedBox.show()
@@ -123,6 +124,7 @@ class Widget(QWidget, ScreenWidget):
         ctx.mainScreen.enableNext()
         ctx.mainScreen.enableBack()
 
+        self.ui.checkLabel.setText(_("Package validation is finished."))
         ctx.interface.informationWindow.hide()
 
 
