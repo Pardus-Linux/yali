@@ -208,7 +208,7 @@ text-decoration: normal;
           </property>
           <item>
            <property name="text">
-            <string>Use All Space</string>
+            <string>Use All Disk</string>
            </property>
            <property name="icon">
             <iconset>
@@ -235,7 +235,7 @@ text-decoration: normal;
           </item>
           <item>
            <property name="text">
-            <string>Create Custom Layout</string>
+            <string>Manual Partitioning</string>
            </property>
            <property name="icon">
             <iconset>

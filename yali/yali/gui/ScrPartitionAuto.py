@@ -50,14 +50,14 @@ class Widget(QWidget, ScreenWidget):
             ctx.mainScreen.enableNext()
 
     def setPartitioningType(self):
-        if self.storage.clearPartType is None:
-            self.ui.autopartType.setCurrentRow(CUSTOM)
-        elif self.storage.clearPartType == CLEARPART_TYPE_NONE:
+        if self.storage.clearPartType == CLEARPART_TYPE_NONE:
             self.ui.autopartType.setCurrentRow(FREE_SPACE)
         elif self.storage.clearPartType == CLEARPART_TYPE_ALL:
             self.ui.autopartType.setCurrentRow(USE_ALL_SPACE)
 
     def shown(self):
+        if len(self.storage.clearPartDisks) > 1:
+            self.ui.autopartType.item(USE_ALL_SPACE).setText(_("Use All Disks"))
         self.setPartitioningType()
 
     def execute(self):
