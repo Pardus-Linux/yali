@@ -17,7 +17,6 @@ _ = gettext.translation('yali', fallback=True).ugettext
 from PyQt4.Qt import QWidget, SIGNAL, QListWidgetItem, QIcon, QLineEdit
 
 import yali.util
-import yali.postinstall
 import yali.context as ctx
 from yali.gui import ScreenWidget
 from yali.gui.Ui.rescuepasswordwidget import Ui_RescuePasswordWidget
@@ -112,12 +111,12 @@ class Widget(QWidget, ScreenWidget):
             self.ui.resetPassword.setEnabled(True)
 
     def fillUsers(self):
-        if yali.util.check_link():
-            self.ui.users.clear()
-            users = yali.postinstall.getUsers()
-            for user in users:
-                RescueUser(self.ui.users, user)
-        else:
+        self.ui.users.clear()
+        users = yali.util.getUsers()
+        for user in users:
+            RescueUser(self.ui.users, user)
+
+        if not self.ui.users.count():
             rc = ctx.interface.messageWindow(_("Cannot Rescue"),
                                              _("Your current installation cannot be rescued."),
                                              type="custom", customIcon="warning",
