@@ -1597,26 +1597,24 @@ msgstr "Ocurrió un error al redimensionar dispositivo %s."
 
 #: yali/storage/__init__.py:63
 msgid "Storage Format Error"
-msgstr ""
+msgstr "Error de formato de almacenamiento"
 
 #: yali/storage/__init__.py:64
-#, fuzzy, python-format
+#, python-format
 msgid "There was an error encountered while formatting on device %s."
-msgstr "Ocurrió un error al redimensionar dispositivo %s."
+msgstr "Ocurrió un error al formatear dispositivo %s."
 
 #: yali/storage/__init__.py:75 yali/storage/storageset.py:336
 msgid "Exit installer"
 msgstr "Salir del instalador"
 
 #: yali/storage/__init__.py:75
-#, fuzzy
 msgid "Ignore"
-msgstr "Ignorar todos"
+msgstr "Ignorar"
 
 #: yali/storage/__init__.py:158 yali/storage/__init__.py:168
-#, fuzzy
 msgid "Dirty File Systems"
-msgstr "Sistema de Archivos :"
+msgstr "Sistemas de archivos sucios"
 
 #: yali/storage/__init__.py:159
 #, python-format
@@ -1624,6 +1622,8 @@ msgid ""
 "The following file systems for your Linux system were not unmounted cleanly.  Please boot your Linux installation, let the file systems be checked and shut down cleanly to rescue.\n"
 "%s"
 msgstr ""
+"Los siguientes sistemas de archivos no se desmontaron correctamente en forma limpia.  Por favor inicie la instalación de Linux, realice una comprobación del sistema de archivos, luego apaque limpio correctamente para resuperar las particiones.\n"
+"%s"
 
 #: yali/storage/__init__.py:169
 #, python-format
@@ -1631,11 +1631,12 @@ msgid ""
 "The following file systems for your Linux system were not unmounted cleanly.  Would you like to mount them anyway?\n"
 "%s"
 msgstr ""
+"Los siguientes sistemas de archivos no se desmontaron correctamente en forma limpia.  Desea montarlos de todas maneras ?\n"
+"%s"
 
 #: yali/storage/__init__.py:336
-#, fuzzy
 msgid "This partition is holding the data for the hard drive install."
-msgstr "Partición para la instalación de Pardus"
+msgstr "Partición con datos de la instalación"
 
 #: yali/storage/__init__.py:339
 msgid "You cannot delete a partition of a LDL formatted DASD."
@@ -2132,14 +2133,9 @@ msgstr ""
 "no contiene una unidad válida de swap. Para continuar la instalación se requiere formatear el dispositivo o omitirlo."
 
 #: yali/storage/storageset.py:453
-#, fuzzy, python-format
+#, python-format
 msgid "Error enabling swap device %(name)s: %(msg)s<br><br>This most likely means this swap device has not been initialized.<br><br>Press OK to exit the installer."
-msgstr ""
-"Error al activar el dispositivo swap %(name)s: %(msg)s\n"
-"\n"
-"Es muy probable que no fue posible formatear el dispositivo swap.\n"
-"\n"
-"Presione OK para salir del asistente de instalación."
+msgstr "Error al activar el dispositivo swap %(name)s: %(msg)s<br><br>Es muy probable que no fue posible formatear el dispositivo swap.<br><br>Presione OK para salir del asistente de instalación."
 
 #: yali/storage/storageset.py:501
 msgid "You have not created a bootable partition."
@@ -2296,8 +2292,9 @@ msgid "physical volume (LVM)"
 msgstr "volumen físico (LVM)"
 
 #: yali/storage/formats/raidmember.py:21
+#, fuzzy
 msgid "software RAID"
-msgstr ""
+msgstr "software RAID"
 
 #: yali/localedata.py:20
 msgid "Turkish"
