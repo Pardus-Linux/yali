@@ -2165,27 +2165,27 @@ msgstr ""
 #: yali/storage/storageset.py:678
 #, python-format
 msgid "Failed to resolve %s (%s) from fstab"
-msgstr ""
+msgstr "No posible resolver %s (%s) en fstab"
 
 #: yali/storage/storageset.py:684
 #, python-format
 msgid "Unrecognized filesystem type for %s (%s)"
-msgstr ""
+msgstr "Sistema de archivos desconocido en %s (%s)"
 
 #: yali/storage/storageset.py:691
 #, python-format
 msgid "Scanned format (%s) differs from fstab format (%s)"
-msgstr ""
+msgstr "Formato detectado (%s) es diferente del formato según fstab (%s)"
 
 #: yali/storage/storageset.py:713
 #, python-format
 msgid "Cannot open %s for read"
-msgstr ""
+msgstr "No posible abrir %s para lectura"
 
 #: yali/storage/storageset.py:743
 #, python-format
 msgid "Fstab entry %s is malformed: %s"
-msgstr ""
+msgstr "Entrada en fstab %s tiene formato incorrecto: %s"
 
 #: yali/storage/devices/filedevice.py:93
 #, python-format
@@ -2231,9 +2231,9 @@ msgid "Unknown return code: %d."
 msgstr "Código de retorno desconocido: %d."
 
 #: yali/storage/formats/filesystem.py:247
-#, fuzzy, python-format
+#, python-format
 msgid "Migrating %s filesystem on %s"
-msgstr "Redimensionando sistema de archivo en %s"
+msgstr "Migrando sistema de archivo %s en %s"
 
 #: yali/storage/formats/filesystem.py:299
 #, python-format
@@ -2257,7 +2257,7 @@ msgstr "Error de comprobación de sistema de archivo %(type)s en %(device)s: "
 
 #: yali/storage/formats/filesystem.py:391
 msgid "Errors like this usually mean there is a problem with the filesystem that will require user interaction to repair. Restart installation after you have corrected the problems on the filesystem."
-msgstr ""
+msgstr "Tales errores generalmente quiere decir que hay un problema con el sistema de archivo que requerirá intervención del usuario para su repararicón. Vuelva a iniciar la instalación luego de corregir los problemas del sistema de archivos."
 
 #: yali/storage/formats/filesystem.py:397
 msgid "Unrecoverable Error"
