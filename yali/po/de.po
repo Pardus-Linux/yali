@@ -1644,23 +1644,21 @@ msgid "Storage Format Error"
 msgstr "Formatierungsfehler"
 
 #: yali/storage/__init__.py:64
-#, fuzzy, python-format
+#, python-format
 msgid "There was an error encountered while formatting on device %s."
-msgstr "Beim Ändern der Größe des Geräts %s ist ein Fehler aufgetreten"
+msgstr "Während der Formatierung von Gerät %s ist ein Fehler aufgetreten."
 
 #: yali/storage/__init__.py:75 yali/storage/storageset.py:336
 msgid "Exit installer"
 msgstr "Installer beenden"
 
 #: yali/storage/__init__.py:75
-#, fuzzy
 msgid "Ignore"
-msgstr "Alles ignorieren"
+msgstr "Ignoriere"
 
 #: yali/storage/__init__.py:158 yali/storage/__init__.py:168
-#, fuzzy
 msgid "Dirty File Systems"
-msgstr "Dateisystem:"
+msgstr "Dirty File System"
 
 #: yali/storage/__init__.py:159
 #, python-format
@@ -1668,6 +1666,8 @@ msgid ""
 "The following file systems for your Linux system were not unmounted cleanly.  Please boot your Linux installation, let the file systems be checked and shut down cleanly to rescue.\n"
 "%s"
 msgstr ""
+"Das folgende Dateisystem des Linuxsystems wurde nicht sauber ausgehängt. Bitte starten Sie Linux, prüfen Sie das Dateisystem und fahren Sie das System für den Wiederherstellungsvorgang sauber herunter.\n"
+"%s"
 
 #: yali/storage/__init__.py:169
 #, python-format
@@ -1675,6 +1675,8 @@ msgid ""
 "The following file systems for your Linux system were not unmounted cleanly.  Would you like to mount them anyway?\n"
 "%s"
 msgstr ""
+"Die folgenden Dateisysteme des Linuxsystems wurden nicht sauber ausgehängt. Wollen Sie sie trotzdem einhängen?\n"
+"%s"
 
 # zweifel..
 #: yali/storage/__init__.py:336
@@ -2182,14 +2184,9 @@ msgstr ""
 "beinhaltet kein unterstütztes SWAP Volume. Um die Installation fortzuführen, müssen sie das Gerät formatieren oder überspringen."
 
 #: yali/storage/storageset.py:453
-#, fuzzy, python-format
+#, python-format
 msgid "Error enabling swap device %(name)s: %(msg)s<br><br>This most likely means this swap device has not been initialized.<br><br>Press OK to exit the installer."
-msgstr ""
-"Fehler beim einbinden des SWAP Geräts %(name)s: %(msg)s\n"
-"\n"
-"Dies bedeutet meistens, dass das SWAP Gerät nicht initialisiert wurde.\n"
-"\n"
-"Klicken Sie auf OK, um das Installationsprogramm zu beenden."
+msgstr "Fehler beim einbinden des SWAP Geräts %(name)s: %(msg)s<br><br>Dies bedeutet meistens, dass das SWAP Gerät nicht initialisiert wurde.<br><br>Klicken Sie auf OK, um das Installationsprogramm zu beenden."
 
 #: yali/storage/storageset.py:501
 msgid "You have not created a bootable partition."
@@ -2210,32 +2207,32 @@ msgstr "Bootfähige Partitionen können nicht das %s Dateisystem haben."
 
 #: yali/storage/storageset.py:620
 msgid "Ignoring noauto entry"
-msgstr ""
+msgstr "Ignoriere noauto Eintrag"
 
 #: yali/storage/storageset.py:678
 #, python-format
 msgid "Failed to resolve %s (%s) from fstab"
-msgstr ""
+msgstr "Konnte %s (%s) aus fstab nicht überwinden"
 
 #: yali/storage/storageset.py:684
 #, python-format
 msgid "Unrecognized filesystem type for %s (%s)"
-msgstr ""
+msgstr "Unbekanntes Dateisystem für %s (%s)"
 
 #: yali/storage/storageset.py:691
 #, python-format
 msgid "Scanned format (%s) differs from fstab format (%s)"
-msgstr ""
+msgstr "Erkanntes Format (%s) unterscheidet sich von dem Format in fstab (%s)"
 
 #: yali/storage/storageset.py:713
 #, python-format
 msgid "Cannot open %s for read"
-msgstr ""
+msgstr "Kann %s nicht zum lesen öffnen"
 
 #: yali/storage/storageset.py:743
 #, python-format
 msgid "Fstab entry %s is malformed: %s"
-msgstr ""
+msgstr "Fstab-Eintrag %s ist missgebildet: %s"
 
 #: yali/storage/devices/filedevice.py:93
 #, python-format
@@ -2281,9 +2278,9 @@ msgid "Unknown return code: %d."
 msgstr "Unbekannter Rückgabewert: %d."
 
 #: yali/storage/formats/filesystem.py:247
-#, fuzzy, python-format
+#, python-format
 msgid "Migrating %s filesystem on %s"
-msgstr "Größenänderung des Dateisystems auf %s"
+msgstr "Migriere %s Dateisystem auf %s"
 
 #: yali/storage/formats/filesystem.py:299
 #, python-format
@@ -2306,14 +2303,8 @@ msgid "%(type)s filesystem check failure on %(device)s: "
 msgstr "%(type)s Dateisystem Prüffehler auf %(device)s: "
 
 #: yali/storage/formats/filesystem.py:391
-#, fuzzy
 msgid "Errors like this usually mean there is a problem with the filesystem that will require user interaction to repair. Restart installation after you have corrected the problems on the filesystem."
-msgstr ""
-"Fehler wie dieser bedeuten in der Regel, dass es ein\n"
-"Problem mit dem Dateisystem gibt, der zur Behebung\n"
-"Benutzereingaben benötigt,\n"
-" Starten\n"
-" Sie die Installation erneut, nachdem der Fehler behoben wurde."
+msgstr "Fehler wie dieser bedeuten in der Regel, dass es ein Problem mit dem Dateisystem gibt welches zur Behebung Benutzereingaben benötigt. Starten Sie die Installation erneut, nachdem der Fehler des Dateisystems behoben wurde."
 
 #: yali/storage/formats/filesystem.py:397
 msgid "Unrecoverable Error"
