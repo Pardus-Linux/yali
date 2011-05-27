@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: YALI-pl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-17 16:11+0300\n"
+"POT-Creation-Date: 2011-05-27 12:23+0300\n"
 "PO-Revision-Date: 2006-04-08 12:19+0900\n"
 "Last-Translator: Piotr Maliński <riklaunim@gmail.com>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
@@ -39,8 +39,9 @@ msgstr ""
 msgid "Use Selected"
 msgstr "Użyj wybranej"
 
-#: yali/gui/Ui/autopartwidget.py:140 yali/gui/ScrSummary.py:138
-msgid "Use All Space"
+#: yali/gui/Ui/autopartwidget.py:140
+#, fuzzy
+msgid "Use All Disk"
 msgstr "Użyj całej przestrzeni dyskowej"
 
 #: yali/gui/Ui/autopartwidget.py:141
@@ -52,8 +53,9 @@ msgid "Use Free Space"
 msgstr "Użyj wolnego miejsca"
 
 #: yali/gui/Ui/autopartwidget.py:143
-msgid "Create Custom Layout"
-msgstr "Utwórz własny układ"
+#, fuzzy
+msgid "Manual Partitioning"
+msgstr "Wybrano ręczne partycjonowanie."
 
 #: yali/gui/Ui/bootloaderwidget.py:128
 msgid "Advanced settings"
@@ -180,7 +182,7 @@ msgid ""
 "following backtrace."
 msgstr ""
 
-#: yali/gui/Ui/exception.py:64 yali/gui/ScrCheckCD.py:99
+#: yali/gui/Ui/exception.py:64 yali/gui/ScrCheckCD.py:101
 #: yali/storage/__init__.py:930
 msgid "Reboot"
 msgstr "Restart"
@@ -315,8 +317,8 @@ msgstr "Edytuj"
 
 #: yali/gui/Ui/manualpartwidget.py:165 yali/gui/Ui/setupuserswidget.py:500
 #: yali/gui/Ui/volumegroup.py:119 yali/gui/lvm_gui.py:552
-#: yali/storage/storageBackendHelpers.py:91
-#: yali/storage/storageBackendHelpers.py:295
+#: yali/storage/storageBackendHelpers.py:92
+#: yali/storage/storageBackendHelpers.py:296
 msgid "Delete"
 msgstr "Usuń"
 
@@ -386,8 +388,8 @@ msgstr "Zmniejsz rozmiar partycji do rozmiaru (w MB):"
 #: yali/gui/lvm_gui.py:465 yali/gui/lvm_gui.py:552
 #: yali/gui/ScrPartitionManual.py:114 yali/gui/ScrPartitionManual.py:130
 #: yali/gui/ScrPartitionManual.py:140 yali/gui/YaliDialog.py:220
-#: yali/storage/__init__.py:930 yali/storage/storageBackendHelpers.py:91
-#: yali/storage/storageBackendHelpers.py:295
+#: yali/storage/__init__.py:930 yali/storage/storageBackendHelpers.py:92
+#: yali/storage/storageBackendHelpers.py:296
 msgid "Cancel"
 msgstr "Anuluj"
 
@@ -654,7 +656,7 @@ msgid ""
 msgstr ""
 
 #: yali/gui/lvm_gui.py:418 yali/gui/lvm_gui.py:465
-#: yali/gui/ScrPartitionManual.py:358 yali/gui/ScrRescuePassword.py:124
+#: yali/gui/ScrPartitionManual.py:358 yali/gui/ScrRescuePassword.py:123
 #: yali/gui/ScrRescue.py:95 yali/storage/storageset.py:336
 msgid "Continue"
 msgstr "Kontynuuj"
@@ -716,8 +718,8 @@ msgid ""
 "volumes"
 msgstr ""
 
-#: yali/gui/lvm_gui.py:548 yali/storage/storageBackendHelpers.py:87
-#: yali/storage/storageBackendHelpers.py:294
+#: yali/gui/lvm_gui.py:548 yali/storage/storageBackendHelpers.py:88
+#: yali/storage/storageBackendHelpers.py:295
 msgid "Confirm Delete"
 msgstr "Potwierdź usunięcie"
 
@@ -853,7 +855,7 @@ msgid ""
 "className = %s.Widget"
 msgstr ""
 
-#: yali/gui/runner.py:122 yali/gui/ScrRescuePassword.py:124
+#: yali/gui/runner.py:122 yali/gui/ScrRescuePassword.py:123
 #: yali/gui/ScrRescue.py:95 yali/gui/YaliWindow.py:385
 #: yali/storage/storageset.py:388
 msgid "Exit"
@@ -891,40 +893,49 @@ msgstr "Nazwa hosta zawiera nieprawidłowe znaki."
 msgid "Starting validation..."
 msgstr "Uruchamianie sprawdzania ..."
 
-#: yali/gui/ScrCheckCD.py:87
+#: yali/gui/ScrCheckCD.py:82
+msgid "Package validation is in progress. Please wait until it is completed."
+msgstr ""
+
+#: yali/gui/ScrCheckCD.py:89
 #, python-format
 msgid "Validating %s"
 msgstr "Sprawdzono %s"
 
-#: yali/gui/ScrCheckCD.py:94 yali/gui/ScrInstall.py:195
+#: yali/gui/ScrCheckCD.py:96 yali/gui/ScrInstall.py:195
 #: yali/gui/ScrPartitionAuto.py:44 yali/gui/ScrPartitionManual.py:138
 #: yali/gui/YaliWindow.py:212 yali/gui/YaliWindow.py:217
 #: yali/gui/YaliWindow.py:222
 msgid "Warning"
 msgstr "Uwaga"
 
-#: yali/gui/ScrCheckCD.py:95
+#: yali/gui/ScrCheckCD.py:97
 #, python-format
 msgid ""
 "Validation of %s package failed.Please remaster your installation medium "
 "andreboot."
 msgstr ""
 
-#: yali/gui/ScrCheckCD.py:99
+#: yali/gui/ScrCheckCD.py:101
 msgid "Skip Validation"
 msgstr "Pomiń sprawdzanie"
 
-#: yali/gui/ScrCheckCD.py:99
+#: yali/gui/ScrCheckCD.py:101
 msgid "Skip Package"
 msgstr "Pomiń pakiet"
 
-#: yali/gui/ScrCheckCD.py:114
+#: yali/gui/ScrCheckCD.py:115
 msgid ""
 "<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the "
 "installation.</b></font>"
 msgstr ""
 "<font color=\"#FFF\"><b>Sprawdzenie powiodło się. Możesz przejść dalej.</b></"
 "font>"
+
+#: yali/gui/ScrCheckCD.py:127
+#, fuzzy
+msgid "Package validation is finished."
+msgstr "Partycje:"
 
 #: yali/gui/ScrDateTime.py:169
 msgid "Adjusting time settings"
@@ -1033,17 +1044,17 @@ msgstr ""
 
 #: yali/gui/ScrInstall.py:202 yali/gui/ScrSummary.py:297
 #: yali/gui/YaliDialog.py:218 yali/gui/YaliDialog.py:234
-#: yali/storage/storageBackendHelpers.py:232
-#: yali/storage/storageBackendHelpers.py:253
-#: yali/storage/storageBackendHelpers.py:303
+#: yali/storage/storageBackendHelpers.py:233
+#: yali/storage/storageBackendHelpers.py:254
+#: yali/storage/storageBackendHelpers.py:304
 msgid "Yes"
 msgstr ""
 
 #: yali/gui/ScrInstall.py:202 yali/gui/ScrSummary.py:297
 #: yali/gui/YaliDialog.py:220 yali/gui/YaliDialog.py:235
-#: yali/storage/storageBackendHelpers.py:232
-#: yali/storage/storageBackendHelpers.py:253
-#: yali/storage/storageBackendHelpers.py:303
+#: yali/storage/storageBackendHelpers.py:233
+#: yali/storage/storageBackendHelpers.py:254
+#: yali/storage/storageBackendHelpers.py:304
 msgid "No"
 msgstr ""
 
@@ -1077,6 +1088,11 @@ msgid ""
 "No partitions are available to resize. Only physical\n"
 "partitions which size is greater than %s MB can be resized."
 msgstr ""
+
+#: yali/gui/ScrPartitionAuto.py:60
+#, fuzzy
+msgid "Use All Disks"
+msgstr "Użyj całej przestrzeni dyskowej"
 
 #: yali/gui/ScrPartitionManual.py:94
 #, python-format
@@ -1194,7 +1210,7 @@ msgid "Warning: %s."
 msgstr "Ostrzeżenie: %s."
 
 #: yali/gui/ScrPartitionManual.py:358
-#: yali/storage/storageBackendHelpers.py:318
+#: yali/storage/storageBackendHelpers.py:319
 #, fuzzy
 msgid "Modify Partition"
 msgstr "Edytuj Partycję"
@@ -1220,30 +1236,30 @@ msgid ""
 "%s"
 msgstr ""
 
-#: yali/gui/ScrRescuePassword.py:100 yali/gui/ScrUsers.py:214
+#: yali/gui/ScrRescuePassword.py:99 yali/gui/ScrUsers.py:214
 #, fuzzy
 msgid "Don't use your user name or name as a password"
 msgstr "<font color=\"#FF6D19\">Nie używaj Twojego imienia jako hasła.</font>"
 
-#: yali/gui/ScrRescuePassword.py:103 yali/gui/ScrUsers.py:217
+#: yali/gui/ScrRescuePassword.py:102 yali/gui/ScrUsers.py:217
 #, fuzzy
 msgid "Passwords do not match"
 msgstr "<font color=\"#FF6D19\">Hasła nie zgadzają się!</font>"
 
-#: yali/gui/ScrRescuePassword.py:106 yali/gui/ScrUsers.py:220
+#: yali/gui/ScrRescuePassword.py:105 yali/gui/ScrUsers.py:220
 #, fuzzy
 msgid "Password is too short"
 msgstr "<font color=\"#FF6D19\">Hasło jest zbyt krótkie!</font>"
 
-#: yali/gui/ScrRescuePassword.py:121 yali/gui/ScrRescue.py:92
+#: yali/gui/ScrRescuePassword.py:120 yali/gui/ScrRescue.py:92
 msgid "Cannot Rescue"
 msgstr ""
 
-#: yali/gui/ScrRescuePassword.py:122 yali/gui/ScrRescue.py:93
+#: yali/gui/ScrRescuePassword.py:121 yali/gui/ScrRescue.py:93
 msgid "Your current installation cannot be rescued."
 msgstr ""
 
-#: yali/gui/ScrRescuePassword.py:146
+#: yali/gui/ScrRescuePassword.py:145
 msgid "Super User"
 msgstr "Administrator"
 
@@ -1367,6 +1383,10 @@ msgstr "Ustawienia Patrtycji"
 #: yali/gui/ScrSummary.py:136
 msgid "Automatic Partitioning selected."
 msgstr "Wybrano automatyczne partycjonowanie."
+
+#: yali/gui/ScrSummary.py:138
+msgid "Use All Space"
+msgstr "Użyj całej przestrzeni dyskowej"
 
 #: yali/gui/ScrSummary.py:139
 #, python-format
@@ -1833,49 +1853,49 @@ msgid ""
 "installation. %(extra)s"
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:17
+#: yali/storage/storageBackendHelpers.py:18
 msgid "Please enter a volume group name."
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:21
+#: yali/storage/storageBackendHelpers.py:22
 msgid "Volume Group Names must be less than 128 characters"
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:24
+#: yali/storage/storageBackendHelpers.py:25
 #, python-format
 msgid "Error - the volume group name %s is not valid."
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:29
+#: yali/storage/storageBackendHelpers.py:30
 msgid ""
 "Error - the volume group name contains illegal characters or spaces.  "
 "Acceptable characters are letters, digits, '.' or '_'."
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:39
+#: yali/storage/storageBackendHelpers.py:40
 msgid "Please enter a logical volume name."
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:43
+#: yali/storage/storageBackendHelpers.py:44
 msgid "Logical Volume Names must be less than 128 characters"
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:47
+#: yali/storage/storageBackendHelpers.py:48
 #, python-format
 msgid "Error - the logical volume name %s is not valid."
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:53
+#: yali/storage/storageBackendHelpers.py:54
 msgid ""
 "Error - the logical volume name contains illegal characters or spaces.  "
 "Acceptable characters are letters, digits, '.' or '_'."
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:67
+#: yali/storage/storageBackendHelpers.py:68
 msgid "Format as Swap?"
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:68
+#: yali/storage/storageBackendHelpers.py:69
 #, python-format
 msgid ""
 "%s has a partition type of 0x82 (Linux swap) but does not appear to be "
@@ -1884,16 +1904,16 @@ msgid ""
 "Would you like to format this partition as a swap partition?"
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:88
+#: yali/storage/storageBackendHelpers.py:89
 #, python-format
 msgid "You are about to delete all partitions on the device '%s'."
 msgstr "Zamierzasz usunąć wszyskie partycje z dysku '%s'"
 
-#: yali/storage/storageBackendHelpers.py:138
+#: yali/storage/storageBackendHelpers.py:139
 msgid "Notice"
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:139
+#: yali/storage/storageBackendHelpers.py:140
 #, python-format
 msgid ""
 "The following partitions were not deleted because they are in use:\n"
@@ -1901,27 +1921,27 @@ msgid ""
 "%s"
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:153
-#: yali/storage/storageBackendHelpers.py:160
+#: yali/storage/storageBackendHelpers.py:154
+#: yali/storage/storageBackendHelpers.py:161
 msgid "Unable To Delete"
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:154
+#: yali/storage/storageBackendHelpers.py:155
 msgid "You must first select a partition to delete."
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:199
+#: yali/storage/storageBackendHelpers.py:200
 #, python-format
 msgid ""
 "The mount point %s is invalid.  Mount points must start with '/' and cannot "
 "end with '/', and must contain printable characters and no spaces."
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:208
+#: yali/storage/storageBackendHelpers.py:209
 msgid "Error with Partitioning"
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:209
+#: yali/storage/storageBackendHelpers.py:210
 #, python-format
 msgid ""
 "The following critical errors exist with your requested partitioning scheme. "
@@ -1931,12 +1951,12 @@ msgid ""
 "%(errorstr)s"
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:225
+#: yali/storage/storageBackendHelpers.py:226
 #, fuzzy
 msgid "Partitioning Warning"
 msgstr "Partycje:"
 
-#: yali/storage/storageBackendHelpers.py:226
+#: yali/storage/storageBackendHelpers.py:227
 #, python-format
 msgid ""
 "The following warnings exist with your requested partition scheme.\n"
@@ -1946,24 +1966,24 @@ msgid ""
 "Would you like to continue with your requested partitioning scheme?"
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:241
+#: yali/storage/storageBackendHelpers.py:242
 msgid ""
 "The following pre-existing partitions have been selected to be formatted, "
 "destroying all data."
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:244
+#: yali/storage/storageBackendHelpers.py:245
 msgid ""
 "Select 'Yes' to continue and format these partitions, or 'No' to go back and "
 "change these settings."
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:250
+#: yali/storage/storageBackendHelpers.py:251
 #, fuzzy
 msgid "Format Warning"
 msgstr "Formatuję!"
 
-#: yali/storage/storageBackendHelpers.py:278
+#: yali/storage/storageBackendHelpers.py:279
 #, python-format
 msgid ""
 "You are about to delete the volume group \"%s\".\n"
@@ -1971,36 +1991,36 @@ msgid ""
 "ALL logical volumes in this volume group will be lost!"
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:282
+#: yali/storage/storageBackendHelpers.py:283
 #, python-format
 msgid "You are about to delete the logical volume \"%s\"."
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:285
+#: yali/storage/storageBackendHelpers.py:286
 msgid "You are about to delete a RAID device."
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:287
+#: yali/storage/storageBackendHelpers.py:288
 #, fuzzy, python-format
 msgid "You are about to delete the %s partition."
 msgstr "Zamierzasz usunąć wszyskie partycje z urządzenia '%s'"
 
-#: yali/storage/storageBackendHelpers.py:291
+#: yali/storage/storageBackendHelpers.py:292
 #, python-format
 msgid "You are about to delete the %(type)s %(name)s"
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:301
+#: yali/storage/storageBackendHelpers.py:302
 #, fuzzy
 msgid "Confirm Reset"
 msgstr "Hasło:"
 
-#: yali/storage/storageBackendHelpers.py:301
+#: yali/storage/storageBackendHelpers.py:302
 msgid ""
 "Are you sure you want to reset the partition table to its original state?"
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:309
+#: yali/storage/storageBackendHelpers.py:310
 msgid ""
 "You have chosen to use a pre-existing partition for this\n"
 "installation without formatting it. We recommend that you format\n"
@@ -2011,15 +2031,15 @@ msgid ""
 "npartition."
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:317
+#: yali/storage/storageBackendHelpers.py:318
 msgid "Format?"
 msgstr "Sformatować?"
 
-#: yali/storage/storageBackendHelpers.py:318
+#: yali/storage/storageBackendHelpers.py:319
 msgid "Do Not Format"
 msgstr "Nie formatuj"
 
-#: yali/storage/storageBackendHelpers.py:325
+#: yali/storage/storageBackendHelpers.py:326
 #, python-format
 msgid ""
 "Partitions of type '%s' must be constrained to a\n"
@@ -2027,14 +2047,14 @@ msgid ""
 "checklist."
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:330
-#: yali/storage/storageBackendHelpers.py:355
-#: yali/storage/storageBackendHelpers.py:375
+#: yali/storage/storageBackendHelpers.py:331
+#: yali/storage/storageBackendHelpers.py:356
+#: yali/storage/storageBackendHelpers.py:376
 #, fuzzy
 msgid "Storage Device Warning"
 msgstr "Formatuję!"
 
-#: yali/storage/storageBackendHelpers.py:331
+#: yali/storage/storageBackendHelpers.py:332
 #, python-format
 msgid ""
 "The following storage device may contain recoverable data:<br><br>"
@@ -2046,16 +2066,16 @@ msgid ""
 "not be considered as a possible installation target."
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:342
+#: yali/storage/storageBackendHelpers.py:343
 msgid "Reset device"
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:342
+#: yali/storage/storageBackendHelpers.py:343
 #, fuzzy
 msgid "Ignore device"
 msgstr "Ignoruj"
 
-#: yali/storage/storageBackendHelpers.py:356
+#: yali/storage/storageBackendHelpers.py:357
 #, python-format
 msgid ""
 "There is inconsistent LVM data on %(msg)s. You can reinitialize all related "
@@ -2064,15 +2084,15 @@ msgid ""
 "inconsistent metadata."
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:363
+#: yali/storage/storageBackendHelpers.py:364
 msgid "Yes, re-initialize"
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:363
+#: yali/storage/storageBackendHelpers.py:364
 msgid "No, protect data"
 msgstr ""
 
-#: yali/storage/storageBackendHelpers.py:376
+#: yali/storage/storageBackendHelpers.py:377
 #, python-format
 msgid ""
 "Disk contains %(members_count)s BIOS RAID metadata, but is not part of any "
@@ -2485,27 +2505,25 @@ msgstr "Ukraiński"
 msgid "Serbian"
 msgstr "Serbski"
 
-#: yali/pisiiface.py:61
-#, python-format
-msgid "Error occured while %(repo)s repo is adding:%(msg)s"
-msgstr ""
-
 #: yali/postinstall.py:123
 #, python-format
 msgid "Preparing home directory for %s..."
 msgstr ""
 
-#: yali/util.py:525 yali/util.py:568
+#: yali/util.py:527 yali/util.py:570
 msgid "Release file is missing"
 msgstr ""
 
-#: yali/util.py:527 yali/util.py:570
+#: yali/util.py:529 yali/util.py:572
 msgid "Release file is inconsistent"
 msgstr ""
 
-#: yali/util.py:530 yali/util.py:573
+#: yali/util.py:532 yali/util.py:575
 msgid "Invalid xml file"
 msgstr ""
+
+#~ msgid "Create Custom Layout"
+#~ msgstr "Utwórz własny układ"
 
 #~ msgid "New password:"
 #~ msgstr "Nowe hasło:"

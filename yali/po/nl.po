@@ -11,14 +11,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-17 16:11+0300\n"
+"POT-Creation-Date: 2011-05-27 12:23+0300\n"
 "PO-Revision-Date: 2011-05-23 22:42+0200\n"
 "Last-Translator: Antoon Tolboom <atolboo@gmail.com>\n"
 "Language-Team: Dutch <kde-i18n-doc@kde.org>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "X-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
@@ -49,8 +49,9 @@ msgstr "Ik zal de bestemming kiezen"
 msgid "Use Selected"
 msgstr "Geselecteerde gebruiken"
 
-#: yali/gui/Ui/autopartwidget.py:140 yali/gui/ScrSummary.py:138
-msgid "Use All Space"
+#: yali/gui/Ui/autopartwidget.py:140
+#, fuzzy
+msgid "Use All Disk"
 msgstr "Alle ruimte gebruiken"
 
 #: yali/gui/Ui/autopartwidget.py:141
@@ -62,8 +63,9 @@ msgid "Use Free Space"
 msgstr "Vrije ruimte gebruiken"
 
 #: yali/gui/Ui/autopartwidget.py:143
-msgid "Create Custom Layout"
-msgstr "Aangepaste indeling aanmaken"
+#, fuzzy
+msgid "Manual Partitioning"
+msgstr "Handmatig partitioneren geselecteerd."
 
 #: yali/gui/Ui/bootloaderwidget.py:128
 msgid "Advanced settings"
@@ -196,7 +198,7 @@ msgstr ""
 "Gaarne een foutrapport invullen op http://bugs.pardus.org.tr/ en de volgende "
 "backtrace toevoegen."
 
-#: yali/gui/Ui/exception.py:64 yali/gui/ScrCheckCD.py:99
+#: yali/gui/Ui/exception.py:64 yali/gui/ScrCheckCD.py:101
 #: yali/storage/__init__.py:930
 msgid "Reboot"
 msgstr "Herstarten"
@@ -335,8 +337,8 @@ msgstr "Bewerken"
 
 #: yali/gui/Ui/manualpartwidget.py:165 yali/gui/Ui/setupuserswidget.py:500
 #: yali/gui/Ui/volumegroup.py:119 yali/gui/lvm_gui.py:552
-#: yali/storage/storageBackendHelpers.py:91
-#: yali/storage/storageBackendHelpers.py:295
+#: yali/storage/storageBackendHelpers.py:92
+#: yali/storage/storageBackendHelpers.py:296
 msgid "Delete"
 msgstr "Verwijderen"
 
@@ -408,8 +410,8 @@ msgstr "Partitie verkleinen tot grootte (in MB) :"
 #: yali/gui/lvm_gui.py:465 yali/gui/lvm_gui.py:552
 #: yali/gui/ScrPartitionManual.py:114 yali/gui/ScrPartitionManual.py:130
 #: yali/gui/ScrPartitionManual.py:140 yali/gui/YaliDialog.py:220
-#: yali/storage/__init__.py:930 yali/storage/storageBackendHelpers.py:91
-#: yali/storage/storageBackendHelpers.py:295
+#: yali/storage/__init__.py:930 yali/storage/storageBackendHelpers.py:92
+#: yali/storage/storageBackendHelpers.py:296
 msgid "Cancel"
 msgstr "Annuleren"
 
@@ -702,7 +704,7 @@ msgstr ""
 "plaats vinden."
 
 #: yali/gui/lvm_gui.py:418 yali/gui/lvm_gui.py:465
-#: yali/gui/ScrPartitionManual.py:358 yali/gui/ScrRescuePassword.py:124
+#: yali/gui/ScrPartitionManual.py:358 yali/gui/ScrRescuePassword.py:123
 #: yali/gui/ScrRescue.py:95 yali/storage/storageset.py:336
 msgid "Continue"
 msgstr "Doorgaan"
@@ -722,9 +724,9 @@ msgstr ""
 #: yali/gui/lvm_gui.py:446
 #, python-format
 msgid ""
-"The physical extent size cannot be changed because the value selected (%"
-"(curpe)10.2f MB) is too large compared to the size of the smallest physical "
-"volume (%(maxpvsize)10.2f MB) in the volume group."
+"The physical extent size cannot be changed because the value selected "
+"(%(curpe)10.2f MB) is too large compared to the size of the smallest "
+"physical volume (%(maxpvsize)10.2f MB) in the volume group."
 msgstr ""
 "De fysieke uitbreidingsgrootte kan niet gewijzigd worden omdat de "
 "geselecteerde waarde (%(curpe)10.2f MB) te groot is in vergelijking met de "
@@ -783,8 +785,8 @@ msgstr ""
 "van de huidige bestaande logische volumes om een logische\n"
 "volume toe te voegen."
 
-#: yali/gui/lvm_gui.py:548 yali/storage/storageBackendHelpers.py:87
-#: yali/storage/storageBackendHelpers.py:294
+#: yali/gui/lvm_gui.py:548 yali/storage/storageBackendHelpers.py:88
+#: yali/storage/storageBackendHelpers.py:295
 msgid "Confirm Delete"
 msgstr "Verwijderen bevestigen"
 
@@ -860,8 +862,8 @@ msgstr ""
 #, python-format
 msgid ""
 "The size entered for this logical volume (%(size)d MB) combined with the "
-"size of the other logical volume(s) exceeds the size of the volume group (%"
-"(tmpvgsize)d MB). Please make the volume group larger or make the logical "
+"size of the other logical volume(s) exceeds the size of the volume group "
+"(%(tmpvgsize)d MB). Please make the volume group larger or make the logical "
 "volume smaller."
 msgstr ""
 "De opgegeven grootte voor het logische volume (%(size)d MB) in combinatie "
@@ -939,7 +941,7 @@ msgstr ""
 "\n"
 "className = %s.Widget"
 
-#: yali/gui/runner.py:122 yali/gui/ScrRescuePassword.py:124
+#: yali/gui/runner.py:122 yali/gui/ScrRescuePassword.py:123
 #: yali/gui/ScrRescue.py:95 yali/gui/YaliWindow.py:385
 #: yali/storage/storageset.py:388
 msgid "Exit"
@@ -977,40 +979,49 @@ msgstr "De hostnaam bevat ongeldige tekens."
 msgid "Starting validation..."
 msgstr "Validatie starten..."
 
-#: yali/gui/ScrCheckCD.py:87
+#: yali/gui/ScrCheckCD.py:82
+msgid "Package validation is in progress. Please wait until it is completed."
+msgstr ""
+
+#: yali/gui/ScrCheckCD.py:89
 #, python-format
 msgid "Validating %s"
 msgstr "Valideren van %s"
 
-#: yali/gui/ScrCheckCD.py:94 yali/gui/ScrInstall.py:195
+#: yali/gui/ScrCheckCD.py:96 yali/gui/ScrInstall.py:195
 #: yali/gui/ScrPartitionAuto.py:44 yali/gui/ScrPartitionManual.py:138
 #: yali/gui/YaliWindow.py:212 yali/gui/YaliWindow.py:217
 #: yali/gui/YaliWindow.py:222
 msgid "Warning"
 msgstr "Waarschuwing"
 
-#: yali/gui/ScrCheckCD.py:95
+#: yali/gui/ScrCheckCD.py:97
 #, python-format
 msgid ""
 "Validation of %s package failed.Please remaster your installation medium "
 "andreboot."
 msgstr "Validatie van %s pakketten is mislu"
 
-#: yali/gui/ScrCheckCD.py:99
+#: yali/gui/ScrCheckCD.py:101
 msgid "Skip Validation"
 msgstr "Validatie overslaan"
 
-#: yali/gui/ScrCheckCD.py:99
+#: yali/gui/ScrCheckCD.py:101
 msgid "Skip Package"
 msgstr "Pakket overslaan"
 
-#: yali/gui/ScrCheckCD.py:114
+#: yali/gui/ScrCheckCD.py:115
 msgid ""
 "<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the "
 "installation.</b></font>"
 msgstr ""
 "<font color=\"#FFF\"><b>Validatie is succesvol. U kunt doorgaan met de "
 "installatie.</b></font>"
+
+#: yali/gui/ScrCheckCD.py:127
+#, fuzzy
+msgid "Package validation is finished."
+msgstr "Pakketinstalatie-instellingen"
 
 #: yali/gui/ScrDateTime.py:169
 msgid "Adjusting time settings"
@@ -1114,22 +1125,22 @@ msgid ""
 "Following error occured while installing packages:<b>%s</b><br><br>Do you "
 "want to retry?"
 msgstr ""
-"Volgende fout is opgetreden tijdens installeren van pakketten:<b>%s</b><br><"
-"br>Opnieuw proberen?"
+"Volgende fout is opgetreden tijdens installeren van pakketten:<b>%s</"
+"b><br><br>Opnieuw proberen?"
 
 #: yali/gui/ScrInstall.py:202 yali/gui/ScrSummary.py:297
 #: yali/gui/YaliDialog.py:218 yali/gui/YaliDialog.py:234
-#: yali/storage/storageBackendHelpers.py:232
-#: yali/storage/storageBackendHelpers.py:253
-#: yali/storage/storageBackendHelpers.py:303
+#: yali/storage/storageBackendHelpers.py:233
+#: yali/storage/storageBackendHelpers.py:254
+#: yali/storage/storageBackendHelpers.py:304
 msgid "Yes"
 msgstr "Ja"
 
 #: yali/gui/ScrInstall.py:202 yali/gui/ScrSummary.py:297
 #: yali/gui/YaliDialog.py:220 yali/gui/YaliDialog.py:235
-#: yali/storage/storageBackendHelpers.py:232
-#: yali/storage/storageBackendHelpers.py:253
-#: yali/storage/storageBackendHelpers.py:303
+#: yali/storage/storageBackendHelpers.py:233
+#: yali/storage/storageBackendHelpers.py:254
+#: yali/storage/storageBackendHelpers.py:304
 msgid "No"
 msgstr "Nee"
 
@@ -1165,6 +1176,11 @@ msgid ""
 msgstr ""
 "Geen partitie beschikbaar om in grootte aan te passen.\n"
 "Dit is alleen mogelijk voor fysieke partities groter dan %s MB."
+
+#: yali/gui/ScrPartitionAuto.py:60
+#, fuzzy
+msgid "Use All Disks"
+msgstr "Alle ruimte gebruiken"
 
 #: yali/gui/ScrPartitionManual.py:94
 #, python-format
@@ -1284,7 +1300,7 @@ msgid "Warning: %s."
 msgstr "Waarschuwing: %s."
 
 #: yali/gui/ScrPartitionManual.py:358
-#: yali/storage/storageBackendHelpers.py:318
+#: yali/storage/storageBackendHelpers.py:319
 msgid "Modify Partition"
 msgstr "Partitie wijzigen"
 
@@ -1311,27 +1327,27 @@ msgstr ""
 "\n"
 "%s "
 
-#: yali/gui/ScrRescuePassword.py:100 yali/gui/ScrUsers.py:214
+#: yali/gui/ScrRescuePassword.py:99 yali/gui/ScrUsers.py:214
 msgid "Don't use your user name or name as a password"
 msgstr "Gebruik gebruikersnaam of naam niet als wachtwoord"
 
-#: yali/gui/ScrRescuePassword.py:103 yali/gui/ScrUsers.py:217
+#: yali/gui/ScrRescuePassword.py:102 yali/gui/ScrUsers.py:217
 msgid "Passwords do not match"
 msgstr "Wachtwoorden komen niet overeen"
 
-#: yali/gui/ScrRescuePassword.py:106 yali/gui/ScrUsers.py:220
+#: yali/gui/ScrRescuePassword.py:105 yali/gui/ScrUsers.py:220
 msgid "Password is too short"
 msgstr "Wachtwoord is te kort"
 
-#: yali/gui/ScrRescuePassword.py:121 yali/gui/ScrRescue.py:92
+#: yali/gui/ScrRescuePassword.py:120 yali/gui/ScrRescue.py:92
 msgid "Cannot Rescue"
 msgstr "Kan niet herstellen"
 
-#: yali/gui/ScrRescuePassword.py:122 yali/gui/ScrRescue.py:93
+#: yali/gui/ScrRescuePassword.py:121 yali/gui/ScrRescue.py:93
 msgid "Your current installation cannot be rescued."
 msgstr "De huidige installatie kan niet hersteld worden."
 
-#: yali/gui/ScrRescuePassword.py:146
+#: yali/gui/ScrRescuePassword.py:145
 msgid "Super User"
 msgstr "Systeembeheerder"
 
@@ -1458,6 +1474,10 @@ msgstr "Partitie instellingen"
 #: yali/gui/ScrSummary.py:136
 msgid "Automatic Partitioning selected."
 msgstr "Automatisch partitioneren geselecteerd."
+
+#: yali/gui/ScrSummary.py:138
+msgid "Use All Space"
+msgstr "Alle ruimte gebruiken"
 
 #: yali/gui/ScrSummary.py:139
 #, python-format
@@ -1979,20 +1999,20 @@ msgstr ""
 "Dit kan veroorzaakt worden wanneer er niet voldoend vrije ruimte op de harde "
 "schijf aanwezig is. %(extra)s"
 
-#: yali/storage/storageBackendHelpers.py:17
+#: yali/storage/storageBackendHelpers.py:18
 msgid "Please enter a volume group name."
 msgstr "Voer een naam voor de volumegroep in."
 
-#: yali/storage/storageBackendHelpers.py:21
+#: yali/storage/storageBackendHelpers.py:22
 msgid "Volume Group Names must be less than 128 characters"
 msgstr "De naam van de volumegroep dient minder dan 128 tekens te zijn"
 
-#: yali/storage/storageBackendHelpers.py:24
+#: yali/storage/storageBackendHelpers.py:25
 #, python-format
 msgid "Error - the volume group name %s is not valid."
 msgstr "Fout - de naam van volumegroep %s is ongeldig."
 
-#: yali/storage/storageBackendHelpers.py:29
+#: yali/storage/storageBackendHelpers.py:30
 msgid ""
 "Error - the volume group name contains illegal characters or spaces.  "
 "Acceptable characters are letters, digits, '.' or '_'."
@@ -2000,20 +2020,20 @@ msgstr ""
 "Fout - de naam van de volumegroep bevat ongeldige tekens of spaties. "
 "Toegestane tekens zijn letters, cijfers, '.' of '_'."
 
-#: yali/storage/storageBackendHelpers.py:39
+#: yali/storage/storageBackendHelpers.py:40
 msgid "Please enter a logical volume name."
 msgstr "Voer een logische volumenaam in."
 
-#: yali/storage/storageBackendHelpers.py:43
+#: yali/storage/storageBackendHelpers.py:44
 msgid "Logical Volume Names must be less than 128 characters"
 msgstr "De logische volumenaam dient minder dan 128 tekens te zijn"
 
-#: yali/storage/storageBackendHelpers.py:47
+#: yali/storage/storageBackendHelpers.py:48
 #, python-format
 msgid "Error - the logical volume name %s is not valid."
 msgstr "Fout - de logische volumenaam %s is ongeldig."
 
-#: yali/storage/storageBackendHelpers.py:53
+#: yali/storage/storageBackendHelpers.py:54
 msgid ""
 "Error - the logical volume name contains illegal characters or spaces.  "
 "Acceptable characters are letters, digits, '.' or '_'."
@@ -2021,11 +2041,11 @@ msgstr ""
 "Fout - de logische volumenaam bevat niet geldige tekens of spaties. "
 "Toegestane tekens zijn letters, cijfers, '.' of '_'."
 
-#: yali/storage/storageBackendHelpers.py:67
+#: yali/storage/storageBackendHelpers.py:68
 msgid "Format as Swap?"
 msgstr "Formatteren als swap?"
 
-#: yali/storage/storageBackendHelpers.py:68
+#: yali/storage/storageBackendHelpers.py:69
 #, python-format
 msgid ""
 "%s has a partition type of 0x82 (Linux swap) but does not appear to be "
@@ -2038,17 +2058,17 @@ msgstr ""
 "\n"
 "Deze partitie als swap-partitie formatteren?"
 
-#: yali/storage/storageBackendHelpers.py:88
+#: yali/storage/storageBackendHelpers.py:89
 #, python-format
 msgid "You are about to delete all partitions on the device '%s'."
 msgstr ""
 "U staat op het punt om alle partities op de schijf '%s' te verwijderen."
 
-#: yali/storage/storageBackendHelpers.py:138
+#: yali/storage/storageBackendHelpers.py:139
 msgid "Notice"
 msgstr "Opmerking"
 
-#: yali/storage/storageBackendHelpers.py:139
+#: yali/storage/storageBackendHelpers.py:140
 #, python-format
 msgid ""
 "The following partitions were not deleted because they are in use:\n"
@@ -2059,16 +2079,16 @@ msgstr ""
 "\n"
 "%s"
 
-#: yali/storage/storageBackendHelpers.py:153
-#: yali/storage/storageBackendHelpers.py:160
+#: yali/storage/storageBackendHelpers.py:154
+#: yali/storage/storageBackendHelpers.py:161
 msgid "Unable To Delete"
 msgstr "Verwijderen is niet mogelijk"
 
-#: yali/storage/storageBackendHelpers.py:154
+#: yali/storage/storageBackendHelpers.py:155
 msgid "You must first select a partition to delete."
 msgstr "Selecteer eerst een partitie om te verwijderen."
 
-#: yali/storage/storageBackendHelpers.py:199
+#: yali/storage/storageBackendHelpers.py:200
 #, python-format
 msgid ""
 "The mount point %s is invalid.  Mount points must start with '/' and cannot "
@@ -2078,16 +2098,16 @@ msgstr ""
 "beginnen, mogen niet met '/' eindigen, dienen uitsluitend letters/cijfers te "
 "bevatten en geen spaties."
 
-#: yali/storage/storageBackendHelpers.py:208
+#: yali/storage/storageBackendHelpers.py:209
 msgid "Error with Partitioning"
 msgstr "Fout tijdens partitioneren"
 
-#: yali/storage/storageBackendHelpers.py:209
+#: yali/storage/storageBackendHelpers.py:210
 #, python-format
 msgid ""
 "The following critical errors exist with your requested partitioning scheme. "
-"These errors must be corrected prior to continuing with your install of %"
-"(productName)s.\n"
+"These errors must be corrected prior to continuing with your install of "
+"%(productName)s.\n"
 "\n"
 "%(errorstr)s"
 msgstr ""
@@ -2097,11 +2117,11 @@ msgstr ""
 "\n"
 "%(errorstr)s"
 
-#: yali/storage/storageBackendHelpers.py:225
+#: yali/storage/storageBackendHelpers.py:226
 msgid "Partitioning Warning"
 msgstr "Waarschuwingen bij partitioneren"
 
-#: yali/storage/storageBackendHelpers.py:226
+#: yali/storage/storageBackendHelpers.py:227
 #, python-format
 msgid ""
 "The following warnings exist with your requested partition scheme.\n"
@@ -2116,7 +2136,7 @@ msgstr ""
 "\n"
 "Doorgaan met het gevraagde partitieschema?"
 
-#: yali/storage/storageBackendHelpers.py:241
+#: yali/storage/storageBackendHelpers.py:242
 msgid ""
 "The following pre-existing partitions have been selected to be formatted, "
 "destroying all data."
@@ -2124,7 +2144,7 @@ msgstr ""
 "De volgende reeds bestaande partities zijn geselecteerd om geformatteerd te "
 "worden en daardoor worden alle gegevens vernietigd."
 
-#: yali/storage/storageBackendHelpers.py:244
+#: yali/storage/storageBackendHelpers.py:245
 msgid ""
 "Select 'Yes' to continue and format these partitions, or 'No' to go back and "
 "change these settings."
@@ -2132,11 +2152,11 @@ msgstr ""
 "Selecteer 'Ja' om door te gaan en deze partities te formatteren, of 'Nee' om "
 "terug te gaan en deze instellingen te wijzigen."
 
-#: yali/storage/storageBackendHelpers.py:250
+#: yali/storage/storageBackendHelpers.py:251
 msgid "Format Warning"
 msgstr "Waarschuwingen bij formatteren"
 
-#: yali/storage/storageBackendHelpers.py:278
+#: yali/storage/storageBackendHelpers.py:279
 #, python-format
 msgid ""
 "You are about to delete the volume group \"%s\".\n"
@@ -2147,35 +2167,35 @@ msgstr ""
 "\n"
 "ALLE logische volumes in deze volumegroep zullen verloren gaan!"
 
-#: yali/storage/storageBackendHelpers.py:282
+#: yali/storage/storageBackendHelpers.py:283
 #, python-format
 msgid "You are about to delete the logical volume \"%s\"."
 msgstr "U staat op het punt om het logische volume \"%s\"  te verwijderen."
 
-#: yali/storage/storageBackendHelpers.py:285
+#: yali/storage/storageBackendHelpers.py:286
 msgid "You are about to delete a RAID device."
 msgstr "U staat op het punt om een RAID-apparaat te verwijderen."
 
-#: yali/storage/storageBackendHelpers.py:287
+#: yali/storage/storageBackendHelpers.py:288
 #, python-format
 msgid "You are about to delete the %s partition."
 msgstr "U staat op het punt om de partitie  %s  te verwijderen"
 
-#: yali/storage/storageBackendHelpers.py:291
+#: yali/storage/storageBackendHelpers.py:292
 #, python-format
 msgid "You are about to delete the %(type)s %(name)s"
 msgstr "U staat op het punt om de %(type)s %(name)s te verwijderen"
 
-#: yali/storage/storageBackendHelpers.py:301
+#: yali/storage/storageBackendHelpers.py:302
 msgid "Confirm Reset"
 msgstr "Herstellen bevestigen"
 
-#: yali/storage/storageBackendHelpers.py:301
+#: yali/storage/storageBackendHelpers.py:302
 msgid ""
 "Are you sure you want to reset the partition table to its original state?"
 msgstr "Werkelijk de partitietabel in de originele staat herstellen?"
 
-#: yali/storage/storageBackendHelpers.py:309
+#: yali/storage/storageBackendHelpers.py:310
 msgid ""
 "You have chosen to use a pre-existing partition for this\n"
 "installation without formatting it. We recommend that you format\n"
@@ -2194,15 +2214,15 @@ msgstr ""
 "ga dan verder zonder deze te formatteren\n"
 "npartition."
 
-#: yali/storage/storageBackendHelpers.py:317
+#: yali/storage/storageBackendHelpers.py:318
 msgid "Format?"
 msgstr "Formatteren?"
 
-#: yali/storage/storageBackendHelpers.py:318
+#: yali/storage/storageBackendHelpers.py:319
 msgid "Do Not Format"
 msgstr "Niet formatteren"
 
-#: yali/storage/storageBackendHelpers.py:325
+#: yali/storage/storageBackendHelpers.py:326
 #, python-format
 msgid ""
 "Partitions of type '%s' must be constrained to a\n"
@@ -2213,25 +2233,25 @@ msgstr ""
 "beperkt te worden. Om dit te bereiken, selecteer de schijf\n"
 "uit de lijst 'Toegestane Schijven'."
 
-#: yali/storage/storageBackendHelpers.py:330
-#: yali/storage/storageBackendHelpers.py:355
-#: yali/storage/storageBackendHelpers.py:375
+#: yali/storage/storageBackendHelpers.py:331
+#: yali/storage/storageBackendHelpers.py:356
+#: yali/storage/storageBackendHelpers.py:376
 msgid "Storage Device Warning"
 msgstr "Waarschuwing opslagapparaten"
 
-#: yali/storage/storageBackendHelpers.py:331
+#: yali/storage/storageBackendHelpers.py:332
 #, python-format
 msgid ""
-"The following storage device may contain recoverable data:<br><br>%"
-"(description)s (%(size)s MB)<br><br>This device may have data that will be "
+"The following storage device may contain recoverable data:<br><br>"
+"%(description)s (%(size)s MB)<br><br>This device may have data that will be "
 "<b>permanently lost</b> if you include it in this installation.<br><br>If "
 "you don't care about any data on this device, choose <b>Reset device</b> to "
 "include it in the installation process.<br><br>If you don't want the device "
 "to be permanently erased, select <b>Ignore device</b> and the device will "
 "not be considered as a possible installation target."
 msgstr ""
-"Het volgende opslagapparaat kan herstelbare gegevens bevatten:<br><br>%"
-"(description)s (%(size)s MB)<br><br>Het apparaat kan gegevens bevatten die "
+"Het volgende opslagapparaat kan herstelbare gegevens bevatten:<br><br>"
+"%(description)s (%(size)s MB)<br><br>Het apparaat kan gegevens bevatten die "
 "<b>definitief verloren</b> gaan bij het gebruiken voor deze installatie."
 "<br><br>In dien de gegevens op het apparaat niet belangrijk zijn, selecteer "
 "<b>Apparaat opnieuw instellen</b> om het in het installatieproces op te "
@@ -2239,15 +2259,15 @@ msgstr ""
 "<b>Apparaat negeren</b> en het apparaat zal niet als een mogelijk "
 "installatiedoel beschouwd worden."
 
-#: yali/storage/storageBackendHelpers.py:342
+#: yali/storage/storageBackendHelpers.py:343
 msgid "Reset device"
 msgstr "Apparaat opnieuw instellen"
 
-#: yali/storage/storageBackendHelpers.py:342
+#: yali/storage/storageBackendHelpers.py:343
 msgid "Ignore device"
 msgstr "Apparaat negeren"
 
-#: yali/storage/storageBackendHelpers.py:356
+#: yali/storage/storageBackendHelpers.py:357
 #, python-format
 msgid ""
 "There is inconsistent LVM data on %(msg)s. You can reinitialize all related "
@@ -2255,21 +2275,21 @@ msgid ""
 "preserve thecontents.This action may also be applied to all other PVs with "
 "inconsistent metadata."
 msgstr ""
-"Er zijn niet samenhangend LVM-gegevens op %(msg)s. Alle gerelateerde PV's (%"
-"(pvs)s) kunnen opnieuw geïnitialiseerd worden en dit zal de LVM-metagegevens "
-"wissen, of door het negeren zal de inhoud niet verloren gaan. Deze bewerking "
-"kan ook op alle andere PV's, met niet samenhangende metagegevens, toegepast "
-"worden."
+"Er zijn niet samenhangend LVM-gegevens op %(msg)s. Alle gerelateerde PV's "
+"(%(pvs)s) kunnen opnieuw geïnitialiseerd worden en dit zal de LVM-"
+"metagegevens wissen, of door het negeren zal de inhoud niet verloren gaan. "
+"Deze bewerking kan ook op alle andere PV's, met niet samenhangende "
+"metagegevens, toegepast worden."
 
-#: yali/storage/storageBackendHelpers.py:363
+#: yali/storage/storageBackendHelpers.py:364
 msgid "Yes, re-initialize"
 msgstr "Ja, opnieuw initialiseren"
 
-#: yali/storage/storageBackendHelpers.py:363
+#: yali/storage/storageBackendHelpers.py:364
 msgid "No, protect data"
 msgstr "Nee, gegevens beschermen"
 
-#: yali/storage/storageBackendHelpers.py:376
+#: yali/storage/storageBackendHelpers.py:377
 #, python-format
 msgid ""
 "Disk contains %(members_count)s BIOS RAID metadata, but is not part of any "
@@ -2319,9 +2339,9 @@ msgid ""
 "An error occurred mounting device %(path)s as %(mountpoint)s.  You may "
 "continue installation, but there may be problems."
 msgstr ""
-"Een fout is opgetreden tijdens het aan koppelen van %(path)s als %"
-"(mountpoint)s.  De installatie kan voortgezet worden, maar dit kan problemen "
-"geven."
+"Een fout is opgetreden tijdens het aan koppelen van %(path)s als "
+"%(mountpoint)s.  De installatie kan voortgezet worden, maar dit kan "
+"problemen geven."
 
 #: yali/storage/storageset.py:351
 #, python-format
@@ -2331,9 +2351,9 @@ msgid ""
 "\n"
 "Press <Enter> to exit the installer."
 msgstr ""
-"Een fout is opgetreden tijdens het aankoppelen van %(path)s als %(mountpoint)"
-"s: %(msg)s. Dit is een fatale fout en de installatie kan niet voortgezet "
-"worden.\n"
+"Een fout is opgetreden tijdens het aankoppelen van %(path)s als "
+"%(mountpoint)s: %(msg)s. Dit is een fatale fout en de installatie kan niet "
+"voortgezet worden.\n"
 "\n"
 "Druk <Enter> om de installatie te beëindigen."
 
@@ -2404,8 +2424,8 @@ msgid ""
 "installer."
 msgstr ""
 "Fout tijdens inschakelen swapruimte %(name)s: %(msg)s<br><br>Dit wordt "
-"hoogstwaarschijnlijk veroorzaakt door een niet geïnitialiseerde swapruimte.<"
-"br><br>Selecteer 'OK' om de installatie te beëindigen."
+"hoogstwaarschijnlijk veroorzaakt door een niet geïnitialiseerde swapruimte."
+"<br><br>Selecteer 'OK' om de installatie te beëindigen."
 
 #: yali/storage/storageset.py:501
 msgid "You have not created a bootable partition."
@@ -2727,27 +2747,28 @@ msgstr "Oekraïens"
 msgid "Serbian"
 msgstr "Servisch"
 
-#: yali/pisiiface.py:61
-#, python-format
-msgid "Error occured while %(repo)s repo is adding:%(msg)s"
-msgstr "Fout opgetreden tijdens %(repo)s repo is toevoegen van:%(msg)s"
-
 #: yali/postinstall.py:123
 #, python-format
 msgid "Preparing home directory for %s..."
 msgstr "Klaarmaken van persoonlijk map voor %s..."
 
-#: yali/util.py:525 yali/util.py:568
+#: yali/util.py:527 yali/util.py:570
 msgid "Release file is missing"
 msgstr "Uitgavebestand ontbreekt"
 
-#: yali/util.py:527 yali/util.py:570
+#: yali/util.py:529 yali/util.py:572
 msgid "Release file is inconsistent"
 msgstr "Uitgavebestand is niet samenhangend"
 
-#: yali/util.py:530 yali/util.py:573
+#: yali/util.py:532 yali/util.py:575
 msgid "Invalid xml file"
 msgstr "Ongeldig xml-bestand"
+
+#~ msgid "Create Custom Layout"
+#~ msgstr "Aangepaste indeling aanmaken"
+
+#~ msgid "Error occured while %(repo)s repo is adding:%(msg)s"
+#~ msgstr "Fout opgetreden tijdens %(repo)s repo is toevoegen van:%(msg)s"
 
 #~ msgid "New password:"
 #~ msgstr "Nieuw wachtwoord:"
@@ -2909,8 +2930,8 @@ msgstr "Ongeldig xml-bestand"
 #~ msgstr "Installeer alle taalpakketten"
 
 #~ msgid ""
-#~ "Cannot access the partition table of %(description)s(%(name)s) -- %(size)-"
-#~ "0.fMB\n"
+#~ "Cannot access the partition table of %(description)s(%(name)s) -- "
+#~ "%(size)-0.fMB\n"
 #~ "\n"
 #~ "If there already exists a partition table on this device, it will\n"
 #~ " be re-initialized and your existing data will be lost!\n"
@@ -3626,8 +3647,8 @@ msgstr "Ongeldig xml-bestand"
 #~ msgstr "%d MB beschikbaar"
 
 #~ msgid ""
-#~ "Partition <b>%(partition)s (%(size)s)</b> <b>deleted</b> from device <b>%"
-#~ "(device)s</b>."
+#~ "Partition <b>%(partition)s (%(size)s)</b> <b>deleted</b> from device <b>"
+#~ "%(device)s</b>."
 #~ msgstr ""
 #~ "Partitie <b>%(partition)s (%(size)s)</b> <b>verwijderd</b> van station <b>"
 #~ "%(device)s</b>."
@@ -3639,8 +3660,8 @@ msgstr "Ongeldig xml-bestand"
 #~ "Partition <b>%(partition)s</b> will be <b>formatted</b> as <b>%(fsType)s</"
 #~ "b>."
 #~ msgstr ""
-#~ "Partitie <b>%(partition)s</b> <b>zal geformateerd worden</b> als <b>%"
-#~ "(fsType)s</b>."
+#~ "Partitie <b>%(partition)s</b> <b>zal geformateerd worden</b> als <b>"
+#~ "%(fsType)s</b>."
 
 #~ msgid "Partition <b>%(partition)s</b> <b>selected</b> as <b>%(type)s</b>."
 #~ msgstr ""
@@ -4269,18 +4290,18 @@ msgstr "Ongeldig xml-bestand"
 #~ msgstr "Automatisch partitioneren (grootte aanpassen methode) geselecteerd."
 
 #~ msgid ""
-#~ "Partition <b>%(partition)s - %(currentFs)s</b> <b>resized</b> to <b>%"
-#~ "(resizeTo)s MBs</b>, previous size was <b>%(currentSize)s MBs</b>."
+#~ "Partition <b>%(partition)s - %(currentFs)s</b> <b>resized</b> to <b>"
+#~ "%(resizeTo)s MBs</b>, previous size was <b>%(currentSize)s MBs</b>."
 #~ msgstr ""
-#~ "Partitie <b>%(partition)s - %(currentFs)s</b> <b>aangepast</b> naar <b>%"
-#~ "(resizeTo)s MB</b>, oude grootte was <b>%(currentSize)s MB</b>."
+#~ "Partitie <b>%(partition)s - %(currentFs)s</b> <b>aangepast</b> naar <b>"
+#~ "%(resizeTo)s MB</b>, oude grootte was <b>%(currentSize)s MB</b>."
 
 #~ msgid ""
 #~ "Partition <b>%(newPartition)s</b> <b>added</b> to device <b>%(device)s</"
 #~ "b> with <b>%(size)s MBs</b> as <b>%(fs)s</b>."
 #~ msgstr ""
-#~ "Partitie <b>%(newPartition)s</b> <b>toegevoegd</b> aan station <b>%"
-#~ "(device)s</b> met <b>%(size)s MB</b> als <b>%(fs)s</b>."
+#~ "Partitie <b>%(newPartition)s</b> <b>toegevoegd</b> aan station <b>"
+#~ "%(device)s</b> met <b>%(size)s MB</b> als <b>%(fs)s</b>."
 
 #~ msgid ""
 #~ "Partition <b>%(newPartition)s</b> <b>selected</b> as <b>%(type)s</b>."
