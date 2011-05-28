@@ -15,8 +15,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sv\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: yali/gui/Ui/autopartquestion.py:82
 msgid "There appears to be more than one resizeable partition. You can select a partition from the list below or YALI will select one for you."
@@ -888,9 +888,8 @@ msgid "<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the in
 msgstr "<font color=\"#FFF\"><b>Kontrollen lyckades. Du kan fortsätta med installationen.</b></font>"
 
 #: yali/gui/ScrCheckCD.py:127
-#, fuzzy
 msgid "Package validation is finished."
-msgstr "Paketinstallationsinställningar"
+msgstr "Paketkontroll färdig."
 
 #: yali/gui/ScrDateTime.py:169
 msgid "Adjusting time settings"
@@ -947,9 +946,8 @@ msgid "Setting root password..."
 msgstr "Ställer in lösenord för root..."
 
 #: yali/gui/ScrGoodbye.py:73
-#, fuzzy
 msgid "Resetting user password..."
-msgstr "Ställer in lösenord för root..."
+msgstr "Återställer in lösenord för användare..."
 
 #: yali/gui/ScrGoodbye.py:76
 msgid "Setup First-Boot..."
@@ -991,11 +989,9 @@ msgid "Configuring <b>%s</b>"
 msgstr "Konfigurerar <b>%s</b>"
 
 #: yali/gui/ScrInstall.py:196
-#, fuzzy, python-format
+#, python-format
 msgid "Following error occured while installing packages:<b>%s</b><br><br>Do you want to retry?"
-msgstr ""
-"Följande fel uppstod vid paketinstallation:\n"
-"<b>%s</b>"
+msgstr "Följande fel uppstod vid paketinstallation:<b>%s</b><br><br>Vill du försöka igen?"
 
 #: yali/gui/ScrInstall.py:202 yali/gui/ScrSummary.py:297
 #: yali/gui/YaliDialog.py:218 yali/gui/YaliDialog.py:234
@@ -1044,7 +1040,6 @@ msgid ""
 msgstr ""
 
 #: yali/gui/ScrPartitionAuto.py:60
-#, fuzzy
 msgid "Use All Disks"
 msgstr "Använd allt utrymme"
 
@@ -1195,9 +1190,8 @@ msgid "Cannot Rescue"
 msgstr ""
 
 #: yali/gui/ScrRescuePassword.py:121 yali/gui/ScrRescue.py:93
-#, fuzzy
 msgid "Your current installation cannot be rescued."
-msgstr "Automatisk installation vald."
+msgstr "Den nuvarande installationen kan inte räddas."
 
 #: yali/gui/ScrRescuePassword.py:145
 msgid "Super User"
@@ -1242,9 +1236,8 @@ msgid "Connected"
 msgstr "Ansluten"
 
 #: yali/gui/ScrRescue.py:54
-#, fuzzy
 msgid "Mount failed"
-msgstr "Anslutningen misslyckades"
+msgstr "Monteringen misslyckades"
 
 #: yali/gui/ScrRescue.py:55
 #, python-format
@@ -1579,14 +1572,12 @@ msgid "Exit installer"
 msgstr ""
 
 #: yali/storage/__init__.py:75
-#, fuzzy
 msgid "Ignore"
-msgstr "Ignorera alla"
+msgstr "Ignorera"
 
 #: yali/storage/__init__.py:158 yali/storage/__init__.py:168
-#, fuzzy
 msgid "Dirty File Systems"
-msgstr "Filsystem:"
+msgstr "Smutsiga filsystem"
 
 #: yali/storage/__init__.py:159
 #, python-format
@@ -1603,9 +1594,8 @@ msgid ""
 msgstr ""
 
 #: yali/storage/__init__.py:336
-#, fuzzy
 msgid "This partition is holding the data for the hard drive install."
-msgstr "Den partition Pardus är installerad på"
+msgstr "Denna partition innehåller data för hårddiskinstallation."
 
 #: yali/storage/__init__.py:339
 msgid "You cannot delete a partition of a LDL formatted DASD."
@@ -1664,9 +1654,9 @@ msgid "This mount point is invalid. The %s directory must be on the / file syste
 msgstr ""
 
 #: yali/storage/__init__.py:905
-#, fuzzy, python-format
+#, python-format
 msgid "The mount point %s must be on a linux file system."
-msgstr "Monteringspunkten \"%s\" används. Vänligen välj en annan."
+msgstr "Monteringspunkten %s måste vara på ett filsystem för linux."
 
 #: yali/storage/__init__.py:925
 msgid "No Drives Found"
@@ -1689,19 +1679,16 @@ msgid "partition is too %(problem)s for %(format)s formatting"
 msgstr ""
 
 #: yali/storage/partitioning.py:1051
-#, fuzzy
 msgid "not enough free space on disks"
-msgstr "Inte tillräckligt med utrymme"
+msgstr "inte tillräckligt med utrymme"
 
 #: yali/storage/partitioning.py:1072
-#, fuzzy
 msgid "not enough free space after creating extended partition"
-msgstr "Inte tillräckligt med ledigt utrymme på %s för att skapa ny partition"
+msgstr "inte tillräckligt med ledigt utrymme efter att ha skapat utökad partition"
 
 #: yali/storage/partitioning.py:1248
-#, fuzzy
 msgid "not enough space for LVM requests"
-msgstr "Inte tillräckligt med utrymme"
+msgstr "inte tillräckligt med utrymme för LVM-förfrågningar"
 
 #: yali/storage/partitioning.py:1645
 msgid ""
@@ -1941,9 +1928,8 @@ msgid "The following storage device may contain recoverable data:<br><br>%(descr
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:343
-#, fuzzy
 msgid "Reset device"
-msgstr "Fel vid storleksändring av enhet"
+msgstr "Återställ enhet"
 
 #: yali/storage/storageBackendHelpers.py:343
 #, fuzzy
