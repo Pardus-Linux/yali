@@ -814,7 +814,7 @@ class LogicalVolumeWidget(QWidget, Ui_LogicalVolumeWidget):
             self.filesystemMenu.hide()
             if self.origrequest.format.formattable or not self.origrequest.format.type:
                 storageGuiHelpers.fillFilesystemMenu(self.formatCombo, self.origrequest.format,
-                                                     ignores= ["software RAID", "physical volume (LVM)","vfat"])
+                                                     ignores= ["mdmember", "lvmpv", "vfat"])
                 self.formatRadio.setChecked(self.origrequest.format.formattable and not self.origrequest.format.exists)
                 QObject.connect(self.formatRadio, SIGNAL("toggled(bool)"), self.formatRadioToggled)
                 QObject.connect(self.formatCombo, SIGNAL("currentIndexChanged(int)"), self.formatTypeChanged)
