@@ -1625,14 +1625,12 @@ msgid "Exit installer"
 msgstr "Выход из установки"
 
 #: yali/storage/__init__.py:75
-#, fuzzy
 msgid "Ignore"
-msgstr "Игнорировать все"
+msgstr "Игнорировать"
 
 #: yali/storage/__init__.py:158 yali/storage/__init__.py:168
-#, fuzzy
 msgid "Dirty File Systems"
-msgstr "Файловая система:"
+msgstr ""
 
 #: yali/storage/__init__.py:159
 #, python-format
@@ -1683,27 +1681,25 @@ msgstr ""
 "\n"
 
 #: yali/storage/__init__.py:873
-#, fuzzy, python-format
+#, python-format
 msgid "You have not defined a root partition (/),which is required for installation of %s to continue."
 msgstr "Вы не задали корневой раздел (/), который необходим для продолжения установки %s."
 
 #: yali/storage/__init__.py:878
-#, fuzzy, python-format
+#, python-format
 msgid "Your / partition is less than %(min)s MB which is lower than recommended for a normal %(productName)s install."
 msgstr "Ваш / раздел меньше чем %(min)s MB, что ниже рекомендуемого размера для нормальной установки %(productName)s ."
 
 #: yali/storage/__init__.py:884
-#, fuzzy, python-format
+#, python-format
 msgid "Your %(mount)s partition is less than %(size)s megabytes which is lower than recommended for a normal %(productName)s install."
 msgstr "Ваш %(mount)s раздел меньше чем %(size)s MB, что ниже рекомендуемого размера для нормальной установки %(productName)s ."
 
 #: yali/storage/__init__.py:893
-#, fuzzy
 msgid "You have not specified a swap partition. Due to the amount of memory present, a swap partition is required to complete installation."
 msgstr "Вы не задали раздел подкачки. В связи с представленным объемом оперативной памяти, раздел подкачки необходим для успешного завершения установки."
 
 #: yali/storage/__init__.py:896
-#, fuzzy
 msgid "You have not specified a swap partition. Although not strictly required in all cases, it will significantly improve performancefor most installations."
 msgstr "Вы не задали раздел подкачки. Хоть это и не является крайне обязательным шагом во всех случаях, но это позволит значительно повысить производительность для большинства установок."
 
@@ -1733,7 +1729,7 @@ msgstr ""
 
 #: yali/storage/partitioning.py:703
 msgid "requested size exceeds maximum allowed"
-msgstr ""
+msgstr "требуемый размер превышает максимально допустимый"
 
 #: yali/storage/partitioning.py:911
 #, python-format
@@ -1746,10 +1742,9 @@ msgstr "не хватает свободного места на дисках"
 
 #: yali/storage/partitioning.py:1072
 msgid "not enough free space after creating extended partition"
-msgstr ""
+msgstr "не хватает свободного места после создания расширенного раздела"
 
 #: yali/storage/partitioning.py:1248
-#, fuzzy
 msgid "not enough space for LVM requests"
 msgstr "не хватает места для запросов LVM"
 
