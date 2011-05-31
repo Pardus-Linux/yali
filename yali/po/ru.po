@@ -15,8 +15,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: \n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 1.1\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: yali/gui/Ui/autopartquestion.py:82
 msgid "There appears to be more than one resizeable partition. You can select a partition from the list below or YALI will select one for you."
@@ -1401,16 +1401,15 @@ msgid "Package Installation Settings"
 msgstr "Настройка установки пакетов"
 
 #: yali/gui/ScrSummary.py:175
-#, fuzzy, python-format
+#, python-format
 msgid "Collection <b>%s</b> selected"
-msgstr "Выбрана установка вручную ( %s )"
+msgstr "Коллекция <b>%s</b> выбрана"
 
 #: yali/gui/ScrSummary.py:195
 msgid "Confirm"
 msgstr "Подтвердить"
 
 #: yali/gui/ScrSummary.py:196
-#, fuzzy
 msgid "The partitioning options you have selected will now be written to disk. Any data on deleted or reformatted partitions will be lost."
 msgstr ""
 "Параметры разметки, которые вы выбрали, сейчас будут записаны на диск.\n"
@@ -1571,12 +1570,9 @@ msgid "Tetris"
 msgstr "Тетрис"
 
 #: yali/gui/YaliWindow.py:382
-#, fuzzy, python-format
+#, python-format
 msgid "An error occurred when attempting to load screens:%s"
-msgstr ""
-"Произошла ошибка при попытке загрузить компонент интерфейса установки.\n"
-"\n"
-"className = %s.Widget"
+msgstr "Произошла ошибка при попытке загрузить экран: %s"
 
 #: yali/gui/YaliWindow.py:440
 msgid "Release notes could not be loaded."
@@ -1602,23 +1598,22 @@ msgid "Failed teardownAll in storage.complete with error:%s"
 msgstr "Неудачный teardownAll в storage.complete с ошибкой:%s"
 
 #: yali/storage/__init__.py:57
-#, fuzzy
 msgid "Storage Device Error"
-msgstr "Определение устройств хранения данных..."
+msgstr "Ошибка устройства хранения данных"
 
 #: yali/storage/__init__.py:58
 #, fuzzy, python-format
 msgid "There was an error encountered while partitioning on device %s."
-msgstr "Возникла ошибка в процессе изменения размеры устройства %s."
+msgstr "Возникла ошибка в процессе разбиения на разделы устройства %s."
 
 #: yali/storage/__init__.py:63
 msgid "Storage Format Error"
-msgstr ""
+msgstr "Ошибка форматирования устройства хранения данных"
 
 #: yali/storage/__init__.py:64
-#, fuzzy, python-format
+#, python-format
 msgid "There was an error encountered while formatting on device %s."
-msgstr "Возникла ошибка в процессе изменения размеры устройства %s."
+msgstr "Произошла ошибка в процессе форматирования на устройстве %s"
 
 #: yali/storage/__init__.py:75 yali/storage/storageset.py:336
 msgid "Exit installer"
@@ -2022,7 +2017,6 @@ msgid "The following storage device may contain recoverable data:<br><br>%(descr
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:343
-#, fuzzy
 msgid "Reset device"
 msgstr "Сброс устройства"
 
@@ -2037,8 +2031,7 @@ msgstr ""
 "Ошибка обработки LVM.\n"
 "Есть некорректная информация LVM на %(msg)s. Вы\n"
 "можете реинициализировать все связанные PV (%(pvs)s), что сотрет метаданные LVM или игнорировать, что сохранит\n"
-"содержимое. Это действие может быть также проделано с другими PV c\n"
-"некорректными метаданными."
+"содержимое. Это действие может быть также проделано с другими PV c некорректными метаданными."
 
 #: yali/storage/storageBackendHelpers.py:364
 msgid "Yes, re-initialize"
@@ -2149,14 +2142,9 @@ msgstr ""
 "не содержит поддерживаемых томов подкачки. Для того, чтобы продолжить установку, вам нужно отформатировать устройство или пропустить его."
 
 #: yali/storage/storageset.py:453
-#, fuzzy, python-format
+#, python-format
 msgid "Error enabling swap device %(name)s: %(msg)s<br><br>This most likely means this swap device has not been initialized.<br><br>Press OK to exit the installer."
-msgstr ""
-"Ошибка включения устройства подкачки %(name)s: %(msg)s\n"
-"\n"
-"Это скорее всего означает, что это устройство подкачки не было инициализировано.\n"
-"\n"
-"Нажмите OK для выхода из программы установки."
+msgstr "Ошибка включения устройства подкачки %(name)s: %(msg)s<br><br>Это скорее всего означает, что это устройство подкачки не было инициализировано.<br><br>Нажмите OK для выхода из программы установки."
 
 #: yali/storage/storageset.py:501
 msgid "You have not created a bootable partition."
@@ -2167,9 +2155,8 @@ msgid "Bootable partitions cannot be on a logical volume."
 msgstr "Загрузочные разделы не могут располагаться на логическом томе. "
 
 #: yali/storage/storageset.py:509
-#, fuzzy
 msgid "Bootable partitions cannot be on a raid array."
-msgstr "Загрузочные разделы не могут располагаться на логическом томе. "
+msgstr "Загрузочные разделы не могут располагаться на массиве RAID."
 
 #: yali/storage/storageset.py:516
 #, python-format
