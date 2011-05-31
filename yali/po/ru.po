@@ -2018,9 +2018,8 @@ msgstr ""
 #: yali/storage/storageBackendHelpers.py:331
 #: yali/storage/storageBackendHelpers.py:356
 #: yali/storage/storageBackendHelpers.py:376
-#, fuzzy
 msgid "Storage Device Warning"
-msgstr "Определение устройств хранения данных..."
+msgstr "Предупреждение устройства хранения данных"
 
 #: yali/storage/storageBackendHelpers.py:332
 #, python-format
@@ -2028,8 +2027,9 @@ msgid "The following storage device may contain recoverable data:<br><br>%(descr
 msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:343
+#, fuzzy
 msgid "Reset device"
-msgstr ""
+msgstr "Сброс устройства"
 
 #: yali/storage/storageBackendHelpers.py:343
 msgid "Ignore device"
@@ -2203,7 +2203,7 @@ msgstr ""
 #: yali/storage/storageset.py:713
 #, python-format
 msgid "Cannot open %s for read"
-msgstr ""
+msgstr "Не удается открыть%s для чтения"
 
 #: yali/storage/storageset.py:743
 #, python-format
@@ -2224,11 +2224,11 @@ msgstr "Создание устройства %s"
 
 #: yali/storage/devices/volumegroup.py:217
 msgid "device has not been created"
-msgstr ""
+msgstr "устройство не было создано"
 
 #: yali/storage/devices/volumegroup.py:223
 msgid "cannot activate VG with missing PV(s)"
-msgstr ""
+msgstr "не возможно активировать VG с отсутствующим PV"
 
 #: yali/storage/library/lvm.py:265
 #, python-format
@@ -2241,13 +2241,12 @@ msgid "lvs failed for %s"
 msgstr "lvs не удалось для %s"
 
 #: yali/storage/formats/disklabel.py:28
-#, fuzzy
 msgid "partition table"
-msgstr "Раздел"
+msgstr "таблица разделов"
 
 #: yali/storage/formats/dmraidmember.py:19
 msgid "dm-raid member device"
-msgstr ""
+msgstr "устройство часть dm-raid"
 
 #: yali/storage/formats/filesystem.py:228
 #, python-format
@@ -2255,9 +2254,9 @@ msgid "Unknown return code: %d."
 msgstr "Неизвестный код возврата: %d."
 
 #: yali/storage/formats/filesystem.py:247
-#, fuzzy, python-format
+#, python-format
 msgid "Migrating %s filesystem on %s"
-msgstr "Изменение размеров файловой системы на %s"
+msgstr "Миграция %s файловой системы на %s"
 
 #: yali/storage/formats/filesystem.py:299
 #, python-format
@@ -2317,13 +2316,12 @@ msgid "Usage error."
 msgstr "Ошибка использования."
 
 #: yali/storage/formats/physicalvolume.py:19
-#, fuzzy
 msgid "physical volume (LVM)"
-msgstr "Физический том"
+msgstr "физический том (LVM)"
 
 #: yali/storage/formats/raidmember.py:21
 msgid "software RAID"
-msgstr ""
+msgstr "программный RAID"
 
 #: yali/localedata.py:20
 msgid "Turkish"
