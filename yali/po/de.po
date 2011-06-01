@@ -85,7 +85,7 @@ msgstr "Der erste Sektor von"
 
 #: yali/gui/Ui/checkcdwidget.py:197
 msgid "You can validate the integrity of the installation packages. Although this is an optional step, we highly recommend to do the validation in order to avoid any possible errors during the installation process."
-msgstr "Sie können hier die Integrität der Pakete auf dem Installationsmedium überprüfen. Obwohl dieser Vorgang optional ist empfehlen wir Ihnen diese Prüfung durchzuführen, um Fehler während der Installation zu vermeiden."
+msgstr "Sie können die Integrität der Pakete auf dem Installationsmedium überprüfen. Obwohl dieser Vorgang optional ist, empfehlen wir Ihnen diese Prüfung durchzuführen, um Fehler während der Installation zu vermeiden."
 
 #: yali/gui/Ui/checkcdwidget.py:198
 msgid "Validation failed"
@@ -105,7 +105,7 @@ msgstr "Form"
 
 #: yali/gui/Ui/connectionlist.py:75
 msgid "To use PiSi History support, you may need to be online. You can use a connection profile from the list below:"
-msgstr "Um die Information der PiSI History verwenden zu können, müssen Sie online sind. Sie können ein Verbindungsprofil aus der folgenden Liste verwenden:"
+msgstr "Um PiSi History verwenden zu können, müssen Sie online sein. Sie können ein Verbindungsprofil aus der folgenden Liste verwenden:"
 
 #: yali/gui/Ui/connectionlist.py:77
 msgid "Connect"
@@ -345,7 +345,7 @@ msgstr "Partitionsgröße ändern"
 
 #: yali/gui/Ui/partedit.py:172
 msgid "Changes will be applied after Summary Screen."
-msgstr "Änderungen werden übernommen, wenn Sie den Bildschirm mit der Zusammenfassung akzeptieren."
+msgstr "Nachdem Sie die Zusammenfassung akzeptiert haben, werden die Änderungen übernommen."
 
 #: yali/gui/Ui/partedit.py:173
 msgid "Refresh Disks"
@@ -369,7 +369,7 @@ msgstr "Nutze:"
 
 #: yali/gui/Ui/partition.py:151
 msgid "Force to be a primary partition"
-msgstr "Als primäre Partition eintragen"
+msgstr "Als primäre Partition nutzen"
 
 #: yali/gui/Ui/partitionshrink.py:64 yali/gui/Ui/partitionshrinkwidget.py:91
 msgid "Which partition would you like to shrink to make room for your installation?"
@@ -425,15 +425,15 @@ msgstr "RAID Mitglieder:"
 
 #: yali/gui/Ui/raid.py:112
 msgid "Number of spares:"
-msgstr "Anzahl der Ersatzteile:"
+msgstr "Anzahl der verfügbaren :"
 
 #: yali/gui/Ui/rescuegrubwidget.py:82
 msgid "Select where to install the GRUB bootloader"
-msgstr "Ziel für den Bootmanager GRUB auswählen"
+msgstr "Ziel für den Bootloader GRUB auswählen"
 
 #: yali/gui/Ui/rescuegrubwidget.py:83
 msgid "First bootable disk (recommended)"
-msgstr "Die erste bootbare Festplatte (empfohlen)"
+msgstr "Erster bootbarer Datenträger (empfohlen)"
 
 # zweifel..
 #: yali/gui/Ui/rescuegrubwidget.py:84
@@ -478,7 +478,7 @@ msgstr "Operation auswählen, die zurückgenommen werden soll:"
 
 #: yali/gui/Ui/rescuewidget.py:114
 msgid "Choose what do you want to do to repair your system"
-msgstr "Wählen Sie die Option aus, die Sie durchführen möchten, um das System zu reparieren"
+msgstr "Wählen Sie die Option aus die Sie durchführen möchten, um das System zu reparieren"
 
 #: yali/gui/Ui/rescuewidget.py:115
 msgid "Reinstall bootloader"
@@ -526,7 +526,7 @@ msgstr "Nicht empfohlen"
 
 #: yali/gui/Ui/setupuserswidget.py:495
 msgid "Bypass authorization attempts for this user"
-msgstr "Bypass Authentifizierungsversuch für diesen Benutzer"
+msgstr "Bypass Authentifizierungsversuche für diesen Benutzer"
 
 #: yali/gui/Ui/setupuserswidget.py:496
 msgid "Add user to administrator (wheel) group"
@@ -766,13 +766,13 @@ msgstr "Mount-Point Fehler"
 #: yali/gui/lvm_gui.py:644 yali/gui/partition_gui.py:79
 #: yali/gui/raid_gui.py:82
 msgid "Mount point in use"
-msgstr "Mount-Point schon verwendet"
+msgstr "Einhängepunkt schon verwendet"
 
 #: yali/gui/lvm_gui.py:645 yali/gui/partition_gui.py:80
 #: yali/gui/raid_gui.py:83
 #, python-format
 msgid "The mount point \"%s\" is in use. Please pick another."
-msgstr "Ihr Mount-Point \"%s\" wurde schon verwendet. Bitte einen anderen wählen."
+msgstr "Ihr Einhängepunkt \"%s\" wird schon verwendet. Bitte einen anderen wählen."
 
 #: yali/gui/lvm_gui.py:656
 msgid "Illegal Logical Volume Name"
@@ -946,7 +946,7 @@ msgstr "Überspringe Paket"
 
 #: yali/gui/ScrCheckCD.py:115
 msgid "<font color=\"#FFF\"><b>Validation succeeded. You can proceed with the installation.</b></font>"
-msgstr "<font color=\"#FFF\"><b>Überprüfung erfolgreich abgeschlossen. Sie können nun mit der Installation fortfahren.</b></font>"
+msgstr "<font color=\"#FFF\"><b>Überprüfung erfolgreich abgeschlossen. Sie können nun die Installation fortsetzen.</b></font>"
 
 # nicht sicher - vielleicht auch möglich: gewählte Paketauswahl
 # -Stefan
@@ -1038,7 +1038,7 @@ msgstr "Deaktiviere Speicher Subsystem ..."
 
 #: yali/gui/ScrGoodbye.py:91
 msgid "Installing bootloader..."
-msgstr "Installiere Bootmanager..."
+msgstr "Installiere Bootloader..."
 
 #: yali/gui/ScrInstall.py:161
 #, python-format
@@ -1079,7 +1079,7 @@ msgid ""
 "%s\n"
 msgstr ""
 "Während der Installation ist ein Fehler aufgetreten.\n"
-"Die Ursache könnte ein fehlerhaftes Installations-Medium sein:\n"
+"Die Ursache könnte ein fehlerhaftes Installationsmedium sein:\n"
 "%s\n"
 
 #: yali/gui/ScrKahyaCheck.py:78
@@ -1105,7 +1105,7 @@ msgstr ""
 
 #: yali/gui/ScrPartitionAuto.py:60
 msgid "Use All Disks"
-msgstr "Alle Speichergeräte verwenden"
+msgstr "Alle Datenträger verwenden"
 
 #: yali/gui/ScrPartitionManual.py:94
 #, python-format
@@ -1187,7 +1187,7 @@ msgstr "Mehr als eine erweiterte Partition pro Festplatte nicht möglich"
 
 #: yali/gui/ScrPartitionManual.py:304
 msgid "Crossed logical partition before extended"
-msgstr "Crossed Logical Partition vor einer Extended"
+msgstr "Crossed Logical Partition vor einer Erweiterten"
 
 #: yali/gui/ScrPartitionManual.py:325
 msgid "Extended"
@@ -1412,7 +1412,7 @@ msgstr "Manuelle Partitionierung ausgewählt."
 
 #: yali/gui/ScrSummary.py:164
 msgid "Bootloader Settings"
-msgstr "Einstellungen des Bootmanagers"
+msgstr "Einstellungen des Bootloaders"
 
 #: yali/gui/ScrSummary.py:165
 #, python-format
@@ -1458,7 +1458,7 @@ msgstr "Proprietäre Hardwaretreiber"
 
 #: yali/gui/ScrSummary.py:288
 msgid "<qt>Proprietary drivers are available which may be required to utilize the full capabilities of your video card. These drivers are developed by the hardware manufacturer and not supported by Pardus developers since their source code is not publicly available.<br><br><b>Do you want to install and use these proprietary drivers instead of the default drivers?</b></qt>"
-msgstr "<qt>Um die volle Leistungsfähigkeit Ihrer Grafikarte nutzen zu können stehen proprietäre Treiber zur Verfügung, Diese Treiber werden vom Hersteller der Hardware entwickelt und werden von den Pardus Entwicklern nicht unterstützt, da deren Quellcode nicht öffentlich zugänglich ist.<br><br><b>Möchten Sie statt dem voreingestellten freien Treiber den proprietären Treiber installieren und verwenden?</b></qt>"
+msgstr "<qt>Um die volle Leistungsfähigkeit Ihrer Grafikkarte nutzen zu können, stehen proprietäre Treiber zur Verfügung. Diese Treiber werden vom Hersteller der Hardware entwickelt und werden von den Pardus Entwicklern nicht unterstützt, da deren Quellcode nicht öffentlich zugänglich ist.<br><br><b>Möchten Sie statt dem voreingestellten freien Treiber den proprietären installieren und verwenden?</b></qt>"
 
 #: yali/gui/ScrUsers.py:127 yali/gui/ScrUsers.py:359
 msgid "Update"
@@ -1538,7 +1538,7 @@ msgstr "Quelldatei für Pixmaps existiert nicht"
 
 #: yali/gui/YaliWindow.py:123
 msgid "Style file doesn't exists"
-msgstr "Stilbeschreibung nicht vorhanden"
+msgstr "Stil nicht vorhanden"
 
 #: yali/gui/YaliWindow.py:130
 msgid "Release file doesn't exists"
@@ -1592,7 +1592,7 @@ msgstr "Wollen Sie wirklich den Computer jetzt neu starten?"
 
 #: yali/gui/YaliWindow.py:223
 msgid "Are you sure you want to restart the YALI installer now?"
-msgstr "Wollen Sie wirklich die Installationsroutine YALI jetzt neu starten?"
+msgstr "Wollen Sie die Installationsroutine YALI jetzt neu starten?"
 
 #: yali/gui/YaliWindow.py:244
 msgid "Terminal"
@@ -1628,11 +1628,11 @@ msgstr "Diese Partition ist Teil einer inkonsistenten LVM Volume Gruppe."
 #: yali/storage/__init__.py:48
 #, python-format
 msgid "Failed teardownAll in storage.complete with error:%s"
-msgstr "teardownAll in storage.complete mit Fehler: %s fehlgeschlagen"
+msgstr "teardownAll fehlgeschlagen. Abschließen mit Fehler: %s"
 
 #: yali/storage/__init__.py:57
 msgid "Storage Device Error"
-msgstr "Speichergerätefehler"
+msgstr "Datenträgerfehler"
 
 #: yali/storage/__init__.py:58
 #, python-format
@@ -1721,7 +1721,7 @@ msgstr "Sie haben keine Root-Partition (/) definiert, welche für die Installati
 #: yali/storage/__init__.py:878
 #, python-format
 msgid "Your / partition is less than %(min)s MB which is lower than recommended for a normal %(productName)s install."
-msgstr "Ihre '/' Partition hat weniger als %(min)s MB und ist somit kleiner als empfohlen für eine normale %(productName)s Installation."
+msgstr "Ihre / Partition hat weniger als %(min)s MB und ist somit kleiner als empfohlen für eine normale %(productName)s Installation."
 
 #: yali/storage/__init__.py:884
 #, python-format
@@ -1771,7 +1771,7 @@ msgstr "Partition ist zu %(problem)s für %(format)s Formatierung"
 
 #: yali/storage/partitioning.py:1051
 msgid "not enough free space on disks"
-msgstr "Nicht genügend Speicherplatz auf den Geräten"
+msgstr "Nicht genügend freier Speicherplatz auf den Datenträger"
 
 #: yali/storage/partitioning.py:1072
 msgid "not enough free space after creating extended partition"
