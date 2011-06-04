@@ -889,7 +889,7 @@ msgstr "Iniciando validación..."
 
 #: yali/gui/ScrCheckCD.py:82
 msgid "Package validation is in progress. Please wait until it is completed."
-msgstr ""
+msgstr "Validación de paquetes en proceso. Por favor espere hasta que termine."
 
 #: yali/gui/ScrCheckCD.py:89
 #, python-format
@@ -1573,12 +1573,9 @@ msgid "Tetris"
 msgstr "Tetris"
 
 #: yali/gui/YaliWindow.py:382
-#, fuzzy, python-format
+#, python-format
 msgid "An error occurred when attempting to load screens:%s"
-msgstr ""
-"Ocurrió un error al cargar un componente visual del instalador.\n"
-"\n"
-"className = %s.Widget"
+msgstr "Ocurrió un error al cargar una pantalla: %s"
 
 #: yali/gui/YaliWindow.py:440
 msgid "Release notes could not be loaded."
@@ -1604,14 +1601,13 @@ msgid "Failed teardownAll in storage.complete with error:%s"
 msgstr ""
 
 #: yali/storage/__init__.py:57
-#, fuzzy
 msgid "Storage Device Error"
-msgstr "Alerta de dispositivo de almacenamiento"
+msgstr "Error de dispositivo de almacenamiento"
 
 #: yali/storage/__init__.py:58
-#, fuzzy, python-format
+#, python-format
 msgid "There was an error encountered while partitioning on device %s."
-msgstr "Ocurrió un error al redimensionar dispositivo %s."
+msgstr "Ocurrió un error al particionar dispositivo %s."
 
 #: yali/storage/__init__.py:63
 msgid "Storage Format Error"
