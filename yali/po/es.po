@@ -2017,6 +2017,9 @@ msgid ""
 "single drive.  To do this, select the drive in the 'Allowable Drives'\n"
 "checklist."
 msgstr ""
+"Particiones del tipo '%s' deben ser restringidos a un\n"
+"solo dispositivo. Para realizar esto, señeccione el dispositivo en la lista\n"
+"'Dispositivos permitidos'."
 
 #: yali/storage/storageBackendHelpers.py:331
 #: yali/storage/storageBackendHelpers.py:356
@@ -2174,7 +2177,7 @@ msgstr "No se puede utilizar el sistema de archivos %s para la partición bootea
 
 #: yali/storage/storageset.py:620
 msgid "Ignoring noauto entry"
-msgstr ""
+msgstr "Ignorando entrada noauto "
 
 #: yali/storage/storageset.py:678
 #, python-format
@@ -2237,7 +2240,7 @@ msgstr "tabla de particiones"
 
 #: yali/storage/formats/dmraidmember.py:19
 msgid "dm-raid member device"
-msgstr ""
+msgstr "dispositivo forma parte de dm-raid"
 
 #: yali/storage/formats/filesystem.py:228
 #, python-format
@@ -2310,7 +2313,6 @@ msgid "physical volume (LVM)"
 msgstr "volumen físico (LVM)"
 
 #: yali/storage/formats/raidmember.py:21
-#, fuzzy
 msgid "software RAID"
 msgstr "software RAID"
 
