@@ -2164,23 +2164,24 @@ msgid "Bootable partitions cannot be on an %s filesystem."
 msgstr "Загрузочные разделы не могут располагаться на %s файловой системы."
 
 #: yali/storage/storageset.py:620
+#, fuzzy
 msgid "Ignoring noauto entry"
-msgstr ""
+msgstr "Игнорирование опции noauto"
 
 #: yali/storage/storageset.py:678
 #, python-format
 msgid "Failed to resolve %s (%s) from fstab"
-msgstr ""
+msgstr "Не удалось получить %s (%s) из файла fstab"
 
 #: yali/storage/storageset.py:684
 #, python-format
 msgid "Unrecognized filesystem type for %s (%s)"
-msgstr ""
+msgstr "Неизвестный тип файловой системы для %s (%s)"
 
 #: yali/storage/storageset.py:691
 #, python-format
 msgid "Scanned format (%s) differs from fstab format (%s)"
-msgstr ""
+msgstr "Анализированный формат (%s) отличается от формата в файле fstab (%s)"
 
 #: yali/storage/storageset.py:713
 #, python-format
@@ -2190,7 +2191,7 @@ msgstr "Не удается открыть%s для чтения"
 #: yali/storage/storageset.py:743
 #, python-format
 msgid "Fstab entry %s is malformed: %s"
-msgstr ""
+msgstr "Запись элемента %s неверная: %s"
 
 #: yali/storage/devices/filedevice.py:93
 #, python-format
