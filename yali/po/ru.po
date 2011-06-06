@@ -15,8 +15,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: \n"
-"X-Generator: Lokalize 1.1\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 1.1\n"
 
 #: yali/gui/Ui/autopartquestion.py:82
 msgid "There appears to be more than one resizeable partition. You can select a partition from the list below or YALI will select one for you."
@@ -1602,7 +1602,7 @@ msgid "Storage Device Error"
 msgstr "Ошибка устройства хранения данных"
 
 #: yali/storage/__init__.py:58
-#, fuzzy, python-format
+#, python-format
 msgid "There was an error encountered while partitioning on device %s."
 msgstr "Возникла ошибка в процессе разбиения на разделы устройства %s."
 
@@ -2025,7 +2025,7 @@ msgid "Ignore device"
 msgstr "Игнорировать устройство"
 
 #: yali/storage/storageBackendHelpers.py:357
-#, fuzzy, python-format
+#, python-format
 msgid "There is inconsistent LVM data on %(msg)s. You can reinitialize all related PVs (%(pvs)s) which will erase the LVM metadata, or ignore which will preserve thecontents.This action may also be applied to all other PVs with inconsistent metadata."
 msgstr ""
 "Ошибка обработки LVM.\n"
@@ -2261,9 +2261,8 @@ msgid "%(type)s filesystem check failure on %(device)s: "
 msgstr "Проверка файловой системы %(type)s не удалась на %(device)s: "
 
 #: yali/storage/formats/filesystem.py:391
-#, fuzzy
 msgid "Errors like this usually mean there is a problem with the filesystem that will require user interaction to repair. Restart installation after you have corrected the problems on the filesystem."
-msgstr "Ошибки как эти, обычно означают, что существует проблема с файловой системой, что потребует вмешательства пользователя для ремонта. Перезапустите установку после устранения проблем с файловой системой."
+msgstr "Ошибки, такие как эти, обычно означают, что существует проблема с файловой системой, что потребует вмешательства пользователя для ремонта. Перезапустите установку после устранения проблем с файловой системой."
 
 #: yali/storage/formats/filesystem.py:397
 msgid "Unrecoverable Error"
