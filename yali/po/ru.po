@@ -1624,22 +1624,27 @@ msgid "Ignore"
 msgstr "Игнорировать"
 
 #: yali/storage/__init__.py:158 yali/storage/__init__.py:168
+#, fuzzy
 msgid "Dirty File Systems"
-msgstr ""
+msgstr "Файловые системы"
 
 #: yali/storage/__init__.py:159
-#, python-format
+#, python-format, fuzzy
 msgid ""
 "The following file systems for your Linux system were not unmounted cleanly.  Please boot your Linux installation, let the file systems be checked and shut down cleanly to rescue.\n"
 "%s"
 msgstr ""
+"Следующие файловые системы были не правильно отключены.  Для восстановления, пожалуйста, загрузитесь с вашего установочного диска, проверьте файловые системы, и отключите их правильно.\n"
+"%s"
 
 #: yali/storage/__init__.py:169
-#, python-format
+#, python-format, fuzzy
 msgid ""
 "The following file systems for your Linux system were not unmounted cleanly.  Would you like to mount them anyway?\n"
 "%s"
 msgstr ""
+"Следующие файловые системы были не правильно отключены. Все равно необходимо смонтировать?\n"
+"%s"
 
 #: yali/storage/__init__.py:336
 msgid "This partition is holding the data for the hard drive install."
@@ -1727,9 +1732,9 @@ msgid "requested size exceeds maximum allowed"
 msgstr "требуемый размер превышает максимально допустимый"
 
 #: yali/storage/partitioning.py:911
-#, python-format
+#, python-format, fuzzy
 msgid "partition is too %(problem)s for %(format)s formatting"
-msgstr ""
+msgstr "раздел слижком %(problem)s для %(format)s форматирования"
 
 #: yali/storage/partitioning.py:1051
 msgid "not enough free space on disks"
@@ -2012,9 +2017,9 @@ msgid "Storage Device Warning"
 msgstr "Предупреждение устройства хранения данных"
 
 #: yali/storage/storageBackendHelpers.py:332
-#, python-format
+#, python-format, fuzzy
 msgid "The following storage device may contain recoverable data:<br><br>%(description)s (%(size)s MB)<br><br>This device may have data that will be <b>permanently lost</b> if you include it in this installation.<br><br>If you don't care about any data on this device, choose <b>Reset device</b> to include it in the installation process.<br><br>If you don't want the device to be permanently erased, select <b>Ignore device</b> and the device will not be considered as a possible installation target."
-msgstr ""
+msgstr "Следующие устройства хранения данных могут содержать восстанавливаемые данные: <br><br>%(description)s (%(size)s MB)<br><br> Данное устройство может иметь данные, которые будут <b>окончательно потеряны</b>, если вы будете использовать это устройство в процессе этой установки. <br><br> Если вы не заботитесь о каких-либо данных на этом устройстве, выберите <b>Сброс устройства</b>  чтобы включить его в процесс установки. <br><br> Если вы не хотите, чтобы данные на устройстве были потеряны, выберите <b>Игнорировать устройство</b> и устройство не будет рассматриваться в качестве возможной цели установки."
 
 #: yali/storage/storageBackendHelpers.py:343
 msgid "Reset device"
