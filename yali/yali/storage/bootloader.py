@@ -182,7 +182,7 @@ class BootLoader(object):
         self._swapDevice = device
 
     def _getSwapDevice(self):
-        if not self._swapDevice:
+        if not self._swapDevice and self.storage.swaps:
             self._swapDevice = self.storage.swaps[0]
 
         return self._swapDevice
