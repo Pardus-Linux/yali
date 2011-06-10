@@ -112,8 +112,6 @@ class Widget(QWidget, ScreenWidget):
             rc = self.intf.detailedMessageWindow(_("Partitioning Warnings"),
                                                   detailed, comments, type="custom", customIcon="warning",
                                                   customButtons=[_("Ok"), _("Cancel")], default=1)
-            if rc:
-                return False
 
         formatWarnings = getPreExistFormatWarnings(self.storage)
         if formatWarnings:
