@@ -316,7 +316,11 @@ class BootLoader(object):
             self.grubConf = grubutils.grubConf()
             self.grubConf.parseConf(os.path.join(ctx.consts.target_dir, self._conf))
             for entry in additional_conf.entries:
-                stage2Device = entry.getCommand("uuid").value if entry.getCommand("uuid") else entry.getCommand("root").value
+                stage2Device = None
+                if entry.getCommand("uuid"):
+                    stage2Device = entry.getCommand("uuid").value
+                elif entry.getCommand("root"):
+                    stage2Device = entry.getCommand("root").value
                 if stage2Device:
                     entry.title = entry.title + " [ %s ]" % device
                     self.grubConf.addEntry(entry)
