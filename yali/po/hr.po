@@ -123,15 +123,15 @@ msgstr "Zahtijeva barem 1 slobodnu LVM formatiranu particiju"
 
 #: yali/gui/Ui/createdevicewidget.py:138 yali/gui/ScrPartitionManual.py:161
 msgid "Logical Volume"
-msgstr ""
+msgstr "Logička particija"
 
 #: yali/gui/Ui/createdevicewidget.py:139 yali/gui/ScrPartitionManual.py:162
 msgid "Create Logical Volume on selected Volume Group"
-msgstr ""
+msgstr "Napravite logičkuparticiju na odabranoj grupi particija"
 
 #: yali/gui/Ui/createdevicewidget.py:140 yali/gui/ScrPartitionManual.py:155
 msgid "Physical Volume"
-msgstr ""
+msgstr "Fizička particija"
 
 #: yali/gui/Ui/createdevicewidget.py:141 yali/gui/ScrPartitionManual.py:156
 msgid "Create LVM formatted partition"
@@ -208,7 +208,7 @@ msgstr "Razumijem i prihvaćam uvjete"
 
 #: yali/gui/Ui/logicalvolume.py:143
 msgid "Logical Volume:"
-msgstr ""
+msgstr "Logička particija:"
 
 #: yali/gui/Ui/logicalvolume.py:144 yali/gui/Ui/partedit.py:164
 #: yali/gui/Ui/partitionedit.py:136
@@ -311,7 +311,7 @@ msgstr "Obriši"
 
 #: yali/gui/Ui/manualpartwidget.py:166
 msgid "Reset"
-msgstr ""
+msgstr "Ponovno postavljanje"
 
 #: yali/gui/Ui/partedit.py:167
 msgid "Format :"
@@ -339,7 +339,7 @@ msgstr "Osvježi diskove"
 
 #: yali/gui/Ui/partedit.py:174
 msgid "Reset All Changes"
-msgstr ""
+msgstr "Ponovno postavljanje svih promjena"
 
 #: yali/gui/Ui/partedit.py:175
 msgid "Apply"
@@ -400,11 +400,11 @@ msgstr "Datotečni sustav:"
 
 #: yali/gui/Ui/raid.py:110
 msgid "Raid Level:"
-msgstr ""
+msgstr "Raid razina:"
 
 #: yali/gui/Ui/raid.py:111
 msgid "Raid Members:"
-msgstr ""
+msgstr "Raid članovi:"
 
 #: yali/gui/Ui/raid.py:112
 msgid "Number of spares:"
@@ -428,7 +428,7 @@ msgstr "Odaberite disk ispod"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:123
 msgid "Choose the user you want to reset the password:"
-msgstr ""
+msgstr "Odaberite korisnika kojem želite ponovno postaviti lozinku:"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:124
 msgid "Password:"
@@ -440,7 +440,7 @@ msgstr "Potvrdi lozinku"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:126
 msgid "Reset Password"
-msgstr ""
+msgstr "Ponovno postavite lozinku"
 
 #: yali/gui/Ui/rescuepisiwidget.py:74
 msgid "<b>Connection status:</b>"
@@ -468,7 +468,7 @@ msgstr "Ponovno instaliraj boot učitavač"
 
 #: yali/gui/Ui/rescuewidget.py:116
 msgid "Reset forgotten password"
-msgstr ""
+msgstr "Ponovno postavite zaboravljenu lozinku"
 
 #: yali/gui/Ui/rescuewidget.py:117
 msgid "Return back to a previous system state"
@@ -512,7 +512,7 @@ msgstr ""
 
 #: yali/gui/Ui/setupuserswidget.py:496
 msgid "Add user to administrator (wheel) group"
-msgstr ""
+msgstr "Dodaj korisnika u adminstrtastorsku (kotač) gruou"
 
 #: yali/gui/Ui/setupuserswidget.py:497
 msgid "Select auto login user"
@@ -678,6 +678,8 @@ msgid ""
 "You cannot create more than %d logical volume \n"
 "per volume group."
 msgstr ""
+"Ne možete kreirati više od %d logičkih particija \n"
+"po particijskoj grupi."
 
 #: yali/gui/lvm_gui.py:510
 msgid "No free space"
@@ -690,6 +692,10 @@ msgid ""
 "the size of one or more of the currently existing logical\n"
 "volumes"
 msgstr ""
+"Nema mjesta u grupi particija za stvaranje novih \n"
+"logičkih particija. Da biste dodali logičku particiju morate smanjiti \n"
+"veličinu jedne ili više od trenutno postojećih logičkih\n"
+"particija"
 
 #: yali/gui/lvm_gui.py:548 yali/storage/storageBackendHelpers.py:88
 #: yali/storage/storageBackendHelpers.py:295
@@ -702,15 +708,17 @@ msgid ""
 "Are you sure you want to delete the \n"
 "logical volume \"%s\"?"
 msgstr ""
+"Jeste li sigurni da želite izbrisati \n"
+"logičku particiju \"%s\"?"
 
 #: yali/gui/lvm_gui.py:582
 msgid "Make Logical Volume"
-msgstr ""
+msgstr "Napravi logičku particiju"
 
 #: yali/gui/lvm_gui.py:584
 #, python-format
 msgid "Edit Logical Volume: %s"
-msgstr ""
+msgstr "Uredi logičku particiju: %s"
 
 #: yali/gui/lvm_gui.py:613 yali/gui/partition_gui.py:65
 #: yali/gui/raid_gui.py:68
@@ -730,24 +738,24 @@ msgstr "Točka montiranja \"%s\" je u upotebi.Odaberite drugu."
 
 #: yali/gui/lvm_gui.py:656
 msgid "Illegal Logical Volume Name"
-msgstr ""
+msgstr "Nedopušteno ime Logičke particije"
 
 #: yali/gui/lvm_gui.py:668
 msgid "Illegal logical volume name"
-msgstr ""
+msgstr "Nedopušteno ime logičke particije"
 
 #: yali/gui/lvm_gui.py:669
 #, python-format
 msgid "The logical volume name \"%s\" is already in use. Please pick another."
-msgstr ""
+msgstr "Logička particija \"%s\" je već u uporabi.Molim odaberite drugu."
 
 #: yali/gui/lvm_gui.py:683
 msgid "Illegal size"
-msgstr ""
+msgstr "Nedopuštena veličina"
 
 #: yali/gui/lvm_gui.py:684
 msgid "The requested size as entered is not a valid number greater than 0."
-msgstr ""
+msgstr "Tražena veličina kao unešena nije ispravan broj veći od 0.."
 
 #: yali/gui/lvm_gui.py:697
 #, python-format
@@ -775,7 +783,7 @@ msgstr "Uredi particiju"
 
 #: yali/gui/partition_gui.py:103
 msgid "Error With Request"
-msgstr ""
+msgstr "Greška sa zahtjevom"
 
 #: yali/gui/raid_gui.py:26 yali/gui/raid_gui.py:96 yali/gui/raid_gui.py:124
 msgid "Invalid Raid Members"
@@ -787,6 +795,9 @@ msgid ""
 "\n"
 "First create at least two partitions of type \"software RAID\", and then select the \"RAID\" option again."
 msgstr ""
+"Najmanje dvije neiskorištene softwere RAID particije su potrebne za stvaranje RAID uređaja. \n"
+"\n"
+"Najprije  stvorite najmanje dvije particije vrste \"software RAID\", a zatim odaberite \"RAID\" opciju opet."
 
 #: yali/gui/raid_gui.py:37
 msgid "Make RAID Device"
@@ -949,7 +960,7 @@ msgstr "Postavljam korijensku lozinku"
 
 #: yali/gui/ScrGoodbye.py:73
 msgid "Resetting user password..."
-msgstr ""
+msgstr "Ponovno postavljanje korisničke lozinke..."
 
 #: yali/gui/ScrGoodbye.py:76
 msgid "Setup First-Boot..."
@@ -1016,7 +1027,9 @@ msgid ""
 "An error occured during the installation of packages.\n"
 "This may be caused by a corrupted installation medium error:\n"
 "%s\n"
-msgstr "Došlo je do pogreške tijekom instalacije paketa.\n Ovo može biti uzrokovano greškom oštećenog instalacijakog medija:\n"
+msgstr ""
+"Došlo je do pogreške tijekom instalacije paketa.\n"
+" Ovo može biti uzrokovano greškom oštećenog instalacijakog medija:\n"
 "%s\n"
 
 #: yali/gui/ScrKahyaCheck.py:78
@@ -1102,7 +1115,7 @@ msgstr "Polje"
 
 #: yali/gui/ScrPartitionManual.py:231
 msgid "Volume Groups"
-msgstr ""
+msgstr "Grupe particija"
 
 #: yali/gui/ScrPartitionManual.py:244 yali/gui/ScrPartitionManual.py:320
 msgid "Free"
@@ -1136,7 +1149,7 @@ msgstr "Greška particioniranja"
 #: yali/gui/ScrPartitionManual.py:352
 #, python-format
 msgid "Could not allocate requested partitions: %s."
-msgstr ""
+msgstr "Nisam mogao dodijeliti tražene particije: %s."
 
 #: yali/gui/ScrPartitionManual.py:356
 msgid "Warning Partitioning"
@@ -1158,7 +1171,7 @@ msgstr "Upozorenje odabira particije"
 
 #: yali/gui/ScrPartitionManual.py:473
 msgid "Please select free physical partition to create new device."
-msgstr ""
+msgstr "Molimo, odaberite slobodnu fizičku particiju za stvaranje novih uređaja."
 
 #: yali/gui/ScrPartitionManual.py:483
 msgid "Unable To Edit"
@@ -1543,7 +1556,7 @@ msgstr ""
 
 #: yali/storage/devicetree.py:1569
 msgid "This partition is part of an inconsistent LVM Volume Group."
-msgstr ""
+msgstr "Ova particija dio LVM nedosljedne particijske grupe."
 
 #: yali/storage/__init__.py:48
 #, python-format
@@ -1557,16 +1570,16 @@ msgstr "Greška uređaja pohrane"
 #: yali/storage/__init__.py:58
 #, python-format
 msgid "There was an error encountered while partitioning on device %s."
-msgstr ""
+msgstr "Došlo je do pogreške pri particioniranju na uređaj %s."
 
 #: yali/storage/__init__.py:63
 msgid "Storage Format Error"
-msgstr ""
+msgstr "Greška formatiranja pohrane"
 
 #: yali/storage/__init__.py:64
 #, python-format
 msgid "There was an error encountered while formatting on device %s."
-msgstr ""
+msgstr "Došlo je do pogreške pri particioniranju na uređaj %s."
 
 #: yali/storage/__init__.py:75 yali/storage/storageset.py:336
 msgid "Exit installer"
@@ -1586,6 +1599,8 @@ msgid ""
 "The following file systems for your Linux system were not unmounted cleanly.  Please boot your Linux installation, let the file systems be checked and shut down cleanly to rescue.\n"
 "%s"
 msgstr ""
+"Sljedeći datotečni sustavi za vaš Linux sustav nisu odmontirani čisto. Molimo podignite vašu Linux instalaciju, neka datotečni sustavi budu provjereni i isključi čisto za spašavanje. \n"
+"%s"
 
 #: yali/storage/__init__.py:169
 #, python-format
