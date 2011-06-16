@@ -353,7 +353,7 @@ msgstr "Datenträger aktualisieren"
 
 #: yali/gui/Ui/partedit.py:174
 msgid "Reset All Changes"
-msgstr "Alle Änderungen rücksetzen"
+msgstr "Alle Änderungen zurücksetzen"
 
 #: yali/gui/Ui/partedit.py:175
 msgid "Apply"
@@ -446,19 +446,19 @@ msgstr "Auf die gewählte Partition"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:123
 msgid "Choose the user you want to reset the password:"
-msgstr "Benutzer auswählen, dessen Paßwort zurückgesetzt werden soll:"
+msgstr "Benutzer auswählen, dessen Passwort zurückgesetzt werden soll:"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:124
 msgid "Password:"
-msgstr "Paßwort:"
+msgstr "Passwort:"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:125 yali/gui/Ui/setupuserswidget.py:492
 msgid "Confirm Password"
-msgstr "Bestätige Paßwort"
+msgstr "Bestätige Passwort"
 
 #: yali/gui/Ui/rescuepasswordwidget.py:126
 msgid "Reset Password"
-msgstr "Paßwort zurücksetzen"
+msgstr "Passwort zurücksetzen"
 
 #: yali/gui/Ui/rescuepisiwidget.py:74
 msgid "<b>Connection status:</b>"
@@ -486,7 +486,7 @@ msgstr "Bootloader neu installieren"
 
 #: yali/gui/Ui/rescuewidget.py:116
 msgid "Reset forgotten password"
-msgstr "Vergessenes Paßwort zurücksetzen"
+msgstr "Vergessenes Passwort zurücksetzen"
 
 #: yali/gui/Ui/rescuewidget.py:117
 msgid "Return back to a previous system state"
@@ -498,7 +498,7 @@ msgstr "Administratorpaßwort"
 
 #: yali/gui/Ui/rootpasswidget.py:130
 msgid "Confirm password"
-msgstr "Paßwort bestätigen"
+msgstr "Passwort bestätigen"
 
 #: yali/gui/Ui/rootpasswidget.py:131
 msgid "Computer Name"
@@ -514,7 +514,7 @@ msgstr "Vollständiger Name"
 
 #: yali/gui/Ui/setupuserswidget.py:491
 msgid "Password"
-msgstr "Paßwort"
+msgstr "Passwort"
 
 #: yali/gui/Ui/setupuserswidget.py:493
 msgid "Custom User ID"
@@ -624,7 +624,7 @@ msgstr "Ungültiger Name der Volume-Gruppe"
 # -Stefan
 #: yali/gui/lvm_gui.py:98
 msgid "Name in use"
-msgstr "Name schon verwendet"
+msgstr "Name schon vergeben"
 
 #: yali/gui/lvm_gui.py:99
 #, python-format
@@ -766,7 +766,7 @@ msgstr "Mount-Point Fehler"
 #: yali/gui/lvm_gui.py:644 yali/gui/partition_gui.py:79
 #: yali/gui/raid_gui.py:82
 msgid "Mount point in use"
-msgstr "Einhängepunkt schon verwendet"
+msgstr "Einhängepunkt schon in Gebrauch"
 
 #: yali/gui/lvm_gui.py:645 yali/gui/partition_gui.py:80
 #: yali/gui/raid_gui.py:83
@@ -890,7 +890,7 @@ msgstr "Initialisiere Datenträger..."
 
 #: yali/gui/ScrAdmin.py:154
 msgid "Password is too short."
-msgstr "Das Paßwort ist zu kurz."
+msgstr "Das Passwort ist zu kurz."
 
 #: yali/gui/ScrAdmin.py:162
 msgid "Passwords do not match."
@@ -898,7 +898,7 @@ msgstr "Die Paßwörter stimmen nicht überein."
 
 #: yali/gui/ScrAdmin.py:167
 msgid "Do not use your username as your password."
-msgstr "Verwenden Sie nicht Ihren Benutzernamen als Paßwort."
+msgstr "Verwenden Sie nicht Ihren Benutzernamen als Passwort."
 
 #: yali/gui/ScrAdmin.py:177
 msgid "Hostname cannot be longer than 64 characters."
@@ -1006,7 +1006,7 @@ msgstr "Hostname wird eingestellt..."
 
 #: yali/gui/ScrGoodbye.py:70
 msgid "Setting root password..."
-msgstr "Root-Paßwort wird eingestellt..."
+msgstr "Root-Passwort wird eingestellt..."
 
 #: yali/gui/ScrGoodbye.py:73
 msgid "Resetting user password..."
@@ -1183,7 +1183,7 @@ msgstr "Festplatten"
 
 #: yali/gui/ScrPartitionManual.py:297
 msgid "Can't handle more than one extended partition per disk"
-msgstr "Mehr als eine erweiterte Partition pro Festplatte nicht möglich"
+msgstr "Mehr als eine erweiterte Partition pro Festplatte ist nicht möglich"
 
 #: yali/gui/ScrPartitionManual.py:304
 msgid "Crossed logical partition before extended"
@@ -1244,7 +1244,7 @@ msgstr ""
 
 #: yali/gui/ScrRescuePassword.py:99 yali/gui/ScrUsers.py:214
 msgid "Don't use your user name or name as a password"
-msgstr "Verwenden Sie nicht Ihren Benutzernamen oder Namen als Paßwort"
+msgstr "Verwenden Sie nicht Ihren Benutzernamen oder Namen als Passwort"
 
 #: yali/gui/ScrRescuePassword.py:102 yali/gui/ScrUsers.py:217
 msgid "Passwords do not match"
@@ -1252,7 +1252,7 @@ msgstr "Die Paßwörter stimmen nicht überein"
 
 #: yali/gui/ScrRescuePassword.py:105 yali/gui/ScrUsers.py:220
 msgid "Password is too short"
-msgstr "Das Paßwort ist zu kurz"
+msgstr "Das Passwort ist zu kurz"
 
 #: yali/gui/ScrRescuePassword.py:120 yali/gui/ScrRescue.py:92
 msgid "Cannot Rescue"
@@ -1710,7 +1710,7 @@ msgid ""
 "This device is an extended partition which contains logical partitions that cannot be deleted:\n"
 "\n"
 msgstr ""
-"Dieses Gerät ist eine erweiterte Partition, die logische Partitionen enthält, die nicht gelöscht werden können:  \n"
+"Dieses Gerät ist eine erweiterte Partition, die logische Partitionen enthält welche nicht gelöscht werden können:\n"
 "\n"
 
 #: yali/storage/__init__.py:873
@@ -1787,7 +1787,7 @@ msgid ""
 "partitioning, please use another partitioning method."
 msgstr ""
 "Konnte nicht genug freien Speicherplatz für die automatische \n"
-"Partitioning finden. Bitte verwenden Sie eine andere Methode."
+"Partitionierung finden. Bitte verwenden Sie eine andere Methode."
 
 #: yali/storage/partitioning.py:1669
 msgid "Warnings During Automatic Partitioning"
@@ -1961,7 +1961,7 @@ msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:242
 msgid "The following pre-existing partitions have been selected to be formatted, destroying all data."
-msgstr "Die folgenden existierenden Partitionierungen wurden zur Formatierung ausgewählt. Alle vorhandenen Daten werden dadurch verloren gehen."
+msgstr "Die folgenden existierenden Partitionierungen wurden zur Formatierung ausgewählt. Alle vorhanden Daten gehen dadurch verloren."
 
 #: yali/storage/storageBackendHelpers.py:245
 msgid "Select 'Yes' to continue and format these partitions, or 'No' to go back and change these settings."
@@ -2007,7 +2007,7 @@ msgstr "Reset bestätigen"
 
 #: yali/storage/storageBackendHelpers.py:302
 msgid "Are you sure you want to reset the partition table to its original state?"
-msgstr "Sie sind sicher, dass Sie die Partitionstabelle in seinen ursprünglichen Zustand zurücksetzen wollen?"
+msgstr "Sind Sie sicher, dass Sie die Partitionstabelle in seinen ursprünglichen Zustand zurücksetzen wollen?"
 
 #: yali/storage/storageBackendHelpers.py:310
 msgid ""
@@ -2130,7 +2130,7 @@ msgid ""
 "\n"
 "Press <Enter> to exit the installer."
 msgstr ""
-"Während dem Einhängen von dem Gerät %(path)s bei %(mountpoint)s: %(msg)s ist ein Fehler aufgetreten. Dies ist ein schwerwiegender Fehler und die Installation kann nicht fortgeführt werden.\n"
+"Während des Einhängens des Gerätes %(path)s bei %(mountpoint)s: %(msg)s ist ein Fehler aufgetreten. Dies ist ein schwerwiegender Fehler und die Installation kann nicht fortgeführt werden.\n"
 "\n"
 "Drücken Sie die <Enter>-Taste um das Installationsprogramm zu beenden."
 
