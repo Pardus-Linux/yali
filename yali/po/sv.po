@@ -15,8 +15,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sv\n"
-"X-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.0\n"
 
 #: yali/gui/Ui/autopartquestion.py:82
 msgid "There appears to be more than one resizeable partition. You can select a partition from the list below or YALI will select one for you."
@@ -1932,9 +1932,8 @@ msgid "Reset device"
 msgstr "Återställ enhet"
 
 #: yali/storage/storageBackendHelpers.py:343
-#, fuzzy
 msgid "Ignore device"
-msgstr "Ignorera"
+msgstr "Ignorera enhet"
 
 #: yali/storage/storageBackendHelpers.py:357
 #, python-format
@@ -2107,9 +2106,8 @@ msgid "lvs failed for %s"
 msgstr "FSCheck misslyckades på %s"
 
 #: yali/storage/formats/disklabel.py:28
-#, fuzzy
 msgid "partition table"
-msgstr "Partition"
+msgstr "Partitionstabell"
 
 #: yali/storage/formats/dmraidmember.py:19
 msgid "dm-raid member device"
@@ -2182,9 +2180,8 @@ msgid "Usage error."
 msgstr ""
 
 #: yali/storage/formats/physicalvolume.py:19
-#, fuzzy
 msgid "physical volume (LVM)"
-msgstr "Fysisk volym"
+msgstr "fysisk volym (LVM)"
 
 #: yali/storage/formats/raidmember.py:21
 msgid "software RAID"
