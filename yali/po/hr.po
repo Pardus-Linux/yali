@@ -14,11 +14,11 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Country: CROATIA\n"
 "Language: \n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Poedit-Language: Croatian\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Country: CROATIA\n"
 
 #: yali/gui/Ui/autopartquestion.py:82
 msgid "There appears to be more than one resizeable partition. You can select a partition from the list below or YALI will select one for you."
@@ -115,7 +115,7 @@ msgstr "Osnovna namjera stvaranja particije"
 
 #: yali/gui/Ui/createdevicewidget.py:136 yali/gui/ScrPartitionManual.py:158
 msgid "Volume Group"
-msgstr ""
+msgstr "Particijska grupa"
 
 #: yali/gui/Ui/createdevicewidget.py:137 yali/gui/ScrPartitionManual.py:159
 msgid "Requires at least 1 free LVM formatted partition"
@@ -448,7 +448,7 @@ msgstr "<b>Status veze:</b>"
 
 #: yali/gui/Ui/rescuepisiwidget.py:75
 msgid "To use PiSi's history feature, you may need to be online. Select connection profile."
-msgstr ""
+msgstr "Da biste koristili PiSi značajku povijesti, možda ćete morati biti online. Odaberite profil veze."
 
 #: yali/gui/Ui/rescuepisiwidget.py:76
 msgid "Select Connection"
@@ -456,7 +456,7 @@ msgstr "Odaberi vezu"
 
 #: yali/gui/Ui/rescuepisiwidget.py:77
 msgid "Select the operation to undo:"
-msgstr ""
+msgstr "Odaberite operaciju za poništavanje:"
 
 #: yali/gui/Ui/rescuewidget.py:114
 msgid "Choose what do you want to do to repair your system"
@@ -508,7 +508,7 @@ msgstr "NIje preporučljivo"
 
 #: yali/gui/Ui/setupuserswidget.py:495
 msgid "Bypass authorization attempts for this user"
-msgstr ""
+msgstr "Zaobiđi pokušaje odobrenja za ovog korisnika"
 
 #: yali/gui/Ui/setupuserswidget.py:496
 msgid "Add user to administrator (wheel) group"
@@ -529,7 +529,7 @@ msgstr "Napredno"
 
 #: yali/gui/Ui/volumegroup.py:109
 msgid "Volume Group Name:"
-msgstr ""
+msgstr "Ime particijske grupe"
 
 #: yali/gui/Ui/volumegroup.py:110
 msgid "Physical Extends"
@@ -537,7 +537,7 @@ msgstr ""
 
 #: yali/gui/Ui/volumegroup.py:111
 msgid "Physical Volumes to use:"
-msgstr ""
+msgstr "Fizičke particije za korištenje:"
 
 #: yali/gui/Ui/volumegroup.py:112
 msgid "Total Space:"
@@ -549,7 +549,7 @@ msgstr "Slobodni prostor:"
 
 #: yali/gui/Ui/volumegroup.py:114
 msgid "Logical Volumes"
-msgstr ""
+msgstr "Logičke particije"
 
 #: yali/gui/Ui/volumegroup.py:115
 msgid "Mountpoint"
@@ -571,7 +571,7 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:48
 msgid "Not enough physical volumes"
-msgstr ""
+msgstr "Nije dovoljno fizičkih particija"
 
 #: yali/gui/lvm_gui.py:49
 msgid ""
@@ -580,23 +580,26 @@ msgid ""
 "Create a partition or RAID array of type \"physical volume\n"
 "(LVM)\" and then select the \"LVM\" option again."
 msgstr ""
+"Barem jedna neiskorištena fizička particija je potrebna da bi \\ nnapravili LVM particijsku grupu. \n"
+"Napravite particiju ili RAID polje vrste \"fizička particija\n"
+"(LVM)\" i zatim odaberite \\ \"LVM \" opciju opet."
 
 #: yali/gui/lvm_gui.py:60
 msgid "Make LVM Volume Group"
-msgstr ""
+msgstr "Napravite LVM particijsku grupu"
 
 #: yali/gui/lvm_gui.py:63
 #, python-format
 msgid "Edit LVM Volume Group: %s"
-msgstr ""
+msgstr "Uredi  LVM particijsku grupu: %s"
 
 #: yali/gui/lvm_gui.py:65
 msgid "Edit LVM Volume Group"
-msgstr ""
+msgstr "Uredi  LVM particijsku grupu"
 
 #: yali/gui/lvm_gui.py:91
 msgid "Invalid Volume Group Name"
-msgstr ""
+msgstr "Neispravno ime particijske grupe"
 
 #: yali/gui/lvm_gui.py:98
 msgid "Name in use"
@@ -605,7 +608,7 @@ msgstr "Ime u uporabi"
 #: yali/gui/lvm_gui.py:99
 #, python-format
 msgid "The volume group name \"%s\" is already in use. Please pick another."
-msgstr ""
+msgstr "Ime partiocijske grupe \"%s\" je u uporabi.Odaberite drugo ime."
 
 #: yali/gui/lvm_gui.py:402 yali/gui/lvm_gui.py:432 yali/gui/lvm_gui.py:445
 #: yali/gui/lvm_gui.py:480 yali/gui/lvm_gui.py:696 yali/gui/lvm_gui.py:718
@@ -924,7 +927,7 @@ msgstr "Morate odabrati barem jedan disk koji će se koristiti za instalaciju."
 
 #: yali/gui/ScrGoodbye.py:37
 msgid "Running post-install operations..."
-msgstr ""
+msgstr "Pokrećem  post-instalacijske operacije ..."
 
 #: yali/gui/ScrGoodbye.py:49
 msgid "Press <b>Restart</b> to restart the computer."
