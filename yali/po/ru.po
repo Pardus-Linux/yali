@@ -1732,9 +1732,9 @@ msgid "requested size exceeds maximum allowed"
 msgstr "требуемый размер превышает максимально допустимый"
 
 #: yali/storage/partitioning.py:911
-#, python-format, fuzzy
+#, python-format
 msgid "partition is too %(problem)s for %(format)s formatting"
-msgstr "раздел слижком %(problem)s для %(format)s форматирования"
+msgstr "раздел слишком %(problem)s для %(format)s форматирования"
 
 #: yali/storage/partitioning.py:1051
 msgid "not enough free space on disks"
@@ -2169,7 +2169,6 @@ msgid "Bootable partitions cannot be on an %s filesystem."
 msgstr "Загрузочные разделы не могут располагаться на %s файловой системы."
 
 #: yali/storage/storageset.py:620
-#, fuzzy
 msgid "Ignoring noauto entry"
 msgstr "Игнорирование опции noauto"
 
