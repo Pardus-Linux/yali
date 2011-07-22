@@ -14,11 +14,11 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Country: CROATIA\n"
 "Language: \n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Poedit-Language: Croatian\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-Country: CROATIA\n"
 
 #: yali/gui/Ui/autopartquestion.py:82
 msgid "There appears to be more than one resizeable partition. You can select a partition from the list below or YALI will select one for you."
@@ -1061,7 +1061,7 @@ msgstr "Koristi sve diskove"
 #: yali/gui/ScrPartitionManual.py:94
 #, python-format
 msgid "The partitioning scheme you requested caused the following critical errors.You must correct these errors before you continue your installation of %s."
-msgstr ""
+msgstr "Shemu particioniranja koju ste zatražili uzrokavala je sljedeće kritične greške.Morate ispraviti ove pogreške prije nego što nastavite instalaciju %s."
 
 #: yali/gui/ScrPartitionManual.py:101
 msgid "Partitioning Errors"
@@ -1069,7 +1069,7 @@ msgstr "Greške particioniranja"
 
 #: yali/gui/ScrPartitionManual.py:106
 msgid "The partitioning scheme you requested generated the following warnings. Would you like to continue with your requested partitioning scheme?"
-msgstr ""
+msgstr "Shemu particioniranja koju ste zatražili generirala je slijedeća upozorenja. Želite li nastaviti sa svojom traženom shemom particioniranja?"
 
 #: yali/gui/ScrPartitionManual.py:112
 msgid "Partitioning Warnings"
@@ -1082,7 +1082,7 @@ msgstr "U redu"
 
 #: yali/gui/ScrPartitionManual.py:120
 msgid "The following pre-existing devices have been selected to be formatted, destroying all data."
-msgstr ""
+msgstr "Slijedeći postojeći uređaji su odabrani za formatiranje, uništavajući sve podatke."
 
 #: yali/gui/ScrPartitionManual.py:128
 msgid "Format Warnings"
@@ -1438,7 +1438,7 @@ msgstr ""
 
 #: yali/gui/shrink_gui.py:56
 msgid "Resize Device Error"
-msgstr ""
+msgstr "Greška u promjeni veličine uređaja"
 
 #: yali/gui/shrink_gui.py:57
 #, python-format
@@ -1482,7 +1482,7 @@ msgstr ""
 
 #: yali/gui/YaliWindow.py:130
 msgid "Release file doesn't exists"
-msgstr ""
+msgstr "Datoteka izdanja ne postoji"
 
 #: yali/gui/YaliWindow.py:138
 msgid "Turn Off Computer"
@@ -1541,7 +1541,7 @@ msgstr "Tetris"
 #: yali/gui/YaliWindow.py:382
 #, python-format
 msgid "An error occurred when attempting to load screens:%s"
-msgstr ""
+msgstr "Došlo je do pogreške prilikom pokušaja učitavanja ekrana:%s"
 
 #: yali/gui/YaliWindow.py:440
 msgid "Release notes could not be loaded."
@@ -1643,6 +1643,8 @@ msgid ""
 "This device is an extended partition which contains logical partitions that cannot be deleted:\n"
 "\n"
 msgstr ""
+"Ovaj uređaj je proširena particija koja sadrži logičke particije koje se ne mogu izbrisati:\n"
+"\n"
 
 #: yali/storage/__init__.py:873
 #, python-format
@@ -1661,21 +1663,21 @@ msgstr ""
 
 #: yali/storage/__init__.py:893
 msgid "You have not specified a swap partition. Due to the amount of memory present, a swap partition is required to complete installation."
-msgstr ""
+msgstr "Niste odredili swap particiju. Zbog trenutne količine memorije , swap particija je potrebna za dovršenje instalacije."
 
 #: yali/storage/__init__.py:896
 msgid "You have not specified a swap partition. Although not strictly required in all cases, it will significantly improve performancefor most installations."
-msgstr ""
+msgstr "Niste odredili swap particiju. Iako nije strogo potrebna u svim slučajevima, to će značajno poboljšati performance za većinu instalacija."
 
 #: yali/storage/__init__.py:902
 #, python-format
 msgid "This mount point is invalid. The %s directory must be on the / file system."
-msgstr ""
+msgstr "Ova točka montiranja je neispravna. %s direktorij mora biti na / datotečnom sustavu."
 
 #: yali/storage/__init__.py:905
 #, python-format
 msgid "The mount point %s must be on a linux file system."
-msgstr ""
+msgstr "Točka montiranja %s mora biti na Linux datotečnom sustavu."
 
 #: yali/storage/__init__.py:925
 msgid "No Drives Found"
@@ -1690,7 +1692,7 @@ msgstr ""
 
 #: yali/storage/partitioning.py:703
 msgid "requested size exceeds maximum allowed"
-msgstr ""
+msgstr "tražena veličina prelazi maksimalno dopuštenu"
 
 #: yali/storage/partitioning.py:911
 #, python-format
