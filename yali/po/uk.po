@@ -1592,32 +1592,30 @@ msgid "Storage Device Error"
 msgstr "Помилка носія пам'яті"
 
 #: yali/storage/__init__.py:58
-#, fuzzy, python-format
+#, python-format
 msgid "There was an error encountered while partitioning on device %s."
-msgstr "Трапилась помилка при зміні розміру пристрою %s."
+msgstr "Трапилась помилка при розділенні пристрою %s."
 
 #: yali/storage/__init__.py:63
 msgid "Storage Format Error"
-msgstr ""
+msgstr "Помилка формату пам'яті"
 
 #: yali/storage/__init__.py:64
-#, fuzzy, python-format
+#, python-format
 msgid "There was an error encountered while formatting on device %s."
-msgstr "Трапилась помилка при зміні розміру пристрою %s."
+msgstr "Трапилась помилка при форматуванні пристрою %s."
 
 #: yali/storage/__init__.py:75 yali/storage/storageset.py:336
 msgid "Exit installer"
 msgstr "Вийти з установлення"
 
 #: yali/storage/__init__.py:75
-#, fuzzy
 msgid "Ignore"
-msgstr "Зігнорувати все"
+msgstr "Зігнорувати"
 
 #: yali/storage/__init__.py:158 yali/storage/__init__.py:168
-#, fuzzy
 msgid "Dirty File Systems"
-msgstr "Файлова система :"
+msgstr "Нечисті файлові системи"
 
 #: yali/storage/__init__.py:159
 #, python-format
@@ -2164,27 +2162,27 @@ msgstr "Завантажувальний розділ не може бути н�
 
 #: yali/storage/storageset.py:620
 msgid "Ignoring noauto entry"
-msgstr ""
+msgstr "Зігнорувати запис noauto"
 
 #: yali/storage/storageset.py:678
 #, python-format
 msgid "Failed to resolve %s (%s) from fstab"
-msgstr ""
+msgstr "Не вдалось розв'язати %s (%s) у fstab"
 
 #: yali/storage/storageset.py:684
 #, python-format
 msgid "Unrecognized filesystem type for %s (%s)"
-msgstr ""
+msgstr "Невизначений ти файлової системи для %s (%s)"
 
 #: yali/storage/storageset.py:691
 #, python-format
 msgid "Scanned format (%s) differs from fstab format (%s)"
-msgstr ""
+msgstr "Зісканований формат (%s) відрізняється від формату fstab (%s)"
 
 #: yali/storage/storageset.py:713
 #, python-format
 msgid "Cannot open %s for read"
-msgstr ""
+msgstr "Неможливо відкрити %s для читання"
 
 #: yali/storage/storageset.py:743
 #, python-format
