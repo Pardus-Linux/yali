@@ -1623,6 +1623,8 @@ msgid ""
 "The following file systems for your Linux system were not unmounted cleanly.  Please boot your Linux installation, let the file systems be checked and shut down cleanly to rescue.\n"
 "%s"
 msgstr ""
+"Такі файлові системи не демонтовано охайно. Будь ласка, завантажте встановлення Linux, нехай файлові системи перевіряться і зупиніть охайно, щоб відновити.\n"
+"%s"
 
 #: yali/storage/__init__.py:169
 #, python-format
@@ -1630,6 +1632,8 @@ msgid ""
 "The following file systems for your Linux system were not unmounted cleanly.  Would you like to mount them anyway?\n"
 "%s"
 msgstr ""
+"Такі файлові системи не демонтовано охайно. Однаково їх змонтувати?\n"
+"%s"
 
 #: yali/storage/__init__.py:336
 msgid "This partition is holding the data for the hard drive install."
@@ -2233,9 +2237,9 @@ msgid "Unknown return code: %d."
 msgstr "Невідомий код повернення: %d."
 
 #: yali/storage/formats/filesystem.py:247
-#, fuzzy, python-format
+#, python-format
 msgid "Migrating %s filesystem on %s"
-msgstr "Зміна розміру на %s"
+msgstr "Перенесення файлової системи %s на %s"
 
 #: yali/storage/formats/filesystem.py:299
 #, python-format
