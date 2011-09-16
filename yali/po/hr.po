@@ -14,11 +14,11 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Country: CROATIA\n"
 "Language: \n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Poedit-Language: Croatian\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Country: CROATIA\n"
 
 #: yali/gui/Ui/autopartquestion.py:82
 msgid "There appears to be more than one resizeable partition. You can select a partition from the list below or YALI will select one for you."
@@ -844,7 +844,7 @@ msgstr "Pokušaj ponovno"
 
 #: yali/gui/ScrAdmin.py:96 yali/gui/ScrDateTime.py:208
 msgid "Storage Devices initialising..."
-msgstr ""
+msgstr "Iniciram uređaje pohrane..."
 
 #: yali/gui/ScrAdmin.py:154
 msgid "Password is too short."
@@ -1134,7 +1134,7 @@ msgstr "Tvrdi diskovi"
 
 #: yali/gui/ScrPartitionManual.py:297
 msgid "Can't handle more than one extended partition per disk"
-msgstr ""
+msgstr "Ne mogu podržati više od jedne po proširene particije po disku"
 
 #: yali/gui/ScrPartitionManual.py:304
 msgid "Crossed logical partition before extended"
@@ -1470,7 +1470,7 @@ msgstr "U redu"
 
 #: yali/gui/YaliDialog.py:453
 msgid "Error reporting"
-msgstr ""
+msgstr "Izvješćivanje o pogreškama"
 
 #: yali/gui/YaliWindow.py:90
 msgid "Pixmaps resources file doesn't exists"
@@ -1614,7 +1614,7 @@ msgstr ""
 
 #: yali/storage/__init__.py:336
 msgid "This partition is holding the data for the hard drive install."
-msgstr ""
+msgstr "Ova particija sadrži podatke za instalaciju na tvrdi disk."
 
 #: yali/storage/__init__.py:339
 msgid "You cannot delete a partition of a LDL formatted DASD."
