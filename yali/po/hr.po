@@ -1632,11 +1632,11 @@ msgstr "Ovaj uređaj je dio RAID uređaja."
 #: yali/storage/__init__.py:355
 #, python-format
 msgid "This device is part of the LVM volume group '%s'."
-msgstr ""
+msgstr "Ureðaj je dio LVM particijske grupe '%s'."
 
 #: yali/storage/__init__.py:358
 msgid "This device is part of a LVM volume group."
-msgstr ""
+msgstr "Ureðaj je dio LVM particijske grupe."
 
 #: yali/storage/__init__.py:367
 msgid ""
@@ -1681,7 +1681,7 @@ msgstr "Točka montiranja %s mora biti na Linux datotečnom sustavu."
 
 #: yali/storage/__init__.py:925
 msgid "No Drives Found"
-msgstr ""
+msgstr "Nijedan pogon nije pronaðen"
 
 #: yali/storage/__init__.py:926
 msgid ""
@@ -1701,21 +1701,21 @@ msgstr ""
 
 #: yali/storage/partitioning.py:1051
 msgid "not enough free space on disks"
-msgstr ""
+msgstr "nema dovoljno slobodnog prostora na diskovima"
 
 #: yali/storage/partitioning.py:1072
 msgid "not enough free space after creating extended partition"
-msgstr ""
+msgstr "nema dovoljno slobodnog prostora nakon stvaranja proširene particije"
 
 #: yali/storage/partitioning.py:1248
 msgid "not enough space for LVM requests"
-msgstr ""
+msgstr "dovoljno mjesta za LVM zahtjev"
 
 #: yali/storage/partitioning.py:1645
 msgid ""
 "Could not find enough free space for automatic\n"
 "partitioning, please use another partitioning method."
-msgstr ""
+msgstr "Ne mogu pronaći dovoljno slobodnog prostora za automatsko\\ nparticioniranje. molimo Vas da koristite drugi način particioniranja."
 
 #: yali/storage/partitioning.py:1669
 msgid "Warnings During Automatic Partitioning"
@@ -1759,11 +1759,11 @@ msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:18
 msgid "Please enter a volume group name."
-msgstr ""
+msgstr "Unesite naziv particijske grupe."
 
 #: yali/storage/storageBackendHelpers.py:22
 msgid "Volume Group Names must be less than 128 characters"
-msgstr ""
+msgstr "Imena particijske grupe moraju imati manje od 128 znakova"
 
 #: yali/storage/storageBackendHelpers.py:25
 #, python-format
@@ -1776,7 +1776,7 @@ msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:40
 msgid "Please enter a logical volume name."
-msgstr ""
+msgstr "Molimo unesite ime logičke particije."
 
 #: yali/storage/storageBackendHelpers.py:44
 msgid "Logical Volume Names must be less than 128 characters"
@@ -1853,7 +1853,7 @@ msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:226
 msgid "Partitioning Warning"
-msgstr ""
+msgstr "Upozorenje particoiniranja"
 
 #: yali/storage/storageBackendHelpers.py:227
 #, python-format
@@ -1875,7 +1875,7 @@ msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:251
 msgid "Format Warning"
-msgstr ""
+msgstr "Upozorenje formatiranja"
 
 #: yali/storage/storageBackendHelpers.py:279
 #, python-format
