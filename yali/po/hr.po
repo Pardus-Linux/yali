@@ -416,7 +416,7 @@ msgstr "Odaberiter gdje instalirati GRUB boot učitavač"
 
 #: yali/gui/Ui/rescuegrubwidget.py:83
 msgid "First bootable disk (recommended)"
-msgstr ""
+msgstr "Prvi disk za podizanje (preporučeno)"
 
 #: yali/gui/Ui/rescuegrubwidget.py:84
 msgid "Disk partition where Pardus is installed"
@@ -1719,7 +1719,7 @@ msgstr "Ne mogu pronaći dovoljno slobodnog prostora za automatsko\\ nparticioni
 
 #: yali/storage/partitioning.py:1669
 msgid "Warnings During Automatic Partitioning"
-msgstr ""
+msgstr "Upozorenja tijekom automatskog particioniranja"
 
 #: yali/storage/partitioning.py:1670
 #, python-format
@@ -1728,6 +1728,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Slijedeća upozorenja dogodila su se tijekom automatskog particioniranja:\n"
+"\n"
+"%s"
 
 #: yali/storage/partitioning.py:1679 yali/storage/partitioning.py:1699
 msgid ""
@@ -1768,11 +1771,11 @@ msgstr "Imena particijske grupe moraju imati manje od 128 znakova"
 #: yali/storage/storageBackendHelpers.py:25
 #, python-format
 msgid "Error - the volume group name %s is not valid."
-msgstr ""
+msgstr "Pogreška - naziv particijske grupe %s nije valjan."
 
 #: yali/storage/storageBackendHelpers.py:30
 msgid "Error - the volume group name contains illegal characters or spaces.  Acceptable characters are letters, digits, '.' or '_'."
-msgstr ""
+msgstr "Pogreška - naziv particijske grupe sadrži nedozvoljene znakove ili razmake. Prihvatljivi znakovi su slova, brojevi, \".\" ili '_'."
 
 #: yali/storage/storageBackendHelpers.py:40
 msgid "Please enter a logical volume name."
@@ -1785,11 +1788,11 @@ msgstr ""
 #: yali/storage/storageBackendHelpers.py:48
 #, python-format
 msgid "Error - the logical volume name %s is not valid."
-msgstr ""
+msgstr "Greška - ime logičke particije %s nije valjano."
 
 #: yali/storage/storageBackendHelpers.py:54
 msgid "Error - the logical volume name contains illegal characters or spaces.  Acceptable characters are letters, digits, '.' or '_'."
-msgstr ""
+msgstr "Greška - ime logičke particije sadrži nedopuštene znakove ili razmake. Prihvatljivi znakovi su slova, brojevi, \".\" ili '_'."
 
 #: yali/storage/storageBackendHelpers.py:68
 msgid "Format as Swap?"
@@ -1841,7 +1844,7 @@ msgstr "Točka montiranja %s nije valjana. Točke montiranja moraju početi s '/
 
 #: yali/storage/storageBackendHelpers.py:209
 msgid "Error with Partitioning"
-msgstr ""
+msgstr "Pogreška u particioniranju"
 
 #: yali/storage/storageBackendHelpers.py:210
 #, python-format
