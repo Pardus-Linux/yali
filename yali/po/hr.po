@@ -2221,7 +2221,7 @@ msgstr ""
 
 #: yali/localedata.py:20
 msgid "Turkish"
-msgstr ""
+msgstr "Turski"
 
 #: yali/localedata.py:22
 msgid "Turkish F"
@@ -2305,47 +2305,47 @@ msgstr "Poljski"
 
 #: yali/localedata.py:219
 msgid "Belgium"
-msgstr ""
+msgstr "Belgijski"
 
 #: yali/localedata.py:229
 msgid "French"
-msgstr ""
+msgstr "Francuski"
 
 #: yali/localedata.py:240
 msgid "Bulgarian"
-msgstr ""
+msgstr "Bugarski"
 
 #: yali/localedata.py:250
 msgid "Slovenian"
-msgstr ""
+msgstr "Slovenski"
 
 #: yali/localedata.py:260
 msgid "Croatian"
-msgstr ""
+msgstr "Hrvatski"
 
 #: yali/localedata.py:270
 msgid "German"
-msgstr ""
+msgstr "Njemački"
 
 #: yali/localedata.py:281
 msgid "Danish"
-msgstr ""
+msgstr "Danski"
 
 #: yali/localedata.py:291
 msgid "Brazilian"
-msgstr ""
+msgstr "Brazilski"
 
 #: yali/localedata.py:301
 msgid "Finnish"
-msgstr ""
+msgstr "Finski"
 
 #: yali/localedata.py:311
 msgid "Hungarian"
-msgstr ""
+msgstr "Mađarski"
 
 #: yali/localedata.py:322
 msgid "Japanese"
-msgstr ""
+msgstr "Japanski"
 
 #: yali/localedata.py:332
 msgid "Malayalam"
@@ -2353,7 +2353,7 @@ msgstr ""
 
 #: yali/localedata.py:342
 msgid "Swedish"
-msgstr ""
+msgstr "Švedski"
 
 #: yali/localedata.py:353
 msgid "Macedonian"
