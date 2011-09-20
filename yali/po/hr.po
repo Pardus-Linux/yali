@@ -14,11 +14,11 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Country: CROATIA\n"
 "Language: \n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Poedit-Language: Croatian\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-Country: CROATIA\n"
 
 #: yali/gui/Ui/autopartquestion.py:82
 msgid "There appears to be more than one resizeable partition. You can select a partition from the list below or YALI will select one for you."
@@ -67,7 +67,7 @@ msgstr "Zadane postavke"
 
 #: yali/gui/Ui/bootloaderwidget.py:130
 msgid "Don't install bootloader"
-msgstr "Nemoj instalirati boot učitavač"
+msgstr "Nemoj instalirati učitavač podizanja"
 
 #: yali/gui/Ui/bootloaderwidget.py:131 yali/gui/ScrBootloader.py:105
 msgid "The partition where Pardus is installed"
@@ -967,7 +967,7 @@ msgstr "Ponovno postavljanje korisničke lozinke..."
 
 #: yali/gui/ScrGoodbye.py:76
 msgid "Setup First-Boot..."
-msgstr ""
+msgstr "Postavljanje prvog pokretanja ..."
 
 #: yali/gui/ScrGoodbye.py:79
 msgid "Teardown First-Boot..."
@@ -1417,7 +1417,7 @@ msgstr "Korisničko ime sadrži neispravne znakove"
 
 #: yali/gui/ScrUsers.py:273
 msgid "The real name contains invalid characters."
-msgstr "Pravo ime sadrži neispravne znakove,"
+msgstr "Pravo ime sadrži neispravne znakove."
 
 #: yali/gui/ScrUsers.py:281
 msgid "User ID used before, choose another one!"
@@ -1516,7 +1516,7 @@ msgstr ""
 #: yali/gui/YaliWindow.py:183
 #, python-format
 msgid "Do you want to switch to the <b>%s</b> handed configuration?"
-msgstr ""
+msgstr "Želite li prebaciti na <b>%s</b> ručnu konfiguraciju?"
 
 #: yali/gui/YaliWindow.py:213
 msgid "Are you sure you want to shut down your computer now?"
@@ -1689,6 +1689,9 @@ msgid ""
 "which to create new file systems. Please check your\n"
 "hardware for the cause of this problem."
 msgstr ""
+"Došlo je do pogreške - nisu pronađeni valjani uređaji na\n"
+"kojima se može stvarati nove datotečne sustave. Molimo provjerite\n"
+"hardware za uzrok ovog problema."
 
 #: yali/storage/partitioning.py:703
 msgid "requested size exceeds maximum allowed"
@@ -1738,6 +1741,9 @@ msgid ""
 "\n"
 "Press 'OK' to exit the installer."
 msgstr ""
+"\n"
+"\n"
+"Kliknite \"U redu\" za izlazak iz instalatera."
 
 #: yali/storage/partitioning.py:1681
 #, python-format
@@ -1783,7 +1789,7 @@ msgstr "Molimo unesite ime logičke particije."
 
 #: yali/storage/storageBackendHelpers.py:44
 msgid "Logical Volume Names must be less than 128 characters"
-msgstr ""
+msgstr "Imena logičkih particija moraju biti manja od 128 znakova"
 
 #: yali/storage/storageBackendHelpers.py:48
 #, python-format
@@ -1870,11 +1876,11 @@ msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:242
 msgid "The following pre-existing partitions have been selected to be formatted, destroying all data."
-msgstr ""
+msgstr "Sljedeće već postojeće particije su odabrane za  formatiranje, uništavajući sve podatke."
 
 #: yali/storage/storageBackendHelpers.py:245
 msgid "Select 'Yes' to continue and format these partitions, or 'No' to go back and change these settings."
-msgstr ""
+msgstr "Odaberite 'Da' za nastavak i formatiranje ovih particija, ili \"Ne\" za vraćanjei i promijenu ovih postavki."
 
 #: yali/storage/storageBackendHelpers.py:251
 msgid "Format Warning"
@@ -1928,11 +1934,11 @@ msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:318
 msgid "Format?"
-msgstr ""
+msgstr "Formatirati?"
 
 #: yali/storage/storageBackendHelpers.py:319
 msgid "Do Not Format"
-msgstr ""
+msgstr "Nemoj formatirati"
 
 #: yali/storage/storageBackendHelpers.py:326
 #, python-format
@@ -1946,7 +1952,7 @@ msgstr ""
 #: yali/storage/storageBackendHelpers.py:356
 #: yali/storage/storageBackendHelpers.py:376
 msgid "Storage Device Warning"
-msgstr ""
+msgstr "Upozorenje uređaja za pohranu"
 
 #: yali/storage/storageBackendHelpers.py:332
 #, python-format
@@ -1959,7 +1965,7 @@ msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:343
 msgid "Ignore device"
-msgstr ""
+msgstr "Zanemari uređaj"
 
 #: yali/storage/storageBackendHelpers.py:357
 #, python-format
@@ -1972,7 +1978,7 @@ msgstr ""
 
 #: yali/storage/storageBackendHelpers.py:364
 msgid "No, protect data"
-msgstr ""
+msgstr "Ne, zaštiti podatake"
 
 #: yali/storage/storageBackendHelpers.py:377
 #, python-format
@@ -1981,7 +1987,7 @@ msgstr ""
 
 #: yali/storage/storageset.py:298 yali/storage/storageset.py:311
 msgid "Invalid mount point"
-msgstr ""
+msgstr "Neispravna točku montiranja"
 
 #: yali/storage/storageset.py:299
 #, python-format
@@ -2001,7 +2007,7 @@ msgstr ""
 
 #: yali/storage/storageset.py:329 yali/storage/storageset.py:350
 msgid "Unable to mount filesystem"
-msgstr ""
+msgstr "Nije moguće montiranje datotečnog sustava"
 
 #: yali/storage/storageset.py:330
 #, python-format
@@ -2018,7 +2024,7 @@ msgstr ""
 
 #: yali/storage/storageset.py:386
 msgid "Skip"
-msgstr ""
+msgstr "Preskoči"
 
 #: yali/storage/storageset.py:418
 #, python-format
@@ -2111,11 +2117,11 @@ msgstr ""
 #: yali/storage/devices/volumegroup.py:245
 #, python-format
 msgid "Creating device %s"
-msgstr ""
+msgstr "Stvaram uređaj %s"
 
 #: yali/storage/devices/volumegroup.py:217
 msgid "device has not been created"
-msgstr ""
+msgstr "uređaj nije bio stvoren"
 
 #: yali/storage/devices/volumegroup.py:223
 msgid "cannot activate VG with missing PV(s)"
@@ -2133,7 +2139,7 @@ msgstr ""
 
 #: yali/storage/formats/disklabel.py:28
 msgid "partition table"
-msgstr ""
+msgstr "particijska tablicu"
 
 #: yali/storage/formats/dmraidmember.py:19
 msgid "dm-raid member device"
@@ -2147,7 +2153,7 @@ msgstr ""
 #: yali/storage/formats/filesystem.py:247
 #, python-format
 msgid "Migrating %s filesystem on %s"
-msgstr ""
+msgstr "Premještanje %s datotečnog sustava na %s"
 
 #: yali/storage/formats/filesystem.py:299
 #, python-format
@@ -2157,12 +2163,12 @@ msgstr ""
 #: yali/storage/formats/filesystem.py:347
 #, python-format
 msgid "Resizing filesystem on %s"
-msgstr ""
+msgstr "Promjena veličine datotečnog sustava na %s"
 
 #: yali/storage/formats/filesystem.py:378
 #, python-format
 msgid "Checking filesystem on %s"
-msgstr ""
+msgstr "Provjera datotečnog sustava na %s"
 
 #: yali/storage/formats/filesystem.py:387
 #, python-format
@@ -2191,7 +2197,7 @@ msgstr ""
 
 #: yali/storage/formats/filesystem.py:694
 msgid "e2fsck cancelled by user request."
-msgstr ""
+msgstr "e2fsck otkazan na zahtjev korisnika."
 
 #: yali/storage/formats/filesystem.py:695
 msgid "Shared library error."
@@ -2219,83 +2225,83 @@ msgstr ""
 
 #: yali/localedata.py:22
 msgid "Turkish F"
-msgstr ""
+msgstr "Turski F"
 
 #: yali/localedata.py:22
 msgid "Turkish Q"
-msgstr ""
+msgstr "Turski Q"
 
 #: yali/localedata.py:31
 msgid "English"
-msgstr ""
+msgstr "Engleski"
 
 #: yali/localedata.py:42
 msgid "English GB"
-msgstr ""
+msgstr "Engleski GB"
 
 #: yali/localedata.py:52
 msgid "Greek"
-msgstr ""
+msgstr "Grčki"
 
 #: yali/localedata.py:62
 msgid "Afrikaans"
-msgstr ""
+msgstr "Afrikaans"
 
 #: yali/localedata.py:72
 msgid "Vietnamese"
-msgstr ""
+msgstr "Vijetnamski"
 
 #: yali/localedata.py:82
 msgid "Catalan"
-msgstr ""
+msgstr "Katalonski"
 
 #: yali/localedata.py:93
 msgid "Italian"
-msgstr ""
+msgstr "Talijanski"
 
 #: yali/localedata.py:104
 msgid "Czech"
-msgstr ""
+msgstr "Češki"
 
 #: yali/localedata.py:114
 msgid "Welsh"
-msgstr ""
+msgstr "Velški"
 
 #: yali/localedata.py:124
 msgid "Arabic"
-msgstr ""
+msgstr "Arapski"
 
 #: yali/localedata.py:134
 msgid "Estonian"
-msgstr ""
+msgstr "Estonski"
 
 #: yali/localedata.py:144
 msgid "Spanish"
-msgstr ""
+msgstr "Španjolski"
 
 #: yali/localedata.py:155
 msgid "Russian"
-msgstr ""
+msgstr "Ruski"
 
 #: yali/localedata.py:166
 msgid "Dutch"
-msgstr ""
+msgstr "Nizozemski"
 
 #: yali/localedata.py:177
 msgid "Portuguese"
-msgstr ""
+msgstr "Portugalski"
 
 #: yali/localedata.py:188
 msgid "Norwegian"
-msgstr ""
+msgstr "Norveški"
 
 #: yali/localedata.py:198
 msgid "Icelandic"
-msgstr ""
+msgstr "Islandski"
 
 #: yali/localedata.py:208
 msgid "Polish"
-msgstr ""
+msgstr "Poljski"
 
 #: yali/localedata.py:219
 msgid "Belgium"
