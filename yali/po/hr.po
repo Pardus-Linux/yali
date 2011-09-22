@@ -14,11 +14,11 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Country: CROATIA\n"
 "Language: \n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Poedit-Language: Croatian\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Country: CROATIA\n"
 
 #: yali/gui/Ui/autopartquestion.py:82
 msgid "There appears to be more than one resizeable partition. You can select a partition from the list below or YALI will select one for you."
@@ -541,7 +541,7 @@ msgstr "Fizičke particije za korištenje:"
 
 #: yali/gui/Ui/volumegroup.py:112
 msgid "Total Space:"
-msgstr "Ukupani prostor:"
+msgstr "Ukupni prostor:"
 
 #: yali/gui/Ui/volumegroup.py:113
 msgid "Free Space:"
@@ -686,7 +686,7 @@ msgstr ""
 
 #: yali/gui/lvm_gui.py:510
 msgid "No free space"
-msgstr "N ema slobodnog prostora"
+msgstr "Nema slobodnog prostora"
 
 #: yali/gui/lvm_gui.py:511
 msgid ""
@@ -1389,7 +1389,7 @@ msgstr "Opcije particioniranja koje ste odabrali će sada biti zapisane na disk.
 
 #: yali/gui/ScrSummary.py:201
 msgid "Write Changes to Disk"
-msgstr "zapiši promjene na disk"
+msgstr "Zapiši promjene na disk"
 
 #: yali/gui/ScrSummary.py:201
 msgid "Go Back"
