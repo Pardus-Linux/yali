@@ -65,7 +65,7 @@ class Constants:
         self.__c.slideshows_dir = "slideshow"
 
         # Customize YALI according to the Pardus version
-        # Comes out from baselayout
+        # Comes out from yali-branding-pardus package
         self.__c.release_file = "release.xml"
 
         self.__c.style_file = "style.qss"
