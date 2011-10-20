@@ -63,7 +63,11 @@ class Constants:
         self.__c.theme_dir = os.path.join(self.__c.data_dir, "theme")
         self.__c.branding_dir = os.path.join(self.__c.data_dir, "branding")
         self.__c.slideshows_dir = "slideshow"
+
+        # Customize YALI according to the Pardus version
+        # Comes out from baselayout
         self.__c.release_file = "release.xml"
+
         self.__c.style_file = "style.qss"
         self.__c.pixmaps_resource_file = "data.rcc"
         self.__c.log_dir = "/var/log"
