@@ -37,30 +37,17 @@ kernels = {defaultKernel:"kernel.default",
            paeKernel:"kernel.pae",
            rtKernel:"kernel.rt"}
 
-stdout = None
-
-stderr = None
-
-logger = None
-
-storage = None
-
-bootloader = None
-
-interface = None
-
-mainScreen = None
-
-storageInitialized = False
-
+stdout                   = None
+stderr                   = None
+logger                   = None
+storage                  = None
+bootloader               = None
+interface                = None
+mainScreen               = None
+storageInitialized       = False
 blacklistedKernelModules = []
-
-packagesToInstall = []
-
-socket = None
-
-link = None
-
-mountCount = {}
-
-collections = None
+packagesToInstall        = []
+socket                   = None
+link                     = None
+mountCount               = {}
+collections              = None

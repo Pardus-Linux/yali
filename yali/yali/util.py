@@ -714,3 +714,15 @@ def get_collections():
 
     return packageCollection
 
+def root_access(function):
+    """
+        Checks if the user has root access.
+    """
+    if os.getuid() != 0:
+        print "%s must be run as root." % sys.argv[0]
+        sys.exit(1)
+
+    return function
+
+
+
