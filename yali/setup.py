@@ -131,7 +131,7 @@ class I18Install(install):
             shutil.copy("po/%s.mo" % lang, os.path.join(destpath, "%s.mo" % I18N_DOMAIN))
 
         # YALI's main module path on the system
-        yali_bin = os.path.join(yali_dir, "yali-bin.py")
+        yali_bin = os.path.join(yali_dir, "main.py")
 
         # Make YALI executable
         print "Changing file modes..."
