@@ -9,9 +9,12 @@
 #
 # Please read the COPYING file.
 import os
+import sys
 import glob
 import shutil
+
 from PyQt4 import pyqtconfig
+
 from distutils.core import setup, Extension
 from distutils.sysconfig import get_python_lib
 from distutils.cmd import Command
@@ -20,8 +23,20 @@ from distutils.command.clean import clean
 from distutils.command.install import install
 from distutils.spawn import find_executable, spawn
 
+PROJECT = "yali"
 I18N_DOMAIN = "yali"
 I18N_LANGUAGES = ["tr", "nl", "it", "fr", "de", "pt_BR", "es", "pl", "ca", "sv", "hu", "ru"]
+yali_dir = os.path.join(get_python_lib(), PROJECT)
+
+def root_access(function):
+    """
+        Checks if the user has root access.
+    """
+    if os.getuid() != 0:
+        print "%s must be run as root." % sys.argv[0]
+        sys.exit(1)
+
+    return function
 
 def qt_ui_files():
     ui_files = "yali/gui/Ui/*.ui"
@@ -30,7 +45,7 @@ def qt_ui_files():
 def py_file_name(ui_file):
     return os.path.splitext(ui_file)[0] + '.py'
 
-class YaliBuild(build):
+class Build(build):
     def changeQRCPath(self, ui_file):
         py_file = py_file_name(ui_file)
         lines = open(py_file, "r").readlines()
@@ -51,6 +66,7 @@ class YaliBuild(build):
         cmd.append("-g \"yali\"")
         os.system(' '.join(cmd))
 
+    @root_access
     def run(self):
         for ui_file in qt_ui_files():
             print ui_file
@@ -58,8 +74,7 @@ class YaliBuild(build):
             self.changeQRCPath(ui_file)
         build.run(self)
 
-class YaliClean(clean):
-
+class Clean(clean):
     def run(self):
         clean.run(self)
 
@@ -71,7 +86,7 @@ class YaliClean(clean):
         if os.path.exists("build"):
             shutil.rmtree("build")
 
-class YaliUninstall(Command):
+class Uninstall(Command):
     user_options = [ ]
 
     def initialize_options(self):
@@ -80,8 +95,8 @@ class YaliUninstall(Command):
     def finalize_options(self):
         pass
 
+    @root_access
     def run(self):
-        yali_dir = os.path.join(get_python_lib(), "yali")
         if os.path.exists(yali_dir):
             print "removing: ", yali_dir
             shutil.rmtree(yali_dir)
@@ -96,9 +111,13 @@ class YaliUninstall(Command):
         os.unlink("/lib/udev/rules.d/70-yali.rules")
 
 
-class I18nInstall(install):
+class I18Install(install):
+    @root_access
     def run(self):
+        # Installation begins
         install.run(self)
+
+        # Install i18
         for lang in I18N_LANGUAGES:
             print "Installing '%s' translations..." % lang
             os.popen("msgfmt po/%s.po -o po/%s.mo" % (lang, lang))
@@ -111,27 +130,41 @@ class I18nInstall(install):
                 pass
             shutil.copy("po/%s.mo" % lang, os.path.join(destpath, "%s.mo" % I18N_DOMAIN))
 
+        # YALI's main module path on the system
+        yali_bin = os.path.join(yali_dir, "yali-bin.py")
+
+        # Make YALI executable
+        print "Changing file modes..."
+        os.chmod(yali_bin, 0755)
+
+        # Symlink to /usr/bin as yali-bin
+        print "Creating symbolic links..."
+        os.symlink(yali_bin, os.path.join("/usr/bin/yali-bin"))
+
 setup(name="yali",
-      version= "2.4.0",
-      description="YALI (Yet Another Linux Installer)",
-      long_description="Pardus System Installer.",
-      license="GNU GPL2",
+      version= "2.6.0",
+      description="YALI - Yet Another Linux Installer",
+      long_description="YALI installs Pardus to PC's from a specified media or over the network.",
+      license="GNU GPL v2.0",
       author="Pardus Developers",
-      author_email="yali@pardus.org.tr",
-      url="http://www.pardus.org.tr/eng/yali/",
+      author_email="yali-devel@pardus.org.tr",
+      url="http://developer.pardus.org.tr/projects/yali/",
       packages = ['yali', 'yali.gui', 'yali.gui.Ui', 'yali.storage',\
                   'yali.storage.devices', 'yali.storage.formats', 'yali.storage.library'],
       data_files = [('/etc/yali', glob.glob("data/yali.conf")),
                     ('/lib/udev/rules.d', ["data/70-yali.rules"])],
-      scripts = ['yali-bin', 'start-yali', 'scripts/bindYali'],
+      scripts = ['start-yali', 'scripts/bindYali'],
       ext_modules = [Extension('yali._sysutils',
                                sources = ['yali/_sysutils.c'],
                                libraries = ["ext2fs"],
                                extra_compile_args = ['-Wall'])],
+
+      # Maps names to command classes
+      # Ex: ./setup build -> calls Build class
       cmdclass = {
-        'build' : YaliBuild,
-        'clean' : YaliClean,
-        'install': I18nInstall,
-        'uninstall': YaliUninstall
+        'build' : Build,
+        'clean' : Clean,
+        'install': I18Install,
+        'uninstall': Uninstall
         }
     )
