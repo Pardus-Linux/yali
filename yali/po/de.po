@@ -494,7 +494,7 @@ msgstr "Zu einem vorherigen Systemzustand zurückkehren"
 
 #: yali/gui/Ui/rootpasswidget.py:129
 msgid "Administrator password"
-msgstr "Administratorpaßwort"
+msgstr "Administratorpasswort"
 
 #: yali/gui/Ui/rootpasswidget.py:130
 msgid "Confirm password"
@@ -1010,7 +1010,7 @@ msgstr "Root-Passwort wird eingestellt..."
 
 #: yali/gui/ScrGoodbye.py:73
 msgid "Resetting user password..."
-msgstr "Benutzerpaßwort zurücksetzen ..."
+msgstr "Benutzerpasswort zurücksetzen ..."
 
 #: yali/gui/ScrGoodbye.py:76
 msgid "Setup First-Boot..."
