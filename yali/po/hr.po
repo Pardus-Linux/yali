@@ -763,7 +763,7 @@ msgstr "Tražena veličina kao unešena nije ispravan broj veći od 0.."
 #: yali/gui/lvm_gui.py:697
 #, python-format
 msgid "The current requested size (%(size)10.2f MB) is larger than the maximum logical volume size (%(maxlv)10.2f MB). To increase this limit you can create more Physical Volumes from unpartitioned disk space and add them to this Volume Group."
-msgstr ""
+msgstr "Trenutno tražena veličina (%(size)10.2f MB) je veća od maksimalne veličine logičke particije (%(maxlv)10.2f MB). DA bi ste povećali ovo ograničenje morate napraviti više primarnih particija sa neparticioniranog prostora diska i dodati ih u ovu grupu particija."
 
 #: yali/gui/lvm_gui.py:719
 #, python-format
@@ -2085,12 +2085,12 @@ msgstr ""
 #: yali/storage/storageset.py:678
 #, python-format
 msgid "Failed to resolve %s (%s) from fstab"
-msgstr ""
+msgstr "Neprepoznati tip datotečnog sustava za %s (%s)"
 
 #: yali/storage/storageset.py:684
 #, python-format
 msgid "Unrecognized filesystem type for %s (%s)"
-msgstr ""
+msgstr "Neprepoznati datotečni sustav za %s (%s)"
 
 #: yali/storage/storageset.py:691
 #, python-format
@@ -2100,17 +2100,17 @@ msgstr ""
 #: yali/storage/storageset.py:713
 #, python-format
 msgid "Cannot open %s for read"
-msgstr ""
+msgstr "Ne mogu otvoriti %s za čitanje"
 
 #: yali/storage/storageset.py:743
 #, python-format
 msgid "Fstab entry %s is malformed: %s"
-msgstr ""
+msgstr "Fstab unos %s je neispravan: %s"
 
 #: yali/storage/devices/filedevice.py:93
 #, python-format
 msgid "Creating file %s"
-msgstr ""
+msgstr "Stvaram datoteku %s"
 
 #: yali/storage/devices/logicalvolume.py:217
 #: yali/storage/devices/partition.py:369 yali/storage/devices/raidarray.py:422
@@ -2125,12 +2125,12 @@ msgstr "uređaj nije bio stvoren"
 
 #: yali/storage/devices/volumegroup.py:223
 msgid "cannot activate VG with missing PV(s)"
-msgstr ""
+msgstr "vginfo nije uspio za %s"
 
 #: yali/storage/library/lvm.py:265
 #, python-format
 msgid "vginfo failed for %s"
-msgstr ""
+msgstr "lvs nije uspio za %s"
 
 #: yali/storage/library/lvm.py:291
 #, python-format
@@ -2177,15 +2177,15 @@ msgstr ""
 
 #: yali/storage/formats/filesystem.py:391
 msgid "Errors like this usually mean there is a problem with the filesystem that will require user interaction to repair. Restart installation after you have corrected the problems on the filesystem."
-msgstr ""
+msgstr "Pogreške poput ovih obično znače da postoji problem s datotečnom sustavom koje zahtjevaju popravak. Ponovno pokrenite instalaciju nakon što ste ispravili probleme sa datotečnim sustavom."
 
 #: yali/storage/formats/filesystem.py:397
 msgid "Unrecoverable Error"
-msgstr ""
+msgstr "Nepopravljiva greška"
 
 #: yali/storage/formats/filesystem.py:691
 msgid "File system errors left uncorrected."
-msgstr ""
+msgstr "Pogreške datotečnog sustava ostale su neispravljene."
 
 #: yali/storage/formats/filesystem.py:692
 msgid "Operational error."
@@ -2209,7 +2209,7 @@ msgstr ""
 
 #: yali/storage/formats/filesystem.py:857
 msgid "Usage error."
-msgstr ""
+msgstr "Greška korištenja."
 
 #: yali/storage/formats/physicalvolume.py:19
 msgid "physical volume (LVM)"
@@ -2349,7 +2349,7 @@ msgstr "Japanski"
 
 #: yali/localedata.py:332
 msgid "Malayalam"
-msgstr ""
+msgstr "Malajski"
 
 #: yali/localedata.py:342
 msgid "Swedish"
@@ -2357,11 +2357,11 @@ msgstr "Švedski"
 
 #: yali/localedata.py:353
 msgid "Macedonian"
-msgstr ""
+msgstr "Makedonski"
 
 #: yali/localedata.py:363
 msgid "Slovak"
-msgstr ""
+msgstr "Slovački"
 
 #: yali/localedata.py:373
 msgid "Ukrainian"
