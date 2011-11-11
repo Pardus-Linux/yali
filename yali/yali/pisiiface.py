@@ -22,6 +22,7 @@ import piksemel
 import yali.context as ctx
 
 repodb = pisi.db.repodb.RepoDB()
+package_list_cache = {}
 
 def initialize(ui, with_comar = False, nodestDir = False):
     options = pisi.config.Options()
@@ -90,13 +91,50 @@ def takeBack(operation):
     pisi.api.takeback(operation)
     os.unlink(ctx.consts.target_dir + ctx.consts.target_dir)
 
+def piksemelize(xml_path):
+    """
+        Uncompress and parse the given index file.
+        return Piksemel Object.
+    """
+
+    if xml_path.endswith("bz2"):
+        return piksemel.parseString(bz2.decompress(file(xml_path).read()))
+    return piksemel.parseString(lzma.decompress(file(xml_path).read()))
+
+def cache_packages(index_path):
+    """
+        Get package list as piksemel object.
+        Save to cache for further usage.
+        Return cache.
+    """
+    # Parse
+    p_obj = piksemelize(index_path)
+
+    # Save to cache dictionary
+    package_list_cache[index_path] = p_obj
+
+
+def get_package_list(index_path):
+    """
+        Get packages list from cache.
+        Cache packages if not cached to the cache dict with the key index_path.
+        return cached packages.
+    """
+
+    # The cache is held in a global variable -> (dict) package_list_cache
+    if not package_list_cache.has_key(index_path):
+        # Parse and save to cache
+        cache_packages(index_path)
+
+    return package_list_cache[index_path]
+
 def getCollectionPackages(collectionIndex, kernels=False):
     ctx.logger.debug("index_path%s" % collectionIndex)
-    if collectionIndex.endswith("bz2"):
-        piksemelObj = piksemel.parseString(bz2.decompress(file(collectionIndex).read()))
-    else:
-        piksemelObj = piksemel.parseString(lzma.decompress(file(collectionIndex).read()))
+
+    piksemelObj = get_package_list(collectionIndex)
+
     collectionPackages = []
+
     for package in piksemelObj.tags("Package"):
         # ignorekernel assignment changes kernel packages adding into package list
         if kernels:
@@ -109,47 +147,44 @@ def getCollectionPackages(collectionIndex, kernels=False):
         else:
             tagData = package.getTagData("PackageURI")
         collectionPackages.append(tagData)
+
     return collectionPackages
 
-def getXmlObject(path):
-    if path.endswith("bz2"):
-        return piksemel.parseString(bz2.decompress(file(path).read()))
-    return piksemel.parseString(lzma.decompress(file(path).read()))
 
-def getPackages(tag=None, value=None, index=None):
-    if not index:
-        index = os.path.join(ctx.consts.source_dir, "repo/pisi-index.xml.bz2")
-    if index.endswith("bz2"):
-        piksemelObj = piksemel.parseString(bz2.decompress(file(index).read()))
-    else:
-        piksemelObj = piksemel.parseString(lzma.decompress(file(index).read()))
-    ret = []
+def getPackages(tag=None, value=None, index=ctx.consts.repo_uri):
+    """ index is the default repo of Yali: "repo/pisi-index.xml.bz2" """
+
+    piksemelObj = get_package_list(index)
+
+    packages = []
+
     for package in piksemelObj.tags("Package"):
         tagData = package.getTagData(tag)
         if tagData:
             for node in package.tags(tag):
                 data = node.firstChild().data()
-                #if (not data.find(':') == -1 and data.startswith(value)) or (data.find(':') == -1 and data == value):
-                #Really don't understand why this control clauses used.
+                # if (not data.find(':') == -1 and data.startswith(value))
+                #   or (data.find(':') == -1 and data == value):
+                # Really don't understand why this control clauses used.
                 if data.startswith(value):
-                    ret.append("%s,%s" % (package.getTagData("PackageURI"), data))
-    return ret
+                    packages.append("%s,%s" % (package.getTagData("PackageURI"), data))
 
-def getPathsByPackageName(packageNames, index=None):
-    if not index:
-        index = os.path.join(ctx.consts.source_dir, "repo/pisi-index.xml.bz2")
-    if index.endswith("bz2"):
-        piksemelObj = piksemel.parseString(bz2.decompress(file(index).read()))
-    else:
-        piksemelObj = piksemel.parseString(lzma.decompress(file(index).read()))
+    return packages
+
+
+def getPathsByPackageName(packageNames, index=ctx.consts.repo_uri):
+
+    piksemelObj = get_package_list(index)
 
     paths = []
+
     for package in piksemelObj.tags("Package"):
         for node in package.tags("Name"):
             name = node.firstChild().data()
             if name in packageNames:
                 uri = package.getTagData("PackageURI")
                 paths.append(os.path.join(ctx.consts.source_dir, 'repo', uri))
+
     return paths
 
 def mergePackagesWithRepoPath(packages):
@@ -163,19 +198,27 @@ def getNotNeededLanguagePackages():
 
 def getBasePackages():
     systemBase = getPackages("PartOf", "system.base")
-    systemBase.extend(getPackages("Name", "kernel"))
-    systemBase.extend(getPackages("Name", "gfxtheme-pardus-boot"))
-    systemBase.extend(getPackages("Name", "gfxtheme-base"))
-    systemBase.extend(getPackages("Name", "device-mapper"))
-    systemBase.extend(getPackages("Name", "lvm2"))
-    systemBase.extend(getPackages("Name", "lvm2-static"))
-    systemBase.extend(getPackages("Name", "device-mapper-static"))
-    systemBase.extend(getPackages("Name", "mdadm-static"))
+
+    packages = ['kernel',
+                'gfxtheme-pardus-boot',
+                'gfxtheme-base',
+                'device-mapper',
+                'lvm2',
+                'lvm2-static',
+                'device-mapper-static',
+                'mdadm-static']
+
+    for package in packages:
+        systemBase.extend(getPackages("Name", package))
+
     if ctx.flags.install_type == ctx.STEP_BASE:
-        systemBase.extend(getPackages("Name", "xdm"))
-        systemBase.extend(getPackages("Name", "yali"))
-        systemBase.extend(getPackages("Name", "yali-branding"))
-        systemBase.extend(getPackages("Name", "yali-theme"))
+        base_packages = ['xdm',
+                         'yali',
+                         'yali-branding',
+                         'yali-theme']
+
+        for package in base_packages:
+            systemBase.extend(getPackages("Name", package))
 
     return mergePackagesWithRepoPath(systemBase)
 
