@@ -38,6 +38,7 @@ def ext2HasJournal(device):
     return hasjournal
 
 def checkKernelFlags(flag):
+    """ Check if the given flag exists in kernel flags """
     for line in open("/proc/cpuinfo", "r").readlines():
         if line.startswith("flags"):
             return flag in line
@@ -60,6 +61,7 @@ def setMouse(key="left"):
 def liveMediaSystem(path=None):
     if not path:
         path  = "/var/run/pardus/livemedia"
+
     if os.path.exists(path):
         return file("/var/run/pardus/livemedia", 'r').read().split('\n')[0]
     else:
@@ -67,6 +69,7 @@ def liveMediaSystem(path=None):
 
 
 def getShadowed(passwd):
+    """ Return shadow of the given password """
     des_salt = list('./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz') 
     salt, magic = str(random.random())[-8:], '$1$'
 
