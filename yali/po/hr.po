@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: yali\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-05-27 12:23+0300\n"
-"PO-Revision-Date: 2011-11-19 18:37+0100\n"
+"PO-Revision-Date: 2011-11-19 23:20+0100\n"
 "Last-Translator: Ivica Kolić <ikoli@yahoo.com>\n"
 "Language-Team: Hrvatski <>\n"
 "MIME-Version: 1.0\n"
@@ -831,7 +831,7 @@ msgstr ""
 #: yali/gui/partition_gui.py:34
 #, python-format
 msgid "Create Partition on %(path)s (%(model)s)"
-msgstr ""
+msgstr "Napravi particiju na %(path)s (%(model)s)"
 
 #: yali/gui/partition_gui.py:38
 #, python-format
@@ -893,6 +893,9 @@ msgid ""
 "\n"
 "className = %s.Widget"
 msgstr ""
+"Došlo je do greške pri pokušaju učitavanja sučelja instalacijskog programa.\n"
+"\n"
+"className = %s.Widget"
 
 #: yali/gui/runner.py:122 yali/gui/ScrRescuePassword.py:123
 #: yali/gui/ScrRescue.py:95 yali/gui/YaliWindow.py:385
@@ -1327,7 +1330,7 @@ msgstr "Nema dostupnih veza"
 #: yali/gui/ScrRescuePisi.py:116
 #, python-format
 msgid "Operation %(no)s : %(date)s - %(type)s"
-msgstr ""
+msgstr "Operacija %(no)s : %(date)s - %(type)s"
 
 #: yali/gui/ScrRescuePisi.py:170
 #, python-format
@@ -1399,7 +1402,7 @@ msgstr "Postavke korisnika"
 #: yali/gui/ScrSummary.py:113
 #, python-format
 msgid "User %(username)s (<b>%(realname)s</b>) added."
-msgstr ""
+msgstr "Korisnik %(username)s (<b>%(realname)s</b>) dodan."
 
 #: yali/gui/ScrSummary.py:115
 #, python-format
@@ -1407,6 +1410,8 @@ msgid ""
 "User %(username)s (<b>%(realname)s</b>) added with <u>administrator "
 "privileges</u>."
 msgstr ""
+"Korisnik %(username)s (<b>%(realname)s</b>) dodan sa <u>administratorskim "
+"privilegijama</u>."
 
 #: yali/gui/ScrSummary.py:121
 msgid "Hostname Settings"
@@ -1460,6 +1465,9 @@ msgid ""
 "space on the selected %s device(s), assuming you have enough free space "
 "available."
 msgstr ""
+"Zadržava vaše trenutne podatke i particije i koristi samo nedodijeljeni "
+"prostor na odabranom %s uređaju,pretpostavljajući da imate dostupno dovoljno "
+"slobodnog prostora. "
 
 #: yali/gui/ScrSummary.py:156
 msgid "Manual Partitioning selected."
@@ -1557,7 +1565,7 @@ msgstr "Greška promjene veličine datotečnog sustava "
 #: yali/gui/shrink_gui.py:48
 #, python-format
 msgid "%(device)s: %(msg)s"
-msgstr ""
+msgstr "%(device)s: %(msg)s"
 
 #: yali/gui/shrink_gui.py:56
 msgid "Resize Device Error"
@@ -1566,7 +1574,7 @@ msgstr "Greška u promjeni veličine uređaja"
 #: yali/gui/shrink_gui.py:57
 #, python-format
 msgid "%(name)s: %(msg)s"
-msgstr ""
+msgstr "%(name)s: %(msg)s"
 
 #: yali/gui/storageGuiHelpers.py:72
 msgid ""
@@ -1800,7 +1808,9 @@ msgstr ""
 msgid ""
 "Your / partition is less than %(min)s MB which is lower than recommended for "
 "a normal %(productName)s install."
-msgstr"" 
+msgstr ""
+"VAša / particija je manja od %(min)s MB što je manje od preporučenog za "
+"normalnu %(productName)s instalaciju."
 
 #: yali/storage/__init__.py:884
 #, python-format
@@ -1808,6 +1818,8 @@ msgid ""
 "Your %(mount)s partition is less than %(size)s megabytes which is lower than "
 "recommended for a normal %(productName)s install."
 msgstr ""
+"Vaša %(mount)s particija je manja od %(size)s  megabyte-a što je manje od "
+"preporučenog za normalnu %(productName)s instalaciju."
 
 #: yali/storage/__init__.py:893
 msgid ""
@@ -1859,7 +1871,7 @@ msgstr "tražena veličina prelazi maksimalno dopuštenu"
 #: yali/storage/partitioning.py:911
 #, python-format
 msgid "partition is too %(problem)s for %(format)s formatting"
-msgstr ""
+msgstr "particija je previše %(problem)s za %(format)s formatiranje"
 
 #: yali/storage/partitioning.py:1051
 msgid "not enough free space on disks"
@@ -1929,6 +1941,12 @@ msgid ""
 "This can happen if there is not enough space on your hard drive(s) for the "
 "installation. %(extra)s"
 msgstr ""
+"Došlo je do sliedećih grešaka tijeko vašeg particioniranja:\n"
+"\n"
+"%(errortxt)s\n"
+"\n"
+"Ovo se može dogoditi ako na tvrdom disku nema dovoljno prostora za "
+"instalaciju.%(extra)s"
 
 #: yali/storage/storageBackendHelpers.py:18
 msgid "Please enter a volume group name."
@@ -2131,6 +2149,14 @@ msgid ""
 "such as home directories, then continue without formatting this\n"
 "npartition."
 msgstr ""
+"Izabrali ste već postojeću particiju za ovu\n"
+"instalaciju bez da ste je formatirali.Preporučujemo da formatirate\n"
+"ovu particiju da biste bili sigurni da datoteke prethodnog operativnog "
+"sustava\n"
+"neće uzrokovati probleme ovoj instalaciji Linuxa.\n"
+"Međutim,ako ova particija sadrži datoteke koji želitesačuvati,\n"
+"kao što je osobna mapa,tada nastavite be3t formatiranja ove\n"
+"particije."
 
 #: yali/storage/storageBackendHelpers.py:318
 msgid "Format?"
@@ -2210,6 +2236,10 @@ msgid ""
 "\n"
 "Press <Enter> to exit the installer."
 msgstr ""
+"Došlo je do greške prilikom pokušaja stvaranja %s.  Neki element ove putanje "
+"nije direktorij.Ovo je kritična greška i instalacija se ne može nastaviti.\n"
+"\n"
+"Pritisnite <Enter> za izlazak iz instalacijskog programa."
 
 #: yali/storage/storageset.py:312
 #, python-format
@@ -2219,6 +2249,10 @@ msgid ""
 "\n"
 "Press <Enter> to exit the installer."
 msgstr ""
+"Došlo je do greške prilikom pokušaja stvaranja %(mountpoint)s: %(msg)s.  Ovo "
+"je kritična greška i instalacija se ne može nastaviti.\n"
+"\n"
+"Pritisnite <Enter> za izlazak iz instalacijskog programa."
 
 #: yali/storage/storageset.py:329 yali/storage/storageset.py:350
 msgid "Unable to mount filesystem"
@@ -2230,6 +2264,8 @@ msgid ""
 "An error occurred mounting device %(path)s as %(mountpoint)s.  You may "
 "continue installation, but there may be problems."
 msgstr ""
+"Došlo je do greške prilikom montiranja uređaja %(path)s kao %(mountpoint)s."
+"MOžete nastaviti sa instalacijom,ali može doći do problema."
 
 #: yali/storage/storageset.py:351
 #, python-format
@@ -2239,6 +2275,10 @@ msgid ""
 "\n"
 "Press <Enter> to exit the installer."
 msgstr ""
+"Došlo je do greške prilikom montiranja uređaja %(path)s kao %(mountpoint)s: "
+"%(msg)s.Ovo je kritična greška i instalacija se ne može nastaviti.\n"
+"\n"
+"Pritisnite <Enter> za izlazak iz instalacijskog programa."
 
 #: yali/storage/storageset.py:386
 msgid "Skip"
@@ -2254,6 +2294,12 @@ msgid ""
 "is an old-style Linux swap partition.  If you want to use this device for "
 "swap space, you must reformat as a new-style Linux swap partition."
 msgstr ""
+"Swap uređaj:\n"
+"\n"
+"     %s\n"
+"\n"
+"je Linux swap particija staroga stila.  Ako želite koristiti ovaj uređaj za "
+"swap prostor,morate reformatirati kao Linux swap particiju novoga stila."
 
 #: yali/storage/storageset.py:429
 #, python-format
@@ -2277,6 +2323,12 @@ msgid ""
 "does not contain a supported swap volume.  In order to continue "
 "installation, you will need to format the device or skip it."
 msgstr ""
+"Swap uređaj:\n"
+"\n"
+"     %s\n"
+"\n"
+"ne sadrži podržanu swap particiju.Ako želite nastaviti instalaciju,morate "
+"formatirati uređaj ili ga preskočiti."
 
 #: yali/storage/storageset.py:453
 #, python-format
@@ -2320,7 +2372,7 @@ msgstr "Neprepoznati datotečni sustav za %s (%s)"
 #: yali/storage/storageset.py:691
 #, python-format
 msgid "Scanned format (%s) differs from fstab format (%s)"
-msgstr ""
+msgstr "Pregledani format (%s) razlikuje se od fstab formata (%s)"
 
 #: yali/storage/storageset.py:713
 #, python-format
@@ -2383,7 +2435,7 @@ msgstr "Premještanje %s datotečnog sustava na %s"
 #: yali/storage/formats/filesystem.py:299
 #, python-format
 msgid "Creating %(type)s filesystem on %(device)s"
-msgstr ""
+msgstr "Stvaram %(type)s datotečni sustav na %(device)s"
 
 #: yali/storage/formats/filesystem.py:347
 #, python-format
@@ -2450,7 +2502,7 @@ msgstr "fizička particija (LVM)"
 
 #: yali/storage/formats/raidmember.py:21
 msgid "software RAID"
-msgstr ""
+msgstr "software RAID"
 
 #: yali/localedata.py:20
 msgid "Turkish"
