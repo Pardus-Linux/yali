@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: yali\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-05-27 12:23+0300\n"
-"PO-Revision-Date: 2011-11-19 23:20+0100\n"
+"PO-Revision-Date: 2011-11-24 20:45+0100\n"
 "Last-Translator: Ivica Kolić <ikoli@yahoo.com>\n"
 "Language-Team: Hrvatski <>\n"
 "MIME-Version: 1.0\n"
@@ -2108,25 +2108,28 @@ msgid ""
 "\n"
 "ALL logical volumes in this volume group will be lost!"
 msgstr ""
+"Spremate se izbrisati particijsku grupu \"%s\".\n"
+"\n"
+"Sve logičke particije će biti izgubljene!"
 
 #: yali/storage/storageBackendHelpers.py:283
 #, python-format
 msgid "You are about to delete the logical volume \"%s\"."
-msgstr ""
+msgstr "Spremate se izbrisati logičku particiju \"%s\"."
 
 #: yali/storage/storageBackendHelpers.py:286
 msgid "You are about to delete a RAID device."
-msgstr ""
+msgstr "Spremate se izbrisati RAID uređaj."
 
 #: yali/storage/storageBackendHelpers.py:288
 #, python-format
 msgid "You are about to delete the %s partition."
-msgstr ""
+msgstr "Spremate se izbrisati %s particiju."
 
 #: yali/storage/storageBackendHelpers.py:292
 #, python-format
 msgid "You are about to delete the %(type)s %(name)s"
-msgstr ""
+msgstr "Spremate se izbrisati %(type)s %(name)s"
 
 #: yali/storage/storageBackendHelpers.py:302
 msgid "Confirm Reset"
@@ -2191,10 +2194,17 @@ msgid ""
 "to be permanently erased, select <b>Ignore device</b> and the device will "
 "not be considered as a possible installation target."
 msgstr ""
+"Slijedeći uređaj za pohranu možda sadrži podatke koji se mogu vratiti:"
+"<br><br>%(description)s (%(size)s MB)<br><br>Ovaj uređaj ,možda ima podatke "
+"koji će biti <b>trajno izgubljeni</b> ako ga uključite u ovu instalaciju."
+"<br><br>Ako ne marite za podatke na ovom uređaju odaberite <b>Ponovno "
+"namjesti uređaj</b> da biste ga uključili u instalacijski proces.<br><br>Ako "
+"ne želite da uređaj bude trajno izbrisan.odaberite <b>Zanemari uređaj</b> i "
+"uređaj neće biti smatran kao moguća instalacijska meta."
 
 #: yali/storage/storageBackendHelpers.py:343
 msgid "Reset device"
-msgstr ""
+msgstr "Ponovno namjesti uređaj"
 
 #: yali/storage/storageBackendHelpers.py:343
 msgid "Ignore device"
@@ -2312,6 +2322,13 @@ msgid ""
 "which means your system is hibernating. If you are performing a new install, "
 "make sure the installer is set to format all swap devices."
 msgstr ""
+"Swap uređaj:\n"
+"\n"
+"     %s\n"
+"\n"
+"u vašoj /etc/fstab datoteci trenutno služi kao uređaj za suspenziju software-"
+"a,što znači da vaš sustav hibernira.Ako vršite novu instalaciju budite "
+"sigurni da je instalacijski program postavljen da formatira sve swap uređaje."
 
 #: yali/storage/storageset.py:442
 #, python-format
